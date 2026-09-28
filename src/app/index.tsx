@@ -1,98 +1,140 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Stack, useRouter } from 'expo-router';
+import { useEffect, useState } from 'react';
+import {
+  ActivityIndicator,
+  BackHandler,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+export default function Index() {
+  const router = useRouter();
+  const [checking, setChecking] = useState(true);
 
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
+  useEffect(() => {
+    checkOnboarding();
+  }, []);
+
+  // Android back düyməsini blokla
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      const backHandler = BackHandler.addEventListener(
+        'hardwareBackPress',
+        () => true
+      );
+      return () => backHandler.remove();
+    }
+  }, []);
+
+  const checkOnboarding = async () => {
+    try {
+      const completed = await AsyncStorage.getItem('onboarding_completed');
+      if (completed === 'true') {
+        router.replace('/(tabs)');
+      } else {
+        setChecking(false);
+      }
+    } catch (error) {
+      setChecking(false);
+    }
+  };
+
+  const selectLanguage = async (lang: string) => {
+    await AsyncStorage.setItem('selected_language', lang);
+    router.push('/onboarding/level');
+  };
+
+  if (checking) {
     return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color="#4ade80" />
+      </View>
     );
   }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
+
   return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+    <>
+      <Stack.Screen
+        options={{
+          headerShown: false,
+          gestureEnabled: false,
+        }}
+      />
+      <View style={styles.container}>
+        <View style={styles.content}>
+          <Text style={styles.emoji}>👋</Text>
+          <Text style={styles.title}>Xoş gəldin!</Text>
+          <Text style={styles.subtitle}>
+            Hanı dili öyrənmək istəyirsən?
+          </Text>
 
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+          <TouchableOpacity
+            style={styles.langButton}
+            onPress={() => selectLanguage('en')}
+          >
+            <Text style={styles.langFlag}>🇬🇧</Text>
+            <Text style={styles.langName}>İngilis dili</Text>
+          </TouchableOpacity>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+          <TouchableOpacity
+            style={styles.langButton}
+            onPress={() => selectLanguage('de')}
+          >
+            <Text style={styles.langFlag}>🇩🇪</Text>
+            <Text style={styles.langName}>Alman dili</Text>
+          </TouchableOpacity>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
-
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+          <TouchableOpacity
+            style={styles.langButton}
+            onPress={() => selectLanguage('ru')}
+          >
+            <Text style={styles.langFlag}>🇷🇺</Text>
+            <Text style={styles.langName}>Rus dili</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#0a0a0a',
     justifyContent: 'center',
-    flexDirection: 'row',
+    paddingHorizontal: 30,
   },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
+  content: { alignItems: 'center' },
+  emoji: { fontSize: 70, marginBottom: 20 },
   title: {
+    fontSize: 34,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginBottom: 10,
     textAlign: 'center',
   },
-  code: {
-    textTransform: 'uppercase',
+  subtitle: {
+    fontSize: 18,
+    color: '#888888',
+    marginBottom: 50,
+    textAlign: 'center',
   },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+  langButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#1a1a1a',
+    borderRadius: 16,
+    paddingVertical: 20,
+    paddingHorizontal: 25,
+    marginBottom: 15,
+    width: '100%',
+    borderWidth: 2,
+    borderColor: '#2a2a2a',
   },
+  langFlag: { fontSize: 40, marginRight: 20 },
+  langName: { fontSize: 20, color: '#ffffff', fontWeight: '600' },
 });
