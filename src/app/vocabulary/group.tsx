@@ -2,12 +2,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import {
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import SpeakerIcon from '../../components/SpeakerIcon';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 
 export default function VocabularyGroupScreen() {
@@ -65,7 +66,6 @@ export default function VocabularyGroupScreen() {
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={false}
         >
-          {/* Header */}
           <View style={styles.header}>
             <TouchableOpacity
               style={styles.backButton}
@@ -77,13 +77,11 @@ export default function VocabularyGroupScreen() {
             <View style={styles.spacer} />
           </View>
 
-          {/* Başlıq */}
           <Text style={styles.title}>{getRange()}-cu sözlər</Text>
           <Text style={styles.subtitle}>
             {page.words.length} söz öyrən
           </Text>
 
-          {/* Sözlər */}
           <View style={styles.wordsContainer}>
             {page.words.map((word, index) => {
               const globalIndex = (groupNumber - 1) * 30 + index + 1;
@@ -98,12 +96,10 @@ export default function VocabularyGroupScreen() {
                   }
                   activeOpacity={0.85}
                 >
-                  {/* Nömrə */}
                   <View style={styles.wordNumberBox}>
                     <Text style={styles.wordNumber}>{globalIndex}</Text>
                   </View>
 
-                  {/* Söz + tərcümə */}
                   <View style={styles.wordInfo}>
                     <View style={styles.wordTitleRow}>
                       <Text style={styles.wordText}>{word.word}</Text>
@@ -118,7 +114,6 @@ export default function VocabularyGroupScreen() {
                     </Text>
                   </View>
 
-                  {/* 🔊 */}
                   <TouchableOpacity
                     style={styles.speakButton}
                     onPress={(e) => {
@@ -126,14 +121,13 @@ export default function VocabularyGroupScreen() {
                       speakWord(word.word);
                     }}
                   >
-                    <Text style={styles.speakIcon}>🔊</Text>
+                    <SpeakerIcon size={16} />
                   </TouchableOpacity>
                 </TouchableOpacity>
               );
             })}
           </View>
 
-          {/* Test düyməsi */}
           <TouchableOpacity
             style={styles.testButtonWrapper}
             onPress={() =>
@@ -263,7 +257,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(139, 92, 246, 0.3)',
   },
-  speakIcon: { fontSize: 18 },
   testButtonWrapper: {
     borderRadius: 20,
     overflow: 'hidden',

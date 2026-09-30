@@ -2,12 +2,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import {
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import SpeakerIcon from '../../components/SpeakerIcon';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 
 export default function VocabularyPageScreen() {
@@ -102,7 +103,7 @@ export default function VocabularyPageScreen() {
                       style={styles.speakButton}
                       onPress={() => speakWord(word.word)}
                     >
-                      <Text style={styles.speakIcon}>🔊</Text>
+                      <SpeakerIcon size={16} />
                     </TouchableOpacity>
                   </View>
 
@@ -249,7 +250,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(139, 92, 246, 0.3)',
   },
-  speakIcon: { fontSize: 20 },
   exampleBox: {
     paddingTop: 12,
     borderTopWidth: 1,

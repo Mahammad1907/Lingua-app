@@ -2,12 +2,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import {
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import SpeakerIcon from '../../components/SpeakerIcon';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 
 export default function AllWordsScreen() {
@@ -77,7 +78,7 @@ export default function AllWordsScreen() {
                       speakWord(word.word);
                     }}
                   >
-                    <Text style={styles.speakIcon}>🔊</Text>
+                    <SpeakerIcon size={16} />
                   </TouchableOpacity>
                 </TouchableOpacity>
               ))}
@@ -179,7 +180,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(139, 92, 246, 0.3)',
   },
-  speakIcon: { fontSize: 18 },
   emptyBox: {
     alignItems: 'center',
     paddingVertical: 60,

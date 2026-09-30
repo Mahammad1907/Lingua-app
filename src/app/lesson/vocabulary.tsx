@@ -7,8 +7,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import SpeakerIcon from '../../components/SpeakerIcon';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
+import { Language } from '../../data/types';
+
+const TTS_LANG_MAP: Partial<Record<Language, string>> = {
+  en: 'en-US',
+};
 
 export default function VocabularyScreen() {
   const params = useLocalSearchParams<{ id: string }>();
@@ -16,7 +22,6 @@ export default function VocabularyScreen() {
   const router = useRouter();
   const lesson = getLessonById(id || '');
 
-  // Fallback — dərs tapılmadıqda
   if (!lesson) {
     return (
       <>
@@ -36,9 +41,13 @@ export default function VocabularyScreen() {
   }
 
   const speakWord = (word: string) => {
+    const ttsLang = TTS_LANG_MAP[lesson.language];
+    if (!ttsLang) return;
+    if (!word?.trim()) return;
+
     Speech.stop();
     Speech.speak(word, {
-      language: 'en-US',
+      language: ttsLang,
       rate: 0.5,
       pitch: 1.0,
     });
@@ -52,7 +61,6 @@ export default function VocabularyScreen() {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
-        {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
@@ -64,13 +72,11 @@ export default function VocabularyScreen() {
           <View style={styles.spacer} />
         </View>
 
-        {/* Başlıq */}
         <Text style={styles.title}>{lesson.titleAz}</Text>
         <Text style={styles.subtitle}>
           {lesson.vocabulary.length} yeni söz
         </Text>
 
-        {/* Sözlər — YIĞCAM */}
         <View style={styles.vocabContainer}>
           {lesson.vocabulary.map((vocab, index) => (
             <View key={vocab.id} style={styles.vocabItem}>
@@ -91,13 +97,12 @@ export default function VocabularyScreen() {
                 style={styles.speakButton}
                 onPress={() => speakWord(vocab.word)}
               >
-                <Text style={styles.speakIcon}>🔊</Text>
+                <SpeakerIcon size={16} />
               </TouchableOpacity>
             </View>
           ))}
         </View>
 
-        {/* Dərsə başla */}
         <TouchableOpacity
           style={styles.startButton}
           onPress={() => router.push(`/lesson/practice?id=${lesson.id}`)}
@@ -163,7 +168,6 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   vocabContainer: { marginBottom: 20 },
-  // YIĞCAM söz kartı
   vocabItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -212,7 +216,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(139, 92, 246, 0.3)',
   },
-  speakIcon: { fontSize: 20 },
   startButton: {
     backgroundColor: colors.primary,
     borderRadius: 18,
@@ -237,7 +240,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
   },
-  // ERROR
   errorContainer: {
     flex: 1,
     backgroundColor: '#0a0a1a',

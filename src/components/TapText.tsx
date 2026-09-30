@@ -1,12 +1,13 @@
 import * as Speech from 'expo-speech';
 import { useState } from 'react';
 import {
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import { colors } from '../constants/colors';
+import SpeakerIcon from './SpeakerIcon';
 
 interface TapTextProps {
   text: string;
@@ -14,7 +15,7 @@ interface TapTextProps {
   language?: string;
   size?: 'small' | 'medium' | 'large';
   showSpeakButton?: boolean;
-  speakText?: string; // Əgər tərcüməni deyil, başqa mətni oxumaq istəsən
+  speakText?: string;
 }
 
 export default function TapText({
@@ -68,7 +69,7 @@ export default function TapText({
           style={[styles.speakButton, isSpeaking && styles.speakButtonActive]}
           onPress={speak}
         >
-          <Text style={styles.speakIcon}>{isSpeaking ? '🔊' : '🔈'}</Text>
+          <SpeakerIcon size={14} active={isSpeaking} />
           <Text style={styles.speakText}>
             {isSpeaking ? 'Oxunur...' : 'Dinlə'}
           </Text>
@@ -108,12 +109,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     borderColor: 'rgba(139, 92, 246, 0.3)',
+    gap: 6,
   },
   speakButtonActive: {
     backgroundColor: 'rgba(139, 92, 246, 0.3)',
     borderColor: colors.primary,
   },
-  speakIcon: { fontSize: 14, marginRight: 6 },
   speakText: {
     fontSize: 13,
     color: colors.primary,

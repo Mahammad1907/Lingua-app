@@ -1,7 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -10,20 +10,167 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import SpeakerIcon from '../../components/SpeakerIcon';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
+import { Language, QuestionWord, TranslationWord } from '../../data/types';
 import { useUserStore } from '../../store/userStore';
 import { playCorrectSound, playWrongSound } from '../../utils/sound';
 
 // ═══════════════════════════════════════
-// DİL AŞKARLAMA
-// TTS yalnız İNGİLİS üçün
-// Azərbaycan hərfləri (ə, ı, ö, ü, ş, ç, ğ) → false
+// TTS DİL XƏRİTƏSİ
 // ═══════════════════════════════════════
-function isEnglishText(text: string): boolean {
-  if (!text) return false;
-  // Yalnız Latın hərfləri + işarələr
-  return /^[a-zA-Z\s.,!?'"()-]+$/.test(text);
+const TTS_LANG_MAP: Partial<Record<Language, string>> = {
+  en: 'en-US',
+};
+
+// ═══════════════════════════════════════
+// SÖZÜ NORMALİZASİYA ET (lookup üçün)
+// ═══════════════════════════════════════
+function normalizeWord(raw: string): string {
+  return raw.toLowerCase().trim().replace(/[.,!?;:'"()[\]{}]/g, '');
+}
+
+// ═══════════════════════════════════════
+// TTS ÜÇÜN TƏLƏFFÜZ HAZIRLIĞI
+// iOS bəzən tək hərfləri "spelling mode"-da oxuyur
+// (məsələn "I" → "capital I").
+// Yalnız tək hərfləri fonetik formaya çeviririk.
+// Digər bütün sözlər olduğu kimi qalır.
+// ═══════════════════════════════════════
+function prepareForTTS(text: string): string {
+  const trimmed = text.trim();
+  if (!trimmed) return text;
+
+  // Yalnız TƏK hərf olduqda xüsusi emal
+  if (trimmed.length === 1) {
+    const lower = trimmed.toLowerCase();
+    if (lower === 'i') return 'eye';
+    if (lower === 'a') return 'ah';
+    return trimmed;
+  }
+
+  return text;
+}
+
+// ═══════════════════════════════════════
+// TTS mətni qur (yalnız TTS_LANG_MAP-də olan dillər)
+// ═══════════════════════════════════════
+function buildTTSPhrase(tokens: QuestionWord[]): string | null {
+  const spoken: string[] = [];
+  for (const t of tokens) {
+    if (!t.text.trim()) continue;
+    const isTTS =
+      t.lang !== 'az' &&
+      t.lang !== 'punctuation' &&
+      TTS_LANG_MAP[t.lang as Language];
+    if (isTTS) {
+      spoken.push(t.text.trim());
+    }
+  }
+  if (spoken.length === 0) return null;
+  return spoken.join(' ');
+}
+
+// ═══════════════════════════════════════
+// Tərcümə lookup
+// ═══════════════════════════════════════
+function lookupTranslation(
+  rawText: string,
+  vocabularyWord: string | undefined,
+  vocabulary: { word: string; translation: string }[],
+  sentenceDictionary: Record<string, string> | undefined
+): string | undefined {
+  if (vocabularyWord) {
+    const found = vocabulary.find(
+      (v) =>
+        v.word.trim().toLowerCase() === vocabularyWord.trim().toLowerCase()
+    );
+    if (found) return found.translation;
+  }
+  if (sentenceDictionary) {
+    const key = normalizeWord(rawText);
+    if (key && sentenceDictionary[key]) {
+      return sentenceDictionary[key];
+    }
+  }
+  return undefined;
+}
+
+// ═══════════════════════════════════════
+// LEVENSHTEIN MƏSAFƏSİ
+// ═══════════════════════════════════════
+function levenshtein(a: string, b: string): number {
+  const m = a.length;
+  const n = b.length;
+  if (m === 0) return n;
+  if (n === 0) return m;
+
+  const dp: number[][] = Array.from({ length: m + 1 }, () =>
+    new Array(n + 1).fill(0)
+  );
+
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,
+        dp[i][j - 1] + 1,
+        dp[i - 1][j - 1] + cost
+      );
+    }
+  }
+  return dp[m][n];
+}
+
+// ═══════════════════════════════════════
+// SÖZ UZUNLUĞUNA GÖRƏ İCAZƏ VERİLƏN SƏHV
+// ═══════════════════════════════════════
+function allowedTypos(wordLength: number): number {
+  if (wordLength <= 3) return 0;
+  if (wordLength <= 5) return 1;
+  if (wordLength <= 8) return 2;
+  return 3;
+}
+
+// ═══════════════════════════════════════
+// TƏK SÖZ MÜQAYİSƏSİ (typo-tolerant)
+// ═══════════════════════════════════════
+function isWordMatch(user: string, correct: string): boolean {
+  if (user === correct) return true;
+
+  const len = Math.max(user.length, correct.length);
+  const allowed = allowedTypos(len);
+  if (allowed === 0) return false;
+
+  return levenshtein(user, correct) <= allowed;
+}
+
+// ═══════════════════════════════════════
+// TAM CAVAB MÜQAYİSƏSİ
+// ═══════════════════════════════════════
+function isAnswerCorrect(
+  userAnswer: string,
+  correctAnswer: string
+): boolean {
+  const user = userAnswer.toLowerCase().trim().replace(/\s+/g, ' ');
+  const correct = correctAnswer.toLowerCase().trim().replace(/\s+/g, ' ');
+
+  if (user === correct) return true;
+
+  const userWords = user.split(' ');
+  const correctWords = correct.split(' ');
+  if (userWords.length !== correctWords.length) return false;
+
+  for (let i = 0; i < userWords.length; i++) {
+    if (!isWordMatch(userWords[i], correctWords[i])) {
+      return false;
+    }
+  }
+  return true;
 }
 
 export default function PracticeScreen() {
@@ -43,6 +190,8 @@ export default function PracticeScreen() {
   const [bestVoice, setBestVoice] = useState<string | undefined>(undefined);
   const [correctCount, setCorrectCount] = useState(0);
   const [startTime] = useState(Date.now());
+  const [tappedIndex, setTappedIndex] = useState<number | null>(null);
+  const [tappedAzIndex, setTappedAzIndex] = useState<number | null>(null);
 
   const addXP = useUserStore((s) => s.addXP);
   const loseHeart = useUserStore((s) => s.loseHeart);
@@ -68,6 +217,32 @@ export default function PracticeScreen() {
     };
     findBestVoice();
   }, []);
+
+  // ═══ MƏRKƏZİ TTS FUNKSİYASI ═══
+  // Yalnız EN üçün tələffüz hazırlığı tətbiq edilir.
+  // Digər dillər olduğu kimi göndərilir.
+  const speak = (text: string, lang: Language | undefined) => {
+    if (!lang) return;
+    const ttsLang = TTS_LANG_MAP[lang];
+    if (!ttsLang) return;
+    if (!text || !text.trim()) return;
+
+    // Yalnız EN üçün tələffüz hazırlığı
+    const ttsText = lang === 'en' ? prepareForTTS(text) : text;
+
+    Speech.stop();
+    Speech.speak(ttsText, {
+      language: ttsLang,
+      voice: lang === 'en' ? bestVoice : undefined,
+      rate: 0.5,
+      pitch: 1.0,
+    });
+  };
+
+  useEffect(() => {
+    setTappedIndex(null);
+    setTappedAzIndex(null);
+  }, [currentEx]);
 
   if (!lesson) {
     return (
@@ -110,58 +285,130 @@ export default function PracticeScreen() {
   const progress = ((currentEx + 1) / lesson.exercises.length) * 100;
   const isSentenceBuild = exercise.type === 'sentence_build';
 
-  if (
-    isSentenceBuild &&
-    availableWords.length === 0 &&
-    exercise.words &&
-    !showResult &&
-    builtWords.length === 0
-  ) {
-    setAvailableWords([...exercise.words]);
-  }
+  const questionTokens: QuestionWord[] = useMemo(() => {
+    if (exercise.questionWords && exercise.questionWords.length > 0) {
+      return exercise.questionWords;
+    }
+    return [{ text: exercise.question, lang: 'az' as const }];
+  }, [exercise.questionWords, exercise.question]);
 
-  // ═══════════════════════════════════════
-  // SƏS — YALNIZ İNGİLİS MƏTNİ ÜÇÜN
-  // Azərbaycan mətni səsləndirilmir
-  // ═══════════════════════════════════════
-  const speak = (text: string) => {
-    // ⚠️ Yalnız İngilis mətni səsləndir
-    if (!isEnglishText(text)) return;
+  const ttsPhrase = useMemo(
+    () => buildTTSPhrase(questionTokens),
+    [questionTokens]
+  );
+  const hasTTS = ttsPhrase !== null;
 
-    Speech.stop();
-    Speech.speak(text, {
-      language: 'en-US',
-      voice: bestVoice,
-      rate: 0.5,
-      pitch: 1.0,
+  const tokenTranslations = useMemo(() => {
+    return questionTokens.map((tok) => {
+      if (tok.lang === 'az' || tok.lang === 'punctuation') {
+        return { interactive: false, translation: undefined };
+      }
+      const translation = lookupTranslation(
+        tok.text,
+        tok.vocabularyWord,
+        lesson.vocabulary,
+        lesson.sentenceDictionary
+      );
+      return { interactive: true, translation };
     });
-  };
+  }, [questionTokens, lesson.vocabulary, lesson.sentenceDictionary]);
 
-  // Sualı oxu — yalnız İngilis hissəsini
-  const handleSpeakQuestion = () => {
-    // 1. Sualdan dırnaq içindəki mətni çıxar
-    const match = exercise.question.match(/"([^"]+)"/);
-    if (match && isEnglishText(match[1])) {
-      speak(match[1]);
+  const tappedToken =
+    tappedIndex !== null ? questionTokens[tappedIndex] : null;
+  const tappedTranslation =
+    tappedIndex !== null
+      ? tokenTranslations[tappedIndex]?.translation
+      : undefined;
+
+  const translationWords: TranslationWord[] = useMemo(() => {
+    if (isSentenceBuild && exercise.translationWords) {
+      return exercise.translationWords;
+    }
+    return [];
+  }, [isSentenceBuild, exercise.translationWords]);
+
+  const hasTranslationWords = translationWords.length > 0;
+  const tappedAzWord =
+    tappedAzIndex !== null ? translationWords[tappedAzIndex] : null;
+
+  const listenableResultText =
+    exercise.fullSentence && exercise.fullSentence.trim().length > 0
+      ? exercise.fullSentence
+      : exercise.correctAnswer;
+
+  const canSpeakResult =
+    exercise.answerLang === 'en' && listenableResultText.trim().length > 0;
+
+  useEffect(() => {
+    if (
+      isSentenceBuild &&
+      exercise.words &&
+      builtWords.length === 0 &&
+      availableWords.length === 0 &&
+      !showResult
+    ) {
+      setAvailableWords([...exercise.words]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentEx]);
+
+  // ═══ Sual tokeninə toxunma ═══
+  const handleTokenTap = (index: number) => {
+    const tok = questionTokens[index];
+    if (!tok) return;
+    if (tok.lang === 'az' || tok.lang === 'punctuation') return;
+
+    const same = tappedIndex === index;
+    setTappedIndex(same ? null : index);
+
+    if (same) {
+      Speech.stop();
       return;
     }
-    // 2. Sual tam İngiliscədirsə — oxu
-    if (isEnglishText(exercise.question)) {
-      speak(exercise.question);
+    if (TTS_LANG_MAP[tok.lang as Language]) {
+      speak(tok.text, tok.lang as Language);
     }
-    // 3. Yoxsa — Azərbaycan sualıdır, səsləndirmə
   };
 
-  // ═══════════════════════════════════════
-  // CAVAB SEÇ
-  // ═══════════════════════════════════════
-  const handleSelect = (answer: string) => {
+  // ═══ AZ tərcümə sözünə toxunma — SƏSSİZ ═══
+  const handleAzWordTap = (index: number) => {
+    const tw = translationWords[index];
+    if (!tw) return;
+
+    Speech.stop();
+
+    const same = tappedAzIndex === index;
+    setTappedAzIndex(same ? null : index);
+  };
+
+  // ═══ Sözlərdən seç rejimində sözə toxunma ═══
+  const handleAvailableWordTap = (word: string) => {
+    speak(word, 'en');
+  };
+
+  const handleListenQuestion = () => {
+    if (!ttsPhrase) return;
+    speak(ttsPhrase, 'en');
+  };
+
+  const handleListenResult = () => {
+    if (!canSpeakResult) return;
+    speak(listenableResultText, 'en');
+  };
+
+  const handleSelect = (answer: string, optionLang?: Language) => {
     if (showResult) return;
     setSelected(answer);
+    if (optionLang === 'en') {
+      speak(answer, 'en');
+    } else {
+      Speech.stop();
+    }
   };
 
   const handleAddWord = (word: string, index: number) => {
     if (showResult) return;
+    handleAvailableWordTap(word);
     const newAvailable = [...availableWords];
     newAvailable.splice(index, 1);
     setAvailableWords(newAvailable);
@@ -170,15 +417,13 @@ export default function PracticeScreen() {
 
   const handleRemoveWord = (word: string, index: number) => {
     if (showResult) return;
+    speak(word, 'en');
     const newBuilt = [...builtWords];
     newBuilt.splice(index, 1);
     setBuiltWords(newBuilt);
     setAvailableWords([...availableWords, word]);
   };
 
-  // ═══════════════════════════════════════
-  // CAVABI YOXLA
-  // ═══════════════════════════════════════
   const handleCheck = () => {
     let userAnswer = '';
     if (isSentenceBuild) {
@@ -190,9 +435,8 @@ export default function PracticeScreen() {
 
     if (!userAnswer) return;
 
-    const correct =
-      userAnswer.toLowerCase().trim() ===
-      exercise.correctAnswer.toLowerCase().trim();
+    // ═══ TYPO-TOLERANT YOXLAMA ═══
+    const correct = isAnswerCorrect(userAnswer, exercise.correctAnswer);
     setIsCorrect(correct);
     setShowResult(true);
 
@@ -206,9 +450,6 @@ export default function PracticeScreen() {
     }
   };
 
-  // ═══════════════════════════════════════
-  // NÖVBƏTİ MƏŞQ
-  // ═══════════════════════════════════════
   const handleNext = () => {
     if (currentEx + 1 < lesson.exercises.length) {
       setCurrentEx(currentEx + 1);
@@ -218,6 +459,8 @@ export default function PracticeScreen() {
       setTypedAnswer('');
       setInputMode('tap');
       setShowResult(false);
+      setTappedIndex(null);
+      setTappedAzIndex(null);
     } else {
       addXP(lesson.xpReward);
 
@@ -249,7 +492,6 @@ export default function PracticeScreen() {
         style={styles.background}
       >
         <View style={styles.container}>
-          {/* Header */}
           <View style={styles.header}>
             <TouchableOpacity
               style={styles.backButton}
@@ -276,7 +518,6 @@ export default function PracticeScreen() {
             </View>
           </View>
 
-          {/* Progress */}
           <View style={styles.progressContainer}>
             <View style={[styles.progressBar, { width: `${progress}%` }]} />
           </View>
@@ -284,31 +525,114 @@ export default function PracticeScreen() {
           <ScrollView
             contentContainerStyle={styles.content}
             showsVerticalScrollIndicator={false}
+            keyboardShouldPersistTaps="handled"
           >
-            {/* Sual */}
             <View style={styles.questionCard}>
-              <Text style={styles.questionType}>
-                {exercise.type === 'multiple_choice' && '🎯 VARIANT SEÇ'}
-                {exercise.type === 'translation' && '🌐 TƏRCÜMƏ ET'}
-                {exercise.type === 'fill_blank' && '✏️ BOŞLUĞU DOLDUR'}
-                {exercise.type === 'sentence_build' && '🔤 CÜMLƏ QUR'}
-              </Text>
-              <Text style={styles.questionText}>{exercise.question}</Text>
+              <View style={styles.questionHeaderRow}>
+                <Text style={styles.questionType}>
+                  {exercise.type === 'multiple_choice' && '🎯 VARIANT SEÇ'}
+                  {exercise.type === 'translation' && '🌐 TƏRCÜMƏ ET'}
+                  {exercise.type === 'fill_blank' && '✏️ BOŞLUĞU DOLDUR'}
+                  {exercise.type === 'sentence_build' && '🔤 CÜMLƏ QUR'}
+                </Text>
 
-              {/* Dinləmə düyməsi — yalnız İngilis mətni üçün */}
-              {(isEnglishText(exercise.question) ||
-                exercise.question.match(/"([^"]+)"/)) && (
-                <TouchableOpacity
-                  style={styles.listenButton}
-                  onPress={handleSpeakQuestion}
-                >
-                  <Text style={styles.listenIcon}>🔈</Text>
-                  <Text style={styles.listenText}>Dinlə</Text>
-                </TouchableOpacity>
+                {hasTTS && (
+                  <TouchableOpacity
+                    style={styles.listenBtn}
+                    onPress={handleListenQuestion}
+                    activeOpacity={0.7}
+                    accessibilityLabel="İngilis hissəsini dinlə"
+                  >
+                    <SpeakerIcon size={14} />
+                  </TouchableOpacity>
+                )}
+              </View>
+
+              <View style={styles.questionWordsWrap}>
+                {questionTokens.map((tok, i) => {
+                  const meta = tokenTranslations[i];
+                  const isInteractive = meta?.interactive === true;
+                  const isTapped = tappedIndex === i;
+
+                  if (!isInteractive) {
+                    return (
+                      <Text key={`t-${i}`} style={styles.questionText}>
+                        {tok.text}
+                      </Text>
+                    );
+                  }
+
+                  return (
+                    <TouchableOpacity
+                      key={`t-${i}`}
+                      onPress={() => handleTokenTap(i)}
+                      activeOpacity={0.7}
+                    >
+                      <Text
+                        style={[
+                          styles.questionText,
+                          styles.questionWordEnglish,
+                          isTapped && styles.questionWordEnglishActive,
+                        ]}
+                      >
+                        {tok.text}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
+
+              {isSentenceBuild && hasTranslationWords && (
+                <View style={styles.sentenceTranslationBox}>
+                  <Text style={styles.sentenceTranslationLabel}>
+                    AZƏRBAYCANCA
+                  </Text>
+                  <View style={styles.translationWordsWrap}>
+                    {translationWords.map((tw, i) => {
+                      const isTapped = tappedAzIndex === i;
+                      return (
+                        <TouchableOpacity
+                          key={`tw-${i}`}
+                          onPress={() => handleAzWordTap(i)}
+                          activeOpacity={0.7}
+                        >
+                          <Text
+                            style={[
+                              styles.translationWordText,
+                              isTapped && styles.translationWordTextActive,
+                            ]}
+                          >
+                            {tw.text}{' '}
+                          </Text>
+                        </TouchableOpacity>
+                      );
+                    })}
+                  </View>
+                  {tappedAzWord && (
+                    <View style={styles.azAnswerBox}>
+                      <Text style={styles.azAnswerLabel}>İNGİLİSCƏ</Text>
+                      <Text style={styles.azAnswerText}>
+                        {tappedAzWord.en}
+                      </Text>
+                    </View>
+                  )}
+                </View>
               )}
+
+              {tappedToken &&
+                tappedTranslation !== undefined &&
+                tappedTranslation !== null && (
+                  <View style={styles.translationBox}>
+                    <Text style={styles.translationLabel}>
+                      AZƏRBAYCANCA
+                    </Text>
+                    <Text style={styles.translationText}>
+                      {tappedTranslation}
+                    </Text>
+                  </View>
+                )}
             </View>
 
-            {/* SENTENCE BUILD */}
             {isSentenceBuild && (
               <>
                 <View style={styles.modeToggle}>
@@ -395,13 +719,13 @@ export default function PracticeScreen() {
               </>
             )}
 
-            {/* MULTIPLE CHOICE + TRANSLATION + FILL BLANK */}
             {!isSentenceBuild &&
-              exercise.options?.map((opt) => {
+              exercise.options?.map((opt, idx) => {
                 const isSel = selected === opt;
                 const isRight = showResult && opt === exercise.correctAnswer;
                 const isWrong =
                   showResult && isSel && opt !== exercise.correctAnswer;
+                const optLang = exercise.optionLangs?.[idx];
 
                 return (
                   <TouchableOpacity
@@ -412,7 +736,7 @@ export default function PracticeScreen() {
                       isRight && styles.optionRight,
                       isWrong && styles.optionWrong,
                     ]}
-                    onPress={() => handleSelect(opt)}
+                    onPress={() => handleSelect(opt, optLang)}
                     activeOpacity={0.8}
                   >
                     <View
@@ -430,7 +754,6 @@ export default function PracticeScreen() {
                 );
               })}
 
-            {/* NƏTİCƏ — yoxlama sonrası */}
             {showResult && (
               <View
                 style={[
@@ -445,26 +768,26 @@ export default function PracticeScreen() {
                   {isCorrect ? 'Düzdür! +10 XP' : 'Səhvdir'}
                 </Text>
 
-                {!isCorrect && (
-                  <View style={styles.correctAnswerContainer}>
+                <View style={styles.correctAnswerContainer}>
+                  <View style={styles.correctAnswerHeader}>
                     <Text style={styles.correctAnswerLabel}>
-                      Düzgün cavab:
+                      {isCorrect ? 'Cavab:' : 'Düzgün cavab:'}
                     </Text>
-                    <Text style={styles.correctAnswerText}>
-                      {exercise.correctAnswer}
-                    </Text>
-
-                    {/* 🔊 yalnız İngilis cavabı üçün */}
-                    {isEnglishText(exercise.correctAnswer) && (
+                    {canSpeakResult && (
                       <TouchableOpacity
-                        style={styles.listenSmallButton}
-                        onPress={() => speak(exercise.correctAnswer)}
+                        style={styles.resultListenBtn}
+                        onPress={handleListenResult}
+                        activeOpacity={0.7}
+                        accessibilityLabel="Düzgün cavabı dinlə"
                       >
-                        <Text style={styles.listenSmallText}>🔊 Dinlə</Text>
+                        <SpeakerIcon size={12} />
                       </TouchableOpacity>
                     )}
                   </View>
-                )}
+                  <Text style={styles.correctAnswerText}>
+                    {listenableResultText}
+                  </Text>
+                </View>
 
                 <Text style={styles.resultExplanation}>
                   {exercise.explanation}
@@ -473,7 +796,6 @@ export default function PracticeScreen() {
             )}
           </ScrollView>
 
-          {/* Button */}
           <TouchableOpacity
             style={styles.buttonWrapper}
             onPress={showResult ? handleNext : handleCheck}
@@ -574,36 +896,115 @@ const styles = StyleSheet.create({
     shadowRadius: 16,
     elevation: 6,
   },
+  questionHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
   questionType: {
     fontSize: 11,
     fontWeight: '800',
     color: colors.primaryLight,
     letterSpacing: 1.5,
-    marginBottom: 10,
+  },
+  listenBtn: {
+    width: 34,
+    height: 34,
+    borderRadius: 10,
+    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(139, 92, 246, 0.35)',
+  },
+  questionWordsWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'baseline',
   },
   questionText: {
     fontSize: 22,
     fontWeight: '800',
     color: colors.textPrimary,
     lineHeight: 32,
-    marginBottom: 14,
   },
-  listenButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'flex-start',
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.3)',
-  },
-  listenIcon: { fontSize: 14, marginRight: 6 },
-  listenText: {
+  questionWordEnglish: {
+    textDecorationLine: 'underline',
+    textDecorationStyle: 'dotted',
+    textDecorationColor: 'rgba(167, 139, 250, 0.7)',
     color: colors.primaryLight,
-    fontSize: 13,
+  },
+  questionWordEnglishActive: {
+    color: colors.success,
+    textDecorationColor: colors.success,
+  },
+  sentenceTranslationBox: {
+    marginTop: 14,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(139, 92, 246, 0.25)',
+  },
+  sentenceTranslationLabel: {
+    fontSize: 10,
+    fontWeight: '800',
+    color: colors.primaryLight,
+    letterSpacing: 1.5,
+    marginBottom: 6,
+  },
+  translationWordsWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'baseline',
+  },
+  translationWordText: {
+    fontSize: 18,
     fontWeight: '700',
+    color: colors.textPrimary,
+    fontStyle: 'italic',
+    textDecorationLine: 'underline',
+    textDecorationStyle: 'dotted',
+    textDecorationColor: 'rgba(167, 139, 250, 0.7)',
+  },
+  translationWordTextActive: {
+    color: colors.success,
+    textDecorationColor: colors.success,
+  },
+  azAnswerBox: {
+    marginTop: 12,
+    paddingTop: 10,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(139, 92, 246, 0.2)',
+  },
+  azAnswerLabel: {
+    fontSize: 9,
+    fontWeight: '800',
+    color: colors.primaryLight,
+    letterSpacing: 1.2,
+    marginBottom: 3,
+  },
+  azAnswerText: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: colors.success,
+  },
+  translationBox: {
+    marginTop: 14,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(139, 92, 246, 0.25)',
+  },
+  translationLabel: {
+    fontSize: 10,
+    fontWeight: '800',
+    color: colors.primaryLight,
+    letterSpacing: 1.5,
+    marginBottom: 4,
+  },
+  translationText: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: colors.success,
   },
   modeToggle: {
     flexDirection: 'row',
@@ -755,32 +1156,32 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(34, 197, 94, 0.3)',
   },
+  correctAnswerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 6,
+  },
   correctAnswerLabel: {
     fontSize: 11,
     color: colors.textSecondary,
     fontWeight: '700',
-    marginBottom: 4,
     letterSpacing: 1,
+  },
+  resultListenBtn: {
+    width: 28,
+    height: 28,
+    borderRadius: 8,
+    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(139, 92, 246, 0.35)',
   },
   correctAnswerText: {
     fontSize: 18,
     color: colors.success,
     fontWeight: '800',
-    marginBottom: 8,
-  },
-  listenSmallButton: {
-    alignSelf: 'flex-start',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
-    borderRadius: 14,
-    borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.3)',
-  },
-  listenSmallText: {
-    color: colors.primaryLight,
-    fontSize: 12,
-    fontWeight: '700',
   },
   resultExplanation: {
     fontSize: 14,

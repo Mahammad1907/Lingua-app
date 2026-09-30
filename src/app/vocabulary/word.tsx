@@ -2,12 +2,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import {
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import SpeakerIcon from '../../components/SpeakerIcon';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 
 export default function WordDetailScreen() {
@@ -60,7 +61,6 @@ export default function WordDetailScreen() {
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={false}
         >
-          {/* Header */}
           <View style={styles.header}>
             <TouchableOpacity
               style={styles.backButton}
@@ -72,7 +72,6 @@ export default function WordDetailScreen() {
             <View style={styles.spacer} />
           </View>
 
-          {/* Əsas söz */}
           <View style={styles.mainCard}>
             <Text style={styles.mainWord}>{word.word}</Text>
             <Text style={styles.mainTranslation}>{word.translation}</Text>
@@ -89,12 +88,11 @@ export default function WordDetailScreen() {
               onPress={speak}
               activeOpacity={0.85}
             >
-              <Text style={styles.speakIcon}>🔊</Text>
+              <SpeakerIcon size={16} color="#ffffff" />
               <Text style={styles.speakText}>Dinlə</Text>
             </TouchableOpacity>
           </View>
 
-          {/* Nümunə cümlə */}
           {word.example && (
             <View style={styles.exampleCard}>
               <Text style={styles.exampleLabel}>NÜMUNƏ CÜMLƏ</Text>
@@ -107,7 +105,6 @@ export default function WordDetailScreen() {
             </View>
           )}
 
-          {/* Statistika */}
           {wrongInfo && (
             <View style={styles.statsCard}>
               <Text style={styles.statsLabel}>STATİSTİKA</Text>
@@ -222,7 +219,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     gap: 8,
   },
-  speakIcon: { fontSize: 18 },
   speakText: {
     color: '#ffffff',
     fontSize: 15,

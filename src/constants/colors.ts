@@ -1,4 +1,5 @@
 export const colors = {
+  // ═══ KÖHNƏ (TOXUNULMUR) ═══
   primary: '#8b5cf6',
   primaryLight: '#a78bfa',
   secondary: '#06b6d4',
@@ -25,6 +26,34 @@ export const colors = {
   borderLight: 'rgba(139, 92, 246, 0.25)',
   borderFocus: 'rgba(139, 92, 246, 0.6)',
   borderGlow: 'rgba(139, 92, 246, 0.4)',
+
+  // ═══ YENİ — ANA SƏHİFƏ ÜÇÜN ═══
+  // Əsas fon (çox tünd navy)
+  bgBase: '#0a0e1a',
+  bgElevated: '#0f1420',
+  bgCard: '#131a2b',
+  bgCardActive: '#1a2340',
+
+  // Vurğular
+  accentPurple: '#8b5cf6',
+  accentPurpleDark: '#7c3aed',
+  accentBlue: '#3b82f6',
+  accentBlueDark: '#2563eb',
+  accentGreen: '#22c55e',
+  accentOrange: '#f97316',
+
+  // Modul status rəngləri
+  moduleActive: '#8b5cf6',
+  moduleActiveBg: 'rgba(139, 92, 246, 0.15)',
+  moduleLocked: '#f97316',
+  moduleLockedBg: 'rgba(249, 115, 22, 0.1)',
+  moduleCompleted: '#22c55e',
+  moduleCompletedBg: 'rgba(34, 197, 94, 0.15)',
+
+  // Mətn
+  textOnDark: '#ffffff',
+  textOnDarkSecondary: '#94a3b8',
+  textOnDarkMuted: '#475569',
 };
 
 export type ColorType = keyof typeof colors;

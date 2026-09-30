@@ -2,12 +2,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import {
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import SpeakerIcon from '../../components/SpeakerIcon';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 
 export default function WrongWordsListScreen() {
@@ -15,7 +16,6 @@ export default function WrongWordsListScreen() {
   const allWords = useVocabularyStore((s) => s.allWords);
   const wrongWords = useVocabularyStore((s) => s.wrongWords);
 
-  // wrongWords-dən allWords-ə uyğun sözləri tap
   const wrongWordObjects = wrongWords
     .map((ww) => ({
       ...ww,
@@ -100,13 +100,12 @@ export default function WrongWordsListScreen() {
                         speakWord(item.word!.word);
                       }}
                     >
-                      <Text style={styles.speakIcon}>🔊</Text>
+                      <SpeakerIcon size={16} color="#fca5a5" />
                     </TouchableOpacity>
                   </TouchableOpacity>
                 ))}
               </View>
 
-              {/* Test düyməsi */}
               <TouchableOpacity
                 style={styles.testButtonWrapper}
                 onPress={() => router.push('/vocabulary/wrong-review')}
@@ -238,7 +237,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(239, 68, 68, 0.3)',
   },
-  speakIcon: { fontSize: 18 },
   testButtonWrapper: {
     borderRadius: 20,
     overflow: 'hidden',
