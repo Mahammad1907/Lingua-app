@@ -20,6 +20,7 @@ export interface VocabWord {
   level: string;
   lessonId: string;
   lessonTitle: string;
+  acceptedAnswers?: string[];
 }
 
 export interface VocabPage {
@@ -123,6 +124,7 @@ export const useVocabularyStore = create<VocabularyState>((set, get) => ({
         level: lesson.level,
         lessonId: lesson.id,
         lessonTitle: lesson.titleAz,
+        acceptedAnswers: v.acceptedAnswers,
       }))
       .filter((newWord) => {
         const exists = state.allWords.some(

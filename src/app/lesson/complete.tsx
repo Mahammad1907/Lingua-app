@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
+import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
 import { useUserStore } from '../../store/userStore';
 
@@ -61,7 +62,7 @@ function ProgressRing({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke="rgba(139, 92, 246, 0.15)"
+          stroke={colors.brd.default}
           strokeWidth={strokeWidth}
           fill="transparent"
         />
@@ -69,7 +70,7 @@ function ProgressRing({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke="#8b5cf6"
+          stroke={colors.mascot.orange}
           strokeWidth={strokeWidth}
           fill="transparent"
           strokeDasharray={circumference}
@@ -98,12 +99,16 @@ export default function CompleteScreen() {
 
   const xp = useUserStore((s) => s.xp);
   const streak = useUserStore((s) => s.streak);
+  const getNextLessonId = useUserStore((s) => s.getNextLessonId);
 
   const mascotFade = useRef(new Animated.Value(0)).current;
   const messageFade = useRef(new Animated.Value(0)).current;
 
   const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
   const xpReward = lesson?.xpReward || 0;
+
+  const nextLessonId = lesson ? getNextLessonId(lesson.id) : undefined;
+  const hasNextLesson = Boolean(nextLessonId);
 
   const getMascot = () => {
     if (accuracy >= 80) return require('../../../assets/mascot/fox_happy.png');
@@ -133,6 +138,14 @@ export default function CompleteScreen() {
       }),
     ]).start();
   }, []);
+
+  const handleNextLesson = () => {
+    if (nextLessonId) {
+      router.replace(`/lesson/vocabulary?id=${nextLessonId}`);
+    } else {
+      router.replace('/(tabs)');
+    }
+  };
 
   return (
     <>
@@ -176,7 +189,7 @@ export default function CompleteScreen() {
               <View
                 style={[
                   styles.statIconCircle,
-                  { backgroundColor: 'rgba(234, 88, 12, 0.2)' },
+                  { backgroundColor: colors.mascot.bgMedium },
                 ]}
               >
                 <Text style={styles.statIcon}>🔥</Text>
@@ -244,20 +257,24 @@ export default function CompleteScreen() {
           <View style={styles.buttonsWrapper}>
             <TouchableOpacity
               style={styles.primaryButtonWrapper}
-              onPress={() => router.back()}
+              onPress={handleNextLesson}
               activeOpacity={0.85}
             >
               <LinearGradient
-                colors={['#8b5cf6', '#06b6d4']}
+                colors={colors.mascot.gradient as unknown as [string, string, ...string[]]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={styles.primaryButton}
               >
-                <Text style={styles.primaryButtonText}>→</Text>
+                <Text style={styles.primaryButtonText}>
+                  {hasNextLesson ? '→' : '🏠'}
+                </Text>
                 <View style={styles.primaryButtonContent}>
-                  <Text style={styles.primaryButtonTitle}>Növbəti dərs</Text>
+                  <Text style={styles.primaryButtonTitle}>
+                    {hasNextLesson ? 'Növbəti dərs' : 'Ana səhifə'}
+                  </Text>
                   <Text style={styles.primaryButtonSubtitle}>
-                    Dərs 4 · 5 dəq
+                    {hasNextLesson ? 'Davam et' : 'Modullara qayıt'}
                   </Text>
                 </View>
               </LinearGradient>
@@ -302,14 +319,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: '800',
-    color: '#ffffff',
+    color: colors.textPrimary,
     letterSpacing: -0.5,
     marginBottom: 6,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 14,
-    color: '#c4b5fd',
+    color: colors.txt.accent,
     fontWeight: '500',
     textAlign: 'center',
   },
@@ -320,7 +337,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 12,
     borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.25)',
+    borderColor: colors.brd.light,
   },
   statItem: {
     flex: 1,
@@ -331,7 +348,7 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
     borderRadius: 19,
-    backgroundColor: 'rgba(139, 92, 246, 0.2)',
+    backgroundColor: colors.brd.default,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 8,
@@ -341,18 +358,18 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#ffffff',
+    color: colors.textPrimary,
     marginBottom: 2,
   },
   statLabel: {
     fontSize: 10,
-    color: '#a1a1aa',
+    color: colors.textSecondary,
     fontWeight: '600',
   },
   statDivider: {
     width: 1,
     height: 32,
-    backgroundColor: 'rgba(139, 92, 246, 0.2)',
+    backgroundColor: colors.brd.light,
     marginHorizontal: 8,
   },
   detailsCard: {
@@ -360,7 +377,7 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     padding: 14,
     borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.25)',
+    borderColor: colors.brd.light,
   },
   topRow: {
     flexDirection: 'row',
@@ -383,34 +400,34 @@ const styles = StyleSheet.create({
   ringValue: {
     fontSize: 17,
     fontWeight: '800',
-    color: '#ffffff',
+    color: colors.textPrimary,
   },
   rightInfo: { flex: 1 },
   rightTitle: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#ffffff',
+    color: colors.textPrimary,
     marginBottom: 3,
   },
   rightSubtitle: {
     fontSize: 11,
-    color: '#a1a1aa',
+    color: colors.textSecondary,
     marginBottom: 8,
   },
   progressBarBg: {
     height: 6,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+    backgroundColor: colors.brd.default,
     borderRadius: 3,
     overflow: 'hidden',
   },
   progressBarFill: {
     height: '100%',
-    backgroundColor: '#8b5cf6',
+    backgroundColor: colors.mascot.orange,
     borderRadius: 3,
   },
   divider: {
     height: 1,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+    backgroundColor: colors.brd.default,
     marginVertical: 6,
   },
   rowItem: {
@@ -421,7 +438,7 @@ const styles = StyleSheet.create({
     width: 34,
     height: 34,
     borderRadius: 17,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+    backgroundColor: colors.brd.default,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 10,
@@ -431,17 +448,17 @@ const styles = StyleSheet.create({
   rowLabel: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#ffffff',
+    color: colors.textPrimary,
     marginBottom: 2,
   },
   rowSubLabel: {
     fontSize: 10,
-    color: '#a1a1aa',
+    color: colors.textSecondary,
   },
   rowValue: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#ffffff',
+    color: colors.textPrimary,
   },
   buttonsWrapper: { gap: 10 },
   primaryButtonWrapper: {
@@ -457,7 +474,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   primaryButtonText: {
-    color: '#ffffff',
+    color: colors.textPrimary,
     fontSize: 20,
     fontWeight: '800',
   },
@@ -465,7 +482,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   primaryButtonTitle: {
-    color: '#ffffff',
+    color: colors.textPrimary,
     fontSize: 16,
     fontWeight: '800',
   },
@@ -482,13 +499,13 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     borderRadius: 18,
     borderWidth: 1.5,
-    borderColor: 'rgba(139, 92, 246, 0.3)',
+    borderColor: colors.brd.light,
     backgroundColor: 'transparent',
     gap: 8,
   },
   secondaryButtonIcon: { fontSize: 18 },
   secondaryButtonText: {
-    color: '#ffffff',
+    color: colors.textPrimary,
     fontSize: 15,
     fontWeight: '700',
   },

@@ -1,17 +1,14 @@
 import { useMemo } from 'react';
 import {
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import { colors } from '../constants/colors';
 import { Lesson } from '../data/types';
 import { useUserStore } from '../store/userStore';
 
-// ═══════════════════════════════════════
-// HƏR DƏRS ÜÇÜN STATUS
-// ═══════════════════════════════════════
 type LessonStatus = 'completed' | 'current' | 'available' | 'locked';
 
 interface LessonWithStatus {
@@ -32,7 +29,6 @@ export default function LearningPath({
   const completedLessons = useUserStore((s) => s.completedLessons);
   const lessonProgress = useUserStore((s) => s.lessonProgress);
 
-  // ═══ Hər dərs üçün status hesabla ═══
   const lessonsWithStatus: LessonWithStatus[] = useMemo(() => {
     return lessons.map((lesson, index) => {
       const completed = completedLessons.includes(lesson.id);
@@ -109,9 +105,6 @@ export default function LearningPath({
   );
 }
 
-// ═══════════════════════════════════════
-// DƏRS KARTI
-// ═══════════════════════════════════════
 interface LessonCardProps {
   item: LessonWithStatus;
   index: number;
@@ -129,18 +122,18 @@ function LessonCard({ item, index, onPress }: LessonCardProps) {
   const accentColor = isCompleted
     ? colors.success
     : isCurrent
-    ? colors.primary
+    ? colors.mascot.orange
     : isAvailable
-    ? colors.primaryLight
+    ? colors.mascot.orangeLight
     : colors.textMuted;
 
   const borderColor = isCompleted
     ? 'rgba(34, 197, 94, 0.5)'
     : isCurrent
-    ? 'rgba(139, 92, 246, 0.7)'
+    ? colors.mascot.borderStrong
     : isAvailable
-    ? 'rgba(139, 92, 246, 0.35)'
-    : 'rgba(82, 82, 91, 0.4)';
+    ? colors.mascot.border
+    : colors.brd.muted;
 
   const cardStyle = [
     styles.card,
@@ -156,7 +149,6 @@ function LessonCard({ item, index, onPress }: LessonCardProps) {
       activeOpacity={isLocked ? 1 : 0.85}
       disabled={isLocked}
     >
-      {/* Status ikonu */}
       <View
         style={[
           styles.statusBadge,
@@ -177,7 +169,6 @@ function LessonCard({ item, index, onPress }: LessonCardProps) {
         )}
       </View>
 
-      {/* Başlıq və açıqlama */}
       <View style={styles.cardContent}>
         <Text
           style={[styles.cardTitle, isLocked && styles.cardTitleLocked]}
@@ -193,7 +184,6 @@ function LessonCard({ item, index, onPress }: LessonCardProps) {
         </Text>
       </View>
 
-      {/* Progress bar */}
       {!isLocked && (
         <View style={styles.progressRow}>
           <View style={styles.progressBarBg}>
@@ -213,7 +203,6 @@ function LessonCard({ item, index, onPress }: LessonCardProps) {
         </View>
       )}
 
-      {/* CTA düyməsi */}
       <View style={styles.ctaRow}>
         {isCompleted && (
           <View
@@ -232,7 +221,7 @@ function LessonCard({ item, index, onPress }: LessonCardProps) {
         )}
         {isCurrent && (
           <View style={[styles.ctaButton, styles.ctaButtonPrimary]}>
-            <Text style={[styles.ctaText, { color: '#ffffff' }]}>
+            <Text style={[styles.ctaText, { color: colors.textPrimary }]}>
               {progressPercent > 0 ? 'Davam et' : 'Başla'} →
             </Text>
           </View>
@@ -281,13 +270,13 @@ const styles = StyleSheet.create({
     width: 3,
     height: 24,
     borderRadius: 2,
-    backgroundColor: 'rgba(139, 92, 246, 0.25)',
+    backgroundColor: colors.brd.light,
   },
   connectorLineDone: {
     backgroundColor: 'rgba(34, 197, 94, 0.6)',
   },
   connectorLineLocked: {
-    backgroundColor: 'rgba(82, 82, 91, 0.4)',
+    backgroundColor: colors.brd.muted,
   },
   cardWrapper: {
     width: '92%',
@@ -298,7 +287,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 16,
     borderWidth: 1.5,
-    shadowColor: colors.primary,
+    shadowColor: colors.mascot.orange,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.15,
     shadowRadius: 12,
@@ -355,7 +344,7 @@ const styles = StyleSheet.create({
   progressBarBg: {
     flex: 1,
     height: 6,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+    backgroundColor: colors.brd.default,
     borderRadius: 3,
     overflow: 'hidden',
   },
@@ -379,17 +368,17 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
   },
   ctaButtonPrimary: {
-    backgroundColor: colors.primary,
-    borderColor: colors.primary,
-    shadowColor: colors.primary,
+    backgroundColor: colors.mascot.orange,
+    borderColor: colors.mascot.orange,
+    shadowColor: colors.mascot.orange,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.4,
     shadowRadius: 8,
     elevation: 4,
   },
   ctaButtonLocked: {
-    backgroundColor: 'rgba(82, 82, 91, 0.15)',
-    borderColor: 'rgba(82, 82, 91, 0.3)',
+    backgroundColor: colors.brd.muted,
+    borderColor: colors.brd.muted,
   },
   ctaText: {
     fontSize: 12,

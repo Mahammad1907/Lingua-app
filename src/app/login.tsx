@@ -1,14 +1,14 @@
 import { Stack, useRouter } from 'expo-router';
 import { useState } from 'react';
 import {
-    Alert,
-    KeyboardAvoidingView,
-    Platform,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import { supabase } from '../lib/supabase';
 
@@ -21,6 +21,14 @@ export default function Login() {
   const handleLogin = async () => {
     if (!email || !password) {
       Alert.alert('Xəta', 'Email və şifrəni daxil edin');
+      return;
+    }
+
+    if (!supabase) {
+      Alert.alert(
+        'Xəta',
+        'Supabase bağlantısı yoxdur. .env faylını yoxlayın.'
+      );
       return;
     }
 

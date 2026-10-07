@@ -1,4 +1,5 @@
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import Svg, { Circle } from 'react-native-svg';
 import { colors } from '../constants/colors';
 
 interface ProgressRingProps {
@@ -6,6 +7,8 @@ interface ProgressRingProps {
   size?: number;
   color?: string;
   number?: number;
+  strokeWidth?: number;
+  showPercentage?: boolean;
 }
 
 export default function ProgressRing({
@@ -13,46 +16,90 @@ export default function ProgressRing({
   size = 60,
   color = colors.primary,
   number,
+  strokeWidth = 5,
+  showPercentage = false,
 }: ProgressRingProps) {
-  const strokeWidth = 4;
+  // Progress-i 0-100 arası saxla
+  const clampedProgress = Math.max(0, Math.min(100, progress));
+
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
-  const offset = circumference - (progress / 100) * circumference;
+  const offset = circumference - (clampedProgress / 100) * circumference;
 
   return (
-    <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
-      {/* Dairə fonu */}
-      <View
-        style={{
-          position: 'absolute',
-          width: size,
-          height: size,
-          borderRadius: size / 2,
-          borderWidth: strokeWidth,
-          borderColor: colors.border,
-        }}
-      />
-      {/* Progress dairəsi - SVG olmadan, sadə versiya */}
-      <View
-        style={{
-          position: 'absolute',
-          width: size - strokeWidth * 2,
-          height: size - strokeWidth * 2,
-          borderRadius: size / 2,
-          backgroundColor: 'transparent',
-          borderWidth: strokeWidth,
-          borderColor: color,
-          borderRightColor: 'transparent',
-          borderBottomColor: 'transparent',
-          transform: [{ rotate: `${(progress / 100) * 360}deg` }],
-        }}
-      />
-      {/* Nömrə */}
+    <View style={[styles.container, { width: size, height: size }]}>
+      <Svg width={size} height={size}>
+        {/* Arxa fon dairəsi */}
+        <Circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke="rgba(139, 92, 246, 0.15)"
+          strokeWidth={strokeWidth}
+          fill="transparent"
+        />
+        {/* Progress qövsü */}
+        <Circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          fill="transparent"
+          strokeDasharray={circumference}
+          strokeDashoffset={offset}
+          strokeLinecap="round"
+          transform={`rotate(-90 ${size / 2} ${size / 2})`}
+        />
+      </Svg>
+
+      {/* Mərkəzdəki mətn */}
       {number !== undefined && (
-        <Text style={{ color: colors.textPrimary, fontSize: size * 0.35, fontWeight: '800' }}>
-          {number}
-        </Text>
+        <View style={styles.centerContent}>
+          <Text
+            style={[
+              styles.numberText,
+              { fontSize: size * 0.32 },
+            ]}
+          >
+            {number}
+          </Text>
+        </View>
+      )}
+
+      {showPercentage && number === undefined && (
+        <View style={styles.centerContent}>
+          <Text
+            style={[
+              styles.numberText,
+              { fontSize: size * 0.28 },
+            ]}
+          >
+            {Math.round(clampedProgress)}%
+          </Text>
+        </View>
       )}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    position: 'relative',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  centerContent: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  numberText: {
+    color: colors.textPrimary,
+    fontWeight: '800',
+  },
+});

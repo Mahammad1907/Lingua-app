@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { colors } from '../../constants/colors';
 import { useUserStore } from '../../store/userStore';
 
 export default function Profile() {
@@ -56,7 +57,7 @@ export default function Profile() {
               <Text style={styles.settingsIcon}>⚙️</Text>
             </TouchableOpacity>
             <LinearGradient
-              colors={['#6366f1', '#a855f7']}
+              colors={colors.grad.avatar as unknown as [string, string, ...string[]]}
               style={styles.avatar}
             >
               <Text style={styles.avatarIcon}>👤</Text>
@@ -66,7 +67,7 @@ export default function Profile() {
 
         {/* STATISTIKA KARTI - 3 STAT */}
         <LinearGradient
-          colors={['#1e1b4b', '#4c1d95', '#7c3aed']}
+          colors={colors.grad.statsCard as unknown as [string, string, ...string[]]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
           style={styles.statsCard}
@@ -131,7 +132,7 @@ export default function Profile() {
           <View
             style={[
               styles.menuIcon,
-              { backgroundColor: 'rgba(99, 102, 241, 0.2)' },
+              { backgroundColor: colors.helper.indigo + '33' },
             ]}
           >
             <Text style={styles.menuIconText}>🔔</Text>
@@ -147,7 +148,7 @@ export default function Profile() {
           <View
             style={[
               styles.menuIcon,
-              { backgroundColor: 'rgba(168, 85, 247, 0.2)' },
+              { backgroundColor: colors.helper.violet + '33' },
             ]}
           >
             <Text style={styles.menuIconText}>🎯</Text>
@@ -163,7 +164,7 @@ export default function Profile() {
           <View
             style={[
               styles.menuIcon,
-              { backgroundColor: 'rgba(236, 72, 153, 0.2)' },
+              { backgroundColor: colors.helper.pink + '33' },
             ]}
           >
             <Text style={styles.menuIconText}>💎</Text>
@@ -179,7 +180,7 @@ export default function Profile() {
           <View
             style={[
               styles.menuIcon,
-              { backgroundColor: 'rgba(59, 130, 246, 0.2)' },
+              { backgroundColor: colors.helper.blue + '33' },
             ]}
           >
             <Text style={styles.menuIconText}>?</Text>
@@ -200,7 +201,7 @@ export default function Profile() {
 const styles = StyleSheet.create({
   background: { flex: 1 },
   container: { flex: 1 },
-  content: { padding: 20, paddingTop: 60, paddingBottom: 120 },
+  content: { padding: 20, paddingTop: 80, paddingBottom: 120 },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -212,30 +213,30 @@ const styles = StyleSheet.create({
   pageTitle: {
     fontSize: 40,
     fontWeight: '800',
-    color: '#ffffff',
+    color: colors.textPrimary,
     letterSpacing: -1.2,
     marginBottom: 8,
   },
   greeting: {
     fontSize: 17,
     fontWeight: '700',
-    color: '#ffffff',
+    color: colors.textPrimary,
     marginBottom: 4,
   },
   subtitle: {
     fontSize: 14,
-    color: '#a1a1aa',
+    color: colors.textSecondary,
     fontWeight: '500',
   },
   settingsButton: {
     width: 44,
     height: 44,
     borderRadius: 14,
-    backgroundColor: 'rgba(255,255,255,0.08)',
+    backgroundColor: colors.surfaceGlass,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.1)',
+    borderColor: colors.brd.light,
   },
   settingsIcon: { fontSize: 20 },
   avatar: {
@@ -245,8 +246,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: 'rgba(255,255,255,0.15)',
-    shadowColor: '#a855f7',
+    borderColor: colors.brd.light,
+    shadowColor: colors.primary,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.7,
     shadowRadius: 20,
@@ -260,8 +261,8 @@ const styles = StyleSheet.create({
     padding: 18,
     marginBottom: 30,
     borderWidth: 1,
-    borderColor: 'rgba(168, 85, 247, 0.4)',
-    shadowColor: '#a855f7',
+    borderColor: colors.borderGlow,
+    shadowColor: colors.primary,
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.4,
     shadowRadius: 24,
@@ -291,7 +292,7 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 26,
     fontWeight: '800',
-    color: '#ffffff',
+    color: colors.textPrimary,
     marginBottom: 2,
   },
   statSub: {
@@ -307,7 +308,7 @@ const styles = StyleSheet.create({
   sectionLabel: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#a1a1aa',
+    color: colors.textSecondary,
     letterSpacing: 1.8,
     marginBottom: 12,
     marginTop: 4,
@@ -319,45 +320,45 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 28,
     borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.3)',
+    borderColor: colors.brd.light,
   },
   flagWrapper: {
     width: 58,
     height: 58,
     borderRadius: 16,
-    backgroundColor: 'rgba(255,255,255,0.08)',
+    backgroundColor: colors.surfaceGlass,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 14,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.15)',
+    borderColor: colors.brd.light,
   },
   flag: { fontSize: 38 },
   languageInfo: { flex: 1 },
   languageName: {
     fontSize: 22,
     fontWeight: '800',
-    color: '#ffffff',
+    color: colors.textPrimary,
     marginBottom: 3,
     letterSpacing: -0.3,
   },
   languageSubtitle: {
     fontSize: 13,
-    color: '#c4b5fd',
+    color: colors.txt.accent,
     fontWeight: '600',
   },
   changeButton: {
     paddingHorizontal: 16,
     paddingVertical: 10,
-    backgroundColor: 'rgba(139, 92, 246, 0.25)',
+    backgroundColor: colors.brd.light,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.5)',
+    borderColor: colors.brd.strong,
   },
   changeButtonText: {
     fontSize: 13,
     fontWeight: '800',
-    color: '#ffffff',
+    color: colors.textPrimary,
   },
   menuItem: {
     flexDirection: 'row',
@@ -367,7 +368,7 @@ const styles = StyleSheet.create({
     padding: 14,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.12)',
+    borderColor: colors.brd.default,
   },
   menuIcon: {
     width: 48,
@@ -382,22 +383,22 @@ const styles = StyleSheet.create({
   menuTitle: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#ffffff',
+    color: colors.textPrimary,
     marginBottom: 3,
   },
   menuSubtitle: {
     fontSize: 12,
-    color: '#a1a1aa',
+    color: colors.textSecondary,
     fontWeight: '500',
   },
   menuArrow: {
     fontSize: 26,
-    color: '#8b5cf6',
+    color: colors.primary,
     fontWeight: '600',
   },
   version: {
     fontSize: 12,
-    color: '#52525b',
+    color: colors.textMuted,
     textAlign: 'center',
     marginTop: 24,
   },

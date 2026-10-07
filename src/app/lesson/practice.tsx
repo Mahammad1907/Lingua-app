@@ -1,8 +1,11 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  Animated,
+  Image,
+  Modal,
   ScrollView,
   StyleSheet,
   Text,
@@ -10,39 +13,29 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import MascotBubble from '../../components/MascotBubble';
 import SpeakerIcon from '../../components/SpeakerIcon';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
 import { Language, QuestionWord, TranslationWord } from '../../data/types';
 import { useUserStore } from '../../store/userStore';
+import { useVocabularyStore } from '../../store/vocabularyStore';
+import { isAnswerCorrect } from '../../utils/answerCheck';
 import { playCorrectSound, playWrongSound } from '../../utils/sound';
+import { AnswerLanguage } from '../../utils/wordDatabase';
 
-// ═══════════════════════════════════════
-// TTS DİL XƏRİTƏSİ
-// ═══════════════════════════════════════
 const TTS_LANG_MAP: Partial<Record<Language, string>> = {
   en: 'en-US',
 };
 
-// ═══════════════════════════════════════
-// SÖZÜ NORMALİZASİYA ET (lookup üçün)
-// ═══════════════════════════════════════
 function normalizeWord(raw: string): string {
   return raw.toLowerCase().trim().replace(/[.,!?;:'"()[\]{}]/g, '');
 }
 
-// ═══════════════════════════════════════
-// TTS ÜÇÜN TƏLƏFFÜZ HAZIRLIĞI
-// iOS bəzən tək hərfləri "spelling mode"-da oxuyur
-// (məsələn "I" → "capital I").
-// Yalnız tək hərfləri fonetik formaya çeviririk.
-// Digər bütün sözlər olduğu kimi qalır.
-// ═══════════════════════════════════════
 function prepareForTTS(text: string): string {
   const trimmed = text.trim();
   if (!trimmed) return text;
 
-  // Yalnız TƏK hərf olduqda xüsusi emal
   if (trimmed.length === 1) {
     const lower = trimmed.toLowerCase();
     if (lower === 'i') return 'eye';
@@ -53,9 +46,6 @@ function prepareForTTS(text: string): string {
   return text;
 }
 
-// ═══════════════════════════════════════
-// TTS mətni qur (yalnız TTS_LANG_MAP-də olan dillər)
-// ═══════════════════════════════════════
 function buildTTSPhrase(tokens: QuestionWord[]): string | null {
   const spoken: string[] = [];
   for (const t of tokens) {
@@ -72,9 +62,6 @@ function buildTTSPhrase(tokens: QuestionWord[]): string | null {
   return spoken.join(' ');
 }
 
-// ═══════════════════════════════════════
-// Tərcümə lookup
-// ═══════════════════════════════════════
 function lookupTranslation(
   rawText: string,
   vocabularyWord: string | undefined,
@@ -97,80 +84,22 @@ function lookupTranslation(
   return undefined;
 }
 
-// ═══════════════════════════════════════
-// LEVENSHTEIN MƏSAFƏSİ
-// ═══════════════════════════════════════
-function levenshtein(a: string, b: string): number {
-  const m = a.length;
-  const n = b.length;
-  if (m === 0) return n;
-  if (n === 0) return m;
-
-  const dp: number[][] = Array.from({ length: m + 1 }, () =>
-    new Array(n + 1).fill(0)
-  );
-
-  for (let i = 0; i <= m; i++) dp[i][0] = i;
-  for (let j = 0; j <= n; j++) dp[0][j] = j;
-
-  for (let i = 1; i <= m; i++) {
-    for (let j = 1; j <= n; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-      dp[i][j] = Math.min(
-        dp[i - 1][j] + 1,
-        dp[i][j - 1] + 1,
-        dp[i - 1][j - 1] + cost
-      );
-    }
+function getMascotForRetry(wrongCount: number) {
+  if (wrongCount >= 4) {
+    return require('../../../assets/mascot/fox_sad.png');
   }
-  return dp[m][n];
+  return require('../../../assets/mascot/fox_normal.png');
 }
 
-// ═══════════════════════════════════════
-// SÖZ UZUNLUĞUNA GÖRƏ İCAZƏ VERİLƏN SƏHV
-// ═══════════════════════════════════════
-function allowedTypos(wordLength: number): number {
-  if (wordLength <= 3) return 0;
-  if (wordLength <= 5) return 1;
-  if (wordLength <= 8) return 2;
-  return 3;
+function getRetryTitle(wrongCount: number): string {
+  if (wrongCount === 1) return '1 səhvin var!';
+  return `${wrongCount} səhvin var!`;
 }
 
-// ═══════════════════════════════════════
-// TƏK SÖZ MÜQAYİSƏSİ (typo-tolerant)
-// ═══════════════════════════════════════
-function isWordMatch(user: string, correct: string): boolean {
-  if (user === correct) return true;
-
-  const len = Math.max(user.length, correct.length);
-  const allowed = allowedTypos(len);
-  if (allowed === 0) return false;
-
-  return levenshtein(user, correct) <= allowed;
-}
-
-// ═══════════════════════════════════════
-// TAM CAVAB MÜQAYİSƏSİ
-// ═══════════════════════════════════════
-function isAnswerCorrect(
-  userAnswer: string,
-  correctAnswer: string
-): boolean {
-  const user = userAnswer.toLowerCase().trim().replace(/\s+/g, ' ');
-  const correct = correctAnswer.toLowerCase().trim().replace(/\s+/g, ' ');
-
-  if (user === correct) return true;
-
-  const userWords = user.split(' ');
-  const correctWords = correct.split(' ');
-  if (userWords.length !== correctWords.length) return false;
-
-  for (let i = 0; i < userWords.length; i++) {
-    if (!isWordMatch(userWords[i], correctWords[i])) {
-      return false;
-    }
-  }
-  return true;
+function getRetryMessage(wrongCount: number): string {
+  if (wrongCount === 1) return 'Gəl onu birlikdə təkrar edək?';
+  if (wrongCount >= 4) return 'Qorxma, birlikdə düzəldək!';
+  return 'Gəl onları birlikdə təkrar edək?';
 }
 
 export default function PracticeScreen() {
@@ -192,6 +121,13 @@ export default function PracticeScreen() {
   const [startTime] = useState(Date.now());
   const [tappedIndex, setTappedIndex] = useState<number | null>(null);
   const [tappedAzIndex, setTappedAzIndex] = useState<number | null>(null);
+
+  const [wrongQueue, setWrongQueue] = useState<number[]>([]);
+  const [isRetryMode, setIsRetryMode] = useState(false);
+  const [showRetryModal, setShowRetryModal] = useState(false);
+
+  const mascotFade = useRef(new Animated.Value(0)).current;
+  const mascotShake = useRef(new Animated.Value(0)).current;
 
   const addXP = useUserStore((s) => s.addXP);
   const loseHeart = useUserStore((s) => s.loseHeart);
@@ -218,16 +154,12 @@ export default function PracticeScreen() {
     findBestVoice();
   }, []);
 
-  // ═══ MƏRKƏZİ TTS FUNKSİYASI ═══
-  // Yalnız EN üçün tələffüz hazırlığı tətbiq edilir.
-  // Digər dillər olduğu kimi göndərilir.
   const speak = (text: string, lang: Language | undefined) => {
     if (!lang) return;
     const ttsLang = TTS_LANG_MAP[lang];
     if (!ttsLang) return;
     if (!text || !text.trim()) return;
 
-    // Yalnız EN üçün tələffüz hazırlığı
     const ttsText = lang === 'en' ? prepareForTTS(text) : text;
 
     Speech.stop();
@@ -282,8 +214,11 @@ export default function PracticeScreen() {
     );
   }
 
-  const progress = ((currentEx + 1) / lesson.exercises.length) * 100;
+      const progress = ((currentEx + 1) / lesson.exercises.length) * 100;
   const isSentenceBuild = exercise.type === 'sentence_build';
+  const isTranslation = exercise.type === 'translation';
+  const isFillBlank = exercise.type === 'fill_blank';
+  const isMultipleChoice = exercise.type === 'multiple_choice';
 
   const questionTokens: QuestionWord[] = useMemo(() => {
     if (exercise.questionWords && exercise.questionWords.length > 0) {
@@ -352,7 +287,6 @@ export default function PracticeScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentEx]);
 
-  // ═══ Sual tokeninə toxunma ═══
   const handleTokenTap = (index: number) => {
     const tok = questionTokens[index];
     if (!tok) return;
@@ -370,7 +304,6 @@ export default function PracticeScreen() {
     }
   };
 
-  // ═══ AZ tərcümə sözünə toxunma — SƏSSİZ ═══
   const handleAzWordTap = (index: number) => {
     const tw = translationWords[index];
     if (!tw) return;
@@ -381,7 +314,6 @@ export default function PracticeScreen() {
     setTappedAzIndex(same ? null : index);
   };
 
-  // ═══ Sözlərdən seç rejimində sözə toxunma ═══
   const handleAvailableWordTap = (word: string) => {
     speak(word, 'en');
   };
@@ -426,63 +358,190 @@ export default function PracticeScreen() {
 
   const handleCheck = () => {
     let userAnswer = '';
-    if (isSentenceBuild) {
+        if (isSentenceBuild) {
       userAnswer =
         inputMode === 'tap' ? builtWords.join(' ') : typedAnswer.trim();
+        } else if (isTranslation || isFillBlank) {
+      userAnswer = typedAnswer.trim();
     } else {
       userAnswer = selected || '';
     }
 
     if (!userAnswer) return;
 
-    // ═══ TYPO-TOLERANT YOXLAMA ═══
-    const correct = isAnswerCorrect(userAnswer, exercise.correctAnswer);
+    const answerLang: AnswerLanguage =
+      exercise.answerLang || lesson.language;
+
+    const correct = isAnswerCorrect(
+      userAnswer,
+      exercise.correctAnswer,
+      answerLang
+    );
     setIsCorrect(correct);
     setShowResult(true);
 
     if (correct) {
       playCorrectSound();
-      addXP(10);
-      setCorrectCount((c) => c + 1);
+
+      if (isRetryMode) {
+        addXP(5);
+        setWrongQueue((q) => q.filter((idx) => idx !== currentEx));
+      } else {
+        addXP(10);
+        setCorrectCount((c) => c + 1);
+      }
     } else {
       playWrongSound();
-      loseHeart();
+
+      if (isRetryMode) {
+        // səhv qalır queue-da
+      } else {
+        loseHeart();
+        setWrongQueue((q) =>
+          q.includes(currentEx) ? q : [...q, currentEx]
+        );
+      }
     }
+  };
+
+  const resetExerciseState = () => {
+    Speech.stop();
+    setSelected(null);
+    setBuiltWords([]);
+    setAvailableWords([]);
+    setTypedAnswer('');
+    setInputMode('tap');
+    setShowResult(false);
+    setTappedIndex(null);
+    setTappedAzIndex(null);
+  };
+
+  const finishLesson = () => {
+    const totalWrong = lesson.exercises.length - correctCount;
+
+    addXP(lesson.xpReward);
+
+    useUserStore
+      .getState()
+      .markLessonComplete(
+        lesson.id,
+        correctCount,
+        totalWrong,
+        lesson.xpReward
+      );
+
+    useVocabularyStore.getState().addLessonWords(lesson.id);
+
+    const elapsed = Math.max(
+      1,
+      Math.round((Date.now() - startTime) / 60000)
+    );
+
+    router.replace(
+      `/lesson/complete?id=${lesson.id}&correct=${correctCount}&total=${
+        lesson.exercises.length
+      }&time=${elapsed}&wrong=${totalWrong}`
+    );
+  };
+
+  const openRetryModal = () => {
+    setShowRetryModal(true);
+    mascotFade.setValue(0);
+    mascotShake.setValue(0);
+
+    Animated.timing(mascotFade, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+
+    setTimeout(() => {
+      Animated.sequence([
+        Animated.timing(mascotShake, {
+          toValue: 1,
+          duration: 150,
+          useNativeDriver: true,
+        }),
+        Animated.timing(mascotShake, {
+          toValue: -1,
+          duration: 150,
+          useNativeDriver: true,
+        }),
+        Animated.timing(mascotShake, {
+          toValue: 1,
+          duration: 150,
+          useNativeDriver: true,
+        }),
+        Animated.timing(mascotShake, {
+          toValue: -1,
+          duration: 150,
+          useNativeDriver: true,
+        }),
+        Animated.timing(mascotShake, {
+          toValue: 0,
+          duration: 150,
+          useNativeDriver: true,
+        }),
+      ]).start();
+    }, 500);
   };
 
   const handleNext = () => {
-    if (currentEx + 1 < lesson.exercises.length) {
-      setCurrentEx(currentEx + 1);
-      setSelected(null);
-      setBuiltWords([]);
-      setAvailableWords([]);
-      setTypedAnswer('');
-      setInputMode('tap');
-      setShowResult(false);
-      setTappedIndex(null);
-      setTappedAzIndex(null);
+    if (!isRetryMode) {
+      if (currentEx + 1 < lesson.exercises.length) {
+        setCurrentEx(currentEx + 1);
+        resetExerciseState();
+      } else {
+        if (wrongQueue.length > 0) {
+          openRetryModal();
+        } else {
+          finishLesson();
+        }
+      }
     } else {
-      addXP(lesson.xpReward);
+      const currentQueueIndex = wrongQueue.indexOf(currentEx);
 
-      const elapsed = Math.max(
-        1,
-        Math.round((Date.now() - startTime) / 60000)
-      );
-
-      const totalWrong = lesson.exercises.length - correctCount;
-
-      router.replace(
-        `/lesson/complete?id=${lesson.id}&correct=${correctCount}&total=${
-          lesson.exercises.length
-        }&time=${elapsed}&wrong=${totalWrong}`
-      );
+      if (wrongQueue.length === 0) {
+        finishLesson();
+      } else if (
+        currentQueueIndex === -1 ||
+        currentQueueIndex === wrongQueue.length - 1
+      ) {
+        openRetryModal();
+      } else {
+        setCurrentEx(wrongQueue[currentQueueIndex + 1]);
+        resetExerciseState();
+      }
     }
   };
 
-  const isButtonDisabled =
-    (!isSentenceBuild && !selected) ||
+  const handleStartRetry = () => {
+    setShowRetryModal(false);
+    setIsRetryMode(true);
+    if (wrongQueue.length > 0) {
+      setCurrentEx(wrongQueue[0]);
+      resetExerciseState();
+    }
+  };
+
+  const handleSkipRetry = () => {
+    setShowRetryModal(false);
+    finishLesson();
+  };
+
+    const isButtonDisabled =
+        ((isTranslation || isFillBlank) && !typedAnswer.trim()) ||
+        (isMultipleChoice && !selected) ||
     (isSentenceBuild && inputMode === 'tap' && builtWords.length === 0) ||
     (isSentenceBuild && inputMode === 'type' && !typedAnswer.trim());
+
+  const counterText = isRetryMode
+    ? `🔁 ${wrongQueue.indexOf(currentEx) + 1}/${wrongQueue.length}`
+    : `${currentEx + 1}/${lesson.exercises.length}`;
+
+  const progressPercent = isRetryMode
+    ? ((wrongQueue.indexOf(currentEx) + 1) / wrongQueue.length) * 100
+    : progress;
 
   return (
     <>
@@ -512,14 +571,22 @@ export default function PracticeScreen() {
             </View>
 
             <View style={styles.counterBox}>
-              <Text style={styles.counterText}>
-                {currentEx + 1}/{lesson.exercises.length}
-              </Text>
+              <Text style={styles.counterText}>{counterText}</Text>
             </View>
           </View>
 
           <View style={styles.progressContainer}>
-            <View style={[styles.progressBar, { width: `${progress}%` }]} />
+            <View
+              style={[
+                styles.progressBar,
+                {
+                  width: `${progressPercent}%`,
+                  backgroundColor: isRetryMode
+                    ? colors.warning
+                    : colors.mascot.orange,
+                },
+              ]}
+            />
           </View>
 
           <ScrollView
@@ -530,6 +597,7 @@ export default function PracticeScreen() {
             <View style={styles.questionCard}>
               <View style={styles.questionHeaderRow}>
                 <Text style={styles.questionType}>
+                  {isRetryMode && '🔁 TƏKRAR · '}
                   {exercise.type === 'multiple_choice' && '🎯 VARIANT SEÇ'}
                   {exercise.type === 'translation' && '🌐 TƏRCÜMƏ ET'}
                   {exercise.type === 'fill_blank' && '✏️ BOŞLUĞU DOLDUR'}
@@ -718,9 +786,22 @@ export default function PracticeScreen() {
                 )}
               </>
             )}
-
-            {!isSentenceBuild &&
-              exercise.options?.map((opt, idx) => {
+                        {(isTranslation || isFillBlank) && (
+              <TextInput
+                style={styles.input}
+                                placeholder={isTranslation ? 'Tərcüməni yaz...' : 'Cavabı yaz...'}
+                placeholderTextColor={colors.textMuted}
+                value={typedAnswer}
+                onChangeText={setTypedAnswer}
+                autoCapitalize="none"
+                autoCorrect={false}
+                editable={!showResult}
+                returnKeyType="done"
+                onSubmitEditing={showResult ? undefined : handleCheck}
+              />
+            )}
+                        {isMultipleChoice &&
+                          exercise.options?.map((opt, idx) => {
                 const isSel = selected === opt;
                 const isRight = showResult && opt === exercise.correctAnswer;
                 const isWrong =
@@ -754,6 +835,9 @@ export default function PracticeScreen() {
                 );
               })}
 
+
+          
+          </ScrollView>
             {showResult && (
               <View
                 style={[
@@ -762,23 +846,41 @@ export default function PracticeScreen() {
                 ]}
               >
                 <Text style={styles.resultEmoji}>
-                  {isCorrect ? '✅' : '❌'}
+                  {isCorrect ? '🎉' : '❌'}
                 </Text>
                 <Text style={styles.resultTitle}>
-                  {isCorrect ? 'Düzdür! +10 XP' : 'Səhvdir'}
+                  {isCorrect ? 'Doğrudur!' : 'Səhvdir'}
                 </Text>
+
+                {isCorrect ? (
+                  <View style={styles.mascotHintWrapper}>
+                    <MascotBubble
+                      message={exercise.explanation}
+                      variant="success"
+                      mascotSize={120}
+                    />
+                  </View>
+                ) : exercise.mascotHint ? (
+                  <View style={styles.mascotHintWrapper}>
+                    <MascotBubble
+                      message={exercise.mascotHint}
+                      variant="hint"
+                      mascotSize={120}
+                    />
+                  </View>
+                ) : null}
 
                 <View style={styles.correctAnswerContainer}>
                   <View style={styles.correctAnswerHeader}>
                     <Text style={styles.correctAnswerLabel}>
-                      {isCorrect ? 'Cavab:' : 'Düzgün cavab:'}
+                      {isCorrect ? 'Sənin cavabın:' : 'Düzgün cavab:'}
                     </Text>
                     {canSpeakResult && (
                       <TouchableOpacity
                         style={styles.resultListenBtn}
                         onPress={handleListenResult}
                         activeOpacity={0.7}
-                        accessibilityLabel="Düzgün cavabı dinlə"
+                        accessibilityLabel="Cavabı dinlə"
                       >
                         <SpeakerIcon size={12} />
                       </TouchableOpacity>
@@ -789,13 +891,13 @@ export default function PracticeScreen() {
                   </Text>
                 </View>
 
-                <Text style={styles.resultExplanation}>
-                  {exercise.explanation}
-                </Text>
+                {!isCorrect && (
+                  <Text style={styles.resultExplanation}>
+                    {exercise.explanation}
+                  </Text>
+                )}
               </View>
             )}
-          </ScrollView>
-
           <TouchableOpacity
             style={styles.buttonWrapper}
             onPress={showResult ? handleNext : handleCheck}
@@ -805,7 +907,7 @@ export default function PracticeScreen() {
             <LinearGradient
               colors={
                 !isButtonDisabled
-                  ? ['#06b6d4', '#8b5cf6', '#ec4899']
+                  ? (colors.mascot.gradient as unknown as [string, string, ...string[]])
                   : ['#3f3f46', '#3f3f46']
               }
               start={{ x: 0, y: 0 }}
@@ -814,7 +916,7 @@ export default function PracticeScreen() {
             >
               <Text style={styles.buttonText}>
                 {showResult
-                  ? currentEx + 1 === lesson.exercises.length
+                  ? !isRetryMode && currentEx + 1 === lesson.exercises.length
                     ? 'Bitir'
                     : 'Davam et'
                   : 'Yoxla'}
@@ -823,6 +925,78 @@ export default function PracticeScreen() {
             </LinearGradient>
           </TouchableOpacity>
         </View>
+
+        <Modal
+          visible={showRetryModal}
+          transparent
+          animationType="fade"
+          onRequestClose={() => {}}
+        >
+          <View style={styles.modalOverlay}>
+            <View style={styles.modalCard}>
+              <Animated.View
+                style={[
+                  styles.modalMascotWrapper,
+                  {
+                    opacity: mascotFade,
+                    transform: [
+                      { translateY: 70 },
+                      {
+                        rotate: mascotShake.interpolate({
+                          inputRange: [-1, 0, 1],
+                          outputRange: ['-12deg', '0deg', '12deg'],
+                        }),
+                      },
+                      { translateY: -70 },
+                    ],
+                  },
+                ]}
+              >
+                <Image
+                  source={getMascotForRetry(wrongQueue.length)}
+                  style={styles.modalMascot}
+                  resizeMode="contain"
+                />
+              </Animated.View>
+
+              <Text style={styles.modalTitle}>
+                {getRetryTitle(wrongQueue.length)}
+              </Text>
+              <Text style={styles.modalMessage}>
+                {getRetryMessage(wrongQueue.length)}
+              </Text>
+
+              <View style={styles.modalButtons}>
+                <TouchableOpacity
+                  style={styles.modalPrimaryButton}
+                  onPress={handleStartRetry}
+                  activeOpacity={0.85}
+                >
+                  <LinearGradient
+                    colors={colors.mascot.gradient as unknown as [string, string, ...string[]]}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 0 }}
+                    style={styles.modalPrimaryButtonInner}
+                  >
+                    <Text style={styles.modalPrimaryButtonText}>
+                      Təkrar et
+                    </Text>
+                  </LinearGradient>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.modalSecondaryButton}
+                  onPress={handleSkipRetry}
+                  activeOpacity={0.7}
+                >
+                  <Text style={styles.modalSecondaryButtonText}>
+                    Yox, bitir
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+        </Modal>
       </LinearGradient>
     </>
   );
@@ -881,7 +1055,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginBottom: 16,
   },
-  progressBar: { height: '100%', backgroundColor: colors.primary },
+  progressBar: { height: '100%', backgroundColor: colors.mascot.orange },
   content: { padding: 20, paddingBottom: 20 },
   questionCard: {
     backgroundColor: colors.surface,
@@ -912,11 +1086,11 @@ const styles = StyleSheet.create({
     width: 34,
     height: 34,
     borderRadius: 10,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+    backgroundColor: colors.brd.default,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.35)',
+    borderColor: colors.brd.strong,
   },
   questionWordsWrap: {
     flexDirection: 'row',
@@ -932,7 +1106,7 @@ const styles = StyleSheet.create({
   questionWordEnglish: {
     textDecorationLine: 'underline',
     textDecorationStyle: 'dotted',
-    textDecorationColor: 'rgba(167, 139, 250, 0.7)',
+    textDecorationColor: colors.primaryLight + 'B3',
     color: colors.primaryLight,
   },
   questionWordEnglishActive: {
@@ -943,7 +1117,7 @@ const styles = StyleSheet.create({
     marginTop: 14,
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(139, 92, 246, 0.25)',
+    borderTopColor: colors.brd.light,
   },
   sentenceTranslationLabel: {
     fontSize: 10,
@@ -964,7 +1138,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     textDecorationLine: 'underline',
     textDecorationStyle: 'dotted',
-    textDecorationColor: 'rgba(167, 139, 250, 0.7)',
+    textDecorationColor: colors.primaryLight + 'B3',
   },
   translationWordTextActive: {
     color: colors.success,
@@ -974,7 +1148,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
     paddingTop: 10,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(139, 92, 246, 0.2)',
+    borderTopColor: colors.brd.default,
   },
   azAnswerLabel: {
     fontSize: 9,
@@ -992,7 +1166,7 @@ const styles = StyleSheet.create({
     marginTop: 14,
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(139, 92, 246, 0.25)',
+    borderTopColor: colors.brd.light,
   },
   translationLabel: {
     fontSize: 10,
@@ -1021,13 +1195,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
   },
-  modeActive: { backgroundColor: colors.primary },
+  modeActive: { backgroundColor: colors.mascot.orange },
   modeText: {
     fontSize: 13,
     fontWeight: '700',
     color: colors.textSecondary,
   },
-  modeTextActive: { color: '#ffffff' },
+  modeTextActive: { color: colors.textPrimary },
   buildArea: {
     minHeight: 70,
     backgroundColor: colors.surface,
@@ -1035,7 +1209,7 @@ const styles = StyleSheet.create({
     padding: 14,
     marginBottom: 14,
     borderWidth: 1.5,
-    borderColor: 'rgba(139, 92, 246, 0.3)',
+    borderColor: colors.brd.strong,
     borderStyle: 'dashed',
     justifyContent: 'center',
   },
@@ -1047,13 +1221,13 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   builtWord: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.mascot.orange,
     borderRadius: 10,
     paddingHorizontal: 12,
     paddingVertical: 8,
     margin: 3,
   },
-  builtWordText: { color: '#ffffff', fontSize: 15, fontWeight: '700' },
+  builtWordText: { color: colors.textPrimary, fontSize: 15, fontWeight: '700' },
   wordsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -1067,7 +1241,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     margin: 4,
     borderWidth: 1.5,
-    borderColor: 'rgba(139, 92, 246, 0.3)',
+    borderColor: colors.brd.strong,
   },
   wordText: { color: colors.textPrimary, fontSize: 15, fontWeight: '700' },
   input: {
@@ -1091,8 +1265,8 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
   },
   optionSelected: {
-    borderColor: colors.primary,
-    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+    borderColor: colors.mascot.orange,
+    backgroundColor: colors.mascot.bgSoft,
   },
   optionRight: {
     borderColor: colors.success,
@@ -1112,14 +1286,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 14,
   },
-  radioSelected: { borderColor: colors.primary },
+  radioSelected: { borderColor: colors.mascot.orange },
   radioRight: { borderColor: colors.success },
   radioWrong: { borderColor: colors.error },
   radioDot: {
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.mascot.orange,
   },
   optionText: {
     flex: 1,
@@ -1172,11 +1346,11 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderRadius: 8,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
+    backgroundColor: colors.brd.default,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.35)',
+    borderColor: colors.brd.strong,
   },
   correctAnswerText: {
     fontSize: 18,
@@ -1188,12 +1362,16 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     lineHeight: 20,
   },
+    mascotHintWrapper: {
+    marginTop: 8,
+    marginBottom: 12,
+  },
   buttonWrapper: {
     marginHorizontal: 20,
     marginBottom: 30,
     borderRadius: 20,
     overflow: 'hidden',
-    shadowColor: colors.primary,
+    shadowColor: colors.mascot.orange,
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.5,
     shadowRadius: 16,
@@ -1208,19 +1386,19 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   buttonText: {
-    color: '#ffffff',
+    color: colors.textPrimary,
     fontSize: 17,
     fontWeight: '800',
     letterSpacing: 0.3,
   },
   buttonArrow: {
-    color: '#ffffff',
+    color: colors.textPrimary,
     fontSize: 22,
     fontWeight: '700',
   },
   errorContainer: {
     flex: 1,
-    backgroundColor: '#0a0a1a',
+    backgroundColor: colors.background,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 40,
@@ -1229,19 +1407,102 @@ const styles = StyleSheet.create({
   errorTitle: {
     fontSize: 24,
     fontWeight: '800',
-    color: '#ffffff',
+    color: colors.textPrimary,
     marginBottom: 30,
     textAlign: 'center',
   },
   errorButton: {
     paddingHorizontal: 30,
     paddingVertical: 15,
-    backgroundColor: '#8b5cf6',
+    backgroundColor: colors.mascot.orange,
     borderRadius: 16,
   },
   errorButtonText: {
-    color: '#ffffff',
+    color: colors.textPrimary,
     fontSize: 16,
+    fontWeight: '700',
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 24,
+  },
+  modalCard: {
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: colors.surface,
+    borderRadius: 28,
+    paddingHorizontal: 20,
+    paddingTop: 16,
+    paddingBottom: 24,
+    alignItems: 'center',
+    borderWidth: 1.5,
+    borderColor: colors.brd.strong,
+    shadowColor: colors.primary,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.6,
+    shadowRadius: 24,
+    elevation: 12,
+  },
+  modalMascotWrapper: {
+    marginBottom: 8,
+    marginTop: -20,
+    marginHorizontal: -20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalMascot: {
+    width: 280,
+    height: 280,
+  },
+  modalTitle: {
+    fontSize: 24,
+    fontWeight: '800',
+    color: colors.textPrimary,
+    marginBottom: 8,
+    textAlign: 'center',
+    letterSpacing: -0.5,
+  },
+  modalMessage: {
+    fontSize: 15,
+    color: colors.txt.accent,
+    fontWeight: '500',
+    textAlign: 'center',
+    lineHeight: 22,
+    marginBottom: 24,
+  },
+  modalButtons: {
+    width: '100%',
+    gap: 10,
+  },
+  modalPrimaryButton: {
+    borderRadius: 16,
+    overflow: 'hidden',
+  },
+  modalPrimaryButtonInner: {
+    paddingVertical: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalPrimaryButtonText: {
+    color: colors.textPrimary,
+    fontSize: 16,
+    fontWeight: '800',
+    letterSpacing: 0.3,
+  },
+  modalSecondaryButton: {
+    paddingVertical: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 16,
+    borderWidth: 1.5,
+    borderColor: colors.brd.light,
+  },
+  modalSecondaryButtonText: {
+    color: colors.textSecondary,
+    fontSize: 14,
     fontWeight: '700',
   },
 });

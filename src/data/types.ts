@@ -1,4 +1,4 @@
-export type Language = 'en' | 'de' | 'ru';
+export type Language = 'en' | 'de' | 'ru' | 'az';
 export type Level = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
 
 export type ExerciseType =
@@ -7,7 +7,7 @@ export type ExerciseType =
   | 'sentence_build'
   | 'fill_blank';
 
-export type TokenLang = Language | 'az' | 'punctuation';
+export type TokenLang = Language | 'punctuation';
 
 export interface QuestionWord {
   text: string;
@@ -46,6 +46,8 @@ export interface Exercise {
   questionLang?: Language;
   answerLang?: Language;
   optionLangs?: Language[];
+  acceptedAnswers?: string[];
+  mascotHint?: string;
 }
 
 export type SentenceDictionary = Record<string, string>;
@@ -64,6 +66,9 @@ export interface Lesson {
   vocabulary: VocabularyItem[];
   sentenceDictionary?: SentenceDictionary;
   exercises: Exercise[];
+  canDo?: string;
+  situation?: string;
+  mascotIntro?: string;
 }
 
 // ═══════════════════════════════════════

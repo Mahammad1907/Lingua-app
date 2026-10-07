@@ -1,14 +1,14 @@
 import { Stack, useRouter } from 'expo-router';
 import { useState } from 'react';
 import {
-    Alert,
-    KeyboardAvoidingView,
-    Platform,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import { supabase } from '../lib/supabase';
 
@@ -27,6 +27,14 @@ export default function Register() {
 
     if (password.length < 6) {
       Alert.alert('Xəta', 'Şifrə ən azı 6 simvol olmalıdır');
+      return;
+    }
+
+    if (!supabase) {
+      Alert.alert(
+        'Xəta',
+        'Supabase bağlantısı yoxdur. .env faylını yoxlayın.'
+      );
       return;
     }
 
