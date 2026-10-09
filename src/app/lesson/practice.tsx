@@ -154,22 +154,35 @@ export default function PracticeScreen() {
     findBestVoice();
   }, []);
 
-  const speak = (text: string, lang: Language | undefined) => {
-    if (!lang) return;
-    const ttsLang = TTS_LANG_MAP[lang];
-    if (!ttsLang) return;
-    if (!text || !text.trim()) return;
+  const lastSpeakRef = useRef<number>(0);
 
-    const ttsText = lang === 'en' ? prepareForTTS(text) : text;
+const speak = async (text: string, lang: Language | undefined) => {
+  if (!lang) return;
+  const ttsLang = TTS_LANG_MAP[lang];
+  if (!ttsLang) return;
+  if (!text || !text.trim()) return;
 
-    Speech.stop();
+  const now = Date.now();
+  if (now - lastSpeakRef.current < 300) return;
+  lastSpeakRef.current = now;
+
+  const ttsText = lang === 'en' ? prepareForTTS(text) : text;
+
+  try {
+    const isSpeaking = await Speech.isSpeakingAsync();
+    if (isSpeaking) {
+      await Speech.stop();
+    }
     Speech.speak(ttsText, {
       language: ttsLang,
       voice: lang === 'en' ? bestVoice : undefined,
-      rate: 0.5,
+      rate: 0.45,
       pitch: 1.0,
     });
-  };
+  } catch (error) {
+    console.log('TTS xətası:', error);
+  }
+};
 
   useEffect(() => {
     setTappedIndex(null);

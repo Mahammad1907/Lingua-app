@@ -1,5 +1,13 @@
+// ═══════════════════════════════════════
+// DİL VƏ SƏVİYYƏ
+// ═══════════════════════════════════════
+
 export type Language = 'en' | 'de' | 'ru' | 'az';
 export type Level = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
+
+// ═══════════════════════════════════════
+// MƏŞQ TİPLƏRİ
+// ═══════════════════════════════════════
 
 export type ExerciseType =
   | 'multiple_choice'
@@ -8,6 +16,10 @@ export type ExerciseType =
   | 'fill_blank';
 
 export type TokenLang = Language | 'punctuation';
+
+// ═══════════════════════════════════════
+// TTS / TOKEN
+// ═══════════════════════════════════════
 
 export interface QuestionWord {
   text: string;
@@ -20,6 +32,10 @@ export interface TranslationWord {
   en: string;
 }
 
+// ═══════════════════════════════════════
+// LÜĞƏT
+// ═══════════════════════════════════════
+
 export interface VocabularyItem {
   id: string;
   word: string;
@@ -28,7 +44,14 @@ export interface VocabularyItem {
   example: string;
   exampleAz: string;
   acceptedAnswers?: string[];
+  usageNote?: string;
+  imageKey?: string;
+  imageEmoji?: string;
 }
+
+// ═══════════════════════════════════════
+// MƏŞQ
+// ═══════════════════════════════════════
 
 export interface Exercise {
   id: string;
@@ -52,7 +75,36 @@ export interface Exercise {
 
 export type SentenceDictionary = Record<string, string>;
 
+// ═══════════════════════════════════════
+// DƏRS FOKUSU
+// ═══════════════════════════════════════
+
+export type LessonFocus =
+  | 'vocabulary'
+  | 'grammar'
+  | 'reading'
+  | 'listening'
+  | 'speaking'
+  | 'review';
+
+// ═══════════════════════════════════════
+// REVIEW TİPİ
+// ═══════════════════════════════════════
+
+export type ReviewType = 'sub_review' | 'module_review';
+
+// ═══════════════════════════════════════
+// DƏRS QRUPU (D1 / D2 / D3 / D4 / Final)
+// ═══════════════════════════════════════
+
+export type LessonGroup = 'd1' | 'd2' | 'd3' | 'd4' | 'final';
+
+// ═══════════════════════════════════════
+// DƏRS
+// ═══════════════════════════════════════
+
 export interface Lesson {
+  // ═══ ƏSAS ═══
   id: string;
   title: string;
   titleAz: string;
@@ -63,37 +115,49 @@ export interface Lesson {
   order: number;
   xpReward: number;
   estimatedTime: number;
+
+  // ═══ STRUKTUR ═══
+  focus: LessonFocus;
+  parentGroup: LessonGroup;
+  subOrder: number;
+  isReview: boolean;
+  reviewType?: ReviewType;
+
+  // ═══ MƏZMUN ═══
   vocabulary: VocabularyItem[];
   sentenceDictionary?: SentenceDictionary;
   exercises: Exercise[];
+
+  // ═══ PEDAQOJİ KÖMƏKÇİ ═══
   canDo?: string;
   situation?: string;
   mascotIntro?: string;
 }
 
 // ═══════════════════════════════════════
-// MODUL (Module)
+// MODUL
 // ═══════════════════════════════════════
+
 export interface Module {
   id: string;
   title: string;
   titleAz: string;
-  /** Qısa açıqlama — ekranın yuxarısında göstərilir */
   description: string;
   language: Language;
   level: Level;
+  phase: number;
   order: number;
-  /** Modul üçün emoji/ikon */
   icon: string;
-  /** Modul daxilindəki dərs ID-ləri — sıra ilə */
   lessonIds: string[];
-  /** Modul sonunda speaking practice var? */
+  finalReviewId?: string;
   hasSpeakingPractice?: boolean;
-  /** Speaking practice kartı üçün başlıq */
   speakingTitle?: string;
-  /** Speaking practice kartı üçün açıqlama */
   speakingDescription?: string;
 }
+
+// ═══════════════════════════════════════
+// PROGRESS
+// ═══════════════════════════════════════
 
 export interface LessonProgress {
   lessonId: string;

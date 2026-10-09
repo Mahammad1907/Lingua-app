@@ -15,8 +15,9 @@ export const modules: Module[] = [
     language: 'en',
     level: 'A1',
     order: 1,
+    phase: 1,
     icon: '👋',
-    lessonIds: ['a1_en_01', 'a1_en_02', 'a1_en_03'],
+    lessonIds: [],
     hasSpeakingPractice: true,
     speakingTitle: 'Speaking Practice',
     speakingDescription:

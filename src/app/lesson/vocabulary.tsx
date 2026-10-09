@@ -1,3 +1,5 @@
+// src/app/lesson/vocabulary.tsx
+
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import { useEffect, useRef, useState } from 'react';
@@ -18,6 +20,12 @@ import { Language } from '../../data/types';
 const TTS_LANG_MAP: Partial<Record<Language, string>> = {
   en: 'en-US',
 };
+// ═══════════════════════════════════════
+// VOCABULARY ŞƏKİLLƏRİ
+// ═══════════════════════════════════════
+const VOCAB_IMAGES: Record<string, number> = {
+  a1_en_01_nice_to_meet_you: require('../../../assets/vocab/nice_to_meet_you.png'),
+};
 
 export default function VocabularyScreen() {
   const params = useLocalSearchParams<{ id: string }>();
@@ -32,7 +40,6 @@ export default function VocabularyScreen() {
   const progressAnim = useRef(new Animated.Value(1)).current;
   const pressScale = useRef(new Animated.Value(1)).current;
 
-  // ═══ Lesson yoxdursa — error ═══
   if (!lesson) {
     return (
       <>
@@ -59,21 +66,32 @@ export default function VocabularyScreen() {
 
   const progressPercent = ((currentIndex + 1) / total) * 100;
 
-  // ═══ TTS — YALNIZ ENGLISH ═══
-  const speakWord = (word: string) => {
-    const ttsLang = TTS_LANG_MAP[lesson.language];
-    if (!ttsLang) return;
-    if (!word?.trim()) return;
+  const lastSpeakRef = useRef<number>(0);
 
-    Speech.stop();
+const speakWord = async (word: string) => {
+  const ttsLang = TTS_LANG_MAP[lesson.language];
+  if (!ttsLang) return;
+  if (!word?.trim()) return;
+
+  const now = Date.now();
+  if (now - lastSpeakRef.current < 300) return;
+  lastSpeakRef.current = now;
+
+  try {
+    const isSpeaking = await Speech.isSpeakingAsync();
+    if (isSpeaking) {
+      await Speech.stop();
+    }
     Speech.speak(word, {
       language: ttsLang,
-      rate: 0.5,
+      rate: 0.45,
       pitch: 1.0,
     });
-  };
+  } catch (error) {
+    console.log('TTS xətası:', error);
+  }
+};
 
-  // ═══ Progress bar animasiyası ═══
   useEffect(() => {
     Animated.timing(progressAnim, {
       toValue: progressPercent,
@@ -82,7 +100,6 @@ export default function VocabularyScreen() {
     }).start();
   }, [currentIndex, progressPercent]);
 
-  // ═══ Söz keçidi — slide + fade ═══
   const animateTransition = (
     direction: 'next' | 'prev',
     callback: () => void
@@ -129,7 +146,6 @@ export default function VocabularyScreen() {
     animateTransition('prev', () => setCurrentIndex((i) => i - 1));
   };
 
-  // ═══ Sözə toxunanda press animation ═══
   const handleWordPress = () => {
     speakWord(currentWord.word);
 
@@ -147,7 +163,6 @@ export default function VocabularyScreen() {
     ]).start();
   };
 
-  // ═══ "Sözləri yoxla" ═══
   const handleStartPractice = () => {
     router.push(`/lesson/practice?id=${lesson.id}`);
   };
@@ -156,7 +171,7 @@ export default function VocabularyScreen() {
     <>
       <Stack.Screen options={{ headerShown: false }} />
       <View style={styles.container}>
-        {/* ═══ HEADER ═══ */}
+        {/* HEADER */}
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
@@ -172,7 +187,7 @@ export default function VocabularyScreen() {
           <View style={styles.headerSpacer} />
         </View>
 
-        {/* ═══ PROGRESS BAR ═══ */}
+        {/* PROGRESS BAR */}
         <View style={styles.progressContainer}>
           <Animated.View
             style={[
@@ -191,7 +206,7 @@ export default function VocabularyScreen() {
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={false}
         >
-          {/* ═══ "BU DƏRSDƏ NƏ ÖYRƏNƏCƏYİK?" ═══ */}
+          {/* CAN DO BLOKU */}
           <View style={styles.introBlock}>
             <Text style={styles.introTitle}>
               🦊 Bu dərsdə nə öyrənəcəyik?
@@ -201,7 +216,7 @@ export default function VocabularyScreen() {
             ) : null}
           </View>
 
-          {/* ═══ SÖZ KARTI ═══ */}
+          {/* SÖZ KARTI */}
           <Animated.View
             style={[
               styles.cardWrapper,
@@ -212,55 +227,64 @@ export default function VocabularyScreen() {
             ]}
           >
             <View style={styles.card}>
-              {/* Şəkil (varsa) */}
-              {currentWord.image ? (
-                <Image
-                  source={{ uri: currentWord.image }}
-                  style={styles.wordImage}
-                  resizeMode="cover"
-                />
-              ) : null}
+             {/* Şəkil (varsa) */}
+{currentWord.imageKey && VOCAB_IMAGES[currentWord.imageKey] ? (
+  <Image
+    source={VOCAB_IMAGES[currentWord.imageKey]}
+    style={styles.wordImage}
+    resizeMode="contain"
+  />
+) : null}
 
-              {/* ═══ TARGET SÖZ + AUDIO ═══ */}
-              <TouchableOpacity
-                activeOpacity={0.9}
-                onPress={handleWordPress}
-                style={styles.wordRow}
-              >
-                <Animated.Text
-                  style={[
-                    styles.wordText,
-                    { transform: [{ scale: pressScale }] },
-                  ]}
+              {/* ƏSAS SÖZ + AUDIO */}
+              <View style={styles.wordRow}>
+                <TouchableOpacity
+                  activeOpacity={0.9}
+                  onPress={handleWordPress}
+                  style={styles.wordTouchable}
                 >
-                  {currentWord.word}
-                </Animated.Text>
+                  <Animated.Text
+                    style={[
+                      styles.wordText,
+                      { transform: [{ scale: pressScale }] },
+                    ]}
+                  >
+                    {currentWord.word}
+                  </Animated.Text>
+                </TouchableOpacity>
 
                 <TouchableOpacity
                   style={styles.audioButton}
                   onPress={() => speakWord(currentWord.word)}
                   hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                 >
-                  <SpeakerIcon size={20} />
+                  <SpeakerIcon size={18} />
                 </TouchableOpacity>
-              </TouchableOpacity>
+              </View>
 
-              {/* ═══ TƏRCÜMƏ ═══ */}
+              {/* TƏRCÜMƏ */}
               <Text style={styles.translationText}>
                 {currentWord.translation}
               </Text>
 
-              {/* ═══ TƏLƏFFÜZ ═══ */}
+              {/* TƏLƏFFÜZ */}
               {currentWord.pronunciation ? (
                 <Text style={styles.pronunciationText}>
                   {currentWord.pronunciation}
                 </Text>
               ) : null}
 
-              {/* ═══ DIVIDER ═══ */}
-              <View style={styles.divider} />
+              {/* NƏ VAXT İŞLƏNİR? — yalnız usageNote varsa */}
+              {currentWord.usageNote ? (
+                <View style={styles.usageBlock}>
+                  <Text style={styles.usageTitle}>🦊 Nə vaxt işlənir?</Text>
+                  <Text style={styles.usageText}>
+                    {currentWord.usageNote}
+                  </Text>
+                </View>
+              ) : null}
 
-              {/* ═══ NÜMUNƏ ═══ */}
+              {/* NÜMUNƏ */}
               {currentWord.example ? (
                 <View style={styles.exampleBlock}>
                   <View style={styles.exampleHeader}>
@@ -270,7 +294,7 @@ export default function VocabularyScreen() {
                       onPress={() => speakWord(currentWord.example)}
                       hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
                     >
-                      <SpeakerIcon size={14} />
+                      <SpeakerIcon size={12} />
                     </TouchableOpacity>
                   </View>
                   <Text style={styles.exampleText}>
@@ -286,7 +310,7 @@ export default function VocabularyScreen() {
             </View>
           </Animated.View>
 
-          {/* ═══ SON SÖZ — CELEBRATION ═══ */}
+          {/* SON SÖZ — CELEBRATION */}
           {isLast ? (
             <View style={styles.celebrationBlock}>
               <Text style={styles.celebrationTitle}>
@@ -299,7 +323,7 @@ export default function VocabularyScreen() {
           ) : null}
         </ScrollView>
 
-        {/* ═══ NAVİQASİYA ═══ */}
+        {/* NAVİQASİYA */}
         <View style={styles.navRow}>
           <TouchableOpacity
             style={[styles.navButton, isFirst && styles.navButtonDisabled]}
@@ -357,7 +381,7 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
   },
 
-  // ═══ HEADER ═══
+  // HEADER
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -391,7 +415,7 @@ const styles = StyleSheet.create({
     width: 44,
   },
 
-  // ═══ PROGRESS ═══
+  // PROGRESS
   progressContainer: {
     height: 4,
     backgroundColor: colors.surface,
@@ -406,7 +430,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
 
-  // ═══ INTRO ═══
+  // INTRO
   introBlock: {
     marginBottom: 20,
   },
@@ -423,14 +447,14 @@ const styles = StyleSheet.create({
     lineHeight: 19,
   },
 
-  // ═══ CARD ═══
+  // CARD
   cardWrapper: {
-    marginBottom: 20,
+    marginBottom: 24,
   },
   card: {
     backgroundColor: colors.surface,
     borderRadius: 24,
-    padding: 24,
+    padding: 22,
     borderWidth: 1.5,
     borderColor: colors.brd.light,
     shadowColor: colors.mascot.orange,
@@ -441,53 +465,84 @@ const styles = StyleSheet.create({
   },
   wordImage: {
     width: '100%',
-    height: 200,
+    height: 180,
     borderRadius: 18,
-    marginBottom: 20,
+    marginBottom: 18,
     backgroundColor: colors.brd.default,
   },
   wordRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 12,
+    marginBottom: 10,
+    gap: 12,
+  },
+  wordTouchable: {
+    flex: 1,
   },
   wordText: {
-    flex: 1,
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: '800',
     color: colors.textPrimary,
-    letterSpacing: -0.8,
+    letterSpacing: -0.6,
+    lineHeight: 34,
   },
   audioButton: {
-    width: 48,
-    height: 48,
-    borderRadius: 16,
+    width: 46,
+    height: 46,
+    borderRadius: 15,
     backgroundColor: colors.mascot.bgSoft,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
     borderColor: colors.mascot.border,
-    marginLeft: 12,
   },
   translationText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '700',
     color: colors.mascot.orange,
-    marginBottom: 6,
+    marginBottom: 4,
+    letterSpacing: -0.2,
   },
   pronunciationText: {
-    fontSize: 14,
-    color: colors.textSecondary,
+    fontSize: 13,
+    color: colors.textMuted,
     fontStyle: 'italic',
-    marginBottom: 18,
-  },
-  divider: {
-    height: 1,
-    backgroundColor: colors.brd.default,
     marginBottom: 16,
   },
-  exampleBlock: {},
+
+  // USAGE NOTE
+  usageBlock: {
+    marginTop: 4,
+    marginBottom: 16,
+    paddingTop: 14,
+    paddingBottom: 14,
+    paddingHorizontal: 14,
+    backgroundColor: colors.mascot.bgSoft,
+    borderRadius: 14,
+    borderLeftWidth: 3,
+    borderLeftColor: colors.mascot.orange,
+  },
+  usageTitle: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: colors.mascot.orange,
+    marginBottom: 5,
+    letterSpacing: 0.2,
+  },
+  usageText: {
+    fontSize: 13,
+    color: colors.textSecondary,
+    lineHeight: 19,
+    fontWeight: '500',
+  },
+
+  // EXAMPLE
+  exampleBlock: {
+    paddingTop: 14,
+    borderTopWidth: 1,
+    borderTopColor: colors.brd.default,
+  },
   exampleHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -501,8 +556,8 @@ const styles = StyleSheet.create({
     letterSpacing: 1.5,
   },
   exampleAudioButton: {
-    width: 32,
-    height: 32,
+    width: 30,
+    height: 30,
     borderRadius: 10,
     backgroundColor: colors.mascot.bgSoft,
     justifyContent: 'center',
@@ -511,20 +566,20 @@ const styles = StyleSheet.create({
     borderColor: colors.mascot.border,
   },
   exampleText: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '600',
     color: colors.textPrimary,
-    lineHeight: 23,
-    marginBottom: 6,
+    lineHeight: 22,
+    marginBottom: 5,
   },
   exampleAzText: {
-    fontSize: 13,
+    fontSize: 12,
     color: colors.textSecondary,
     fontStyle: 'italic',
-    lineHeight: 19,
+    lineHeight: 18,
   },
 
-  // ═══ CELEBRATION ═══
+  // CELEBRATION
   celebrationBlock: {
     backgroundColor: 'rgba(34, 197, 94, 0.08)',
     borderRadius: 18,
@@ -534,7 +589,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   celebrationTitle: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: '800',
     color: colors.success,
     marginBottom: 6,
@@ -545,13 +600,13 @@ const styles = StyleSheet.create({
     lineHeight: 19,
   },
 
-  // ═══ NAV ═══
+  // NAV
   navRow: {
     flexDirection: 'row',
     gap: 10,
     paddingHorizontal: 20,
     paddingBottom: 30,
-    paddingTop: 10,
+    paddingTop: 16,
   },
   navButton: {
     flex: 1,
@@ -567,7 +622,7 @@ const styles = StyleSheet.create({
     opacity: 0.4,
   },
   navButtonText: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '800',
     color: colors.textPrimary,
   },
@@ -579,10 +634,10 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     overflow: 'hidden',
     shadowColor: colors.mascot.orange,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
-    shadowRadius: 12,
-    elevation: 6,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.45,
+    shadowRadius: 14,
+    elevation: 8,
   },
   nextButton: {
     flexDirection: 'row',
@@ -596,16 +651,17 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '800',
     color: '#ffffff',
+    letterSpacing: 0.2,
   },
   practiceButtonWrapper: {
     flex: 1.4,
     borderRadius: 18,
     overflow: 'hidden',
     shadowColor: colors.mascot.orange,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
-    shadowRadius: 12,
-    elevation: 6,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.45,
+    shadowRadius: 14,
+    elevation: 8,
   },
   practiceButton: {
     flexDirection: 'row',
@@ -627,7 +683,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
 
-  // ═══ ERROR ═══
+  // ERROR
   errorContainer: {
     flex: 1,
     backgroundColor: colors.background,
