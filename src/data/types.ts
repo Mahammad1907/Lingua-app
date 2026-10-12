@@ -168,3 +168,23 @@ export interface LessonProgress {
   xpEarned: number;
   completedAt?: string;
 }
+// ═══════════════════════════════════════
+// PLACEMENT TEST
+// ═══════════════════════════════════════
+
+export interface PlacementTest {
+  moduleId: string;
+  language: Language;
+  level: Level;
+  passScore: number;
+  questions: Exercise[];
+  description: string;
+}
+
+export interface PlacementResult {
+  moduleId: string;
+  passed: boolean;
+  correctCount: number;
+  totalCount: number;
+  attemptedAt: string;
+}

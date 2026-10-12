@@ -2,16 +2,17 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useMemo } from 'react';
 import {
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import LearningPath from '../../components/LearningPath';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
 import { getModuleById } from '../../data/modules';
+import { getPlacementTestByModuleId } from '../../data/placementTests';
 import { Lesson } from '../../data/types';
 import { useUserStore } from '../../store/userStore';
 
@@ -23,6 +24,7 @@ export default function ModuleScreen() {
   const moduleData = getModuleById(moduleId || '');
   const completedLessons = useUserStore((s) => s.completedLessons);
   const lessonProgress = useUserStore((s) => s.lessonProgress);
+  const placementResults = useUserStore((s) => s.placementResults);
 
   // ═══ Dərsləri module-dan götür ═══
   const lessons: Lesson[] = useMemo(() => {
@@ -47,6 +49,22 @@ export default function ModuleScreen() {
     const percent = Math.round(totalScore / lessons.length);
     return { percent, completedCount, total: lessons.length };
   }, [lessons, completedLessons, lessonProgress]);
+
+  // ═══ PLACEMENT TEST MƏLUMATLARI ═══
+  const placementInfo = useMemo(() => {
+    if (!moduleData) {
+      return { hasTest: false, passed: false, result: null };
+    }
+
+    const test = getPlacementTestByModuleId(moduleData.id);
+    const result = placementResults.find((r) => r.moduleId === moduleData.id);
+
+    return {
+      hasTest: test !== undefined,
+      passed: result?.passed === true,
+      result: result || null,
+    };
+  }, [moduleData, placementResults]);
 
   // ═══ Modul tapılmadı ═══
   if (!moduleData) {
@@ -137,6 +155,34 @@ export default function ModuleScreen() {
             </View>
           </View>
 
+          {/* ═══ PLACEMENT TEST ═══ */}
+          {placementInfo.hasTest && (
+            <TouchableOpacity
+              style={styles.placementCard}
+              onPress={() => {
+                router.push(`/placement/${moduleData.id}`);
+              }}
+              activeOpacity={0.85}
+            >
+              <View style={styles.placementIconWrapper}>
+                <Text style={styles.placementIcon}>
+                  {placementInfo.passed ? '✅' : '🧪'}
+                </Text>
+              </View>
+              <View style={styles.placementContent}>
+                <Text style={styles.placementTitle}>
+                  {placementInfo.passed ? 'Yenidən yoxla' : 'Biliyi yoxla'}
+                </Text>
+                <Text style={styles.placementDesc}>
+                  {placementInfo.passed && placementInfo.result
+                    ? `${placementInfo.result.correctCount}/${placementInfo.result.totalCount} düzgün · Yenidən cəhd et`
+                    : 'Bu modulu artıq bilirsənsə, testlə yoxla və Final Review-a keç'}
+                </Text>
+              </View>
+              <Text style={styles.placementArrow}>→</Text>
+            </TouchableOpacity>
+          )}
+
           {/* ═══ LEARNING PATH ═══ */}
           <View style={styles.pathSectionHeader}>
             <Text style={styles.sectionTitle}>Öyrənmə yolu</Text>
@@ -190,7 +236,7 @@ export default function ModuleScreen() {
 const styles = StyleSheet.create({
   background: { flex: 1 },
   container: { flex: 1 },
-  content: { padding: 20, paddingTop: 55, paddingBottom: 40 },
+  content: { padding: 20, paddingTop: 80, paddingBottom: 40 },
 
   // ═══ HEADER ═══
   header: {
@@ -298,6 +344,52 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: colors.textSecondary,
     fontWeight: '600',
+  },
+
+  // ═══ PLACEMENT TEST ═══
+  placementCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(139, 92, 246, 0.08)',
+    borderRadius: 20,
+    padding: 16,
+    marginBottom: 24,
+    borderWidth: 1.5,
+    borderColor: 'rgba(139, 92, 246, 0.35)',
+    gap: 14,
+  },
+  placementIconWrapper: {
+    width: 48,
+    height: 48,
+    borderRadius: 14,
+    backgroundColor: 'rgba(139, 92, 246, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(139, 92, 246, 0.4)',
+  },
+  placementIcon: {
+    fontSize: 24,
+  },
+  placementContent: {
+    flex: 1,
+  },
+  placementTitle: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: colors.textPrimary,
+    marginBottom: 4,
+    letterSpacing: -0.2,
+  },
+  placementDesc: {
+    fontSize: 12,
+    color: colors.textSecondary,
+    lineHeight: 17,
+  },
+  placementArrow: {
+    fontSize: 20,
+    color: colors.primaryLight,
+    fontWeight: '700',
   },
 
   // ═══ PATH SECTION ═══

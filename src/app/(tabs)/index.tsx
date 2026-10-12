@@ -7,474 +7,496 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  useWindowDimensions,
   View,
 } from 'react-native';
-import { colors } from '../../constants/colors';
+import Svg, {
+  Circle,
+  Ellipse,
+  Path,
+  Rect,
+} from 'react-native-svg';
 import { getLessonById } from '../../data/lessons';
 import { getAllModules } from '../../data/modules';
 import { useUserStore } from '../../store/userStore';
 
-// ═══════════════════════════════════════
-// DİL KONFİQURASİYASI
-// ═══════════════════════════════════════
-const LANGUAGE_META: Record<
-  string,
-  { flag: string; name: string; code: string }
-> = {
-  en: { flag: '🇬🇧', name: 'İngilis', code: 'EN' },
-  de: { flag: '🇩🇪', name: 'Alman', code: 'DE' },
-  ru: { flag: '🇷🇺', name: 'Rus', code: 'RU' },
-};
+const STEP = 180;
+const FIRST_Y = 64;
+const CARD_H = 88;
+const AVATAR = 94;
 
-const MODULE_COLORS = colors.mod.colors;
+function LockIcon() {
+  return (
+    <Svg width={48} height={52} viewBox="0 0 48 52">
+      <Path
+        d="M13 24 V15 C13 0 35 0 35 15 V24"
+        stroke="#c6d1ed"
+        strokeWidth={5}
+        fill="none"
+      />
+      <Rect
+        x={5}
+        y={21}
+        width={38}
+        height={29}
+        rx={8}
+        fill="#92a2cb"
+      />
+      <Rect
+        x={8}
+        y={22}
+        width={32}
+        height={24}
+        rx={6}
+        fill="#b6c2df"
+      />
+      <Circle cx={24} cy={33} r={4} fill="#283751" />
+      <Path
+        d="M24 34 V40"
+        stroke="#283751"
+        strokeWidth={4}
+        strokeLinecap="round"
+      />
+    </Svg>
+  );
+}
+
+function Island({ house = false }: { house?: boolean }) {
+  return (
+    <Svg width={108} height={85} viewBox="0 0 108 85">
+      <Ellipse
+        cx={53}
+        cy={71}
+        rx={49}
+        ry={10}
+        fill="#167295"
+        opacity={0.2}
+      />
+      <Path
+        d="M5 58 L25 44 L71 46 L102 60
+           L85 73 L34 77 L9 68 Z"
+        fill="#243b50"
+      />
+      <Path
+        d="M5 58 L25 44 L71 46 L102 60
+           L74 67 L31 66 Z"
+        fill="#426b5c"
+      />
+      <Path
+        d="M12 58 L29 48 L68 49 L92 60 L68 63 L34 61 Z"
+        fill="#527b60"
+      />
+      {house ? (
+        <>
+          <Path d="M38 34 H70 V59 H38 Z" fill="#b8b5c1" />
+          <Path d="M70 34 L81 40 V56 L70 59 Z" fill="#787b98" />
+          <Path d="M31 36 L54 15 L80 36 Z" fill="#945f7d" />
+          <Path d="M54 15 L67 13 L88 36 L80 36 Z" fill="#6e526e" />
+          <Rect x={50} y={44} width={9} height={15} fill="#36415a" />
+          <Rect x={40} y={41} width={6} height={7} fill="#ffdc95" />
+          <Path d="M20 54 V37" stroke="#786448" strokeWidth={3} />
+          <Path d="M10 43 L20 18 L30 43 Z" fill="#285b4c" />
+          <Path d="M12 48 L20 29 L28 48 Z" fill="#36775b" />
+        </>
+      ) : (
+        <>
+          <Path d="M25 58 V32 M75 57 V28" stroke="#786448" strokeWidth={4} />
+          <Path d="M10 39 L25 5 L40 39 Z" fill="#23554c" />
+          <Path d="M13 48 L25 21 L37 48 Z" fill="#34795d" />
+          <Path d="M60 35 L75 2 L90 35 Z" fill="#285d51" />
+          <Path d="M63 45 L75 19 L87 45 Z" fill="#3c8065" />
+          <Path d="M39 57 L51 31 L68 58 Z" fill="#85849c" />
+          <Path d="M51 31 L68 58 L55 54 Z" fill="#5d607b" />
+        </>
+      )}
+    </Svg>
+  );
+}
 
 export default function Home() {
   const router = useRouter();
+  const { width } = useWindowDimensions();
   const completedLessons = useUserStore((s) => s.completedLessons);
-  const lessonProgress = useUserStore((s) => s.lessonProgress);
-  const userLevel = useUserStore((s) => s.level);
-
+  const level = useUserStore((s) => s.level);
   const allModules = useMemo(() => getAllModules(), []);
 
-  // Aktiv dil (hazırda 'en')
-  const activeLanguage = 'en';
-  const languageMeta = LANGUAGE_META[activeLanguage];
+  const mapWidth = Math.min(width - 32, 460);
+  const offset = Math.min(32, mapWidth * 0.09);
+  const cardWidth = mapWidth - offset;
 
-  // ═══ Hər modul üçün progress hesabla ═══
-  const modulesWithProgress = useMemo(() => {
-    return allModules.map((m) => {
-      const lessons = m.lessonIds
+  const modules = useMemo(() => {
+    const progress = allModules.map((module) => {
+      const lessons = module.lessonIds
         .map((id) => getLessonById(id))
-        .filter((l): l is NonNullable<typeof l> => l !== undefined);
+        .filter((lesson): lesson is NonNullable<typeof lesson> =>
+          lesson !== undefined
+        );
 
-      const completedCount = lessons.filter((l) =>
-        completedLessons.includes(l.id)
+      const count = lessons.filter((lesson) =>
+        completedLessons.includes(lesson.id)
       ).length;
 
-      const totalScore = lessons.reduce((sum, l) => {
-        const p = lessonProgress.find((p) => p.lessonId === l.id);
-        return sum + (p?.score || 0);
-      }, 0);
-
-      const percent =
-        lessons.length > 0 ? Math.round(totalScore / lessons.length) : 0;
-
-      // Ümumi vaxt (təxmini)
-      const totalMinutes = lessons.reduce(
-        (sum, l) => sum + (l.estimatedTime || 5),
-        0
-      );
-
       return {
-        module: m,
-        lessonsCount: lessons.length,
-        completedCount,
-        percent,
-        totalMinutes,
+        module,
+        count,
+        total: lessons.length,
+        completed: lessons.length > 0 && count === lessons.length,
       };
     });
-  }, [allModules, completedLessons, lessonProgress]);
+
+    return progress.map((item, index) => ({
+      ...item,
+      locked:
+        !item.completed &&
+        index > 0 &&
+        !progress[index - 1].completed,
+    }));
+  }, [allModules, completedLessons]);
+
+  const mapHeight = modules.length
+    ? FIRST_Y + (modules.length - 1) * STEP + 230
+    : 240;
+
+  const levelLabel =
+    level === 'A1' || level === 'A2'
+      ? 'Başlanğıc'
+      : level === 'B1' || level === 'B2'
+      ? 'Orta'
+      : 'Öyrənmə yolu';
 
   return (
     <LinearGradient
-      colors={['#0a0a1a', '#1e1b4b', '#0a0a1a']}
-      style={styles.background}
+      colors={['#060c20', '#08213b', '#07162d']}
+      style={styles.screen}
     >
       <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
       >
-        {/* ═══ HEADER ═══ */}
-        <View style={styles.header}>
-          <View>
-            <Text style={styles.greeting}>Salam! 👋</Text>
-            <Text style={styles.title}>Dərslər</Text>
-          </View>
-          <TouchableOpacity style={styles.settingsButton}>
-            <Text style={styles.settingsIcon}>⚙️</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* ═══ FOX MASKOT + DİL SEÇİMİ ═══ */}
-        <View style={styles.heroCard}>
-          <Image
-            source={require('../../../assets/mascot/fox_normal.png')}
-            style={styles.heroMascot}
-            resizeMode="contain"
-          />
-
-          <View style={styles.languageRow}>
-            <TouchableOpacity style={styles.languagePicker}>
-              <Text style={styles.languageFlag}>{languageMeta.flag}</Text>
-              <Text style={styles.languageName}>{languageMeta.name}</Text>
-              <Text style={styles.languageChevron}>▼</Text>
-            </TouchableOpacity>
-
-            <View style={styles.levelBadge}>
-              <Text style={styles.levelText}>{userLevel}</Text>
+        <View style={[styles.header, { width: mapWidth }]}>
+          <View style={styles.headingRow}>
+            <View style={styles.headingIcon}>
+              <Svg width={26} height={26} viewBox="0 0 26 26">
+                <Path
+                  d="M3 5 L9 3 L17 6 L23 4 V21
+                     L17 23 L9 20 L3 22 Z"
+                  fill="none"
+                  stroke="#b8c8ea"
+                  strokeWidth={1.8}
+                  strokeLinejoin="round"
+                />
+                <Path
+                  d="M9 3 V20 M17 6 V23"
+                  stroke="#b8c8ea"
+                  strokeWidth={1.8}
+                />
+              </Svg>
             </View>
+            <Text style={styles.heading}>İngilis dili</Text>
           </View>
-        </View>
 
-        {/* ═══ BÖLMƏLƏR BAŞLIĞI ═══ */}
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Bölmələr</Text>
-          <TouchableOpacity>
-            <Text style={styles.sectionLink}>Hamısına →</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* ═══ MODUL KARTLARI ═══ */}
-        {modulesWithProgress.length === 0 ? (
-          <View style={styles.emptyBox}>
-            <Text style={styles.emptyEmoji}>📚</Text>
-            <Text style={styles.emptyTitle}>Hələ modul yoxdur</Text>
-            <Text style={styles.emptySubtitle}>
-              Yeni modullar tezliklə əlavə olunacaq
+          <View style={styles.levelChip}>
+            <Text style={styles.levelText}>
+              {level} · {levelLabel}
             </Text>
           </View>
-        ) : (
-          modulesWithProgress.map((item, index) => {
-            const color = MODULE_COLORS[index % MODULE_COLORS.length];
-            const meta = LANGUAGE_META[item.module.language];
-            const isCompleted =
-              item.lessonsCount > 0 &&
-              item.completedCount === item.lessonsCount;
+        </View>
 
-            // Locked: əvvəlki modul tamamlanmayıbsa
-            const previousModule = index > 0 ? modulesWithProgress[index - 1] : null;
-            const isLocked =
-              previousModule !== null &&
-              previousModule.completedCount < previousModule.lessonsCount;
+        <View style={[styles.map, { width: mapWidth, height: mapHeight }]}>
+          {modules.length === 0 ? (
+            <View style={styles.empty}>
+              <Text style={styles.emptyTitle}>Hələ bölmə yoxdur</Text>
+              <Text style={styles.emptyText}>
+                Bölmələr əlavə ediləndə burada görünəcək.
+              </Text>
+            </View>
+          ) : (
+            <>
+              {/* Tək kart olduqda da fon dekorları görünür. */}
+              {Array.from({ length: modules.length + 1 }, (_, index) => (
+                <View
+                  key={`island-${index}`}
+                  pointerEvents="none"
+                  style={[
+                    styles.island,
+                    {
+                      top: index === 0
+                        ? 0
+                        : FIRST_Y + (index - 1) * STEP + CARD_H + 6,
+                      left: index % 2 === 0 ? mapWidth - 100 : -8,
+                    },
+                  ]}
+                >
+                  <Island house={index % 3 === 1} />
+                </View>
+              ))}
 
-            return (
-              <TouchableOpacity
-                key={item.module.id}
-                style={[
-                  styles.moduleCard,
-                  {
-                    borderColor: isCompleted
-                      ? 'rgba(34, 197, 94, 0.5)'
-                      : isLocked
-                      ? colors.brd.muted
-                      : colors.brd.strong,
-                    opacity: isLocked ? 0.6 : 1,
-                  },
-                ]}
-                onPress={() => {
-                  if (isLocked) return;
-                  router.push(`/module/${item.module.id}`);
-                }}
-                activeOpacity={isLocked ? 1 : 0.85}
-                disabled={isLocked}
+              <Svg
+                width={mapWidth}
+                height={mapHeight}
+                style={StyleSheet.absoluteFill}
+                pointerEvents="none"
               >
-                <View style={styles.moduleRow}>
-                  {/* Sol: ikon */}
-                  <View
+                {modules.map((item, index) => {
+                  const left = index % 2 === 0 ? 0 : offset;
+                  const startX = left + cardWidth * 0.68;
+                  const startY = FIRST_Y + index * STEP + CARD_H;
+                  const nextLeft = (index + 1) % 2 === 0 ? 0 : offset;
+                  const endX = nextLeft + AVATAR / 2;
+                  const endY = FIRST_Y + (index + 1) * STEP + 5;
+                  const bendY = startY + (endY - startY) * 0.55;
+
+                  return (
+                    <Path
+                      key={`road-${item.module.id}`}
+                      d={`M ${startX} ${startY}
+                          C ${startX} ${bendY},
+                            ${endX} ${bendY},
+                            ${endX} ${endY}`}
+                      stroke={item.completed ? '#43cda9' : '#6474d7'}
+                      strokeWidth={3}
+                      strokeDasharray="7 10"
+                      strokeLinecap="round"
+                      fill="none"
+                      opacity={0.8}
+                    />
+                  );
+                })}
+              </Svg>
+
+              {modules.map((item, index) => {
+                const current = !item.locked && !item.completed;
+                const accent = item.completed
+                  ? '#64ddaa'
+                  : current
+                  ? '#ff9b52'
+                  : '#4a587d';
+
+                return (
+                  <TouchableOpacity
+                    key={item.module.id}
+                    activeOpacity={0.88}
+                    disabled={item.locked}
+                    accessibilityRole="button"
+                    accessibilityState={{ disabled: item.locked }}
+                    accessibilityLabel={`${item.module.titleAz}, ${
+                      item.locked ? 'kilidli' : 'bölməni aç'
+                    }`}
+                    onPress={() =>
+                      router.push(`/module/${item.module.id}`)
+                    }
                     style={[
-                      styles.moduleIconWrapper,
+                      styles.mapItem,
                       {
-                        backgroundColor: `${color}22`,
-                        borderColor: isLocked ? colors.brd.muted : color,
+                        top: FIRST_Y + index * STEP,
+                        left: index % 2 === 0 ? 0 : offset,
+                        width: cardWidth,
                       },
                     ]}
                   >
-                    <Text style={styles.moduleIcon}>
-                      {isLocked ? '🔒' : item.module.icon}
-                    </Text>
-                  </View>
+                    {/* Kart və avatar ayrıdır, təsvir kəsilmir. */}
+                    <View
+                      style={[
+                        styles.card,
+                        {
+                          borderColor: item.locked
+                            ? '#25365a'
+                            : `${accent}66`,
+                        },
+                      ]}
+                    >
+                      <LinearGradient
+                        colors={
+                          item.locked
+                            ? ['#122341', '#0c1c36']
+                            : ['#162b57', '#0d2047']
+                        }
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 1, y: 1 }}
+                        style={styles.cardFill}
+                      >
+                        <View style={styles.textArea}>
+                          <Text
+                            numberOfLines={2}
+                            style={[
+                              styles.title,
+                              item.locked && styles.lockedTitle,
+                            ]}
+                          >
+                            {index + 1}. {item.module.titleAz}
+                          </Text>
+                          <Text
+                            numberOfLines={1}
+                            style={styles.subtitle}
+                          >
+                            {item.module.description}
+                          </Text>
+                          <Text style={styles.progress}>
+                            {item.count}/{item.total} dərs
+                            {item.locked ? ' · Kilidli' : ''}
+                          </Text>
+                        </View>
 
-                  {/* Orta: məlumat */}
-                  <View style={styles.moduleInfo}>
-                    <Text style={styles.moduleTitle}>
-                      {item.module.titleAz}
-                    </Text>
-                    <Text style={styles.moduleDesc} numberOfLines={1}>
-                      {item.module.description}
-                    </Text>
-
-                    <View style={styles.moduleMetaRow}>
-                      <Text style={styles.moduleMetaText}>
-                        {item.completedCount}/{item.lessonsCount} dərs
-                      </Text>
-                      <Text style={styles.moduleMetaDot}>·</Text>
-                      <Text style={styles.moduleMetaText}>
-                        ~{item.totalMinutes} dəq
-                      </Text>
+                        {!item.locked && (
+                          <Text style={[styles.arrow, { color: accent }]}>
+                            ›
+                          </Text>
+                        )}
+                      </LinearGradient>
                     </View>
 
-                    {/* Progress bar */}
-                    <View style={styles.progressBarBg}>
-                      <View
-                        style={[
-                          styles.progressBarFill,
-                          {
-                            width: `${item.percent}%`,
-                            backgroundColor: isCompleted
-                              ? colors.success
-                              : color,
-                          },
-                        ]}
-                      />
+                    <View
+                      style={[
+                        styles.avatarOuter,
+                        {
+                          borderColor: accent,
+                          backgroundColor: item.locked
+                            ? '#14213b'
+                            : '#1b4260',
+                        },
+                      ]}
+                    >
+                      <LinearGradient
+                        colors={
+                          item.locked
+                            ? ['#293553', '#17223b']
+                            : ['#24567a', '#285547']
+                        }
+                        style={styles.avatarInner}
+                      >
+                        {item.locked ? (
+                          <LockIcon />
+                        ) : index === 0 ? (
+                          <Image
+                            source={require('../../../assets/mascot/fox_normal.png')}
+                            style={styles.fox}
+                            resizeMode="contain"
+                          />
+                        ) : (
+                          <Text style={styles.moduleIcon}>
+                            {item.module.icon || '📚'}
+                          </Text>
+                        )}
+                      </LinearGradient>
+
+                      {item.completed && (
+                        <View style={styles.checkBadge}>
+                          <Text style={styles.checkText}>✓</Text>
+                        </View>
+                      )}
                     </View>
-                  </View>
-
-                  {/* Sağ: status */}
-                  <View style={styles.moduleStatus}>
-                    {isCompleted ? (
-                      <View style={styles.completedCircle}>
-                        <Text style={styles.completedCheck}>✓</Text>
-                      </View>
-                    ) : isLocked ? (
-                      <Text style={styles.lockIcon}>🔒</Text>
-                    ) : (
-                      <View style={[styles.arrowCircle, { borderColor: color }]}>
-                        <Text style={[styles.arrowIcon, { color }]}>→</Text>
-                      </View>
-                    )}
-                  </View>
-                </View>
-              </TouchableOpacity>
-            );
-          })
-        )}
-
-        <View style={{ height: 120 }} />
+                  </TouchableOpacity>
+                );
+              })}
+            </>
+          )}
+        </View>
       </ScrollView>
     </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  background: { flex: 1 },
-  container: { flex: 1 },
-  content: { padding: 20, paddingTop: 60 },
-
-  // ═══ HEADER ═══
-  header: {
+  screen: { flex: 1 },
+  scrollContent: {
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingTop: 62,
+    paddingBottom: 110,
+  },
+  header: { paddingHorizontal: 4, marginBottom: 12 },
+  headingRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 20,
-  },
-  greeting: {
-    fontSize: 15,
-    color: colors.textSecondary,
-    marginBottom: 4,
-    fontWeight: '500',
-  },
-  title: {
-    fontSize: 38,
-    fontWeight: '800',
-    color: colors.textPrimary,
-    letterSpacing: -1.2,
-  },
-  settingsButton: {
-    width: 48,
-    height: 48,
-    borderRadius: 16,
-    backgroundColor: colors.surface,
-    justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.brd.light,
-  },
-  settingsIcon: { fontSize: 22 },
-
-  // ═══ HERO (FOX + DİL SEÇİMİ) ═══
-  heroCard: {
-    alignItems: 'center',
-    marginBottom: 24,
-  },
-  heroMascot: {
-    width: 140,
-    height: 140,
     marginBottom: 12,
   },
-  languageRow: {
-    flexDirection: 'row',
-    gap: 10,
-    alignItems: 'center',
-  },
-  languagePicker: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    backgroundColor: colors.surface,
-    borderRadius: 14,
-    borderWidth: 1,
-    borderColor: colors.brd.light,
-    gap: 8,
-  },
-  languageFlag: { fontSize: 20 },
-  languageName: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: colors.textPrimary,
-  },
-  languageChevron: {
-    fontSize: 10,
-    color: colors.textSecondary,
-    marginLeft: 4,
-  },
-  levelBadge: {
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    backgroundColor: colors.mascot.bgMedium,
-    borderRadius: 14,
-    borderWidth: 1,
-    borderColor: colors.mascot.borderStrong,
-  },
-  levelText: {
-    fontSize: 14,
+  headingIcon: { marginRight: 14 },
+  heading: {
+    color: '#f1f5ff',
+    fontSize: 25,
     fontWeight: '800',
-    color: colors.mascot.orange,
-    letterSpacing: 0.5,
+    letterSpacing: -0.4,
   },
-
-  // ═══ SECTION HEADER ═══
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  sectionTitle: {
-    fontSize: 22,
-    fontWeight: '800',
-    color: colors.textPrimary,
-    letterSpacing: -0.3,
-  },
-  sectionLink: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: colors.mascot.orange,
-  },
-
-  // ═══ MODUL KARTI ═══
-  moduleCard: {
-    backgroundColor: colors.surface,
+  levelChip: {
+    alignSelf: 'flex-start',
+    marginLeft: 40,
     borderRadius: 20,
-    padding: 14,
-    marginBottom: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    backgroundColor: '#1b2851',
+    borderWidth: 1,
+    borderColor: '#303c69',
+  },
+  levelText: { color: '#dce5fa', fontSize: 13, fontWeight: '700' },
+  map: { position: 'relative' },
+  island: { position: 'absolute', opacity: 0.9 },
+  mapItem: { position: 'absolute', height: CARD_H },
+  card: {
+    position: 'absolute',
+    left: 38,
+    right: 0,
+    top: 0,
+    height: CARD_H,
+    borderRadius: 44,
     borderWidth: 1.5,
-    shadowColor: colors.mascot.orange,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 8,
-    elevation: 4,
-  },
-  moduleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-  },
-  moduleIconWrapper: {
-    width: 56,
-    height: 56,
-    borderRadius: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1.5,
-  },
-  moduleIcon: { fontSize: 26 },
-  moduleInfo: {
-    flex: 1,
-  },
-  moduleTitle: {
-    fontSize: 17,
-    fontWeight: '800',
-    color: colors.textPrimary,
-    marginBottom: 3,
-    letterSpacing: -0.3,
-  },
-  moduleDesc: {
-    fontSize: 12,
-    color: colors.textSecondary,
-    marginBottom: 6,
-  },
-  moduleMetaRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 8,
-    gap: 6,
-  },
-  moduleMetaText: {
-    fontSize: 11,
-    color: colors.textMuted,
-    fontWeight: '600',
-  },
-  moduleMetaDot: {
-    fontSize: 11,
-    color: colors.textMuted,
-  },
-  progressBarBg: {
-    height: 5,
-    backgroundColor: colors.brd.default,
-    borderRadius: 3,
     overflow: 'hidden',
   },
-  progressBarFill: {
-    height: '100%',
-    borderRadius: 3,
-  },
-
-  // ═══ STATUS (sağ) ═══
-  moduleStatus: {
+  cardFill: {
+    flex: 1,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    width: 36,
+    paddingLeft: 64,
+    paddingRight: 12,
   },
-  completedCircle: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: colors.moduleCompletedBg,
-    borderWidth: 1.5,
-    borderColor: colors.success,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  completedCheck: {
+  textArea: { flex: 1 },
+  title: {
+    color: '#f2f5ff',
     fontSize: 16,
     fontWeight: '800',
-    color: colors.success,
+    lineHeight: 20,
   },
-  lockIcon: {
-    fontSize: 22,
+  lockedTitle: { color: '#becbe4' },
+  subtitle: { color: '#9dadcc', fontSize: 12, marginTop: 4 },
+  progress: { color: '#92a9cb', fontSize: 10, marginTop: 5 },
+  arrow: { fontSize: 27, marginLeft: 5 },
+  avatarOuter: {
+    position: 'absolute',
+    left: 0,
+    top: -5,
+    width: AVATAR,
+    height: AVATAR,
+    borderRadius: AVATAR / 2,
+    borderWidth: 3,
+    padding: 3,
   },
-  arrowCircle: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: colors.brd.default,
-    borderWidth: 1.5,
+  avatarInner: {
+    flex: 1,
+    borderRadius: AVATAR / 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
+  fox: { width: 82, height: 86 },
+  moduleIcon: { fontSize: 36 },
+  checkBadge: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    width: 25,
+    height: 25,
+    borderRadius: 13,
+    backgroundColor: '#64ddaa',
+    borderWidth: 2,
+    borderColor: '#10253e',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  arrowIcon: {
-    fontSize: 16,
-    fontWeight: '800',
-  },
-
-  // ═══ EMPTY ═══
-  emptyBox: {
-    alignItems: 'center',
-    paddingVertical: 60,
-  },
-  emptyEmoji: { fontSize: 60, marginBottom: 16 },
-  emptyTitle: {
-    fontSize: 18,
-    fontWeight: '800',
-    color: colors.textPrimary,
-    marginBottom: 6,
-  },
-  emptySubtitle: {
-    fontSize: 13,
-    color: colors.textSecondary,
+  checkText: { color: '#144335', fontWeight: '900', fontSize: 14 },
+  empty: { paddingTop: 60, alignItems: 'center' },
+  emptyTitle: { color: '#e7efff', fontSize: 18, fontWeight: '700' },
+  emptyText: {
+    color: '#9dadcc',
+    marginTop: 8,
     textAlign: 'center',
-    paddingHorizontal: 40,
   },
 });

@@ -2,9 +2,6 @@ import { Module } from './types';
 
 // ═══════════════════════════════════════
 // MODULLAR
-// Hər modul bir learning path-dir.
-// Yeni modul əlavə etmək üçün sadəcə
-// aşağıdaki massivə yeni obyekt əlavə edin.
 // ═══════════════════════════════════════
 export const modules: Module[] = [
   {
@@ -17,7 +14,11 @@ export const modules: Module[] = [
     order: 1,
     phase: 1,
     icon: '👋',
-    lessonIds: [],
+    lessonIds: [
+      'a1_en_01_d1_1',
+      'a1_en_01_d1_2',
+      'a1_en_01_d1_review',
+    ],
     hasSpeakingPractice: true,
     speakingTitle: 'Speaking Practice',
     speakingDescription:

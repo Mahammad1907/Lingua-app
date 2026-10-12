@@ -23,9 +23,7 @@ const TTS_LANG_MAP: Partial<Record<Language, string>> = {
 // ═══════════════════════════════════════
 // VOCABULARY ŞƏKİLLƏRİ
 // ═══════════════════════════════════════
-const VOCAB_IMAGES: Record<string, number> = {
-  a1_en_01_nice_to_meet_you: require('../../../assets/vocab/nice_to_meet_you.png'),
-};
+const VOCAB_IMAGES: Record<string, number> = {};
 
 export default function VocabularyScreen() {
   const params = useLocalSearchParams<{ id: string }>();

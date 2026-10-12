@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { lessons } from '../data/lessons';
-import { LessonProgress } from '../data/types';
+import { LessonProgress, PlacementResult } from '../data/types';
 
 const STORAGE_KEY = '@birtalk_user_data';
 
@@ -19,6 +19,9 @@ interface UserState {
   // ═══ YENİ — DƏRS PROGRESS ═══
   completedLessons: string[];
   lessonProgress: LessonProgress[];
+  
+  // ═══ PLACEMENT TEST ═══
+  placementResults: PlacementResult[];
 
   // ═══ MÖVCUD ACTIONS ═══
   addXP: (amount: number) => void;
@@ -39,7 +42,17 @@ interface UserState {
   ) => void;
   isLessonCompleted: (lessonId: string) => boolean;
   getNextLessonId: (currentLessonId: string) => string | undefined;
-  getLessonProgress: (lessonId: string) => LessonProgress | undefined;
+    getLessonProgress: (lessonId: string) => LessonProgress | undefined;
+
+  // ═══ PLACEMENT TEST ACTIONS ═══
+  savePlacementResult: (
+    moduleId: string,
+    passed: boolean,
+    correctCount: number,
+    totalCount: number
+  ) => void;
+  getPlacementResult: (moduleId: string) => PlacementResult | undefined;
+  hasPassedPlacement: (moduleId: string) => boolean;
 }
 
 // ═══════════════════════════════════════
@@ -54,6 +67,7 @@ export const useUserStore = create<UserState>((set, get) => ({
   lastPlayedDate: null,
   completedLessons: [],
   lessonProgress: [],
+  placementResults: [],
 
   // ═══════════════════════════════════════
   // MÖVCUD ACTIONS (QORUNUR)
@@ -109,6 +123,7 @@ export const useUserStore = create<UserState>((set, get) => ({
           lastPlayedDate: parsed.lastPlayedDate || null,
           completedLessons: parsed.completedLessons || [],
           lessonProgress: parsed.lessonProgress || [],
+                    placementResults: parsed.placementResults || [],
         });
       }
     } catch (error) {
@@ -129,6 +144,7 @@ export const useUserStore = create<UserState>((set, get) => ({
           lastPlayedDate: state.lastPlayedDate,
           completedLessons: state.completedLessons,
           lessonProgress: state.lessonProgress,
+                    placementResults: state.placementResults,
         })
       );
     } catch (error) {
@@ -145,6 +161,7 @@ export const useUserStore = create<UserState>((set, get) => ({
       lastPlayedDate: null,
       completedLessons: [],
       lessonProgress: [],
+            placementResults: [],
     });
     get().saveToStorage();
   },
@@ -241,5 +258,46 @@ export const useUserStore = create<UserState>((set, get) => ({
     // Növbəti dərs varsa — onun ID-sini qaytar
     const nextLesson = sameGroup[currentIndex + 1];
     return nextLesson?.id;
+  },
+
+  // ═══════════════════════════════════════
+  // PLACEMENT TEST ACTIONS
+  // ═══════════════════════════════════════
+
+  savePlacementResult: (moduleId, passed, correctCount, totalCount) => {
+    const state = get();
+
+    const newResult: PlacementResult = {
+      moduleId,
+      passed,
+      correctCount,
+      totalCount,
+      attemptedAt: new Date().toISOString(),
+    };
+
+    const existingIndex = state.placementResults.findIndex(
+      (r) => r.moduleId === moduleId
+    );
+
+    let updated: PlacementResult[];
+
+    if (existingIndex >= 0) {
+      updated = [...state.placementResults];
+      updated[existingIndex] = newResult;
+    } else {
+      updated = [...state.placementResults, newResult];
+    }
+
+    set({ placementResults: updated });
+    get().saveToStorage();
+  },
+
+  getPlacementResult: (moduleId) => {
+    return get().placementResults.find((r) => r.moduleId === moduleId);
+  },
+
+  hasPassedPlacement: (moduleId) => {
+    const result = get().placementResults.find((r) => r.moduleId === moduleId);
+    return result?.passed === true;
   },
 }));

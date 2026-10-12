@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import {
+  Alert,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -28,13 +29,34 @@ export default function LearningPath({
 }: LearningPathProps) {
   const completedLessons = useUserStore((s) => s.completedLessons);
   const lessonProgress = useUserStore((s) => s.lessonProgress);
+  const placementResults = useUserStore((s) => s.placementResults);
 
   const lessonsWithStatus: LessonWithStatus[] = useMemo(() => {
+    // Modulun ID-si (ilk dərsdən götürürük)
+    const moduleId = lessons[0]?.moduleId;
+
+    // Placement testi keçib?
+    const placementPassed = moduleId
+      ? placementResults.some((r) => r.moduleId === moduleId && r.passed)
+      : false;
+
     return lessons.map((lesson, index) => {
       const completed = completedLessons.includes(lesson.id);
       const progress = lessonProgress.find((p) => p.lessonId === lesson.id);
       const progressPercent = progress?.score || 0;
 
+      // ═══ PLACEMENT KEÇİBSƏ — Final Review açıqdır ═══
+      const isFinalReview =
+        lesson.isReview === true && lesson.reviewType === 'module_review';
+
+      if (isFinalReview && placementPassed) {
+        if (completed) {
+          return { lesson, status: 'completed', progressPercent };
+        }
+        return { lesson, status: 'available', progressPercent };
+      }
+
+      // ═══ NORMAL MƏNTİQ ═══
       let status: LessonStatus;
 
       if (completed) {
@@ -56,13 +78,28 @@ export default function LearningPath({
 
       return { lesson, status, progressPercent };
     });
-  }, [lessons, completedLessons, lessonProgress]);
+  }, [lessons, completedLessons, lessonProgress, placementResults]);
 
   return (
     <View style={styles.pathContainer}>
       {lessonsWithStatus.map((item, index) => {
         const isLast = index === lessonsWithStatus.length - 1;
         const alignment = index % 2 === 0 ? 'flex-start' : 'flex-end';
+
+        const handlePress = () => {
+          if (item.status === 'locked') {
+            const previousLesson =
+              index > 0 ? lessonsWithStatus[index - 1].lesson : null;
+
+            const message = previousLesson
+              ? `Bu dərsi açmaq üçün əvvəlcə «${previousLesson.titleAz}» dərsini tamamla.`
+              : 'Bu dərs hələ kilidlidir.';
+
+            Alert.alert('🔒 Dərs kilidlidir', message);
+            return;
+          }
+          onLessonPress(item.lesson.id);
+        };
 
         return (
           <View key={item.lesson.id} style={styles.pathRow}>
@@ -90,10 +127,7 @@ export default function LearningPath({
               <LessonCard
                 item={item}
                 index={index}
-                onPress={() => {
-                  if (item.status === 'locked') return;
-                  onLessonPress(item.lesson.id);
-                }}
+                onPress={handlePress}
               />
             </View>
 
@@ -146,8 +180,7 @@ function LessonCard({ item, index, onPress }: LessonCardProps) {
     <TouchableOpacity
       style={cardStyle}
       onPress={onPress}
-      activeOpacity={isLocked ? 1 : 0.85}
-      disabled={isLocked}
+      activeOpacity={isLocked ? 0.7 : 0.85}
     >
       <View
         style={[
