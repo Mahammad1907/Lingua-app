@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "lingua-app",
+    "name": "BirTalk",
     "slug": "lingua-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -34,7 +34,14 @@
         }
       ],
       "expo-audio",
-      "expo-image"
+      "expo-image",
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "BirTalk danışıq məşqi üçün mikrofonundan istifadə etmək istəyir.",
+          "speechRecognitionPermission": "BirTalk danışıq cavabını mətnə çevirmək üçün səs tanıma icazəsi istəyir."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

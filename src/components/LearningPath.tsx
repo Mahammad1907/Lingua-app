@@ -43,7 +43,7 @@ export default function LearningPath({
     return lessons.map((lesson, index) => {
       const completed = completedLessons.includes(lesson.id);
       const progress = lessonProgress.find((p) => p.lessonId === lesson.id);
-      const progressPercent = progress?.score || 0;
+      const progressPercent = lesson.moduleId === 'module_1' ? (completed ? 100 : 0) : progress?.score || 0;
 
       // ═══ PLACEMENT KEÇİBSƏ — Final Review açıqdır ═══
       const isFinalReview =

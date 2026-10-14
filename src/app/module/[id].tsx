@@ -11,6 +11,7 @@ import {
 import LearningPath from '../../components/LearningPath';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
+import { getShortSession } from '../../data/firstConversation';
 import { getModuleById } from '../../data/modules';
 import { getPlacementTestByModuleId } from '../../data/placementTests';
 import { Lesson } from '../../data/types';
@@ -46,9 +47,9 @@ export default function ModuleScreen() {
       const p = lessonProgress.find((p) => p.lessonId === l.id);
       return sum + (p?.score || 0);
     }, 0);
-    const percent = Math.round(totalScore / lessons.length);
+    const percent = moduleData?.id === 'module_1' ? Math.round((completedCount / lessons.length) * 100) : Math.round(totalScore / lessons.length);
     return { percent, completedCount, total: lessons.length };
-  }, [lessons, completedLessons, lessonProgress]);
+  }, [lessons, completedLessons, lessonProgress, moduleData?.id]);
 
   // ═══ PLACEMENT TEST MƏLUMATLARI ═══
   const placementInfo = useMemo(() => {
@@ -86,7 +87,8 @@ export default function ModuleScreen() {
   }
 
   const handleLessonPress = (lessonId: string) => {
-    router.push(`/lesson/vocabulary?id=${lessonId}`);
+    if (getShortSession(lessonId)) router.push({ pathname: '/lesson/session', params: { id: lessonId } });
+    else router.push(`/lesson/vocabulary?id=${lessonId}`);
   };
 
   const handleSpeakingPractice = () => {

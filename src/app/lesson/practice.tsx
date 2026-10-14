@@ -1,7 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import { Redirect, Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
   Image,
@@ -17,15 +17,17 @@ import MascotBubble from '../../components/MascotBubble';
 import SpeakerIcon from '../../components/SpeakerIcon';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
-import { Language, QuestionWord, TranslationWord } from '../../data/types';
+import { getShortSession } from '../../data/firstConversation';
+import { getLessonActivities } from '../../data/lessonActivities';
+import { completeLessonSession } from '../../utils/lessonCompletion';
+import { Language, Lesson, QuestionWord, TranslationWord } from '../../data/types';
 import { useUserStore } from '../../store/userStore';
-import { useVocabularyStore } from '../../store/vocabularyStore';
 import { isAnswerCorrect } from '../../utils/answerCheck';
 import { playCorrectSound, playWrongSound } from '../../utils/sound';
 import { AnswerLanguage } from '../../utils/wordDatabase';
 
 const TTS_LANG_MAP: Partial<Record<Language, string>> = {
-  en: 'en-US',
+  en: 'en-GB',
 };
 
 function normalizeWord(raw: string): string {
@@ -104,21 +106,35 @@ function getRetryMessage(wrongCount: number): string {
 
 export default function PracticeScreen() {
   const params = useLocalSearchParams<{ id: string }>();
-  const id = params.id;
   const router = useRouter();
-  const lesson = getLessonById(id || '');
+  const lesson = getLessonById(params.id || '');
+  if (getShortSession(params.id || '')) return <Redirect href={{ pathname: '/lesson/session', params: { id: params.id } }} />;
+  if (!lesson || lesson.exercises.length === 0) return (
+    <View style={styles.errorContainer}>
+      <Stack.Screen options={{ headerShown: false }} />
+      <Text style={styles.errorTitle}>Dərs və ya məşqlər tapılmadı</Text>
+      <TouchableOpacity style={styles.errorButton} onPress={() => router.back()}>
+        <Text style={styles.errorButtonText}>Geri qayıt</Text>
+      </TouchableOpacity>
+    </View>
+  );
+  return <PracticeLesson key={lesson.id} lesson={lesson} />;
+}
 
+function PracticeLesson({ lesson }: { lesson: Lesson }) {
+  const router = useRouter();
+  const finishing = useRef(false);
   const [currentEx, setCurrentEx] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [builtWords, setBuiltWords] = useState<string[]>([]);
-  const [availableWords, setAvailableWords] = useState<string[]>([]);
+  const [availableWords, setAvailableWords] = useState<string[]>(() => [...(lesson.exercises[0].words || [])]);
   const [typedAnswer, setTypedAnswer] = useState('');
   const [inputMode, setInputMode] = useState<'tap' | 'type'>('tap');
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [bestVoice, setBestVoice] = useState<string | undefined>(undefined);
   const [correctCount, setCorrectCount] = useState(0);
-  const [startTime] = useState(Date.now());
+  const [startTime] = useState(() => Date.now());
   const [tappedIndex, setTappedIndex] = useState<number | null>(null);
   const [tappedAzIndex, setTappedAzIndex] = useState<number | null>(null);
 
@@ -126,8 +142,8 @@ export default function PracticeScreen() {
   const [isRetryMode, setIsRetryMode] = useState(false);
   const [showRetryModal, setShowRetryModal] = useState(false);
 
-  const mascotFade = useRef(new Animated.Value(0)).current;
-  const mascotShake = useRef(new Animated.Value(0)).current;
+  const [mascotFade] = useState(() => new Animated.Value(0));
+  const [mascotShake] = useState(() => new Animated.Value(0));
 
   const addXP = useUserStore((s) => s.addXP);
   const loseHeart = useUserStore((s) => s.loseHeart);
@@ -139,13 +155,13 @@ export default function PracticeScreen() {
       try {
         const voices = await Speech.getAvailableVoicesAsync();
         const samantha = voices.find(
-          (v) => v.language === 'en-US' && v.name.includes('Samantha')
+          (v) => v.language === 'en-GB' && v.name.includes('Samantha')
         );
         const google = voices.find(
-          (v) => v.language === 'en-US' && v.name.includes('Google')
+          (v) => v.language === 'en-GB' && v.name.includes('Google')
         );
         const chosen =
-          samantha || google || voices.find((v) => v.language === 'en-US');
+          samantha || google || voices.find((v) => v.language === 'en-GB');
         setBestVoice(chosen?.identifier);
       } catch (e) {
         console.log(e);
@@ -154,9 +170,11 @@ export default function PracticeScreen() {
     findBestVoice();
   }, []);
 
+  useEffect(() => () => { void Speech.stop(); }, []);
+
   const lastSpeakRef = useRef<number>(0);
 
-const speak = async (text: string, lang: Language | undefined) => {
+const speak = useCallback(async (text: string, lang: Language | undefined) => {
   if (!lang) return;
   const ttsLang = TTS_LANG_MAP[lang];
   if (!ttsLang) return;
@@ -182,50 +200,9 @@ const speak = async (text: string, lang: Language | undefined) => {
   } catch (error) {
     console.log('TTS xətası:', error);
   }
-};
-
-  useEffect(() => {
-    setTappedIndex(null);
-    setTappedAzIndex(null);
-  }, [currentEx]);
-
-  if (!lesson) {
-    return (
-      <>
-        <Stack.Screen options={{ headerShown: false }} />
-        <View style={styles.errorContainer}>
-          <Text style={styles.errorEmoji}>😕</Text>
-          <Text style={styles.errorTitle}>Dərs tapılmadı</Text>
-          <TouchableOpacity
-            style={styles.errorButton}
-            onPress={() => router.back()}
-          >
-            <Text style={styles.errorButtonText}>Geri qayıt</Text>
-          </TouchableOpacity>
-        </View>
-      </>
-    );
-  }
+}, [bestVoice]);
 
   const exercise = lesson.exercises[currentEx];
-
-  if (!exercise) {
-    return (
-      <>
-        <Stack.Screen options={{ headerShown: false }} />
-        <View style={styles.errorContainer}>
-          <Text style={styles.errorEmoji}>📭</Text>
-          <Text style={styles.errorTitle}>Məşq yoxdur</Text>
-          <TouchableOpacity
-            style={styles.errorButton}
-            onPress={() => router.back()}
-          >
-            <Text style={styles.errorButtonText}>Geri qayıt</Text>
-          </TouchableOpacity>
-        </View>
-      </>
-    );
-  }
 
       const progress = ((currentEx + 1) / lesson.exercises.length) * 100;
   const isSentenceBuild = exercise.type === 'sentence_build';
@@ -286,19 +263,6 @@ const speak = async (text: string, lang: Language | undefined) => {
 
   const canSpeakResult =
     exercise.answerLang === 'en' && listenableResultText.trim().length > 0;
-
-  useEffect(() => {
-    if (
-      isSentenceBuild &&
-      exercise.words &&
-      builtWords.length === 0 &&
-      availableWords.length === 0 &&
-      !showResult
-    ) {
-      setAvailableWords([...exercise.words]);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentEx]);
 
   const handleTokenTap = (index: number) => {
     const tok = questionTokens[index];
@@ -417,11 +381,11 @@ const speak = async (text: string, lang: Language | undefined) => {
     }
   };
 
-  const resetExerciseState = () => {
+  const resetExerciseState = (nextIndex: number) => {
     Speech.stop();
     setSelected(null);
     setBuiltWords([]);
-    setAvailableWords([]);
+    setAvailableWords([...(lesson.exercises[nextIndex]?.words || [])]);
     setTypedAnswer('');
     setInputMode('tap');
     setShowResult(false);
@@ -430,31 +394,21 @@ const speak = async (text: string, lang: Language | undefined) => {
   };
 
   const finishLesson = () => {
-    const totalWrong = lesson.exercises.length - correctCount;
-
-    addXP(lesson.xpReward);
-
-    useUserStore
-      .getState()
-      .markLessonComplete(
-        lesson.id,
-        correctCount,
-        totalWrong,
-        lesson.xpReward
-      );
-
-    useVocabularyStore.getState().addLessonWords(lesson.id);
-
-    const elapsed = Math.max(
-      1,
-      Math.round((Date.now() - startTime) / 60000)
-    );
-
-    router.replace(
-      `/lesson/complete?id=${lesson.id}&correct=${correctCount}&total=${
-        lesson.exercises.length
-      }&time=${elapsed}&wrong=${totalWrong}`
-    );
+    if (finishing.current) return;
+    finishing.current = true;
+    void Speech.stop();
+    const elapsed = Math.max(1, Math.round((Date.now() - startTime) / 60000));
+    if (getLessonActivities(lesson.id)) {
+      router.replace({ pathname: '/lesson/activities', params: {
+        id: lesson.id, correct: String(correctCount), time: String(elapsed),
+      } });
+      return;
+    }
+    const summary = completeLessonSession(lesson, correctCount);
+    router.replace({ pathname: '/lesson/complete', params: {
+      id: lesson.id, correct: String(summary.correct), total: String(summary.total),
+      wrong: String(summary.wrong), time: String(elapsed),
+    } });
   };
 
   const openRetryModal = () => {
@@ -503,7 +457,7 @@ const speak = async (text: string, lang: Language | undefined) => {
     if (!isRetryMode) {
       if (currentEx + 1 < lesson.exercises.length) {
         setCurrentEx(currentEx + 1);
-        resetExerciseState();
+        resetExerciseState(currentEx + 1);
       } else {
         if (wrongQueue.length > 0) {
           openRetryModal();
@@ -523,7 +477,7 @@ const speak = async (text: string, lang: Language | undefined) => {
         openRetryModal();
       } else {
         setCurrentEx(wrongQueue[currentQueueIndex + 1]);
-        resetExerciseState();
+        resetExerciseState(wrongQueue[currentQueueIndex + 1]);
       }
     }
   };
@@ -533,7 +487,7 @@ const speak = async (text: string, lang: Language | undefined) => {
     setIsRetryMode(true);
     if (wrongQueue.length > 0) {
       setCurrentEx(wrongQueue[0]);
-      resetExerciseState();
+      resetExerciseState(wrongQueue[0]);
     }
   };
 

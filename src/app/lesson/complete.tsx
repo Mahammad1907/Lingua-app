@@ -1,6 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Animated,
   Image,
@@ -13,35 +13,6 @@ import Svg, { Circle } from 'react-native-svg';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
 import { useUserStore } from '../../store/userStore';
-
-function Counter({ to, duration = 600 }: { to: number; duration?: number }) {
-  const [value, setValue] = useState(0);
-  const timerRef = useRef<any>(null);
-
-  useEffect(() => {
-    setValue(0);
-    const steps = 30;
-    const stepValue = to / steps;
-    const stepTime = duration / steps;
-    let current = 0;
-
-    timerRef.current = setInterval(() => {
-      current += stepValue;
-      if (current >= to) {
-        setValue(to);
-        if (timerRef.current) clearInterval(timerRef.current);
-      } else {
-        setValue(Math.floor(current));
-      }
-    }, stepTime);
-
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [to, duration]);
-
-  return <>{value}</>;
-}
 
 function ProgressRing({
   progress,
@@ -97,18 +68,14 @@ export default function CompleteScreen() {
   const router = useRouter();
   const lesson = getLessonById(id || '');
 
-  const xp = useUserStore((s) => s.xp);
   const streak = useUserStore((s) => s.streak);
-  const getNextLessonId = useUserStore((s) => s.getNextLessonId);
 
-  const mascotFade = useRef(new Animated.Value(0)).current;
-  const messageFade = useRef(new Animated.Value(0)).current;
+  const [mascotFade] = useState(() => new Animated.Value(0));
+  const [messageFade] = useState(() => new Animated.Value(0));
 
   const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
   const xpReward = lesson?.xpReward || 0;
 
-  const nextLessonId = lesson ? getNextLessonId(lesson.id) : undefined;
-  const hasNextLesson = Boolean(nextLessonId);
 
   const getMascot = () => {
     if (accuracy >= 80) return require('../../../assets/mascot/fox_happy.png');
@@ -137,14 +104,11 @@ export default function CompleteScreen() {
         useNativeDriver: true,
       }),
     ]).start();
-  }, []);
+  }, [mascotFade, messageFade]);
 
-  const handleNextLesson = () => {
-    if (nextLessonId) {
-      router.replace(`/lesson/vocabulary?id=${nextLessonId}`);
-    } else {
-      router.replace('/(tabs)');
-    }
+  const handleBackToModule = () => {
+    if (lesson) router.replace(`/module/${lesson.moduleId}`);
+    else router.replace('/(tabs)');
   };
 
   return (
@@ -235,7 +199,7 @@ export default function CompleteScreen() {
                 <Text style={styles.rowIcon}>🎯</Text>
               </View>
               <View style={styles.rowInfo}>
-                <Text style={styles.rowLabel}>Dəqiqlik</Text>
+                <Text style={styles.rowLabel}>Məşq dəqiqliyi</Text>
                 <Text style={styles.rowSubLabel}>{getSubtitle()}</Text>
               </View>
               <Text style={styles.rowValue}>{accuracy}%</Text>
@@ -257,7 +221,7 @@ export default function CompleteScreen() {
           <View style={styles.buttonsWrapper}>
             <TouchableOpacity
               style={styles.primaryButtonWrapper}
-              onPress={handleNextLesson}
+              onPress={handleBackToModule}
               activeOpacity={0.85}
             >
               <LinearGradient
@@ -267,14 +231,14 @@ export default function CompleteScreen() {
                 style={styles.primaryButton}
               >
                 <Text style={styles.primaryButtonText}>
-                  {hasNextLesson ? '→' : '🏠'}
+                  {'🗺️'}
                 </Text>
                 <View style={styles.primaryButtonContent}>
                   <Text style={styles.primaryButtonTitle}>
-                    {hasNextLesson ? 'Növbəti dərs' : 'Ana səhifə'}
+                    Bölmə xəritəsi
                   </Text>
                   <Text style={styles.primaryButtonSubtitle}>
-                    {hasNextLesson ? 'Davam et' : 'Modullara qayıt'}
+                    Növbəti dərsi özün seç
                   </Text>
                 </View>
               </LinearGradient>

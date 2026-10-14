@@ -1,6 +1,6 @@
 // src/app/lesson/vocabulary.tsx
 
-import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import { Redirect, Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -13,12 +13,15 @@ import {
   View,
 } from 'react-native';
 import SpeakerIcon from '../../components/SpeakerIcon';
+import LessonExplanation from '../../components/LessonExplanation';
+import { getLessonActivities } from '../../data/lessonActivities';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
-import { Language } from '../../data/types';
+import { getShortSession } from '../../data/firstConversation';
+import { Language, Lesson } from '../../data/types';
 
 const TTS_LANG_MAP: Partial<Record<Language, string>> = {
-  en: 'en-US',
+  en: 'en-GB',
 };
 // ═══════════════════════════════════════
 // VOCABULARY ŞƏKİLLƏRİ
@@ -27,34 +30,40 @@ const VOCAB_IMAGES: Record<string, number> = {};
 
 export default function VocabularyScreen() {
   const params = useLocalSearchParams<{ id: string }>();
-  const id = params.id;
   const router = useRouter();
-  const lesson = getLessonById(id || '');
+  const lesson = getLessonById(params.id || '');
+  if (getShortSession(params.id || '')) return <Redirect href={{ pathname: '/lesson/session', params: { id: params.id } }} />;
+  if (!lesson || lesson.vocabulary.length === 0) return (
+    <View style={styles.errorContainer}>
+      <Stack.Screen options={{ headerShown: false }} />
+      <Text style={styles.errorTitle}>Dərs və ya sözlər tapılmadı</Text>
+      <TouchableOpacity style={styles.errorButton} onPress={() => router.back()}>
+        <Text style={styles.errorButtonText}>Geri qayıt</Text>
+      </TouchableOpacity>
+    </View>
+  );
+  return <LessonEntry key={lesson.id} lesson={lesson} />;
+}
 
+function LessonEntry({ lesson }: { lesson: Lesson }) {
+  const router = useRouter();
+  const [showWords, setShowWords] = useState(false);
+  const content = getLessonActivities(lesson.id);
+  if (content && !showWords) return (
+    <LessonExplanation lesson={lesson} content={content}
+      onContinue={() => setShowWords(true)} onBack={() => router.back()} />
+  );
+  return <VocabularyLesson lesson={lesson} />;
+}
+
+function VocabularyLesson({ lesson }: { lesson: Lesson }) {
+  const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const slideAnim = useRef(new Animated.Value(0)).current;
-  const fadeAnim = useRef(new Animated.Value(1)).current;
-  const progressAnim = useRef(new Animated.Value(1)).current;
-  const pressScale = useRef(new Animated.Value(1)).current;
-
-  if (!lesson) {
-    return (
-      <>
-        <Stack.Screen options={{ headerShown: false }} />
-        <View style={styles.errorContainer}>
-          <Text style={styles.errorEmoji}>😕</Text>
-          <Text style={styles.errorTitle}>Dərs tapılmadı</Text>
-          <TouchableOpacity
-            style={styles.errorButton}
-            onPress={() => router.back()}
-          >
-            <Text style={styles.errorButtonText}>Geri qayıt</Text>
-          </TouchableOpacity>
-        </View>
-      </>
-    );
-  }
+  const [slideAnim] = useState(() => new Animated.Value(0));
+  const [fadeAnim] = useState(() => new Animated.Value(1));
+  const [progressAnim] = useState(() => new Animated.Value(1));
+  const [pressScale] = useState(() => new Animated.Value(1));
 
   const vocab = lesson.vocabulary;
   const total = vocab.length;
@@ -63,6 +72,8 @@ export default function VocabularyScreen() {
   const currentWord = vocab[currentIndex];
 
   const progressPercent = ((currentIndex + 1) / total) * 100;
+
+  useEffect(() => () => { void Speech.stop(); }, []);
 
   const lastSpeakRef = useRef<number>(0);
 
@@ -96,7 +107,7 @@ const speakWord = async (word: string) => {
       duration: 250,
       useNativeDriver: false,
     }).start();
-  }, [currentIndex, progressPercent]);
+  }, [currentIndex, progressPercent, progressAnim]);
 
   const animateTransition = (
     direction: 'next' | 'prev',
@@ -312,7 +323,7 @@ const speakWord = async (word: string) => {
           {isLast ? (
             <View style={styles.celebrationBlock}>
               <Text style={styles.celebrationTitle}>
-                🎉 Əla! {total} ifadə öyrəndin!
+                🎉 {total} ifadə ilə tanış oldun!
               </Text>
               <Text style={styles.celebrationText}>
                 🦊 İndi görək onları nə qədər yaxşı xatırladığın.
@@ -347,7 +358,7 @@ const speakWord = async (word: string) => {
             >
               <View style={styles.practiceButton}>
                 <Text style={styles.practiceButtonText}>
-                  🎮 Sözləri yoxla
+                  Məşqlərə keç
                 </Text>
                 <Text style={styles.practiceButtonArrow}>→</Text>
               </View>
