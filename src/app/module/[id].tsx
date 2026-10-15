@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import ChapterMap from '../../components/ChapterMap';
 import LearningPath from '../../components/LearningPath';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
@@ -85,6 +86,8 @@ export default function ModuleScreen() {
       </>
     );
   }
+
+  if (moduleData.id === 'module_1') return <ChapterMap lessons={lessons} />;
 
   const handleLessonPress = (lessonId: string) => {
     if (getShortSession(lessonId)) router.push({ pathname: '/lesson/session', params: { id: lessonId } });

@@ -1,0 +1,60 @@
+const fs = require('fs');
+const path = require('path');
+const vm = require('vm');
+const assert = require('node:assert/strict');
+const ts = require('typescript');
+const root = path.resolve(__dirname, '..');
+const cache = new Map();
+const storage = { getItem: async () => null, setItem: async () => {} };
+function load(relative) {
+  const filename = path.resolve(root, relative);
+  if (cache.has(filename)) return cache.get(filename).exports;
+  const module = { exports: {} }; cache.set(filename, module);
+  const code = ts.transpileModule(fs.readFileSync(filename, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
+  const localRequire = name => name === '@react-native-async-storage/async-storage' ? { default: storage } : name.startsWith('.') ? load(path.relative(root, path.resolve(path.dirname(filename), name + '.ts'))) : require(name);
+  vm.runInNewContext(`(function(require,module,exports){${code}\n})`, { console, Date, Set })(localRequire, module, module.exports);
+  return module.exports;
+}
+(async () => {
+  const { lessonResult } = load('src/utils/lessonResult.ts');
+  assert.equal(lessonResult(9, 1).mood, 'excellent');
+  assert.equal(lessonResult(6, 4).mood, 'good');
+  assert.equal(lessonResult(5, 5).mood, 'practice');
+  assert.equal(lessonResult(0, 0).percent, null);
+  const { recoverEnergy, ENERGY_INTERVAL, useEnergyStore } = load('src/store/energyStore.ts');
+  assert.equal(recoverEnergy(0, 100, 100 + ENERGY_INTERVAL - 1).energy, 0);
+  assert.equal(recoverEnergy(0, 100, 100 + ENERGY_INTERVAL).energy, 10);
+  assert.equal(recoverEnergy(90, 100, 100 + ENERGY_INTERVAL * 9).energy, 100);
+  await useEnergyStore.getState().hydrate();
+  assert.equal(useEnergyStore.getState().begin('lesson-1'), true);
+  useEnergyStore.getState().charge('question-1');
+  useEnergyStore.getState().charge('question-1');
+  assert.equal(useEnergyStore.getState().energy, 90);
+  for (let i = 2; i <= 10; i++) useEnergyStore.getState().charge(`question-${i}`);
+  assert.equal(useEnergyStore.getState().energy, 0);
+  assert.equal(useEnergyStore.getState().begin('lesson-1'), true);
+  assert.equal(useEnergyStore.getState().begin('lesson-2'), false);
+  useEnergyStore.getState().finish();
+  assert.equal(useEnergyStore.getState().begin('lesson-1'), false);
+  const { isSessionAnswerCorrect: check } = load('src/utils/sessionAnswer.ts');
+  assert.equal(check('mornng', 'morning', 'en', [], true), true);
+  assert.equal(check('mourning', 'morning', 'en', [], true), false);
+  assert.equal(check('five', 'fine', 'en', [], true), false);
+  assert.equal(check('is', 'am', 'en', [], true), false);
+  const { checkSpokenAnswer: voice } = load('src/utils/spokenAnswer.ts');
+  assert.equal(voice('banana', 'greeting').correct, false);
+  assert.equal(voice('Hello!', 'greeting').correct, true);
+  assert.equal(voice('I is Ali', 'introduce', 'Ali').correct, false);
+  assert.equal(voice("I'm Ali", 'introduce', 'Ali').correct, true);
+  assert.equal(voice('', 'greeting').countAsAttempt, false);
+  assert.equal(voice('My name is Alex', 'introduce', 'Ali').countAsAttempt, false);
+  assert.equal(voice('Goodbye', 'feeling').correct, false);
+  const { firstConversationSessions } = load('src/data/firstConversation.ts');
+  const sessions = Object.values(firstConversationSessions);
+  assert.equal(sessions.length, 6);
+  for (const session of sessions.filter(s => s.style !== 'voice_chat')) {
+    assert.equal(session.steps.length, 8); assert.ok(session.speaking);
+    assert.equal(new Set(session.steps.map(s => s.exercise.id)).size, 8);
+  }
+  console.log('PASS: result boundaries; recovery; single energy deduction; zero-energy continuation; typo protection; speech verdicts; 6 independent lessons.');
+})().catch(error => { console.error(error); process.exitCode = 1; });

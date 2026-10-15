@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AudioSceneActivity from '../../components/AudioSceneActivity';
-import LessonScene, { AnimatedFox, ScenePlace } from '../../components/LessonScene';
+import LessonScene, { ScenePlace } from '../../components/LessonScene';
 import ConversationAvatar from '../../components/ConversationAvatar';
 import { lessonTheme as t } from '../../constants/lessonTheme';
 import VoiceChatLesson, { VoiceStats } from '../../components/VoiceChatLesson';
@@ -13,6 +13,10 @@ import { getLessonById } from '../../data/lessons';
 import { Lesson } from '../../data/types';
 import { useUserStore } from '../../store/userStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
+import EnergyMeter from '../../components/EnergyMeter';
+import LessonResults from '../../components/LessonResults';
+import { BirFoxPortrait } from '../../components/BirTalkArtwork';
+import { useEnergyStore } from '../../store/energyStore';
 import { isSessionAnswerCorrect } from '../../utils/sessionAnswer';
 
 export default function LessonSessionScreen() {
@@ -27,6 +31,11 @@ export default function LessonSessionScreen() {
 function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSession }) {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const [teaching, setTeaching] = useState(true);
+  const [energyAllowed, setEnergyAllowed] = useState<boolean | null>(null);
+  const [meaning, setMeaning] = useState('');
+  const startedAt = useRef(0);
+  const [result, setResult] = useState({ correct: 0, wrong: 0, skipped: 0, seconds: 0, xp: 0 });
   const [warmup, setWarmup] = useState(Boolean(content.warmup));
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState('');
@@ -36,9 +45,6 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
   const [ownCard, setOwnCard] = useState(false);
   const [finished, setFinished] = useState(false);
   const [oralStage, setOralStage] = useState(false);
-  const [voiceStats, setVoiceStats] = useState<VoiceStats | null>(null);
-  const [showPhrases, setShowPhrases] = useState(false);
-  const [teacherOpen, setTeacherOpen] = useState(false);
   const scroll = useRef<ScrollView>(null);
   const attempts = useRef<Record<number, boolean>>({});
   const completing = useRef(false);
@@ -47,7 +53,12 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
   const activity = current?.activity || content.style;
   const place: ScenePlace = current?.place || (lesson.order === 4 ? 'park' : lesson.order === 5 ? 'cafe' : 'classroom');
 
-  useEffect(() => () => { void Speech.stop(); }, []);
+  useEffect(() => {
+    let active = true;
+    startedAt.current = Date.now();
+    void useEnergyStore.getState().hydrate().then(() => { if (active) setEnergyAllowed(useEnergyStore.getState().begin(lesson.id)); });
+    return () => { active = false; void Speech.stop(); };
+  }, [lesson.id]);
   const backToMap = () => { void Speech.stop(); router.replace(`/module/${lesson.moduleId}`); };
 
   const complete = (spoken?: VoiceStats) => {
@@ -57,10 +68,12 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
     const alreadyCompleted = user.completedLessons.includes(lesson.id);
     const writtenCorrect = Object.values(attempts.current).filter(Boolean).length;
     const correct = writtenCorrect + (spoken?.correct || 0);
-    const wrong = lesson.exercises.length - writtenCorrect + (spoken?.wrong || 0);
+    const wrong = Object.values(attempts.current).filter(value => !value).length + (spoken?.wrong || 0);
     // Skipped voice tasks and recognition failures never enter the accuracy denominator.
     user.markLessonComplete(lesson.id, correct, wrong, lesson.xpReward);
-    if (spoken) setVoiceStats(spoken);
+    // eslint-disable-next-line react-hooks/purity -- Completion is invoked only by user event handlers, never during render.
+    setResult({ correct, wrong, skipped: spoken?.skipped || 0, seconds: Math.max(1, Math.round((Date.now() - startedAt.current) / 1000)), xp: alreadyCompleted ? 0 : lesson.xpReward });
+    useEnergyStore.getState().finish();
     if (!alreadyCompleted) user.addXP(lesson.xpReward);
     useVocabularyStore.getState().addLessonWords(lesson.id);
     setFinished(true);
@@ -69,13 +82,13 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
   const check = (value = answer) => {
     if (!exercise || !value.trim() || feedback === 'correct') return;
     const correct = isSessionAnswerCorrect(value, exercise.correctAnswer, exercise.answerLang || 'en', exercise.acceptedAnswers, exercise.type === 'fill_blank' || exercise.type === 'translation');
-    if (!warmup && !(index in attempts.current)) attempts.current[index] = correct;
+    if (!warmup && !(index in attempts.current)) { attempts.current[index] = correct; if (!correct) useEnergyStore.getState().charge(exercise.id); }
     setFeedback(correct ? 'correct' : 'wrong');
     if (correct) Keyboard.dismiss();
   };
   const next = () => {
     void Speech.stop();
-    setAnswer(''); setBuilt([]); setFeedback(null); setShowPhrases(false); setTeacherOpen(false);
+    setAnswer(''); setBuilt([]); setFeedback(null); setMeaning('');
     scroll.current?.scrollTo({ y: 0, animated: false });
     if (warmup) { setWarmup(false); return; }
     if (index + 1 < content.steps.length) setIndex((value) => value + 1);
@@ -83,25 +96,29 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
     else if (content.speaking) setOralStage(true);
     else complete();
   };
-  const speak = async (text: string) => {
+  const speak = async (text: string, language = 'en') => {
     await Speech.stop();
-    Speech.speak(text, { language: 'en-GB', rate: 0.75 });
+    Speech.speak(text, { language: language === 'az' ? 'az-AZ' : 'en-GB', rate: 0.75 });
   };
 
-  if (finished) return <View style={[styles.screen, styles.result, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
+  if (energyAllowed === null) return <View style={[styles.screen, styles.result]}><Text style={styles.body}>Dərs hazırlanır…</Text></View>;
+  if (!energyAllowed) return <View style={[styles.screen, styles.result]}><EnergyMeter /><Text style={styles.title}>Enerji bərpa olunur</Text><Text style={styles.body}>Hər 20 dəqiqədə 10% enerji bərpa olunur. Başladığın dərsi enerji bitsə də tamamlaya bilərsən.</Text><TouchableOpacity style={styles.primary} onPress={() => setEnergyAllowed(useEnergyStore.getState().begin(lesson.id))}><Text style={styles.primaryText}>Yenidən yoxla</Text></TouchableOpacity><TouchableOpacity onPress={backToMap}><Text style={styles.link}>Xəritəyə qayıt</Text></TouchableOpacity></View>;
+  if (finished) return <LessonResults title={lesson.titleAz} {...result} onBack={backToMap} />;
+  const chargeVoice = (index: number, correct: boolean) => { if (!correct) useEnergyStore.getState().charge(`${lesson.id}_voice_${index}`); };
+  if (teaching) return <View style={[styles.screen, { paddingTop: insets.top }]}>
     <Stack.Screen options={{ headerShown: false }} />
-    <AnimatedFox mood="celebrate" size={135} />
-    <Text style={styles.title}>Bu dərs bitdi!</Text>
-    <Text style={styles.body}>{lesson.titleAz}</Text>
-    <Text style={styles.goal}>{lesson.canDo}</Text>
-    <Text style={styles.body}>{lesson.focus === 'speaking' ? 'Səsli söhbəti məşq etdin. Tələffüz balı verilmir.' : `${lesson.exercises.length} yazılı/dinləmə tapşırığını məşq etdin.`}</Text>
-    {voiceStats ? <Text style={styles.note}>Danışıq: ilk cəhddə uyğun {voiceStats.correct} · Təkrar {voiceStats.wrong} · Keçildi {voiceStats.skipped}</Text> : null}
-    <TouchableOpacity style={styles.primary} onPress={backToMap}><Text style={styles.primaryText}>Bölmə xəritəsinə qayıt</Text></TouchableOpacity>
-    <Text style={styles.note}>Növbəti dərsi xəritədən özün açacaqsan.</Text>
+    <View style={styles.header}><TouchableOpacity style={styles.back} onPress={backToMap}><Text style={styles.backText}>‹</Text></TouchableOpacity><View style={{ flex: 1 }}><Text style={styles.label}>ƏVVƏL ÖYRƏNƏK</Text><Text style={styles.headerTitle}>{lesson.titleAz}</Text></View><EnergyMeter /></View>
+    <ScrollView contentContainerStyle={styles.content}>
+      <LessonScene place={place} />
+      <View style={styles.teacher}><BirFoxPortrait size={42} /><View style={{ flex: 1 }}><Text style={styles.tipLabel}>BirFox ilə öyrən</Text><Text style={styles.teacherText}>{lesson.canDo}</Text></View></View>
+      <Text style={styles.body}>{lesson.situation}</Text>
+      {lesson.vocabulary.map(word => <TouchableOpacity key={word.id} style={styles.phrase} onPress={() => void speak(word.word)} accessibilityLabel={`${word.word}, dinlə`}><Text style={styles.phraseWord}>▶  {word.word}</Text><Text style={styles.body}>{word.translation}</Text><Text style={styles.note}>{word.usageNote}</Text></TouchableOpacity>)}
+      <Text style={styles.note}>İfadəyə toxun və dinlə. Sonra özün ucadan təkrar et.</Text>
+    </ScrollView>
+    <View style={[styles.footer, { paddingBottom: Math.max(insets.bottom, 12) }]}><TouchableOpacity style={styles.primary} onPress={() => { void Speech.stop(); setTeaching(false); }}><Text style={styles.primaryText}>Məşqə başla  →</Text></TouchableOpacity></View>
   </View>;
-
-  if (oralStage && content.speaking) return <VoiceChatLesson turns={[content.speaking]} initialName={name} onFinish={complete} onBack={backToMap} />;
-  if (content.style === 'voice_chat') return <VoiceChatLesson turns={content.turns || []} onFinish={complete} onBack={backToMap} />;
+  if (oralStage && content.speaking) return <VoiceChatLesson turns={[content.speaking]} initialName={name} onFinish={complete} onBack={backToMap} onFirstAttempt={chargeVoice} />;
+  if (content.style === 'voice_chat') return <VoiceChatLesson turns={content.turns || []} onFinish={complete} onBack={backToMap} onFirstAttempt={chargeVoice} />;
 
   const needsCheck = exercise?.type === 'sentence_build' || exercise?.type === 'fill_blank' || exercise?.type === 'translation';
   const canCheck = exercise?.type === 'sentence_build' ? built.length > 0 : Boolean(answer.trim());
@@ -120,7 +137,7 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
     <View style={styles.header}>
       <TouchableOpacity accessibilityLabel="Bölmə xəritəsinə qayıt" style={styles.back} onPress={backToMap}><Text style={styles.backText}>‹</Text></TouchableOpacity>
       <View style={{ flex: 1 }}><Text style={styles.label}>{lesson.order}/6 · İLK TANIŞLIQ</Text><Text style={styles.headerTitle}>{lesson.titleAz}</Text></View>
-      <View style={styles.level}><Text style={styles.counter}>A1</Text></View>
+      <EnergyMeter />
     </View>
     <View style={styles.progressRow}><View style={styles.progressTrack}><View style={[styles.progressFill, { width: `${ownCard ? 100 : warmup ? 0 : (index + 1) / content.steps.length * 100}%` }]} /></View><Text style={styles.counter}>{warmup ? 'Təkrar' : ownCard ? 'Kartın' : `${index + 1}/${content.steps.length}`}</Text></View>
     <ScrollView ref={scroll} style={styles.scroll} contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
@@ -132,31 +149,24 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
         {name.trim() ? <TouchableOpacity style={styles.nameCard} onPress={() => void speak(`Hi! I'm ${name.trim()}.`)}><Text style={styles.nameLabel}>SƏNİN TANIŞLIQ KARTIN</Text><Text style={styles.nameTitle}>Hi! I’m {name.trim()}.</Text><Text style={styles.note}>▶ Dinlə və özün de</Text></TouchableOpacity> : null}
       </> : <>
         {warmup ? <Text style={styles.warmup}>Əvvəlki dərsdən bir qısa təkrar</Text> : null}
-        <TouchableOpacity accessibilityRole="button" accessibilityState={{ expanded: teacherOpen }} onPress={() => setTeacherOpen((value) => !value)} style={styles.teacher}>
-          <AnimatedFox mood={feedback === 'correct' ? 'celebrate' : 'idle'} size={30} />
-          <View style={{ flex: 1 }}><Text style={styles.tipLabel}>Kiçik ipucu</Text>{teacherOpen ? <Text style={styles.teacherText}>{current.teacher}</Text> : <Text style={styles.note}>İzahı açmaq üçün toxun</Text>}</View>
-          <Text style={styles.counter}>{teacherOpen ? '−' : '+'}</Text>
-        </TouchableOpacity>
-        {!warmup ? <LessonScene key={exercise.id} place={place} mood={feedback === 'correct' ? 'celebrate' : feedback === 'wrong' ? 'thinking' : 'idle'} evening={current.audio?.includes('evening') || index === 6} label={activity === 'scene' ? 'Dinlə və səhnəni seç' : undefined} /> : null}
-        {activity === 'repair' && current.foxSays && !warmup ? <View style={styles.foxMistake}><Text style={styles.label}>TÜLKÜ BELƏ DEDİ</Text><Text style={styles.wrongSentence}>{current.foxSays}</Text></View> : null}
+        <View style={styles.teacher}><BirFoxPortrait size={32} /><Text style={styles.tipLabel}>BirFox ilə məşq · A1</Text></View>
         <Text style={styles.question}>{exercise.question}</Text>
+        {!warmup ? <LessonScene place={place} /> : null}
+        {activity === 'repair' && current.foxSays && !warmup ? <View style={styles.foxMistake}><Text style={styles.label}>BİRFOX BELƏ DEDİ</Text><Text style={styles.wrongSentence}>{current.foxSays}</Text></View> : null}
         {activity === 'order' && !warmup ? <View style={styles.messageDraft}><Text style={styles.label}>SƏNİN MESAJIN</Text><Text style={styles.draftText}>{exercise.type === 'sentence_build' ? (built.map((i) => exercise.words![i]).join(' ') || 'Mesajı hazırla…') : (answer || 'Uyğun mesajı seç…')}</Text></View> : null}
         {activity === 'scene' && !warmup ? <AudioSceneActivity key={exercise.id} audio={current.audio!} options={exercise.options || []} selected={answer} disabled={feedback === 'correct'} onAnswer={(value) => { setAnswer(value); check(value); }} /> : <>
           {current.audio ? <TouchableOpacity style={styles.audio} onPress={() => void speak(current.audio!)} accessibilityLabel="İngiliscə səsi dinlə">{activity === 'dialogue' ? <ConversationAvatar person="emma" size={28} /> : null}<Text style={styles.audioText}>▶ {activity === 'dialogue' ? 'Səsli mesaj' : 'Səsi dinlə'}</Text></TouchableOpacity> : null}
           {exercise.type === 'sentence_build' ? <>
             <View style={styles.sentence}>
-              {built.length ? built.map((wordIndex, position) => <TouchableOpacity key={`${wordIndex}-${position}`} disabled={feedback === 'correct'} style={styles.word} onPress={() => { setBuilt((value) => value.filter((_, i) => i !== position)); setFeedback(null); }}><Text style={styles.wordText}>{exercise.words![wordIndex]}</Text></TouchableOpacity>) : <Text style={styles.note}>Sözləri seçərək cümləni qur</Text>}
+              {built.length ? built.map((wordIndex, position) => <TouchableOpacity key={`${wordIndex}-${position}`} disabled={feedback === 'correct'} style={styles.word} onLongPress={() => { const word = exercise.words![wordIndex]; const translation = lesson.sentenceDictionary?.[word.toLowerCase()] || lesson.vocabulary.find(v => v.word.toLowerCase() === word.toLowerCase())?.translation; if (translation) setMeaning(`${word} — ${translation}`); }} onPress={() => { setBuilt((value) => value.filter((_, i) => i !== position)); setFeedback(null); }}><Text style={styles.wordText}>{exercise.words![wordIndex]}</Text></TouchableOpacity>) : <Text style={styles.note}>Sözləri seçərək cümləni qur</Text>}
             </View>
-            <View style={styles.words}>{exercise.words?.map((word, wordIndex) => <TouchableOpacity key={wordIndex} disabled={built.includes(wordIndex) || feedback === 'correct'} style={[styles.word, built.includes(wordIndex) && styles.usedWord]} onPress={() => { setBuilt((value) => [...value, wordIndex]); setFeedback(null); }}><Text style={styles.wordText}>{word}</Text></TouchableOpacity>)}</View>
+            <View style={styles.words}>{exercise.words?.map((word, wordIndex) => <TouchableOpacity key={wordIndex} disabled={built.includes(wordIndex) || feedback === 'correct'} style={[styles.word, built.includes(wordIndex) && styles.usedWord]} onPress={() => { void speak(word); setBuilt((value) => [...value, wordIndex]); setFeedback(null); }}><Text style={styles.wordText}>{word}</Text></TouchableOpacity>)}</View>
           </> : exercise.type === 'fill_blank' || exercise.type === 'translation' ? <>
             <TextInput accessibilityLabel="Cavabın" style={styles.input} placeholder={exercise.type === 'translation' ? 'İngiliscə yaz' : 'Yalnız boşluğa uyğun hissəni yaz'} placeholderTextColor={t.muted} value={answer} autoCorrect={false} autoCapitalize="none" editable={feedback !== 'correct'} returnKeyType="done" onSubmitEditing={() => check()} onChangeText={(value) => { setAnswer(value); setFeedback(null); }} />
-          </> : exercise.options?.map((option) => <TouchableOpacity key={option} accessibilityRole="button" accessibilityState={{ selected: answer === option }} disabled={feedback === 'correct'} style={[styles.option, answer === option && styles.selectedOption]} onPress={() => { setAnswer(option); check(option); }}><Text style={styles.optionText}>{option}</Text><Text style={styles.optionMark}>{answer === option ? feedback === 'correct' ? '✓' : '•' : '○'}</Text></TouchableOpacity>)}
+          </> : exercise.options?.map((option) => <TouchableOpacity key={`${exercise.id}-${option}`} accessibilityRole="button" accessibilityState={{ selected: answer === option }} disabled={feedback === 'correct'} style={[styles.option, answer === option && styles.selectedOption]} onPress={() => { void speak(option, exercise.answerLang); setAnswer(option); check(option); }}><Text style={styles.optionText}>{option}</Text><Text style={styles.optionMark}>{answer === option ? feedback === 'correct' ? '✓' : '•' : '○'}</Text></TouchableOpacity>)}
         </>}
       </>}
-      {!warmup && lesson.vocabulary.length ? <>
-        <TouchableOpacity onPress={() => setShowPhrases((value) => !value)}><Text style={styles.link}>{showPhrases ? 'İfadələri gizlət ↑' : 'Bu dərsin ifadələri ↓'}</Text></TouchableOpacity>
-        {showPhrases ? lesson.vocabulary.map((word) => <TouchableOpacity key={word.id} style={styles.phrase} onPress={() => void speak(word.word)}><Text style={styles.phraseWord}>▶ {word.word}</Text><Text style={styles.note}>{word.translation}</Text><Text style={styles.note}>{word.usageNote}</Text></TouchableOpacity>) : null}
-      </> : null}
+      {meaning ? <View style={styles.phrase}><Text style={styles.body}>{meaning}</Text></View> : null}
     </ScrollView>
     <View style={[styles.footer, { paddingBottom: Math.max(insets.bottom, 12) }]}>
       {feedback && !ownCard ? <View accessibilityLiveRegion="polite" style={[styles.feedback, feedback === 'wrong' && styles.feedbackWrong]}>
@@ -189,8 +199,9 @@ const styles = StyleSheet.create({
   link: { color: t.orange, fontSize: 12, fontWeight: '700', paddingVertical: 14 }, note: { color: t.muted, fontSize: 11, lineHeight: 17, marginTop: 4 },
   foxMistake: { backgroundColor: t.errorBg, padding: 14, borderRadius: 16, marginBottom: 14 }, wrongSentence: { color: t.error, fontSize: 19, fontWeight: '700', marginTop: 5 },
   audio: { flexDirection: 'row', alignItems: 'center', gap: 10, padding: 12, backgroundColor: t.surface, borderWidth: 1, borderColor: t.border, borderRadius: 16, marginBottom: 12 }, audioText: { color: t.orange, fontSize: 14, fontWeight: '700' },
-  phrase: { padding: 14, backgroundColor: t.surface, borderRadius: 16, marginBottom: 8 }, phraseWord: { color: t.text, fontWeight: '700', fontSize: 15 },
+  phrase: { marginTop: 12, padding: 16, backgroundColor: t.surface, borderRadius: 16, marginBottom: 8 }, phraseWord: { color: t.text, fontWeight: '700', fontSize: 15 },
   messageDraft: { alignSelf: 'flex-end', maxWidth: '90%', backgroundColor: t.successBg, borderRadius: 16, borderTopRightRadius: 4, padding: 14, marginBottom: 14 }, draftText: { color: t.text, fontSize: 16, lineHeight: 23 },
   nameCard: { padding: 22, backgroundColor: t.surface, borderWidth: 1, borderColor: t.orange, borderRadius: 20, marginVertical: 16 }, nameLabel: { color: t.orange, fontSize: 10, fontWeight: '800' }, nameTitle: { color: t.text, fontSize: 23, fontWeight: '800', marginTop: 10 },
   result: { justifyContent: 'center', alignItems: 'center', paddingHorizontal: 24 }, errorScreen: { flex: 1, padding: 24, justifyContent: 'center', backgroundColor: t.background },
 });
+

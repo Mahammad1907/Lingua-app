@@ -9,7 +9,7 @@ import { RecordedVoice } from './VoiceMessageComposer';
 import RecognizedVoiceComposer, { RecognizedVoice } from './RecognizedVoiceComposer';
 import { checkSpokenAnswer } from '../utils/spokenAnswer';
 import VoiceWave from './VoiceWave';
-import { AnimatedFox } from './LessonScene';
+import { BirFoxPortrait } from './BirTalkArtwork';
 import { lessonTheme as t } from '../constants/lessonTheme';
 
 function OwnVoice({ voice, active, onPlay, disabled = false }: { voice: RecordedVoice; active: boolean; onPlay: () => void; disabled?: boolean }) {
@@ -31,8 +31,8 @@ function OwnVoice({ voice, active, onPlay, disabled = false }: { voice: Recorded
 }
 
 export interface VoiceStats { correct: number; wrong: number; skipped: number }
-export default function VoiceChatLesson({ turns, onFinish, onBack, initialName = '' }: {
-  turns: VoiceTurn[]; onFinish: (stats: VoiceStats) => void; onBack: () => void; initialName?: string;
+export default function VoiceChatLesson({ turns, onFinish, onBack, initialName = '', onFirstAttempt }: {
+  turns: VoiceTurn[]; onFinish: (stats: VoiceStats) => void; onBack: () => void; initialName?: string; onFirstAttempt?: (index: number, correct: boolean) => void;
 }) {
   const insets = useSafeAreaInsets();
   const [sent, setSent] = useState<(RecognizedVoice | 'skipped')[]>([]);
@@ -43,6 +43,7 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
   const [name, setName] = useState(initialName);
   const [capturing, setCapturing] = useState(false);
   const [firstTry, setFirstTry] = useState<Record<number, boolean>>({});
+  const judgedTurns = useRef(new Set<number>());
   const scroll = useRef<ScrollView>(null);
   const speechSequence = useRef(0);
   const [playing, setPlaying] = useState(-1);
@@ -74,7 +75,7 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
     <Stack.Screen options={{ headerShown: false }} />
     <View style={styles.header}>
       <TouchableOpacity onPress={onBack} style={styles.back}><Text style={styles.backText}>←</Text></TouchableOpacity>
-      <AnimatedFox size={36} mood="idle" />
+      <BirFoxPortrait size={42} />
       <View style={{ flex: 1 }}><Text style={styles.name}>BirFox</Text><Text style={styles.subtitle}>Səsli söhbət məşqi</Text></View>
       <Text style={styles.count}>{sent.length}/{turns.length}</Text>
     </View>
@@ -112,9 +113,9 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
       {!heard ? <Text style={styles.listenFirst}>Əvvəl BirFox-un son səsli mesajını dinlə.</Text>
         : current.intent === 'introduce' && !name.trim() ? <Text style={styles.listenFirst}>Əvvəl öz adını yaz.</Text>
         : <RecognizedVoiceComposer key={`composer-${sent.length}`} checkAnswer={(text) => checkSpokenAnswer(text, current.intent, name)}
-          onBusyChange={setCapturing} onJudged={(correct) => setFirstTry((value) => sent.length in value ? value : { ...value, [sent.length]: correct })} onValid={advance} />}
+          onBusyChange={setCapturing} onJudged={(correct) => { if (judgedTurns.current.has(sent.length)) return; judgedTurns.current.add(sent.length); onFirstAttempt?.(sent.length, correct); setFirstTry(value => ({ ...value, [sent.length]: correct })); }} onValid={advance} />}
       <TouchableOpacity style={styles.skip} onPress={() => advance('skipped')}><Text style={styles.link}>İndi danışa bilmirəm · Keç</Text></TouchableOpacity>
-    </> : <TouchableOpacity style={styles.finish} onPress={() => { void Speech.stop(); onFinish(stats); }}><Text style={styles.finishText}>Dərsi bitir · xəritəyə qayıt</Text></TouchableOpacity>}
+    </> : <TouchableOpacity style={styles.finish} onPress={() => { void Speech.stop(); onFinish(stats); }}><Text style={styles.finishText}>Nəticələrə bax</Text></TouchableOpacity>}
   </View>;
 }
 
@@ -132,3 +133,4 @@ const styles = StyleSheet.create({
   listenFirst: { color: t.muted, padding: 18, backgroundColor: t.surface, textAlign: 'center', fontSize: 12 }, disclosure: { color: t.muted, fontSize: 9, textAlign: 'center', padding: 10, backgroundColor: t.background }, error: { color: t.error, fontSize: 13, lineHeight: 19 },
   finish: { padding: 16, margin: 16, backgroundColor: t.orange, borderRadius: 16, alignItems: 'center' }, finishText: { color: '#241321', fontWeight: '800', fontSize: 15 },
 });
+
