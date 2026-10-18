@@ -1,0 +1,28 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const Module = require('node:module');
+const ts = require('typescript');
+const filename = path.resolve(path.dirname(module.filename), '../src/utils/homeCourse.ts');
+const m = new Module(filename, module);
+m.filename = filename; m.paths = module.paths;
+m._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, filename);
+const {buildHomeCourse, boundedPercent} = m.exports;
+const module1={id:'module_1',titleAz:'İlk tanışlıq',language:'en',level:'A1',order:1,lessonIds:['a','b']};
+const module2={...module1,id:'module_2',titleAz:'Şəxsi məlumatlar',order:2,lessonIds:['c']};
+const defaults={modules:[module1,module2], language:'en',level:'A1',completedLessons:[],availableLessonIds:new Set(['a','b','c']),placementResults:[]};
+const build=(change={})=>buildHomeCourse({...defaults,...change});
+let r=build(); assert.equal(r.items[0].state,'current');assert.equal(r.items[1].state,'locked');assert.equal(r.items.length,7);assert.equal(r.lessonsCount,3);
+r=build({completedLessons:['a','a','unrelated']});assert.equal(r.items[0].percent,50);assert.equal(r.completedCount,1);assert.equal(r.percent,33);
+r=build({completedLessons:['a','b']});assert.equal(r.items[0].state,'completed');assert.equal(r.items[1].state,'current');assert.equal(r.items.filter(i=>i.state==='current').length,1);
+r=build({placementResults:[{moduleId:'module_1',passed:true,correctCount:7,totalCount:8}]});assert.equal(r.items[0].state,'available');assert.equal(r.items[1].state,'current');assert.equal(r.items[0].examPercent,88);assert.equal(r.completedCount,0);
+r=build({availableLessonIds:new Set(['a','c']),completedLessons:['a','b']});assert.equal(r.items[0].state,'planned');assert.equal(r.items[1].state,'locked');assert.equal(r.items[0].percent,50);
+r=build({modules:[{...module1,lessonIds:['a','a']}] ,completedLessons:['a']});assert.equal(r.lessonsCount,1);assert.equal(r.items[0].percent,100);
+r=build({language:'de'});assert.equal(r.items.length,0);assert.equal(r.lessonsCount,0);assert.equal(r.percent,0);
+r=build({level:'B2'});assert.equal(r.items.length,0);
+r=build({modules:[]});assert.equal(r.items.length,7);assert.ok(r.items.every(i=>i.state==='planned'&&i.percent===0));
+r=build({placementResults:[{moduleId:'module_1',passed:false,correctCount:0,totalCount:0}]});assert.equal(r.items[0].examPercent,null);
+assert.equal(boundedPercent(200,5),100);assert.equal(boundedPercent(-1,5),0);assert.equal(boundedPercent(NaN,5),0);assert.equal(boundedPercent(0,0),0);
+assert.equal(boundedPercent(3,5),60);
+for(const item of r.items){assert.ok(item.percent>=0 && item.percent<=100);}
+console.log('PASS: course filtering, unique completion, no phantom lessons, one active module, placement vs completion, missing content, empty languages and clamped percentages.');

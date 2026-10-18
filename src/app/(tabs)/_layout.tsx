@@ -26,7 +26,9 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Dərslər',
+          title: 'Öyrən',
+          // This screen owns its reference-matched footer; other tabs keep their original bar.
+          tabBarStyle: { display: 'none' },
           tabBarIcon: ({ focused }) => (
             <TabIcon emoji="📚" focused={focused} />
           ),
