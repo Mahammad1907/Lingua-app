@@ -6,8 +6,9 @@ import { useEffect, useRef, useState } from 'react';
 import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AudioSceneActivity from '../../components/AudioSceneActivity';
-import LessonScene, { AnimatedFox, ScenePlace } from '../../components/LessonScene';
-import ConversationAvatar from '../../components/ConversationAvatar';
+import LessonArtwork3D from '../../components/lesson/LessonArtwork3D';
+import { HomeArtwork } from '../../components/home/HomeArtwork';
+import { lessonArtworkKind, lessonBoardText } from '../../utils/lessonArtwork';
 import { lessonTheme as t } from '../../constants/lessonTheme';
 import VoiceChatLesson, { VoiceStats } from '../../components/VoiceChatLesson';
 import { getShortSession, ShortSession } from '../../data/firstConversation';
@@ -56,7 +57,6 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
   const current = warmup ? content.warmup! : content.steps[index];
   const exercise = current?.exercise;
   const activity = current?.activity || content.style;
-  const place: ScenePlace = current?.place || (lesson.order === 4 ? 'park' : lesson.order === 5 ? 'cafe' : 'classroom');
 
   useEffect(() => () => { void Speech.stop(); }, []);
   const backToMap = () => { void Speech.stop(); router.replace(`/module/${lesson.moduleId}`); };
@@ -106,7 +106,7 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
 
   if (finished) return <View style={[styles.screen, styles.result, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
     <Stack.Screen options={{ headerShown: false }} />
-    <AnimatedFox mood="celebrate" size={135} />
+    <HomeArtwork name="fox" style={{ width: 150, height: 145 }} />
     <Text style={styles.title}>{sessionCompleted ? 'Bu dərs bitdi!' : 'Məşq bitdi · cavabsız tapşırıqlar qalıb'}</Text>
     <EarnedXP receiptId={receiptId} />
     <Text style={styles.body}>{lesson.titleAz}</Text>
@@ -143,7 +143,7 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
     <View style={styles.progressRow}><View style={styles.progressTrack}><View style={[styles.progressFill, { width: `${ownCard ? 100 : warmup ? 0 : (index + 1) / content.steps.length * 100}%` }]} /></View><Text style={styles.counter}>{warmup ? 'Təkrar' : ownCard ? 'Kartın' : `${index + 1}/${content.steps.length}`}</Text></View>
     <ScrollView ref={scroll} style={styles.scroll} contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
       {ownCard ? <>
-        <LessonScene place="cafe" mood="celebrate" label="Yeni dostunla tanış ol" />
+        <LessonArtwork3D kind="identity" />
         <Text style={styles.title}>İndi öz kartını hazırla</Text>
         <Text style={styles.body}>Adını yaz. Hazır cümləni dinlə, sonra özün ucadan de.</Text>
         <TextInput accessibilityLabel="Adın" value={name} onChangeText={setName} maxLength={30} placeholder="Adın" placeholderTextColor={t.muted} style={styles.input} returnKeyType="done" onSubmitEditing={() => { if (name.trim()) action(); }} />
@@ -151,16 +151,15 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
       </> : <>
         {warmup ? <Text style={styles.warmup}>Əvvəlki dərsdən bir qısa təkrar</Text> : null}
         <TouchableOpacity accessibilityRole="button" accessibilityState={{ expanded: teacherOpen }} onPress={() => { useUserStore.getState().useHelp(attempt.current); setTeacherOpen((value) => !value); }} style={styles.teacher}>
-          <AnimatedFox mood={feedback === 'correct' ? 'celebrate' : 'idle'} size={30} />
+          <View style={styles.tipIcon}><Text style={styles.tipQuestion}>?</Text></View>
           <View style={{ flex: 1 }}><Text style={styles.tipLabel}>Kiçik ipucu</Text>{teacherOpen ? <Text style={styles.teacherText}>{current.teacher}</Text> : <Text style={styles.note}>İzahı açmaq üçün toxun</Text>}</View>
           <Text style={styles.counter}>{teacherOpen ? '−' : '+'}</Text>
         </TouchableOpacity>
-        {!warmup ? <LessonScene key={exercise.id} place={place} mood={feedback === 'correct' ? 'celebrate' : feedback === 'wrong' ? 'thinking' : 'idle'} evening={current.audio?.includes('evening') || index === 6} label={activity === 'scene' ? 'Dinlə və səhnəni seç' : undefined} /> : null}
-        {activity === 'repair' && current.foxSays && !warmup ? <View style={styles.foxMistake}><Text style={styles.label}>TÜLKÜ BELƏ DEDİ</Text><Text style={styles.wrongSentence}>{current.foxSays}</Text></View> : null}
+        {!warmup ? <LessonArtwork3D kind={lessonArtworkKind(current, content.style, lesson.order, index)} boardText={lessonBoardText(current)} correction={Boolean(current.foxSays)} /> : null}
         <Text style={styles.question}>{exercise.question}</Text>
         {activity === 'order' && !warmup ? <View style={styles.messageDraft}><Text style={styles.label}>SƏNİN MESAJIN</Text><Text style={styles.draftText}>{exercise.type === 'sentence_build' ? (built.map((i) => exercise.words![i]).join(' ') || 'Mesajı hazırla…') : (answer || 'Uyğun mesajı seç…')}</Text></View> : null}
         {activity === 'scene' && !warmup ? <AudioSceneActivity key={exercise.id} audio={current.audio!} options={exercise.options || []} selected={answer} disabled={feedback === 'correct'} onAnswer={(value) => { setAnswer(value); check(value); }} /> : <>
-          {current.audio ? <TouchableOpacity style={styles.audio} onPress={() => void speak(current.audio!)} accessibilityLabel="İngiliscə səsi dinlə">{activity === 'dialogue' ? <ConversationAvatar person="emma" size={28} /> : null}<Text style={styles.audioText}>▶ {activity === 'dialogue' ? 'Səsli mesaj' : 'Səsi dinlə'}</Text></TouchableOpacity> : null}
+          {current.audio ? <TouchableOpacity style={styles.audio} onPress={() => void speak(current.audio!)} accessibilityLabel="İngiliscə səsi dinlə"><Text style={styles.audioText}>▶ {activity === 'dialogue' ? 'Səsli mesaj' : 'Səsi dinlə'}</Text></TouchableOpacity> : null}
           {exercise.type === 'sentence_build' ? <>
             <View style={styles.sentence}>
               {built.length ? built.map((wordIndex, position) => <TouchableOpacity key={`${wordIndex}-${position}`} disabled={feedback === 'correct'} style={styles.word} onPress={() => { setBuilt((value) => value.filter((_, i) => i !== position)); setFeedback(null); }}><Text style={styles.wordText}>{exercise.words![wordIndex]}</Text></TouchableOpacity>) : <Text style={styles.note}>Sözləri seçərək cümləni qur</Text>}
@@ -189,6 +188,8 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
 
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: t.background },
+  tipIcon: { width: 30, height: 30, borderRadius: 15, backgroundColor: t.raised, alignItems: 'center', justifyContent: 'center' },
+  tipQuestion: { color: t.orange, fontWeight: '800', fontSize: 18 },
   header: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 16, paddingTop: 10, paddingBottom: 8 },
   back: { width: 34, minHeight: 44, justifyContent: 'center' }, backText: { color: t.text, fontSize: 36 }, label: { color: t.muted, fontSize: 9, letterSpacing: 1, marginBottom: 5 },
   headerTitle: { color: t.text, fontSize: 18, fontWeight: '800' }, counter: { color: t.orange, fontSize: 11, fontWeight: '700' }, level: { backgroundColor: t.surface, paddingHorizontal: 11, paddingVertical: 7, borderRadius: 10 },
@@ -206,7 +207,6 @@ const styles = StyleSheet.create({
   feedback: { backgroundColor: t.successBg, padding: 12, borderRadius: 14, marginBottom: 10 }, feedbackWrong: { backgroundColor: t.errorBg }, feedbackTitle: { color: t.success, fontSize: 13, fontWeight: '800' }, feedbackText: { color: t.text, fontSize: 12, lineHeight: 18, marginTop: 3 },
   primary: { alignSelf: 'stretch', minHeight: 52, backgroundColor: t.orange, borderRadius: 16, paddingHorizontal: 18, paddingVertical: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 12 }, primaryText: { color: '#241321', fontSize: 16, fontWeight: '800' }, primaryArrow: { color: '#241321', fontSize: 25, lineHeight: 26 },
   link: { color: t.orange, fontSize: 12, fontWeight: '700', paddingVertical: 14 }, note: { color: t.muted, fontSize: 11, lineHeight: 17, marginTop: 4 },
-  foxMistake: { backgroundColor: t.errorBg, padding: 14, borderRadius: 16, marginBottom: 14 }, wrongSentence: { color: t.error, fontSize: 19, fontWeight: '700', marginTop: 5 },
   audio: { flexDirection: 'row', alignItems: 'center', gap: 10, padding: 12, backgroundColor: t.surface, borderWidth: 1, borderColor: t.border, borderRadius: 16, marginBottom: 12 }, audioText: { color: t.orange, fontSize: 14, fontWeight: '700' },
   phrase: { padding: 14, backgroundColor: t.surface, borderRadius: 16, marginBottom: 8 }, phraseWord: { color: t.text, fontWeight: '700', fontSize: 15 },
   messageDraft: { alignSelf: 'flex-end', maxWidth: '90%', backgroundColor: t.successBg, borderRadius: 16, borderTopRightRadius: 4, padding: 14, marginBottom: 14 }, draftText: { color: t.text, fontSize: 16, lineHeight: 23 },

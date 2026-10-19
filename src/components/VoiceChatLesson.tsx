@@ -9,7 +9,8 @@ import { RecordedVoice } from './VoiceMessageComposer';
 import RecognizedVoiceComposer, { RecognizedVoice } from './RecognizedVoiceComposer';
 import { checkSpokenAnswer } from '../utils/spokenAnswer';
 import VoiceWave from './VoiceWave';
-import { AnimatedFox } from './LessonScene';
+import { HomeArtwork } from './home/HomeArtwork';
+import { TeacherBoard3D } from './lesson/LessonArtwork3D';
 import { lessonTheme as t } from '../constants/lessonTheme';
 import { useUserStore } from '../store/userStore';
 import EnergyMeter from './EnergyMeter';
@@ -82,12 +83,13 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
     <Stack.Screen options={{ headerShown: false }} />
     <View style={styles.header}>
       <TouchableOpacity onPress={onBack} style={styles.back}><Text style={styles.backText}>←</Text></TouchableOpacity>
-      <AnimatedFox size={36} mood="idle" />
+      <HomeArtwork name="headphones" style={{ width: 36, height: 40 }} />
       <View style={{ flex: 1 }}><Text style={styles.name}>BirFox</Text><Text style={styles.subtitle}>Səsli söhbət məşqi</Text></View>
       <EnergyMeter compact />
     </View>
     <ScrollView ref={scroll} contentContainerStyle={styles.messages} keyboardShouldPersistTaps="handled" onContentSizeChange={() => scroll.current?.scrollToEnd({ animated: true })}>
       <Text style={styles.date}>İLK TANIŞLIQ</Text>
+      <TeacherBoard3D text={finished ? 'Söhbət\ntamamlandı!' : 'Dinlə və\nözün cavab ver'} />
       {turns.slice(0, Math.min(sent.length + 1, turns.length)).map((turn, index) => {
         const voice = sent[index];
         return <View key={`voice-turn-${index}`}>

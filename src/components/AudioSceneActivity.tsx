@@ -1,7 +1,8 @@
 import * as Speech from 'expo-speech';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, PanResponder, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { SceneArtwork, ScenePlace } from './LessonScene';
+import { daySceneForOption } from '../utils/lessonArtwork';
+import { DaySceneArtwork } from './lesson/LessonArtwork3D';
 import VoiceWave from './VoiceWave';
 import { lessonTheme as t } from '../constants/lessonTheme';
 
@@ -61,7 +62,7 @@ export default function AudioSceneActivity({ audio, options, disabled, onAnswer,
     <View style={styles.scenes}>
       {options.map((option, index) => <View key={option} ref={(node) => { targetRefs.current[index] = node; }} style={styles.sceneWrap}>
         <TouchableOpacity disabled={!hasHeard || disabled} accessibilityRole="button" accessibilityState={{ disabled: !hasHeard || disabled, selected: selected === option }} onPress={() => onAnswer(option)} style={[styles.scene, selected === option && styles.selected]}>
-          <View style={styles.art}><SceneArtwork place={(['classroom', 'cafe', 'park'] as ScenePlace[])[index % 3]} evening={index % 3 === 2} /></View>
+          <View style={styles.art}>{daySceneForOption(option) ? <DaySceneArtwork scene={daySceneForOption(option)!} /> : null}</View>
           <Text style={styles.sceneLabel}>{option.split(' · ')[0]}</Text>
           <Text style={styles.time}>{option.split(' · ')[1]}</Text>
         </TouchableOpacity>
@@ -76,6 +77,6 @@ const styles = StyleSheet.create({
   messageLabel: { color: t.muted, fontSize: 11, paddingLeft: 6 },
   scenes: { flexDirection: 'row', gap: 8 }, sceneWrap: { flex: 1 },
   scene: { borderRadius: 16, overflow: 'hidden', paddingBottom: 10, borderWidth: 1.5, borderColor: t.border, backgroundColor: t.surface }, selected: { borderColor: t.orange },
-  art: { height: 64 }, sceneLabel: { color: t.text, fontSize: 12, textAlign: 'center', fontWeight: '700', marginTop: 8 }, time: { color: t.muted, fontSize: 10, textAlign: 'center', marginTop: 3 },
+  art: { height: 100 }, sceneLabel: { color: t.text, fontSize: 12, textAlign: 'center', fontWeight: '700', marginTop: 8 }, time: { color: t.muted, fontSize: 10, textAlign: 'center', marginTop: 3 },
   note: { color: t.muted, textAlign: 'center', marginTop: 10, fontSize: 11 }, error: { color: t.error, marginBottom: 10, fontSize: 13 },
 });
