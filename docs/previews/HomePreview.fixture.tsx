@@ -10,5 +10,5 @@ const course: HomeCourse = { percent: 41, completedCount: 41, lessonsCount: 100,
   { id: 'preview_7', order: 7, title: 'Maraqlar və bacarıqlar', artwork: 'guitar', state: 'planned', completedCount: 0, lessonsCount: 0, percent: 0, examPercent: null, examPassed: false },
 ] };
 export default function HomePreview() {
-  return <View style={{flex:1,backgroundColor:'#0c1020'}}><HomeDashboard course={course} energy={70} language="en" level="A1" onSelect={()=>{}} onOpen={()=>{}} /><HomeNavigation bottomInset={12} onNavigate={()=>{}} /></View>;
+  return <View style={{flex:1,backgroundColor:'#0c1020'}}><HomeDashboard course={course} xp={0} language="en" level="A1" onSelect={()=>{}} onOpen={()=>{}} /><HomeNavigation bottomInset={12} onNavigate={()=>{}} /></View>;
 }

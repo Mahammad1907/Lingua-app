@@ -1,6 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Animated,
   Image,
@@ -13,6 +13,7 @@ import Svg, { Circle } from 'react-native-svg';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
 import { useUserStore } from '../../store/userStore';
+import EarnedXP from '../../components/EarnedXP';
 
 function ProgressRing({
   progress,
@@ -60,6 +61,7 @@ export default function CompleteScreen() {
     correct: string;
     total: string;
     time: string;
+    receiptId?: string;
   }>();
   const id = params.id;
   const correct = parseInt(params.correct || '0');
@@ -74,7 +76,7 @@ export default function CompleteScreen() {
   const [messageFade] = useState(() => new Animated.Value(0));
 
   const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
-  const xpReward = lesson?.xpReward || 0;
+  const completed = useRef(useUserStore.getState().receipts[params.receiptId ?? '']?.completed ?? false).current;
 
 
   const getMascot = () => {
@@ -83,7 +85,7 @@ export default function CompleteScreen() {
     return require('../../../assets/mascot/fox_sad.png');
   };
 
-  const getTitle = () => 'Dərs tamamlandı';
+  const getTitle = () => completed ? 'Dərs tamamlandı' : 'Məşq bitdi';
 
   const getSubtitle = () => {
     if (accuracy >= 60) return 'Bugünkü məşqini uğurla bitirdin!';
@@ -142,7 +144,7 @@ export default function CompleteScreen() {
                 <Text style={styles.statIcon}>⭐</Text>
               </View>
               <View style={styles.statInfo}>
-                <Text style={styles.statValue}>+{xpReward} XP</Text>
+                <EarnedXP receiptId={params.receiptId} />
                 <Text style={styles.statLabel}>Qazandın</Text>
               </View>
             </View>
@@ -160,7 +162,7 @@ export default function CompleteScreen() {
               </View>
               <View style={styles.statInfo}>
                 <Text style={styles.statValue}>{streak} gün</Text>
-                <Text style={styles.statLabel}>Gündəlik giriş</Text>
+                <Text style={styles.statLabel}>Dərs seriyası</Text>
               </View>
             </View>
           </View>

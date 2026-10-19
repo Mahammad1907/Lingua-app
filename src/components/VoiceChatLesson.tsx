@@ -11,6 +11,8 @@ import { checkSpokenAnswer } from '../utils/spokenAnswer';
 import VoiceWave from './VoiceWave';
 import { AnimatedFox } from './LessonScene';
 import { lessonTheme as t } from '../constants/lessonTheme';
+import { useUserStore } from '../store/userStore';
+import EnergyMeter from './EnergyMeter';
 
 function OwnVoice({ voice, active, onPlay, disabled = false }: { voice: RecordedVoice; active: boolean; onPlay: () => void; disabled?: boolean }) {
   const player = useAudioPlayer({ uri: voice.uri });
@@ -31,8 +33,10 @@ function OwnVoice({ voice, active, onPlay, disabled = false }: { voice: Recorded
 }
 
 export interface VoiceStats { correct: number; wrong: number; skipped: number }
-export default function VoiceChatLesson({ turns, onFinish, onBack, initialName = '' }: {
+export default function VoiceChatLesson({ turns, onFinish, onBack, initialName = '', attemptId, completionError = '' }: {
   turns: VoiceTurn[]; onFinish: (stats: VoiceStats) => void; onBack: () => void; initialName?: string;
+  attemptId: string;
+  completionError?: string;
 }) {
   const insets = useSafeAreaInsets();
   const [sent, setSent] = useState<(RecognizedVoice | 'skipped')[]>([]);
@@ -45,6 +49,7 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
   const [firstTry, setFirstTry] = useState<Record<number, boolean>>({});
   const scroll = useRef<ScrollView>(null);
   const speechSequence = useRef(0);
+  const lastAdvance = useRef(-1);
   const [playing, setPlaying] = useState(-1);
   const finished = sent.length >= turns.length;
   const current = turns[sent.length];
@@ -66,6 +71,9 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
     } catch { if (request === speechSequence.current) { setPlaying(-1); setSoundError('Səs açılmadı. Yenidən cəhd et.'); } }
   };
   const advance = (voice: RecognizedVoice | 'skipped') => {
+    if (lastAdvance.current === sent.length || sent.length >= turns.length) return;
+    lastAdvance.current = sent.length;
+    if (voice === 'skipped') useUserStore.getState().recordTask(attemptId, `voice:${sent.length}`, null, 'skip');
     speechSequence.current += 1; void Speech.stop(); setPlaying(-1); setActive('');
     setSent((value) => value.length >= turns.length || (voice !== 'skipped' && value.some((item) => item !== 'skipped' && item.uri === voice.uri)) ? value : [...value, voice]);
     setHeard(false); setHelp(false);
@@ -76,7 +84,7 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
       <TouchableOpacity onPress={onBack} style={styles.back}><Text style={styles.backText}>←</Text></TouchableOpacity>
       <AnimatedFox size={36} mood="idle" />
       <View style={{ flex: 1 }}><Text style={styles.name}>BirFox</Text><Text style={styles.subtitle}>Səsli söhbət məşqi</Text></View>
-      <Text style={styles.count}>{sent.length}/{turns.length}</Text>
+      <EnergyMeter compact />
     </View>
     <ScrollView ref={scroll} contentContainerStyle={styles.messages} keyboardShouldPersistTaps="handled" onContentSizeChange={() => scroll.current?.scrollToEnd({ animated: true })}>
       <Text style={styles.date}>İLK TANIŞLIQ</Text>
@@ -94,9 +102,10 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
         </View>;
       })}
       {soundError ? <Text style={styles.error}>{soundError}</Text> : null}
+      {completionError ? <Text accessibilityLiveRegion="polite" style={styles.error}>{completionError}</Text> : null}
       {!finished ? <>
         <Text style={styles.task}>{current.task}</Text>
-        <TouchableOpacity onPress={() => setHelp((value) => !value)}><Text style={styles.link}>{help ? 'Mətni gizlət' : 'Mətni və mənasını göstər'}</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => { useUserStore.getState().useHelp(attemptId); setHelp((value) => !value); }}><Text style={styles.link}>{help ? 'Mətni gizlət' : 'Mətni və mənasını göstər'}</Text></TouchableOpacity>
         {help ? <View style={styles.help}><Text style={styles.helpText}>{current.text}</Text><Text style={styles.small}>{current.meaning}</Text></View> : null}
         {current.intent === 'introduce' ? <View style={styles.help}>
           <Text style={styles.small}>Öz adını yaz ki, səsdə eşidilən təqdimatla müqayisə edək.</Text>
@@ -112,7 +121,10 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
       {!heard ? <Text style={styles.listenFirst}>Əvvəl BirFox-un son səsli mesajını dinlə.</Text>
         : current.intent === 'introduce' && !name.trim() ? <Text style={styles.listenFirst}>Əvvəl öz adını yaz.</Text>
         : <RecognizedVoiceComposer key={`composer-${sent.length}`} checkAnswer={(text) => checkSpokenAnswer(text, current.intent, name)}
-          onBusyChange={setCapturing} onJudged={(correct) => setFirstTry((value) => sent.length in value ? value : { ...value, [sent.length]: correct })} onValid={advance} />}
+          onBusyChange={setCapturing} onJudged={(correct, token) => {
+            useUserStore.getState().recordTask(attemptId, `voice:${sent.length}`, correct, token);
+            setFirstTry((value) => sent.length in value ? value : { ...value, [sent.length]: correct });
+          }} onValid={advance} />}
       <TouchableOpacity style={styles.skip} onPress={() => advance('skipped')}><Text style={styles.link}>İndi danışa bilmirəm · Keç</Text></TouchableOpacity>
     </> : <TouchableOpacity style={styles.finish} onPress={() => { void Speech.stop(); onFinish(stats); }}><Text style={styles.finishText}>Dərsi bitir · xəritəyə qayıt</Text></TouchableOpacity>}
   </View>;

@@ -8,7 +8,8 @@ import { HomeIcon } from '../../components/home/HomeIcon';
 import { lessons } from '../../data/lessons';
 import { getAllModules } from '../../data/modules';
 import { useUserStore } from '../../store/userStore';
-import { boundedPercent, buildHomeCourse } from '../../utils/homeCourse';
+import { buildHomeCourse } from '../../utils/homeCourse';
+import { moduleTest } from '../../utils/moduleAccess';
 
 const SELECTION_KEY = '@birtalk_home_selection_v1';
 const LEVELS = ['A1', 'A2', 'B1', 'B2'];
@@ -19,11 +20,12 @@ export default function Home() {
   const { width } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const userLevel = useUserStore((s) => s.level);
-  const hearts = useUserStore((s) => s.hearts);
+  const xp = useUserStore((s) => s.xp);
   const completedLessons = useUserStore((s) => s.completedLessons);
   const placementResults = useUserStore((s) => s.placementResults);
   const [selection, setSelection] = useState({ language: 'en', level: LEVELS.includes(userLevel) ? userLevel : 'A1' });
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [lockedId, setLockedId] = useState<string | null>(null);
   const userSelected = useRef(false);
   const modules = useMemo(() => getAllModules(), []);
   useEffect(() => {
@@ -55,10 +57,28 @@ export default function Home() {
     if (destination === 'profile') router.navigate('/(tabs)/profile');
   }
   return <View style={styles.root}>
-    <HomeDashboard course={course} language={selection.language} level={selection.level} energy={boundedPercent(hearts, 5)}
+    <HomeDashboard course={course} language={selection.language} level={selection.level} xp={xp}
       compact={width < 360} topInset={insets.top} onSelect={() => setPickerOpen(true)}
-      onOpen={(id) => router.push({ pathname: '/module/[id]', params: { id } })} />
+      onOpen={(id) => {
+        if (course.items.find((item) => item.id === id)?.state === 'locked') setLockedId(id);
+        else router.push({ pathname: '/module/[id]', params: { id } });
+      }} />
     <HomeNavigation bottomInset={insets.bottom} onNavigate={navigate} />
+    <Modal visible={lockedId !== null} transparent animationType="fade" onRequestClose={() => setLockedId(null)}>
+      <View style={styles.modalWrap}>
+        <View style={[styles.sheet, { paddingBottom: Math.max(insets.bottom, 20) }]} accessibilityViewIsModal>
+          <Text style={styles.sheetTitle}>Bu mövzuları artıq bilirsən?</Text>
+          <Text style={{ color: '#f5efff', fontSize: 16 }}>Biliklərini yoxlayaraq bu bölmənin kilidini aça bilərsən.</Text>
+          {lockedId && !moduleTest(lockedId) ? <Text style={{ color: '#c1afd9' }}>Bu bölmə üçün sınaq hələ hazır deyil</Text> : null}
+          <Pressable accessibilityRole="button" accessibilityState={{ disabled: !lockedId || !moduleTest(lockedId) }} disabled={!lockedId || !moduleTest(lockedId)}
+            style={[styles.done, (!lockedId || !moduleTest(lockedId)) && { opacity: .45 }]}
+            onPress={() => { if (!lockedId || !moduleTest(lockedId)) return; const id = lockedId; setLockedId(null); router.push({ pathname: '/module/check', params: { moduleId: id } }); }}>
+            <Text style={styles.doneText}>Keçid imtahanına başla</Text>
+          </Pressable>
+          <Pressable accessibilityRole="button" onPress={() => setLockedId(null)}><Text style={{ color: '#f5efff', padding: 10 }}>Geri</Text></Pressable>
+        </View>
+      </View>
+    </Modal>
     <Modal visible={pickerOpen} transparent animationType="fade" onRequestClose={() => setPickerOpen(false)}>
       <View style={styles.modalWrap}>
         <Pressable style={StyleSheet.absoluteFill} onPress={() => setPickerOpen(false)} accessibilityRole="button" accessibilityLabel="Seçimi bağla" />

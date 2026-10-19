@@ -16,7 +16,7 @@ const emptyCapture = (): Capture => ({ text: '', final: false, uri: '', start: 0
 export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged, onBusyChange }: {
   checkAnswer: (text: string) => SpokenVerdict;
   onValid: (voice: RecognizedVoice) => void;
-  onJudged: (correct: boolean) => void;
+  onJudged: (correct: boolean, token: string) => void;
   onBusyChange?: (busy: boolean) => void;
 }) {
   const [engine] = useState(getSpeechEngine);
@@ -31,6 +31,7 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
   const capture = useRef<Capture>(emptyCapture());
   const active = useRef(false);
   const starting = useRef(false);
+  const judged = useRef(new Set<string>());
   const mounted = useRef(true);
   const stopTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const endTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -140,7 +141,10 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
       setError('Səs tanıma cavabı etibarlı eşitmədi. Yenidən danış; səhv kimi hesablanmır.'); return;
     }
     const result = checkAnswer(draft.transcript);
-    if (result.countAsAttempt !== false) onJudged(result.correct);
+    if (result.countAsAttempt !== false && !judged.current.has(draft.uri)) {
+      judged.current.add(draft.uri);
+      onJudged(result.correct, draft.uri);
+    }
     if (!result.correct) { setError(result.message); return; }
     onValid(draft);
   };

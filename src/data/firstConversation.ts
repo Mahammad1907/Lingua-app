@@ -1,5 +1,6 @@
 import { VoiceIntent } from '../utils/spokenAnswer';
 import { Exercise, Lesson, VocabularyItem } from './types';
+import { LESSON_XP } from '../utils/rewards';
 
 export type SessionStyle = 'scene' | 'build' | 'repair' | 'dialogue' | 'order' | 'voice_chat';
 export interface SessionStep {
@@ -244,7 +245,7 @@ const definitions: { id: string; title: string; description: string; focus: Less
 export const firstConversationLessons: Lesson[] = definitions.map((definition, index) => ({
   id: definition.id, title: definition.title, titleAz: definition.title,
   description: definition.description, language: 'en', level: 'A1', moduleId: 'module_1',
-  order: index + 1, xpReward: 15, estimatedTime: index === 5 ? 6 : 5,
+  order: index + 1, xpReward: LESSON_XP, estimatedTime: index === 5 ? 6 : 5,
   focus: definition.focus, parentGroup: definition.group, subOrder: index === 1 ? 2 : 1,
   isReview: index === 5, reviewType: index === 5 ? 'module_review' : undefined,
   canDo: definition.canDo, vocabulary: definition.vocabulary,

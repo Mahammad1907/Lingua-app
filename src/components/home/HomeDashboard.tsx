@@ -1,4 +1,5 @@
 import { LinearGradient } from 'expo-linear-gradient';
+import EnergyMeter from '../EnergyMeter';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import type { HomeCourse, HomeModuleItem } from '../../utils/homeCourse';
 import { HomeArtwork } from './HomeArtwork';
@@ -22,12 +23,16 @@ function ProgressBar({ percent, purple = false }: { percent: number; purple?: bo
 
 function ModuleCard({ item, compact, onOpen }: { item: HomeModuleItem; compact: boolean; onOpen: (id: string) => void }) {
   const current = item.state === 'current';
-  const disabled = item.state === 'planned' || item.state === 'locked';
+  const disabled = item.state === 'planned';
   const done = item.state === 'completed';
   return <View style={s.cardSpace}>
     <Pressable disabled={disabled} onPress={() => onOpen(item.id)} accessibilityRole="button"
-      accessibilityState={{ disabled }} accessibilityLabel={`${item.title}, ${disabled ? item.state === 'planned' ? 'tezliklə' : 'kilidli' : `${item.percent}% tamamlanıb, bölməni aç`}`}
-      style={({ pressed }) => [s.card, current && s.currentCard, pressed && s.pressed]}>
+      accessibilityState={{ disabled }} accessibilityLabel={`${item.title}, ${disabled ? 'tezliklə' : item.state === 'locked' ? 'kilidli, keçid imtahanı seçimlərini aç' : `${item.percent}% tamamlanıb, bölməni aç`}`}
+      style={({ pressed }) => [s.card, current ? s.currentCard : done && s.completedCard, pressed && s.pressed]}>
+      {/* Paint the existing 1px border without changing the content's bounds. */}
+      <LinearGradient pointerEvents="none"
+        colors={current ? ['#a87443', '#483044', '#735037'] : done ? ['#528d80', '#253d46', '#38645f'] : ['#726194', '#302c4c', '#4b3e68']}
+        start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={s.cardBorder} />
       <LinearGradient colors={current ? ['#1a1a2e', '#1d2035', '#27202b'] : ['#171b34', '#14172d']}
         start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[s.cardBody, current && s.currentBody, compact && s.compactBody]}>
         {current && <View style={s.activeRail} />}
@@ -50,7 +55,7 @@ function ModuleCard({ item, compact, onOpen }: { item: HomeModuleItem; compact: 
             <View style={s.check}><HomeIcon name="check" color="#07372e" size={18} /></View>
             <View style={s.statusText}><Text style={s.completeText}>Bölmə 100%</Text>
               <Text style={s.statusDetail}>{item.examPassed ? 'Keçid imtahanı ✓' : `${item.completedCount}/${item.lessonsCount} dərs tamamlandı`}</Text></View>
-          </View> : disabled ? <View style={s.lockLine}>
+          </View> : disabled || item.state === 'locked' ? <View style={s.lockLine}>
             <HomeIcon name="lock" color={PURPLE} size={18} /><Text style={s.lockText}>{item.state === 'planned' ? 'Tezliklə' : 'Kilidli'}</Text><Text style={s.lockPercent}>{item.percent}%</Text>
           </View> : <View style={s.availableLine}><Text style={s.statusDetail}>{item.examPassed ? 'Keçid imtahanı ✓' : 'Dərslərə qayıt'}</Text><Text style={s.lockPercent}>{item.percent}%</Text></View>}
         </View>
@@ -61,12 +66,11 @@ function ModuleCard({ item, compact, onOpen }: { item: HomeModuleItem; compact: 
   </View>;
 }
 
-export function HomeDashboard({ course, language, level, energy, compact = false, topInset = 0, onSelect, onOpen }: {
-  course: HomeCourse; language: string; level: string; energy: number; compact?: boolean; topInset?: number;
+export function HomeDashboard({ course, language, level, xp, compact = false, topInset = 0, onSelect, onOpen }: {
+  course: HomeCourse; language: string; level: string; xp: number; compact?: boolean; topInset?: number;
   onSelect: () => void; onOpen: (id: string) => void;
 }) {
   const meta = HOME_LANGUAGES.find((l) => l.code === language) ?? HOME_LANGUAGES[0];
-  const safeEnergy = Number.isFinite(energy) ? Math.max(0, Math.min(100, energy)) : 0;
   return <LinearGradient colors={['#0c1020', '#0f1225', '#0c1020']} style={s.screen}>
     <ScrollView contentContainerStyle={[s.scroll, { paddingTop: topInset + 19 }]} showsVerticalScrollIndicator={false}>
       <View style={s.page}>
@@ -78,17 +82,10 @@ export function HomeDashboard({ course, language, level, energy, compact = false
             <HomeIcon name="down" size={14} /><Text style={[s.level, compact && s.compactLanguage]}>{level}</Text>
           </Pressable>
           <Text style={[s.logo, compact && s.compactLogo]}>Bir<Text style={s.orange}>Talk</Text></Text>
-          <View style={s.energy} accessibilityLabel={`Enerji ${Math.round(safeEnergy)} faiz`}>
-            <Text style={[s.energyLabel, compact && s.compactEnergyLabel]}>Enerji</Text>
-            <View style={[s.battery, compact && s.compactBattery]}>
-              <View style={s.batteryInner}><LinearGradient colors={['#ffb24d', '#ff9535']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={[s.batteryFill, { width: `${safeEnergy}%` }]} /></View>
-              <View style={s.batteryIcon}><HomeIcon name="bolt" size={12} color={safeEnergy > 50 ? '#171320' : ORANGE} /></View>
-              <View style={s.batteryCap} />
-            </View>
-          </View>
+          <EnergyMeter compact={compact} />
         </View>
         <View style={s.hero}>
-          <View style={s.heroCopy}><Text style={s.heading}>Bölmələr</Text><Text style={s.subtitle}>{meta.name} · {level}</Text></View>
+          <View style={s.heroCopy}><Text style={s.heading}>Bölmələr</Text><Text style={s.subtitle}>{meta.name} · {level}</Text><Text style={s.xpBadge}>{xp} XP</Text></View>
           <HomeArtwork name="fox" style={s.heroFox} />
           <View style={s.helloMarks}><View style={[s.helloDash, { transform: [{ rotate: '33deg' }] }]} /><View style={s.helloDash} /><View style={[s.helloDash, { transform: [{ rotate: '-33deg' }] }]} /></View>
         </View>
@@ -138,9 +135,10 @@ const s = StyleSheet.create({
   batteryInner: { flex: 1, overflow: 'hidden', borderRadius: 4 }, batteryFill: { height: '100%', borderRadius: 4 },
   batteryIcon: { position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, alignItems: 'center', justifyContent: 'center' },
   batteryCap: { position: 'absolute', right: -6, top: 3, height: 8, width: 4, borderRadius: 2, backgroundColor: '#a38ade' },
-  hero: { height: 82, marginTop: 10, position: 'relative' }, heroCopy: { paddingLeft: 6, paddingTop: 11 },
+  hero: { height: 109, marginTop: 10, position: 'relative' }, heroCopy: { paddingLeft: 6, paddingTop: 11 },
   heading: { color: '#fcf9ff', fontSize: 34, fontWeight: '800', letterSpacing: -.8, lineHeight: 41 },
   subtitle: { color: PURPLE, fontSize: 16, fontWeight: '700', marginTop: 1 },
+  xpBadge: { color: '#c1afd9', fontSize: 10, fontWeight: '700', marginTop: 6 },
   heroFox: { position: 'absolute', right: 5, top: -10, width: 133, height: 111 },
   helloMarks: { position: 'absolute', right: 129, top: 43, gap: 6 }, helloDash: { height: 2, width: 10, borderRadius: 2, backgroundColor: ORANGE },
   courseLine: { flexDirection: 'row', gap: 9, alignItems: 'center', marginTop: 3, marginBottom: 12, paddingHorizontal: 4 },
@@ -148,9 +146,11 @@ const s = StyleSheet.create({
   courseCaption: { fontSize: 8.2, color: PURPLE, fontWeight: '500' },
   track: { height: 7, borderRadius: 5, backgroundColor: '#2b2b48', overflow: 'hidden' }, fill: { height: '100%', borderRadius: 5 },
   list: { position: 'relative' }, dots: { position: 'absolute', top: 50, left: 25, bottom: 18, overflow: 'hidden', gap: 4 }, dot: { height: 3, width: 3, borderRadius: 2, backgroundColor: '#695293' },
-  cardSpace: { position: 'relative', marginBottom: 10 },
-  card: { borderWidth: 1, borderColor: '#22253e', borderRadius: 13, backgroundColor: '#17192f' },
-  currentCard: { borderColor: '#d18b47', shadowColor: '#ff9c36', shadowOffset: { width: 0, height: 0 }, shadowOpacity: .32, shadowRadius: 13, elevation: 5 },
+  cardSpace: { position: 'relative', marginBottom: 16 },
+  card: { borderWidth: 1, borderColor: 'transparent', borderRadius: 13, backgroundColor: '#17192f', boxShadow: '0 0 8px 0 rgba(172, 146, 240, 0.10)' },
+  currentCard: { boxShadow: '0 0 9px 0 rgba(255, 155, 53, 0.14)' },
+  completedCard: { boxShadow: '0 0 8px 0 rgba(50, 227, 188, 0.10)' },
+  cardBorder: { position: 'absolute', top: -1, right: -1, bottom: -1, left: -1, borderRadius: 13 },
   cardBody: { flexDirection: 'row', alignItems: 'center', minHeight: 86, borderRadius: 12, paddingVertical: 11, paddingRight: 23, position: 'relative', overflow: 'hidden' },
   currentBody: { minHeight: 164, alignItems: 'flex-start', paddingTop: 13, paddingBottom: 10, paddingRight: 12 },
   activeRail: { position: 'absolute', top: 0, bottom: 0, left: 0, width: 4, borderTopLeftRadius: 13, borderBottomLeftRadius: 13, backgroundColor: '#ffa039' },

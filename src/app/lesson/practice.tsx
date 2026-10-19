@@ -14,6 +14,7 @@ import {
   View,
 } from 'react-native';
 import MascotBubble from '../../components/MascotBubble';
+import EnergyMeter from '../../components/EnergyMeter';
 import SpeakerIcon from '../../components/SpeakerIcon';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
@@ -145,9 +146,9 @@ function PracticeLesson({ lesson }: { lesson: Lesson }) {
   const [mascotFade] = useState(() => new Animated.Value(0));
   const [mascotShake] = useState(() => new Animated.Value(0));
 
-  const addXP = useUserStore((s) => s.addXP);
-  const loseHeart = useUserStore((s) => s.loseHeart);
-  const hearts = useUserStore((s) => s.hearts);
+  const attempt = useRef('');
+  const [completionError, setCompletionError] = useState('');
+  useEffect(() => { if (!attempt.current) attempt.current = useUserStore.getState().beginLesson(lesson.id, 'practice'); }, [lesson.id]);
   const xp = useUserStore((s) => s.xp);
 
   useEffect(() => {
@@ -282,6 +283,7 @@ const speak = useCallback(async (text: string, lang: Language | undefined) => {
   };
 
   const handleAzWordTap = (index: number) => {
+    useUserStore.getState().useHelp(attempt.current);
     const tw = translationWords[index];
     if (!tw) return;
 
@@ -334,6 +336,7 @@ const speak = useCallback(async (text: string, lang: Language | undefined) => {
   };
 
   const handleCheck = () => {
+    if (showResult) return;
     let userAnswer = '';
         if (isSentenceBuild) {
       userAnswer =
@@ -355,16 +358,15 @@ const speak = useCallback(async (text: string, lang: Language | undefined) => {
       answerLang
     );
     setIsCorrect(correct);
+    useUserStore.getState().recordTask(attempt.current, exercise.id, correct, userAnswer);
     setShowResult(true);
 
     if (correct) {
       playCorrectSound();
 
       if (isRetryMode) {
-        addXP(5);
         setWrongQueue((q) => q.filter((idx) => idx !== currentEx));
       } else {
-        addXP(10);
         setCorrectCount((c) => c + 1);
       }
     } else {
@@ -373,7 +375,6 @@ const speak = useCallback(async (text: string, lang: Language | undefined) => {
       if (isRetryMode) {
         // səhv qalır queue-da
       } else {
-        loseHeart();
         setWrongQueue((q) =>
           q.includes(currentEx) ? q : [...q, currentEx]
         );
@@ -393,22 +394,24 @@ const speak = useCallback(async (text: string, lang: Language | undefined) => {
     setTappedAzIndex(null);
   };
 
-  const finishLesson = () => {
+  const finishLesson = async () => {
     if (finishing.current) return;
     finishing.current = true;
     void Speech.stop();
     const elapsed = Math.max(1, Math.round((Date.now() - startTime) / 60000));
     if (getLessonActivities(lesson.id)) {
       router.replace({ pathname: '/lesson/activities', params: {
-        id: lesson.id, correct: String(correctCount), time: String(elapsed),
+        id: lesson.id, correct: String(correctCount), time: String(elapsed), attemptId: attempt.current,
       } });
       return;
     }
-    const summary = completeLessonSession(lesson, correctCount);
+    try {
+    const summary = await completeLessonSession(attempt.current);
     router.replace({ pathname: '/lesson/complete', params: {
       id: lesson.id, correct: String(summary.correct), total: String(summary.total),
-      wrong: String(summary.wrong), time: String(elapsed),
+      wrong: String(summary.wrong), time: String(elapsed), receiptId: summary.receiptId,
     } });
+    } catch { setCompletionError('Nəticə saxlanmadı. Yenidən cəhd et.'); finishing.current = false; }
   };
 
   const openRetryModal = () => {
@@ -492,6 +495,7 @@ const speak = useCallback(async (text: string, lang: Language | undefined) => {
   };
 
   const handleSkipRetry = () => {
+    wrongQueue.forEach((index) => useUserStore.getState().recordTask(attempt.current, lesson.exercises[index].id, null, 'skip'));
     setShowRetryModal(false);
     finishLesson();
   };
@@ -531,10 +535,7 @@ const speak = useCallback(async (text: string, lang: Language | undefined) => {
                 <Text style={styles.statEmoji}>⭐</Text>
                 <Text style={styles.statValue}>{xp}</Text>
               </View>
-              <View style={styles.statBadge}>
-                <Text style={styles.statEmoji}>❤️</Text>
-                <Text style={styles.statValue}>{hearts}</Text>
-              </View>
+              <EnergyMeter compact />
             </View>
 
             <View style={styles.counterBox}>
@@ -543,6 +544,7 @@ const speak = useCallback(async (text: string, lang: Language | undefined) => {
           </View>
 
           <View style={styles.progressContainer}>
+            {completionError ? <Text style={{ color: '#ffb24d' }}>{completionError}</Text> : null}
             <View
               style={[
                 styles.progressBar,

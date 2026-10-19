@@ -1,3 +1,5 @@
+import EnergyMeter from '../../components/EnergyMeter';
+import EarnedXP from '../../components/EarnedXP';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import { useEffect, useRef, useState } from 'react';
@@ -40,8 +42,17 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
   const [showPhrases, setShowPhrases] = useState(false);
   const [teacherOpen, setTeacherOpen] = useState(false);
   const scroll = useRef<ScrollView>(null);
-  const attempts = useRef<Record<number, boolean>>({});
+  const [sessionCompleted, setSessionCompleted] = useState(false);
   const completing = useRef(false);
+  const lastAdvance = useRef('');
+  const attempt = useRef('');
+  const [attemptId, setAttemptId] = useState('');
+  const [receiptId, setReceiptId] = useState('');
+  const [completionError, setCompletionError] = useState('');
+  useEffect(() => {
+    if (!attempt.current) attempt.current = useUserStore.getState().beginLesson(lesson.id);
+    setAttemptId(attempt.current);
+  }, [lesson.id]);
   const current = warmup ? content.warmup! : content.steps[index];
   const exercise = current?.exercise;
   const activity = current?.activity || content.style;
@@ -50,30 +61,35 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
   useEffect(() => () => { void Speech.stop(); }, []);
   const backToMap = () => { void Speech.stop(); router.replace(`/module/${lesson.moduleId}`); };
 
-  const complete = (spoken?: VoiceStats) => {
+  const complete = async (spoken?: VoiceStats) => {
     if (completing.current) return;
-    completing.current = true;
-    const user = useUserStore.getState();
-    const alreadyCompleted = user.completedLessons.includes(lesson.id);
-    const writtenCorrect = Object.values(attempts.current).filter(Boolean).length;
-    const correct = writtenCorrect + (spoken?.correct || 0);
-    const wrong = lesson.exercises.length - writtenCorrect + (spoken?.wrong || 0);
-    // Skipped voice tasks and recognition failures never enter the accuracy denominator.
-    user.markLessonComplete(lesson.id, correct, wrong, lesson.xpReward);
-    if (spoken) setVoiceStats(spoken);
-    if (!alreadyCompleted) user.addXP(lesson.xpReward);
-    useVocabularyStore.getState().addLessonWords(lesson.id);
-    setFinished(true);
+    completing.current = true; setCompletionError('');
+    try {
+      const receipt = await useUserStore.getState().finishLesson(attempt.current);
+      setReceiptId(receipt.id);
+      setSessionCompleted(receipt.completed);
+      if (spoken) setVoiceStats(spoken);
+      if (receipt.completed) useVocabularyStore.getState().addLessonWords(lesson.id);
+      setFinished(true);
+    } catch {
+      setCompletionError('Nəticə saxlanmadı. Yenidən cəhd et.');
+      completing.current = false;
+      lastAdvance.current = '';
+    }
   };
 
   const check = (value = answer) => {
     if (!exercise || !value.trim() || feedback === 'correct') return;
     const correct = isSessionAnswerCorrect(value, exercise.correctAnswer, exercise.answerLang || 'en', exercise.acceptedAnswers, exercise.type === 'fill_blank' || exercise.type === 'translation');
-    if (!warmup && !(index in attempts.current)) attempts.current[index] = correct;
+    useUserStore.getState().recordTask(attempt.current, exercise.id, correct, value);
+    if (!correct) useUserStore.getState().useHelp(attempt.current);
     setFeedback(correct ? 'correct' : 'wrong');
     if (correct) Keyboard.dismiss();
   };
   const next = () => {
+    const key = `${warmup}:${index}`;
+    if (lastAdvance.current === key) return;
+    lastAdvance.current = key;
     void Speech.stop();
     setAnswer(''); setBuilt([]); setFeedback(null); setShowPhrases(false); setTeacherOpen(false);
     scroll.current?.scrollTo({ y: 0, animated: false });
@@ -91,7 +107,8 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
   if (finished) return <View style={[styles.screen, styles.result, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
     <Stack.Screen options={{ headerShown: false }} />
     <AnimatedFox mood="celebrate" size={135} />
-    <Text style={styles.title}>Bu dərs bitdi!</Text>
+    <Text style={styles.title}>{sessionCompleted ? 'Bu dərs bitdi!' : 'Məşq bitdi · cavabsız tapşırıqlar qalıb'}</Text>
+    <EarnedXP receiptId={receiptId} />
     <Text style={styles.body}>{lesson.titleAz}</Text>
     <Text style={styles.goal}>{lesson.canDo}</Text>
     <Text style={styles.body}>{lesson.focus === 'speaking' ? 'Səsli söhbəti məşq etdin. Tələffüz balı verilmir.' : `${lesson.exercises.length} yazılı/dinləmə tapşırığını məşq etdin.`}</Text>
@@ -100,8 +117,9 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
     <Text style={styles.note}>Növbəti dərsi xəritədən özün açacaqsan.</Text>
   </View>;
 
-  if (oralStage && content.speaking) return <VoiceChatLesson turns={[content.speaking]} initialName={name} onFinish={complete} onBack={backToMap} />;
-  if (content.style === 'voice_chat') return <VoiceChatLesson turns={content.turns || []} onFinish={complete} onBack={backToMap} />;
+  if (!attemptId) return <View style={styles.errorScreen}><Text style={styles.title}>Dərs hazır deyil və ya bölmə kilidlidir.</Text><TouchableOpacity onPress={backToMap}><Text style={styles.link}>Geri</Text></TouchableOpacity></View>;
+  if (oralStage && content.speaking) return <VoiceChatLesson turns={[content.speaking]} initialName={name} attemptId={attemptId} completionError={completionError} onFinish={complete} onBack={backToMap} />;
+  if (content.style === 'voice_chat') return <VoiceChatLesson turns={content.turns || []} attemptId={attemptId} completionError={completionError} onFinish={complete} onBack={backToMap} />;
 
   const needsCheck = exercise?.type === 'sentence_build' || exercise?.type === 'fill_blank' || exercise?.type === 'translation';
   const canCheck = exercise?.type === 'sentence_build' ? built.length > 0 : Boolean(answer.trim());
@@ -120,7 +138,7 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
     <View style={styles.header}>
       <TouchableOpacity accessibilityLabel="Bölmə xəritəsinə qayıt" style={styles.back} onPress={backToMap}><Text style={styles.backText}>‹</Text></TouchableOpacity>
       <View style={{ flex: 1 }}><Text style={styles.label}>{lesson.order}/6 · İLK TANIŞLIQ</Text><Text style={styles.headerTitle}>{lesson.titleAz}</Text></View>
-      <View style={styles.level}><Text style={styles.counter}>A1</Text></View>
+      <EnergyMeter compact />
     </View>
     <View style={styles.progressRow}><View style={styles.progressTrack}><View style={[styles.progressFill, { width: `${ownCard ? 100 : warmup ? 0 : (index + 1) / content.steps.length * 100}%` }]} /></View><Text style={styles.counter}>{warmup ? 'Təkrar' : ownCard ? 'Kartın' : `${index + 1}/${content.steps.length}`}</Text></View>
     <ScrollView ref={scroll} style={styles.scroll} contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
@@ -132,7 +150,7 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
         {name.trim() ? <TouchableOpacity style={styles.nameCard} onPress={() => void speak(`Hi! I'm ${name.trim()}.`)}><Text style={styles.nameLabel}>SƏNİN TANIŞLIQ KARTIN</Text><Text style={styles.nameTitle}>Hi! I’m {name.trim()}.</Text><Text style={styles.note}>▶ Dinlə və özün de</Text></TouchableOpacity> : null}
       </> : <>
         {warmup ? <Text style={styles.warmup}>Əvvəlki dərsdən bir qısa təkrar</Text> : null}
-        <TouchableOpacity accessibilityRole="button" accessibilityState={{ expanded: teacherOpen }} onPress={() => setTeacherOpen((value) => !value)} style={styles.teacher}>
+        <TouchableOpacity accessibilityRole="button" accessibilityState={{ expanded: teacherOpen }} onPress={() => { useUserStore.getState().useHelp(attempt.current); setTeacherOpen((value) => !value); }} style={styles.teacher}>
           <AnimatedFox mood={feedback === 'correct' ? 'celebrate' : 'idle'} size={30} />
           <View style={{ flex: 1 }}><Text style={styles.tipLabel}>Kiçik ipucu</Text>{teacherOpen ? <Text style={styles.teacherText}>{current.teacher}</Text> : <Text style={styles.note}>İzahı açmaq üçün toxun</Text>}</View>
           <Text style={styles.counter}>{teacherOpen ? '−' : '+'}</Text>
@@ -154,11 +172,12 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
         </>}
       </>}
       {!warmup && lesson.vocabulary.length ? <>
-        <TouchableOpacity onPress={() => setShowPhrases((value) => !value)}><Text style={styles.link}>{showPhrases ? 'İfadələri gizlət ↑' : 'Bu dərsin ifadələri ↓'}</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => { useUserStore.getState().useHelp(attempt.current); setShowPhrases((value) => !value); }}><Text style={styles.link}>{showPhrases ? 'İfadələri gizlət ↑' : 'Bu dərsin ifadələri ↓'}</Text></TouchableOpacity>
         {showPhrases ? lesson.vocabulary.map((word) => <TouchableOpacity key={word.id} style={styles.phrase} onPress={() => void speak(word.word)}><Text style={styles.phraseWord}>▶ {word.word}</Text><Text style={styles.note}>{word.translation}</Text><Text style={styles.note}>{word.usageNote}</Text></TouchableOpacity>) : null}
       </> : null}
     </ScrollView>
     <View style={[styles.footer, { paddingBottom: Math.max(insets.bottom, 12) }]}>
+      {completionError ? <Text style={styles.note}>{completionError}</Text> : null}
       {feedback && !ownCard ? <View accessibilityLiveRegion="polite" style={[styles.feedback, feedback === 'wrong' && styles.feedbackWrong]}>
         <Text style={[styles.feedbackTitle, feedback === 'wrong' && { color: t.error }]}>{feedback === 'correct' ? '✓ Düzdür!' : 'Bir də yoxlayaq'}</Text>
         <Text style={styles.feedbackText} numberOfLines={3}>{exercise.explanation}</Text>

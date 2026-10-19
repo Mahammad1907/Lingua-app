@@ -13,7 +13,7 @@ import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
 import { getShortSession } from '../../data/firstConversation';
 import { getModuleById } from '../../data/modules';
-import { getPlacementTestByModuleId } from '../../data/placementTests';
+import { moduleUnlocked } from '../../utils/moduleAccess';
 import { Lesson } from '../../data/types';
 import { useUserStore } from '../../store/userStore';
 
@@ -24,7 +24,6 @@ export default function ModuleScreen() {
 
   const moduleData = getModuleById(moduleId || '');
   const completedLessons = useUserStore((s) => s.completedLessons);
-  const lessonProgress = useUserStore((s) => s.lessonProgress);
   const placementResults = useUserStore((s) => s.placementResults);
 
   // ═══ Dərsləri module-dan götür ═══
@@ -43,38 +42,18 @@ export default function ModuleScreen() {
     const completedCount = lessons.filter((l) =>
       completedLessons.includes(l.id)
     ).length;
-    const totalScore = lessons.reduce((sum, l) => {
-      const p = lessonProgress.find((p) => p.lessonId === l.id);
-      return sum + (p?.score || 0);
-    }, 0);
-    const percent = moduleData?.id === 'module_1' ? Math.round((completedCount / lessons.length) * 100) : Math.round(totalScore / lessons.length);
+    const percent = Math.round((completedCount / lessons.length) * 100);
     return { percent, completedCount, total: lessons.length };
-  }, [lessons, completedLessons, lessonProgress, moduleData?.id]);
-
-  // ═══ PLACEMENT TEST MƏLUMATLARI ═══
-  const placementInfo = useMemo(() => {
-    if (!moduleData) {
-      return { hasTest: false, passed: false, result: null };
-    }
-
-    const test = getPlacementTestByModuleId(moduleData.id);
-    const result = placementResults.find((r) => r.moduleId === moduleData.id);
-
-    return {
-      hasTest: test !== undefined,
-      passed: result?.passed === true,
-      result: result || null,
-    };
-  }, [moduleData, placementResults]);
+  }, [lessons, completedLessons]);
 
   // ═══ Modul tapılmadı ═══
-  if (!moduleData) {
+  if (!moduleData || !moduleUnlocked(moduleData.id, completedLessons, placementResults)) {
     return (
       <>
         <Stack.Screen options={{ headerShown: false }} />
         <View style={styles.errorContainer}>
           <Text style={styles.errorEmoji}>😕</Text>
-          <Text style={styles.errorTitle}>Modul tapılmadı</Text>
+          <Text style={styles.errorTitle}>{moduleData ? 'Bölmə kilidlidir' : 'Modul tapılmadı'}</Text>
           <TouchableOpacity
             style={styles.errorButton}
             onPress={() => router.back()}
@@ -156,34 +135,6 @@ export default function ModuleScreen() {
               </Text>
             </View>
           </View>
-
-          {/* ═══ PLACEMENT TEST ═══ */}
-          {placementInfo.hasTest && (
-            <TouchableOpacity
-              style={styles.placementCard}
-              onPress={() => {
-                router.push(`/placement/${moduleData.id}`);
-              }}
-              activeOpacity={0.85}
-            >
-              <View style={styles.placementIconWrapper}>
-                <Text style={styles.placementIcon}>
-                  {placementInfo.passed ? '✅' : '🧪'}
-                </Text>
-              </View>
-              <View style={styles.placementContent}>
-                <Text style={styles.placementTitle}>
-                  {placementInfo.passed ? 'Yenidən yoxla' : 'Biliyi yoxla'}
-                </Text>
-                <Text style={styles.placementDesc}>
-                  {placementInfo.passed && placementInfo.result
-                    ? `${placementInfo.result.correctCount}/${placementInfo.result.totalCount} düzgün · Yenidən cəhd et`
-                    : 'Bu modulu artıq bilirsənsə, testlə yoxla və Final Review-a keç'}
-                </Text>
-              </View>
-              <Text style={styles.placementArrow}>→</Text>
-            </TouchableOpacity>
-          )}
 
           {/* ═══ LEARNING PATH ═══ */}
           <View style={styles.pathSectionHeader}>

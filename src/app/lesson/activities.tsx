@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MascotBubble from '../../components/MascotBubble';
+import EnergyMeter from '../../components/EnergyMeter';
+import { useUserStore } from '../../store/userStore';
 import VoicePractice from '../../components/VoicePractice';
 import { colors } from '../../constants/colors';
 import { getLessonActivities, LessonActivities } from '../../data/lessonActivities';
@@ -12,7 +14,7 @@ import { Lesson } from '../../data/types';
 import { completeLessonSession } from '../../utils/lessonCompletion';
 
 export default function ActivitiesScreen() {
-  const params = useLocalSearchParams<{ id: string; correct: string; time: string }>();
+  const params = useLocalSearchParams<{ id: string; correct: string; time: string; attemptId?: string }>();
   const router = useRouter();
   const lesson = getLessonById(params.id || '');
   const content = getLessonActivities(params.id || '');
@@ -22,11 +24,11 @@ export default function ActivitiesScreen() {
       <TouchableOpacity onPress={() => router.back()}><Text style={styles.link}>Geri qayıt</Text></TouchableOpacity>
     </View>
   );
-  return <Activities key={lesson.id} lesson={lesson} content={content} correct={Number(params.correct)} elapsed={Number(params.time)} />;
+  return <Activities key={lesson.id} lesson={lesson} content={content} attemptId={params.attemptId ?? ''} elapsed={Number(params.time)} />;
 }
 
-function Activities({ lesson, content, correct, elapsed }: {
-  lesson: Lesson; content: LessonActivities; correct: number; elapsed: number;
+function Activities({ lesson, content, attemptId, elapsed }: {
+  lesson: Lesson; content: LessonActivities; attemptId: string; elapsed: number;
 }) {
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -35,7 +37,9 @@ function Activities({ lesson, content, correct, elapsed }: {
   const [stage, setStage] = useState<'game' | 'speaking'>('game');
   const [speakingIndex, setSpeakingIndex] = useState(0);
   const finishing = useRef(false);
+  const lastAdvance = useRef(-1);
   const [startedAt] = useState(() => Date.now());
+  const [completionError, setCompletionError] = useState('');
   const currentStop = content.game.stops[stop];
   const task = content.speaking[speakingIndex];
 
@@ -43,6 +47,7 @@ function Activities({ lesson, content, correct, elapsed }: {
 
   const answer = (value: string) => {
     if (feedback === 'correct') return;
+    useUserStore.getState().recordTask(attemptId, `game:${stop}`, value === currentStop.answer, value);
     setFeedback(value === currentStop.answer ? 'correct' : 'wrong');
     void Speech.stop().then(() => {
       Speech.speak(value, { language: 'en-GB', rate: 0.75 });
@@ -50,26 +55,32 @@ function Activities({ lesson, content, correct, elapsed }: {
   };
 
   const nextStop = () => {
+    if (lastAdvance.current === stop) return;
+    lastAdvance.current = stop;
     void Speech.stop();
     if (stop + 1 === content.game.stops.length) setStage('speaking');
     else setStop((value) => value + 1);
     setFeedback(null);
   };
 
-  const finishTask = () => {
+  const finishTask = async (outcome: { skipped: boolean; assisted: boolean }) => {
+    if (outcome.assisted) useUserStore.getState().useHelp(attemptId);
+    useUserStore.getState().recordTask(attemptId, `voice:${speakingIndex}`, outcome.skipped ? null : true, 'recording');
     if (speakingIndex + 1 < content.speaking.length) {
       setSpeakingIndex((value) => value + 1);
       return;
     }
     if (finishing.current) return;
     finishing.current = true;
-    const summary = completeLessonSession(lesson, correct);
+    try {
+    const summary = await completeLessonSession(attemptId);
     const priorTime = Number.isFinite(elapsed) ? Math.max(1, elapsed) : 1;
     const time = priorTime + Math.floor((Date.now() - startedAt) / 60000);
     router.replace({ pathname: '/lesson/complete', params: {
       id: lesson.id, correct: String(summary.correct), total: String(summary.total),
-      wrong: String(summary.wrong), time: String(time),
+      wrong: String(summary.wrong), time: String(time), receiptId: summary.receiptId,
     } });
+    } catch { finishing.current = false; setCompletionError('Nəticə saxlanmadı. Yenidən cəhd et.'); }
   };
 
   return (
@@ -78,6 +89,7 @@ function Activities({ lesson, content, correct, elapsed }: {
       <View style={styles.header}>
         <TouchableOpacity style={styles.back} onPress={() => router.back()}><Text style={styles.backText}>←</Text></TouchableOpacity>
         <Text style={styles.caption}>{stage === 'game' ? 'Oyun · 3 dayanacaq' : `Danışıq · ${speakingIndex + 1}/${content.speaking.length}`}</Text>
+        <EnergyMeter compact />
       </View>
       <ScrollView contentContainerStyle={[styles.content, { paddingBottom: Math.max(insets.bottom, 20) }]}>
         <Text style={styles.title}>{stage === 'game' ? content.game.title : 'Sənin danışıq növbən'}</Text>
@@ -116,6 +128,7 @@ function Activities({ lesson, content, correct, elapsed }: {
         ) : (
           <VoicePractice key={speakingIndex} prompt={task.prompt} examples={task.examples} onDone={finishTask} last={speakingIndex + 1 === content.speaking.length} />
         )}
+        {completionError ? <Text style={styles.body}>{completionError}</Text> : null}
       </ScrollView>
     </View>
   );

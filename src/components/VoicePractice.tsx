@@ -15,7 +15,7 @@ import { colors } from '../constants/colors';
 export default function VoicePractice({ prompt, examples, onDone, last }: {
   prompt: string;
   examples: string[];
-  onDone: () => void;
+  onDone: (outcome: { skipped: boolean; assisted: boolean }) => void;
   last: boolean;
 }) {
   const recorder = useAudioRecorder(RecordingPresets.HIGH_QUALITY);
@@ -25,6 +25,7 @@ export default function VoicePractice({ prompt, examples, onDone, last }: {
   const playerState = useAudioPlayerStatus(player);
   const [busy, setBusy] = useState(false);
   const [showExample, setShowExample] = useState(false);
+  const assisted = useRef(false);
   const [confirmSkip, setConfirmSkip] = useState(false);
   const [message, setMessage] = useState('');
   const operation = useRef(false);
@@ -132,7 +133,7 @@ export default function VoicePractice({ prompt, examples, onDone, last }: {
     if (operation.current || recorder.isRecording) return;
     player.pause();
     void Speech.stop();
-    onDone();
+    onDone({ skipped: !uri, assisted: assisted.current });
   };
 
   const blocked = busy || recorderState.isRecording;
@@ -156,7 +157,7 @@ export default function VoicePractice({ prompt, examples, onDone, last }: {
           <Text style={styles.secondaryText}>{playerState.playing ? 'Ⅱ Dinləməni dayandır' : '▶ Özümü dinlə'}</Text>
         </TouchableOpacity>
       ) : null}
-      <TouchableOpacity disabled={blocked} style={styles.secondary} onPress={() => setShowExample((value) => !value)}>
+      <TouchableOpacity disabled={blocked} style={styles.secondary} onPress={() => { assisted.current = true; setShowExample((value) => !value); }}>
         <Text style={styles.secondaryText}>{showExample ? 'Nümunəni gizlət' : 'Nümunəyə bax'}</Text>
       </TouchableOpacity>
       {showExample ? examples.map((text) => (

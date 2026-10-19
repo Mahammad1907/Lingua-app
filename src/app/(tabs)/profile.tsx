@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { colors } from '../../constants/colors';
 import { useUserStore } from '../../store/userStore';
+import { gameLevel } from '../../utils/rewards';
 
 export default function Profile() {
   const router = useRouter();
@@ -78,7 +79,7 @@ export default function Profile() {
             </View>
             <Text style={styles.statLabel}>XP</Text>
             <Text style={styles.statValue}>{xp}</Text>
-            <Text style={styles.statSub}>+0 bu gün</Text>
+            <Text style={styles.statSub}>Oyun səviyyəsi {gameLevel(xp)}</Text>
           </View>
 
           <View style={styles.statDivider} />
@@ -87,7 +88,7 @@ export default function Profile() {
             <View style={styles.statIconWrapper}>
               <Text style={styles.statIcon}>🔥</Text>
             </View>
-            <Text style={styles.statLabel}>Gündəlik giriş</Text>
+            <Text style={styles.statLabel}>Dərs seriyası</Text>
             <Text style={styles.statValue}>{streak}</Text>
             <Text style={styles.statSub}>gün</Text>
           </View>
@@ -105,6 +106,10 @@ export default function Profile() {
         </LinearGradient>
 
         {/* Dil kartı */}
+        <Text style={[styles.statSub, { marginBottom: 8 }]}>Növbəti oyun səviyyəsi: {xp % 100}/100 XP</Text>
+        <View accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: 100, now: xp % 100 }} style={{ height: 5, borderRadius: 3, backgroundColor: '#30264b', marginBottom: 20 }}>
+          <View style={{ height: 5, borderRadius: 3, backgroundColor: '#ac92f0', width: `${xp % 100}%` }} />
+        </View>
         <Text style={styles.sectionLabel}>ÖYRƏNDİYİM DİL</Text>
 
         <LinearGradient
