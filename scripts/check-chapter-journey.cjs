@@ -5,7 +5,7 @@ const ts = require('typescript');
 require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true },
 }).outputText, filename);
-const { buildChapterJourney, journeyRoute, clampPercent } = require('../src/utils/chapterJourney.ts');
+const { buildChapterJourney, journeyRoute, clampPercent, chapterReferenceLayout } = require('../src/utils/chapterJourney.ts');
 const { lessons } = require('../src/data/lessons.ts');
 const source = lessons.filter((lesson) => lesson.moduleId === 'module_1').sort((a, b) => a.order - b.order);
 assert.equal(source.length, 6);
@@ -58,4 +58,25 @@ for (const width of [1, 240, 288, 358, 480]) for (const right of [false, true]) 
 }
 const small = journeyRoute(NaN, -4, false);
 assert.ok(small.every((point) => Number.isFinite(point.x) && Number.isFinite(point.y)));
+const reference = chapterReferenceLayout(345);
+assert.equal(reference.badge, 88);
+assert.equal(reference.heroHeight, 128);
+assert.equal(reference.cardWidth('greeting', false), 244);
+assert.equal(reference.cardWidth('identity', false), 221);
+assert.equal(reference.cardWidth('board', true), 328);
+assert.ok(reference.cardWidth('identity', false) < 345 * 0.7, 'short reference label panel, not full-width rectangle');
+assert.ok(reference.foxWidth > reference.badge * 1.8, 'large hero mascot as in approved reference');
+assert.equal(reference.gap(false), 28);
+assert.equal(reference.gap(true), 36);
+for (const width of [272, 327, 345, 382, 480]) {
+  const layout = chapterReferenceLayout(width);
+  assert.ok(layout.lessonSize >= 12, 'narrow displays retain readable titles');
+  for (const artwork of ['greeting', 'identity', 'board', 'dialogue', 'questions', 'headphones']) {
+    assert.ok(layout.cardWidth(artwork, false) <= width);
+    assert.ok(layout.cardWidth(artwork, true) <= width);
+  }
+  const bridge = journeyRoute(width, layout.gap(false), false, layout.badge + 8 * layout.scale, layout.badge + 36 * layout.scale);
+  assert.ok(bridge.length < 22, 'sparse short bridge, no dense full-width necklace');
+  assert.ok(bridge.every((point) => point.x >= 0 && point.x <= width));
+}
 console.log('PASS: completion vs accuracy, corrected/skipped tasks, latest attempt, unlock preservation, unique IDs, 40 lessons, route endpoints and equal-distance dots at five widths.');

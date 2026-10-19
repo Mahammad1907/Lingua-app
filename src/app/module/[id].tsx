@@ -51,7 +51,7 @@ export default function ModuleScreen() {
   return <>
     <Stack.Screen options={{ headerShown: false }} />
     <ChapterJourney title={moduleData.titleAz} order={moduleData.order} level={moduleData.level}
-      items={items} energy={<EnergyMeter />} topInset={insets.top} bottomInset={insets.bottom}
+      items={items} energy={<EnergyMeter appearance="chapter" />} topInset={insets.top} bottomInset={insets.bottom}
       onBack={back} onLessonPress={openLesson} active={focused} />
   </>;
 }

@@ -56,13 +56,27 @@ export function buildChapterJourney(
 }
 
 export interface RoutePoint { x: number; y: number; fraction: number }
+// Measurements from the approved 654px-wide reference, converted to layout units.
+// The native status bar/safe area is outside this content coordinate system.
+export function chapterReferenceLayout(contentWidth: number) {
+  const width = Math.max(220, Math.min(480, Number.isFinite(contentWidth) ? contentWidth : 345));
+  const scale = width / 345;
+  return {
+    scale, badge: 88 * scale, heroHeight: 128 * scale, foxWidth: 168 * scale, foxHeight: 156 * scale,
+    titleSize: Math.max(28, 32 * scale), titleLine: Math.max(34, 39 * scale), lessonSize: Math.max(12, 12.5 * scale),
+    cardWidth: (artwork: JourneyArtwork, current: boolean) => Math.min(width - 8 * scale,
+      (current || artwork === 'board' ? 328 : artwork === 'identity' ? 221 : artwork === 'headphones' ? 264 : artwork === 'dialogue' ? 240 : 244) * scale),
+    gap: (current: boolean) => (current ? 36 : 28) * scale,
+  };
+}
 // Equal-distance dots ensure 40% means 40% of the curve length, not of its x axis.
-export function journeyRoute(width: number, height: number, fromRight: boolean, inset = 48): RoutePoint[] {
+export function journeyRoute(width: number, height: number, fromRight: boolean, inset = 48, endInset = inset): RoutePoint[] {
   const safeWidth = Math.max(1, Number.isFinite(width) ? width : 1);
   const safeHeight = Math.max(1, Number.isFinite(height) ? height : 1);
   const edge = Math.min(Math.max(0, inset), safeWidth / 2);
+  const endEdge = Math.min(Math.max(0, endInset), safeWidth / 2);
   const start = fromRight ? safeWidth - edge : edge;
-  const end = fromRight ? edge : safeWidth - edge;
+  const end = fromRight ? endEdge : safeWidth - endEdge;
   const delta = end - start;
   const samples = Array.from({ length: 121 }, (_, i) => {
     const t = i / 120; const u = 1 - t;

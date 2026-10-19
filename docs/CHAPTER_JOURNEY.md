@@ -1,64 +1,63 @@
 # Bölmə daxilində 3D dərs yolu
 
-Əsas versiya: `0c0ef0f4d622395aa25bfeb6acd672656914d502`.
-Təsdiqlənmiş vizual istiqamət: `previews/chapter-journey-reference.webp`.
-Bu şəkil dizayn nümunəsidir, tətbiqdən çəkilmiş ekran görüntüsü deyil.
+Əsas tətbiq versiyası: `0c0ef0f4d622395aa25bfeb6acd672656914d502`.
+Son vizual istinad: istifadəçinin 20 oktyabrda təsdiqlədiyi
+`previews/chapter-journey-reference.webp`. Bu, dizayn şəklidir, tətbiqdən çəkilmiş ekran görüntüsü deyil.
 
 ## Dəyişiklik sərhədi
 
-Yalnız `src/app/module/[id].tsx` ekranı yeni `components/chapter/` komponentlərinə keçirilib.
-Ana ekran, dərslərin məzmunu, enerji komponenti, istifadəçi store-u, XP/streak,
-bölmə kilidləri və `/module/check` dəyişdirilməyib. Dərslərin mövcud açılma
-qaydaları və session/vocabulary marşrutları saxlanılıb. Bölmə daxilində imtahan
-düyməsi yoxdur. Məzmunsuz bölmələr açılmır.
+Bölmə ekranı `src/app/module/[id].tsx` və `components/chapter/` ilə qurulur.
+Ana ekran, dərs məzmunu, istifadəçi store-u, enerji/XP/streak qaydaları, bölmə
+kilidləri və `/module/check` dəyişdirilməyib. Bölmənin daxilində imtahan düyməsi yoxdur.
+`EnergyMeter`-ə yalnız bölmə üçün əlavə görünüş seçimi verilib: faiz yuxarıda,
+ildırım çubuğun içində. Default görünüş və enerji mənbəyi saxlanılır. Animasiya
+obyektlərinin ilkin yaradılması lint-ə uyğun stabil state initializer istifadə edir.
 
-- Yığcam 3D dayanacaqlar növbə ilə sola/sağa söykənir; kartlar arasında 70 px
-  bağlantı sahəsi və aşağıda safe area ilə əlavə 72 px boşluq var.
-- Enerji ana ekranın eyni `EnergyMeter` komponentidir; təkrar mənbə yaradılmayıb.
-- BirFox yalnız başlıqda görünür. Dörd yeni 3D nişan bir şəffaf 1024×1024 WebP
-  atlasda saxlanır (təxminən 140 KB); şəxsiyyət kartı və qulaqlıq mövcud şəkillərdir.
-  SVG yalnız xətlər, halqalar və kiçik interfeys ikonları üçündür.
-- Başlıqlar həqiqi dərs məlumatından gəlir, uzun adlar kəsilmir. Mətn ölçüsü
-  böyüdüldükdə kartlar hündürləşə bilər; iri əlçatanlıq mətnində maskot gizlənərək
-  başlığa yer saxlanılır. Dərs sayı altı ilə məhdudlaşmır.
-- Tamamlanan dərslər 100%-dir. Qiymətləndirmə dəqiqliyi (`score`) tamamlanma
-  faizi kimi istifadə edilmir. Cari cəhdin cavablandırılıb həll olunmuş, keçilməmiş
-  tapşırıqları onun gözlənilən unikal tapşırıqlarına bölünür. Tamamlama təsdiqinə
-  qədər maksimum 99% göstərilir.
-- Faizlər eyni uzunluq aralıqları ilə ölçülən əyri nöqtəli yolun həmin hissəsini
-  işıqlandırır. Tam yol nanə yaşılı, cari hissə narıncı, qalanı solğun bənövşəyidir.
-  Dəyişiklik 450 ms-də irəliləyir; ekran fokusda olmadıqda animasiya işləmir.
-  Davamlı loop, timer və yanıb-sönmə yoxdur.
-- Kart basılması 0.98 scale, cari düymədə zəif glow, dəstəklənən cihazda soft
-  haptik verir. Reduce Motion hərəkət/haptiki dayandırır. Kilidli dərsə toxunmaq
-  2.4 saniyəlik “Əvvəlki dərsi tamamla” bildirir, dərsi açmır.
+## Son istinadın nisbətləri
 
-## Yoxlama
+345 layout vahidlik daxili endə:
+- BirFox 168×156, başlıq sahəsi 128 hündürlükdədir. Faiz və çubuq soldakı 60%-də,
+  maskot sağda yerləşir; faiz ayrıca böyük boşluğun altına düşmür.
+- Dairəvi 3D nişanlar 88 ölçüdə, qısa panellər isə mövzuya uyğun 221–328 endədir.
+  Mətnin ölçüsü 12.5, uzun başlıqların sətir hündürlüyü 17-dir. Dar ekranda başlıq
+  şrifti 12-dən aşağı düşmür; böyük əlçatanlıq mətnində panellər genişlənir.
+- Bağlantı sahəsi 28, cari dərsdən sonra 36-dır. Qısa əyri körpülər kartların tam
+  eni boyunca sıx nöqtə zənciri yaratmır. Parıltı şəffaf qatlarla yumşaldılıb.
+- Dairələrdə gradient halqa, radial işıq və tünd səth var. Kartlarda incə gradient
+  sərhəd, cari düymədə sabit glow və basılmada 0.98 scale tətbiq olunur.
+- Yeni şəffaf `reference-atlas.webp` yalnız bölmə maskotu və kitabsız şəxsiyyət kartı
+  üçündür. `lesson-atlas.webp` salamlaşma/lövhə/dialoq/sual nişanlarını daşıyır.
+  Hər ikisi daxili imagegen ilə hazırlanıb və WebP-yə optimallaşdırılıb. SVG
+  illüstrasiya əvəzi deyil: halqa, glow, fon dalğası və interfeys işarələri üçündür.
+- Birinci bölmənin altı görünən qısa başlığı istinadla eyniləşdirilib; mənbə dərs
+  adları və tam əlçatanlıq etiketləri saxlanılıb. Sonrakı bölmələrin adı məlumatdan gəlir.
 
-- `node node_modules/typescript/bin/tsc --noEmit --pretty false`
-- Birbaşa ESLint: dəyişən ekran, yeni komponentlər, model, fixture və test skripti.
-- `node scripts/check-chapter-journey.cjs`: tamamlanma və dəqiqliyin ayrılması,
-  düzəldilmiş/keçilmiş tapşırıqlar, son cəhd, təkrar ID-lər, mövcud kilid davranışı,
-  boş/40 dərsli siyahı, beş endə əyrinin simmetriyası və bərabər məsafəli nöqtələr.
-- `node scripts/check-progression.cjs` və `node scripts/check-home-reference.cjs`:
-  mövcud enerji/mükafat/kilid və ana ekran məntiqi.
-- Expo web və iOS export: yeni ekranın JS/Hermes paketinə və atlasın asset-lərə
-  yığılması keçdi. Bu, native cihazda işə salınma testi deyil. Müvəqqəti preview marşrutu və
-  preview üçün dəyişdirilən layout saxlanmayıb; istehsal layout-u bərpa olunub.
+## Real irəliləyiş və davranış
 
-Real iPhone görünüşü, toxunma, haptik və native animasiya bu mühitdə sınanmayıb.
-Soyuq açılış sürəti ölçülməyib. Yeni paket quraşdırılmayıb.
+Tamamlanan dərs 100%-dir. `LessonProgress.score` tamamlanma faizi deyil.
+Cari cəhdin həll olunmuş və keçilməmiş tapşırıqları unikal gözlənilən tapşırıqlara
+bölünür; tamamlama təsdiqinə qədər maksimum 99% göstərilir. Yoldakı işıq həmin
+faiz qədər əyrinin uzunluğu üzrə irəliləyir. Ekran fokusda deyilsə animasiya dayanır.
+Reduce Motion hərəkət və haptiki dayandırır. Kilidli dərs 2.4 saniyəlik
+“Əvvəlki dərsi tamamla” bildirir; açılmır. Mövcud session/vocabulary marşrutları qorunur.
+Nümunədəki 33%, 40%, 80% tətbiqdə sabit rəqəmlər deyil.
 
-## Cari versiyanın sərhədi
+## Yoxlama və sərhədlər
 
-Son cəhdlərin məlumatı mövcud store-da yalnız cari tətbiq sessiyası ərzində yaşayır.
-Bu ekran onların real həll sayını göstərir, yeni saxlama və ya davametmə sistemi
-yaratmır. Tətbiq tam bağlanarsa yarımçıq faiz itə bilər; tamamlanan dərslər əvvəlki
-qalıcı mənbədən gəlir. `Davam et` mövcud dərs marşrutunu açır, sual mövqeyinin
-qalıcı bərpasını vəd etmir. Kilidli bölmənin imtahanını keçmək əvvəlki qaydaya uyğun
-yalnız final review girişini əlçatan edə bilər, dərsləri tamamlanmış göstərmir.
+- TypeScript typecheck və dəyişən faylların birbaşa ESLint yoxlaması.
+- `check-chapter-journey.cjs`: dəqiqlik/tamamlama ayrılması, keçilmiş tapşırıqlar,
+  son cəhd, təkrar ID, kilid, boş/40 dərsli siyahı, beş endə əyri uzunluğu və
+  istinad nisbətləri (qısa panellər, böyük maskot, seyrək körpülər).
+- `check-progression.cjs` və `check-home-reference.cjs`: mövcud enerji/mükafat/kilid
+  və ana ekran davranışının reqressiya yoxlaması.
+- Expo iOS export: Hermes paketi və yeni asset-lərin yığılması.
 
-`previews/ChapterPreview.fixture.tsx` yalnız nümunə məlumatlı yoxlama üçündür,
-istehsal ekranından import edilmir. Atlas daxili imagegen ilə hazırlanıb:
-şəffaf 2×2 cədvəldə günəş/salam, lövhə, dialoq və kitab/sual nişanları; sonra
-şəffaflığı qorunmaqla WebP formatına optimallaşdırılıb.
+Real iPhone-da yeni görüntü, toxunma və native animasiya yoxlanmayıb. Telefonun
+status bar/safe area sahəsi dizayn şəklinin koordinatlarından əlavədir; siyahı
+sürüşür, bütün dərslər məcburi bir ekrana sıxılmır. Ekran görüntüsü üzrə piksel
+bərabərliyi təsdiqlənməyib. Soyuq açılış sürəti ölçülməyib. Paket quraşdırılmayıb.
+
+Mövcud store yarımçıq cəhdləri yalnız tətbiqin cari sessiyasında saxlayır. Tətbiq
+bağlanarsa yarımçıq faiz itə bilər; tamamlanmalar əvvəlki qalıcı mənbədə qalır.
+Bu dizayn sual mövqeyinin qalıcı bərpasını əlavə etmir.
+`previews/ChapterPreview.fixture.tsx` yalnız nümunədir, istehsal ekranından import edilmir.
