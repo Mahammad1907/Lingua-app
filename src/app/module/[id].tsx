@@ -1,438 +1,63 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { useMemo } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import LearningPath from '../../components/LearningPath';
-import { colors } from '../../constants/colors';
+import { Stack, useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
+import { useCallback, useMemo, useState } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import ChapterJourney from '../../components/chapter/ChapterJourney';
+import EnergyMeter from '../../components/EnergyMeter';
 import { getLessonById } from '../../data/lessons';
 import { getShortSession } from '../../data/firstConversation';
 import { getModuleById } from '../../data/modules';
-import { moduleUnlocked } from '../../utils/moduleAccess';
-import { Lesson } from '../../data/types';
+import type { Lesson } from '../../data/types';
 import { useUserStore } from '../../store/userStore';
+import { buildChapterJourney } from '../../utils/chapterJourney';
+import { moduleUnlocked } from '../../utils/moduleAccess';
 
 export default function ModuleScreen() {
-  const params = useLocalSearchParams<{ id: string }>();
-  const moduleId = params.id;
+  const params = useLocalSearchParams<{ id: string | string[] }>();
+  const moduleId = Array.isArray(params.id) ? params.id[0] : params.id;
   const router = useRouter();
-
+  const insets = useSafeAreaInsets();
+  const [focused, setFocused] = useState(false);
+  useFocusEffect(useCallback(() => {
+    setFocused(true);
+    return () => setFocused(false);
+  }, []));
   const moduleData = getModuleById(moduleId || '');
-  const completedLessons = useUserStore((s) => s.completedLessons);
+  const completed = useUserStore((s) => s.completedLessons);
   const placementResults = useUserStore((s) => s.placementResults);
+  const attempts = useUserStore((s) => s.attempts);
+  const placementPassed = placementResults.some((r) => r.moduleId === moduleId && r.passed);
+  const lessons = useMemo(() => (moduleData?.lessonIds ?? [])
+    .map(getLessonById).filter((lesson): lesson is Lesson => Boolean(lesson)), [moduleData]);
+  const items = useMemo(() => buildChapterJourney(lessons, completed, attempts, placementPassed),
+    [lessons, completed, attempts, placementPassed]);
+  const back = () => { if (router.canGoBack()) router.back(); else router.replace('/'); };
 
-  // ═══ Dərsləri module-dan götür ═══
-  const lessons: Lesson[] = useMemo(() => {
-    if (!moduleData) return [];
-    return moduleData.lessonIds
-      .map((id) => getLessonById(id))
-      .filter((l): l is Lesson => l !== undefined);
-  }, [moduleData]);
-
-  // ═══ Ümumi progress hesabla ═══
-  const overallProgress = useMemo(() => {
-    if (lessons.length === 0) {
-      return { percent: 0, completedCount: 0, total: 0 };
-    }
-    const completedCount = lessons.filter((l) =>
-      completedLessons.includes(l.id)
-    ).length;
-    const percent = Math.round((completedCount / lessons.length) * 100);
-    return { percent, completedCount, total: lessons.length };
-  }, [lessons, completedLessons]);
-
-  // ═══ Modul tapılmadı ═══
-  if (!moduleData || !moduleUnlocked(moduleData.id, completedLessons, placementResults)) {
-    return (
-      <>
-        <Stack.Screen options={{ headerShown: false }} />
-        <View style={styles.errorContainer}>
-          <Text style={styles.errorEmoji}>😕</Text>
-          <Text style={styles.errorTitle}>{moduleData ? 'Bölmə kilidlidir' : 'Modul tapılmadı'}</Text>
-          <TouchableOpacity
-            style={styles.errorButton}
-            onPress={() => router.back()}
-          >
-            <Text style={styles.errorButtonText}>Geri qayıt</Text>
-          </TouchableOpacity>
-        </View>
-      </>
-    );
-  }
-
-  const handleLessonPress = (lessonId: string) => {
-    if (getShortSession(lessonId)) router.push({ pathname: '/lesson/session', params: { id: lessonId } });
-    else router.push(`/lesson/vocabulary?id=${lessonId}`);
-  };
-
-  const handleSpeakingPractice = () => {
-    // Gələcəkdə speaking practice ekranına yönləndir
-    // Hazırda heç nə etmir
-  };
-
-  return (
-    <>
+  if (!moduleData || !moduleUnlocked(moduleData.id, completed, placementResults)) {
+    return <>
       <Stack.Screen options={{ headerShown: false }} />
-      <LinearGradient
-        colors={['#0a0a1a', '#1e1b4b', '#0a0a1a']}
-        style={styles.background}
-      >
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.content}
-          showsVerticalScrollIndicator={false}
-        >
-          {/* ═══ HEADER ═══ */}
-          <View style={styles.header}>
-            <TouchableOpacity
-              style={styles.backButton}
-              onPress={() => router.back()}
-              activeOpacity={0.8}
-            >
-              <Text style={styles.backText}>←</Text>
-            </TouchableOpacity>
-
-            <View style={styles.headerIconWrapper}>
-              <Text style={styles.headerIcon}>{moduleData.icon}</Text>
-            </View>
-
-            <View style={styles.headerSpacer} />
-          </View>
-
-          {/* ═══ MODUL BAŞLIĞI ═══ */}
-          <View style={styles.titleBlock}>
-            <Text style={styles.levelBadge}>
-              {moduleData.level} · {moduleData.language.toUpperCase()}
-            </Text>
-            <Text style={styles.title}>{moduleData.titleAz}</Text>
-            <Text style={styles.description}>{moduleData.description}</Text>
-          </View>
-
-          {/* ═══ ÜMUMİ PROGRESS ═══ */}
-          <View style={styles.overallProgressCard}>
-            <View style={styles.overallProgressHeader}>
-              <Text style={styles.overallProgressLabel}>ÜMUMİ PROGRESS</Text>
-              <Text style={styles.overallProgressValue}>
-                {overallProgress.percent}%
-              </Text>
-            </View>
-            <View style={styles.overallProgressBarBg}>
-              <View
-                style={[
-                  styles.overallProgressBarFill,
-                  { width: `${overallProgress.percent}%` },
-                ]}
-              />
-            </View>
-            <View style={styles.overallProgressFooter}>
-              <Text style={styles.overallProgressFooterText}>
-                {overallProgress.completedCount}/{overallProgress.total} dərs tamamlandı
-              </Text>
-            </View>
-          </View>
-
-          {/* ═══ LEARNING PATH ═══ */}
-          <View style={styles.pathSectionHeader}>
-            <Text style={styles.sectionTitle}>Öyrənmə yolu</Text>
-            <Text style={styles.sectionSubtitle}>
-              Addım-addım irəlilə
-            </Text>
-          </View>
-
-          <LearningPath
-            lessons={lessons}
-            onLessonPress={handleLessonPress}
-          />
-
-          {/* ═══ SPEAKING PRACTICE (əgər varsa) ═══ */}
-          {moduleData.hasSpeakingPractice && (
-            <TouchableOpacity
-              style={styles.speakingCard}
-              onPress={handleSpeakingPractice}
-              activeOpacity={0.85}
-            >
-              <LinearGradient
-                colors={['#6366f1', '#a855f7', '#ec4899']}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-                style={styles.speakingCardGradient}
-              >
-                <View style={styles.speakingIconWrapper}>
-                  <Text style={styles.speakingIcon}>🤖</Text>
-                </View>
-                <View style={styles.speakingContent}>
-                  <Text style={styles.speakingTitle}>
-                    {moduleData.speakingTitle || 'Speaking Practice'}
-                  </Text>
-                  <Text style={styles.speakingDesc}>
-                    {moduleData.speakingDescription ||
-                      'Öyrəndiklərini danışıqda istifadə et'}
-                  </Text>
-                </View>
-                <Text style={styles.speakingArrow}>→</Text>
-              </LinearGradient>
-            </TouchableOpacity>
-          )}
-
-          <View style={{ height: 60 }} />
-        </ScrollView>
-      </LinearGradient>
-    </>
-  );
+      <View style={s.error}>
+        <Text style={s.title}>{moduleData ? 'Bölmə kilidlidir' : 'Bölmə tapılmadı'}</Text>
+        <Pressable accessibilityRole="button" onPress={back} style={s.back}><Text style={s.backText}>Geri qayıt</Text></Pressable>
+      </View>
+    </>;
+  }
+  const openLesson = (id: string) => {
+    // Recheck availability at the boundary; never navigate from a stale locked card.
+    if (!items.some((item) => item.lesson.id === id && item.status !== 'locked')) return;
+    if (getShortSession(id)) router.push({ pathname: '/lesson/session', params: { id } });
+    else router.push({ pathname: '/lesson/vocabulary', params: { id } });
+  };
+  return <>
+    <Stack.Screen options={{ headerShown: false }} />
+    <ChapterJourney title={moduleData.titleAz} order={moduleData.order} level={moduleData.level}
+      items={items} energy={<EnergyMeter />} topInset={insets.top} bottomInset={insets.bottom}
+      onBack={back} onLessonPress={openLesson} active={focused} />
+  </>;
 }
-
-const styles = StyleSheet.create({
-  background: { flex: 1 },
-  container: { flex: 1 },
-  content: { padding: 20, paddingTop: 80, paddingBottom: 40 },
-
-  // ═══ HEADER ═══
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  backButton: {
-    width: 44,
-    height: 44,
-    borderRadius: 14,
-    backgroundColor: colors.surface,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  backText: { fontSize: 22, color: colors.textPrimary, fontWeight: '600' },
-  headerIconWrapper: {
-    width: 44,
-    height: 44,
-    borderRadius: 14,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.35)',
-  },
-  headerIcon: { fontSize: 22 },
-  headerSpacer: { width: 44 },
-
-  // ═══ TITLE ═══
-  titleBlock: {
-    marginBottom: 24,
-  },
-  levelBadge: {
-    fontSize: 11,
-    fontWeight: '800',
-    color: colors.primaryLight,
-    letterSpacing: 1.5,
-    marginBottom: 8,
-  },
-  title: {
-    fontSize: 34,
-    fontWeight: '800',
-    color: colors.textPrimary,
-    letterSpacing: -1,
-    marginBottom: 8,
-  },
-  description: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    lineHeight: 20,
-  },
-
-  // ═══ OVERALL PROGRESS ═══
-  overallProgressCard: {
-    backgroundColor: colors.surface,
-    borderRadius: 20,
-    padding: 18,
-    marginBottom: 28,
-    borderWidth: 1.5,
-    borderColor: 'rgba(139, 92, 246, 0.35)',
-    shadowColor: colors.primary,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.25,
-    shadowRadius: 16,
-    elevation: 6,
-  },
-  overallProgressHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  overallProgressLabel: {
-    fontSize: 10,
-    fontWeight: '800',
-    color: colors.primaryLight,
-    letterSpacing: 1.5,
-  },
-  overallProgressValue: {
-    fontSize: 22,
-    fontWeight: '800',
-    color: colors.textPrimary,
-  },
-  overallProgressBarBg: {
-    height: 8,
-    backgroundColor: 'rgba(139, 92, 246, 0.15)',
-    borderRadius: 4,
-    overflow: 'hidden',
-    marginBottom: 10,
-  },
-  overallProgressBarFill: {
-    height: '100%',
-    backgroundColor: colors.primary,
-    borderRadius: 4,
-  },
-  overallProgressFooter: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  overallProgressFooterText: {
-    fontSize: 12,
-    color: colors.textSecondary,
-    fontWeight: '600',
-  },
-
-  // ═══ PLACEMENT TEST ═══
-  placementCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(139, 92, 246, 0.08)',
-    borderRadius: 20,
-    padding: 16,
-    marginBottom: 24,
-    borderWidth: 1.5,
-    borderColor: 'rgba(139, 92, 246, 0.35)',
-    gap: 14,
-  },
-  placementIconWrapper: {
-    width: 48,
-    height: 48,
-    borderRadius: 14,
-    backgroundColor: 'rgba(139, 92, 246, 0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.4)',
-  },
-  placementIcon: {
-    fontSize: 24,
-  },
-  placementContent: {
-    flex: 1,
-  },
-  placementTitle: {
-    fontSize: 16,
-    fontWeight: '800',
-    color: colors.textPrimary,
-    marginBottom: 4,
-    letterSpacing: -0.2,
-  },
-  placementDesc: {
-    fontSize: 12,
-    color: colors.textSecondary,
-    lineHeight: 17,
-  },
-  placementArrow: {
-    fontSize: 20,
-    color: colors.primaryLight,
-    fontWeight: '700',
-  },
-
-  // ═══ PATH SECTION ═══
-  pathSectionHeader: {
-    marginBottom: 16,
-  },
-  sectionTitle: {
-    fontSize: 22,
-    fontWeight: '800',
-    color: colors.textPrimary,
-    letterSpacing: -0.3,
-    marginBottom: 4,
-  },
-  sectionSubtitle: {
-    fontSize: 13,
-    color: colors.textSecondary,
-  },
-
-  // ═══ SPEAKING CARD ═══
-  speakingCard: {
-    marginTop: 20,
-    borderRadius: 22,
-    overflow: 'hidden',
-    shadowColor: '#a855f7',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.5,
-    shadowRadius: 20,
-    elevation: 10,
-  },
-  speakingCardGradient: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 18,
-    gap: 14,
-  },
-  speakingIconWrapper: {
-    width: 52,
-    height: 52,
-    borderRadius: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.18)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
-  },
-  speakingIcon: { fontSize: 26 },
-  speakingContent: { flex: 1 },
-  speakingTitle: {
-    fontSize: 17,
-    fontWeight: '800',
-    color: '#ffffff',
-    marginBottom: 4,
-    letterSpacing: -0.2,
-  },
-  speakingDesc: {
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.85)',
-    lineHeight: 17,
-  },
-  speakingArrow: {
-    fontSize: 22,
-    color: '#ffffff',
-    fontWeight: '700',
-  },
-
-  // ═══ ERROR ═══
-  errorContainer: {
-    flex: 1,
-    backgroundColor: '#0a0a1a',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 40,
-  },
-  errorEmoji: { fontSize: 80, marginBottom: 20 },
-  errorTitle: {
-    fontSize: 24,
-    fontWeight: '800',
-    color: '#ffffff',
-    marginBottom: 30,
-    textAlign: 'center',
-  },
-  errorButton: {
-    paddingHorizontal: 30,
-    paddingVertical: 15,
-    backgroundColor: '#8b5cf6',
-    borderRadius: 16,
-  },
-  errorButtonText: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: '700',
-  },
+const s = StyleSheet.create({
+  error: { flex: 1, backgroundColor: '#0c1020', alignItems: 'center', justifyContent: 'center', padding: 28 },
+  title: { color: '#f6f1ff', fontWeight: '700', fontSize: 24, textAlign: 'center' },
+  back: { marginTop: 24, backgroundColor: '#ff9b35', borderRadius: 16, minHeight: 48, paddingHorizontal: 24, justifyContent: 'center' },
+  backText: { color: '#21192a', fontSize: 16, fontWeight: '700' },
 });
