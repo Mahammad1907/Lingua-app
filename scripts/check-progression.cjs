@@ -40,7 +40,7 @@ function answerAll(store, id, options = {}) {
   assert.ok(attempt);
   const s = store.getState();
   if (options.help) s.useHelp(attempt);
-  s.attempts[attempt].expected.forEach((key, i) => s.recordTask(attempt, key, options.skip && i === 0 ? null : true, `answer:${i}`));
+  [...s.attempts[attempt].expected, ...(s.attempts[attempt].optional ?? [])].forEach((key, i) => s.recordTask(attempt, key, options.skip && i === 0 ? null : true, `answer:${i}`));
   return attempt;
 }
 async function run() {
@@ -51,6 +51,15 @@ async function run() {
   const unanswered = store.getState().beginLesson(lessons[0].id);
   assert.equal((await store.getState().finishLesson(unanswered)).completed, false);
   assert.equal(store.getState().xp, 0, 'unanswered tasks cannot award completion XP');
+  const speechSkipped = store.getState().beginLesson(lessons[0].id);
+  const packetAttempt = store.getState().attempts[speechSkipped];
+  packetAttempt.expected.forEach((key, i) => store.getState().recordTask(speechSkipped, key, true, `written:${i}`));
+  packetAttempt.optional.forEach((key, i) => store.getState().recordTask(speechSkipped, key, null, `voice-skip:${i}`));
+  const writtenReceipt = await store.getState().finishLesson(speechSkipped);
+  assert.equal(writtenReceipt.completed, true, 'unverified speech does not erase completed written learning');
+  assert.equal(writtenReceipt.xp, 30, 'skipped speech cannot claim an independent-all-tasks bonus');
+  assert.ok(packetAttempt.optional.every(key => store.getState().attempts[speechSkipped].tasks[key].skipped));
+  store.getState().resetAll(); await store.getState().saveToStorage();
   const first = answerAll(store, lessons[0].id);
   const [receipt, duplicate] = await Promise.all([store.getState().finishLesson(first), store.getState().finishLesson(first)]);
   assert.equal(receipt.xp, 35); assert.equal(duplicate.id, receipt.id); assert.equal(store.getState().xp, 35);
@@ -111,9 +120,14 @@ async function run() {
   const passed = await store.getState().finishExam('fixture_second', answers);
   assert.equal(passed.xp, 50); assert.equal(passed.passed, true);
   assert.equal((await store.getState().finishExam('fixture_second', answers)).xp, 0);
+  const essentialFailed = { ...answers, [placementTests[0].questions[0].id]: false };
+  assert.equal((await store.getState().finishExam('fixture_second', essentialFailed)).passed, false, '94% cannot hide a missing required communication goal');
+  const diagnosticFailed = { ...answers };
+  for (const question of placementTests[0].questions) if (!placementTests[0].requiredQuestionIds.includes(question.id)) diagnosticFailed[question.id] = false;
+  assert.equal((await store.getState().finishExam('fixture_second', diagnosticFailed)).passed, true, 'diagnostic grammar cannot replace the authored essential-goal pass map');
   assert.equal(moduleUnlocked('fixture_second', [], store.getState().placementResults), true);
   await store.getState().finishExam('fixture_second', belowThreshold);
-  assert.equal(store.getState().placementResults.find(r => r.moduleId === 'fixture_second').correctCount, 10, 'a failed retry does not erase a passed result');
+  assert.equal(store.getState().placementResults.find(r => r.moduleId === 'fixture_second').correctCount, placementTests[0].questions.length, 'a failed retry does not erase a passed result');
   assert.equal(moduleUnlocked('fixture_third', [], store.getState().placementResults), false);
   assert.deepEqual(store.getState().completedLessons, []);
   const course = buildHomeCourse({ modules, language: 'en', level: 'A1', completedLessons: [], placementResults: store.getState().placementResults, availableLessonIds: new Set(lessons.map(l => l.id)) });

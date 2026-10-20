@@ -1,6 +1,7 @@
-﻿import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { getShortSession } from '../data/firstConversation';
+import { getPacketLesson, packetTaskIds } from '../data/b1Course';
 import { getLessonActivities } from '../data/lessonActivities';
 import { lessons } from '../data/lessons';
 import { getAllModules } from '../data/modules';
@@ -102,8 +103,10 @@ export const useUserStore = create<UserState>((set, get) => ({
     const count = session ? (session.turns?.length ?? (session.speaking ? 1 : 0)) : (activities?.speaking.length ?? 0);
     for (let i = 0; i < count; i++) expected.push(`voice:${i}`);
     activities?.game.stops.forEach((_, i) => expected.push(`game:${i}`));
+    const packet = getPacketLesson(lessonId);
+    const packetIds = packet ? packetTaskIds(packet) : undefined;
     const id = `${Date.now()}-${++sequence}`;
-    set((s) => ({ attempts: { ...s.attempts, [id]: { id, lessonId, expected, tasks: {}, assisted: false, finished: false } } })); return id;
+    set((s) => ({ attempts: { ...s.attempts, [id]: { id, lessonId, expected: packetIds?.required ?? expected, optional: packetIds?.optional, tasks: {}, assisted: false, finished: false } } })); return id;
   },
   useHelp: (id) => {
     const a = get().attempts[id];
@@ -111,7 +114,7 @@ export const useUserStore = create<UserState>((set, get) => ({
   },
   recordTask: (id, taskId, correct, token) => {
     const a = get().attempts[id]; const old = a?.tasks[taskId];
-    if (!a || a.finished || !a.expected.includes(taskId) || old?.resolved || old?.token === token) return;
+    if (!a || a.finished || ![...a.expected, ...(a.optional ?? [])].includes(taskId) || old?.resolved || old?.token === token) return;
     const task = { firstCorrect: old?.firstCorrect ?? correct === true, resolved: correct === true,
       skipped: old?.skipped === true || correct === null, wrong: (old?.wrong ?? 0) + (correct === false ? 1 : 0), token };
     set((s) => ({ attempts: { ...s.attempts, [id]: { ...a, tasks: { ...a.tasks, [taskId]: task } } } }));
@@ -135,7 +138,7 @@ export const useUserStore = create<UserState>((set, get) => ({
       if (completed) {
         if (!s.completedLessons.includes(a.lessonId) && !rewards[`lesson:${a.lessonId}`]) {
           grant(`lesson:${a.lessonId}`, LESSON_XP);
-          if (!a.assisted && correct === total) grant(`perfect:${a.lessonId}`, 5);
+          if (!a.assisted && correct === total && (a.optional ?? []).every((key) => a.tasks[key]?.firstCorrect && a.tasks[key]?.resolved)) grant(`perfect:${a.lessonId}`, 5);
         }
         if (s.lastQualifiedDay !== today && (!s.lastQualifiedDay || s.lastQualifiedDay < today)) {
           streak = s.lastQualifiedDay === previousDay(now) ? s.streak + 1 : 1;
@@ -165,7 +168,8 @@ export const useUserStore = create<UserState>((set, get) => ({
     const s = get(); const test = moduleTest(moduleId);
     if (!s.hydrated || !test || test.questions.some((q) => typeof answers[q.id] !== 'boolean')) throw new Error('Sınağın bütün suallarını cavablandır.');
     const correct = test.questions.filter((q) => answers[q.id]).length;
-    const passed = correct / test.questions.length * 100 >= (Number.isFinite(test.passScore) ? test.passScore : 80);
+    const passed = test.requiredQuestionIds?.length ? test.requiredQuestionIds.every((id) => answers[id] === true)
+      : correct / test.questions.length * 100 >= (Number.isFinite(test.passScore) ? test.passScore : 80);
     const key = `exam:${moduleId}`;
     const xp = passed && !s.rewards[key] && !s.placementResults.some((r) => r.moduleId === moduleId && r.passed) ? 50 : 0;
     const prior = s.placementResults.find((r) => r.moduleId === moduleId);

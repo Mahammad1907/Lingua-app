@@ -8,6 +8,6 @@ export function previousDay(date = new Date()): string {
   const d = new Date(date); d.setDate(d.getDate() - 1); return localDay(d);
 }
 export interface TaskResult { firstCorrect: boolean; resolved: boolean; skipped: boolean; wrong: number; token: string }
-export interface LessonAttempt { id: string; lessonId: string; expected: string[]; tasks: Record<string, TaskResult>; assisted: boolean; finished: boolean }
+export interface LessonAttempt { id: string; lessonId: string; expected: string[]; optional?: string[]; tasks: Record<string, TaskResult>; assisted: boolean; finished: boolean }
 export interface RewardReceipt { id: string; lessonId: string; xp: number; completed: boolean; correct: number; total: number }
 export interface RewardRecord { amount: number; day: string }

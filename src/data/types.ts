@@ -179,6 +179,7 @@ export interface PlacementTest {
   passScore: number;
   questions: Exercise[];
   description: string;
+  requiredQuestionIds?: string[];
 }
 
 export interface PlacementResult {

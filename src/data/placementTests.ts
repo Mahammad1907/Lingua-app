@@ -1,4 +1,5 @@
 import { PlacementTest } from './types';
+import { b1PlacementTest } from './b1Exam';
 
 // ═══════════════════════════════════════
 // PLACEMENT TESTLƏR
@@ -7,7 +8,7 @@ import { PlacementTest } from './types';
 // bu testlər göstərilir. 80%+ keçid → Final Review açılır.
 // ═══════════════════════════════════════
 
-export const placementTests: PlacementTest[] = [
+const legacyPlacementTests: PlacementTest[] = [
   {
     moduleId: 'module_1',
     language: 'en',
@@ -260,6 +261,8 @@ export const placementTests: PlacementTest[] = [
 // ═══════════════════════════════════════
 // KÖMƏKÇI FUNKSİYALAR
 // ═══════════════════════════════════════
+
+export const placementTests: PlacementTest[] = [b1PlacementTest, ...legacyPlacementTests.filter((t) => t.moduleId !== 'module_1')];
 
 export const getPlacementTestByModuleId = (
   moduleId: string

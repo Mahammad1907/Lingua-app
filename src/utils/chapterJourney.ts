@@ -20,7 +20,7 @@ function artworkFor(lesson: Lesson): JourneyArtwork {
   if (/salam|greeting/.test(title)) return 'greeting';
   if (/hal-əhval|dialog|söhbət/.test(title)) return 'dialogue';
   if (/cümlə|qrammatika|grammar|sentence/.test(title)) return 'board';
-  if (/təqdim|şəxsi|introduc|personal/.test(title)) return 'identity';
+  if (/təqdim|şəxsi|introduc|personal|öz adını/.test(title)) return 'identity';
   if (/ailə|family/.test(title)) return 'family';
   if (/ev |house|home/.test(`${title} `)) return 'house';
   if (/vaxt|rejim|time|routine/.test(title)) return 'clock';

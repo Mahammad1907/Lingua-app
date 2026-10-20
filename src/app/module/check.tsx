@@ -5,9 +5,11 @@ import EnergyMeter from '../../components/EnergyMeter';
 import { useUserStore } from '../../store/userStore';
 import { moduleTest, moduleUnlocked } from '../../utils/moduleAccess';
 import { isSessionAnswerCorrect } from '../../utils/sessionAnswer';
+import PacketExam from '../../components/lesson/PacketExam';
 
 export default function ModuleCheck() {
   const { moduleId } = useLocalSearchParams<{ moduleId?: string }>();
+  if (moduleId === 'module_1') return <PacketExam />;
   return <Exam key={moduleId ?? 'missing'} moduleId={moduleId ?? ''} />;
 }
 function Exam({ moduleId }: { moduleId: string }) {
@@ -18,17 +20,17 @@ function Exam({ moduleId }: { moduleId: string }) {
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState('');
   const [checked, setChecked] = useState(false);
-  const answers = useRef<Record<string, boolean>>({});
+  const [answers, setAnswers] = useState<Record<string, boolean>>({});
   const busy = useRef(false);
   const [error, setError] = useState('');
   const [outcome, setOutcome] = useState<{ passed: boolean; xp: number; correct: number } | null>(null);
   const [enteredLocked] = useState(() => !moduleUnlocked(moduleId, completed, results));
   const question = test?.questions[index];
   const check = () => {
-    if (!question || !answer.trim() || question.id in answers.current) return;
+    if (!question || !answer.trim() || question.id in answers) return;
     const correct = isSessionAnswerCorrect(answer, question.correctAnswer, question.answerLang ?? 'en', question.acceptedAnswers,
       question.type === 'translation' || question.type === 'fill_blank');
-    answers.current[question.id] = correct;
+    setAnswers((all) => ({ ...all, [question.id]: correct }));
     if (!correct) useUserStore.getState().loseHeart();
     setChecked(true);
   };
@@ -36,7 +38,7 @@ function Exam({ moduleId }: { moduleId: string }) {
     if (!test || !question || !checked || busy.current) return;
     if (index + 1 < test.questions.length) { setIndex(index + 1); setAnswer(''); setChecked(false); return; }
     busy.current = true; setError('');
-    try { setOutcome(await useUserStore.getState().finishExam(moduleId, answers.current)); }
+    try { setOutcome(await useUserStore.getState().finishExam(moduleId, answers)); }
     catch { setError('Nəticə saxlanmadı. Yenidən cəhd et.'); }
     finally { busy.current = false; }
   };
@@ -56,7 +58,7 @@ function Exam({ moduleId }: { moduleId: string }) {
             <TouchableOpacity key={`${question.id}:${i}`} disabled={checked} accessibilityState={{ selected: answer === option }}
               style={[s.option, answer === option && s.selected]} onPress={() => setAnswer(option)}><Text style={s.text}>{option}</Text></TouchableOpacity>)
             : <TextInput accessibilityLabel="Cavabın" editable={!checked} value={answer} onChangeText={setAnswer} autoCorrect={false} autoCapitalize="none" style={s.input} />}
-          {checked ? <Text style={s.text}>{answers.current[question.id] ? 'Düzdür' : `Düzgün cavab: ${question.correctAnswer}`}</Text> : null}
+          {checked ? <Text style={s.text}>{answers[question.id] ? 'Düzdür' : `Düzgün cavab: ${question.correctAnswer}`}</Text> : null}
           <TouchableOpacity disabled={!answer.trim()} style={[s.button, !answer.trim() && { opacity: .4 }]} onPress={() => checked ? void next() : check()}>
             <Text style={s.dark}>{checked ? index + 1 === test.questions.length ? 'Sınağı bitir' : 'Davam et' : 'Yoxla'}</Text>
           </TouchableOpacity>

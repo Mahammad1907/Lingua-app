@@ -1,11 +1,11 @@
 import { Lesson } from './types';
-import { firstConversationLessons } from './firstConversation';
+import { b1Lessons } from './b1Course';
 
 // ═══════════════════════════════════════
 // DƏRSLƏR
 // ═══════════════════════════════════════
 
-export const lessons: Lesson[] = [...firstConversationLessons];
+export const lessons: Lesson[] = [...b1Lessons];
 
 // ═══════════════════════════════════════
 // KÖMƏKÇI FUNKSİYALAR

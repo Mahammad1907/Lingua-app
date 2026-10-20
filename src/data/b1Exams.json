@@ -1,0 +1,880 @@
+[
+  {
+    "variant": "A",
+    "cards": [
+      {
+        "id": "b1_exam_q01",
+        "number": 1,
+        "title": "Tapşırıq 01: Dinlə və seç",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 01",
+        "kind": "task",
+        "body": "Dinlə. İfadə nə üçündür?",
+        "rule": {
+          "answers": [
+            "Salam vermək"
+          ],
+          "exact": true
+        },
+        "options": [
+          "Salam vermək",
+          "Sağollaşmaq",
+          "Ad soruşmaq"
+        ],
+        "audio": "Hi."
+      },
+      {
+        "id": "b1_exam_q02",
+        "number": 2,
+        "title": "Tapşırıq 02: Oxu və məlumatı tap",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 02",
+        "kind": "task",
+        "body": "Mesajlar: I’m Nora. I’m fine, thanks. I’m Leo. I’m not very well.\nKim özünü o qədər də yaxşı hiss etmir? Adı yaz.",
+        "rule": {
+          "answers": [
+            "Leo"
+          ],
+          "exact": true
+        }
+      },
+      {
+        "id": "b1_exam_q03",
+        "number": 3,
+        "title": "Tapşırıq 03: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 03",
+        "kind": "voice",
+        "body": "Rol: adın Nora-dır. Salam ver, adını de və BirFox-un adını soruş.",
+        "rule": {
+          "answers": [
+            "Hello. I’m Nora. What’s your name?",
+            "Hi. My name is Nora. What is your name?"
+          ],
+          "goals": [
+            "greet",
+            "introduce",
+            "askName"
+          ],
+          "roleName": "Nora"
+        },
+        "audio": "Hello.",
+        "turns": [
+          {
+            "id": "b1_exam_q03",
+            "prompt": "Rol: adın Nora-dır. Salam ver, adını de və BirFox-un adını soruş.",
+            "audio": "Hello.",
+            "rule": {
+              "answers": [
+                "Hello. I’m Nora. What’s your name?",
+                "Hi. My name is Nora. What is your name?"
+              ],
+              "goals": [
+                "greet",
+                "introduce",
+                "askName"
+              ],
+              "roleName": "Nora"
+            }
+          }
+        ]
+      },
+      {
+        "id": "b1_exam_q04",
+        "number": 4,
+        "title": "Tapşırıq 04: Hissələrdən qur",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 04",
+        "kind": "task",
+        "body": "Adı soruş: your / What / name / is",
+        "rule": {
+          "answers": [
+            "What is your name?"
+          ],
+          "exact": true
+        },
+        "words": [
+          "your",
+          "What",
+          "name",
+          "is"
+        ]
+      },
+      {
+        "id": "b1_exam_q05",
+        "number": 5,
+        "title": "Tapşırıq 05: Yazılı cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 05",
+        "kind": "task",
+        "body": "Qeydiyyat məşqi: yeni gələn şəxsdən adını nəzakətlə istə. Please də işlət.",
+        "rule": {
+          "answers": [
+            "Your name, please.",
+            "What’s your name, please?",
+            "Can you tell me your name, please?"
+          ],
+          "goals": [
+            "politeName"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q06",
+        "number": 6,
+        "title": "Tapşırıq 06: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 06",
+        "kind": "voice",
+        "body": "Rol: yaxşısan. Tanışlığa qarşılıq ver, halını de və onun da halını soruş.",
+        "rule": {
+          "answers": [
+            "Nice to meet you too. I’m fine, thanks. And you?",
+            "You too. I’m fine. How are you?"
+          ],
+          "goals": [
+            "meet",
+            "fine",
+            "askFeeling"
+          ]
+        },
+        "audio": "Nice to meet you. How are you?",
+        "turns": [
+          {
+            "id": "b1_exam_q06",
+            "prompt": "Rol: yaxşısan. Tanışlığa qarşılıq ver, halını de və onun da halını soruş.",
+            "audio": "Nice to meet you. How are you?",
+            "rule": {
+              "answers": [
+                "Nice to meet you too. I’m fine, thanks. And you?",
+                "You too. I’m fine. How are you?"
+              ],
+              "goals": [
+                "meet",
+                "fine",
+                "askFeeling"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "b1_exam_q07",
+        "number": 7,
+        "title": "Tapşırıq 07: Yazılı cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 07",
+        "kind": "task",
+        "body": "Bir tanışın sənə kömək etdi. İngiliscə təşəkkür et.",
+        "rule": {
+          "answers": [
+            "Thank you.",
+            "Thanks",
+            "Thanks a lot"
+          ],
+          "goals": [
+            "thanks"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q08",
+        "number": 8,
+        "title": "Tapşırıq 08: Variantı seç",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 08",
+        "kind": "task",
+        "body": "Thank you. Təşəkkürə cavab ver.",
+        "rule": {
+          "answers": [
+            "You’re welcome."
+          ],
+          "exact": true
+        },
+        "options": [
+          "What’s your name?",
+          "You’re welcome.",
+          "How are you?"
+        ]
+      },
+      {
+        "id": "b1_exam_q09",
+        "number": 9,
+        "title": "Tapşırıq 09: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 09",
+        "kind": "voice",
+        "body": "BirFox təsadüfən sənə toxunub; sənə görə eybi yoxdur. Cavab ver.",
+        "rule": {
+          "answers": [
+            "No problem.",
+            "That’s OK",
+            "It’s OK"
+          ],
+          "goals": [
+            "noProblem"
+          ]
+        },
+        "audio": "Sorry.",
+        "turns": [
+          {
+            "id": "b1_exam_q09",
+            "prompt": "BirFox təsadüfən sənə toxunub; sənə görə eybi yoxdur. Cavab ver.",
+            "audio": "Sorry.",
+            "rule": {
+              "answers": [
+                "No problem.",
+                "That’s OK",
+                "It’s OK"
+              ],
+              "goals": [
+                "noProblem"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "b1_exam_q10",
+        "number": 10,
+        "title": "Tapşırıq 10: Oxu və məlumatı tap",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 10",
+        "kind": "task",
+        "body": "Dialoq: My name is Nora. — Sorry. I don’t understand. Could you say that again, please?\nİkinci şəxs niyə təkrar istəyir? Azərbaycan dilində qısa yaz.",
+        "rule": {
+          "answers": [
+            "Başa düşmədiyi üçün.",
+            "Deyilən adı anlamayıb"
+          ],
+          "goals": [
+            "reason"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q11",
+        "number": 11,
+        "title": "Tapşırıq 11: BirFox-un səhvini düzəlt",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 11",
+        "kind": "task",
+        "body": "BirFox öz adını yazır: My name am BirFox.\nCümləni düzəlt.",
+        "rule": {
+          "answers": [
+            "My name is BirFox.",
+            "I’m BirFox"
+          ],
+          "goals": [
+            "introduce"
+          ],
+          "roleName": "BirFox"
+        }
+      },
+      {
+        "id": "b1_exam_q12",
+        "number": 12,
+        "title": "Tapşırıq 12: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 12",
+        "kind": "voice",
+        "body": "BirFox başqa bir insanın mesajını səsləndirir. Məşq rolu: deyilən adı anlamadın. Bunu bildir və mesajı təkrar deməsini istə.",
+        "rule": {
+          "answers": [
+            "I don’t understand. Could you say that again, please?",
+            "Sorry. I do not understand. Again, please"
+          ],
+          "goals": [
+            "dontUnderstand",
+            "repeat"
+          ]
+        },
+        "audio": "My name is Nora.",
+        "turns": [
+          {
+            "id": "b1_exam_q12",
+            "prompt": "BirFox başqa bir insanın mesajını səsləndirir. Məşq rolu: deyilən adı anlamadın. Bunu bildir və mesajı təkrar deməsini istə.",
+            "audio": "My name is Nora.",
+            "rule": {
+              "answers": [
+                "I don’t understand. Could you say that again, please?",
+                "Sorry. I do not understand. Again, please"
+              ],
+              "goals": [
+                "dontUnderstand",
+                "repeat"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "b1_exam_q13",
+        "number": 13,
+        "title": "Tapşırıq 13: Yazılı cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 13",
+        "kind": "task",
+        "body": "Söhbət sənin üçün sürətlidir. İngiliscə daha yavaş danışmağı istə.",
+        "rule": {
+          "answers": [
+            "More slowly, please.",
+            "Can you repeat that more slowly, please?",
+            "Could you speak more slowly, please?"
+          ],
+          "goals": [
+            "slow"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q14",
+        "number": 14,
+        "title": "Tapşırıq 14: Yazılı cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 14",
+        "kind": "task",
+        "body": "Tanımadığın şəxsin diqqətini nəzakətlə çəkmək istəyirsən. Uyğun qısa ifadəni yaz.",
+        "rule": {
+          "answers": [
+            "Excuse me.",
+            "Excuse me, please",
+            "Hello"
+          ],
+          "goals": [
+            "attention"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q15",
+        "number": 15,
+        "title": "Tapşırıq 15: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 15",
+        "kind": "voice",
+        "body": "Məşq rolu: bu söhbətdə BirFox sənin üçün sürətli danışır. Daha yavaş danışmasını istə.",
+        "rule": {
+          "answers": [
+            "More slowly, please.",
+            "Can you repeat that more slowly, please?",
+            "Please speak more slowly"
+          ],
+          "goals": [
+            "slow"
+          ]
+        },
+        "audio": "How are you?",
+        "turns": [
+          {
+            "id": "b1_exam_q15",
+            "prompt": "Məşq rolu: bu söhbətdə BirFox sənin üçün sürətli danışır. Daha yavaş danışmasını istə.",
+            "audio": "How are you?",
+            "rule": {
+              "answers": [
+                "More slowly, please.",
+                "Can you repeat that more slowly, please?",
+                "Please speak more slowly"
+              ],
+              "goals": [
+                "slow"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "b1_exam_q16",
+        "number": 16,
+        "title": "Tapşırıq 16: Yazılı cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 16",
+        "kind": "task",
+        "body": "Təsadüfən birinə toxundun. Qısa üzr yaz.",
+        "rule": {
+          "answers": [
+            "Sorry.",
+            "I’m sorry",
+            "I am sorry",
+            "Excuse me"
+          ],
+          "goals": [
+            "sorry"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q17",
+        "number": 17,
+        "title": "Tapşırıq 17: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 17",
+        "kind": "voice",
+        "body": "Söhbət bitir. BirFox-la sağollaş.",
+        "rule": {
+          "answers": [
+            "Goodbye.",
+            "Bye",
+            "See you"
+          ],
+          "goals": [
+            "farewell"
+          ]
+        },
+        "audio": "Bye.",
+        "turns": [
+          {
+            "id": "b1_exam_q17",
+            "prompt": "Söhbət bitir. BirFox-la sağollaş.",
+            "audio": "Bye.",
+            "rule": {
+              "answers": [
+                "Goodbye.",
+                "Bye",
+                "See you"
+              ],
+              "goals": [
+                "farewell"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "required": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      9,
+      10,
+      12,
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "variant": "B",
+    "cards": [
+      {
+        "id": "b1_exam_q01",
+        "number": 1,
+        "title": "Tapşırıq 01: Dinlə və seç",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 01",
+        "kind": "task",
+        "body": "Dinlə. İfadə nə üçündür?",
+        "rule": {
+          "answers": [
+            "Sağollaşmaq"
+          ],
+          "exact": true
+        },
+        "options": [
+          "Ad soruşmaq",
+          "Sağollaşmaq",
+          "Salam vermək"
+        ],
+        "audio": "Goodbye."
+      },
+      {
+        "id": "b1_exam_q02",
+        "number": 2,
+        "title": "Tapşırıq 02: Oxu və məlumatı tap",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 02",
+        "kind": "task",
+        "body": "Mesajlar: I’m Mila. I’m not very well. I’m Tom. I’m OK.\nKim özünü o qədər də yaxşı hiss etmir? Adı yaz.",
+        "rule": {
+          "answers": [
+            "Mila"
+          ],
+          "exact": true
+        }
+      },
+      {
+        "id": "b1_exam_q03",
+        "number": 3,
+        "title": "Tapşırıq 03: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 03",
+        "kind": "voice",
+        "body": "Rol: adın Leo-dur. Salam ver, adını de və BirFox-un adını soruş.",
+        "rule": {
+          "answers": [
+            "Hi. I’m Leo. What’s your name?",
+            "Hello. My name’s Leo. What is your name?"
+          ],
+          "goals": [
+            "greet",
+            "introduce",
+            "askName"
+          ],
+          "roleName": "Leo"
+        },
+        "audio": "Hi.",
+        "turns": [
+          {
+            "id": "b1_exam_q03",
+            "prompt": "Rol: adın Leo-dur. Salam ver, adını de və BirFox-un adını soruş.",
+            "audio": "Hi.",
+            "rule": {
+              "answers": [
+                "Hi. I’m Leo. What’s your name?",
+                "Hello. My name’s Leo. What is your name?"
+              ],
+              "goals": [
+                "greet",
+                "introduce",
+                "askName"
+              ],
+              "roleName": "Leo"
+            }
+          }
+        ]
+      },
+      {
+        "id": "b1_exam_q04",
+        "number": 4,
+        "title": "Tapşırıq 04: Hissələrdən qur",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 04",
+        "kind": "task",
+        "body": "Adı soruş: name / your / What’s",
+        "rule": {
+          "answers": [
+            "What’s your name?"
+          ],
+          "exact": true
+        },
+        "words": [
+          "name",
+          "your",
+          "What’s"
+        ]
+      },
+      {
+        "id": "b1_exam_q05",
+        "number": 5,
+        "title": "Tapşırıq 05: Yazılı cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 05",
+        "kind": "task",
+        "body": "BirFox-un adını nəzakətlə soruş. Please də işlət.",
+        "rule": {
+          "answers": [
+            "What’s your name, please?",
+            "Your name, please",
+            "What is your name, please?"
+          ],
+          "goals": [
+            "politeName"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q06",
+        "number": 6,
+        "title": "Tapşırıq 06: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 06",
+        "kind": "voice",
+        "body": "Rol: özünü o qədər də yaxşı hiss etmirsən. Tanışlığa qarşılıq ver, halını de və onun da halını soruş.",
+        "rule": {
+          "answers": [
+            "Nice to meet you too. I’m not very well. And you?",
+            "You too. I’m not very well, thanks. How are you?"
+          ],
+          "goals": [
+            "meet",
+            "unwell",
+            "askFeeling"
+          ]
+        },
+        "audio": "Nice to meet you. How are you?",
+        "turns": [
+          {
+            "id": "b1_exam_q06",
+            "prompt": "Rol: özünü o qədər də yaxşı hiss etmirsən. Tanışlığa qarşılıq ver, halını de və onun da halını soruş.",
+            "audio": "Nice to meet you. How are you?",
+            "rule": {
+              "answers": [
+                "Nice to meet you too. I’m not very well. And you?",
+                "You too. I’m not very well, thanks. How are you?"
+              ],
+              "goals": [
+                "meet",
+                "unwell",
+                "askFeeling"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "b1_exam_q07",
+        "number": 7,
+        "title": "Tapşırıq 07: Yazılı cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 07",
+        "kind": "task",
+        "body": "BirFox itirdiyin əşyanı sənə qaytardı. Təşəkkür et.",
+        "rule": {
+          "answers": [
+            "Thanks.",
+            "Thank you",
+            "Thank you very much"
+          ],
+          "goals": [
+            "thanks"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q08",
+        "number": 8,
+        "title": "Tapşırıq 08: Variantı seç",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 08",
+        "kind": "task",
+        "body": "Thanks. Uyğun qarşılığı seç.",
+        "rule": {
+          "answers": [
+            "No problem."
+          ],
+          "exact": true
+        },
+        "options": [
+          "No problem.",
+          "Goodbye.",
+          "What’s your name?"
+        ]
+      },
+      {
+        "id": "b1_exam_q09",
+        "number": 9,
+        "title": "Tapşırıq 09: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 09",
+        "kind": "voice",
+        "body": "BirFox kiçik səhvinə görə üzr istəyir; sənə görə problem yoxdur. Cavab ver.",
+        "rule": {
+          "answers": [
+            "No problem.",
+            "It’s OK",
+            "That’s all right"
+          ],
+          "goals": [
+            "noProblem"
+          ]
+        },
+        "audio": "I’m sorry.",
+        "turns": [
+          {
+            "id": "b1_exam_q09",
+            "prompt": "BirFox kiçik səhvinə görə üzr istəyir; sənə görə problem yoxdur. Cavab ver.",
+            "audio": "I’m sorry.",
+            "rule": {
+              "answers": [
+                "No problem.",
+                "It’s OK",
+                "That’s all right"
+              ],
+              "goals": [
+                "noProblem"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "b1_exam_q10",
+        "number": 10,
+        "title": "Tapşırıq 10: Oxu və məlumatı tap",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 10",
+        "kind": "task",
+        "body": "Dialoq: I’m Mila. — I don’t understand. Again, please.\nİkinci şəxs niyə eyni mesajı yenidən eşitmək istəyir?",
+        "rule": {
+          "answers": [
+            "Başa düşmədiyi üçün.",
+            "Adı anlamadığı üçün"
+          ],
+          "goals": [
+            "reason"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q11",
+        "number": 11,
+        "title": "Tapşırıq 11: BirFox-un səhvini düzəlt",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 11",
+        "kind": "task",
+        "body": "Rol: adın Mila-dır. BirFox sənin üçün yazıb: My name are Mila.\nDüzəlt.",
+        "rule": {
+          "answers": [
+            "My name is Mila.",
+            "I’m Mila"
+          ],
+          "goals": [
+            "introduce"
+          ],
+          "roleName": "Mila"
+        }
+      },
+      {
+        "id": "b1_exam_q12",
+        "number": 12,
+        "title": "Tapşırıq 12: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 12",
+        "kind": "voice",
+        "body": "BirFox başqa bir insanın mesajını səsləndirir. Məşq rolu: deyilən adı anlamadın. Anlamadığını de və təkrar istə.",
+        "rule": {
+          "answers": [
+            "I don’t understand. Again, please.",
+            "I do not understand. Could you say that again, please?"
+          ],
+          "goals": [
+            "dontUnderstand",
+            "repeat"
+          ]
+        },
+        "audio": "My name is Leo.",
+        "turns": [
+          {
+            "id": "b1_exam_q12",
+            "prompt": "BirFox başqa bir insanın mesajını səsləndirir. Məşq rolu: deyilən adı anlamadın. Anlamadığını de və təkrar istə.",
+            "audio": "My name is Leo.",
+            "rule": {
+              "answers": [
+                "I don’t understand. Again, please.",
+                "I do not understand. Could you say that again, please?"
+              ],
+              "goals": [
+                "dontUnderstand",
+                "repeat"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "b1_exam_q13",
+        "number": 13,
+        "title": "Tapşırıq 13: Yazılı cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 13",
+        "kind": "task",
+        "body": "BirFox-un daha yavaş danışmasını nəzakətlə istə.",
+        "rule": {
+          "answers": [
+            "More slowly, please.",
+            "Can you repeat that more slowly, please?",
+            "Please speak more slowly"
+          ],
+          "goals": [
+            "slow"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q14",
+        "number": 14,
+        "title": "Tapşırıq 14: Yazılı cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 14",
+        "kind": "task",
+        "body": "BirFox səninlə danışdığını hələ bilmir. Söhbətə başlamaq üçün diqqətini nəzakətlə çəkən ifadəni yaz.",
+        "rule": {
+          "answers": [
+            "Excuse me.",
+            "Excuse me, BirFox",
+            "Hello"
+          ],
+          "goals": [
+            "attention"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q15",
+        "number": 15,
+        "title": "Tapşırıq 15: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 15",
+        "kind": "voice",
+        "body": "Məşq rolu: BirFox-un danışıq sürətini azaltmasını istə.",
+        "rule": {
+          "answers": [
+            "More slowly, please.",
+            "Could you say that more slowly, please?"
+          ],
+          "goals": [
+            "slow"
+          ]
+        },
+        "audio": "Nice to meet you.",
+        "turns": [
+          {
+            "id": "b1_exam_q15",
+            "prompt": "Məşq rolu: BirFox-un danışıq sürətini azaltmasını istə.",
+            "audio": "Nice to meet you.",
+            "rule": {
+              "answers": [
+                "More slowly, please.",
+                "Could you say that more slowly, please?"
+              ],
+              "goals": [
+                "slow"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "b1_exam_q16",
+        "number": 16,
+        "title": "Tapşırıq 16: Yazılı cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 16",
+        "kind": "task",
+        "body": "Bir tanışına kiçik narahatlıq yaratdın. Üzr istə.",
+        "rule": {
+          "answers": [
+            "I’m sorry.",
+            "Sorry",
+            "Excuse me"
+          ],
+          "goals": [
+            "sorry"
+          ]
+        }
+      },
+      {
+        "id": "b1_exam_q17",
+        "number": 17,
+        "title": "Tapşırıq 17: Səsli cavab",
+        "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 17",
+        "kind": "voice",
+        "body": "Görüş bitdi. Sağollaş.",
+        "rule": {
+          "answers": [
+            "Bye.",
+            "Goodbye",
+            "See you later"
+          ],
+          "goals": [
+            "farewell"
+          ]
+        },
+        "audio": "Goodbye.",
+        "turns": [
+          {
+            "id": "b1_exam_q17",
+            "prompt": "Görüş bitdi. Sağollaş.",
+            "audio": "Goodbye.",
+            "rule": {
+              "answers": [
+                "Bye.",
+                "Goodbye",
+                "See you later"
+              ],
+              "goals": [
+                "farewell"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "required": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      9,
+      10,
+      12,
+      14,
+      15,
+      16,
+      17
+    ]
+  }
+]

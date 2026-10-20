@@ -13,11 +13,12 @@ type Phase = 'idle' | 'preparing' | 'recording' | 'finishing' | 'draft';
 interface Capture { text: string; final: boolean; uri: string; start: number; end: number; finished: boolean; failed: boolean; confidence?: number }
 const emptyCapture = (): Capture => ({ text: '', final: false, uri: '', start: 0, end: 0, finished: false, failed: false });
 
-export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged, onBusyChange }: {
+export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged, onBusyChange, deferJudgment = false }: {
   checkAnswer: (text: string) => SpokenVerdict;
   onValid: (voice: RecognizedVoice) => void;
-  onJudged: (correct: boolean, token: string) => void;
+  onJudged: (correct: boolean, token: string, transcript?: string) => void;
   onBusyChange?: (busy: boolean) => void;
+  deferJudgment?: boolean;
 }) {
   const [engine] = useState(getSpeechEngine);
   const [phase, setPhase] = useState<Phase>('idle');
@@ -140,10 +141,11 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
     if (draft.confidence !== undefined && draft.confidence >= 0 && draft.confidence < .35) {
       setError('Səs tanıma cavabı etibarlı eşitmədi. Yenidən danış; səhv kimi hesablanmır.'); return;
     }
+    if (deferJudgment) { onValid(draft); return; }
     const result = checkAnswer(draft.transcript);
     if (result.countAsAttempt !== false && !judged.current.has(draft.uri)) {
       judged.current.add(draft.uri);
-      onJudged(result.correct, draft.uri);
+      onJudged(result.correct, draft.uri, draft.transcript);
     }
     if (!result.correct) { setError(result.message); return; }
     onValid(draft);

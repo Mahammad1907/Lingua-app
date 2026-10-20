@@ -18,6 +18,7 @@ import { getLessonActivities } from '../../data/lessonActivities';
 import { colors } from '../../constants/colors';
 import { getLessonById } from '../../data/lessons';
 import { getShortSession } from '../../data/firstConversation';
+import { getPacketLesson } from '../../data/b1Course';
 import { Language, Lesson } from '../../data/types';
 
 const TTS_LANG_MAP: Partial<Record<Language, string>> = {
@@ -32,7 +33,7 @@ export default function VocabularyScreen() {
   const params = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const lesson = getLessonById(params.id || '');
-  if (getShortSession(params.id || '')) return <Redirect href={{ pathname: '/lesson/session', params: { id: params.id } }} />;
+  if (getPacketLesson(params.id || '') || getShortSession(params.id || '')) return <Redirect href={{ pathname: '/lesson/session', params: { id: params.id } }} />;
   if (!lesson || lesson.vocabulary.length === 0) return (
     <View style={styles.errorContainer}>
       <Stack.Screen options={{ headerShown: false }} />
