@@ -13,7 +13,9 @@ import { lessonTheme as t } from '../../constants/lessonTheme';
 import EnergyMeter from '../EnergyMeter';
 import EarnedXP from '../EarnedXP';
 import RecognizedVoiceComposer from '../RecognizedVoiceComposer';
-import LessonArtwork3D, { TeacherBoard3D } from './LessonArtwork3D';
+import { TeacherBoard3D } from './LessonArtwork3D';
+import ReusableLessonScene from './ReusableLessonScene';
+import { packetScene } from '../../utils/packetScene';
 
 interface Outcome { answer: string; status: 'independent' | 'assisted' | 'wrong' | 'unverified'; spoken: boolean; reason?: string }
 const labels = { independent: 'Müstəqil', assisted: 'Köməklə', wrong: 'Yenidən məşq lazımdır', unverified: 'Yoxlanmadı' };
@@ -111,6 +113,8 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   if (!card || !attempt) return <View style={s.screen}><Text style={s.body}>Dərs hazırlanır. Bölmənin açıq olduğunu yoxla.</Text><TouchableOpacity onPress={exit}><Text style={s.link}>Geri</Text></TouchableOpacity></View>;
   const isResult = card.kind === 'result';
   const metadata = getLessonById(packet.id);
+  const scene = packetScene(packet.order, card, reviewing);
+  const boardText = card.board || (card.kind === 'voice' ? 'Dinlə və\nözün cavab ver' : card.words ? 'Sözlərdən\ncümlə qur' : card.kind === 'intro' ? 'BirFox ilə\nöyrən' : 'Düşün və\ncavabını hazırla');
   return <KeyboardAvoidingView style={[s.screen, { paddingTop: insets.top }]} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
     <Stack.Screen options={{ headerShown: false }} />
     <View style={s.header}><TouchableOpacity accessibilityLabel="Geri" onPress={exit}><Text style={s.back}>‹</Text></TouchableOpacity>
@@ -130,8 +134,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
         {done ? <EarnedXP receiptId={receipt} /> : null}
         {completionError ? <Text style={s.note}>{completionError}</Text> : null}
       </> : <>
-        {card.kind === 'teach' || card.board ? <TeacherBoard3D text={(card.board || 'BirFox ilə\nöyrən').slice(0, 90)} correction={card.kind === 'task' && Boolean(card.board)} />
-          : <LessonArtwork3D kind={packet.order === 2 ? 'identity' : card.kind === 'voice' ? 'message' : 'conversation'} />}
+        {scene ? <ReusableLessonScene name={scene} /> : <TeacherBoard3D text={boardText.slice(0, 90)} correction={card.kind === 'task' && Boolean(card.board)} />}
         <Text style={s.body}>{turn?.prompt || card.body}</Text>
         {card.examples?.map((text, i) => <TouchableOpacity key={`${card.id}:example:${i}`} style={s.example} onPress={() => void speak(text)} accessibilityLabel={`İngiliscə dinlə: ${text}`}><Text style={s.exampleText}>▶ {text}</Text></TouchableOpacity>)}
         {reviewing && history[card.id] ? <View style={s.explanation}>
