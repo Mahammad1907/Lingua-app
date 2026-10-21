@@ -16,8 +16,18 @@ export default function Index() {
   const [checking, setChecking] = useState(true);
 
   useEffect(() => {
-    checkOnboarding();
-  }, []);
+    let active = true;
+    const checkOnboarding = async () => {
+      try {
+        const completed = await AsyncStorage.getItem('onboarding_completed');
+        if (!active) return;
+        if (completed === 'true') router.replace('/(tabs)');
+        else setChecking(false);
+      } catch { if (active) setChecking(false); }
+    };
+    void checkOnboarding();
+    return () => { active = false; };
+  }, [router]);
 
   // Android back düyməsini blokla
   useEffect(() => {
@@ -29,19 +39,6 @@ export default function Index() {
       return () => backHandler.remove();
     }
   }, []);
-
-  const checkOnboarding = async () => {
-    try {
-      const completed = await AsyncStorage.getItem('onboarding_completed');
-      if (completed === 'true') {
-        router.replace('/(tabs)');
-      } else {
-        setChecking(false);
-      }
-    } catch (error) {
-      setChecking(false);
-    }
-  };
 
   const selectLanguage = async (lang: string) => {
     await AsyncStorage.setItem('selected_language', lang);

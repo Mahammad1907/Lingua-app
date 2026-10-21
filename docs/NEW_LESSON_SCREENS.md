@@ -47,3 +47,7 @@ Select Expo Go when opening the QR link. This worktree starts the new seven-less
 ## Written-answer correction (2026-10-21)
 
 Submitted nonempty written answers that do not match the accepted answer/goal rules now count as incorrect, including typos such as `helllh`. Empty input and uncertain voice recognition remain unverified. Wrong answers are recorded once and enter the existing review queue. The first-pass lesson shows incorrect feedback before advancing; its action becomes “Davam et”. Answer controls lock so the same graded card cannot accidentally charge another mistake or be overwritten as a skip. Review attempts continue to permit correction. Added regression cases for typos, unrelated answers, accepted greetings and voice uncertainty. TypeScript, changed-file lint, packet and progression checks passed.
+
+## Complete screen follow-up
+
+See `LESSON_SCREEN_UPDATE_20261021.md` for the subsequent dedicated introduction, microphone input, exit confirmation, Expo Go recording/replay fallback and current validation. This supersedes the earlier full-lint failure note: active project lint now exits successfully with one pre-existing profile warning.

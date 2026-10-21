@@ -5,7 +5,7 @@ import { useUserStore } from '../store/userStore';
 export default function EarnedXP({ receiptId = '' }: { receiptId?: string }) {
   const [xp, setXP] = useState(0);
   const claimed = useRef(false);
-  const opacity = useRef(new Animated.Value(1)).current;
+  const [opacity] = useState(() => new Animated.Value(1));
   const reduced = useReducedMotion();
   const animated = useRef(false);
   useEffect(() => {

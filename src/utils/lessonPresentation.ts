@@ -19,5 +19,5 @@ export function audioMeaning(packet: PacketLesson, audio: string | undefined): s
 }
 export function heroHeight(available: number, dense: boolean, keyboard: boolean, fontScale: number): number {
   if (keyboard || fontScale > 1.35) return 0;
-  return Math.max(110, Math.min(dense ? 150 : 260, available * (dense ? .19 : .32)));
+  return Math.max(110, Math.min(dense ? 215 : 260, available * (dense ? .27 : .32)));
 }

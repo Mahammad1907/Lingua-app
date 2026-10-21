@@ -1,6 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Animated,
   Image,
@@ -76,7 +76,7 @@ export default function CompleteScreen() {
   const [messageFade] = useState(() => new Animated.Value(0));
 
   const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
-  const completed = useRef(useUserStore.getState().receipts[params.receiptId ?? '']?.completed ?? false).current;
+  const [completed] = useState(() => useUserStore.getState().receipts[params.receiptId ?? '']?.completed ?? false);
 
 
   const getMascot = () => {

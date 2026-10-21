@@ -14,15 +14,19 @@ export default function Welcome() {
   const [language, setLanguage] = useState('en');
 
   useEffect(() => {
-    loadData();
+    let active = true;
+    const loadData = async () => {
+      try {
+        const savedLevel = await AsyncStorage.getItem('user_level');
+        const savedLang = await AsyncStorage.getItem('selected_language');
+        if (!active) return;
+        if (savedLevel) setLevel(savedLevel);
+        if (savedLang) setLanguage(savedLang);
+      } catch { /* Keep the default language and level if storage is unavailable. */ }
+    };
+    void loadData();
+    return () => { active = false; };
   }, []);
-
-  const loadData = async () => {
-    const savedLevel = await AsyncStorage.getItem('user_level');
-    const savedLang = await AsyncStorage.getItem('selected_language');
-    if (savedLevel) setLevel(savedLevel);
-    if (savedLang) setLanguage(savedLang);
-  };
 
   const getLanguageName = () => {
     if (language === 'en') return '🇬🇧 İngilis';

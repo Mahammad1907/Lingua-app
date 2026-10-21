@@ -7,6 +7,7 @@ import { getSpeechEngine } from '../utils/speechEngine';
 import { SpokenVerdict } from '../utils/spokenAnswer';
 import { RecordedVoice } from './VoiceMessageComposer';
 import VoiceWave from './VoiceWave';
+import VoicePracticeRecorder from './lesson/VoicePracticeRecorder';
 import { InputLevelWave, LessonIcon, SoundMark, ink } from './lesson/LessonSurface';
 
 export interface RecognizedVoice extends RecordedVoice { transcript: string; confidence?: number }
@@ -14,7 +15,9 @@ type Phase = 'idle' | 'preparing' | 'recording' | 'finishing' | 'draft';
 interface Capture { text: string; final: boolean; uri: string; start: number; end: number; finished: boolean; failed: boolean; confidence?: number }
 const emptyCapture = (): Capture => ({ text: '', final: false, uri: '', start: 0, end: 0, finished: false, failed: false });
 
-export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged, onBusyChange, deferJudgment = false, appearance = 'default' }: {
+export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged, onBusyChange, deferJudgment = false, appearance = 'default', suspended = false, onPracticeComplete }: {
+  onPracticeComplete?: () => void;
+  suspended?: boolean;
   appearance?: 'default' | 'lesson';
   checkAnswer: (text: string) => SpokenVerdict;
   onValid: (voice: RecognizedVoice) => void;
@@ -23,6 +26,8 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
   deferJudgment?: boolean;
 }) {
   const [engine] = useState(getSpeechEngine);
+  const suspendedNow = useRef(suspended);
+  useEffect(() => { suspendedNow.current = suspended; }, [suspended]);
   const [phase, setPhase] = useState<Phase>('idle');
   useEffect(() => { onBusyChange?.(phase === 'preparing' || phase === 'recording' || phase === 'finishing'); }, [onBusyChange, phase]);
   useEffect(() => () => onBusyChange?.(false), [onBusyChange]);
@@ -68,6 +73,8 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
     try { engine.stop(); } catch { fail('Səs tanıma dayandırıla bilmədi. Yenidən cəhd et.'); return; }
     endTimer.current = setTimeout(() => fail('Səsin yekun mətni alınmadı. Bu, dil səhvi sayılmır; yenidən danış.'), 15000);
   }, [clearTimers, engine, fail]);
+
+  useEffect(() => { if (suspended && active.current) stop(); }, [suspended, stop]);
 
   useEffect(() => {
     mounted.current = true;
@@ -119,8 +126,8 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
     starting.current = true; setPhase('preparing');
     try {
       player.pause(); await Speech.stop();
-      const permission = await engine.requestPermissionsAsync();
-      if (!mounted.current) return;
+      const permission = !networkConsent && engine.supportsOnDeviceRecognition() ? await engine.requestMicrophonePermissionsAsync() : await engine.requestPermissionsAsync();
+      if (!mounted.current || suspendedNow.current) { if (mounted.current) setPhase('idle'); return; }
       if (!permission.granted) { fail('Mikrofon və səs tanıma icazəsi verilmədi. Ayarlarda icazəni aç.'); return; }
       if (!engine.isRecognitionAvailable()) { fail('Telefonun səs tanıma xidməti hazır deyil. Ayarları yoxla və ya bu tapşırığı keç.'); return; }
       if (!engine.supportsRecording()) { fail('Bu cihazda səs tanıma ilə birlikdə səsli mesaj yazılması dəstəklənmir. Bu tapşırığı keçə bilərsən.'); return; }
@@ -157,7 +164,7 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
     onValid(draft);
   };
 
-  if (!engine) return <View style={[styles.box, appearance === 'lesson' && premium.box]}>{appearance === 'lesson' ? <><View style={premium.mic}><LessonIcon name="mic" size={30} color={ink.violet} /></View><InputLevelWave levels={[]} active={false} /><Text style={premium.title}>Səsli məşq</Text></> : null}<Text style={styles.note}>Səsin yoxlanması üçün BirTalk-ın ayrıca sınaq yığımı lazımdır. Expo Go-da bu modul yoxdur. Səsli tapşırığı keçə bilərsən.</Text></View>;
+  if (!engine) return <VoicePracticeRecorder onBusyChange={onBusyChange} suspended={suspended} onContinue={onPracticeComplete} />;
   const busy = phase === 'preparing' || phase === 'finishing';
   return <View style={[styles.box, appearance === 'lesson' && premium.box]}>
     {appearance === 'lesson' ? <><View style={[premium.mic, phase === 'recording' && premium.recording]}><LessonIcon name="mic" size={30} color={phase === 'recording' ? ink.orange : ink.violet} /></View><InputLevelWave levels={phase === 'recording' ? levels : []} active={phase === 'recording'} /><Text style={premium.title}>{phase === 'recording' ? 'Səni dinləyirəm…' : draft ? 'Cavabını dinlə və göndər' : 'Danışmağa hazırsan?'}</Text></> : null}

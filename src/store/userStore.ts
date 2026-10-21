@@ -19,6 +19,7 @@ interface UserState extends UserData {
   hydrated: boolean; storageError: string | null;
   attempts: Record<string, LessonAttempt>; receipts: Record<string, RewardReceipt>;
   beginLesson: (lessonId: string, mode?: 'session' | 'practice') => string;
+  abandonLesson: (attemptId: string) => boolean;
   recordTask: (attemptId: string, taskId: string, correct: boolean | null, token: string) => void;
   useHelp: (attemptId: string) => void;
   finishLesson: (attemptId: string) => Promise<RewardReceipt>;
@@ -107,6 +108,12 @@ export const useUserStore = create<UserState>((set, get) => ({
     const packetIds = packet ? packetTaskIds(packet) : undefined;
     const id = `${Date.now()}-${++sequence}`;
     set((s) => ({ attempts: { ...s.attempts, [id]: { id, lessonId, expected: packetIds?.required ?? expected, optional: packetIds?.optional, tasks: {}, assisted: false, finished: false } } })); return id;
+  },
+  abandonLesson: (id) => {
+    const a = get().attempts[id];
+    if (!a || a.finished || finishing.has(id)) return false;
+    set((state) => { const attempts = { ...state.attempts }; delete attempts[id]; return { attempts }; });
+    return true;
   },
   useHelp: (id) => {
     const a = get().attempts[id];
