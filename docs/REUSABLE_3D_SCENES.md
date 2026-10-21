@@ -4,10 +4,11 @@
 
 ## Daimi kataloq
 
-`assets/lessons/scene-library.json` mövcud 8 şəkli sabit ID, fayl yolu, mövzu etiketləri və təsvirlə qeyd edir. Yeni dərs üçün əvvəlcə bu kataloqdan uyğun şəkil seç. Dil və səviyyə dəyişməsi eyni səhnəni yenidən yaratmaq üçün səbəb deyil. Mətn şəkilə yazılmır, tətbiqin öz mətn qatında qalır.
+`assets/lessons/scene-library.json` mövcud 9 şəkli sabit ID, fayl yolu, mövzu etiketləri və təsvirlə qeyd edir. Yeni dərs üçün əvvəlcə bu kataloqdan uyğun şəkil seç. Dil və səviyyə dəyişməsi eyni səhnəni yenidən yaratmaq üçün səbəb deyil. Mətn şəkilə yazılmır, tətbiqin öz mətn qatında qalır.
 
 | ID | İstifadə sahəsi | Komponent |
 | --- | --- | --- |
+| written-classroom | Yeni 7 dərsin giriş, öyrətmə və yazı kartları; boş lövhəli kitabxana | ClassroomScene |
 | teacher-board | Qrammatika, sual, izah, səhv düzəlişi | TeacherBoard3D |
 | conversation | Salam, tanışlıq, söhbət, hal-əhval | ReusableLessonScene |
 | morning | Səhər, məktəb, günün vaxtı | DaySceneArtwork |
@@ -42,3 +43,7 @@ Built-in imagegen istifadə edilib. Əvvəlki söhbət şəklindəki personajlar
 Seçim `src/utils/packetScene.ts` faylında açıq qeyd olunur; bütün suallara avtomatik şəkil əlavə edən qayda yoxdur. `ReusableLessonScene` komponenti ID ilə çağırılır və dərs nömrəsindən asılı olmayan şəkil mənbələrinə malikdir. Kataloq və yenidən istifadə qaydası `AGENTS.md` faylında da göstərilib.
 
 Məzmun, cavab açarı, qiymətləndirmə, XP/enerji və imtahan davranışı dəyişdirilməyib. Yeni yerləşmələr üçün real iPhone baxışı hələ lazımdır.
+
+## Yeni dərs arayüzü (2026-10-21)
+
+Yeni 7 dərsin girişləri eyni kitabxana/lövhə səhnəsini istifadə edir. Seçilmiş öyrətmə kartlarında əvvəlki mövzu səhnələri qalır. `written-classroom.webp` əvvəlki təsdiqlənmiş sınaqdan götürülüb; yenidən şəkil yaradılmayıb. Səhnə telefonun ölçüsünə görə kəsiləndə native lövhə mətninin koordinatları da həmin kəsilməyə uyğun hesablanır. Danışıqda maskot şəkli əvəzinə mikrofon və cihazdan gələn səs səviyyələri göstərilir.

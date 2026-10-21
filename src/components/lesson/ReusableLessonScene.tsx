@@ -9,8 +9,8 @@ const sources = {
   apology: require('../../../assets/lessons/scenes/apology-3d.webp'),
   clarify: require('../../../assets/lessons/scenes/clarify-3d.webp'),
 };
-export default function ReusableLessonScene({ name }: { name: ReusableSceneId }) {
-  return <View pointerEvents="none" style={s.frame}>
+export default function ReusableLessonScene({ name, height }: { name: ReusableSceneId; height?: number }) {
+  return <View pointerEvents="none" style={[s.frame, height !== undefined && { height, aspectRatio: undefined, marginBottom: 0 }]}>
     <Image source={sources[name]} resizeMode="contain" accessible={false} style={s.image} />
   </View>;
 }

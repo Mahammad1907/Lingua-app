@@ -1,10 +1,107 @@
 [
-  { "id": "teacher-board", "file": "assets/lessons/teacher-board-3d.webp", "tags": ["teaching", "grammar", "question", "correction"], "description": "Təbaşir tutan BirFox və boş 3D lövhə; mətn tətbiqdən yazılır." },
-  { "id": "conversation", "file": "assets/lessons/conversation-3d.webp", "tags": ["greeting", "introduction", "meeting", "conversation"], "description": "Narıncı geyimli kişi və bənövşəyi geyimli qadının tanışlıq söhbəti." },
-  { "id": "morning", "file": "assets/lessons/morning-3d.webp", "tags": ["morning", "school", "time", "greeting"], "description": "Səhər məktəb həyəti." },
-  { "id": "afternoon", "file": "assets/lessons/afternoon-3d.webp", "tags": ["afternoon", "cafe", "time", "food"], "description": "Günorta açıq hava kafesi." },
-  { "id": "evening", "file": "assets/lessons/evening-3d.webp", "tags": ["evening", "park", "time", "leisure"], "description": "Axşam parkda skamya və işıqlı fənər." },
-  { "id": "gratitude", "file": "assets/lessons/scenes/gratitude-3d.webp", "tags": ["help", "gratitude", "thanks", "welcome", "lost-property", "politeness"], "description": "İtirilmiş dəftərin qaytarılması və təşəkkür jesti." },
-  { "id": "apology", "file": "assets/lessons/scenes/apology-3d.webp", "tags": ["sorry", "apology", "forgiveness", "no-problem", "books", "politeness"], "description": "Kitablar yerə düşüb; üzr istəmək və eybi olmadığını bildirmək." },
-  { "id": "clarify", "file": "assets/lessons/scenes/clarify-3d.webp", "tags": ["listening", "repeat", "slowly", "clarification", "communication"], "description": "Əlini qulağına yaxınlaşdırıb diqqətlə dinləyən personaj." }
+  {
+    "id": "teacher-board",
+    "file": "assets/lessons/teacher-board-3d.webp",
+    "tags": [
+      "teaching",
+      "grammar",
+      "question",
+      "correction"
+    ],
+    "description": "Təbaşir tutan BirFox və boş 3D lövhə; mətn tətbiqdən yazılır."
+  },
+  {
+    "id": "conversation",
+    "file": "assets/lessons/conversation-3d.webp",
+    "tags": [
+      "greeting",
+      "introduction",
+      "meeting",
+      "conversation"
+    ],
+    "description": "Narıncı geyimli kişi və bənövşəyi geyimli qadının tanışlıq söhbəti."
+  },
+  {
+    "id": "morning",
+    "file": "assets/lessons/morning-3d.webp",
+    "tags": [
+      "morning",
+      "school",
+      "time",
+      "greeting"
+    ],
+    "description": "Səhər məktəb həyəti."
+  },
+  {
+    "id": "afternoon",
+    "file": "assets/lessons/afternoon-3d.webp",
+    "tags": [
+      "afternoon",
+      "cafe",
+      "time",
+      "food"
+    ],
+    "description": "Günorta açıq hava kafesi."
+  },
+  {
+    "id": "evening",
+    "file": "assets/lessons/evening-3d.webp",
+    "tags": [
+      "evening",
+      "park",
+      "time",
+      "leisure"
+    ],
+    "description": "Axşam parkda skamya və işıqlı fənər."
+  },
+  {
+    "id": "gratitude",
+    "file": "assets/lessons/scenes/gratitude-3d.webp",
+    "tags": [
+      "help",
+      "gratitude",
+      "thanks",
+      "welcome",
+      "lost-property",
+      "politeness"
+    ],
+    "description": "İtirilmiş dəftərin qaytarılması və təşəkkür jesti."
+  },
+  {
+    "id": "apology",
+    "file": "assets/lessons/scenes/apology-3d.webp",
+    "tags": [
+      "sorry",
+      "apology",
+      "forgiveness",
+      "no-problem",
+      "books",
+      "politeness"
+    ],
+    "description": "Kitablar yerə düşüb; üzr istəmək və eybi olmadığını bildirmək."
+  },
+  {
+    "id": "clarify",
+    "file": "assets/lessons/scenes/clarify-3d.webp",
+    "tags": [
+      "listening",
+      "repeat",
+      "slowly",
+      "clarification",
+      "communication"
+    ],
+    "description": "Əlini qulağına yaxınlaşdırıb diqqətlə dinləyən personaj."
+  },
+  {
+    "id": "written-classroom",
+    "file": "assets/lessons/written-classroom.webp",
+    "tags": [
+      "teaching",
+      "introduction",
+      "question",
+      "library",
+      "blank-board"
+    ],
+    "description": "İsti kitabxana səhnəsi, BirFox və boş lövhə. Bütün mətn native qatdadır; əvvəlki təsdiqlənmiş şəkil təkrar istifadə olunur."
+  }
 ]

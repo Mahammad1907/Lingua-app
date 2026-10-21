@@ -7,13 +7,15 @@ import { getSpeechEngine } from '../utils/speechEngine';
 import { SpokenVerdict } from '../utils/spokenAnswer';
 import { RecordedVoice } from './VoiceMessageComposer';
 import VoiceWave from './VoiceWave';
+import { InputLevelWave, LessonIcon, SoundMark, ink } from './lesson/LessonSurface';
 
 export interface RecognizedVoice extends RecordedVoice { transcript: string; confidence?: number }
 type Phase = 'idle' | 'preparing' | 'recording' | 'finishing' | 'draft';
 interface Capture { text: string; final: boolean; uri: string; start: number; end: number; finished: boolean; failed: boolean; confidence?: number }
 const emptyCapture = (): Capture => ({ text: '', final: false, uri: '', start: 0, end: 0, finished: false, failed: false });
 
-export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged, onBusyChange, deferJudgment = false }: {
+export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged, onBusyChange, deferJudgment = false, appearance = 'default' }: {
+  appearance?: 'default' | 'lesson';
   checkAnswer: (text: string) => SpokenVerdict;
   onValid: (voice: RecognizedVoice) => void;
   onJudged: (correct: boolean, token: string, transcript?: string) => void;
@@ -26,6 +28,7 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
   useEffect(() => () => onBusyChange?.(false), [onBusyChange]);
   const [draft, setDraft] = useState<RecognizedVoice | null>(null);
   const [partial, setPartial] = useState('');
+  const [levels, setLevels] = useState<number[]>([]);
   const [error, setError] = useState('');
   const [networkConsent, setNetworkConsent] = useState(false);
   const [needsModel, setNeedsModel] = useState(false);
@@ -70,6 +73,9 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
     mounted.current = true;
     if (!engine) return () => { mounted.current = false; };
     const subscriptions = [
+      engine.addListener('volumechange', (event) => {
+        if (active.current) setLevels(values => [...values.slice(-24), Math.max(0, Math.min(1, event.value / 10))]);
+      }),
       engine.addListener('result', (event) => {
         if (!active.current || capture.current.failed) return;
         const text = event.results[0]?.transcript || '';
@@ -123,9 +129,9 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
       }
       if (AppState.currentState !== 'active') { fail('Danışmaq üçün tətbiqə qayıt.'); return; }
       capture.current = emptyCapture(); active.current = true; setDraft(null); setPartial(''); setError(''); setNeedsModel(false);
-      setPhase('recording');
+      setPhase('recording'); setLevels([]);
       engine.start({ lang: 'en-US', interimResults: true, maxAlternatives: 1, continuous: false,
-        requiresOnDeviceRecognition: !networkConsent, recordingOptions: { persist: true },
+        requiresOnDeviceRecognition: !networkConsent, recordingOptions: { persist: true }, volumeChangeEventOptions: { enabled: true, intervalMillis: 120 },
       });
       if (active.current) stopTimer.current = setTimeout(stop, 20000);
     } catch { fail('Səs tanıma başlaya bilmədi. Yenidən cəhd et və ya tapşırığı keç.'); }
@@ -151,12 +157,13 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
     onValid(draft);
   };
 
-  if (!engine) return <View style={styles.box}><Text style={styles.note}>Səsin yoxlanması üçün BirTalk-ın ayrıca sınaq yığımı lazımdır. Expo Go-da bu modul yoxdur. Səsli tapşırığı keçə bilərsən.</Text></View>;
+  if (!engine) return <View style={[styles.box, appearance === 'lesson' && premium.box]}>{appearance === 'lesson' ? <><View style={premium.mic}><LessonIcon name="mic" size={30} color={ink.violet} /></View><InputLevelWave levels={[]} active={false} /><Text style={premium.title}>Səsli məşq</Text></> : null}<Text style={styles.note}>Səsin yoxlanması üçün BirTalk-ın ayrıca sınaq yığımı lazımdır. Expo Go-da bu modul yoxdur. Səsli tapşırığı keçə bilərsən.</Text></View>;
   const busy = phase === 'preparing' || phase === 'finishing';
-  return <View style={styles.box}>
+  return <View style={[styles.box, appearance === 'lesson' && premium.box]}>
+    {appearance === 'lesson' ? <><View style={[premium.mic, phase === 'recording' && premium.recording]}><LessonIcon name="mic" size={30} color={phase === 'recording' ? ink.orange : ink.violet} /></View><InputLevelWave levels={phase === 'recording' ? levels : []} active={phase === 'recording'} /><Text style={premium.title}>{phase === 'recording' ? 'Səni dinləyirəm…' : draft ? 'Cavabını dinlə və göndər' : 'Danışmağa hazırsan?'}</Text></> : null}
     {partial ? <Text style={styles.note}>Eşidilən: {partial}</Text> : null}
     {error ? <Text accessibilityLiveRegion="polite" style={styles.error}>{error}</Text> : null}
-    {draft ? <TouchableOpacity accessibilityLabel="Səsli cavabını dinlə" style={styles.replay} onPress={() => void replay()}><Text style={styles.note}>{playback.playing ? 'Ⅱ' : '▶'}</Text><VoiceWave playing={playback.playing} /><Text style={styles.note}>{Math.round(draft.duration)} san.</Text></TouchableOpacity> : null}
+    {draft ? <TouchableOpacity accessibilityLabel="Səsli cavabını dinlə" style={styles.replay} onPress={() => void replay()}><Text style={styles.note}>{playback.playing ? 'Ⅱ' : '▶'}</Text>{appearance === 'lesson' ? <SoundMark active={playback.playing} /> : <VoiceWave playing={playback.playing} />}<Text style={styles.note}>{Math.round(draft.duration)} san.</Text></TouchableOpacity> : null}
     <View style={styles.row}>
       <TouchableOpacity disabled={busy} onPress={() => phase === 'recording' ? stop() : void start()} style={styles.record}><Text style={styles.text}>{busy ? 'Səs tanınır…' : phase === 'recording' ? '■ Dayandır' : draft ? 'Yenidən danış' : '● Səsli cavab yaz'}</Text></TouchableOpacity>
       {draft ? <TouchableOpacity onPress={submit} style={styles.send}><Text style={styles.dark}>Yoxla və göndər</Text></TouchableOpacity> : null}
@@ -171,4 +178,10 @@ const styles = StyleSheet.create({
   error: { color: t.error, fontSize: 12, lineHeight: 18, marginBottom: 8 }, row: { flexDirection: 'row', gap: 8, marginVertical: 8 }, record: { flex: 1, minHeight: 48, justifyContent: 'center', alignItems: 'center', backgroundColor: t.raised, borderRadius: 14, padding: 10 },
   text: { color: t.text, fontSize: 12, fontWeight: '700' }, send: { backgroundColor: t.orange, justifyContent: 'center', borderRadius: 14, padding: 10 }, dark: { color: '#241321', fontSize: 12, fontWeight: '700' },
   replay: { flexDirection: 'row', alignItems: 'center', gap: 16, paddingVertical: 8 }, link: { color: t.orange, fontSize: 11, paddingVertical: 9 }, small: { color: t.muted, fontSize: 10, lineHeight: 15 },
+});
+
+const premium = StyleSheet.create({
+  box: { borderWidth: 1, borderColor: '#4E426E', borderRadius: 24, padding: 18, backgroundColor: '#14172E', gap: 8 },
+  mic: { alignSelf: 'center', width: 66, height: 66, borderRadius: 33, borderWidth: 1, borderColor: '#8D76CE', backgroundColor: '#27213F', alignItems: 'center', justifyContent: 'center' },
+  recording: { borderColor: ink.orange, backgroundColor: '#352632' }, title: { color: ink.text, fontWeight: '700', fontSize: 16, textAlign: 'center', marginBottom: 8 },
 });
