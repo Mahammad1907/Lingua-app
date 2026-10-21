@@ -1,5 +1,6 @@
 import { setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import * as Speech from 'expo-speech';
+import { loadRecordedAudio } from '../utils/recordedAudio';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AppState, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { lessonTheme as t } from '../constants/lessonTheme';
@@ -45,7 +46,11 @@ export default function RecognizedVoiceComposer({ checkAnswer, onValid, onJudged
   const stopTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const endTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const player = useAudioPlayer(null);
-  useEffect(() => { player.replace(draft ? { uri: draft.uri } : null); }, [draft, player]);
+  useEffect(() => {
+    if (loadRecordedAudio(player, draft?.uri) !== 'error') return;
+    const failure = setTimeout(() => setError('Səsli yazı açıla bilmədi. Yenidən danış.'), 0);
+    return () => clearTimeout(failure);
+  }, [draft, player]);
   const playback = useAudioPlayerStatus(player);
   const clearTimers = useCallback(() => {
     if (stopTimer.current) clearTimeout(stopTimer.current);

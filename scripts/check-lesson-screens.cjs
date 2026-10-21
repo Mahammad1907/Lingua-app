@@ -5,7 +5,7 @@ require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileMo
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true, resolveJsonModule: true },
 }).outputText, filename);
 const { b1Packet, packetFlow } = require('../src/data/b1Course.ts');
-const { lessonMode, audioMeaning, heroHeight } = require('../src/utils/lessonPresentation.ts');
+const { lessonMode, audioMeaning, heroHeight, welcomeSceneHeight } = require('../src/utils/lessonPresentation.ts');
 const { lessonIntroduction, lessonHint, teachingText, microphoneLevel } = require('../src/utils/lessonGuide.ts');
 let listening = 0; const modes = new Set();
 for (const packet of b1Packet) {
@@ -41,6 +41,9 @@ assert.ok(listening > 0);
 for (const mode of ['BAŞLAMAZDAN ƏVVƏL','ÖYRƏN','DİNLƏMƏ','DÜZGÜN CAVABI SEÇ','CÜMLƏ QUR','YAZI MƏŞQİ','DANIŞIQ','DƏRSİN NƏTİCƏSİ']) assert.ok(modes.has(mode), mode);
 assert.equal(heroHeight(700, true, true, 1), 0, 'keyboard removes decorative artwork');
 assert.equal(heroHeight(700, true, false, 1.5), 0, 'large accessibility text keeps space for the task');
+assert.ok(welcomeSceneHeight(700, 150, 210) <= 700 - 150 - 210 - 60, 'welcome reserves space for headings, objectives, caption and gaps');
+assert.ok(welcomeSceneHeight(580, 150, 210) < welcomeSceneHeight(700, 150, 210), 'artwork shrinks with the remaining viewport');
+assert.ok(Number.isFinite(welcomeSceneHeight(0, 150, 210)), 'first layout has a finite fallback');
 const catalog = JSON.parse(fs.readFileSync(require.resolve('../assets/lessons/scene-library.json')));
 assert.equal(new Set(catalog.map(a => a.id)).size, catalog.length);
 for (const asset of catalog) assert.ok(fs.existsSync(require.resolve('../' + asset.file)), asset.file);

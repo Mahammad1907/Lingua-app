@@ -21,3 +21,8 @@ export function heroHeight(available: number, dense: boolean, keyboard: boolean,
   if (keyboard || fontScale > 1.35) return 0;
   return Math.max(110, Math.min(dense ? 215 : 260, available * (dense ? .27 : .32)));
 }
+
+// Spend the remaining entry viewport on artwork, rather than leaving a fixed empty gap.
+export function welcomeSceneHeight(viewport: number, heading: number, objectives: number): number {
+  return Math.max(140, Math.min(280, (viewport || 590) - heading - objectives - 70));
+}

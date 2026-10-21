@@ -29,12 +29,12 @@ export function LessonEnergy() {
 export function LessonButton({ label, onPress, disabled = false }: { label: string; onPress: () => void; disabled?: boolean }) {
   return <Pressable accessibilityRole="button" accessibilityState={{ disabled }} disabled={disabled} onPress={onPress} style={({ pressed }) => [ui.buttonGlow, disabled && { opacity: .48 }, pressed && { transform: [{ scale: .98 }] }]}><LinearGradient colors={['#FFC04F', '#FF8A2B']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={ui.button}><Text style={ui.buttonText}>{label}</Text><LessonIcon name="arrow" color="#251624" /></LinearGradient></Pressable>;
 }
-export function ClassroomScene({ text, height, welcome = false }: { text: string; height: number; welcome?: boolean }) {
+export function ClassroomScene({ text, height, welcome = false, fit = 'cover' }: { text: string; height: number; welcome?: boolean; fit?: 'cover' | 'contain' }) {
   const [width, setWidth] = useState(350);
-  const scale = Math.max(width / 1200, height / 800);
+  const scale = (fit === 'contain' ? Math.min : Math.max)(width / 1200, height / 800);
   const imageWidth = 1200 * scale, imageHeight = 800 * scale;
   const board = { left: (width - imageWidth) / 2 + imageWidth * .44, top: (height - imageHeight) / 2 + imageHeight * .24, width: imageWidth * .45, height: imageHeight * .43 };
-  return <ImageBackground onLayout={e => setWidth(e.nativeEvent.layout.width)} source={require('../../../assets/lessons/written-classroom.webp')} resizeMode="cover" accessible={false} style={{ width: '100%', height, overflow: 'hidden', borderRadius: welcome ? 0 : 20 }}>
+  return <ImageBackground onLayout={e => setWidth(e.nativeEvent.layout.width)} source={require('../../../assets/lessons/written-classroom.webp')} resizeMode={fit} accessible={false} style={{ width: '100%', height, overflow: 'hidden', borderRadius: welcome ? 0 : 20 }}>
     <View style={[ui.board, board]}>{!welcome ? <Text numberOfLines={1} style={ui.boardLabel}>BİRFOX İLƏ MƏŞQ</Text> : null}<Text adjustsFontSizeToFit minimumFontScale={.7} numberOfLines={4} style={[ui.boardText, welcome && { fontSize: 35, lineHeight: 43, fontStyle: 'italic', fontFamily: Platform.OS === 'ios' ? 'Georgia' : 'serif' }]}>{text}</Text><View style={ui.chalk} /></View>
   </ImageBackground>;
 }

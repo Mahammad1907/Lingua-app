@@ -19,6 +19,7 @@ import { lessonHint, teachingText } from '../../utils/lessonGuide';
 import LessonWelcome from './LessonWelcome';
 import LessonExitDialog from './LessonExitDialog';
 import WrittenAnswerInput from './WrittenAnswerInput';
+import ListeningScene from './ListeningScene';
 
 interface Outcome { answer: string; status: 'independent' | 'assisted' | 'wrong' | 'unverified'; spoken: boolean; reason?: string }
 const labels = { independent: 'Müstəqil', assisted: 'Köməklə', wrong: 'Yenidən məşq lazımdır', unverified: 'Yoxlanmadı' };
@@ -44,6 +45,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [exitOpen, setExitOpen] = useState(false);
   const [explanationOpen, setExplanationOpen] = useState(false);
+  const [contentHeight, setContentHeight] = useState(0);
   const { height, fontScale } = useWindowDimensions();
   useEffect(() => {
     const show = Keyboard.addListener(Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow', () => setKeyboard(true));
@@ -170,16 +172,16 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const summary = Object.values(outcomes).reduce((totals, item) => ({ ...totals, [item.status]: totals[item.status] + 1 }), { independent: 0, assisted: 0, wrong: 0, unverified: 0 });
   return <KeyboardAvoidingView style={[s.screen, { paddingTop: insets.top }]} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
     <Stack.Screen options={{ headerShown: false, gestureEnabled: false }} />
-    <View style={s.header}>
+    <View style={[s.header, keyboard && { paddingBottom: 7 }]}>
       <Pressable accessibilityRole="button" accessibilityLabel="Dərsdən geri çıx" onPress={exit} style={s.backButton}><LessonIcon name="back" color={ink.text} /></Pressable>
-      <View style={s.flex}><Text style={s.kicker}>İLK TANIŞLIQ · A1</Text>{!isIntro ? <Text style={s.small}>Dərs {packet.order} / 7</Text> : null}</View>
-      <LessonEnergy />
+      <View style={s.flex}>{keyboard ? <Text style={s.heading}>{packet.title}</Text> : <><Text style={s.kicker}>İLK TANIŞLIQ · A1</Text>{!isIntro ? <Text style={s.small}>Dərs {packet.order} / 7</Text> : null}</>}</View>
+      {!keyboard ? <LessonEnergy /> : null}
     </View>
-    {!isIntro ? <><Text accessibilityRole="header" style={[s.pageTitle, keyboard && { fontSize: 17, lineHeight: 22 }]}>{packet.title}</Text>
+    {!isIntro ? <>{!keyboard ? <Text accessibilityRole="header" style={s.pageTitle}>{packet.title}</Text> : null}
       <View style={s.progressRow}><View accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: flow.length, now: index + 1 }} style={s.progress}><View style={[s.fill, { width: `${(index + 1) / flow.length * 100}%` }]} /></View><Text style={s.count}>{index + 1}/{flow.length}</Text></View></> : null}
-    <ScrollView ref={scroll} style={s.flex} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" keyboardDismissMode="on-drag" showsVerticalScrollIndicator={false}>
-      {isIntro ? <LessonWelcome packet={packet} compact={height < 900 || fontScale > 1.15} sceneHeight={Math.max(110, Math.min(215, height - insets.top - insets.bottom - 580))} /> : <>
-      <View style={s.badge}><Text style={s.badgeText}>{reviewing ? 'BİR DƏ MƏŞQ ET' : lessonMode(card)}</Text></View>
+    <ScrollView ref={scroll} style={s.flex} contentContainerStyle={s.content} keyboardShouldPersistTaps="always" keyboardDismissMode="on-drag" onLayout={event => { setContentHeight(event.nativeEvent.layout.height); if (keyboard) requestAnimationFrame(() => scroll.current?.scrollToEnd({ animated: false })); }} onContentSizeChange={() => { if (keyboard) requestAnimationFrame(() => scroll.current?.scrollToEnd({ animated: false })); }} showsVerticalScrollIndicator={false}>
+      {isIntro ? <LessonWelcome packet={packet} compact={height < 900 || fontScale > 1.15} availableHeight={contentHeight} /> : <>
+      {!keyboard ? <View style={s.badge}><Text style={s.badgeText}>{reviewing ? 'BİR DƏ MƏŞQ ET' : lessonMode(card)}</Text></View> : null}
       {isResult ? <>
         <View style={s.resultHero}><View style={s.resultSeal}><LessonIcon name="check" size={44} color={ink.mint} /></View><Text style={s.resultHeading}>Bugünkü məşqin hazırdır</Text><Text style={s.note}>{packet.title}</Text></View>
         <View style={s.stats}>{([{ key: 'independent', title: 'Müstəqil', color: ink.mint }, { key: 'assisted', title: 'Köməklə', color: ink.orange }, { key: 'unverified', title: 'Keçilən', color: ink.violet }] as const).map(item => <View key={item.key} style={s.stat}><Text style={[s.statNumber, { color: item.color }]}>{summary[item.key]}</Text><Text style={s.small}>{item.title}</Text></View>)}</View>
@@ -188,7 +190,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
         {detailsOpen ? packetFlow(packet).filter(c => c.kind === 'task' || c.kind === 'voice').map(c => <View key={c.id} style={s.resultRow}><Text style={s.body}>{c.turns?.[0]?.prompt || c.title}</Text><Text style={s.note}>{labels[outcomes[c.id]?.status || 'unverified']}</Text></View>) : null}
         {completionError ? <Text accessibilityLiveRegion="polite" style={s.error}>{completionError}</Text> : null}
       </> : <>
-        {card.kind === 'voice' ? <View style={s.voiceHeading}><LessonIcon name="mic" size={34} color={ink.orange} /><Text style={s.resultHeading}>İndi sən danış</Text><Text style={s.note}>Dinlə, düşün və səsli cavab ver.</Text></View> : sceneHeight > 0 ? scene ? <ReusableLessonScene name={scene} height={sceneHeight} /> : <ClassroomScene height={sceneHeight} text={audio ? 'Diqqətlə dinlə' : boardText.slice(0, 90)} /> : null}
+        {card.kind === 'voice' ? <View style={s.voiceHeading}><LessonIcon name="mic" size={34} color={ink.orange} /><Text style={s.resultHeading}>İndi sən danış</Text><Text style={s.note}>Dinlə, düşün və səsli cavab ver.</Text></View> : audio ? !keyboard ? <ListeningScene playing={playing} compact /> : null : sceneHeight > 0 ? scene ? <ReusableLessonScene name={scene} height={sceneHeight} /> : <ClassroomScene height={sceneHeight} text={audio ? 'Diqqətlə dinlə' : boardText.slice(0, 90)} /> : null}
         {reviewing && prior ? <Surface><Text style={s.kicker}>ƏVVƏLKİ TAPŞIRIQ</Text><Text style={s.body}>{original.turns?.[0]?.prompt || original.body}</Text><Text style={s.note}>Sənin cavabın: {prior.answer || 'Cavab verilməyib'}</Text><Pressable accessibilityRole="button" accessibilityState={{ expanded: help }} onPress={() => { setHelp(v => !v); useUserStore.getState().useHelp(attempt); }}><Text style={s.helpLink}>Əvvəlki cavabın izahı {help ? '−' : '+'}</Text></Pressable>{help ? <><Text style={s.body}>Nümunə: {oldModel}</Text><Text style={s.note}>{original.explanation || prior.reason}</Text></> : null}<Text style={s.small}>Aşağıda yeni vəziyyətdə məşq et.</Text></Surface> : null}
         {audio && card.kind !== 'voice' ? <Text style={s.cardTitle}>{turn?.prompt || card.body}</Text> : <Surface accent={card.kind === 'intro' ? 'orange' : 'violet'}>
           <View style={s.scenario}><View style={s.ruleLine} /><View style={s.flex}>{reviewing ? <Text style={s.kicker}>YENİ TAPŞIRIQ</Text> : null}<Text style={card.kind === 'intro' ? s.cardTitle : s.body}>{turn?.prompt || teachingText(card)}</Text>{card.kind === 'teach' && card.body.includes('\n\n') ? <Text style={s.note}>{card.body.split(/\n\s*\n/).slice(1).join('\n\n')}</Text> : null}
@@ -197,10 +199,11 @@ export default function PacketLesson({ packet }: { packet: Content }) {
           </View></View>
         </Surface>}
         {card.examples?.length ? <View style={s.exampleList}>{card.examples.map((text, i) => <Pressable accessibilityRole="button" key={`${card.id}:example:${i}`} style={s.example} onPress={() => void speak(text)} accessibilityLabel={`İngiliscə dinlə: ${text}`}><LessonIcon name="sound" color={ink.orange} /><Text style={s.exampleText}>{text}</Text><LessonIcon name="play" size={15} /></Pressable>)}</View> : null}
-        {audio ? <>
+        {audio && !keyboard ? <>
           <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Səsi dayandır' : 'Səsi dinlə'} disabled={capturing} style={s.audio} onPress={() => { if (playing) { sequence.current += 1; void Speech.stop(); setPlaying(false); } else void speak(audio, (turn?.rate || .75) * speed, true); }}><View style={s.play}><LessonIcon name={playing ? 'pause' : 'play'} color="#211727" size={24} /></View><View style={s.flex}><Text style={s.cardTitle}>{playing ? 'Dinləyirsən…' : heard ? 'Yenidən dinlə' : 'Səsi dinlə'}</Text><Text style={s.small}>{playing ? 'Səs oxunur' : 'Dinlədikdən sonra cavab ver'}</Text></View><SoundMark active={playing} /></Pressable>
           <View style={s.speeds}>{[{ value: .75, label: '🐢 Yavaş' }, { value: 1, label: '1× Normal' }, { value: 1.25, label: '1.25× Sürətli' }].map(item => <Pressable accessibilityRole="button" accessibilityState={{ selected: speed === item.value, disabled: capturing }} disabled={capturing} key={item.value} onPress={() => { setSpeed(item.value); if (playing) void speak(audio, (turn?.rate || .75) * item.value, true); }} style={[s.speed, speed === item.value && s.activeSpeed]}><Text style={[s.speedText, speed === item.value && { color: ink.orange }]}>{item.label}</Text></Pressable>)}</View>
         </> : null}
+        {audio && keyboard ? <Pressable accessibilityRole="button" disabled={capturing} onPress={() => void speak(audio, (turn?.rate || .75) * speed, true)} style={s.keyboardAudio}><LessonIcon name="play" size={16} color={ink.orange} /><Text style={s.helpLink}>Yenidən dinlə</Text></Pressable> : null}
         {soundError ? <Text accessibilityLiveRegion="polite" style={s.error}>{soundError}</Text> : null}
         {task ? card.kind === 'voice' ? <>
           {turn?.sample ? <Surface><Text style={s.kicker}>KÖMƏKLƏ MƏŞQ · NÜMUNƏ</Text><Text style={s.body}>{turn.sample}</Text></Surface> : null}
@@ -227,13 +230,13 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     <View style={[s.footer, { paddingBottom: keyboard ? 8 : Math.max(12, insets.bottom) }]}>
       {feedback && !isResult ? <View accessibilityLiveRegion="polite" style={[s.feedback, correct && s.correctFeedback]}><View style={s.feedbackTitle}><LessonIcon name={correct ? 'check' : 'hint'} color={correct ? ink.mint : ink.orange} /><Text style={[s.feedbackText, { color: correct ? ink.mint : ink.text }]}>{correct ? 'Düzdür!' : feedback.status === 'unknown' ? feedback.message : 'Səhv cavabdır'}</Text></View>{feedback.status !== 'unknown' ? <Text style={s.note}>{feedback.message}</Text> : null}{!correct && feedback.status !== 'unknown' ? <Pressable accessibilityRole="button" accessibilityState={{ expanded: explanationOpen }} onPress={() => setExplanationOpen(v => !v)}><Text style={s.helpLink}>İzahına bax {explanationOpen ? '−' : '›'}</Text></Pressable> : null}{correct && meaning ? <Pressable accessibilityRole="button" accessibilityState={{ expanded: meaningOpen }} onPress={() => setMeaningOpen(v => !v)}><Text style={s.helpLink}>{meaningOpen ? meaning : 'Mənasını göstər ›'}</Text></Pressable> : null}</View> : null}
       <LessonButton disabled={disabled} label={isResult ? done ? 'Bölməyə qayıt' : 'Nəticəni saxla' : card.kind === 'intro' ? 'Dərsə başla' : task && !locked ? 'Yoxla' : 'Davam et'} onPress={() => isResult ? done ? exit() : void finish() : !task || locked ? advance() : check()} />
-      {task && !locked ? <Pressable accessibilityRole="button" disabled={capturing} onPress={skip}><Text style={s.skip}>{card.kind === 'voice' ? 'Səsli məşqi keç' : 'Bu sualı keç'}</Text></Pressable> : null}
+      {task && !locked && !keyboard ? <Pressable accessibilityRole="button" disabled={capturing} onPress={skip}><Text style={s.skip}>{card.kind === 'voice' ? 'Səsli məşqi keç' : 'Bu sualı keç'}</Text></Pressable> : null}
     </View>
     <LessonExitDialog visible={exitOpen} onContinue={() => setExitOpen(false)} onExit={leave} busy={busy} />
   </KeyboardAvoidingView>;
 }
 const s = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: ink.bg }, flex: { flex: 1 },
+  keyboardAudio: { flexDirection: 'row', alignItems: 'center', gap: 9, paddingVertical: 3 }, screen: { flex: 1, backgroundColor: ink.bg }, flex: { flex: 1 },
   header: { flexDirection: 'row', alignItems: 'center', gap: 11, paddingHorizontal: 20, paddingTop: 8, paddingBottom: 13 }, backButton: { width: 38, height: 38, borderRadius: 19, backgroundColor: '#18172F', borderWidth: 1, borderColor: ink.border, alignItems: 'center', justifyContent: 'center' },
   pageTitle: { color: ink.text, fontSize: 24, lineHeight: 30, fontWeight: '800', paddingHorizontal: 20, marginBottom: 13 }, postAnswerExplanation: { marginHorizontal: 20, padding: 14, borderRadius: 17, backgroundColor: '#201C38', borderWidth: 1, borderColor: '#685086' }, energy: { paddingRight: 5 }, kicker: { color: ink.muted, fontSize: 9, letterSpacing: 1.3, marginBottom: 5 }, heading: { color: ink.text, fontSize: 16, lineHeight: 21, fontWeight: '800' },
   progressRow: { marginHorizontal: 20, flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 13 }, progress: { flex: 1, height: 6, borderRadius: 6, backgroundColor: '#282342', overflow: 'hidden' }, fill: { height: '100%', backgroundColor: ink.orange, borderRadius: 6 }, count: { color: ink.orange, fontSize: 11, fontWeight: '700' },
