@@ -14,6 +14,7 @@ import { Lesson } from '../../data/types';
 import { useUserStore } from '../../store/userStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 import { isSessionAnswerCorrect } from '../../utils/sessionAnswer';
+import WrittenPracticeScreen from '../../components/WrittenPracticeScreen';
 
 export default function LessonSessionScreen() {
   const params = useLocalSearchParams<{ id: string }>();
@@ -27,6 +28,7 @@ export default function LessonSessionScreen() {
 function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSession }) {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const hearts = useUserStore((state) => state.hearts);
   const [warmup, setWarmup] = useState(Boolean(content.warmup));
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState('');
@@ -115,6 +117,19 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
     else check();
   };
   const actionEnabled = ownCard ? Boolean(name.trim()) : feedback === 'correct' || (needsCheck && canCheck);
+  if (!ownCard && (exercise.type === 'fill_blank' || exercise.type === 'translation')) {
+    const promptTail = exercise.question.split(':').at(-1)?.trim();
+    const boardText = current.foxSays || (promptTail?.includes('___') && promptTail.length < 70
+      ? promptTail : 'Düşün və\ncavabını hazırla');
+    return <WrittenPracticeScreen key={exercise.id} title={lesson.titleAz} lessonOrder={lesson.order} lessonCount={6}
+      step={warmup ? 1 : index + 1} total={content.steps.length} warmup={warmup} hearts={hearts}
+      question={exercise.question} boardText={boardText}
+      hint={exercise.type === 'fill_blank' || activity === 'repair' ? current.teacher : undefined}
+      audio={current.audio} onListen={current.audio ? () => void speak(current.audio!) : undefined}
+      answer={answer} placeholder={exercise.type === 'fill_blank' ? 'Boşluğa uyğun hissəni yaz' : 'Cavabını yaz'}
+      onAnswer={(value) => { setAnswer(value); setFeedback(null); }} feedback={feedback} explanation={exercise.explanation}
+      actionLabel={actionLabel} actionEnabled={actionEnabled} onAction={action} onBack={backToMap} />;
+  }
   return <KeyboardAvoidingView style={[styles.screen, { paddingTop: insets.top }]} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
     <Stack.Screen options={{ headerShown: false }} />
     <View style={styles.header}>
