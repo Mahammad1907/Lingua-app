@@ -59,6 +59,9 @@ export function assessPacketAnswer(value: string, rule: PacketRule, voice = fals
   const all = criteria.every((c) => c.passed);
   const known = found.size > 0 || Boolean(introduction);
   const knownError = /\b(?:what is my name|my name (?:am|are)|i (?:is|are))\b/.test(input);
-  const status = exact && all ? 'correct' : contradiction || knownError ? 'wrong' : all && (!rest.trim() || rule.goals.includes('reason')) ? 'correct' : rest.trim() && !introduction ? 'unknown' : known ? 'partial' : 'unknown';
-  return { status, criteria, message: status === 'correct' ? 'Cavab tapşırığa uyğundur.' : status === 'unknown' ? 'Bu cavabı dəqiq yoxlaya bilmədim. Yenidən cəhd et və ya yoxlanmadı kimi keç.' : `Bu hissəni tamamla: ${criteria.filter((c) => !c.passed).map((c) => c.goal).join(', ') || 'situasiyaya uyğun bir məna seç'}.` };
+  const detected = exact && all ? 'correct' : contradiction || knownError ? 'wrong' : all && (!rest.trim() || rule.goals.includes('reason')) ? 'correct' : rest.trim() && !introduction ? 'unknown' : known ? 'partial' : 'unknown';
+  // A submitted written answer is a language attempt, even when no pattern matches.
+  // Only empty input or uncertain speech recognition remains unverified.
+  const status = detected === 'unknown' && !voice && input ? 'wrong' : detected;
+  return { status, criteria, message: status === 'correct' ? 'Cavab tapşırığa uyğundur.' : status === 'unknown' ? voice ? 'Səsli cavab dəqiq tanınmadı. Yenidən danış.' : 'Cavabını yaz.' : detected === 'unknown' ? 'Yazılışı və tapşırıqda istənən mənanı yoxla.' : `Bu hissəni tamamla: ${criteria.filter((c) => !c.passed).map((c) => c.goal).join(', ') || 'situasiyaya uyğun bir məna seç'}.` };
 }

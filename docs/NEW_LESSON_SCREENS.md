@@ -43,3 +43,7 @@ npx.cmd expo start --go --clear --port 8083
 ```
 
 Select Expo Go when opening the QR link. This worktree starts the new seven-lesson app. The old `birtalk-yazili-sinaq` server on port 8082 is a different project. Do not reset or clean the main checkout to install this version.
+
+## Written-answer correction (2026-10-21)
+
+Submitted nonempty written answers that do not match the accepted answer/goal rules now count as incorrect, including typos such as `helllh`. Empty input and uncertain voice recognition remain unverified. Wrong answers are recorded once and enter the existing review queue. The first-pass lesson shows incorrect feedback before advancing; its action becomes “Davam et”. Answer controls lock so the same graded card cannot accidentally charge another mistake or be overwritten as a skip. Review attempts continue to permit correction. Added regression cases for typos, unrelated answers, accepted greetings and voice uncertainty. TypeScript, changed-file lint, packet and progression checks passed.

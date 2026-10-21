@@ -98,7 +98,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     if (correct) { setFeedback(verdict); if (turn?.reply) void speak(turn.reply); }
     else if (!reviewing) {
       const pending = queue.some((c) => c.id === card.id) ? queue : [...queue, card];
-      setQueue(pending); advance(pending);
+      setQueue(pending); setFeedback(verdict); Keyboard.dismiss();
     } else setFeedback(verdict);
   };
   const check = () => {
@@ -133,11 +133,13 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const dense = Boolean(task || card.body.length > 240);
   const artworkHeight = heroHeight(height - insets.top - insets.bottom, dense, keyboard, fontScale);
   const correct = feedback?.status === 'correct';
+  const continueAfterMistake = Boolean(!reviewing && feedback && feedback.status !== 'unknown' && !correct);
+  const locked = correct || continueAfterMistake;
   const meaning = audioMeaning(packet, audio);
   const prior = reviewing ? history[original.id] : undefined;
   const oldModel = (original.rule || original.turns?.[0]?.rule)?.answers[0];
   const canHelp = task && !audio && !card.options && Boolean(original.explanation);
-  const disabled = busy || capturing || Boolean(task && !correct && (card.kind === 'voice' || audio && !heard || !answer.trim() && !built.length));
+  const disabled = busy || capturing || Boolean(task && !locked && (card.kind === 'voice' || audio && !heard || !answer.trim() && !built.length));
   const summary = Object.values(outcomes).reduce((totals, item) => ({ ...totals, [item.status]: totals[item.status] + 1 }), { independent: 0, assisted: 0, wrong: 0, unverified: 0 });
   return <KeyboardAvoidingView style={[s.screen, { paddingTop: insets.top }]} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
     <Stack.Screen options={{ headerShown: false }} />
@@ -173,7 +175,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
         {soundError ? <Text accessibilityLiveRegion="polite" style={s.error}>{soundError}</Text> : null}
         {task ? card.kind === 'voice' ? <>
           {turn?.sample ? <Surface><Text style={s.kicker}>KÖMƏKLƏ MƏŞQ · NÜMUNƏ</Text><Text style={s.body}>{turn.sample}</Text></Surface> : null}
-          {!audio || heard ? correct ? null : <RecognizedVoiceComposer appearance="lesson" key={`${card.id}:${reviewing}`} onBusyChange={setCapturing}
+          {!audio || heard ? locked ? null : <RecognizedVoiceComposer appearance="lesson" key={`${card.id}:${reviewing}`} onBusyChange={setCapturing}
             checkAnswer={(text) => {
               const v = assessPacketAnswer(text, rule!, true);
               if (v.status !== 'correct' && audio) {
@@ -185,16 +187,16 @@ export default function PacketLesson({ packet }: { packet: Content }) {
             }}
             onJudged={(correct, token, transcript) => { if (!correct) record(transcript || '', assessPacketAnswer(transcript || '', rule!, true), token, true); }}
             onValid={(voice) => record(voice.transcript, assessPacketAnswer(voice.transcript, rule!, true), voice.uri, true)} /> : <Text style={s.note}>Danışmazdan əvvəl yuxarıdakı səsi dinlə.</Text>}
-        </> : card.options ? <View style={s.options}>{card.options.map((option, i) => <Pressable key={`${card.id}:${i}`} accessibilityRole="radio" accessibilityState={{ selected: answer === option, disabled: correct || Boolean(audio && !heard) }} disabled={correct || Boolean(audio && !heard)} style={({ pressed }) => [s.option, answer === option && (correct ? s.correctOption : s.selected), pressed && { transform: [{ scale: .985 }] }, Boolean(audio && !heard) && { opacity: .55 }]} onPress={() => { setAnswer(option); setFeedback(null); }}><SelectionMark selected={answer === option} correct={correct && answer === option} /><Text style={[s.body, s.flex]}>{option}</Text></Pressable>)}</View> : card.words ? <>
-          <View style={s.answerTray}>{built.length ? built.map((wordIndex, position) => <Pressable key={`${wordIndex}:${position}`} accessibilityLabel={`${card.words![wordIndex]} sözünü çıxar`} disabled={correct || Boolean(audio && !heard)} style={s.word} onPress={() => { setBuilt(v => v.filter((_, i) => i !== position)); setFeedback(null); }}><Text style={s.body}>{card.words![wordIndex]}</Text></Pressable>) : <Text style={s.note}>Sözlərə toxunaraq cümlə qur.</Text>}</View>
-          <View style={s.words}>{card.words.map((word, i) => <Pressable key={`${word}:${i}`} disabled={built.includes(i) || correct || Boolean(audio && !heard)} style={[s.word, built.includes(i) && { opacity: .25 }]} onPress={() => { setBuilt(v => [...v, i]); setFeedback(null); }}><Text style={s.body}>{word}</Text></Pressable>)}</View>
-        </> : <View style={s.inputFrame}><LessonIcon name="keyboard" /><TextInput accessibilityLabel="Cavabını ingiliscə yaz" value={answer} editable={!correct && (!audio || heard)} onFocus={() => requestAnimationFrame(() => scroll.current?.scrollToEnd({ animated: true }))} onChangeText={v => { setAnswer(v); setFeedback(null); }} autoCorrect={false} autoCapitalize="none" multiline style={s.input} placeholder="Cavabını yaz" placeholderTextColor={ink.muted} /></View> : null}
+        </> : card.options ? <View style={s.options}>{card.options.map((option, i) => <Pressable key={`${card.id}:${i}`} accessibilityRole="radio" accessibilityState={{ selected: answer === option, disabled: locked || Boolean(audio && !heard) }} disabled={locked || Boolean(audio && !heard)} style={({ pressed }) => [s.option, answer === option && (correct ? s.correctOption : s.selected), pressed && { transform: [{ scale: .985 }] }, Boolean(audio && !heard) && { opacity: .55 }]} onPress={() => { setAnswer(option); setFeedback(null); }}><SelectionMark selected={answer === option} correct={correct && answer === option} /><Text style={[s.body, s.flex]}>{option}</Text></Pressable>)}</View> : card.words ? <>
+          <View style={s.answerTray}>{built.length ? built.map((wordIndex, position) => <Pressable key={`${wordIndex}:${position}`} accessibilityLabel={`${card.words![wordIndex]} sözünü çıxar`} disabled={locked || Boolean(audio && !heard)} style={s.word} onPress={() => { setBuilt(v => v.filter((_, i) => i !== position)); setFeedback(null); }}><Text style={s.body}>{card.words![wordIndex]}</Text></Pressable>) : <Text style={s.note}>Sözlərə toxunaraq cümlə qur.</Text>}</View>
+          <View style={s.words}>{card.words.map((word, i) => <Pressable key={`${word}:${i}`} disabled={built.includes(i) || locked || Boolean(audio && !heard)} style={[s.word, built.includes(i) && { opacity: .25 }]} onPress={() => { setBuilt(v => [...v, i]); setFeedback(null); }}><Text style={s.body}>{word}</Text></Pressable>)}</View>
+        </> : <View style={s.inputFrame}><LessonIcon name="keyboard" /><TextInput accessibilityLabel="Cavabını ingiliscə yaz" value={answer} editable={!locked && (!audio || heard)} onFocus={() => requestAnimationFrame(() => scroll.current?.scrollToEnd({ animated: true }))} onChangeText={v => { setAnswer(v); setFeedback(null); }} autoCorrect={false} autoCapitalize="none" multiline style={s.input} placeholder="Cavabını yaz" placeholderTextColor={ink.muted} /></View> : null}
       </>}
     </ScrollView>
     <View style={[s.footer, { paddingBottom: keyboard ? 8 : Math.max(12, insets.bottom) }]}>
-      {feedback && !isResult ? <View accessibilityLiveRegion="polite" style={[s.feedback, correct && s.correctFeedback]}><View style={s.feedbackTitle}><LessonIcon name={correct ? 'check' : 'hint'} color={correct ? ink.mint : ink.orange} /><Text style={[s.feedbackText, { color: correct ? ink.mint : ink.text }]}>{correct ? 'Düzdür!' : feedback.message}</Text></View>{correct ? <Text style={s.note}>{feedback.message}</Text> : null}{correct && meaning ? <Pressable accessibilityRole="button" accessibilityState={{ expanded: meaningOpen }} onPress={() => setMeaningOpen(v => !v)}><Text style={s.helpLink}>{meaningOpen ? meaning : 'Mənasını göstər ›'}</Text></Pressable> : null}</View> : null}
-      <LessonButton disabled={disabled} label={isResult ? done ? 'Bölməyə qayıt' : 'Nəticəni saxla' : card.kind === 'intro' ? 'Dərsə başla' : task && !correct ? 'Yoxla' : 'Davam et'} onPress={() => isResult ? done ? exit() : void finish() : !task || correct ? advance() : check()} />
-      {task && !correct ? <Pressable accessibilityRole="button" disabled={capturing} onPress={skip}><Text style={s.skip}>{card.kind === 'voice' ? 'İndi danışa bilmirəm · Keç' : 'Bu sualı keç'}</Text></Pressable> : null}
+      {feedback && !isResult ? <View accessibilityLiveRegion="polite" style={[s.feedback, correct && s.correctFeedback]}><View style={s.feedbackTitle}><LessonIcon name={correct ? 'check' : 'hint'} color={correct ? ink.mint : ink.orange} /><Text style={[s.feedbackText, { color: correct ? ink.mint : ink.text }]}>{correct ? 'Düzdür!' : feedback.status === 'unknown' ? feedback.message : 'Səhv cavabdır'}</Text></View>{feedback.status !== 'unknown' ? <Text style={s.note}>{feedback.message}</Text> : null}{correct && meaning ? <Pressable accessibilityRole="button" accessibilityState={{ expanded: meaningOpen }} onPress={() => setMeaningOpen(v => !v)}><Text style={s.helpLink}>{meaningOpen ? meaning : 'Mənasını göstər ›'}</Text></Pressable> : null}</View> : null}
+      <LessonButton disabled={disabled} label={isResult ? done ? 'Bölməyə qayıt' : 'Nəticəni saxla' : card.kind === 'intro' ? 'Dərsə başla' : task && !locked ? 'Yoxla' : 'Davam et'} onPress={() => isResult ? done ? exit() : void finish() : !task || locked ? advance() : check()} />
+      {task && !locked ? <Pressable accessibilityRole="button" disabled={capturing} onPress={skip}><Text style={s.skip}>{card.kind === 'voice' ? 'İndi danışa bilmirəm · Keç' : 'Bu sualı keç'}</Text></Pressable> : null}
     </View>
   </KeyboardAvoidingView>;
 }

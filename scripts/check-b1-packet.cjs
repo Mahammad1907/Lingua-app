@@ -57,7 +57,13 @@ assert.equal(assess('I don’t understand. Could you say that again, please?',r(
 assert.equal(assess('More slowly please',r(['repeat','slow'])).status,'partial');
 assert.equal(assess('Can you repeat that more slowly please',r(['repeat','slow'])).status,'correct');
 assert.equal(assess('Buy',r(['farewell']),true).status,'correct');
-assert.equal(assess('Buy',r(['farewell']),false).status,'unknown');
-assert.equal(assess('The weather looks beautiful',r(['greet'])).status,'unknown');
+assert.equal(assess('Buy',r(['farewell']),false).status,'wrong');
+assert.equal(assess('The weather looks beautiful',r(['greet'])).status,'wrong');
 assert.equal(assess('Hello',{answers:['Hi'],exact:true}).status,'wrong','dictation differs from free greetings');
+for (const text of ['helllh', 'helllo', 'asdfgh', '12345']) {
+  assert.equal(assess(text, {answers:['Hello!','Hi!'],goals:['greet']}).status, 'wrong', 'submitted typo/irrelevant writing must count as incorrect');
+}
+assert.equal(assess('helllh', r(['greet']), true).status, 'unknown', 'uncertain speech is not a language mistake');
+assert.equal(assess('   ', r(['greet'])).status, 'unknown', 'blank input is not a submitted answer');
+for (const text of ['Hello', 'HI!', 'hello.', 'Good morning']) assert.equal(assess(text, {answers:['Hello!','Hi!'],goals:['greet']}).status, 'correct');
 console.log(`PASS: ${checked} original/review/exam rules, card order, no author-note leakage, fresh progress IDs, compound criteria, role facts, contractions, homophones and unknown answers.`);
