@@ -1,65 +1,45 @@
-# Agreed lesson screens — implementation update
+# A1 lesson screens: phone feedback corrections, 22 October 2026
 
-Parent: `52b93acef6df5ddbd05f7033a4d4f06a705c8214` on `codex/b1-lesson-screens-20261021`.
+Base: `ea5efcb7fc56cecb3f6f32bdd84aa349ff5f73eb`, branch `codex/b1-lesson-screens-20261021`.
 
-## Screen mapping
+## Visible changes
 
-| Screen | Implementation |
+| Area | Result |
 | --- | --- |
-| Lesson entry | Dedicated `LessonWelcome`: full lesson title, lesson badge, warm library/fox/blank-board artwork, native board phrase, three noninteractive objectives, short subtitle, orange “Dərsə başla”. Each of seven authored lessons has its own objectives and phrase. |
-| Teaching | Existing authored explanation and bilingual examples remain. Explanation and examples are separated visually, with audio buttons and “Davam et”. No hint action on teaching/entry. |
-| Written answer | Scenario, contextual hint, purple input and microphone. Native recognition fills the editable text field before the normal “Yoxla” action. The input microphone opens a dedicated recording panel directly, with measured levels. Expo Go records/replays; the native BirTalk build fills the editable field through speech recognition. |
-| Listening | Compact animated playback equalizer (no mascot), player, slow/normal/fast playback, choices, grading feedback and authored glossary meaning after a correct answer. |
-| Word building | Word bank, selected-word tray and an instruction hint that does not reveal the answer order. |
-| Voice practice | Microphone plus actual measured levels; native recognition/recording retains existing grading. Expo Go uses recording/replay practice without fabricated transcripts, grades or XP. |
-| Mistake/review | First-pass incorrect feedback remains visible until “Davam et”. Full explanation is behind “İzahına bax”; previous answer context remains separate from the replacement question. |
-| Result | Existing result summary retained. A replacement result design was not approved. |
+| Header | One compact, wrapping lesson title beside back/energy; the extra large title row is removed. |
+| Content fit | Actual non-artwork content and badge height are measured. Decoration shrinks into the remaining viewport before any text/control is hidden. The footer takes normal layout space and cannot cover content. Long or accessibility-sized content retains a scroll fallback. |
+| Teaching | Both example audio controls remain in the measured body; the classroom image yields space so “Hi!” is not placed behind the next action. |
+| Listening | One original cyan/lavender particle wave above the question. Playback animates only while audio plays; the player has play/stop and a label, with no second waveform. No watermarked reference bitmap is shipped. |
+| Playback speed | Slow/normal/fast choice persists locally across questions and app restarts. |
+| Spoken answer | Redundant “İndi sən danış” heading, large record/replay panel and disabled “Yoxla” are removed from the lesson flow. Mic capture/transcript/status appear inline in the same screen, without a modal. |
+| Written answer microphone | One tap opens inline capture and starts recognition when the native module is available. Switching to keyboard or leaving cancels pending/active recognition. The final recognized text uses the normal lesson answer rules automatically. |
+| Feedback | Feedback belongs below the answer inside the content, rather than inside a growing footer. Selected answers stay in the content. A correct answer produces one “Düzdür!”, a brief mint flash, subtle check scaling and light haptic. Reduced motion disables the motion/haptic. Wrong answers show authored/contextual correction in a warm tone. |
+| Entry/result | Previous passive entry objectives and confirmed exit behavior are preserved. No replacement result design is introduced. |
 
-## Exit and layout
+## Speech recognition boundary
 
-- Header title has its own wrapping row, so long lesson names do not compete with energy width. The lesson energy capsule reads the existing shared store; reward/energy rules are unchanged.
-- Custom back and Android hardware back open the same confirmation dialog. iOS swipe-back is disabled on the lesson route so it cannot bypass confirmation in SDK 57.
-- Continuing closes the dialog. Confirming exit removes only the unfinished attempt via `abandonLesson`; saved completions, receipts and XP remain. Saving cannot be interrupted through the dialog.
-- Decorative artwork disappears for the keyboard and large accessibility text. Answer input and action stay in the keyboard-avoiding layout. Long content retains a scroll fallback.
-- Current microphone capture pauses when the exit dialog opens. Native listeners/timers and recorder mode are cleaned up on unmount/background.
-- Help before grading reads no answer keys or full explanations. Full explanations are available after grading or in the previous-answer review section.
+The lessons now use `useLessonSpeech` directly rather than mounting `VoicePracticeRecorder`/its native recorder and playback objects. Recognition emits a live transcript and measured volume. After recognized speech, 1.8 seconds of quiet requests a final result. The operating system can also end recognition earlier in non-continuous mode. A completed final result is submitted once, after the native end event; interim text is never graded. Empty, low-confidence, cancelled, timed-out or interrupted capture does not record a language attempt. Eight seconds with no transcript cancels instead of sending an empty answer. Maximum capture is 20 seconds.
 
-## Voice limitations
+On-device recognition is used where supported. Apple/Google network recognition is offered only after an explicit permission action. Permission responses arriving after cancellation cannot start hidden recording. Background, confirmed exit, switching input mode and unmount remove/cancel capture. No audio getter/player/recorder is needed by the lesson recognition path. The remaining legacy record/replay component also guards native getters during polling and disposal, addressing the supplied `NotFoundException` cleanup stack.
 
-Expo Go does not ship `expo-speech-recognition`. A JavaScript update cannot add that native module to Expo Go. The update therefore provides working recording/replay practice through the bundled `expo-audio` API, and a direct recording panel from the written-input microphone. Recording does not transcribe in Expo Go. After recording, “Dinlədim · Davam et” advances through the existing unverified/skip path. Unverified audio is never awarded completion credit. Automatic speech-to-text and native voice assessment require a signed BirTalk development build, existing native permissions and a supported recognition service/language model. No external AI/STT service or API key was added.
+**Expo Go does not include `expo-speech-recognition`.** JavaScript alone cannot add it. In Expo Go the microphone explains this when tapped; it does not pretend to transcribe or award verified voice credit. Actual automatic transcription requires an installed BirTalk development build containing the already-declared native plugin. `eas.json` includes development-device and simulator profiles. No external STT backend or secret key was added. No signed build was created or installed in this environment.
 
-## Validation
+## Validation and limits
 
-- Full TypeScript check passed.
-- Full project ESLint passed with zero errors and one existing unused-handler warning in the unchanged profile screen. Earlier lint errors in onboarding/entry and XP/completion state were corrected without changing their UI.
-- 214 authored/review/exam answer rules passed.
-- Progression/XP/energy regression checks passed, including new confirmed-exit, preserved saved progress, rejected abandoned-attempt finish and clean restart cases.
-- Presentation checks passed for all seven intros, all task types, answer-key-free hints, preserved teaching paragraphs, glossary translations, accessibility conditions and measured-volume bounds.
-- iOS Hermes export passed.
+- TypeScript passed.
+- ESLint across project source/config/scripts passed with zero errors and one existing unused-handler warning in the unchanged profile screen. Local generated bundler-cache files were excluded from lint.
+- Mocked native-boundary tests passed: final/end automatic submission, duplicates, cancellation, permission pending/denied, background and unmount listener cleanup.
+- Pure speech-turn tests passed: 1.8-second silence, empty input, partial versus final, confidence, timeout, cancellation and late events.
+- Released native getter/stop failure regression passed.
+- Presentation checks, 214 original/review/exam rules and progression/XP/energy/exit regressions passed.
+- iOS Hermes export passed. Export is compilation, not an installed-device test.
 
-No native iPhone execution or rendered browser screenshots were available in this environment. The source was inspected against the supplied entry and written-screen references; pixel-level parity and device keyboard/audio behavior remain for phone review. No claim of device-tested perfection is made.
+There is no physical iPhone or iOS simulator here. Actual keyboard transitions, native permission dialogs, recognition quality, silence thresholds in a noisy room, haptics and pixel appearance remain for device review. No claim of device-tested perfection is made.
 
-Daily lesson limits, reward ads, payment/premium and free-form AI conversation remain separate product work; they were discussed but are not implemented by this UI update.
+## Existing Windows preview
 
-## Update the existing Windows preview
+Stop Expo with Ctrl+C in `C:\Users\user\birtalk-yeni-ekranlar`. Fetch and switch to the published commit, then start with `npx.cmd expo start --go --clear --port 8083` for **visual/typed-answer preview only**.
 
-In `C:\Users\user\birtalk-yeni-ekranlar`, stop the old Expo process with Ctrl+C and run each command separately:
+For the full microphone flow, build and install the BirTalk development client through the owner's Expo and Apple signing accounts using the `development` profile, then use `npx.cmd expo start --dev-client --clear --port 8083`. An iPhone install requires signing/provisioning. The profile and speech-recognition plugin are prepared; account setup, identifiers and signing must be completed in that build step.
 
-```powershell
-git fetch origin
-git switch --detach origin/codex/b1-lesson-screens-20261021
-npx.cmd expo start --go --clear --port 8083
-```
-
-The existing node_modules junction is reused. No reset or clean is required.
-
-## Phone feedback correction (22 October)
-
-- Fixed the reported native AudioSource render exception: both recording players now pause on an empty/cleared draft and only call `replace` with a real `{ uri }` source. A shared guarded loader catches native source failures; the recorder no longer calls `replace(null)` on mount.
-- Written-input microphone opens a modal and starts capture directly, dismissing the keyboard. Actual recorder/recognizer measurements drive the waveform. Close cancels pending native-recognition permission work as well as active capture, so a permission response cannot start hidden capture after closing.
-- Expo Go capture remains record/replay practice, with an explicit explanation that it does not transcribe or earn verified-answer credit. A native development build is still required for automatic speech-to-text; no new remote service, credentials or package was added.
-- Keyboard mode removes decorative artwork, the extra title/badge and large playback controls. A compact header and inline replay remain, the skip action leaves the footer while typing, and scrolling follows the final viewport/content layout to reveal the editable answer above the footer. Long/accessibility content keeps a scroll fallback.
-- Listening task artwork is now an equalizer. Its decorative animation runs only while speech playback runs and respects reduced motion. It does not claim to measure TTS amplitudes.
-- Entry title wraps, the image uses contain geometry to retain the full fox, the negative artwork margin is removed, and artwork height uses the measured remaining viewport after the heading and passive objectives.
-
-Validation: TypeScript and full ESLint passed (one existing profile unused-handler warning); recorded-audio regression, seven-lesson presentation, 214 content rules, progression/XP/energy checks and iOS Hermes export passed. There is no iPhone runtime in this environment: microphone permission prompts, actual recording/recognition, keyboard transitions and pixel appearance still require device verification. Exporting a bundle is not a device test.
+Sources: [Expo development builds](https://docs.expo.dev/develop/development-builds/introduction/), [EAS profiles](https://docs.expo.dev/build/eas-json/), [speech recognition module](https://github.com/jamsch/expo-speech-recognition), [SDK 57 audio](https://docs.expo.dev/versions/v57.0.0/sdk/audio/).

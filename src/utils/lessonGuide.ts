@@ -33,3 +33,12 @@ export function teachingText(card: PacketCard): string {
 export function microphoneLevel(db: number | undefined): number {
   return db === undefined || !Number.isFinite(db) ? 0 : Math.min(1, Math.max(0, (db + 55) / 55));
 }
+
+// Read only after grading; pre-answer lessonHint never calls this helper.
+export function lessonCorrection(card: PacketCard, answer: string, verdict: { status: string; message: string }): string {
+  const rule = card.turns?.[0]?.rule || card.rule;
+  if (rule?.goals?.includes('farewell') && /\b(hi|hello|hey)\b/i.test(answer)) return 'Hi və Hello salamlaşmaq üçündür. Görüş bitəndə Goodbye və ya Bye deyirik.';
+  if (rule?.goals?.includes('greet') && /\b(goodbye|bye)\b/i.test(answer)) return 'Goodbye və Bye sağollaşmaq üçündür. Söhbət başlayanda Hello və ya Hi deyirik.';
+  if (verdict.status === 'partial') return `${verdict.message}${card.explanation ? ` ${card.explanation}` : ''}`;
+  return card.explanation || verdict.message;
+}

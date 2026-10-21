@@ -26,3 +26,11 @@ export function heroHeight(available: number, dense: boolean, keyboard: boolean,
 export function welcomeSceneHeight(viewport: number, heading: number, objectives: number): number {
   return Math.max(140, Math.min(280, (viewport || 590) - heading - objectives - 70));
 }
+
+// Non-artwork is measured at the current width/font scale. Decoration yields first.
+export function fitLessonArtwork(viewport: number, body: number, desired: number, reserved = 68): number {
+  if (!viewport || !body) return 0;
+  const remaining = viewport - body - reserved;
+  // A very thin classroom or cropped wave is less useful than room for the answer.
+  return remaining < Math.min(desired, 120) ? 0 : Math.max(0, Math.min(desired, remaining));
+}
