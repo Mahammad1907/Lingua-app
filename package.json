@@ -10,7 +10,6 @@
     "eslint-config-expo": "~57.0.2",
     "expo": "~57.0.26",
     "expo-audio": "~57.0.5",
-    "expo-av": "^16.0.8",
     "expo-constants": "~57.0.19",
     "expo-dev-client": "~57.0.19",
     "expo-device": "~57.0.2",
@@ -53,5 +52,10 @@
     "web": "expo start --web",
     "lint": "expo lint"
   },
-  "private": true
+  "private": true,
+  "expo": {
+    "autolinking": {
+      "exclude": ["expo-av"]
+    }
+  }
 }
