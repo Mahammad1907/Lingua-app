@@ -9,6 +9,30 @@ const { b1Exams, b1PlacementTest } = require('../src/data/b1Exam.ts');
 const { assessPacketAnswer: assess } = require('../src/utils/packetAnswer.ts');
 assert.deepEqual(b1Packet.map(l => l.cards.length), [13,18,20,20,21,19,15]);
 assert.equal(b1Lessons.length, 7);
+// Lesson 2 must be reachable from the live curriculum and preserve named roles
+// when a missed question is retried, while accepting the learner's own name.
+const { getLessonById } = require('../src/data/lessons.ts');
+const { getModuleById } = require('../src/data/modules.ts');
+const second = b1Packet.find(l => l.order === 2);
+assert.ok(getModuleById('module_1').lessonIds.includes(second.id));
+assert.equal(getLessonById(second.id).moduleId, 'module_1');
+const secondCard = number => second.cards.find(c => c.number === number);
+assert.equal(secondCard(9).board, 'My name is Leyla.');
+assert.equal(assess('My name is Leyla.', secondCard(11).review.rule).status, 'correct');
+assert.notEqual(assess('My name is Murad.', secondCard(11).review.rule).status, 'correct');
+const rebuilt = secondCard(13).review;
+assert.ok(rebuilt.words);
+assert.equal(assess('My name is Leyla.', rebuilt.rule).status, 'correct');
+assert.notEqual(assess('Leyla name My is', rebuilt.rule).status, 'correct');
+const repeatListening = secondCard(14).review;
+assert.equal(repeatListening.audio, 'Hello. My name is Murad.');
+assert.equal(assess('is', repeatListening.rule).status, 'correct');
+assert.equal(assess('am', repeatListening.rule).status, 'wrong');
+for (const name of ['Mahammad', 'Aysel', 'Əli', 'Sara']) {
+  assert.equal(assess(`Hi. My name is ${name}.`, secondCard(15).rule).status, 'correct');
+  assert.equal(assess(`I am ${name}.`, secondCard(12).turns[0].rule).status, 'correct');
+}
+assert.notEqual(assess('Hi!', secondCard(15).rule).status, 'correct', 'independent introduction needs a name as well as a greeting');
 assert.ok(b1Lessons.every(l => l.id.startsWith('a1_en_b1_v2_')), 'new curriculum never inherits old completions');
 let checked = 0;
 for (const lesson of b1Packet) {

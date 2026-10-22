@@ -13,7 +13,9 @@ export function lessonMode(card: PacketCard): string {
 // Translation is looked up, never guessed from a selected answer. Hide until graded.
 export function audioMeaning(packet: PacketLesson, audio: string | undefined): string | null {
   if (!audio) return null;
-  const normalize = (s: string) => s.toLowerCase().replace(/[.!?]/g, '').trim();
+  const normalize = (s: string) => s.toLowerCase().replace(/[‘’]/g, "'").replace(/[.!?]/g, '').replace(/\s+/g, ' ').trim();
+  const authored = Object.entries(packet.audioMeanings || {}).find(([text]) => normalize(text) === normalize(audio));
+  if (authored) return `${audio} — ${authored[1]}`;
   const entry = packet.vocabulary.find(v => normalize(v.word) === normalize(audio));
   return entry ? `${audio} — ${entry.translation}` : null;
 }

@@ -463,7 +463,7 @@
             "greet"
           ]
         },
-        "explanation": "Bu tapşırıqda uyğun cavab: Hello!",
+        "explanation": "Hello və Hi salamlaşmaq üçündür. Bu vəziyyətdə hər ikisi uyğundur.",
         "review": {
           "id": "a1_en_b1_v2_d2_c02",
           "number": 2,
@@ -500,7 +500,7 @@
           "Hello!",
           "Bye!"
         ],
-        "explanation": "Bu tapşırıqda uyğun cavab: Bye!",
+        "explanation": "Görüş bitir. Bye sağollaşmaq, Hello isə salamlaşmaq üçündür.",
         "review": {
           "id": "a1_en_b1_v2_d2_c03",
           "number": 3,
@@ -526,8 +526,8 @@
         "title": "Qısa öyrətmə: I’m…",
         "kind": "teach",
         "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 04",
-        "body": "Adını demək üçün I’m və sonra adını de. I’m, I am formasının qısasıdır. Hər ikisi düzgündür. I am formasında am sözünü buraxma.\n\nI am Leyla. = I’m Leyla.\nMən Leylayam.",
-        "board": "I am Leyla. = I’m Leyla.",
+        "body": "Öz adını demək üçün I am ifadəsindən sonra adını əlavə et. I’m bunun qısa formasıdır. Hər iki cümlə eyni mənanı verir.\n\nI am Leyla. = I’m Leyla.\nMən Leylayam.",
+        "board": "I’m Leyla.",
         "examples": [
           "I am Leyla.",
           "I’m Leyla."
@@ -551,7 +551,7 @@
           "Murad",
           "Ali"
         ],
-        "explanation": "Bu səsdə “Hi. I’m Ali.” deyilir. Tapşırığın uyğun cavabı: Ali",
+        "explanation": "Səsdə “I’m Ali” deyilir: “Mən Əliyəm”. Ona görə danışanın adı Ali-dir.",
         "review": {
           "id": "a1_en_b1_v2_d2_c05",
           "number": 5,
@@ -587,7 +587,7 @@
           "am",
           "I"
         ],
-        "explanation": "Bu tapşırıqda uyğun cavab: I am Leyla.",
+        "explanation": "Adını demək üçün sıra belədir: I + am + ad. Leyla üçün: I am Leyla.",
         "review": {
           "id": "a1_en_b1_v2_d2_c06",
           "number": 6,
@@ -617,7 +617,7 @@
           ],
           "exact": true
         },
-        "explanation": "Bu tapşırıqda uyğun cavab: am",
+        "explanation": "I ilə am işlənir. Cümlə: I am Murad. Boşluğa yalnız am yaz.",
         "review": {
           "id": "a1_en_b1_v2_d2_c07",
           "number": 7,
@@ -691,8 +691,8 @@
         "title": "Yeni qısa öyrətmə: My name is…",
         "kind": "teach",
         "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 09",
-        "body": "Adını My name is ilə də deyə bilərsən: ‘Mənim adım…’. Bu iki quruluşda I am, My name is işlənir. Am və is eyni felin fərqli formalarıdır; bu nümunələrdə onları bir-biri ilə dəyişmə.\n\nI am Leyla. — Mən Leylayam.\nMy name is Leyla. — Mənim adım Leyladır.",
-        "board": "I am Leyla. — Mən Leylayam.",
+        "body": "My name is ifadəsi “Mənim adım…” deməkdir. Sonuna adını əlavə et. I ilə am, My name ilə is işlənir.\n\nI am Leyla. — Mən Leylayam.\nMy name is Leyla. — Mənim adım Leyladır.",
+        "board": "My name is Leyla.",
         "examples": [
           "I am Leyla.",
           "My name is Leyla."
@@ -715,7 +715,7 @@
           "Mənim adım Əlidir.",
           "Salam, Ali!"
         ],
-        "explanation": "Bu tapşırıqda uyğun cavab: Mənim adım Əlidir.",
+        "explanation": "My name is Ali cümləsi “Mənim adım Əlidir” deməkdir; burada şəxs öz adını deyir.",
         "review": {
           "id": "a1_en_b1_v2_d2_c10",
           "number": 10,
@@ -738,7 +738,7 @@
         "title": "BirFox-un səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 11",
-        "body": "BirFox adını demək istəyir, amma cümlədə səhv var.\nBirFox-a kömək et: cümləni düzəldib yaz.\n\nMy name am BirFox.",
+        "body": "BirFox adını demək istəyir, amma am sözünü səhv işlədib. Cümləni düzgün formada yenidən yaz.\n\nMy name am BirFox.",
         "rule": {
           "answers": [
             "My name is BirFox.",
@@ -752,14 +752,14 @@
           "roleName": "BirFox"
         },
         "board": "My name am BirFox.",
-        "explanation": "Bu tapşırıqda uyğun cavab: My name is BirFox.",
+        "explanation": "My name ilə is işlənir: My name is BirFox. I am BirFox və I’m BirFox da düzgün təqdimatdır.",
         "review": {
           "id": "a1_en_b1_v2_d2_c11",
           "number": 11,
           "title": "BirFox-un səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 11",
-          "body": "Leyla özünü təqdim edir. Düzəlt: My name am Leyla.",
+          "body": "Leyla adını deyir, amma am sözünü səhv işlədib. Cümləni düzgün formada yenidən yaz.\n\nMy name am Leyla.",
           "rule": {
             "answers": [
               "My name is Leyla.",
@@ -767,9 +767,11 @@
             ],
             "goals": [
               "introduce"
-            ]
+            ],
+            "roleName": "Leyla"
           },
-          "explanation": "Nümunə: My name is Leyla."
+          "explanation": "My name ilə is işlənir: My name is Leyla. I am Leyla və I’m Leyla da düzgün təqdimatdır. Ad Leyla olaraq qalmalıdır.",
+          "board": "My name am Leyla."
         }
       },
       {
@@ -837,24 +839,27 @@
           "My",
           "name"
         ],
-        "explanation": "Bu tapşırıqda uyğun cavab: My name is Murad.",
+        "explanation": "Ardıcıllıq: My + name + is + ad. Murad üçün: My name is Murad.",
         "review": {
           "id": "a1_en_b1_v2_d2_c13",
           "number": 13,
           "title": "Yeni quruluşla cümlə qur",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 13",
-          "body": "Leyla özünü təqdim edir. Düzəlt: My name am Leyla.",
+          "body": "İndi Leyla adını deyir. Verilən sözlərə düzgün ardıcıllıqla toxun.",
           "rule": {
             "answers": [
-              "My name is Leyla.",
-              "I’m Leyla."
+              "My name is Leyla."
             ],
-            "goals": [
-              "introduce"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: My name is Leyla."
+          "explanation": "Ardıcıllıq: My + name + is + ad. Düzgün cümlə: My name is Leyla.",
+          "words": [
+            "Leyla",
+            "name",
+            "My",
+            "is"
+          ]
         }
       },
       {
@@ -871,24 +876,22 @@
           "exact": true
         },
         "audio": "Hello. My name is Ali.",
-        "explanation": "Bu səsdə “Hello. My name is Ali.” deyilir. Tapşırığın uyğun cavabı: is",
+        "explanation": "Səsdə “My name is Ali” deyilir. My name ifadəsindən sonra is gəlir; boşluğa yalnız is yaz.",
         "review": {
           "id": "a1_en_b1_v2_d2_c14",
           "number": 14,
           "title": "Dinlə və boşluğu tamamla",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 14",
-          "body": "Leyla özünü təqdim edir. Düzəlt: My name am Leyla.",
+          "body": "Dinlə və yalnız çatışmayan sözü yaz.\nHello. My name ___ Murad.",
           "rule": {
             "answers": [
-              "My name is Leyla.",
-              "I’m Leyla."
+              "is"
             ],
-            "goals": [
-              "introduce"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: My name is Leyla."
+          "explanation": "Səsdə “My name is Murad” deyilir. My name ifadəsindən sonra is gəlir; boşluğa yalnız is yaz.",
+          "audio": "Hello. My name is Murad."
         }
       },
       {
@@ -907,7 +910,7 @@
             "introduce"
           ]
         },
-        "explanation": "Bu tapşırıqda uyğun cavab: Hello. I’m Leyla.",
+        "explanation": "Cavabında həm salam, həm də öz adın olmalıdır. Məsələn: Hello. I’m Leyla. Leyla yerinə öz adını və ya seçdiyin adı işlədə bilərsən.",
         "review": {
           "id": "a1_en_b1_v2_d2_c15",
           "number": 15,
@@ -924,7 +927,7 @@
               "introduce"
             ]
           },
-          "explanation": "Nümunə: Hello. I’m Leyla."
+          "explanation": "Əvvəl Hello və ya Hi ilə salam ver, sonra I’m + ad və ya My name is + ad ilə özünü təqdim et. Öz seçdiyin ad qəbul olunur."
         }
       },
       {
@@ -1037,7 +1040,17 @@
         "usageNote": "Adını deməyin başqa yoludur. My name’s də qəbul edilən qısa formadır",
         "pronunciation": ""
       }
-    ]
+    ],
+    "audioMeanings": {
+      "Hi. I’m Ali.": "Salam. Mən Əliyəm.",
+      "Hello. I’m Murad.": "Salam. Mən Muradam.",
+      "Hello. I’m BirFox.": "Salam. Mən BirFox-am.",
+      "Hi. My name is BirFox.": "Salam. Mənim adım BirFox-dur.",
+      "Hi. I’m BirFox.": "Salam. Mən BirFox-am.",
+      "Hello. My name is Ali.": "Salam. Mənim adım Əlidir.",
+      "Hello. My name is Murad.": "Salam. Mənim adım Muraddır.",
+      "Bye!": "Sağ ol!"
+    }
   },
   {
     "id": "a1_en_b1_v2_d3",

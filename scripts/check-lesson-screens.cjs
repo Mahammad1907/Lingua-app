@@ -25,13 +25,21 @@ for (const packet of b1Packet) {
       if (card.audio) {
         listening++;
         const meaning = audioMeaning(packet, card.audio);
-        if (meaning) assert.ok(packet.vocabulary.some(v => meaning.endsWith(v.translation)), 'translations come from the authored glossary');
+        if (meaning) assert.ok([...packet.vocabulary.map(v => v.translation), ...Object.values(packet.audioMeanings || {})].some(text => meaning.endsWith(text)), 'translations come from the authored glossary');
       }
     }
   }
   assert.equal(audioMeaning(packet, 'UNKNOWN_PHRASE_123'), null, 'unknown translations are never invented');
 }
 assert.equal(b1Packet.length, 7);
+const nameLesson = b1Packet.find(l => l.order === 2);
+for (const original of packetFlow(nameLesson)) {
+  for (const card of [original, original.review].filter(Boolean)) {
+    const audio = card.turns?.[0]?.audio || card.audio;
+    if (audio) assert.ok(audioMeaning(nameLesson, audio), `lesson 2 listening/voice phrase has an authored meaning: ${card.id}`);
+  }
+}
+assert.equal(audioMeaning(nameLesson, "hi. i'm ali"), "hi. i'm ali — Salam. Mən Əliyəm.");
 assert.equal(microphoneLevel(undefined), 0);
 assert.equal(microphoneLevel(-160), 0);
 assert.equal(microphoneLevel(0), 1);

@@ -6,5 +6,5 @@ export interface PacketCard {
   body: string; board?: string; examples?: string[]; options?: string[]; words?: string[]; audio?: string;
   rule?: PacketRule; explanation?: string; turns?: PacketTurn[]; review?: PacketCard; source: string;
 }
-export interface PacketLesson { id: string; order: number; title: string; goal: string; cards: PacketCard[]; vocabulary: { word: string; translation: string; pronunciation: string; example: string; exampleAz: string; usageNote: string }[] }
+export interface PacketLesson { id: string; order: number; title: string; goal: string; cards: PacketCard[]; audioMeanings?: Record<string, string>; vocabulary: { word: string; translation: string; pronunciation: string; example: string; exampleAz: string; usageNote: string }[] }
 export interface PacketExam { variant: 'A' | 'B'; cards: PacketCard[]; required: number[] }
