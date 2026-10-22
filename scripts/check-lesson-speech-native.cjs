@@ -8,16 +8,18 @@ require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileMo
 // Exercise the hook's asynchronous native boundary without claiming a device test.
 async function main() {
   const effects = [], cleanups = [], results = [];
-  const listeners = new Map(); let starts = 0, aborts = 0, background;
+  const platform = { OS: 'android', Version: 33 };
+  const listeners = new Map(); let starts = 0, aborts = 0, background, local = true, available = true, lastOptions, modelDownloads = 0;
   let permission = async () => ({ granted: true });
   const emit = (event, payload) => { for (const callback of [...(listeners.get(event) || [])]) callback(payload); };
   const engine = {
     addListener(event, callback) { if (!listeners.has(event)) listeners.set(event, new Set()); listeners.get(event).add(callback); return { remove: () => listeners.get(event).delete(callback) }; },
-    supportsOnDeviceRecognition: () => true,
-    isRecognitionAvailable: () => true,
+    supportsOnDeviceRecognition: () => local,
+    isRecognitionAvailable: () => available,
     requestMicrophonePermissionsAsync: () => permission(),
     requestPermissionsAsync: () => permission(),
-    start(options) { starts++; assert.equal(options.recordingOptions, undefined, 'lessons do not allocate a persisted audio recorder'); assert.equal(options.volumeChangeEventOptions.enabled, true); },
+    androidTriggerOfflineModelDownload: async () => { modelDownloads++; return { status: 'download_success' }; },
+    start(options) { lastOptions = options; starts++; assert.equal(options.recordingOptions, undefined, 'lessons do not allocate a persisted audio recorder'); assert.equal(options.volumeChangeEventOptions.enabled, true); },
     stop() {},
     abort() { aborts++; emit('error', { error: 'aborted' }); emit('end'); },
   };
@@ -28,7 +30,7 @@ async function main() {
       useRef: value => ({ current: value }), useCallback: callback => callback,
       useEffect: callback => effects.push(callback),
     };
-    if (request === 'react-native') return { AppState: { currentState: 'active', addEventListener: (_event, callback) => { background = callback; return { remove() {} }; } } };
+    if (request === 'react-native') return { Platform: platform, AppState: { currentState: 'active', addEventListener: (_event, callback) => { background = callback; return { remove() {} }; } } };
     if (request === 'expo-speech') return { stop: async () => {} };
     if (request === '../utils/speechEngine') return { getSpeechEngine: () => engine };
     return originalLoad.call(this, request, parent, isMain);
@@ -43,7 +45,12 @@ async function main() {
     assert.equal(results.length, 0, 'interim result is not sent');
     emit('result', { isFinal: true, results: [{ transcript: 'Hello!', confidence: .9 }] });
     emit('end'); emit('end');
-    assert.equal(results.length, 1, 'final plus end sends automatically exactly once');
+    assert.equal(results.length, 0, 'recognition does not grade before the learner reviews the text');
+    speech.confirm('   '); assert.equal(results.length, 0, 'empty corrections cannot be submitted');
+    speech.confirm('Hello!'); speech.confirm('Hello!');
+    assert.equal(results.length, 1, 'confirmation submits once despite rapid repeated taps');
+    assert.equal(results[0].edited, false);
+    assert.equal(lastOptions.requiresOnDeviceRecognition, true, 'native on-device recognition is the default');
     await speech.start(); speech.cancel();
     emit('result', { isFinal: true, results: [{ transcript: 'Bye!', confidence: .9 }] }); emit('end');
     assert.equal(results.length, 1, 'cancel ignores late native events');
@@ -58,12 +65,24 @@ async function main() {
     background('background'); emit('result', { isFinal: true, results: [{ transcript: 'Hi', confidence: .9 }] }); emit('end');
     assert.equal(results.length, 1, 'background cancels automatic submission');
     await speech.start();
+    emit('result', { isFinal: true, results: [{ transcript: 'good buy', confidence: .9 }] }); emit('end');
+    speech.confirm('Goodbye!'); assert.equal(results.length, 2); assert.equal(results[1].edited, true, 'user corrections are explicitly marked, not presented as original recognition');
+    const beforeFallback = starts;
+    local = false; await speech.start(); assert.equal(starts, beforeFallback, 'network recognition is never silently selected');
+    await speech.start(true); assert.equal(lastOptions.requiresOnDeviceRecognition, false); speech.cancel();
+    await speech.start(); assert.equal(lastOptions.requiresOnDeviceRecognition, false, 'explicit consent remains for retry in this input session'); speech.cancel();
+    local = true; available = false; const beforeUnavailable = starts; await speech.start(); assert.equal(starts, beforeUnavailable, 'no service never starts a broken capture');
+    speech.beginTyping(); speech.confirm('Hello!'); assert.equal(results.length, 3); assert.equal(results[2].edited, true); assert.match(results[2].token, /^typed:/, 'typed fallback is never labeled as recognized speech');
+    available = true; platform.Version = 32; await speech.downloadModel(); assert.equal(modelDownloads, 0, 'old Android never invokes unsupported model download');
+    platform.Version = 33; await speech.downloadModel(); assert.equal(modelDownloads, 1);
+    platform.OS = 'ios'; await speech.downloadModel(); assert.equal(modelDownloads, 1, 'iPhone never invokes Android model download'); platform.OS = 'android';
+    await speech.start();
     for (const cleanup of cleanups.splice(0).reverse()) cleanup();
     emit('result', { isFinal: true, results: [{ transcript: 'Hi', confidence: .9 }] }); emit('end');
-    assert.equal(results.length, 1, 'unmounted hook cannot submit');
+    assert.equal(results.length, 3, 'unmounted hook cannot submit');
     assert.ok(aborts >= 3);
     assert.ok([...listeners.values()].every(set => set.size === 0), 'all native listeners are removed');
-    console.log('PASS: mocked native final/end submission, cancellation, pending/denied permission, background and unmount cleanup.');
+    console.log('PASS: native review/confirm/edit, duplicate protection, on-device default, explicit network consent/retry, missing service/model, cancellation, permission and lifecycle boundaries.');
   } finally { for (const cleanup of cleanups.reverse()) cleanup(); Module._load = originalLoad; }
 }
 main().catch(error => { process.stderr.write(String(error.stack)); process.exitCode = 1; });

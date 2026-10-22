@@ -1,4 +1,4 @@
-export interface SpokenAnswer { text: string; token: string; confidence?: number }
+export interface SpokenAnswer { text: string; token: string; confidence?: number; edited?: boolean }
 type Phase = 'idle' | 'listening' | 'processing';
 
 // No native handles: late events and repeated finals cannot submit twice.

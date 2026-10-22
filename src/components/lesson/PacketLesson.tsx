@@ -174,14 +174,14 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const disabled = busy || capturing || Boolean(task && !locked && (card.kind === 'voice' || audio && !heard || !answer.trim() && !built.length));
   const submitSpeech = (spoken: SpokenAnswer): string | null => {
     if (!rule || locked) return null;
-    const verdict = assessPacketAnswer(spoken.text, rule, true);
+    const verdict = assessPacketAnswer(spoken.text, rule, !spoken.edited);
     if (card.kind === 'voice' && audio && verdict.status !== 'correct') {
       const slower = !rule.goals?.includes('slow') && assessPacketAnswer(spoken.text, { answers: [], goals: ['slow'] }, true).status === 'correct';
       const repeat = !rule.goals?.includes('repeat') && assessPacketAnswer(spoken.text, { answers: [], goals: ['repeat'] }, true).status === 'correct';
       if (slower || repeat) { void speak(audio, slower ? .45 : (turn?.rate || .75) * speed, true); return 'Mesajı yenidən dinlə, sonra cavab ver. Bu xahiş səhv sayılmır.'; }
     }
     if (verdict.status === 'unknown') return verdict.message;
-    setAnswer(spoken.text); record(spoken.text, verdict, `${card.id}:${spoken.token}`, true);
+    setAnswer(spoken.text); record(spoken.text, verdict, `${card.id}:${spoken.token}`, !spoken.edited);
     return null;
   };
   const summary = Object.values(outcomes).reduce((totals, item) => ({ ...totals, [item.status]: totals[item.status] + 1 }), { independent: 0, assisted: 0, wrong: 0, unverified: 0 });
