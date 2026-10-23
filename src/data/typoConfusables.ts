@@ -1,4 +1,4 @@
-// One-edit real English words: never accept these as spelling slips.
+// One-edit real English words; never accept these as spelling slips.
 // Derived from an-array-of-english-words 2.0.0 (MIT); see WORD_LIST_LICENSE.txt.
 export const typoConfusables: Record<string, readonly string[]> = {
   "afternoon": [
@@ -10,10 +10,64 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "amain",
     "gain"
   ],
+  "could": [
+    "cauld",
+    "cold",
+    "courd",
+    "mould",
+    "nould",
+    "ould",
+    "would"
+  ],
+  "doing": [
+    "boing",
+    "ding",
+    "doings",
+    "doling",
+    "doming",
+    "dong",
+    "doning",
+    "doping",
+    "dosing",
+    "doting",
+    "doving",
+    "dowing",
+    "dozing",
+    "duing",
+    "dying",
+    "going",
+    "hoing",
+    "toing"
+  ],
   "evening": [
     "evenings",
     "eventing",
     "ovening"
+  ],
+  "excuse": [
+    "excise",
+    "excurse",
+    "excused",
+    "excuser",
+    "excuses"
+  ],
+  "feeling": [
+    "fealing",
+    "feebling",
+    "feeding",
+    "feeing",
+    "feelings",
+    "feering",
+    "feesing",
+    "feezing",
+    "felling",
+    "fueling",
+    "heeling",
+    "jeeling",
+    "keeling",
+    "peeling",
+    "reeling",
+    "seeling"
   ],
   "fine": [
     "aine",
@@ -95,6 +149,31 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "hullo",
     "jello"
   ],
+  "many": [
+    "any",
+    "cany",
+    "man",
+    "mana",
+    "mand",
+    "mane",
+    "mang",
+    "mangy",
+    "mani",
+    "manky",
+    "manly",
+    "mano",
+    "mans",
+    "manty",
+    "mary",
+    "maty",
+    "may",
+    "mazy",
+    "meany",
+    "miny",
+    "mony",
+    "wany",
+    "zany"
+  ],
   "meet": [
     "beet",
     "deet",
@@ -112,6 +191,51 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "ment",
     "met",
     "weet"
+  ],
+  "more": [
+    "bore",
+    "core",
+    "dore",
+    "fore",
+    "gore",
+    "hore",
+    "kore",
+    "lore",
+    "mare",
+    "mere",
+    "mire",
+    "mobe",
+    "mode",
+    "moe",
+    "moire",
+    "moke",
+    "mole",
+    "mome",
+    "mope",
+    "mor",
+    "mora",
+    "morae",
+    "morel",
+    "mores",
+    "morn",
+    "morne",
+    "mors",
+    "morse",
+    "mort",
+    "mose",
+    "mote",
+    "moue",
+    "move",
+    "moze",
+    "mure",
+    "ore",
+    "pore",
+    "rore",
+    "smore",
+    "sore",
+    "tore",
+    "wore",
+    "yore"
   ],
   "morning": [
     "corning",
@@ -174,6 +298,13 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "vice",
     "wice"
   ],
+  "pardon": [
+    "cardon",
+    "lardon",
+    "pardons",
+    "parson",
+    "parton"
+  ],
   "please": [
     "lease",
     "pease",
@@ -182,6 +313,51 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "pleaser",
     "pleases",
     "prease"
+  ],
+  "problem": [
+    "problems"
+  ],
+  "repeat": [
+    "reheat",
+    "repeal",
+    "repeats",
+    "repent",
+    "reseat"
+  ],
+  "slower": [
+    "blower",
+    "flower",
+    "glower",
+    "lower",
+    "plower",
+    "shower",
+    "sloper",
+    "slowed",
+    "sower",
+    "stower"
+  ],
+  "slowly": [
+    "lowly"
+  ],
+  "sorry": [
+    "lorry",
+    "serry",
+    "sorra",
+    "worry"
+  ],
+  "speak": [
+    "apeak",
+    "peak",
+    "sneak",
+    "speaks",
+    "speal",
+    "spean",
+    "spear",
+    "speat",
+    "speck",
+    "spek",
+    "spelk",
+    "steak"
   ],
   "thank": [
     "chank",
@@ -216,6 +392,38 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "tranks",
     "twanks"
   ],
+  "that": [
+    "bhat",
+    "chat",
+    "ghat",
+    "hat",
+    "khat",
+    "phat",
+    "shat",
+    "tat",
+    "teat",
+    "thae",
+    "than",
+    "thar",
+    "thaw",
+    "trat",
+    "twat",
+    "what"
+  ],
+  "there": [
+    "chere",
+    "here",
+    "shere",
+    "thebe",
+    "thee",
+    "theme",
+    "theres",
+    "therm",
+    "therme",
+    "these",
+    "thete",
+    "where"
+  ],
   "tired": [
     "aired",
     "fired",
@@ -241,6 +449,64 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "vired",
     "wired"
   ],
+  "today": [
+    "todays",
+    "toddy",
+    "tody",
+    "tokay"
+  ],
+  "understand": [
+    "understands"
+  ],
+  "very": [
+    "aery",
+    "eery",
+    "every",
+    "hery",
+    "vary",
+    "veery",
+    "vera",
+    "verb",
+    "verd",
+    "verry",
+    "vers",
+    "vert"
+  ],
+  "welcome": [
+    "welcomed",
+    "welcomer",
+    "welcomes"
+  ],
+  "well": [
+    "bell",
+    "cell",
+    "dell",
+    "dwell",
+    "ell",
+    "fell",
+    "hell",
+    "jell",
+    "kell",
+    "mell",
+    "pell",
+    "sell",
+    "swell",
+    "tell",
+    "vell",
+    "wall",
+    "weal",
+    "weel",
+    "weil",
+    "weld",
+    "welk",
+    "wells",
+    "welly",
+    "wels",
+    "welt",
+    "will",
+    "wull",
+    "yell"
+  ],
   "what": [
     "bhat",
     "chat",
@@ -261,6 +527,18 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "whet",
     "whit",
     "whot"
+  ],
+  "would": [
+    "could",
+    "mould",
+    "nould",
+    "ould",
+    "woald",
+    "wold",
+    "woold",
+    "world",
+    "woulds",
+    "wound"
   ],
   "your": [
     "cour",

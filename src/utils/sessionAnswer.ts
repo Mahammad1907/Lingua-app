@@ -1,3 +1,4 @@
+import { normalizeApostrophes } from './spelling';
 import { typoConfusables } from '../data/typoConfusables';
 
 function oneEdit(a: string, b: string): boolean {
@@ -15,7 +16,7 @@ function oneEdit(a: string, b: string): boolean {
 // Choices and grammar tokens stay exact. Only one spelling slip in the ENTIRE
 // typed answer is allowed, and only for audited English vocabulary words.
 export function isSessionAnswerCorrect(answer: string, target: string, language = 'en', alternatives: string[] = [], allowTypo = false): boolean {
-  const normalize = (value: string) => value.normalize('NFKC')
+  const normalize = (value: string) => normalizeApostrophes(value)
     .toLocaleLowerCase(language === 'az' ? 'az' : 'en')
     .replace(/[‘’]/g, "'")
     .replace(/[.!?,;:“”"]/g, '')

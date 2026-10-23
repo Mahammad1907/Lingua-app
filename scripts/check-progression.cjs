@@ -171,6 +171,27 @@ async function run() {
   const simultaneous = await Promise.all(concurrent.map(id => store.getState().finishLesson(id)));
   assert.deepEqual(simultaneous.map(r => r.xp).sort((a, b) => a - b), [0, 35]);
   assert.equal(store.getState().xp, 35, 'two different attempts cannot pay the same completion twice');
+  // Skipping does not permanently poison an answer; only unresolved tasks retry.
+  store.getState().resetAll();
+  const retry = answerAll(store, lessons[0].id, { skip: true });
+  const retryState = store.getState().attempts[retry];
+  const missing = retryState.expected.filter(key => !retryState.tasks[key]?.resolved);
+  assert.equal((await store.getState().finishLesson(retry)).completed, false);
+  assert.equal(store.getState().attempts[retry].finished, false);
+  assert.equal(missing.length, 1);
+  store.getState().recordTask(retry, missing[0], true, 'retry-skipped', { input: 'written', assisted: true, listening: false, technicalText: true });
+  assert.equal((await store.getState().finishLesson(retry)).completed, true);
+  assert.equal(store.getState().attempts[retry].tasks[missing[0]].skipped, false);
+  assert.equal(store.getState().lessonProgress[0].evidence.technicalText, 1);
+  assert.equal(store.getState().lessonProgress[0].evidence.listeningIndependent, 0);
+  assert.ok(JSON.parse(disk).lessonProgress[0].evidence, 'evidence persists with lesson progress');
+  const speaking = store.getState().beginLesson(lessons[6].id);
+  const voiceTask = store.getState().attempts[speaking].expected[0];
+  store.getState().recordTask(speaking, voiceTask, true, 'edited', { input: 'written', assisted: false, listening: false, technicalText: true });
+  assert.equal(store.getState().attempts[speaking].tasks[voiceTask], undefined, 'edited text cannot prove required speech');
+  store.getState().recordTask(speaking, voiceTask, true, 'spoken', { input: 'spoken', assisted: false, listening: false, technicalText: true });
+  assert.equal(store.getState().attempts[speaking].tasks[voiceTask].resolved, true);
+
   console.log(`PASS (${Intl.DateTimeFormat().resolvedOptions().timeZone}): energy, hydration, migration, answer/skip/help eligibility, duplicate and repeat rewards, 3/7-day streaks, local dates, module bonus, unlock isolation, persistence and interrupted-write retry.`);
 }
 run().catch(error => { console.error(error); process.exitCode = 1; }).finally(() => { global.Date = NativeDate; Module._load = nativeLoad; });

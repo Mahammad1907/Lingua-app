@@ -3,7 +3,7 @@ import type { PacketCard, PacketLesson } from './b1PacketTypes';
 import type { Exercise, Lesson } from './types';
 import { LESSON_XP } from '../utils/rewards';
 
-export const b1Packet = raw as PacketLesson[];
+export const b1Packet = raw as unknown as PacketLesson[];
 export const getPacketLesson = (id: string) => b1Packet.find((lesson) => lesson.id === id);
 export function packetFlow(lesson: PacketLesson): PacketCard[] {
   return lesson.cards.flatMap((card) => card.kind === 'voice'

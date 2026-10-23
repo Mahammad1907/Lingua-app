@@ -431,7 +431,12 @@
         "usageNote": "Gündəlik, qeyri-rəsmi sağollaşma.",
         "pronunciation": "/baɪ/"
       }
-    ]
+    ],
+    "audioMeanings": {
+      "Hello!": "Salam",
+      "Hi!": "Salam",
+      "Goodbye!": "Sağ ol / sağ olun"
+    }
   },
   {
     "id": "a1_en_b1_v2_d2",
@@ -594,14 +599,19 @@
           "title": "Sözlərdən cümlə qur",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 06",
-          "body": "Ali öz adını deyir. Boşluğu tamamla: I ___ Ali.",
+          "body": "Murad öz adını deyir. Sözləri düzgün sıraya düz.",
           "rule": {
             "answers": [
-              "am"
+              "I am Murad."
             ],
             "exact": true
           },
-          "explanation": "Nümunə: am"
+          "explanation": "Ad təqdimatında sıra I + am + addır. Burada danışan Muraddır.",
+          "words": [
+            "Murad",
+            "I",
+            "am"
+          ]
         }
       },
       {
@@ -1225,16 +1235,19 @@
           "title": "Məqsədə uyğun sualı seç",
           "kind": "task",
           "source": "BirTalk_A1_B1_D3_Ad_sorusmaq.md#Kart 07",
-          "body": "Yeni qonağın adını soruş.",
+          "body": "Yeni qonağın adını öyrənmək üçün uyğun sualı seç.",
           "rule": {
             "answers": [
               "What’s your name?"
             ],
-            "goals": [
-              "askName"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: What’s your name?"
+          "explanation": "Your qarşı tərəfə aiddir. My özünə aiddir; How are you? isə hal-əhval soruşur.",
+          "options": [
+            "What’s my name?",
+            "What’s your name?",
+            "How are you?"
+          ]
         }
       },
       {
@@ -1262,16 +1275,20 @@
           "title": "Sözlərdən sual qur",
           "kind": "task",
           "source": "BirTalk_A1_B1_D3_Ad_sorusmaq.md#Kart 08",
-          "body": "Yeni qonağın adını soruş.",
+          "body": "Yeni qonşunun adını soruş. Sözlərdən bütöv sual qur.",
           "rule": {
             "answers": [
-              "What’s your name?"
+              "What is your name?"
             ],
-            "goals": [
-              "askName"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: What’s your name?"
+          "explanation": "Sualın sırası What + is + your + name şəklindədir.",
+          "words": [
+            "your",
+            "What",
+            "name",
+            "is"
+          ]
         }
       },
       {
@@ -1377,7 +1394,7 @@
           "title": "BirFox-un səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D3_Ad_sorusmaq.md#Kart 11",
-          "body": "Yeni qonağın adını soruş.",
+          "body": "Qonağın adını soruşmaq istəyirsən. Sualdakı my sözünü düzəlt və bütöv sualı yaz: What is my name?",
           "rule": {
             "answers": [
               "What’s your name?"
@@ -1386,7 +1403,7 @@
               "askName"
             ]
           },
-          "explanation": "Nümunə: What’s your name?"
+          "explanation": "My mənim, your sənin deməkdir. Qarşı tərəfin adını soruşanda your işlənir."
         }
       },
       {
@@ -1489,18 +1506,18 @@
           "title": "Dialoqda uyğun cavabı seç",
           "kind": "task",
           "source": "BirTalk_A1_B1_D3_Ad_sorusmaq.md#Kart 15",
-          "body": "Dinlə və tanış olduğuna şad olduğunu bildir.",
+          "body": "Yeni tanışın Nice to meet you deyir. Sən də şad olduğunu bildirən qısa qarşılığı seç.",
           "rule": {
             "answers": [
-              "You too.",
-              "Nice to meet you too."
+              "You too."
             ],
-            "goals": [
-              "meet"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: You too.",
-          "audio": "Nice to meet you."
+          "explanation": "You too burada mən də tanış olduğuma şadam deməkdir. Goodbye görüşü bitirir.",
+          "options": [
+            "You too.",
+            "Goodbye!"
+          ]
         }
       },
       {
@@ -1727,7 +1744,18 @@
         "usageNote": "Tanışlıq ifadəsinə qarşılıq. Qısa və uzun variant eyni cavab maddəsindədir",
         "pronunciation": ""
       }
-    ]
+    ],
+    "audioMeanings": {
+      "My name is Ali.": "Mənim adım Əlidir.",
+      "Hi. I’m Murad.": "Salam. Mən Muradam.",
+      "Hello!": "Salam",
+      "I’m BirFox.": "Mən BirFoxam.",
+      "Hello. What’s your name?": "Salam. Sənin adın nədir?",
+      "Nice to meet you.": "Səninlə/Sizinlə tanış olduğuma şadam",
+      "I’m BirFox. Nice to meet you.": "Mən BirFoxam. Tanış olduğuma şadam.",
+      "Goodbye!": "Sağ ol / sağ olun",
+      "What’s your name?": "Sənin adın nədir?"
+    }
   },
   {
     "id": "a1_en_b1_v2_d4",
@@ -2354,7 +2382,12 @@
         "usageNote": "Fine ilə məna baxımından eyni deyil. Tibbi izah tələb olunmur.",
         "pronunciation": ""
       }
-    ]
+    ],
+    "audioMeanings": {
+      "How are you?": "Necəsən? / Necəsiniz?",
+      "Hi. How are you?": "Salam. Necəsən?",
+      "Hello. How are you?": "Salam. Necəsən?"
+    }
   },
   {
     "id": "a1_en_b1_v2_d5",
@@ -2624,7 +2657,7 @@
         "title": "öyrətmə",
         "kind": "teach",
         "source": "BirTalk_A1_B1_D5_Nezaket.md#Kart 09",
-        "body": "Please ‘Zəhmət olmasa’ deməkdir. Ad istəyərkən Your name, please deyə bilərsən. Xahişi sakit, nəzakətli səslə de.\nYour name, please. — Adınız, zəhmət olmasa.",
+        "body": "Please ‘Zəhmət olmasa’ deməkdir. Qeydiyyatda ad istəyərkən Your name, please deyə bilərsən. Xahişi sakit, nəzakətli səslə de.\nYour name, please. — Adınız, zəhmət olmasa.",
         "board": "Your name, please. — Adınız, zəhmət olmasa.",
         "examples": [
           "Your name, please."
@@ -2672,7 +2705,7 @@
         "title": "əsas tapşırıq — nəzakətli sual yaz",
         "kind": "task",
         "source": "BirTalk_A1_B1_D5_Nezaket.md#Kart 11",
-        "body": "Qeydiyyat oyunu oynayırsan. Yeni gələn şəxsdən adını nəzakətlə istə; please sözünü də işlət.",
+        "body": "Qeydiyyat masasındasan. Please işlədərək iştirakçının adını nəzakətlə istə.",
         "rule": {
           "answers": [
             "Your name, please."
@@ -2814,8 +2847,7 @@
           "body": "Birindən adını soruşmazdan əvvəl diqqətini çəkmək istəyirsən. Qısa ifadə yaz.",
           "rule": {
             "answers": [
-              "Excuse me.",
-              "Sorry."
+              "Excuse me."
             ],
             "goals": [
               "attention"
@@ -3032,7 +3064,14 @@
         "usageNote": "Gündəlik üslubda üzrə və təşəkkürə uyğun qarşılıq ola bilər.",
         "pronunciation": ""
       }
-    ]
+    ],
+    "audioMeanings": {
+      "Hello!": "Salam",
+      "Thank you.": "Təşəkkür edirəm.",
+      "Thank you!": "Təşəkkür edirəm.",
+      "I’m sorry.": "Üzr istəyirəm.",
+      "Sorry!": "Bağışla."
+    }
   },
   {
     "id": "a1_en_b1_v2_d6",
@@ -3215,11 +3254,11 @@
         "title": "öyrətmə",
         "kind": "teach",
         "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 07",
-        "body": "Deyiləni yenidən eşitmək üçün Could you say that again, please? de. Daha qısa Again, please də deyə bilərsən.\nCould you say that again, please?\nZəhmət olmasa, onu bir də deyə bilərsiniz?\nAgain, please. — Bir də, zəhmət olmasa.",
+        "body": "Deyiləni yenidən eşitmək üçün qısa Again, please deyə bilərsən. Daha uzun, nəzakətli forma Could you say that again, please? ifadəsidir.\nAgain, please. — Bir də, zəhmət olmasa.\nCould you say that again, please?\nZəhmət olmasa, onu bir də deyə bilərsiniz?",
         "board": "Could you say that again, please?",
         "examples": [
-          "Could you say that again, please?",
-          "Again, please."
+          "Again, please.",
+          "Could you say that again, please?"
         ]
       },
       {
@@ -3501,16 +3540,18 @@
           "title": "əsas tapşırıq — situasiyaya uyğun yaz",
           "kind": "task",
           "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 15",
-          "body": "Başqa tanışın da sürətli danışır. Daha yavaş deməsini istəyən cavab yaz.",
+          "body": "Yeni tanışın sürətli danışdı və sən anlamadın. Həm təkrar etməsini, həm də yavaş danışmasını istə.",
           "rule": {
             "answers": [
-              "More slowly, please."
+              "Could you say it again more slowly, please?",
+              "Can you repeat that more slowly, please?"
             ],
             "goals": [
+              "repeat",
               "slow"
             ]
           },
-          "explanation": "Nümunə: More slowly, please."
+          "explanation": "Again və repeat yenidən deməyi, more slowly yavaşlığı bildirir. Bu tapşırıqda hər iki xahiş lazımdır."
         }
       },
       {
@@ -3636,7 +3677,15 @@
         "usageNote": "Sürətin azaldılmasını istəyir. Uzun variant həm təkrar, həm yavaş deməyi bildirir.",
         "pronunciation": ""
       }
-    ]
+    ],
+    "audioMeanings": {
+      "I don’t understand.": "Başa düşmürəm.",
+      "I’m BirFox.": "Mən BirFoxam.",
+      "How are you?": "Necəsən? / Necəsiniz?",
+      "My name is BirFox.": "Mənim adım BirFoxdur.",
+      "Thank you!": "Təşəkkür edirəm.",
+      "More slowly, please.": "Daha yavaş, zəhmət olmasa."
+    }
   },
   {
     "id": "a1_en_b1_v2_d7",
@@ -3703,48 +3752,11 @@
       {
         "id": "a1_en_b1_v2_d7_c03",
         "number": 3,
-        "title": "danışıq — başlanğıc təkrarı",
-        "kind": "voice",
+        "title": "Qısa söhbətin yolu",
+        "kind": "teach",
         "source": "BirTalk_A1_B1_D7_Sesli_sohbet.md#Kart 03",
-        "body": "",
-        "turns": [
-          {
-            "id": "a1_en_b1_v2_d7_c03_v1",
-            "audio": "Thank you!",
-            "prompt": "Təşəkkürə cavab ver.",
-            "rule": {
-              "answers": [
-                "You’re welcome."
-              ],
-              "goals": [
-                "welcome"
-              ]
-            }
-          }
-        ],
-        "review": {
-          "id": "a1_en_b1_v2_d7_c03",
-          "number": 3,
-          "title": "danışıq — başlanğıc təkrarı",
-          "kind": "voice",
-          "source": "BirTalk_A1_B1_D7_Sesli_sohbet.md#Kart 03",
-          "body": "",
-          "turns": [
-            {
-              "id": "a1_en_b1_v2_d7_c03_v1",
-              "audio": "Thank you!",
-              "prompt": "Bir daha məşq edək. Təşəkkürə cavab ver.",
-              "rule": {
-                "answers": [
-                  "You’re welcome."
-                ],
-                "goals": [
-                  "welcome"
-                ]
-              }
-            }
-          ]
-        }
+        "body": "Salamlaşdıq. İndi adlarımızı deyib bir-birimizin halını soruşacağıq. Anlamadıqda təkrar və ya yavaş danışıq istəyə bilərsən.",
+        "board": "Salam → Ad → Hal-əhval"
       },
       {
         "id": "a1_en_b1_v2_d7_c04",
@@ -3808,7 +3820,7 @@
         "turns": [
           {
             "id": "a1_en_b1_v2_d7_c05_v1",
-            "audio": "I’m BirFox. Nice to meet you.",
+            "audio": "Nice to meet you.",
             "prompt": "Tanış olduğuna şad olduğunu bildir.",
             "rule": {
               "answers": [
@@ -3830,7 +3842,7 @@
           "turns": [
             {
               "id": "a1_en_b1_v2_d7_c05_v1",
-              "audio": "I’m BirFox. Nice to meet you.",
+              "audio": "Nice to meet you.",
               "prompt": "Bir daha məşq edək. Tanış olduğuna şad olduğunu bildir.",
               "rule": {
                 "answers": [
@@ -3864,7 +3876,8 @@
                 "feeling",
                 "askFeeling"
               ]
-            }
+            },
+            "reply": "I’m fine, thanks."
           }
         ],
         "review": {
@@ -3887,7 +3900,8 @@
                   "feeling",
                   "askFeeling"
                 ]
-              }
+              },
+              "reply": "I’m fine, thanks."
             }
           ]
         }
@@ -3903,7 +3917,7 @@
           {
             "id": "a1_en_b1_v2_d7_c07_v1",
             "audio": "My name is BirFox.",
-            "prompt": "Adı anlamadığını bildir və təkrar istə.",
+            "prompt": "Söhbətdə adı yenidən dəqiqləşdirirsən. Adı anlamadığını bildir və təkrar istə.",
             "rule": {
               "answers": [
                 "I don’t understand. Could you say that again, please?"
@@ -3926,7 +3940,7 @@
             {
               "id": "a1_en_b1_v2_d7_c07_v1",
               "audio": "My name is BirFox.",
-              "prompt": "Bir daha məşq edək. Adı anlamadığını bildir və təkrar istə.",
+              "prompt": "Söhbətdə adı yenidən dəqiqləşdirirsən. Adı anlamadığını bildir və təkrar istə.",
               "rule": {
                 "answers": [
                   "I don’t understand. Could you say that again, please?"
@@ -4091,7 +4105,7 @@
           {
             "id": "a1_en_b1_v2_d7_c11_v1",
             "audio": "I’m sorry.",
-            "prompt": "Eybi olmadığını bildir.",
+            "prompt": "BirFox sürətli danışdığı üçün üzr istəyir. Eybi olmadığını bildir.",
             "rule": {
               "answers": [
                 "No problem."
@@ -4113,7 +4127,7 @@
             {
               "id": "a1_en_b1_v2_d7_c11_v1",
               "audio": "I’m sorry.",
-              "prompt": "Bir daha məşq edək. Eybi olmadığını bildir.",
+              "prompt": "BirFox sürətli danışdığı üçün üzr istəyir. Eybi olmadığını bildir.",
               "rule": {
                 "answers": [
                   "No problem."
@@ -4237,6 +4251,18 @@
         "body": "İlk tanışlıq bölməsinin sonuna çatdın."
       }
     ],
-    "vocabulary": []
+    "vocabulary": [],
+    "audioMeanings": {
+      "Hi!": "Salam",
+      "Hello. What’s your name?": "Salam. Sənin adın nədir?",
+      "I’m BirFox.": "Mən BirFoxam.",
+      "Nice to meet you.": "Səninlə/Sizinlə tanış olduğuma şadam",
+      "How are you?": "Necəsən? / Necəsiniz?",
+      "I’m fine, thanks.": "Yaxşıyam, təşəkkür edirəm.",
+      "My name is BirFox.": "Mənim adım BirFoxdur.",
+      "Bye!": "Sağ ol!",
+      "I’m sorry.": "Üzr istəyirəm.",
+      "Thank you!": "Təşəkkür edirəm."
+    }
   }
 ]

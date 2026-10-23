@@ -9,6 +9,8 @@ import type { LessonProgress, PlacementResult } from '../data/types';
 import { moduleHasContent, moduleTest, moduleUnlocked } from '../utils/moduleAccess';
 import { localDay, LESSON_XP, MAX_ENERGY, previousDay, type LessonAttempt, type RewardReceipt, type RewardRecord } from '../utils/rewards';
 
+import { summarizeEvidence, type TaskEvidence } from '../utils/lessonEvidence';
+
 const STORAGE_KEY = '@birtalk_user_data';
 interface UserData {
   xp: number; streak: number; hearts: number; level: string; lastPlayedDate: string | null;
@@ -20,7 +22,7 @@ interface UserState extends UserData {
   attempts: Record<string, LessonAttempt>; receipts: Record<string, RewardReceipt>;
   beginLesson: (lessonId: string, mode?: 'session' | 'practice') => string;
   abandonLesson: (attemptId: string) => boolean;
-  recordTask: (attemptId: string, taskId: string, correct: boolean | null, token: string) => void;
+  recordTask: (attemptId: string, taskId: string, correct: boolean | null, token: string, evidence?: TaskEvidence) => void;
   useHelp: (attemptId: string) => void;
   finishLesson: (attemptId: string) => Promise<RewardReceipt>;
   claimReceipt: (id: string) => RewardReceipt | undefined;
@@ -119,11 +121,15 @@ export const useUserStore = create<UserState>((set, get) => ({
     const a = get().attempts[id];
     if (a && !a.finished) set((s) => ({ attempts: { ...s.attempts, [id]: { ...a, assisted: true } } }));
   },
-  recordTask: (id, taskId, correct, token) => {
+  recordTask: (id, taskId, correct, token, evidence) => {
     const a = get().attempts[id]; const old = a?.tasks[taskId];
     if (!a || a.finished || ![...a.expected, ...(a.optional ?? [])].includes(taskId) || old?.resolved || old?.token === token) return;
+    // Mandatory voice tasks need an actual, unedited spoken answer.
+    const packet = getPacketLesson(a.lessonId);
+    const requiredVoice = packet?.order === 7 && a.expected.includes(taskId);
+    if (correct === true && requiredVoice && evidence?.input === 'written') return;
     const task = { firstCorrect: old?.firstCorrect ?? correct === true, resolved: correct === true,
-      skipped: old?.skipped === true || correct === null, wrong: (old?.wrong ?? 0) + (correct === false ? 1 : 0), token };
+      skipped: correct === null, wrong: (old?.wrong ?? 0) + (correct === false ? 1 : 0), token, evidence };
     set((s) => ({ attempts: { ...s.attempts, [id]: { ...a, tasks: { ...a.tasks, [taskId]: task } } } }));
     if (correct === false) get().loseHeart();
   },
@@ -138,6 +144,8 @@ export const useUserStore = create<UserState>((set, get) => ({
       }
       const total = a.expected.length; const correct = a.expected.filter((key) => a.tasks[key]?.firstCorrect).length;
       const completed = total > 0 && a.expected.every((key) => a.tasks[key]?.resolved && !a.tasks[key]?.skipped);
+      // Keep an incomplete attempt open so only missing answers need retrying.
+      if (!completed) return { id, lessonId: a.lessonId, xp: 0, completed: false, correct, total };
       let xp = 0; const rewards = { ...s.rewards }; const now = new Date(); const today = localDay(now);
       const grant = (key: string, amount: number) => { if (!rewards[key]) { rewards[key] = { amount, day: today }; xp += amount; } };
       let streak = s.streak; let streakStart = s.streakStart; let lastQualifiedDay = s.lastQualifiedDay;
@@ -145,7 +153,7 @@ export const useUserStore = create<UserState>((set, get) => ({
       if (completed) {
         if (!s.completedLessons.includes(a.lessonId) && !rewards[`lesson:${a.lessonId}`]) {
           grant(`lesson:${a.lessonId}`, LESSON_XP);
-          if (!a.assisted && correct === total && (a.optional ?? []).every((key) => a.tasks[key]?.firstCorrect && a.tasks[key]?.resolved)) grant(`perfect:${a.lessonId}`, 5);
+          if (!a.assisted && !Object.values(a.tasks).some(t => t.evidence?.assisted || t.evidence?.technicalText) && correct === total && (a.optional ?? []).every((key) => a.tasks[key]?.firstCorrect && a.tasks[key]?.resolved)) grant(`perfect:${a.lessonId}`, 5);
         }
         if (s.lastQualifiedDay !== today && (!s.lastQualifiedDay || s.lastQualifiedDay < today)) {
           streak = s.lastQualifiedDay === previousDay(now) ? s.streak + 1 : 1;
@@ -159,7 +167,7 @@ export const useUserStore = create<UserState>((set, get) => ({
       const receipt: RewardReceipt = { id, lessonId: a.lessonId, xp, completed, correct, total };
       const progress: LessonProgress = { lessonId: a.lessonId, completed, correctCount: correct,
         wrongCount: a.expected.reduce((sum, key) => sum + (a.tasks[key]?.wrong ?? 0), 0), score: total ? Math.round(correct / total * 100) : 0,
-        xpEarned: xp, completedAt: now.toISOString() };
+        xpEarned: xp, completedAt: now.toISOString(), evidence: summarizeEvidence(Object.values(a.tasks)) };
       set({ xp: s.xp + xp, rewards, streak, streakStart, lastQualifiedDay, lastPlayedDate: completed ? today : s.lastPlayedDate,
         completedLessons, lessonProgress: completed ? [...s.lessonProgress.filter((p) => p.lessonId !== a.lessonId), progress] : s.lessonProgress,
         attempts: { ...s.attempts, [id]: { ...a, finished: true } }, receipts: { ...s.receipts, [id]: receipt } });

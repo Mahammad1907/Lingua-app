@@ -1,8 +1,9 @@
+import { normalizeApostrophes } from './spelling';
 export type VoiceIntent = 'greeting' | 'introduce' | 'meet' | 'feeling' | 'repeat' | 'farewell';
 export interface SpokenVerdict { correct: boolean; message: string; countAsAttempt?: boolean }
 
 export function normalizeSpeech(text: string): string {
-  return text.normalize('NFKC').toLowerCase().replace(/[‘’]/g, "'")
+  return normalizeApostrophes(text).toLowerCase().replace(/[‘’]/g, "'")
     .replace(/\bi['’]?m\b/g, 'i am').replace(/\bname['’]s\b/g, 'name is')
     .replace(/[.!?,;:“”"]/g, '').replace(/\s+/g, ' ').trim();
 }

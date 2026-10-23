@@ -37,8 +37,13 @@ export function microphoneLevel(db: number | undefined): number {
 // Read only after grading; pre-answer lessonHint never calls this helper.
 export function lessonCorrection(card: PacketCard, answer: string, verdict: { status: string; message: string }): string {
   const rule = card.turns?.[0]?.rule || card.rule;
+  if (rule?.goals?.includes('introduce') && /\b(from|in|years|teacher|student|doctor|engineer)\b/i.test(answer)) return 'Burada adını çatdırmalısan. Ölkə, yaş və peşə haqqında məlumat adını demək tapşırığını yerinə yetirmir. I’m və ya My name is ifadəsindən sonra adını de.';
+  if (rule?.goals?.includes('fine') && /\bnot\b/i.test(answer)) return 'Not mənanı mənfiyə çevirir. I’m not good yaxşı olmadığını bildirir; burada yaxşı olduğunu deməlisən.';
+  if (rule?.goals?.length === 1 && rule.goals[0] === 'askFeeling' && /^and you[?! .]*$/i.test(answer)) return 'And you? əvvəl verilən sualı qarşı tərəfə qaytarır. Burada bütöv hal-əhval sualı lazımdır: How are you?';
+  if (rule?.goals?.includes('sorry') && /excuse me/i.test(answer)) return 'Bu vəziyyətdə artıq etdiyin kiçik səhvə görə üzr istəyirsən: Sorry və ya I’m sorry. Excuse me burada öyrəndiyimiz diqqət çəkmək ifadəsidir.';
+  if (rule?.goals?.includes('attention') && /sorry/i.test(answer)) return 'Burada söhbətə başlamazdan əvvəl diqqət çəkmək lazımdır. Bu vəziyyət üçün öyrəndiyimiz ifadə Excuse me-dir.';
   if (rule?.goals?.includes('farewell') && /\b(hi|hello|hey)\b/i.test(answer)) return 'Hi və Hello salamlaşmaq üçündür. Görüş bitəndə Goodbye və ya Bye deyirik.';
   if (rule?.goals?.includes('greet') && /\b(goodbye|bye)\b/i.test(answer)) return 'Goodbye və Bye sağollaşmaq üçündür. Söhbət başlayanda Hello və ya Hi deyirik.';
   if (verdict.status === 'partial') return `${verdict.message}${card.explanation ? ` ${card.explanation}` : ''}`;
-  return card.explanation || verdict.message;
+  return [verdict.message, card.explanation].filter(Boolean).join(' ');
 }

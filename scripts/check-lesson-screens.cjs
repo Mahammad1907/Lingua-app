@@ -22,9 +22,12 @@ for (const packet of b1Packet) {
       if (card.kind === 'teach') assert.equal([teachingText(card), ...card.body.split(/\n\s*\n/).slice(1)].join('\n\n'), card.body, 'separating the explanation preserves the authored teaching text');
 
       if (card.kind === 'voice') assert.equal(lessonMode(card), 'DANIŞIQ');
+      const phrase = card.turns?.[0]?.audio || card.audio;
+      if (phrase) assert.ok(audioMeaning(packet, phrase), `missing voice/listening meaning: ${card.id}`);
       if (card.audio) {
         listening++;
         const meaning = audioMeaning(packet, card.audio);
+        assert.ok(meaning, `missing authored meaning: ${card.id}`);
         if (meaning) assert.ok([...packet.vocabulary.map(v => v.translation), ...Object.values(packet.audioMeanings || {})].some(text => meaning.endsWith(text)), 'translations come from the authored glossary');
       }
     }

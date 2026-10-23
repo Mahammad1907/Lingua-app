@@ -11,6 +11,7 @@ export function packetScene(order: number, card: Pick<PacketCard, 'kind' | 'numb
     if (order === 6) return 'clarify';
   }
   if (card.kind === 'teach') {
+    if (order === 1 && card.number === 2) return 'conversation';
     if (order === 1 && card.number === 7) return 'farewell';
     if ([2, 3].includes(order) && card.number === 4) return 'name-card';
     if (order === 4 && [5, 14].includes(card.number)) return 'feelings';

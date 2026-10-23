@@ -167,6 +167,7 @@ export interface LessonProgress {
   wrongCount: number;
   xpEarned: number;
   completedAt?: string;
+  evidence?: import('../utils/lessonEvidence').LessonEvidence;
 }
 // ═══════════════════════════════════════
 // PLACEMENT TEST
