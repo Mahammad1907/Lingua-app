@@ -1,10 +1,11 @@
+import { classroomSource, lessonSceneSources, warmLessonArtwork } from '../../utils/lessonAssets';
 import { Stack, useFocusEffect, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View, Pressable, useWindowDimensions, BackHandler } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getLessonById } from '../../data/lessons';
-import { packetFlow, packetTaskIds } from '../../data/b1Course';
+import { b1Packet, packetFlow, packetTaskIds } from '../../data/b1Course';
 import type { PacketCard, PacketLesson as Content, PacketRule } from '../../data/b1PacketTypes';
 import { useUserStore } from '../../store/userStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
@@ -15,7 +16,7 @@ import LessonFeedback from './LessonFeedback';
 import { useLessonSpeed } from '../../hooks/useLessonSpeed';
 import type { SpokenAnswer } from '../../utils/speechTurn';
 import { ClassroomScene, LessonButton, LessonIcon, SelectionMark, Surface, LessonEnergy, ink } from './LessonSurface';
-import { audioMeaning, heroHeight, lessonMode, fitLessonArtwork } from '../../utils/lessonPresentation';
+import { audioMeaning, heroHeight, lessonMode } from '../../utils/lessonPresentation';
 import ReusableLessonScene from './ReusableLessonScene';
 import { packetScene } from '../../utils/packetScene';
 import { lessonHint, teachingText, lessonCorrection } from '../../utils/lessonGuide';
@@ -25,6 +26,7 @@ import WrittenAnswerInput from './WrittenAnswerInput';
 import ListeningScene from './ListeningScene';
 import LessonVocabularyText from './LessonVocabularyText';
 import { summarizeEvidence, type TaskEvidence } from '../../utils/lessonEvidence';
+import { newLessonWords } from '../../utils/lessonVocabulary';
 
 interface Outcome { answer: string; status: 'independent' | 'assisted' | 'wrong' | 'unverified'; spoken: boolean; reason?: string; evidence?: TaskEvidence }
 const labels = { independent: 'Müstəqil', assisted: 'Köməklə', wrong: 'Yenidən məşq lazımdır', unverified: 'Yoxlanmadı' };
@@ -35,6 +37,8 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const [index, setIndex] = useState(0); const [attempt, setAttempt] = useState('');
   const [answer, setAnswer] = useState(''); const [built, setBuilt] = useState<number[]>([]);
   const [feedback, setFeedback] = useState<PacketVerdict | null>(null);
+  const [continueReady, setContinueReady] = useState(true);
+  const feedbackBlocked = useRef(false), feedbackTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined), submission = useRef(0);
   const [queue, setQueue] = useState<PacketCard[]>([]); const [reviewing, setReviewing] = useState(false);
   const [outcomes, setOutcomes] = useState<Record<string, Outcome>>({});
   const [history, setHistory] = useState<Record<string, Outcome>>({});
@@ -49,9 +53,6 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const [speed, setSpeed] = useLessonSpeed();
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [exitOpen, setExitOpen] = useState(false);
-  const [contentHeight, setContentHeight] = useState(0);
-  const [badgeHeight, setBadgeHeight] = useState(24);
-  const [bodyLayout, setBodyLayout] = useState({ key: '', height: 0 });
   const { height, fontScale } = useWindowDimensions();
   useEffect(() => {
     const show = Keyboard.addListener(Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow', () => setKeyboard(true));
@@ -69,6 +70,10 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const card = reviewing && original?.review ? original.review : original;
   const turn = card?.turns?.[0]; const rule: PacketRule | undefined = turn?.rule || card?.rule;
   const audio = turn?.audio || card?.audio;
+  useEffect(() => {
+    const next = [classroomSource, ...flow.slice(index, index + 4).flatMap(c => { const id = packetScene(packet.order, c); return id ? [lessonSceneSources[id]] : []; })];
+    void warmLessonArtwork(next);
+  }, [flow, index, packet.order]);
   const promptReady = heard || technicalText;
   useEffect(() => { moving.current = false; }, [index, reviewing, original?.id]);
   const clearWatchdog = () => { if (watchdog.current !== undefined) clearTimeout(watchdog.current); watchdog.current = undefined; };
@@ -109,13 +114,17 @@ export default function PacketLesson({ packet }: { packet: Content }) {
       });
     } catch { failed(); }
   };
+  useEffect(() => () => { if (feedbackTimer.current !== undefined) clearTimeout(feedbackTimer.current); }, []);
   const reset = () => {
+    if (feedbackTimer.current !== undefined) clearTimeout(feedbackTimer.current);
+    setContinueReady(true); feedbackBlocked.current = false;
     sequence.current += 1; clearWatchdog(); void Speech.stop(); Keyboard.dismiss();
     setPlaying(false); setDetailsOpen(false);
     setAnswer(''); setBuilt([]); setFeedback(null); setHelp(false); setHeard(false); setTechnicalText(false); setSoundError('');
     scroll.current?.scrollTo({ y: 0, animated: false });
   };
   const advance = (pending = queue) => {
+    if (feedback && feedbackBlocked.current) return;
     if (moving.current) return; moving.current = true;
     reset();
     if (reviewing) {
@@ -127,6 +136,9 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const record = (value: string, verdict: PacketVerdict, token: string, spoken: boolean) => {
     if (!card || judged.current.has(token)) return;
     judged.current.add(token);
+    feedbackBlocked.current = true; setContinueReady(false);
+    if (feedbackTimer.current !== undefined) clearTimeout(feedbackTimer.current);
+    feedbackTimer.current = setTimeout(() => { feedbackBlocked.current = false; setContinueReady(true); }, 650);
     const correct = verdict.status === 'correct';
     const prior = outcomes[card.id];
     const assisted = Boolean(reviewing || help || turn?.sample || prior?.status === 'wrong');
@@ -141,11 +153,11 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     } else setFeedback(verdict);
   };
   const check = () => {
-    if (!rule || !card || audio && !promptReady || !answer.trim() && !built.length || feedback?.status === 'correct') return;
+    if (!rule || !card || audio && !promptReady || !answer.trim() && !built.length || feedback) return;
     const value = card.words && built.length ? built.map((i) => card.words![i]).join(' ') : answer;
     const verdict = assessPacketAnswer(value, rule);
     if (verdict.status === 'unknown') { setFeedback(verdict); return; }
-    record(value, verdict, `${card.id}:${reviewing}:${value}`, false);
+    record(value, verdict, `${card.id}:typed:${++submission.current}`, false);
   };
   const skip = () => {
     if (!card) return;
@@ -158,11 +170,11 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     finishing.current = true; setBusy(true); setCompletionError('');
     try {
       const result = await useUserStore.getState().finishLesson(attempt);
-      if (result.completed) useVocabularyStore.getState().addLessonWords(packet.id);
+      if (result.completed) await useVocabularyStore.getState().addLessonWords(packet.id);
       if (result.completed) { setReceipt(result.id); setDone(true); }
       else setCompletionError('Dərs hələ tamamlanmayıb. Məcburi tapşırıqları tamamla; düzgün cavabların saxlanılıb.');
       finishing.current = false;
-    } catch { setCompletionError('Nəticə saxlanmadı. Yenidən cəhd et.'); finishing.current = false; }
+    } catch { setCompletionError(useVocabularyStore.getState().storageError || 'Nəticə saxlanmadı. Yenidən cəhd et.'); finishing.current = false; }
     finally { setBusy(false); }
   };
   const leave = () => {
@@ -192,7 +204,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const boardText = card.board || (card.kind === 'voice' ? 'Dinlə və\nözün cavab ver' : card.words ? 'Sözlərdən\ncümlə qur' : card.kind === 'intro' ? 'BirFox ilə\nöyrən' : 'Düşün və\ncavabını hazırla');
   const dense = Boolean(task || card.body.length > 240);
   const artworkHeight = heroHeight(height - insets.top - insets.bottom, dense, keyboard, fontScale);
-  const sceneHeight = fitLessonArtwork(contentHeight, bodyLayout.key === `${card.id}:${reviewing}` ? bodyLayout.height : 0, audio ? Math.min(88, artworkHeight) : card.body.length > 240 ? Math.min(135, artworkHeight) : artworkHeight, 24 + (keyboard ? 10 : badgeHeight + 20));
+  const sceneHeight = audio ? Math.min(110, artworkHeight) : card.body.length > 240 ? Math.min(135, artworkHeight) : artworkHeight;
   const correct = feedback?.status === 'correct';
   const continueAfterMistake = Boolean(!reviewing && feedback && feedback.status !== 'unknown' && !correct);
   const locked = correct || continueAfterMistake;
@@ -201,7 +213,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const oldModel = (original.rule || original.turns?.[0]?.rule)?.answers[0];
   const hint = lessonHint(card);
   const canHelp = !reviewing && Boolean(hint);
-  const disabled = busy || capturing || Boolean(task && !locked && (card.kind === 'voice' || audio && !promptReady || !answer.trim() && !built.length));
+  const disabled = busy || capturing || Boolean(locked && !continueReady) || Boolean(reviewing && feedback && !correct) || Boolean(task && !locked && (card.kind === 'voice' || audio && !promptReady || !answer.trim() && !built.length));
   const submitSpeech = (spoken: SpokenAnswer): string | null => {
     if (!rule || locked || audio && !promptReady) return null;
     if (card.kind === 'voice' && packetTaskIds(packet).required.includes(card.id) && spoken.edited) {
@@ -228,9 +240,9 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     </View>
     {!isIntro ? <>
       <View style={s.progressRow}><View accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: flow.length, now: index + 1 }} style={s.progress}><View style={[s.fill, { width: `${(index + 1) / flow.length * 100}%` }]} /></View><Text style={s.count}>{index + 1}/{flow.length}</Text></View></> : null}
-    <ScrollView ref={scroll} style={s.viewport} contentContainerStyle={s.content} contentInsetAdjustmentBehavior="never" automaticallyAdjustContentInsets={false} keyboardShouldPersistTaps="always" keyboardDismissMode="on-drag" onLayout={event => setContentHeight(event.nativeEvent.layout.height)} showsVerticalScrollIndicator={false}>
-      {isIntro ? <LessonWelcome packet={packet} compact={height < 900 || fontScale > 1.15} availableHeight={contentHeight} /> : <>
-      {!keyboard ? <View style={s.badge} onLayout={event => setBadgeHeight(event.nativeEvent.layout.height)}><Text style={s.badgeText}>{reviewing ? 'BİR DƏ MƏŞQ ET' : lessonMode(card)}</Text></View> : null}
+    <ScrollView ref={scroll} style={s.viewport} contentContainerStyle={s.content} contentInsetAdjustmentBehavior="never" automaticallyAdjustContentInsets={false} keyboardShouldPersistTaps="always" keyboardDismissMode="on-drag" showsVerticalScrollIndicator={false}>
+      {isIntro ? <LessonWelcome packet={packet} compact={height < 900 || fontScale > 1.15} sceneHeight={Math.max(110, Math.min(215, height - insets.top - insets.bottom - 580))} /> : <>
+      {!keyboard ? <View style={s.badge}><Text style={s.badgeText}>{reviewing ? 'BİR DƏ MƏŞQ ET' : lessonMode(card)}</Text></View> : null}
       {isResult ? <>
         <View style={s.resultHero}><View style={s.resultSeal}><LessonIcon name="check" size={44} color={ink.mint} /></View><Text style={s.resultHeading}>{missing.length ? 'Dərs hələ tamamlanmayıb' : 'Sadə tanışlıq söhbətini məşq etdin'}</Text><Text style={s.note}>{packet.title}</Text></View>
         {missing.length ? <Text accessibilityLiveRegion="polite" style={s.error}>{missing.length} məcburi tapşırıq qalır. Düzgün cavabların saxlanılıb.</Text> : null}
@@ -241,12 +253,12 @@ export default function PacketLesson({ packet }: { packet: Content }) {
         {detailsOpen ? packetFlow(packet).filter(c => c.kind === 'task' || c.kind === 'voice').map(c => <View key={c.id} style={s.resultRow}><Text style={s.body}>{c.turns?.[0]?.prompt || c.title}</Text><Text style={s.note}>{outcomes[c.id]?.evidence?.technicalText ? 'Texniki səbəbdən mətnlə · ' : ''}{labels[outcomes[c.id]?.status || 'unverified']} · {outcomes[c.id]?.spoken ? 'Səsli cavab' : 'Yazılı cavab'}</Text></View>) : null}
         {completionError ? <Text accessibilityLiveRegion="polite" style={s.error}>{completionError}</Text> : null}
       </> : <>
-        {card.kind !== 'voice' && !keyboard && !feedback && sceneHeight > 0 ? audio ? <ListeningScene playing={playing} height={sceneHeight} /> : scene ? <ReusableLessonScene name={scene} height={sceneHeight} /> : <ClassroomScene height={sceneHeight} text={boardText.slice(0, 90)} /> : null}
-        <View style={s.taskBody} onLayout={event => setBodyLayout({ key: `${card.id}:${reviewing}`, height: event.nativeEvent.layout.height })}>
+        {card.kind !== 'voice' ? audio ? <ListeningScene playing={playing} height={sceneHeight} /> : scene ? <ReusableLessonScene name={scene} height={sceneHeight} /> : <ClassroomScene height={sceneHeight} text={boardText.slice(0, 90)} freshWords={card.kind === 'teach' ? newLessonWords(packet, b1Packet) : undefined} /> : null}
+        <View style={s.taskBody}>
         {reviewing && prior ? <Surface><Text style={s.kicker}>ƏVVƏLKİ TAPŞIRIQ</Text><Text style={s.body}>{original.turns?.[0]?.prompt || original.body}</Text><Text style={s.note}>Sənin cavabın: {prior.answer || 'Cavab verilməyib'}</Text><Pressable accessibilityRole="button" accessibilityState={{ expanded: help }} onPress={() => { setHelp(v => !v); useUserStore.getState().useHelp(attempt); }}><Text style={s.helpLink}>Əvvəlki cavabın izahı {help ? '−' : '+'}</Text></Pressable>{help ? <><Text style={s.body}>Nümunə: {oldModel}</Text><Text style={s.note}>{original.explanation || prior.reason}</Text></> : null}<Text style={s.small}>Aşağıda yeni vəziyyətdə məşq et.</Text></Surface> : null}
         {audio && card.kind !== 'voice' ? <Text style={s.cardTitle}>{turn?.prompt || card.body}</Text> : <Surface accent={card.kind === 'intro' ? 'orange' : 'violet'}>
-          <View style={s.scenario}><View style={s.ruleLine} /><View style={s.flex}>{reviewing ? <Text style={s.kicker}>YENİ TAPŞIRIQ</Text> : null}<Text style={card.kind === 'intro' ? s.cardTitle : s.body}>{card.kind === 'teach' ? <LessonVocabularyText text={teachingText(card)} packet={packet} /> : turn?.prompt || teachingText(card)}</Text>{card.kind === 'teach' && packet.order !== 1 && card.body.includes('\n\n') ? <Text style={s.note}>{card.body.split(/\n\s*\n/).slice(1).join('\n\n')}</Text> : null}
-            {canHelp && !reviewing ? <Pressable accessibilityRole="button" accessibilityState={{ expanded: help }} onPress={() => { setHelp(v => !v); useUserStore.getState().useHelp(attempt); }} style={s.help}><LessonIcon name="hint" size={16} /><Text style={s.helpLink}>Mənə başa sal {help ? '−' : '›'}</Text></Pressable> : null}
+          <View style={s.scenario}><View style={s.ruleLine} /><View style={s.flex}>{canHelp ? <Pressable accessibilityRole="button" accessibilityLabel="Kömək göstər" accessibilityState={{ expanded: help }} onPress={() => { setHelp(v => !v); useUserStore.getState().useHelp(attempt); }} style={s.help}><LessonIcon name="hint" size={17} /><Text style={s.helpLink}>Kömək {help ? '−' : '+'}</Text></Pressable> : null}{reviewing ? <Text style={s.kicker}>YENİ TAPŞIRIQ</Text> : null}<Text style={card.kind === 'intro' ? s.cardTitle : s.body}>{card.kind === 'teach' ? <LessonVocabularyText text={teachingText(card)} packet={packet} /> : turn?.prompt || teachingText(card)}</Text>{card.kind === 'teach' && packet.order !== 1 && card.body.includes('\n\n') ? <Text style={s.note}><LessonVocabularyText text={card.body.split(/\n\s*\n/).slice(1).join('\n\n')} packet={packet} /></Text> : null}
+
             {help && !reviewing && canHelp ? <Text style={s.note}>{hint}</Text> : null}
           </View></View>
         </Surface>}
@@ -273,7 +285,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     </ScrollView>
     <View style={[s.footer, { paddingBottom: keyboard ? 8 : Math.max(12, insets.bottom) }]}>
       {!capturing && (card.kind !== 'voice' || locked) ? <LessonButton disabled={disabled} label={isResult ? done ? 'Bölməyə qayıt' : missing.length ? 'Qalan tapşırıqları tamamla' : 'Nəticəni saxla' : card.kind === 'intro' ? 'Dərsə başla' : task && !locked ? 'Yoxla' : 'Davam et'} onPress={() => isResult ? done ? exit() : missing.length ? retryMissing() : void finish() : !task || locked ? advance() : check()} /> : null}
-      {task && !locked && !keyboard ? <Pressable accessibilityRole="button" disabled={capturing} onPress={skip}><Text style={s.skip}>{card.kind === 'voice' ? 'Səsli məşqi keç' : 'Bu sualı keç'}</Text></Pressable> : null}
+      {task && !locked && !keyboard && (card.kind === 'voice' || help || technicalText) ? <Pressable accessibilityRole="button" disabled={capturing} onPress={skip}><Text style={s.skip}>{card.kind === 'voice' ? packet.order < 7 ? 'Səsli məşqi keç' : 'İndi danışa bilmirəm' : 'Sonra qayıt'}</Text></Pressable> : null}
     </View>
     <LessonExitDialog visible={exitOpen} onContinue={() => setExitOpen(false)} onExit={leave} busy={busy} />
   </KeyboardAvoidingView>;
@@ -283,9 +295,9 @@ const s = StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'center', gap: 11, paddingHorizontal: 20, paddingTop: 8, paddingBottom: 9, flexShrink: 0 }, backButton: { width: 38, height: 38, borderRadius: 19, backgroundColor: '#18172F', borderWidth: 1, borderColor: ink.border, alignItems: 'center', justifyContent: 'center' },
   pageTitle: { color: ink.text, fontSize: 24, lineHeight: 30, fontWeight: '800', paddingHorizontal: 20, marginBottom: 13 }, postAnswerExplanation: { marginHorizontal: 20, padding: 14, borderRadius: 17, backgroundColor: '#201C38', borderWidth: 1, borderColor: '#685086' }, energy: { paddingRight: 5 }, kicker: { color: ink.muted, fontSize: 9, letterSpacing: 1.3, marginBottom: 5 }, heading: { color: ink.text, fontSize: 16, lineHeight: 21, fontWeight: '700' },
   progressRow: { marginHorizontal: 20, flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 9, flexShrink: 0 }, progress: { flex: 1, height: 6, borderRadius: 6, backgroundColor: '#282342', overflow: 'hidden' }, fill: { height: '100%', backgroundColor: ink.orange, borderRadius: 6 }, count: { color: ink.orange, fontSize: 11, fontWeight: '700' },
-  content: { paddingHorizontal: 20, paddingBottom: 24, gap: 10 }, badge: { alignSelf: 'flex-start', borderRadius: 18, backgroundColor: '#23203F', paddingVertical: 6, paddingHorizontal: 12 }, badgeText: { color: ink.violet, fontSize: 9, letterSpacing: 1, fontWeight: '800' },
+  content: { paddingHorizontal: 20, paddingBottom: 16, gap: 12, flexGrow: 1 }, badge: { alignSelf: 'flex-start', borderRadius: 18, backgroundColor: '#23203F', paddingVertical: 6, paddingHorizontal: 12 }, badgeText: { color: ink.violet, fontSize: 9, letterSpacing: 1, fontWeight: '800' },
   body: { color: ink.text, fontSize: 15, lineHeight: 22 }, note: { color: ink.muted, fontSize: 12, lineHeight: 18 }, small: { color: ink.muted, fontSize: 10, lineHeight: 16 }, cardTitle: { color: ink.text, fontSize: 16, lineHeight: 24, fontWeight: '700' },
-  scenario: { flexDirection: 'row', gap: 12 }, ruleLine: { width: 2, backgroundColor: ink.orange, borderRadius: 2 }, help: { flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6, paddingTop: 9 }, helpLink: { color: ink.violet, fontSize: 12, lineHeight: 20, paddingVertical: 4 },
+  scenario: { flexDirection: 'row', gap: 12 }, ruleLine: { width: 2, backgroundColor: ink.orange, borderRadius: 2 }, help: { flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', gap: 5, minHeight: 36, paddingHorizontal: 4 }, helpLink: { color: ink.violet, fontSize: 12, lineHeight: 20, paddingVertical: 4 },
   exampleList: { gap: 8 }, example: { flexDirection: 'row', gap: 12, alignItems: 'center', borderRadius: 16, borderWidth: 1, borderColor: ink.border, backgroundColor: ink.card, padding: 13 }, exampleText: { flex: 1, color: ink.text, fontWeight: '600', fontSize: 15 },
   audio: { flexDirection: 'row', alignItems: 'center', gap: 12, borderRadius: 20, borderWidth: 1, borderColor: '#474068', padding: 12, backgroundColor: '#181A34' }, play: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center', borderRadius: 22, backgroundColor: ink.orange }, speeds: { flexDirection: 'row', gap: 8 }, speed: { flex: 1, minHeight: 40, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: ink.border, borderRadius: 14, backgroundColor: ink.card }, activeSpeed: { borderColor: ink.orange, backgroundColor: '#322330' }, speedText: { color: ink.muted, fontSize: 11, fontWeight: '700' },
   options: { gap: 9 }, option: { flexDirection: 'row', alignItems: 'center', gap: 14, minHeight: 54, padding: 14, borderRadius: 18, borderWidth: 1, borderColor: '#413A62', backgroundColor: ink.card }, selected: { borderColor: ink.orange, backgroundColor: '#2B2334' }, correctOption: { borderColor: ink.mint, backgroundColor: '#143535' },

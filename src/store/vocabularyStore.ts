@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { lessons } from '../data/lessons';
+import { vocabularyKey } from '../utils/vocabularyIdentity';
 
 const STORAGE_KEY = '@birtalk_vocabulary';
 const WORDS_PER_PAGE = 30;
@@ -21,6 +22,8 @@ export interface VocabWord {
   lessonId: string;
   lessonTitle: string;
   acceptedAnswers?: string[];
+  acceptedTranslations?: string[];
+  quizEligible?: boolean;
 }
 
 export interface VocabPage {
@@ -47,13 +50,16 @@ export interface WrongWord {
 }
 
 interface VocabularyState {
+  hydrated: boolean;
+  storageError: string | null;
+  reconcileCompletedLessons: (ids: readonly string[]) => Promise<void>;
   allWords: VocabWord[];
   pages: VocabPage[];
   completedLessons: string[];
   testResults: TestResult[];
   wrongWords: WrongWord[];
 
-  addLessonWords: (lessonId: string) => void;
+  addLessonWords: (lessonId: string) => Promise<void>;
   getPage: (pageNumber: number) => VocabPage | undefined;
   getTotalPages: () => number;
   saveTestResult: (
@@ -91,68 +97,42 @@ const buildPages = (words: VocabWord[]): VocabPage[] => {
 // STORE
 // ═══════════════════════════════════════
 
+let hydration: Promise<void> | undefined;
+let writes: Promise<void> = Promise.resolve();
+
 export const useVocabularyStore = create<VocabularyState>((set, get) => ({
+  hydrated: false, storageError: null,
   allWords: [],
   pages: [],
   completedLessons: [],
   testResults: [],
   wrongWords: [],
 
-  addLessonWords: (lessonId) => {
-    const state = get();
-
-    if (state.completedLessons.includes(lessonId)) {
-      console.log(`ℹ️ Dərs artıq əlavə olunub: ${lessonId}`);
-      return;
+  addLessonWords: async (lessonId) => {
+    await get().loadFromStorage();
+    const state = get(), lesson = lessons.find(l => l.id === lessonId);
+    if (!lesson) throw new Error('Dərsin lüğəti tapılmadı.');
+    const known = new Set(state.allWords.map(v => `${v.language}:${vocabularyKey(v.word)}`));
+    const newWords: VocabWord[] = [];
+    for (const v of lesson.vocabulary) {
+      const key = `${lesson.language}:${vocabularyKey(v.word)}`;
+      if (known.has(key)) continue;
+      known.add(key);
+      newWords.push({ ...v, id: `${lessonId}_${v.id}`, language: lesson.language, level: lesson.level,
+        lessonId: lesson.id, lessonTitle: lesson.titleAz });
     }
-
-    const lesson = lessons.find((l) => l.id === lessonId);
-    if (!lesson) {
-      console.log(`❌ Dərs tapılmadı: ${lessonId}`);
-      return;
-    }
-
-    const newWords: VocabWord[] = lesson.vocabulary
-      .map((v) => ({
-        id: `${lessonId}_${v.id}`,
-        word: v.word,
-        translation: v.translation,
-        pronunciation: v.pronunciation,
-        example: v.example,
-        exampleAz: v.exampleAz,
-        language: lesson.language,
-        level: lesson.level,
-        lessonId: lesson.id,
-        lessonTitle: lesson.titleAz,
-        acceptedAnswers: v.acceptedAnswers,
-      }))
-      .filter((newWord) => {
-        const exists = state.allWords.some(
-          (existing) =>
-            existing.word.toLowerCase().trim() ===
-              newWord.word.toLowerCase().trim() &&
-            existing.language === newWord.language
-        );
-        return !exists;
-      });
-
-    if (newWords.length === 0) {
-      set({ completedLessons: [...state.completedLessons, lessonId] });
-      get().saveToStorage();
-      return;
-    }
-
-    const updatedWords = [...state.allWords, ...newWords];
-    const updatedPages = buildPages(updatedWords);
-    const updatedCompleted = [...state.completedLessons, lessonId];
-
-    set({
-      allWords: updatedWords,
-      pages: updatedPages,
-      completedLessons: updatedCompleted,
-    });
-
-    get().saveToStorage();
+    const metadata = new Map(lesson.vocabulary.map(v => [vocabularyKey(v.word), v]));
+    const allWords = [...state.allWords.map(word => {
+      const authored = word.language === lesson.language ? metadata.get(vocabularyKey(word.word)) : undefined;
+      return authored ? { ...word, acceptedAnswers: authored.acceptedAnswers, acceptedTranslations: authored.acceptedTranslations, quizEligible: authored.quizEligible } : word;
+    }), ...newWords];
+    set({ allWords, pages: buildPages(allWords),
+      completedLessons: [...new Set([...state.completedLessons, lessonId])] });
+    await get().saveToStorage();
+  },
+  reconcileCompletedLessons: async (ids) => {
+    await get().loadFromStorage();
+    for (const id of ids) if (lessons.some(l => l.id === id)) await get().addLessonWords(id);
   },
 
   getPage: (pageNumber) => {
@@ -241,7 +221,7 @@ export const useVocabularyStore = create<VocabularyState>((set, get) => ({
       wrongWords: updatedWrongWords,
     });
 
-    get().saveToStorage();
+    void get().saveToStorage().catch(() => {});
   },
 
   addWrongWord: (wordId) => {
@@ -274,55 +254,45 @@ export const useVocabularyStore = create<VocabularyState>((set, get) => ({
       });
     }
 
-    get().saveToStorage();
+    void get().saveToStorage().catch(() => {});
   },
 
   removeWrongWord: (wordId) => {
     set((state) => ({
       wrongWords: state.wrongWords.filter((w) => w.wordId !== wordId),
     }));
-    get().saveToStorage();
+    void get().saveToStorage().catch(() => {});
   },
 
   clearWrongWords: () => {
     set({ wrongWords: [] });
-    get().saveToStorage();
+    void get().saveToStorage().catch(() => {});
   },
 
-  loadFromStorage: async () => {
-    try {
-      const data = await AsyncStorage.getItem(STORAGE_KEY);
-      if (data) {
-        const parsed = JSON.parse(data);
-        set({
-          allWords: parsed.allWords || [],
-          pages: parsed.pages || [],
-          completedLessons: parsed.completedLessons || [],
-          testResults: parsed.testResults || [],
-          wrongWords: parsed.wrongWords || [],
-        });
-      }
-    } catch (error) {
-      console.log('❌ Vocabulary storage oxuma xətası:', error);
-    }
+  loadFromStorage: () => {
+    if (get().hydrated) return Promise.resolve();
+    if (hydration) return hydration;
+    hydration = (async () => {
+      try {
+        const data = await AsyncStorage.getItem(STORAGE_KEY);
+        if (data) {
+          const parsed = JSON.parse(data);
+          const allWords: VocabWord[] = Array.isArray(parsed.allWords) ? parsed.allWords : [];
+          set({ allWords, pages: buildPages(allWords), completedLessons: parsed.completedLessons || [],
+            testResults: parsed.testResults || [], wrongWords: parsed.wrongWords || [] });
+        }
+        set({ hydrated: true, storageError: null });
+      } catch (error) { hydration = undefined; set({ storageError: 'Lüğət oxunmadı. Yenidən cəhd et.' }); throw error; }
+    })();
+    return hydration;
   },
-
-  saveToStorage: async () => {
-    try {
-      const state = get();
-      await AsyncStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({
-          allWords: state.allWords,
-          pages: state.pages,
-          completedLessons: state.completedLessons,
-          testResults: state.testResults,
-          wrongWords: state.wrongWords,
-        })
-      );
-    } catch (error) {
-      console.log('❌ Vocabulary storage yazma xətası:', error);
-    }
+  saveToStorage: () => {
+    const { allWords, pages, completedLessons, testResults, wrongWords } = get();
+    const snapshot = JSON.stringify({ allWords, pages, completedLessons, testResults, wrongWords });
+    const write = writes.catch(() => {}).then(() => AsyncStorage.setItem(STORAGE_KEY, snapshot)); writes = write;
+    return write.then(() => { set({ storageError: null }); }, error => {
+      set({ storageError: 'Lüğət saxlanmadı. Yenidən saxla düyməsinə toxun.' }); throw error;
+    });
   },
 
   resetAll: () => {
@@ -333,6 +303,6 @@ export const useVocabularyStore = create<VocabularyState>((set, get) => ({
       testResults: [],
       wrongWords: [],
     });
-    get().saveToStorage();
+    void get().saveToStorage().catch(() => {});
   },
 }));

@@ -10,16 +10,18 @@ async function main() {
   const effects = [], cleanups = [], results = [];
   const platform = { OS: 'android', Version: 33 };
   const listeners = new Map(); let starts = 0, aborts = 0, background, local = true, available = true, lastOptions, modelDownloads = 0;
+  let recording = false;
   let permission = async () => ({ granted: true });
   const emit = (event, payload) => { for (const callback of [...(listeners.get(event) || [])]) callback(payload); };
   const engine = {
     addListener(event, callback) { if (!listeners.has(event)) listeners.set(event, new Set()); listeners.get(event).add(callback); return { remove: () => listeners.get(event).delete(callback) }; },
+    supportsRecording: () => recording,
     supportsOnDeviceRecognition: () => local,
     isRecognitionAvailable: () => available,
     requestMicrophonePermissionsAsync: () => permission(),
     requestPermissionsAsync: () => permission(),
     androidTriggerOfflineModelDownload: async () => { modelDownloads++; return { status: 'download_success' }; },
-    start(options) { lastOptions = options; starts++; assert.equal(options.recordingOptions, undefined, 'lessons do not allocate a persisted audio recorder'); assert.equal(options.volumeChangeEventOptions.enabled, true); },
+    start(options) { lastOptions = options; starts++; assert.deepEqual(options.recordingOptions, recording ? { persist: true } : undefined, 'recording is requested only when the native service supports it'); assert.equal(options.volumeChangeEventOptions.enabled, true); },
     stop() {},
     abort() { aborts++; emit('error', { error: 'aborted' }); emit('end'); },
   };
@@ -76,10 +78,15 @@ async function main() {
     available = true; platform.Version = 32; await speech.downloadModel(); assert.equal(modelDownloads, 0, 'old Android never invokes unsupported model download');
     platform.Version = 33; await speech.downloadModel(); assert.equal(modelDownloads, 1);
     platform.OS = 'ios'; await speech.downloadModel(); assert.equal(modelDownloads, 1, 'iPhone never invokes Android model download'); platform.OS = 'android';
+    recording = true; await speech.start();
+    emit('audiostart', { timestamp: 100 });
+    emit('audioend', { timestamp: 400, uri: 'file:///captured.m4a' });
+    emit('result', { isFinal: true, results: [{ transcript: 'Hello!', confidence: .9 }] }); emit('end');
+    speech.confirm('Hello!'); assert.equal(results[3].uri, 'file:///captured.m4a', 'review retains the actual native recording for replay');
     await speech.start();
     for (const cleanup of cleanups.splice(0).reverse()) cleanup();
     emit('result', { isFinal: true, results: [{ transcript: 'Hi', confidence: .9 }] }); emit('end');
-    assert.equal(results.length, 3, 'unmounted hook cannot submit');
+    assert.equal(results.length, 4, 'unmounted hook cannot submit');
     assert.ok(aborts >= 3);
     assert.ok([...listeners.values()].every(set => set.size === 0), 'all native listeners are removed');
     console.log('PASS: native review/confirm/edit, duplicate protection, on-device default, explicit network consent/retry, missing service/model, cancellation, permission and lifecycle boundaries.');

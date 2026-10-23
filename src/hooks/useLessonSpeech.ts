@@ -17,6 +17,7 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
   const [needsModel, setNeedsModel] = useState(false);
   const [draft, setDraft] = useState<SpokenAnswer | null>(null), [reviewText, setReviewText] = useState('');
   const candidate = useRef<SpokenAnswer | null>(null);
+  const audioUri = useRef(''), audioStart = useRef(0), audioGeneration = useRef(0);
   const networkAllowed = useRef(false);
   const alive = useRef(false), pending = useRef(false), closing = useRef(false), generation = useRef(0);
   const handlers = useRef({ onFinal, onBusyChange, suspended });
@@ -36,7 +37,8 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
       closing.current = false;
       if (!alive.current || turn.phase === 'idle') return;
       if (handlers.current.suspended) { turn.cancel(); setPhase('idle'); setLevel(0); return; }
-      const result = turn.finish(); setLevel(0);
+      const recognized = turn.finish();
+      const result = recognized ? { ...recognized, uri: audioUri.current || undefined } : null; setLevel(0);
       candidate.current = result; setDraft(result); setReviewText(result?.text || '');
       setPhase(result ? 'review' : 'idle');
       setMessage(result ? '' : 'Səs dəqiq tanınmadı. Yenidən danış; bu, səhv sayılmır.');
@@ -53,6 +55,12 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
         turn.result(result?.transcript || '', event.isFinal, result?.confidence, Date.now());
         setPartial(result?.transcript || '');
         if (event.isFinal) setPhase('processing');
+      }),
+      engine.addListener('audiostart', event => { if (alive.current && turn.phase === 'listening') { audioStart.current = event.timestamp; audioGeneration.current = generation.current; } }),
+      engine.addListener('audioend', event => {
+        if (!alive.current || audioGeneration.current !== generation.current || !audioStart.current || event.timestamp < audioStart.current || typeof event.uri !== 'string') return;
+        audioUri.current = event.uri;
+        if (candidate.current) { const next = { ...candidate.current, uri: event.uri }; candidate.current = next; setDraft(previous => ({ ...next, edited: previous?.edited })); }
       }),
       engine.addListener('end', finish),
       engine.addListener('nomatch', () => { if (turn.phase !== 'idle') fail('Səs dəqiq eşidilmədi. Yenidən danış; bu, səhv sayılmır.'); }),
@@ -76,7 +84,7 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
     };
   }, [engine, turn]);
   const cancel = useCallback(() => {
-    generation.current++; pending.current = false; candidate.current = null; setDraft(null); setReviewText('');
+    generation.current++; audioUri.current = ''; audioStart.current = 0; pending.current = false; candidate.current = null; setDraft(null); setReviewText('');
     if (turn.phase !== 'idle') { closing.current = true; turn.cancel(); try { engine?.abort(); } catch { closing.current = false; } }
     setPhase('idle'); setLevel(0); setMessage('');
   }, [engine, turn]);
@@ -87,7 +95,7 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
     if (closing.current) { setMessage('Mikrofon bağlanır. Bir an sonra yenidən toxun.'); return; }
     const useNetwork = network || networkAllowed.current;
     const request = ++generation.current;
-    pending.current = true; candidate.current = null; setDraft(null); setReviewText(''); setPhase('preparing'); setMessage(''); setPartial('');
+    pending.current = true; audioUri.current = ''; audioStart.current = 0; audioGeneration.current = request; candidate.current = null; setDraft(null); setReviewText(''); setPhase('preparing'); setMessage(''); setPartial('');
     try {
       await Speech.stop();
       if (!alive.current || request !== generation.current) return;
@@ -100,7 +108,7 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
       if (!engine.isRecognitionAvailable()) { setMessage('Telefonun səs tanıma xidməti hazır deyil. Yenidən cəhd et.'); return; }
       networkAllowed.current = useNetwork;
       turn.begin(Date.now()); setNeedsModel(false); setNeedsNetwork(false); setLevel(0); setPhase('listening');
-      engine.start({ lang: 'en-US', interimResults: true, continuous: false, maxAlternatives: 1, requiresOnDeviceRecognition: !useNetwork, volumeChangeEventOptions: { enabled: true, intervalMillis: 120 } });
+      engine.start({ lang: 'en-US', interimResults: true, continuous: false, maxAlternatives: 1, requiresOnDeviceRecognition: !useNetwork, ...(engine.supportsRecording?.() ? { recordingOptions: { persist: true } } : {}), volumeChangeEventOptions: { enabled: true, intervalMillis: 120 } });
     } catch { if (!alive.current || request !== generation.current) return; turn.cancel(); try { engine.abort(); } catch { /* Native service may already be closed. */ } if (alive.current) setMessage('Səs tanıma açılmadı. Yenidən cəhd et.'); }
     finally {
       if (request === generation.current) { pending.current = false; if (alive.current && turn.phase === 'idle') setPhase('idle'); }
@@ -139,5 +147,9 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
     } catch { if (alive.current && request === generation.current) setMessage('Model yüklənmədi. İnternet bağlantısını və telefonun səs tanıma ayarlarını yoxla.'); }
     finally { if (request === generation.current) { pending.current = false; if (alive.current) setPhase('idle'); } }
   };
-  return { phase, partial, message, level, needsNetwork, needsModel, draft, reviewText, setReviewText, confirm, beginTyping, downloadModel, busy, start, stop, cancel, available: Boolean(engine) };
+  const editReviewText = (text: string) => {
+    setReviewText(text);
+    if (candidate.current) setDraft({ ...candidate.current, edited: text.trim() !== candidate.current.text.trim() });
+  };
+  return { phase, partial, message, level, needsNetwork, needsModel, draft, reviewText, setReviewText: editReviewText, confirm, beginTyping, downloadModel, busy, start, stop, cancel, available: Boolean(engine) };
 }

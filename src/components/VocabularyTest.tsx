@@ -40,7 +40,7 @@ interface VocabularyTestProps {
 }
 
 function generateQuestions(words: VocabWord[]): TestQuestion[] {
-  return words.map((word) => {
+  return words.filter(word => word.quizEligible !== false).map((word) => {
     const direction: 'en_to_az' | 'az_to_en' =
       Math.random() < 0.5 ? 'en_to_az' : 'az_to_en';
 
@@ -50,7 +50,7 @@ function generateQuestions(words: VocabWord[]): TestQuestion[] {
         direction,
         question: `"${word.word}" nə deməkdir?`,
         correctAnswers: [word.translation],
-        acceptedAnswers: word.acceptedAnswers,
+        acceptedAnswers: word.acceptedTranslations,
       };
     }
     return {

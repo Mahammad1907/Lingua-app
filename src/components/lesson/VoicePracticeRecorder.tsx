@@ -4,7 +4,8 @@ import { loadRecordedAudio, safelyReadRecorder, safelyStopRecorder } from '../..
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
 import { microphoneLevel } from '../../utils/lessonGuide';
-import { InputLevelWave, LessonButton, LessonIcon, SoundMark, ink } from './LessonSurface';
+import { LessonButton, LessonIcon, SoundMark, ink } from './LessonSurface';
+import ParticleWave from './ParticleWave';
 
 // Expo Go can record/replay, but cannot turn this recording into a verified spoken answer.
 export default function VoicePracticeRecorder({ onBusyChange, suspended = false, onContinue, autoStart = false, continueLabel = 'Dinlədim · Davam et', compact = false }: { autoStart?: boolean; continueLabel?: string; compact?: boolean; onContinue?: () => void; onBusyChange?: (busy: boolean) => void; suspended?: boolean }) {
@@ -65,9 +66,10 @@ export default function VoicePracticeRecorder({ onBusyChange, suspended = false,
     if (!draft) return;
     try { await Speech.stop(); if (playback.playing) player.pause(); else { await player.seekTo(0); player.play(); } } catch { setError('Səs açıla bilmədi. Yenidən yaz.'); }
   };
-  return <View style={[s.box, compact && { borderWidth: 0, padding: 0, backgroundColor: 'transparent' }]}><View style={s.mic}><LessonIcon name="mic" size={32} color={status.isRecording ? ink.orange : ink.violet} /></View><InputLevelWave levels={status.isRecording ? levels : []} active={status.isRecording} /><Text style={s.title}>{status.isRecording ? 'Səni dinləyirəm…' : 'Səsli məşq et'}</Text><Text style={s.note}>Səsini yaz və yenidən dinlə. Bu versiyada səs yazısı mətnə çevrilmir və qiymətləndirilmir.</Text>
+  return <View style={[s.box, compact && { borderWidth: 0, padding: 0, backgroundColor: 'transparent' }]}><View style={s.mic}><LessonIcon name="mic" size={32} color={status.isRecording ? ink.orange : ink.violet} /></View><ParticleWave active={status.isRecording ? (levels.at(-1) || 0) > .04 : playback.playing} level={status.isRecording ? levels.at(-1) || 0 : undefined} height={compact ? 58 : 86} /><Text style={s.title}>{status.isRecording ? 'Səni dinləyirəm…' : 'Səsli məşq et'}</Text><Text style={s.note}>Səsini yaz və yenidən dinlə. Bu versiyada səs yazısı mətnə çevrilmir və qiymətləndirilmir.</Text>
     {error ? <Text accessibilityLiveRegion="polite" style={s.error}>{error}</Text> : null}
     {draft ? <Pressable accessibilityRole="button" disabled={busy || status.isRecording} style={s.replay} onPress={() => void replay()}><LessonIcon name={playback.playing ? 'pause' : 'play'} color={ink.orange} /><SoundMark active={playback.playing} /><Text style={s.note}>{Math.round(draft.duration)} san.</Text></Pressable> : null}
+    {draft ? <Pressable accessibilityRole="button" disabled={busy || status.isRecording} onPress={() => { try { player.pause(); } catch { /* Player already stopped. */ } setDraft(null); }}><Text style={s.note}>Sil</Text></Pressable> : null}
     <Pressable accessibilityRole="button" disabled={busy} onPress={() => void (status.isRecording ? stop() : start())} style={s.record}><Text style={s.recordText}>{busy ? 'Gözlə…' : status.isRecording ? 'Dayandır' : draft ? 'Yenidən danış' : 'Mikrofona toxun və danış'}</Text></Pressable>
     {draft && onContinue ? <LessonButton disabled={busy || status.isRecording} label={continueLabel} onPress={() => { player.pause(); onContinue(); }} /> : null}
   </View>;

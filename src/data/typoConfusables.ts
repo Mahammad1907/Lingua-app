@@ -1,6 +1,12 @@
 // One-edit real English words; never accept these as spelling slips.
 // Derived from an-array-of-english-words 2.0.0 (MIT); see WORD_LIST_LICENSE.txt.
 export const typoConfusables: Record<string, readonly string[]> = {
+  "about": [
+    "abort",
+    "abouts",
+    "abut",
+    "bout"
+  ],
   "afternoon": [
     "afternoons"
   ],
@@ -9,6 +15,106 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "agrin",
     "amain",
     "gain"
+  ],
+  "angry": [
+    "aggry",
+    "angary"
+  ],
+  "bored": [
+    "bared",
+    "boded",
+    "boked",
+    "boned",
+    "booed",
+    "bord",
+    "bore",
+    "boree",
+    "borel",
+    "borer",
+    "bores",
+    "borked",
+    "bormed",
+    "bowed",
+    "boxed",
+    "boyed",
+    "bred",
+    "cored",
+    "gored",
+    "pored",
+    "sored"
+  ],
+  "busy": [
+    "bousy",
+    "buoy",
+    "bury",
+    "bus",
+    "busby",
+    "bush",
+    "bushy",
+    "busk",
+    "busky",
+    "buss",
+    "bust",
+    "busty",
+    "buy"
+  ],
+  "cannot": [
+    "cannon"
+  ],
+  "care": [
+    "are",
+    "bare",
+    "cabre",
+    "cade",
+    "cadre",
+    "cafe",
+    "cage",
+    "cake",
+    "came",
+    "cane",
+    "cape",
+    "car",
+    "carb",
+    "card",
+    "cared",
+    "carer",
+    "cares",
+    "caret",
+    "carex",
+    "cark",
+    "carl",
+    "carle",
+    "carn",
+    "carp",
+    "carr",
+    "cars",
+    "carse",
+    "cart",
+    "carte",
+    "carve",
+    "case",
+    "cate",
+    "cave",
+    "cere",
+    "chare",
+    "cire",
+    "core",
+    "crare",
+    "cure",
+    "dare",
+    "fare",
+    "gare",
+    "hare",
+    "lare",
+    "mare",
+    "nare",
+    "pare",
+    "rare",
+    "scare",
+    "tare",
+    "vare",
+    "ware",
+    "yare"
   ],
   "could": [
     "cauld",
@@ -43,6 +149,14 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "evenings",
     "eventing",
     "ovening"
+  ],
+  "excited": [
+    "excided",
+    "excised",
+    "excite",
+    "exciter",
+    "excites",
+    "exited"
   ],
   "excuse": [
     "excise",
@@ -106,6 +220,21 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "wine",
     "zine"
   ],
+  "glad": [
+    "blad",
+    "clad",
+    "gad",
+    "glade",
+    "glads",
+    "glady",
+    "glam",
+    "gland",
+    "gled",
+    "glid",
+    "goad",
+    "grad",
+    "lad"
+  ],
   "good": [
     "agood",
     "food",
@@ -136,6 +265,27 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "goodbyes",
     "goodbys"
   ],
+  "great": [
+    "geat",
+    "grat",
+    "greats",
+    "greet",
+    "groat",
+    "treat"
+  ],
+  "happy": [
+    "chappy",
+    "gappy",
+    "haply",
+    "harpy",
+    "hippy",
+    "hoppy",
+    "nappy",
+    "pappy",
+    "sappy",
+    "yappy",
+    "zappy"
+  ],
   "hello": [
     "cello",
     "hallo",
@@ -148,6 +298,46 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "hollo",
     "hullo",
     "jello"
+  ],
+  "hungry": [
+    "ahungry"
+  ],
+  "later": [
+    "blater",
+    "cater",
+    "dater",
+    "eater",
+    "elater",
+    "gater",
+    "hater",
+    "lacer",
+    "lader",
+    "laer",
+    "lager",
+    "laker",
+    "lamer",
+    "laser",
+    "laster",
+    "late",
+    "lated",
+    "laten",
+    "latex",
+    "lather",
+    "latter",
+    "laver",
+    "lawer",
+    "laxer",
+    "layer",
+    "liter",
+    "luter",
+    "mater",
+    "oater",
+    "pater",
+    "plater",
+    "rater",
+    "slater",
+    "tater",
+    "water"
   ],
   "many": [
     "any",
@@ -191,6 +381,35 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "ment",
     "met",
     "weet"
+  ],
+  "mention": [
+    "mentions"
+  ],
+  "mind": [
+    "bind",
+    "find",
+    "hind",
+    "kind",
+    "lind",
+    "mand",
+    "mend",
+    "mid",
+    "mild",
+    "mina",
+    "minds",
+    "mine",
+    "mined",
+    "ming",
+    "mini",
+    "mink",
+    "mino",
+    "mint",
+    "minx",
+    "miny",
+    "rind",
+    "sind",
+    "tind",
+    "wind"
   ],
   "more": [
     "bore",
@@ -274,6 +493,20 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "tame",
     "wame"
   ],
+  "nervous": [],
+  "never": [
+    "bever",
+    "ever",
+    "fever",
+    "lever",
+    "neper",
+    "nerver",
+    "neve",
+    "nevel",
+    "neves",
+    "newer",
+    "sever"
+  ],
   "nice": [
     "bice",
     "dice",
@@ -298,6 +531,29 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "vice",
     "wice"
   ],
+  "night": [
+    "aight",
+    "anight",
+    "bight",
+    "dight",
+    "eight",
+    "fight",
+    "hight",
+    "kight",
+    "knight",
+    "light",
+    "might",
+    "nicht",
+    "nigh",
+    "nighs",
+    "nights",
+    "nighty",
+    "pight",
+    "right",
+    "sight",
+    "tight",
+    "wight"
+  ],
   "pardon": [
     "cardon",
     "lardon",
@@ -314,6 +570,23 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "pleases",
     "prease"
   ],
+  "pleased": [
+    "leased",
+    "peased",
+    "pleaded",
+    "pleaed",
+    "please",
+    "pleaser",
+    "pleases",
+    "pleated",
+    "preased"
+  ],
+  "pleasure": [
+    "leasure",
+    "pleasured",
+    "pleasurer",
+    "pleasures"
+  ],
   "problem": [
     "problems"
   ],
@@ -323,6 +596,60 @@ export const typoConfusables: Record<string, readonly string[]> = {
     "repeats",
     "repent",
     "reseat"
+  ],
+  "right": [
+    "aight",
+    "aright",
+    "bight",
+    "bright",
+    "dight",
+    "eight",
+    "fight",
+    "fright",
+    "hight",
+    "kight",
+    "light",
+    "might",
+    "night",
+    "pight",
+    "richt",
+    "righto",
+    "rights",
+    "righty",
+    "sight",
+    "tight",
+    "wight",
+    "wright"
+  ],
+  "sick": [
+    "dick",
+    "hick",
+    "ick",
+    "kick",
+    "lick",
+    "mick",
+    "nick",
+    "pick",
+    "rick",
+    "sack",
+    "saick",
+    "sic",
+    "sice",
+    "sich",
+    "sicko",
+    "sicks",
+    "sics",
+    "sik",
+    "silk",
+    "sink",
+    "slick",
+    "snick",
+    "sock",
+    "spick",
+    "stick",
+    "suck",
+    "tick",
+    "wick"
   ],
   "slower": [
     "blower",
@@ -457,6 +784,12 @@ export const typoConfusables: Record<string, readonly string[]> = {
   ],
   "understand": [
     "understands"
+  ],
+  "unwell": [
+    "unsell",
+    "unweal",
+    "unwill",
+    "upwell"
   ],
   "very": [
     "aery",

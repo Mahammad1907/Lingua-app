@@ -23,6 +23,10 @@ assert.deepEqual(sources, [{ uri: 'file:///recording.m4a' }]);
 assert.equal(loadRecordedAudio(player, null), 'idle');
 assert.equal(sources.length, 1, 're-record pauses the old source without replacing it with null');
 assert.equal(pauses, 6);
+for (const invalid of [42, {}, { uri: 'file:///recording.m4a' }, [], true, 'not-a-uri', 'javascript:alert(1)']) assert.equal(loadRecordedAudio(player, invalid), 'error');
+assert.equal(sources.length, 1, 'invalid JS values never reach the native AudioSource converter');
+assert.equal(loadRecordedAudio(player, '  file:///trimmed.m4a  '), 'ready');
+assert.equal(sources.at(-1).uri, 'file:///trimmed.m4a');
 assert.equal(loadRecordedAudio({ pause() {}, replace() { throw new Error('native unavailable'); } }, 'file:///bad.m4a'), 'error');
 assert.equal(loadRecordedAudio({ pause() { throw new Error('released'); }, replace() {} }, null), 'error');
 for (const file of ['src/components/lesson/VoicePracticeRecorder.tsx', 'src/components/RecognizedVoiceComposer.tsx']) {
@@ -30,4 +34,5 @@ for (const file of ['src/components/lesson/VoicePracticeRecorder.tsx', 'src/comp
   assert.ok(source.includes('loadRecordedAudio(player, draft?.uri)'), `${file} must use the guarded native source path`);
   assert.ok(!source.includes('player.replace('), `${file} must not bypass the guarded source path`);
 }
-console.log('PASS: empty mount, re-record, valid playback source, native failure handling and both recorder integrations.');
+assert.ok(fs.readFileSync(require.resolve('../src/components/lesson/LessonVoiceInput.tsx'), 'utf8').includes('loadRecordedAudio(player, speech.draft?.uri)'));
+console.log('PASS: empty/invalid sources, re-record, valid trimmed playback source, native failure handling and all three recorder integrations.');

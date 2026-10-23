@@ -11,11 +11,15 @@ export function safelyReadRecorder<T>(read: () => T): T | null {
 
 // Some Expo Go native audio versions reject replace(null), despite the JS type.
 // Clearing a draft pauses the old source; only a real recording is replaced.
-export function loadRecordedAudio(player: RecordingPlayer, uri?: string | null): 'idle' | 'ready' | 'error' {
+export function loadRecordedAudio(player: RecordingPlayer, uri?: unknown): 'idle' | 'ready' | 'error' {
   try {
     player.pause();
-    if (!uri || !uri.trim()) return 'idle';
-    player.replace({ uri });
+    if (uri === undefined || uri === null || uri === '') return 'idle';
+    if (typeof uri !== 'string') return 'error';
+    const source = uri.trim();
+    if (!source) return 'idle';
+    if (!/^(?:file|content|https?|blob):/i.test(source)) return 'error';
+    player.replace({ uri: source });
     return 'ready';
   } catch { return 'error'; }
 }

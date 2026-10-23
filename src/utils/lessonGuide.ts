@@ -17,14 +17,17 @@ export function lessonHint(card: PacketCard): string | null {
   if (card.kind !== 'task' || card.audio || card.options) return null;
   if (card.words) return 'Sözlərə düzgün ardıcıllıqla toxun. Seçdiyin sözü çıxarmaq üçün ona yenidən toxuna bilərsən.';
   const goals = card.rule?.goals || [];
-  if (goals.includes('introduce')) return 'Özünü təqdim etməlisən. Tapşırıqda ad verilibsə, həmin adı istifadə et.';
-  if (goals.includes('askName')) return 'Qarşı tərəfin adını öyrənmək üçün ingiliscə sual qur.';
-  if (goals.includes('farewell')) return 'Görüş bitir. Söhbəti bitirərkən işlənən ifadəni düşün.';
-  if (goals.includes('greet')) return 'Söhbət yeni başlayır. Qarşılaşanda deyilən ingiliscə salamlaşma ifadəsini düşün.';
-  if (goals.includes('thanks')) return 'Sənə kömək edilib. Təşəkkür etmək üçün uyğun ingiliscə ifadə yaz.';
-  if (goals.includes('askFeeling')) return 'Qarşı tərəfin halını soruşan sual və ya qısa qarşılıq yaz.';
-  if (goals.includes('repeat') || goals.includes('slow')) return 'Qarşı tərəfdən nəyi dəyişməsini istədiyini düşün: yenidən deməsini, yoxsa daha yavaş danışmasını?';
-  return 'Tapşırıqda səndən nə istəndiyini yenidən oxu. Cavabını ingiliscə və həmin vəziyyətə uyğun yaz.';
+  const hints: Partial<Record<typeof goals[number], string>> = {
+    greet: 'Söhbətə salamla başla.', introduce: 'Sonra adını bildir. Rol adı verilibsə, həmin adı saxla.',
+    askName: 'Qarşı tərəfin adını öyrənən sual ver.', meet: 'Tanış olduğuna şad olduğunu bildir.',
+    fine: 'Yaxşı olduğunu bildir; inkar sözü mənanı dəyişir.', unwell: 'Özünü yaxşı hiss etmədiyini bildir.', feeling: 'Öz halına uyğun cavab ver.',
+    askFeeling: 'Cavabından sonra söhbəti qarşı tərəfin halına qaytar.', thanks: 'Edilən köməyə təşəkkür et.', welcome: 'Təşəkkürə nəzakətli cavab ver.',
+    sorry: 'Etdiyin kiçik səhvə görə üzr istə.', attention: 'Sualdan əvvəl qarşı tərəfin diqqətini nəzakətlə çək.',
+    noProblem: 'Kiçik səhvin problem olmadığını bildir.', politeName: 'Ad istəyən ifadəyə nəzakətli xahiş sözü əlavə et.',
+    dontUnderstand: 'Deyilən mənanı anlamadığını bildir.', repeat: 'Deyiləni yenidən eşitmək istədiyini bildir.', slow: 'Danışıq sürətinin azalmasını istə.',
+    farewell: 'Görüş bitir. Söhbəti bitirmək üçün uyğun ifadə seç.',
+  };
+  return goals.map(goal => hints[goal]).filter(Boolean).join(' ') || 'Səndən istənən məlumatı düşün. İngiliscə həmin məqsədə uyğun qısa cavab qur.';
 }
 export function teachingText(card: PacketCard): string {
   // The board already contains these examples; retain the authored explanation once.

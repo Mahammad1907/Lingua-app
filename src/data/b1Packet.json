@@ -405,7 +405,12 @@
         "example": "Hello, Leyla!",
         "exampleAz": "Salam, Leyla!",
         "usageNote": "Neytral salamlaşma.",
-        "pronunciation": "/həˈləʊ/"
+        "pronunciation": "/həˈləʊ/",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Salam"
+        ]
       },
       {
         "word": "Hi",
@@ -413,7 +418,12 @@
         "example": "Hi, Ali!",
         "exampleAz": "Salam, Əli!",
         "usageNote": "Gündəlik, qeyri-rəsmi salamlaşma.",
-        "pronunciation": "/haɪ/"
+        "pronunciation": "/haɪ/",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Salam"
+        ]
       },
       {
         "word": "Goodbye",
@@ -421,7 +431,13 @@
         "example": "Goodbye, Leyla!",
         "exampleAz": "Sağ ol, Leyla!",
         "usageNote": "Özün və ya qarşı tərəf gedəndə.",
-        "pronunciation": "/ˌɡʊdˈbaɪ/"
+        "pronunciation": "/ˌɡʊdˈbaɪ/",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Sağ ol",
+          "sağ olun"
+        ]
       },
       {
         "word": "Bye",
@@ -429,7 +445,13 @@
         "example": "Bye, Ali!",
         "exampleAz": "Sağ ol, Əli!",
         "usageNote": "Gündəlik, qeyri-rəsmi sağollaşma.",
-        "pronunciation": "/baɪ/"
+        "pronunciation": "/baɪ/",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Sağ ol",
+          "sağ olun"
+        ]
       }
     ],
     "audioMeanings": {
@@ -1040,7 +1062,16 @@
         "example": "I’m Leyla.",
         "exampleAz": "Mən Leylayam",
         "usageNote": "I’m, I am formasının qısasıdır; sonra ad gəlir. I’m ifadəsinin bütün kontekstlərdə yalnız ad bildirdiyi öyrədilmir",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "I’m …",
+          "I am …"
+        ],
+        "acceptedTranslations": [
+          "Özünü adla təqdim edərkən: Mən …-yam",
+          "-yəm"
+        ],
+        "quizEligible": false
       },
       {
         "word": "My name is …",
@@ -1048,7 +1079,95 @@
         "example": "My name is Ali.",
         "exampleAz": "Mənim adım Əlidir",
         "usageNote": "Adını deməyin başqa yoludur. My name’s də qəbul edilən qısa formadır",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Mənim adım …-dır",
+          "-dir"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "i’m",
+        "translation": "Mən …-yam/-yəm (I am qısası)",
+        "pronunciation": "",
+        "example": "I’m Leyla.",
+        "exampleAz": "Mən Leylayam",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. I’m, I am formasının qısasıdır; sonra ad gəlir. I’m ifadəsinin bütün kontekstlərdə yalnız ad bildirdiyi öyrədilmir",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Mən …-yam",
+          "-yəm"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "i",
+        "translation": "Mən",
+        "pronunciation": "",
+        "example": "I’m Leyla.",
+        "exampleAz": "Mən Leylayam",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. I’m, I am formasının qısasıdır; sonra ad gəlir. I’m ifadəsinin bütün kontekstlərdə yalnız ad bildirdiyi öyrədilmir",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Mən"
+        ]
+      },
+      {
+        "word": "am",
+        "translation": "I ilə işlənən olmaq forması",
+        "pronunciation": "",
+        "example": "I’m Leyla.",
+        "exampleAz": "Mən Leylayam",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. I’m, I am formasının qısasıdır; sonra ad gəlir. I’m ifadəsinin bütün kontekstlərdə yalnız ad bildirdiyi öyrədilmir",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "I ilə işlənən olmaq forması"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "my",
+        "translation": "Mənim",
+        "pronunciation": "",
+        "example": "My name is Ali.",
+        "exampleAz": "Mənim adım Əlidir",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Adını deməyin başqa yoludur. My name’s də qəbul edilən qısa formadır",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Mənim"
+        ]
+      },
+      {
+        "word": "name",
+        "translation": "Ad",
+        "pronunciation": "",
+        "example": "My name is Ali.",
+        "exampleAz": "Mənim adım Əlidir",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Adını deməyin başqa yoludur. My name’s də qəbul edilən qısa formadır",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Ad"
+        ]
+      },
+      {
+        "word": "is",
+        "translation": "Tək şəxs və ya əşya ilə işlənən olmaq forması",
+        "pronunciation": "",
+        "example": "My name is Ali.",
+        "exampleAz": "Mənim adım Əlidir",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Adını deməyin başqa yoludur. My name’s də qəbul edilən qısa formadır",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Tək şəxs və ya əşya ilə işlənən olmaq forması"
+        ],
+        "quizEligible": false
       }
     ],
     "audioMeanings": {
@@ -1726,7 +1845,15 @@
         "example": "Hello. What’s your name?",
         "exampleAz": "Salam. Adın nədir?",
         "usageNote": "Qarşı tərəfin adını soruşmaq. Qısa və tam forma bir maddədədir",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "What’s your name?",
+          "What is your name?"
+        ],
+        "acceptedTranslations": [
+          "Adın nədir?",
+          "Adınız nədir?"
+        ]
       },
       {
         "word": "Nice to meet you.",
@@ -1734,7 +1861,12 @@
         "example": "I’m Ali. Nice to meet you.",
         "exampleAz": "Mən Əliyəm. Tanış olduğuma şadam",
         "usageNote": "İlk tanışlıqda bütöv ifadə kimi işlədilir; nice sözünün bütün mənası bu tərcüməyə bərabər tutulmur",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Səninlə",
+          "Sizinlə tanış olduğuma şadam"
+        ]
       },
       {
         "word": "You too. / Nice to meet you too.",
@@ -1742,7 +1874,125 @@
         "example": "Nice to meet you.",
         "exampleAz": "You too. / Tanış olduğuma şadam. — Mən də şadam",
         "usageNote": "Tanışlıq ifadəsinə qarşılıq. Qısa və uzun variant eyni cavab maddəsindədir",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "You too.",
+          "Nice to meet you too."
+        ],
+        "acceptedTranslations": [
+          "Bu cavabda: Mən də şadam",
+          "Mən də səninlə tanış olduğuma şadam"
+        ]
+      },
+      {
+        "word": "what’s",
+        "translation": "Nədir? (What is qısası)",
+        "pronunciation": "",
+        "example": "Hello. What’s your name?",
+        "exampleAz": "Salam. Adın nədir?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Qarşı tərəfin adını soruşmaq. Qısa və tam forma bir maddədədir",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Nədir?"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "your",
+        "translation": "Sənin / Sizin",
+        "pronunciation": "",
+        "example": "Hello. What’s your name?",
+        "exampleAz": "Salam. Adın nədir?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Qarşı tərəfin adını soruşmaq. Qısa və tam forma bir maddədədir",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Sənin",
+          "Sizin"
+        ]
+      },
+      {
+        "word": "what",
+        "translation": "Nə",
+        "pronunciation": "",
+        "example": "Hello. What’s your name?",
+        "exampleAz": "Salam. Adın nədir?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Qarşı tərəfin adını soruşmaq. Qısa və tam forma bir maddədədir",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Nə"
+        ]
+      },
+      {
+        "word": "nice",
+        "translation": "Xoş",
+        "pronunciation": "",
+        "example": "I’m Ali. Nice to meet you.",
+        "exampleAz": "Mən Əliyəm. Tanış olduğuma şadam",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. İlk tanışlıqda bütöv ifadə kimi işlədilir; nice sözünün bütün mənası bu tərcüməyə bərabər tutulmur",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Xoş"
+        ]
+      },
+      {
+        "word": "to",
+        "translation": "Bu ifadədə to meet ilə birgə: tanış olmağa",
+        "pronunciation": "",
+        "example": "I’m Ali. Nice to meet you.",
+        "exampleAz": "Mən Əliyəm. Tanış olduğuma şadam",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. İlk tanışlıqda bütöv ifadə kimi işlədilir; nice sözünün bütün mənası bu tərcüməyə bərabər tutulmur",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Bu ifadədə to meet ilə birgə: tanış olmağa"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "meet",
+        "translation": "Görüşmək / tanış olmaq",
+        "pronunciation": "",
+        "example": "I’m Ali. Nice to meet you.",
+        "exampleAz": "Mən Əliyəm. Tanış olduğuma şadam",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. İlk tanışlıqda bütöv ifadə kimi işlədilir; nice sözünün bütün mənası bu tərcüməyə bərabər tutulmur",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Görüşmək",
+          "tanış olmaq"
+        ]
+      },
+      {
+        "word": "you",
+        "translation": "Sən / Siz",
+        "pronunciation": "",
+        "example": "I’m Ali. Nice to meet you.",
+        "exampleAz": "Mən Əliyəm. Tanış olduğuma şadam",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. İlk tanışlıqda bütöv ifadə kimi işlədilir; nice sözünün bütün mənası bu tərcüməyə bərabər tutulmur",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Sən",
+          "Siz"
+        ]
+      },
+      {
+        "word": "too",
+        "translation": "Də / da",
+        "pronunciation": "",
+        "example": "Nice to meet you.",
+        "exampleAz": "You too. / Tanış olduğuma şadam. — Mən də şadam",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Tanışlıq ifadəsinə qarşılıq. Qısa və uzun variant eyni cavab maddəsindədir",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Də",
+          "da"
+        ]
       }
     ],
     "audioMeanings": {
@@ -2340,7 +2590,12 @@
         "example": "Hello. How are you?",
         "exampleAz": "Salam. Necəsən?",
         "usageNote": "Hal-əhval soruşur; ad soruşmur.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Necəsən?",
+          "Necəsiniz?"
+        ]
       },
       {
         "word": "I’m fine. / I am fine.",
@@ -2348,7 +2603,14 @@
         "example": "I’m fine, thanks.",
         "exampleAz": "Yaxşıyam, sağ ol.",
         "usageNote": "Müsbət hal cavabı. Fine təkbaşına da cavab ola bilər.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "I’m fine.",
+          "I am fine."
+        ],
+        "acceptedTranslations": [
+          "Yaxşıyam."
+        ]
       },
       {
         "word": "Thanks. / Thank you.",
@@ -2356,7 +2618,15 @@
         "example": "I’m fine, thanks.",
         "exampleAz": "Yaxşıyam, sağ ol.",
         "usageNote": "Bu dərsdə ilk dəfə təşəkkür kimi öyrədilir. 5-ci dərsdə yeni maddə kimi təkrarlanmayacaq.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "Thanks.",
+          "Thank you."
+        ],
+        "acceptedTranslations": [
+          "Sağ ol.",
+          "Təşəkkür edirəm."
+        ]
       },
       {
         "word": "And you?",
@@ -2364,7 +2634,12 @@
         "example": "I’m fine. And you?",
         "exampleAz": "Yaxşıyam. Bəs sən?",
         "usageNote": "Əvvəlki hal sualını qarşı tərəfə qaytarır.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Bəs sən?",
+          "Bəs siz?"
+        ]
       },
       {
         "word": "I’m OK. / I am OK.",
@@ -2372,7 +2647,15 @@
         "example": "I’m OK, thanks.",
         "exampleAz": "Normalam, sağ ol.",
         "usageNote": "Bu kontekstdə hal cavabıdır; OK həmişə yalnız bu mənaya gəlmir.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "I’m OK.",
+          "I am OK."
+        ],
+        "acceptedTranslations": [
+          "Normalam.",
+          "Pis deyiləm."
+        ]
       },
       {
         "word": "I’m not very well. / I am not very well.",
@@ -2380,7 +2663,147 @@
         "example": "I’m not very well.",
         "exampleAz": "Özümü o qədər də yaxşı hiss etmirəm.",
         "usageNote": "Fine ilə məna baxımından eyni deyil. Tibbi izah tələb olunmur.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "I’m not very well.",
+          "I am not very well."
+        ],
+        "acceptedTranslations": [
+          "Özümü o qədər də yaxşı hiss etmirəm."
+        ]
+      },
+      {
+        "word": "how",
+        "translation": "Necə",
+        "pronunciation": "",
+        "example": "Hello. How are you?",
+        "exampleAz": "Salam. Necəsən?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Hal-əhval soruşur; ad soruşmur.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Necə"
+        ]
+      },
+      {
+        "word": "are",
+        "translation": "You ilə işlənən olmaq forması",
+        "pronunciation": "",
+        "example": "Hello. How are you?",
+        "exampleAz": "Salam. Necəsən?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Hal-əhval soruşur; ad soruşmur.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "You ilə işlənən olmaq forması"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "fine",
+        "translation": "Yaxşı",
+        "pronunciation": "",
+        "example": "I’m fine, thanks.",
+        "exampleAz": "Yaxşıyam, sağ ol.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Müsbət hal cavabı. Fine təkbaşına da cavab ola bilər.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Yaxşı"
+        ]
+      },
+      {
+        "word": "thanks",
+        "translation": "Təşəkkürlər",
+        "pronunciation": "",
+        "example": "I’m fine, thanks.",
+        "exampleAz": "Yaxşıyam, sağ ol.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Bu dərsdə ilk dəfə təşəkkür kimi öyrədilir. 5-ci dərsdə yeni maddə kimi təkrarlanmayacaq.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Təşəkkürlər"
+        ]
+      },
+      {
+        "word": "thank",
+        "translation": "Təşəkkür etmək",
+        "pronunciation": "",
+        "example": "I’m fine, thanks.",
+        "exampleAz": "Yaxşıyam, sağ ol.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Bu dərsdə ilk dəfə təşəkkür kimi öyrədilir. 5-ci dərsdə yeni maddə kimi təkrarlanmayacaq.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Təşəkkür etmək"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "and",
+        "translation": "Və",
+        "pronunciation": "",
+        "example": "I’m fine. And you?",
+        "exampleAz": "Yaxşıyam. Bəs sən?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Əvvəlki hal sualını qarşı tərəfə qaytarır.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Və"
+        ]
+      },
+      {
+        "word": "ok",
+        "translation": "Normal / yaxşı",
+        "pronunciation": "",
+        "example": "I’m OK, thanks.",
+        "exampleAz": "Normalam, sağ ol.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Bu kontekstdə hal cavabıdır; OK həmişə yalnız bu mənaya gəlmir.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Normal",
+          "yaxşı"
+        ]
+      },
+      {
+        "word": "not",
+        "translation": "Deyil; inkar bildirir",
+        "pronunciation": "",
+        "example": "I’m not very well.",
+        "exampleAz": "Özümü o qədər də yaxşı hiss etmirəm.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Fine ilə məna baxımından eyni deyil. Tibbi izah tələb olunmur.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Deyil; inkar bildirir"
+        ]
+      },
+      {
+        "word": "very",
+        "translation": "Çox",
+        "pronunciation": "",
+        "example": "I’m not very well.",
+        "exampleAz": "Özümü o qədər də yaxşı hiss etmirəm.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Fine ilə məna baxımından eyni deyil. Tibbi izah tələb olunmur.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Çox"
+        ]
+      },
+      {
+        "word": "well",
+        "translation": "Yaxşı (hal haqqında)",
+        "pronunciation": "",
+        "example": "I’m not very well.",
+        "exampleAz": "Özümü o qədər də yaxşı hiss etmirəm.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Fine ilə məna baxımından eyni deyil. Tibbi izah tələb olunmur.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Yaxşı"
+        ]
       }
     ],
     "audioMeanings": {
@@ -3030,7 +3453,15 @@
         "example": "Thank you. — You’re welcome.",
         "exampleAz": "Təşəkkür edirəm. — Dəyməz.",
         "usageNote": "Təşəkkürə qarşılıq; welcome sözünün ayrıca salam mənası ilə qarışdırılmır.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "You’re welcome.",
+          "You are welcome."
+        ],
+        "acceptedTranslations": [
+          "Dəyməz.",
+          "Buyur."
+        ]
       },
       {
         "word": "please",
@@ -3038,7 +3469,12 @@
         "example": "Your name, please.",
         "exampleAz": "Adınız, zəhmət olmasa.",
         "usageNote": "Burada xahişi nəzakətlə bildirmək üçündür. Your name, please ayrıca yeni lüğət maddəsi edilmir.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Zəhmət olmasa."
+        ]
       },
       {
         "word": "Excuse me.",
@@ -3046,7 +3482,11 @@
         "example": "Excuse me. What’s your name?",
         "exampleAz": "Bağışlayın. Adınız nədir?",
         "usageNote": "Bu dərsdə diqqət çəkmək üçün. Başqa üzr istifadələri də var.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Bağışlayın."
+        ]
       },
       {
         "word": "Sorry. / I’m sorry.",
@@ -3054,7 +3494,15 @@
         "example": "I’m sorry. — No problem.",
         "exampleAz": "Üzr istəyirəm. — Eybi yoxdur.",
         "usageNote": "Kiçik səhvə görə üzr; bütün sorry mənaları bu dərsdə tələb olunmur.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "Sorry.",
+          "I’m sorry."
+        ],
+        "acceptedTranslations": [
+          "Üzr istəyirəm.",
+          "Bağışlayın."
+        ]
       },
       {
         "word": "No problem.",
@@ -3062,7 +3510,108 @@
         "example": "Sorry. — No problem.",
         "exampleAz": "Üzr istəyirəm. — Eybi yoxdur.",
         "usageNote": "Gündəlik üslubda üzrə və təşəkkürə uyğun qarşılıq ola bilər.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Eybi yoxdur.",
+          "Problem deyil."
+        ]
+      },
+      {
+        "word": "you’re",
+        "translation": "Sən …-san/-sən (You are qısası)",
+        "pronunciation": "",
+        "example": "Thank you. — You’re welcome.",
+        "exampleAz": "Təşəkkür edirəm. — Dəyməz.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Təşəkkürə qarşılıq; welcome sözünün ayrıca salam mənası ilə qarışdırılmır.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Sən …-san",
+          "-sən"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "welcome",
+        "translation": "You’re welcome ifadəsində: dəyməz",
+        "pronunciation": "",
+        "example": "Thank you. — You’re welcome.",
+        "exampleAz": "Təşəkkür edirəm. — Dəyməz.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Təşəkkürə qarşılıq; welcome sözünün ayrıca salam mənası ilə qarışdırılmır.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "You’re welcome ifadəsində: dəyməz"
+        ]
+      },
+      {
+        "word": "excuse",
+        "translation": "Excuse me ifadəsində: bağışlayın",
+        "pronunciation": "",
+        "example": "Excuse me. What’s your name?",
+        "exampleAz": "Bağışlayın. Adınız nədir?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Bu dərsdə diqqət çəkmək üçün. Başqa üzr istifadələri də var.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Excuse me ifadəsində: bağışlayın"
+        ]
+      },
+      {
+        "word": "me",
+        "translation": "Mənə / məni",
+        "pronunciation": "",
+        "example": "Excuse me. What’s your name?",
+        "exampleAz": "Bağışlayın. Adınız nədir?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Bu dərsdə diqqət çəkmək üçün. Başqa üzr istifadələri də var.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Mənə",
+          "məni"
+        ]
+      },
+      {
+        "word": "sorry",
+        "translation": "Üzr istəyirəm / bağışla",
+        "pronunciation": "",
+        "example": "I’m sorry. — No problem.",
+        "exampleAz": "Üzr istəyirəm. — Eybi yoxdur.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Kiçik səhvə görə üzr; bütün sorry mənaları bu dərsdə tələb olunmur.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Üzr istəyirəm",
+          "bağışla"
+        ]
+      },
+      {
+        "word": "no",
+        "translation": "Xeyr / yox",
+        "pronunciation": "",
+        "example": "Sorry. — No problem.",
+        "exampleAz": "Üzr istəyirəm. — Eybi yoxdur.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Gündəlik üslubda üzrə və təşəkkürə uyğun qarşılıq ola bilər.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Xeyr",
+          "yox"
+        ]
+      },
+      {
+        "word": "problem",
+        "translation": "Problem",
+        "pronunciation": "",
+        "example": "Sorry. — No problem.",
+        "exampleAz": "Üzr istəyirəm. — Eybi yoxdur.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Gündəlik üslubda üzrə və təşəkkürə uyğun qarşılıq ola bilər.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Problem"
+        ]
       }
     ],
     "audioMeanings": {
@@ -3659,7 +4208,14 @@
         "example": "Sorry. I don’t understand.",
         "exampleAz": "Bağışlayın. Başa düşmürəm.",
         "usageNote": "Anlamadığını açıq bildirir; sorry bu cümlədə nəzakət əlavə edə bilər.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "I don’t understand.",
+          "I do not understand."
+        ],
+        "acceptedTranslations": [
+          "Başa düşmürəm."
+        ]
       },
       {
         "word": "Could you say that again, please? / Again, please.",
@@ -3667,7 +4223,15 @@
         "example": "Could you say that again, please?",
         "exampleAz": "Zəhmət olmasa, onu bir də deyə bilərsiniz?",
         "usageNote": "Təkrar istəyir. Again, please eyni məqsəd üçün qısa alternativdir; qrammatik qısalma adlandırılmır.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "Could you say that again, please?",
+          "Again, please."
+        ],
+        "acceptedTranslations": [
+          "Zəhmət olmasa, onu bir də deyə bilərsiniz?",
+          "Bir də, zəhmət olmasa."
+        ]
       },
       {
         "word": "More slowly, please. / Can you repeat that more slowly, please?",
@@ -3675,7 +4239,164 @@
         "example": "More slowly, please.",
         "exampleAz": "Daha yavaş, zəhmət olmasa.",
         "usageNote": "Sürətin azaldılmasını istəyir. Uzun variant həm təkrar, həm yavaş deməyi bildirir.",
-        "pronunciation": ""
+        "pronunciation": "",
+        "acceptedAnswers": [
+          "More slowly, please.",
+          "Can you repeat that more slowly, please?"
+        ],
+        "acceptedTranslations": [
+          "Daha yavaş, zəhmət olmasa.",
+          "Zəhmət olmasa, onu daha yavaş təkrar edə bilərsiniz?"
+        ]
+      },
+      {
+        "word": "don’t",
+        "translation": "Do not qısası; inkar bildirir",
+        "pronunciation": "",
+        "example": "Sorry. I don’t understand.",
+        "exampleAz": "Bağışlayın. Başa düşmürəm.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Anlamadığını açıq bildirir; sorry bu cümlədə nəzakət əlavə edə bilər.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Do not qısası; inkar bildirir"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "understand",
+        "translation": "Başa düşmək",
+        "pronunciation": "",
+        "example": "Sorry. I don’t understand.",
+        "exampleAz": "Bağışlayın. Başa düşmürəm.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Anlamadığını açıq bildirir; sorry bu cümlədə nəzakət əlavə edə bilər.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Başa düşmək"
+        ]
+      },
+      {
+        "word": "do",
+        "translation": "Bu ifadədə inkarı qurmağa kömək edən söz",
+        "pronunciation": "",
+        "example": "Sorry. I don’t understand.",
+        "exampleAz": "Bağışlayın. Başa düşmürəm.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Anlamadığını açıq bildirir; sorry bu cümlədə nəzakət əlavə edə bilər.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Bu ifadədə inkarı qurmağa kömək edən söz"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "could",
+        "translation": "Nəzakətli xahiş qurmağa kömək edən söz",
+        "pronunciation": "",
+        "example": "Could you say that again, please?",
+        "exampleAz": "Zəhmət olmasa, onu bir də deyə bilərsiniz?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Təkrar istəyir. Again, please eyni məqsəd üçün qısa alternativdir; qrammatik qısalma adlandırılmır.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Nəzakətli xahiş qurmağa kömək edən söz"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "say",
+        "translation": "Demək",
+        "pronunciation": "",
+        "example": "Could you say that again, please?",
+        "exampleAz": "Zəhmət olmasa, onu bir də deyə bilərsiniz?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Təkrar istəyir. Again, please eyni məqsəd üçün qısa alternativdir; qrammatik qısalma adlandırılmır.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Demək"
+        ]
+      },
+      {
+        "word": "that",
+        "translation": "O / onu",
+        "pronunciation": "",
+        "example": "Could you say that again, please?",
+        "exampleAz": "Zəhmət olmasa, onu bir də deyə bilərsiniz?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Təkrar istəyir. Again, please eyni məqsəd üçün qısa alternativdir; qrammatik qısalma adlandırılmır.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "O",
+          "onu"
+        ]
+      },
+      {
+        "word": "again",
+        "translation": "Yenidən / bir də",
+        "pronunciation": "",
+        "example": "Could you say that again, please?",
+        "exampleAz": "Zəhmət olmasa, onu bir də deyə bilərsiniz?",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Təkrar istəyir. Again, please eyni məqsəd üçün qısa alternativdir; qrammatik qısalma adlandırılmır.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Yenidən",
+          "bir də"
+        ]
+      },
+      {
+        "word": "more",
+        "translation": "Daha",
+        "pronunciation": "",
+        "example": "More slowly, please.",
+        "exampleAz": "Daha yavaş, zəhmət olmasa.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Sürətin azaldılmasını istəyir. Uzun variant həm təkrar, həm yavaş deməyi bildirir.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Daha"
+        ]
+      },
+      {
+        "word": "slowly",
+        "translation": "Yavaş",
+        "pronunciation": "",
+        "example": "More slowly, please.",
+        "exampleAz": "Daha yavaş, zəhmət olmasa.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Sürətin azaldılmasını istəyir. Uzun variant həm təkrar, həm yavaş deməyi bildirir.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Yavaş"
+        ]
+      },
+      {
+        "word": "can",
+        "translation": "Bacarmaq; xahişdə də işlənir",
+        "pronunciation": "",
+        "example": "More slowly, please.",
+        "exampleAz": "Daha yavaş, zəhmət olmasa.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Sürətin azaldılmasını istəyir. Uzun variant həm təkrar, həm yavaş deməyi bildirir.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Bacarmaq; xahişdə də işlənir"
+        ],
+        "quizEligible": false
+      },
+      {
+        "word": "repeat",
+        "translation": "Təkrar etmək",
+        "pronunciation": "",
+        "example": "More slowly, please.",
+        "exampleAz": "Daha yavaş, zəhmət olmasa.",
+        "usageNote": "Məna bu dərsdə öyrədilən ifadəyə aiddir. Sürətin azaldılmasını istəyir. Uzun variant həm təkrar, həm yavaş deməyi bildirir.",
+        "lexical": true,
+        "acceptedAnswers": [],
+        "acceptedTranslations": [
+          "Təkrar etmək"
+        ]
       }
     ],
     "audioMeanings": {

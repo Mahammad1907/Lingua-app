@@ -1,3 +1,4 @@
+import { normalizeApostrophes, isSafeEnglishTypo } from './spelling';
 // ═══════════════════════════════════════
 // TYPO-TOLERANT CAVAB YOXLAMASI
 // Data-driven: söz bazası ilə işləyir
@@ -17,7 +18,7 @@ import {
 // - Boşluqlar TAM SİLİNMİR (a man ≠ aman)
 // ═══════════════════════════════════════
 function cleanAnswer(text: string): string {
-  return text
+  return normalizeApostrophes(text)
     .toLowerCase()
     .trim()
     .replace(/\([^)]*\)/g, '')
@@ -58,12 +59,7 @@ export function levenshtein(a: string, b: string): number {
 // ═══════════════════════════════════════
 // SÖZ UZUNLUĞUNA GÖRƏ İCAZƏ VERİLƏN SƏHV
 // ═══════════════════════════════════════
-export function allowedTypos(wordLength: number): number {
-  if (wordLength <= 3) return 0;
-  if (wordLength <= 5) return 1;
-  if (wordLength <= 8) return 2;
-  return 3;
-}
+export function allowedTypos(wordLength: number): number { return wordLength <= 3 ? 0 : 1; }
 
 // ═══════════════════════════════════════
 // TƏK SÖZ MÜQAYİSƏSİ
@@ -77,6 +73,7 @@ export function isWordMatch(
   const correctLower = correct.toLowerCase().trim();
 
   if (userLower === correctLower) return true;
+  if (language === 'en') return isSafeEnglishTypo(userLower, correctLower);
 
   if (isWordInDatabase(userLower, language)) {
     return false;
@@ -99,33 +96,12 @@ export function isAnswerCorrect(
   acceptedAnswers?: string[]
 ): boolean {
   const user = cleanAnswer(userAnswer);
-  const correct = cleanAnswer(correctAnswer);
-
-  // ═══ 1) acceptedAnswers yoxla ═══
-  if (acceptedAnswers && acceptedAnswers.length > 0) {
-    const allCorrect = [correctAnswer, ...acceptedAnswers].map(cleanAnswer);
-    if (allCorrect.includes(user)) {
-      return true;
-    }
-  }
-
-  // ═══ 2) Tam uyğunluq ═══
-  if (user === correct) return true;
-
-  // ═══ 3) Boşluq fərqi yoxla (sağol = sağ ol) ═══
-  const userNoSpace = user.replace(/\s+/g, '');
-  const correctNoSpace = correct.replace(/\s+/g, '');
-  if (userNoSpace === correctNoSpace) return true;
-
-  // ═══ 4) Çoxsözlü cavab — söz-söz yoxla ═══
-  const userWords = user.split(' ');
-  const correctWords = correct.split(' ');
-  if (userWords.length !== correctWords.length) return false;
-
-  for (let i = 0; i < userWords.length; i++) {
-    if (!isWordMatch(userWords[i], correctWords[i], language)) {
-      return false;
-    }
-  }
-  return true;
+  if (!user) return false;
+  return [correctAnswer, ...(acceptedAnswers || [])].some(target => {
+    const correct = cleanAnswer(target);
+    if (user === correct) return true;
+    if (language === 'az' && new Set(['sağ ol', 'sağol']).has(user) && new Set(['sağ ol', 'sağol']).has(correct)) return true;
+    const actual = user.split(' '), expected = correct.split(' ');
+    return actual.length === expected.length && expected.every((word, i) => isWordMatch(actual[i], word, language));
+  });
 }

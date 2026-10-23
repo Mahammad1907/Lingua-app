@@ -73,7 +73,7 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
       setReceiptId(receipt.id);
       setSessionCompleted(receipt.completed);
       if (spoken) setVoiceStats(spoken);
-      if (receipt.completed) useVocabularyStore.getState().addLessonWords(lesson.id);
+      if (receipt.completed) await useVocabularyStore.getState().addLessonWords(lesson.id);
       setFinished(true);
     } catch {
       setCompletionError('Nəticə saxlanmadı. Yenidən cəhd et.');

@@ -9,7 +9,7 @@ import type { LessonProgress, PlacementResult } from '../data/types';
 import { moduleHasContent, moduleTest, moduleUnlocked } from '../utils/moduleAccess';
 import { localDay, LESSON_XP, MAX_ENERGY, previousDay, type LessonAttempt, type RewardReceipt, type RewardRecord } from '../utils/rewards';
 
-import { summarizeEvidence, type TaskEvidence } from '../utils/lessonEvidence';
+import { summarizeEvidence, type TaskEvidence, type ExamEvidence } from '../utils/lessonEvidence';
 
 const STORAGE_KEY = '@birtalk_user_data';
 interface UserData {
@@ -26,7 +26,7 @@ interface UserState extends UserData {
   useHelp: (attemptId: string) => void;
   finishLesson: (attemptId: string) => Promise<RewardReceipt>;
   claimReceipt: (id: string) => RewardReceipt | undefined;
-  finishExam: (moduleId: string, answers: Record<string, boolean>) => Promise<{ passed: boolean; xp: number; correct: number }>;
+  finishExam: (moduleId: string, answers: Record<string, boolean>, evidence?: ExamEvidence) => Promise<{ passed: boolean; xp: number; correct: number }>;
   loseHeart: () => void; refillHearts: () => void; resetHearts: () => void;
   checkDailyStreak: () => void; loadFromStorage: () => Promise<void>; saveToStorage: () => Promise<void>; resetAll: () => void;
   isLessonCompleted: (id: string) => boolean;
@@ -179,17 +179,18 @@ export const useUserStore = create<UserState>((set, get) => ({
     const r = get().receipts[id];
     if (r) set((s) => { const receipts = { ...s.receipts }; delete receipts[id]; return { receipts }; }); return r;
   },
-  finishExam: async (moduleId, answers) => {
+  finishExam: async (moduleId, answers, evidence) => {
     const s = get(); const test = moduleTest(moduleId);
     if (!s.hydrated || !test || test.questions.some((q) => typeof answers[q.id] !== 'boolean')) throw new Error('Sınağın bütün suallarını cavablandır.');
     const correct = test.questions.filter((q) => answers[q.id]).length;
-    const passed = test.requiredQuestionIds?.length ? test.requiredQuestionIds.every((id) => answers[id] === true)
+    const meetsGoals = test.requiredQuestionIds?.length ? test.requiredQuestionIds.every((id) => answers[id] === true)
       : correct / test.questions.length * 100 >= (Number.isFinite(test.passScore) ? test.passScore : 80);
+    const passed = meetsGoals && !evidence?.pendingRequiredIds.length;
     const key = `exam:${moduleId}`;
     const xp = passed && !s.rewards[key] && !s.placementResults.some((r) => r.moduleId === moduleId && r.passed) ? 50 : 0;
     const prior = s.placementResults.find((r) => r.moduleId === moduleId);
     const result: PlacementResult = prior?.passed ? prior : { moduleId, passed, correctCount: correct,
-      totalCount: test.questions.length, attemptedAt: new Date().toISOString() };
+      totalCount: test.questions.length, attemptedAt: new Date().toISOString(), evidence };
     set({ xp: s.xp + xp, rewards: xp ? { ...s.rewards, [key]: { amount: xp, day: localDay() } } : s.rewards,
       placementResults: [...s.placementResults.filter((r) => r.moduleId !== moduleId), result] });
     await get().saveToStorage(); return { passed, xp, correct };

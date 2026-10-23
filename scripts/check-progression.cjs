@@ -128,6 +128,15 @@ async function run() {
   assert.equal(moduleUnlocked('fixture_second', [], []), false);
   const answers = Object.fromEntries(placementTests[0].questions.map(q => [q.id, true]));
   await assert.rejects(store.getState().finishExam('fixture_second', {}));
+  const technicalId = placementTests[0].requiredQuestionIds[0];
+  const evidence = { technicalTextIds: [technicalId], writtenVoiceIds: [], pendingRequiredIds: [technicalId] };
+  const notVerified = await store.getState().finishExam('fixture_second', answers, evidence);
+  assert.equal(notVerified.passed, false, 'correct text cannot certify required listening after a technical fallback');
+  assert.equal(notVerified.xp, 0);
+  assert.equal(moduleUnlocked('fixture_second', [], store.getState().placementResults), false);
+  assert.deepEqual(JSON.parse(disk).placementResults.find(r => r.moduleId === 'fixture_second').evidence, evidence);
+  const writtenVoice = { technicalTextIds: [], writtenVoiceIds: [technicalId], pendingRequiredIds: [technicalId] };
+  assert.equal((await store.getState().finishExam('fixture_second', answers, writtenVoice)).passed, false, 'edited or typed text cannot certify required speech');
   const belowThreshold = { ...answers };
   placementTests[0].questions.slice(0, 3).forEach(q => { belowThreshold[q.id] = false; });
   assert.equal((await store.getState().finishExam('fixture_second', belowThreshold)).passed, false);

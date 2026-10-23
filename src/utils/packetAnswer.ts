@@ -19,9 +19,9 @@ const patterns: Partial<Record<PacketGoal, RegExp>> = {
   farewell: /\b(good ?bye|bye(?: bye)?|see you(?: later)?|take care|good night)\b/g,
   askName: /\b(?:what is your name|(?:can|could|would) you (?:please )?tell me your name)\b/g,
   meet: /\b(?:(?:nice|pleased|glad) to meet you(?: too)?|you too|same here)\b/g,
-  unwell: /\b(?:(?:i am|i feel|i am feeling) )?not (?:very )?(?:well|good|fine|great|ok|okay)\b/g,
-  fine: /\b(?:(?:i am|i feel|i am feeling) )?(?:fine|good(?!\s+(?:morning|afternoon|evening|night))|well|great)\b/g,
-  feeling: /\b(?:(?:i am|i feel|i am feeling) )?(?:ok|okay|tired|happy|sad|hungry)\b/g,
+  unwell: /\b(?:(?:i am|i feel|i am feeling) )?(?:not (?:very )?(?:well|good|fine|great|ok|okay)|(?:very )?(?:sick|ill|unwell|bad))\b/g,
+  fine: /\b(?:(?:i am|i feel|i am feeling) )?(?:very )?(?:fine|good(?!\s+(?:morning|afternoon|evening|night))|well|great|all right)\b/g,
+  feeling: /\b(?:(?:i am|i feel|i am feeling) )?(?:(?:not|very|a bit) )?(?:ok|okay|tired|happy|sad|hungry|busy|bored|excited|angry|nervous|so so)\b/g,
   askFeeling: /\b(?:and you|how about you|how are you(?: doing| today)?|what about you)\b/g,
   thanks: /\b(?:thank you(?: very much| so much)?|thanks(?: a lot)?|many thanks)\b/g,
   welcome: /\b(?:you are welcome|no problem|not at all|my pleasure|do not mention it)\b/g,
@@ -30,7 +30,7 @@ const patterns: Partial<Record<PacketGoal, RegExp>> = {
   noProblem: /\b(?:no problem|that is (?:ok|okay|all right)|it is (?:ok|okay|all right)|never mind)\b/g,
   dontUnderstand: /\bi (?:do not|cannot|can't) understand\b/g,
   repeat: /\b(?:(?:could|can|would) you (?:please )?(?:say (?:that|it) again|repeat(?: that| it)?)(?: more slowly)?|(?:please )?say (?:that|it) again|(?:please )?repeat(?: that| it)?|again|pardon)\b/g,
-  slow: /\b(?:(?:could|can|would) you (?:please )?(?:repeat(?: that| it)?|speak|say (?:it|that))(?: more)? slowly|(?:please )?(?:more )?slowly|slower|slow)\b/g,
+  slow: /\b(?:(?:could|can|would) you (?:please )?(?:repeat(?: that| it)?|speak|say (?:it|that))(?: more)? (?:slowly|slower)|(?:please )?speak(?: more)? (?:slowly|slower)|(?:please )?(?:more )?slowly|slower|slow)\b/g,
 };
 export interface PacketVerdict { status: 'correct' | 'partial' | 'wrong' | 'unknown'; criteria: { goal: string; passed: boolean }[]; message: string }
 function assessNormalizedAnswer(value: string, rule: PacketRule, voice = false): PacketVerdict {
@@ -61,7 +61,7 @@ function assessNormalizedAnswer(value: string, rule: PacketRule, voice = false):
   rest = rest.replace(/\byour name\b/g, ' ').replace(/\bplease\b/g, ' ').trim();
   const introduction = /^(?:i am|my name is) ([\p{L}][\p{L}'-]*(?: [\p{L}][\p{L}'-]*){0,2})$/u.exec(rest);
   const nonNames = new Set(('a an the from in at not very feeling teacher student doctor engineer software ' +
-    'italian azerbaijani english spanish french tired happy sad hungry ready here there years old living live sick fine good well ok okay').split(' '));
+    'busy working bored married excited single divorced sleepy angry nervous thirsty unemployed retired italian azerbaijani english spanish french tired happy sad hungry ready here there years old living live sick fine good well ok okay').split(' '));
   const plausibleName = introduction && introduction[1].split(' ').every(part => !nonNames.has(part));
   if (plausibleName && (!rule.roleName || normalizePacketAnswer(rule.roleName) === introduction[1])) { found.add('introduce'); rest = ''; }
   if (rule.goals.length === 1 && ['greet','farewell','thanks'].includes(rule.goals[0]) && /^(ali|leyla|murad|birfox|aysel|nora|leo|mila|tom)$/.test(rest)) rest = '';

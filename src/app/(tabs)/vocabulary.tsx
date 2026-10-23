@@ -11,6 +11,7 @@ import { useVocabularyStore } from '../../store/vocabularyStore';
 
 export default function VocabularyTab() {
   const router = useRouter();
+  const storageError = useVocabularyStore(s => s.storageError);
   const pages = useVocabularyStore((s) => s.pages);
   const allWords = useVocabularyStore((s) => s.allWords);
   const wrongWords = useVocabularyStore((s) => s.wrongWords);
@@ -56,6 +57,7 @@ export default function VocabularyTab() {
           </TouchableOpacity>
         </View>
 
+        {storageError ? <View><Text style={{ color: '#FFB5A7', marginVertical: 8 }}>{storageError}</Text><TouchableOpacity onPress={() => void useVocabularyStore.getState().saveToStorage().catch(() => {})}><Text style={{ color: '#FFAB38', paddingVertical: 12 }}>Yenidən saxla</Text></TouchableOpacity></View> : null}
         {/* Statistika — 3 KLİKLƏNƏN KART */}
         <View style={styles.statsRow}>
           {/* Ümumi söz */}

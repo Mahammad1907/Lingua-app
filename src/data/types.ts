@@ -45,6 +45,8 @@ export interface VocabularyItem {
   exampleAz: string;
   acceptedAnswers?: string[];
   usageNote?: string;
+  acceptedTranslations?: string[];
+  quizEligible?: boolean;
   imageKey?: string;
   imageEmoji?: string;
 }
@@ -189,4 +191,5 @@ export interface PlacementResult {
   correctCount: number;
   totalCount: number;
   attemptedAt: string;
+  evidence?: import('../utils/lessonEvidence').ExamEvidence;
 }

@@ -21,3 +21,5 @@ export function summarizeEvidence(tasks: readonly { resolved: boolean; evidence?
     return sum;
   }, { written: 0, spoken: 0, listeningIndependent: 0, listeningAssisted: 0, technicalText: 0 });
 }
+
+export interface ExamEvidence { technicalTextIds: string[]; writtenVoiceIds: string[]; pendingRequiredIds: string[] }
