@@ -71,6 +71,7 @@ export interface Exercise {
   optionLangs?: Language[];
   acceptedAnswers?: string[];
   mascotHint?: string;
+  answerRule?: { intent: import('../utils/spokenAnswer').VoiceIntent; roleName?: string };
 }
 
 export type SentenceDictionary = Record<string, string>;
@@ -167,6 +168,25 @@ export interface LessonProgress {
   wrongCount: number;
   xpEarned: number;
   completedAt?: string;
+  evidence?: SessionEvidence;
+}
+
+export interface SkillEvidence {
+  independent: number;
+  assisted: number;
+  skipped: number;
+  total: number;
+  /** Text substituted for unavailable audio; never listening success. */
+  technicalText?: number;
+  /** Subset of technicalText where answer help was also used. */
+  technicalAssisted?: number;
+  /** Spoken responses to a prompt read instead of heard. */
+  technicalPrompts?: number;
+}
+export interface SessionEvidence {
+  written: SkillEvidence;
+  listening: SkillEvidence;
+  speaking: SkillEvidence;
 }
 // ═══════════════════════════════════════
 // PLACEMENT TEST

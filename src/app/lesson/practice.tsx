@@ -22,7 +22,7 @@ import { getLessonActivities } from '../../data/lessonActivities';
 import { completeLessonSession } from '../../utils/lessonCompletion';
 import { Language, Lesson, QuestionWord, TranslationWord } from '../../data/types';
 import { useUserStore } from '../../store/userStore';
-import { isAnswerCorrect } from '../../utils/answerCheck';
+import { checkExerciseAnswer } from '../../utils/sessionAnswer';
 import { playCorrectSound, playWrongSound } from '../../utils/sound';
 import { AnswerLanguage } from '../../utils/wordDatabase';
 
@@ -349,11 +349,7 @@ const speak = useCallback(async (text: string, lang: Language | undefined) => {
     const answerLang: AnswerLanguage =
       exercise.answerLang || lesson.language;
 
-    const correct = isAnswerCorrect(
-      userAnswer,
-      exercise.correctAnswer,
-      answerLang
-    );
+    const correct = checkExerciseAnswer(userAnswer, { ...exercise, answerLang }).correct;
     setIsCorrect(correct);
     setShowResult(true);
 

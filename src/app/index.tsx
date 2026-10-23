@@ -15,10 +15,6 @@ export default function Index() {
   const router = useRouter();
   const [checking, setChecking] = useState(true);
 
-  useEffect(() => {
-    checkOnboarding();
-  }, []);
-
   // Android back düyməsini blokla
   useEffect(() => {
     if (Platform.OS === 'android') {
@@ -30,7 +26,8 @@ export default function Index() {
     }
   }, []);
 
-  const checkOnboarding = async () => {
+  useEffect(() => {
+    const checkOnboarding = async () => {
     try {
       const completed = await AsyncStorage.getItem('onboarding_completed');
       if (completed === 'true') {
@@ -38,10 +35,12 @@ export default function Index() {
       } else {
         setChecking(false);
       }
-    } catch (error) {
+    } catch {
       setChecking(false);
     }
-  };
+    };
+    void checkOnboarding();
+  }, [router]);
 
   const selectLanguage = async (lang: string) => {
     await AsyncStorage.setItem('selected_language', lang);

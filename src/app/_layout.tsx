@@ -14,7 +14,7 @@ export default function RootLayout() {
       checkDailyStreak();
     });
     loadVocab();
-  }, []);
+  }, [loadUser, checkDailyStreak, loadVocab]);
 
   return (
     <>

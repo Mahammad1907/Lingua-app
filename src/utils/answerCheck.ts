@@ -7,6 +7,8 @@ import {
   AnswerLanguage,
   isWordInDatabase,
 } from './wordDatabase';
+import { isSafeEnglishTypo, normalizeApostrophes, oneLetterDifference } from './spelling';
+import { normalizeSpeech } from './spokenAnswer';
 
 // ═══════════════════════════════════════
 // CAVABI TƏMİZLƏ
@@ -16,12 +18,12 @@ import {
 // - Çoxlu boşluqlar təkə çevrilir
 // - Boşluqlar TAM SİLİNMİR (a man ≠ aman)
 // ═══════════════════════════════════════
-function cleanAnswer(text: string): string {
-  return text
-    .toLowerCase()
+function cleanAnswer(text: string, language: AnswerLanguage): string {
+  return (language === 'en' ? normalizeSpeech(text) : normalizeApostrophes(text))
+    .toLocaleLowerCase(language === 'az' ? 'az' : undefined)
     .trim()
     .replace(/\([^)]*\)/g, '')
-    .replace(/[.!?,;:'"]/g, '')
+    .replace(/[.!?,;:"]/g, '')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -59,10 +61,7 @@ export function levenshtein(a: string, b: string): number {
 // SÖZ UZUNLUĞUNA GÖRƏ İCAZƏ VERİLƏN SƏHV
 // ═══════════════════════════════════════
 export function allowedTypos(wordLength: number): number {
-  if (wordLength <= 3) return 0;
-  if (wordLength <= 5) return 1;
-  if (wordLength <= 8) return 2;
-  return 3;
+  return wordLength >= 4 ? 1 : 0;
 }
 
 // ═══════════════════════════════════════
@@ -82,11 +81,8 @@ export function isWordMatch(
     return false;
   }
 
-  const len = Math.max(userLower.length, correctLower.length);
-  const allowed = allowedTypos(len);
-  if (allowed === 0) return false;
-
-  return levenshtein(userLower, correctLower) <= allowed;
+  if (language === 'en') return isSafeEnglishTypo(userLower, correctLower);
+  return correctLower.length >= 4 && userLower.length >= 3 && oneLetterDifference(userLower, correctLower);
 }
 
 // ═══════════════════════════════════════
@@ -98,34 +94,14 @@ export function isAnswerCorrect(
   language: AnswerLanguage,
   acceptedAnswers?: string[]
 ): boolean {
-  const user = cleanAnswer(userAnswer);
-  const correct = cleanAnswer(correctAnswer);
-
-  // ═══ 1) acceptedAnswers yoxla ═══
-  if (acceptedAnswers && acceptedAnswers.length > 0) {
-    const allCorrect = [correctAnswer, ...acceptedAnswers].map(cleanAnswer);
-    if (allCorrect.includes(user)) {
-      return true;
-    }
-  }
-
-  // ═══ 2) Tam uyğunluq ═══
-  if (user === correct) return true;
-
-  // ═══ 3) Boşluq fərqi yoxla (sağol = sağ ol) ═══
-  const userNoSpace = user.replace(/\s+/g, '');
-  const correctNoSpace = correct.replace(/\s+/g, '');
-  if (userNoSpace === correctNoSpace) return true;
-
-  // ═══ 4) Çoxsözlü cavab — söz-söz yoxla ═══
-  const userWords = user.split(' ');
-  const correctWords = correct.split(' ');
-  if (userWords.length !== correctWords.length) return false;
-
-  for (let i = 0; i < userWords.length; i++) {
-    if (!isWordMatch(userWords[i], correctWords[i], language)) {
-      return false;
-    }
-  }
-  return true;
+  const user = cleanAnswer(userAnswer, language);
+  if (!user) return false;
+  return [correctAnswer, ...(acceptedAnswers || [])].some((candidate) => {
+    const correct = cleanAnswer(candidate, language);
+    if (user === correct) return true;
+    // Only this conventional Azerbaijani spelling is explicitly space-insensitive.
+    if (language === 'az' && [user, correct].every((value) => ['sağol', 'sağ ol'].includes(value))) return true;
+    const actualWords = user.split(' '); const expectedWords = correct.split(' ');
+    return actualWords.length === expectedWords.length && actualWords.every((word, i) => isWordMatch(word, expectedWords[i], language));
+  });
 }

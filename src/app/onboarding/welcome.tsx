@@ -14,15 +14,14 @@ export default function Welcome() {
   const [language, setLanguage] = useState('en');
 
   useEffect(() => {
-    loadData();
-  }, []);
-
-  const loadData = async () => {
+    const loadData = async () => {
     const savedLevel = await AsyncStorage.getItem('user_level');
     const savedLang = await AsyncStorage.getItem('selected_language');
     if (savedLevel) setLevel(savedLevel);
     if (savedLang) setLanguage(savedLang);
-  };
+    };
+    void loadData();
+  }, []);
 
   const getLanguageName = () => {
     if (language === 'en') return '🇬🇧 İngilis';
