@@ -54,3 +54,8 @@ Docs: https://docs.expo.dev/eas/index.md
 - Relevant questions may have a small lightbulb hint within the question card. A hint explains the approach without revealing a complete accepted answer.
 - Assessable answers should show correct, partial or incorrect feedback before an explicit continue action. Speech recognition or technical uncertainty is separate from a typed language error.
 - Listening cards use the requested sound effect in place of their 3D scene. Recording waves follow actual microphone input and settle during silence; preserve the agreed speech effect and controls.
+
+## Pending lesson feedback request (24 October 2026)
+
+- The user is collecting the next batch of lesson issues. Keep this request pending while collecting the remaining reports, before changing application code for this batch.
+- Every incorrect answer must show a distinct wrong-answer animation and put that question into the end-of-lesson retry queue. Apply this consistently to all question types: choice, written response, sentence building, listening and assessed speech. Keep the explicit continue action and the existing distinction between a language mistake and technical/recognition uncertainty.
