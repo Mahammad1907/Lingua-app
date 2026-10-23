@@ -47,3 +47,15 @@ Məzmun, cavab açarı, qiymətləndirmə, XP/enerji və imtahan davranışı d�
 ## Yeni dərs arayüzü (2026-10-21)
 
 Yeni 7 dərsin girişləri eyni kitabxana/lövhə səhnəsini istifadə edir. Seçilmiş öyrətmə kartlarında əvvəlki mövzu səhnələri qalır. `written-classroom.webp` əvvəlki təsdiqlənmiş sınaqdan götürülüb; yenidən şəkil yaradılmayıb. Səhnə telefonun ölçüsünə görə kəsiləndə native lövhə mətninin koordinatları da həmin kəsilməyə uyğun hesablanır. Danışıqda maskot şəkli əvəzinə mikrofon və cihazdan gələn səs səviyyələri göstərilir.
+
+## 23 oktyabr 2026 — mövcud personajlarla yeni vəziyyətlər
+
+Əlavə olaraq yalnız üç insan səhnəsi yaradılıb: farewell, name-card, feelings. BirFox və hər iki lövhə yenidən yaradılmayıb. Əvvəlki tanışlıq, təşəkkür, üzr və diqqətlə dinləmə səhnələri saxlanıb. Yeni səhnələrdə yazı yoxdur və şəffaf fon qorunur. Yüksək ölçülü orijinallar ayrıca qorunur; tətbiq üçün digər insan səhnələri kimi 900×600 şəffaf WebP faylları ixrac olunub.
+
+| ID | Öyrətmə kartı | Məqsəd |
+| --- | --- | --- |
+| farewell | Dərs 1, kart 7 | Qapı yanında sağollaşma |
+| name-card | Dərs 2, kart 4; dərs 3, kart 4 | Özünü təqdim etmək və ad soruşmaq |
+| feelings | Dərs 4, kart 5 və 14 | Yaxşı, normal və yaxşı olmayan halı müqayisə etmək |
+
+I am / My name is və my / your müqayisə kartları lövhədə qalır. Yeni səhnələr qiymətləndirilən suallara, imtahana və səhv təkrarlarına verilmir. Bu vizual dəyişiklik cavab yoxlaması, dərs tamamlanması və səs xətalarının həllini əhatə etmir.

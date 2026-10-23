@@ -8,6 +8,9 @@ const sources = {
   gratitude: require('../../../assets/lessons/scenes/gratitude-3d.webp'),
   apology: require('../../../assets/lessons/scenes/apology-3d.webp'),
   clarify: require('../../../assets/lessons/scenes/clarify-3d.webp'),
+  farewell: require('../../../assets/lessons/scenes/farewell-3d.webp'),
+  'name-card': require('../../../assets/lessons/scenes/name-card-3d.webp'),
+  feelings: require('../../../assets/lessons/scenes/feelings-3d.webp'),
 };
 export default function ReusableLessonScene({ name, height }: { name: ReusableSceneId; height?: number }) {
   return <View pointerEvents="none" style={[s.frame, height !== undefined && { height, aspectRatio: undefined, marginBottom: 0 }]}>

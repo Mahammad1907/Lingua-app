@@ -56,3 +56,22 @@ const catalog = JSON.parse(fs.readFileSync(require.resolve('../assets/lessons/sc
 assert.equal(new Set(catalog.map(a => a.id)).size, catalog.length);
 for (const asset of catalog) assert.ok(fs.existsSync(require.resolve('../' + asset.file)), asset.file);
 console.log(`PASS: all 8 presentation modes across 7 lessons; ${listening} listening/review cards; authored translations, keyboard/accessibility layout and reusable assets.`);
+
+const { packetScene } = require('../src/utils/packetScene.ts');
+const newScenes = new Set(['farewell', 'name-card', 'feelings']);
+const placements = [];
+for (const lesson of b1Packet) {
+  for (const card of packetFlow(lesson)) {
+    const scene = packetScene(lesson.order, card);
+    if (newScenes.has(scene)) {
+      assert.equal(card.kind, 'teach', 'new art is limited to teaching');
+      placements.push(`${lesson.order}:${card.number}:${scene}`);
+    }
+    if (['task', 'voice', 'review', 'result'].includes(card.kind)) assert.equal(scene, undefined, 'assessed questions cannot expose a topic answer');
+    assert.equal(packetScene(lesson.order, card, true), undefined, 'reviews keep the board');
+  }
+}
+assert.deepEqual(placements, ['1:7:farewell', '2:4:name-card', '3:4:name-card', '4:5:feelings', '4:14:feelings']);
+assert.equal(packetScene(2, { kind: 'teach', number: 9 }), undefined, 'I am / My name is stays on the board');
+assert.equal(packetScene(3, { kind: 'teach', number: 5 }), undefined, 'my / your stays on the board');
+console.log('PASS: three reused character illustrations in five teaching placements; comparison boards and assessment isolation preserved.');

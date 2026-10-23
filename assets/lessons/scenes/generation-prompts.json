@@ -14,6 +14,62 @@
     {
       "id": "clarify",
       "prompt": "Use case: stylized-concept. Asset: reusable STATIC 3D story illustration for BirTalk language lessons. Landscape3:2. Reference image is character/style reference: keep same friendly young adult man with short dark hair, orange hoodie and same young woman with shoulder length dark brown hair and lavender jacket. High quality feature animation film rendering, expressive brown eyes, tactile fabrics, clear gestures, midnight navy/orange/lavender palette, warm soft lighting and purple rim light. Three-quarter composition with all important hands and props clearly visible, generous safe margin. Genuinely transparent background with no room, no enclosed rectangle, no caption, no lettering or symbols. No fox, no speech bubble text, no flags. Kind adult tone. Scene: The woman and man are in a face-to-face conversation. Woman politely cups ONE hand behind her ear and tilts her head slightly, attentive and friendly, asking to hear more clearly. Man responds calmly with one gentle open-hand conversational gesture, relaxed pace. Neither looks angry or unintelligent. One small muted lavender empty sound-wave sculpture between them is optional, but NO lettering, question mark, arrows or speed labels. Main meaning must be conveyed by human listening gestures. This scene will be reused for asking someone to repeat, listening carefully and speaking more slowly."
+    },
+    {
+      "id": "farewell",
+      "references": [
+        "assets/lessons/conversation-3d.webp",
+        "assets/lessons/scenes/gratitude-3d.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Create ONE reusable static 3D teaching illustration for the BirTalk language-learning app, landscape 3:2. Both supplied images are CHARACTER IDENTITY AND STYLE REFERENCES, not edit targets. Preserve the SAME young adult man with thick swept short dark brown hair, subtle short beard, expressive brown eyes, orange hoodie, dark blue jeans and light sneakers, and SAME young adult woman with shoulder-length wavy brown hair, gold hoop earrings, lavender jacket over a white top, dark blue jeans and lavender/light sneakers. Match their exact face shapes, proportions, tactile clothes, premium feature-animation-film 3D rendering, warm light and subtle purple rim light. NEW SCENE: a clear farewell at a single open wooden doorway. Woman remains just inside on the left, waving goodbye with one hand. Man on the right is visibly LEAVING across the threshold, torso and one foot angled outward, turning his head back toward her and waving goodbye. Both kind and relaxed. The doorway and poses must make departure unambiguous rather than merely meeting. Keep enough separation, full characters, doorway, feet, tails of clothing and waving hands completely within frame with 6% safe margins. Only the doorframe/threshold is needed as a prop. Genuinely TRANSPARENT background, alpha cutout, no full room or colored rectangular backdrop. No fox, no chalkboard, no writing, letters, numbers, labels, logos, UI, border, watermark or speech bubbles. Do not copy the reference's greeting pose or add another character. This asset will be reused only in teaching, never to reveal a graded answer."
+    },
+    {
+      "id": "name-card",
+      "references": [
+        "assets/lessons/conversation-3d.webp",
+        "assets/lessons/scenes/gratitude-3d.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset: ONE reusable static BirTalk teaching illustration, landscape 3:2, genuinely TRANSPARENT background. Inputs are CHARACTER IDENTITY AND RENDERING STYLE REFERENCES, not edit targets. Take ONLY the same young adult WOMAN from these references: shoulder-length voluminous wavy dark brown hair, expressive large brown eyes, same facial proportions and warm skin tone, small gold hoop earrings, lavender/purple casual jacket over white top, dark blue jeans. Keep her exact identity, hairstyle, outfit and premium feature-animation-film 3D material/rendering quality, subtle warm orange light and lavender rim light. New scene: she is facing the viewer with a friendly relaxed smile, holding a single large plain cream name card horizontally at chest level, both hands gently holding its lower side edges. Fingers anatomically natural and outside central writing area; card face fully visible front-on, COMPLETELY EMPTY, smooth matte cream, rounded corners. Her whole hair, shoulders, arms, hands and waist-up/three-quarter body visible, with generous safe margins. Name card occupies about 45% of picture width and 25% of height. This is a name-introduction teaching asset reused in two lessons. NO printed or engraved text, handwriting, letters, numerals, logos, ID photo, decorative marks or symbols on the card. NO fox, man, chalkboard, speech bubbles, badge, UI, room, floor, background rectangle, watermark or border. No changes to the referenced woman's identity, and no new outfit. Transparent cutout with clean edges, not a pale lavender filled background."
+    },
+    {
+      "id": "feelings",
+      "references": [
+        "assets/lessons/conversation-3d.webp",
+        "assets/lessons/scenes/name-card-3d.webp"
+      ],
+      "prompt": "Use case: stylized-concept. ONE reusable static 3D illustration for BirTalk teaching feelings, landscape 3:2 with three equally spaced waist-up portraits on a genuinely TRANSPARENT background. Inputs are CHARACTER IDENTITY AND STYLE REFERENCES: use the SAME young adult WOMAN in the lavender jacket from image 1, whose closer face and clothing appear in image 2. Preserve shoulder-length voluminous wavy dark brown hair, brown eyes, warm skin tone, gold hoop earrings, lavender jacket over white top, exact face shape and premium feature-animation 3D style. Show the SAME woman THREE times, same scale and outfit so the difference is only expression/posture. LEFT: feeling good, upright, relaxed bright open smile and lively eyes. MIDDLE: feeling okay/normal, calm face, mouth closed with only a very slight smile, neutral relaxed eyebrows, ordinary upright posture; visibly less cheerful than the left portrait. RIGHT: not feeling good, slightly slumped shoulders, low-energy heavy eyelids and mildly concerned eyebrows, small downturned mouth, one relaxed hand near upper chest if needed; gently unwell/tired, NOT crying, scared or angry. The three emotional states must be distinct and readable at small mobile size. Keep the complete heads, hair, shoulders and hands inside the image with generous margins and visible transparent gaps between portraits. Consistent warm soft lighting with subtle lavender rim light like the references, tactile clothing. No cards, panels, enclosing shapes, labels, words, symbols, checkmarks, emojis, speech bubbles, numbers, medical props, fox, chalkboard, UI, watermark, border, room or colored background rectangle. No extra person or altered identity. No new outfit or accessories. This single image will be reused to teach positive, neutral and negative feelings without printing an answer in it."
     }
-  ]
+  ],
+  "exports_20261023": {
+    "format": "webp",
+    "quality": 84,
+    "resampling": "Lanczos",
+    "sourceCanvas": [
+      1536,
+      1024
+    ],
+    "files": [
+      {
+        "id": "farewell",
+        "file": "assets/lessons/scenes/farewell-3d.webp",
+        "width": 900,
+        "height": 600,
+        "bytes": 76510
+      },
+      {
+        "id": "name-card",
+        "file": "assets/lessons/scenes/name-card-3d.webp",
+        "width": 900,
+        "height": 600,
+        "bytes": 47578
+      },
+      {
+        "id": "feelings",
+        "file": "assets/lessons/scenes/feelings-3d.webp",
+        "width": 900,
+        "height": 600,
+        "bytes": 106826
+      }
+    ]
+  }
 }

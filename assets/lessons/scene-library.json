@@ -103,5 +103,36 @@
       "blank-board"
     ],
     "description": "İsti kitabxana səhnəsi, BirFox və boş lövhə. Bütün mətn native qatdadır; əvvəlki təsdiqlənmiş şəkil təkrar istifadə olunur."
+  },
+  {
+    "id": "farewell",
+    "file": "assets/lessons/scenes/farewell-3d.webp",
+    "tags": [
+      "farewell",
+      "goodbye",
+      "departure"
+    ],
+    "description": "Mövcud insan personajları qapı yanında sağollaşır; narıncı geyimli kişi çıxır, bənövşəyi geyimli qadın içəridə qalır."
+  },
+  {
+    "id": "name-card",
+    "file": "assets/lessons/scenes/name-card-3d.webp",
+    "tags": [
+      "introduction",
+      "name",
+      "identity"
+    ],
+    "description": "Mövcud bənövşəyi geyimli qadın tam boş ad kartı tutur. Yazı şəkilə daxil deyil."
+  },
+  {
+    "id": "feelings",
+    "file": "assets/lessons/scenes/feelings-3d.webp",
+    "tags": [
+      "feeling",
+      "good",
+      "okay",
+      "unwell"
+    ],
+    "description": "Eyni qadın personajın üç halı: yaxşı, normal, özünü yaxşı hiss etməyən. Yazı və cavab işarələri yoxdur."
   }
 ]
