@@ -59,3 +59,10 @@ Docs: https://docs.expo.dev/eas/index.md
 
 - The user is collecting the next batch of lesson issues. Keep this request pending while collecting the remaining reports, before changing application code for this batch.
 - Every incorrect answer must show a distinct wrong-answer animation and put that question into the end-of-lesson retry queue. Apply this consistently to all question types: choice, written response, sentence building, listening and assessed speech. Keep the explicit continue action and the existing distinction between a language mistake and technical/recognition uncertainty.
+
+## Animation-only implementation scope (24 October 2026)
+
+- The user has now authorized changing the existing lesson animations while preserving the existing screens. The 13-card content revision remains a separate paper design; do not silently replace the current lesson content with it.
+- Preserve all existing layout, dimensions, typography, static colors, artwork, boards, buttons, icons and copy. Animate only the existing text and feedback elements; their settled appearance must match the original. Keep the current speech waveform and recording controls unchanged.
+- Use the same reusable feedback effects across lessons. Limit each effect to 300–600 ms, scale to 1.05 and horizontal text movement to ±3 px. Do not move the entire screen/card, add a character animation or introduce red feedback.
+- Respect reduced motion. Typing and recognition uncertainty must not trigger a correctness effect. Animation completion must never submit an answer, advance a card or alter assessment evidence.

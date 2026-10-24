@@ -1,16 +1,20 @@
 import { useState } from 'react';
-import { Keyboard, Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { Animated, Keyboard, Pressable, StyleSheet, TextInput, View } from 'react-native';
 import type { SpokenAnswer } from '../../utils/speechTurn';
 import LessonVoiceInput from './LessonVoiceInput';
 import { LessonIcon, ink } from './LessonSurface';
+import { useLessonTextMotion, type LessonMotion } from './LessonTextMotion';
 
-export default function WrittenAnswerInput({ value, onChange, onVoiceFinal, disabled, onBusyChange, onFocus, suspended = false }: {
+const AnimatedInput = Animated.createAnimatedComponent(TextInput);
+
+export default function WrittenAnswerInput({ value, onChange, onVoiceFinal, disabled, onBusyChange, onFocus, suspended = false, motionState = 'idle' }: {
   value: string; onChange: (text: string) => void; onVoiceFinal: (answer: SpokenAnswer) => string | null;
-  disabled: boolean; onBusyChange: (busy: boolean) => void; onFocus: () => void; suspended?: boolean;
+  disabled: boolean; onBusyChange: (busy: boolean) => void; onFocus: () => void; suspended?: boolean; motionState?: LessonMotion;
 }) {
   const [voice, setVoice] = useState(false);
+  const motion = useLessonTextMotion(motionState);
   return <View style={s.container}>
-    <View style={s.frame}><LessonIcon name="keyboard" /><TextInput accessibilityLabel="Cavabını ingiliscə yaz" value={value} editable={!disabled && !voice} onFocus={onFocus} onChangeText={onChange} autoCorrect={false} autoCapitalize="none" multiline style={s.input} placeholder="Cavabını yaz və ya de" placeholderTextColor={ink.muted} /><Pressable accessibilityRole="button" accessibilityLabel={voice ? 'Yazılı cavaba qayıt' : 'Cavabını mikrofonla de'} disabled={disabled} onPress={() => { Keyboard.dismiss(); setVoice(v => !v); }} style={s.mic}><LessonIcon name={voice ? 'keyboard' : 'mic'} /></Pressable></View>
+    <View style={s.frame}><LessonIcon name="keyboard" /><AnimatedInput accessibilityLabel="Cavabını ingiliscə yaz" value={value} editable={!disabled && !voice} onFocus={onFocus} onChangeText={onChange} autoCorrect={false} autoCapitalize="none" multiline style={[s.input, motion.transformStyle, motion.active && { color: motion.color(ink.text) }]} placeholder="Cavabını yaz və ya de" placeholderTextColor={ink.muted} /><Pressable accessibilityRole="button" accessibilityLabel={voice ? 'Yazılı cavaba qayıt' : 'Cavabını mikrofonla de'} disabled={disabled} onPress={() => { Keyboard.dismiss(); setVoice(v => !v); }} style={s.mic}><LessonIcon name={voice ? 'keyboard' : 'mic'} /></Pressable></View>
     {voice && !disabled ? <LessonVoiceInput autoStart suspended={suspended} onBusyChange={onBusyChange} onFinal={result => { onChange(result.text); return onVoiceFinal(result); }} /> : null}
   </View>;
 }
