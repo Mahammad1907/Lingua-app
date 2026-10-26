@@ -12,9 +12,9 @@ export default function LessonWelcome({ packet, compact, sceneHeight }: { packet
     <View style={s.label}><Text style={s.labelText}>DƏRS {packet.order}</Text></View>
     <Text accessibilityRole="header" style={[s.title, compact && { fontSize: 28, lineHeight: 34 }]}>{packet.title}</Text>
     <Text style={s.subtitle}>{intro.subtitle}</Text>
-    <View style={s.scene}><ClassroomScene text={intro.board} height={sceneHeight} freshWords={newLessonWords(packet, b1Packet)} welcome /></View>
+    <View style={s.scene}><ClassroomScene text={intro.board} height={sceneHeight} freshWords={newLessonWords(packet, b1Packet)} fit="contain" welcome /></View>
     <Surface accent="violet"><Text style={s.kicker}>BU DƏRSDƏ ÖYRƏNƏCƏKSƏN</Text>
-      {intro.objectives.map((text, index) => <View key={text} style={[s.objective, compact && { paddingVertical: 7 }]}><Text style={s.icon}>{['💬', '👋', '🗨️'][index]}</Text><LessonTextMotion state="reveal" trigger={packet.id} style={s.objectiveText}>{text}</LessonTextMotion></View>)}
+      {intro.objectives.map((text, index) => <View key={text} style={[s.objective, compact && { paddingVertical: 7 }]}>{packet.order === 1 && index === 1 ? <View style={{ width: 29, height: 27 }}><Text style={[s.icon, { position: 'absolute', left: 8, top: 7, fontSize: 19 }]}>💬</Text><Text style={[s.icon, { position: 'absolute', left: 0, top: 0 }]}>💬</Text></View> : <Text style={s.icon}>{(packet.order === 1 ? ['💬', '💬', '👋'] : ['💬', '👋', '🗨️'])[index]}</Text>}<LessonTextMotion state="reveal" trigger={packet.id} style={s.objectiveText}>{text}</LessonTextMotion></View>)}
     </Surface>
     <Text style={s.caption}>Dinlə, məşq et və özün cavab ver.</Text>
   </View>;

@@ -12,6 +12,6 @@ export default function ReusableLessonScene({ name, height }: { name: ReusableSc
   </View>;
 }
 const s = StyleSheet.create({
-  frame: { width: '100%', aspectRatio: 1.5, marginBottom: 14, borderRadius: 22, overflow: 'hidden', backgroundColor: '#141429' },
+  frame: { width: '100%', aspectRatio: 1.5, marginBottom: 14, borderRadius: 22, overflow: 'hidden', backgroundColor: '#090C20' },
   image: { width: '100%', height: '100%' },
 });

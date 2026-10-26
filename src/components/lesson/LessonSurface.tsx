@@ -1,3 +1,4 @@
+import ArtworkFade from './ArtworkFade';
 import LessonImage from './LessonImage';
 import { classroomSource } from '../../utils/lessonAssets';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -39,6 +40,7 @@ export function ClassroomScene({ text, height, welcome = false, fit = 'cover', f
   const board = { left: (width - imageWidth) / 2 + imageWidth * .44, top: (height - imageHeight) / 2 + imageHeight * .24, width: imageWidth * .45, height: imageHeight * .43 };
   return <View onLayout={e => setWidth(e.nativeEvent.layout.width)} style={{ width: '100%', height, overflow: 'hidden', borderRadius: welcome ? 0 : 20 }}><LessonImage source={classroomSource} fit={fit} style={StyleSheet.absoluteFill} />
     <View style={[ui.board, board]}>{!welcome ? <Text numberOfLines={1} style={ui.boardLabel}>BİRFOX İLƏ MƏŞQ</Text> : null}<Text adjustsFontSizeToFit minimumFontScale={.7} numberOfLines={4} style={[ui.boardText, welcome && { fontSize: 35, lineHeight: 43, fontStyle: 'italic', fontFamily: Platform.OS === 'ios' ? 'Georgia' : 'serif' }]}>{freshWords ? vocabularyParts(text, freshWords).map((part, i) => part.fresh ? <Text key={i} style={{ color: ink.orange }}>{part.text}</Text> : part.text) : text}</Text><View style={ui.chalk} /></View>
+    <ArtworkFade />
   </View>;
 }
 // An honest level history: every column is a measured microphone sample, never a timer loop.

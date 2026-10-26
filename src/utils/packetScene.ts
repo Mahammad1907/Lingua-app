@@ -4,7 +4,15 @@ export type ReusableSceneId = 'conversation' | 'gratitude' | 'apology' | 'clarif
 
 // Use topic illustrations sparingly. Assessed questions and mistake reviews keep
 // the board: visual hints must not expose an answer before it is submitted.
-export function packetScene(order: number, card: Pick<PacketCard, 'kind' | 'number'>, reviewing = false): ReusableSceneId | undefined {
+export function packetScene(order: number, card: Pick<PacketCard, 'kind' | 'number'> & Partial<PacketCard>, reviewing = false): ReusableSceneId | undefined {
+  if (card.kind === 'task' && !card.audio && !card.options && !card.words) {
+    const goals = card.rule?.goals || [];
+    if (goals.includes('greet') || goals.includes('askName')) return 'conversation';
+    if (goals.includes('introduce')) return 'name-card';
+    if (goals.includes('farewell')) return 'farewell';
+    if (goals.includes('thanks')) return 'gratitude';
+    if (goals.includes('sorry')) return 'apology';
+  }
   if (reviewing || !['intro', 'teach'].includes(card.kind)) return undefined;
   if (card.kind === 'intro') {
     if ([1, 3, 4].includes(order)) return 'conversation';

@@ -1,7 +1,7 @@
 import type { PacketCard, PacketLesson } from '../data/b1PacketTypes';
 
 const introductions = [
-  { subtitle: 'İlk söhbətinə bir addım.', board: 'Hello!', objectives: ['Salamlaşmaq', 'Sağollaşmaq', 'Vəziyyətə uyğun ifadə seçmək'] },
+  { subtitle: 'İlk söhbətinə bir addım.', board: 'Hello!\nBye!', objectives: ['Salam vermək', 'Salama cavab vermək', 'Sağollaşmaq'] },
   { subtitle: 'Tanışlıq öz adından başlayır.', board: 'My name is…', objectives: ['Adını demək', 'Özünü təqdim etmək', 'Sadə təqdimat cümləsi qurmaq'] },
   { subtitle: 'Söhbəti bir sualla davam etdir.', board: 'Your name?', objectives: ['Qarşı tərəfin adını soruşmaq', 'Ad sualına cavab vermək', 'Tanışlığa qarşılıq vermək'] },
   { subtitle: 'Bir-birinizin halını soruşun.', board: 'How are you?', objectives: ['Hal-əhval soruşmaq', 'Öz halını bildirmək', 'Söhbəti qarşılıqlı davam etdirmək'] },
@@ -47,6 +47,7 @@ export function lessonCorrection(card: PacketCard, answer: string, verdict: { st
   if (rule?.goals?.includes('attention') && /sorry/i.test(answer)) return 'Burada söhbətə başlamazdan əvvəl diqqət çəkmək lazımdır. Bu vəziyyət üçün öyrəndiyimiz ifadə Excuse me-dir.';
   if (rule?.goals?.includes('farewell') && /\b(hi|hello|hey)\b/i.test(answer)) return 'Hi və Hello salamlaşmaq üçündür. Görüş bitəndə Goodbye və ya Bye deyirik.';
   if (rule?.goals?.includes('greet') && /\b(goodbye|bye)\b/i.test(answer)) return 'Goodbye və Bye sağollaşmaq üçündür. Söhbət başlayanda Hello və ya Hi deyirik.';
+  if (card.kind === 'voice' && /Yazılışı/.test(verdict.message)) return 'Bu cavab danışıq növbəsində istənən məqsədi tamamlamır. Uyğun ifadə ilə səslə cavab vermək lazımdır.';
   if (verdict.status === 'partial') return `${verdict.message}${card.explanation ? ` ${card.explanation}` : ''}`;
   return [verdict.message, card.explanation].filter(Boolean).join(' ');
 }

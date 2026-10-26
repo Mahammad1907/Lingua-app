@@ -1,6 +1,7 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { lessonTheme as t } from '../../constants/lessonTheme';
 import type { DayScene, LessonArtworkKind } from '../../utils/lessonArtwork';
+import LessonImage from './LessonImage';
 import { ChapterArtwork } from '../chapter/ChapterArtwork';
 import { HomeArtwork } from '../home/HomeArtwork';
 
@@ -13,12 +14,12 @@ const art = {
 };
 
 export function DaySceneArtwork({ scene }: { scene: DayScene }) {
-  return <Image source={art[scene]} resizeMode="contain" accessible={false} style={s.dayImage} />;
+  return <LessonImage canvasColor={t.background} source={art[scene]} style={s.dayImage} />;
 }
 
 export function TeacherBoard3D({ text, correction = false }: { text: string; correction?: boolean }) {
   return <View style={s.board}>
-    <Image source={art.board} resizeMode="contain" accessible={false} style={s.image} />
+    <LessonImage canvasColor={t.background} source={art.board} style={s.image} />
     <View style={s.writing}>
       <Text style={[s.boardLabel, correction && { color: '#FFD39A' }]} maxFontSizeMultiplier={1.3}>{correction ? 'SƏHVİ TAP' : 'BİRFOX İLƏ MƏŞQ'}</Text>
       <Text style={[s.chalk, text.length > 40 && s.smallChalk]} maxFontSizeMultiplier={1.3} adjustsFontSizeToFit minimumFontScale={0.8} numberOfLines={4}>{text}</Text>
@@ -32,7 +33,7 @@ export default function LessonArtwork3D({ kind, boardText = '', correction = fal
 }) {
   if (kind === 'board') return <TeacherBoard3D text={boardText} correction={correction} />;
   if (kind === 'conversation') return <View style={s.conversation}>
-    <Image source={art.conversation} accessible={false} resizeMode="contain" style={s.image} />
+    <LessonImage canvasColor={t.background} source={art.conversation} style={s.image} />
     <Text style={s.caption}>Dinlə və söhbətə qoşul</Text>
   </View>;
   if (kind === 'listening') return <View style={s.listenCard}>

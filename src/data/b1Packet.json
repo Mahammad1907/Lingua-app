@@ -51,17 +51,19 @@
           "title": "Dinlə və mənanı tanı",
           "kind": "task",
           "source": "BirTalk_A1_B1_D1_Salamlasma.md#Kart 03",
-          "body": "Qonşunla qarşılaşdın. İngiliscə salam yaz.",
+          "body": "Yeni bir görüşdə səsi dinlə. İfadənin mənasını seç.",
           "rule": {
             "answers": [
-              "Hello!",
-              "Hi!"
+              "Salam!"
             ],
-            "goals": [
-              "greet"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: Hello!"
+          "explanation": "Hi salamlaşmaq üçündür; bu səsdə salam verilir.",
+          "audio": "Hi!",
+          "options": [
+            "Sağ ol!",
+            "Salam!"
+          ]
         }
       },
       {
@@ -85,15 +87,15 @@
           "title": "Eşitdiyini yaz",
           "kind": "task",
           "source": "BirTalk_A1_B1_D1_Salamlasma.md#Kart 04",
-          "body": "Dinlə və eşitdiyin sözü yaz.",
+          "body": "Başqa bir səsi dinlə və eşitdiyin sözü yaz.",
           "rule": {
             "answers": [
-              "Hi"
+              "Hello"
             ],
             "exact": true
           },
-          "explanation": "Nümunə: Hi",
-          "audio": "Hi!"
+          "explanation": "Səsdə Hello deyilir. Burada eşitdiyin sözü yazmaq lazımdır.",
+          "audio": "Hello!"
         }
       },
       {
@@ -219,17 +221,19 @@
           "title": "Dinlə və mənanı tanı",
           "kind": "task",
           "source": "BirTalk_A1_B1_D1_Salamlasma.md#Kart 08",
-          "body": "Qonağın evdən gedir. Onunla ingiliscə sağollaş.",
+          "body": "Başqa bir görüşün sonunda səsi dinlə. İfadənin mənasını seç.",
           "rule": {
             "answers": [
-              "Goodbye!",
-              "Bye!"
+              "Sağ ol!"
             ],
-            "goals": [
-              "farewell"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: Goodbye!"
+          "explanation": "Bye burada sağollaşmaq üçündür.",
+          "audio": "Bye!",
+          "options": [
+            "Salam!",
+            "Sağ ol!"
+          ]
         }
       },
       {
@@ -256,17 +260,17 @@
           "title": "BirFox-un səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D1_Salamlasma.md#Kart 09",
-          "body": "BirFox görüşə yeni gəlir, amma Bye deyir. Salamını düzəlt.",
+          "body": "BirFox qonaqlıqdan gedir, amma “Hi!” deyir. Onun yerinə uyğun sağollaşma yaz.",
           "rule": {
             "answers": [
-              "Hello!",
-              "Hi!"
+              "Goodbye!",
+              "Bye!"
             ],
             "goals": [
-              "greet"
+              "farewell"
             ]
           },
-          "explanation": "Nümunə: Hello!"
+          "explanation": "BirFox gedir. Hello və Hi əvəzinə görüşü bitirən Goodbye və ya Bye lazımdır."
         }
       },
       {
@@ -457,7 +461,8 @@
     "audioMeanings": {
       "Hello!": "Salam",
       "Hi!": "Salam",
-      "Goodbye!": "Sağ ol / sağ olun"
+      "Goodbye!": "Sağ ol / sağ olun",
+      "Bye!": "Sağ ol!"
     }
   },
   {
@@ -534,17 +539,18 @@
           "title": "Başlanğıc təkrarı: sağollaşma",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 03",
-          "body": "Tanışın Goodbye deyir. Cavab yaz.",
+          "body": "Başqa bir görüşdə:\nTanışın gedir.\nSağollaşmaq üçün ifadəni seç.",
           "rule": {
             "answers": [
-              "Bye!",
-              "Goodbye!"
+              "Bye!"
             ],
-            "goals": [
-              "farewell"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: Bye!"
+          "explanation": "Nümunə: Bye!",
+          "options": [
+            "Hello!",
+            "Bye!"
+          ]
         }
       },
       {
@@ -585,15 +591,19 @@
           "title": "Dinlə və adı tap",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 05",
-          "body": "Dinlə. Danışanın adını yaz.",
+          "body": "Başqa bir danışanı dinlə. Onun adını seç.",
           "rule": {
             "answers": [
               "Murad"
             ],
             "exact": true
           },
-          "explanation": "Nümunə: Murad",
-          "audio": "Hello. I’m Murad."
+          "explanation": "Səsdə Murad öz adını deyir; Ali başqa addır.",
+          "audio": "Hello. I’m Murad.",
+          "options": [
+            "Ali",
+            "Murad"
+          ]
         }
       },
       {
@@ -754,14 +764,18 @@
           "title": "Oxu və mənanı seç",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 10",
-          "body": "Oxu və adı yaz: My name is Murad.",
+          "body": "My name is Murad.\nCümlənin mənasını seç.",
           "rule": {
             "answers": [
-              "Murad"
+              "Mənim adım Muraddır."
             ],
             "exact": true
           },
-          "explanation": "Nümunə: Murad"
+          "explanation": "My name is Murad cümləsi danışanın öz adını bildirdiyini göstərir.",
+          "options": [
+            "Salam, Murad!",
+            "Mənim adım Muraddır."
+          ]
         }
       },
       {
@@ -1256,15 +1270,19 @@
           "title": "Başlanğıc təkrarı: adı anla",
           "kind": "task",
           "source": "BirTalk_A1_B1_D3_Ad_sorusmaq.md#Kart 03",
-          "body": "Dinlə. Danışanın adını yaz.",
+          "body": "Başqa bir danışanı dinlə. Onun adını seç.",
           "rule": {
             "answers": [
               "Murad"
             ],
             "exact": true
           },
-          "explanation": "Nümunə: Murad",
-          "audio": "Hi. I’m Murad."
+          "explanation": "Səsdə Murad öz adını deyir; Ali başqa addır.",
+          "audio": "Hi. I’m Murad.",
+          "options": [
+            "Ali",
+            "Murad"
+          ]
         }
       },
       {
@@ -1318,16 +1336,19 @@
           "title": "Dinlə və mənanı seç",
           "kind": "task",
           "source": "BirTalk_A1_B1_D3_Ad_sorusmaq.md#Kart 06",
-          "body": "Qarşı tərəfin adını öyrənmək üçün sual yaz.",
+          "body": "Başqa bir görüşdə səsi dinlə və mənasına uyğun cavabı seç.",
           "rule": {
             "answers": [
-              "What’s your name?"
+              "Adın nədir?"
             ],
-            "goals": [
-              "askName"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: What’s your name?"
+          "explanation": "Nümunə: What’s your name?",
+          "audio": "What is your name?",
+          "options": [
+            "Mənim adım Əlidir.",
+            "Adın nədir?"
+          ]
         }
       },
       {
@@ -2004,7 +2025,8 @@
       "Nice to meet you.": "Səninlə/Sizinlə tanış olduğuma şadam",
       "I’m BirFox. Nice to meet you.": "Mən BirFoxam. Tanış olduğuma şadam.",
       "Goodbye!": "Sağ ol / sağ olun",
-      "What’s your name?": "Sənin adın nədir?"
+      "What’s your name?": "Sənin adın nədir?",
+      "What is your name?": "Adın nədir?"
     }
   },
   {
@@ -2143,16 +2165,19 @@
           "title": "əsas tapşırıq — dinlə və seç",
           "kind": "task",
           "source": "BirTalk_A1_B1_D4_Hal_ehval.md#Kart 06",
-          "body": "Dostunun halını öyrənmək üçün sual yaz.",
+          "body": "Başqa bir görüşdə səsi dinlə və mənasına uyğun cavabı seç.",
           "rule": {
             "answers": [
-              "How are you?"
+              "Necəsən?"
             ],
-            "goals": [
-              "askFeeling"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: How are you?"
+          "explanation": "Nümunə: How are you?",
+          "audio": "How are you?",
+          "options": [
+            "Adın nədir?",
+            "Necəsən?"
+          ]
         }
       },
       {
@@ -2179,16 +2204,18 @@
           "title": "əsas tapşırıq — cümlə qur",
           "kind": "task",
           "source": "BirTalk_A1_B1_D4_Hal_ehval.md#Kart 07",
-          "body": "Yaxşısan. Boşluğu tamamla: I’m ___.",
+          "body": "Yeni bir vəziyyətdə eyni məqsədi ifadə et. Verilən hissələri düzgün sıraya düz.\nYaxşı olduğunu de. Sözləri düzgün sıraya düz.",
           "rule": {
             "answers": [
-              "fine",
-              "well",
-              "good"
+              "I’m fine."
             ],
             "exact": true
           },
-          "explanation": "Nümunə: fine"
+          "explanation": "Nümunə: fine",
+          "words": [
+            "I’m",
+            "fine"
+          ]
         }
       },
       {
@@ -2211,16 +2238,14 @@
           "title": "əsas tapşırıq — yazaraq tamamla",
           "kind": "task",
           "source": "BirTalk_A1_B1_D4_Hal_ehval.md#Kart 08",
-          "body": "Tanışının halını soruşan sualı bütöv yaz.",
+          "body": "Qonağının halını soruşursan. Çatışmayan sözü yaz: How ___ you?",
           "rule": {
             "answers": [
-              "How are you?"
+              "are"
             ],
-            "goals": [
-              "askFeeling"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: How are you?"
+          "explanation": "You ilə bu sualda are işlənir: How are you?"
         }
       },
       {
@@ -2306,17 +2331,18 @@
           "title": "əsas tapşırıq — dialoq",
           "kind": "task",
           "source": "BirTalk_A1_B1_D4_Hal_ehval.md#Kart 11",
-          "body": "Qonşun How are you? deyir. Halını de və onun da halını soruş.",
+          "body": "Başqa bir görüşdə:\nHow are you?\nYaxşı olduğunu bildir və onun da halını soruşan cavabı seç.",
           "rule": {
             "answers": [
               "I’m fine. And you?"
             ],
-            "goals": [
-              "feeling",
-              "askFeeling"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: I’m fine. And you?"
+          "explanation": "Nümunə: I’m fine. And you?",
+          "options": [
+            "I’m fine. And you?",
+            "I’m fine."
+          ]
         }
       },
       {
@@ -2939,17 +2965,19 @@
           "title": "əsas tapşırıq — dinlə və seç",
           "kind": "task",
           "source": "BirTalk_A1_B1_D5_Nezaket.md#Kart 05",
-          "body": "Bir tanışın sənə kiçik kömək etdi. İngiliscə təşəkkür yaz.",
+          "body": "Başqa bir görüşdə səsi dinlə və mənasına uyğun cavabı seç.",
           "rule": {
             "answers": [
-              "Thank you.",
-              "Thanks."
+              "Təşəkkür."
             ],
-            "goals": [
-              "thanks"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: Thank you."
+          "explanation": "Nümunə: Thank you.",
+          "audio": "Thank you.",
+          "options": [
+            "Təşəkkür.",
+            "Ad soruşmaq."
+          ]
         }
       },
       {
@@ -2976,17 +3004,18 @@
           "title": "əsas tapşırıq — dialoqda seç",
           "kind": "task",
           "source": "BirTalk_A1_B1_D5_Nezaket.md#Kart 06",
-          "body": "Qarşı tərəf Thank you deyir. Dəyməz mənalı cavab yaz.",
+          "body": "Başqa bir görüşdə:\nThanks!\nOnun təşəkkürünə cavab ver.",
           "rule": {
             "answers": [
-              "You’re welcome.",
-              "No problem."
+              "You’re welcome."
             ],
-            "goals": [
-              "welcome"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: You’re welcome."
+          "explanation": "Nümunə: You’re welcome.",
+          "options": [
+            "Bye!",
+            "You’re welcome."
+          ]
         }
       },
       {
@@ -3112,14 +3141,20 @@
           "title": "əsas tapşırıq — ifadə qur",
           "kind": "task",
           "source": "BirTalk_A1_B1_D5_Nezaket.md#Kart 10",
-          "body": "Nəzakətli xahişdə çatışmayan sözü yaz: Your name, ___.",
+          "body": "Yeni bir vəziyyətdə eyni məqsədi ifadə et. Verilən hissələri düzgün sıraya düz.\nAdı nəzakətlə istə. Sözləri sıraya düz.",
           "rule": {
             "answers": [
-              "please"
+              "Your name please",
+              "Please, your name."
             ],
             "exact": true
           },
-          "explanation": "Nümunə: please"
+          "explanation": "Nümunə: please",
+          "words": [
+            "name",
+            "Your",
+            "please"
+          ]
         }
       },
       {
@@ -3267,16 +3302,18 @@
           "title": "əsas tapşırıq — uyğun ifadəni seç",
           "kind": "task",
           "source": "BirTalk_A1_B1_D5_Nezaket.md#Kart 16",
-          "body": "Birindən adını soruşmazdan əvvəl diqqətini çəkmək istəyirsən. Qısa ifadə yaz.",
+          "body": "Başqa bir görüşdə:\nQarşındakı şəxsin diqqətini nəzakətlə çəkmək istəyirsən.",
           "rule": {
             "answers": [
               "Excuse me."
             ],
-            "goals": [
-              "attention"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: Excuse me."
+          "explanation": "Nümunə: Excuse me.",
+          "options": [
+            "You’re welcome.",
+            "Excuse me."
+          ]
         }
       },
       {
@@ -3343,7 +3380,7 @@
           "title": "əsas tapşırıq — dinlə və cavab yaz",
           "kind": "task",
           "source": "BirTalk_A1_B1_D5_Nezaket.md#Kart 18",
-          "body": "Bir tanışın Sorry deyir. Eybi olmadığını bildirən cavab yaz.",
+          "body": "Başqa bir görüşdə səsi dinlə və uyğun cavab yaz.",
           "rule": {
             "answers": [
               "No problem.",
@@ -3354,7 +3391,8 @@
               "noProblem"
             ]
           },
-          "explanation": "Nümunə: No problem."
+          "explanation": "Nümunə: No problem.",
+          "audio": "I’m sorry."
         }
       },
       {
@@ -3697,7 +3735,7 @@
           "title": "başlanğıc təkrarı",
           "kind": "task",
           "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 03",
-          "body": "Bir qonaq Thanks deyir. Dəyməz mənalı cavab yaz.",
+          "body": "Başqa bir görüşdə səsi dinlə və uyğun cavab yaz.",
           "rule": {
             "answers": [
               "You’re welcome.",
@@ -3708,7 +3746,8 @@
               "welcome"
             ]
           },
-          "explanation": "Nümunə: You’re welcome."
+          "explanation": "Nümunə: You’re welcome.",
+          "audio": "Thanks!"
         }
       },
       {
@@ -3749,16 +3788,19 @@
           "title": "əsas tapşırıq — dinlə və seç",
           "kind": "task",
           "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 05",
-          "body": "Qarşı tərəfin dediyini anlamırsan. Bunu ingiliscə bildir.",
+          "body": "Başqa bir görüşdə səsi dinlə və mənasına uyğun cavabı seç.",
           "rule": {
             "answers": [
-              "I don’t understand."
+              "Başa düşmürəm."
             ],
-            "goals": [
-              "dontUnderstand"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: I don’t understand."
+          "explanation": "Nümunə: I don’t understand.",
+          "audio": "I do not understand.",
+          "options": [
+            "Başa düşmürəm.",
+            "Yaxşıyam."
+          ]
         }
       },
       {
@@ -3840,16 +3882,24 @@
           "title": "əsas tapşırıq — ifadə qur",
           "kind": "task",
           "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 08",
-          "body": "Təkrar istəmək üçün qısa və ya uzun ifadə yaz.",
+          "body": "Yeni bir vəziyyətdə eyni məqsədi ifadə et. Verilən hissələri düzgün sıraya düz.\nDeyiləni təkrar etməsini istə. Hissələri düzgün sıraya düz.",
           "rule": {
             "answers": [
-              "Again, please."
+              "Could you say that again please",
+              "Could you please say that again?",
+              "Please, could you say that again?"
             ],
-            "goals": [
-              "repeat"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: Again, please."
+          "explanation": "Nümunə: Again, please.",
+          "words": [
+            "say",
+            "that",
+            "you",
+            "please",
+            "Could",
+            "again"
+          ]
         }
       },
       {
@@ -3919,16 +3969,14 @@
           "title": "əsas tapşırıq — boşluğu yaz",
           "kind": "task",
           "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 10",
-          "body": "Qonşundan dediyini bir də deməsini istə. Tam ifadə yaz.",
+          "body": "Başqa bir danışandan təkrar istəyirsən. Çatışmayan sözü yaz: Could you say that ___, please?",
           "rule": {
             "answers": [
-              "Could you say that again, please?"
+              "again"
             ],
-            "goals": [
-              "repeat"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: Could you say that again, please?"
+          "explanation": "Again deyiləni yenidən eşitmək istədiyini bildirir."
         }
       },
       {
@@ -4054,16 +4102,19 @@
           "title": "əsas tapşırıq — dinlə və məqsədi seç",
           "kind": "task",
           "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 14",
-          "body": "Qarşı tərəf çox sürətli danışır. Daha yavaş deməsini istə.",
+          "body": "Başqa bir görüşdə səsi dinlə və mənasına uyğun cavabı seç.",
           "rule": {
             "answers": [
-              "More slowly, please."
+              "Daha yavaş danışılmasını."
             ],
-            "goals": [
-              "slow"
-            ]
+            "exact": true
           },
-          "explanation": "Nümunə: More slowly, please."
+          "explanation": "Nümunə: More slowly, please.",
+          "audio": "More slowly, please.",
+          "options": [
+            "Qarşı tərəfin adını.",
+            "Daha yavaş danışılmasını."
+          ]
         }
       },
       {
@@ -4127,15 +4178,18 @@
           "title": "əsas tapşırıq — qısa dialoqu oxu",
           "kind": "task",
           "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 16",
-          "body": "Oxu: A: I’m Murad. B: Again, please. A: I’m Murad. Nə təkrar olundu?",
+          "body": "Oxu:\nA: I’m Murad.\nB: Again, please.\nA: I’m Murad.\nCümlə niyə ikinci dəfə deyildi?",
           "rule": {
             "answers": [
-              "Ad təqdimatı",
-              "I’m Murad."
+              "B təkrar istədi."
             ],
             "exact": true
           },
-          "explanation": "Nümunə: Ad təqdimatı"
+          "explanation": "B Again, please deyərək təkrar istəyir. Buna görə A cümləni yenidən deyir.",
+          "options": [
+            "B təkrar istədi.",
+            "A adını unutdu."
+          ]
         }
       },
       {
@@ -4405,7 +4459,9 @@
       "How are you?": "Necəsən? / Necəsiniz?",
       "My name is BirFox.": "Mənim adım BirFoxdur.",
       "Thank you!": "Təşəkkür edirəm.",
-      "More slowly, please.": "Daha yavaş, zəhmət olmasa."
+      "More slowly, please.": "Daha yavaş, zəhmət olmasa.",
+      "Thanks!": "Təşəkkür!",
+      "I do not understand.": "Başa düşmürəm."
     }
   },
   {

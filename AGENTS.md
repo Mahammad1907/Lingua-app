@@ -66,3 +66,11 @@ Docs: https://docs.expo.dev/eas/index.md
 - Preserve all existing layout, dimensions, typography, static colors, artwork, boards, buttons, icons and copy. Animate only the existing text and feedback elements; their settled appearance must match the original. Keep the current speech waveform and recording controls unchanged.
 - Use the same reusable feedback effects across lessons. Limit each effect to 300–600 ms, scale to 1.05 and horizontal text movement to ±3 px. Do not move the entire screen/card, add a character animation or introduce red feedback.
 - Respect reduced motion. Typing and recognition uncertainty must not trigger a correctness effect. Animation completion must never submit an answer, advance a card or alter assessment evidence.
+
+## Authorized lesson feedback batch 26 October 2026
+
+- Implement the collected eight fixes while keeping the original screen style. The user now authorizes contextual existing illustrations, feathered edges on lesson art, corrected introduction goals and spacing, orange/purple waveform colors, and a refined success effect.
+- A confirmed verdict locks every response type, including a wrong retry. Show feedback, then explicit Continue. Unknown/technical responses can retry or continue as Unverified. Never loop a wrong retry.
+- All confirmed mistakes queue a modality- and purpose-preserving retry after the main lesson. Keep skip, technical uncertainty, and accepted typos out of that queue. Remove the previous-question/answer/explanation block from retries.
+- Preserve original first-attempt evidence. Same-lesson correction is Assisted; unresolved retry is Needs practice. Later unprompted rechecks are recorded separately.
+- Do not replace the existing lesson flow with the separate 13-card paper lesson or edit the SDK/package files in this batch; the user upgraded their Windows installation separately.

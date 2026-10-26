@@ -162,7 +162,7 @@ test('regression: the same primary button ignores a second rapid tap', async () 
  await act(async () => fireEvent.press(button));
  expect(Number([screen.getByText(/^\d+\/\d+$/).props.children].flat().join('').split('/')[0])).toBe(before);
 });
-test('regression: re-entering the same wrong answer retains feedback', async () => {
+test('wrong listening retry is locked, can continue, and never exposes the previous-answer block', async () => {
  const packet=b1Packet[0];
  await start(packet); await press('Davam et'); await listen(); await press('Sağ ol!'); await press('Yoxla'); await press('Davam et');
  for(const card of packetFlow(packet).filter(c=>c.number>3&&!['review','result'].includes(c.kind))){
@@ -171,12 +171,96 @@ test('regression: re-entering the same wrong answer retains feedback', async () 
   else await answerCard(card);
  }
  expect(screen.getByText('BİR DƏ MƏŞQ ET',{exact:true})).toBeOnTheScreen();
- await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'hjj'));
- await press('Yoxla');expect(screen.getByText('Bu dəfə alınmadı',{exact:true})).toBeOnTheScreen();
- await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'hjjx'));
- await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'hjj'));
- await press('Yoxla');expect(screen.getByText('Bu dəfə alınmadı',{exact:true})).toBeOnTheScreen();
+ expect(screen.queryByText('ƏVVƏLKİ TAPŞIRIQ')).not.toBeOnTheScreen();
+ expect(screen.queryByText(/Əvvəlki cavabın izahı/)).not.toBeOnTheScreen();
+ await listen(); await press('Sağ ol!'); await press('Yoxla');
+ expect(screen.getByText('Bu dəfə alınmadı',{exact:true})).toBeOnTheScreen();
+ expect(screen.getByRole('radio',{name:'Salam!'})).toBeDisabled();
+ await press('Salam!');
+ expect(screen.getByRole('radio',{name:'Sağ ol!'})).toBeSelected();
+ await press('Davam et'); await press('Nəticəni saxla');
+ const progress=useUserStore.getState().lessonProgress[0];
+ expect(progress.practiceNeeds).toContain(packet.cards.find(c=>c.number===3).id);
+ expect(progress.completed).toBe(true);
 });
+
+async function wrongCard(card) {
+ if(card.audio || card.turns?.[0]?.audio) await listen();
+ if(card.kind==='voice') {
+  let response;
+  await act(async()=>{ response=mockVoice.onFinal({text:'Hello. Bye.',edited:false,token:`wrong:${card.id}:${Date.now()}`}); });
+  expect(response).toBeNull();
+ } else {
+  if(card.options) await press(card.options.find(a=>!card.rule.answers.some(b=>normalizePacketAnswer(a)===normalizePacketAnswer(b))));
+  else if(card.words) await press(card.words[0]);
+  else await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'bsbsj'));
+  await press('Yoxla');
+ }
+ expect(screen.getByText('Davam et',{exact:true})).toBeOnTheScreen();
+ if(card.kind==='voice') expect(screen.queryByText('Göndər',{exact:true})).not.toBeOnTheScreen();
+ else if(card.options) card.options.forEach(a=>expect(screen.getByRole('radio',{name:a})).toBeDisabled());
+ else if(!card.words) expect(screen.getByLabelText('Cavabını ingiliscə yaz')).toBeDisabled();
+ await press('Davam et');
+}
+
+test.each(b1Packet.map(p=>[p.order,p]))('lesson %s: every wrong type reaches a bounded retry, with no invented success',async(_,packet)=>{
+ await start(packet);
+ const tasks=[];
+ for(const card of packetFlow(packet).filter(c=>!['intro','review','result'].includes(c.kind))) {
+  if(card.kind==='teach') await press('Davam et');
+  else { tasks.push(card); await wrongCard(card); }
+ }
+ for(const card of tasks) {
+  expect(screen.getByText('BİR DƏ MƏŞQ ET',{exact:true})).toBeOnTheScreen();
+  await wrongCard(card.review || card);
+ }
+ expect(screen.queryByText('BİR DƏ MƏŞQ ET',{exact:true})).not.toBeOnTheScreen();
+ await press('Nəticəni saxla');
+ const progress=useUserStore.getState().lessonProgress[0];
+ expect(progress.completed).toBe(true);expect(progress.correctCount).toBe(0);
+ expect(progress.evidence.spoken).toBe(0);expect(progress.evidence.written).toBe(0);
+ expect(progress.practiceNeeds.length).toBe(tasks.length);
+});
+
+test('unknown speech can explicitly continue unverified and never queues a mistake',async()=>{
+ const packet=b1Packet[0]; const card=await reach(packet,6); await listen();
+ let response;
+ await act(async()=>{response=mockVoice.onFinal({text:'heah',edited:false,token:'unknown'});});
+ expect(response).toMatch(/tanınmadı/);
+ expect(screen.queryByText('Bu dəfə alınmadı',{exact:true})).not.toBeOnTheScreen();
+ await press('Yoxlanmadı ilə davam et');
+ for(const next of packetFlow(packet).filter(c=>c.number>6&&!['review','result'].includes(c.kind))) {
+  if(next.kind==='teach')await press('Davam et');else if(next.kind==='voice')await back();else await answerCard(next);
+ }
+ expect(screen.queryByText('BİR DƏ MƏŞQ ET',{exact:true})).not.toBeOnTheScreen();
+ await press('Nəticəni saxla');
+ expect(useUserStore.getState().completedLessons).toContain(packet.id);
+ expect(useUserStore.getState().lessonProgress[0].practiceNeeds).toEqual([]);
+});
+
+test('same-lesson correction is assisted; a later model-free recheck records independent evidence separately',async()=>{
+ const packet=b1Packet[0];await start(packet);await press('Davam et');await listen();await press('Sağ ol!');await press('Yoxla');await press('Davam et');
+ for(const card of packetFlow(packet).filter(c=>c.number>3&&!['review','result'].includes(c.kind))) {
+  if(card.kind==='teach')await press('Davam et');else if(card.kind==='voice')await back();else await answerCard(card);
+ }
+ const original=packet.cards.find(c=>c.number===3);
+ await answerCard(original.review);await press('Nəticəni saxla');
+ expect(useUserStore.getState().lessonProgress[0].practiceNeeds).toContain(original.id);
+ await cleanup();
+ const next=b1Packet[1];await start(next);
+ const {lessonRecall,withLessonRecall}=require('../src/utils/lessonReview');
+ const recall=lessonRecall(next,b1Packet,useUserStore.getState().lessonProgress);
+ expect(recall).toBeDefined();
+ const flow=withLessonRecall(packetFlow(next).filter(c=>c.kind!=='review'),recall);
+ expect(flow.indexOf(recall)).toBeGreaterThan(3);
+ for(const card of flow.filter(c=>!['intro','review','result'].includes(c.kind))) {
+  if(card.kind==='teach')await press('Davam et');else if(card.kind==='voice')await back();else await answerCard(card);
+ }
+ await press('Nəticəni saxla');
+ const progress=useUserStore.getState().lessonProgress.find(p=>p.lessonId===next.id);
+ expect(progress.rechecks).toContainEqual({sourceLessonId:packet.id,taskId:original.id,status:'independent'});
+});
+
 jest.mock('../src/components/RecognizedVoiceComposer', () => () => null);
 jest.mock('../src/components/lesson/LessonArtwork3D', () => () => null);
 test('regression: exam audio error opens an explicitly labeled text prompt', async () => {
@@ -219,4 +303,37 @@ test.each(['native','technical','edited'])('full exam: %s evidence controls the 
  expect(useUserStore.getState().xp).toBe(mode==='native'?50:0);
  if(mode==='native')expect(screen.getByText('Bölmə üzrə keçid',{exact:true})).toBeOnTheScreen();
  else{expect(screen.getByText('Keçid üçün yoxlama tamamlanmayıb',{exact:true})).toBeOnTheScreen();expect(result.evidence.pendingRequiredIds.length).toBeGreaterThan(0);}
+});
+
+
+test('accepted one-letter typo never creates a mistake retry',async()=>{
+ const packet=b1Packet[0];await reach(packet,5);
+ await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'Helloo'));
+ await press('Yoxla');expect(screen.getByText('Düzdür!',{exact:true})).toBeOnTheScreen();await press('Davam et');
+ for(const c of packetFlow(packet).filter(c=>c.number>5&&!['review','result'].includes(c.kind))){
+  if(c.kind==='teach')await press('Davam et');else if(c.kind==='voice')await back();else await answerCard(c);
+ }
+ expect(screen.queryByText('BİR DƏ MƏŞQ ET',{exact:true})).not.toBeOnTheScreen();
+});
+test('edited text cannot be used as a speaking verdict in an optional voice card',async()=>{
+ await reach(b1Packet[0],6);await listen();let message;
+ await act(async()=>{message=mockVoice.onFinal({text:'heah',edited:true,token:'typed-heah'});});
+ expect(message).toMatch(/yenidən səslə/);
+ expect(screen.queryByText('Bu dəfə alınmadı',{exact:true})).not.toBeOnTheScreen();
+});
+test('audio technical text never queues a listening mistake for a bad text practice answer',async()=>{
+ await start(b1Packet[0]);await press('Davam et');await press('Səs eşidilmir · mətnlə davam et');
+ await press('Sağ ol!');await press('Yoxla');
+ expect(screen.queryByText('Bu dəfə alınmadı',{exact:true})).not.toBeOnTheScreen();
+ await press('Yoxlanmadı ilə davam et');
+ const attempt=Object.values(useUserStore.getState().attempts)[0];
+ expect(attempt.tasks[b1Packet[0].cards.find(c=>c.number===3).id].settled).toBe('unverified');
+});
+test('all authored retries preserve listening, response format, and every compound speech goal',()=>{
+ for(const packet of b1Packet)for(const c of packetFlow(packet).filter(c=>['task','voice'].includes(c.kind))){
+  const r=c.review;expect(r).toBeDefined();
+  for(const key of ['audio','options','words'])expect(Boolean(r[key])).toBe(Boolean(c[key]));
+  const goals=c.turns?.[0]?.rule.goals || c.rule?.goals;
+  if(goals)expect(r.turns?.[0]?.rule.goals || r.rule?.goals).toEqual(goals);
+ }
 });

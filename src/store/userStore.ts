@@ -20,9 +20,10 @@ interface UserData {
 interface UserState extends UserData {
   hydrated: boolean; storageError: string | null;
   attempts: Record<string, LessonAttempt>; receipts: Record<string, RewardReceipt>;
-  beginLesson: (lessonId: string, mode?: 'session' | 'practice') => string;
+  beginLesson: (lessonId: string, mode?: 'session' | 'practice', recallIds?: string[]) => string;
   abandonLesson: (attemptId: string) => boolean;
   recordTask: (attemptId: string, taskId: string, correct: boolean | null, token: string, evidence?: TaskEvidence) => void;
+  settlePacketTask: (attemptId: string, taskId: string, status: 'needsPractice' | 'unverified' | 'skipped') => void;
   useHelp: (attemptId: string) => void;
   finishLesson: (attemptId: string) => Promise<RewardReceipt>;
   claimReceipt: (id: string) => RewardReceipt | undefined;
@@ -96,7 +97,7 @@ export const useUserStore = create<UserState>((set, get) => ({
     if (last && last !== localDay() && last !== previousDay()) set({ streak: 0 });
   },
   resetAll: () => { set({ ...initial, attempts: {}, receipts: {} }); void get().saveToStorage().catch(() => {}); },
-  beginLesson: (lessonId, mode = 'session') => {
+  beginLesson: (lessonId, mode = 'session', recallIds = []) => {
     const lesson = lessons.find((l) => l.id === lessonId);
     if (!get().hydrated || !lesson || !moduleUnlocked(lesson.moduleId, get().completedLessons, get().placementResults)) return '';
     const session = mode === 'session' ? getShortSession(lessonId) : undefined;
@@ -109,7 +110,7 @@ export const useUserStore = create<UserState>((set, get) => ({
     const packet = getPacketLesson(lessonId);
     const packetIds = packet ? packetTaskIds(packet) : undefined;
     const id = `${Date.now()}-${++sequence}`;
-    set((s) => ({ attempts: { ...s.attempts, [id]: { id, lessonId, expected: packetIds?.required ?? expected, optional: packetIds?.optional, tasks: {}, assisted: false, finished: false } } })); return id;
+    set((s) => ({ attempts: { ...s.attempts, [id]: { id, lessonId, expected: packetIds?.required ?? expected, optional: packetIds ? [...new Set([...packetIds.optional, ...recallIds])] : undefined, tasks: {}, assisted: false, finished: false } } })); return id;
   },
   abandonLesson: (id) => {
     const a = get().attempts[id];
@@ -133,6 +134,14 @@ export const useUserStore = create<UserState>((set, get) => ({
     set((s) => ({ attempts: { ...s.attempts, [id]: { ...a, tasks: { ...a.tasks, [taskId]: task } } } }));
     if (correct === false) get().loseHeart();
   },
+  settlePacketTask: (id, taskId, status) => {
+    const a = get().attempts[id];
+    if (!a || a.finished || !getPacketLesson(a.lessonId) || ![...a.expected, ...(a.optional ?? [])].includes(taskId)) return;
+    const old = a.tasks[taskId];
+    if (old?.resolved || status === 'needsPractice' && !old?.wrong) return;
+    const task = old ? { ...old, settled: status } : { firstCorrect: false, resolved: false, skipped: status !== 'needsPractice', wrong: 0, token: `${taskId}:unverified`, settled: status };
+    set(s => ({ attempts: { ...s.attempts, [id]: { ...a, tasks: { ...a.tasks, [taskId]: task } } } }));
+  },
   finishLesson: (id) => {
     const pending = finishing.get(id); if (pending) return pending;
     const operation = (async () => {
@@ -143,7 +152,7 @@ export const useUserStore = create<UserState>((set, get) => ({
         return get().receipts[id] ?? { id, lessonId: a.lessonId, xp: 0, completed: false, correct: 0, total: a.expected.length };
       }
       const total = a.expected.length; const correct = a.expected.filter((key) => a.tasks[key]?.firstCorrect).length;
-      const completed = total > 0 && a.expected.every((key) => a.tasks[key]?.resolved && !a.tasks[key]?.skipped);
+      const completed = total > 0 && a.expected.every((key) => a.tasks[key]?.resolved && !a.tasks[key]?.skipped || Boolean(getPacketLesson(a.lessonId) && a.tasks[key]?.settled));
       // Keep an incomplete attempt open so only missing answers need retrying.
       if (!completed) return { id, lessonId: a.lessonId, xp: 0, completed: false, correct, total };
       let xp = 0; const rewards = { ...s.rewards }; const now = new Date(); const today = localDay(now);
@@ -167,7 +176,9 @@ export const useUserStore = create<UserState>((set, get) => ({
       const receipt: RewardReceipt = { id, lessonId: a.lessonId, xp, completed, correct, total };
       const progress: LessonProgress = { lessonId: a.lessonId, completed, correctCount: correct,
         wrongCount: a.expected.reduce((sum, key) => sum + (a.tasks[key]?.wrong ?? 0), 0), score: total ? Math.round(correct / total * 100) : 0,
-        xpEarned: xp, completedAt: now.toISOString(), evidence: summarizeEvidence(Object.values(a.tasks)) };
+        xpEarned: xp, completedAt: now.toISOString(), evidence: summarizeEvidence(Object.values(a.tasks)),
+        practiceNeeds: getPacketLesson(a.lessonId) ? Object.entries(a.tasks).filter(([key, t]) => !key.startsWith('recheck:') && t.wrong > 0).map(([key]) => key) : undefined,
+        rechecks: Object.entries(a.tasks).filter(([key]) => key.startsWith('recheck:')).map(([key, t]) => ({ sourceLessonId: key.split(':')[1], taskId: key.split(':')[2], status: !t.resolved ? t.settled === 'needsPractice' ? 'wrong' as const : 'unverified' as const : t.evidence?.assisted ? 'assisted' as const : 'independent' as const })) };
       set({ xp: s.xp + xp, rewards, streak, streakStart, lastQualifiedDay, lastPlayedDate: completed ? today : s.lastPlayedDate,
         completedLessons, lessonProgress: completed ? [...s.lessonProgress.filter((p) => p.lessonId !== a.lessonId), progress] : s.lessonProgress,
         attempts: { ...s.attempts, [id]: { ...a, finished: true } }, receipts: { ...s.receipts, [id]: receipt } });

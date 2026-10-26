@@ -170,6 +170,8 @@ export interface LessonProgress {
   xpEarned: number;
   completedAt?: string;
   evidence?: import('../utils/lessonEvidence').LessonEvidence;
+  practiceNeeds?: string[];
+  rechecks?: { sourceLessonId: string; taskId: string; status: 'independent' | 'assisted' | 'wrong' | 'unverified' }[];
 }
 // ═══════════════════════════════════════
 // PLACEMENT TEST

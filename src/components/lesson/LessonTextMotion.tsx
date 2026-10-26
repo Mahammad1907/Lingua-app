@@ -71,7 +71,11 @@ export function useLessonTextMotion(state: LessonMotion, trigger?: string | numb
       inputRange: [0, .01 + position / Math.max(1, count - 1) * .6, .4 + position / Math.max(1, count - 1) * .6, 1],
       outputRange: [0, 0, 1, 1],
     }) : 1;
-  return { progress, reduced, active, transformStyle, color, opacity };
+  const iconStyle = active && state === 'correct' ? {
+    opacity: progress.interpolate({ inputRange: [0, .35, 1], outputRange: [.25, 1, 1] }),
+    transform: [{ scale: progress.interpolate({ inputRange: [0, .45, .7, 1], outputRange: [1, 1.05, 1.02, 1] }) }],
+  } : transformStyle;
+  return { progress, reduced, active, transformStyle, iconStyle, color, opacity };
 }
 
 export default function LessonTextMotion({ state = 'idle', trigger, children, style, ...props }: TextProps & {

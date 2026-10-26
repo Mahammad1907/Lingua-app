@@ -28,11 +28,11 @@ test('image failure has a retry, successful load settles, a new source resets lo
   await view.rerender(<LessonImage source={2} />);
   expect(screen.getByText('Şəkil yüklənir…')).toBeOnTheScreen();
 });
-test('original introduction keeps the full title, cover board, objectives and caption', async () => {
+test('original introduction keeps the full title, uncropped board, objectives and caption', async () => {
   const packet = b1Packet[0], intro = lessonIntroduction(packet);
   await render(<LessonWelcome packet={packet} compact sceneHeight={180} />);
   expect(screen.getByRole('header').props.children).toBe(packet.title);
-  expect(screen.getByTestId('lesson-image').props.contentFit).toBe('cover');
+  expect(screen.getByTestId('lesson-image').props.contentFit).toBe('contain');
   expect(screen.getByText(intro.board)).toBeOnTheScreen();
   intro.objectives.forEach(text => expect(screen.getByText(text)).toBeOnTheScreen());
   expect(screen.getByText('Dinlə, məşq et və özün cavab ver.')).toBeOnTheScreen();

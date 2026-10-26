@@ -37,7 +37,7 @@ function assessNormalizedAnswer(value: string, rule: PacketRule, voice = false):
   let input = normalizePacketAnswer(value);
   if (voice && rule.goals?.includes('farewell') && /^(by|buy)$/.test(input)) input = 'bye';
   const exact = rule.answers.some((answer) => normalizePacketAnswer(answer) === input);
-  if (!rule.goals?.length || rule.exact) return { status: !input ? 'unknown' : exact ? 'correct' : 'wrong', criteria: [{ goal: 'Tapşırığın cavabı', passed: exact }], message: exact ? 'Düzdür.' : 'Cavab bu tapşırığın hədəfinə uyğun deyil.' };
+  if (!rule.goals?.length || rule.exact) return { status: !input ? 'unknown' : exact ? 'correct' : voice ? 'unknown' : 'wrong', criteria: [{ goal: 'Tapşırığın cavabı', passed: exact }], message: exact ? 'Düzdür.' : 'Cavab bu tapşırığın hədəfinə uyğun deyil.' };
   const found = new Set<PacketGoal>();
   // Find criteria independently so an early match cannot hide a later one.
   for (const [goal, pattern] of Object.entries(patterns)) {
