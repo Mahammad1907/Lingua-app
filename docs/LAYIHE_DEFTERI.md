@@ -59,3 +59,15 @@ Bu tətbiq üçün 62 ekran sınağı, TypeScript, lint (0 xəta), cavab/səs/pr
 Qırmızı kənarın bir dəfə parlayıb qırmızı qalması, “Səsi başa düşmürəm” ilə yalnız audionun mətninin açılması və bunun dinləmə nəticəsinə yazılmaması saxlanır. Təkrarın nəzərəçarpan kiçik giriş kartı saxlanır. Məzmun, qiymətləndirmə, səhv təkrarları, lüğət və paket/SDK faylları geri çevrilmir.
 
 Səsli sahənin yığcamlaşdırılması hələ tamamlanmış sayılmır. Gələcək düzəliş yalnız həmin sahə ilə məhdud olmalıdır; bütün dərslərin ekran sistemi dəyişdirilməməlidir. Bərpa yoxlaması: docs/LESSON_LAYOUT_RESTORE_20261026.md. Telefonda vizual yoxlama aparılmayıb.
+
+
+## Son dar düzəliş paketi — 26 oktyabr 2026
+
+İstifadəçi son düzəlişi də bildirdikdən sonra yalnız aşağıdakı dörd dəyişikliyi tətbiq etməyi təsdiqlədi. Səhvlər toplanarkən deyilən tək “Tamam” kodu dəyişmək göstərişi sayılmır.
+
+1. Təkrar kartının başlığı: “Etdiyin səhvlərin təkrarı”.
+2. “Səsi başa düşmürəm” mətn köməyi açıldıqda idarə görünən qalır: “Mətni gizlət” / “Mətni göstər”. Mətnə toxunmaq da onu gizlədir. Mətn qısa fade ilə, daha aydın və qalın bənövşəyi görünür. Gizlətmək dinləmə sübutunu geri qaytarmır.
+3. Səsli cavab böyük panel açmır. Kiçik mikrofon, bir dalğa və yazı rejiminə qayıtmaq üçün bağlama düyməsi var. Nümunədəki səsli blok tətbiq olunur, artıq alt boşluğu mövcud bloklar arasında bölünür. Yalnız səsli giriş açıqkən təkrar dekorativ hero çıxır və yerləşdirmə yığcamlaşır. Digər kartların görünüşü əvvəlki kimi qalır. Qeyd zamanı Yoxla yerində qalır, deaktiv olur. Səsli panel bağlananda əvvəlki yazı itmir. Expo Go qeyd edib dinləyir; bu, yoxlanmış danışıq və ya tələffüz balı deyil.
+4. “Mənə başa sal” əsas ekranı uzatmır: eyni mətn ayrıca yumşaq kənarlı kartda açılır. X, “Başa düşdüm”, çölə toxunma və Android geri hərəkəti ilə bağlanır. Arxadakı sual, cavab və ekranın yeri saxlanır. Çox uzun mətn yalnız kartın özündə sürüşdürülə bilər.
+
+Bütün ekran sisteminin sabit görünüşlə əvəzlənməsi, “Ardını göstər” səhifələməsi, başqa ekranların dəyişməsi və yeni səsli şəkillər bu paketə daxil deyil. Mətn böyüdüləndə/açıq klaviaturada idarələri kəsmək əvəzinə əlçatan overflow saxlanır; normal səsli məzmun ölçülmüş sahəyə sığanda sürüşmə və bounce sönür. Fiziki iPhone/SDK58 görünüşü bu mühitdə yoxlanmayıb. Yoxlama hesabatı: docs/LESSON_INLINE_VOICE_20261026.md.

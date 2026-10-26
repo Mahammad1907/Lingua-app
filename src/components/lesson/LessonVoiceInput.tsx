@@ -6,9 +6,10 @@ import { loadRecordedAudio } from '../../utils/recordedAudio';
 import type { SpokenAnswer } from '../../utils/speechTurn';
 import ParticleWave from './ParticleWave';
 import VoicePracticeRecorder from './VoicePracticeRecorder';
+import VoiceCaptureBar, { compactVoiceStyle as compactUI } from './VoiceCaptureBar';
 import { LessonButton, LessonIcon, ink } from './LessonSurface';
 
-export default function LessonVoiceInput({ onFinal, onBusyChange, suspended, disabled = false, autoStart = false }: {
+export default function LessonVoiceInput({ onFinal, onBusyChange, suspended, disabled = false, autoStart = false, compact = false, onClose }: { onClose?: () => void; compact?: boolean;
   onFinal: (answer: SpokenAnswer) => string | null; onBusyChange: (busy: boolean) => void; suspended?: boolean; disabled?: boolean; autoStart?: boolean;
 }) {
   const speech = useLessonSpeech({ onFinal, onBusyChange, suspended, autoStart });
@@ -26,6 +27,18 @@ export default function LessonVoiceInput({ onFinal, onBusyChange, suspended, dis
   const replay = async () => { try { if (playback.playing) player.pause(); else { await player.seekTo(0); player.play(); } } catch { setPlayError('Səsli yazı açılmadı. Yenidən danışa bilərsən.'); } };
   const start = () => { pause(); setPlayError(''); void speech.start(); };
   const clear = () => { pause(); setPlayError(''); speech.cancel(); };
+  if (compact && !speech.available && !reviewing) return <View style={{ gap: 5 }}><VoicePracticeRecorder compact suspended={suspended} onBusyChange={onBusyChange} onClose={onClose} />{!onClose ? <Pressable accessibilityRole="button" disabled={disabled} onPress={speech.beginTyping}><Text style={s.link}>Yazılı məşq et</Text></Pressable> : null}</View>;
+  if (compact) return <VoiceCaptureBar active={listening ? speech.level > .04 : playback.playing} recording={listening} level={listening ? speech.level : undefined} busy={disabled || pending} label={listening ? 'Dayandır' : pending ? 'Hazırlanır…' : reviewing ? 'Yenidən danış' : 'Danışmaq üçün toxun'} onMic={() => listening ? speech.stop() : start()} onClose={onClose}>
+    {reviewing && speech.draft ? <>
+      <TextInput accessibilityLabel="Tanınan cavabı yoxla və düzəlt" value={speech.reviewText} onChangeText={speech.setReviewText} editable={!disabled} autoCorrect={false} autoCapitalize="none" multiline maxLength={500} style={[s.reviewInput, { minHeight: 44, maxHeight: 70, padding: 8 }]} />
+      <Text style={compactUI.note}>{speech.draft.edited ? 'Yazılı cavab kimi yoxlanır.' : 'Eşidilən mətni yoxla.'}</Text>
+      <View style={compactUI.actions}>{speech.draft.uri ? <Pressable accessibilityRole="button" disabled={disabled} onPress={() => void replay()} style={compactUI.action}><Text style={compactUI.actionText}>Dinlə</Text></Pressable> : null}<Pressable accessibilityRole="button" disabled={disabled} onPress={clear} style={compactUI.action}><Text style={compactUI.actionText}>Sil</Text></Pressable><Pressable accessibilityRole="button" disabled={disabled || !speech.reviewText.trim()} onPress={() => { pause(); speech.confirm(); }} style={compactUI.action}><Text style={compactUI.actionText}>Göndər</Text></Pressable></View>
+    </> : speech.partial ? <Text style={compactUI.note}>{speech.partial}</Text> : null}
+    {speech.busy && pending ? <Pressable accessibilityRole="button" onPress={clear} style={compactUI.action}><Text style={compactUI.actionText}>Ləğv et</Text></Pressable> : null}
+    {playError || speech.message ? <Text accessibilityLiveRegion="polite" style={compactUI.note}>{playError || speech.message}</Text> : null}
+    {speech.needsModel && !speech.busy ? <Pressable accessibilityRole="button" disabled={disabled} onPress={() => void speech.downloadModel()}><Text style={s.link}>İngilis dili səs modelini yüklə</Text></Pressable> : null}
+    {speech.needsNetwork && !speech.busy ? <Pressable accessibilityRole="button" disabled={disabled} onPress={() => void speech.start(true)}><Text style={s.link}>İnternetlə səs tanımanı sına</Text><Text style={compactUI.note}>Səs telefonun sistem xidməti tərəfindən internetdə emal oluna bilər.</Text></Pressable> : null}
+  </VoiceCaptureBar>;
   return <View style={s.input}>
     {!speech.available && !reviewing ? <><VoicePracticeRecorder compact={autoStart} suspended={suspended} onBusyChange={onBusyChange} /><Pressable accessibilityRole="button" disabled={disabled} onPress={speech.beginTyping}><Text style={s.link}>Yazılı məşq et</Text></Pressable></> : <>
       <View style={[s.hero, autoStart && s.compact]}>

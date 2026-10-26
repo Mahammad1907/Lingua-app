@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import type { PacketVerdict } from '../../utils/packetAnswer';
 import { LessonIcon, ink } from './LessonSurface';
+import LessonExplanationCard from './LessonExplanationCard';
 import LessonTextMotion, { useLessonTextMotion } from './LessonTextMotion';
 
 export default function LessonFeedback({ verdict, explanation, meaning, assisted = false, answer, accepted, needsPractice = false, example }: { verdict: PacketVerdict; explanation: string; meaning: string | null; assisted?: boolean; answer?: string; accepted?: string[]; needsPractice?: boolean; example?: string }) {
@@ -21,11 +22,11 @@ export default function LessonFeedback({ verdict, explanation, meaning, assisted
     {needsPractice ? <Text style={s.note}>Yenidən məşq lazımdır. Davam edə bilərsən; bu bacarığa sonra qayıdacağıq.</Text> : null}
     {!correct && verdict.status !== 'unknown' && answer !== undefined && accepted?.length ? <>
       <Pressable accessibilityRole="button" accessibilityState={{ expanded: detailsOpen }} onPress={() => setDetailsOpen(v => !v)}><Text style={s.link}>Mənə başa sal {detailsOpen ? '−' : '+'}</Text></Pressable>
-      {detailsOpen ? <View style={{ gap: 6 }}>
+      <LessonExplanationCard visible={detailsOpen} onClose={() => setDetailsOpen(false)}>
         <Text style={s.note}>Sənin cavabın: {answer}</Text>
         <Text style={s.note}>Belə cavab verə bilərsən: {accepted.join(' / ')}</Text>
         {example ? <Text style={s.note}>{example}</Text> : null}
-      </View> : null}
+      </LessonExplanationCard>
     </> : null}
     {correct && meaning ? <Pressable accessibilityRole="button" accessibilityState={{ expanded: meaningOpen }} onPress={() => setMeaningOpen(v => !v)}><Text style={s.link}>{meaningOpen ? meaning : 'Mənasını göstər ›'}</Text></Pressable> : null}
   </Animated.View>;

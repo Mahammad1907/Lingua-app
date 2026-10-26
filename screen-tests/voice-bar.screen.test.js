@@ -1,0 +1,45 @@
+import React from 'react';
+import {AppState} from 'react-native';
+import {act,cleanup,fireEvent,render,screen} from '@testing-library/react-native';
+import WrittenAnswerInput from '../src/components/lesson/WrittenAnswerInput';
+import VoicePracticeRecorder from '../src/components/lesson/VoicePracticeRecorder';
+const mockRecorder={isRecording:false,currentTime:2,uri:'file://draft.m4a',getStatus:jest.fn(()=>({isRecording:mockRecorder.isRecording,metering:-20})),prepareToRecordAsync:jest.fn(async()=>{}),record:jest.fn(()=>{mockRecorder.isRecording=true;}),stop:jest.fn(async()=>{mockRecorder.isRecording=false;})};
+const mockPlayer={pause:jest.fn(),replace:jest.fn(),seekTo:jest.fn(async()=>{}),play:jest.fn()};
+let mockGranted=true;
+jest.mock('expo-audio',()=>({AudioModule:{requestRecordingPermissionsAsync:jest.fn(async()=>({granted:mockGranted}))},RecordingPresets:{HIGH_QUALITY:{}},setAudioModeAsync:jest.fn(async()=>{}),useAudioRecorder:()=>mockRecorder,useAudioPlayer:()=>mockPlayer,useAudioPlayerStatus:()=>({playing:false})}));
+jest.mock('expo-speech',()=>({stop:jest.fn(async()=>{})}));
+jest.mock('../src/utils/speechEngine',()=>({getSpeechEngine:()=>null}));
+jest.mock('../src/hooks/useReducedMotion',()=>({useReducedMotion:()=>true}));
+jest.mock('../src/components/lesson/LessonSurface',()=>{const {View,Text,Pressable}=require('react-native');return {ink:{text:'#fff',muted:'#aaa',violet:'#b9f',orange:'#fa0'},LessonIcon:()=>null,SoundMark:()=>null,LessonButton:({label,onPress,disabled})=><Pressable onPress={onPress} disabled={disabled}><Text>{label}</Text></Pressable>};});
+jest.mock('../src/components/lesson/ParticleWave',()=>{const {View}=require('react-native');return props=><View testID="capture-wave" {...props}/>;});
+beforeEach(()=>{jest.useFakeTimers();jest.clearAllMocks();mockRecorder.isRecording=false;mockGranted=true;AppState.currentState='active';});
+afterEach(()=>{cleanup();jest.useRealTimers();});
+const press=async(name)=>act(async()=>fireEvent.press(screen.getByRole('button',{name})));
+const poll=async()=>act(async()=>jest.advanceTimersByTime(130));
+test('compact fallback records, replays and re-records without manufacturing an assessed answer',async()=>{
+ const busy=jest.fn();await render(<VoicePracticeRecorder compact onBusyChange={busy}/>);
+ expect(screen.getByTestId('compact-voice-bar')).toBeOnTheScreen();
+ expect(screen.queryByText('Səsli məşq et',{exact:true})).not.toBeOnTheScreen();
+ await press('Danışmaq üçün toxun');await poll();expect(mockRecorder.record).toHaveBeenCalledTimes(1);
+ expect(screen.getByTestId('capture-wave').props.level).toBeGreaterThan(0);
+ await press('Dayandır');await poll();expect(mockPlayer.replace).toHaveBeenCalledWith({uri:'file://draft.m4a'});
+ await press('Yazını dinlə');expect(mockPlayer.play).toHaveBeenCalledTimes(1);
+ await press('Yenidən danış');await poll();expect(mockRecorder.record).toHaveBeenCalledTimes(2);
+ expect(screen.getByText('Səsini yaz və dinlə · Avtomatik yoxlanmır')).toBeOnTheScreen();
+});
+test('closing voice expansion stops recording and keeps the existing written value',async()=>{
+ const final=jest.fn(),mode=jest.fn();
+ await render(<WrittenAnswerInput value="Hello" onChange={()=>{}} onVoiceFinal={final} disabled={false} onBusyChange={()=>{}} onFocus={()=>{}} onVoiceModeChange={mode}/>);
+ await press('Cavabını mikrofonla de');await act(async()=>jest.advanceTimersByTime(1));
+ await press('Danışmaq üçün toxun');await poll();expect(mockRecorder.isRecording).toBe(true);
+ await press('Səsli paneli bağla');
+ expect(screen.queryByTestId('compact-voice-bar')).not.toBeOnTheScreen();
+ expect(mockRecorder.stop).toHaveBeenCalled();expect(final).not.toHaveBeenCalled();
+ expect(mode.mock.calls.map(c=>c[0])).toEqual([true,false]);
+ expect(screen.getByLabelText('Cavabını ingiliscə yaz').props.value).toBe('Hello');
+});
+test('microphone permission failure stays recoverable inside the small panel',async()=>{
+ mockGranted=false;await render(<VoicePracticeRecorder compact/>);await press('Danışmaq üçün toxun');
+ expect(screen.getByText(/Mikrofon icazəsi verilmədi/)).toBeOnTheScreen();expect(mockRecorder.record).not.toHaveBeenCalled();
+ mockGranted=true;await press('Danışmaq üçün toxun');await poll();expect(mockRecorder.record).toHaveBeenCalledTimes(1);
+});

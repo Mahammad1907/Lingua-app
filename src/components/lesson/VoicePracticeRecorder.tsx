@@ -6,9 +6,10 @@ import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
 import { microphoneLevel } from '../../utils/lessonGuide';
 import { LessonButton, LessonIcon, SoundMark, ink } from './LessonSurface';
 import ParticleWave from './ParticleWave';
+import VoiceCaptureBar, { compactVoiceStyle as compactUI } from './VoiceCaptureBar';
 
 // Expo Go can record/replay, but cannot turn this recording into a verified spoken answer.
-export default function VoicePracticeRecorder({ onBusyChange, suspended = false, onContinue, autoStart = false, continueLabel = 'Dinlədim · Davam et', compact = false }: { autoStart?: boolean; continueLabel?: string; compact?: boolean; onContinue?: () => void; onBusyChange?: (busy: boolean) => void; suspended?: boolean }) {
+export default function VoicePracticeRecorder({ onBusyChange, suspended = false, onContinue, autoStart = false, continueLabel = 'Dinlədim · Davam et', compact = false, onClose }: { onClose?: () => void; autoStart?: boolean; continueLabel?: string; compact?: boolean; onContinue?: () => void; onBusyChange?: (busy: boolean) => void; suspended?: boolean }) {
   const recorder = useAudioRecorder({ ...RecordingPresets.HIGH_QUALITY, isMeteringEnabled: true });
   const [status, setStatus] = useState({ isRecording: false });
   const player = useAudioPlayer(null), playback = useAudioPlayerStatus(player);
@@ -66,6 +67,12 @@ export default function VoicePracticeRecorder({ onBusyChange, suspended = false,
     if (!draft) return;
     try { await Speech.stop(); if (playback.playing) player.pause(); else { await player.seekTo(0); player.play(); } } catch { setError('Səs açıla bilmədi. Yenidən yaz.'); }
   };
+  if (compact) return <VoiceCaptureBar active={status.isRecording ? (levels.at(-1) || 0) > .04 : playback.playing} recording={status.isRecording} level={status.isRecording ? levels.at(-1) || 0 : undefined} busy={busy} label={busy ? 'Gözlə…' : status.isRecording ? 'Dayandır' : draft ? 'Yenidən danış' : 'Danışmaq üçün toxun'} onMic={() => void (safelyReadRecorder(() => recorder.isRecording) ? stop() : start())} onClose={onClose}>
+    <Text style={compactUI.note}>Səsini yaz və dinlə · Avtomatik yoxlanmır</Text>
+    {error ? <Text accessibilityLiveRegion="polite" style={compactUI.error}>{error}</Text> : null}
+    {draft ? <View style={compactUI.actions}><Pressable accessibilityRole="button" disabled={busy || status.isRecording} onPress={() => void replay()} style={compactUI.action}><Text style={compactUI.actionText}>{playback.playing ? 'Dayandır' : 'Yazını dinlə'}</Text></Pressable><Pressable accessibilityRole="button" disabled={busy || status.isRecording} onPress={() => { loadRecordedAudio(player); setDraft(null); }} style={compactUI.action}><Text style={compactUI.actionText}>Sil</Text></Pressable></View> : null}
+    {draft && onContinue ? <LessonButton disabled={busy || status.isRecording} label={continueLabel} onPress={() => { player.pause(); onContinue(); }} /> : null}
+  </VoiceCaptureBar>;
   return <View style={[s.box, compact && { borderWidth: 0, padding: 0, backgroundColor: 'transparent' }]}><View style={s.mic}><LessonIcon name="mic" size={32} color={status.isRecording ? ink.orange : ink.violet} /></View><ParticleWave active={status.isRecording ? (levels.at(-1) || 0) > .04 : playback.playing} level={status.isRecording ? levels.at(-1) || 0 : undefined} height={compact ? 58 : 86} /><Text style={s.title}>{status.isRecording ? 'Səni dinləyirəm…' : 'Səsli məşq et'}</Text><Text style={s.note}>Səsini yaz və yenidən dinlə. Bu versiyada səs yazısı mətnə çevrilmir və qiymətləndirilmir.</Text>
     {error ? <Text accessibilityLiveRegion="polite" style={s.error}>{error}</Text> : null}
     {draft ? <Pressable accessibilityRole="button" disabled={busy || status.isRecording} style={s.replay} onPress={() => void replay()}><LessonIcon name={playback.playing ? 'pause' : 'play'} color={ink.orange} /><SoundMark active={playback.playing} /><Text style={s.note}>{Math.round(draft.duration)} san.</Text></Pressable> : null}

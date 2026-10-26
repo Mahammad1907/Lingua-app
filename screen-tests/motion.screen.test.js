@@ -4,6 +4,7 @@ import { act, cleanup, render, screen } from '@testing-library/react-native';
 import LessonTextMotion, { useLessonTextMotion } from '../src/components/lesson/LessonTextMotion';
 import WrittenAnswerInput from '../src/components/lesson/WrittenAnswerInput';
 import LessonFeedback from '../src/components/lesson/LessonFeedback';
+import AudioTranscript from '../src/components/lesson/AudioTranscript';
 
 let mockReduced = false;
 jest.mock('../src/hooks/useReducedMotion', () => ({ useReducedMotion: () => mockReduced }));
@@ -92,4 +93,12 @@ test.each([false,true])('wrong border stays red after its single emphasis; reduc
  expect(StyleSheet.flatten(screen.getByTestId('border').props.style).borderColor).toMatch(/239.*107.*119|#EF6B77/);
  await view.rerender(<BorderHarness state="idle"/>);
  expect(StyleSheet.flatten(screen.getByTestId('border').props.style).borderColor).toBe('#555');
+});
+
+test.each([false,true])('audio text reveal uses a neutral effect; reduced=%s',async reduced=>{
+ mockReduced=reduced;
+ const timing=jest.spyOn(Animated,'timing');
+ await render(<AudioTranscript text="Hello!" onHide={()=>{}}/>);
+ expect(screen.getByText('Hello!',{exact:true})).toBeOnTheScreen();
+ if(reduced)expect(timing).not.toHaveBeenCalled();else expect(timing).toHaveBeenCalledWith(expect.anything(),expect.objectContaining({duration:400}));
 });

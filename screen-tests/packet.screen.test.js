@@ -372,7 +372,7 @@ test('older successful skills return later while recent independent rechecks are
 
 test('transcript help shows only exact audio and stays outside listening evidence even after replay',async()=>{
  await start(b1Packet[0]);await press('Davam et');await press('Səsi başa düşmürəm');
- expect(screen.getByLabelText('Audioda deyilən mətn').props.children).toBe(b1Packet[0].cards.find(c=>c.number===3).audio);
+ expect(screen.getByText(b1Packet[0].cards.find(c=>c.number===3).audio,{exact:true})).toBeOnTheScreen();
  expect(screen.queryByText('TEXNİKİ SƏBƏBDƏN MƏTNLƏ',{exact:true})).not.toBeOnTheScreen();
  expect(screen.queryByText(/Texniki səbəbdən mətnlə davam/)).not.toBeOnTheScreen();
  await listen();await press('Salam!');await press('Yoxla');
@@ -389,10 +389,10 @@ test('a wrong response after transcript help can continue unverified without a m
  const task=Object.values(Object.values(useUserStore.getState().attempts)[0].tasks)[0];
  expect(task.settled).toBe('unverified');expect(task.wrong).toBe(0);expect(useUserStore.getState().hearts).toBe(hearts);
 });
-test('inline explanation expands and collapses without unlocking the answer',async()=>{
+test('explanation opens in a separate card without unlocking the answer',async()=>{
  await start(b1Packet[0]);await press('Davam et');await listen();await press('Sağ ol!');await press('Yoxla');
  await press('Mənə başa sal +');expect(screen.getByText('Sənin cavabın: Sağ ol!',{exact:true})).toBeOnTheScreen();
- await press('Mənə başa sal −');
+ await act(async()=>fireEvent.press(screen.getByLabelText('İzahı bağla')));
  expect(screen.queryByText('Sənin cavabın: Sağ ol!',{exact:true})).not.toBeOnTheScreen();
  expect(screen.getByText('Sağ ol!',{exact:true})).toBeDisabled();
 });
@@ -404,4 +404,47 @@ test('finishing with transcript help preserves completion and records no listeni
  expect(progress.evidence.textHelp).toBeGreaterThan(0);expect(progress.evidence.technicalText).toBe(0);
  expect(progress.evidence.listeningIndependent).toBe(0);expect(progress.evidence.listeningAssisted).toBe(0);
  expect(state.rewards[`perfect:${packet.id}`]).toBeUndefined();
+});
+
+test('transcript can hide by touching its text and reopen without restoring listening credit',async()=>{
+ await start(b1Packet[0]);await press('Davam et');await press('Səsi başa düşmürəm');
+ await act(async()=>fireEvent.press(screen.getByLabelText('Audioda deyilən mətn')));
+ expect(screen.queryByLabelText('Audioda deyilən mətn')).not.toBeOnTheScreen();
+ await press('Mətni göstər');expect(screen.getByLabelText('Audioda deyilən mətn')).toBeOnTheScreen();
+ await press('Mətni gizlət');expect(screen.queryByLabelText('Audioda deyilən mətn')).not.toBeOnTheScreen();
+ await listen();await press('Salam!');await press('Yoxla');
+ const task=Object.values(Object.values(useUserStore.getState().attempts)[0].tasks)[0];
+ expect(task.evidence).toMatchObject({transcriptShown:true,listening:false});
+});
+test('opening a voice answer uses the compact mode and closing it preserves the written answer',async()=>{
+ await reach(b1Packet[0],5);
+ await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'Hello'));
+ const before=screen.getByRole('progressbar').props.accessibilityValue.now;
+ const scroll=screen.getByTestId('packet-lesson-scroll');
+ const originalStyle=scroll.props.contentContainerStyle;
+ await act(async()=>fireEvent.press(screen.getByLabelText('Cavabını mikrofonla de')));
+ expect(mockVoice.compact).toBe(true);expect(typeof mockVoice.onClose).toBe('function');
+ await act(async()=>mockVoice.onBusyChange(true));expect(screen.getByText('Yoxla',{exact:true})).toBeDisabled();
+ await act(async()=>mockVoice.onBusyChange(false));
+ await act(async()=>{await fireEvent(screen.getByTestId('packet-lesson-scroll'),'layout',{nativeEvent:{layout:{height:600,width:390}}});});
+ await act(async()=>{await fireEvent(screen.getByTestId('packet-lesson-scroll'),'contentSizeChange',350,590);});
+ expect(screen.getByTestId('packet-lesson-scroll').props.scrollEnabled).toBe(false);
+ await act(async()=>mockVoice.onClose());
+ expect(screen.getByLabelText('Cavabını ingiliscə yaz').props.value).toBe('Hello');
+ expect(screen.getByTestId('packet-lesson-scroll').props.contentContainerStyle).toEqual(originalStyle);
+ expect(screen.getByTestId('packet-lesson-scroll').props.scrollEnabled).toBe(true);
+ expect(screen.getByRole('progressbar').props.accessibilityValue.now).toBe(before);
+ expect(screen.queryByText('Ardını göstər ›',{exact:true})).not.toBeOnTheScreen();
+});
+test('explanation modal leaves background layout and answer evidence unchanged through repeated open and close',async()=>{
+ await start(b1Packet[0]);await press('Davam et');await listen();await press('Sağ ol!');await press('Yoxla');
+ const attempt=Object.values(useUserStore.getState().attempts)[0];
+ const evidence=JSON.stringify(attempt.tasks),style=screen.getByTestId('packet-lesson-scroll').props.contentContainerStyle;
+ for(let i=0;i<2;i++){
+  await press('Mənə başa sal +');expect(screen.getByText('Sənin cavabın: Sağ ol!',{exact:true})).toBeOnTheScreen();
+  if(i===0)await press('Başa düşdüm');else await act(async()=>fireEvent.press(screen.getByLabelText('İzahı bağla')));
+  expect(screen.queryByText('Sənin cavabın: Sağ ol!',{exact:true})).not.toBeOnTheScreen();
+  expect(screen.getByTestId('packet-lesson-scroll').props.contentContainerStyle).toEqual(style);
+  expect(JSON.stringify(useUserStore.getState().attempts[attempt.id].tasks)).toBe(evidence);
+ }
 });

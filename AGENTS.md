@@ -114,3 +114,15 @@ The fixed viewport, in-card Previous/More navigation, modal explanations, reduce
 The normal transcript-help action is “Səsi başa düşmürəm”. Reveal only exact audio text, no technical heading, duplicate warning, translation, or competing model answer. Track transcriptShown separately from an actual audio technical failure. Once revealed, that item cannot contribute independent or assisted listening evidence, even after audio replay. It must not lose hearts or queue a listening mistake merely because help was opened. Other genuinely demonstrated listening evidence remains intact. Keep real technical failure recovery available and the exam's separate evidence/pass rules unchanged.
 
 Notebook docs/LAYIHE_DEFTERI.md is durable. Record code verification separately from physical-device verification; do not claim iPhone/SDK58 validation without running it. Do not alter package.json/package-lock.json or undo the user's local Windows SDK upgrade.
+
+
+## Four narrowly authorized lesson fixes — 26 October 2026
+
+The user finished the new issue list and explicitly authorized ONLY these changes. A bare “Tamam” while collecting issues is not an instruction to start coding; wait for the user's explicit final instruction that reporting is finished and to apply the batch.
+
+1. The mistake-review notice title is exactly “Etdiyin səhvlərin təkrarı”. Preserve the existing review rules and ordering.
+2. Audio transcript help toggles show/hide and the text itself can be tapped to hide. The reveal uses a short neutral fade and readable lavender/bold text, no correctness animation. Separate visibility from the sticky transcriptShown evidence: hiding text must never restore listening credit. Preserve the actual audio-error recovery.
+3. Use the approved small mic + one waveform + close control for the written answer's voice expansion and a compact voice input for speech cards. Keep native record/replay/recognition evidence honest. Collapse only the redundant decorative hero while voice input is open; distribute the existing content in that state to avoid an empty bottom. Keep the existing ScrollView for all other cards, no global fixed viewport, paging, reduced artwork or screen redesign. Keep Check visible but disabled during written voice capture to avoid a layout jump. When compact content fits the measured viewport, scrolling/bounce is disabled; retain accessible overflow for large text/keyboard rather than clipping controls. Closing preserves the written answer and releases native recording.
+4. Only “Mənə başa sal” details move into a dismissible overlay card. Main lesson content/scroll position/answer lock must not expand or reset. Close with X, the acknowledgement, outside tap or Android back. The overlay may internally scroll long text; do not move result details or redesign other screens.
+
+Do not add illustrations to voice assessment screens; reuse existing situation art on teaching cards. Do not change lesson data, order, grading, SDK/package files, route screens, or the existing red/success feedback for this batch. Physical iPhone/SDK58 visual validation remains separate from code checks.
