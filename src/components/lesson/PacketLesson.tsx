@@ -10,6 +10,9 @@ import type { PacketCard, PacketLesson as Content, PacketRule } from '../../data
 import { useUserStore } from '../../store/userStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 import { assessPacketAnswer, type PacketVerdict } from '../../utils/packetAnswer';
+import LessonProgressBar from './LessonProgressBar';
+import WrongAnswerBorder from './WrongAnswerBorder';
+import { feedbackCopy } from '../../utils/lessonFeedbackCopy';
 import EarnedXP from '../EarnedXP';
 import LessonVoiceInput from './LessonVoiceInput';
 import LessonFeedback from './LessonFeedback';
@@ -19,7 +22,7 @@ import { ClassroomScene, LessonButton, LessonIcon, SelectionMark, Surface, Lesso
 import { audioMeaning, heroHeight, lessonMode } from '../../utils/lessonPresentation';
 import ReusableLessonScene from './ReusableLessonScene';
 import { packetScene } from '../../utils/packetScene';
-import { lessonHint, teachingText, lessonCorrection } from '../../utils/lessonGuide';
+import { lessonHint, teachingText } from '../../utils/lessonGuide';
 import LessonWelcome from './LessonWelcome';
 import LessonExitDialog from './LessonExitDialog';
 import WrittenAnswerInput from './WrittenAnswerInput';
@@ -43,6 +46,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const [feedback, setFeedback] = useState<PacketVerdict | null>(null);
   const [continueReady, setContinueReady] = useState(true);
   const feedbackBlocked = useRef(false), feedbackTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined), submission = useRef(0);
+  const [reviewTotal, setReviewTotal] = useState(0);
   const [queue, setQueue] = useState<PacketCard[]>([]); const [reviewing, setReviewing] = useState(false);
   const [outcomes, setOutcomes] = useState<Record<string, Outcome>>({});
   const [help, setHelp] = useState(false); const [heard, setHeard] = useState(false);
@@ -134,7 +138,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     if (reviewing) {
       setQueue((q) => q.slice(1));
       if (queue.length <= 1) { setReviewing(false); setIndex(flow.length - 1); }
-    } else if (flow[index + 1]?.kind === 'result' && pending.length) setReviewing(true);
+    } else if (flow[index + 1]?.kind === 'result' && pending.length) { setReviewTotal(pending.length); setReviewing(true); }
     else setIndex((v) => Math.min(v + 1, flow.length - 1));
   };
   const record = (value: string, verdict: PacketVerdict, token: string, spoken: boolean) => {
@@ -207,7 +211,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const retryMissing = () => {
     const pending = flow.filter(c => missing.includes(c.id));
     if (!pending.length) return;
-    judged.current.clear(); reset(); setQueue(pending); setReviewing(true); setCompletionError(''); finishing.current = false;
+    judged.current.clear(); reset(); setReviewTotal(pending.length); setQueue(pending); setReviewing(true); setCompletionError(''); finishing.current = false;
   };
   if (!card || !attempt) return <View style={s.screen}><Text style={s.body}>Dərs hazırlanır. Bölmənin açıq olduğunu yoxla.</Text><TouchableOpacity onPress={exit}><Text style={s.link}>Geri</Text></TouchableOpacity></View>;
   const isResult = card.kind === 'result';
@@ -251,7 +255,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
       {!keyboard ? <LessonEnergy /> : null}
     </View>
     {!isIntro ? <>
-      <View style={s.progressRow}><View accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: flow.length, now: index + 1 }} style={s.progress}><View style={[s.fill, { width: `${(index + 1) / flow.length * 100}%` }]} /></View><Text style={s.count}>{index + 1}/{flow.length}</Text></View></> : null}
+      <View style={s.progressRow}><LessonProgressBar value={isResult ? missing.length ? .99 : 1 : reviewing ? .9 + .09 * (1 - queue.length / Math.max(1, reviewTotal)) : .9 * index / Math.max(1, flow.length - 1)} /></View></> : null}
     <ScrollView ref={scroll} onLayout={e => setViewportHeight(e.nativeEvent.layout.height)} style={s.viewport} contentContainerStyle={[s.content, isIntro && { justifyContent: 'center' }]} contentInsetAdjustmentBehavior="never" automaticallyAdjustContentInsets={false} keyboardShouldPersistTaps="always" keyboardDismissMode="on-drag" showsVerticalScrollIndicator={false}>
       {isIntro ? <LessonWelcome packet={packet} compact={height < 900 || fontScale > 1.15} sceneHeight={Math.max(160, Math.min(340, (viewportHeight || height - insets.top - insets.bottom - 160) - (fontScale > 1.15 ? 430 : 370)))} /> : <>
       {!keyboard ? <View style={s.badge}><LessonTextMotion state={reviewing ? 'review' : 'idle'} trigger={card.id} style={s.badgeText}>{reviewing ? 'BİR DƏ MƏŞQ ET' : card.id.startsWith('recheck:') ? 'YENİDƏN YOXLА' : lessonMode(card)}</LessonTextMotion></View> : null}
@@ -286,12 +290,12 @@ export default function PacketLesson({ packet }: { packet: Content }) {
         {soundError ? <Text accessibilityLiveRegion="polite" style={s.error}>{soundError}</Text> : null}
         {task ? card.kind === 'voice' ? <>
           {turn?.sample ? <Surface><Text style={s.kicker}>KÖMƏKLƏ MƏŞQ · NÜMUNƏ</Text><Text style={s.body}>{turn.sample}</Text></Surface> : null}
-          {!audio || promptReady ? locked ? <View style={s.spokenAnswer}><LessonIcon name="mic" size={18} /><LessonTextMotion state={answerMotion} style={s.body}>{answer}</LessonTextMotion></View> : <LessonVoiceInput suspended={exitOpen} key={`${card.id}:${reviewing}`} onBusyChange={setCapturing} onFinal={submitSpeech} /> : <Text style={s.note}>Danışmazdan əvvəl yuxarıdakı səsi dinlə.</Text>}
-        </> : card.options ? <View style={s.options}>{card.options.map((option, i) => <Pressable key={`${card.id}:${i}`} accessibilityRole="radio" accessibilityState={{ selected: answer === option, disabled: locked || Boolean(audio && !promptReady) }} disabled={locked || Boolean(audio && !promptReady)} style={({ pressed }) => [s.option, answer === option && (correct ? s.correctOption : s.selected), pressed && { transform: [{ scale: .985 }] }, Boolean(audio && !promptReady) && { opacity: .55 }]} onPress={() => { if (responseLocked.current) return; setAnswer(option); setFeedback(null); }}><SelectionMark selected={answer === option} correct={correct && answer === option} /><LessonTextMotion state={answer === option ? answerMotion : 'idle'} style={[s.body, s.flex]}>{option}</LessonTextMotion></Pressable>)}</View> : card.words ? <>
-          <View style={s.answerTray}>{built.length ? built.map((wordIndex, position) => <Pressable key={`${wordIndex}:${position}`} accessibilityLabel={`${card.words![wordIndex]} sözünü çıxar`} disabled={locked || Boolean(audio && !promptReady)} style={s.word} onPress={() => { if (responseLocked.current) return; setBuilt(v => v.filter((_, i) => i !== position)); setFeedback(null); }}><LessonTextMotion state={answerMotion} style={s.body}>{card.words![wordIndex]}</LessonTextMotion></Pressable>) : <Text style={s.note}>Sözlərə toxunaraq cümlə qur.</Text>}</View>
+          {!audio || promptReady ? locked ? <View style={s.spokenAnswer}><WrongAnswerBorder active={locked && !correct} radius={16} /><LessonIcon name="mic" size={18} /><LessonTextMotion state={answerMotion} style={s.body}>{answer}</LessonTextMotion></View> : <LessonVoiceInput suspended={exitOpen} key={`${card.id}:${reviewing}`} onBusyChange={setCapturing} onFinal={submitSpeech} /> : <Text style={s.note}>Danışmazdan əvvəl yuxarıdakı səsi dinlə.</Text>}
+        </> : card.options ? <View style={s.options}>{card.options.map((option, i) => <Pressable key={`${card.id}:${i}`} accessibilityRole="radio" accessibilityState={{ selected: answer === option, disabled: locked || Boolean(audio && !promptReady) }} disabled={locked || Boolean(audio && !promptReady)} style={({ pressed }) => [s.option, answer === option && (correct ? s.correctOption : s.selected), pressed && { transform: [{ scale: .985 }] }, Boolean(audio && !promptReady) && { opacity: .55 }]} onPress={() => { if (responseLocked.current) return; setAnswer(option); setFeedback(null); }}><WrongAnswerBorder active={locked && !correct && answer === option} /><SelectionMark selected={answer === option} correct={correct && answer === option} /><LessonTextMotion state={answer === option ? answerMotion : 'idle'} style={[s.body, s.flex]}>{option}</LessonTextMotion></Pressable>)}</View> : card.words ? <>
+          <View style={s.answerTray}><WrongAnswerBorder active={locked && !correct} />{built.length ? built.map((wordIndex, position) => <Pressable key={`${wordIndex}:${position}`} accessibilityLabel={`${card.words![wordIndex]} sözünü çıxar`} disabled={locked || Boolean(audio && !promptReady)} style={s.word} onPress={() => { if (responseLocked.current) return; setBuilt(v => v.filter((_, i) => i !== position)); setFeedback(null); }}><LessonTextMotion state={answerMotion} style={s.body}>{card.words![wordIndex]}</LessonTextMotion></Pressable>) : <Text style={s.note}>Sözlərə toxunaraq cümlə qur.</Text>}</View>
           <View style={s.words}>{card.words.map((word, i) => <Pressable key={`${word}:${i}`} disabled={built.includes(i) || locked || Boolean(audio && !promptReady)} style={[s.word, built.includes(i) && { opacity: .25 }]} onPress={() => { if (responseLocked.current) return; setBuilt(v => [...v, i]); setFeedback(null); }}><Text style={s.body}>{word}</Text></Pressable>)}</View>
         </> : <WrittenAnswerInput key={`${card.id}:${reviewing}`} value={answer} onVoiceFinal={submitSpeech} onChange={v => { if (responseLocked.current) return; setAnswer(v); setFeedback(null); }} disabled={locked || Boolean(audio && !promptReady)} suspended={exitOpen} onBusyChange={setCapturing} onFocus={() => requestAnimationFrame(() => scroll.current?.scrollToEnd({ animated: true }))} motionState={answerMotion} /> : null}
-        {feedback ? <LessonFeedback key={`${card.id}:${feedback.status}`} verdict={feedback} explanation={feedback.status === 'unknown' ? feedback.message : lessonCorrection(card, answer, feedback)} meaning={meaning} assisted={outcomes[card.id]?.status === 'assisted'} answer={answer || built.map(i => card.words![i]).join(' ')} accepted={rule?.answers} needsPractice={reviewing && feedback.status !== 'correct' && feedback.status !== 'unknown'} /> : null}
+        {feedback ? <LessonFeedback key={`${card.id}:${feedback.status}`} verdict={feedback} explanation={feedback.status === 'unknown' ? feedback.message : feedbackCopy(card, answer).reason} example={feedbackCopy(card, answer).example} meaning={meaning} assisted={outcomes[card.id]?.status === 'assisted'} answer={answer || built.map(i => card.words![i]).join(' ')} accepted={rule?.answers} needsPractice={reviewing && feedback.status !== 'correct' && feedback.status !== 'unknown'} /> : null}
         </View>
       </>}
       </>}

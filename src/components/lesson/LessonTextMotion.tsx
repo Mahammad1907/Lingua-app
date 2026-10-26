@@ -75,7 +75,10 @@ export function useLessonTextMotion(state: LessonMotion, trigger?: string | numb
     opacity: progress.interpolate({ inputRange: [0, .35, 1], outputRange: [.25, 1, 1] }),
     transform: [{ scale: progress.interpolate({ inputRange: [0, .45, .7, 1], outputRange: [1, 1.05, 1.02, 1] }) }],
   } : transformStyle;
-  return { progress, reduced, active, transformStyle, iconStyle, color, opacity };
+  const borderStyle = (base: string) => state !== 'incorrect' ? undefined : {
+    borderColor: reduced ? '#EF6B77' : progress.interpolate({ inputRange: [0, .3, .7, 1], outputRange: [base, '#EF6B77', '#EF6B77', base] }),
+  };
+  return { progress, reduced, active, transformStyle, iconStyle, color, opacity, borderStyle };
 }
 
 export default function LessonTextMotion({ state = 'idle', trigger, children, style, ...props }: TextProps & {

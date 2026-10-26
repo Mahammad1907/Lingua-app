@@ -95,3 +95,11 @@ This is item 4 of the follow-up batch currently being collected. Record now, imp
 - Integrate old skills naturally with newly taught material, e.g. greeting plus self-introduction after self-introduction has been taught. Never require an untaught expression to complete a review.
 - Keep initial independent evidence, same-lesson assisted correction and later model-free independent evidence distinct. A later independent success is recorded as such and does not rewrite the initial attempt. If difficulty remains, shorten the next suitable review interval.
 - Skipped, technical and unassessable responses remain Unverified, not language mistakes; accepted meaning-preserving spelling variations do not enter the mistake bank.
+
+
+
+## Follow-up implementation authorized 26 October 2026
+
+The user finished reporting and authorized implementation of follow-up items 1–7. The pending follow-up and spaced-review sections above now describe active requirements. Keep the two human identities, context-matched copy, short concrete feedback, reduced-motion-safe red wrong-answer borders, and number-free animated lesson progress across future lessons. The progress bar indicates lesson activity progress and must not change hearts/energy, award XP, submit answers, or auto-advance. Technical/unassessable answers never receive a wrong-answer effect.
+
+Durable user notebook: docs/LAYIHE_DEFTERI.md. Update it when future user decisions change these rules. Preserve the local Windows SDK migration; this content/UI batch does not change package files.

@@ -28,10 +28,10 @@
         "title": "Tapşırıq 02: Oxu və məlumatı tap",
         "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 02",
         "kind": "task",
-        "body": "Mesajlar: I’m Nora. I’m fine, thanks. I’m Leo. I’m not very well.\nKim özünü o qədər də yaxşı hiss etmir? Adı yaz.",
+        "body": "Mesajlar: I’m Leyla. I’m fine, thanks. I’m Ali. I’m not very well.\nKim özünü o qədər də yaxşı hiss etmir? Adı yaz.",
         "rule": {
           "answers": [
-            "Leo"
+            "Ali"
           ],
           "exact": true
         }
@@ -42,36 +42,36 @@
         "title": "Tapşırıq 03: Səsli cavab",
         "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 03",
         "kind": "voice",
-        "body": "Rol: adın Nora-dır. Salam ver, adını de və BirFox-un adını soruş.",
+        "body": "Rol: adın Leyla-dır. Salam ver, adını de və BirFox-un adını soruş.",
         "rule": {
           "answers": [
-            "Hello. I’m Nora. What’s your name?",
-            "Hi. My name is Nora. What is your name?"
+            "Hello. I’m Leyla. What’s your name?",
+            "Hi. My name is Leyla. What is your name?"
           ],
           "goals": [
             "greet",
             "introduce",
             "askName"
           ],
-          "roleName": "Nora"
+          "roleName": "Leyla"
         },
         "audio": "Hello.",
         "turns": [
           {
             "id": "b1_exam_q03",
-            "prompt": "Rol: adın Nora-dır. Salam ver, adını de və BirFox-un adını soruş.",
+            "prompt": "Rol: adın Leyla-dır. Salam ver, adını de və BirFox-un adını soruş.",
             "audio": "Hello.",
             "rule": {
               "answers": [
-                "Hello. I’m Nora. What’s your name?",
-                "Hi. My name is Nora. What is your name?"
+                "Hello. I’m Leyla. What’s your name?",
+                "Hi. My name is Leyla. What is your name?"
               ],
               "goals": [
                 "greet",
                 "introduce",
                 "askName"
               ],
-              "roleName": "Nora"
+              "roleName": "Leyla"
             }
           }
         ]
@@ -231,7 +231,7 @@
         "title": "Tapşırıq 10: Oxu və məlumatı tap",
         "source": "BirTalk_A1_B1_Kecid_Imtahani.md#A Tapşırıq 10",
         "kind": "task",
-        "body": "Dialoq: My name is Nora. — Sorry. I don’t understand. Could you say that again, please?\nİkinci şəxs niyə təkrar istəyir? Azərbaycan dilində qısa yaz.",
+        "body": "Dialoq: My name is Leyla. — Sorry. I don’t understand. Could you say that again, please?\nİkinci şəxs niyə təkrar istəyir? Azərbaycan dilində qısa yaz.",
         "rule": {
           "answers": [
             "Başa düşmədiyi üçün.",
@@ -277,12 +277,12 @@
             "repeat"
           ]
         },
-        "audio": "My name is Nora.",
+        "audio": "My name is Leyla.",
         "turns": [
           {
             "id": "b1_exam_q12",
             "prompt": "BirFox başqa bir insanın mesajını səsləndirir. Məşq rolu: deyilən adı anlamadın. Bunu bildir və mesajı təkrar deməsini istə.",
-            "audio": "My name is Nora.",
+            "audio": "My name is Leyla.",
             "rule": {
               "answers": [
                 "I don’t understand. Could you say that again, please?",
@@ -469,10 +469,10 @@
         "title": "Tapşırıq 02: Oxu və məlumatı tap",
         "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 02",
         "kind": "task",
-        "body": "Mesajlar: I’m Mila. I’m not very well. I’m Tom. I’m OK.\nKim özünü o qədər də yaxşı hiss etmir? Adı yaz.",
+        "body": "Mesajlar: I’m Leyla. I’m not very well. I’m Ali. I’m OK.\nKim özünü o qədər də yaxşı hiss etmir? Adı yaz.",
         "rule": {
           "answers": [
-            "Mila"
+            "Leyla"
           ],
           "exact": true
         }
@@ -483,36 +483,36 @@
         "title": "Tapşırıq 03: Səsli cavab",
         "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 03",
         "kind": "voice",
-        "body": "Rol: adın Leo-dur. Salam ver, adını de və BirFox-un adını soruş.",
+        "body": "Rol: adın Ali-dur. Salam ver, adını de və BirFox-un adını soruş.",
         "rule": {
           "answers": [
-            "Hi. I’m Leo. What’s your name?",
-            "Hello. My name’s Leo. What is your name?"
+            "Hi. I’m Ali. What’s your name?",
+            "Hello. My name’s Ali. What is your name?"
           ],
           "goals": [
             "greet",
             "introduce",
             "askName"
           ],
-          "roleName": "Leo"
+          "roleName": "Ali"
         },
         "audio": "Hi.",
         "turns": [
           {
             "id": "b1_exam_q03",
-            "prompt": "Rol: adın Leo-dur. Salam ver, adını de və BirFox-un adını soruş.",
+            "prompt": "Rol: adın Ali-dur. Salam ver, adını de və BirFox-un adını soruş.",
             "audio": "Hi.",
             "rule": {
               "answers": [
-                "Hi. I’m Leo. What’s your name?",
-                "Hello. My name’s Leo. What is your name?"
+                "Hi. I’m Ali. What’s your name?",
+                "Hello. My name’s Ali. What is your name?"
               ],
               "goals": [
                 "greet",
                 "introduce",
                 "askName"
               ],
-              "roleName": "Leo"
+              "roleName": "Ali"
             }
           }
         ]
@@ -671,7 +671,7 @@
         "title": "Tapşırıq 10: Oxu və məlumatı tap",
         "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 10",
         "kind": "task",
-        "body": "Dialoq: I’m Mila. — I don’t understand. Again, please.\nİkinci şəxs niyə eyni mesajı yenidən eşitmək istəyir?",
+        "body": "Dialoq: I’m Leyla. — I don’t understand. Again, please.\nİkinci şəxs niyə eyni mesajı yenidən eşitmək istəyir?",
         "rule": {
           "answers": [
             "Başa düşmədiyi üçün.",
@@ -688,16 +688,16 @@
         "title": "Tapşırıq 11: BirFox-un səhvini düzəlt",
         "source": "BirTalk_A1_B1_Kecid_Imtahani.md#B Tapşırıq 11",
         "kind": "task",
-        "body": "Rol: adın Mila-dır. BirFox sənin üçün yazıb: My name are Mila.\nDüzəlt.",
+        "body": "Rol: adın Leyla-dır. BirFox sənin üçün yazıb: My name are Leyla.\nDüzəlt.",
         "rule": {
           "answers": [
-            "My name is Mila.",
-            "I’m Mila"
+            "My name is Leyla.",
+            "I’m Leyla"
           ],
           "goals": [
             "introduce"
           ],
-          "roleName": "Mila"
+          "roleName": "Leyla"
         }
       },
       {
@@ -717,12 +717,12 @@
             "repeat"
           ]
         },
-        "audio": "My name is Leo.",
+        "audio": "My name is Ali.",
         "turns": [
           {
             "id": "b1_exam_q12",
             "prompt": "BirFox başqa bir insanın mesajını səsləndirir. Məşq rolu: deyilən adı anlamadın. Anlamadığını de və təkrar istə.",
-            "audio": "My name is Leo.",
+            "audio": "My name is Ali.",
             "rule": {
               "answers": [
                 "I don’t understand. Again, please.",

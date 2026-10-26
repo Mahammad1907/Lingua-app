@@ -1,0 +1,15 @@
+# BirTalk follow-up implementation 26 October 2026
+
+The seven follow-up requests are implemented on the lesson-screen branch. The durable Azerbaijani project notebook is LAYIHE_DEFTERI.md; AGENTS.md points future work to it.
+
+- Lesson 1 omits the redundant free farewell-writing card from runtime flow. The already-taught greeting speech task separates farewell listening and writing. Raw authored IDs are retained for historical reference; required tasks derive from runtime flow.
+- Wrong answer fields/choices, word trays, confirmed speech and feedback panels get a soft red border pulse. This explicitly supersedes the earlier no-red border preference. Unknown and technical results have no wrong effect; reduced motion uses a static border.
+- Authored human names in the seven lessons and both section exam variants are Ali/Əli and Leyla, consistently across response keys, roles, prompts, audio, translations and retries. Distinct name distractors are preserved. Free learner names are still unrestricted. BirFox remains the guide in teaching and voice interactions.
+- The human farewell correction and its retry no longer refer to a nonexistent board or call the pictured human BirFox. They use different short scenarios and different incorrect greeting examples.
+- Wrong feedback uses short task-specific wording. Optional help adds the actual response, accepted alternatives and a simple example; abstract repeated Reason/Rule sections are removed. Partial answers use the missing goal rather than explaining an already-satisfied one.
+- The question counter is removed visually. A labeled accessible progress bar fills over 450 ms and has a single 550 ms tip glow. It does not loop, change energy or XP, submit or advance; reduced motion is supported. Missing required work remains below full progress.
+- Later recall considers difficult skills after one lesson and older successful skills after three lessons, including earlier lessons in the supplied course packet. A recent independent recheck postpones that skill; a failed or unverified check comes back sooner. These are starting heuristics, not CEFR-mandated intervals. Rechecks retain their original purpose/modality, occur after initial practice in the middle of a lesson, and keep later independent evidence separate from assisted same-lesson correction.
+
+Validation: 49 React Native screen tests passed, including lock/retry paths across all seven lessons, plain feedback, hidden counters, distinct human contexts and later recall scheduling. TypeScript passed; lint has no errors and one pre-existing unused profile handler warning. Answer regressions: 79 passed; authored rule audit: 210 passed after the redundant task is omitted. All post-consolidation choice lists remain distinct. Android/iOS/web JavaScript export checked separately. No dependencies, SDK configuration, source raster images or exam pass rules changed.
+
+Tests run in the repository's existing SDK 57 workspace. The user's local SDK 58 package migration is preserved. Real iPhone visual/animation/native-speech verification has not been performed here. This report does not claim the entire app or all A1 content is complete.

@@ -5,7 +5,7 @@ import type { PacketVerdict } from '../../utils/packetAnswer';
 import { LessonIcon, ink } from './LessonSurface';
 import LessonTextMotion, { useLessonTextMotion } from './LessonTextMotion';
 
-export default function LessonFeedback({ verdict, explanation, meaning, assisted = false, answer, accepted, needsPractice = false }: { verdict: PacketVerdict; explanation: string; meaning: string | null; assisted?: boolean; answer?: string; accepted?: string[]; needsPractice?: boolean }) {
+export default function LessonFeedback({ verdict, explanation, meaning, assisted = false, answer, accepted, needsPractice = false, example }: { verdict: PacketVerdict; explanation: string; meaning: string | null; assisted?: boolean; answer?: string; accepted?: string[]; needsPractice?: boolean; example?: string }) {
   const correct = verdict.status === 'correct';
   const state = correct ? assisted ? 'assisted' : 'correct' : verdict.status === 'unknown' ? 'idle' : 'incorrect';
   const motion = useLessonTextMotion(state);
@@ -15,7 +15,7 @@ export default function LessonFeedback({ verdict, explanation, meaning, assisted
     if (!correct || motion.reduced) return;
     void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
   }, [correct, motion.reduced]);
-  return <Animated.View accessibilityLiveRegion="polite" style={[s.box, correct && s.correct, verdict.status === 'unknown' && s.unverified]}>
+  return <Animated.View accessibilityLiveRegion="polite" style={[s.box, correct && s.correct, motion.borderStyle('#9D7450'), verdict.status === 'unknown' && s.unverified]}>
     <View style={s.row}><Animated.View style={motion.iconStyle}><LessonIcon name={correct ? 'check' : 'hint'} color={correct ? ink.mint : verdict.status === 'unknown' ? ink.muted : ink.orange} size={23} /></Animated.View><LessonTextMotion state={state} style={[s.title, correct && { color: ink.mint }, verdict.status === 'unknown' && { color: ink.muted }]}>{correct ? 'Düzdür!' : verdict.status === 'unknown' ? 'Yenidən cəhd et' : verdict.status === 'partial' ? 'Cavabın bir hissəsi düzdür' : 'Bu dəfə alınmadı'}</LessonTextMotion></View>
     {!correct ? <Text style={s.note}>{explanation || verdict.message}</Text> : null}
     {needsPractice ? <Text style={s.note}>Yenidən məşq lazımdır. Davam edə bilərsən; bu bacarığa sonra qayıdacağıq.</Text> : null}
@@ -23,10 +23,8 @@ export default function LessonFeedback({ verdict, explanation, meaning, assisted
       <Pressable accessibilityRole="button" accessibilityState={{ expanded: detailsOpen }} onPress={() => setDetailsOpen(v => !v)}><Text style={s.link}>Mənə başa sal {detailsOpen ? '−' : '+'}</Text></Pressable>
       {detailsOpen ? <View style={{ gap: 6 }}>
         <Text style={s.note}>Sənin cavabın: {answer}</Text>
-        <Text style={s.note}>Uyğun cavablar: {accepted.join(' / ')}</Text>
-        <Text style={s.note}>Səbəb: {explanation}</Text>
-        <Text style={s.note}>Qısa qayda: Cavabı bu tapşırığın istədiyi məqsədə uyğun qur.</Text>
-        <Text style={s.note}>Yeni vəziyyətdə nümunə: {accepted[accepted.length - 1]}</Text>
+        <Text style={s.note}>Belə cavab verə bilərsən: {accepted.join(' / ')}</Text>
+        {example ? <Text style={s.note}>{example}</Text> : null}
       </View> : null}
     </> : null}
     {correct && meaning ? <Pressable accessibilityRole="button" accessibilityState={{ expanded: meaningOpen }} onPress={() => setMeaningOpen(v => !v)}><Text style={s.link}>{meaningOpen ? meaning : 'Mənasını göstər ›'}</Text></Pressable> : null}

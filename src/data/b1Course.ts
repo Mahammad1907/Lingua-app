@@ -6,7 +6,12 @@ import { LESSON_XP } from '../utils/rewards';
 export const b1Packet = raw as unknown as PacketLesson[];
 export const getPacketLesson = (id: string) => b1Packet.find((lesson) => lesson.id === id);
 export function packetFlow(lesson: PacketLesson): PacketCard[] {
-  return lesson.cards.flatMap((card) => card.kind === 'voice'
+  const cards = lesson.order === 1 ? lesson.cards.filter(c => c.number !== 10) : [...lesson.cards];
+  if (lesson.order === 1) {
+    const speech = cards.findIndex(c => c.number === 6);
+    if (speech >= 0) { const [card] = cards.splice(speech, 1); cards.splice(cards.findIndex(c => c.number === 9), 0, card); }
+  }
+  return cards.flatMap((card) => card.kind === 'voice'
     ? card.turns!.map((turn, i) => ({ ...card, id: turn.id, turns: [turn], review: card.review ? { ...card.review, id: turn.id, turns: [card.review.turns![i]] } : undefined })) : [card]);
 }
 export function packetTaskIds(lesson: PacketLesson) {

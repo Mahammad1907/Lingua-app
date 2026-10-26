@@ -25,7 +25,7 @@ assert.ok(rebuilt.words);
 assert.equal(assess('My name is Leyla.', rebuilt.rule).status, 'correct');
 assert.notEqual(assess('Leyla name My is', rebuilt.rule).status, 'correct');
 const repeatListening = secondCard(14).review;
-assert.equal(repeatListening.audio, 'Hello. My name is Murad.');
+assert.equal(repeatListening.audio, 'Hello. My name is Leyla.');
 assert.equal(assess('is', repeatListening.rule).status, 'correct');
 assert.equal(assess('am', repeatListening.rule).status, 'wrong');
 for (const name of ['Mahammad', 'Aysel', 'Əli', 'Sara']) {

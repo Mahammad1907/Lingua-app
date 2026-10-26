@@ -239,10 +239,10 @@
       {
         "id": "a1_en_b1_v2_d1_c09",
         "number": 9,
-        "title": "BirFox-un səhvini düzəlt",
+        "title": "Ali-un səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D1_Salamlasma.md#Kart 09",
-        "body": "BirFox görüşü bitirir və getmək istəyir. Amma salamlaşma ifadəsi deyir.\nBirFox-a kömək et: sağollaşma ifadəsini yaz.\n\nLövhədə BirFox-un dediyi:\nHi!",
+        "body": "Əli Leylagildən gedir, amma “Hi!” deyir. Onun yerinə uyğun sağollaşma yaz.",
         "rule": {
           "answers": [
             "Goodbye!",
@@ -253,14 +253,14 @@
           ]
         },
         "board": "Hi!",
-        "explanation": "Bu tapşırıqda uyğun cavab: Goodbye!",
+        "explanation": "Əli gedir. Hi salamlaşmaq üçündür. Burada Goodbye! və ya Bye! yazmaq lazımdır.",
         "review": {
           "id": "a1_en_b1_v2_d1_c09",
           "number": 9,
-          "title": "BirFox-un səhvini düzəlt",
+          "title": "Ali-un səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D1_Salamlasma.md#Kart 09",
-          "body": "BirFox qonaqlıqdan gedir, amma “Hi!” deyir. Onun yerinə uyğun sağollaşma yaz.",
+          "body": "Əli görüşdən sonra Leyladan ayrılır, amma “Hello!” deyir. Onun yerinə uyğun sağollaşma yaz.",
           "rule": {
             "answers": [
               "Goodbye!",
@@ -270,7 +270,7 @@
               "farewell"
             ]
           },
-          "explanation": "BirFox gedir. Hello və Hi əvəzinə görüşü bitirən Goodbye və ya Bye lazımdır."
+          "explanation": "Hello salamlaşmaq üçündür. Əli ayrıldığı üçün Goodbye! və ya Bye! deməlidir."
         }
       },
       {
@@ -581,7 +581,7 @@
         },
         "audio": "Hi. I’m Ali.",
         "options": [
-          "Murad",
+          "Leyla",
           "Ali"
         ],
         "explanation": "Səsdə “I’m Ali” deyilir: “Mən Əliyəm”. Ona görə danışanın adı Ali-dir.",
@@ -594,15 +594,15 @@
           "body": "Başqa bir danışanı dinlə. Onun adını seç.",
           "rule": {
             "answers": [
-              "Murad"
+              "Leyla"
             ],
             "exact": true
           },
-          "explanation": "Səsdə Murad öz adını deyir; Ali başqa addır.",
-          "audio": "Hello. I’m Murad.",
+          "explanation": "Səsdə Leyla öz adını deyir; Ali başqa addır.",
+          "audio": "Hello. I’m Leyla.",
           "options": [
             "Ali",
-            "Murad"
+            "Leyla"
           ]
         }
       },
@@ -631,16 +631,16 @@
           "title": "Sözlərdən cümlə qur",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 06",
-          "body": "Murad öz adını deyir. Sözləri düzgün sıraya düz.",
+          "body": "Əli öz adını deyir. Sözləri düzgün sıraya düz.",
           "rule": {
             "answers": [
-              "I am Murad."
+              "I am Ali."
             ],
             "exact": true
           },
-          "explanation": "Ad təqdimatında sıra I + am + addır. Burada danışan Muraddır.",
+          "explanation": "Ad təqdimatında sıra I + am + addır. Burada danışan Əlidir.",
           "words": [
-            "Murad",
+            "Ali",
             "I",
             "am"
           ]
@@ -652,21 +652,21 @@
         "title": "Boşluğu yazaraq tamamla",
         "kind": "task",
         "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 07",
-        "body": "Murad öz adını deyir. Boşluğu tamamla.\nI ___ Murad.",
+        "body": "Leyla öz adını deyir. Boşluğu tamamla.\nI ___ Leyla.",
         "rule": {
           "answers": [
             "am"
           ],
           "exact": true
         },
-        "explanation": "I ilə am işlənir. Cümlə: I am Murad. Boşluğa yalnız am yaz.",
+        "explanation": "I ilə am işlənir. Cümlə: I am Leyla. Boşluğa yalnız am yaz.",
         "review": {
           "id": "a1_en_b1_v2_d2_c07",
           "number": 7,
           "title": "Boşluğu yazaraq tamamla",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 07",
-          "body": "Ali öz adını deyir. Boşluğu tamamla: I ___ Ali.",
+          "body": "Əli öz adını deyir. Boşluğu tamamla: I ___ Ali.",
           "rule": {
             "answers": [
               "am"
@@ -764,45 +764,45 @@
           "title": "Oxu və mənanı seç",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 10",
-          "body": "My name is Murad.\nCümlənin mənasını seç.",
+          "body": "My name is Leyla.\nCümlənin mənasını seç.",
           "rule": {
             "answers": [
-              "Mənim adım Muraddır."
+              "Mənim adım Leyladır."
             ],
             "exact": true
           },
-          "explanation": "My name is Murad cümləsi danışanın öz adını bildirdiyini göstərir.",
+          "explanation": "My name is Leyla cümləsi danışanın öz adını bildirdiyini göstərir.",
           "options": [
-            "Salam, Murad!",
-            "Mənim adım Muraddır."
+            "Salam, Leyla!",
+            "Mənim adım Leyladır."
           ]
         }
       },
       {
         "id": "a1_en_b1_v2_d2_c11",
         "number": 11,
-        "title": "BirFox-un səhvini düzəlt",
+        "title": "Ali-un səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 11",
-        "body": "BirFox adını demək istəyir, amma am sözünü səhv işlədib. Cümləni düzgün formada yenidən yaz.\n\nMy name am BirFox.",
+        "body": "Əli adını demək istəyir, amma am sözünü səhv işlədib. Cümləni düzgün formada yenidən yaz.\n\nMy name am Ali.",
         "rule": {
           "answers": [
-            "My name is BirFox.",
-            "I am BirFox.",
-            "I’m BirFox.",
-            "My name’s BirFox."
+            "My name is Ali.",
+            "I am Ali.",
+            "I’m Ali.",
+            "My name’s Ali."
           ],
           "goals": [
             "introduce"
           ],
-          "roleName": "BirFox"
+          "roleName": "Ali"
         },
-        "board": "My name am BirFox.",
-        "explanation": "My name ilə is işlənir: My name is BirFox. I am BirFox və I’m BirFox da düzgün təqdimatdır.",
+        "board": "My name am Ali.",
+        "explanation": "My name ilə is işlənir: My name is Ali. I am Ali və I’m Ali da düzgün təqdimatdır.",
         "review": {
           "id": "a1_en_b1_v2_d2_c11",
           "number": 11,
-          "title": "BirFox-un səhvini düzəlt",
+          "title": "Ali-un səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 11",
           "body": "Leyla adını deyir, amma am sözünü səhv işlədib. Cümləni düzgün formada yenidən yaz.\n\nMy name am Leyla.",
@@ -872,20 +872,20 @@
         "title": "Yeni quruluşla cümlə qur",
         "kind": "task",
         "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 13",
-        "body": "Murad öz adını deyir. Sözləri düzgün sıraya düz.",
+        "body": "Əli öz adını deyir. Sözləri düzgün sıraya düz.",
         "rule": {
           "answers": [
-            "My name is Murad."
+            "My name is Ali."
           ],
           "exact": true
         },
         "words": [
-          "Murad",
+          "Ali",
           "is",
           "My",
           "name"
         ],
-        "explanation": "Ardıcıllıq: My + name + is + ad. Murad üçün: My name is Murad.",
+        "explanation": "Ardıcıllıq: My + name + is + ad. Ali üçün: My name is Ali.",
         "review": {
           "id": "a1_en_b1_v2_d2_c13",
           "number": 13,
@@ -929,15 +929,15 @@
           "title": "Dinlə və boşluğu tamamla",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 14",
-          "body": "Dinlə və yalnız çatışmayan sözü yaz.\nHello. My name ___ Murad.",
+          "body": "Dinlə və yalnız çatışmayan sözü yaz.\nHello. My name ___ Leyla.",
           "rule": {
             "answers": [
               "is"
             ],
             "exact": true
           },
-          "explanation": "Səsdə “My name is Murad” deyilir. My name ifadəsindən sonra is gəlir; boşluğa yalnız is yaz.",
-          "audio": "Hello. My name is Murad."
+          "explanation": "Səsdə “My name is Leyla” deyilir. My name ifadəsindən sonra is gəlir; boşluğa yalnız is yaz.",
+          "audio": "Hello. My name is Leyla."
         }
       },
       {
@@ -1058,7 +1058,7 @@
         "title": "Səhvlərin təkrarı: yalnız ehtiyac olduqda",
         "kind": "review",
         "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 17",
-        "body": "Başlıq:\nBir daha məşq edək.\nÇətinlik olan hissəni yeni nümunə ilə məşq edək.\n\nGörülmüş səhvə uyğun aşağıdakı kartlardan yalnız lazım olanlar açılır:\n\n17.1 — Salam səhvi:\nYeni tanışın sənə Hi deyir. Salamına cavab yaz.\n\n17.2 — Sağollaşma səhvi:\nGörüş bitib. Tanışın Goodbye deyir. Cavab yaz.\n\n17.3 — Eşidilən ad səhvi:\nDinlə. Danışanın adını yaz.\n\n17.4 — I am quruluşu səhvi:\nAli öz adını deyir. Boşluğu tamamla.\nI ___ Ali.\n\n17.5 — My name is quruluşu səhvi:\nLeyla öz adını deyir. Cümləni düzəlt.\nMy name am Leyla.\n\n17.6 — İfadənin mənası səhvi:\nOxu. Danışanın adını yaz.\nMy name is Murad.\n\n17.7 — Müstəqil təqdimat alınmayıbsa:\nQonşunla ilk dəfə tanış olursan. Salam ver və adını yaz.\n\nSəsli məşqdə səhv varsa və istifadəçi danışmaq istəyirsə:\nBirFox-un səsi:\nHello. I’m BirFox.\nSalam ver və öz adını de."
+        "body": "Başlıq:\nBir daha məşq edək.\nÇətinlik olan hissəni yeni nümunə ilə məşq edək.\n\nGörülmüş səhvə uyğun aşağıdakı kartlardan yalnız lazım olanlar açılır:\n\n17.1 — Salam səhvi:\nYeni tanışın sənə Hi deyir. Salamına cavab yaz.\n\n17.2 — Sağollaşma səhvi:\nGörüş bitib. Tanışın Goodbye deyir. Cavab yaz.\n\n17.3 — Eşidilən ad səhvi:\nDinlə. Danışanın adını yaz.\n\n17.4 — I am quruluşu səhvi:\nƏli öz adını deyir. Boşluğu tamamla.\nI ___ Ali.\n\n17.5 — My name is quruluşu səhvi:\nLeyla öz adını deyir. Cümləni düzəlt.\nMy name am Leyla.\n\n17.6 — İfadənin mənası səhvi:\nOxu. Danışanın adını yaz.\nMy name is Ali.\n\n17.7 — Müstəqil təqdimat alınmayıbsa:\nQonşunla ilk dəfə tanış olursan. Salam ver və adını yaz.\n\nSəsli məşqdə səhv varsa və istifadəçi danışmaq istəyirsə:\nBirFox-un səsi:\nHello. I’m BirFox.\nSalam ver və öz adını de."
       },
       {
         "id": "a1_en_b1_v2_d2_c18",
@@ -1186,13 +1186,14 @@
     ],
     "audioMeanings": {
       "Hi. I’m Ali.": "Salam. Mən Əliyəm.",
-      "Hello. I’m Murad.": "Salam. Mən Muradam.",
+      "Hello. I’m Ali.": "Salam. Mən Əliyəm.",
       "Hello. I’m BirFox.": "Salam. Mən BirFox-am.",
       "Hi. My name is BirFox.": "Salam. Mənim adım BirFox-dur.",
       "Hi. I’m BirFox.": "Salam. Mən BirFox-am.",
       "Hello. My name is Ali.": "Salam. Mənim adım Əlidir.",
-      "Hello. My name is Murad.": "Salam. Mənim adım Muraddır.",
-      "Bye!": "Sağ ol!"
+      "Bye!": "Sağ ol!",
+      "Hello. I’m Leyla.": "Salam. Mən Leylayam.",
+      "Hello. My name is Leyla.": "Salam. Mənim adım Leyladır."
     }
   },
   {
@@ -1260,7 +1261,7 @@
         },
         "audio": "My name is Ali.",
         "options": [
-          "Murad",
+          "Leyla",
           "Ali"
         ],
         "explanation": "Bu səsdə “My name is Ali.” deyilir. Tapşırığın uyğun cavabı: Ali",
@@ -1273,15 +1274,15 @@
           "body": "Başqa bir danışanı dinlə. Onun adını seç.",
           "rule": {
             "answers": [
-              "Murad"
+              "Leyla"
             ],
             "exact": true
           },
-          "explanation": "Səsdə Murad öz adını deyir; Ali başqa addır.",
-          "audio": "Hi. I’m Murad.",
+          "explanation": "Səsdə Leyla öz adını deyir; Ali başqa addır.",
+          "audio": "Hi. I’m Leyla.",
           "options": [
             "Ali",
-            "Murad"
+            "Leyla"
           ]
         }
       },
@@ -1513,10 +1514,10 @@
       {
         "id": "a1_en_b1_v2_d3_c11",
         "number": 11,
-        "title": "BirFox-un səhvini düzəlt",
+        "title": "Ali-un səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D3_Ad_sorusmaq.md#Kart 11",
-        "body": "BirFox qarşısındakı şəxsin adını soruşmaq istəyir. Amma öz adı haqqında sual verir.\nBirFox-a kömək et: sualı düzəldib yaz.\n\nWhat’s my name?",
+        "body": "Əli qarşısındakı şəxsin adını soruşmaq istəyir. Amma öz adı haqqında sual verir.\nƏliyə kömək et: sualı düzəldib yaz.\n\nWhat’s my name?",
         "rule": {
           "answers": [
             "What’s your name?",
@@ -1531,7 +1532,7 @@
         "review": {
           "id": "a1_en_b1_v2_d3_c11",
           "number": 11,
-          "title": "BirFox-un səhvini düzəlt",
+          "title": "Ali-un səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D3_Ad_sorusmaq.md#Kart 11",
           "body": "Qonağın adını soruşmaq istəyirsən. Sualdakı my sözünü düzəlt və bütöv sualı yaz: What is my name?",
@@ -1848,7 +1849,7 @@
         "title": "Səhvlərin ayrıca təkrarı",
         "kind": "review",
         "source": "BirTalk_A1_B1_D3_Ad_sorusmaq.md#Kart 19",
-        "body": "Başlıq:\nBir daha məşq edək.\nÇətinlik olan hissəni yeni vəziyyətdə işlədək.\n\nSəhvə uyğun aşağıdakı kartlardan yalnız lazım olanlar göstərilir:\n\n19.1 — Əvvəlki təqdimat çətinliyi:\nAli rolundasan. Salam ver və adını yaz.\n\n19.2 — Eşidilən adı ayırmaq çətinliyi:\nDinlə. Danışanın adını yaz.\n\n19.3 — Sualın mənası çətinliyi:\nOxu: What is your name?\nBu sualı eşidən şəxs nə deməlidir?\nA) Öz adını.\nB) Sağollaşma ifadəsi.\n\n19.4 — my/your və ya söz sırası çətinliyi:\nBirFox yeni qonağın adını soruşmaq istəyir. Sualı düzəlt.\nWhat is my name?\n\n19.5 — Tam sualda is buraxılıbsa:\nQarşı tərəfin adını soruşan sualı tamamla.\nWhat ___ your name?\n\n19.6 — Tanışlığa qarşılıq çətinliyi:\nYeni tanışın Nice to meet you deyir. Sən də şad olduğunu bildirən cavabı yaz.\n\n19.7 — Müstəqil tanışlıq çətinliyi:\nBir tədbirdə yeni biri ilə tanış olursan. Salam ver, adını de və onun adını soruş.\n\nSəsli təkrar, yalnız istifadəçi danışırsa:\nBirFox-un səsi:\nHi. What’s your name?\nAdını de və onun adını soruş.\n\nSəsli qarşılıq təkrarı, yalnız uyğun səhv olubsa:\nBirFox-un səsi:\nNice to meet you.\nSən də şad olduğunu bildir."
+        "body": "Başlıq:\nBir daha məşq edək.\nÇətinlik olan hissəni yeni vəziyyətdə işlədək.\n\nSəhvə uyğun aşağıdakı kartlardan yalnız lazım olanlar göstərilir:\n\n19.1 — Əvvəlki təqdimat çətinliyi:\nƏli rolundasan. Salam ver və adını yaz.\n\n19.2 — Eşidilən adı ayırmaq çətinliyi:\nDinlə. Danışanın adını yaz.\n\n19.3 — Sualın mənası çətinliyi:\nOxu: What is your name?\nBu sualı eşidən şəxs nə deməlidir?\nA) Öz adını.\nB) Sağollaşma ifadəsi.\n\n19.4 — my/your və ya söz sırası çətinliyi:\nBirFox yeni qonağın adını soruşmaq istəyir. Sualı düzəlt.\nWhat is my name?\n\n19.5 — Tam sualda is buraxılıbsa:\nQarşı tərəfin adını soruşan sualı tamamla.\nWhat ___ your name?\n\n19.6 — Tanışlığa qarşılıq çətinliyi:\nYeni tanışın Nice to meet you deyir. Sən də şad olduğunu bildirən cavabı yaz.\n\n19.7 — Müstəqil tanışlıq çətinliyi:\nBir tədbirdə yeni biri ilə tanış olursan. Salam ver, adını de və onun adını soruş.\n\nSəsli təkrar, yalnız istifadəçi danışırsa:\nBirFox-un səsi:\nHi. What’s your name?\nAdını de və onun adını soruş.\n\nSəsli qarşılıq təkrarı, yalnız uyğun səhv olubsa:\nBirFox-un səsi:\nNice to meet you.\nSən də şad olduğunu bildir."
       },
       {
         "id": "a1_en_b1_v2_d3_c20",
@@ -2018,7 +2019,7 @@
     ],
     "audioMeanings": {
       "My name is Ali.": "Mənim adım Əlidir.",
-      "Hi. I’m Murad.": "Salam. Mən Muradam.",
+      "Hi. I’m Ali.": "Salam. Mən Əliyəm.",
       "Hello!": "Salam",
       "I’m BirFox.": "Mən BirFoxam.",
       "Hello. What’s your name?": "Salam. Sənin adın nədir?",
@@ -2026,7 +2027,8 @@
       "I’m BirFox. Nice to meet you.": "Mən BirFoxam. Tanış olduğuma şadam.",
       "Goodbye!": "Sağ ol / sağ olun",
       "What’s your name?": "Sənin adın nədir?",
-      "What is your name?": "Adın nədir?"
+      "What is your name?": "Adın nədir?",
+      "Hi. I’m Leyla.": "Salam. Mən Leylayam."
     }
   },
   {
@@ -2066,7 +2068,7 @@
           "title": "başlanğıc təkrarı",
           "kind": "task",
           "source": "BirTalk_A1_B1_D4_Hal_ehval.md#Kart 02",
-          "body": "Ali rolundasan. Yeni qonşuna salam ver və adını yaz.",
+          "body": "Əli rolundasan. Yeni qonşuna salam ver və adını yaz.",
           "rule": {
             "answers": [
               "Hello. I’m Ali."
@@ -2446,10 +2448,10 @@
       {
         "id": "a1_en_b1_v2_d4_c15",
         "number": 15,
-        "title": "əsas tapşırıq — BirFox-un səhvini düzəlt",
+        "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D4_Hal_ehval.md#Kart 15",
-        "body": "BirFox özünü yaxşı hiss etmir, amma əksini deyir. Ona kömək et: halına uyğun cavab yaz.\nI’m fine.",
+        "body": "Əli özünü yaxşı hiss etmir, amma əksini deyir. Ona kömək et: halına uyğun cavab yaz.\nI’m fine.",
         "rule": {
           "answers": [
             "I’m not very well."
@@ -2463,10 +2465,10 @@
         "review": {
           "id": "a1_en_b1_v2_d4_c15",
           "number": 15,
-          "title": "əsas tapşırıq — BirFox-un səhvini düzəlt",
+          "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D4_Hal_ehval.md#Kart 15",
-          "body": "Özünü yaxşı hiss etməyən Ali üçün hal cavabı yaz.",
+          "body": "Özünü yaxşı hiss etməyən Əli üçün hal cavabı yaz.",
           "rule": {
             "answers": [
               "I’m not very well."
@@ -2484,14 +2486,14 @@
         "title": "əsas tapşırıq — oxu və məlumatı tap",
         "kind": "task",
         "source": "BirTalk_A1_B1_D4_Hal_ehval.md#Kart 16",
-        "body": "Mesaj 1: Hi. I’m Ali. I’m OK.\nMesaj 2: Hello. My name is Murad. I’m not very well.\nÖzünü o qədər də yaxşı hiss etməyən şəxsin adını yaz.",
+        "body": "Mesaj 1: Hi. I’m Ali. I’m OK.\nMesaj 2: Hello. My name is Ali. I’m not very well.\nÖzünü o qədər də yaxşı hiss etməyən şəxsin adını yaz.",
         "rule": {
           "answers": [
-            "Murad"
+            "Ali"
           ],
           "exact": true
         },
-        "explanation": "Bu tapşırıqda uyğun cavab: Murad",
+        "explanation": "Bu tapşırıqda uyğun cavab: Ali",
         "review": {
           "id": "a1_en_b1_v2_d4_c16",
           "number": 16,
@@ -3319,10 +3321,10 @@
       {
         "id": "a1_en_b1_v2_d5_c17",
         "number": 17,
-        "title": "əsas tapşırıq — BirFox-un səhvini düzəlt",
+        "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D5_Nezaket.md#Kart 17",
-        "body": "BirFox təsadüfən birinə toxunub və üzr istəmək istəyir. Amma başqa məqsədli ifadə deyir. İfadəni düzəlt.\nThank you.",
+        "body": "Ali təsadüfən birinə toxunub və üzr istəmək istəyir. Amma başqa məqsədli ifadə deyir. İfadəni düzəlt.\nThank you.",
         "rule": {
           "answers": [
             "Sorry.",
@@ -3338,7 +3340,7 @@
         "review": {
           "id": "a1_en_b1_v2_d5_c17",
           "number": 17,
-          "title": "əsas tapşırıq — BirFox-un səhvini düzəlt",
+          "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D5_Nezaket.md#Kart 17",
           "body": "Öz kiçik səhvinə görə üzr istə. Bir qısa ifadə yaz.",
@@ -3716,7 +3718,7 @@
         "title": "başlanğıc təkrarı",
         "kind": "task",
         "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 03",
-        "body": "BirFox köməyinə görə təşəkkür edir.\nDinlə və təşəkkürünə cavab yaz.",
+        "body": "Ali köməyinə görə təşəkkür edir.\nDinlə və təşəkkürünə cavab yaz.",
         "rule": {
           "answers": [
             "You’re welcome.",
@@ -3982,10 +3984,10 @@
       {
         "id": "a1_en_b1_v2_d6_c11",
         "number": 11,
-        "title": "əsas tapşırıq — BirFox-un səhvini düzəlt",
+        "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 11",
-        "body": "BirFox deyiləni anlamır, amma halından danışır. Anlamadığını bildirməsi üçün ifadəni düzəlt.\nI’m fine.",
+        "body": "Ali deyiləni anlamır, amma halından danışır. Anlamadığını bildirməsi üçün ifadəni düzəlt.\nI’m fine.",
         "rule": {
           "answers": [
             "I don’t understand.",
@@ -4000,7 +4002,7 @@
         "review": {
           "id": "a1_en_b1_v2_d6_c11",
           "number": 11,
-          "title": "əsas tapşırıq — BirFox-un səhvini düzəlt",
+          "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 11",
           "body": "Ali verilən izahı anlamır. Onun üçün anlamama cümləsi yaz.",
@@ -4178,7 +4180,7 @@
           "title": "əsas tapşırıq — qısa dialoqu oxu",
           "kind": "task",
           "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 16",
-          "body": "Oxu:\nA: I’m Murad.\nB: Again, please.\nA: I’m Murad.\nCümlə niyə ikinci dəfə deyildi?",
+          "body": "Oxu:\nA: I’m Ali.\nB: Again, please.\nA: I’m Ali.\nCümlə niyə ikinci dəfə deyildi?",
           "rule": {
             "answers": [
               "B təkrar istədi."

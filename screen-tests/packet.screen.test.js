@@ -139,33 +139,33 @@ async function reach(packet, number) {
 }
 test('analysis: a nonsensical written correction shows wrong feedback and stays on the current card', async () => {
  await reach(b1Packet[1], 11);
- const before = Number([screen.getByText(/^\d+\/\d+$/).props.children].flat().join('').split('/')[0]);
+ const before = screen.getByRole('progressbar').props.accessibilityValue.now;
  await act(async () => fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'), 'hjj'));
  await press('Yoxla');
  expect(screen.getByText('Bu dəfə alınmadı', {exact:true})).toBeOnTheScreen();
- expect(Number([screen.getByText(/^\d+\/\d+$/).props.children].flat().join('').split('/')[0])).toBe(before);
+ expect(screen.getByRole('progressbar').props.accessibilityValue.now).toBe(before);
 });
 test('analysis: a partial compound answer shows partial feedback and stays on the current card', async () => {
  await reach(b1Packet[1], 15);
- const before = Number([screen.getByText(/^\d+\/\d+$/).props.children].flat().join('').split('/')[0]);
+ const before = screen.getByRole('progressbar').props.accessibilityValue.now;
  await act(async () => fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'), 'Hello'));
  await press('Yoxla');
  expect(screen.getByText('Cavabın bir hissəsi düzdür', {exact:true})).toBeOnTheScreen();
- expect(Number([screen.getByText(/^\d+\/\d+$/).props.children].flat().join('').split('/')[0])).toBe(before);
+ expect(screen.getByRole('progressbar').props.accessibilityValue.now).toBe(before);
 });
 test('regression: the same primary button ignores a second rapid tap', async () => {
  await start(b1Packet[0]); await press('Davam et'); await listen(); await press('Salam!');
- const before = Number([screen.getByText(/^\d+\/\d+$/).props.children].flat().join('').split('/')[0]);
+ const before = screen.getByRole('progressbar').props.accessibilityValue.now;
  const button = screen.getByRole('button', {name:'Yoxla'});
  await act(async () => fireEvent.press(button));
  expect(screen.getByText('Düzdür!', {exact:true})).toBeOnTheScreen();
  await act(async () => fireEvent.press(button));
- expect(Number([screen.getByText(/^\d+\/\d+$/).props.children].flat().join('').split('/')[0])).toBe(before);
+ expect(screen.getByRole('progressbar').props.accessibilityValue.now).toBe(before);
 });
 test('wrong listening retry is locked, can continue, and never exposes the previous-answer block', async () => {
  const packet=b1Packet[0];
  await start(packet); await press('Davam et'); await listen(); await press('Sağ ol!'); await press('Yoxla'); await press('Davam et');
- for(const card of packetFlow(packet).filter(c=>c.number>3&&!['review','result'].includes(c.kind))){
+ for(const card of packetFlow(packet).slice(packetFlow(packet).findIndex(c=>c.number===3)+1).filter(c=>true&&!['review','result'].includes(c.kind))){
   if(card.kind==='teach')await press('Davam et');
   else if(card.kind==='voice')await back();
   else await answerCard(card);
@@ -229,7 +229,7 @@ test('unknown speech can explicitly continue unverified and never queues a mista
  expect(response).toMatch(/tanınmadı/);
  expect(screen.queryByText('Bu dəfə alınmadı',{exact:true})).not.toBeOnTheScreen();
  await press('Yoxlanmadı ilə davam et');
- for(const next of packetFlow(packet).filter(c=>c.number>6&&!['review','result'].includes(c.kind))) {
+ for(const next of packetFlow(packet).slice(packetFlow(packet).findIndex(c=>c.number===6)+1).filter(c=>true&&!['review','result'].includes(c.kind))) {
   if(next.kind==='teach')await press('Davam et');else if(next.kind==='voice')await back();else await answerCard(next);
  }
  expect(screen.queryByText('BİR DƏ MƏŞQ ET',{exact:true})).not.toBeOnTheScreen();
@@ -240,7 +240,7 @@ test('unknown speech can explicitly continue unverified and never queues a mista
 
 test('same-lesson correction is assisted; a later model-free recheck records independent evidence separately',async()=>{
  const packet=b1Packet[0];await start(packet);await press('Davam et');await listen();await press('Sağ ol!');await press('Yoxla');await press('Davam et');
- for(const card of packetFlow(packet).filter(c=>c.number>3&&!['review','result'].includes(c.kind))) {
+ for(const card of packetFlow(packet).slice(packetFlow(packet).findIndex(c=>c.number===3)+1).filter(c=>true&&!['review','result'].includes(c.kind))) {
   if(card.kind==='teach')await press('Davam et');else if(card.kind==='voice')await back();else await answerCard(card);
  }
  const original=packet.cards.find(c=>c.number===3);
@@ -310,7 +310,7 @@ test('accepted one-letter typo never creates a mistake retry',async()=>{
  const packet=b1Packet[0];await reach(packet,5);
  await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'Helloo'));
  await press('Yoxla');expect(screen.getByText('Düzdür!',{exact:true})).toBeOnTheScreen();await press('Davam et');
- for(const c of packetFlow(packet).filter(c=>c.number>5&&!['review','result'].includes(c.kind))){
+ for(const c of packetFlow(packet).slice(packetFlow(packet).findIndex(c=>c.number===5)+1).filter(c=>true&&!['review','result'].includes(c.kind))){
   if(c.kind==='teach')await press('Davam et');else if(c.kind==='voice')await back();else await answerCard(c);
  }
  expect(screen.queryByText('BİR DƏ MƏŞQ ET',{exact:true})).not.toBeOnTheScreen();
@@ -336,4 +336,36 @@ test('all authored retries preserve listening, response format, and every compou
   const goals=c.turns?.[0]?.rule.goals || c.rule?.goals;
   if(goals)expect(r.turns?.[0]?.rule.goals || r.rule?.goals).toEqual(goals);
  }
+});
+
+test('farewell writing is not asked twice and the correction is framed around the pictured humans',()=>{
+ const flow=packetFlow(b1Packet[0]);
+ expect(flow.filter(c=>c.kind==='task' && c.rule?.goals?.includes('farewell'))).toHaveLength(1);
+ const correction=flow.find(c=>c.number===9);
+ expect(correction.body).toContain('Əli');expect(correction.body).toContain('Leyla');
+ expect(correction.body).not.toMatch(/Lövhədə|BirFox/);
+});
+test('wrong explanation is plain, expandable, and has no repeated abstract reason/rule labels',async()=>{
+ await reach(b1Packet[0],9);
+ await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'ghjp'));
+ await press('Yoxla');
+ expect(screen.getByText('Burada sağollaşmaq lazımdır. Goodbye! və ya Bye! yaza bilərsən.')).toBeOnTheScreen();
+ await press('Mənə başa sal +');
+ expect(screen.getByText('Sənin cavabın: ghjp')).toBeOnTheScreen();
+ expect(screen.queryByText(/^Səbəb:/)).not.toBeOnTheScreen();
+ expect(screen.queryByText(/^Qısa qayda:/)).not.toBeOnTheScreen();
+ expect(screen.queryByText(/tapşırığın hədəfi/)).not.toBeOnTheScreen();
+ expect(screen.queryByText(/^\d+\/\d+$/)).not.toBeOnTheScreen();
+ expect(screen.getByRole('progressbar')).toBeOnTheScreen();
+});
+test('older successful skills return later while recent independent rechecks are spaced out',()=>{
+ const {lessonRecall}=require('../src/utils/lessonReview');
+ const source=b1Packet[0],task=packetFlow(source).find(c=>c.kind==='task');
+ const progress=[{lessonId:source.id,completed:true,practiceNeeds:[]}];
+ expect(lessonRecall(b1Packet[1],b1Packet,progress)).toBeUndefined();
+ expect(lessonRecall(b1Packet[3],b1Packet,progress)).toBeDefined();
+ const failed=[{lessonId:source.id,completed:true,practiceNeeds:[task.id]}];
+ expect(lessonRecall(b1Packet[1],b1Packet,failed)?.id).toContain(task.id);
+ const checked=[...failed,{lessonId:b1Packet[1].id,completed:true,rechecks:[{sourceLessonId:source.id,taskId:task.id,status:'independent'}]}];
+ expect(lessonRecall(b1Packet[2],b1Packet,checked)).toBeUndefined();
 });

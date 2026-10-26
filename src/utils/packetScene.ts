@@ -8,7 +8,7 @@ export function packetScene(order: number, card: Pick<PacketCard, 'kind' | 'numb
   if (card.kind === 'task' && !card.audio && !card.options && !card.words) {
     const goals = card.rule?.goals || [];
     if (goals.includes('greet') || goals.includes('askName')) return 'conversation';
-    if (goals.includes('introduce')) return 'name-card';
+    if (goals.includes('introduce')) return card.rule?.roleName === 'Ali' ? 'conversation' : 'name-card';
     if (goals.includes('farewell')) return 'farewell';
     if (goals.includes('thanks')) return 'gratitude';
     if (goals.includes('sorry')) return 'apology';
