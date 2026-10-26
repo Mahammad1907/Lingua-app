@@ -74,3 +74,13 @@ Docs: https://docs.expo.dev/eas/index.md
 - All confirmed mistakes queue a modality- and purpose-preserving retry after the main lesson. Keep skip, technical uncertainty, and accepted typos out of that queue. Remove the previous-question/answer/explanation block from retries.
 - Preserve original first-attempt evidence. Same-lesson correction is Assisted; unresolved retry is Needs practice. Later unprompted rechecks are recorded separately.
 - Do not replace the existing lesson flow with the separate 13-card paper lesson or edit the SDK/package files in this batch; the user upgraded their Windows installation separately.
+
+## Pending follow-up feedback 26 October 2026
+
+The user is still collecting this next batch. Record these requirements now; do not implement lesson/application changes until the user finishes reporting and authorizes the batch.
+
+- Avoid consecutive farewell tasks that repeat the same learning purpose. Keep different recognition/production purposes when justified and improve their placement rather than deleting a skill.
+- Confirmed wrong answers should receive a brief, soft red border animation on the wrong answer field/choice and feedback panel. This newer explicit preference supersedes the previous no-red rule for wrong-answer borders only. Keep reduced motion, no screen shake, and no error effect for technical or unverified answers.
+- Use exactly two recurring human example characters across lesson situations: the orange-clothed boy/man is Əli in Azerbaijani prose and Ali in English; the purple-clothed girl/woman is Leyla in both languages. Keep names and visual identities consistent in prompts, dialogue, audio scripts, options, explanations and authored retries; do not introduce extra named human example characters without a user request.
+- BirFox remains the mascot, teacher and conversation guide. Do not call a pictured human BirFox. In human situation tasks, name the pictured people instead. For the supplied farewell example: “Əli Leylagildən gedir, amma ‘Hi!’ deyir. Onun yerinə uyğun sağollaşma yaz.”
+- The two-character rule governs authored examples and fixed roles, not the learner's identity: free self-introduction still accepts the learner's own/chosen name. Fixed-role answers must preserve the stated role name. Proper names are not new vocabulary and must not be added to the dictionary or highlighted as new words.
