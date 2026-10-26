@@ -66,15 +66,16 @@ const placements = [];
 for (const lesson of b1Packet) {
   for (const card of packetFlow(lesson)) {
     const scene = packetScene(lesson.order, card);
-    if (newScenes.has(scene)) {
+    if (newScenes.has(scene) && card.kind === 'teach') {
       assert.equal(card.kind, 'teach', 'new art is limited to teaching');
       placements.push(`${lesson.order}:${card.number}:${scene}`);
     }
-    if (['task', 'voice', 'review', 'result'].includes(card.kind)) assert.equal(scene, undefined, 'assessed questions cannot expose a topic answer');
-    assert.equal(packetScene(lesson.order, card, true), undefined, 'reviews keep the board');
+    const freeSituation = card.kind === 'task' && !card.audio && !card.options && !card.words;
+    if (['task', 'voice', 'review', 'result'].includes(card.kind) && !freeSituation) assert.equal(scene, undefined, 'listening, choice and word-bank questions cannot expose a topic answer');
+    assert.equal(packetScene(lesson.order, card, true), freeSituation ? scene : undefined, 'only free situation prompts may reuse matching illustrations in review');
   }
 }
 assert.deepEqual(placements, ['1:7:farewell', '2:4:name-card', '3:4:name-card', '4:5:feelings', '4:14:feelings']);
 assert.equal(packetScene(2, { kind: 'teach', number: 9 }), undefined, 'I am / My name is stays on the board');
 assert.equal(packetScene(3, { kind: 'teach', number: 5 }), undefined, 'my / your stays on the board');
-console.log('PASS: three reused character illustrations in five teaching placements; comparison boards and assessment isolation preserved.');
+console.log('PASS: three reused character illustrations in five teaching placements; comparison boards and listening/choice isolation preserved; free situation artwork allowed.');

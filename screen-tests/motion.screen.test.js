@@ -78,3 +78,18 @@ test('a new incorrect verdict interrupts the prior success effect', async () => 
   expect(readStyle().transform).toEqual([{ scale: 1 }, { translateX: 0 }]);
   expect(readStyle().color).toBe('rgba(246, 243, 255, 1)');
 });
+
+function BorderHarness({ state }) {
+ const motion=useLessonTextMotion(state);
+ return <Animated.View testID="border" style={[{borderColor:'#555'},motion.borderStyle('#555')]}/>;
+}
+test.each([false,true])('wrong border stays red after its single emphasis; reduced motion=%s',async reduced=>{
+ mockReduced=reduced;
+ const view=await render(<BorderHarness state="incorrect"/>);
+ await act(async()=>jest.advanceTimersByTime(1000));
+ expect(StyleSheet.flatten(screen.getByTestId('border').props.style).borderColor).toMatch(/239.*107.*119|#EF6B77/);
+ await act(async()=>jest.advanceTimersByTime(5000));
+ expect(StyleSheet.flatten(screen.getByTestId('border').props.style).borderColor).toMatch(/239.*107.*119|#EF6B77/);
+ await view.rerender(<BorderHarness state="idle"/>);
+ expect(StyleSheet.flatten(screen.getByTestId('border').props.style).borderColor).toBe('#555');
+});

@@ -162,7 +162,7 @@ export const useUserStore = create<UserState>((set, get) => ({
       if (completed) {
         if (!s.completedLessons.includes(a.lessonId) && !rewards[`lesson:${a.lessonId}`]) {
           grant(`lesson:${a.lessonId}`, LESSON_XP);
-          if (!a.assisted && !Object.values(a.tasks).some(t => t.evidence?.assisted || t.evidence?.technicalText) && correct === total && (a.optional ?? []).every((key) => a.tasks[key]?.firstCorrect && a.tasks[key]?.resolved)) grant(`perfect:${a.lessonId}`, 5);
+          if (!a.assisted && !Object.values(a.tasks).some(t => t.evidence?.assisted || t.evidence?.technicalText || t.evidence?.transcriptShown) && correct === total && (a.optional ?? []).every((key) => a.tasks[key]?.firstCorrect && a.tasks[key]?.resolved)) grant(`perfect:${a.lessonId}`, 5);
         }
         if (s.lastQualifiedDay !== today && (!s.lastQualifiedDay || s.lastQualifiedDay < today)) {
           streak = s.lastQualifiedDay === previousDay(now) ? s.streak + 1 : 1;

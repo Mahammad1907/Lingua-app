@@ -103,3 +103,14 @@ This is item 4 of the follow-up batch currently being collected. Record now, imp
 The user finished reporting and authorized implementation of follow-up items 1–7. The pending follow-up and spaced-review sections above now describe active requirements. Keep the two human identities, context-matched copy, short concrete feedback, reduced-motion-safe red wrong-answer borders, and number-free animated lesson progress across future lessons. The progress bar indicates lesson activity progress and must not change hearts/energy, award XP, submit answers, or auto-advance. Technical/unassessable answers never receive a wrong-answer effect.
 
 Durable user notebook: docs/LAYIHE_DEFTERI.md. Update it when future user decisions change these rules. Preserve the local Windows SDK migration; this content/UI batch does not change package files.
+
+
+## Compact lesson and transcript-help batch authorized — 26 October 2026
+
+The user finished reporting and authorized the four latest notebook items. Implement them in the shared PacketLesson flow, preserving course content/order and assessment boundaries. Superseding wrong-border rule: one red emphasis, then a stable red outline until Continue; no repeating flash or screen shake, reduced motion uses static red.
+
+Lesson cards use a fixed viewport without vertical swiping. Compact voice UI has one waveform and no nested recorder border. Optional long explanation/result details open in a separate sheet; unusual overflow (large text/keyboard/small screen) has explicit in-card Previous/More controls that do not submit, reset, remount recording, or advance a lesson. Do not clip away inaccessible content or shrink text below readable sizes.
+
+The normal transcript-help action is “Səsi başa düşmürəm”. Reveal only exact audio text, no technical heading, duplicate warning, translation, or competing model answer. Track transcriptShown separately from an actual audio technical failure. Once revealed, that item cannot contribute independent or assisted listening evidence, even after audio replay. It must not lose hearts or queue a listening mistake merely because help was opened. Other genuinely demonstrated listening evidence remains intact. Keep real technical failure recovery available and the exam's separate evidence/pass rules unchanged.
+
+Notebook docs/LAYIHE_DEFTERI.md is durable. Record code verification separately from physical-device verification; do not claim iPhone/SDK58 validation without running it. Do not alter package.json/package-lock.json or undo the user's local Windows SDK upgrade.

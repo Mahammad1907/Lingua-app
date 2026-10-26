@@ -53,7 +53,7 @@ const evidence = summarizeEvidence([
  { resolved: true,evidence:{input:'spoken',assisted:false,listening:false,technicalText:true}},
  { resolved: false,evidence:{input:'spoken',assisted:false,listening:true,technicalText:false}},
 ]);
-assert.deepEqual(evidence,{written:1,spoken:2,listeningIndependent:1,listeningAssisted:1,technicalText:1});
+assert.deepEqual(evidence,{written:1,spoken:2,listeningIndependent:1,listeningAssisted:1,technicalText:1,textHelp:0});
 assert.ok(newLessonWords(b1Packet[0],b1Packet).has('hello'));
 assert.ok(!newLessonWords(b1Packet[1],b1Packet).has('hello'));
 assert.ok(!vocabularyParts('Salam Hello!',new Set(['hello'])).find(p=>p.text==='Salam').fresh);

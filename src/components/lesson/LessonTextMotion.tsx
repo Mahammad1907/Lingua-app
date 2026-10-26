@@ -21,7 +21,7 @@ export function outcomeMotion(status: 'independent' | 'assisted' | 'wrong' | 'un
 }
 
 // Transforms never take layout space. Every effect returns to the existing
-// font, color, size and position; no screen/container is moved or restyled.
+// font, color, size and position; wrong borders alone stay red until Continue.
 export function useLessonTextMotion(state: LessonMotion, trigger?: string | number) {
   const reduced = useReducedMotion();
   const [progress] = useState(() => new Animated.Value(1));
@@ -76,7 +76,7 @@ export function useLessonTextMotion(state: LessonMotion, trigger?: string | numb
     transform: [{ scale: progress.interpolate({ inputRange: [0, .45, .7, 1], outputRange: [1, 1.05, 1.02, 1] }) }],
   } : transformStyle;
   const borderStyle = (base: string) => state !== 'incorrect' ? undefined : {
-    borderColor: reduced ? '#EF6B77' : progress.interpolate({ inputRange: [0, .3, .7, 1], outputRange: [base, '#EF6B77', '#EF6B77', base] }),
+    borderColor: reduced ? '#EF6B77' : progress.interpolate({ inputRange: [0, .35, 1], outputRange: [base, '#FF5668', '#EF6B77'] }),
   };
   return { progress, reduced, active, transformStyle, iconStyle, color, opacity, borderStyle };
 }

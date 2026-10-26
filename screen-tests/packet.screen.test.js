@@ -44,7 +44,7 @@ async function listen() {
 async function answerCard(card, options = {}) {
  const turn = card.turns?.[0], rule = turn?.rule || card.rule;
  if (turn?.audio || card.audio) {
-  if (options.technical) await press('Səs eşidilmir · mətnlə davam et'); else await listen();
+  if (options.technical) await press('Səsi başa düşmürəm'); else await listen();
  }
  if (card.kind === 'voice') {
   expect(mockVoice).toBeDefined();
@@ -105,25 +105,25 @@ test.each(['onError','timeout','silent'])('%s: technical text unlocks a listenin
  expect(screen.getByText('Salam!', { exact: true })).toBeDisabled();
  await act(async () => fireEvent.press(screen.getByLabelText('Səsi dinlə')));
  const options = Speech.speak.mock.calls.at(-1)[1];
- if (mode === 'silent') { await act(async () => options.onDone()); await press('Səs eşidilmir · mətnlə davam et'); }
+ if (mode === 'silent') { await act(async () => options.onDone()); await press('Səsi başa düşmürəm'); }
  else if (mode === 'timeout') await act(async () => jest.advanceTimersByTime(60001));
  else await act(async () => options.onError(new Error('no engine')));
  expect(screen.getByText('Salam!', { exact: true })).toBeEnabled();
  await press('Salam!'); await press('Yoxla'); await press('Davam et');
  const task = Object.values(Object.values(useUserStore.getState().attempts)[0].tasks)[0];
- expect(task.evidence).toMatchObject({ technicalText: true, listening: false });
+ expect(task.evidence).toMatchObject(mode === 'silent' ? { technicalText: false, transcriptShown: true, listening: false } : { technicalText: true, listening: false });
  // A late callback from the prior card cannot unlock the next dictation.
  await act(async () => options.onDone());
  expect(screen.getByLabelText('Cavabını ingiliscə yaz')).toBeDisabled();
 });
 test('lesson 7: text prompt unlocks microphone; edited text cannot satisfy required speech; back asks before exit', async () => {
- await start(b1Packet[6]); await press('Səs eşidilmir · mətnlə davam et');
+ await start(b1Packet[6]); await press('Səsi başa düşmürəm');
  const attempt = Object.values(useUserStore.getState().attempts)[0];
  let message;
  await act(async () => { message = mockVoice.onFinal({ text: 'Hello', edited: true, token: 'edited' }); });
  expect(message).toMatch(/yenidən səslə/); expect(useUserStore.getState().attempts[attempt.id].tasks).toEqual({});
  await act(async () => mockVoice.onFinal({ text: 'Hello', edited: false, token: 'actual' }));
- expect(useUserStore.getState().attempts[attempt.id].tasks[attempt.expected[0]].evidence).toMatchObject({ input: 'spoken', technicalText: true, listening: false });
+ expect(useUserStore.getState().attempts[attempt.id].tasks[attempt.expected[0]].evidence).toMatchObject({ input: 'spoken', technicalText: false, transcriptShown: true, listening: false });
  await press('Davam et'); await press('Davam et'); await back();
  expect(screen.getByText('Dərsdən çıxmaq istəyirsən?', { exact: true })).toBeOnTheScreen();
  expect(mockRouter.replace).not.toHaveBeenCalled();
@@ -322,7 +322,7 @@ test('edited text cannot be used as a speaking verdict in an optional voice card
  expect(screen.queryByText('Bu dəfə alınmadı',{exact:true})).not.toBeOnTheScreen();
 });
 test('audio technical text never queues a listening mistake for a bad text practice answer',async()=>{
- await start(b1Packet[0]);await press('Davam et');await press('Səs eşidilmir · mətnlə davam et');
+ await start(b1Packet[0]);await press('Davam et');await press('Səsi başa düşmürəm');
  await press('Sağ ol!');await press('Yoxla');
  expect(screen.queryByText('Bu dəfə alınmadı',{exact:true})).not.toBeOnTheScreen();
  await press('Yoxlanmadı ilə davam et');
@@ -368,4 +368,40 @@ test('older successful skills return later while recent independent rechecks are
  expect(lessonRecall(b1Packet[1],b1Packet,failed)?.id).toContain(task.id);
  const checked=[...failed,{lessonId:b1Packet[1].id,completed:true,rechecks:[{sourceLessonId:source.id,taskId:task.id,status:'independent'}]}];
  expect(lessonRecall(b1Packet[2],b1Packet,checked)).toBeUndefined();
+});
+
+test('transcript help shows only exact audio and stays outside listening evidence even after replay',async()=>{
+ await start(b1Packet[0]);await press('Davam et');await press('Səsi başa düşmürəm');
+ expect(screen.getByLabelText('Audioda deyilən mətn').props.children).toBe(b1Packet[0].cards.find(c=>c.number===3).audio);
+ expect(screen.queryByText('TEXNİKİ SƏBƏBDƏN MƏTNLƏ',{exact:true})).not.toBeOnTheScreen();
+ expect(screen.queryByText(/Texniki səbəbdən mətnlə davam/)).not.toBeOnTheScreen();
+ await listen();await press('Salam!');await press('Yoxla');
+ const task=Object.values(Object.values(useUserStore.getState().attempts)[0].tasks)[0];
+ expect(task.evidence).toMatchObject({transcriptShown:true,technicalText:false,listening:false,assisted:true});
+ expect(task.wrong).toBe(0);
+});
+test('a wrong response after transcript help can continue unverified without a mistake or heart loss',async()=>{
+ await start(b1Packet[0]);await press('Davam et');await press('Səsi başa düşmürəm');
+ const hearts=useUserStore.getState().hearts;
+ await press('Sağ ol!');await press('Yoxla');
+ expect(screen.queryByText('Bu dəfə alınmadı',{exact:true})).not.toBeOnTheScreen();
+ await press('Yoxlanmadı ilə davam et');
+ const task=Object.values(Object.values(useUserStore.getState().attempts)[0].tasks)[0];
+ expect(task.settled).toBe('unverified');expect(task.wrong).toBe(0);expect(useUserStore.getState().hearts).toBe(hearts);
+});
+test('plain explanation opens separately and closing it preserves the locked answer',async()=>{
+ await start(b1Packet[0]);await press('Davam et');await listen();await press('Sağ ol!');await press('Yoxla');
+ await press('Mənə başa sal +');expect(screen.getByText('Sənin cavabın: Sağ ol!',{exact:true})).toBeOnTheScreen();
+ await act(async()=>fireEvent.press(screen.getByLabelText('İzahı bağla')));
+ expect(screen.queryByText('Sənin cavabın: Sağ ol!',{exact:true})).not.toBeOnTheScreen();
+ expect(screen.getByText('Sağ ol!',{exact:true})).toBeDisabled();
+});
+
+test('finishing with transcript help preserves completion and records no listening success or perfect reward',async()=>{
+ const packet=b1Packet[0];await start(packet);await walk(packet,{technical:true});await press('Nəticəni saxla');
+ const state=useUserStore.getState(),progress=state.lessonProgress[0];
+ expect(state.completedLessons).toContain(packet.id);
+ expect(progress.evidence.textHelp).toBeGreaterThan(0);expect(progress.evidence.technicalText).toBe(0);
+ expect(progress.evidence.listeningIndependent).toBe(0);expect(progress.evidence.listeningAssisted).toBe(0);
+ expect(state.rewards[`perfect:${packet.id}`]).toBeUndefined();
 });
