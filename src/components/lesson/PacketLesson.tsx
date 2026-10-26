@@ -19,7 +19,7 @@ import EarnedXP from '../EarnedXP';
 import LessonVoiceInput from './LessonVoiceInput';
 import LessonFeedback from './LessonFeedback';
 import { useLessonSpeed } from '../../hooks/useLessonSpeed';
-import type { SpokenAnswer } from '../../utils/speechTurn';
+import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import { ClassroomScene, LessonButton, LessonIcon, SelectionMark, Surface, LessonEnergy, ink } from './LessonSurface';
 import { audioMeaning, heroHeight, lessonMode } from '../../utils/lessonPresentation';
 import ReusableLessonScene from './ReusableLessonScene';
@@ -56,6 +56,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const [transcriptShown, setTranscriptShown] = useState(false);
   const [transcriptVisible, setTranscriptVisible] = useState(false);
   const [voiceOpen, setVoiceOpen] = useState(false);
+  const [recordedReply, setRecordedReply] = useState<UnverifiedRecording | null>(null);
   const [contentHeight, setContentHeight] = useState(0);
   const [soundError, setSoundError] = useState(''); const [receipt, setReceipt] = useState('');
   const [completionError, setCompletionError] = useState(''); const [done, setDone] = useState(false);
@@ -138,7 +139,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     responseLocked.current = false; setContinueReady(true); feedbackBlocked.current = false;
     sequence.current += 1; clearWatchdog(); void Speech.stop(); Keyboard.dismiss();
     setPlaying(false); setDetailsOpen(false); setExamplePulse(null);
-    setAnswer(''); setBuilt([]); setFeedback(null); setHelp(false); setHeard(false); setTechnicalText(false); setTranscriptShown(false); setTranscriptVisible(false); setVoiceOpen(false); setSoundError('');
+    setAnswer(''); setBuilt([]); setFeedback(null); setHelp(false); setHeard(false); setTechnicalText(false); setTranscriptShown(false); setTranscriptVisible(false); setVoiceOpen(false); setRecordedReply(null); setSoundError('');
     scroll.current?.scrollTo({ y: 0, animated: false });
   };
   const advance = (pending = queue) => {
@@ -163,7 +164,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     const evidence: TaskEvidence = { input: spoken ? 'spoken' : 'written', assisted, listening: Boolean(audio && heard && !textPrompt), technicalText: Boolean(audio && technicalText), transcriptShown: Boolean(audio && transcriptShown) };
     useUserStore.getState().recordTask(attempt, card.id, correct, token, evidence);
     setOutcomes((all) => ({ ...all, [card.id]: { answer: value, spoken, evidence, reason: verdict.message, status: correct ? assisted ? 'assisted' : 'independent' : 'wrong' } }));
-    if (correct) { Keyboard.dismiss(); setFeedback(verdict); if (turn?.reply) void speak(turn.reply); }
+    if (correct) { setRecordedReply(null); Keyboard.dismiss(); setFeedback(verdict); if (turn?.reply) void speak(turn.reply); }
     else if (!reviewing) {
       const pending = queue.some((c) => c.id === card.id) ? queue : [...queue, card];
       setQueue(pending); setFeedback(verdict); Keyboard.dismiss();
@@ -185,11 +186,11 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     advance();
   };
   const continueUnverified = () => {
-    if (!card || !answer.trim() || feedback?.status !== 'unknown') return;
-    const evidence: TaskEvidence = { input: card.kind === 'voice' ? 'spoken' : 'written', assisted: help || transcriptShown || Boolean(turn?.sample), listening: false, technicalText: Boolean(audio && technicalText), transcriptShown: Boolean(audio && transcriptShown) };
+    if (!card || !answer.trim() && !recordedReply || feedback?.status !== 'unknown') return;
+    const evidence: TaskEvidence = { input: card.kind === 'voice' || recordedReply ? 'spoken' : 'written', assisted: help || transcriptShown || Boolean(turn?.sample), listening: false, technicalText: Boolean(audio && technicalText), transcriptShown: Boolean(audio && transcriptShown) };
     useUserStore.getState().recordTask(attempt, card.id, null, `${card.id}:unverified:${++submission.current}`, evidence);
     useUserStore.getState().settlePacketTask(attempt, card.id, 'unverified');
-    setOutcomes(all => ({ ...all, [card.id]: { answer, evidence, status: 'unverified', spoken: card.kind === 'voice', reason: evidence.transcriptShown ? 'Audionun mətni açıldı. Dinləmə yoxlanmadı.' : evidence.technicalText ? 'Texniki səbəbdən mətnlə davam edildi. Dinləmə yoxlanmadı.' : 'Cavab etibarlı qiymətləndirilmədi.' } }));
+    setOutcomes(all => ({ ...all, [card.id]: { answer: recordedReply ? '' : answer, evidence, status: 'unverified', spoken: card.kind === 'voice' || Boolean(recordedReply), reason: evidence.transcriptShown ? 'Audionun mətni açıldı. Dinləmə yoxlanmadı.' : evidence.technicalText ? 'Texniki səbəbdən mətnlə davam edildi. Dinləmə yoxlanmadı.' : 'Cavab etibarlı qiymətləndirilmədi.' } }));
     advance();
   };
   const finish = async () => {
@@ -256,6 +257,11 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     setAnswer(spoken.text); record(spoken.text, verdict, `${card.id}:${spoken.token}`, !spoken.edited);
     return null;
   };
+  const receiveUnverifiedRecording = (recording: UnverifiedRecording) => {
+    if (responseLocked.current || locked || audio && !promptReady) return;
+    setRecordedReply(recording);
+    setFeedback({ status: 'unknown', criteria: [], message: 'Səsli cavabın göndərildi. Avtomatik yoxlanmadı. Yenidən danışa və ya yoxlanmadan davam edə bilərsən.' });
+  };
   const evidenceSummary = summarizeEvidence(Object.values(outcomes).map(o => ({ resolved: o.status === 'independent' || o.status === 'assisted', evidence: o.evidence })));
   const summary = Object.values(outcomes).filter(o => !o.evidence?.technicalText && !o.evidence?.transcriptShown).reduce((totals, item) => ({ ...totals, [item.status]: totals[item.status] + 1 }), { independent: 0, assisted: 0, wrong: 0, unverified: 0 });
   return <KeyboardAvoidingView style={[s.screen, { paddingTop: insets.top }]} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -302,11 +308,11 @@ export default function PacketLesson({ packet }: { packet: Content }) {
         {soundError ? <Text accessibilityLiveRegion="polite" style={s.error}>{soundError}</Text> : null}
         {task ? card.kind === 'voice' ? <>
           {turn?.sample && !textPrompt ? <Surface><Text style={s.kicker}>KÖMƏKLƏ MƏŞQ · NÜMUNƏ</Text><Text style={s.body}>{turn.sample}</Text></Surface> : null}
-          {!audio || promptReady ? locked ? <View style={s.spokenAnswer}><WrongAnswerBorder active={locked && !correct} radius={16} /><LessonIcon name="mic" size={18} /><LessonTextMotion state={answerMotion} style={s.body}>{answer}</LessonTextMotion></View> : <LessonVoiceInput compact suspended={exitOpen} key={`${card.id}:${reviewing}`} onBusyChange={setCapturing} onFinal={submitSpeech} /> : <Text style={s.note}>Danışmazdan əvvəl yuxarıdakı səsi dinlə.</Text>}
+          {!audio || promptReady ? locked ? <View style={s.spokenAnswer}><WrongAnswerBorder active={locked && !correct} radius={16} /><LessonIcon name="mic" size={18} /><LessonTextMotion state={answerMotion} style={s.body}>{answer}</LessonTextMotion></View> : <LessonVoiceInput compact onUnverifiedRecording={receiveUnverifiedRecording} suspended={exitOpen} key={`${card.id}:${reviewing}`} onBusyChange={setCapturing} onFinal={submitSpeech} /> : <Text style={s.note}>Danışmazdan əvvəl yuxarıdakı səsi dinlə.</Text>}
         </> : card.options ? <View style={s.options}>{card.options.map((option, i) => <Pressable key={`${card.id}:${i}`} accessibilityRole="radio" accessibilityState={{ selected: answer === option, disabled: locked || Boolean(audio && !promptReady) }} disabled={locked || Boolean(audio && !promptReady)} style={({ pressed }) => [s.option, answer === option && (correct ? s.correctOption : s.selected), pressed && { transform: [{ scale: .985 }] }, Boolean(audio && !promptReady) && { opacity: .55 }]} onPress={() => { if (responseLocked.current) return; setAnswer(option); setFeedback(null); }}><WrongAnswerBorder active={locked && !correct && answer === option} /><SelectionMark selected={answer === option} correct={correct && answer === option} /><LessonTextMotion state={answer === option ? answerMotion : 'idle'} style={[s.body, s.flex]}>{option}</LessonTextMotion></Pressable>)}</View> : card.words ? <>
           <View style={s.answerTray}><WrongAnswerBorder active={locked && !correct} />{built.length ? built.map((wordIndex, position) => <Pressable key={`${wordIndex}:${position}`} accessibilityLabel={`${card.words![wordIndex]} sözünü çıxar`} disabled={locked || Boolean(audio && !promptReady)} style={s.word} onPress={() => { if (responseLocked.current) return; setBuilt(v => v.filter((_, i) => i !== position)); setFeedback(null); }}><LessonTextMotion state={answerMotion} style={s.body}>{card.words![wordIndex]}</LessonTextMotion></Pressable>) : <Text style={s.note}>Sözlərə toxunaraq cümlə qur.</Text>}</View>
           <View style={s.words}>{card.words.map((word, i) => <Pressable key={`${word}:${i}`} disabled={built.includes(i) || locked || Boolean(audio && !promptReady)} style={[s.word, built.includes(i) && { opacity: .25 }]} onPress={() => { if (responseLocked.current) return; setBuilt(v => [...v, i]); setFeedback(null); }}><Text style={s.body}>{word}</Text></Pressable>)}</View>
-        </> : <WrittenAnswerInput key={`${card.id}:${reviewing}`} value={answer} onVoiceModeChange={setVoiceOpen} onVoiceFinal={submitSpeech} onChange={v => { if (responseLocked.current) return; setAnswer(v); setFeedback(null); }} disabled={locked || Boolean(audio && !promptReady)} suspended={exitOpen} onBusyChange={setCapturing} onFocus={() => requestAnimationFrame(() => scroll.current?.scrollToEnd({ animated: true }))} motionState={answerMotion} /> : null}
+        </> : <WrittenAnswerInput key={`${card.id}:${reviewing}`} value={answer} onUnverifiedRecording={receiveUnverifiedRecording} onVoiceModeChange={setVoiceOpen} onVoiceFinal={submitSpeech} onChange={v => { if (responseLocked.current) return; setAnswer(v); setFeedback(null); }} disabled={locked || Boolean(audio && !promptReady)} suspended={exitOpen} onBusyChange={setCapturing} onFocus={() => requestAnimationFrame(() => scroll.current?.scrollToEnd({ animated: true }))} motionState={answerMotion} /> : null}
         {feedback ? <LessonFeedback key={`${card.id}:${feedback.status}`} verdict={feedback} explanation={feedback.status === 'unknown' ? feedback.message : feedbackCopy(card, answer).reason} example={feedbackCopy(card, answer).example} meaning={meaning} assisted={outcomes[card.id]?.status === 'assisted'} answer={answer || built.map(i => card.words![i]).join(' ')} accepted={rule?.answers} needsPractice={reviewing && feedback.status !== 'correct' && feedback.status !== 'unknown'} /> : null}
         </View>
       </>}
@@ -314,14 +320,14 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     </ScrollView>
     <View style={[s.footer, { paddingBottom: keyboard ? 8 : Math.max(12, insets.bottom) }]}>
       {(!capturing || voiceLayout) && (card.kind !== 'voice' || locked) ? <LessonButton disabled={disabled} label={isResult ? done ? 'Bölməyə qayıt' : missing.length ? 'Qalan tapşırıqları tamamla' : 'Nəticəni saxla' : card.kind === 'intro' ? 'Dərsə başla' : task && !locked ? 'Yoxla' : 'Davam et'} onPress={() => isResult ? done ? exit() : missing.length ? retryMissing() : void finish() : !task || locked ? advance() : check()} /> : null}
-      {task && feedback?.status === 'unknown' && answer.trim() ? <Pressable accessibilityRole="button" style={s.technicalButton} onPress={continueUnverified}><Text style={s.helpLink}>Yoxlanmadı ilə davam et</Text></Pressable> : null}
+      {task && feedback?.status === 'unknown' && (answer.trim() || recordedReply) ? <Pressable accessibilityRole="button" style={s.technicalButton} onPress={continueUnverified}><Text style={s.helpLink}>Yoxlanmadı ilə davam et</Text></Pressable> : null}
       {task && !locked && !keyboard && (card.kind === 'voice' || help || textPrompt) ? <Pressable accessibilityRole="button" disabled={capturing} onPress={skip}><Text style={s.skip}>{card.kind === 'voice' ? packet.order < 7 ? 'Səsli məşqi keç' : 'İndi danışa bilmirəm' : 'Sonra qayıt'}</Text></Pressable> : null}
     </View>
     <LessonExitDialog visible={exitOpen} onContinue={() => setExitOpen(false)} onExit={leave} busy={busy} />
   </KeyboardAvoidingView>;
 }
 const s = StyleSheet.create({
-  voiceContent: { gap: 8, paddingBottom: 8 }, voiceBody: { flexGrow: 1, justifyContent: 'space-evenly', gap: 8 },
+  voiceContent: { gap: 8, paddingBottom: 8 }, voiceBody: { gap: 10 },
   viewport: { flex: 1, minHeight: 0 }, taskBody: { gap: 10 }, spokenAnswer: { flexDirection: 'row', gap: 9, padding: 12, borderRadius: 16, backgroundColor: '#211F39' }, keyboardAudio: { flexDirection: 'row', alignItems: 'center', gap: 9, paddingVertical: 3 }, screen: { flex: 1, backgroundColor: ink.bg }, flex: { flex: 1 },
   header: { flexDirection: 'row', alignItems: 'center', gap: 11, paddingHorizontal: 20, paddingTop: 8, paddingBottom: 9, flexShrink: 0 }, backButton: { width: 38, height: 38, borderRadius: 19, backgroundColor: '#18172F', borderWidth: 1, borderColor: ink.border, alignItems: 'center', justifyContent: 'center' },
   pageTitle: { color: ink.text, fontSize: 24, lineHeight: 30, fontWeight: '800', paddingHorizontal: 20, marginBottom: 13 }, postAnswerExplanation: { marginHorizontal: 20, padding: 14, borderRadius: 17, backgroundColor: '#201C38', borderWidth: 1, borderColor: '#685086' }, energy: { paddingRight: 5 }, kicker: { color: ink.muted, fontSize: 9, letterSpacing: 1.3, marginBottom: 5 }, heading: { color: ink.text, fontSize: 16, lineHeight: 21, fontWeight: '700' },
@@ -329,12 +335,12 @@ const s = StyleSheet.create({
   transcript: { color: ink.text, fontSize: 17, lineHeight: 24, paddingVertical: 6 },
   content: { paddingHorizontal: 20, paddingBottom: 16, gap: 12, flexGrow: 1 }, badge: { alignSelf: 'flex-start', borderRadius: 18, backgroundColor: '#23203F', paddingVertical: 6, paddingHorizontal: 12 }, badgeText: { color: ink.violet, fontSize: 9, letterSpacing: 1, fontWeight: '800' },
   body: { color: ink.text, fontSize: 15, lineHeight: 22 }, note: { color: ink.muted, fontSize: 12, lineHeight: 18 }, small: { color: ink.muted, fontSize: 10, lineHeight: 16 }, cardTitle: { color: ink.text, fontSize: 16, lineHeight: 24, fontWeight: '700' },
-  scenario: { flexDirection: 'row', gap: 12 }, ruleLine: { width: 2, backgroundColor: ink.orange, borderRadius: 2 }, help: { flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', gap: 5, minHeight: 36, paddingHorizontal: 4 }, helpLink: { color: ink.violet, fontSize: 12, lineHeight: 20, paddingVertical: 4 },
+  scenario: { flexDirection: 'row', gap: 12 }, ruleLine: { width: 2, backgroundColor: ink.orange, borderRadius: 2 }, help: { flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', gap: 5, minHeight: 36, paddingHorizontal: 4 }, helpLink: { color: '#C8B3FF', fontSize: 14, lineHeight: 21, fontWeight: '600', paddingVertical: 6 },
   exampleList: { gap: 8 }, example: { flexDirection: 'row', gap: 12, alignItems: 'center', borderRadius: 16, borderWidth: 1, borderColor: ink.border, backgroundColor: ink.card, padding: 13 }, exampleText: { flex: 1, color: ink.text, fontWeight: '600', fontSize: 15 },
   audio: { flexDirection: 'row', alignItems: 'center', gap: 12, borderRadius: 20, borderWidth: 1, borderColor: '#474068', padding: 12, backgroundColor: '#181A34' }, play: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center', borderRadius: 22, backgroundColor: ink.orange }, speeds: { flexDirection: 'row', gap: 8 }, speed: { flex: 1, minHeight: 40, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: ink.border, borderRadius: 14, backgroundColor: ink.card }, activeSpeed: { borderColor: ink.orange, backgroundColor: '#322330' }, speedText: { color: ink.muted, fontSize: 11, fontWeight: '700' },
   options: { gap: 9 }, option: { flexDirection: 'row', alignItems: 'center', gap: 14, minHeight: 54, padding: 14, borderRadius: 18, borderWidth: 1, borderColor: '#413A62', backgroundColor: ink.card }, selected: { borderColor: ink.orange, backgroundColor: '#2B2334' }, correctOption: { borderColor: ink.mint, backgroundColor: '#143535' },
   inputFrame: { flexDirection: 'row', alignItems: 'center', gap: 13, paddingHorizontal: 16, borderRadius: 20, borderWidth: 1.5, borderColor: '#A297ED', backgroundColor: '#22213F', shadowColor: '#8D77ED', shadowOffset: { width: 0, height: 2 }, shadowOpacity: .15, shadowRadius: 10 }, input: { flex: 1, paddingVertical: 16, minHeight: 62, maxHeight: 100, fontSize: 16, lineHeight: 23, color: ink.text },
   words: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 }, answerTray: { minHeight: 64, flexDirection: 'row', flexWrap: 'wrap', gap: 7, padding: 12, borderWidth: 1, borderColor: '#8274B7', borderRadius: 18, backgroundColor: '#1B1B35' }, word: { backgroundColor: '#282440', borderWidth: 1, borderColor: ink.border, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 10 },
-  footer: { flexShrink: 0, paddingHorizontal: 20, paddingTop: 10, backgroundColor: ink.bg, gap: 8, borderTopWidth: 1, borderTopColor: '#1D1C35' }, skip: { color: ink.muted, textAlign: 'center', fontSize: 13, minHeight: 44, paddingVertical: 12 }, technicalButton: { minHeight: 44, justifyContent: 'center' }, feedback: { paddingHorizontal: 14, paddingVertical: 10, borderRadius: 16, borderWidth: 1, borderColor: '#85613A', backgroundColor: '#282133', gap: 3 }, correctFeedback: { borderColor: '#4CAB9B', backgroundColor: '#12302F' }, feedbackTitle: { flexDirection: 'row', gap: 9, alignItems: 'center' }, feedbackText: { flex: 1, fontSize: 14, lineHeight: 20, fontWeight: '700' }, error: { color: '#FFB5A7', fontSize: 12, lineHeight: 18 },
+  footer: { flexShrink: 0, paddingHorizontal: 20, paddingTop: 10, backgroundColor: ink.bg, gap: 8, borderTopWidth: 1, borderTopColor: '#1D1C35' }, skip: { color: '#C8B3FF', textAlign: 'center', fontSize: 15, fontWeight: '600', minHeight: 44, paddingVertical: 12 }, technicalButton: { minHeight: 44, justifyContent: 'center' }, feedback: { paddingHorizontal: 14, paddingVertical: 10, borderRadius: 16, borderWidth: 1, borderColor: '#85613A', backgroundColor: '#282133', gap: 3 }, correctFeedback: { borderColor: '#4CAB9B', backgroundColor: '#12302F' }, feedbackTitle: { flexDirection: 'row', gap: 9, alignItems: 'center' }, feedbackText: { flex: 1, fontSize: 14, lineHeight: 20, fontWeight: '700' }, error: { color: '#FFB5A7', fontSize: 12, lineHeight: 18 },
   voiceHeading: { alignItems: 'center', gap: 8, paddingVertical: 14 }, resultHero: { alignItems: 'center', paddingVertical: 20, gap: 12 }, resultSeal: { width: 88, height: 88, borderRadius: 44, borderWidth: 1, borderColor: ink.mint, backgroundColor: '#173235', alignItems: 'center', justifyContent: 'center' }, resultHeading: { color: ink.text, fontSize: 22, lineHeight: 29, fontWeight: '800', textAlign: 'center' }, stats: { flexDirection: 'row', gap: 9 }, stat: { flex: 1, backgroundColor: ink.card, borderWidth: 1, borderColor: ink.border, borderRadius: 18, padding: 12, alignItems: 'center', gap: 5 }, statNumber: { fontSize: 26, fontWeight: '800' }, detailButton: { alignItems: 'center', padding: 10 }, link: { color: ink.violet, fontSize: 13, fontWeight: '700' }, resultRow: { paddingVertical: 12, borderBottomWidth: 1, borderBottomColor: ink.border, gap: 5 },
 });

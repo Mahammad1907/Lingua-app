@@ -4,10 +4,10 @@ import { AppState, Platform } from 'react-native';
 import { getSpeechEngine } from '../utils/speechEngine';
 import { SpeechTurn, type SpokenAnswer } from '../utils/speechTurn';
 
-export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, autoStart = false }: {
+export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, autoStart = false, autoSubmit = false }: {
   onFinal: (answer: SpokenAnswer) => string | null;
   onBusyChange: (busy: boolean) => void;
-  suspended?: boolean; autoStart?: boolean;
+  suspended?: boolean; autoStart?: boolean; autoSubmit?: boolean;
 }) {
   const [engine] = useState(getSpeechEngine);
   const [turn] = useState(() => new SpeechTurn());
@@ -20,8 +20,8 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
   const audioUri = useRef(''), audioStart = useRef(0), audioGeneration = useRef(0);
   const networkAllowed = useRef(false);
   const alive = useRef(false), pending = useRef(false), closing = useRef(false), generation = useRef(0);
-  const handlers = useRef({ onFinal, onBusyChange, suspended });
-  useEffect(() => { handlers.current = { onFinal, onBusyChange, suspended }; }, [onFinal, onBusyChange, suspended]);
+  const handlers = useRef({ onFinal, onBusyChange, suspended, autoSubmit });
+  useEffect(() => { handlers.current = { onFinal, onBusyChange, suspended, autoSubmit }; }, [onFinal, onBusyChange, suspended, autoSubmit]);
   const busy = phase !== 'idle';
   useEffect(() => { onBusyChange(busy); }, [onBusyChange, busy]);
   useEffect(() => {
@@ -39,6 +39,14 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
       if (handlers.current.suspended) { turn.cancel(); setPhase('idle'); setLevel(0); return; }
       const recognized = turn.finish();
       const result = recognized ? { ...recognized, uri: audioUri.current || undefined } : null; setLevel(0);
+      if (result && handlers.current.autoSubmit && AppState.currentState === 'active') {
+        // The finished turn is consumed before calling out: duplicate native end
+        // events cannot send the same recognized utterance again.
+        candidate.current = null;
+        const message = handlers.current.onFinal({ ...result, edited: false });
+        if (!message) { setDraft(null); setReviewText(''); setPhase('idle'); setMessage(''); return; }
+        candidate.current = result; setDraft(result); setReviewText(result.text); setPhase('review'); setMessage(message); return;
+      }
       candidate.current = result; setDraft(result); setReviewText(result?.text || '');
       setPhase(result ? 'review' : 'idle');
       setMessage(result ? '' : 'Səs dəqiq tanınmadı. Yenidən danış; bu, səhv sayılmır.');

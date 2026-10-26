@@ -32,7 +32,7 @@ const patterns: Partial<Record<PacketGoal, RegExp>> = {
   repeat: /\b(?:(?:could|can|would) you (?:please )?(?:say (?:that|it) again|repeat(?: that| it)?)(?: more slowly)?|(?:please )?say (?:that|it) again|(?:please )?repeat(?: that| it)?|again|pardon)\b/g,
   slow: /\b(?:(?:could|can|would) you (?:please )?(?:repeat(?: that| it)?|speak|say (?:it|that))(?: more)? (?:slowly|slower)|(?:please )?speak(?: more)? (?:slowly|slower)|(?:please )?(?:more )?slowly|slower|slow)\b/g,
 };
-export interface PacketVerdict { status: 'correct' | 'partial' | 'wrong' | 'unknown'; criteria: { goal: string; passed: boolean }[]; message: string }
+export interface PacketVerdict { status: 'correct' | 'partial' | 'wrong' | 'unknown'; criteria: { goal: string; passed: boolean }[]; message: string; spellingCorrections?: { before: string; after: string }[] }
 function assessNormalizedAnswer(value: string, rule: PacketRule, voice = false): PacketVerdict {
   let input = normalizePacketAnswer(value);
   if (voice && rule.goals?.includes('farewell') && /^(by|buy)$/.test(input)) input = 'bye';
@@ -100,7 +100,7 @@ export function assessPacketAnswer(value: string, rule: PacketRule, voice = fals
   }
   for (const candidate of candidates.slice(1)) {
     const verdict = assessNormalizedAnswer(candidate, rule);
-    if (verdict.status === 'correct') return { ...verdict, message: 'Məna düzdür. Kiçik yazı səhvi cavaba mane olmadı.' };
+    if (verdict.status === 'correct') return { ...verdict, message: 'Məna düzdür. Kiçik yazı səhvi cavaba mane olmadı.', spellingCorrections: candidate.split(' ').flatMap((after, i) => after === words[i] ? [] : [{ before: words[i], after }]) };
   }
   return original;
 }

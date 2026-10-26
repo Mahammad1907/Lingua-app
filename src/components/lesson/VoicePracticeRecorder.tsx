@@ -3,25 +3,38 @@ import * as Speech from 'expo-speech';
 import { loadRecordedAudio, safelyReadRecorder, safelyStopRecorder } from '../../utils/recordedAudio';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
+import { RecordingEndpoint } from '../../utils/recordingEndpoint';
+import type { UnverifiedRecording } from '../../utils/speechTurn';
 import { microphoneLevel } from '../../utils/lessonGuide';
 import { LessonButton, LessonIcon, SoundMark, ink } from './LessonSurface';
 import ParticleWave from './ParticleWave';
 import VoiceCaptureBar, { compactVoiceStyle as compactUI } from './VoiceCaptureBar';
 
 // Expo Go can record/replay, but cannot turn this recording into a verified spoken answer.
-export default function VoicePracticeRecorder({ onBusyChange, suspended = false, onContinue, autoStart = false, continueLabel = 'Dinlədim · Davam et', compact = false, onClose }: { onClose?: () => void; autoStart?: boolean; continueLabel?: string; compact?: boolean; onContinue?: () => void; onBusyChange?: (busy: boolean) => void; suspended?: boolean }) {
+export default function VoicePracticeRecorder({ onBusyChange, suspended = false, onContinue, autoStart = false, continueLabel = 'Dinlədim · Davam et', compact = false, onClose, autoSend = false, onRecorded }: { autoSend?: boolean; onRecorded?: (recording: UnverifiedRecording) => void; onClose?: () => void; autoStart?: boolean; continueLabel?: string; compact?: boolean; onContinue?: () => void; onBusyChange?: (busy: boolean) => void; suspended?: boolean }) {
   const recorder = useAudioRecorder({ ...RecordingPresets.HIGH_QUALITY, isMeteringEnabled: true });
   const [status, setStatus] = useState({ isRecording: false });
   const player = useAudioPlayer(null), playback = useAudioPlayerStatus(player);
   const [draft, setDraft] = useState<{ uri: string; duration: number } | null>(null);
   const [levels, setLevels] = useState<number[]>([]), [error, setError] = useState(''), [busy, setBusy] = useState(false);
+  const endpoint = useRef(new RecordingEndpoint());
+  const stopLatest = useRef<(send: boolean) => void>(() => {});
+  const delivery = useRef(onRecorded), serial = useRef(0), sent = useRef('');
+  const [sentRecording, setSentRecording] = useState(false);
+  useEffect(() => { delivery.current = onRecorded; }, [onRecorded]);
   useEffect(() => {
     const poll = setInterval(() => {
       const sample = safelyReadRecorder(() => recorder.getStatus());
-      if (sample) { setStatus({ isRecording: sample.isRecording }); if (sample.isRecording) setLevels(v => [...v.slice(-24), microphoneLevel(sample.metering)]); }
+      if (sample) {
+        setStatus({ isRecording: sample.isRecording });
+        if (sample.isRecording) {
+          setLevels(v => [...v.slice(-24), microphoneLevel(sample.metering)]);
+          if (autoSend) { const action = endpoint.current.sample(sample.metering, Date.now()); if (action) stopLatest.current(action === 'send'); }
+        }
+      }
     }, 120);
     return () => clearInterval(poll);
-  }, [recorder]);
+  }, [recorder, autoSend]);
   useEffect(() => {
     if (loadRecordedAudio(player, draft?.uri) !== 'error') return;
     const failure = setTimeout(() => setError('Səsli yazı açıla bilmədi. Yenidən danış.'), 0);
@@ -33,21 +46,29 @@ export default function VoicePracticeRecorder({ onBusyChange, suspended = false,
   useEffect(() => { suspendedNow.current = suspended; }, [suspended]);
   const clear = () => { if (timer.current) clearTimeout(timer.current); timer.current = null; };
   useEffect(() => { onBusyChange?.(busy || status.isRecording); }, [busy, status.isRecording, onBusyChange]);
-  const stop = useCallback(async () => {
+  const stop = useCallback(async (send = autoSend) => {
     if (operation.current || !safelyReadRecorder(() => recorder.isRecording)) return;
-    operation.current = true; setBusy(true); clear();
+    operation.current = true; setBusy(true); clear(); endpoint.current.cancel();
     try {
       const duration = recorder.currentTime; await recorder.stop(); await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: true });
       if (!mounted.current) return;
-      if (recorder.uri && duration >= .3) { setDraft({ uri: recorder.uri, duration }); setError(''); } else setError('Yazı çox qısa oldu. Yenidən danış.');
+      if (recorder.uri && duration >= .3) {
+        setDraft({ uri: recorder.uri, duration }); setError('');
+        if (autoSend && send && endpoint.current.heardVoice && AppState.currentState === 'active' && !suspendedNow.current) {
+          const token = `recording:${serial.current}`;
+          if (sent.current !== token) { sent.current = token; setSentRecording(true); delivery.current?.({ uri: recorder.uri, duration, token }); }
+        } else if (autoSend) setError('Danışıq alınmadı. Yenidən danış.');
+      } else setError('Yazı çox qısa oldu. Yenidən danış.');
     } catch { if (mounted.current) setError('Səs yazılmadı. Yenidən cəhd et.'); }
     finally { operation.current = false; if (mounted.current) setBusy(false); }
-  }, [recorder]);
-  useEffect(() => { if (!suspended || !safelyReadRecorder(() => recorder.isRecording)) return; const pause = setTimeout(() => void stop(), 0); return () => clearTimeout(pause); }, [suspended, recorder, stop]);
+  }, [recorder, autoSend]);
+  useEffect(() => { stopLatest.current = send => { void stop(send); }; }, [stop]);
+  useEffect(() => { if (!suspended || !safelyReadRecorder(() => recorder.isRecording)) return; const pause = setTimeout(() => void stop(false), 0); return () => clearTimeout(pause); }, [suspended, recorder, stop]);
   useEffect(() => {
     mounted.current = true;
-    const app = AppState.addEventListener('change', state => { if (state !== 'active') { loadRecordedAudio(player); void stop(); } });
-    return () => { mounted.current = false; clear(); app.remove(); loadRecordedAudio(player); safelyStopRecorder(recorder); void setAudioModeAsync({ allowsRecording: false }).catch(() => {}); onBusyChange?.(false); };
+    const endDetector = endpoint.current;
+    const app = AppState.addEventListener('change', state => { if (state !== 'active') { loadRecordedAudio(player); void stop(false); } });
+    return () => { mounted.current = false; clear(); endDetector.cancel(); app.remove(); loadRecordedAudio(player); safelyStopRecorder(recorder); void setAudioModeAsync({ allowsRecording: false }).catch(() => {}); onBusyChange?.(false); };
   }, [onBusyChange, player, recorder, stop]);
   const start = useCallback(async () => {
     if (operation.current) return;
@@ -58,7 +79,7 @@ export default function VoicePracticeRecorder({ onBusyChange, suspended = false,
       if (!permission.granted) { setError('Mikrofon icazəsi verilmədi. Telefon ayarlarında icazəni aç.'); return; }
       await setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true }); await recorder.prepareToRecordAsync();
       if (!mounted.current || suspendedNow.current || AppState.currentState !== 'active') { await setAudioModeAsync({ allowsRecording: false }); return; }
-      setDraft(null); setLevels([]); setError(''); recorder.record(); timer.current = setTimeout(() => void stop(), 20000);
+      setDraft(null); setLevels([]); setError(''); setSentRecording(false); serial.current++; endpoint.current.begin(Date.now()); recorder.record(); timer.current = setTimeout(() => void stop(), 20000);
     } catch { if (mounted.current) setError('Mikrofon açıla bilmədi. Yenidən cəhd et.'); await setAudioModeAsync({ allowsRecording: false }).catch(() => {}); }
     finally { operation.current = false; if (mounted.current) setBusy(false); }
   }, [player, recorder, stop]);
@@ -67,7 +88,7 @@ export default function VoicePracticeRecorder({ onBusyChange, suspended = false,
     if (!draft) return;
     try { await Speech.stop(); if (playback.playing) player.pause(); else { await player.seekTo(0); player.play(); } } catch { setError('Səs açıla bilmədi. Yenidən yaz.'); }
   };
-  if (compact) return <VoiceCaptureBar active={status.isRecording ? (levels.at(-1) || 0) > .04 : playback.playing} recording={status.isRecording} level={status.isRecording ? levels.at(-1) || 0 : undefined} busy={busy} label={busy ? 'Gözlə…' : status.isRecording ? 'Dayandır' : draft ? 'Yenidən danış' : 'Danışmaq üçün toxun'} onMic={() => void (safelyReadRecorder(() => recorder.isRecording) ? stop() : start())} onClose={onClose}>
+  if (compact) return <VoiceCaptureBar active={status.isRecording ? (levels.at(-1) || 0) > .04 : playback.playing} recording={status.isRecording} level={status.isRecording ? levels.at(-1) || 0 : undefined} busy={busy} label={busy ? status.isRecording ? 'Göndərilir…' : 'Hazırlanır…' : status.isRecording ? 'Dayandır' : sentRecording ? 'Səs göndərildi · Yenidən danış' : draft ? 'Yenidən danış' : 'Danışmaq üçün toxun'} onMic={() => void (safelyReadRecorder(() => recorder.isRecording) ? stop() : start())} onClose={onClose}>
     <Text style={compactUI.note}>Səsini yaz və dinlə · Avtomatik yoxlanmır</Text>
     {error ? <Text accessibilityLiveRegion="polite" style={compactUI.error}>{error}</Text> : null}
     {draft ? <View style={compactUI.actions}><Pressable accessibilityRole="button" disabled={busy || status.isRecording} onPress={() => void replay()} style={compactUI.action}><Text style={compactUI.actionText}>{playback.playing ? 'Dayandır' : 'Yazını dinlə'}</Text></Pressable><Pressable accessibilityRole="button" disabled={busy || status.isRecording} onPress={() => { loadRecordedAudio(player); setDraft(null); }} style={compactUI.action}><Text style={compactUI.actionText}>Sil</Text></Pressable></View> : null}

@@ -1,12 +1,14 @@
 import React from 'react';
 import { Animated, StyleSheet, Text } from 'react-native';
-import { act, cleanup, render, screen } from '@testing-library/react-native';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react-native';
 import LessonTextMotion, { useLessonTextMotion } from '../src/components/lesson/LessonTextMotion';
 import WrittenAnswerInput from '../src/components/lesson/WrittenAnswerInput';
 import LessonFeedback from '../src/components/lesson/LessonFeedback';
+import LessonExplanationCard from '../src/components/lesson/LessonExplanationCard';
 import AudioTranscript from '../src/components/lesson/AudioTranscript';
 
 let mockReduced = false;
+jest.mock('react-native-safe-area-context',()=>({useSafeAreaInsets:()=>({top:0,bottom:0,left:0,right:0})}));
 jest.mock('../src/hooks/useReducedMotion', () => ({ useReducedMotion: () => mockReduced }));
 jest.mock('../src/components/lesson/LessonVoiceInput', () => () => null);
 jest.mock('expo-haptics', () => ({ impactAsync: jest.fn(async () => {}), ImpactFeedbackStyle: { Light: 'light' } }));
@@ -101,4 +103,16 @@ test.each([false,true])('audio text reveal uses a neutral effect; reduced=%s',as
  await render(<AudioTranscript text="Hello!" onHide={()=>{}}/>);
  expect(screen.getByText('Hello!',{exact:true})).toBeOnTheScreen();
  if(reduced)expect(timing).not.toHaveBeenCalled();else expect(timing).toHaveBeenCalledWith(expect.anything(),expect.objectContaining({duration:400}));
+});
+
+function simulateNativeTimings(){const real=Animated.timing;jest.spyOn(Animated,'timing').mockImplementation((value,options)=>real(value,{...options,useNativeDriver:false}));}
+test('acknowledgement animates once and only closes the explanation',async()=>{
+ mockReduced=false;simulateNativeTimings();const close=jest.fn();await render(<LessonExplanationCard visible onClose={close}><Text>İzah</Text></LessonExplanationCard>);
+ await act(async()=>fireEvent.press(screen.getByText('Başa düşdüm')));await act(async()=>fireEvent.press(screen.getByText('Başa düşdüm')));
+ expect(close).not.toHaveBeenCalled();await act(async()=>jest.advanceTimersByTime(550));expect(close).toHaveBeenCalledTimes(1);
+});
+test('closing with X cancels a pending acknowledgement without a second close',async()=>{
+ mockReduced=false;simulateNativeTimings();const close=jest.fn();await render(<LessonExplanationCard visible onClose={close}><Text>İzah</Text></LessonExplanationCard>);
+ await act(async()=>fireEvent.press(screen.getByText('Başa düşdüm')));await act(async()=>jest.advanceTimersByTime(100));
+ await act(async()=>fireEvent.press(screen.getByLabelText('İzahı bağla')));await act(async()=>jest.advanceTimersByTime(600));expect(close).toHaveBeenCalledTimes(1);
 });

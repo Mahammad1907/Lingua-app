@@ -126,3 +126,17 @@ The user finished the new issue list and explicitly authorized ONLY these change
 4. Only “Mənə başa sal” details move into a dismissible overlay card. Main lesson content/scroll position/answer lock must not expand or reset. Close with X, the acknowledgement, outside tap or Android back. The overlay may internally scroll long text; do not move result details or redesign other screens.
 
 Do not add illustrations to voice assessment screens; reuse existing situation art on teaching cards. Do not change lesson data, order, grading, SDK/package files, route screens, or the existing red/success feedback for this batch. Physical iPhone/SDK58 visual validation remains separate from code checks.
+
+
+## Six explicitly authorized follow-ups — 27 October 2026
+
+The user finished reporting and authorized only these six items; record them in docs/LAYIHE_DEFTERI.md for future work. This supersedes the prior recording-wave and space-distribution preferences.
+
+1. A safely accepted one-letter written typo remains correct with no extra penalty/retry, but must visibly show the corrected spelling and highlight the changed letter. Do not loosen the existing spelling/meaning/name/grammar rules. Grading adds correction metadata only.
+2. Use compact fixed gaps in the spoken task body; never distribute a few controls across the full screen with space-evenly. Preserve the rest of the lesson system and footer.
+3. Remove the tiny decorative wave from the compact recording bar. Keep an obvious microphone/recording state. Do not remove the existing listening illustrations/waves or change other screens.
+4. Pressing the microphone records; speech end automatically delivers the answer once. Native recognition may deliver only a finalized, sufficiently reliable transcript, never a partial. Recording-only mode may deliver a real non-silent recording, but must remain Unverified and earn no assessed speech/listening result. Silence, technical failure, cancellation, backgrounding or suspension must not submit an invented answer or lose hearts. Sending never advances the card: feedback and explicit Continue/Unverified continue remain. Keep manual typed submission and noncompact legacy behavior.
+5. Make lesson helper actions (skip, show/hide text, retry, delete) more legible with brighter app colors, slightly larger semibold text and accessible touch areas. Do not turn every helper into a primary action or change unrelated content typography.
+6. The overlay title is exactly “Səhv cavabın izahı”. Improve its contrast and emphasize accepted examples. “Başa düşdüm” plays one short neutral sheen and closes gently, with reduced motion support. This acknowledgement changes neither grade nor lesson position. X/outside/back closes immediately and cancels pending effects.
+
+Do not add new features, alter lesson content/order, revise assessment policy, replace the screen system, edit SDK/package files, or claim physical iPhone/SDK58 verification without running it. Existing English typo restrictions and per-modality evidence boundaries remain authoritative.

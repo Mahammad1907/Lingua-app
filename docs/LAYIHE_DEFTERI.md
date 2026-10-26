@@ -71,3 +71,17 @@ Səsli sahənin yığcamlaşdırılması hələ tamamlanmış sayılmır. Gələ
 4. “Mənə başa sal” əsas ekranı uzatmır: eyni mətn ayrıca yumşaq kənarlı kartda açılır. X, “Başa düşdüm”, çölə toxunma və Android geri hərəkəti ilə bağlanır. Arxadakı sual, cavab və ekranın yeri saxlanır. Çox uzun mətn yalnız kartın özündə sürüşdürülə bilər.
 
 Bütün ekran sisteminin sabit görünüşlə əvəzlənməsi, “Ardını göstər” səhifələməsi, başqa ekranların dəyişməsi və yeni səsli şəkillər bu paketə daxil deyil. Mətn böyüdüləndə/açıq klaviaturada idarələri kəsmək əvəzinə əlçatan overflow saxlanır; normal səsli məzmun ölçülmüş sahəyə sığanda sürüşmə və bounce sönür. Fiziki iPhone/SDK58 görünüşü bu mühitdə yoxlanmayıb. Yoxlama hesabatı: docs/LESSON_INLINE_VOICE_20261026.md.
+
+
+## Son təsdiqlənən 6 düzəliş — 27 oktyabr 2026
+
+İstifadəçi bu siyahını tamamlayıb yalnız bunların tətbiqini təsdiqlədi. Başqa funksiya və ekran dəyişikliyi daxil deyil.
+
+1. Qəbul edilən kiçik yazı səhvi görünməlidir. Məsələn: “Cavab qəbul olundu” və “Kiçik yazı düzəlişi: hellp → hello”; fərqli hərf rəng/altxətlə seçilir. Mövcud təhlükəsiz qəbul qaydası dəyişmir: mənanı, şəxsi, qrammatik formanı dəyişən real söz əvəzlənməsi avtomatik düzgün sayılmır. Adlar düzəldilmir. Qəbul edilmiş kiçik yazı səhvi əlavə cəza və səhv təkrarı yaratmır.
+2. Səsli tapşırıqda bloklar bütün ekran boyu səpələnməsin. Sabit, yığcam aralıq saxlanır; ümumi ekran sistemi, digər kartların düzülüşü və alt idarələr dəyişdirilmir.
+3. Səs yazısındakı balaca süni dalğa çıxarılır. Mikrofonun qeyd vəziyyəti aydın qalır. Bu, yalnız kiçik qeyd panelinə aiddir; əvvəlki dinləmə dalğaları/öyrətmə şəkilləri dəyişmir.
+4. Mikrofon basılanda qeyd başlayır. Danışıq bitəndə ayrıca Göndər basmadan cavab bir dəfə çatdırılır. Tanınan səs üçün yalnız yekun və etibarlı mətn qiymətləndirilir; yarımçıq mətn nəticə deyil. Expo Go-da yalnız səs yazısı varsa, o avtomatik çatdırıla bilər, amma “Yoxlanmadı” qalır; danışıq/dinləmə uğuru və tələffüz balı sayılmır. Səssiz, yarımçıq, zəif tanınmış, texniki xətalı və ləğv edilmiş səs yanlış dil cavabı deyil. Avtomatik göndərmək növbəti suala keçmək deyil: geribildirimdən sonra Davam et və ya Yoxlanmadı ilə davam et qalır.
+5. “Səsli məşqi keç”, “Mətni göstər/gizlət”, “Yenidən danış”, “Sil” və oxşar köməkçi idarələr daha aydın, bir qədər böyük və qalın yazılır. Toxunma sahəsi rahat saxlanır. Əsas düymə ilə köməkçi idarənin fərqi qalır.
+6. İzah kartı daha aydın kontrastla göstərilir, başlığı “Səhv cavabın izahı”dır. “Başa düşdüm” basılanda düymədən bir qısa işıq dalğası keçir, kart yumşaq bağlanır. Qiymət, səhv təkrarı və sual mövqeyi dəyişmir. X/çölə toxunma/geri dərhal bağlayır. Hərəkəti azaltma rejimi nəzərə alınır.
+
+Texniki sərhəd: yalnız qeyd rejiminin danışıq-bitmə aşkarlanması səs səviyyəsi və qısa fasilə əsasında başlanğıc mexanizmdir; səs tanıma və dil qiymətləndirməsi deyil. Real telefonda bu vaxtlama və görünüş ayrıca yoxlanmalıdır. Hesabat: docs/LESSON_FOLLOWUP_20261027.md.

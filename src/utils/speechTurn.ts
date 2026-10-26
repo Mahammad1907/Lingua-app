@@ -1,3 +1,4 @@
+export interface UnverifiedRecording { uri: string; duration: number; token: string }
 export interface SpokenAnswer { text: string; token: string; confidence?: number; edited?: boolean; uri?: string }
 type Phase = 'idle' | 'listening' | 'processing';
 

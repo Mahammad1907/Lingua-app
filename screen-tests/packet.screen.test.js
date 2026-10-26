@@ -308,8 +308,8 @@ test.each(['native','technical','edited'])('full exam: %s evidence controls the 
 
 test('accepted one-letter typo never creates a mistake retry',async()=>{
  const packet=b1Packet[0];await reach(packet,5);
- await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'Helloo'));
- await press('Yoxla');expect(screen.getByText('Düzdür!',{exact:true})).toBeOnTheScreen();await press('Davam et');
+ await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'hellp'));
+ await press('Yoxla');expect(screen.getByText('Cavab qəbul olundu',{exact:true})).toBeOnTheScreen();expect(screen.getByText('Kiçik yazı düzəlişi')).toBeOnTheScreen();expect(screen.getByText('hellp',{exact:true})).toBeOnTheScreen();expect(screen.getByText('hello',{exact:true})).toBeOnTheScreen();await press('Davam et');
  for(const c of packetFlow(packet).slice(packetFlow(packet).findIndex(c=>c.number===5)+1).filter(c=>true&&!['review','result'].includes(c.kind))){
   if(c.kind==='teach')await press('Davam et');else if(c.kind==='voice')await back();else await answerCard(c);
  }
@@ -447,4 +447,16 @@ test('explanation modal leaves background layout and answer evidence unchanged t
   expect(screen.getByTestId('packet-lesson-scroll').props.contentContainerStyle).toEqual(style);
   expect(JSON.stringify(useUserStore.getState().attempts[attempt.id].tasks)).toBe(evidence);
  }
+});
+
+test('an automatically delivered untranscribed recording stays unverified and never auto-advances',async()=>{
+ await reach(b1Packet[0],6);await listen();
+ const before=screen.getByRole('progressbar').props.accessibilityValue.now;
+ const hearts=useUserStore.getState().hearts;
+ await act(async()=>mockVoice.onUnverifiedRecording({uri:'file://raw.m4a',duration:2,token:'raw:1'}));
+ expect(screen.getByRole('progressbar').props.accessibilityValue.now).toBe(before);
+ expect(screen.queryByText('Düzdür!',{exact:true})).not.toBeOnTheScreen();expect(screen.queryByText('Bu dəfə alınmadı',{exact:true})).not.toBeOnTheScreen();
+ await press('Yoxlanmadı ilə davam et');
+ const task=Object.values(useUserStore.getState().attempts)[0].tasks[packetFlow(b1Packet[0]).find(c=>c.number===6).id];
+ expect(task.settled).toBe('unverified');expect(task.resolved).toBe(false);expect(task.wrong).toBe(0);expect(useUserStore.getState().hearts).toBe(hearts);
 });
