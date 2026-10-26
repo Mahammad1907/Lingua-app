@@ -389,10 +389,10 @@ test('a wrong response after transcript help can continue unverified without a m
  const task=Object.values(Object.values(useUserStore.getState().attempts)[0].tasks)[0];
  expect(task.settled).toBe('unverified');expect(task.wrong).toBe(0);expect(useUserStore.getState().hearts).toBe(hearts);
 });
-test('plain explanation opens separately and closing it preserves the locked answer',async()=>{
+test('inline explanation expands and collapses without unlocking the answer',async()=>{
  await start(b1Packet[0]);await press('Davam et');await listen();await press('Sağ ol!');await press('Yoxla');
  await press('Mənə başa sal +');expect(screen.getByText('Sənin cavabın: Sağ ol!',{exact:true})).toBeOnTheScreen();
- await act(async()=>fireEvent.press(screen.getByLabelText('İzahı bağla')));
+ await press('Mənə başa sal −');
  expect(screen.queryByText('Sənin cavabın: Sağ ol!',{exact:true})).not.toBeOnTheScreen();
  expect(screen.getByText('Sağ ol!',{exact:true})).toBeDisabled();
 });

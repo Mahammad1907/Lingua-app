@@ -36,7 +36,7 @@ Avtomatik yoxlama və real telefonda baxış ayrı qeyd edilir. Yoxlanmamış fu
 
 ## Yeni toplanan düzəlişlər — 26 oktyabr 2026
 
-Status: istifadəçi bu dörd düzəlişin tətbiqini təsdiqlədi. Kodda tətbiq edildi; avtomatik yoxlamalar və real telefon baxışı aşağıda ayrıca qeyd edilir.
+Tarixçə: bu dörd düzəliş tətbiq edilmişdi. İstifadəçi geniş ekran dəyişikliklərinə etiraz etdi. Aşağıdakı son bərpa qərarı köhnə sabit ekran/səhifələmə qeydlərindən üstündür.
 
 1. Təkrarın girişini daha nəzərəçarpan et: kiçik ↻ işarəsi, tətbiqin rənglərinə uyğun yumşaq çərçivə, “Bir daha məşq edək!” başlığı və “Bu hissədə çətinlik oldu. İndi başqa vəziyyətdə yenidən yoxlayaq.” alt mətni. Görünəndə bir dəfə qısa animasiya; cavabı göstərmə.
 2. Dərs kartları, xüsusilə səsli məşq, adi istifadə zamanı ekranın içinə sığmalıdır. Lazımsız iç-içə çərçivələri, boşluqları və təkrarlanan səs dalğalarını yığcamlaşdır. Dinləmə/danışma üçün vahid sahə, bir dalğa və aydın mikrofon nəzarəti saxla. Əsas düymələr aşağı sürüşdürmədən görünsün. Kiçik ekran və böyüdülmüş mətn zamanı məzmunu kəsmə, şrifti oxunmaz etmə; uzun izahı ayrıca pəncərədə aç. Kiçik ekran, açıq klaviatura və ya böyük şrift səbəbindən yer çatmasa, kartın daxilində “Ardını göstər” və “Əvvəlki hissə” düymələri ilə məzmun açılır; bunlar yeni dərs/tapşırıq deyil. Şaquli sürüşdürmə yoxdur. Real telefon görünüşü hələ yoxlanmayıb.
@@ -50,3 +50,12 @@ Status: istifadəçi bu dörd düzəlişin tətbiqini təsdiqlədi. Kodda tətbi
 Bu dörd düzəliş mövcud yeddi dərsin ortaq PacketLesson ekranına tətbiq olunur. Keçid imtahanının texniki mətn rejimi ayrıca qalır; imtahanın keçid və qiymətləndirmə qaydaları dəyişdirilmir. Avtomatik ekran sınaqları, tiplər, lint, cavab qaydaları və paket ixracı ayrıca yoxlanır. Real iPhone və istifadəçinin yerli SDK 58 quraşdırmasında vizual baxış aparılmayıb. Paket/SDK faylları bu düzəlişdə dəyişdirilmir.
 
 Bu tətbiq üçün 62 ekran sınağı, TypeScript, lint (0 xəta), cavab/səs/proqress yoxlamaları və Android/iOS/web JavaScript ixracı keçdi. Ətraflı qeyd: docs/LESSON_COMPACT_20261026.md. Fiziki iPhone/SDK 58 vizual baxışı hələ aparılmayıb.
+
+
+## Son qərar — əvvəlki ekranların bərpası, 26 oktyabr 2026
+
+İstifadəçinin etirazından sonra 6f852e0 paketində əlavə edilmiş sabit görünüş və “Ardını göstər / Əvvəlki hissə” sistemi geri alındı. Əvvəlki dərs sistemi (114a711) bərpa edildi: şəkillərin ölçüsü və yeri, kart aralıqları, düymələr, səsli qeyd ekranı, səhifənin sürüşməsi və izahın kart daxilində açılması. Kiçik şəkil, ayrıca izah pəncərəsi və yeni səhifələmə tələb edilən yığcamlaşdırma kimi qəbul edilməməlidir.
+
+Qırmızı kənarın bir dəfə parlayıb qırmızı qalması, “Səsi başa düşmürəm” ilə yalnız audionun mətninin açılması və bunun dinləmə nəticəsinə yazılmaması saxlanır. Təkrarın nəzərəçarpan kiçik giriş kartı saxlanır. Məzmun, qiymətləndirmə, səhv təkrarları, lüğət və paket/SDK faylları geri çevrilmir.
+
+Səsli sahənin yığcamlaşdırılması hələ tamamlanmış sayılmır. Gələcək düzəliş yalnız həmin sahə ilə məhdud olmalıdır; bütün dərslərin ekran sistemi dəyişdirilməməlidir. Bərpa yoxlaması: docs/LESSON_LAYOUT_RESTORE_20261026.md. Telefonda vizual yoxlama aparılmayıb.

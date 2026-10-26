@@ -1,4 +1,6 @@
-# BirTalk — yığcam dərs ekranları və mətn köməyi
+# BirTalk — yığcam dərs ekranları və mətn köməyi (geri alınmış görünüş)
+
+Bu hesabat 6f852e0 paketinin tarixçəsidir. İstifadəçinin etirazından sonra geniş görünüş dəyişiklikləri geri alındı. Cari qərar: docs/LESSON_LAYOUT_RESTORE_20261026.md. Buradakı 62 sınaq köhnə versiyaya aiddir; sabit görünüş və səhifələmə artıq cari imkan deyil.
 
 26 oktyabr 2026. İstifadəçi topladığı dörd düzəlişin tətbiqini təsdiqlədi. Mövcud yeddi dərsin məzmunu, məqsədləri, ardıcıllığı və sabit tapşırıq ID-ləri saxlanıldı.
 

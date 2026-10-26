@@ -105,11 +105,11 @@ The user finished reporting and authorized implementation of follow-up items 1�
 Durable user notebook: docs/LAYIHE_DEFTERI.md. Update it when future user decisions change these rules. Preserve the local Windows SDK migration; this content/UI batch does not change package files.
 
 
-## Compact lesson and transcript-help batch authorized — 26 October 2026
+## Layout restoration after rejected compact implementation — 26 October 2026
 
-The user finished reporting and authorized the four latest notebook items. Implement them in the shared PacketLesson flow, preserving course content/order and assessment boundaries. Superseding wrong-border rule: one red emphasis, then a stable red outline until Continue; no repeating flash or screen shake, reduced motion uses static red.
+The user rejected the broad layout changes from commit 6f852e0. Restore the previous shared PacketLesson layout, artwork dimensions, controls and inline explanation behavior from 114a711. Keep the narrowly requested review notice, red wrong border and transcript evidence correction. Superseding wrong-border rule: one red emphasis, then a stable red outline until Continue; no repeating flash or screen shake, reduced motion uses static red.
 
-Lesson cards use a fixed viewport without vertical swiping. Compact voice UI has one waveform and no nested recorder border. Optional long explanation/result details open in a separate sheet; unusual overflow (large text/keyboard/small screen) has explicit in-card Previous/More controls that do not submit, reset, remount recording, or advance a lesson. Do not clip away inaccessible content or shrink text below readable sizes.
+The fixed viewport, in-card Previous/More navigation, modal explanations, reduced artwork dimensions and compact recorder replacement were withdrawn. Restore the existing scrolling lesson system rather than clipping or replacing screens. The request to make voice practice more compact remains unresolved; do not describe it as complete. Any future compaction must be limited to the voice area and preserve the established screens, artwork and controls. Do not redesign all lesson cards to satisfy that request.
 
 The normal transcript-help action is “Səsi başa düşmürəm”. Reveal only exact audio text, no technical heading, duplicate warning, translation, or competing model answer. Track transcriptShown separately from an actual audio technical failure. Once revealed, that item cannot contribute independent or assisted listening evidence, even after audio replay. It must not lose hearts or queue a listening mistake merely because help was opened. Other genuinely demonstrated listening evidence remains intact. Keep real technical failure recovery available and the exam's separate evidence/pass rules unchanged.
 

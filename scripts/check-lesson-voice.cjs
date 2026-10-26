@@ -45,7 +45,7 @@ const source = fs.readFileSync(require.resolve('../src/components/lesson/PacketL
 const ast = ts.createSourceFile('PacketLesson.tsx', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
 let inlineFeedback = false;
 function visit(node) {
-  if (ts.isJsxElement(node) && node.openingElement.tagName.getText(ast) === 'LessonViewport') {
+  if (ts.isJsxElement(node) && node.openingElement.tagName.getText(ast) === 'ScrollView') {
     function findFeedback(child) {
       if (ts.isJsxSelfClosingElement(child) && child.tagName.getText(ast) === 'LessonFeedback') inlineFeedback = true;
       ts.forEachChild(child, findFeedback);
