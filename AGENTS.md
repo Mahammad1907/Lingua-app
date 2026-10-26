@@ -84,3 +84,14 @@ The user is still collecting this next batch. Record these requirements now; do 
 - Use exactly two recurring human example characters across lesson situations: the orange-clothed boy/man is Əli in Azerbaijani prose and Ali in English; the purple-clothed girl/woman is Leyla in both languages. Keep names and visual identities consistent in prompts, dialogue, audio scripts, options, explanations and authored retries; do not introduce extra named human example characters without a user request.
 - BirFox remains the mascot, teacher and conversation guide. Do not call a pictured human BirFox. In human situation tasks, name the pictured people instead. For the supplied farewell example: “Əli Leylagildən gedir, amma ‘Hi!’ deyir. Onun yerinə uyğun sağollaşma yaz.”
 - The two-character rule governs authored examples and fixed roles, not the learner's identity: free self-introduction still accepts the learner's own/chosen name. Fixed-role answers must preserve the stated role name. Proper names are not new vocabulary and must not be added to the dictionary or highlighted as new words.
+
+## Pending spaced review requirement 26 October 2026
+
+This is item 4 of the follow-up batch currently being collected. Record now, implement together with the rest only after the user finishes reporting.
+
+- Same-lesson end review contains confirmed mistakes only, with a new situation preserving the original communication goal and input modality. A successful correction is Assisted; continued difficulty is Needs practice. Do not loop indefinitely.
+- In a suitable middle point of a subsequent lesson, revisit a previously difficult skill without a model. Start by considering the next one or two lessons, but adapt to task relevance, elapsed time and the learner's results. This is a BirTalk methodological starting point, not a CEFR-prescribed interval or fixed quota.
+- Later lessons and sections also reuse older skills, including successfully learnt ones, in new communicative situations. Do not limit recall to the immediately preceding lesson, put the old questions at the beginning, or repeat the same question consecutively without a distinct learning purpose.
+- Integrate old skills naturally with newly taught material, e.g. greeting plus self-introduction after self-introduction has been taught. Never require an untaught expression to complete a review.
+- Keep initial independent evidence, same-lesson assisted correction and later model-free independent evidence distinct. A later independent success is recorded as such and does not rewrite the initial attempt. If difficulty remains, shorten the next suitable review interval.
+- Skipped, technical and unassessable responses remain Unverified, not language mistakes; accepted meaning-preserving spelling variations do not enter the mistake bank.
