@@ -33,3 +33,12 @@ Kart nömrələri görünmür. İrəliləyiş çubuğu keçid zamanı yumşaq do
 ## Yoxlama sərhədi
 
 Avtomatik yoxlama və real telefonda baxış ayrı qeyd edilir. Yoxlanmamış funksiyanı işlək kimi təqdim etmə. SDK və paket quraşdırmasını məzmun/UI düzəlişi ilə qarışdırma. Ayrı 13 kartlı kağız dərsi təsdiqlənmiş tətbiq çevirməsi olmadan cari dərsin yerinə yükləmə.
+
+## Yeni toplanan düzəlişlər — 26 oktyabr 2026
+
+Status: yalnız layihə qeydi yenilənib. İstifadəçi səhvləri bildirməyə davam edir; bu siyahıdakı tətbiq dəyişikliklərini hələ həyata keçirmə və hazır kimi təqdim etmə.
+
+1. Təkrarın girişini daha nəzərəçarpan et: kiçik ↻ işarəsi, tətbiqin rənglərinə uyğun yumşaq çərçivə, “Bir daha məşq edək!” başlığı və “Bu hissədə çətinlik oldu. İndi başqa vəziyyətdə yenidən yoxlayaq.” alt mətni. Görünəndə bir dəfə qısa animasiya; cavabı göstərmə.
+2. Dərs kartları, xüsusilə səsli məşq, adi istifadə zamanı ekranın içinə sığmalıdır. Lazımsız iç-içə çərçivələri, boşluqları və təkrarlanan səs dalğalarını yığcamlaşdır. Dinləmə/danışma üçün vahid sahə, bir dalğa və aydın mikrofon nəzarəti saxla. Əsas düymələr aşağı sürüşdürmədən görünsün. Kiçik ekran və böyüdülmüş mətn zamanı məzmunu kəsmə, şrifti oxunmaz etmə; uzun izahı ayrıca pəncərədə aç. Bu düzülüş hələ tətbiqdə yoxlanmayıb.
+3. Səhv cavabın seçilmiş variantının/cavab sahəsinin və izah panelinin kənarı bir dəfə qırmızı parlasın, sonra cavab göstərildiyi müddətdə sabit qırmızı qalsın. İstifadəçinin “ambulans kimi” bənzətməsi təkrarlanan yanıb-sönmə deyil: bir vurğu, sonra sabit rəng tələb edir. Bu son qərar kənarın əvvəlki rənginə qayıtması qaydasını əvəz edir. Ekran silkələnməsin; hərəkəti azaltma seçimi olduqda birbaşa sabit qırmızı göstər. Texniki və qiymətləndirilə bilməyən cavaba səhv effekti tətbiq etmə.
+4. Daimi mətn köməyinin düyməsi “Səsi başa düşmürəm” olsun. “Səs eşidilmir · mətnlə davam et” və “Texniki səbəbdən mətnlə” kimi yazılar bu anlama köməyində göstərilməsin. Açıldıqda yalnız həmin audioda deyilən dəqiq söz/cümlə görünsün; əlavə başlıq, tərcümə, alternativ nümunə və təkrarlanan xəbərdarlıq əlavə etmə. Mətn açılması texniki xəta kimi qeyd olunmasın. İstifadəçi cavab verib davam edə bilsin, amma həmin tapşırıqdan dinləmə uğuru, müstəqil və ya köməklə dinləmə nəticəsi çıxarma: dinləmə sübutu “Yoxlanmadı” qalsın və dinləmə balına daxil edilməsin. Bu, digər tapşırıqlarda faktiki göstərilmiş dinləmə nəticələrini silmir. Mətn köməyi səhv deyil və öz-özlüyündə səhv təkrarı yaratmır. Faktiki audio texniki xətası ayrıca haldır; onun mövcud bərpa yolunu ləğv etmə.
