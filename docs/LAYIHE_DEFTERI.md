@@ -85,3 +85,21 @@ Bütün ekran sisteminin sabit görünüşlə əvəzlənməsi, “Ardını göst
 6. İzah kartı daha aydın kontrastla göstərilir, başlığı “Səhv cavabın izahı”dır. “Başa düşdüm” basılanda düymədən bir qısa işıq dalğası keçir, kart yumşaq bağlanır. Qiymət, səhv təkrarı və sual mövqeyi dəyişmir. X/çölə toxunma/geri dərhal bağlayır. Hərəkəti azaltma rejimi nəzərə alınır.
 
 Texniki sərhəd: yalnız qeyd rejiminin danışıq-bitmə aşkarlanması səs səviyyəsi və qısa fasilə əsasında başlanğıc mexanizmdir; səs tanıma və dil qiymətləndirməsi deyil. Real telefonda bu vaxtlama və görünüş ayrıca yoxlanmalıdır. Hesabat: docs/LESSON_FOLLOWUP_20261027.md.
+
+## Gələcək vizual qərarı — 27 oktyabr 2026
+
+BirTalk-un 3D üslubu və Əli, Leyla, BirFox personajları qorunur. Situasiya vizualları sadə, sualla əlaqəli və yığcam olmalıdır; sual, cavab idarələri və düymələr normal dərs ekranına aşağı sürüşdürmədən sığmalıdır. Öyrətmə və məşqdə şəkil mənaya ipucu verə bilər; qiymətləndirmədə bu dəstək nəzərə alınmalıdır. Müstəqil yoxlama və imtahanda vizual cavabı aşkar etməməlidir. Bu qərar əvvəlki ümumi “şəkil cavabı açıqlamasın” qaydasını öyrətmə və dəstəkli məşq üçün dəqiqləşdirir. Hələ tətbiq edilməyib.
+
+## Cavab izahı və səhvlərə keçid — 27 oktyabr 2026
+
+Düzgün və səhv qiymətləndirilmiş cavabların hər ikisində “Cavabın izahı” ayrıca bağlanan kartda açılır. Söz və ifadələr yalnız mövcud, müəllif tərəfindən hazırlanmış dərs lüğəti məlumatı həmin cavabda olduqda seçilə bilir; olmayan izah uydurulmur. Hər sözə və hər sərbəst cümləyə ayrıca izahın mövcudluğu hələ təmin olunmayıb. İzahı açmaq nəticəni və təkrar növbəsini dəyişmir.
+
+Əsas dərsin sonunda təsdiqlənmiş səhvlər varsa, təkrardan əvvəl BirFox-un ayağa qalxıb üstünü təmizlədiyi və tozun dağıldığı birdəfəlik keçid göstərilir. “Davam et” basıldıqda mövcud təkrar növbəsi açılır. Hərəkəti azaltma seçimi statik son kadrı göstərir. Səhvsiz və yoxlanmamış cavablar üçün bu giriş açılmır. Animasiya və görünüş real iPhone-da yoxlanmayıb.
+
+Səsli cavab panelinin bütün vəziyyətlərdə bir ekrana sığması əvvəlki tətbiqdə həll edilməyib və bu işdə tamamlanmış hesab edilmir. Azure, hibrid səs tanıma və yeni əlavə situasiya vizualları da bu dəyişikliklə qoşulmayıb. Paket faylları və istifadəçinin SDK keçidi dəyişdirilməyib.
+
+## Səsli suallarda vizual və mövcud şəkillərin axtarışı — 27 oktyabr 2026
+
+Uyğun səsli suallarda mövzuya və dinləmə vəziyyətinə uyğun, yığcam vizualdan istifadə et. Səs idarələri və istifadəçinin cavabı ekranda qalmalıdır. Hazırkı dinləmə sahəsində mövcud “clarify” səhnəsi Əli və Leylanı göstərir; onun yanında əvvəlki səs dalğası qalır. Səhnə konkret cavabı açmır və qiymətləndirməni dəyişdirmir. Danışıq panelinə ayrıca şəkil əlavə edilməyib: əvvəlcə bütün vəziyyətlərdə ekrana sığması həll edilməlidir. Real iPhone-da görünüş yoxlanmayıb.
+
+Hər gələcək dərsdə yeni vizual yaratmazdan əvvəl `assets/lessons/scene-library.json`, `docs/REUSABLE_3D_SCENES.md` və layihədəki əvvəlki şəkilləri yoxla. Mövzu və vəziyyətə uyğun mövcud vizual varsa onu təkrar istifadə et; yalnız uyğun vizual yoxdursa yenisini yarat və kataloqa əlavə et. Məşqdə cavabı açan vizual verilərsə kömək nəzərə alınmalıdır; müstəqil yoxlama və imtahanda şəkil cavabı açıqlamamalıdır. Azure səs sisteminin qurulması və telefonda yoxlanması ayrıca qalır.

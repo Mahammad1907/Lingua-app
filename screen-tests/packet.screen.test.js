@@ -170,6 +170,8 @@ test('wrong listening retry is locked, can continue, and never exposes the previ
   else if(card.kind==='voice')await back();
   else await answerCard(card);
  }
+ expect(screen.getByText('Etdiyin səhvlərin təkrarı',{exact:true})).toBeOnTheScreen();
+ await press('Davam et');
  expect(screen.getByText('BİR DƏ MƏŞQ ET',{exact:true})).toBeOnTheScreen();
  expect(screen.queryByText('ƏVVƏLKİ TAPŞIRIQ')).not.toBeOnTheScreen();
  expect(screen.queryByText(/Əvvəlki cavabın izahı/)).not.toBeOnTheScreen();
@@ -210,6 +212,8 @@ test.each(b1Packet.map(p=>[p.order,p]))('lesson %s: every wrong type reaches a b
   if(card.kind==='teach') await press('Davam et');
   else { tasks.push(card); await wrongCard(card); }
  }
+ expect(screen.getByText('Etdiyin səhvlərin təkrarı',{exact:true})).toBeOnTheScreen();
+ await press('Davam et');
  for(const card of tasks) {
   expect(screen.getByText('BİR DƏ MƏŞQ ET',{exact:true})).toBeOnTheScreen();
   await wrongCard(card.review || card);
@@ -244,6 +248,8 @@ test('same-lesson correction is assisted; a later model-free recheck records ind
   if(card.kind==='teach')await press('Davam et');else if(card.kind==='voice')await back();else await answerCard(card);
  }
  const original=packet.cards.find(c=>c.number===3);
+ expect(screen.getByText('Etdiyin səhvlərin təkrarı',{exact:true})).toBeOnTheScreen();
+ await press('Davam et');
  await answerCard(original.review);await press('Nəticəni saxla');
  expect(useUserStore.getState().lessonProgress[0].practiceNeeds).toContain(original.id);
  await cleanup();
@@ -350,7 +356,7 @@ test('wrong explanation is plain, expandable, and has no repeated abstract reaso
  await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'ghjp'));
  await press('Yoxla');
  expect(screen.getByText('Burada sağollaşmaq lazımdır. Goodbye! və ya Bye! yaza bilərsən.')).toBeOnTheScreen();
- await press('Mənə başa sal +');
+ await press('Cavabın izahı ›');
  expect(screen.getByText('Sənin cavabın: ghjp')).toBeOnTheScreen();
  expect(screen.queryByText(/^Səbəb:/)).not.toBeOnTheScreen();
  expect(screen.queryByText(/^Qısa qayda:/)).not.toBeOnTheScreen();
@@ -391,10 +397,23 @@ test('a wrong response after transcript help can continue unverified without a m
 });
 test('explanation opens in a separate card without unlocking the answer',async()=>{
  await start(b1Packet[0]);await press('Davam et');await listen();await press('Sağ ol!');await press('Yoxla');
- await press('Mənə başa sal +');expect(screen.getByText('Sənin cavabın: Sağ ol!',{exact:true})).toBeOnTheScreen();
+ await press('Cavabın izahı ›');expect(screen.getByText('Sənin cavabın: Sağ ol!',{exact:true})).toBeOnTheScreen();
  await act(async()=>fireEvent.press(screen.getByLabelText('İzahı bağla')));
  expect(screen.queryByText('Sənin cavabın: Sağ ol!',{exact:true})).not.toBeOnTheScreen();
  expect(screen.getByText('Sağ ol!',{exact:true})).toBeDisabled();
+});
+
+test('correct answer explanation opens authored vocabulary without changing assessment evidence',async()=>{
+ await start(b1Packet[0]); await press('Davam et'); await listen(); await press('Salam!'); await press('Yoxla');
+ const attempt=Object.values(useUserStore.getState().attempts)[0];
+ const evidence=JSON.stringify(attempt.tasks);
+ await press('Cavabın izahı ›');
+ expect(screen.getByText('Cavabın izahı',{exact:true})).toBeOnTheScreen();
+ await press('Hello');
+ expect(screen.getByText('Hello — Salam',{exact:true})).toBeOnTheScreen();
+ expect(screen.getByText('Hello, Leyla! — Salam, Leyla!',{exact:true})).toBeOnTheScreen();
+ await press('Başa düşdüm');
+ expect(JSON.stringify(useUserStore.getState().attempts[attempt.id].tasks)).toBe(evidence);
 });
 
 test('finishing with transcript help preserves completion and records no listening success or perfect reward',async()=>{
@@ -441,7 +460,7 @@ test('explanation modal leaves background layout and answer evidence unchanged t
  const attempt=Object.values(useUserStore.getState().attempts)[0];
  const evidence=JSON.stringify(attempt.tasks),style=screen.getByTestId('packet-lesson-scroll').props.contentContainerStyle;
  for(let i=0;i<2;i++){
-  await press('Mənə başa sal +');expect(screen.getByText('Sənin cavabın: Sağ ol!',{exact:true})).toBeOnTheScreen();
+  await press('Cavabın izahı ›');expect(screen.getByText('Sənin cavabın: Sağ ol!',{exact:true})).toBeOnTheScreen();
   if(i===0)await press('Başa düşdüm');else await act(async()=>fireEvent.press(screen.getByLabelText('İzahı bağla')));
   expect(screen.queryByText('Sənin cavabın: Sağ ol!',{exact:true})).not.toBeOnTheScreen();
   expect(screen.getByTestId('packet-lesson-scroll').props.contentContainerStyle).toEqual(style);

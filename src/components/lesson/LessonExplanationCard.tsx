@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
-export default function LessonExplanationCard({ visible, onClose, children }: PropsWithChildren<{ visible: boolean; onClose: () => void }>) {
+export default function LessonExplanationCard({ visible, onClose, children, title = 'Səhv cavabın izahı' }: PropsWithChildren<{ visible: boolean; onClose: () => void; title?: string }>) {
   const insets = useSafeAreaInsets(), reduced = useReducedMotion();
   const [shine] = useState(() => new Animated.Value(0)), [exit] = useState(() => new Animated.Value(0));
   const [width, setWidth] = useState(300);
@@ -25,7 +25,7 @@ export default function LessonExplanationCard({ visible, onClose, children }: Pr
     <View style={[s.overlay, { paddingTop: Math.max(24, insets.top), paddingBottom: Math.max(24, insets.bottom) }]}>
       <Pressable accessible={false} style={StyleSheet.absoluteFill} onPress={close} />
       <Animated.View accessibilityViewIsModal style={[s.card, { opacity: exit.interpolate({ inputRange: [0, 1], outputRange: [1, 0] }), transform: [{ scale: exit.interpolate({ inputRange: [0, 1], outputRange: [1, .98] }) }] }]}>
-        <View style={s.header}><Text accessibilityRole="header" style={s.title}>Səhv cavabın izahı</Text><Pressable accessibilityRole="button" accessibilityLabel="İzahı bağla" onPress={close} style={s.close}><Text style={s.cross}>×</Text></Pressable></View>
+        <View style={s.header}><Text accessibilityRole="header" style={s.title}>{title}</Text><Pressable accessibilityRole="button" accessibilityLabel="İzahı bağla" onPress={close} style={s.close}><Text style={s.cross}>×</Text></Pressable></View>
         <ScrollView style={s.scroll} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled">{children}</ScrollView>
         <Pressable accessibilityRole="button" onPress={acknowledge} onLayout={e => setWidth(e.nativeEvent.layout.width)} style={s.done}>
           <LinearGradient colors={['#FFC45C', '#FF9C38']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={s.doneFill}><Text style={s.doneText}>Başa düşdüm</Text></LinearGradient>

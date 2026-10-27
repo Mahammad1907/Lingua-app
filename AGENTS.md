@@ -140,3 +140,7 @@ The user finished reporting and authorized only these six items; record them in 
 6. The overlay title is exactly “Səhv cavabın izahı”. Improve its contrast and emphasize accepted examples. “Başa düşdüm” plays one short neutral sheen and closes gently, with reduced motion support. This acknowledgement changes neither grade nor lesson position. X/outside/back closes immediately and cancels pending effects.
 
 Do not add new features, alter lesson content/order, revise assessment policy, replace the screen system, edit SDK/package files, or claim physical iPhone/SDK58 verification without running it. Existing English typo restrictions and per-modality evidence boundaries remain authoritative.
+
+## Audio visuals and asset reuse — 27 October 2026
+
+The user authorizes suitable, compact visuals for audio questions. Search the existing scene library and prior project images first; reuse a matching scene, and generate and catalog a new one only when no existing asset fits. Preserve BirTalk's characters and style. A visual that reveals an answer is support in practice, not evidence of independent listening; independent assessments and exams must not reveal the answer. Keep the lesson's question and controls on screen and do not change unrelated screens. The existing neutral clarify scene accompanies the sound wave on listening tasks. Speech capture and Azure integration remain separate; do not claim iPhone verification without testing.
