@@ -4,7 +4,6 @@ import { Image as NativeImage } from 'react-native';
 import LessonImage from '../src/components/lesson/LessonImage';
 import LessonWelcome from '../src/components/lesson/LessonWelcome';
 import ListeningScene from '../src/components/lesson/ListeningScene';
-import { lessonSceneSources } from '../src/utils/lessonAssets';
 import { b1Packet } from '../src/data/b1Course';
 import { lessonIntroduction } from '../src/utils/lessonGuide';
 import { ClassroomScene, ink } from '../src/components/lesson/LessonSurface';
@@ -18,11 +17,9 @@ jest.mock('expo-linear-gradient', () => ({ LinearGradient: props => {
 jest.mock('react-native-svg', () => ({ __esModule: true, default: () => null, Path: () => null, Rect: () => null, Circle: () => null }));
 beforeEach(() => { jest.spyOn(NativeImage, 'resolveAssetSource').mockImplementation(source => ({ uri: `asset:${source}`, width: 1200, height: 800, scale: 1 })); });
 afterEach(() => jest.restoreAllMocks());
-test('only the opted-in lesson listening scene reuses the neutral listening artwork', async () => {
-  const view = await render(<ListeningScene playing={false} height={100} />);
+test('listening questions show a wave with no human illustration', async () => {
+  await render(<ListeningScene playing={false} height={64} />);
   expect(screen.queryByTestId('lesson-image')).not.toBeOnTheScreen();
-  await view.rerender(<ListeningScene playing={false} height={100} showIllustration />);
-  expect(screen.getByTestId('lesson-image').props.source).toBe(lessonSceneSources.clarify);
   expect(screen.getByLabelText('Dinləmə tapşırığı')).toBeOnTheScreen();
 });
 test('image failure has a retry, successful load settles, a new source resets loading', async () => {

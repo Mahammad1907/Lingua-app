@@ -1,3 +1,4 @@
+import { mascotText } from '../../utils/mascot';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
 import { type ReactNode, useEffect, useId, useMemo, useRef, useState } from 'react';
@@ -92,7 +93,7 @@ function BadgeGlow({ size, color }: { size: number; color: string }) {
 const displayTitles: Record<string, string> = {
   a1_en_01_d1_1: 'Salamlaşma ifadələri', a1_en_01_d1_2: 'Özünü təqdim etmə',
   a1_en_01_d2_1: 'Təqdimat cümlələrinin quruluşu', a1_en_01_d3_1: 'Hal-əhval soruşma',
-  a1_en_01_d4_1: 'Sual və cavab quruluşu', a1_en_01_final: 'BirFox ilə səsli söhbət',
+  a1_en_01_d4_1: 'Sual və cavab quruluşu', a1_en_01_final: mascotText('BirFox ilə səsli söhbət'),
 };
 
 function Station({ item, index, width, badgeSize, reduced, tooltip, onPress, largeText }: {

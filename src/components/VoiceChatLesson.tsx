@@ -1,3 +1,4 @@
+import { mascotText } from '../utils/mascot';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { Stack } from 'expo-router';
 import * as Speech from 'expo-speech';
@@ -84,7 +85,7 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
     <View style={styles.header}>
       <TouchableOpacity onPress={onBack} style={styles.back}><Text style={styles.backText}>←</Text></TouchableOpacity>
       <HomeArtwork name="headphones" style={{ width: 36, height: 40 }} />
-      <View style={{ flex: 1 }}><Text style={styles.name}>BirFox</Text><Text style={styles.subtitle}>Səsli söhbət məşqi</Text></View>
+      <View style={{ flex: 1 }}><Text style={styles.name}>{mascotText("BirFox")}</Text><Text style={styles.subtitle}>Səsli söhbət məşqi</Text></View>
       <EnergyMeter compact />
     </View>
     <ScrollView ref={scroll} contentContainerStyle={styles.messages} keyboardShouldPersistTaps="handled" onContentSizeChange={() => scroll.current?.scrollToEnd({ animated: true })}>
@@ -93,8 +94,8 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
       {turns.slice(0, Math.min(sent.length + 1, turns.length)).map((turn, index) => {
         const voice = sent[index];
         return <View key={`voice-turn-${index}`}>
-          <TouchableOpacity disabled={capturing} style={[styles.bubble, styles.incoming]} onPress={() => void play(index, turn.text)} accessibilityLabel="BirFox-un səsli mesajını dinlə">
-            <Text style={styles.sender}>BirFox</Text><View style={styles.voiceRow}><Text style={styles.playIcon}>{playing === index ? 'Ⅱ' : '▶'}</Text><VoiceWave playing={playing === index} /></View>
+          <TouchableOpacity disabled={capturing} style={[styles.bubble, styles.incoming]} onPress={() => void play(index, turn.text)} accessibilityLabel={mascotText("BirFox-un səsli mesajını dinlə")}>
+            <Text style={styles.sender}>{mascotText("BirFox")}</Text><View style={styles.voiceRow}><Text style={styles.playIcon}>{playing === index ? 'Ⅱ' : '▶'}</Text><VoiceWave playing={playing === index} /></View>
             <Text style={styles.small}>Səsli mesaj · Dinlə</Text>
           </TouchableOpacity>
           {voice === 'skipped' ? <Text style={styles.small}>Bu danışıq tapşırığını keçdin. Səhv sayılmır.</Text> : voice ? <>
@@ -120,7 +121,7 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
       </View>}
     </ScrollView>
     {!finished ? <>
-      {!heard ? <Text style={styles.listenFirst}>Əvvəl BirFox-un son səsli mesajını dinlə.</Text>
+      {!heard ? <Text style={styles.listenFirst}>{mascotText("Əvvəl BirFox-un son səsli mesajını dinlə.")}</Text>
         : current.intent === 'introduce' && !name.trim() ? <Text style={styles.listenFirst}>Əvvəl öz adını yaz.</Text>
         : <RecognizedVoiceComposer key={`composer-${sent.length}`} checkAnswer={(text) => checkSpokenAnswer(text, current.intent, name)}
           onBusyChange={setCapturing} onJudged={(correct, token) => {

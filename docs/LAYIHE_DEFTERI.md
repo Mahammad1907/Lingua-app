@@ -103,3 +103,39 @@ Səsli cavab panelinin bütün vəziyyətlərdə bir ekrana sığması əvvəlki
 Uyğun səsli suallarda mövzuya və dinləmə vəziyyətinə uyğun, yığcam vizualdan istifadə et. Səs idarələri və istifadəçinin cavabı ekranda qalmalıdır. Hazırkı dinləmə sahəsində mövcud “clarify” səhnəsi Əli və Leylanı göstərir; onun yanında əvvəlki səs dalğası qalır. Səhnə konkret cavabı açmır və qiymətləndirməni dəyişdirmir. Danışıq panelinə ayrıca şəkil əlavə edilməyib: əvvəlcə bütün vəziyyətlərdə ekrana sığması həll edilməlidir. Real iPhone-da görünüş yoxlanmayıb.
 
 Hər gələcək dərsdə yeni vizual yaratmazdan əvvəl `assets/lessons/scene-library.json`, `docs/REUSABLE_3D_SCENES.md` və layihədəki əvvəlki şəkilləri yoxla. Mövzu və vəziyyətə uyğun mövcud vizual varsa onu təkrar istifadə et; yalnız uyğun vizual yoxdursa yenisini yarat və kataloqa əlavə et. Məşqdə cavabı açan vizual verilərsə kömək nəzərə alınmalıdır; müstəqil yoxlama və imtahanda şəkil cavabı açıqlamamalıdır. Azure səs sisteminin qurulması və telefonda yoxlanması ayrıca qalır.
+
+## Azure danışıq sınağı — 28 oktyabr 2026
+
+Maskot seçimi sonraya saxlanılıb. Azure üçün kodda məhdud sınaq hazırlanıb: səs istifadəçinin razılığı ilə göndərilir, tanınan ifadə təsdiq olunduqdan sonra danışıq kimi yoxlanır; “Məni səhv eşitdi” cavabı ləğv edir və səhv saymır. Qeyri-müəyyən səs, icazə verməmək, texniki problem və keçmə “Yoxlanmadı” qalır. Serverdə Azure açarı saxlanılır, tətbiqə açar verilmir. Bu, tələffüz qiyməti deyil.
+
+Microsoft-un F0 planında qısa-səs REST üsulu istifadə edilir; Fast Transcription F0-da mövcud deyil və F0 eyni anda bir sorğu ilə məhdudlaşır. iPhone-un `.m4a` səsi serverdə FFmpeg ilə mono 16 kHz WAV-a çevrilir. Qorunan istifadəçi sessiyası və HTTPS tələb olunur. İndiki limitlər yalnız bir serverlik sınağa uyğundur; ümumi istifadəyə açmaq üçün ayrıca çoxistifadəçili kvota və təhlükəsizlik həlli lazımdır.
+
+Kod avtomatik sınaqlarla yoxlanır, ancaq real Azure hesabı, server, iPhone və SDK 58 ilə hələ təsdiqlənməyib. Alman və rus dilinin serverdə lokal kodları nəzərdə tutulub, həmin dillərdə dərs və qiymətləndirmə həyata keçirildiyi iddia edilmir.
+
+## Maskot adının idarəsi — 30 oktyabr 2026
+
+- Maskotun yekun adı hələ seçilməyib. Mövcud BirFox adı müvəqqəti saxlanılır; adı yalnız `src/utils/mascot.ts` faylındakı `MASCOT_NAME` dəyərində dəyişmək nəzərdə tutulur.
+- Dərs və imtahan məlumatları, səs mətnləri, tərcümə açarları, cavab nümunələri və əlaqəli mətnlər bu addan istifadə etməlidir. Yeni məzmun üçün maskot adını ayrıca sabitləməyin; mövcud ad əvəzedicisi və ya `mascotText` istifadə edin.
+- Azərbaycan dili şəkilçilərinin səslənişi bəzi xüsusi adlarda fərqlənə bilər; yeni ad seçiləndə şəkilçiləri və səsli oxunuşunu cihazda yoxlayın. Şəxs adları və tətbiqin BirTalk adı maskot adı ilə qarışdırılmır.
+
+## Səs sistemi üzrə son müzakirə və söhbət təhvili — 30 oktyabr 2026
+
+- Microsoft hesabı yaratmaq təhlükəsizlik bloku verir. Windows-da mövcud Microsoft hesabı tapılıb, lakin Windows Hello girişi xəta verib, Gmail təsdiq kodu gəlməyib. Azure canlı sınağı tamamlanmayıb; blokun səbəbi məlum deyil.
+- Azure alternativi axtarılır. Google, Deepgram, AssemblyAI, Speechmatics, ElevenLabs Scribe, OpenAI/Whisper və öz serverində Whisper namizəddir. Heç biri yeni əsas xidmət kimi qoşulmayıb. İngilis, alman və rus dili və münasib xərc tələb olunur. Pulsuz sınaq üstünlükdür. 3000 gündəlik istifadəçi yalnız hesab nümunəsidir, sabit proqnoz deyil.
+- İstifadəçi yalnız telefon tanımasına güvənmək istəmir; keyfiyyətli, amma münasib xərc istəyir. Telefon+bulud hibridi təklifdir, yekun və yoxlanmış həll deyil. Provayder qiymətləri və real dillər üzrə imkanları rəsmi mənbələrdən yenidən təsdiqlənməlidir. Bu söhbətdə axtarış aləti davamlı xəta qaytarıb.
+- Son UI istəyi əvvəlki transcript-təsdiq axınını dəyişir: “Səni belə eşitdim” və mətn düzəltmə paneli istənmir. Hazır cümləni səsləndirmə məşqində cümlə görünür, uyğun deyilən sözlər danışdıqca yaşıl olur. Uyğun gəlməyəndə cümlə əvvəldən yenidən deyilə bilər. Kiçik tələffüz/tanıma fərqlərinə güzəşt istənir; 70–80% rəqəmi sınaqdan keçmiş hədd deyil. Məna dəyişən inkar, ad və əsas söz fərqlərini kor-koranə qəbul etmək olmaz. Səsin texniki tanınmaması dil səhvi və cəza deyil.
+- Hazır cümləni oxuma ilə sərbəst cavab tapşırığını ayrı saxla: nümunə göstərilən oxuma müstəqil cavab qurma və ya müstəqil dinləmə sübutu deyil. Canlı yaşıl sözlər, yeni güzəştli səs müqayisəsi və yeni provayder bu söhbətdə tətbiq edilməyib. Bunları hazır kimi təqdim etmə.
+- Maskot adı sonda seçiləcək. Lopuki namizəddir, yekun deyil. BirFox müvəqqəti addır. Rəsmi Azərbaycan açıq reyestrində Lopuki açar sözü, WIPO Madrid Monitor-da Lopuki üzrə nəticə görünməyib; bu, oxşar nişanların və bütün ölkələrin tam hüquqi təmizliyi deyil.
+- Maskot adı mərkəzləşdirməsi bu iş mühitində tamamlanıb: src/utils/mascot.ts; scripts/check-mascot-name.cjs. TypeScript və check-b1-packet keçib; lint-də yalnız əvvəlki istifadə olunmayan handleLogout xəbərdarlığı qalıb. iPhone sınağı və GitHub-a göndərmə aparılmayıb.
+
+## Sabit dərs sahəsi və dinləmə şəklinin çıxarılması — 2 noyabr 2026
+
+İstifadəçi bütün dərs ekranlarının aşağı sürüşmədən ekrana sığmasını yenidən açıq təsdiqlədi və dinləmə dalğasının yanındakı Əli/Leyla şəklini silməyi istədi. Əvvəlki sürüşməni qoruma göstərişi bu iş üçün dəyişib.
+
+- ListeningScene insan şəkli göstərmir; səs dalğası qalır. Bu dəyişiklik digər dərs situasiya şəkillərini silmir.
+- Aktiv yeddi B1 dərsinin bütün kartları, başlanğıc, təkrar və nəticə vəziyyətləri PacketLesson daxilində FixedLessonViewport istifadə edir. Başlıq və alt düymə sabit qardaş sahələrdir. Mətn və idarələr kəsilmir: kiçik dekorativ sahə, sonra ölçülmüş məzmunun qalan düzbucaqlıya uyğun miqyası istifadə olunur. Klaviatura sahəsi ayrıca nəzərə alınır.
+- PacketExam əsas sahəsi də sabitdir; uzun nəticə siyahısı ayrıca izah kartında açılır. Nəticələrin açılması əsas səhifəni uzatmır. Qiymətləndirmə və növbə qaydaları dəyişməyib.
+- Dəyişiklik aktiv paket dərslərinə və bölmə sınağına aiddir; köhnə qeyri-paket practice/vocabulary/session səhifələri və tətbiqin digər ekranları yenidən yazılmayıb.
+- Çox kiçik ekran, böyük sistem şrifti və klaviatura ilə real cihazda oxunaqlılıq və toxunma sahəsi ayrıca yoxlanmalıdır. Native iPhone/Android/SDK58 yoxlanmış kimi təqdim etmə.
+
+Yoxlama: TypeScript keçdi; 5 ekran test dəstində 63 test keçdi; 210 dərs/təkrar/imtahan qaydasının yoxlaması keçdi; veb export tamamlandı. Lint 0 xəta, əvvəldən qalan profile.tsx handleLogout xəbərdarlığı. Brauzer önbaxışı localhost-a qoşulmadığı üçün vizual cihaz yoxlaması aparılmadı. GitHub-a göndərilmədi.

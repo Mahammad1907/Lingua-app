@@ -1,7 +1,9 @@
+import FixedLessonViewport from './FixedLessonViewport';
+import LessonExplanationCard from './LessonExplanationCard';
 import { Stack, useFocusEffect, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import { useCallback, useRef, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { b1Exams } from '../../data/b1Exam';
 import { useUserStore } from '../../store/userStore';
@@ -15,6 +17,7 @@ interface Response { value: string; verdict: PacketVerdict; spoken: boolean; tec
 export default function PacketExam() {
   const router = useRouter(); const insets = useSafeAreaInsets();
   const [exam] = useState(() => b1Exams[useUserStore.getState().placementResults.some((r) => r.moduleId === 'module_1') ? 1 : 0]);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const [started, setStarted] = useState(false); const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState(''); const [built, setBuilt] = useState<number[]>([]);
   const [written, setWritten] = useState(false); const [heard, setHeard] = useState(false);
@@ -70,10 +73,10 @@ export default function PacketExam() {
   const unverified = exam.required.some((n) => responses[`b1_exam_q${String(n).padStart(2, '0')}`]?.verdict.status === 'unknown');
   const evidence = evidenceFor(responses);
   const complete = Object.keys(responses).length === exam.cards.length;
-  return <View style={[s.screen, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
+  return <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={[s.screen, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
     <Stack.Screen options={{ headerShown: false }} />
     <View style={s.header}><TouchableOpacity disabled={capturing} onPress={() => router.back()}><Text style={s.back}>‹</Text></TouchableOpacity><Text style={s.heading}>Bölmə sınağı · {exam.variant}</Text></View>
-    <ScrollView contentContainerStyle={s.content} keyboardShouldPersistTaps="handled">
+    <FixedLessonViewport contentContainerStyle={s.content}>
       {!started ? <>
         <ListeningScene playing={false} height={100} />
         <Text style={s.heading}>Bildiklərini yoxla</Text><Text style={s.body}>17 tapşırıq, o cümlədən 6 səsli cavab. Cavablar sınaq bitəndən sonra görünəcək. Vaxt limiti yoxdur.</Text>
@@ -85,11 +88,11 @@ export default function PacketExam() {
         <Text style={s.note}>{outcome.correct}/17 uyğun cavab · +{outcome.xp} XP. Danışıq yoxlanmayıbsa ona nəticə verilmir. Tələffüz balı hesablanmır.</Text>
         {evidence.technicalTextIds.length ? <Text style={s.note}>Texniki səbəbdən mətnlə: {evidence.technicalTextIds.length}. Dinləmə nəticəsinə daxil deyil.</Text> : null}
         {evidence.writtenVoiceIds.length ? <Text style={s.note}>Danışıq yoxlaması qalıb. Yazılı cavablar danışıq nəticəsi sayılmır.</Text> : null}
-        {exam.cards.map((card) => { const response = responses[card.id]; return <View style={s.result} key={card.id}>
+        <TouchableOpacity style={s.option} onPress={() => setDetailsOpen(true)}><Text style={s.body}>Tapşırıqların nəticələri</Text></TouchableOpacity><LessonExplanationCard visible={detailsOpen} title="Tapşırıqların nəticələri" onClose={() => setDetailsOpen(false)}>{exam.cards.map((card) => { const response = responses[card.id]; return <View style={s.result} key={card.id}>
           <Text style={s.body}>{card.number}. {response?.verdict.status === 'correct' ? 'Uyğundur' : response?.verdict.status === 'unknown' ? 'Yoxlanmadı' : 'Yenidən məşq et'}</Text>
           <Text style={s.note}>Sənin cavabın: {response?.value || 'Keçildi'}</Text><Text style={s.note}>Uyğun nümunə: {card.rule!.answers[0]}</Text>
           {response?.verdict.criteria.map((c) => <Text key={c.goal} style={s.note}>{c.passed ? '✓' : '○'} {c.goal}</Text>)}
-        </View>; })}
+        </View>; })}</LessonExplanationCard>
         <TouchableOpacity style={s.primary} onPress={() => router.replace({ pathname: '/module/[id]', params: { id: 'module_1' } })}><Text style={s.dark}>Dərslərə bax</Text></TouchableOpacity>
       </> : complete ? <><Text style={s.body}>{error || 'Nəticə saxlanır…'}</Text>{error ? <TouchableOpacity style={s.primary} onPress={() => void finish(responses)}><Text style={s.dark}>Yenidən saxla</Text></TouchableOpacity> : null}</> : <>
         <Text style={s.note}>{index + 1}/17 · Cavablar sınaq bitəndə açıqlanacaq</Text>
@@ -111,11 +114,11 @@ export default function PacketExam() {
         </> : <Text style={s.note}>Əvvəl səsi dinlə.</Text>}
         <TouchableOpacity disabled={capturing} onPress={() => save('', false, true)}><Text style={s.link}>Keç · yoxlanmadı</Text></TouchableOpacity>
       </>}
-    </ScrollView>
-  </View>;
+    </FixedLessonViewport>
+  </KeyboardAvoidingView>;
 }
 const s = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: t.background }, header: { flexDirection: 'row', alignItems: 'center', gap: 16, padding: 18 }, back: { color: t.text, fontSize: 34 }, content: { padding: 20, paddingBottom: 35, gap: 16 },
+  screen: { flex: 1, backgroundColor: t.background }, header: { flexDirection: 'row', alignItems: 'center', gap: 16, padding: 18 }, back: { color: t.text, fontSize: 34 }, content: { padding: 16, paddingBottom: 12, gap: 9 },
   heading: { color: t.text, fontSize: 20, lineHeight: 29, fontWeight: '800' }, body: { color: t.text, fontSize: 16, lineHeight: 25 }, note: { color: t.muted, fontSize: 12, lineHeight: 20 },
   option: { backgroundColor: t.surface, borderRadius: 14, padding: 14, borderColor: t.border, borderWidth: 1 }, selected: { borderColor: t.orange }, input: { minHeight: 65, padding: 16, borderColor: t.border, borderWidth: 1, color: t.text, fontSize: 17, borderRadius: 14 },
   primary: { backgroundColor: t.orange, borderRadius: 16, padding: 17, alignItems: 'center' }, dark: { color: '#211426', fontWeight: '800', fontSize: 16 }, row: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 }, link: { color: t.orange, fontSize: 14, paddingVertical: 12 }, result: { padding: 16, borderRadius: 16, backgroundColor: t.surface, gap: 6 },

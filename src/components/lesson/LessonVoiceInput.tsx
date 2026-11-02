@@ -9,7 +9,7 @@ import VoicePracticeRecorder from './VoicePracticeRecorder';
 import VoiceCaptureBar, { compactVoiceStyle as compactUI } from './VoiceCaptureBar';
 import { LessonButton, LessonIcon, ink } from './LessonSurface';
 
-export default function LessonVoiceInput({ onFinal, onBusyChange, suspended, disabled = false, autoStart = false, compact = false, onClose, onUnverifiedRecording }: { onUnverifiedRecording?: (recording: UnverifiedRecording) => void; onClose?: () => void; compact?: boolean;
+export default function LessonVoiceInput({ onFinal, onBusyChange, suspended, disabled = false, autoStart = false, compact = false, cloudEnabled = false, onClose, onUnverifiedRecording }: { onUnverifiedRecording?: (recording: UnverifiedRecording) => void; onClose?: () => void; compact?: boolean; cloudEnabled?: boolean;
   onFinal: (answer: SpokenAnswer) => string | null; onBusyChange: (busy: boolean) => void; suspended?: boolean; disabled?: boolean; autoStart?: boolean;
 }) {
   const speech = useLessonSpeech({ onFinal, onBusyChange, suspended, autoStart, autoSubmit: compact });
@@ -27,7 +27,7 @@ export default function LessonVoiceInput({ onFinal, onBusyChange, suspended, dis
   const replay = async () => { try { if (playback.playing) player.pause(); else { await player.seekTo(0); player.play(); } } catch { setPlayError('Səsli yazı açılmadı. Yenidən danışa bilərsən.'); } };
   const start = () => { pause(); setPlayError(''); void speech.start(); };
   const clear = () => { pause(); setPlayError(''); speech.cancel(); };
-  if (compact && !speech.available && !reviewing) return <View style={{ gap: 5 }}><VoicePracticeRecorder compact autoSend={Boolean(onUnverifiedRecording)} onRecorded={onUnverifiedRecording} suspended={suspended} onBusyChange={onBusyChange} onClose={onClose} />{!onClose ? <Pressable accessibilityRole="button" disabled={disabled} onPress={speech.beginTyping}><Text style={compactUI.link}>Yazılı məşq et</Text></Pressable> : null}</View>;
+  if (compact && !speech.available && !reviewing) return <View style={{ gap: 5 }}><VoicePracticeRecorder compact cloudEnabled={cloudEnabled} autoSend={Boolean(onUnverifiedRecording)} onRecorded={onUnverifiedRecording} suspended={suspended} onBusyChange={onBusyChange} onClose={onClose} />{!onClose ? <Pressable accessibilityRole="button" disabled={disabled} onPress={speech.beginTyping}><Text style={compactUI.link}>Yazılı məşq et</Text></Pressable> : null}</View>;
   if (compact) return <VoiceCaptureBar active={listening ? speech.level > .04 : playback.playing} recording={listening} level={listening ? speech.level : undefined} busy={disabled || pending} label={listening ? 'Dayandır' : pending ? 'Hazırlanır…' : reviewing ? 'Yenidən danış' : 'Danışmaq üçün toxun'} onMic={() => listening ? speech.stop() : start()} onClose={onClose}>
     {reviewing && speech.draft ? <>
       {!speech.draft.edited ? <Text style={compactUI.note}>{speech.reviewText}</Text> : <TextInput accessibilityLabel="Tanınan cavabı yoxla və düzəlt" value={speech.reviewText} onChangeText={speech.setReviewText} editable={!disabled} autoCorrect={false} autoCapitalize="none" multiline maxLength={500} style={[s.reviewInput, { minHeight: 44, maxHeight: 70, padding: 8 }]} />}

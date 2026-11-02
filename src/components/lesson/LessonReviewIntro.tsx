@@ -1,3 +1,4 @@
+import { mascotText } from '../../utils/mascot';
 import { useEffect, useState } from 'react';
 import { Animated, Easing, Image, StyleSheet, Text, View } from 'react-native';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
@@ -17,7 +18,7 @@ export default function LessonReviewIntro() {
     return () => animation.stop();
   }, [progress, reduced]);
   return <View style={s.body}>
-    <View accessibilityLabel="BirFox ayağa qalxıb üstünü təmizləyir" style={s.art}>
+    <View accessibilityLabel={mascotText("BirFox ayağa qalxıb üstünü təmizləyir")} style={s.art}>
       {poses.map(i => <Animated.View key={i} style={[s.frame, { opacity: reduced ? i === 3 ? 1 : 0 : progress.interpolate({ inputRange: i === 0 ? [0, .6, 3] : i === 3 ? [0, 2.4, 3] : [0, i - .6, i, i + .6, 3], outputRange: i === 0 ? [1, 0, 0] : i === 3 ? [0, 0, 1] : [0, 0, 1, 0, 0], extrapolate: 'clamp' }) }]}>
         <Image source={frames} style={[s.sheet, { left: -i * 192 }]} resizeMode="stretch" />
       </Animated.View>)}

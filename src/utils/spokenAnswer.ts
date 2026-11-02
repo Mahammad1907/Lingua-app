@@ -1,3 +1,4 @@
+import { MASCOT_NAME } from './mascot';
 import { normalizeApostrophes } from './spelling';
 export type VoiceIntent = 'greeting' | 'introduce' | 'meet' | 'feeling' | 'repeat' | 'farewell';
 export interface SpokenVerdict { correct: boolean; message: string; countAsAttempt?: boolean }
@@ -11,13 +12,17 @@ export function checkSpokenAnswer(text: string, intent: VoiceIntent, name = ''):
   const input = normalizeSpeech(text);
   if (!input) return { correct: false, countAsAttempt: false, message: 'Səsin mətni alınmadı. Yenidən danış; səhv kimi hesablanmır.' };
   let correct = false;
+  const mascot = normalizeSpeech(MASCOT_NAME);
+  const withoutMascot = mascot && input.endsWith(` ${mascot}`) ? input.slice(0, -(mascot.length + 1)) : input;
   switch (intent) {
     case 'greeting':
-      correct = /^(hi|hello|hey|good morning|good afternoon|good evening)( birfox)?$/.test(input);
+      correct = /^(hi|hello|hey|good morning|good afternoon|good evening)$/.test(withoutMascot);
       break;
     case 'introduce': {
       const expected = normalizeSpeech(name);
-      const introduction = input.replace(/^(hi|hello)( birfox)? /, '');
+      const greetingPrefix = /^(hi|hello) /.exec(input);
+      const afterGreeting = greetingPrefix ? input.slice(greetingPrefix[0].length) : input;
+      const introduction = mascot && afterGreeting.startsWith(`${mascot} `) ? afterGreeting.slice(mascot.length + 1) : afterGreeting;
       correct = Boolean(expected) && [`i am ${expected}`, `my name is ${expected}`].includes(introduction);
       if (!correct && /^(i am|my name is) /.test(introduction)) {
         return { correct: false, countAsAttempt: false, message: 'Eşidilən ad yazdığın ada uyğun gəlmədi. Səs tanıma adını səhv eşidə bilər; yoxlayıb yenidən danış.' };
@@ -32,7 +37,7 @@ export function checkSpokenAnswer(text: string, intent: VoiceIntent, name = ''):
       correct = /^(again please|please repeat( that)?|can you repeat( that)?( please)?|could you repeat( that)?( please)?|sorry can you repeat( that)?|pardon|sorry)$/.test(input);
       break;
     case 'farewell':
-      correct = /^(bye|goodbye|see you( later)?|take care|good night)( birfox)?$/.test(input);
+      correct = /^(bye|goodbye|see you( later)?|take care|good night)$/.test(withoutMascot);
       break;
   }
   const messages: Record<VoiceIntent, string> = {

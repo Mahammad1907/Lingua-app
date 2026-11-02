@@ -1,3 +1,4 @@
+import { resolveMascot } from '../utils/mascot';
 import { VoiceIntent } from '../utils/spokenAnswer';
 import { Exercise, Lesson, VocabularyItem } from './types';
 import { LESSON_XP } from '../utils/rewards';
@@ -44,7 +45,7 @@ const id4 = 'a1_en_01_d3_1';
 const id5 = 'a1_en_01_d4_1';
 const id6 = 'a1_en_01_final';
 
-export const firstConversationSessions: Record<string, ShortSession> = {
+const rawFirstConversationSessions: Record<string, ShortSession> = {
   [id1]: {
     style: 'scene',
     steps: [
@@ -185,6 +186,7 @@ const extraSteps: Record<string, SessionStep[]> = {
       exercise: question(`${id5}_e08`, 'multiple_choice', 'Alex gedir. Uyğun cavabı seç.', 'See you!', ['Good morning!', 'See you!', "What's your name?"], 'See you ilə sağollaşmaya cavab verə bilərsən.') },
   ],
 };
+export const firstConversationSessions = rawFirstConversationSessions;
 for (const [lessonId, additions] of Object.entries(extraSteps)) {
   firstConversationSessions[lessonId].steps.push(...additions);
 }
@@ -242,7 +244,9 @@ const definitions: { id: string; title: string; description: string; focus: Less
   { id: id6, title: 'BirFox ilə səsli söhbət', description: 'Dinlə, səsini yaz və göndər', focus: 'speaking', group: 'final', canDo: 'Köməkdən istifadə edərək qısa tanışlıq söhbəti apara bilirəm.', vocabulary: [] },
 ];
 
-export const firstConversationLessons: Lesson[] = definitions.map((definition, index) => ({
+Object.assign(firstConversationSessions, resolveMascot(firstConversationSessions));
+
+export const firstConversationLessons: Lesson[] = resolveMascot(definitions).map((definition, index) => ({
   id: definition.id, title: definition.title, titleAz: definition.title,
   description: definition.description, language: 'en', level: 'A1', moduleId: 'module_1',
   order: index + 1, xpReward: LESSON_XP, estimatedTime: index === 5 ? 6 : 5,
@@ -253,5 +257,5 @@ export const firstConversationLessons: Lesson[] = definitions.map((definition, i
 }));
 
 export function getShortSession(id: string): ShortSession | undefined {
-  return firstConversationSessions[id];
+  return resolveMascot(firstConversationSessions[id]);
 }

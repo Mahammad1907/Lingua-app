@@ -5,7 +5,11 @@ import { b1Packet, packetFlow, packetTaskIds } from '../src/data/b1Course';
 import { assessPacketAnswer, normalizePacketAnswer } from '../src/utils/packetAnswer';
 import { useUserStore } from '../src/store/userStore';
 import * as Speech from 'expo-speech';
+import { Alert } from 'react-native';
 let mockVoice;
+let mockCloudAvailable = false;
+const mockRecognizeRecording = jest.fn();
+jest.mock('../src/utils/cloudSpeech', () => ({ speechProxyEndpoint: () => mockCloudAvailable ? 'https://speech.example.test/v1/speech/transcribe' : null, recognizeRecording: (...args) => mockRecognizeRecording(...args) }));
 const mockRouter = { replace: jest.fn() };
 jest.mock('expo-router', () => ({ Stack: { Screen: () => null }, useRouter: () => mockRouter,
   useFocusEffect: callback => require('react').useEffect(callback, [callback]) }));
@@ -30,6 +34,7 @@ jest.mock('../src/components/lesson/LessonVoiceInput', () => props => { mockVoic
 beforeEach(() => {
  jest.useFakeTimers();
  mockVoice = undefined; mockRouter.replace.mockClear(); Speech.speak.mockClear();
+ mockCloudAvailable = false; mockRecognizeRecording.mockReset();
  useUserStore.setState({ hydrated: true, xp: 0, hearts: 5, attempts: {}, receipts: {}, rewards: {}, completedLessons: [], lessonProgress: [], placementResults: [], lastQualifiedDay: null, streak: 0, streakStart: null });
 });
 afterEach(() => { cleanup(); jest.useRealTimers(); });
@@ -439,31 +444,31 @@ test('opening a voice answer uses the compact mode and closing it preserves the 
  await reach(b1Packet[0],5);
  await act(async()=>fireEvent.changeText(screen.getByLabelText('Cavabını ingiliscə yaz'),'Hello'));
  const before=screen.getByRole('progressbar').props.accessibilityValue.now;
- const scroll=screen.getByTestId('packet-lesson-scroll');
- const originalStyle=scroll.props.contentContainerStyle;
+ const scroll=screen.getByTestId('packet-lesson-viewport');
+ const originalStyle=scroll.props.style;
  await act(async()=>fireEvent.press(screen.getByLabelText('Cavabını mikrofonla de')));
  expect(mockVoice.compact).toBe(true);expect(typeof mockVoice.onClose).toBe('function');
  await act(async()=>mockVoice.onBusyChange(true));expect(screen.getByText('Yoxla',{exact:true})).toBeDisabled();
  await act(async()=>mockVoice.onBusyChange(false));
- await act(async()=>{await fireEvent(screen.getByTestId('packet-lesson-scroll'),'layout',{nativeEvent:{layout:{height:600,width:390}}});});
- await act(async()=>{await fireEvent(screen.getByTestId('packet-lesson-scroll'),'contentSizeChange',350,590);});
- expect(screen.getByTestId('packet-lesson-scroll').props.scrollEnabled).toBe(false);
+ await act(async()=>{await fireEvent(screen.getByTestId('packet-lesson-viewport'),'layout',{nativeEvent:{layout:{height:600,width:390}}});});
+ await act(async()=>{await fireEvent(screen.getByTestId('packet-lesson-viewport-content'),'layout',{nativeEvent:{layout:{height:590,width:390}}});});
+ expect(screen.getByTestId('packet-lesson-viewport').props.onScroll).toBeUndefined();
  await act(async()=>mockVoice.onClose());
  expect(screen.getByLabelText('Cavabını ingiliscə yaz').props.value).toBe('Hello');
- expect(screen.getByTestId('packet-lesson-scroll').props.contentContainerStyle).toEqual(originalStyle);
- expect(screen.getByTestId('packet-lesson-scroll').props.scrollEnabled).toBe(true);
+ expect(screen.getByTestId('packet-lesson-viewport').props.style).toEqual(originalStyle);
+ expect(screen.getByTestId('packet-lesson-viewport').props.onScroll).toBeUndefined();
  expect(screen.getByRole('progressbar').props.accessibilityValue.now).toBe(before);
  expect(screen.queryByText('Ardını göstər ›',{exact:true})).not.toBeOnTheScreen();
 });
 test('explanation modal leaves background layout and answer evidence unchanged through repeated open and close',async()=>{
  await start(b1Packet[0]);await press('Davam et');await listen();await press('Sağ ol!');await press('Yoxla');
  const attempt=Object.values(useUserStore.getState().attempts)[0];
- const evidence=JSON.stringify(attempt.tasks),style=screen.getByTestId('packet-lesson-scroll').props.contentContainerStyle;
+ const evidence=JSON.stringify(attempt.tasks),style=screen.getByTestId('packet-lesson-viewport').props.style;
  for(let i=0;i<2;i++){
   await press('Cavabın izahı ›');expect(screen.getByText('Sənin cavabın: Sağ ol!',{exact:true})).toBeOnTheScreen();
   if(i===0)await press('Başa düşdüm');else await act(async()=>fireEvent.press(screen.getByLabelText('İzahı bağla')));
   expect(screen.queryByText('Sənin cavabın: Sağ ol!',{exact:true})).not.toBeOnTheScreen();
-  expect(screen.getByTestId('packet-lesson-scroll').props.contentContainerStyle).toEqual(style);
+  expect(screen.getByTestId('packet-lesson-viewport').props.style).toEqual(style);
   expect(JSON.stringify(useUserStore.getState().attempts[attempt.id].tasks)).toBe(evidence);
  }
 });
@@ -478,4 +483,36 @@ test('an automatically delivered untranscribed recording stays unverified and ne
  await press('Yoxlanmadı ilə davam et');
  const task=Object.values(useUserStore.getState().attempts)[0].tasks[packetFlow(b1Packet[0]).find(c=>c.number===6).id];
  expect(task.settled).toBe('unverified');expect(task.resolved).toBe(false);expect(task.wrong).toBe(0);expect(useUserStore.getState().hearts).toBe(hearts);
+});
+
+test('cloud speech sends only with consent and waits for learner confirmation before grading',async()=>{
+ mockCloudAvailable=true;
+ mockRecognizeRecording.mockResolvedValue({status:'recognized',text:'Hello!',confidence:.9});
+ const alert=jest.spyOn(Alert,'alert').mockImplementation(()=>{});
+ const packet=b1Packet[0]; const voiceCard=await reach(packet,6); await listen();
+ const attempt=Object.values(useUserStore.getState().attempts)[0];
+ await act(async()=>mockVoice.onUnverifiedRecording({uri:'file://recording.m4a',duration:2,token:'cloud:1'}));
+ expect(mockRecognizeRecording).not.toHaveBeenCalled();
+ const buttons=alert.mock.calls[0][2];
+ await act(async()=>buttons.find(button=>button.text==='Razıyam').onPress());
+ expect(mockRecognizeRecording).toHaveBeenCalledTimes(1);
+ expect(screen.getByText('Belə eşitdik: Hello!')).toBeOnTheScreen();
+ expect(useUserStore.getState().attempts[attempt.id].tasks[voiceCard.id]).toBeUndefined();
+ await press('Bəli, bunu dedim');
+ expect(screen.getByText('Düzdür!',{exact:true})).toBeOnTheScreen();
+ expect(useUserStore.getState().attempts[attempt.id].tasks[voiceCard.id].evidence.input).toBe('spoken');
+ alert.mockRestore();
+});
+
+test('learner can reject a misheard cloud result without a mistake or heart loss',async()=>{
+ mockCloudAvailable=true; mockRecognizeRecording.mockResolvedValue({status:'recognized',text:'Goodbye!',confidence:.9});
+ const alert=jest.spyOn(Alert,'alert').mockImplementation(()=>{});
+ const packet=b1Packet[0]; const voiceCard=await reach(packet,6); await listen(); const hearts=useUserStore.getState().hearts;
+ const attempt=Object.values(useUserStore.getState().attempts)[0];
+ await act(async()=>mockVoice.onUnverifiedRecording({uri:'file://recording.m4a',duration:2,token:'cloud:2'}));
+ await act(async()=>alert.mock.calls[0][2].find(button=>button.text==='Razıyam').onPress());
+ await press('Məni səhv eşitdi · Yenidən danış');
+ expect(useUserStore.getState().hearts).toBe(hearts);
+ expect(useUserStore.getState().attempts[attempt.id].tasks[voiceCard.id]).toBeUndefined();
+ expect(screen.queryByText('Bu dəfə alınmadı')).not.toBeOnTheScreen(); alert.mockRestore();
 });

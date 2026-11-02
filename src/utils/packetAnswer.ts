@@ -1,3 +1,4 @@
+import { MASCOT_NAME } from './mascot';
 import type { PacketGoal, PacketRule } from '../data/b1PacketTypes';
 import { isSafeEnglishTypo, normalizeApostrophes } from './spelling';
 import { typoConfusables } from '../data/typoConfusables';
@@ -64,7 +65,7 @@ function assessNormalizedAnswer(value: string, rule: PacketRule, voice = false):
     'busy working bored married excited single divorced sleepy angry nervous thirsty unemployed retired italian azerbaijani english spanish french tired happy sad hungry ready here there years old living live sick fine good well ok okay').split(' '));
   const plausibleName = introduction && introduction[1].split(' ').every(part => !nonNames.has(part));
   if (plausibleName && (!rule.roleName || normalizePacketAnswer(rule.roleName) === introduction[1])) { found.add('introduce'); rest = ''; }
-  if (rule.goals.length === 1 && ['greet','farewell','thanks'].includes(rule.goals[0]) && /^(ali|leyla|murad|birfox|aysel|nora|leo|mila|tom)$/.test(rest)) rest = '';
+  if (rule.goals.length === 1 && ['greet','farewell','thanks'].includes(rule.goals[0]) && (/^(ali|leyla|murad|aysel|nora|leo|mila|tom)$/.test(rest) || rest === normalizePacketAnswer(MASCOT_NAME))) rest = '';
   const criteria = rule.goals.map((goal) => ({ goal: goalLabels[goal], passed: found.has(goal) }));
   const contradiction = found.has('greet') && found.has('farewell') || found.has('fine') && found.has('unwell');
   const all = criteria.every((c) => c.passed);

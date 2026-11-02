@@ -1,9 +1,10 @@
+import { resolveMascot } from '../utils/mascot';
 import raw from './b1Packet.json';
 import type { PacketCard, PacketLesson } from './b1PacketTypes';
 import type { Exercise, Lesson } from './types';
 import { LESSON_XP } from '../utils/rewards';
 
-export const b1Packet = raw as unknown as PacketLesson[];
+export const b1Packet = resolveMascot(raw) as unknown as PacketLesson[];
 export const getPacketLesson = (id: string) => b1Packet.find((lesson) => lesson.id === id);
 export function packetFlow(lesson: PacketLesson): PacketCard[] {
   const cards = lesson.order === 1 ? lesson.cards.filter(c => c.number !== 10) : [...lesson.cards];
