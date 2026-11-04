@@ -5,6 +5,7 @@ import { getModuleById } from '../../data/modules';
 import { useUserStore } from '../../store/userStore';
 import type { HomeCourse } from '../../utils/homeCourse';
 import { HomeDashboard as OriginalHomeDashboard } from './HomeDashboard';
+import { HomeJourneyProgress } from './HomeJourneyProgress';
 
 export { HOME_LANGUAGES } from './HomeDashboard';
 export type { HomeDestination } from './HomeDashboard';
@@ -59,6 +60,8 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
       <View style={{ width: imageWidth, height: ART_HEIGHT * scale, position: 'relative' }}>
         <Image source={require('../../../assets/home/approved_reference_body.webp')}
           style={{ width: imageWidth, height: ART_HEIGHT * scale }} resizeMode="stretch" accessible={false} />
+        <HomeJourneyProgress key={module.id} completedCount={next < 0 ? ids.length : next}
+          percent={module.percent} scale={scale} />
         <Pressable accessibilityRole="button" accessibilityLabel="Dil və səviyyə seç"
           onPress={onSelect} style={hotspot(65, 91, 252, 70, scale)} />
         {/* Mask only the mock statistics from the design image, not the real values. */}
@@ -73,7 +76,10 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
         <Pressable accessibilityRole="button" accessibilityLabel="AI söhbət"
           accessibilityState={{ disabled: moduleLocked }} disabled={moduleLocked}
           onPress={() => onOpen(module.id)} style={hotspot(388, 301, 306, 78, scale)} />
-        <View style={[s.liveProgress, hotspot(268, 473, 232, 45, scale)]} pointerEvents="none">
+        <View style={[s.liveProgress, hotspot(268, 473, 232, 45, scale)]} pointerEvents="none"
+          accessible accessibilityRole="progressbar" accessibilityLabel="Bölmədə irəliləyiş"
+          accessibilityValue={{ min: 0, max: 100, now: module.percent,
+            text: `${module.completedCount}/${module.lessonsCount} dərs · ${module.percent}%` }}>
           <Text style={[s.progressText, { fontSize: Math.max(12, 26 * scale) }]}>
             {module.completedCount}/{module.lessonsCount} dərs · {module.percent}%
           </Text>
