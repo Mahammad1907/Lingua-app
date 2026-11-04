@@ -49,7 +49,7 @@ function TopicPanel({ item, completedIds, onOpen }: {
   const next = ids.findIndex(id => !completed.has(id));
   const disabled = item.state === 'locked' || item.state === 'planned';
   return <View style={s.topicPanel}>
-    <Svg pointerEvents="none" width="100%" height="100%" viewBox="0 0 360 650" preserveAspectRatio="none" style={StyleSheet.absoluteFillObject}>
+    <Svg pointerEvents="none" width="100%" height="100%" viewBox="0 0 360 650" preserveAspectRatio="none" style={StyleSheet.absoluteFill}>
       <Path d="M80 15 C210 -5 345 7 340 105 C345 155 355 184 340 224 C380 318 338 343 342 410 C369 505 327 620 217 627 C128 660 37 626 22 559 C1 480 34 438 15 373 C-8 325 29 285 18 226 C-10 180 17 122 50 91 C47 58 60 30 80 15Z" fill="#F0E1FF" stroke="#E2BFFF" strokeWidth="5" />
     </Svg>
     <View style={s.topicHeading}>
@@ -57,7 +57,7 @@ function TopicPanel({ item, completedIds, onOpen }: {
       <View style={s.progressPill}><Text style={s.progressText}>{item.completedCount}/{item.lessonsCount} dərs · {item.percent}%</Text></View>
     </View>
     <View style={s.nodeCanvas}>
-      <Svg pointerEvents="none" width="100%" height="100%" viewBox="0 0 330 545" preserveAspectRatio="none" style={StyleSheet.absoluteFillObject}>
+      <Svg pointerEvents="none" width="100%" height="100%" viewBox="0 0 330 545" preserveAspectRatio="none" style={StyleSheet.absoluteFill}>
         <Path d="M78 65 C143 65 177 68 222 74 C265 96 164 137 110 162 C49 199 181 203 234 248 C300 296 97 306 64 332 C23 390 187 381 225 416 C256 453 112 473 135 495" fill="none" stroke="#D8A5ED" strokeWidth="2.5" strokeDasharray="4 6" strokeLinecap="round" />
       </Svg>
       {titles.slice(0, 7).map((title, index) => <LearningNode key={item.id + '-' + ids[index]} index={index} title={title}
@@ -94,7 +94,7 @@ export function HomeDashboard({ course, xp, compact = false, topInset = 0, onSel
         </View>
         <View style={s.greetingRow}>
           <Text style={[s.greeting, narrow && { fontSize: 31 }]}>Salam!</Text>
-          <Image source={require('../../../assets/home/approved_mascot.webp')} style={s.mascot} resizeMode="contain" accessible={false} />
+          <Image source={require('../../../assets/onboarding/welcome.png')} style={s.mascot} resizeMode="contain" accessible={false} />
         </View>
         <View style={s.actions}>
           <Pressable accessibilityRole="button" onPress={() => onNavigate?.('profile')} style={[s.action, s.analysisAction]}>
