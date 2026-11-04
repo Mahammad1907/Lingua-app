@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { HomeDashboard, HOME_LANGUAGES, HomeNavigation, type HomeDestination } from '../../components/home/HomeDashboard';
+import { HomeDashboard, HOME_LANGUAGES, HomeNavigation, type HomeDestination } from '../../components/home/ApprovedHome';
 import { HomeIcon } from '../../components/home/HomeIcon';
 import { lessons } from '../../data/lessons';
 import { getAllModules } from '../../data/modules';
@@ -58,7 +58,7 @@ export default function Home() {
   }
   return <View style={styles.root}>
     <HomeDashboard course={course} language={selection.language} level={selection.level} xp={xp}
-      compact={width < 360} topInset={insets.top} onSelect={() => setPickerOpen(true)}
+      compact={width < 360} topInset={insets.top} onNavigate={navigate} onSelect={() => setPickerOpen(true)}
       onOpen={(id) => {
         if (course.items.find((item) => item.id === id)?.state === 'locked') setLockedId(id);
         else router.push({ pathname: '/module/[id]', params: { id } });
