@@ -1,49 +1,43 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
-import { Image, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View, type ViewStyle } from 'react-native';
+import { useState } from 'react';
+import { Image, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { getModuleById } from '../../data/modules';
 import { useUserStore } from '../../store/userStore';
 import type { HomeCourse } from '../../utils/homeCourse';
 import { HomeDashboard as OriginalHomeDashboard } from './HomeDashboard';
+import { HomeJourneyProgress } from './HomeJourneyProgress';
+import { HomeSymbol, type HomeSymbolName } from './HomeSymbol';
 
 export { HOME_LANGUAGES } from './HomeDashboard';
 export type { HomeDestination } from './HomeDashboard';
 
 type Destination = 'learn' | 'review' | 'vocabulary' | 'profile';
-const ART_WIDTH = 682;
-const ART_HEIGHT = 1312;
-const LEFT = 43;
-const TOP = 83;
-const FOOTER_RATIO = 122 / 691;
-
-// Pixel coordinates refer only to the user's approved 768 x 1536 reference image.
-// The image is decorative; every tap target below remains a native Pressable.
-function hotspot(x: number, y: number, width: number, height: number, scale: number): ViewStyle {
-  return { position: 'absolute', left: (x - LEFT) * scale, top: (y - TOP) * scale,
-    width: width * scale, height: height * scale };
-}
-
-const LESSON_RECTS = [
-  [154, 507, 138, 139], [437, 507, 150, 141], [181, 657, 146, 142],
-  [460, 722, 157, 143], [146, 852, 145, 148], [396, 967, 137, 131],
-  [220, 1037, 145, 130],
+// Tile coordinates are measured from the approved design. Only the presentation
+// is reconstructed; the existing module callbacks and unlock rules remain intact.
+const TILES = [
+  { x: 154, y: 507, symbol: 'hand' }, { x: 437, y: 507, symbol: 'identity' },
+  { x: 181, y: 657, symbol: 'dialogue' }, { x: 460, y: 722, symbol: 'headphones' },
+  { x: 146, y: 852, symbol: 'mic' }, { x: 396, y: 967, symbol: 'puzzle' },
+  { x: 220, y: 1037, symbol: 'speech' },
 ] as const;
 
 export function HomeDashboard({ course, language, level, xp, compact = false, topInset = 0, onSelect, onOpen, onNavigate }: {
   course: HomeCourse; language: string; level: string; xp: number; compact?: boolean; topInset?: number;
   onSelect: () => void; onOpen: (id: string) => void; onNavigate?: (destination: Destination) => void;
 }) {
-  const { width } = useWindowDimensions();
+  const { width, fontScale = 1 } = useWindowDimensions();
   const streak = useUserStore(s => s.streak);
   const completed = useUserStore(s => s.completedLessons);
+  const [headerHeight, setHeaderHeight] = useState(80);
+  const [captionHeight, setCaptionHeight] = useState(90);
   const module = course.items.find(item => item.order === 1 && item.lessonsCount > 0);
   const preview = course.items.find(item => item.order === 2);
   const renderedReference = language === 'en' && level === 'A1' && Boolean(module);
-  const imageWidth = Math.min(width, 510);
-  const scale = imageWidth / ART_WIDTH;
+  const pageWidth = Math.min(Math.max(240, width - 24), 480);
+  const scale = pageWidth / 682;
+  const largeText = fontScale > 1.3;
 
-  // The supplied screenshot is the English first-section reference only. For other
-  // selections, preserve the original real-data home instead of faking modules.
   if (!renderedReference || !module) {
     return <OriginalHomeDashboard course={course} language={language} level={level} xp={xp}
       compact={compact} topInset={topInset} onSelect={onSelect} onOpen={onOpen} />;
@@ -52,82 +46,176 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
   const ids = getModuleById(module.id)?.lessonIds ?? [];
   const next = ids.findIndex(id => !completed.includes(id));
   const moduleLocked = module.state === 'locked' || module.state === 'planned';
-  return <LinearGradient colors={['#F8F0FF', '#F4EAFE']} style={s.screen}>
+  const tileSize = 136 * scale;
+  // Give the existing listening caption extra space at larger system text sizes;
+  // later tiles and their route links move together, never underneath the CTA.
+  const captionExtra = Math.max(0, (722 - 507) * scale + tileSize + 4 + captionHeight + 8 - (967 - 507) * scale);
+  const bodyHeight = 737 * scale + captionExtra;
+
+  return <LinearGradient colors={['#FAF5FF', '#F1E4FC', '#F8F0FF']} style={s.screen}>
     <StatusBar style="dark" />
-    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={[s.scroll, { paddingTop: topInset }]}
+    <ScrollView showsVerticalScrollIndicator={false}
+      contentContainerStyle={[s.scroll, { paddingTop: topInset + 8 }]}
       accessibilityLabel="Öyrənmə ana səhifəsi">
-      <View style={{ width: imageWidth, height: ART_HEIGHT * scale, position: 'relative' }}>
-        <Image source={require('../../../assets/home/approved_reference_body.webp')}
-          style={{ width: imageWidth, height: ART_HEIGHT * scale }} resizeMode="stretch" accessible={false} />
-        <Pressable accessibilityRole="button" accessibilityLabel="Dil və səviyyə seç"
-          onPress={onSelect} style={hotspot(65, 91, 252, 70, scale)} />
-        {/* Mask only the mock statistics from the design image, not the real values. */}
-        <View style={[s.metric, hotspot(399, 91, 165, 61, scale)]} pointerEvents="none">
-          <Text style={[s.metricText, { fontSize: Math.max(12, 24 * scale) }]}>🔥 {streak} gün</Text>
+      <View style={{ width: pageWidth }}>
+        <View style={[s.topRow, largeText && s.wrap]}>
+          <Pressable accessibilityRole="button" accessibilityLabel="Dil və səviyyə seç" onPress={onSelect}
+            style={({ pressed }) => [s.brand, pressed && s.pressed]}>
+            <HomeSymbol name="spark" size={30} />
+            <Text style={[s.brandText, { fontSize: pageWidth < 340 ? 25 : 28 }]}>Bir<Text style={s.brandOrange}>Talk</Text></Text>
+          </Pressable>
+          <View style={s.metrics}>
+            <View style={s.metric} accessible accessibilityLabel={`${streak} gün ardıcıllıq`}>
+              <HomeSymbol name="flame" size={23} /><Text style={s.metricText}>{streak} gün</Text>
+            </View>
+            <View style={s.metric} accessible accessibilityLabel={`${xp} təcrübə xalı`}>
+              <HomeSymbol name="star" size={23} /><Text style={s.metricText}>{xp}</Text>
+            </View>
+          </View>
         </View>
-        <View style={[s.metric, hotspot(573, 91, 136, 61, scale)]} pointerEvents="none">
-          <Text style={[s.metricText, { fontSize: Math.max(12, 24 * scale) }]}>⭐ {xp}</Text>
+        <View style={[s.hero, { minHeight: pageWidth * .23 }]}>
+          <Text style={[s.greeting, { fontSize: pageWidth < 340 ? 29 : 32 }, largeText && s.largeGreeting]}>Salam, Leyla!</Text>
+          <View pointerEvents="none" style={[s.mascotCrop, { width: pageWidth * .32, height: pageWidth * .29 }]}>
+            <Image source={require('../../../assets/onboarding/welcome.png')} accessible={false} resizeMode="contain"
+              style={{ width: pageWidth * .32, height: pageWidth * .34 }} />
+          </View>
         </View>
-        <Pressable accessibilityRole="button" accessibilityLabel="Analiz" onPress={() => onNavigate?.('profile')}
-          style={hotspot(81, 301, 298, 78, scale)} />
-        <Pressable accessibilityRole="button" accessibilityLabel="AI söhbət"
-          accessibilityState={{ disabled: moduleLocked }} disabled={moduleLocked}
-          onPress={() => onOpen(module.id)} style={hotspot(388, 301, 306, 78, scale)} />
-        <View style={[s.liveProgress, hotspot(268, 473, 232, 45, scale)]} pointerEvents="none">
-          <Text style={[s.progressText, { fontSize: Math.max(12, 26 * scale) }]}>
-            {module.completedCount}/{module.lessonsCount} dərs · {module.percent}%
-          </Text>
+        <View style={[s.actions, (largeText || pageWidth < 290) && s.wrap]}>
+          <Pressable accessibilityRole="button" accessibilityLabel="Analiz" onPress={() => onNavigate?.('profile')}
+            style={({ pressed }) => [s.action, pressed && s.pressed]}>
+            <LinearGradient colors={['#FCF7FF', '#E9D1FC']} style={s.actionBody}>
+              <HomeSymbol name="analysis" size={36} /><Text style={s.actionText}>Analiz</Text>
+            </LinearGradient>
+          </Pressable>
+          <Pressable accessibilityRole="button" accessibilityLabel="AI söhbət"
+            accessibilityState={{ disabled: moduleLocked }} disabled={moduleLocked}
+            onPress={() => onOpen(module.id)} style={({ pressed }) => [s.action, pressed && s.pressed]}>
+            <LinearGradient colors={['#FFF4E5', '#FFDCC7']} style={s.actionBody}>
+              <HomeSymbol name="robot" size={36} /><Text style={s.actionText}>AI söhbət</Text>
+            </LinearGradient>
+          </Pressable>
         </View>
-        {LESSON_RECTS.map(([x, y, w, h], index) => {
-          if (!ids[index]) return null;
-          const blocked = moduleLocked || (next >= 0 && index > next);
-          return <Pressable key={ids[index]} accessibilityRole="button" disabled={blocked}
-            accessibilityState={{ disabled: blocked }}
-            accessibilityLabel={`Dərs ${index + 1}: ${blocked ? 'kilidlidir' : 'bölməni aç'}`}
-            onPress={() => onOpen(module.id)} style={hotspot(x, y, w, h, scale)} />;
-        })}
-        <Pressable accessibilityRole="button" accessibilityLabel="Aktiv dərs üçün Başla"
-          accessibilityState={{ disabled: moduleLocked }} disabled={moduleLocked}
-          onPress={() => onOpen(module.id)} style={hotspot(474, 926, 141, 52, scale)} />
+        <View style={s.map}>
+          <HomeJourneyProgress key={module.id} completedCount={next < 0 ? ids.length : next}
+            percent={module.percent} scale={scale} headerHeight={headerHeight} captionExtra={captionExtra} />
+          <View style={s.mapHeading} onLayout={event => setHeaderHeight(event.nativeEvent.layout.height)}>
+            <Text style={s.mapTitle}>Bölmə {module.order} · {module.title}</Text>
+            <View style={s.liveProgress} accessible accessibilityRole="progressbar" accessibilityLabel="Bölmədə irəliləyiş"
+              accessibilityValue={{ min: 0, max: 100, now: module.percent,
+                text: `${module.completedCount}/${module.lessonsCount} dərs · ${module.percent}%` }}>
+              <Text style={s.progressText}>{module.completedCount}/{module.lessonsCount} dərs · {module.percent}%</Text>
+            </View>
+          </View>
+          <View style={{ height: bodyHeight }}>
+            {TILES.map(({ x, y, symbol }, index) => {
+              if (!ids[index]) return null;
+              const blocked = moduleLocked || (next >= 0 && index > next);
+              const done = completed.includes(ids[index]);
+              const listening = symbol === 'headphones';
+              return <View key={ids[index]} style={{ position: 'absolute', left: (x - 43) * scale,
+                top: (y - 507) * scale + (index >= 5 ? captionExtra : 0), width: tileSize }}>
+                <Pressable accessibilityRole="button" disabled={blocked}
+                  accessibilityState={{ disabled: blocked }}
+                  accessibilityLabel={`Dərs ${index + 1}: ${done ? 'tamamlanıb, bölməni aç' : blocked ? 'kilidlidir' : 'bölməni aç'}`}
+                  onPress={() => onOpen(module.id)}
+                  style={({ pressed }) => [s.tile, { width: tileSize, height: tileSize, borderRadius: tileSize * .25 }, pressed && s.pressed]}>
+                  <LinearGradient colors={listening ? ['#FFD56B', '#FFAB37', '#FF8A22']
+                    : index >= 4 ? ['#FFFFFF', '#F2EDF6', '#DDD5E6'] : ['#FFFBFF', '#F1E1FE', '#DFBFF6']}
+                    start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[s.tileBody, { borderRadius: tileSize * .25 }]}>
+                    <HomeSymbol name={symbol} size={tileSize * .8} muted={index >= 4 && !done} />
+                  </LinearGradient>
+                  {done && <View pointerEvents="none" style={s.done}><HomeSymbol name="check" size={13} /></View>}
+                </Pressable>
+                {listening && <View onLayout={event => setCaptionHeight(event.nativeEvent.layout.height)} style={[s.caption, { width: Math.max(132, tileSize + 42), left: -21 }]}>
+                  <Text style={s.captionTitle}>Dinlə və anla</Text>
+                  <View style={s.duration}><Text style={s.durationText}>7 dəqiqə</Text></View>
+                  <Pressable accessibilityRole="button" accessibilityLabel="Aktiv dərs üçün Başla"
+                    accessibilityState={{ disabled: moduleLocked }} disabled={moduleLocked}
+                    onPress={() => onOpen(module.id)} style={({ pressed }) => [s.start, pressed && s.pressed]}>
+                    <LinearGradient colors={['#FFB350', '#FF8B29']} style={s.startBody}><Text style={s.startText}>Başla</Text></LinearGradient>
+                  </Pressable>
+                </View>}
+              </View>;
+            })}
+          </View>
+        </View>
         {preview && <Pressable disabled={preview.state === 'planned'} accessibilityRole="button"
           accessibilityState={{ disabled: preview.state === 'planned' }}
           accessibilityLabel={`Bölmə ${preview.order}: ${preview.title}`}
-          onPress={() => onOpen(preview.id)} style={hotspot(54, 1244, 660, 146, scale)} />}
+          onPress={() => onOpen(preview.id)} style={({ pressed }) => [s.preview, pressed && s.pressed]}>
+          <LinearGradient colors={['#F1FCFF', '#D5F1FF', '#C6E6FB']} style={s.previewBody}>
+            <Text style={s.mapTitle}>Bölmə {preview.order} · {preview.title}</Text>
+            <View style={s.previewLock}><HomeSymbol name="lock" size={28} muted /></View>
+          </LinearGradient>
+        </Pressable>}
       </View>
     </ScrollView>
   </LinearGradient>;
 }
 
-const NAV: { id: Destination; label: string }[] = [
-  { id: 'learn', label: 'Öyrən' }, { id: 'review', label: 'Təkrar' },
-  { id: 'vocabulary', label: 'Lüğətim' }, { id: 'profile', label: 'Profil' },
+const NAV: { id: Destination; label: string; symbol: HomeSymbolName }[] = [
+  { id: 'learn', label: 'Öyrən', symbol: 'cap' }, { id: 'review', label: 'Təkrar', symbol: 'repeat' },
+  { id: 'vocabulary', label: 'Lüğətim', symbol: 'book' }, { id: 'profile', label: 'Profil', symbol: 'person' },
 ];
 export function HomeNavigation({ bottomInset = 0, onNavigate }: {
   bottomInset?: number; onNavigate: (destination: Destination) => void;
 }) {
-  const { width } = useWindowDimensions();
-  const height = Math.max(68, width * FOOTER_RATIO);
-  return <View style={[s.nav, { height: height + bottomInset, paddingBottom: bottomInset }]}>
-    <Image source={require('../../../assets/home/approved_reference_nav.webp')}
-      resizeMode="stretch" style={[StyleSheet.absoluteFill, { width: '100%', height: height + bottomInset }]}
-      accessible={false} />
-    <View style={{ flex: 1, flexDirection: 'row' }}>
-      {NAV.map(item => <Pressable key={item.id} accessibilityRole="tab"
-        accessibilityLabel={item.label} accessibilityState={{ selected: item.id === 'learn' }}
-        onPress={() => onNavigate(item.id)} style={s.navItem} />)}
-    </View>
-  </View>;
+  return <View style={s.navBacking}><View style={[s.nav, { paddingBottom: Math.max(6, bottomInset) }]}>
+    {NAV.map(item => <Pressable key={item.id} accessibilityRole="tab"
+      accessibilityLabel={item.label} accessibilityState={{ selected: item.id === 'learn' }}
+      onPress={() => onNavigate(item.id)} style={({ pressed }) => [s.navItem, pressed && s.pressed]}>
+      {item.id === 'learn' && <LinearGradient pointerEvents="none" colors={['#EEDCFF', '#DDB9F7']}
+        style={[StyleSheet.absoluteFill, s.navSelected]} />}
+      <HomeSymbol name={item.symbol} size={27} />
+      <Text style={[s.navLabel, item.id === 'learn' && s.navLabelActive]}>{item.label}</Text>
+    </Pressable>)}
+  </View></View>;
 }
 
 const s = StyleSheet.create({
-  screen: { flex: 1 },
-  scroll: { alignItems: 'center', paddingBottom: 0 },
-  metric: { backgroundColor: '#FAEEFF', borderRadius: 35, alignItems: 'center', justifyContent: 'center',
-    borderWidth: 1, borderColor: '#E8C6FB', shadowColor: '#A76DCB', shadowOpacity: 0.18,
+  screen: { flex: 1 }, scroll: { alignItems: 'center', paddingBottom: 16 },
+  topRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
+  wrap: { flexWrap: 'wrap' }, brand: { flexDirection: 'row', alignItems: 'center', gap: 3, minHeight: 44 },
+  brandText: { color: '#2C1048', fontWeight: '900', letterSpacing: -1.3 }, brandOrange: { color: '#F47E1B' },
+  metrics: { flexDirection: 'row', alignItems: 'center', gap: 6, flexShrink: 1 },
+  metric: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 3, minHeight: 34,
+    paddingHorizontal: 8, paddingVertical: 4, backgroundColor: '#FBF1FF', borderRadius: 24, borderWidth: 1,
+    borderColor: '#EBD5F9', shadowColor: '#9F65C6', shadowOpacity: .15, shadowRadius: 3,
+    shadowOffset: { width: 0, height: 2 }, elevation: 1 },
+  metricText: { color: '#2E124A', fontSize: 16, fontWeight: '800', flexShrink: 1 },
+  hero: { flexDirection: 'row', alignItems: 'center', marginTop: 9 },
+  greeting: { flex: 1, color: '#2B0D44', fontWeight: '900', letterSpacing: -.9, paddingVertical: 12, zIndex: 1 },
+  largeGreeting: { flexBasis: '62%' }, mascotCrop: { overflow: 'hidden', alignSelf: 'flex-end', marginRight: 3 },
+  actions: { flexDirection: 'row', gap: 10, marginTop: 3, marginBottom: 13 },
+  action: { flex: 1, minWidth: 140, borderRadius: 30, shadowColor: '#AB72CC', shadowOpacity: .2,
     shadowRadius: 4, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
-  metricText: { color: '#2B1049', fontWeight: '900' },
-  liveProgress: { backgroundColor: '#E6BBFC', borderRadius: 24, alignItems: 'center', justifyContent: 'center' },
-  progressText: { color: '#8635C4', fontWeight: '900' },
-  nav: { backgroundColor: '#F9F2FF', overflow: 'hidden' },
-  navItem: { flex: 1, minHeight: 48 },
+  actionBody: { flex: 1, minHeight: 47, borderRadius: 30, borderWidth: 1, borderColor: '#FDF6FF',
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, paddingVertical: 4, paddingHorizontal: 10 },
+  actionText: { color: '#301144', fontSize: 18, fontWeight: '800', flexShrink: 1 },
+  map: { position: 'relative', marginHorizontal: 0 },
+  mapHeading: { alignItems: 'center', paddingTop: 18, paddingBottom: 10, paddingHorizontal: 16, gap: 5 },
+  mapTitle: { color: '#2E1048', fontSize: 22, lineHeight: 28, fontWeight: '900', textAlign: 'center', letterSpacing: -.4 },
+  liveProgress: { backgroundColor: '#E5BFF8', borderRadius: 20, paddingHorizontal: 12, paddingVertical: 2 },
+  progressText: { color: '#7932B7', fontSize: 16, lineHeight: 22, fontWeight: '800', textAlign: 'center' },
+  tile: { shadowColor: '#9D66BD', shadowOpacity: .28, shadowRadius: 3, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
+  tileBody: { flex: 1, justifyContent: 'center', alignItems: 'center', borderWidth: 1.5, borderColor: '#FBF5FF' },
+  done: { position: 'absolute', right: -3, bottom: -3, width: 21, height: 21, borderRadius: 11,
+    backgroundColor: '#8C3ACE', borderWidth: 2, borderColor: '#FAF1FF', justifyContent: 'center', alignItems: 'center' },
+  caption: { marginTop: 4, alignItems: 'center' },
+  captionTitle: { color: '#2D1246', fontSize: 16, fontWeight: '800', textAlign: 'center' },
+  duration: { backgroundColor: '#E8C3FB', borderRadius: 16, paddingHorizontal: 11, paddingVertical: 1, marginTop: 2 },
+  durationText: { color: '#7D30BC', fontSize: 13, fontWeight: '700' },
+  start: { marginTop: 4, borderRadius: 22, minWidth: 90, minHeight: 44, justifyContent: 'center' },
+  startBody: { borderRadius: 22, paddingHorizontal: 19, paddingVertical: 5, borderWidth: 1, borderColor: '#FFC97A', minHeight: 32, justifyContent: 'center' },
+  startText: { color: '#492414', fontSize: 16, fontWeight: '800', textAlign: 'center' },
+  preview: { marginTop: 14, borderRadius: 52, shadowColor: '#AC8AC5', shadowOpacity: .15,
+    shadowRadius: 4, shadowOffset: { width: 0, height: 3 }, elevation: 1 },
+  previewBody: { borderRadius: 52, borderWidth: 2, borderColor: '#F7FDFF', alignItems: 'center', paddingTop: 19, paddingHorizontal: 20, paddingBottom: 18, gap: 12 },
+  previewLock: { width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', backgroundColor: '#EBF8FF', borderWidth: 1, borderColor: '#FFFFFF' },
+  navBacking: { flexShrink: 0, backgroundColor: '#F8F0FF' },
+  nav: { flexDirection: 'row', backgroundColor: '#F9F0FF', borderTopLeftRadius: 28,
+    borderTopRightRadius: 28, borderTopWidth: 1, borderColor: '#FFFFFF', paddingTop: 5, paddingHorizontal: 7 },
+  navItem: { flex: 1, alignItems: 'center', justifyContent: 'center', minHeight: 58, paddingVertical: 5, paddingHorizontal: 2, gap: 1 },
+  navSelected: { borderRadius: 28 }, navLabel: { color: '#82519E', fontSize: 13, fontWeight: '700', textAlign: 'center', maxWidth: '100%', flexShrink: 1 },
+  navLabelActive: { color: '#8F23D2', fontWeight: '800' }, pressed: { opacity: .76 },
 });
