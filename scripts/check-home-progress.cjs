@@ -7,6 +7,7 @@ const ts = require('typescript');
 const React = require('react');
 const originalLoad = Module._load;
 let width = 390;
+let fontScale = 1;
 let reduced = true;
 let animations = 0;
 const user = { streak: 0, completedLessons: [] };
@@ -20,7 +21,7 @@ class Value {
 }
 const absoluteFill = { position: 'absolute', left: 0, right: 0, top: 0, bottom: 0 };
 const native = { View: 'View', Text: 'Text', Image: 'Image', Pressable: 'Pressable', ScrollView: 'ScrollView',
-  StyleSheet: { create: x => x, absoluteFill }, useWindowDimensions: () => ({ width }),
+  StyleSheet: { create: x => x, absoluteFill }, useWindowDimensions: () => ({ width, fontScale }),
   Easing: { cubic: x => x ** 3, inOut: x => x },
   Animated: { Value, createAnimatedComponent: x => x,
     timing: (value, options) => ({ start() { animations++; value.setValue(options.toValue); }, stop() {} }),
@@ -31,7 +32,7 @@ Module._load = function(name, parent, main) {
   if (name === 'react-native') return native;
   if (name === 'expo-linear-gradient') return { LinearGradient: 'LinearGradient' };
   if (name === 'expo-status-bar') return { StatusBar: () => null };
-  if (name === 'react-native-svg') return { __esModule: true, default: 'Svg', Path: 'Path', Defs: 'Defs', RadialGradient: 'RadialGradient', Stop: 'Stop' };
+  if (name === 'react-native-svg') return { __esModule: true, default: 'Svg', Path: 'Path', Defs: 'Defs', LinearGradient: 'LinearGradientSvg', Stop: 'Stop', Rect: 'Rect', Circle: 'Circle', Ellipse: 'Ellipse', G: 'G' };
   if (name.endsWith('/hooks/useReducedMotion')) return { useReducedMotion: () => reduced };
   if (name.endsWith('/store/userStore')) return { useUserStore: selector => selector(user) };
   if (name === './HomeDashboard' && parent.filename.endsWith('ApprovedHome.tsx')) return { HOME_LANGUAGES: [], HomeDashboard: 'FallbackHome' };
@@ -40,11 +41,12 @@ Module._load = function(name, parent, main) {
 for (const ext of ['.ts', '.tsx']) require.extensions[ext] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
   compilerOptions: { jsx: ts.JsxEmit.ReactJSX, module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true },
 }).outputText, filename);
-require.extensions['.webp'] = (module, filename) => { module.exports = filename; };
+require.extensions['.png'] = (module, filename) => { module.exports = filename; };
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 const { create, act } = require(process.env.HOME_PROGRESS_RENDERER || 'react-test-renderer');
-const { HomeDashboard } = require('../src/components/home/ApprovedHome.tsx');
-const { HOME_CONNECTOR_LENGTHS } = require('../src/components/home/HomeJourneyProgress.tsx');
+const { HomeDashboard, HomeNavigation } = require('../src/components/home/ApprovedHome.tsx');
+const { HomeJourneyProgress, homeConnectors, connectorLength } = require('../src/components/home/HomeJourneyProgress.tsx');
+const HOME_CONNECTOR_LENGTHS = homeConnectors(0).map(connectorLength);
 const { buildHomeCourse } = require('../src/utils/homeCourse.ts');
 const { getAllModules } = require('../src/data/modules.ts');
 const { lessons } = require('../src/data/lessons.ts');
@@ -57,20 +59,23 @@ const course = () => buildHomeCourse({ modules: getAllModules(), language: 'en',
   for (width of [320, 390, 430]) {
     user.completedLessons = [];
     const opened = [];
-    const props = () => ({ course: course(), xp: 0, language: 'en', level: 'A1', onSelect() {}, onOpen: id => opened.push(id) });
+    const navigated = [];
+    let selected = 0;
+    const props = () => ({ course: course(), xp: 0, language: 'en', level: 'A1', onSelect() { selected++; }, onOpen: id => opened.push(id), onNavigate: id => navigated.push(id) });
     let tree;
     await act(async () => { tree = create(React.createElement(HomeDashboard, props())); });
     const inspect = (count, prefix = count) => {
-      const svg = tree.root.findByType('Svg');
+      const progress = tree.root.findByType(HomeJourneyProgress);
+      const svg = progress.findAllByType('Svg')[0];
       assert.deepEqual(svg.props.style, absoluteFill);
-      assert.equal(svg.props.viewBox, '43 83 682 1312');
-      assert.ok(Math.abs(svg.props.width - width) < .00001);
-      const paths = tree.root.findAllByType('Path');
-      assert.equal(paths.length, 13);
-      assert.ok(Math.abs(paths[0].props.opacity.__getValue() - Math.round(count / 7 * 100) / 100 * .24) < .00001);
+      assert.equal(svg.props.viewBox, '43 392 682 858');
+      assert.ok(Math.abs(svg.props.width - (width - 24)) < .00001);
+      const paths = progress.findAllByType('Path');
+      assert.equal(paths.length, 15);
+      assert.ok(Math.abs(paths[2].props.opacity.__getValue() - Math.round(count / 7 * 100) / 100 * .36) < .00001);
       const fills = paths.filter(p => p.props.strokeDashoffset);
       assert.deepEqual(fills.map(p => p.props.opacity.__getValue()), fills.map((_, i) => i + 2 <= prefix ? 1 : 0));
-      assert.ok(fills.every((p, i) => p.props.strokeDashoffset.__getValue() === (i + 2 <= prefix ? 0 : HOME_CONNECTOR_LENGTHS[i])));
+      assert.ok(fills.every((p, i) => p.props.strokeDashoffset.__getValue() === (i + 2 <= prefix ? 0 : connectorLength(p.props.d))));
       const badge = tree.root.findAllByType('View').find(n => n.props.accessibilityRole === 'progressbar');
       assert.equal(badge.props.accessibilityValue.now, Math.round(count / 7 * 100));
       const nodes = tree.root.findAllByType('Pressable').filter(n => n.props.accessibilityLabel?.startsWith('Dərs '));
@@ -78,6 +83,22 @@ const course = () => buildHomeCourse({ modules: getAllModules(), language: 'en',
       assert.equal(nodes.filter(n => n.props.disabled).length, Math.max(0, 6 - prefix));
     };
     inspect(0);
+    await act(async () => {
+      tree.root.findByProps({ accessibilityLabel: 'Dil və səviyyə seç' }).props.onPress();
+      tree.root.findByProps({ accessibilityLabel: 'Analiz' }).props.onPress();
+      tree.root.findByProps({ accessibilityLabel: 'AI söhbət' }).props.onPress();
+      tree.root.findByProps({ accessibilityLabel: 'Aktiv dərs üçün Başla' }).props.onPress();
+    });
+    assert.equal(selected, 1);
+    assert.deepEqual(navigated, ['profile']);
+    assert.deepEqual(opened, ['module_1', 'module_1']);
+    opened.length = 0;
+    const images = tree.root.findAllByType('Image');
+    assert.equal(images.length, 1, 'only the separate high-resolution mascot is raster');
+    assert.match(images[0].props.source, /assets\/onboarding\/welcome\.png$/);
+    assert.ok(fs.readFileSync(images[0].props.source).readUInt32BE(16) >= 1024);
+    assert.ok(!fs.readFileSync('src/components/home/ApprovedHome.tsx', 'utf8').includes('approved_reference_'));
+    assert.ok(tree.root.findAllByType('Text').some(n => n.children.includes('Salam, Leyla!')), 'greeting is native text');
     const before = animations;
     for (let count = 1; count <= 7; count++) {
       reduced = false;
@@ -98,7 +119,35 @@ const course = () => buildHomeCourse({ modules: getAllModules(), language: 'en',
     const nodes = tree.root.findAllByType('Pressable').filter(n => n.props.accessibilityLabel?.startsWith('Dərs '));
     await act(async () => nodes[1].props.onPress());
     assert.deepEqual(opened, ['module_1']);
+    fontScale = 1.6;
+    await act(async () => tree.update(React.createElement(HomeDashboard, props())));
+    inspect(2, 1);
+    const caption = tree.root.findAllByType('View').find(n => n.props.onLayout && Array.isArray(n.props.style));
+    await act(async () => caption.props.onLayout({ nativeEvent: { layout: { height: 140 } } }));
+    const measuredNodes = tree.root.findAllByType('Pressable').filter(n => n.props.accessibilityLabel?.startsWith('Dərs '));
+    const listening = measuredNodes[3].parent.props.style;
+    const puzzle = measuredNodes[5].parent.props.style;
+    const tileSize = (width - 24) / 682 * 136;
+    assert.ok(puzzle.top >= listening.top + tileSize + 4 + 140 + 8 - .001, 'measured listening caption never overlaps the following tile');
+    const lockedCourse = course(); lockedCourse.items[0] = { ...lockedCourse.items[0], state: 'locked' };
+    await act(async () => tree.update(React.createElement(HomeDashboard, { ...props(), course: lockedCourse })));
+    assert.equal(tree.root.findAllByType('Pressable').filter(n => n.props.accessibilityLabel?.startsWith('Dərs ') && n.props.disabled).length, 7);
+    assert.equal(tree.root.findByProps({ accessibilityLabel: 'AI söhbət' }).props.disabled, true);
+    assert.equal(tree.root.findByProps({ accessibilityLabel: 'Aktiv dərs üçün Başla' }).props.disabled, true);
+    await act(async () => tree.update(React.createElement(HomeDashboard, { ...props(), language: 'de' })));
+    assert.equal(tree.root.findAllByType('FallbackHome').length, 1, 'other selections retain the existing dashboard');
+    fontScale = 1;
     await act(async () => tree.unmount());
   }
-  console.log('PASS: 0–7 completions, 320/390/430 widths, 43%/100% tint, sequential fill, resets, duplicate/unrelated IDs, reduced motion and existing navigation. Native rendering not tested.');
+  const destinations = [];
+  let navigation;
+  await act(async () => { navigation = create(React.createElement(HomeNavigation, { bottomInset: 34, onNavigate: id => destinations.push(id) })); });
+  assert.equal(navigation.root.findAllByType('Image').length, 0, 'navigation is native text and vectors');
+  const tabs = navigation.root.findAllByType('Pressable');
+  assert.equal(tabs.length, 4);
+  assert.equal(tabs.filter(t => t.props.accessibilityState.selected).length, 1);
+  await act(async () => tabs.forEach(t => t.props.onPress()));
+  assert.deepEqual(destinations, ['learn', 'review', 'vocabulary', 'profile']);
+  await act(async () => navigation.unmount());
+  console.log('PASS: native text, high-resolution mascot, vectors, 0–7 completions, 320/390/430 widths, large text, 43%/100% tint, sequential fill, resets, duplicate/unrelated IDs, reduced motion and existing navigation. Native rendering not tested.');
 })().catch(error => { console.error(error); process.exitCode = 1; }).finally(() => { Module._load = originalLoad; });

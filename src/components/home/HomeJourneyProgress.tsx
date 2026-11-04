@@ -1,23 +1,22 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
-import Svg, { Defs, Path, RadialGradient, Stop } from 'react-native-svg';
+import Svg, { Defs, LinearGradient, Path, Stop } from 'react-native-svg';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
+const ISLAND = 'M 380 396 C 467 421 565 374 624 426 C 659 458 650 510 671 548 C 730 602 729 664 702 724 C 680 777 699 814 709 852 C 727 906 690 945 684 999 C 678 1052 710 1094 667 1142 C 641 1171 599 1186 554 1196 C 495 1240 444 1227 390 1217 C 326 1187 276 1231 217 1188 C 172 1163 113 1169 91 1116 C 66 1068 110 1038 93 989 C 75 942 36 921 58 857 C 79 802 48 756 54 707 C 32 645 53 585 88 548 C 119 511 105 463 140 434 C 191 390 277 393 324 400 C 347 406 366 400 380 396 Z';
 
-// Coordinates share the approved artwork's original 768 × 1536 space.
-// Connectors stop at tile edges, so the fill never paints over lesson icons.
-export const HOME_CONNECTORS = [
-  'M 285 578 C 341 604 380 570 442 580',
-  'M 454 635 C 450 660 374 666 320 696',
-  'M 322 741 C 378 775 410 729 468 757',
-  'M 474 834 C 409 884 342 873 278 899',
-  'M 277 961 C 319 992 365 983 407 986',
-  'M 409 1078 C 393 1080 370 1085 343 1080',
-] as const;
-// Sample each cubic once so the animated dash advances at the same rate as the
-// visible curve, rather than spending most of the transition outside the path.
-export const HOME_CONNECTOR_LENGTHS = HOME_CONNECTORS.map(d => {
+export function homeConnectors(extra: number) {
+  return [
+    'M 290 575 C 341 601 380 570 437 575',
+    'M 454 643 C 450 660 374 666 317 696',
+    'M 317 741 C 378 775 410 729 460 757',
+    'M 474 858 C 409 884 342 873 282 899',
+    `M 282 961 C 319 ${992 + extra * .35} 365 ${983 + extra} 396 ${986 + extra}`,
+    `M 409 ${1078 + extra} C 393 ${1080 + extra} 380 ${1085 + extra} 356 ${1080 + extra}`,
+  ];
+}
+export function connectorLength(d: string) {
   const [x0, y0, x1, y1, x2, y2, x3, y3] = d.match(/[\d.]+/g)!.map(Number);
   let length = 0;
   let previous = [x0, y0];
@@ -30,28 +29,26 @@ export const HOME_CONNECTOR_LENGTHS = HOME_CONNECTORS.map(d => {
     previous = point;
   }
   return Math.ceil(length);
-});
-const ISLAND = 'M 380 396 C 467 421 565 374 624 426 C 659 458 650 510 671 548 C 730 602 729 664 702 724 C 680 777 699 814 709 852 C 727 906 690 945 684 999 C 678 1052 710 1094 667 1142 C 641 1171 599 1186 554 1196 C 495 1240 444 1227 390 1217 C 326 1187 276 1231 217 1188 C 172 1163 113 1169 91 1116 C 66 1068 110 1038 93 989 C 75 942 36 921 58 857 C 79 802 48 756 54 707 C 32 645 53 585 88 548 C 119 511 105 463 140 434 C 191 390 277 393 324 400 C 347 406 366 400 380 396 Z';
+}
 
-export function HomeJourneyProgress({ completedCount, percent, scale }: {
-  completedCount: number; percent: number; scale: number;
+export function HomeJourneyProgress({ completedCount, percent, scale, headerHeight, captionExtra }: {
+  completedCount: number; percent: number; scale: number; headerHeight: number; captionExtra: number;
 }) {
   const reduced = useReducedMotion();
-  const tintId = `home-tint-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
+  const id = `island${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
   const count = Math.min(7, Math.max(0, completedCount));
   const target = Math.min(100, Math.max(0, percent));
   const [progress] = useState(() => new Animated.Value(target));
   const [route] = useState(() => new Animated.Value(count));
   const previousCount = useRef(count);
+  const extra = captionExtra / scale;
+  const connectors = useMemo(() => homeConnectors(extra), [extra]);
+  const lengths = useMemo(() => connectors.map(connectorLength), [connectors]);
 
   useEffect(() => {
-    progress.stopAnimation();
-    route.stopAnimation();
-    // Replays, storage hydration, and progress resets must settle honestly too.
+    progress.stopAnimation(); route.stopAnimation();
     if (reduced || count <= previousCount.current) {
-      progress.setValue(target);
-      route.setValue(count);
-      previousCount.current = count;
+      progress.setValue(target); route.setValue(count); previousCount.current = count;
       return;
     }
     previousCount.current = count;
@@ -66,26 +63,32 @@ export function HomeJourneyProgress({ completedCount, percent, scale }: {
   }, [count, target, reduced, progress, route]);
 
   return <View pointerEvents="none" accessible={false} style={StyleSheet.absoluteFill}>
-    <Svg width={682 * scale} height={1312 * scale} viewBox="43 83 682 1312" style={StyleSheet.absoluteFill}>
+    <Svg width={682 * scale} height={headerHeight + 737 * scale + captionExtra} viewBox="43 392 682 858"
+      preserveAspectRatio="none" style={StyleSheet.absoluteFill}>
       <Defs>
-        <RadialGradient id={tintId} gradientUnits="userSpaceOnUse" cx={384} cy={810} rx={330} ry={410}>
-          <Stop offset="0" stopColor="#7931C4" stopOpacity={1} />
-          <Stop offset="0.65" stopColor="#7931C4" stopOpacity={0.8} />
-          <Stop offset="1" stopColor="#7931C4" stopOpacity={0} />
-        </RadialGradient>
+        <LinearGradient id={`${id}base`} x1="10%" y1="0%" x2="90%" y2="100%">
+          <Stop offset="0" stopColor="#FCF7FF" /><Stop offset=".45" stopColor="#EFDEFB" /><Stop offset="1" stopColor="#DFBDF4" />
+        </LinearGradient>
+        <LinearGradient id={`${id}tint`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <Stop offset="0" stopColor="#B480E5" /><Stop offset="1" stopColor="#8E4BCE" />
+        </LinearGradient>
       </Defs>
-      {/* A restrained translucent tint keeps the original relief, text and icons legible. */}
-      <AnimatedPath d={ISLAND} fill={`url(#${tintId})`} opacity={progress.interpolate({
-        inputRange: [0, 100], outputRange: [0, 0.24], extrapolate: 'clamp',
+      <Path d={ISLAND} transform="translate(0 8)" fill="#CEAAE6" opacity={.6} />
+      <Path d={ISLAND} fill={`url(#${id}base)`} stroke="#F9EDFF" strokeWidth={4} />
+      <AnimatedPath d={ISLAND} fill={`url(#${id}tint)`} opacity={progress.interpolate({
+        inputRange: [0, 100], outputRange: [0, .36], extrapolate: 'clamp',
       })} />
-      {HOME_CONNECTORS.map((d, index) => <Path key={`track-${index}`} d={d}
-        fill="none" stroke="#DEC2EF" strokeWidth={4} strokeLinecap="round" />)}
-      {HOME_CONNECTORS.map((d, index) => <AnimatedPath key={`fill-${index}`} d={d}
+    </Svg>
+    <Svg width={682 * scale} height={737 * scale + captionExtra} viewBox={`43 507 682 ${737 + extra}`}
+      style={{ position: 'absolute', top: headerHeight }}>
+      {connectors.map((d, index) => <Path key={`track-${index}`} d={d}
+        fill="none" stroke="#D7B8EB" strokeWidth={3} strokeLinecap="round" />)}
+      {connectors.map((d, index) => <AnimatedPath key={`fill-${index}`} d={d}
         fill="none" stroke="#913AE2" strokeWidth={5} strokeLinecap="round"
-        strokeDasharray={[HOME_CONNECTOR_LENGTHS[index], HOME_CONNECTOR_LENGTHS[index]]}
+        strokeDasharray={[lengths[index], lengths[index]]}
         opacity={route.interpolate({ inputRange: [index + 1, index + 1.001], outputRange: [0, 1], extrapolate: 'clamp' })}
         strokeDashoffset={route.interpolate({ inputRange: [index + 1, index + 2],
-          outputRange: [HOME_CONNECTOR_LENGTHS[index], 0], extrapolate: 'clamp' })} />)}
+          outputRange: [lengths[index], 0], extrapolate: 'clamp' })} />)}
     </Svg>
   </View>;
 }

@@ -1,19 +1,30 @@
-# Home map progress
+# Sharp native home and map progress
 
-Based on `803a6d4` on `codex/b1-lesson-screens-20261021`.
+Targets `codex/b1-lesson-screens-20261021` through PR #2 / `codex/home-map-progress-20261104`.
 
-The English A1 approved home now overlays the existing artwork with a native SVG route and a restrained purple island tint. Completing another lesson animates both over 600 ms. Six separate curves stop at tile edges and fill through the last consecutively completed lesson: 3/7 means two filled links, 7/7 means all six. No connector is filled through an incomplete lesson, including out-of-order saved completions. The island uses the real module percentage, fading toward its edges to preserve the existing relief and contrast.
+## Problem and implementation
 
-Initial saved progress renders settled. Resets settle to the lower state. Reduced motion skips transitions; animations stop on cleanup. The overlay ignores touches and does not write completion, XP, assessment or unlock state. The existing native percentage badge now exposes progressbar accessibility metadata. Other language/level selections retain the existing dashboard fallback.
+The approved home was a 520×1000 screenshot stretched across the page, plus a 520×92 footer image. Its text and icons were baked into those images, causing visible blur on a high-density phone. Transparent touch hotspots could not improve that image quality.
 
-The source artwork remains unchanged, including its baked-in lesson icon colors and active-lesson caption. This patch does not turn those raster elements into dynamic status controls or change AI-chat routing.
+`ApprovedHome` now reconstructs the same lavender/orange home composition using native text, native Pressables, gradient tile surfaces, and scalable SVG symbols in `HomeSymbol`. The separate original 1218×1291 transparent `assets/onboarding/welcome.png` is reused for the orange hooded mascot. The full-page and footer screenshots are no longer imported; existing assets are retained for history. No new bitmap assets or dependencies were added.
 
-Validation:
+Preserved: BirTalk wordmark, greeting, streak/XP locations, Analiz and AI söhbət actions, section heading/count, seven tiles in the same arrangement and icon subjects, listening caption, next-section preview and four bottom destinations. Typography/shadows are rendered at native density. The decorative phone frame from the screenshot is not application chrome.
+
+The existing module callbacks and disabled conditions are unchanged: tiles still open the module; Analiz still opens profile; AI söhbət retains its existing module routing. This patch does not implement a separate AI conversation destination or change lesson access. Other language/level selections retain the existing dashboard fallback.
+
+The map island is now a vector gradient surface with its completion tint behind the native labels/icons. Completing another lesson animates the route and island color over 600 ms. At 3/7, two links are filled; at 7/7, all six. Route fill stops at the first incomplete lesson, even with out-of-order saved completions. Tint uses real module completion. Initial saved progress renders settled, resets settle lower, reduced motion skips transitions, cleanup stops animation. The layer ignores touches and never writes progress, XP, assessment or unlock state.
+
+The map heading and listening caption measure their actual native height. The puzzle/speech tiles and their corresponding route segments move together to keep the listening CTA clear, including larger system text. The footer is normal layout outside the scroll view, includes the bottom inset, and uses native labels and vector icons.
+
+## Validation
 
 - `npx tsc --noEmit`: passes.
-- `npx expo lint`: no errors; pre-existing unused `handleLogout` warning in profile.tsx.
-- `HOME_PROGRESS_RENDERER=/path/to/compatible/react-test-renderer node scripts/check-home-progress.cjs`: passes with external React 19.2.3 renderer, no app dependency edits. Checks 0–7 completions at widths 320/390/430, filled link endpoints, tint bounds, reduced motion, resets, duplicate/unrelated IDs, out-of-order progress, seven native lesson targets and existing navigation.
-- `node scripts/check-home-reference.cjs` and `node scripts/check-chapter-journey.cjs`: pass.
-- Static SVG/artwork composites at 0/43/100% visually inspected. This is not a live native animation test.
+- `npx expo lint`: no errors; existing unused `handleLogout` warning in profile.tsx.
+- `ONBOARDING_RENDERER_MODULE=/path/to/react-test-renderer node scripts/check-home-render.cjs` (or `HOME_PROGRESS_RENDERER=... node scripts/check-home-progress.cjs`): passes with external React 19.2.3 renderer. Checks native text, only one high-resolution mascot raster, vector navigation, 0–7 completions at 320/390/430 widths, measured caption separation, larger-font inputs, tint/fill, reset, reduced motion, duplicate/unrelated IDs, out-of-order completion, locked state, fallback and existing callbacks. Primitives are mocked: this is not native rendering validation.
+- Existing `check-home-reference.cjs`, `check-chapter-journey.cjs`, and all 210 `check-b1-packet.cjs` rules pass.
+- Expo static web export passes.
+- The actual SVG symbols were rendered separately and visually inspected for sharpness and clipping.
 
-Physical iPhone/Android rendering and transition smoothness remain unverified. Package and lock files are unchanged.
+A live local browser could not launch in this sandbox (Chromium exited with SIGTRAP). Complete browser/physical iPhone/Android layout and native transition smoothness remain unverified. No zero-bug or physical-device certification is claimed.
+
+Scope: only home presentation, its progress layer/symbols, home regression scripts and these notes. No lesson, voice, grading, persistence, route, onboarding, package or lock-file changes.
