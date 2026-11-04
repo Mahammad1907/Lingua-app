@@ -1,133 +1,34 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Stack, useRouter } from 'expo-router';
-import {
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-} from 'react-native';
+import { useRouter } from 'expo-router';
+import { Text } from 'react-native';
+import { Choices, Frame, Mascot, s } from '../../components/onboarding/OnboardingUI';
+import { usePreferences } from '../../components/onboarding/usePreferences';
+import { levels, type LevelId } from '../../utils/onboarding';
 
 export default function LevelSelection() {
   const router = useRouter();
-
-  const handleTest = async () => {
-    await AsyncStorage.setItem('user_level', 'test');
-    router.push('/onboarding/placement');
-  };
-
-  const handleLevel = async (level: string) => {
-    await AsyncStorage.setItem('user_level', level);
-    router.push('/onboarding/welcome');
-  };
-
-  return (
-    <>
-      <Stack.Screen options={{ gestureEnabled: true }} />
-      <View style={styles.container}>
-        <Text style={styles.emoji}>📊</Text>
-        <Text style={styles.title}>Səviyyəni bilirsən?</Text>
-        <Text style={styles.subtitle}>
-          Sənə uyğun yerdən başlayaq
-        </Text>
-
-        <TouchableOpacity
-          style={styles.optionButton}
-          onPress={handleTest}
-        >
-          <Text style={styles.optionEmoji}>🧪</Text>
-          <View style={styles.optionText}>
-            <Text style={styles.optionTitle}>Test et</Text>
-            <Text style={styles.optionDesc}>
-              10 sual ilə səviyyəni təyin edək
-            </Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.optionButton}
-          onPress={() => handleLevel('A1')}
-        >
-          <Text style={styles.optionEmoji}>🌱</Text>
-          <View style={styles.optionText}>
-            <Text style={styles.optionTitle}>Başlanğıc (A1)</Text>
-            <Text style={styles.optionDesc}>Sıfırdan başlayıram</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.optionButton}
-          onPress={() => handleLevel('A2')}
-        >
-          <Text style={styles.optionEmoji}>🌿</Text>
-          <View style={styles.optionText}>
-            <Text style={styles.optionTitle}>Elementary (A2)</Text>
-            <Text style={styles.optionDesc}>Əsas biliklərim var</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.optionButton}
-          onPress={() => handleLevel('B1')}
-        >
-          <Text style={styles.optionEmoji}>🌳</Text>
-          <View style={styles.optionText}>
-            <Text style={styles.optionTitle}>Intermediate (B1)</Text>
-            <Text style={styles.optionDesc}>Sərbəst danışıram</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    </>
-  );
+  const p = usePreferences();
+  const languageName = p.language === 'de' ? 'Alman' : p.language === 'ru' ? 'Rus' : 'İngilis';
+  const next = () => void p.run(async () => {
+    await p.save();
+    if (p.preferences.levelChoice === 'unknown') {
+      // Keep the existing placement questions, scoring, result and destination unchanged.
+      // A previous completed score must not stand in for this newly requested test.
+      await AsyncStorage.removeItem('placement_score');
+      await AsyncStorage.setItem('user_level', 'test');
+      router.push('/onboarding/placement');
+    } else {
+      await AsyncStorage.setItem('user_level', levels.find(l => l.id === p.preferences.levelChoice)!.code!);
+      router.push('/onboarding/welcome');
+    }
+  });
+  return <Frame step={3} back={() => router.canGoBack() ? router.back() : router.replace('/onboarding/goal')}
+    title={<>{languageName} dilini <Text style={s.orange}>nə qədər</Text> bilirsən?</>}
+    subtitle="Başlanğıc səviyyəni seç. Bu seçim test nəticəsi deyil." action="Davam et" onAction={next}
+    ready={p.ready} busy={p.busy} error={p.error} retry={p.retry}>
+    <Mascot name="welcome" />
+    <Choices options={levels.map(l => ({ ...l, description: l.description.replace('İngilis', languageName) }))}
+      selected={p.preferences.levelChoice} disabled={p.busy}
+      onSelect={id => p.setPreferences(v => ({ ...v, levelChoice: id as LevelId }))} />
+  </Frame>;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#0a0a0a',
-    paddingHorizontal: 25,
-    paddingTop: 80,
-  },
-  emoji: {
-    fontSize: 60,
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#888888',
-    textAlign: 'center',
-    marginBottom: 40,
-  },
-  optionButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#1a1a1a',
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 12,
-    borderWidth: 2,
-    borderColor: '#2a2a2a',
-  },
-  optionEmoji: {
-    fontSize: 36,
-    marginRight: 18,
-  },
-  optionText: { flex: 1 },
-  optionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    marginBottom: 4,
-  },
-  optionDesc: {
-    fontSize: 14,
-    color: '#888888',
-  },
-});

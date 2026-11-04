@@ -1,185 +1,67 @@
+// This existing route remains the summary destination of the unchanged placement test.
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Stack, useRouter } from 'expo-router';
-import { useEffect, useState } from 'react';
-import {
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-} from 'react-native';
+import { useRouter } from 'expo-router';
+import { useState } from 'react';
+import { Pressable, Text, View } from 'react-native';
+import { Frame, Mascot, s, useOnboardingSize } from '../../components/onboarding/OnboardingUI';
+import { usePreferences } from '../../components/onboarding/usePreferences';
+import { getAllModules } from '../../data/modules';
+import { getLessonById } from '../../data/lessons';
+import { useUserStore } from '../../store/userStore';
+import { goals, levelSummary, practiceMinutes } from '../../utils/onboarding';
+import { moduleUnlocked } from '../../utils/moduleAccess';
 
-export default function Welcome() {
+export default function StartingPlan() {
   const router = useRouter();
-  const [level, setLevel] = useState('A1');
-  const [language, setLanguage] = useState('en');
-
-  useEffect(() => {
-    let active = true;
-    const loadData = async () => {
-      try {
-        const savedLevel = await AsyncStorage.getItem('user_level');
-        const savedLang = await AsyncStorage.getItem('selected_language');
-        if (!active) return;
-        if (savedLevel) setLevel(savedLevel);
-        if (savedLang) setLanguage(savedLang);
-      } catch { /* Keep the default language and level if storage is unavailable. */ }
-    };
-    void loadData();
-    return () => { active = false; };
-  }, []);
-
-  const getLanguageName = () => {
-    if (language === 'en') return '🇬🇧 İngilis';
-    if (language === 'de') return '🇩🇪 Alman';
-    if (language === 'ru') return '🇷🇺 Rus';
-    return '';
-  };
-
-  const handleCreateAccount = () => {
-    router.push('/register');
-  };
-
-  const handleSkip = async () => {
+  const p = usePreferences();
+  const { compact, height, fontScale } = useOnboardingSize();
+  const [planPage, setPlanPage] = useState(0);
+  const paged = height < 650 || fontScale > 1.25;
+  const showChoices = !paged || planPage === 0;
+  const showPractice = !paged || planPage === 1;
+  const completed = useUserStore(state => state.completedLessons);
+  const placements = useUserStore(state => state.placementResults);
+  const goal = goals.find(g => g.id === p.preferences.goal)!;
+  const availableModule = getAllModules().find(m => m.language === p.language && m.level === p.storedLevel
+    && moduleUnlocked(m.id, completed, placements) && m.lessonIds.some(id => getLessonById(id) && !completed.includes(id)));
+  const lesson = availableModule?.lessonIds.map(getLessonById).find(l => l && !completed.includes(l.id));
+  const finish = () => void p.run(async () => {
+    await p.save();
+    // Bridge to the existing home selector without changing its screens or progress/assessment store.
+    if (p.storedLevel && p.storedLevel !== 'test') await AsyncStorage.setItem('@birtalk_home_selection_v1', JSON.stringify({ language: p.language, level: p.storedLevel }));
     await AsyncStorage.setItem('onboarding_completed', 'true');
-    router.replace('/(tabs)');
-  };
-
-  return (
-    <>
-      <Stack.Screen
-        options={{
-          headerShown: false,
-          gestureEnabled: false,
-        }}
-      />
-      <View style={styles.container}>
-        <View style={styles.content}>
-          <Text style={styles.emoji}>🎉</Text>
-          <Text style={styles.title}>Hazırsan!</Text>
-          <Text style={styles.subtitle}>
-            Sənin üçün hazırladıq:
-          </Text>
-
-          <View style={styles.infoBox}>
-            <View style={styles.infoRow}>
-              <Text style={styles.infoLabel}>Dil:</Text>
-              <Text style={styles.infoValue}>{getLanguageName()}</Text>
-            </View>
-            <View style={styles.divider} />
-            <View style={styles.infoRow}>
-              <Text style={styles.infoLabel}>Səviyyə:</Text>
-              <Text style={styles.infoValue}>{level}</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={styles.buttons}>
-          <TouchableOpacity
-            style={styles.primaryButton}
-            onPress={handleCreateAccount}
-          >
-            <Text style={styles.primaryButtonText}>
-              Hesab yarat
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.secondaryButton}
-            onPress={handleSkip}
-          >
-            <Text style={styles.secondaryButtonText}>
-              Sonra
-            </Text>
-          </TouchableOpacity>
+    if (lesson) router.replace({ pathname: '/lesson/session', params: { id: lesson.id } });
+    else router.replace('/(tabs)');
+  });
+  return <Frame step={4} back={() => router.replace('/onboarding/level')} title="Başlanğıc planın"
+    subtitle="Seçimlərini nəzərdən keçir, öz tempinlə başla."
+    action={paged && planPage === 0 ? 'Davam et' : lesson ? 'İlk dərsə başla' : 'Ana səhifəyə keç'} onAction={paged && planPage === 0 ? () => setPlanPage(1) : finish}
+    ready={p.ready} busy={p.busy} error={p.error} retry={p.retry}>
+    <Mascot name="plan" />
+    {showChoices && <View style={[s.summary, compact && { marginVertical: 4 }]}>
+      <View style={[s.summaryCard, compact && { padding: 8 }]}><Text style={s.label}>Məqsədin</Text><Text style={s.value}>{goal.title}</Text></View>
+      <View style={[s.summaryCard, compact && { padding: 8 }]}><Text style={s.label}>Səviyyən</Text><Text style={s.value}>{levelSummary(p.preferences, p.storedLevel, p.placementScore)}</Text></View>
+    </View>}
+    <View style={[s.plan, compact && { padding: 8, gap: 6 }]}>
+      {!compact && <Text style={s.planTitle}>Başlanğıc seçimlərin</Text>}
+      {showChoices && <View style={s.planRow}><Text style={s.planIcon} accessible={false}>👋</Text><View style={s.planCopy}><Text style={s.label}>Mövcud ilk mövzu</Text><Text style={s.value}>{availableModule?.titleAz || 'Bu səviyyədə dərs hələ yoxdur'}</Text></View></View>}
+      {showPractice && <>
+      {!paged && <View style={s.rule} />}
+      <View><Text style={s.label}>{compact ? 'Gündəlik tövsiyə · dəyişə bilərsən' : 'Gündəlik məşq · tövsiyə, dəyişə bilərsən'}</Text>
+        <View style={s.minutes} accessibilityRole="radiogroup" accessibilityLabel="Gündəlik məşq müddəti">
+          {practiceMinutes.map(minutes => <Pressable key={minutes} accessibilityRole="radio" accessibilityState={{ selected: p.preferences.minutes === minutes, checked: p.preferences.minutes === minutes, disabled: p.busy }}
+            accessibilityLabel={`${minutes} dəqiqə`} disabled={p.busy} onPress={() => p.setPreferences(v => ({ ...v, minutes }))}
+            style={[s.minute, p.preferences.minutes === minutes && s.minuteSelected]}><Text style={[s.minuteText, p.preferences.minutes === minutes && s.minuteTextSelected]}>{minutes} dəq</Text></Pressable>)}
         </View>
       </View>
-    </>
-  );
+      <View style={s.rule} />
+      <View style={s.planRow}><Text style={s.planIcon} accessible={false}>🎧</Text><View style={s.planCopy}><Text style={s.label}>Məşq növü</Text><Text style={s.value}>{lesson ? 'Dinləmə və danışıq' : 'Dərs açıldıqda göstəriləcək'}</Text></View></View></>}
+      <Text style={s.note}>{compact ? 'Ayrıca məqsəd yolu hələ yoxdur.' : 'Məqsədin qeyd edilir. Ayrıca məqsədə uyğun dərs yolu hələ hazırlanmır.'}</Text>
+    </View>
+    {paged && <View style={s.pagination}>
+      <Pressable accessibilityRole="button" accessibilityLabel="Plan seçimlərinə qayıt" disabled={planPage === 0} onPress={() => setPlanPage(0)} style={s.pageButton}><Text style={[s.pageText, planPage === 0 && s.disabled]}>‹ Seçimlər</Text></Pressable>
+      <Text style={s.label}>{planPage + 1}/2</Text>
+      <Pressable accessibilityRole="button" accessibilityLabel="Məşq tövsiyəsinə bax" disabled={planPage === 1} onPress={() => setPlanPage(1)} style={s.pageButton}><Text style={[s.pageText, planPage === 1 && s.disabled]}>Məşq ›</Text></Pressable>
+    </View>}
+  </Frame>;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#0a0a0a',
-    paddingHorizontal: 25,
-    paddingTop: 80,
-    paddingBottom: 40,
-    justifyContent: 'space-between',
-  },
-  content: {
-    flex: 1,
-  },
-  emoji: {
-    fontSize: 80,
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  title: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 18,
-    color: '#888888',
-    textAlign: 'center',
-    marginBottom: 40,
-  },
-  infoBox: {
-    backgroundColor: '#1a1a1a',
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 20,
-    borderWidth: 2,
-    borderColor: '#2a2a2a',
-  },
-  infoRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 10,
-  },
-  infoLabel: {
-    fontSize: 16,
-    color: '#888888',
-  },
-  infoValue: {
-    fontSize: 18,
-    color: '#4ade80',
-    fontWeight: 'bold',
-  },
-  divider: {
-    height: 1,
-    backgroundColor: '#2a2a2a',
-    marginVertical: 5,
-  },
-  buttons: {
-    gap: 12,
-  },
-  primaryButton: {
-    backgroundColor: '#4ade80',
-    borderRadius: 14,
-    padding: 20,
-    alignItems: 'center',
-  },
-  primaryButtonText: {
-    color: '#0a0a0a',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  secondaryButton: {
-    backgroundColor: 'transparent',
-    borderRadius: 14,
-    padding: 20,
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: '#2a2a2a',
-  },
-  secondaryButtonText: {
-    color: '#888888',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-});
