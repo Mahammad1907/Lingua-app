@@ -49,3 +49,8 @@ New words keep authored phrase boundaries, contextual meaning/example and Englis
 `check-lesson-one-flow.cjs` exercises the complete D1 flow with native/audio boundaries mocked: first-teaching dictionary saves, word meaning/English playback, authored order, interleaved speech, wrong/partial single retries, retained correct field, sticky text support, skipped/technical speech, a concrete 2/4 assessed-speech result, original evidence and explicit completion without auto-next. It also renders 157 active authored stages across all twelve lessons. The twelve conditional review introductions are not treated as unconditional main tasks. Existing content/evidence/home/supplement tests remain applicable.
 
 A browser screenshot was not obtained: this environment cannot execute the downloaded browser binary. Mock rendering and web export do not certify physical layout, native audio, real recognition or animation smoothness. Device QA remains required; no exam threshold has been introduced.
+
+
+## New character scene plan — 6 November 2026
+
+The user subsequently replaced legacy lesson artwork (except the native board) with the supplied 2D human characters. Ten newly generated, wordless assets now cover P01–P09 (P07 has separate attention and apology scenes), including the optional story reading picture. The former hooded lesson avatar is replaced in versioned lesson introduction/board/review; home/profile remain unchanged. Current scene status and exact card mapping: docs/V2_PICTURE_STATUS.md. No unrelated concrete object vocabulary was added to this introduction packet.

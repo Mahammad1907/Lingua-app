@@ -8,6 +8,7 @@ Module._load=function(name,parent,main){
  if(name==='expo-speech')return {stop:async()=>{},getAvailableVoicesAsync:async()=>[],speak:(_text,options)=>options.onDone?.()};
  if(name==='@react-native-async-storage/async-storage')return {getItem:async k=>storage.get(k)??null,setItem:async(k,v)=>storage.set(k,v)};
  if(name.endsWith('/store/userStore'))return {useUserStore:selector=>selector({completedLessons:completed})};
+ if(name==='./LessonPicture')return {__esModule:true,default:'LessonPicture'};
  if(name==='./LessonVoiceInput')return {__esModule:true,default:'VoiceInput'};
  if(name==='./FixedLessonViewport')return {__esModule:true,default:({children})=>React.createElement('Viewport',null,children)};
  if(name==='./LessonVocabularyText')return {__esModule:true,default:({text})=>React.createElement('Text',null,text)};

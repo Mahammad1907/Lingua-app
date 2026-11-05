@@ -4,7 +4,7 @@ import { LessonIcon, type LessonIconName } from './LessonSurface';
 
 export function stagePresentation(card: PacketCard): { title: string; caption: string; icon: LessonIconName } {
   if (card.kind === 'result') return { title: 'Nəticə', caption: 'Bu dərsdəki cavabların', icon: 'check' };
-  if (card.kind === 'voice') return { title: 'Danışıq', caption: 'BirFox ilə hazırlanmış dialoq', icon: 'mic' };
+  if (card.kind === 'voice') return { title: 'Danışıq', caption: 'Hazırlanmış qarşılıqlı dialoq', icon: 'mic' };
   if (card.audio) return { title: 'Dinləmə', caption: 'Əvvəl dinlə, sonra cavab ver', icon: 'sound' };
   if (card.kind === 'teach') return { title: /qrammatika/i.test(card.title) || card.board?.includes('=') ? 'Qrammatika' : 'Sözlər', caption: 'Toxun, mənasını gör və dinlə', icon: 'book' };
   if (card.words || /qrammatika|boşluğu/i.test(card.title)) return { title: 'Qrammatika', caption: 'Öyrəndiyini tətbiq et', icon: 'book' };

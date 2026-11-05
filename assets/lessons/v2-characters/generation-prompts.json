@@ -1,0 +1,44 @@
+{
+  "reference": "D1FD730E-AE5A-476A-94A2-A880FFFEECBC.jpeg",
+  "mode": "built-in image generation",
+  "basePrompt": "Use case: illustration-story. Create ONE finished mobile lesson illustration, landscape composition, generous margins. Reference image 1 is the ONLY character/style reference. Preserve these exact two cartoon characters: girl dark bob hair purple star clip, purple shirt/star, purple trousers, purple sneakers; boy swept dark hair orange hoodie with purple star and blue pocket/cuffs, orange cargo trousers, blue sneakers, purple backpack. Same bold smooth black outlines, flat bright colors, minimal shading and friendly faces. NOT 3D, no old characters. Transparent background. Absolutely NO text, letters, numerals, captions, speech words, logos or watermarks. Only scene-specific minimal props. ",
+  "scenes": [
+    [
+      "P01",
+      "The two characters meeting for the first time, facing each other, girl waving hello, boy smiling and returning greeting. Clearly arrival not departure."
+    ],
+    [
+      "P02",
+      "Girl staying at a simple open doorway, boy walking away with backpack, looking back waving goodbye. Separation and departure unmistakable."
+    ],
+    [
+      "P03",
+      "Boy introducing himself by pointing to his own chest and a large completely BLANK name badge on his hoodie. Girl listening. Badge has NO markings."
+    ],
+    [
+      "P04",
+      "Both characters newly introduced, friendly respectful handshake, facing one another, warm eye contact, simple welcoming scene."
+    ],
+    [
+      "P05",
+      "Three clearly separated vignettes of the SAME girl: first happy/feeling fine, second calm/okay, third mildly unwell hand at throat. Do not diagnose disease. No labels, no checkmarks, no numbers."
+    ],
+    [
+      "P06",
+      "Boy helping girl pick up a dropped purple notebook and handing it back, girl hand on chest smiling in gratitude. Notebook blank. Helping and thanking roles clear, no need to name the object."
+    ],
+    [
+      "P07-attention",
+      "Girl politely getting boy's attention with an open raised hand while he turns to listen. Polite request before speaking, no collision or apology incident."
+    ],
+    [
+      "P07-apology",
+      "Boy accidentally knocked girl's blank notebook down, boy looks sorry with apologetic open hands, girl reassuring forgiving gesture. No angry expressions."
+    ],
+    [
+      "P08",
+      "Boy speaking, girl leaning slightly forward hand near ear asking to hear again, three small purple abstract sound arcs between them. No text, no speed meters, no labels."
+    ]
+  ],
+  "avatarPrompt": "Single friendly boy head-and-shoulders conversation avatar. Preserve reference character. No text. Transparent."
+}

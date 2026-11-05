@@ -1,3 +1,4 @@
+import LessonPicture from './LessonPicture';
 import FixedLessonViewport from './FixedLessonViewport';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect, useRouter } from 'expo-router';
@@ -96,6 +97,7 @@ function Runner({plan,storageKey,onPractice}:{plan:SupplementPlan;storageKey:str
   if(!card)return null;
   const unavailable=!followUpAvailable(card,draft.responses),response=candidate||draft.responses[card.id];
   return <KeyboardAvoidingView style={{flex:1}} behavior={Platform.OS==='ios'?'padding':undefined}><View style={[s.header,{paddingTop:4}]}><Pressable disabled={capturing} accessibilityLabel="Əlavədən çıx" onPress={()=>{stop();router.back();}} style={s.helper}><Text style={s.status}>‹ Geri</Text></Pressable><Text style={s.heading}>{plan.title}</Text><Text style={s.note}>{draft.index+1}/{flow.length} mərhələ</Text></View><FixedLessonViewport contentContainerStyle={s.page}>
+    {card.kind==='read'?<LessonPicture ids={['P04']} compact />:null}
     <View style={s.card}><Text style={s.heading}>{card.title}</Text><Text style={s.text}><LessonVocabularyText key={card.id} packet={b1Packet[11]} text={card.body} highlight={false} onSelect={e=>{if(card.kind!=='read')setHelped(true);setSelected(e);}}/></Text></View>
     {unavailable?<><Text style={s.note}>Əvvəlki növbədə tələb olunan hissə təsdiqlənmədiyi üçün bu əlavə qarşılıq yoxlanmır.</Text><Pressable style={s.button} onPress={()=>submit('',false,true)} disabled={Boolean(response)}><Text style={s.buttonText}>Yoxlanmadı kimi qeyd et</Text></Pressable></>:<>
     {card.kind==='read'?<Pressable style={s.helper} onPress={()=>void readDialogue()}><Text style={s.status}>İngiliscə dinlə · Bu, dinləmə qiyməti deyil</Text></Pressable>:null}

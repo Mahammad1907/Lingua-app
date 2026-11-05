@@ -20,7 +20,7 @@ export default function LessonReviewIntro() {
     animation.start();
     return () => animation.stop();
   }, [progress, reduced, light]);
-  if (light) return <View style={s.body}><Image source={require('../../../assets/onboarding/welcome.png')} accessible={false} style={{ width: 180, height: 180 }} resizeMode="contain" /><View style={s.card}><Text style={s.title}>Etdiyin səhvlərin təkrarı</Text><Text style={s.text}>İndi yalnız çətinlik qalan hissələri başqa vəziyyətdə məşq edəcəksən. Düzgün hissələr saxlanılıb.</Text><Text style={s.text}>Düzəliş nəticədə “Köməklə” göstərilir.</Text></View></View>;
+  if (light) return <View style={s.body}><Image source={require('../../../assets/lessons/v2-characters/P09.webp')} accessible={false} style={{ width: 180, height: 180 }} resizeMode="contain" /><View style={s.card}><Text style={s.title}>Etdiyin səhvlərin təkrarı</Text><Text style={s.text}>İndi yalnız çətinlik qalan hissələri başqa vəziyyətdə məşq edəcəksən. Düzgün hissələr saxlanılıb.</Text><Text style={s.text}>Düzəliş nəticədə “Köməklə” göstərilir.</Text></View></View>;
   return <View style={s.body}>
     <View accessibilityLabel={mascotText("BirFox ayağa qalxıb üstünü təmizləyir")} style={s.art}>
       {poses.map(i => <Animated.View key={i} style={[s.frame, { opacity: reduced ? i === 3 ? 1 : 0 : progress.interpolate({ inputRange: i === 0 ? [0, .6, 3] : i === 3 ? [0, 2.4, 3] : [0, i - .6, i, i + .6, 3], outputRange: i === 0 ? [1, 0, 0] : i === 3 ? [0, 0, 1] : [0, 0, 1, 0, 0], extrapolate: 'clamp' }) }]}>

@@ -15,7 +15,7 @@ export default function LessonWelcome({ packet, compact, sceneHeight }: { packet
     <View style={s.label}><Text style={s.labelText}>DƏRS {packet.order}</Text></View>
     <Text accessibilityRole="header" style={[s.title, light && { fontSize: 32, lineHeight: 38 }, compact && { fontSize: 28, lineHeight: 34 }]}>{packet.title}</Text>
     <Text style={s.subtitle}>{intro.subtitle}</Text>
-    <View style={s.scene}>{light ? <Image source={require('../../../assets/onboarding/welcome.png')} resizeMode="contain" accessible={false} style={{ width: '100%', height: Math.max(112, sceneHeight) }} /> : <ClassroomScene text={intro.board} height={sceneHeight} freshWords={newLessonWords(packet, b1Packet)} fit="contain" welcome />}</View>
+    <View style={s.scene}>{light ? <Image source={require('../../../assets/lessons/v2-characters/P01.webp')} resizeMode="contain" accessible={false} style={{ width: '100%', height: Math.max(112, sceneHeight) }} /> : <ClassroomScene text={intro.board} height={sceneHeight} freshWords={newLessonWords(packet, b1Packet)} fit="contain" welcome />}</View>
     <Surface accent="violet"><Text style={s.kicker}>BU DƏRSDƏ ÖYRƏNƏCƏKSƏN</Text>
       {intro.objectives.map((text, index) => <View key={text} style={[s.objective, compact && { paddingVertical: 7 }]}>{packet.order === 1 && index === 1 ? <View style={{ width: 29, height: 27 }}><Text style={[s.icon, { position: 'absolute', left: 8, top: 7, fontSize: 19 }]}>💬</Text><Text style={[s.icon, { position: 'absolute', left: 0, top: 0 }]}>💬</Text></View> : <Text style={s.icon}>{(packet.order === 1 ? ['💬', '💬', '👋'] : ['💬', '👋', '🗨️'])[index]}</Text>}<LessonTextMotion state="reveal" trigger={packet.id} style={s.objectiveText}>{text}</LessonTextMotion></View>)}
     </Surface>
