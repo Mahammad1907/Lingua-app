@@ -1,0 +1,5626 @@
+[
+  {
+    "id": "a1_en_b1_20261105_v2_d01",
+    "order": 1,
+    "title": "Salamlaşma və sağollaşma",
+    "goal": "Salam verə, salama cavab verə və sağollaşa bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "İlk görüş bir salamla başlayır. Bu dərsdə salam verməyi, salama cavab verməyi və sağollaşmağı məşq edəcəksən.",
+        "source": "D01_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c02",
+        "number": 2,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Hello və Hi salam deməkdir. Hello ümumi salamlaşmadır; Hi daha qeyri-rəsmidir. Salama hər ikisi ilə cavab verə bilərsən.”",
+        "source": "D01_Tam_Ders.md#Kart 02",
+        "kind": "teach",
+        "board": "Hello! — Salam!\nHi! — Salam!",
+        "examples": [
+          "Hello!",
+          "Hi!"
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c03",
+        "number": 3,
+        "title": "Dinlə və seç",
+        "body": "Səsi dinlə. Danışan nə edir?",
+        "source": "D01_Tam_Ders.md#Kart 03",
+        "kind": "task",
+        "options": [
+          "Salam verir.",
+          "Sağollaşır."
+        ],
+        "rule": {
+          "answers": [
+            "Salam verir."
+          ],
+          "exact": true
+        },
+        "audio": "Hi!",
+        "explanation": "Uyğun cavab: Salam verir.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d01_c03",
+          "number": 3,
+          "title": "Dinlə və seç",
+          "body": "Başqa danışanı dinlə. Salam verir, yoxsa sağollaşır?",
+          "source": "D01_Tam_Ders.md#Kart 03",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Salam verir."
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Salam verir.",
+          "options": [
+            "Salam verir.",
+            "Sağollaşır."
+          ],
+          "audio": "Hello!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c04",
+        "number": 4,
+        "title": "Situasiyada yaz",
+        "body": "Tanışınla qarşılaşdın. Ona ingiliscə qısa salam yaz.",
+        "source": "D01_Tam_Ders.md#Kart 04",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Hello!"
+          ],
+          "goals": [
+            "greet"
+          ]
+        },
+        "explanation": "Uyğun cavab: Hello!",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d01_c04",
+          "number": 4,
+          "title": "Situasiyada yaz",
+          "body": "Həyətdə qonşunla qarşılaşdın. İngiliscə salam yaz.",
+          "source": "D01_Tam_Ders.md#Kart 04",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Hello!",
+              "Hi!"
+            ],
+            "goals": [
+              "greet"
+            ]
+          },
+          "explanation": "Uyğun cavab: Hello!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c05",
+        "number": 5,
+        "title": "Danışıq",
+        "body": "Maskot sənə salam verir. Səslə cavab ver.",
+        "source": "D01_Tam_Ders.md#Kart 05",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d01_c05",
+            "audio": "Hello!",
+            "prompt": "Maskot sənə salam verir. Səslə cavab ver.\n\nGörünən nümunə: Hi!",
+            "rule": {
+              "answers": [
+                "Hi!"
+              ],
+              "goals": [
+                "greet"
+              ]
+            },
+            "sample": "Hi!"
+          }
+        ],
+        "explanation": "Uyğun cavab: Hi!",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d01_c05",
+          "number": 5,
+          "title": "Danışıq",
+          "body": "Yeni danışanın salamına səslə cavab ver.",
+          "source": "D01_Tam_Ders.md#Kart 05",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d01_c05",
+              "audio": "Hi!",
+              "prompt": "Yeni danışanın salamına səslə cavab ver.",
+              "rule": {
+                "answers": [
+                  "Hello!",
+                  "Hi!"
+                ],
+                "goals": [
+                  "greet"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Hello!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c06",
+        "number": 6,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Görüş bitəndə Goodbye və ya Bye deyə bilərsən. Bye daha qeyri-rəsmidir. Buradakı ‘Sağ ol’ ayrılma mənasındadır.”",
+        "source": "D01_Tam_Ders.md#Kart 06",
+        "kind": "teach",
+        "board": "Goodbye! — Sağ ol!\nBye! — Sağ ol!",
+        "examples": [
+          "Goodbye!",
+          "Bye!"
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c07a",
+        "number": 7,
+        "title": "İki mərhələli əsas tapşırıq",
+        "body": "Görüş bitdi. Hansı ifadə uyğundur?",
+        "source": "D01_Tam_Ders.md#Kart 07",
+        "kind": "task",
+        "options": [
+          "Hello!",
+          "Goodbye!"
+        ],
+        "rule": {
+          "answers": [
+            "Goodbye!"
+          ],
+          "exact": true
+        },
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d01_c07a",
+          "number": 7,
+          "title": "İki mərhələli əsas tapşırıq",
+          "body": "Yazışmanız bitir. Mesaj seç:",
+          "source": "D01_Tam_Ders.md#Kart 07",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Bye!"
+            ],
+            "exact": true
+          },
+          "options": [
+            "Hi!",
+            "Bye!"
+          ],
+          "explanation": "Uyğun cavab: Bye!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c07b",
+        "number": 7,
+        "title": "İki mərhələli əsas tapşırıq",
+        "body": "Səsi dinlə və eşitdiyin sözü yaz.  Yoxla.",
+        "source": "D01_Tam_Ders.md#Kart 07",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Bye."
+          ],
+          "exact": true
+        },
+        "audio": "Bye!",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d01_c07b",
+          "number": 7,
+          "title": "İki mərhələli əsas tapşırıq",
+          "body": "Başqa danışanı dinlə və eşitdiyin sözü yaz.",
+          "source": "D01_Tam_Ders.md#Kart 07",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Goodbye"
+            ],
+            "exact": true
+          },
+          "audio": "Goodbye!",
+          "explanation": "Uyğun cavab: Goodbye"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c08",
+        "number": 8,
+        "title": "Danışıq",
+        "body": "Maskot səninlə sağollaşır. Sən də səslə sağollaş.",
+        "source": "D01_Tam_Ders.md#Kart 08",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d01_c08",
+            "audio": "Goodbye!",
+            "prompt": "Maskot səninlə sağollaşır. Sən də səslə sağollaş.",
+            "rule": {
+              "answers": [
+                "Bye!"
+              ],
+              "goals": [
+                "farewell"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: Bye!",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d01_c08",
+          "number": 8,
+          "title": "Danışıq",
+          "body": "Başqa danışanla səslə sağollaş.",
+          "source": "D01_Tam_Ders.md#Kart 08",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d01_c08",
+              "audio": "Bye!",
+              "prompt": "Başqa danışanla səslə sağollaş.",
+              "rule": {
+                "answers": [
+                  "Goodbye!",
+                  "Bye!"
+                ],
+                "goals": [
+                  "farewell"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Goodbye!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c09",
+        "number": 9,
+        "title": "Maskotun səhvini düzəlt",
+        "body": "Maskot görüşü bitirib gedir, amma “Hello!” deyir. Onun yerinə uyğun sağollaşma yaz.",
+        "source": "D01_Tam_Ders.md#Kart 09",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Goodbye!"
+          ],
+          "goals": [
+            "farewell"
+          ]
+        },
+        "explanation": "Uyğun cavab: Goodbye!",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d01_c09",
+          "number": 9,
+          "title": "Maskotun səhvini düzəlt",
+          "body": "Maskot qonaqlıqdan gedir, amma “Hi!” deyir. İfadəni düzəldib yaz.",
+          "source": "D01_Tam_Ders.md#Kart 09",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Goodbye!",
+              "Bye!"
+            ],
+            "goals": [
+              "farewell"
+            ]
+          },
+          "explanation": "Uyğun cavab: Goodbye!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c10",
+        "number": 10,
+        "title": "İki mesaj yaz",
+        "body": "Görüşün əvvəlində deyəcəyin salamı və sonunda deyəcəyin sağollaşmanı iki ayrı sahəyə yaz.\n1. Görüşün əvvəlində: \n2. Görüşün sonunda:",
+        "source": "D01_Tam_Ders.md#Kart 10",
+        "kind": "task",
+        "fields": [
+          {
+            "label": "Görüşün əvvəlində",
+            "rule": {
+              "answers": [
+                "Hello!",
+                "Hi!"
+              ],
+              "goals": [
+                "greet"
+              ]
+            }
+          },
+          {
+            "label": "Görüşün sonunda",
+            "rule": {
+              "answers": [
+                "Goodbye!",
+                "Bye!"
+              ],
+              "goals": [
+                "farewell"
+              ]
+            }
+          }
+        ],
+        "rule": {
+          "answers": [],
+          "fields": [
+            {
+              "answers": [
+                "Hello!",
+                "Hi!"
+              ],
+              "goals": [
+                "greet"
+              ]
+            },
+            {
+              "answers": [
+                "Goodbye!",
+                "Bye!"
+              ],
+              "goals": [
+                "farewell"
+              ]
+            }
+          ]
+        },
+        "explanation": "Hər iki sahəni ayrı məqsədinə uyğun tamamla."
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c11a",
+        "number": 11,
+        "title": "İki növbəli danışıq",
+        "body": "Maskotla qarşılaşırsan. Salamı sən başlat. Danış · Keç.",
+        "source": "D01_Tam_Ders.md#Kart 11",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d01_c11a",
+            "audio": "",
+            "prompt": "Maskotla qarşılaşırsan. Salamı sən başlat. Danış · Keç.",
+            "rule": {
+              "answers": [
+                "Hello!",
+                "Hi!"
+              ],
+              "goals": [
+                "greet"
+              ]
+            }
+          }
+        ],
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d01_c11a",
+          "number": 11,
+          "title": "İki növbəli danışıq",
+          "body": "Başqa gün maskotla qarşılaşırsan. Salamı sən başlat.",
+          "source": "D01_Tam_Ders.md#Kart 11",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d01_c11a",
+              "audio": "",
+              "prompt": "Başqa gün maskotla qarşılaşırsan. Salamı sən başlat.",
+              "rule": {
+                "answers": [
+                  "Səslə Hello!",
+                  "Hi!; sonra maskot: Hello!"
+                ],
+                "goals": [
+                  "greet"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Səslə Hello!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c11b",
+        "number": 11,
+        "title": "İki növbəli danışıq",
+        "body": "Bir az sonra görüş bitir. Sağollaşmanı sən başlat. Danış · Keç.",
+        "source": "D01_Tam_Ders.md#Kart 11",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d01_c11b",
+            "audio": "",
+            "prompt": "Bir az sonra görüş bitir. Sağollaşmanı sən başlat. Danış · Keç.",
+            "rule": {
+              "answers": [
+                "Goodbye!",
+                "Bye!"
+              ],
+              "goals": [
+                "farewell"
+              ]
+            }
+          }
+        ],
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d01_c11b",
+          "number": 11,
+          "title": "İki növbəli danışıq",
+          "body": "Yeni görüşün bitir. Sağollaşmanı sən başlat.",
+          "source": "D01_Tam_Ders.md#Kart 11",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d01_c11b",
+              "audio": "",
+              "prompt": "Yeni görüşün bitir. Sağollaşmanı sən başlat.",
+              "rule": {
+                "answers": [
+                  "Səslə Goodbye!",
+                  "Bye!; sonra maskot: Goodbye!"
+                ],
+                "goals": [
+                  "farewell"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Səslə Goodbye!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c12",
+        "number": 12,
+        "title": "Şərti səhv təkrarı",
+        "body": "Bu hissədə çətinlik oldu. İndi başqa vəziyyətdə yenidən məşq edək.",
+        "source": "D01_Tam_Ders.md#Kart 12",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d01_c13",
+        "number": 13,
+        "title": "Nəticə",
+        "body": "Məşqini tamamladın. Hansı hissələri özün etdiyinə baxaq. \n\nNövbəti dərsdə salama adını da əlavə edəcəyik.",
+        "source": "D01_Tam_Ders.md#Kart 13",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "Hello!\nHi!": "Salam! / Salam!",
+      "Hi!": "Salam!",
+      "Hello!": "Salam!",
+      "Goodbye!\nBye!": "Sağ ol! / Sağ ol!",
+      "Goodbye!": "Sağ ol!"
+    },
+    "vocabulary": [
+      {
+        "word": "Hello",
+        "translation": "Salam.",
+        "example": "Hello, Leyla!",
+        "exampleAz": "Salam, Leyla!",
+        "usageNote": "Ümumi salamlaşma.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "Hi",
+        "translation": "Salam.",
+        "example": "Hi, Ali!",
+        "exampleAz": "Salam, Əli!",
+        "usageNote": "Qeyri-rəsmi salam. IPA: /haɪ/.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "Goodbye",
+        "translation": "Sağ ol / Sağ olun (ayrılarkən).",
+        "example": "Goodbye, Sam!",
+        "exampleAz": "Sağ ol, Sam!",
+        "usageNote": "Təşəkkür yox, görüşün bitməsi. good-bye yazılışı da düzgündür.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "Bye",
+        "translation": "Sağ ol (ayrılarkən).",
+        "example": "Bye, Alex!",
+        "exampleAz": "Sağ ol, Aleks!",
+        "usageNote": "Qeyri-rəsmi sağollaşma. IPA: /baɪ/. By/buy başqa sözlərdir.",
+        "pronunciation": "",
+        "lexical": true
+      }
+    ],
+    "version": "2026-11-05-v2"
+  },
+  {
+    "id": "a1_en_b1_20261105_v2_d02",
+    "order": 2,
+    "title": "Öz adını demək",
+    "goal": "Salam verib seçdiyim adla özümü təqdim edə bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "Bu dəfə salamına adını əlavə edəcəksən.",
+        "source": "D02_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c02",
+        "number": 2,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "Yeni tanışına qısa salam yaz.",
+        "source": "D02_Tam_Ders.md#Kart 02",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Hello!"
+          ],
+          "goals": [
+            "greet"
+          ]
+        },
+        "explanation": "Uyğun cavab: Hello!",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c02",
+          "number": 2,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Girişdə qarşılaşdığın tanışına salam yaz.",
+          "source": "D02_Tam_Ders.md#Kart 02",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Hi!",
+              "Hello!"
+            ],
+            "goals": [
+              "greet"
+            ]
+          },
+          "explanation": "Uyğun cavab: Hi!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c03",
+        "number": 3,
+        "title": "Başlanğıc təkrarı — seç",
+        "body": "Görüş bitdi. Hansı mesaj uyğundur?",
+        "source": "D02_Tam_Ders.md#Kart 03",
+        "kind": "task",
+        "options": [
+          "Hi!",
+          "Bye!"
+        ],
+        "rule": {
+          "answers": [
+            "Bye!"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Bye!",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c03",
+          "number": 3,
+          "title": "Başlanğıc təkrarı — seç",
+          "body": "Yazışmanı bitirirsən. Sağollaşma yaz.",
+          "source": "D02_Tam_Ders.md#Kart 03",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Bye!",
+              "Goodbye!"
+            ],
+            "goals": [
+              "farewell"
+            ]
+          },
+          "explanation": "Uyğun cavab: Bye!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c04",
+        "number": 4,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Adını demək üçün I am və sonra adını de. I’m onun qısa formasıdır. Burada I ‘mən’ deməkdir; am hissəsini buraxma.”",
+        "source": "D02_Tam_Ders.md#Kart 04",
+        "kind": "teach",
+        "board": "I am Sam. = I’m Sam.\nMən Samam.",
+        "examples": [
+          "I am Sam.",
+          "I’m Sam."
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c05",
+        "number": 5,
+        "title": "Dinlə və adı seç",
+        "body": "Danışanın adı nədir?",
+        "source": "D02_Tam_Ders.md#Kart 05",
+        "kind": "task",
+        "options": [
+          "Sam",
+          "Alex"
+        ],
+        "rule": {
+          "answers": [
+            "Sam"
+          ],
+          "exact": true
+        },
+        "audio": "Hi. I’m Sam.",
+        "explanation": "Uyğun cavab: Sam",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c05",
+          "number": 5,
+          "title": "Dinlə və adı seç",
+          "body": "Başqa danışanın adını yaz.",
+          "source": "D02_Tam_Ders.md#Kart 05",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Alex"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Alex",
+          "audio": "Hello. I’m Alex."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c06",
+        "number": 6,
+        "title": "Sözlərdən cümlə qur",
+        "body": "Sam öz adını deyir. Hissələri düz:",
+        "source": "D02_Tam_Ders.md#Kart 06",
+        "kind": "task",
+        "words": [
+          "Sam",
+          "am",
+          "I"
+        ],
+        "rule": {
+          "answers": [
+            "I am Sam."
+          ],
+          "goals": [
+            "introduce"
+          ]
+        },
+        "explanation": "Uyğun cavab: I am Sam.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c06",
+          "number": 6,
+          "title": "Sözlərdən cümlə qur",
+          "body": "Alex özünü təqdim edir. Hissələri düz: Alex / I / am",
+          "source": "D02_Tam_Ders.md#Kart 06",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I am Alex."
+            ],
+            "goals": [
+              "introduce"
+            ]
+          },
+          "explanation": "Uyğun cavab: I am Alex."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c07",
+        "number": 7,
+        "title": "Boşluğu yaz",
+        "body": "Tam formanı tamamla: I ___ Alex.",
+        "source": "D02_Tam_Ders.md#Kart 07",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "am"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: am",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c07",
+          "number": 7,
+          "title": "Boşluğu yaz",
+          "body": "Tam ifadədə çatmayan hissəni yaz: I ___ Sam.",
+          "source": "D02_Tam_Ders.md#Kart 07",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "am"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: am"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c08",
+        "number": 8,
+        "title": "Danışıq",
+        "body": "Sam rolundasan. Salam ver və adını de.",
+        "source": "D02_Tam_Ders.md#Kart 08",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d02_c08",
+            "audio": "Hello. I’m Alex.",
+            "prompt": "Sam rolundasan. Salam ver və adını de.\n\nGörünən nümunə: Hi. I’m Sam.",
+            "rule": {
+              "answers": [
+                "Hi. I’m Sam."
+              ],
+              "goals": [
+                "greet",
+                "introduce"
+              ],
+              "roleName": "Sam"
+            },
+            "sample": "Hi. I’m Sam."
+          }
+        ],
+        "explanation": "Uyğun cavab: Hi. I’m Sam.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c08",
+          "number": 8,
+          "title": "Danışıq",
+          "body": "Bu dəfə Alex rolundasan. Salam ver və adını de.",
+          "source": "D02_Tam_Ders.md#Kart 08",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d02_c08",
+              "audio": "Hi. I’m Sam.",
+              "prompt": "Bu dəfə Alex rolundasan. Salam ver və adını de.",
+              "rule": {
+                "answers": [
+                  "Hi. I’m Alex.",
+                  "Hello. I am Alex."
+                ],
+                "goals": [
+                  "greet",
+                  "introduce"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Hi. I’m Alex."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c09",
+        "number": 9,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Adını My name is ilə də deyə bilərsən. My name ‘mənim adım’ deməkdir. Bu iki nümunədə I am, amma My name is işlənir; am və is-i dəyişmə.”",
+        "source": "D02_Tam_Ders.md#Kart 09",
+        "kind": "teach",
+        "board": "I am Sam. — Mən Samam.\nMy name is Sam. — Mənim adım Samdır.",
+        "examples": [
+          "My name is Sam."
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c10",
+        "number": 10,
+        "title": "Oxu və mənanı seç",
+        "body": "My name is Alex.",
+        "source": "D02_Tam_Ders.md#Kart 10",
+        "kind": "task",
+        "options": [
+          "Mənim adım Aleksdir.",
+          "Salam, Aleks!"
+        ],
+        "rule": {
+          "answers": [
+            "Mənim adım Aleksdir."
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Mənim adım Aleksdir.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c10",
+          "number": 10,
+          "title": "Oxu və mənanı seç",
+          "body": "Oxu: My name is Sam. Danışanın adını yaz.",
+          "source": "D02_Tam_Ders.md#Kart 10",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Sam"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Sam"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c11",
+        "number": 11,
+        "title": "Maskotun səhvini düzəlt",
+        "body": "Maskot adını demək istəyir: My name am Alex. Cümləni düzəldib yaz.",
+        "source": "D02_Tam_Ders.md#Kart 11",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "My name is Alex."
+          ],
+          "goals": [
+            "introduce"
+          ],
+          "roleName": "Alex"
+        },
+        "explanation": "Uyğun cavab: My name is Alex.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c11",
+          "number": 11,
+          "title": "Maskotun səhvini düzəlt",
+          "body": "Başqa təqdimatı düzəlt: My name am Sam.",
+          "source": "D02_Tam_Ders.md#Kart 11",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "My name is Sam.",
+              "I’m Sam."
+            ],
+            "goals": [
+              "introduce"
+            ]
+          },
+          "explanation": "Uyğun cavab: My name is Sam."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c12",
+        "number": 12,
+        "title": "Danışıq",
+        "body": "Öz adını və ya seçdiyin başqa adı de.",
+        "source": "D02_Tam_Ders.md#Kart 12",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d02_c12",
+            "audio": "Hi. My name is Alex.",
+            "prompt": "Öz adını və ya seçdiyin başqa adı de.",
+            "rule": {
+              "answers": [
+                "My name is Sam."
+              ],
+              "goals": [
+                "introduce"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: My name is Sam.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c12",
+          "number": 12,
+          "title": "Danışıq",
+          "body": "Yeni tanışına seçdiyin adla özünü təqdim et.",
+          "source": "D02_Tam_Ders.md#Kart 12",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d02_c12",
+              "audio": "Hello. I’m Sam.",
+              "prompt": "Yeni tanışına seçdiyin adla özünü təqdim et.",
+              "rule": {
+                "answers": [
+                  "I’m [ad].",
+                  "My name is [ad]."
+                ],
+                "goals": [
+                  "introduce"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: I’m [ad]."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c13",
+        "number": 13,
+        "title": "Sözlərdən cümlə qur",
+        "body": "Alex öz adını deyir:",
+        "source": "D02_Tam_Ders.md#Kart 13",
+        "kind": "task",
+        "words": [
+          "Alex",
+          "is",
+          "name",
+          "My"
+        ],
+        "rule": {
+          "answers": [
+            "My name is Alex."
+          ],
+          "goals": [
+            "introduce"
+          ]
+        },
+        "explanation": "Uyğun cavab: My name is Alex.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c13",
+          "number": 13,
+          "title": "Sözlərdən cümlə qur",
+          "body": "Sam üçün cümlə qur: is / Sam / My / name",
+          "source": "D02_Tam_Ders.md#Kart 13",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "My name is Sam."
+            ],
+            "goals": [
+              "introduce"
+            ]
+          },
+          "explanation": "Uyğun cavab: My name is Sam."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c14",
+        "number": 14,
+        "title": "Dinlə və tamamla",
+        "body": "Səsi dinlə: Hello. My name ___ Sam. Boşluğa yaz.",
+        "source": "D02_Tam_Ders.md#Kart 14",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "is"
+          ],
+          "exact": true
+        },
+        "audio": "Hello. My name is Sam.",
+        "explanation": "Uyğun cavab: is",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c14",
+          "number": 14,
+          "title": "Dinlə və tamamla",
+          "body": "Yeni səsi dinlə. Hello. My name ___ Alex.",
+          "source": "D02_Tam_Ders.md#Kart 14",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "is"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: is",
+          "audio": "Hello. My name is Alex."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c15",
+        "number": 15,
+        "title": "Situasiyada yaz",
+        "body": "Yeni biri ilə tanış olursan. Salam ver və seçdiyin adla özünü təqdim et.",
+        "source": "D02_Tam_Ders.md#Kart 15",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Hello. I’m [ad]."
+          ],
+          "goals": [
+            "greet",
+            "introduce"
+          ]
+        },
+        "explanation": "Uyğun cavab: Hello. I’m [ad].",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c15",
+          "number": 15,
+          "title": "Situasiyada yaz",
+          "body": "Bir tədbirdə yeni tanışına salam və adını yaz.",
+          "source": "D02_Tam_Ders.md#Kart 15",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Hi. I’m [ad].",
+              "Hello. My name is [ad]."
+            ],
+            "goals": [
+              "greet",
+              "introduce"
+            ]
+          },
+          "explanation": "Uyğun cavab: Hi. I’m [ad]."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c16a",
+        "number": 16,
+        "title": "İki növbəli danışıq",
+        "body": "Qarşı tərəf salamlaşıb özünü təqdim edir. Salam ver və adını de. Danış · Keç.",
+        "source": "D02_Tam_Ders.md#Kart 16",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d02_c16a",
+            "audio": "Hi. I’m Alex.",
+            "prompt": "Qarşı tərəf salamlaşıb özünü təqdim edir. Salam ver və adını de. Danış · Keç.",
+            "rule": {
+              "answers": [
+                "Hello. I’m [ad]."
+              ],
+              "goals": [
+                "greet",
+                "introduce"
+              ]
+            }
+          }
+        ],
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c16a",
+          "number": 16,
+          "title": "İki növbəli danışıq",
+          "body": "Başqa rol görüşündə salam və seçdiyin adı səslə de.",
+          "source": "D02_Tam_Ders.md#Kart 16",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d02_c16a",
+              "audio": "Hi. I’m Sam.",
+              "prompt": "Başqa rol görüşündə salam və seçdiyin adı səslə de.",
+              "rule": {
+                "answers": [
+                  "Hello. I’m [ad].",
+                  "Hi. My name is [ad]."
+                ],
+                "goals": [
+                  "greet",
+                  "introduce"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Hello. I’m [ad]."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c16b",
+        "number": 16,
+        "title": "İki növbəli danışıq",
+        "body": "Görüş bitir. Qarşı tərəfin sağollaşmasına səslə cavab ver. Danış · Keç.",
+        "source": "D02_Tam_Ders.md#Kart 16",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d02_c16b",
+            "audio": "Goodbye!",
+            "prompt": "Görüş bitir. Qarşı tərəfin sağollaşmasına səslə cavab ver. Danış · Keç.",
+            "rule": {
+              "answers": [
+                "Bye!",
+                "Goodbye!"
+              ],
+              "goals": [
+                "farewell"
+              ]
+            }
+          }
+        ],
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d02_c16b",
+          "number": 16,
+          "title": "İki növbəli danışıq",
+          "body": "Yeni görüşdə sağollaşmaya səslə qarşılıq ver.",
+          "source": "D02_Tam_Ders.md#Kart 16",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d02_c16b",
+              "audio": "Bye!",
+              "prompt": "Yeni görüşdə sağollaşmaya səslə qarşılıq ver.",
+              "rule": {
+                "answers": [
+                  "Goodbye!",
+                  "Bye!"
+                ],
+                "goals": [
+                  "farewell"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Goodbye!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c17",
+        "number": 17,
+        "title": "Şərti səhv təkrarı",
+        "body": "Çətinlik olan hissəni başqa vəziyyətdə yenidən məşq edək.",
+        "source": "D02_Tam_Ders.md#Kart 17",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d02_c18",
+        "number": 18,
+        "title": "Nəticə",
+        "body": "Bu dərsdə salamına adını əlavə etməyi məşq etdin. [Faktiki nəticələr]",
+        "source": "D02_Tam_Ders.md#Kart 18",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "I am Sam.\nI’m Sam.": "Mən Samam. / Mən Samam.",
+      "Hi. I’m Sam.": "Salam. Mən Samam.",
+      "Hello. I’m Alex.": "Salam. Mən Aleksəm.",
+      "My name is Sam.": "Mənim adım Samdır.",
+      "Hi. My name is Alex.": "Salam. Mənim adım Aleksdir.",
+      "Hello. My name is Sam.": "Salam. Mənim adım Samdır."
+    },
+    "vocabulary": [
+      {
+        "word": "I",
+        "translation": "Mən.",
+        "example": "I am Sam.",
+        "exampleAz": "Mən Samam.",
+        "usageNote": "Şəxs əvəzliyi. Bu, I am bütöv ifadəsinin tərcüməsi deyil. İngiliscədə standart yazılışı böyük I-dır; ilkin qiymətləndirmədə kiçik i mənanı dəyişmir.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "I am… / I’m…",
+        "translation": "Mən …-am/-əm; ada uyğun şəkilçi.",
+        "example": "I’m Sam.",
+        "exampleAz": "Mən Samam.",
+        "usageNote": "Təqdimatda addan əvvəl gələn quruluş; hər vəziyyətdə təkbaşına “adım” demək deyil.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "name",
+        "translation": "Ad.",
+        "example": "My name is Sam.",
+        "exampleAz": "Mənim adım Samdır.",
+        "usageNote": "Burada insanın adını bildirən isim.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "My name is… / My name’s…",
+        "translation": "Mənim adım …-dır.",
+        "example": "My name is Leyla.",
+        "exampleAz": "Mənim adım Leyladır.",
+        "usageNote": "Bütöv ad təqdimatı; name sözünün ayrıca mənası “ad”dır.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "my",
+        "translation": "Mənim.",
+        "example": "My name is Sam.",
+        "exampleAz": "Mənim adım Samdır.",
+        "usageNote": "Bu söz aidlik bildirir; bütöv My name is ifadəsinin tərcüməsi deyil.",
+        "pronunciation": "",
+        "lexical": true
+      }
+    ],
+    "version": "2026-11-05-v2"
+  },
+  {
+    "id": "a1_en_b1_20261105_v2_d03",
+    "order": 3,
+    "title": "Ad soruşmaq",
+    "goal": "Öz adımı deyə və qarşı tərəfin adını soruşa bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "Öz adını deməklə yanaşı, qarşı tərəfin adını da soruşacaqsan.",
+        "source": "D03_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c02",
+        "number": 2,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "Sam rolundasan. Salam ver və adını yaz.",
+        "source": "D03_Tam_Ders.md#Kart 02",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Hi. I’m Sam."
+          ],
+          "goals": [
+            "greet",
+            "introduce"
+          ],
+          "roleName": "Sam"
+        },
+        "explanation": "Uyğun cavab: Hi. I’m Sam.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d03_c02",
+          "number": 2,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Alex rolundasan. Salam və ad təqdimatı yaz.",
+          "source": "D03_Tam_Ders.md#Kart 02",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Hi. I’m Alex.",
+              "Hello. My name is Alex."
+            ],
+            "goals": [
+              "greet",
+              "introduce"
+            ]
+          },
+          "explanation": "Uyğun cavab: Hi. I’m Alex."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c03",
+        "number": 3,
+        "title": "Başlanğıc təkrarı — dinlə",
+        "body": "Danışanın adını yaz.",
+        "source": "D03_Tam_Ders.md#Kart 03",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Alex"
+          ],
+          "exact": true
+        },
+        "audio": "Hello. My name is Alex.",
+        "explanation": "Uyğun cavab: Alex",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d03_c03",
+          "number": 3,
+          "title": "Başlanğıc təkrarı — dinlə",
+          "body": "Yeni danışanın adını yaz.",
+          "source": "D03_Tam_Ders.md#Kart 03",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Sam"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Sam",
+          "audio": "Hi. I’m Sam."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c04",
+        "number": 4,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Qarşı tərəfin adını öyrənmək üçün What’s your name? de. What’s burada What is formasının qısasıdır. İkisi də düzgündür.”",
+        "source": "D03_Tam_Ders.md#Kart 04",
+        "kind": "teach",
+        "board": "What’s your name? = What is your name?\nAdın nədir?",
+        "examples": [
+          "What’s your name?",
+          "What is your name?"
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c05",
+        "number": 5,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “My name ‘mənim adım’, your name ‘sənin adın’ deməkdir. Öz adını deyəndə my, qarşı tərəfin adını soruşanda your işlət.”",
+        "source": "D03_Tam_Ders.md#Kart 05",
+        "kind": "teach",
+        "board": "My name is Sam. — Mənim adım Samdır.\nWhat’s your name? — Adın nədir?",
+        "examples": [
+          "My name is Sam.",
+          "What’s your name?"
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c06",
+        "number": 6,
+        "title": "Dinlə və mənanı seç",
+        "body": "Sual nə deməkdir?",
+        "source": "D03_Tam_Ders.md#Kart 06",
+        "kind": "task",
+        "options": [
+          "Adın nədir?",
+          "Mənim adım Samdır."
+        ],
+        "rule": {
+          "answers": [
+            "Adın nədir?"
+          ],
+          "exact": true
+        },
+        "audio": "What’s your name?",
+        "explanation": "Uyğun cavab: Adın nədir?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d03_c06",
+          "number": 6,
+          "title": "Dinlə və mənanı seç",
+          "body": "Yeni səsi dinlə.",
+          "source": "D03_Tam_Ders.md#Kart 06",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Ad soruşur."
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Ad soruşur.",
+          "options": [
+            "Öz adını deyir.",
+            "Ad soruşur."
+          ],
+          "audio": "What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c07",
+        "number": 7,
+        "title": "Məqsədə uyğun seç",
+        "body": "Qarşındakı şəxsin adını öyrənmək istəyirsən.",
+        "source": "D03_Tam_Ders.md#Kart 07",
+        "kind": "task",
+        "options": [
+          "What’s my name?",
+          "What’s your name?"
+        ],
+        "rule": {
+          "answers": [
+            "What’s your name?"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d03_c07",
+          "number": 7,
+          "title": "Məqsədə uyğun seç",
+          "body": "Yeni qonağın adını soruşan cümləni düzəlt: What is my name?",
+          "source": "D03_Tam_Ders.md#Kart 07",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "What is your name?",
+              "What’s your name?"
+            ],
+            "goals": [
+              "askName"
+            ]
+          },
+          "explanation": "Uyğun cavab: What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c08",
+        "number": 8,
+        "title": "Sözlərdən sual qur",
+        "body": "Qarşı tərəfin adını soruş:",
+        "source": "D03_Tam_Ders.md#Kart 08",
+        "kind": "task",
+        "words": [
+          "name",
+          "your",
+          "What’s"
+        ],
+        "rule": {
+          "answers": [
+            "What’s your name?"
+          ],
+          "goals": [
+            "askName"
+          ]
+        },
+        "explanation": "Uyğun cavab: What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d03_c08",
+          "number": 8,
+          "title": "Sözlərdən sual qur",
+          "body": "Tam sualı qur: your / is / name / What",
+          "source": "D03_Tam_Ders.md#Kart 08",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "What is your name?"
+            ],
+            "goals": [
+              "askName"
+            ]
+          },
+          "explanation": "Uyğun cavab: What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c09",
+        "number": 9,
+        "title": "Danışıq",
+        "body": "Rol məşqində yeni biri ilə qarşılaşmısan. Adını soruş.",
+        "source": "D03_Tam_Ders.md#Kart 09",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d03_c09",
+            "audio": "Hello!",
+            "prompt": "Rol məşqində yeni biri ilə qarşılaşmısan. Adını soruş.\n\nGörünən nümunə: What’s your name?",
+            "rule": {
+              "answers": [
+                "What’s your name?"
+              ],
+              "goals": [
+                "askName"
+              ]
+            },
+            "sample": "What’s your name?",
+            "reply": "I’m Alex."
+          }
+        ],
+        "explanation": "Uyğun cavab: What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d03_c09",
+          "number": 9,
+          "title": "Danışıq",
+          "body": "Başqa yeni tanışının adını soruş.",
+          "source": "D03_Tam_Ders.md#Kart 09",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d03_c09",
+              "audio": "Hi!",
+              "prompt": "Başqa yeni tanışının adını soruş.",
+              "rule": {
+                "answers": [
+                  "What is your name?",
+                  "What’s your name?"
+                ],
+                "goals": [
+                  "askName"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c10",
+        "number": 10,
+        "title": "Boşluğu yaz",
+        "body": "Ad sualının tam formasını tamamla: What ___ your name?",
+        "source": "D03_Tam_Ders.md#Kart 10",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "is"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: is",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d03_c10",
+          "number": 10,
+          "title": "Boşluğu yaz",
+          "body": "Ad soruşan tam sualda bir söz yaz: What ___ your name?",
+          "source": "D03_Tam_Ders.md#Kart 10",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "is"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: is"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c11",
+        "number": 11,
+        "title": "Maskotun səhvini düzəlt",
+        "body": "Maskot sənin adını soruşmaq istəyir: What’s my name? Sualı düzəldib yaz.",
+        "source": "D03_Tam_Ders.md#Kart 11",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "What’s your name?"
+          ],
+          "goals": [
+            "askName"
+          ]
+        },
+        "explanation": "Uyğun cavab: What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d03_c11",
+          "number": 11,
+          "title": "Maskotun səhvini düzəlt",
+          "body": "Sam yeni birinin adını öyrənmək istəyir. Onun sualını düzəlt: What is my name?",
+          "source": "D03_Tam_Ders.md#Kart 11",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "What is your name?"
+            ],
+            "goals": [
+              "askName"
+            ]
+          },
+          "explanation": "Uyğun cavab: What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c12",
+        "number": 12,
+        "title": "Danışıq",
+        "body": "Seçdiyin adı de və qarşı tərəfin adını soruş.",
+        "source": "D03_Tam_Ders.md#Kart 12",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d03_c12",
+            "audio": "Hi. What’s your name?",
+            "prompt": "Seçdiyin adı de və qarşı tərəfin adını soruş.",
+            "rule": {
+              "answers": [
+                "I’m Sam. What’s your name?"
+              ],
+              "goals": [
+                "askName",
+                "introduce"
+              ]
+            },
+            "reply": "I’m Alex."
+          }
+        ],
+        "explanation": "Uyğun cavab: I’m Sam. What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d03_c12",
+          "number": 12,
+          "title": "Danışıq",
+          "body": "Başqa tanışına adını de və adını soruş.",
+          "source": "D03_Tam_Ders.md#Kart 12",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d03_c12",
+              "audio": "Hello. What is your name?",
+              "prompt": "Başqa tanışına adını de və adını soruş.",
+              "rule": {
+                "answers": [
+                  "I’m [ad]. What’s your name?"
+                ],
+                "goals": [
+                  "askName",
+                  "introduce"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: I’m [ad]. What’s your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c13",
+        "number": 13,
+        "title": "Situasiyada yaz",
+        "body": "Yeni tanışına salam ver, seçdiyin adı de və onun adını soruş.",
+        "source": "D03_Tam_Ders.md#Kart 13",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Hello. I’m [ad]. What’s your name?"
+          ],
+          "goals": [
+            "greet",
+            "askName",
+            "introduce"
+          ]
+        },
+        "explanation": "Uyğun cavab: Hello. I’m [ad]. What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d03_c13",
+          "number": 13,
+          "title": "Situasiyada yaz",
+          "body": "Bir tədbirdə yeni biri ilə tanış olursan. Salam, öz adın və ad sualını yaz.",
+          "source": "D03_Tam_Ders.md#Kart 13",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Hi. I’m [ad]. What is your name?"
+            ],
+            "goals": [
+              "greet",
+              "askName",
+              "introduce"
+            ]
+          },
+          "explanation": "Uyğun cavab: Hi. I’m [ad]. What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c14",
+        "number": 14,
+        "title": "Şərti səhv təkrarı",
+        "body": "Çətinlik olan hissəni yeni vəziyyətdə məşq edək.",
+        "source": "D03_Tam_Ders.md#Kart 14",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d03_c15",
+        "number": 15,
+        "title": "Nəticə",
+        "body": "Ad cavabı və ad sualını birləşdirməyi məşq etdin. [Faktiki altbacarıq nəticələri]",
+        "source": "D03_Tam_Ders.md#Kart 15",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "Hello. My name is Alex.": "Salam. Mənim adım Aleksdir.",
+      "What’s your name?\nWhat is your name?": "Adın nədir? / Adın nədir?",
+      "My name is Sam.\nWhat’s your name?": "Mənim adım Samdır. / Adın nədir?",
+      "What’s your name?": "Adın nədir?",
+      "Hello!": "Salam!",
+      "Hi. What’s your name?": "Salam. Adın nədir?"
+    },
+    "vocabulary": [
+      {
+        "word": "your",
+        "translation": "Sənin / sizin.",
+        "example": "What’s your name?",
+        "exampleAz": "Adın nədir?",
+        "usageNote": "Qarşı tərəfə aidliyi bildirir; you’re = you are ilə eyni deyil.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "What is your name? / What’s your name?",
+        "translation": "Adın nədir? / Adınız nədir?.",
+        "example": "Hello. What’s your name?",
+        "exampleAz": "Salam. Adın nədir?",
+        "usageNote": "Qarşı tərəfin adını soruşur. What’s bu sualda What is deməkdir.",
+        "pronunciation": "",
+        "lexical": true
+      }
+    ],
+    "version": "2026-11-05-v2"
+  },
+  {
+    "id": "a1_en_b1_20261105_v2_d04",
+    "order": 4,
+    "title": "Tanışlıqdan məmnunluq",
+    "goal": "Tanışlıqdan məmnunluğumu bildirə və uyğun qarşılıq verə bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "Yeni tanışına şad olduğunu deməyi və eyni sözə qarşılıq verməyi öyrənəcəksən.",
+        "source": "D04_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c02",
+        "number": 2,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "Sam rolundasan. Salam ver və adını yaz.",
+        "source": "D04_Tam_Ders.md#Kart 02",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Hi. I’m Sam."
+          ],
+          "goals": [
+            "greet",
+            "introduce"
+          ],
+          "roleName": "Sam"
+        },
+        "explanation": "Uyğun cavab: Hi. I’m Sam.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d04_c02",
+          "number": 2,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Alex rolundasan. Salam və ad təqdimatı yaz.",
+          "source": "D04_Tam_Ders.md#Kart 02",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Hi. I’m Alex.",
+              "Hello. My name is Alex."
+            ],
+            "goals": [
+              "greet",
+              "introduce"
+            ]
+          },
+          "explanation": "Uyğun cavab: Hi. I’m Alex."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c03",
+        "number": 3,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "Yeni tanışının adını soruşan bir sual yaz.",
+        "source": "D04_Tam_Ders.md#Kart 03",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "What’s your name?"
+          ],
+          "goals": [
+            "askName"
+          ]
+        },
+        "explanation": "Uyğun cavab: What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d04_c03",
+          "number": 3,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Qonağın adını öyrənmək üçün sual yaz.",
+          "source": "D04_Tam_Ders.md#Kart 03",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "What is your name?"
+            ],
+            "goals": [
+              "askName"
+            ]
+          },
+          "explanation": "Uyğun cavab: What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c04",
+        "number": 4,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Yeni tanışına Nice to meet you deyə bilərsən: ‘Tanış olduğuma şadam’. Qarşılıq olaraq You too və ya Nice to meet you too demək olar. Burada You too bütöv qarşılıqdır.”",
+        "source": "D04_Tam_Ders.md#Kart 04",
+        "kind": "teach",
+        "board": "Nice to meet you. — Tanış olduğuma şadam.\nYou too. — Mən də.\nNice to meet you too. — Mən də tanış olduğuma şadam.",
+        "examples": [
+          "Nice to meet you.",
+          "You too.",
+          "Nice to meet you too."
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c05",
+        "number": 5,
+        "title": "Oxu və mənanı seç",
+        "body": "Nice to meet you.",
+        "source": "D04_Tam_Ders.md#Kart 05",
+        "kind": "task",
+        "options": [
+          "Tanış olduğuma şadam.",
+          "Adın nədir?"
+        ],
+        "rule": {
+          "answers": [
+            "Tanış olduğuma şadam."
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Tanış olduğuma şadam.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d04_c05",
+          "number": 5,
+          "title": "Oxu və mənanı seç",
+          "body": "Yeni mesajı oxu: Nice to meet you, Alex. Məqsəd nədir?",
+          "source": "D04_Tam_Ders.md#Kart 05",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Tanışlıqdan məmnunluq"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Tanışlıqdan məmnunluq",
+          "options": [
+            "Sağollaşma",
+            "Tanışlıqdan məmnunluq"
+          ]
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c06",
+        "number": 6,
+        "title": "Dialoqa cavab yaz",
+        "body": "Qarşı tərəf: Nice to meet you. Sən də şad olduğunu bildirən cavab yaz.",
+        "source": "D04_Tam_Ders.md#Kart 06",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "You too."
+          ],
+          "goals": [
+            "meet"
+          ]
+        },
+        "explanation": "Uyğun cavab: You too.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d04_c06",
+          "number": 6,
+          "title": "Dialoqa cavab yaz",
+          "body": "Yeni tanışın Nice to meet you deyir. Qısa uyğun qarşılıq yaz.",
+          "source": "D04_Tam_Ders.md#Kart 06",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "You too.",
+              "Nice to meet you too."
+            ],
+            "goals": [
+              "meet"
+            ]
+          },
+          "explanation": "Uyğun cavab: You too."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c07",
+        "number": 7,
+        "title": "Danışıq",
+        "body": "Yeni tanışın məmnunluq bildirir. Sən də şad olduğunu de.",
+        "source": "D04_Tam_Ders.md#Kart 07",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d04_c07",
+            "audio": "Nice to meet you.",
+            "prompt": "Yeni tanışın məmnunluq bildirir. Sən də şad olduğunu de.\n\nGörünən nümunə: You too.",
+            "rule": {
+              "answers": [
+                "You too."
+              ],
+              "goals": [
+                "meet"
+              ]
+            },
+            "sample": "You too."
+          }
+        ],
+        "explanation": "Uyğun cavab: You too.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d04_c07",
+          "number": 7,
+          "title": "Danışıq",
+          "body": "Başqa yeni tanışının sözünə səslə qarşılıq ver.",
+          "source": "D04_Tam_Ders.md#Kart 07",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d04_c07",
+              "audio": "Nice to meet you, Sam.",
+              "prompt": "Başqa yeni tanışının sözünə səslə qarşılıq ver.",
+              "rule": {
+                "answers": [
+                  "You too.",
+                  "Nice to meet you too."
+                ],
+                "goals": [
+                  "meet"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: You too."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c08",
+        "number": 8,
+        "title": "Qısa mesajdan məlumat tap",
+        "body": "Sam: Nice to meet you.\nAlex: You too.\nTanışlıqdan məmnunluğu əvvəl kim bildirir? Adı yaz.",
+        "source": "D04_Tam_Ders.md#Kart 08",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Sam"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Sam",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d04_c08",
+          "number": 8,
+          "title": "Qısa mesajdan məlumat tap",
+          "body": "Alex: Nice to meet you. Sam: You too. Kim əvvəl məmnunluq bildirir?",
+          "source": "D04_Tam_Ders.md#Kart 08",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Alex"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Alex"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c09",
+        "number": 9,
+        "title": "Situasiyada yaz",
+        "body": "Yeni biri ilə tanış oldun. Tanış olduğuna şad olduğunu ingiliscə yaz.",
+        "source": "D04_Tam_Ders.md#Kart 09",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Nice to meet you."
+          ],
+          "goals": [
+            "meet"
+          ]
+        },
+        "explanation": "Uyğun cavab: Nice to meet you.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d04_c09",
+          "number": 9,
+          "title": "Situasiyada yaz",
+          "body": "Başqa yeni tanışına tanışlıqdan məmnun olduğunu yaz.",
+          "source": "D04_Tam_Ders.md#Kart 09",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Nice to meet you."
+            ],
+            "goals": [
+              "meet"
+            ]
+          },
+          "explanation": "Uyğun cavab: Nice to meet you."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c10",
+        "number": 10,
+        "title": "Danışıq",
+        "body": "Rol görüşündə yeni tanışın adını deyir. Tanış olduğuna şad olduğunu bildir.",
+        "source": "D04_Tam_Ders.md#Kart 10",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d04_c10",
+            "audio": "Hello. I’m Alex.",
+            "prompt": "Rol görüşündə yeni tanışın adını deyir. Tanış olduğuna şad olduğunu bildir.",
+            "rule": {
+              "answers": [
+                "Nice to meet you."
+              ],
+              "goals": [
+                "meet"
+              ]
+            },
+            "reply": "Nice to meet you too."
+          }
+        ],
+        "explanation": "Uyğun cavab: Nice to meet you.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d04_c10",
+          "number": 10,
+          "title": "Danışıq",
+          "body": "Başqa yeni tanışına şad olduğunu səslə bildir.",
+          "source": "D04_Tam_Ders.md#Kart 10",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d04_c10",
+              "audio": "Hi. I’m Sam.",
+              "prompt": "Başqa yeni tanışına şad olduğunu səslə bildir.",
+              "rule": {
+                "answers": [
+                  "Nice to meet you."
+                ],
+                "goals": [
+                  "meet"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Nice to meet you."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c11",
+        "number": 11,
+        "title": "Şərti səhv təkrarı",
+        "body": "Çətinlik olan hissəni yeni vəziyyətdə məşq edək.",
+        "source": "D04_Tam_Ders.md#Kart 11",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d04_c12",
+        "number": 12,
+        "title": "Nəticə",
+        "body": "Tanışlıq ifadəsini başlatmağı və cavablandırmağı məşq etdin. [Faktiki altbacarıq nəticələri]",
+        "source": "D04_Tam_Ders.md#Kart 12",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "Nice to meet you.\nYou too.\nNice to meet you too.": "Tanış olduğuma şadam. / Mən də. / Mən də tanış olduğuma şadam.",
+      "Nice to meet you.": "Tanış olduğuma şadam.",
+      "Hello. I’m Alex.": "Salam. Mən Aleksəm."
+    },
+    "vocabulary": [
+      {
+        "word": "Nice to meet you",
+        "translation": "Tanış olduğuma şadam.",
+        "example": "Nice to meet you, Sam.",
+        "exampleAz": "Tanış olduğuma şadam, Sam.",
+        "usageNote": "İlk tanışlıqda bütöv ifadə; Nice tək sözünün bütün mənaları deyil.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "You too",
+        "translation": "Mən də (bu tanışlıq qarşılığında).",
+        "example": "Nice to meet you. — You too.",
+        "exampleAz": "Tanış olduğuma şadam. — Mən də.",
+        "usageNote": "Bu situasiyada bütöv qarşılıq. You tək söz olaraq “mən” demək deyil.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "Nice to meet you too",
+        "translation": "Mən də tanış olduğuma şadam.",
+        "example": "Nice to meet you too, Alex.",
+        "exampleAz": "Mən də tanış olduğuma şadam, Aleks.",
+        "usageNote": "Öyrədilmiş uzun qarşılıq; Nice to meet you maddəsi ilə əlaqələndirilə bilər.",
+        "pronunciation": "",
+        "lexical": true
+      }
+    ],
+    "version": "2026-11-05-v2"
+  },
+  {
+    "id": "a1_en_b1_20261105_v2_d05",
+    "order": 5,
+    "title": "Hal soruşmaq və cavab vermək",
+    "goal": "Hal soruşa, yaxşı olduğumu deyə və sualı qarşı tərəfə qaytara bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "Hal soruşmağı və yaxşı olduğunu bildirməyi öyrənəcəksən.",
+        "source": "D05_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c02",
+        "number": 2,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "Yeni tanışının adını soruşan bir sual yaz.",
+        "source": "D05_Tam_Ders.md#Kart 02",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "What’s your name?"
+          ],
+          "goals": [
+            "askName"
+          ]
+        },
+        "explanation": "Uyğun cavab: What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d05_c02",
+          "number": 2,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Qonağın adını öyrənmək üçün sual yaz.",
+          "source": "D05_Tam_Ders.md#Kart 02",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "What is your name?"
+            ],
+            "goals": [
+              "askName"
+            ]
+          },
+          "explanation": "Uyğun cavab: What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c03",
+        "number": 3,
+        "title": "Başlanğıc təkrarı — oxu",
+        "body": "Mesaj: Nice to meet you. Şad olduğunu bildirən cavab yaz.",
+        "source": "D05_Tam_Ders.md#Kart 03",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "You too."
+          ],
+          "goals": [
+            "meet"
+          ]
+        },
+        "explanation": "Uyğun cavab: You too.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d05_c03",
+          "number": 3,
+          "title": "Başlanğıc təkrarı — oxu",
+          "body": "Başqa yeni tanışına Nice to meet you ifadəsinə qarşılıq yaz.",
+          "source": "D05_Tam_Ders.md#Kart 03",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "You too."
+            ],
+            "goals": [
+              "meet"
+            ]
+          },
+          "explanation": "Uyğun cavab: You too."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c04",
+        "number": 4,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Halını soruşmaq üçün How are you? de. Burada you ‘sən/siz’, are isə sualın vacib hissəsidir. How is you demə.”",
+        "source": "D05_Tam_Ders.md#Kart 04",
+        "kind": "teach",
+        "board": "How are you? — Necəsən? / Necəsiniz?",
+        "examples": [
+          "How are you?"
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c05",
+        "number": 5,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Yaxşı olduğunu I’m fine ilə deyə bilərsən. Halını soruşduğu üçün thanks və ya Thank you — ‘sağ ol/təşəkkür edirəm’ əlavə edə bilərsən.”",
+        "source": "D05_Tam_Ders.md#Kart 05",
+        "kind": "teach",
+        "board": "I’m fine, thanks. — Yaxşıyam, sağ ol.\nI’m = I am",
+        "examples": [
+          "I’m fine.",
+          "I’m fine, thanks.",
+          "Thank you."
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c06",
+        "number": 6,
+        "title": "Dinlə və mənanı seç",
+        "body": "Sual nədir?",
+        "source": "D05_Tam_Ders.md#Kart 06",
+        "kind": "task",
+        "options": [
+          "Adın nədir?",
+          "Necəsən?"
+        ],
+        "rule": {
+          "answers": [
+            "Necəsən?"
+          ],
+          "exact": true
+        },
+        "audio": "How are you?",
+        "explanation": "Uyğun cavab: Necəsən?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d05_c06",
+          "number": 6,
+          "title": "Dinlə və mənanı seç",
+          "body": "Yeni səsdə nə soruşulur?",
+          "source": "D05_Tam_Ders.md#Kart 06",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Hal"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Hal",
+          "options": [
+            "Hal",
+            "Ad"
+          ],
+          "audio": "Hello. How are you?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c07",
+        "number": 7,
+        "title": "Sözlərdən cümlə qur",
+        "body": "Yaxşı olduğunu de:",
+        "source": "D05_Tam_Ders.md#Kart 07",
+        "kind": "task",
+        "words": [
+          "fine",
+          "I’m"
+        ],
+        "rule": {
+          "answers": [
+            "I’m fine."
+          ],
+          "goals": [
+            "fine"
+          ]
+        },
+        "explanation": "Uyğun cavab: I’m fine.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d05_c07",
+          "number": 7,
+          "title": "Sözlərdən cümlə qur",
+          "body": "Tam formanı düz: fine / am / I",
+          "source": "D05_Tam_Ders.md#Kart 07",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I am fine."
+            ],
+            "goals": [
+              "feeling"
+            ]
+          },
+          "explanation": "Uyğun cavab: I am fine."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c08",
+        "number": 8,
+        "title": "Boşluğu yaz",
+        "body": "Hal sualını tamamla: How ___ you?",
+        "source": "D05_Tam_Ders.md#Kart 08",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "are"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: are",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d05_c08",
+          "number": 8,
+          "title": "Boşluğu yaz",
+          "body": "Maskotun sualını düzəlt: How is you?",
+          "source": "D05_Tam_Ders.md#Kart 08",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "How are you?"
+            ],
+            "goals": [
+              "askFeeling"
+            ]
+          },
+          "explanation": "Uyğun cavab: How are you?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c09",
+        "number": 9,
+        "title": "Danışıq",
+        "body": "Bu rol məşqində yaxşısan. Bunu səslə bildir.",
+        "source": "D05_Tam_Ders.md#Kart 09",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d05_c09",
+            "audio": "Hi. How are you?",
+            "prompt": "Bu rol məşqində yaxşısan. Bunu səslə bildir.\n\nGörünən nümunə: I’m fine, thanks.",
+            "rule": {
+              "answers": [
+                "I’m fine, thanks."
+              ],
+              "goals": [
+                "fine"
+              ]
+            },
+            "sample": "I’m fine, thanks."
+          }
+        ],
+        "explanation": "Uyğun cavab: I’m fine, thanks.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d05_c09",
+          "number": 9,
+          "title": "Danışıq",
+          "body": "Başqa tanışına yaxşı olduğunu səslə de.",
+          "source": "D05_Tam_Ders.md#Kart 09",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d05_c09",
+              "audio": "Hello. How are you?",
+              "prompt": "Başqa tanışına yaxşı olduğunu səslə de.",
+              "rule": {
+                "answers": [
+                  "I’m fine.",
+                  "I am well."
+                ],
+                "goals": [
+                  "feeling"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: I’m fine."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c10",
+        "number": 10,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Öz halını dedikdən sonra And you? — ‘Bəs sən?’ ilə eyni sualı qarşı tərəfə qaytara bilərsən. Bu, əvvəlki sualdan asılıdır; hər vəziyyətdə tam How are you? sualını əvəz etmir.”",
+        "source": "D05_Tam_Ders.md#Kart 10",
+        "kind": "teach",
+        "board": "I’m fine. And you? — Yaxşıyam. Bəs sən?",
+        "examples": [
+          "I’m fine. And you?"
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c11",
+        "number": 11,
+        "title": "Dialoqda seç",
+        "body": "Qarşı tərəf: How are you?\nYaxşı olduğunu de və onun da halını soruş.",
+        "source": "D05_Tam_Ders.md#Kart 11",
+        "kind": "task",
+        "options": [
+          "I’m fine. And you?",
+          "I’m fine."
+        ],
+        "rule": {
+          "answers": [
+            "I’m fine. And you?"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: I’m fine. And you?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d05_c11",
+          "number": 11,
+          "title": "Dialoqda seç",
+          "body": "Yeni hal sualına yaxşı olduğunu və əks sualı yaz.",
+          "source": "D05_Tam_Ders.md#Kart 11",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I’m fine. And you?",
+              "I am fine. How are you?"
+            ],
+            "goals": [
+              "askFeeling",
+              "feeling"
+            ]
+          },
+          "explanation": "Uyğun cavab: I’m fine. And you?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c12",
+        "number": 12,
+        "title": "Situasiyada yaz",
+        "body": "Yaxşısan. Halını soruşan tanışına cavab ver və eyni sualı ona qaytar.",
+        "source": "D05_Tam_Ders.md#Kart 12",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "I’m fine, thanks. And you?"
+          ],
+          "goals": [
+            "askFeeling",
+            "feeling"
+          ]
+        },
+        "explanation": "Uyğun cavab: I’m fine, thanks. And you?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d05_c12",
+          "number": 12,
+          "title": "Situasiyada yaz",
+          "body": "Dostun halını soruşur. Rol: yaxşısan. Hal cavabı və qarşı sual yaz.",
+          "source": "D05_Tam_Ders.md#Kart 12",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I’m fine. And you?"
+            ],
+            "goals": [
+              "askFeeling",
+              "feeling"
+            ]
+          },
+          "explanation": "Uyğun cavab: I’m fine. And you?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c13",
+        "number": 13,
+        "title": "Danışıq",
+        "body": "Yaxşısan. Halını de və onun da halını soruş.",
+        "source": "D05_Tam_Ders.md#Kart 13",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d05_c13",
+            "audio": "Hello. How are you?",
+            "prompt": "Yaxşısan. Halını de və onun da halını soruş.",
+            "rule": {
+              "answers": [
+                "I’m fine, thanks. And you?"
+              ],
+              "goals": [
+                "askFeeling",
+                "feeling"
+              ]
+            },
+            "reply": "I’m fine, thanks."
+          }
+        ],
+        "explanation": "Uyğun cavab: I’m fine, thanks. And you?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d05_c13",
+          "number": 13,
+          "title": "Danışıq",
+          "body": "Yeni tanışına müsbət hal və əks sual ver.",
+          "source": "D05_Tam_Ders.md#Kart 13",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d05_c13",
+              "audio": "Hi. How are you?",
+              "prompt": "Yeni tanışına müsbət hal və əks sual ver.",
+              "rule": {
+                "answers": [
+                  "I’m fine. And you?"
+                ],
+                "goals": [
+                  "askFeeling",
+                  "feeling"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: I’m fine. And you?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c14",
+        "number": 14,
+        "title": "Şərti səhv təkrarı",
+        "body": "Çətinlik olan hissəni yeni vəziyyətdə məşq edək.",
+        "source": "D05_Tam_Ders.md#Kart 14",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d05_c15",
+        "number": 15,
+        "title": "Nəticə",
+        "body": "Hal sualını və müsbət hal qarşılığını məşq etdin. [Faktiki altbacarıq nəticələri]",
+        "source": "D05_Tam_Ders.md#Kart 15",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "How are you?": "Necəsən?",
+      "I’m fine.\nI’m fine, thanks.\nThank you.": "Yaxşıyam. / Yaxşıyam, sağ ol. / Təşəkkür edirəm.",
+      "Hi. How are you?": "Salam. Necəsən?",
+      "I’m fine. And you?": "Yaxşıyam. Bəs sən?",
+      "Hello. How are you?": "Salam. Necəsən?"
+    },
+    "vocabulary": [
+      {
+        "word": "How are you?",
+        "translation": "Necəsən? / Necəsiniz?.",
+        "example": "Hello. How are you?",
+        "exampleAz": "Salam. Necəsən?",
+        "usageNote": "Hal-əhval sualı; ad soruşmur.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "I’m fine / I am fine",
+        "translation": "Yaxşıyam.",
+        "example": "I’m fine, thanks.",
+        "exampleAz": "Yaxşıyam, sağ ol.",
+        "usageNote": "Bu dərsdə hal cavabı. Fine sözünün “cərimə” kimi başqa mənaları daxil deyil.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "Thanks / Thank you",
+        "translation": "Sağ ol / Təşəkkür edirəm.",
+        "example": "I’m fine, thank you.",
+        "exampleAz": "Yaxşıyam, təşəkkür edirəm.",
+        "usageNote": "Təşəkkür; burada sağollaşma deyil. İki forma bir funksional maddədir.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "And you?",
+        "translation": "Bəs sən? / Bəs siz?.",
+        "example": "I’m fine. And you?",
+        "exampleAz": "Yaxşıyam. Bəs sən?",
+        "usageNote": "Əvvəlki sualı qaytarır; sərbəst bütün hallarda How are you? əvəzi deyil.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "you",
+        "translation": "Sən / siz.",
+        "example": "How are you?",
+        "exampleAz": "Necəsən? / Necəsiniz?",
+        "usageNote": "Sualın danışılan şəxsə aid olduğunu göstərir.",
+        "pronunciation": "",
+        "lexical": true
+      }
+    ],
+    "version": "2026-11-05-v2"
+  },
+  {
+    "id": "a1_en_b1_20261105_v2_d06",
+    "order": 6,
+    "title": "Fərqli halları bildirmək",
+    "goal": "Yaxşı, normal və ya özümü yaxşı hiss etmədiyim halı uyğun ifadə edə bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "Həmişə yaxşı olduğunu demək məcburi deyil. Bu dəfə fərqli halları ifadə edəcəksən.",
+        "source": "D06_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c02",
+        "number": 2,
+        "title": "Situasiyada yaz",
+        "body": "Yaxşısan. Halını soruşan tanışına cavab ver və eyni sualı ona qaytar.",
+        "source": "D06_Tam_Ders.md#Kart 02",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "I’m fine, thanks. And you?"
+          ],
+          "goals": [
+            "askFeeling",
+            "feeling"
+          ]
+        },
+        "explanation": "Uyğun cavab: I’m fine, thanks. And you?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d06_c02",
+          "number": 2,
+          "title": "Situasiyada yaz",
+          "body": "Dostun halını soruşur. Rol: yaxşısan. Hal cavabı və qarşı sual yaz.",
+          "source": "D06_Tam_Ders.md#Kart 02",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I’m fine. And you?"
+            ],
+            "goals": [
+              "askFeeling",
+              "feeling"
+            ]
+          },
+          "explanation": "Uyğun cavab: I’m fine. And you?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c03",
+        "number": 3,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "Yeni tanışının adını soruşan bir sual yaz.",
+        "source": "D06_Tam_Ders.md#Kart 03",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "What’s your name?"
+          ],
+          "goals": [
+            "askName"
+          ]
+        },
+        "explanation": "Uyğun cavab: What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d06_c03",
+          "number": 3,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Qonağın adını öyrənmək üçün sual yaz.",
+          "source": "D06_Tam_Ders.md#Kart 03",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "What is your name?"
+            ],
+            "goals": [
+              "askName"
+            ]
+          },
+          "explanation": "Uyğun cavab: What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c04",
+        "number": 4,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Həmişə yaxşı olduğunu demək məcburi deyil. I’m OK ‘Normalam’, I’m not very well ‘Özümü çox yaxşı hiss etmirəm’ deməkdir. Not inkar edir. I’m not = I am not; I amn’t demə.”",
+        "source": "D06_Tam_Ders.md#Kart 04",
+        "kind": "teach",
+        "board": "I’m OK. — Normalam.\nI’m not very well. — Özümü çox yaxşı hiss etmirəm.",
+        "examples": [
+          "I’m OK.",
+          "I’m not very well."
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c05",
+        "number": 5,
+        "title": "Maskotun səhvini düzəlt",
+        "body": "Maskot özünü yaxşı hiss etmir, amma “I’m fine” yazıb. Onun halına uyğun cümlə yaz.",
+        "source": "D06_Tam_Ders.md#Kart 05",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "I’m not very well."
+          ],
+          "goals": [
+            "unwell"
+          ]
+        },
+        "explanation": "Uyğun cavab: I’m not very well.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d06_c05",
+          "number": 5,
+          "title": "Maskotun səhvini düzəlt",
+          "body": "Alex rolundasan, özünü çox yaxşı hiss etmirsən. Uyğun hal cümləsi yaz.",
+          "source": "D06_Tam_Ders.md#Kart 05",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I’m not very well.",
+              "I’m not well."
+            ],
+            "goals": [
+              "feeling"
+            ]
+          },
+          "explanation": "Uyğun cavab: I’m not very well."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c06",
+        "number": 6,
+        "title": "Qısa mesajdan məlumat tap",
+        "body": "Sam: Hi. I’m fine.\nAlex: Hello. I’m not very well.\nKim özünü yaxşı hiss etmir? Adı yaz.",
+        "source": "D06_Tam_Ders.md#Kart 06",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Alex"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Alex",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d06_c06",
+          "number": 6,
+          "title": "Qısa mesajdan məlumat tap",
+          "body": "Alex: I’m OK. Sam: I’m not very well. Kim özünü yaxşı hiss etmir?",
+          "source": "D06_Tam_Ders.md#Kart 06",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Sam"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Sam"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c07",
+        "number": 7,
+        "title": "Danışıq",
+        "body": "Rol: özünü yaxşı hiss etmirsən. Bunu səslə bildir.",
+        "source": "D06_Tam_Ders.md#Kart 07",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d06_c07",
+            "audio": "How are you?",
+            "prompt": "Rol: özünü yaxşı hiss etmirsən. Bunu səslə bildir.\n\nGörünən nümunə: I’m not very well.",
+            "rule": {
+              "answers": [
+                "I’m not very well."
+              ],
+              "goals": [
+                "unwell"
+              ]
+            },
+            "sample": "I’m not very well."
+          }
+        ],
+        "explanation": "Uyğun cavab: I’m not very well.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d06_c07",
+          "number": 7,
+          "title": "Danışıq",
+          "body": "Başqa görüşdə özünü yaxşı hiss etmədiyini bildir.",
+          "source": "D06_Tam_Ders.md#Kart 07",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d06_c07",
+              "audio": "Hi. How are you?",
+              "prompt": "Başqa görüşdə özünü yaxşı hiss etmədiyini bildir.",
+              "rule": {
+                "answers": [
+                  "I’m not very well.",
+                  "I’m not well."
+                ],
+                "goals": [
+                  "feeling"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: I’m not very well."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c08",
+        "number": 8,
+        "title": "Müstəqil yaz",
+        "body": "Tanışın How are you? yazır. İstədiyin halı seç, cavab ver və onun halını da soruş.",
+        "source": "D06_Tam_Ders.md#Kart 08",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "I’m OK, thanks. And you?"
+          ],
+          "goals": [
+            "askFeeling",
+            "feeling"
+          ]
+        },
+        "explanation": "Uyğun cavab: I’m OK, thanks. And you?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d06_c08",
+          "number": 8,
+          "title": "Müstəqil yaz",
+          "body": "Başqa bir tanışına seçdiyin hal və əks sual yaz.",
+          "source": "D06_Tam_Ders.md#Kart 08",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I’m fine/OK/not very well. And you?"
+            ],
+            "goals": [
+              "askFeeling",
+              "feeling"
+            ]
+          },
+          "explanation": "Uyğun cavab: I’m fine/OK/not very well. And you?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c09",
+        "number": 9,
+        "title": "Boşluğu yaz",
+        "body": "Özünü yaxşı hiss etmirsən. Cümləni tamamla: I’m ___ very well.",
+        "source": "D06_Tam_Ders.md#Kart 09",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "not"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: not",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d06_c09",
+          "number": 9,
+          "title": "Boşluğu yaz",
+          "body": "Mənfi halın tam formasını tamamla: I am ___ very well.",
+          "source": "D06_Tam_Ders.md#Kart 09",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "not"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: not"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c10",
+        "number": 10,
+        "title": "Danışıq",
+        "body": "Öz halına uyğun cavab ver və qarşı tərəfin halını soruş.",
+        "source": "D06_Tam_Ders.md#Kart 10",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d06_c10",
+            "audio": "Hi. How are you?",
+            "prompt": "Öz halına uyğun cavab ver və qarşı tərəfin halını soruş.",
+            "rule": {
+              "answers": [
+                "I’m OK, thanks. And you?"
+              ],
+              "goals": [
+                "askFeeling",
+                "feeling"
+              ]
+            },
+            "reply": "I’m fine, thanks."
+          }
+        ],
+        "explanation": "Uyğun cavab: I’m OK, thanks. And you?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d06_c10",
+          "number": 10,
+          "title": "Danışıq",
+          "body": "Yeni qarşılaşmada hal cavabı və əks sual ver.",
+          "source": "D06_Tam_Ders.md#Kart 10",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d06_c10",
+              "audio": "Hello. How are you?",
+              "prompt": "Yeni qarşılaşmada hal cavabı və əks sual ver.",
+              "rule": {
+                "answers": [
+                  "I’m fine/OK/not very well. And you?"
+                ],
+                "goals": [
+                  "askFeeling",
+                  "feeling"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: I’m fine/OK/not very well. And you?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c11",
+        "number": 11,
+        "title": "Şərti səhv təkrarı",
+        "body": "Çətinlik olan hissəni yeni vəziyyətdə məşq edək.",
+        "source": "D06_Tam_Ders.md#Kart 11",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d06_c12",
+        "number": 12,
+        "title": "Nəticə",
+        "body": "Öz halına uyğun cavab verməyi məşq etdin. [Faktiki altbacarıq nəticələri]",
+        "source": "D06_Tam_Ders.md#Kart 12",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "I’m OK.\nI’m not very well.": "Normalam. / Özümü çox yaxşı hiss etmirəm.",
+      "How are you?": "Necəsən?",
+      "Hi. How are you?": "Salam. Necəsən?"
+    },
+    "vocabulary": [
+      {
+        "word": "I’m OK / I am OK",
+        "translation": "Normalam / Yaxşıyam.",
+        "example": "I’m OK. And you?",
+        "exampleAz": "Normalam. Bəs sən?",
+        "usageNote": "Neytral hal cavabı; OK/okay yazılışları qəbul edilir.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "I’m not very well / I am not very well",
+        "translation": "Özümü çox yaxşı hiss etmirəm.",
+        "example": "I’m not very well.",
+        "exampleAz": "Özümü çox yaxşı hiss etmirəm.",
+        "usageNote": "Not inkarı dəyişir; müsbət rol tapşırığında uyğun deyil, açıq hal seçimində düzgündür.",
+        "pronunciation": "",
+        "lexical": true
+      }
+    ],
+    "version": "2026-11-05-v2"
+  },
+  {
+    "id": "a1_en_b1_20261105_v2_d07",
+    "order": 7,
+    "title": "Təşəkkür və qarşılıq",
+    "goal": "Təşəkkür edə və təşəkkürə qarşılıq verə bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "Təşəkkür etməyi və təşəkkürə cavab verməyi ayıracaqsan.",
+        "source": "D07_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c02",
+        "number": 2,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "Seçdiyin adı de və yeni tanışının adını soruş.",
+        "source": "D07_Tam_Ders.md#Kart 02",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "I’m [ad]. What’s your name?"
+          ],
+          "goals": [
+            "askName",
+            "introduce"
+          ]
+        },
+        "explanation": "Uyğun cavab: I’m [ad]. What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d07_c02",
+          "number": 2,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Başqa tədbirdə adını de və ad soruş.",
+          "source": "D07_Tam_Ders.md#Kart 02",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I’m [ad]. What is your name?"
+            ],
+            "goals": [
+              "askName",
+              "introduce"
+            ]
+          },
+          "explanation": "Uyğun cavab: I’m [ad]. What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c03",
+        "number": 3,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "How are you? mesajına hal cavabı ver və sualı geri qaytar.",
+        "source": "D07_Tam_Ders.md#Kart 03",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "I’m fine. And you?"
+          ],
+          "goals": [
+            "askFeeling",
+            "feeling"
+          ]
+        },
+        "explanation": "Uyğun cavab: I’m fine. And you?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d07_c03",
+          "number": 3,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Yeni tanışına öz seçdiyin halı de və onun halını soruş.",
+          "source": "D07_Tam_Ders.md#Kart 03",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I’m fine/OK/not very well. And you?"
+            ],
+            "goals": [
+              "askFeeling",
+              "feeling"
+            ]
+          },
+          "explanation": "Uyğun cavab: I’m fine/OK/not very well. And you?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c04",
+        "number": 4,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Thanks və Thank you təşəkkürdür; bunları əvvəl öyrəndin. Təşəkkürə You’re welcome — ‘Dəyməz’ deyə cavab verə bilərsən. You’re = You are. Your welcome bu qarşılığın düzgün yazılışı deyil.”",
+        "source": "D07_Tam_Ders.md#Kart 04",
+        "kind": "teach",
+        "board": "Thank you. → You’re welcome.\nYou’re welcome. = You are welcome.",
+        "examples": [
+          "Thank you.",
+          "You’re welcome."
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c05",
+        "number": 5,
+        "title": "Dinlə və seç",
+        "body": "İfadə nə bildirir?",
+        "source": "D07_Tam_Ders.md#Kart 05",
+        "kind": "task",
+        "options": [
+          "Təşəkkür",
+          "Ad soruşmaq"
+        ],
+        "rule": {
+          "answers": [
+            "Təşəkkür"
+          ],
+          "exact": true
+        },
+        "audio": "Thank you.",
+        "explanation": "Uyğun cavab: Təşəkkür",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d07_c05",
+          "number": 5,
+          "title": "Dinlə və seç",
+          "body": "Yeni danışanı dinlə.",
+          "source": "D07_Tam_Ders.md#Kart 05",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Təşəkkür"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Təşəkkür",
+          "options": [
+            "Təşəkkür",
+            "Sağollaşma"
+          ],
+          "audio": "Thanks!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c06",
+        "number": 6,
+        "title": "Dialoqda seç",
+        "body": "Qarşı tərəf: Thanks!\nTəşəkkürə cavab ver.",
+        "source": "D07_Tam_Ders.md#Kart 06",
+        "kind": "task",
+        "options": [
+          "Bye!",
+          "You’re welcome."
+        ],
+        "rule": {
+          "answers": [
+            "You’re welcome."
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: You’re welcome.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d07_c06",
+          "number": 6,
+          "title": "Dialoqda seç",
+          "body": "Mesaj: Thank you. Qarşılıq yaz.",
+          "source": "D07_Tam_Ders.md#Kart 06",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "You’re welcome.",
+              "You are welcome.",
+              "No problem."
+            ],
+            "goals": [
+              "welcome",
+              "noProblem"
+            ]
+          },
+          "explanation": "Uyğun cavab: You’re welcome."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c07",
+        "number": 7,
+        "title": "Situasiyada yaz",
+        "body": "Tanışın yerə düşmüş əşyanı sənə qaytardı. İngiliscə təşəkkür et.",
+        "source": "D07_Tam_Ders.md#Kart 07",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Thank you."
+          ],
+          "goals": [
+            "thanks"
+          ]
+        },
+        "explanation": "Uyğun cavab: Thank you.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d07_c07",
+          "number": 7,
+          "title": "Situasiyada yaz",
+          "body": "Tanışın sənə kömək etdi. Qısa təşəkkür yaz.",
+          "source": "D07_Tam_Ders.md#Kart 07",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Thanks.",
+              "Thank you."
+            ],
+            "goals": [
+              "thanks"
+            ]
+          },
+          "explanation": "Uyğun cavab: Thanks."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c08",
+        "number": 8,
+        "title": "Danışıq",
+        "body": "Maskot sənə təşəkkür edir. Səslə qarşılıq ver.",
+        "source": "D07_Tam_Ders.md#Kart 08",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d07_c08",
+            "audio": "Thank you!",
+            "prompt": "Maskot sənə təşəkkür edir. Səslə qarşılıq ver.\n\nGörünən nümunə: You’re welcome.",
+            "rule": {
+              "answers": [
+                "You’re welcome."
+              ],
+              "goals": [
+                "welcome"
+              ]
+            },
+            "sample": "You’re welcome."
+          }
+        ],
+        "explanation": "Uyğun cavab: You’re welcome.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d07_c08",
+          "number": 8,
+          "title": "Danışıq",
+          "body": "Başqa danışanın təşəkkürünə cavab ver.",
+          "source": "D07_Tam_Ders.md#Kart 08",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d07_c08",
+              "audio": "Thanks!",
+              "prompt": "Başqa danışanın təşəkkürünə cavab ver.",
+              "rule": {
+                "answers": [
+                  "You’re welcome.",
+                  "No problem."
+                ],
+                "goals": [
+                  "welcome",
+                  "noProblem"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: You’re welcome."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c09",
+        "number": 9,
+        "title": "Maskotun səhvini düzəlt",
+        "body": "Maskot təşəkkürə “Your welcome” yazıb. Düzəldib yaz.",
+        "source": "D07_Tam_Ders.md#Kart 09",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "You’re welcome."
+          ],
+          "goals": [
+            "welcome"
+          ]
+        },
+        "explanation": "Uyğun cavab: You’re welcome.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d07_c09",
+          "number": 9,
+          "title": "Maskotun səhvini düzəlt",
+          "body": "Təşəkkür qarşılığını düzəlt: Your welcome.",
+          "source": "D07_Tam_Ders.md#Kart 09",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "You’re welcome.",
+              "You are welcome."
+            ],
+            "goals": [
+              "welcome"
+            ]
+          },
+          "explanation": "Uyğun cavab: You’re welcome."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c10",
+        "number": 10,
+        "title": "Oxu və danışanı tap",
+        "body": "Sam: Thank you.\nAlex: You’re welcome.\nKim təşəkkür edir?",
+        "source": "D07_Tam_Ders.md#Kart 10",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Sam"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Sam",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d07_c10",
+          "number": 10,
+          "title": "Oxu və danışanı tap",
+          "body": "Alex: Thanks. Sam: You’re welcome. Kim qarşılıq verir?",
+          "source": "D07_Tam_Ders.md#Kart 10",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Sam"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Sam"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c11",
+        "number": 11,
+        "title": "Danışıq",
+        "body": "Tanışın sənə təşəkkür edir. Nümunəsiz qarşılıq ver.",
+        "source": "D07_Tam_Ders.md#Kart 11",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d07_c11",
+            "audio": "Thank you.",
+            "prompt": "Tanışın sənə təşəkkür edir. Nümunəsiz qarşılıq ver.",
+            "rule": {
+              "answers": [
+                "You’re welcome."
+              ],
+              "goals": [
+                "welcome"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: You’re welcome.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d07_c11",
+          "number": 11,
+          "title": "Danışıq",
+          "body": "Başqa təşəkkürə səslə qarşılıq ver.",
+          "source": "D07_Tam_Ders.md#Kart 11",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d07_c11",
+              "audio": "Thanks!",
+              "prompt": "Başqa təşəkkürə səslə qarşılıq ver.",
+              "rule": {
+                "answers": [
+                  "You’re welcome."
+                ],
+                "goals": [
+                  "welcome"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: You’re welcome."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c12",
+        "number": 12,
+        "title": "Şərti səhv təkrarı",
+        "body": "Çətinlik olan hissəni yeni vəziyyətdə məşq edək.",
+        "source": "D07_Tam_Ders.md#Kart 12",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d07_c13",
+        "number": 13,
+        "title": "Nəticə",
+        "body": "Təşəkkürü və qarşılığını məşq etdin. [Faktiki altbacarıq nəticələri]",
+        "source": "D07_Tam_Ders.md#Kart 13",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "Thank you.\nYou’re welcome.": "Təşəkkür edirəm. / Dəyməz.",
+      "Thank you.": "Təşəkkür edirəm.",
+      "Thank you!": "Təşəkkür edirəm!"
+    },
+    "vocabulary": [
+      {
+        "word": "You’re welcome / You are welcome",
+        "translation": "Dəyməz.",
+        "example": "Thank you. — You’re welcome.",
+        "exampleAz": "Təşəkkür edirəm. — Dəyməz.",
+        "usageNote": "Təşəkkürə qarşılıq. “Xoş gəlmisən” tərcüməsi bu ifadə üçün verilməməlidir.",
+        "pronunciation": "",
+        "lexical": true
+      }
+    ],
+    "version": "2026-11-05-v2"
+  },
+  {
+    "id": "a1_en_b1_20261105_v2_d08",
+    "order": 8,
+    "title": "Nəzakətli xahiş",
+    "goal": "Diqqəti nəzakətlə çəkə və adını please ilə istəyə bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "Diqqət çəkməyi və nəzakətli ad xahişi etməyi öyrənəcəksən.",
+        "source": "D08_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c02",
+        "number": 2,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "Seçdiyin adı de və yeni tanışının adını soruş.",
+        "source": "D08_Tam_Ders.md#Kart 02",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "I’m [ad]. What’s your name?"
+          ],
+          "goals": [
+            "askName",
+            "introduce"
+          ]
+        },
+        "explanation": "Uyğun cavab: I’m [ad]. What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d08_c02",
+          "number": 2,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Başqa tədbirdə adını de və ad soruş.",
+          "source": "D08_Tam_Ders.md#Kart 02",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I’m [ad]. What is your name?"
+            ],
+            "goals": [
+              "askName",
+              "introduce"
+            ]
+          },
+          "explanation": "Uyğun cavab: I’m [ad]. What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c03",
+        "number": 3,
+        "title": "Başlanğıc təkrarı — seç",
+        "body": "Qarşı tərəf Thanks deyir. Qarşılıq seç:",
+        "source": "D08_Tam_Ders.md#Kart 03",
+        "kind": "task",
+        "options": [
+          "You’re welcome.",
+          "What’s your name?"
+        ],
+        "rule": {
+          "answers": [
+            "You’re welcome."
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: You’re welcome.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d08_c03",
+          "number": 3,
+          "title": "Başlanğıc təkrarı — seç",
+          "body": "Thank you mesajına qısa qarşılıq yaz.",
+          "source": "D08_Tam_Ders.md#Kart 03",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "You’re welcome.",
+              "No problem."
+            ],
+            "goals": [
+              "welcome",
+              "noProblem"
+            ]
+          },
+          "explanation": "Uyğun cavab: You’re welcome."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c04",
+        "number": 4,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Please ‘zəhmət olmasa’ deməkdir. Qeydiyyat rolunda Your name, please — ‘Adınız, zəhmət olmasa’ deyə bilərsən. Sakit, mehriban ton işlət; please hər sərt ifadəni avtomatik nəzakətli etmir.”",
+        "source": "D08_Tam_Ders.md#Kart 04",
+        "kind": "teach",
+        "board": "Your name, please. — Adınız, zəhmət olmasa.\nWhat’s your name, please? — Adınız nədir, zəhmət olmasa?",
+        "examples": [
+          "Your name, please.",
+          "What’s your name, please?"
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c05",
+        "number": 5,
+        "title": "Sözlərdən ifadə qur",
+        "body": "Qeydiyyatda adı nəzakətlə istə:",
+        "source": "D08_Tam_Ders.md#Kart 05",
+        "kind": "task",
+        "words": [
+          "please",
+          "Your",
+          "name"
+        ],
+        "rule": {
+          "answers": [
+            "Your name, please."
+          ],
+          "goals": [
+            "politeName"
+          ]
+        },
+        "explanation": "Uyğun cavab: Your name, please.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d08_c05",
+          "number": 5,
+          "title": "Sözlərdən ifadə qur",
+          "body": "Nəzakətli ad xahişini qur: name / Your / please",
+          "source": "D08_Tam_Ders.md#Kart 05",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Your name, please.",
+              "Please, your name."
+            ],
+            "goals": [
+              "politeName"
+            ]
+          },
+          "explanation": "Uyğun cavab: Your name, please."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c06",
+        "number": 6,
+        "title": "Situasiyada yaz",
+        "body": "Qeydiyyat oyunu: yeni gələnin adını istə. Bu məşqdə please sözünü də işlət.",
+        "source": "D08_Tam_Ders.md#Kart 06",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Your name, please."
+          ],
+          "goals": [
+            "politeName"
+          ]
+        },
+        "explanation": "Uyğun cavab: Your name, please.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d08_c06",
+          "number": 6,
+          "title": "Situasiyada yaz",
+          "body": "Başqa qeydiyyat rolunda qarşı tərəfin adını please ilə istə.",
+          "source": "D08_Tam_Ders.md#Kart 06",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Your name, please.",
+              "What is your name, please?"
+            ],
+            "goals": [
+              "politeName"
+            ]
+          },
+          "explanation": "Uyğun cavab: Your name, please."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c07",
+        "number": 7,
+        "title": "Danışıq",
+        "body": "Qeydiyyat rolundasan. Qarşı tərəfdən adını nəzakətlə istə; please işlət.",
+        "source": "D08_Tam_Ders.md#Kart 07",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d08_c07",
+            "audio": "Hello!",
+            "prompt": "Qeydiyyat rolundasan. Qarşı tərəfdən adını nəzakətlə istə; please işlət.",
+            "rule": {
+              "answers": [
+                "Your name, please."
+              ],
+              "goals": [
+                "politeName"
+              ]
+            },
+            "reply": "My name is Alex."
+          }
+        ],
+        "explanation": "Uyğun cavab: Your name, please.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d08_c07",
+          "number": 7,
+          "title": "Danışıq",
+          "body": "Yeni qonaqdan adını please ilə istə.",
+          "source": "D08_Tam_Ders.md#Kart 07",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d08_c07",
+              "audio": "Hi!",
+              "prompt": "Yeni qonaqdan adını please ilə istə.",
+              "rule": {
+                "answers": [
+                  "Your name, please.",
+                  "What’s your name, please?"
+                ],
+                "goals": [
+                  "politeName"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Your name, please."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c08",
+        "number": 8,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Birinin diqqətini nəzakətlə çəkmək üçün Excuse me de. Sonra bildiyin sualı verə bilərsən.”",
+        "source": "D08_Tam_Ders.md#Kart 08",
+        "kind": "teach",
+        "board": "Excuse me. — Bağışlayın.\nExcuse me. What’s your name?",
+        "examples": [
+          "Excuse me.",
+          "Excuse me. What’s your name?"
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c09",
+        "number": 9,
+        "title": "Uyğun ifadəni seç",
+        "body": "Tanımadığın şəxsin diqqətini sual vermək üçün çəkmək istəyirsən.",
+        "source": "D08_Tam_Ders.md#Kart 09",
+        "kind": "task",
+        "options": [
+          "You’re welcome.",
+          "Excuse me."
+        ],
+        "rule": {
+          "answers": [
+            "Excuse me."
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Excuse me.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d08_c09",
+          "number": 9,
+          "title": "Uyğun ifadəni seç",
+          "body": "Yeni tanışının diqqətini nəzakətlə çəkmək üçün qısa ifadə yaz.",
+          "source": "D08_Tam_Ders.md#Kart 09",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Excuse me."
+            ],
+            "goals": [
+              "attention"
+            ]
+          },
+          "explanation": "Uyğun cavab: Excuse me."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c10",
+        "number": 10,
+        "title": "Situasiyada yaz",
+        "body": "Yeni tanışının diqqətini nəzakətlə çək, sonra onun adını soruş.",
+        "source": "D08_Tam_Ders.md#Kart 10",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Excuse me. What’s your name?"
+          ],
+          "goals": [
+            "askName",
+            "attention"
+          ]
+        },
+        "explanation": "Uyğun cavab: Excuse me. What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d08_c10",
+          "number": 10,
+          "title": "Situasiyada yaz",
+          "body": "Başqa tanışının diqqətini çək və adını soruş.",
+          "source": "D08_Tam_Ders.md#Kart 10",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Excuse me. What is your name?"
+            ],
+            "goals": [
+              "askName",
+              "attention"
+            ]
+          },
+          "explanation": "Uyğun cavab: Excuse me. What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c11",
+        "number": 11,
+        "title": "Danışıq",
+        "body": "Sakit bir tanışlıq yerində qarşı tərəfin diqqətini nəzakətlə çək və adını soruş.",
+        "source": "D08_Tam_Ders.md#Kart 11",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d08_c11",
+            "audio": "",
+            "prompt": "Sakit bir tanışlıq yerində qarşı tərəfin diqqətini nəzakətlə çək və adını soruş.",
+            "rule": {
+              "answers": [
+                "Excuse me. What’s your name, please?"
+              ],
+              "goals": [
+                "politeName"
+              ]
+            },
+            "reply": "My name is Alex."
+          }
+        ],
+        "explanation": "Uyğun cavab: Excuse me. What’s your name, please?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d08_c11",
+          "number": 11,
+          "title": "Danışıq",
+          "body": "Başqa tanışının diqqətini çək və adını səslə soruş.",
+          "source": "D08_Tam_Ders.md#Kart 11",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d08_c11",
+              "audio": "",
+              "prompt": "Başqa tanışının diqqətini çək və adını səslə soruş.",
+              "rule": {
+                "answers": [
+                  "Excuse me. What is your name?"
+                ],
+                "goals": [
+                  "askName",
+                  "attention"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Excuse me. What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c12",
+        "number": 12,
+        "title": "Şərti səhv təkrarı",
+        "body": "Çətinlik olan hissəni yeni vəziyyətdə məşq edək.",
+        "source": "D08_Tam_Ders.md#Kart 12",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d08_c13",
+        "number": 13,
+        "title": "Nəticə",
+        "body": "Nəzakətli ad xahişini məşq etdin. [Faktiki altbacarıq nəticələri]",
+        "source": "D08_Tam_Ders.md#Kart 13",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "Your name, please.\nWhat’s your name, please?": "Adınız, zəhmət olmasa. / Adınız nədir, zəhmət olmasa.",
+      "Hello!": "Salam!",
+      "Excuse me.\nExcuse me. What’s your name?": "Bağışlayın. / Bağışlayın. Adınız nədir?"
+    },
+    "vocabulary": [
+      {
+        "word": "please",
+        "translation": "Zəhmət olmasa.",
+        "example": "Your name, please.",
+        "exampleAz": "Adınız, zəhmət olmasa.",
+        "usageNote": "Nəzakətli xahişin hissəsi; ton da vacibdir.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "Excuse me",
+        "translation": "Bağışlayın.",
+        "example": "Excuse me. What’s your name?",
+        "exampleAz": "Bağışlayın. Adınız nədir?",
+        "usageNote": "Burada diqqət çəkmək üçün; başqa kontekstlərdə başqa uyğun funksiyaları da var.",
+        "pronunciation": "",
+        "lexical": true
+      }
+    ],
+    "version": "2026-11-05-v2"
+  },
+  {
+    "id": "a1_en_b1_20261105_v2_d09",
+    "order": 9,
+    "title": "Üzr və qarşılıq",
+    "goal": "Kiçik səhvə görə üzr istəyə və üzrü qəbul edə bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "Üzr istəməyi və üzrə uyğun cavab verməyi öyrənəcəksən.",
+        "source": "D09_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c02",
+        "number": 2,
+        "title": "Başlanğıc təkrarı — seç",
+        "body": "Qarşı tərəf Thanks deyir. Qarşılıq seç:",
+        "source": "D09_Tam_Ders.md#Kart 02",
+        "kind": "task",
+        "options": [
+          "You’re welcome.",
+          "What’s your name?"
+        ],
+        "rule": {
+          "answers": [
+            "You’re welcome."
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: You’re welcome.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d09_c02",
+          "number": 2,
+          "title": "Başlanğıc təkrarı — seç",
+          "body": "Thank you mesajına qısa qarşılıq yaz.",
+          "source": "D09_Tam_Ders.md#Kart 02",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "You’re welcome.",
+              "No problem."
+            ],
+            "goals": [
+              "welcome",
+              "noProblem"
+            ]
+          },
+          "explanation": "Uyğun cavab: You’re welcome."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c03",
+        "number": 3,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "Yeni tanışının adını soruşan bir sual yaz.",
+        "source": "D09_Tam_Ders.md#Kart 03",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "What’s your name?"
+          ],
+          "goals": [
+            "askName"
+          ]
+        },
+        "explanation": "Uyğun cavab: What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d09_c03",
+          "number": 3,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Qonağın adını öyrənmək üçün sual yaz.",
+          "source": "D09_Tam_Ders.md#Kart 03",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "What is your name?"
+            ],
+            "goals": [
+              "askName"
+            ]
+          },
+          "explanation": "Uyğun cavab: What is your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c04",
+        "number": 4,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Kiçik səhvə görə Sorry və ya I’m sorry deyə bilərsən: ‘Üzr istəyirəm’. Excuse me bəzi vəziyyətlərdə də üzr bildirə bilər; burada Sorry-ni əsas nümunə kimi öyrənirik.”",
+        "source": "D09_Tam_Ders.md#Kart 04",
+        "kind": "teach",
+        "board": "Sorry. / I’m sorry. — Üzr istəyirəm.",
+        "examples": [
+          "Sorry.",
+          "I’m sorry."
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c05",
+        "number": 5,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Kiçik səhvə görə kimsə üzr istəyirsə və eybi yoxdursa, No problem de. Bu ifadə gündəlik danışıqda təşəkkürə qarşılıq da ola bilər.”",
+        "source": "D09_Tam_Ders.md#Kart 05",
+        "kind": "teach",
+        "board": "Sorry. → No problem.\nThank you. → No problem.\nNo problem. — Eybi yoxdur / Dəyməz.",
+        "examples": [
+          "Sorry.",
+          "No problem.",
+          "Thank you.",
+          "No problem."
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c06",
+        "number": 6,
+        "title": "Maskotun səhvini düzəlt",
+        "body": "Maskot təsadüfən kiməsə toxunub. Üzr istəmək əvəzinə “Thank you” deyir. Uyğun ifadə yaz.",
+        "source": "D09_Tam_Ders.md#Kart 06",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Sorry."
+          ],
+          "goals": [
+            "sorry"
+          ]
+        },
+        "explanation": "Uyğun cavab: Sorry.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d09_c06",
+          "number": 6,
+          "title": "Maskotun səhvini düzəlt",
+          "body": "Tanışına təsadüfən toxundun. İngiliscə üzr istə.",
+          "source": "D09_Tam_Ders.md#Kart 06",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Sorry.",
+              "I’m sorry.",
+              "Excuse me."
+            ],
+            "goals": [
+              "sorry",
+              "attention"
+            ]
+          },
+          "explanation": "Uyğun cavab: Sorry."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c07",
+        "number": 7,
+        "title": "Dinlə və qarşılıq yaz",
+        "body": "Tanışın kiçik səhvə görə üzr istəyir. Sənə görə eybi yoxdur. Dinlə və cavab yaz.",
+        "source": "D09_Tam_Ders.md#Kart 07",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "No problem."
+          ],
+          "exact": true
+        },
+        "audio": "I’m sorry.",
+        "explanation": "Uyğun cavab: No problem.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d09_c07",
+          "number": 7,
+          "title": "Dinlə və qarşılıq yaz",
+          "body": "Yeni üzr mesajına eybi olmadığını bildirən cavab yaz.",
+          "source": "D09_Tam_Ders.md#Kart 07",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "No problem.",
+              "That’s OK."
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: No problem.",
+          "audio": "Sorry!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c08",
+        "number": 8,
+        "title": "Danışıq",
+        "body": "Maskot kiçik səhvə görə üzr istəyir. Sənin üçün eybi yoxdur; qarşılıq ver.",
+        "source": "D09_Tam_Ders.md#Kart 08",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d09_c08",
+            "audio": "Sorry!",
+            "prompt": "Maskot kiçik səhvə görə üzr istəyir. Sənin üçün eybi yoxdur; qarşılıq ver.",
+            "rule": {
+              "answers": [
+                "No problem."
+              ],
+              "goals": [
+                "noProblem"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: No problem.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d09_c08",
+          "number": 8,
+          "title": "Danışıq",
+          "body": "Başqa üzr mesajına səslə qarşılıq ver.",
+          "source": "D09_Tam_Ders.md#Kart 08",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d09_c08",
+              "audio": "I’m sorry.",
+              "prompt": "Başqa üzr mesajına səslə qarşılıq ver.",
+              "rule": {
+                "answers": [
+                  "No problem.",
+                  "That’s OK."
+                ],
+                "goals": [
+                  "noProblem"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: No problem."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c09",
+        "number": 9,
+        "title": "Oxu və danışanı tap",
+        "body": "Sam: Sorry.\nAlex: No problem.\nKim üzr istəyir?",
+        "source": "D09_Tam_Ders.md#Kart 09",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Sam"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Sam",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d09_c09",
+          "number": 9,
+          "title": "Oxu və danışanı tap",
+          "body": "Alex: Sorry. Sam: No problem. Kim eybi olmadığını bildirir?",
+          "source": "D09_Tam_Ders.md#Kart 09",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Sam"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Sam"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c10",
+        "number": 10,
+        "title": "Maskotun səhvini düzəlt",
+        "body": "Tanışın kiçik səhvə görə “Sorry” deyir. Maskot eybi olmadığını bildirmək istəyir, amma “Goodbye” yazır. Uyğun qarşılıq yaz.",
+        "source": "D09_Tam_Ders.md#Kart 10",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "No problem."
+          ],
+          "goals": [
+            "noProblem"
+          ]
+        },
+        "explanation": "Uyğun cavab: No problem.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d09_c10",
+          "number": 10,
+          "title": "Maskotun səhvini düzəlt",
+          "body": "Tanışın üzr istəyir. Eybi olmadığını bildirən cavab yaz.",
+          "source": "D09_Tam_Ders.md#Kart 10",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "No problem.",
+              "That’s OK."
+            ],
+            "goals": [
+              "noProblem"
+            ]
+          },
+          "explanation": "Uyğun cavab: No problem."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c11",
+        "number": 11,
+        "title": "Danışıq",
+        "body": "Rol: tanışına təsadüfən toxundun. Üzr istə.",
+        "source": "D09_Tam_Ders.md#Kart 11",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d09_c11",
+            "audio": "",
+            "prompt": "Rol: tanışına təsadüfən toxundun. Üzr istə.",
+            "rule": {
+              "answers": [
+                "Sorry."
+              ],
+              "goals": [
+                "sorry"
+              ]
+            },
+            "reply": "No problem."
+          }
+        ],
+        "explanation": "Uyğun cavab: Sorry.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d09_c11",
+          "number": 11,
+          "title": "Danışıq",
+          "body": "Başqa görüşdə kiçik səhvə görə üzr istə.",
+          "source": "D09_Tam_Ders.md#Kart 11",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d09_c11",
+              "audio": "",
+              "prompt": "Başqa görüşdə kiçik səhvə görə üzr istə.",
+              "rule": {
+                "answers": [
+                  "Sorry.",
+                  "I’m sorry."
+                ],
+                "goals": [
+                  "sorry"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Sorry."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c12",
+        "number": 12,
+        "title": "Şərti səhv təkrarı",
+        "body": "Çətinlik olan hissəni yeni vəziyyətdə məşq edək.",
+        "source": "D09_Tam_Ders.md#Kart 12",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d09_c13",
+        "number": 13,
+        "title": "Nəticə",
+        "body": "Üzr istəməyi və qəbul etməyi məşq etdin. [Faktiki altbacarıq nəticələri]",
+        "source": "D09_Tam_Ders.md#Kart 13",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "Sorry.\nI’m sorry.": "Üzr istəyirəm. / Üzr istəyirəm.",
+      "Sorry.\nNo problem.\nThank you.\nNo problem.": "Üzr istəyirəm. / Eybi yoxdur. / Təşəkkür edirəm. / Dəyməz.",
+      "I’m sorry.": "Üzr istəyirəm.",
+      "Sorry!": "Üzr istəyirəm!"
+    },
+    "vocabulary": [
+      {
+        "word": "Sorry / I’m sorry / I am sorry",
+        "translation": "Üzr istəyirəm.",
+        "example": "Sorry. — No problem.",
+        "exampleAz": "Üzr istəyirəm. — Eybi yoxdur.",
+        "usageNote": "Bu dərsdə kiçik səhvə görə üzr. Sorry? başqa kontekstdə təkrar istəyə bilər.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "No problem",
+        "translation": "Eybi yoxdur / Dəyməz.",
+        "example": "Thanks. — No problem.",
+        "exampleAz": "Təşəkkürlər. — Dəyməz.",
+        "usageNote": "Həm üzrə, həm təşəkkürə gündəlik qarşılıq; kontekst tərcüməni müəyyən edir.",
+        "pronunciation": "",
+        "lexical": true
+      }
+    ],
+    "version": "2026-11-05-v2"
+  },
+  {
+    "id": "a1_en_b1_20261105_v2_d10",
+    "order": 10,
+    "title": "Anlamama və təkrar xahişi",
+    "goal": "Anlamadığımı bildirə və deyiləni təkrar istəyə bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "Anlamadığını bildirməyi və bir də deməsini istəməyi öyrənəcəksən.",
+        "source": "D10_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c02",
+        "number": 2,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "How are you? mesajına hal cavabı ver və sualı geri qaytar.",
+        "source": "D10_Tam_Ders.md#Kart 02",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "I’m fine. And you?"
+          ],
+          "goals": [
+            "askFeeling",
+            "feeling"
+          ]
+        },
+        "explanation": "Uyğun cavab: I’m fine. And you?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d10_c02",
+          "number": 2,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Başqa tanışına hal cavabı və əks sual yaz.",
+          "source": "D10_Tam_Ders.md#Kart 02",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I’m fine/OK/not very well. And you?"
+            ],
+            "goals": [
+              "askFeeling",
+              "feeling"
+            ]
+          },
+          "explanation": "Uyğun cavab: I’m fine/OK/not very well. And you?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c03",
+        "number": 3,
+        "title": "Başlanğıc təkrarı — seç",
+        "body": "Qarşı tərəf Thanks deyir. Qarşılıq seç:",
+        "source": "D10_Tam_Ders.md#Kart 03",
+        "kind": "task",
+        "options": [
+          "You’re welcome.",
+          "What’s your name?"
+        ],
+        "rule": {
+          "answers": [
+            "You’re welcome."
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: You’re welcome.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d10_c03",
+          "number": 3,
+          "title": "Başlanğıc təkrarı — seç",
+          "body": "Thank you mesajına qısa qarşılıq yaz.",
+          "source": "D10_Tam_Ders.md#Kart 03",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "You’re welcome.",
+              "No problem."
+            ],
+            "goals": [
+              "welcome",
+              "noProblem"
+            ]
+          },
+          "explanation": "Uyğun cavab: You’re welcome."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c04",
+        "number": 4,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Anlamadığını I don’t understand ilə bildir. Don’t burada do not formasının qısasıdır. Understand ‘anlamaq’dır; don’t məhz bu cümləni inkar edir. Bu ifadə özü açıq təkrar xahişi deyil.”",
+        "source": "D10_Tam_Ders.md#Kart 04",
+        "kind": "teach",
+        "board": "I don’t understand. = I do not understand.\nAnlamıram.",
+        "examples": [
+          "I don’t understand.",
+          "I do not understand."
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c05",
+        "number": 5,
+        "title": "Dinlə və mənanı seç",
+        "body": "Danışan nə bildirir?",
+        "source": "D10_Tam_Ders.md#Kart 05",
+        "kind": "task",
+        "options": [
+          "Anlamadığını",
+          "Yaxşı olduğunu"
+        ],
+        "rule": {
+          "answers": [
+            "Anlamadığını"
+          ],
+          "exact": true
+        },
+        "audio": "I don’t understand.",
+        "explanation": "Uyğun cavab: Anlamadığını",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d10_c05",
+          "number": 5,
+          "title": "Dinlə və mənanı seç",
+          "body": "Yeni səsi dinlə.",
+          "source": "D10_Tam_Ders.md#Kart 05",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Anlamadığını bildirir."
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Anlamadığını bildirir.",
+          "options": [
+            "Öz adını deyir.",
+            "Anlamadığını bildirir."
+          ],
+          "audio": "I do not understand."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c06",
+        "number": 6,
+        "title": "Situasiyada yaz",
+        "body": "Qarşı tərəfin dediyinin mənasını anlamırsan. Bunu ingiliscə bildir.",
+        "source": "D10_Tam_Ders.md#Kart 06",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "I don’t understand."
+          ],
+          "goals": [
+            "dontUnderstand"
+          ]
+        },
+        "explanation": "Uyğun cavab: I don’t understand.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d10_c06",
+          "number": 6,
+          "title": "Situasiyada yaz",
+          "body": "Yeni izahı anlamadığını bir cümlə ilə yaz.",
+          "source": "D10_Tam_Ders.md#Kart 06",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I don’t understand.",
+              "I do not understand."
+            ],
+            "goals": [
+              "dontUnderstand"
+            ]
+          },
+          "explanation": "Uyğun cavab: I don’t understand."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c07",
+        "number": 7,
+        "title": "Danışıq",
+        "body": "Rol: deyilən sualın mənasını anlamırsan. Bunu bildir.",
+        "source": "D10_Tam_Ders.md#Kart 07",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d10_c07",
+            "audio": "What’s your name?",
+            "prompt": "Rol: deyilən sualın mənasını anlamırsan. Bunu bildir.\n\nGörünən nümunə: I don’t understand.",
+            "rule": {
+              "answers": [
+                "I don’t understand."
+              ],
+              "goals": [
+                "dontUnderstand"
+              ]
+            },
+            "sample": "I don’t understand."
+          }
+        ],
+        "explanation": "Uyğun cavab: I don’t understand.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d10_c07",
+          "number": 7,
+          "title": "Danışıq",
+          "body": "Başqa sualı anlamadığını səslə bildir.",
+          "source": "D10_Tam_Ders.md#Kart 07",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d10_c07",
+              "audio": "How are you?",
+              "prompt": "Başqa sualı anlamadığını səslə bildir.",
+              "rule": {
+                "answers": [
+                  "I don’t understand."
+                ],
+                "goals": [
+                  "dontUnderstand"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: I don’t understand."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c08",
+        "number": 8,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Bir daha deməsini istəmək üçün Could you say that again, please? de. Qısa Again, please də mümkündür. Again ‘yenidən’ deməkdir. Burada Could you bütöv nəzakətli xahiş kimi öyrənilir.”",
+        "source": "D10_Tam_Ders.md#Kart 08",
+        "kind": "teach",
+        "board": "Could you say that again, please? — Bir də deyə bilərsiniz, zəhmət olmasa?\nAgain, please. — Bir də, zəhmət olmasa.",
+        "examples": [
+          "Could you say that again, please?",
+          "Again, please."
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c09",
+        "number": 9,
+        "title": "Hissələrdən xahiş qur",
+        "body": "Təkrar istə. Hissələri sıraya düz:\nplease / say that / Could you / again",
+        "source": "D10_Tam_Ders.md#Kart 09",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Could you say that again, please?"
+          ],
+          "goals": [
+            "repeat"
+          ]
+        },
+        "explanation": "Uyğun cavab: Could you say that again, please?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d10_c09",
+          "number": 9,
+          "title": "Hissələrdən xahiş qur",
+          "body": "Tam xahişdə iki hissəni yerləşdir: Could you ___ ___, please? Hissələr: again / say that",
+          "source": "D10_Tam_Ders.md#Kart 09",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Could you say that again, please?"
+            ],
+            "goals": [
+              "repeat"
+            ]
+          },
+          "explanation": "Uyğun cavab: Could you say that again, please?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c10",
+        "number": 10,
+        "title": "Boşluğu yaz",
+        "body": "Təkrar xahişini tamamla: Could you say that ___, please?",
+        "source": "D10_Tam_Ders.md#Kart 10",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "again"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: again",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d10_c10",
+          "number": 10,
+          "title": "Boşluğu yaz",
+          "body": "Yenidən deməsini istəyən xahişdə çatmayan hissəni yaz: Could you say it ___, please?",
+          "source": "D10_Tam_Ders.md#Kart 10",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "again",
+              "once more",
+              "one more time"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: again"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c11",
+        "number": 11,
+        "title": "Danışıq",
+        "body": "Rol məşqi: ad təqdimatını dəqiq eşitmədiyini təsəvvür et. Bir də deməsini istə.",
+        "source": "D10_Tam_Ders.md#Kart 11",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d10_c11",
+            "audio": "I’m Alex.",
+            "prompt": "Rol məşqi: ad təqdimatını dəqiq eşitmədiyini təsəvvür et. Bir də deməsini istə.\n\nGörünən nümunə: Could you say that again, please?",
+            "rule": {
+              "answers": [
+                "Could you say that again, please?"
+              ],
+              "goals": [
+                "repeat"
+              ]
+            },
+            "sample": "Could you say that again, please?",
+            "reply": "I’m Alex."
+          }
+        ],
+        "explanation": "Uyğun cavab: Could you say that again, please?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d10_c11",
+          "number": 11,
+          "title": "Danışıq",
+          "body": "Yeni ad təqdimatının təkrarını istə.",
+          "source": "D10_Tam_Ders.md#Kart 11",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d10_c11",
+              "audio": "My name is Sam.",
+              "prompt": "Yeni ad təqdimatının təkrarını istə.",
+              "rule": {
+                "answers": [
+                  "Again, please.",
+                  "Could you say it again, please?"
+                ],
+                "goals": [
+                  "repeat"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Again, please."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c12",
+        "number": 12,
+        "title": "Məqsədi seç",
+        "body": "Qarşı tərəf dediyini bir daha desin istəyirsən.",
+        "source": "D10_Tam_Ders.md#Kart 12",
+        "kind": "task",
+        "options": [
+          "Again, please.",
+          "I’m fine."
+        ],
+        "rule": {
+          "answers": [
+            "Again, please."
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Again, please.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d10_c12",
+          "number": 12,
+          "title": "Məqsədi seç",
+          "body": "Başqa danışandan dediyini yenidən deməsini istəyən qısa ifadə yaz.",
+          "source": "D10_Tam_Ders.md#Kart 12",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Again, please.",
+              "Could you say it again, please?"
+            ],
+            "goals": [
+              "repeat"
+            ]
+          },
+          "explanation": "Uyğun cavab: Again, please."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c13",
+        "number": 13,
+        "title": "Qısa dialoqu oxu",
+        "body": "A: I’m Sam.\nB: Again, please.\nA: I’m Sam.\nNə təkrar olundu?",
+        "source": "D10_Tam_Ders.md#Kart 13",
+        "kind": "task",
+        "options": [
+          "Ad təqdimatı",
+          "Hal cavabı"
+        ],
+        "rule": {
+          "answers": [
+            "Ad təqdimatı"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Ad təqdimatı",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d10_c13",
+          "number": 13,
+          "title": "Qısa dialoqu oxu",
+          "body": "Oxu: A: Hi! B: Again, please. A: Hi! Nə təkrar olundu?",
+          "source": "D10_Tam_Ders.md#Kart 13",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Salam"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Salam",
+          "options": [
+            "Salam",
+            "Ad"
+          ]
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c14",
+        "number": 14,
+        "title": "Danışıq",
+        "body": "Rol məşqi: sualı anlamırsan. Əvvəl bunu bildir, sonra bir də deməsini istə.",
+        "source": "D10_Tam_Ders.md#Kart 14",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d10_c14",
+            "audio": "How are you?",
+            "prompt": "Rol məşqi: sualı anlamırsan. Əvvəl bunu bildir, sonra bir də deməsini istə.",
+            "rule": {
+              "answers": [
+                "I don’t understand. Could you say that again, please?"
+              ],
+              "goals": [
+                "dontUnderstand",
+                "repeat"
+              ]
+            },
+            "reply": "How are you?"
+          }
+        ],
+        "explanation": "Uyğun cavab: I don’t understand. Could you say that again, please?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d10_c14",
+          "number": 14,
+          "title": "Danışıq",
+          "body": "Yeni rol: sualı anlamadığını bildir və təkrar istə.",
+          "source": "D10_Tam_Ders.md#Kart 14",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d10_c14",
+              "audio": "What’s your name?",
+              "prompt": "Yeni rol: sualı anlamadığını bildir və təkrar istə.",
+              "rule": {
+                "answers": [
+                  "I don’t understand. Again, please."
+                ],
+                "goals": [
+                  "dontUnderstand",
+                  "repeat"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: I don’t understand. Again, please."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c15",
+        "number": 15,
+        "title": "Şərti səhv təkrarı",
+        "body": "Çətinlik olan hissəni yeni vəziyyətdə məşq edək.",
+        "source": "D10_Tam_Ders.md#Kart 15",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d10_c16",
+        "number": 16,
+        "title": "Nəticə",
+        "body": "Anlamama və təkrar xahişini məşq etdin. [Faktiki altbacarıq nəticələri]",
+        "source": "D10_Tam_Ders.md#Kart 16",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "I don’t understand.\nI do not understand.": "Anlamıram. / Anlamıram.",
+      "I don’t understand.": "Anlamıram.",
+      "What’s your name?": "Adın nədir?",
+      "Could you say that again, please?\nAgain, please.": "Bir də deyə bilərsiniz, zəhmət olmasa? / Bir də, zəhmət olmasa.",
+      "I’m Alex.": "Mən Aleksəm.",
+      "How are you?": "Necəsən?"
+    },
+    "vocabulary": [
+      {
+        "word": "I don’t understand / I do not understand",
+        "translation": "Anlamıram.",
+        "example": "Sorry, I don’t understand.",
+        "exampleAz": "Üzr istəyirəm, anlamıram.",
+        "usageNote": "Anlamama bildirir; açıq təkrar xahişi ilə eyni deyil.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "Could you say that again, please?",
+        "translation": "Bir də deyə bilərsiniz, zəhmət olmasa?.",
+        "example": "I don’t understand. Could you say that again, please?",
+        "exampleAz": "Anlamıram. Bir də deyə bilərsiniz, zəhmət olmasa?",
+        "usageNote": "Bütöv təkrar xahişi. Could you say it again, please? də kontekstdə uyğundur.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "Again, please",
+        "translation": "Bir də, zəhmət olmasa.",
+        "example": "I’m Sam. — Again, please.",
+        "exampleAz": "Mən Samam. — Bir də, zəhmət olmasa.",
+        "usageNote": "Kontekstdən məlum əvvəlki replikanın təkrarı üçün qısa xahiş.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "understand",
+        "translation": "Anlamaq.",
+        "example": "I don’t understand.",
+        "exampleAz": "Anlamıram.",
+        "usageNote": "Understand təkbaşına inkarlı deyil; don’t inkar yaradır.",
+        "pronunciation": "",
+        "lexical": true
+      }
+    ],
+    "version": "2026-11-05-v2"
+  },
+  {
+    "id": "a1_en_b1_20261105_v2_d11",
+    "order": 11,
+    "title": "Yavaş danışıq istəmək",
+    "goal": "Daha yavaş danışıq və yavaş təkrar istəyə, sonra sadə suala qayıda bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "Sürət çətinlik yaradanda daha yavaş danışmağı istəməyi öyrənəcəksən.",
+        "source": "D11_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c02",
+        "number": 2,
+        "title": "Başlanğıc təkrarı — yaz",
+        "body": "Qarşı tərəfin dediyinin mənasını anlamırsan. Bunu ingiliscə bildir.",
+        "source": "D11_Tam_Ders.md#Kart 02",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "I don’t understand."
+          ],
+          "goals": [
+            "dontUnderstand"
+          ]
+        },
+        "explanation": "Uyğun cavab: I don’t understand.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d11_c02",
+          "number": 2,
+          "title": "Başlanğıc təkrarı — yaz",
+          "body": "Yeni izahı anlamadığını bir cümlə ilə yaz.",
+          "source": "D11_Tam_Ders.md#Kart 02",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "I don’t understand.",
+              "I do not understand."
+            ],
+            "goals": [
+              "dontUnderstand"
+            ]
+          },
+          "explanation": "Uyğun cavab: I don’t understand."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c03",
+        "number": 3,
+        "title": "Başlanğıc təkrarı — seç",
+        "body": "Qarşı tərəf dediyini bir daha desin istəyirsən.",
+        "source": "D11_Tam_Ders.md#Kart 03",
+        "kind": "task",
+        "options": [
+          "Again, please.",
+          "I’m fine."
+        ],
+        "rule": {
+          "answers": [
+            "Again, please."
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Again, please.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d11_c03",
+          "number": 3,
+          "title": "Başlanğıc təkrarı — seç",
+          "body": "Başqa danışandan dediyini yenidən deməsini istəyən qısa ifadə yaz.",
+          "source": "D11_Tam_Ders.md#Kart 03",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Again, please.",
+              "Could you say it again, please?"
+            ],
+            "goals": [
+              "repeat"
+            ]
+          },
+          "explanation": "Uyğun cavab: Again, please."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c04",
+        "number": 4,
+        "title": "Qısa öyrətmə",
+        "body": "Maskot: “Sözlər çox sürətli gəlirsə, More slowly, please — ‘Daha yavaş, zəhmət olmasa’ de. Həm təkrar, həm yavaşlıq üçün Can you repeat that more slowly, please? işlədə bilərsən. Again təkrarı, more slowly sürətin azalmasını bildirir.”",
+        "source": "D11_Tam_Ders.md#Kart 04",
+        "kind": "teach",
+        "board": "More slowly, please. — Daha yavaş, zəhmət olmasa.\nCan you repeat that more slowly, please? — Bunu daha yavaş təkrar edə bilərsiniz, zəhmət olmasa?",
+        "examples": [
+          "More slowly, please.",
+          "Can you repeat that more slowly, please?"
+        ]
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c05",
+        "number": 5,
+        "title": "Dinlə və seç",
+        "body": "Danışan nə istəyir?",
+        "source": "D11_Tam_Ders.md#Kart 05",
+        "kind": "task",
+        "options": [
+          "Daha yavaş danışılmasını",
+          "Adın dəyişdirilməsini"
+        ],
+        "rule": {
+          "answers": [
+            "Daha yavaş danışılmasını"
+          ],
+          "exact": true
+        },
+        "audio": "More slowly, please.",
+        "explanation": "Uyğun cavab: Daha yavaş danışılmasını",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d11_c05",
+          "number": 5,
+          "title": "Dinlə və seç",
+          "body": "Səsi dinlə. Xahiş nə üçündür?",
+          "source": "D11_Tam_Ders.md#Kart 05",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Yavaş təkrar"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Yavaş təkrar",
+          "options": [
+            "Sağollaşma",
+            "Yavaş təkrar"
+          ],
+          "audio": "Can you repeat that more slowly, please?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c06",
+        "number": 6,
+        "title": "Sözlərdən xahiş qur",
+        "body": "Daha yavaş danışmağı istə: please / slowly / More",
+        "source": "D11_Tam_Ders.md#Kart 06",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "More slowly, please."
+          ],
+          "goals": [
+            "slow"
+          ]
+        },
+        "explanation": "Uyğun cavab: More slowly, please.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d11_c06",
+          "number": 6,
+          "title": "Sözlərdən xahiş qur",
+          "body": "Sürət xahişini qur: slowly / please / More",
+          "source": "D11_Tam_Ders.md#Kart 06",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "More slowly, please.",
+              "Please, more slowly."
+            ],
+            "goals": [
+              "slow"
+            ]
+          },
+          "explanation": "Uyğun cavab: More slowly, please."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c07",
+        "number": 7,
+        "title": "Danışıq",
+        "body": "Rol məşqi: bu təqdimat sənin üçün sürətlidir. Daha yavaş deməsini istə.",
+        "source": "D11_Tam_Ders.md#Kart 07",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d11_c07",
+            "audio": "My name is Alex.",
+            "prompt": "Rol məşqi: bu təqdimat sənin üçün sürətlidir. Daha yavaş deməsini istə.\n\nGörünən nümunə: More slowly, please.",
+            "rule": {
+              "answers": [
+                "More slowly, please."
+              ],
+              "goals": [
+                "slow"
+              ]
+            },
+            "sample": "More slowly, please.",
+            "reply": "My name is Alex.",
+            "replyRate": 0.45
+          }
+        ],
+        "explanation": "Uyğun cavab: More slowly, please.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d11_c07",
+          "number": 7,
+          "title": "Danışıq",
+          "body": "Yeni təqdimatın daha yavaş deyilməsini istə.",
+          "source": "D11_Tam_Ders.md#Kart 07",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d11_c07",
+              "audio": "My name is Sam.",
+              "prompt": "Yeni təqdimatın daha yavaş deyilməsini istə.",
+              "rule": {
+                "answers": [
+                  "More slowly, please.",
+                  "Can you repeat that more slowly, please?"
+                ],
+                "goals": [
+                  "repeat",
+                  "slow"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: More slowly, please."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c08",
+        "number": 8,
+        "title": "Situasiyada yaz",
+        "body": "Yeni mesajı həm bir də eşitmək, həm də daha yavaş eşitmək istəyirsən. Hər iki istəyi açıq bildir.",
+        "source": "D11_Tam_Ders.md#Kart 08",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Can you repeat that more slowly, please?"
+          ],
+          "goals": [
+            "repeat",
+            "slow"
+          ]
+        },
+        "explanation": "Uyğun cavab: Can you repeat that more slowly, please?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d11_c08",
+          "number": 8,
+          "title": "Situasiyada yaz",
+          "body": "Başqa danışanın mesajını həm yenidən, həm daha yavaş deməsini açıq istə.",
+          "source": "D11_Tam_Ders.md#Kart 08",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Can you repeat that more slowly, please?",
+              "Again, please. More slowly, please."
+            ],
+            "goals": [
+              "repeat",
+              "slow"
+            ]
+          },
+          "explanation": "Uyğun cavab: Can you repeat that more slowly, please?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c09",
+        "number": 9,
+        "title": "Qısa mesajdan məlumat tap",
+        "body": "Sam: Again, please.\nAlex: Can you repeat that more slowly, please?\nKim həm təkrar, həm yavaşlıq istəyir?",
+        "source": "D11_Tam_Ders.md#Kart 09",
+        "kind": "task",
+        "rule": {
+          "answers": [
+            "Alex"
+          ],
+          "exact": true
+        },
+        "explanation": "Uyğun cavab: Alex",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d11_c09",
+          "number": 9,
+          "title": "Qısa mesajdan məlumat tap",
+          "body": "Alex: Again, please. Sam: Can you repeat that more slowly, please? Kim iki tələb bildirir?",
+          "source": "D11_Tam_Ders.md#Kart 09",
+          "kind": "task",
+          "rule": {
+            "answers": [
+              "Sam"
+            ],
+            "exact": true
+          },
+          "explanation": "Uyğun cavab: Sam"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c10",
+        "number": 10,
+        "title": "Danışıq",
+        "body": "Sualı həm yenidən, həm daha yavaş deməsini açıq istə.",
+        "source": "D11_Tam_Ders.md#Kart 10",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d11_c10",
+            "audio": "What’s your name?",
+            "prompt": "Sualı həm yenidən, həm daha yavaş deməsini açıq istə.",
+            "rule": {
+              "answers": [
+                "Can you repeat that more slowly, please?"
+              ],
+              "goals": [
+                "repeat",
+                "slow"
+              ]
+            },
+            "reply": "What’s your name?",
+            "replyRate": 0.45
+          }
+        ],
+        "explanation": "Uyğun cavab: Can you repeat that more slowly, please?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d11_c10",
+          "number": 10,
+          "title": "Danışıq",
+          "body": "Yeni sualın həm təkrarını, həm daha yavaş deyilməsini istə.",
+          "source": "D11_Tam_Ders.md#Kart 10",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d11_c10",
+              "audio": "How are you?",
+              "prompt": "Yeni sualın həm təkrarını, həm daha yavaş deyilməsini istə.",
+              "rule": {
+                "answers": [
+                  "Can you repeat that more slowly, please?"
+                ],
+                "goals": [
+                  "repeat",
+                  "slow"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Can you repeat that more slowly, please?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c11",
+        "number": 11,
+        "title": "Danışıq",
+        "body": "İndi yavaş təkrarlanan suala seçdiyin adla cavab ver.",
+        "source": "D11_Tam_Ders.md#Kart 11",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d11_c11",
+            "audio": "What’s your name?",
+            "prompt": "İndi yavaş təkrarlanan suala seçdiyin adla cavab ver.",
+            "rule": {
+              "answers": [
+                "I’m Sam."
+              ],
+              "goals": [
+                "introduce"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: I’m Sam.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d11_c11",
+          "number": 11,
+          "title": "Danışıq",
+          "body": "Yeni, mətni göstərilməmiş yavaş ad sualına cavab ver.",
+          "source": "D11_Tam_Ders.md#Kart 11",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d11_c11",
+              "audio": "What is your name?",
+              "prompt": "Yeni, mətni göstərilməmiş yavaş ad sualına cavab ver.",
+              "rule": {
+                "answers": [
+                  "I’m [ad].",
+                  "My name is [ad]."
+                ],
+                "goals": [
+                  "introduce"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: I’m [ad]."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c12",
+        "number": 12,
+        "title": "Şərti səhv təkrarı",
+        "body": "Çətinlik olan hissəni yeni vəziyyətdə məşq edək.",
+        "source": "D11_Tam_Ders.md#Kart 12",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d11_c13",
+        "number": 13,
+        "title": "Nəticə",
+        "body": "Sürət xahişini və söhbətə qayıtmağı məşq etdin. [Faktiki altbacarıq nəticələri]",
+        "source": "D11_Tam_Ders.md#Kart 13",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "More slowly, please.\nCan you repeat that more slowly, please?": "Daha yavaş, zəhmət olmasa. / Bunu daha yavaş təkrar edə bilərsiniz, zəhmət olmasa?",
+      "More slowly, please.": "Daha yavaş, zəhmət olmasa.",
+      "My name is Alex.": "Mənim adım Aleksdir.",
+      "What’s your name?": "Adın nədir?"
+    },
+    "vocabulary": [
+      {
+        "word": "More slowly, please",
+        "translation": "Daha yavaş, zəhmət olmasa.",
+        "example": "More slowly, please.",
+        "exampleAz": "Daha yavaş, zəhmət olmasa.",
+        "usageNote": "Sürətin azalmasını istəyir.",
+        "pronunciation": "",
+        "lexical": true
+      },
+      {
+        "word": "Can you repeat that more slowly, please?",
+        "translation": "Bunu daha yavaş təkrar edə bilərsiniz, zəhmət olmasa?.",
+        "example": "Can you repeat that more slowly, please?",
+        "exampleAz": "Bunu daha yavaş təkrar edə bilərsiniz, zəhmət olmasa?",
+        "usageNote": "Təkrar və sürət istəyi birlikdə. Can/Could variantları uyğun xahişdə qəbul edilir.",
+        "pronunciation": "",
+        "lexical": true
+      }
+    ],
+    "version": "2026-11-05-v2"
+  },
+  {
+    "id": "a1_en_b1_20261105_v2_d12",
+    "order": 12,
+    "title": "Yekun səsli söhbət",
+    "goal": "Öyrəndiklərimi qısa qarşılıqlı səsli tanışlıqda birləşdirə bilirəm.",
+    "cards": [
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c01",
+        "number": 1,
+        "title": "Məqsəd",
+        "body": "Bu dəfə bildiyin ifadələrlə qısa səsli tanışlıq söhbəti aparacaqsan. Maskot Alex rolundadır. Bu, maskotun yeni adı deyil. Öz adını və ya seçdiyin başqa adı işlət.",
+        "source": "D12_Tam_Ders.md#Kart 01",
+        "kind": "intro"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c02",
+        "number": 2,
+        "title": "Danışıq",
+        "body": "Ayrı isinmə: tanışın köməyinə görə təşəkkür edir. Səslə cavab ver.",
+        "source": "D12_Tam_Ders.md#Kart 02",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d12_c02",
+            "audio": "Thank you.",
+            "prompt": "Ayrı isinmə: tanışın köməyinə görə təşəkkür edir. Səslə cavab ver.",
+            "rule": {
+              "answers": [
+                "You’re welcome."
+              ],
+              "goals": [
+                "welcome"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: You’re welcome.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d12_c02",
+          "number": 2,
+          "title": "Danışıq",
+          "body": "Yeni isinmə təşəkkürünə səslə qarşılıq ver.",
+          "source": "D12_Tam_Ders.md#Kart 02",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d12_c02",
+              "audio": "Thanks!",
+              "prompt": "Yeni isinmə təşəkkürünə səslə qarşılıq ver.",
+              "rule": {
+                "answers": [
+                  "You’re welcome.",
+                  "No problem."
+                ],
+                "goals": [
+                  "welcome",
+                  "noProblem"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: You’re welcome."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c03",
+        "number": 3,
+        "title": "Danışıq",
+        "body": "Ayrı isinmə: kiçik səhvə görə üzr istəyən tanışına eybi olmadığını bildir.",
+        "source": "D12_Tam_Ders.md#Kart 03",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d12_c03",
+            "audio": "Sorry.",
+            "prompt": "Ayrı isinmə: kiçik səhvə görə üzr istəyən tanışına eybi olmadığını bildir.",
+            "rule": {
+              "answers": [
+                "No problem."
+              ],
+              "goals": [
+                "noProblem"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: No problem.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d12_c03",
+          "number": 3,
+          "title": "Danışıq",
+          "body": "Başqa tanışının üzrünə səslə cavab ver.",
+          "source": "D12_Tam_Ders.md#Kart 03",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d12_c03",
+              "audio": "I’m sorry.",
+              "prompt": "Başqa tanışının üzrünə səslə cavab ver.",
+              "rule": {
+                "answers": [
+                  "No problem.",
+                  "It’s OK."
+                ],
+                "goals": [
+                  "noProblem"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: No problem."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c04",
+        "number": 4,
+        "title": "Söhbətə hazırlıq",
+        "body": "Rol: yeni tanışın Alex-dir. Mesajlarınızla salamlaşacaq, ad və hal soruşacaq, lazım olduqda təkrar istəyəcək və sağollaşacaqsınız.\n\nHazırsansa, söhbətə başla.",
+        "source": "D12_Tam_Ders.md#Kart 04",
+        "kind": "teach"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c05",
+        "number": 5,
+        "title": "Danışıq",
+        "body": "Yeni tanışlıq başlayır. Salam ver, adını de və qarşı tərəfin adını soruş.",
+        "source": "D12_Tam_Ders.md#Kart 05",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d12_c05",
+            "audio": "",
+            "prompt": "Yeni tanışlıq başlayır. Salam ver, adını de və qarşı tərəfin adını soruş.",
+            "rule": {
+              "answers": [
+                "Hi. I’m Sam. What’s your name?"
+              ],
+              "goals": [
+                "greet",
+                "askName",
+                "introduce"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: Hi. I’m Sam. What’s your name?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d12_c05",
+          "number": 5,
+          "title": "Danışıq",
+          "body": "Başqa rol görüşü: tanışın Sam-dır. Salam, öz adın və ad sualını de.",
+          "source": "D12_Tam_Ders.md#Kart 05",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d12_c05",
+              "audio": "",
+              "prompt": "Başqa rol görüşü: tanışın Sam-dır. Salam, öz adın və ad sualını de.",
+              "rule": {
+                "answers": [
+                  "Hello. I’m [ad]. What’s your name?"
+                ],
+                "goals": [
+                  "greet",
+                  "askName",
+                  "introduce"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Hello. I’m [ad]. What’s your name?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c06",
+        "number": 6,
+        "title": "Danışıq",
+        "body": "Yeni tanışın adını deyib. Tanış olduğuna şad olduğunu bildir.",
+        "source": "D12_Tam_Ders.md#Kart 06",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d12_c06",
+            "audio": "I’m Alex. Nice to meet you.",
+            "prompt": "Yeni tanışın adını deyib. Tanış olduğuna şad olduğunu bildir.",
+            "rule": {
+              "answers": [
+                "You too."
+              ],
+              "goals": [
+                "meet"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: You too.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d12_c06",
+          "number": 6,
+          "title": "Danışıq",
+          "body": "Yeni tanışın məmnunluğuna səslə qarşılıq ver.",
+          "source": "D12_Tam_Ders.md#Kart 06",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d12_c06",
+              "audio": "I’m Sam. Nice to meet you.",
+              "prompt": "Yeni tanışın məmnunluğuna səslə qarşılıq ver.",
+              "rule": {
+                "answers": [
+                  "You too.",
+                  "Nice to meet you too."
+                ],
+                "goals": [
+                  "meet"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: You too."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c07",
+        "number": 7,
+        "title": "Danışıq",
+        "body": "Rol məşqi: bu sualı anlamadığını təsəvvür et. Anlamadığını bildir; sualı həm bir də, həm daha yavaş deməsini açıq istə.",
+        "source": "D12_Tam_Ders.md#Kart 07",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d12_c07",
+            "audio": "How are you?",
+            "prompt": "Rol məşqi: bu sualı anlamadığını təsəvvür et. Anlamadığını bildir; sualı həm bir də, həm daha yavaş deməsini açıq istə.",
+            "rule": {
+              "answers": [
+                "I don’t understand. Can you repeat that more slowly, please?"
+              ],
+              "goals": [
+                "dontUnderstand",
+                "repeat",
+                "slow"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: I don’t understand. Can you repeat that more slowly, please?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d12_c07",
+          "number": 7,
+          "title": "Danışıq",
+          "body": "Başqa rol: ad sualını anlamadığını bildir və həm təkrar, həm yavaşlıq istə.",
+          "source": "D12_Tam_Ders.md#Kart 07",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d12_c07",
+              "audio": "What’s your name?",
+              "prompt": "Başqa rol: ad sualını anlamadığını bildir və həm təkrar, həm yavaşlıq istə.",
+              "rule": {
+                "answers": [
+                  "I don’t understand. Could you say that again more slowly, please?"
+                ],
+                "goals": [
+                  "dontUnderstand",
+                  "repeat",
+                  "slow"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: I don’t understand. Could you say that again more slowly, please?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c08",
+        "number": 8,
+        "title": "Danışıq",
+        "body": "İndi təkrarlanan suala öz halına uyğun cavab ver və onun halını soruş.",
+        "source": "D12_Tam_Ders.md#Kart 08",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d12_c08",
+            "audio": "How are you?",
+            "prompt": "İndi təkrarlanan suala öz halına uyğun cavab ver və onun halını soruş.",
+            "rule": {
+              "answers": [
+                "I’m OK, thanks. And you?"
+              ],
+              "goals": [
+                "askFeeling",
+                "feeling",
+                "thanks"
+              ]
+            },
+            "reply": "I’m fine, thanks.",
+            "replyGoals": [
+              "askFeeling"
+            ]
+          }
+        ],
+        "explanation": "Uyğun cavab: I’m OK, thanks. And you?",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d12_c08",
+          "number": 8,
+          "title": "Danışıq",
+          "body": "Yeni halda How are you? sualına cavab ver və sualı qaytar.",
+          "source": "D12_Tam_Ders.md#Kart 08",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d12_c08",
+              "audio": "How are you?",
+              "prompt": "Yeni halda How are you? sualına cavab ver və sualı qaytar.",
+              "rule": {
+                "answers": [
+                  "I’m fine/OK/not very well. And you?"
+                ],
+                "goals": [
+                  "askFeeling",
+                  "feeling"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: I’m fine/OK/not very well. And you?"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c09",
+        "number": 9,
+        "title": "Danışıq",
+        "body": "Alex-in növbəti mesajı gec gəldi. O, üzr istəyir. Sənin üçün eybi yoxdur; bunu bildir.",
+        "source": "D12_Tam_Ders.md#Kart 09",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d12_c09",
+            "audio": "Sorry.",
+            "prompt": "Alex-in növbəti mesajı gec gəldi. O, üzr istəyir. Sənin üçün eybi yoxdur; bunu bildir.",
+            "rule": {
+              "answers": [
+                "No problem."
+              ],
+              "goals": [
+                "noProblem"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: No problem.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d12_c09",
+          "number": 9,
+          "title": "Danışıq",
+          "body": "Başqa gecikmiş mesajın üzrünə səslə cavab ver.",
+          "source": "D12_Tam_Ders.md#Kart 09",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d12_c09",
+              "audio": "I’m sorry.",
+              "prompt": "Başqa gecikmiş mesajın üzrünə səslə cavab ver.",
+              "rule": {
+                "answers": [
+                  "No problem.",
+                  "That’s OK."
+                ],
+                "goals": [
+                  "noProblem"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: No problem."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c10",
+        "number": 10,
+        "title": "Danışıq",
+        "body": "Anlayışına görə təşəkkür edir. Uyğun qarşılıq ver.",
+        "source": "D12_Tam_Ders.md#Kart 10",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d12_c10",
+            "audio": "Thank you.",
+            "prompt": "Anlayışına görə təşəkkür edir. Uyğun qarşılıq ver.",
+            "rule": {
+              "answers": [
+                "You’re welcome."
+              ],
+              "goals": [
+                "welcome"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: You’re welcome.",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d12_c10",
+          "number": 10,
+          "title": "Danışıq",
+          "body": "Başqa təşəkkürə səslə qarşılıq ver.",
+          "source": "D12_Tam_Ders.md#Kart 10",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d12_c10",
+              "audio": "Thanks!",
+              "prompt": "Başqa təşəkkürə səslə qarşılıq ver.",
+              "rule": {
+                "answers": [
+                  "You’re welcome.",
+                  "No problem."
+                ],
+                "goals": [
+                  "welcome",
+                  "noProblem"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: You’re welcome."
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c11",
+        "number": 11,
+        "title": "Danışıq",
+        "body": "Söhbət bitir. Səslə sağollaş.",
+        "source": "D12_Tam_Ders.md#Kart 11",
+        "kind": "voice",
+        "turns": [
+          {
+            "id": "a1_en_b1_20261105_v2_d12_c11",
+            "audio": "Goodbye!",
+            "prompt": "Söhbət bitir. Səslə sağollaş.",
+            "rule": {
+              "answers": [
+                "Bye!"
+              ],
+              "goals": [
+                "farewell"
+              ]
+            }
+          }
+        ],
+        "explanation": "Uyğun cavab: Bye!",
+        "review": {
+          "id": "a1_en_b1_20261105_v2_d12_c11",
+          "number": 11,
+          "title": "Danışıq",
+          "body": "Başqa qısa görüşün sonunda səslə sağollaş.",
+          "source": "D12_Tam_Ders.md#Kart 11",
+          "kind": "voice",
+          "turns": [
+            {
+              "id": "a1_en_b1_20261105_v2_d12_c11",
+              "audio": "Bye!",
+              "prompt": "Başqa qısa görüşün sonunda səslə sağollaş.",
+              "rule": {
+                "answers": [
+                  "Bye!",
+                  "Goodbye!"
+                ],
+                "goals": [
+                  "farewell"
+                ]
+              }
+            }
+          ],
+          "explanation": "Uyğun cavab: Bye!"
+        }
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c12",
+        "number": 12,
+        "title": "Şərti səsli təkrar",
+        "body": "Çətinlik olan hissəni başqa qısa görüşdə məşq edək. Danışa bilmirsənsə, Keç seç.",
+        "source": "D12_Tam_Ders.md#Kart 12",
+        "kind": "review"
+      },
+      {
+        "id": "a1_en_b1_20261105_v2_d12_c13",
+        "number": 13,
+        "title": "Nəticə",
+        "body": "İlk tanışlıq bölməsinin səsli söhbətini məşq etdin. [Faktiki nəticələr]",
+        "source": "D12_Tam_Ders.md#Kart 13",
+        "kind": "result"
+      }
+    ],
+    "audioMeanings": {
+      "Thank you.": "Təşəkkür edirəm.",
+      "Sorry.": "Üzr istəyirəm.",
+      "I’m Alex. Nice to meet you.": "Mən Aleksəm. Tanış olduğuma şadam.",
+      "How are you?": "Necəsən?",
+      "Goodbye!": "Sağ ol!"
+    },
+    "vocabulary": [],
+    "version": "2026-11-05-v2"
+  }
+]

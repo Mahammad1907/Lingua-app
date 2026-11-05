@@ -188,3 +188,15 @@ Son GitHub branch-i `codex/b1-lesson-screens-20261021`, başlanğıc `b1ba5c1`. 
 - Dolan yol və real faizə uyğun xəritə rəngi saxlanır; rəng artıq yazı və ikonların arxasındadır. Başlıq/CTA ölçülür, son kafellər və yol seqmentləri birlikdə aşağı çəkilir ki, böyük şriftdə idarələr üst-üstə düşməsin. Alt menyu safe-area ilə scroll-dan ayrı native sahədir.
 - Dərs, səs, qiymətləndirmə, yaddaş, marşrut, onboarding, SDK və paket faylları dəyişdirilmir. AI söhbət düyməsinin əvvəlki modul yönləndirməsi bu dar vizual işdə saxlanır.
 - TypeScript, lint (0 xəta, əvvəlki profile.tsx xəbərdarlığı), ana ekranın 0–7 irəliləyiş/ölçü/keçid testləri, mövcud course/chapter və 210 dərs qaydası yoxlaması keçir. Veb export keçir. SVG ikonlar ayrıca render edilərək nəzərdən keçirildi. Yerli Chromium işə düşmədiyindən canlı brauzer və fiziki iPhone/Android vizual yoxlaması tamamlanmayıb; səhvsizlik zəmanəti verilmir. Ətraflı qeyd: docs/HOME_MAP_PROGRESS.md.
+
+## 7 qrup / 12 dərslik v2 paketinin yoxlanması — 5 noyabr 2026
+
+İstifadəçi 7 xəritə kartını və mövcud rəng/maskot/xəritə ölçüsünü saxlayaraq yeni v2 ZIP-dəki 12 ayrıca dərsi istədi. Qrupa toxunanda aşağı panel, ayrıca dərs açılması/tamamlanması, real 12-lik faiz, Başla/Davam et/Yenidən məşq et və qaldığı qrupa qayıtma tələb olunur. Keçid imtahanı, Özünü yoxla və hekayə ayrıca girişdir, 12-yə daxil deyil. Müəllif məzmunu uydurulmur; qeydlər/cavab açarı tələbə UI-sində görünmür.
+
+Yeni müəllif paketindəki Sam/Alex adları və ardıcıllıq saxlanır; bu, əvvəlki nümunələrdə Əli/Leyla ilə avtomatik əvəz etmə göstərişini bu import üçün dəyişir. Profil, paket/SDK faylları və evdə işləyən branch dəyişdirilmir.
+
+Ayrıca draftda 7/12 məlumat modeli, qrup paneli, ayrıca dərs callback-ləri, yeni ID-lərlə təmiz faiz, saxlanmış cəhd/cursor/kömək izi, müəllif məna/lüğət paneli, İngilis TTS və ifadə variantlarının təkrarsız saxlanması hazırlanıb. Kod testləri 113 kanonik müəllif cavabını yoxlayır. Bu, bütün dərslərin məzmun və cihaz uyğunluğunun təsdiqi deyil.
+
+**Buraxılışa hazır deyil:** 37 səsli mərhələnin müəllifə uyğun şaxələri/manual göndərmə, D01-K10-da yalnız səhv sahənin yeni situasiyada təkrarı, bütün alternativ/izah banklarının tam uyğunluğu, yeni A/B/Özünü yoxla/hekayə axınları və aralı təkrar adapteri. V2 imtahanına köhnə hədd tətbiq edilmir. Əlavə girişlər hazır olmadığını açıq göstərir. Məna dəstəyi ilə dinləmə izi gizlətmə/yüklənmədən sonra da müstəqil nəticəyə çevrilməməlidir.
+
+Ətraflı yoxlanmış/yoxlanmamış siyahı: docs/V2_SUPPORT_STATUS.md; mərhələ siyahısı: docs/V2_IMPORT_READINESS.json. Real telefon, mikrofon, ASR xidməti və native animasiya yoxlanmayıb. Tam işlək paket kimi təqdim etmə; draftı istifadəçinin işləyən versiyasına birləşdirmə.

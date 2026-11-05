@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { getShortSession } from '../data/firstConversation';
-import { getPacketLesson, packetTaskIds } from '../data/b1Course';
+import { getPacketLesson, packetTaskIds, packetFlow } from '../data/b1Course';
 import { getLessonActivities } from '../data/lessonActivities';
 import { lessons } from '../data/lessons';
 import { getAllModules } from '../data/modules';
@@ -15,16 +15,19 @@ const STORAGE_KEY = '@birtalk_user_data';
 interface UserData {
   xp: number; streak: number; hearts: number; level: string; lastPlayedDate: string | null;
   completedLessons: string[]; lessonProgress: LessonProgress[]; placementResults: PlacementResult[];
+  attempts: Record<string, LessonAttempt>;
   rewards: Record<string, RewardRecord>; lastQualifiedDay: string | null; streakStart: string | null;
 }
 interface UserState extends UserData {
   hydrated: boolean; storageError: string | null;
   attempts: Record<string, LessonAttempt>; receipts: Record<string, RewardReceipt>;
+  markTranscript: (id: string, taskId: string) => void;
+  saveCursor: (id: string, cardId: string) => void;
   beginLesson: (lessonId: string, mode?: 'session' | 'practice', recallIds?: string[]) => string;
   abandonLesson: (attemptId: string) => boolean;
-  recordTask: (attemptId: string, taskId: string, correct: boolean | null, token: string, evidence?: TaskEvidence) => void;
+  recordTask: (attemptId: string, taskId: string, correct: boolean | null, token: string, evidence?: TaskEvidence, answer?: string) => void;
   settlePacketTask: (attemptId: string, taskId: string, status: 'needsPractice' | 'unverified' | 'skipped') => void;
-  useHelp: (attemptId: string) => void;
+  useHelp: (attemptId: string, taskId?: string) => void;
   finishLesson: (attemptId: string) => Promise<RewardReceipt>;
   claimReceipt: (id: string) => RewardReceipt | undefined;
   finishExam: (moduleId: string, answers: Record<string, boolean>, evidence?: ExamEvidence) => Promise<{ passed: boolean; xp: number; correct: number }>;
@@ -37,7 +40,7 @@ interface UserState extends UserData {
   hasPassedPlacement: (id: string) => boolean;
 }
 const initial: UserData = { xp: 0, streak: 0, hearts: MAX_ENERGY, level: 'A1', lastPlayedDate: null,
-  completedLessons: [], lessonProgress: [], placementResults: [], rewards: {}, lastQualifiedDay: null, streakStart: null };
+  attempts: {}, completedLessons: [], lessonProgress: [], placementResults: [], rewards: {}, lastQualifiedDay: null, streakStart: null };
 let writes: Promise<void> = Promise.resolve();
 let hydration: Promise<void> | undefined;
 let sequence = 0;
@@ -63,6 +66,7 @@ export const useUserStore = create<UserState>((set, get) => ({
           }
           set({ xp: saved.xp ?? 0, hearts: Math.max(0, Math.min(MAX_ENERGY, saved.hearts ?? MAX_ENERGY)),
             level: saved.level ?? 'A1', completedLessons: completed, lessonProgress: saved.lessonProgress ?? [], placementResults: results,
+            attempts: Object.fromEntries(Object.entries(saved.attempts ?? {}).filter(([, a]) => a && typeof a.id === 'string' && lessons.some(l => l.id === a.lessonId) && Array.isArray(a.expected) && a.tasks && typeof a.tasks === 'object')),
             rewards, lastQualifiedDay: saved.lastQualifiedDay ?? null, streakStart: saved.streakStart ?? null,
             streak: saved.lastQualifiedDay ? saved.streak ?? 0 : 0, lastPlayedDate: saved.lastPlayedDate ?? null });
         }
@@ -74,10 +78,10 @@ export const useUserStore = create<UserState>((set, get) => ({
   saveToStorage: () => {
     if (!get().hydrated) return Promise.reject(new Error('İrəliləyiş hələ yüklənməyib.'));
     const { xp, hearts, level, streak, lastPlayedDate, completedLessons, lessonProgress, placementResults,
-      rewards, lastQualifiedDay, streakStart } = get();
+      rewards, lastQualifiedDay, streakStart, attempts } = get();
     // Rewards, completion and unlocks are one atomic value; writes cannot overtake one another.
     const snapshot = JSON.stringify({ rewardVersion: 1, xp, hearts, level, streak, lastPlayedDate,
-      completedLessons, lessonProgress, placementResults, rewards, lastQualifiedDay, streakStart });
+      completedLessons, lessonProgress, placementResults, rewards, lastQualifiedDay, streakStart, attempts });
     const write = writes.catch(() => {}).then(() => AsyncStorage.setItem(STORAGE_KEY, snapshot)); writes = write;
     return write.then(() => { set({ storageError: null }); }, (error: unknown) => {
       set({ storageError: 'İrəliləyiş saxlanmadı. Yenidən cəhd et.' }); throw error;
@@ -96,10 +100,19 @@ export const useUserStore = create<UserState>((set, get) => ({
     const last = get().lastQualifiedDay;
     if (last && last !== localDay() && last !== previousDay()) set({ streak: 0 });
   },
+  markTranscript: (id, taskId) => { const a = get().attempts[id]; if (!a || a.finished) return; set(s => ({ attempts: { ...s.attempts, [id]: { ...a, assisted: true, transcriptTaskIds: [...new Set([...(a.transcriptTaskIds ?? []), taskId])] } } })); void get().saveToStorage().catch(() => {}); },
+  saveCursor: (id, cursor) => { const a = get().attempts[id]; if (!a || a.finished) return; set(s => ({ attempts: { ...s.attempts, [id]: { ...a, cursor, updatedAt: Date.now() } } })); void get().saveToStorage().catch(() => {}); },
   resetAll: () => { set({ ...initial, attempts: {}, receipts: {} }); void get().saveToStorage().catch(() => {}); },
   beginLesson: (lessonId, mode = 'session', recallIds = []) => {
     const lesson = lessons.find((l) => l.id === lessonId);
     if (!get().hydrated || !lesson || !moduleUnlocked(lesson.moduleId, get().completedLessons, get().placementResults)) return '';
+    const packetOrder = getPacketLesson(lessonId)?.order;
+    if (packetOrder && packetOrder > 1 && !get().completedLessons.includes(lessonId)) {
+      const predecessor = lessons.find(l => l.moduleId === lesson.moduleId && l.order === packetOrder - 1);
+      if (predecessor && !get().completedLessons.includes(predecessor.id)) return '';
+    }
+    const draft = Object.values(get().attempts).find(a => a.lessonId === lessonId && !a.finished);
+    if (draft && getPacketLesson(lessonId)?.version) return draft.id;
     const session = mode === 'session' ? getShortSession(lessonId) : undefined;
     const activities = mode === 'practice' ? getLessonActivities(lessonId) : undefined;
     const expected = lesson.exercises.map((e) => e.id);
@@ -110,7 +123,7 @@ export const useUserStore = create<UserState>((set, get) => ({
     const packet = getPacketLesson(lessonId);
     const packetIds = packet ? packetTaskIds(packet) : undefined;
     const id = `${Date.now()}-${++sequence}`;
-    set((s) => ({ attempts: { ...s.attempts, [id]: { id, lessonId, expected: packetIds?.required ?? expected, optional: packetIds ? [...new Set([...packetIds.optional, ...recallIds])] : undefined, tasks: {}, assisted: false, finished: false } } })); return id;
+    set((s) => ({ attempts: { ...s.attempts, [id]: { id, lessonId, updatedAt: Date.now(), expected: packetIds?.required ?? expected, optional: packetIds ? [...new Set([...packetIds.optional, ...recallIds])] : undefined, tasks: {}, assisted: false, finished: false } } })); return id;
   },
   abandonLesson: (id) => {
     const a = get().attempts[id];
@@ -118,21 +131,22 @@ export const useUserStore = create<UserState>((set, get) => ({
     set((state) => { const attempts = { ...state.attempts }; delete attempts[id]; return { attempts }; });
     return true;
   },
-  useHelp: (id) => {
+  useHelp: (id, taskId) => {
     const a = get().attempts[id];
-    if (a && !a.finished) set((s) => ({ attempts: { ...s.attempts, [id]: { ...a, assisted: true } } }));
+    if (a && !a.finished) { set((s) => ({ attempts: { ...s.attempts, [id]: { ...a, assisted: true, helpedTaskIds: [...new Set([...(a.helpedTaskIds ?? []), ...(taskId ? [taskId] : [])])] } } })); void get().saveToStorage().catch(() => {}); }
   },
-  recordTask: (id, taskId, correct, token, evidence) => {
+  recordTask: (id, taskId, correct, token, evidence, answer) => {
     const a = get().attempts[id]; const old = a?.tasks[taskId];
     if (!a || a.finished || ![...a.expected, ...(a.optional ?? [])].includes(taskId) || old?.resolved || old?.token === token) return;
     // Mandatory voice tasks need an actual, unedited spoken answer.
     const packet = getPacketLesson(a.lessonId);
-    const requiredVoice = packet?.order === 7 && a.expected.includes(taskId);
-    if (correct === true && requiredVoice && evidence?.input === 'written') return;
-    const task = { firstCorrect: old?.firstCorrect ?? correct === true, resolved: correct === true,
+    const requiredVoice = Boolean(packet && packetTaskIds(packet).required.includes(taskId) && packetFlow(packet).some(c => c.id === taskId && c.kind === 'voice'));
+    if (correct === true && requiredVoice && evidence?.input !== 'spoken') return;
+    const task = { answer, firstCorrect: old?.firstCorrect ?? correct === true, resolved: correct === true,
       skipped: correct === null, wrong: (old?.wrong ?? 0) + (correct === false ? 1 : 0), token, evidence };
     set((s) => ({ attempts: { ...s.attempts, [id]: { ...a, tasks: { ...a.tasks, [taskId]: task } } } }));
     if (correct === false) get().loseHeart();
+    void get().saveToStorage().catch(() => {});
   },
   settlePacketTask: (id, taskId, status) => {
     const a = get().attempts[id];
@@ -141,6 +155,7 @@ export const useUserStore = create<UserState>((set, get) => ({
     if (old?.resolved || status === 'needsPractice' && !old?.wrong) return;
     const task = old ? { ...old, settled: status } : { firstCorrect: false, resolved: false, skipped: status !== 'needsPractice', wrong: 0, token: `${taskId}:unverified`, settled: status };
     set(s => ({ attempts: { ...s.attempts, [id]: { ...a, tasks: { ...a.tasks, [taskId]: task } } } }));
+    void get().saveToStorage().catch(() => {});
   },
   finishLesson: (id) => {
     const pending = finishing.get(id); if (pending) return pending;

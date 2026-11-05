@@ -5,12 +5,16 @@ import EnergyMeter from '../../components/EnergyMeter';
 import { useUserStore } from '../../store/userStore';
 import { moduleTest, moduleUnlocked } from '../../utils/moduleAccess';
 import { isSessionAnswerCorrect } from '../../utils/sessionAnswer';
-import PacketExam from '../../components/lesson/PacketExam';
+
 
 export default function ModuleCheck() {
   const { moduleId } = useLocalSearchParams<{ moduleId?: string }>();
-  if (moduleId === 'module_1') return <PacketExam />;
+  if (moduleId === 'module_1') return <V2ExamPending />;
   return <Exam key={moduleId ?? 'missing'} moduleId={moduleId ?? ''} />;
+}
+function V2ExamPending() {
+  const router = useRouter();
+  return <View style={s.screen}><Text style={s.title}>Keçid imtahanı · v2</Text><Text style={s.text}>Yeni A/B imtahanının qiymətləndirmə axını hələ qoşulmayıb. Köhnə imtahan yeni paket üçün istifadə edilmir.</Text><TouchableOpacity onPress={() => router.back()} style={s.button}><Text style={s.dark}>Geri</Text></TouchableOpacity></View>;
 }
 function Exam({ moduleId }: { moduleId: string }) {
   const router = useRouter();
