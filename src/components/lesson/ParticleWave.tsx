@@ -1,3 +1,4 @@
+import { useLessonTheme } from './LessonTheme';
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
@@ -5,6 +6,7 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 // Original vector particles inspired by the reference; no stock/watermarked bitmap.
 export default function ParticleWave({ active, level, height = 86 }: { active: boolean; level?: number; height?: number }) {
+  const { light } = useLessonTheme();
   const reduced = useReducedMotion();
   const [phase, setPhase] = useState(0);
   useEffect(() => {
@@ -24,6 +26,6 @@ export default function ParticleWave({ active, level, height = 86 }: { active: b
     }
     return d;
   });
-  return <View pointerEvents="none" accessibilityElementsHidden importantForAccessibility="no-hide-descendants" style={[s.wave, { height }]}><Svg width="100%" height="100%" viewBox="0 0 320 100">{paths.map((d, i) => <Path key={i} d={d} stroke={!active ? '#716495' : i < 4 ? '#FFAB38' : '#B597F7'} strokeWidth={1.6} strokeLinecap="round" opacity={.9 - i * .045} />)}</Svg></View>;
+  return <View pointerEvents="none" accessibilityElementsHidden importantForAccessibility="no-hide-descendants" style={[s.wave, { height }]}><Svg width="100%" height="100%" viewBox="0 0 320 100">{paths.map((d, i) => <Path key={i} d={d} stroke={!active ? light ? '#A879C8' : '#716495' : i < 4 ? '#FFAB38' : light ? '#8735C9' : '#B597F7'} strokeWidth={1.6} strokeLinecap="round" opacity={.9 - i * .045} />)}</Svg></View>;
 }
 const s = StyleSheet.create({ wave: { width: '100%', justifyContent: 'center' } });

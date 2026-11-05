@@ -210,3 +210,18 @@ Yeni A/B (14 nömrə + 2 altməqsəd), altı tapşırıqlı Özünü yoxla və 1
 **Məhsul qərarı:** müəllif paketi avtomatik keçid həddi vermir. Heç bir hədd uydurulmadı; imtahan nəticəsi var, lakin onunla avtomatik kilid açılmır. İstifadəçi ayrıca qərar vermədən köhnə hədd yeni paketə köçürülməsin.
 
 Kod yoxlamaları: 113 əsas kanonik cavab, 127 açıq müəllif alternativi, 43 əlavə cavabı, 37 səsli mərhələnin əsas halları, yeddi qrup/üç əlavə keçidi və tam altı suallıq mock-render axını keçir. TypeScript/lint və veb yığımı keçir. Əvvəlki hazırlıq qeydindəki kod boşluqları bu mərhələdə yenilənib; aktual siyahı docs/V2_SUPPORT_STATUS.md-dir. Fiziki telefon, ASR xidməti, mikrofon və native həndəsə yoxlanmayıb. Bu təsdiqlər kod testidir, cihaz yoxlaması deyil.
+
+## Dərs ekranlarının açıq üsluba keçirilməsi — 5 noyabr 2026
+
+İstifadəçi açıq bənövşəyi–narıncı ana səhifə üslubunu dərs ekranlarına tətbiq etməyi açıq şəkildə təsdiqlədi. Əvvəl Dərs 1-in tam axını qurulub komponent testindən keçirildi, sonra eyni təqdimat 12 v2 dərsin ortaq rendererinə bağlandı. Profil, paket məzmunu, kart sırası, SDK və imtahan həddi dəyişdirilməyib.
+
+- Giriş, native mətnli öyrətmə lövhəsi, yazı/seçim/cümlə qurma, dinləmə, hazırlanmış qarşılıqlı danışıq, şərti səhv təkrarı və nəticə üçün açıq ekran təqdimatı. Köhnə tülkü şəkli əvəzinə ana səhifənin hazır narıncı kapüşonlu maskotu təkrar istifadə olunur. Qiymətləndirmə ekranına cavabı göstərən illüstrasiya əlavə olunmur.
+- Sözlər/Qrammatika/Dinləmə/Danışıq təqdimat növüdür; kartlar bu adlara görə yenidən qruplaşdırılmır. Dərs 1-də mənbədə ayrıca qrammatika kartı yoxdur; belə kart uydurulmayıb. Digər dərslərdə müəllifin forma/bərabərlik/boşluq kartı Qrammatika görünüşünü istifadə edir.
+- Danışıq paketdə hazırlanmış dialoqdur; sərbəst AI xidməti kimi təqdim edilmir. Səsli cavablar və yazı sahəsinin mikrofonu v2-də açıq Göndər mərhələsini qoruyur.
+- Yeni sözlər oxunaqlı tünd narıncıdır. Toxunma məna/nümunə/yalnız ingiliscə səs panelini açır; ilk öyrətmədə sözlər avtomatik əlavə olunur. Daxili söz toxunması xarici audio düyməsini də işə salmır. Qiymətləndirmə mətni yeni söz kimi rənglənmir.
+- Düzgün, Köməklə, Səhv/Qismən və Yoxlanmadı yazı ilə fərqlənir. Texniki qeyri-müəyyənlik səhv animasiyası və dil səhvi təkrarı yaratmır. Səhv sahə bir dəfə yumşaq qırmızı çərçivə alır. Kart keçidi 180ms neytral şəffaflıqdır; azaldılmış animasiya seçimində sönür. Təkrar girişində uzun maskot animasiyası əvəzinə statik hazır maskot var.
+- Nəticə bütün cavabları, o cümlədən məna/mətn dəstəkli cavabları sayır; dinləmənin ayrıca yoxlanmaması göstərilir. Danışıqda yalnız yoxlanmış səsli nəticə sayılır; keçmək və texniki qeyd bacarıq təsdiqi deyil. Ətraflı tapşırıq nəticəsi overlaydə açılır. V2 çıxış dialoqu cari cavabların saxlandığını düzgün bildirir.
+
+Yoxlama: `check-lesson-one-flow.cjs` real PacketLesson/store komponent axınını native/səs sərhədləri mock edilərək keçir: ilk sözlərin əlavə olunması, məna paneli, yalnız ingiliscə TTS, aralı danışıq kartları, səhv/qismən cavab, bir dəfə təkrar, saxlanılan sahə, köməklə dinləmə, keçilmiş/texniki danışıq, konkret 2/4 səsli nəticə, ilkin cavabın saxlanması və növbəti dərsin avtomatik başlamaması. Eyni test 12 dərsin 157 aktiv müəllif kartını render edir; 12 şərti təkrar giriş kartı ayrıca sabit mərhələ kimi məcburi göstərilmir. Bu native ölçülərin vizual təsdiqi deyil.
+
+Real iPhone/Android, mikrofon/ASR, safe area/klaviatura və animasiya hamarlığı yoxlanmayıb. Lokal browser screenshot cəhdi bu mühitdə browser binarının icrası mümkün olmadığı üçün alınmayıb; screenshot və fiziki cihaz QA-sı tamamlanmış kimi təqdim edilmir. Keçid imtahanına özbaşına faiz əlavə olunmayıb.

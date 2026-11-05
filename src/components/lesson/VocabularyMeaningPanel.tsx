@@ -1,9 +1,11 @@
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import type { VocabularyEntry } from '../../utils/contextVocabulary';
 export default function VocabularyMeaningPanel({ entry, onClose, onSpeak }: {
   entry: VocabularyEntry | null; onClose: () => void; onSpeak: (text: string) => void;
 }) {
-  return <Modal visible={Boolean(entry)} transparent animationType="fade" onRequestClose={onClose}>
+  const reduced = useReducedMotion();
+  return <Modal visible={Boolean(entry)} transparent animationType={reduced ? 'none' : 'fade'} onRequestClose={onClose}>
     <View style={s.backdrop}><Pressable accessibilityRole="button" accessibilityLabel="Məna panelini bağla" onPress={onClose} style={StyleSheet.absoluteFill} />
       {entry && <View style={s.card} accessibilityViewIsModal><Text style={s.title}>{entry.word}</Text><Text style={s.meaning}>{entry.translation}</Text>
         <Text style={s.example}>{entry.example}</Text><Text style={s.note}>{entry.exampleAz}</Text>

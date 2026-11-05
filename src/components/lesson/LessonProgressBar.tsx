@@ -1,9 +1,11 @@
+import { useLessonStyles } from './LessonTheme';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 export default function LessonProgressBar({ value }: { value: number }) {
+  const s = useLessonStyles(baseStyles);
   const reduced = useReducedMotion();
   const fraction = Math.min(1, Math.max(0, value));
   const [width, setWidth] = useState(0);
@@ -28,4 +30,4 @@ export default function LessonProgressBar({ value }: { value: number }) {
     </Animated.View>
   </View>;
 }
-const s = StyleSheet.create({ track: { flex: 1, height: 7, borderRadius: 7, backgroundColor: '#282342', overflow: 'hidden' }, fill: { height: '100%', borderRadius: 7, overflow: 'hidden' }, spark: { position: 'absolute', right: 0, width: 18, top: -2, bottom: -2, borderRadius: 5, backgroundColor: '#FFF1B5', transform: [{ skewX: '-25deg' }] } });
+const baseStyles = StyleSheet.create({ track: { flex: 1, height: 7, borderRadius: 7, backgroundColor: '#282342', overflow: 'hidden' }, fill: { height: '100%', borderRadius: 7, overflow: 'hidden' }, spark: { position: 'absolute', right: 0, width: 18, top: -2, bottom: -2, borderRadius: 5, backgroundColor: '#FFF1B5', transform: [{ skewX: '-25deg' }] } });

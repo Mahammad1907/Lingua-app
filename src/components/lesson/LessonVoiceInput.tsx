@@ -1,3 +1,4 @@
+import { useLessonTheme, useLessonStyles } from './LessonTheme';
 import { useEffect, useState } from 'react';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
@@ -6,12 +7,15 @@ import { loadRecordedAudio } from '../../utils/recordedAudio';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import ParticleWave from './ParticleWave';
 import VoicePracticeRecorder from './VoicePracticeRecorder';
-import VoiceCaptureBar, { compactVoiceStyle as compactUI } from './VoiceCaptureBar';
+import VoiceCaptureBar, { compactVoiceStyle as compactBase } from './VoiceCaptureBar';
 import { LessonButton, LessonIcon, ink } from './LessonSurface';
 
 export default function LessonVoiceInput({ onFinal, onBusyChange, suspended, disabled = false, autoStart = false, compact = false, cloudEnabled = false, manualSend = false, onClose, onUnverifiedRecording }: { onUnverifiedRecording?: (recording: UnverifiedRecording) => void; onClose?: () => void; compact?: boolean; cloudEnabled?: boolean; manualSend?: boolean;
   onFinal: (answer: SpokenAnswer) => string | null; onBusyChange: (busy: boolean) => void; suspended?: boolean; disabled?: boolean; autoStart?: boolean;
 }) {
+  const { colors: ink } = useLessonTheme();
+  const s = useLessonStyles(baseStyles);
+  const compactUI = useLessonStyles(compactBase);
   const speech = useLessonSpeech({ onFinal, onBusyChange, suspended, autoStart, autoSubmit: compact && !manualSend });
   const player = useAudioPlayer(null), playback = useAudioPlayerStatus(player);
   const [playError, setPlayError] = useState('');
@@ -61,4 +65,4 @@ export default function LessonVoiceInput({ onFinal, onBusyChange, suspended, dis
     {speech.needsNetwork && !speech.busy ? <Pressable accessibilityRole="button" disabled={disabled} onPress={() => void speech.start(true)}><Text style={s.link}>Sistemin internetlə tanımasını sına</Text><Text style={s.note}>Bu seçimlə səs telefonunun sistem xidməti tərəfindən internetdə emal oluna bilər.</Text></Pressable> : null}
   </View>;
 }
-const s = StyleSheet.create({ input: { gap: 10, borderWidth: 1, borderColor: '#605086', borderRadius: 24, padding: 18, backgroundColor: '#13182E' }, hero: { alignItems: 'center', gap: 6 }, compact: { gap: 4 }, mic: { width: 86, height: 86, borderRadius: 43, backgroundColor: '#6236B0', borderWidth: 2, borderColor: '#B58BFF', alignItems: 'center', justifyContent: 'center', shadowColor: '#9359FF', shadowOffset: { width: 0, height: 0 }, shadowOpacity: .25, shadowRadius: 16 }, smallMic: { width: 48, height: 48, borderRadius: 24 }, live: { backgroundColor: '#553252', borderColor: ink.orange }, label: { fontSize: 15, lineHeight: 21, color: ink.text, fontWeight: '700', textAlign: 'center' }, note: { color: ink.muted, fontSize: 12, lineHeight: 18 }, transcript: { color: ink.text, fontSize: 16, lineHeight: 22, paddingVertical: 4 }, reviewInput: { color: ink.text, fontSize: 16, lineHeight: 23, minHeight: 55, maxHeight: 110, borderRadius: 15, borderWidth: 1, borderColor: '#8B77C0', backgroundColor: '#23223C', padding: 12 }, stop: { alignSelf: 'center', minHeight: 48, justifyContent: 'center', paddingHorizontal: 18, borderRadius: 24, backgroundColor: '#B63C4B' }, stopText: { color: '#FFF', fontWeight: '700' }, controls: { flexDirection: 'row', gap: 8 }, control: { flex: 1, minHeight: 44, borderRadius: 13, backgroundColor: '#29233F', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5, padding: 7 }, controlText: { color: ink.violet, fontSize: 12 }, link: { color: ink.violet, paddingVertical: 10, fontSize: 12, lineHeight: 18, textAlign: 'center' } });
+const baseStyles = StyleSheet.create({ input: { gap: 10, borderWidth: 1, borderColor: '#605086', borderRadius: 24, padding: 18, backgroundColor: '#13182E' }, hero: { alignItems: 'center', gap: 6 }, compact: { gap: 4 }, mic: { width: 86, height: 86, borderRadius: 43, backgroundColor: '#6236B0', borderWidth: 2, borderColor: '#B58BFF', alignItems: 'center', justifyContent: 'center', shadowColor: '#9359FF', shadowOffset: { width: 0, height: 0 }, shadowOpacity: .25, shadowRadius: 16 }, smallMic: { width: 48, height: 48, borderRadius: 24 }, live: { backgroundColor: '#553252', borderColor: ink.orange }, label: { fontSize: 15, lineHeight: 21, color: ink.text, fontWeight: '700', textAlign: 'center' }, note: { color: ink.muted, fontSize: 12, lineHeight: 18 }, transcript: { color: ink.text, fontSize: 16, lineHeight: 22, paddingVertical: 4 }, reviewInput: { color: ink.text, fontSize: 16, lineHeight: 23, minHeight: 55, maxHeight: 110, borderRadius: 15, borderWidth: 1, borderColor: '#8B77C0', backgroundColor: '#23223C', padding: 12 }, stop: { alignSelf: 'center', minHeight: 48, justifyContent: 'center', paddingHorizontal: 18, borderRadius: 24, backgroundColor: '#B63C4B' }, stopText: { color: '#FFF', fontWeight: '700' }, controls: { flexDirection: 'row', gap: 8 }, control: { flex: 1, minHeight: 44, borderRadius: 13, backgroundColor: '#29233F', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5, padding: 7 }, controlText: { color: ink.violet, fontSize: 12 }, link: { color: ink.violet, paddingVertical: 10, fontSize: 12, lineHeight: 18, textAlign: 'center' } });

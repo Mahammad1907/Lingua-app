@@ -35,6 +35,17 @@ A/B results show actual goal evidence. **The packet intentionally supplies no au
 
 ## What has not been verified
 
-A physical iPhone/Android run, actual microphone/record/replay, recognizer confidence/network behavior, platform voice availability, native keyboard/safe-area geometry and animation smoothness are **not tested here**. These are device QA items, not completed validations. No claim of 100% language-answer coverage, official A1 certification or live ASR validation is made. Test fixtures cover the stated cases, not every possible free answer. The new supplemental screens use the light style; the previously discussed full visual redesign of all legacy lesson screens is not claimed by this content/flow batch.
+A physical iPhone/Android run, actual microphone/record/replay, recognizer confidence/network behavior, platform voice availability, native keyboard/safe-area geometry and animation smoothness are **not tested here**. These are device QA items, not completed validations. No claim of 100% language-answer coverage, official A1 certification or live ASR validation is made. Test fixtures cover the stated cases, not every possible free answer. Versioned packet lessons now use the scoped lavender/orange lesson presentation described below. Legacy non-packet routes and profile are outside this visual migration.
 
 The work remains on the isolated `codex/v2-groups-12-lessons-20261105` branch / PR #3 for device QA. It is not silently merged into the working home branch.
+
+
+## Light lesson presentation
+
+The versioned packet renderer now uses the approved lavender background, orange primary actions and hooded mascot. Introduction, native teaching board, grammar, written/choice/sentence tasks, listening, authored speech dialogue, conditional retry and concrete result views share a scoped theme. No card data/order or acceptance rule is changed by the presentation. D1 has no authored standalone grammar card; none was invented. Speech stays interleaved and is labelled as a prepared dialogue, not free AI chat.
+
+New words keep authored phrase boundaries, contextual meaning/example and English-only audio. First teaching saves vocabulary; repeated teaching does not duplicate it. Assistance remains sticky. Feedback names independent, assisted, wrong/partial and unverified states in text, with restrained color/motion. A 180ms card fade and existing brief feedback honor reduced motion. Results include support-assisted responses in the totals while separately reporting unverified listening. Skipped/technical speech is never counted as demonstrated speech. Exit copy reflects persisted v2 drafts.
+
+`check-lesson-one-flow.cjs` exercises the complete D1 flow with native/audio boundaries mocked: first-teaching dictionary saves, word meaning/English playback, authored order, interleaved speech, wrong/partial single retries, retained correct field, sticky text support, skipped/technical speech, a concrete 2/4 assessed-speech result, original evidence and explicit completion without auto-next. It also renders 157 active authored stages across all twelve lessons. The twelve conditional review introductions are not treated as unconditional main tasks. Existing content/evidence/home/supplement tests remain applicable.
+
+A browser screenshot was not obtained: this environment cannot execute the downloaded browser binary. Mock rendering and web export do not certify physical layout, native audio, real recognition or animation smoothness. Device QA remains required; no exam threshold has been introduced.

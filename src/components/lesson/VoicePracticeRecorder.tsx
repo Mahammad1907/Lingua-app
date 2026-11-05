@@ -1,3 +1,4 @@
+import { useLessonTheme, useLessonStyles } from './LessonTheme';
 import { AudioModule, RecordingPresets, setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus, useAudioRecorder } from 'expo-audio';
 import * as Speech from 'expo-speech';
 import { loadRecordedAudio, safelyReadRecorder, safelyStopRecorder } from '../../utils/recordedAudio';
@@ -8,10 +9,13 @@ import type { UnverifiedRecording } from '../../utils/speechTurn';
 import { microphoneLevel } from '../../utils/lessonGuide';
 import { LessonButton, LessonIcon, SoundMark, ink } from './LessonSurface';
 import ParticleWave from './ParticleWave';
-import VoiceCaptureBar, { compactVoiceStyle as compactUI } from './VoiceCaptureBar';
+import VoiceCaptureBar, { compactVoiceStyle as compactBase } from './VoiceCaptureBar';
 
 // Expo Go can record/replay, but cannot turn this recording into a verified spoken answer.
 export default function VoicePracticeRecorder({ onBusyChange, suspended = false, onContinue, autoStart = false, continueLabel = 'Dinlədim · Davam et', compact = false, cloudEnabled = false, onClose, autoSend = false, onRecorded }: { autoSend?: boolean; cloudEnabled?: boolean; onRecorded?: (recording: UnverifiedRecording) => void; onClose?: () => void; autoStart?: boolean; continueLabel?: string; compact?: boolean; onContinue?: () => void; onBusyChange?: (busy: boolean) => void; suspended?: boolean }) {
+  const { colors: ink } = useLessonTheme();
+  const s = useLessonStyles(baseStyles);
+  const compactUI = useLessonStyles(compactBase);
   const recorder = useAudioRecorder({ ...RecordingPresets.HIGH_QUALITY, isMeteringEnabled: true });
   const [status, setStatus] = useState({ isRecording: false });
   const player = useAudioPlayer(null), playback = useAudioPlayerStatus(player);
@@ -107,4 +111,4 @@ export default function VoicePracticeRecorder({ onBusyChange, suspended = false,
     {draft && onContinue ? <LessonButton disabled={busy || status.isRecording} label={continueLabel} onPress={() => { player.pause(); onContinue(); }} /> : null}
   </View>;
 }
-const s = StyleSheet.create({ box: { padding: 18, gap: 10, borderRadius: 24, borderWidth: 1, borderColor: '#61508F', backgroundColor: '#15172F' }, mic: { alignSelf: 'center', width: 66, height: 66, borderRadius: 33, alignItems: 'center', justifyContent: 'center', backgroundColor: '#2B244A', borderWidth: 1, borderColor: '#9A7FE4' }, title: { color: ink.text, fontSize: 19, fontWeight: '700', textAlign: 'center' }, note: { color: ink.muted, fontSize: 12, lineHeight: 18 }, error: { color: '#FFB2A2', fontSize: 12, lineHeight: 18 }, record: { minHeight: 49, borderRadius: 17, backgroundColor: '#302746', alignItems: 'center', justifyContent: 'center', padding: 12 }, recordText: { color: ink.text, fontWeight: '700', fontSize: 14 }, replay: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', gap: 12 } });
+const baseStyles = StyleSheet.create({ box: { padding: 18, gap: 10, borderRadius: 24, borderWidth: 1, borderColor: '#61508F', backgroundColor: '#15172F' }, mic: { alignSelf: 'center', width: 66, height: 66, borderRadius: 33, alignItems: 'center', justifyContent: 'center', backgroundColor: '#2B244A', borderWidth: 1, borderColor: '#9A7FE4' }, title: { color: ink.text, fontSize: 19, fontWeight: '700', textAlign: 'center' }, note: { color: ink.muted, fontSize: 12, lineHeight: 18 }, error: { color: '#FFB2A2', fontSize: 12, lineHeight: 18 }, record: { minHeight: 49, borderRadius: 17, backgroundColor: '#302746', alignItems: 'center', justifyContent: 'center', padding: 12 }, recordText: { color: ink.text, fontWeight: '700', fontSize: 14 }, replay: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', gap: 12 } });
