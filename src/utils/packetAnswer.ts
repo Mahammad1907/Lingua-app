@@ -81,6 +81,19 @@ function assessNormalizedAnswer(value: string, rule: PacketRule, voice = false):
 // Fuzz only written English spelling. Names, short grammar words and real-word
 // substitutions stay exact; recognition uncertainty is never repaired this way.
 export function assessPacketAnswer(value: string, rule: PacketRule, voice = false): PacketVerdict {
+  if (rule.fields) {
+    let values: unknown;
+    try { values = JSON.parse(value); } catch { values = null; }
+    if (!Array.isArray(values) || values.length !== rule.fields.length || values.some(v => typeof v !== 'string' || !v.trim()))
+      return { status: 'unknown', criteria: [], message: 'Hər sahəni ayrıca tamamla.' };
+    const results = rule.fields.map((field, i) => assessPacketAnswer(values[i], field, voice));
+    const passed = results.filter(r => r.status === 'correct').length;
+    return { status: passed === results.length ? 'correct' : passed ? 'partial' : 'wrong',
+      criteria: results.map((r, i) => ({ goal: `${i + 1}-ci sahə`, passed: r.status === 'correct' })),
+      message: passed === results.length ? 'Hər iki mesaj məqsədinə uyğundur.' : 'Hər mesajı öz məqsədinə uyğun yoxla.' };
+  }
+  const authored = rule.authoredAlternatives?.some(a => !a.includes('[ad]') && normalizePacketAnswer(a) === normalizePacketAnswer(value));
+  if (authored) return { status: 'correct', criteria: (rule.goals || []).map(g => ({ goal: goalLabels[g], passed: true })), message: 'Cavab müəllifin qəbul etdiyi alternativə uyğundur.' };
   const original = assessNormalizedAnswer(value, rule, voice);
   if (voice || original.status === 'correct' || !value.trim()) return original;
   const words = normalizePacketAnswer(value).split(' ');

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Animated, StyleSheet, Text, type TextProps } from 'react-native';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
-import { ink } from './LessonSurface';
+import { useLessonTheme } from './LessonTheme';
 
 export type LessonMotion = 'idle' | 'correct' | 'incorrect' | 'assisted' | 'unverified' | 'review' | 'reveal' | 'pulse';
 
@@ -10,10 +10,6 @@ export const lessonMotionDuration: Record<LessonMotion, number> = {
   unverified: 300, review: 600, reveal: 400, pulse: 300,
 };
 
-const tone: Partial<Record<LessonMotion, string>> = {
-  correct: ink.mint, incorrect: ink.orange, assisted: '#F4D889',
-  unverified: ink.muted, review: '#8BC6FF',
-};
 
 export function outcomeMotion(status: 'independent' | 'assisted' | 'wrong' | 'unverified' | undefined): LessonMotion {
   return status === 'independent' ? 'correct' : status === 'assisted' ? 'assisted' :
@@ -23,6 +19,8 @@ export function outcomeMotion(status: 'independent' | 'assisted' | 'wrong' | 'un
 // Transforms never take layout space. Every effect returns to the existing
 // font, color, size and position; wrong borders alone stay red until Continue.
 export function useLessonTextMotion(state: LessonMotion, trigger?: string | number) {
+  const { colors: ink, light } = useLessonTheme();
+  const tone: Partial<Record<LessonMotion, string>> = { correct: ink.mint, incorrect: ink.orange, assisted: light ? '#9C4815' : '#F4D889', unverified: ink.muted, review: light ? ink.violet : '#8BC6FF' };
   const reduced = useReducedMotion();
   const [progress] = useState(() => new Animated.Value(1));
   useEffect(() => {
@@ -84,6 +82,7 @@ export function useLessonTextMotion(state: LessonMotion, trigger?: string | numb
 export default function LessonTextMotion({ state = 'idle', trigger, children, style, ...props }: TextProps & {
   state?: LessonMotion; trigger?: string | number;
 }) {
+  const { colors: ink } = useLessonTheme();
   const motion = useLessonTextMotion(state, trigger);
   if (!motion.active) return <Text {...props} style={style}>{children}</Text>;
   const base = StyleSheet.flatten(style)?.color;

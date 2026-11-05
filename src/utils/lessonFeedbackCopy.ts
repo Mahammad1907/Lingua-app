@@ -1,6 +1,12 @@
-import { assessPacketAnswer, goalLabels } from './packetAnswer';
+import { assessPacketAnswer, goalLabels, normalizePacketAnswer } from './packetAnswer';
 import type { PacketCard } from '../data/b1PacketTypes';
 export function feedbackCopy(card: PacketCard, answer: string) {
+  if (card.feedbacks) {
+    const key = (s: string) => normalizePacketAnswer(s.replace(/^[A-D]\s*[—–-]\s*/, ''));
+    const matched = card.feedbacks.find(f => key(f.condition) === key(answer));
+    if (matched) return { reason: [matched.reason, matched.rule].filter(Boolean).join('\n'), example: matched.example };
+    return { reason: 'Cavabın bu tapşırığın məqsədinə tam uyğun deyil. Uyğun cavabları yoxla.', example: (card.turns?.[0]?.rule || card.rule)?.answers[0] || '' };
+  }
   const rule = card.turns?.[0]?.rule || card.rule;
   const assessed = rule ? assessPacketAnswer(answer, rule) : undefined;
   const goals = (rule?.goals || []).filter(g => !assessed?.criteria.find(c => c.goal === goalLabels[g])?.passed);

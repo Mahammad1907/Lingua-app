@@ -1,4 +1,5 @@
 import { Module } from './types';
+import manifest from './b1GroupsV2.json';
 
 // ═══════════════════════════════════════
 // MODULLAR
@@ -8,17 +9,14 @@ export const modules: Module[] = [
     id: 'module_1',
     title: 'First conversations',
     titleAz: 'İlk tanışlıq',
-    description: '7 dərs: salamlaşma, ad mübadiləsi, hal-əhval, nəzakət və səsli söhbət',
+    description: '12 dərs, 7 qrup: salamlaşma, ad mübadiləsi, hal-əhval, nəzakət və səsli söhbət',
     language: 'en',
     level: 'A1',
     order: 1,
     phase: 1,
     icon: '👋',
-    lessonIds: [
-      'a1_en_b1_v2_d1', 'a1_en_b1_v2_d2', 'a1_en_b1_v2_d3', 'a1_en_b1_v2_d4',
-      'a1_en_b1_v2_d5', 'a1_en_b1_v2_d6', 'a1_en_b1_v2_d7',
-    ],
-    finalReviewId: 'a1_en_b1_v2_d7',
+    lessonIds: manifest.groups.flatMap(group => group.lessonIds),
+    finalReviewId: manifest.groups[6].lessonIds[0],
     hasSpeakingPractice: false,
     speakingTitle: 'Speaking Practice',
     speakingDescription:

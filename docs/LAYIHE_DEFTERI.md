@@ -188,3 +188,46 @@ Son GitHub branch-i `codex/b1-lesson-screens-20261021`, başlanğıc `b1ba5c1`. 
 - Dolan yol və real faizə uyğun xəritə rəngi saxlanır; rəng artıq yazı və ikonların arxasındadır. Başlıq/CTA ölçülür, son kafellər və yol seqmentləri birlikdə aşağı çəkilir ki, böyük şriftdə idarələr üst-üstə düşməsin. Alt menyu safe-area ilə scroll-dan ayrı native sahədir.
 - Dərs, səs, qiymətləndirmə, yaddaş, marşrut, onboarding, SDK və paket faylları dəyişdirilmir. AI söhbət düyməsinin əvvəlki modul yönləndirməsi bu dar vizual işdə saxlanır.
 - TypeScript, lint (0 xəta, əvvəlki profile.tsx xəbərdarlığı), ana ekranın 0–7 irəliləyiş/ölçü/keçid testləri, mövcud course/chapter və 210 dərs qaydası yoxlaması keçir. Veb export keçir. SVG ikonlar ayrıca render edilərək nəzərdən keçirildi. Yerli Chromium işə düşmədiyindən canlı brauzer və fiziki iPhone/Android vizual yoxlaması tamamlanmayıb; səhvsizlik zəmanəti verilmir. Ətraflı qeyd: docs/HOME_MAP_PROGRESS.md.
+
+## 7 qrup / 12 dərslik v2 paketinin yoxlanması — 5 noyabr 2026
+
+İstifadəçi 7 xəritə kartını və mövcud rəng/maskot/xəritə ölçüsünü saxlayaraq yeni v2 ZIP-dəki 12 ayrıca dərsi istədi. Qrupa toxunanda aşağı panel, ayrıca dərs açılması/tamamlanması, real 12-lik faiz, Başla/Davam et/Yenidən məşq et və qaldığı qrupa qayıtma tələb olunur. Keçid imtahanı, Özünü yoxla və hekayə ayrıca girişdir, 12-yə daxil deyil. Müəllif məzmunu uydurulmur; qeydlər/cavab açarı tələbə UI-sində görünmür.
+
+Yeni müəllif paketindəki Sam/Alex adları və ardıcıllıq saxlanır; bu, əvvəlki nümunələrdə Əli/Leyla ilə avtomatik əvəz etmə göstərişini bu import üçün dəyişir. Profil, paket/SDK faylları və evdə işləyən branch dəyişdirilmir.
+
+Ayrıca draftda 7/12 məlumat modeli, qrup paneli, ayrıca dərs callback-ləri, yeni ID-lərlə təmiz faiz, saxlanmış cəhd/cursor/kömək izi, müəllif məna/lüğət paneli, İngilis TTS və ifadə variantlarının təkrarsız saxlanması hazırlanıb. Kod testləri 113 kanonik müəllif cavabını yoxlayır. Bu, bütün dərslərin məzmun və cihaz uyğunluğunun təsdiqi deyil.
+
+**Buraxılışa hazır deyil:** 37 səsli mərhələnin müəllifə uyğun şaxələri/manual göndərmə, D01-K10-da yalnız səhv sahənin yeni situasiyada təkrarı, bütün alternativ/izah banklarının tam uyğunluğu, yeni A/B/Özünü yoxla/hekayə axınları və aralı təkrar adapteri. V2 imtahanına köhnə hədd tətbiq edilmir. Əlavə girişlər hazır olmadığını açıq göstərir. Məna dəstəyi ilə dinləmə izi gizlətmə/yüklənmədən sonra da müstəqil nəticəyə çevrilməməlidir.
+
+Ətraflı yoxlanmış/yoxlanmamış siyahı: docs/V2_SUPPORT_STATUS.md; mərhələ siyahısı: docs/V2_IMPORT_READINESS.json. Real telefon, mikrofon, ASR xidməti və native animasiya yoxlanmayıb. Tam işlək paket kimi təqdim etmə; draftı istifadəçinin işləyən versiyasına birləşdirmə.
+
+## V2 qalan axınların tamamlanması — 5 noyabr 2026
+
+İstifadəçi qalan işləri tamamlamağı açıq tapşırdı. Əsas 7/12 bağlamasına əlavə olaraq D01-K10 düzgün sahəni saxlayan yeni situasiyalı təkrar, qismən düzgün səsli meyarların saxlanması, müəllifdən gələn cavab audiosu və yavaş sürət, v2 üçün əl ilə səs göndərmə, dəyişən təkrar üçün müəllif bankı və uyğun başlanğıc xatırlamasının əvəzlənməsi bağlandı. Qaldığı axının ID-ləri və ilkin cavab ayrıca saxlanır.
+
+Yeni A/B (14 nömrə + 2 altməqsəd), altı tapşırıqlı Özünü yoxla və 12 əsas dərsdən sonra açılan hekayə ayrıca `/lesson/supplement` axınındadır. Cavablar cəhd bitəndə açılır; məna/texniki/səs sübutu ayrıca saxlanır. Hekayə üçün yalnız real səhvlərə bir yeni situasiyalı təkrar var. Əlavələrin yaddaşı əsas dərs/XP əməliyyatından ayrıdır, 12-lik faiz dəyişmir. Özünü yoxlada və imtahanda ən çox iki uyğun təkrar keçidi verilir.
+
+**Məhsul qərarı:** müəllif paketi avtomatik keçid həddi vermir. Heç bir hədd uydurulmadı; imtahan nəticəsi var, lakin onunla avtomatik kilid açılmır. İstifadəçi ayrıca qərar vermədən köhnə hədd yeni paketə köçürülməsin.
+
+Kod yoxlamaları: 113 əsas kanonik cavab, 127 açıq müəllif alternativi, 43 əlavə cavabı, 37 səsli mərhələnin əsas halları, yeddi qrup/üç əlavə keçidi və tam altı suallıq mock-render axını keçir. TypeScript/lint və veb yığımı keçir. Əvvəlki hazırlıq qeydindəki kod boşluqları bu mərhələdə yenilənib; aktual siyahı docs/V2_SUPPORT_STATUS.md-dir. Fiziki telefon, ASR xidməti, mikrofon və native həndəsə yoxlanmayıb. Bu təsdiqlər kod testidir, cihaz yoxlaması deyil.
+
+## Dərs ekranlarının açıq üsluba keçirilməsi — 5 noyabr 2026
+
+İstifadəçi açıq bənövşəyi–narıncı ana səhifə üslubunu dərs ekranlarına tətbiq etməyi açıq şəkildə təsdiqlədi. Əvvəl Dərs 1-in tam axını qurulub komponent testindən keçirildi, sonra eyni təqdimat 12 v2 dərsin ortaq rendererinə bağlandı. Profil, paket məzmunu, kart sırası, SDK və imtahan həddi dəyişdirilməyib.
+
+- Giriş, native mətnli öyrətmə lövhəsi, yazı/seçim/cümlə qurma, dinləmə, hazırlanmış qarşılıqlı danışıq, şərti səhv təkrarı və nəticə üçün açıq ekran təqdimatı. Köhnə tülkü şəkli əvəzinə ana səhifənin hazır narıncı kapüşonlu maskotu təkrar istifadə olunur. Qiymətləndirmə ekranına cavabı göstərən illüstrasiya əlavə olunmur.
+- Sözlər/Qrammatika/Dinləmə/Danışıq təqdimat növüdür; kartlar bu adlara görə yenidən qruplaşdırılmır. Dərs 1-də mənbədə ayrıca qrammatika kartı yoxdur; belə kart uydurulmayıb. Digər dərslərdə müəllifin forma/bərabərlik/boşluq kartı Qrammatika görünüşünü istifadə edir.
+- Danışıq paketdə hazırlanmış dialoqdur; sərbəst AI xidməti kimi təqdim edilmir. Səsli cavablar və yazı sahəsinin mikrofonu v2-də açıq Göndər mərhələsini qoruyur.
+- Yeni sözlər oxunaqlı tünd narıncıdır. Toxunma məna/nümunə/yalnız ingiliscə səs panelini açır; ilk öyrətmədə sözlər avtomatik əlavə olunur. Daxili söz toxunması xarici audio düyməsini də işə salmır. Qiymətləndirmə mətni yeni söz kimi rənglənmir.
+- Düzgün, Köməklə, Səhv/Qismən və Yoxlanmadı yazı ilə fərqlənir. Texniki qeyri-müəyyənlik səhv animasiyası və dil səhvi təkrarı yaratmır. Səhv sahə bir dəfə yumşaq qırmızı çərçivə alır. Kart keçidi 180ms neytral şəffaflıqdır; azaldılmış animasiya seçimində sönür. Təkrar girişində uzun maskot animasiyası əvəzinə statik hazır maskot var.
+- Nəticə bütün cavabları, o cümlədən məna/mətn dəstəkli cavabları sayır; dinləmənin ayrıca yoxlanmaması göstərilir. Danışıqda yalnız yoxlanmış səsli nəticə sayılır; keçmək və texniki qeyd bacarıq təsdiqi deyil. Ətraflı tapşırıq nəticəsi overlaydə açılır. V2 çıxış dialoqu cari cavabların saxlandığını düzgün bildirir.
+
+Yoxlama: `check-lesson-one-flow.cjs` real PacketLesson/store komponent axınını native/səs sərhədləri mock edilərək keçir: ilk sözlərin əlavə olunması, məna paneli, yalnız ingiliscə TTS, aralı danışıq kartları, səhv/qismən cavab, bir dəfə təkrar, saxlanılan sahə, köməklə dinləmə, keçilmiş/texniki danışıq, konkret 2/4 səsli nəticə, ilkin cavabın saxlanması və növbəti dərsin avtomatik başlamaması. Eyni test 12 dərsin 157 aktiv müəllif kartını render edir; 12 şərti təkrar giriş kartı ayrıca sabit mərhələ kimi məcburi göstərilmir. Bu native ölçülərin vizual təsdiqi deyil.
+
+Real iPhone/Android, mikrofon/ASR, safe area/klaviatura və animasiya hamarlığı yoxlanmayıb. Lokal browser screenshot cəhdi bu mühitdə browser binarının icrası mümkün olmadığı üçün alınmayıb; screenshot və fiziki cihaz QA-sı tamamlanmış kimi təqdim edilmir. Keçid imtahanına özbaşına faiz əlavə olunmayıb.
+
+## Yeni personajlar və şəkilli öyrətmə — 6 noyabr 2026
+
+İstifadəçi lövhədən başqa köhnə dərs şəkillərindən imtina etdi, yeni iki 2D personajı təsdiqlədi və paketdəki şəkil səhnələrini onlarla hazırlamağı/yükləməyi istədi. P01–P09 üçün 10 sözsüz yeni vizual hazırlandı; P07 diqqət/üzr olmaqla iki ayrı səhnədir. Native lövhə saxlanır, köhnə personajlar yeni v2 giriş/lövhə/təkrar səhnələrindən çıxarılır. İnsan avatarı daimi maskot adı deyil. Profil və ana səhifə dəyişmir.
+
+Hazır/yerləşdirilən/gələcək şəkillər docs/V2_PICTURE_STATUS.md-də ayrıca qeyd olunur. Yeni əşya/meyvə sözləri bu tanışlıq paketinə əlavə edilmir; uyğun gələcək müəllif məzmunu olmadan yeni söz, tərcümə və cümlə uydurulmur. Öyrətmədə müəllif lüğətindən məna, ingiliscə audio, nümunə və tərcümə var; qiymətləndirmədə həmin blok gizlidir. Əvvəlki öyrətmə və cari hədəf xaricində söz olan nümunə sadə token yoxlaması ilə gizlənir. Yeni söz rəngi, toxunma mənası və avtomatik təkrarsız lüğət əlavə etməsi mövcud sistemdə saxlanılır. Fayllar və komponent testləri ilə fiziki telefon yoxlaması ayrı göstərilməlidir.

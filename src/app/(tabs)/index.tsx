@@ -58,6 +58,8 @@ export default function Home() {
   }
   return <View style={styles.root}>
     <HomeDashboard course={course} language={selection.language} level={selection.level} xp={xp}
+      onSupplement={kind => router.push({ pathname: '/lesson/supplement', params: { kind } })}
+      onLessonOpen={id => router.push({ pathname: '/lesson/session', params: { id } })}
       compact={width < 360} topInset={insets.top} onNavigate={navigate} onSelect={() => setPickerOpen(true)}
       onOpen={(id) => {
         if (course.items.find((item) => item.id === id)?.state === 'locked') setLockedId(id);
