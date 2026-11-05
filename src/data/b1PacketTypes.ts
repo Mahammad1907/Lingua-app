@@ -1,7 +1,9 @@
 export type PacketGoal = 'greet' | 'farewell' | 'introduce' | 'askName' | 'meet' | 'feeling' | 'fine' | 'unwell' | 'askFeeling' | 'thanks' | 'welcome' | 'sorry' | 'noProblem' | 'politeName' | 'attention' | 'dontUnderstand' | 'repeat' | 'slow' | 'reason';
-export interface PacketRule { answers: string[]; goals?: PacketGoal[]; roleName?: string; exact?: boolean; fields?: PacketRule[] }
+export interface PacketRule { authoredAlternatives?: string[]; answers: string[]; goals?: PacketGoal[]; roleName?: string; exact?: boolean; fields?: PacketRule[] }
 export interface PacketTurn { id: string; audio: string; prompt: string; rule: PacketRule; sample?: string; reply?: string; replyRate?: number; replyGoals?: PacketGoal[]; rate?: number }
 export interface PacketCard {
+  retainedFields?: string[]; retainedCriteria?: string[];
+  feedbacks?: { condition: string; reason: string; rule: string; example: string }[];
   id: string; number: number; title: string; kind: 'intro' | 'teach' | 'task' | 'voice' | 'review' | 'result';
   fields?: { label: string; rule: PacketRule }[];
   body: string; board?: string; examples?: string[]; options?: string[]; words?: string[]; audio?: string;

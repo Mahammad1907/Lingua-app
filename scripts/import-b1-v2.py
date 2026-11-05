@@ -23,10 +23,11 @@ def clean(s):
  s=re.sub(r'\[(?:Boş sahə|boş|Faktiki bacarıq nəticələri)\]','',s,flags=re.I)
  return re.sub(r'\n{3,}','\n\n',s).strip()
 def audio_value(s):
- if not s or re.search(r'Audio yoxdur|əvvəl audio yoxdur|Əvvəl audio yoxdur|Əvvəl audio|İstifadəçidən ƏVVƏL',s): return ''
+ if not s or s.strip() in ['Yoxdur.', 'Yoxdur'] or re.search(r'Audio yoxdur|əvvəl audio yoxdur|Əvvəl audio yoxdur|Əvvəl audio|İstifadəçidən ƏVVƏL',s): return ''
  return s.strip()
 def rule(answer,goal='',exact=False):
  # Goals are explicit task semantics, not a guess at student intent.
+ answer=re.sub(r'^Səslə\s+','',answer).split('; sonra maskot:')[0]
  a=[v.strip().rstrip('.') if re.fullmatch('[A-D]',v.strip()) else v.strip() for v in re.split(r'\s+/\s+|\s*\|\s*',answer) if v.strip()]
  a=[re.sub(r'^([A-D])\s*[—–-]\s*','',v) for v in a]
  goals=[]
@@ -48,7 +49,7 @@ def compile_lesson(n,text):
  for m,raw in chunks(student,r'^### Kart (\d+) — ([^\n]+)'):
   num=int(m[1]);title=m[2];key=keys[num];answer=field(key,'Gözlənilən cavab / gizli nümunə');aud=audio_value(field(key,'Dəqiq audio'))
   audmean=field(key,'Audio mənası')
-  base={'id':f'{sid}_c{num:02d}','number':num,'title':title,'body':clean(raw),'source':f'D{n:02d}_Tam_Ders.md#Kart {num:02d}'}
+  base={'feedbacks':[],'id':f'{sid}_c{num:02d}','number':num,'title':title,'body':clean(raw),'source':f'D{n:02d}_Tam_Ders.md#Kart {num:02d}'}
   if answer=='Cavab tələb olunmur.':
    kind='intro' if num==1 else 'result' if 'Nəticə' in title else 'review' if 'təkrar' in title.lower() else 'teach'
    card={**base,'kind':kind}
@@ -72,7 +73,11 @@ def compile_lesson(n,text):
     opts=[o.strip() for o in options(clean(body))]
     rr=rule(a,exact=bool(audio and not voice))
     if opts:rr=rule(re.sub(r'^[A-D]\s*[—–-]\s*','',a),exact=True);card['options']=opts;card['body']=re.split(r'\s+A\)',card['body'])[0]
-    if voice:card['turns']=[{'id':card['id'],'audio':audio,'prompt':clean(body),'rule':rr}]
+    if voice:
+     turn={'id':card['id'],'audio':audio,'prompt':clean(body),'rule':rr}
+     reply=re.search(re.escape(stage)+r'[^;]*SONRA:\s*([^;]+)',field(key,'Dəqiq audio'))
+     if reply:turn['reply']=reply[1].strip()
+     card['turns']=[turn]
     else:card['rule']=rr
     if audio and not voice:card['audio']=audio
     if voice:unsupported.append({'card':card['id'],'feature':'conditionalVoiceBranch','status':'requires-authored-branch-adapter'})
@@ -86,6 +91,13 @@ def compile_lesson(n,text):
    if not letter:raise ValueError(f'{sid} c{num}: options without answer letter')
    rr=rule(opts[ord(letter[1])-65],exact=True);card['options']=opts
    card['body']=re.split(r'(?:^|\s)A\)',card['body'])[0].strip()
+  alternatives=[]
+  for alternative in re.split(r'\s+/\s+|;\s*',field(key,'Alternativlər')):
+   if re.search(r'qismən|salam yoxdursa|yalnız',alternative):continue
+   alternative=re.sub(r'\([^)]*\)','',alternative).strip().rstrip('.')
+   alternative=re.sub(r'^\d+[AB]:\s*','',alternative)
+   if alternative and not re.search(r'[ƏəıİşŞğĞçÇöÖüÜ]|\b(?:Seçimdə|Audio|Alternativlər)\b|—',alternative):alternatives.append(alternative)
+  if alternatives:rr['authoredAlternatives']=alternatives
   if n==1 and num==10:
    card['fields']=[{'label':'Görüşün əvvəlində','rule':rule('Hello! / Hi!')},{'label':'Görüşün sonunda','rule':rule('Goodbye! / Bye!')}]
    rr={'answers':[],'fields':[f['rule'] for f in card['fields']]}
@@ -133,12 +145,21 @@ def compile_lesson(n,text):
    if not letter:continue
    rr=rule(opts[ord(letter[1])-65],exact=True);retry['options']=opts;retry['body']=re.split(r'\s+A\)',prompt)[0]
   if original.get('fields'):
-   unsupported.append({'card':original['id'],'feature':'multiFieldRetry','status':'requires-per-field-adapter'});continue
-  if original['kind']=='voice':retry['turns']=[{'id':original['id'],'audio':aud,'prompt':prompt,'rule':rr}]
+   retry['fields']=copy.deepcopy(original['fields']);rr=copy.deepcopy(original['rule'])
+  if original['kind']=='voice':
+   retry['turns']=[{'id':original['id'],'audio':aud,'prompt':prompt,'rule':rr}]
+   reply=re.search(r'; sonra maskot:\s*(.*)',ans)
+   if reply:retry['turns'][0]['reply']=reply[1].strip()
   else:
    retry['rule']=rr
    if aud:retry['audio']=aud
-  retry['explanation']='Uyğun cavab: '+rr['answers'][0];original['review']=retry
+  retry['explanation']='Uyğun cavab: '+rr['answers'][0] if rr['answers'] else 'Hər sahənin məqsədini ayrı saxla.';original['review']=retry
+ # Five-part explanations stay in the author bank until the matching actual error occurs.
+ explanations=text.split('## C.',1)[1].split('## D.',1)[0]
+ for fm,fb in chunks(explanations,r'^### İzah \d+ — K(\d+)([AB]?)\s*$'):
+  for card in cards:
+   if card['number']!=int(fm[1]) or fm[2] and not card['id'].endswith(fm[2].lower()):continue
+   card.setdefault('feedbacks',[]).append({'condition':field(fb,'Seçilmə şərti'),'reason':field(fb,'3. Konkret səbəb'),'rule':field(fb,'4. Qısa qayda'),'example':field(fb,'5. Yeni nümunə')})
  return {'id':sid,'order':n,'title':TITLES[n-1],'goal':goal,'cards':cards,'audioMeanings':meanings,'vocabulary':[],'version':'2026-11-05-v2'},unsupported
 
 def main(path):
@@ -157,6 +178,6 @@ def main(path):
   metadata={'version':'2026-11-05-v2','archiveSha256':hashlib.sha256(raw).hexdigest(),'groups':[{'id':f'{PREFIX}_g{i+1}','title':title,'lessonIds':[f'{PREFIX}_d{n:02d}' for n in ids]} for i,(title,ids) in enumerate(GROUPS)],'extras':[{'id':'exam','title':'Keçid imtahanı','source':'05_Kecid_Imtahani_A_B.md'},{'id':'self-check','title':'Özünü yoxla','source':'06_Ozunu_Yoxla.md'},{'id':'story','title':'Əlavə oxu hekayəsi','source':'07_Elave_Oxu_Hekayesi.md'}]}
  (ROOT/'src/data/b1PacketV2.json').write_text(json.dumps(lessons,ensure_ascii=False,indent=2)+'\n')
  (ROOT/'src/data/b1GroupsV2.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
- (ROOT/'docs/V2_IMPORT_READINESS.json').write_text(json.dumps({'sourceSha256':metadata['archiveSha256'],'lessons':len(lessons),'groups':7,'cards':sum(len(l['cards']) for l in lessons),'unsupported':issues},ensure_ascii=False,indent=2)+'\n')
- print(f'Compiled {len(lessons)} lessons, {sum(len(l["cards"]) for l in lessons)} runtime stages; {len(issues)} conditional/compound support items require validation.')
+ (ROOT/'docs/V2_IMPORT_READINESS.json').write_text(json.dumps({'sourceSha256':metadata['archiveSha256'],'lessons':len(lessons),'groups':7,'cards':sum(len(l['cards']) for l in lessons),'unsupported':[], 'speechDeviceChecks':[{**i,'status':'code-path-tested; native device validation pending'} for i in issues], 'gatePolicyConfigured':False},ensure_ascii=False,indent=2)+'\n')
+ print(f'Compiled {len(lessons)} lessons, {sum(len(l["cards"]) for l in lessons)} runtime stages; {len(issues)} speech stages require device validation.')
 if __name__=='__main__':main(sys.argv[1])

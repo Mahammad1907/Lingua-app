@@ -15,8 +15,9 @@ export default function VoicePracticeRecorder({ onBusyChange, suspended = false,
   const recorder = useAudioRecorder({ ...RecordingPresets.HIGH_QUALITY, isMeteringEnabled: true });
   const [status, setStatus] = useState({ isRecording: false });
   const player = useAudioPlayer(null), playback = useAudioPlayerStatus(player);
-  const [draft, setDraft] = useState<{ uri: string; duration: number } | null>(null);
+  const [draft, setDraft] = useState<{ uri: string; duration: number; heardVoice: boolean } | null>(null);
   const [levels, setLevels] = useState<number[]>([]), [error, setError] = useState(''), [busy, setBusy] = useState(false);
+  const heardVoice = useRef(false);
   const endpoint = useRef(new RecordingEndpoint());
   const stopLatest = useRef<(send: boolean) => void>(() => {});
   const delivery = useRef(onRecorded), serial = useRef(0), sent = useRef('');
@@ -28,6 +29,7 @@ export default function VoicePracticeRecorder({ onBusyChange, suspended = false,
       if (sample) {
         setStatus({ isRecording: sample.isRecording });
         if (sample.isRecording) {
+          if (microphoneLevel(sample.metering) > .04) heardVoice.current = true;
           setLevels(v => [...v.slice(-24), microphoneLevel(sample.metering)]);
           if (autoSend) { const action = endpoint.current.sample(sample.metering, Date.now()); if (action) stopLatest.current(action === 'send'); }
         }
@@ -53,7 +55,7 @@ export default function VoicePracticeRecorder({ onBusyChange, suspended = false,
       const duration = recorder.currentTime; await recorder.stop(); await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: true });
       if (!mounted.current) return;
       if (recorder.uri && duration >= .3) {
-        setDraft({ uri: recorder.uri, duration }); setError('');
+        setDraft({ uri: recorder.uri, duration, heardVoice: heardVoice.current }); setError('');
         if (autoSend && send && endpoint.current.heardVoice && AppState.currentState === 'active' && !suspendedNow.current) {
           const token = `recording:${serial.current}`;
           if (sent.current !== token) { sent.current = token; setSentRecording(true); delivery.current?.({ uri: recorder.uri, duration, token }); }
@@ -71,6 +73,7 @@ export default function VoicePracticeRecorder({ onBusyChange, suspended = false,
     return () => { mounted.current = false; clear(); endDetector.cancel(); app.remove(); loadRecordedAudio(player); safelyStopRecorder(recorder); void setAudioModeAsync({ allowsRecording: false }).catch(() => {}); onBusyChange?.(false); };
   }, [onBusyChange, player, recorder, stop]);
   const start = useCallback(async () => {
+    heardVoice.current = false;
     if (operation.current) return;
     operation.current = true; setBusy(true);
     try {
@@ -92,6 +95,8 @@ export default function VoicePracticeRecorder({ onBusyChange, suspended = false,
     <Text style={compactUI.note}>{cloudEnabled ? 'Səsini yaz və dinlə' : 'Səsini yaz və dinlə · Avtomatik yoxlanmır'}</Text>
     {error ? <Text accessibilityLiveRegion="polite" style={compactUI.error}>{error}</Text> : null}
     {draft ? <View style={compactUI.actions}><Pressable accessibilityRole="button" disabled={busy || status.isRecording} onPress={() => void replay()} style={compactUI.action}><Text style={compactUI.actionText}>{playback.playing ? 'Dayandır' : 'Yazını dinlə'}</Text></Pressable><Pressable accessibilityRole="button" disabled={busy || status.isRecording} onPress={() => { loadRecordedAudio(player); setDraft(null); }} style={compactUI.action}><Text style={compactUI.actionText}>Sil</Text></Pressable></View> : null}
+    {draft && onRecorded && !autoSend ? <LessonButton disabled={busy || status.isRecording || !draft.heardVoice || sentRecording} label="Səs yazısını göndər" onPress={() => { if (suspendedNow.current || AppState.currentState !== 'active' || !draft.heardVoice) return; player.pause(); setSentRecording(true); onRecorded({ uri: draft.uri, duration: draft.duration, token: `manual-recording:${serial.current}` }); }} /> : null}
+    {draft && !draft.heardVoice ? <Text style={compactUI.note}>Danışıq səviyyəsi təsdiqlənmədi. Yenidən yaz və ya Keç seç.</Text> : null}
     {draft && onContinue ? <LessonButton disabled={busy || status.isRecording} label={continueLabel} onPress={() => { player.pause(); onContinue(); }} /> : null}
   </VoiceCaptureBar>;
   return <View style={[s.box, compact && { borderWidth: 0, padding: 0, backgroundColor: 'transparent' }]}><View style={s.mic}><LessonIcon name="mic" size={32} color={status.isRecording ? ink.orange : ink.violet} /></View><ParticleWave active={status.isRecording ? (levels.at(-1) || 0) > .04 : playback.playing} level={status.isRecording ? levels.at(-1) || 0 : undefined} height={compact ? 58 : 86} /><Text style={s.title}>{status.isRecording ? 'Səni dinləyirəm…' : 'Səsli məşq et'}</Text><Text style={s.note}>Səsini yaz və yenidən dinlə. Bu versiyada səs yazısı mətnə çevrilmir və qiymətləndirilmir.</Text>

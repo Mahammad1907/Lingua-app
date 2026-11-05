@@ -92,6 +92,8 @@ export function assessPacketAnswer(value: string, rule: PacketRule, voice = fals
       criteria: results.map((r, i) => ({ goal: `${i + 1}-ci sahə`, passed: r.status === 'correct' })),
       message: passed === results.length ? 'Hər iki mesaj məqsədinə uyğundur.' : 'Hər mesajı öz məqsədinə uyğun yoxla.' };
   }
+  const authored = rule.authoredAlternatives?.some(a => !a.includes('[ad]') && normalizePacketAnswer(a) === normalizePacketAnswer(value));
+  if (authored) return { status: 'correct', criteria: (rule.goals || []).map(g => ({ goal: goalLabels[g], passed: true })), message: 'Cavab müəllifin qəbul etdiyi alternativə uyğundur.' };
   const original = assessNormalizedAnswer(value, rule, voice);
   if (voice || original.status === 'correct' || !value.trim()) return original;
   const words = normalizePacketAnswer(value).split(' ');

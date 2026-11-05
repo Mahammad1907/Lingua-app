@@ -1,3 +1,4 @@
+import V2Supplement from '../../components/lesson/V2Supplement';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -12,10 +13,7 @@ export default function ModuleCheck() {
   if (moduleId === 'module_1') return <V2ExamPending />;
   return <Exam key={moduleId ?? 'missing'} moduleId={moduleId ?? ''} />;
 }
-function V2ExamPending() {
-  const router = useRouter();
-  return <View style={s.screen}><Text style={s.title}>Keçid imtahanı · v2</Text><Text style={s.text}>Yeni A/B imtahanının qiymətləndirmə axını hələ qoşulmayıb. Köhnə imtahan yeni paket üçün istifadə edilmir.</Text><TouchableOpacity onPress={() => router.back()} style={s.button}><Text style={s.dark}>Geri</Text></TouchableOpacity></View>;
-}
+function V2ExamPending() { return <V2Supplement kind="exam"/>; }
 function Exam({ moduleId }: { moduleId: string }) {
   const router = useRouter();
   const test = moduleTest(moduleId);

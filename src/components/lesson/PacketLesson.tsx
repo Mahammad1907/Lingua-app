@@ -1,3 +1,4 @@
+import { authoredRetry, spacedWarmups, restoreAuthoredFlow } from '../../utils/v2Flow';
 import FixedLessonViewport from './FixedLessonViewport';
 import LessonExplanationCard from './LessonExplanationCard';
 import { mascotText } from '../../utils/mascot';
@@ -50,7 +51,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const router = useRouter(); const insets = useSafeAreaInsets();
   const [restored] = useState(() => Object.values(useUserStore.getState().attempts).find(a => a.lessonId === packet.id && !a.finished));
   const [recall] = useState(() => packet.version ? undefined : lessonRecall(packet, b1Packet, useUserStore.getState().lessonProgress));
-  const [flow] = useState(() => withLessonRecall(packetFlow(packet).filter((c) => c.kind !== 'review'), recall));
+  const [flow] = useState(() => packet.version ? restoreAuthoredFlow(packet, restored?.flowIds, b1Packet) || spacedWarmups(packet, b1Packet, useUserStore.getState().lessonProgress) : withLessonRecall(packetFlow(packet).filter((c) => c.kind !== 'review'), recall));
   const [viewportHeight, setViewportHeight] = useState(0);
   const [index, setIndex] = useState(() => { const draft = Object.values(useUserStore.getState().attempts).find(a => a.lessonId === packet.id && !a.finished); return Math.max(0, flow.findIndex(c => c.id === draft?.cursor)); }); const [attempt, setAttempt] = useState('');
   const [initialCard] = useState(() => flow[index]);
@@ -62,7 +63,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const [continueReady, setContinueReady] = useState(true);
   const feedbackBlocked = useRef(false), feedbackTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined), submission = useRef(0);
   const [reviewTotal, setReviewTotal] = useState(0);
-  const [queue, setQueue] = useState<PacketCard[]>(() => flow.filter(c => (restored?.tasks[c.id]?.wrong ?? 0) > 0 && !restored?.tasks[c.id]?.resolved && !restored?.tasks[c.id]?.settled)); const [reviewing, setReviewing] = useState(false);
+  const [queue, setQueue] = useState<PacketCard[]>(() => flow.filter(c => (restored?.tasks[c.id]?.wrong ?? 0) > 0 && !restored?.tasks[c.id]?.resolved && !restored?.tasks[c.id]?.settled).map(c => { const saved = restored!.tasks[c.id]; const rule = c.rule || c.turns?.[0]?.rule; return saved.answer && rule ? { ...c, review: authoredRetry(c, assessPacketAnswer(saved.answer, rule, saved.evidence?.input === 'spoken'), saved.answer) } : c; })); const [reviewing, setReviewing] = useState(false);
   const [reviewIntro, setReviewIntro] = useState(false);
   const [outcomes, setOutcomes] = useState<Record<string, Outcome>>(() => Object.fromEntries(Object.entries(restored?.tasks ?? {}).map(([id, task]) => [id, { answer: task.answer || '', status: task.resolved ? task.evidence?.assisted ? 'assisted' : 'independent' : task.skipped || task.settled === 'unverified' ? 'unverified' : 'wrong', spoken: task.evidence?.input === 'spoken', evidence: task.evidence }])));
   const [selectedMeaning, setSelectedMeaning] = useState<VocabularyEntry | null>(null);
@@ -111,6 +112,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   }, [packet.id, packet.vocabulary, card]);
   const turn = card?.turns?.[0]; const rule: PacketRule | undefined = turn?.rule || card?.rule;
   const audio = turn?.audio || card?.audio;
+  const audioRate = (packet.order === 12 && card?.number === 8 || packet.order === 11 && card?.number === 11) ? .45 : turn?.rate || .75;
   useEffect(() => {
     const next = [classroomSource, ...flow.slice(index, index + 4).flatMap(c => { const id = packet.version ? undefined : packetScene(packet.order, c); return id ? [lessonSceneSources[id]] : []; })];
     void warmLessonArtwork(next);
@@ -125,9 +127,9 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   useEffect(() => { if (attempt && cursor && !reviewing) useUserStore.getState().saveCursor(attempt, cursor); }, [attempt, cursor, reviewing]);
   const task = card?.kind === 'task' || card?.kind === 'voice';
   useEffect(() => {
-    if (!starting.current) starting.current = useUserStore.getState().beginLesson(packet.id, 'session', recall ? [recall.id] : []);
+    if (!starting.current) starting.current = useUserStore.getState().beginLesson(packet.id, 'session', flow.filter(c => c.id.startsWith('recheck:')).map(c => c.id));
     setAttempt(starting.current);
-  }, [packet.id, recall]);
+  }, [packet.id, recall, flow]);
   useFocusEffect(useCallback(() => () => { sequence.current += 1; if (watchdog.current !== undefined) clearTimeout(watchdog.current); setPlaying(false); void Speech.stop(); }, []));
   useEffect(() => {
     if (attempt && turn?.sample) useUserStore.getState().useHelp(attempt, card?.id);
@@ -203,7 +205,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     }
     if (correct) { setRecordedReply(null); Keyboard.dismiss(); setFeedback(verdict); }
     else if (!reviewing) {
-      const pending = queue.some((c) => c.id === card.id) ? queue : [...queue, card];
+      const pending = queue.some((c) => c.id === card.id) ? queue : [...queue, { ...card, review: authoredRetry(card, verdict, value) }];
       setQueue(pending); setFeedback(verdict); Keyboard.dismiss();
     } else { useUserStore.getState().settlePacketTask(attempt, card.id, 'needsPractice'); setFeedback(verdict); }
   };
@@ -277,7 +279,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const meaning = audioMeaning(packet, audio);
   const hint = lessonHint(card);
   const canHelp = !reviewing && Boolean(hint);
-  const disabled = busy || capturing || Boolean(card.fields && !locked && card.fields.some((_, i) => !fieldAnswers[i]?.trim())) || Boolean(locked && !continueReady) || Boolean(task && !locked && (card.kind === 'voice' || audio && !promptReady || !answer.trim() && !built.length));
+  const disabled = busy || capturing || Boolean(card.fields && !locked && card.fields.some((_, i) => !(fieldAnswers[i] ?? card.retainedFields?.[i])?.trim())) || Boolean(locked && !continueReady) || Boolean(task && !locked && (card.kind === 'voice' || audio && !promptReady || !answer.trim() && !built.length));
   const submitSpeech = (spoken: SpokenAnswer): string | null => {
     if (!rule || responseLocked.current || locked || audio && !promptReady) return null;
     if (card.kind === 'voice' && spoken.edited) {
@@ -287,7 +289,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     if (card.kind === 'voice' && audio && verdict.status !== 'correct') {
       const slower = !rule.goals?.includes('slow') && assessPacketAnswer(spoken.text, { answers: [], goals: ['slow'] }, true).status === 'correct';
       const repeat = !rule.goals?.includes('repeat') && assessPacketAnswer(spoken.text, { answers: [], goals: ['repeat'] }, true).status === 'correct';
-      if (slower || repeat) { void speak(audio, slower ? .45 : (turn?.rate || .75) * speed, true); return 'Mesajı yenidən dinlə, sonra cavab ver. Bu xahiş səhv sayılmır.'; }
+      if (slower || repeat) { void speak(audio, slower ? .45 : audioRate * speed, true); return 'Mesajı yenidən dinlə, sonra cavab ver. Bu xahiş səhv sayılmır.'; }
     }
     if (textPrompt && audio && verdict.status !== 'correct') { setAnswer(spoken.text); setFeedback({ ...verdict, status: 'unknown', message: 'Mətnlə məşq edirsən. Yenidən cəhd edə və ya yoxlanmadan davam edə bilərsən.' }); return 'Yenidən danışa və ya yoxlanmadan davam edə bilərsən.'; }
     if (verdict.status === 'unknown') { setAnswer(spoken.text); setFeedback({ ...verdict, message: 'Səsli cavabın dəqiq qiymətləndirilmədi. Yenidən cəhd edə və ya yoxlanmamış kimi davam edə bilərsən.' }); return 'Səsli cavab dəqiq tanınmadı. Yenidən danışa bilərsən.'; }
@@ -354,15 +356,16 @@ export default function PacketLesson({ packet }: { packet: Content }) {
         </Surface>}
         {card.examples?.length ? <View style={s.exampleList}>{[...new Set(card.examples)].map((text, i) => <Pressable accessibilityRole="button" key={`${card.id}:example:${i}`} style={s.example} onPress={() => { setExamplePulse(v => ({ text, token: (v?.token || 0) + 1 })); void speak(text); }} accessibilityLabel={`İngiliscə dinlə: ${text}`}><LessonIcon name="sound" color={ink.orange} /><View style={s.flex}><LessonTextMotion state={examplePulse?.text === text ? 'pulse' : 'idle'} trigger={examplePulse?.token} style={s.exampleText}>{card.kind === 'teach' ? <LessonVocabularyText key={card.id} text={text} packet={packet} onSelect={entry => setSelectedMeaning(entry)} /> : text}</LessonTextMotion>{packet.order === 1 && card.kind === 'teach' ? <Text style={s.note}>{audioMeaning(packet, text)?.split(' — ').slice(1).join(' — ')}</Text> : null}</View><LessonIcon name="play" size={15} /></Pressable>)}</View> : null}
         {audio && !keyboard ? <>
-          <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Səsi dayandır' : 'Səsi dinlə'} disabled={capturing} style={s.audio} onPress={() => { if (playing) { sequence.current += 1; clearWatchdog(); void Speech.stop(); setPlaying(false); } else void speak(audio, (turn?.rate || .75) * speed, true); }}><View style={s.play}><LessonIcon name={playing ? 'pause' : 'play'} color="#211727" size={24} /></View><View style={s.flex}><Text style={s.cardTitle}>{playing ? 'Dinləyirsən…' : heard ? 'Yenidən dinlə' : 'Səsi dinlə'}</Text><Text style={s.small}>{playing ? 'Səs oxunur' : 'Dinlədikdən sonra cavab ver'}</Text></View></Pressable>
-          <View style={s.speeds}>{[{ value: .75, label: '🐢 Yavaş' }, { value: 1, label: '1× Normal' }, { value: 1.25, label: '1.25× Sürətli' }].map(item => <Pressable accessibilityRole="button" accessibilityState={{ selected: speed === item.value, disabled: capturing }} disabled={capturing} key={item.value} onPress={() => { setSpeed(item.value); if (playing) void speak(audio, (turn?.rate || .75) * item.value, true); }} style={[s.speed, speed === item.value && s.activeSpeed]}><Text style={[s.speedText, speed === item.value && { color: ink.orange }]}>{item.label}</Text></Pressable>)}</View>
+          <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Səsi dayandır' : 'Səsi dinlə'} disabled={capturing} style={s.audio} onPress={() => { if (playing) { sequence.current += 1; clearWatchdog(); void Speech.stop(); setPlaying(false); } else void speak(audio, audioRate * speed, true); }}><View style={s.play}><LessonIcon name={playing ? 'pause' : 'play'} color="#211727" size={24} /></View><View style={s.flex}><Text style={s.cardTitle}>{playing ? 'Dinləyirsən…' : heard ? 'Yenidən dinlə' : 'Səsi dinlə'}</Text><Text style={s.small}>{playing ? 'Səs oxunur' : 'Dinlədikdən sonra cavab ver'}</Text></View></Pressable>
+          <View style={s.speeds}>{[{ value: .75, label: '🐢 Yavaş' }, { value: 1, label: '1× Normal' }, { value: 1.25, label: '1.25× Sürətli' }].map(item => <Pressable accessibilityRole="button" accessibilityState={{ selected: speed === item.value, disabled: capturing }} disabled={capturing} key={item.value} onPress={() => { setSpeed(item.value); if (playing) void speak(audio, audioRate * item.value, true); }} style={[s.speed, speed === item.value && s.activeSpeed]}><Text style={[s.speedText, speed === item.value && { color: ink.orange }]}>{item.label}</Text></Pressable>)}</View>
         </> : null}
-        {audio && keyboard ? <Pressable accessibilityRole="button" disabled={capturing} onPress={() => void speak(audio, (turn?.rate || .75) * speed, true)} style={s.keyboardAudio}><LessonIcon name="play" size={16} color={ink.orange} /><Text style={s.helpLink}>Yenidən dinlə</Text></Pressable> : null}
+        {audio && keyboard ? <Pressable accessibilityRole="button" disabled={capturing} onPress={() => void speak(audio, audioRate * speed, true)} style={s.keyboardAudio}><LessonIcon name="play" size={16} color={ink.orange} /><Text style={s.helpLink}>Yenidən dinlə</Text></Pressable> : null}
         {audio && task && !locked ? <Pressable accessibilityRole="button" accessibilityState={{ expanded: transcriptVisible }} disabled={capturing} onPress={useTextPrompt} style={s.technicalButton}><Text style={s.helpLink}>{transcriptVisible ? 'Mətni gizlət' : textPrompt ? 'Mətni göstər' : 'Səsi başa düşmürəm'}</Text></Pressable> : null}
         {audio && task && !locked && meaning ? <Pressable accessibilityRole="button" disabled={capturing} onPress={() => { setHelp(true); setTranscriptShown(true); useUserStore.getState().markTranscript(attempt, card.id); useUserStore.getState().useHelp(attempt, card.id); setSelectedMeaning({ word: audio, translation: meaning.split(' — ').slice(1).join(' — '), example: '', exampleAz: '', pronunciation: '', usageNote: '' }); }} style={s.technicalButton}><Text style={s.helpLink}>Mənasını göstər</Text></Pressable> : null}
         {audio && transcriptVisible ? <AudioTranscript text={audio} onHide={() => setTranscriptVisible(false)} /> : null}
         {soundError ? <Text accessibilityLiveRegion="polite" style={s.error}>{soundError}</Text> : null}
-        {task ? card.fields ? <View style={{ gap: 8 }}>{card.fields.map((field, i) => <View key={field.label}><Text style={s.note}>{field.label}</Text><TextInput accessibilityLabel={field.label} value={fieldAnswers[i] || ''} onChangeText={text => { const next = card.fields!.map((_, j) => j === i ? text : fieldAnswers[j] || ''); setFieldAnswers(next); setAnswer(JSON.stringify(next)); }} editable={!locked} style={[s.body, { minHeight: 48, borderWidth: 1, borderColor: '#A297EF', borderRadius: 12, padding: 10 }]} /></View>)}</View> : card.kind === 'voice' ? <>
+        {card.retainedCriteria?.length ? <Text style={s.note}>Saxlanılan hissələr: {card.retainedCriteria.join(' · ')}</Text> : null}
+        {task ? card.fields ? <View style={{ gap: 8 }}>{card.fields.map((field, i) => <View key={field.label}><Text style={s.note}>{field.label}</Text><TextInput accessibilityLabel={field.label} value={fieldAnswers[i] ?? card.retainedFields?.[i] ?? ''} onChangeText={text => { const next = card.fields!.map((_, j) => j === i ? text : fieldAnswers[j] ?? card.retainedFields?.[j] ?? ''); setFieldAnswers(next); setAnswer(JSON.stringify(next)); }} editable={!locked && !card.retainedFields?.[i]} style={[s.body, { minHeight: 48, borderWidth: 1, borderColor: '#A297EF', borderRadius: 12, padding: 10 }]} /></View>)}</View> : card.kind === 'voice' ? <>
           {turn?.sample && !textPrompt ? <Surface><Text style={s.kicker}>KÖMƏKLƏ MƏŞQ · NÜMUNƏ</Text><Text style={s.body}>{turn.sample}</Text></Surface> : null}
           {!audio || promptReady ? locked ? <View style={s.spokenAnswer}><WrongAnswerBorder active={locked && !correct} radius={16} /><LessonIcon name="mic" size={18} /><LessonTextMotion state={answerMotion} style={s.body}>{answer}</LessonTextMotion></View> : <LessonVoiceInput compact manualSend={Boolean(packet.version)} cloudEnabled={Boolean(speechProxyEndpoint())} onUnverifiedRecording={receiveUnverifiedRecording} suspended={exitOpen} key={`${card.id}:${reviewing}`} onBusyChange={voiceBusyChange} onFinal={submitSpeech} /> : <Text style={s.note}>Danışmazdan əvvəl yuxarıdakı səsi dinlə.</Text>}
         </> : card.options ? <View style={s.options}>{card.options.map((option, i) => <Pressable key={`${card.id}:${i}`} accessibilityRole="radio" accessibilityState={{ selected: answer === option, disabled: locked || Boolean(audio && !promptReady) }} disabled={locked || Boolean(audio && !promptReady)} style={({ pressed }) => [s.option, answer === option && (correct ? s.correctOption : s.selected), pressed && { transform: [{ scale: .985 }] }, Boolean(audio && !promptReady) && { opacity: .55 }]} onPress={() => { if (responseLocked.current) return; setAnswer(option); setFeedback(null); }}><WrongAnswerBorder active={locked && !correct && answer === option} /><SelectionMark selected={answer === option} correct={correct && answer === option} /><LessonTextMotion state={answer === option ? answerMotion : 'idle'} style={[s.body, s.flex]}>{option}</LessonTextMotion></Pressable>)}</View> : card.words ? <>

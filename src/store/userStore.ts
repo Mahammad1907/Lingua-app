@@ -1,7 +1,8 @@
+import { spacedWarmups } from '../utils/v2Flow';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { getShortSession } from '../data/firstConversation';
-import { getPacketLesson, packetTaskIds, packetFlow } from '../data/b1Course';
+import { getPacketLesson, packetTaskIds, packetFlow, b1Packet } from '../data/b1Course';
 import { getLessonActivities } from '../data/lessonActivities';
 import { lessons } from '../data/lessons';
 import { getAllModules } from '../data/modules';
@@ -122,8 +123,10 @@ export const useUserStore = create<UserState>((set, get) => ({
     activities?.game.stops.forEach((_, i) => expected.push(`game:${i}`));
     const packet = getPacketLesson(lessonId);
     const packetIds = packet ? packetTaskIds(packet) : undefined;
+    const selectedFlow = packet?.version ? spacedWarmups(packet, b1Packet, get().lessonProgress) : undefined;
+    if (packetIds && selectedFlow) packetIds.required = selectedFlow.filter(c => c.kind === 'task' || c.kind === 'voice').map(c => c.id);
     const id = `${Date.now()}-${++sequence}`;
-    set((s) => ({ attempts: { ...s.attempts, [id]: { id, lessonId, updatedAt: Date.now(), expected: packetIds?.required ?? expected, optional: packetIds ? [...new Set([...packetIds.optional, ...recallIds])] : undefined, tasks: {}, assisted: false, finished: false } } })); return id;
+    set((s) => ({ attempts: { ...s.attempts, [id]: { id, lessonId, flowIds: selectedFlow?.map(c => c.id), updatedAt: Date.now(), expected: packetIds?.required ?? expected, optional: packetIds ? [...new Set([...packetIds.optional, ...recallIds])] : undefined, tasks: {}, assisted: false, finished: false } } })); return id;
   },
   abandonLesson: (id) => {
     const a = get().attempts[id];
@@ -140,9 +143,9 @@ export const useUserStore = create<UserState>((set, get) => ({
     if (!a || a.finished || ![...a.expected, ...(a.optional ?? [])].includes(taskId) || old?.resolved || old?.token === token) return;
     // Mandatory voice tasks need an actual, unedited spoken answer.
     const packet = getPacketLesson(a.lessonId);
-    const requiredVoice = Boolean(packet && packetTaskIds(packet).required.includes(taskId) && packetFlow(packet).some(c => c.id === taskId && c.kind === 'voice'));
+    const requiredVoice = Boolean(packet && a.expected.includes(taskId) && [...packetFlow(packet), ...spacedWarmups(packet, b1Packet, get().lessonProgress)].some(c => c.id === taskId && c.kind === 'voice'));
     if (correct === true && requiredVoice && evidence?.input !== 'spoken') return;
-    const task = { answer, firstCorrect: old?.firstCorrect ?? correct === true, resolved: correct === true,
+    const task = { initialAnswer: old?.initialAnswer ?? answer, answer, firstCorrect: old?.firstCorrect ?? correct === true, resolved: correct === true,
       skipped: correct === null, wrong: (old?.wrong ?? 0) + (correct === false ? 1 : 0), token, evidence };
     set((s) => ({ attempts: { ...s.attempts, [id]: { ...a, tasks: { ...a.tasks, [taskId]: task } } } }));
     if (correct === false) get().loseHeart();

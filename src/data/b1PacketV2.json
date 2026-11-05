@@ -6,6 +6,7 @@
     "goal": "Salam verə, salama cavab verə və sağollaşa bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d01_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -14,6 +15,7 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d01_c02",
         "number": 2,
         "title": "Qısa öyrətmə",
@@ -27,6 +29,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B — Sağollaşır.",
+            "reason": "Hi salamdır; görüşü bitirmir.",
+            "rule": "Hello və Hi salamlaşma üçündür.",
+            "example": "Hello! — Salam!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d01_c03",
         "number": 3,
         "title": "Dinlə və seç",
@@ -46,6 +56,7 @@
         "audio": "Hi!",
         "explanation": "Uyğun cavab: Salam verir.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d01_c03",
           "number": 3,
           "title": "Dinlə və seç",
@@ -67,6 +78,20 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Bye!",
+            "reason": "Bu, sağollaşmadır; burada görüş başlayır.",
+            "rule": "Görüşü salamla başlat.",
+            "example": "Hi! — Salam!"
+          },
+          {
+            "condition": "Goodbye!",
+            "reason": "Bu, görüşü bitirir.",
+            "rule": "Salam üçün Hello və ya Hi işlət.",
+            "example": "Hello, Sam! — Salam, Sam!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d01_c04",
         "number": 4,
         "title": "Situasiyada yaz",
@@ -79,10 +104,14 @@
           ],
           "goals": [
             "greet"
+          ],
+          "authoredAlternatives": [
+            "Hi!"
           ]
         },
         "explanation": "Uyğun cavab: Hello!",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d01_c04",
           "number": 4,
           "title": "Situasiyada yaz",
@@ -102,6 +131,20 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Bye! / Goodbye! sağollaşmadır.",
+            "reason": "Bye! / Goodbye! sağollaşmadır.",
+            "rule": "Bu növbənin məqsədi: Salama səslə qarşılıq vermək.",
+            "example": "Hi!"
+          },
+          {
+            "condition": "Etibarlı tanınmış, amma salam olmayan başqa cavab",
+            "reason": "Bu növbədə salama qarşılıq yoxdur.",
+            "rule": "Salama salamla qarşılıq ver.",
+            "example": "Hello! — Hi!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d01_c05",
         "number": 5,
         "title": "Danışıq",
@@ -119,6 +162,9 @@
               ],
               "goals": [
                 "greet"
+              ],
+              "authoredAlternatives": [
+                "Hello!"
               ]
             },
             "sample": "Hi!"
@@ -126,6 +172,7 @@
         ],
         "explanation": "Uyğun cavab: Hi!",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d01_c05",
           "number": 5,
           "title": "Danışıq",
@@ -152,6 +199,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d01_c06",
         "number": 6,
         "title": "Qısa öyrətmə",
@@ -165,6 +213,56 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "7A: Hello!",
+            "reason": "Görüş bitir; Hello salamdır.",
+            "rule": "Ayrılarkən sağollaşma seç.",
+            "example": "Bye! — Sağ ol!"
+          },
+          {
+            "condition": "7A: Hello!",
+            "reason": "Görüş bitir; Hello salamdır.",
+            "rule": "Ayrılarkən sağollaşma seç.",
+            "example": "Bye! — Sağ ol!"
+          },
+          {
+            "condition": "7B: Goodbye",
+            "reason": "Bu da sağollaşmadır, amma səsdə Bye deyilir.",
+            "rule": "Eşitdiyini yazanda həmin sözü yaz.",
+            "example": "Goodbye! eşidirsənsə Goodbye yaz."
+          },
+          {
+            "condition": "7B: Goodbye",
+            "reason": "Bu da sağollaşmadır, amma səsdə Bye deyilir.",
+            "rule": "Eşitdiyini yazanda həmin sözü yaz.",
+            "example": "Goodbye! eşidirsənsə Goodbye yaz."
+          },
+          {
+            "condition": "7B: Hi",
+            "reason": "Səsdə başqa söz deyilir; səhvin dinləmə, yazı və ya diqqətdən olduğu tək bu cavabdan bilinmir.",
+            "rule": "Audiodakı sözü yaz.",
+            "example": "Hi! eşidirsənsə Hi yaz."
+          },
+          {
+            "condition": "7B: Hi",
+            "reason": "Səsdə başqa söz deyilir; səhvin dinləmə, yazı və ya diqqətdən olduğu tək bu cavabdan bilinmir.",
+            "rule": "Audiodakı sözü yaz.",
+            "example": "Hi! eşidirsənsə Hi yaz."
+          },
+          {
+            "condition": "7B: hədəflə uyğunlaşmayan başqa mətn",
+            "reason": "Yazı audiodakı Bye sözünə uyğun deyil; səbəbinin eşitmə/yazı/diqqət olduğu uydurulmur.",
+            "rule": "Eşidilən sözü yaz.",
+            "example": "Hello! eşidəndə Hello yaz."
+          },
+          {
+            "condition": "7B: hədəflə uyğunlaşmayan başqa mətn",
+            "reason": "Yazı audiodakı Bye sözünə uyğun deyil; səbəbinin eşitmə/yazı/diqqət olduğu uydurulmur.",
+            "rule": "Eşidilən sözü yaz.",
+            "example": "Hello! eşidəndə Hello yaz."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d01_c07a",
         "number": 7,
         "title": "İki mərhələli əsas tapşırıq",
@@ -182,6 +280,7 @@
           "exact": true
         },
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d01_c07a",
           "number": 7,
           "title": "İki mərhələli əsas tapşırıq",
@@ -202,6 +301,56 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "7A: Hello!",
+            "reason": "Görüş bitir; Hello salamdır.",
+            "rule": "Ayrılarkən sağollaşma seç.",
+            "example": "Bye! — Sağ ol!"
+          },
+          {
+            "condition": "7A: Hello!",
+            "reason": "Görüş bitir; Hello salamdır.",
+            "rule": "Ayrılarkən sağollaşma seç.",
+            "example": "Bye! — Sağ ol!"
+          },
+          {
+            "condition": "7B: Goodbye",
+            "reason": "Bu da sağollaşmadır, amma səsdə Bye deyilir.",
+            "rule": "Eşitdiyini yazanda həmin sözü yaz.",
+            "example": "Goodbye! eşidirsənsə Goodbye yaz."
+          },
+          {
+            "condition": "7B: Goodbye",
+            "reason": "Bu da sağollaşmadır, amma səsdə Bye deyilir.",
+            "rule": "Eşitdiyini yazanda həmin sözü yaz.",
+            "example": "Goodbye! eşidirsənsə Goodbye yaz."
+          },
+          {
+            "condition": "7B: Hi",
+            "reason": "Səsdə başqa söz deyilir; səhvin dinləmə, yazı və ya diqqətdən olduğu tək bu cavabdan bilinmir.",
+            "rule": "Audiodakı sözü yaz.",
+            "example": "Hi! eşidirsənsə Hi yaz."
+          },
+          {
+            "condition": "7B: Hi",
+            "reason": "Səsdə başqa söz deyilir; səhvin dinləmə, yazı və ya diqqətdən olduğu tək bu cavabdan bilinmir.",
+            "rule": "Audiodakı sözü yaz.",
+            "example": "Hi! eşidirsənsə Hi yaz."
+          },
+          {
+            "condition": "7B: hədəflə uyğunlaşmayan başqa mətn",
+            "reason": "Yazı audiodakı Bye sözünə uyğun deyil; səbəbinin eşitmə/yazı/diqqət olduğu uydurulmur.",
+            "rule": "Eşidilən sözü yaz.",
+            "example": "Hello! eşidəndə Hello yaz."
+          },
+          {
+            "condition": "7B: hədəflə uyğunlaşmayan başqa mətn",
+            "reason": "Yazı audiodakı Bye sözünə uyğun deyil; səbəbinin eşitmə/yazı/diqqət olduğu uydurulmur.",
+            "rule": "Eşidilən sözü yaz.",
+            "example": "Hello! eşidəndə Hello yaz."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d01_c07b",
         "number": 7,
         "title": "İki mərhələli əsas tapşırıq",
@@ -216,6 +365,7 @@
         },
         "audio": "Bye!",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d01_c07b",
           "number": 7,
           "title": "İki mərhələli əsas tapşırıq",
@@ -233,6 +383,20 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Hello! / Hi! salamdır.",
+            "reason": "Hello! / Hi! salamdır.",
+            "rule": "Bu növbənin məqsədi: Sağollaşmaya səslə qarşılıq vermək.",
+            "example": "Bye!"
+          },
+          {
+            "condition": "Etibarlı tanınmış, amma sağollaşma olmayan başqa cavab",
+            "reason": "Bu növbədə görüşü bitirən qarşılıq yoxdur.",
+            "rule": "Sağollaşmaya uyğun qarşılıq ver.",
+            "example": "Goodbye! — Bye!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d01_c08",
         "number": 8,
         "title": "Danışıq",
@@ -250,12 +414,16 @@
               ],
               "goals": [
                 "farewell"
+              ],
+              "authoredAlternatives": [
+                "Goodbye!"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: Bye!",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d01_c08",
           "number": 8,
           "title": "Danışıq",
@@ -282,6 +450,20 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Hello!",
+            "reason": "Maskot gedir; salam məqsədi vəziyyətə uyğun deyil.",
+            "rule": "Görüşün sonunda sağollaş.",
+            "example": "Bye, Sam! — Sağ ol, Sam!"
+          },
+          {
+            "condition": "Hi!",
+            "reason": "Bu da salamdır; tələb olunan dəyişiklik edilməyib.",
+            "rule": "Goodbye və Bye ayrılarkən işlənir.",
+            "example": "Goodbye, Alex! — Sağ ol, Aleks!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d01_c09",
         "number": 9,
         "title": "Maskotun səhvini düzəlt",
@@ -294,10 +476,14 @@
           ],
           "goals": [
             "farewell"
+          ],
+          "authoredAlternatives": [
+            "Bye!"
           ]
         },
         "explanation": "Uyğun cavab: Goodbye!",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d01_c09",
           "number": 9,
           "title": "Maskotun səhvini düzəlt",
@@ -317,6 +503,32 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "1: Bye!",
+            "reason": "Birinci sahədə görüş başlayır.",
+            "rule": "Başlanğıcda salam ver.",
+            "example": "1: Hi!; 2: Goodbye!"
+          },
+          {
+            "condition": "2: Hello!",
+            "reason": "İkinci sahədə görüş bitir.",
+            "rule": "Sonda sağollaş.",
+            "example": "1: Hello!; 2: Bye!"
+          },
+          {
+            "condition": "1: Goodbye!; 2: Hi!",
+            "reason": "İfadələrin yerləri dəyişib.",
+            "rule": "Salam başlanğıca, sağollaşma sona aiddir.",
+            "example": "1: Hi!; 2: Bye!"
+          },
+          {
+            "condition": "İki sahədən birində məqsədi yerinə yetirməyən başqa mətn",
+            "reason": "Yalnız problemli sahədə tələb olunan salam və ya sağollaşma yoxdur.",
+            "rule": "Hər mesajı görüşün həmin anına uyğun yaz.",
+            "example": "Əvvəl Hello!, sonda Bye!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d01_c10",
         "number": 10,
         "title": "İki mesaj yaz",
@@ -372,9 +584,118 @@
             }
           ]
         },
-        "explanation": "Hər iki sahəni ayrı məqsədinə uyğun tamamla."
+        "explanation": "Hər iki sahəni ayrı məqsədinə uyğun tamamla.",
+        "review": {
+          "feedbacks": [],
+          "id": "a1_en_b1_20261105_v2_d01_c10",
+          "number": 10,
+          "title": "İki mesaj yaz",
+          "body": "Video görüşün əvvəlini və sonunu düşün. Düzgün yazdığın sahə saxlanılır; yalnız səhv sahəni tamamla.",
+          "source": "D01_Tam_Ders.md#Kart 10",
+          "kind": "task",
+          "rule": {
+            "answers": [],
+            "fields": [
+              {
+                "answers": [
+                  "Hello!",
+                  "Hi!"
+                ],
+                "goals": [
+                  "greet"
+                ]
+              },
+              {
+                "answers": [
+                  "Goodbye!",
+                  "Bye!"
+                ],
+                "goals": [
+                  "farewell"
+                ]
+              }
+            ]
+          },
+          "explanation": "Hər sahənin məqsədini ayrı saxla.",
+          "fields": [
+            {
+              "label": "Görüşün əvvəlində",
+              "rule": {
+                "answers": [
+                  "Hello!",
+                  "Hi!"
+                ],
+                "goals": [
+                  "greet"
+                ]
+              }
+            },
+            {
+              "label": "Görüşün sonunda",
+              "rule": {
+                "answers": [
+                  "Goodbye!",
+                  "Bye!"
+                ],
+                "goals": [
+                  "farewell"
+                ]
+              }
+            }
+          ]
+        }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "11A: Goodbye!",
+            "reason": "Görüş başlayır; bu cavab onu bitirir.",
+            "rule": "Salamı Hello/Hi ilə başlat.",
+            "example": "Hello, Sam!"
+          },
+          {
+            "condition": "11A: Goodbye!",
+            "reason": "Görüş başlayır; bu cavab onu bitirir.",
+            "rule": "Salamı Hello/Hi ilə başlat.",
+            "example": "Hello, Sam!"
+          },
+          {
+            "condition": "11B: Hello!",
+            "reason": "Görüş bitir; salam məqsədi uyğun deyil.",
+            "rule": "Ayrılarkən Goodbye/Bye de.",
+            "example": "Bye, Sam!"
+          },
+          {
+            "condition": "11B: Hello!",
+            "reason": "Görüş bitir; salam məqsədi uyğun deyil.",
+            "rule": "Ayrılarkən Goodbye/Bye de.",
+            "example": "Bye, Sam!"
+          },
+          {
+            "condition": "11A: salam olmayan başqa etibarlı cavab",
+            "reason": "Yeni görüşdə salamı başlatmaq göstərilməyib.",
+            "rule": "Görüşü salamla başlat.",
+            "example": "Hi!"
+          },
+          {
+            "condition": "11A: salam olmayan başqa etibarlı cavab",
+            "reason": "Yeni görüşdə salamı başlatmaq göstərilməyib.",
+            "rule": "Görüşü salamla başlat.",
+            "example": "Hi!"
+          },
+          {
+            "condition": "11B: sağollaşma olmayan başqa etibarlı cavab",
+            "reason": "Görüşün sonunda sağollaşmanı başlatmaq göstərilməyib.",
+            "rule": "Görüşü sağollaşma ilə bitir.",
+            "example": "Goodbye!"
+          },
+          {
+            "condition": "11B: sağollaşma olmayan başqa etibarlı cavab",
+            "reason": "Görüşün sonunda sağollaşmanı başlatmaq göstərilməyib.",
+            "rule": "Görüşü sağollaşma ilə bitir.",
+            "example": "Goodbye!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d01_c11a",
         "number": 11,
         "title": "İki növbəli danışıq",
@@ -394,10 +715,12 @@
               "goals": [
                 "greet"
               ]
-            }
+            },
+            "reply": "Hi!"
           }
         ],
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d01_c11a",
           "number": 11,
           "title": "İki növbəli danışıq",
@@ -411,19 +734,70 @@
               "prompt": "Başqa gün maskotla qarşılaşırsan. Salamı sən başlat.",
               "rule": {
                 "answers": [
-                  "Səslə Hello!",
-                  "Hi!; sonra maskot: Hello!"
+                  "Hello!",
+                  "Hi!"
                 ],
                 "goals": [
                   "greet"
                 ]
-              }
+              },
+              "reply": "Hello!"
             }
           ],
-          "explanation": "Uyğun cavab: Səslə Hello!"
+          "explanation": "Uyğun cavab: Hello!"
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "11A: Goodbye!",
+            "reason": "Görüş başlayır; bu cavab onu bitirir.",
+            "rule": "Salamı Hello/Hi ilə başlat.",
+            "example": "Hello, Sam!"
+          },
+          {
+            "condition": "11A: Goodbye!",
+            "reason": "Görüş başlayır; bu cavab onu bitirir.",
+            "rule": "Salamı Hello/Hi ilə başlat.",
+            "example": "Hello, Sam!"
+          },
+          {
+            "condition": "11B: Hello!",
+            "reason": "Görüş bitir; salam məqsədi uyğun deyil.",
+            "rule": "Ayrılarkən Goodbye/Bye de.",
+            "example": "Bye, Sam!"
+          },
+          {
+            "condition": "11B: Hello!",
+            "reason": "Görüş bitir; salam məqsədi uyğun deyil.",
+            "rule": "Ayrılarkən Goodbye/Bye de.",
+            "example": "Bye, Sam!"
+          },
+          {
+            "condition": "11A: salam olmayan başqa etibarlı cavab",
+            "reason": "Yeni görüşdə salamı başlatmaq göstərilməyib.",
+            "rule": "Görüşü salamla başlat.",
+            "example": "Hi!"
+          },
+          {
+            "condition": "11A: salam olmayan başqa etibarlı cavab",
+            "reason": "Yeni görüşdə salamı başlatmaq göstərilməyib.",
+            "rule": "Görüşü salamla başlat.",
+            "example": "Hi!"
+          },
+          {
+            "condition": "11B: sağollaşma olmayan başqa etibarlı cavab",
+            "reason": "Görüşün sonunda sağollaşmanı başlatmaq göstərilməyib.",
+            "rule": "Görüşü sağollaşma ilə bitir.",
+            "example": "Goodbye!"
+          },
+          {
+            "condition": "11B: sağollaşma olmayan başqa etibarlı cavab",
+            "reason": "Görüşün sonunda sağollaşmanı başlatmaq göstərilməyib.",
+            "rule": "Görüşü sağollaşma ilə bitir.",
+            "example": "Goodbye!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d01_c11b",
         "number": 11,
         "title": "İki növbəli danışıq",
@@ -443,10 +817,12 @@
               "goals": [
                 "farewell"
               ]
-            }
+            },
+            "reply": "Bye!"
           }
         ],
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d01_c11b",
           "number": 11,
           "title": "İki növbəli danışıq",
@@ -460,19 +836,21 @@
               "prompt": "Yeni görüşün bitir. Sağollaşmanı sən başlat.",
               "rule": {
                 "answers": [
-                  "Səslə Goodbye!",
-                  "Bye!; sonra maskot: Goodbye!"
+                  "Goodbye!",
+                  "Bye!"
                 ],
                 "goals": [
                   "farewell"
                 ]
-              }
+              },
+              "reply": "Goodbye!"
             }
           ],
-          "explanation": "Uyğun cavab: Səslə Goodbye!"
+          "explanation": "Uyğun cavab: Goodbye!"
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d01_c12",
         "number": 12,
         "title": "Şərti səhv təkrarı",
@@ -481,6 +859,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d01_c13",
         "number": 13,
         "title": "Nəticə",
@@ -543,6 +922,7 @@
     "goal": "Salam verib seçdiyim adla özümü təqdim edə bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d02_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -551,6 +931,14 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Bye!",
+            "reason": "Yeni görüş başlayır.",
+            "rule": "Başlanğıcda salam ver.",
+            "example": "Hello!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c02",
         "number": 2,
         "title": "Başlanğıc təkrarı — yaz",
@@ -563,10 +951,14 @@
           ],
           "goals": [
             "greet"
+          ],
+          "authoredAlternatives": [
+            "Hi!"
           ]
         },
         "explanation": "Uyğun cavab: Hello!",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c02",
           "number": 2,
           "title": "Başlanğıc təkrarı — yaz",
@@ -586,6 +978,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "A",
+            "reason": "Hi salamdır.",
+            "rule": "Ayrılarkən sağollaş.",
+            "example": "Goodbye!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c03",
         "number": 3,
         "title": "Başlanğıc təkrarı — seç",
@@ -604,6 +1004,7 @@
         },
         "explanation": "Uyğun cavab: Bye!",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c03",
           "number": 3,
           "title": "Başlanğıc təkrarı — seç",
@@ -623,6 +1024,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d02_c04",
         "number": 4,
         "title": "Qısa öyrətmə",
@@ -636,6 +1038,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B — Alex",
+            "reason": "Danışan Sam deyir.",
+            "rule": "I’m-dən sonrakı hissə burada addır.",
+            "example": "I’m Alex. — Mən Aleksəm."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c05",
         "number": 5,
         "title": "Dinlə və adı seç",
@@ -655,6 +1065,7 @@
         "audio": "Hi. I’m Sam.",
         "explanation": "Uyğun cavab: Sam",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c05",
           "number": 5,
           "title": "Dinlə və adı seç",
@@ -672,6 +1083,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I Sam am.",
+            "reason": "Ad am-dan sonra gəlməlidir.",
+            "rule": "I + am + ad.",
+            "example": "I am Alex."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c06",
         "number": 6,
         "title": "Sözlərdən cümlə qur",
@@ -693,6 +1112,7 @@
         },
         "explanation": "Uyğun cavab: I am Sam.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c06",
           "number": 6,
           "title": "Sözlərdən cümlə qur",
@@ -711,6 +1131,20 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "is",
+            "reason": "I ilə burada am işlənir.",
+            "rule": "I am; I’m onun qısasıdır.",
+            "example": "I am Sam."
+          },
+          {
+            "condition": "I’m",
+            "reason": "Cümlədə I artıq var; I I’m alınır.",
+            "rule": "Bu boşluq yalnız am üçündür.",
+            "example": "I am Alex."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c07",
         "number": 7,
         "title": "Boşluğu yaz",
@@ -725,6 +1159,7 @@
         },
         "explanation": "Uyğun cavab: am",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c07",
           "number": 7,
           "title": "Boşluğu yaz",
@@ -741,6 +1176,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I’m Alex rol adını dəyişir; tək Hi ad vermir.",
+            "reason": "I’m Alex rol adını dəyişir; tək Hi ad vermir.",
+            "rule": "Bu növbənin məqsədi: Salam və verilən adı səslə birləşdirmək.",
+            "example": "Hi. I’m Sam."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c08",
         "number": 8,
         "title": "Danışıq",
@@ -760,6 +1203,10 @@
                 "greet",
                 "introduce"
               ],
+              "authoredAlternatives": [
+                "Hello. I am Sam",
+                "Hello. My name is Sam"
+              ],
               "roleName": "Sam"
             },
             "sample": "Hi. I’m Sam."
@@ -767,6 +1214,7 @@
         ],
         "explanation": "Uyğun cavab: Hi. I’m Sam.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c08",
           "number": 8,
           "title": "Danışıq",
@@ -794,6 +1242,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d02_c09",
         "number": 9,
         "title": "Qısa öyrətmə",
@@ -806,6 +1255,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Cümlə öz adını bildirir; Aleksə salam vermir.",
+            "rule": "My name is + ad.",
+            "example": "My name is Sam."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c10",
         "number": 10,
         "title": "Oxu və mənanı seç",
@@ -824,6 +1281,7 @@
         },
         "explanation": "Uyğun cavab: Mənim adım Aleksdir.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c10",
           "number": 10,
           "title": "Oxu və mənanı seç",
@@ -840,6 +1298,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "My name am Alex.",
+            "reason": "My name ilə burada is lazımdır.",
+            "rule": "I am; My name is.",
+            "example": "My name is Sam."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c11",
         "number": 11,
         "title": "Maskotun səhvini düzəlt",
@@ -853,10 +1319,16 @@
           "goals": [
             "introduce"
           ],
+          "authoredAlternatives": [
+            "I am Alex",
+            "I’m Alex",
+            "My name’s Alex"
+          ],
           "roleName": "Alex"
         },
         "explanation": "Uyğun cavab: My name is Alex.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c11",
           "number": 11,
           "title": "Maskotun səhvini düzəlt",
@@ -876,6 +1348,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I am from Italy ölkə bildirir, ad demir.",
+            "reason": "I am from Italy ölkə bildirir, ad demir.",
+            "rule": "Bu növbənin məqsədi: Nümunəsiz adını səslə demək.",
+            "example": "My name is Sam."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c12",
         "number": 12,
         "title": "Danışıq",
@@ -893,12 +1373,18 @@
               ],
               "goals": [
                 "introduce"
+              ],
+              "authoredAlternatives": [
+                "I’m [ad]",
+                "I am [ad]",
+                "My name’s [ad]"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: My name is Sam.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c12",
           "number": 12,
           "title": "Danışıq",
@@ -925,6 +1411,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "My is name Alex.",
+            "reason": "My name birləşməsi ayrılıb.",
+            "rule": "My name + is + ad.",
+            "example": "My name is Sam."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c13",
         "number": 13,
         "title": "Sözlərdən cümlə qur",
@@ -947,6 +1441,7 @@
         },
         "explanation": "Uyğun cavab: My name is Alex.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c13",
           "number": 13,
           "title": "Sözlərdən cümlə qur",
@@ -965,6 +1460,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "am",
+            "reason": "Bu cümlədə My name is işlənir.",
+            "rule": "I am ilə My name is-i ayır.",
+            "example": "My name is Alex."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c14",
         "number": 14,
         "title": "Dinlə və tamamla",
@@ -980,6 +1483,7 @@
         "audio": "Hello. My name is Sam.",
         "explanation": "Uyğun cavab: is",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c14",
           "number": 14,
           "title": "Dinlə və tamamla",
@@ -997,6 +1501,20 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Hello!",
+            "reason": "Salam var, ad yoxdur.",
+            "rule": "Salama adını əlavə et.",
+            "example": "Hi. I’m Alex."
+          },
+          {
+            "condition": "I am from Italy.",
+            "reason": "Ölkə demisən; salam və ad təqdimatı tələb olunur.",
+            "rule": "Ad üçün I’m + ad və ya My name is + ad.",
+            "example": "Hello. My name is Sam."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c15",
         "number": 15,
         "title": "Situasiyada yaz",
@@ -1010,10 +1528,16 @@
           "goals": [
             "greet",
             "introduce"
+          ],
+          "authoredAlternatives": [
+            "Hi. I am [ad]",
+            "Hello. My name is [ad]",
+            "Hi. My name’s [ad]"
           ]
         },
         "explanation": "Uyğun cavab: Hello. I’m [ad].",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c15",
           "number": 15,
           "title": "Situasiyada yaz",
@@ -1034,6 +1558,32 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "16A: Hi!",
+            "reason": "Salam var, ad yoxdur.",
+            "rule": "Salam və adını birləşdir.",
+            "example": "Hi. I’m Sam."
+          },
+          {
+            "condition": "16A: Hi!",
+            "reason": "Salam var, ad yoxdur.",
+            "rule": "Salam və adını birləşdir.",
+            "example": "Hi. I’m Sam."
+          },
+          {
+            "condition": "16B: Hello!",
+            "reason": "Görüş bitir.",
+            "rule": "Sağollaşma ilə cavab ver.",
+            "example": "Bye!"
+          },
+          {
+            "condition": "16B: Hello!",
+            "reason": "Görüş bitir.",
+            "rule": "Sağollaşma ilə cavab ver.",
+            "example": "Bye!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c16a",
         "number": 16,
         "title": "İki növbəli danışıq",
@@ -1057,6 +1607,7 @@
           }
         ],
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c16a",
           "number": 16,
           "title": "İki növbəli danışıq",
@@ -1084,6 +1635,32 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "16A: Hi!",
+            "reason": "Salam var, ad yoxdur.",
+            "rule": "Salam və adını birləşdir.",
+            "example": "Hi. I’m Sam."
+          },
+          {
+            "condition": "16A: Hi!",
+            "reason": "Salam var, ad yoxdur.",
+            "rule": "Salam və adını birləşdir.",
+            "example": "Hi. I’m Sam."
+          },
+          {
+            "condition": "16B: Hello!",
+            "reason": "Görüş bitir.",
+            "rule": "Sağollaşma ilə cavab ver.",
+            "example": "Bye!"
+          },
+          {
+            "condition": "16B: Hello!",
+            "reason": "Görüş bitir.",
+            "rule": "Sağollaşma ilə cavab ver.",
+            "example": "Bye!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d02_c16b",
         "number": 16,
         "title": "İki növbəli danışıq",
@@ -1107,6 +1684,7 @@
           }
         ],
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d02_c16b",
           "number": 16,
           "title": "İki növbəli danışıq",
@@ -1133,6 +1711,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d02_c17",
         "number": 17,
         "title": "Şərti səhv təkrarı",
@@ -1141,6 +1720,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d02_c18",
         "number": 18,
         "title": "Nəticə",
@@ -1213,6 +1793,7 @@
     "goal": "Öz adımı deyə və qarşı tərəfin adını soruşa bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d03_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -1221,6 +1802,14 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Hi!",
+            "reason": "Salam var, rol adı yoxdur.",
+            "rule": "Salama adını əlavə et.",
+            "example": "Hello. I’m Alex."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d03_c02",
         "number": 2,
         "title": "Başlanğıc təkrarı — yaz",
@@ -1235,10 +1824,15 @@
             "greet",
             "introduce"
           ],
+          "authoredAlternatives": [
+            "Hello. I am Sam",
+            "Hello. My name is Sam"
+          ],
           "roleName": "Sam"
         },
         "explanation": "Uyğun cavab: Hi. I’m Sam.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d03_c02",
           "number": 2,
           "title": "Başlanğıc təkrarı — yaz",
@@ -1259,6 +1853,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Sam",
+            "reason": "Səsdə Alex deyilir.",
+            "rule": "Təqdimatda deyilən adı yaz.",
+            "example": "My name is Sam. — ad Samdır."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d03_c03",
         "number": 3,
         "title": "Başlanğıc təkrarı — dinlə",
@@ -1274,6 +1876,7 @@
         "audio": "Hello. My name is Alex.",
         "explanation": "Uyğun cavab: Alex",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d03_c03",
           "number": 3,
           "title": "Başlanğıc təkrarı — dinlə",
@@ -1291,6 +1894,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d03_c04",
         "number": 4,
         "title": "Qısa öyrətmə",
@@ -1304,6 +1908,7 @@
         ]
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d03_c05",
         "number": 5,
         "title": "Qısa öyrətmə",
@@ -1317,6 +1922,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Səsdə ad soruşulur, Sam adı deyilmir.",
+            "rule": "What’s your name? qarşı tərəfin adını soruşur.",
+            "example": "What is your name? — Adın nədir?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d03_c06",
         "number": 6,
         "title": "Dinlə və mənanı seç",
@@ -1336,6 +1949,7 @@
         "audio": "What’s your name?",
         "explanation": "Uyğun cavab: Adın nədir?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d03_c06",
           "number": 6,
           "title": "Dinlə və mənanı seç",
@@ -1357,6 +1971,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "A",
+            "reason": "My öz adın haqqındadır; qarşı tərəfin adını soruşmursan.",
+            "rule": "Qarşı tərəf üçün your name.",
+            "example": "What is your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d03_c07",
         "number": 7,
         "title": "Məqsədə uyğun seç",
@@ -1375,6 +1997,7 @@
         },
         "explanation": "Uyğun cavab: What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d03_c07",
           "number": 7,
           "title": "Məqsədə uyğun seç",
@@ -1394,6 +2017,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Your name what’s?",
+            "reason": "Hədəf tam sualın sırası dəyişib.",
+            "rule": "What’s + your name?",
+            "example": "What is your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d03_c08",
         "number": 8,
         "title": "Sözlərdən sual qur",
@@ -1415,6 +2046,7 @@
         },
         "explanation": "Uyğun cavab: What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d03_c08",
           "number": 8,
           "title": "Sözlərdən sual qur",
@@ -1433,6 +2065,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "What’s my name? öz adın haqqındadır; I’m Sam isə ad sualı deyil.",
+            "reason": "What’s my name? öz adın haqqındadır; I’m Sam isə ad sualı deyil.",
+            "rule": "Bu növbənin məqsədi: Qarşı tərəfin adını səslə soruşmaq.",
+            "example": "What’s your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d03_c09",
         "number": 9,
         "title": "Danışıq",
@@ -1450,6 +2090,10 @@
               ],
               "goals": [
                 "askName"
+              ],
+              "authoredAlternatives": [
+                "What is your name?",
+                "Your name, please? "
               ]
             },
             "sample": "What’s your name?",
@@ -1458,6 +2102,7 @@
         ],
         "explanation": "Uyğun cavab: What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d03_c09",
           "number": 9,
           "title": "Danışıq",
@@ -1484,6 +2129,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "are",
+            "reason": "Bu nümunədə your name ilə is işlənir.",
+            "rule": "What is your name?",
+            "example": "My name is Alex."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d03_c10",
         "number": 10,
         "title": "Boşluğu yaz",
@@ -1498,6 +2151,7 @@
         },
         "explanation": "Uyğun cavab: is",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d03_c10",
           "number": 10,
           "title": "Boşluğu yaz",
@@ -1514,6 +2168,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "What’s my name?",
+            "reason": "Deyən şəxs hələ öz adını soruşur.",
+            "rule": "Qarşı tərəfin adı: your name.",
+            "example": "My name is Sam. What’s your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d03_c11",
         "number": 11,
         "title": "Maskotun səhvini düzəlt",
@@ -1526,10 +2188,14 @@
           ],
           "goals": [
             "askName"
+          ],
+          "authoredAlternatives": [
+            "What is your name?"
           ]
         },
         "explanation": "Uyğun cavab: What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d03_c11",
           "number": 11,
           "title": "Maskotun səhvini düzəlt",
@@ -1548,6 +2214,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Yalnız What’s your name? öz adını vermir; tək I’m Sam əks sualı göstərmir.",
+            "reason": "Yalnız What’s your name? öz adını vermir; tək I’m Sam əks sualı göstərmir.",
+            "rule": "Bu növbənin məqsədi: Ad cavabı və ad sualını səslə birləşdirmək.",
+            "example": "I’m Sam. What’s your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d03_c12",
         "number": 12,
         "title": "Danışıq",
@@ -1566,6 +2240,10 @@
               "goals": [
                 "askName",
                 "introduce"
+              ],
+              "authoredAlternatives": [
+                "My name is [ad]. What is your name?",
+                "I am [ad]. What’s your name?"
               ]
             },
             "reply": "I’m Alex."
@@ -1573,6 +2251,7 @@
         ],
         "explanation": "Uyğun cavab: I’m Sam. What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d03_c12",
           "number": 12,
           "title": "Danışıq",
@@ -1599,6 +2278,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Hi. I’m Sam.",
+            "reason": "Salam və ad var; ad sualı yoxdur.",
+            "rule": "Üç hissə: salam + öz adın + qarşı tərəfin adı barədə sual.",
+            "example": "Hello. My name is Alex. What’s your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d03_c13",
         "number": 13,
         "title": "Situasiyada yaz",
@@ -1613,10 +2300,14 @@
             "greet",
             "askName",
             "introduce"
+          ],
+          "authoredAlternatives": [
+            "Hi. My name is [ad]. What is your name?"
           ]
         },
         "explanation": "Uyğun cavab: Hello. I’m [ad]. What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d03_c13",
           "number": 13,
           "title": "Situasiyada yaz",
@@ -1637,6 +2328,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d03_c14",
         "number": 14,
         "title": "Şərti səhv təkrarı",
@@ -1645,6 +2337,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d03_c15",
         "number": 15,
         "title": "Nəticə",
@@ -1690,6 +2383,7 @@
     "goal": "Tanışlıqdan məmnunluğumu bildirə və uyğun qarşılıq verə bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d04_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -1698,6 +2392,14 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Hi!",
+            "reason": "Salam var, rol adı yoxdur.",
+            "rule": "Salama adını əlavə et.",
+            "example": "Hello. I’m Alex."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d04_c02",
         "number": 2,
         "title": "Başlanğıc təkrarı — yaz",
@@ -1712,10 +2414,15 @@
             "greet",
             "introduce"
           ],
+          "authoredAlternatives": [
+            "Hello. I am Sam",
+            "Hello. My name is Sam"
+          ],
           "roleName": "Sam"
         },
         "explanation": "Uyğun cavab: Hi. I’m Sam.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d04_c02",
           "number": 2,
           "title": "Başlanğıc təkrarı — yaz",
@@ -1736,6 +2443,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "What’s my name?",
+            "reason": "Öz adını soruşursan.",
+            "rule": "Qarşı tərəf üçün your.",
+            "example": "What is your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d04_c03",
         "number": 3,
         "title": "Başlanğıc təkrarı — yaz",
@@ -1748,10 +2463,14 @@
           ],
           "goals": [
             "askName"
+          ],
+          "authoredAlternatives": [
+            "What is your name?"
           ]
         },
         "explanation": "Uyğun cavab: What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d04_c03",
           "number": 3,
           "title": "Başlanğıc təkrarı — yaz",
@@ -1770,6 +2489,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d04_c04",
         "number": 4,
         "title": "Qısa öyrətmə",
@@ -1784,6 +2504,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Bu sual deyil, tanışlıqdan məmnunluqdur.",
+            "rule": "Nice to meet you yeni tanışlıqda işlənir.",
+            "example": "Nice to meet you, Sam."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d04_c05",
         "number": 5,
         "title": "Oxu və mənanı seç",
@@ -1802,6 +2530,7 @@
         },
         "explanation": "Uyğun cavab: Tanış olduğuma şadam.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d04_c05",
           "number": 5,
           "title": "Oxu və mənanı seç",
@@ -1822,6 +2551,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "What’s your name?",
+            "reason": "Ad sualı verilib; tanışlıq ifadəsinə qarşılıq çatmır.",
+            "rule": "You too eyni məmnunluğu qaytarır.",
+            "example": "Nice to meet you. — You too."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d04_c06",
         "number": 6,
         "title": "Dialoqa cavab yaz",
@@ -1834,10 +2571,15 @@
           ],
           "goals": [
             "meet"
+          ],
+          "authoredAlternatives": [
+            "Nice to meet you too",
+            "Nice to meet you"
           ]
         },
         "explanation": "Uyğun cavab: You too.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d04_c06",
           "number": 6,
           "title": "Dialoqa cavab yaz",
@@ -1857,6 +2599,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Bye görüşü bitirir; burada məmnunluq qarşılığı lazımdır.",
+            "reason": "Bye görüşü bitirir; burada məmnunluq qarşılığı lazımdır.",
+            "rule": "Bu növbənin məqsədi: Tanışlığa səslə qarşılıq vermək.",
+            "example": "You too."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d04_c07",
         "number": 7,
         "title": "Danışıq",
@@ -1874,6 +2624,10 @@
               ],
               "goals": [
                 "meet"
+              ],
+              "authoredAlternatives": [
+                "Nice to meet you too",
+                "Nice to meet you"
               ]
             },
             "sample": "You too."
@@ -1881,6 +2635,7 @@
         ],
         "explanation": "Uyğun cavab: You too.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d04_c07",
           "number": 7,
           "title": "Danışıq",
@@ -1907,6 +2662,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Alex",
+            "reason": "İlk ifadəni Sam deyir; Alex ona qarşılıq verir.",
+            "rule": "Mesajdakı ifadəni onu deyən şəxslə bağla.",
+            "example": "Alex: Nice to meet you. Sam: You too. — Bu yeni nümunədə ilk Alex-dir."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d04_c08",
         "number": 8,
         "title": "Qısa mesajdan məlumat tap",
@@ -1921,6 +2684,7 @@
         },
         "explanation": "Uyğun cavab: Sam",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d04_c08",
           "number": 8,
           "title": "Qısa mesajdan məlumat tap",
@@ -1937,6 +2701,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "You too.",
+            "reason": "Burada əvvəl sən məmnunluq bildirirsən; əvvəlki eyni ifadə yoxdur ki, onu qaytarasan.",
+            "rule": "İlk ifadə üçün Nice to meet you.",
+            "example": "Nice to meet you, Alex."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d04_c09",
         "number": 9,
         "title": "Situasiyada yaz",
@@ -1953,6 +2725,7 @@
         },
         "explanation": "Uyğun cavab: Nice to meet you.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d04_c09",
           "number": 9,
           "title": "Situasiyada yaz",
@@ -1971,6 +2744,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Yalnız öz adını demək bu sosial məqsədi göstərmir.",
+            "reason": "Yalnız öz adını demək bu sosial məqsədi göstərmir.",
+            "rule": "Bu növbənin məqsədi: Tanışlıqdan məmnunluğu nümunəsiz səslə başlatmaq.",
+            "example": "Nice to meet you."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d04_c10",
         "number": 10,
         "title": "Danışıq",
@@ -1988,6 +2769,9 @@
               ],
               "goals": [
                 "meet"
+              ],
+              "authoredAlternatives": [
+                "Nice to meet you, Alex"
               ]
             },
             "reply": "Nice to meet you too."
@@ -1995,6 +2779,7 @@
         ],
         "explanation": "Uyğun cavab: Nice to meet you.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d04_c10",
           "number": 10,
           "title": "Danışıq",
@@ -2020,6 +2805,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d04_c11",
         "number": 11,
         "title": "Şərti səhv təkrarı",
@@ -2028,6 +2814,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d04_c12",
         "number": 12,
         "title": "Nəticə",
@@ -2079,6 +2866,7 @@
     "goal": "Hal soruşa, yaxşı olduğumu deyə və sualı qarşı tərəfə qaytara bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d05_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -2087,6 +2875,14 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "What’s my name?",
+            "reason": "Öz adını soruşursan.",
+            "rule": "Qarşı tərəf üçün your.",
+            "example": "What is your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d05_c02",
         "number": 2,
         "title": "Başlanğıc təkrarı — yaz",
@@ -2099,10 +2895,14 @@
           ],
           "goals": [
             "askName"
+          ],
+          "authoredAlternatives": [
+            "What is your name?"
           ]
         },
         "explanation": "Uyğun cavab: What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d05_c02",
           "number": 2,
           "title": "Başlanğıc təkrarı — yaz",
@@ -2121,6 +2921,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Bye!",
+            "reason": "Bu sağollaşmadır; burada məmnunluq qarşılığı lazımdır.",
+            "rule": "Nice to meet you — You too.",
+            "example": "Nice to meet you too."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d05_c03",
         "number": 3,
         "title": "Başlanğıc təkrarı — oxu",
@@ -2133,10 +2941,15 @@
           ],
           "goals": [
             "meet"
+          ],
+          "authoredAlternatives": [
+            "Nice to meet you too",
+            "Nice to meet you"
           ]
         },
         "explanation": "Uyğun cavab: You too.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d05_c03",
           "number": 3,
           "title": "Başlanğıc təkrarı — oxu",
@@ -2155,6 +2968,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d05_c04",
         "number": 4,
         "title": "Qısa öyrətmə",
@@ -2167,6 +2981,7 @@
         ]
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d05_c05",
         "number": 5,
         "title": "Qısa öyrətmə",
@@ -2181,6 +2996,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "A",
+            "reason": "Ad sualı What’s your name? idi. Bu, hal soruşur.",
+            "rule": "How are you? hal-əhval üçündür.",
+            "example": "Hi. How are you?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d05_c06",
         "number": 6,
         "title": "Dinlə və mənanı seç",
@@ -2200,6 +3023,7 @@
         "audio": "How are you?",
         "explanation": "Uyğun cavab: Necəsən?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d05_c06",
           "number": 6,
           "title": "Dinlə və mənanı seç",
@@ -2221,6 +3045,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Fine I’m.",
+            "reason": "Hədəf sırada I’m əvvəl gəlir.",
+            "rule": "I’m + fine.",
+            "example": "I am fine."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d05_c07",
         "number": 7,
         "title": "Sözlərdən cümlə qur",
@@ -2241,6 +3073,7 @@
         },
         "explanation": "Uyğun cavab: I’m fine.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d05_c07",
           "number": 7,
           "title": "Sözlərdən cümlə qur",
@@ -2259,6 +3092,20 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "is",
+            "reason": "You ilə bu sualda are lazımdır.",
+            "rule": "How are you?",
+            "example": "Hello. How are you?"
+          },
+          {
+            "condition": "am",
+            "reason": "Am I ilə işlənir; burada you var.",
+            "rule": "How are you?",
+            "example": "I am fine. How are you?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d05_c08",
         "number": 8,
         "title": "Boşluğu yaz",
@@ -2273,6 +3120,7 @@
         },
         "explanation": "Uyğun cavab: are",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d05_c08",
           "number": 8,
           "title": "Boşluğu yaz",
@@ -2291,6 +3139,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I’m not good / I’m not very well verilən yaxşı olma rolunun mənasını dəyişir.",
+            "reason": "I’m not good / I’m not very well verilən yaxşı olma rolunun mənasını dəyişir.",
+            "rule": "Bu növbənin məqsədi: Müsbət halı səslə demək.",
+            "example": "I’m fine, thanks."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d05_c09",
         "number": 9,
         "title": "Danışıq",
@@ -2308,6 +3164,12 @@
               ],
               "goals": [
                 "fine"
+              ],
+              "authoredAlternatives": [
+                "I am fine",
+                "Fine, thanks",
+                "I’m good",
+                "I’m well"
               ]
             },
             "sample": "I’m fine, thanks."
@@ -2315,6 +3177,7 @@
         ],
         "explanation": "Uyğun cavab: I’m fine, thanks.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d05_c09",
           "number": 9,
           "title": "Danışıq",
@@ -2341,6 +3204,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d05_c10",
         "number": 10,
         "title": "Qısa öyrətmə",
@@ -2353,6 +3217,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Hal cavabı var, qarşı tərəfin halını soruşmamısan.",
+            "rule": "Cavabdan sonra And you? əlavə edə bilərsən.",
+            "example": "Fine, thanks. And you?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d05_c11",
         "number": 11,
         "title": "Dialoqda seç",
@@ -2371,6 +3243,7 @@
         },
         "explanation": "Uyğun cavab: I’m fine. And you?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d05_c11",
           "number": 11,
           "title": "Dialoqda seç",
@@ -2391,6 +3264,20 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "And you?",
+            "reason": "Əks sual var, öz halın yoxdur.",
+            "rule": "Öncə halını de, sonra sualı qaytar.",
+            "example": "I’m fine. And you?"
+          },
+          {
+            "condition": "I’m not good. And you?",
+            "reason": "Əks sual var, amma verilən müsbət hal dəyişib.",
+            "rule": "Bu rol məşqində müsbət cavab lazımdır.",
+            "example": "I’m fine, thanks. And you?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d05_c12",
         "number": 12,
         "title": "Situasiyada yaz",
@@ -2404,10 +3291,16 @@
           "goals": [
             "askFeeling",
             "feeling"
+          ],
+          "authoredAlternatives": [
+            "I am fine. How are you?",
+            "Fine. And you?",
+            "I’m good. And you?"
           ]
         },
         "explanation": "Uyğun cavab: I’m fine, thanks. And you?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d05_c12",
           "number": 12,
           "title": "Situasiyada yaz",
@@ -2427,6 +3320,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Tək And you? öz halını bildirmir; tək I’m fine əks sualı göstərmir.",
+            "reason": "Tək And you? öz halını bildirmir; tək I’m fine əks sualı göstərmir.",
+            "rule": "Bu növbənin məqsədi: Müsbət hal və əks sualı səslə işlətmək.",
+            "example": "I’m fine, thanks. And you?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d05_c13",
         "number": 13,
         "title": "Danışıq",
@@ -2445,6 +3346,11 @@
               "goals": [
                 "askFeeling",
                 "feeling"
+              ],
+              "authoredAlternatives": [
+                "I am well. How are you?",
+                "Fine. And you?",
+                "I’m good. And you?"
               ]
             },
             "reply": "I’m fine, thanks."
@@ -2452,6 +3358,7 @@
         ],
         "explanation": "Uyğun cavab: I’m fine, thanks. And you?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d05_c13",
           "number": 13,
           "title": "Danışıq",
@@ -2478,6 +3385,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d05_c14",
         "number": 14,
         "title": "Şərti səhv təkrarı",
@@ -2486,6 +3394,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d05_c15",
         "number": 15,
         "title": "Nəticə",
@@ -2557,6 +3466,7 @@
     "goal": "Yaxşı, normal və ya özümü yaxşı hiss etmədiyim halı uyğun ifadə edə bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d06_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -2565,6 +3475,20 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "And you?",
+            "reason": "Əks sual var, öz halın yoxdur.",
+            "rule": "Öncə halını de, sonra sualı qaytar.",
+            "example": "I’m fine. And you?"
+          },
+          {
+            "condition": "I’m not good. And you?",
+            "reason": "Əks sual var, amma verilən müsbət hal dəyişib.",
+            "rule": "Bu rol məşqində müsbət cavab lazımdır.",
+            "example": "I’m fine, thanks. And you?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d06_c02",
         "number": 2,
         "title": "Situasiyada yaz",
@@ -2578,10 +3502,16 @@
           "goals": [
             "askFeeling",
             "feeling"
+          ],
+          "authoredAlternatives": [
+            "I am fine. How are you?",
+            "Fine. And you?",
+            "I’m good. And you?"
           ]
         },
         "explanation": "Uyğun cavab: I’m fine, thanks. And you?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d06_c02",
           "number": 2,
           "title": "Situasiyada yaz",
@@ -2601,6 +3531,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "What’s my name?",
+            "reason": "Öz adını soruşursan.",
+            "rule": "Qarşı tərəf üçün your.",
+            "example": "What is your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d06_c03",
         "number": 3,
         "title": "Başlanğıc təkrarı — yaz",
@@ -2613,10 +3551,14 @@
           ],
           "goals": [
             "askName"
+          ],
+          "authoredAlternatives": [
+            "What is your name?"
           ]
         },
         "explanation": "Uyğun cavab: What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d06_c03",
           "number": 3,
           "title": "Başlanğıc təkrarı — yaz",
@@ -2635,6 +3577,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d06_c04",
         "number": 4,
         "title": "Qısa öyrətmə",
@@ -2648,6 +3591,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I’m fine.",
+            "reason": "Bu yaxşı hal bildirir, verilən vəziyyətə ziddir.",
+            "rule": "Yaxşı hiss etməməyi not ilə bildirə bilərsən.",
+            "example": "I am not very well."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d06_c05",
         "number": 5,
         "title": "Maskotun səhvini düzəlt",
@@ -2660,10 +3611,16 @@
           ],
           "goals": [
             "unwell"
+          ],
+          "authoredAlternatives": [
+            "I am not very well",
+            "I’m not well",
+            "I don’t feel well"
           ]
         },
         "explanation": "Uyğun cavab: I’m not very well.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d06_c05",
           "number": 5,
           "title": "Maskotun səhvini düzəlt",
@@ -2683,6 +3640,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Sam",
+            "reason": "Sam yaxşı olduğunu deyir. Not very well Alex-in mesajındadır.",
+            "rule": "Not bu nümunədə halı mənfi edir.",
+            "example": "Sam: I’m not very well. — Bu yeni nümunədə Sam yaxşı deyil."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d06_c06",
         "number": 6,
         "title": "Qısa mesajdan məlumat tap",
@@ -2697,6 +3662,7 @@
         },
         "explanation": "Uyğun cavab: Alex",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d06_c06",
           "number": 6,
           "title": "Qısa mesajdan məlumat tap",
@@ -2713,6 +3679,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I’m fine verilən rolun mənasına ziddir.",
+            "reason": "I’m fine verilən rolun mənasına ziddir.",
+            "rule": "Bu növbənin məqsədi: Mənfi halı səslə ifadə etmək.",
+            "example": "I’m not very well."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d06_c07",
         "number": 7,
         "title": "Danışıq",
@@ -2730,6 +3704,10 @@
               ],
               "goals": [
                 "unwell"
+              ],
+              "authoredAlternatives": [
+                "I am not very well",
+                "I’m not well"
               ]
             },
             "sample": "I’m not very well."
@@ -2737,6 +3715,7 @@
         ],
         "explanation": "Uyğun cavab: I’m not very well.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d06_c07",
           "number": 7,
           "title": "Danışıq",
@@ -2763,6 +3742,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I’m Sam.",
+            "reason": "Ad təqdimatı verilib; hal və qarşı sual çatmır.",
+            "rule": "Halını de və qarşı tərəfdən də soruş.",
+            "example": "I’m OK. And you?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d06_c08",
         "number": 8,
         "title": "Müstəqil yaz",
@@ -2776,10 +3763,16 @@
           "goals": [
             "askFeeling",
             "feeling"
+          ],
+          "authoredAlternatives": [
+            "I’m fine. How are you?",
+            "I’m not very well. And you?",
+            "Fine. And you?"
           ]
         },
         "explanation": "Uyğun cavab: I’m OK, thanks. And you?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d06_c08",
           "number": 8,
           "title": "Müstəqil yaz",
@@ -2799,6 +3792,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Boşluğa fine",
+            "reason": "Not hissəsi çatmır; verilən məna mənfi haldır.",
+            "rule": "I’m not very well.",
+            "example": "I am not very well."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d06_c09",
         "number": 9,
         "title": "Boşluğu yaz",
@@ -2813,6 +3814,7 @@
         },
         "explanation": "Uyğun cavab: not",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d06_c09",
           "number": 9,
           "title": "Boşluğu yaz",
@@ -2829,6 +3831,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Bu açıq tapşırıqda mənfi hal səhv deyil. Yalnız ad demək halı göstərmir.",
+            "reason": "Bu açıq tapşırıqda mənfi hal səhv deyil. Yalnız ad demək halı göstərmir.",
+            "rule": "Bu növbənin məqsədi: Seçdiyi halı və əks sualı nümunəsiz səslə vermək.",
+            "example": "I’m OK, thanks. And you?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d06_c10",
         "number": 10,
         "title": "Danışıq",
@@ -2847,6 +3857,11 @@
               "goals": [
                 "askFeeling",
                 "feeling"
+              ],
+              "authoredAlternatives": [
+                "I’m fine. How are you?",
+                "I’m not very well. And you?",
+                "I’m good. And you?"
               ]
             },
             "reply": "I’m fine, thanks."
@@ -2854,6 +3869,7 @@
         ],
         "explanation": "Uyğun cavab: I’m OK, thanks. And you?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d06_c10",
           "number": 10,
           "title": "Danışıq",
@@ -2880,6 +3896,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d06_c11",
         "number": 11,
         "title": "Şərti səhv təkrarı",
@@ -2888,6 +3905,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d06_c12",
         "number": 12,
         "title": "Nəticə",
@@ -2930,6 +3948,7 @@
     "goal": "Təşəkkür edə və təşəkkürə qarşılıq verə bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d07_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -2938,6 +3957,14 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I’m Sam.",
+            "reason": "Öz adın var; qarşı tərəfin adını soruşmamısan.",
+            "rule": "Ad təqdimatı + ad sualı.",
+            "example": "My name is Alex. What’s your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d07_c02",
         "number": 2,
         "title": "Başlanğıc təkrarı — yaz",
@@ -2951,10 +3978,14 @@
           "goals": [
             "askName",
             "introduce"
+          ],
+          "authoredAlternatives": [
+            "My name is [ad]. What is your name?"
           ]
         },
         "explanation": "Uyğun cavab: I’m [ad]. What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d07_c02",
           "number": 2,
           "title": "Başlanğıc təkrarı — yaz",
@@ -2974,6 +4005,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "And you?",
+            "reason": "Öz halını deməmisən.",
+            "rule": "Halını de, sonra sualı qaytar.",
+            "example": "I’m OK, thanks. And you?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d07_c03",
         "number": 3,
         "title": "Başlanğıc təkrarı — yaz",
@@ -2987,10 +4026,15 @@
           "goals": [
             "askFeeling",
             "feeling"
+          ],
+          "authoredAlternatives": [
+            "I’m OK. How are you?",
+            "I’m not very well. And you?"
           ]
         },
         "explanation": "Uyğun cavab: I’m fine. And you?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d07_c03",
           "number": 3,
           "title": "Başlanğıc təkrarı — yaz",
@@ -3010,6 +4054,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d07_c04",
         "number": 4,
         "title": "Qısa öyrətmə",
@@ -3023,6 +4068,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Ad sualı deyil; təşəkkürdür.",
+            "rule": "Thanks / Thank you təşəkkür bildirir.",
+            "example": "I’m fine, thanks."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d07_c05",
         "number": 5,
         "title": "Dinlə və seç",
@@ -3042,6 +4095,7 @@
         "audio": "Thank you.",
         "explanation": "Uyğun cavab: Təşəkkür",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d07_c05",
           "number": 5,
           "title": "Dinlə və seç",
@@ -3063,6 +4117,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "A",
+            "reason": "Bye söhbəti bitirir; təşəkkür qarşılığı deyil.",
+            "rule": "Təşəkkürə You’re welcome deyə bilərsən.",
+            "example": "Thank you. — You’re welcome."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d07_c06",
         "number": 6,
         "title": "Dialoqda seç",
@@ -3081,6 +4143,7 @@
         },
         "explanation": "Uyğun cavab: You’re welcome.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d07_c06",
           "number": 6,
           "title": "Dialoqda seç",
@@ -3102,6 +4165,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "You’re welcome.",
+            "reason": "Bu, təşəkkür edənə qarşılıqdır; burada kömək alan sənsən.",
+            "rule": "Köməyə görə təşəkkür et.",
+            "example": "Thanks, Alex."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d07_c07",
         "number": 7,
         "title": "Situasiyada yaz",
@@ -3114,10 +4185,15 @@
           ],
           "goals": [
             "thanks"
+          ],
+          "authoredAlternatives": [
+            "Thanks",
+            "Thanks a lot"
           ]
         },
         "explanation": "Uyğun cavab: Thank you.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d07_c07",
           "number": 7,
           "title": "Situasiyada yaz",
@@ -3137,6 +4213,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Bye! sağollaşmadır; yalnız Thank you qarşılıqlı təşəkkür ola bilər, burada hədəf “Dəyməz” qarşılığını ayrıca göstərmir.",
+            "reason": "Bye! sağollaşmadır; yalnız Thank you qarşılıqlı təşəkkür ola bilər, burada hədəf “Dəyməz” qarşılığını ayrıca göstərmir.",
+            "rule": "Bu növbənin məqsədi: Təşəkkürə səslə cavab vermək.",
+            "example": "You’re welcome."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d07_c08",
         "number": 8,
         "title": "Danışıq",
@@ -3154,6 +4238,11 @@
               ],
               "goals": [
                 "welcome"
+              ],
+              "authoredAlternatives": [
+                "You are welcome",
+                "No problem",
+                "That’s OK"
               ]
             },
             "sample": "You’re welcome."
@@ -3161,6 +4250,7 @@
         ],
         "explanation": "Uyğun cavab: You’re welcome.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d07_c08",
           "number": 8,
           "title": "Danışıq",
@@ -3188,6 +4278,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Your welcome",
+            "reason": "Your aidlik bildirir; qarşılıqda you are lazımdır.",
+            "rule": "You’re=You are.",
+            "example": "Thank you. — You are welcome."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d07_c09",
         "number": 9,
         "title": "Maskotun səhvini düzəlt",
@@ -3200,10 +4298,14 @@
           ],
           "goals": [
             "welcome"
+          ],
+          "authoredAlternatives": [
+            "You are welcome"
           ]
         },
         "explanation": "Uyğun cavab: You’re welcome.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d07_c09",
           "number": 9,
           "title": "Maskotun səhvini düzəlt",
@@ -3223,6 +4325,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Alex",
+            "reason": "Alex təşəkkürə cavab verir; təşəkkür edən Sam-dır.",
+            "rule": "Thank you təşəkkürdür; You’re welcome qarşılıqdır.",
+            "example": "Alex: Thanks. Sam: You’re welcome. — Bu nümunədə Alex təşəkkür edir."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d07_c10",
         "number": 10,
         "title": "Oxu və danışanı tap",
@@ -3237,6 +4347,7 @@
         },
         "explanation": "Uyğun cavab: Sam",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d07_c10",
           "number": 10,
           "title": "Oxu və danışanı tap",
@@ -3253,6 +4364,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Tək Bye sağollaşmadır.",
+            "reason": "Tək Bye sağollaşmadır.",
+            "rule": "Bu növbənin məqsədi: Təşəkkürə müstəqil səslə qarşılıq vermək.",
+            "example": "You’re welcome."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d07_c11",
         "number": 11,
         "title": "Danışıq",
@@ -3270,12 +4389,17 @@
               ],
               "goals": [
                 "welcome"
+              ],
+              "authoredAlternatives": [
+                "You are welcome",
+                "No problem"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: You’re welcome.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d07_c11",
           "number": 11,
           "title": "Danışıq",
@@ -3301,6 +4425,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d07_c12",
         "number": 12,
         "title": "Şərti səhv təkrarı",
@@ -3309,6 +4434,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d07_c13",
         "number": 13,
         "title": "Nəticə",
@@ -3342,6 +4468,7 @@
     "goal": "Diqqəti nəzakətlə çəkə və adını please ilə istəyə bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d08_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -3350,6 +4477,14 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I’m Sam.",
+            "reason": "Öz adın var; qarşı tərəfin adını soruşmamısan.",
+            "rule": "Ad təqdimatı + ad sualı.",
+            "example": "My name is Alex. What’s your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d08_c02",
         "number": 2,
         "title": "Başlanğıc təkrarı — yaz",
@@ -3363,10 +4498,14 @@
           "goals": [
             "askName",
             "introduce"
+          ],
+          "authoredAlternatives": [
+            "My name is [ad]. What is your name?"
           ]
         },
         "explanation": "Uyğun cavab: I’m [ad]. What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d08_c02",
           "number": 2,
           "title": "Başlanğıc təkrarı — yaz",
@@ -3386,6 +4525,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Bu ad sualıdır; təşəkkür qarşılığı deyil.",
+            "rule": "Thanks — You’re welcome.",
+            "example": "Thank you. — No problem."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d08_c03",
         "number": 3,
         "title": "Başlanğıc təkrarı — seç",
@@ -3404,6 +4551,7 @@
         },
         "explanation": "Uyğun cavab: You’re welcome.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d08_c03",
           "number": 3,
           "title": "Başlanğıc təkrarı — seç",
@@ -3424,6 +4572,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d08_c04",
         "number": 4,
         "title": "Qısa öyrətmə",
@@ -3437,6 +4586,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Your please name.",
+            "reason": "Your name birləşməsi parçalanıb.",
+            "rule": "Your name birlikdə qalır.",
+            "example": "What’s your name, please?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d08_c05",
         "number": 5,
         "title": "Sözlərdən ifadə qur",
@@ -3454,10 +4611,14 @@
           ],
           "goals": [
             "politeName"
+          ],
+          "authoredAlternatives": [
+            "Please, your name"
           ]
         },
         "explanation": "Uyğun cavab: Your name, please.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d08_c05",
           "number": 5,
           "title": "Sözlərdən ifadə qur",
@@ -3477,6 +4638,20 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "What’s your name?",
+            "reason": "Ad sualı düzgündür, amma tapşırıqda istənən please hissəsi yoxdur.",
+            "rule": "Bu məşqdə xahişə please əlavə et.",
+            "example": "Your name, please."
+          },
+          {
+            "condition": "My name is Sam.",
+            "reason": "Öz adını deyirsən; başqasının adını istəmirsən.",
+            "rule": "Your name, please qarşı tərəfə aiddir.",
+            "example": "What is your name, please?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d08_c06",
         "number": 6,
         "title": "Situasiyada yaz",
@@ -3489,10 +4664,16 @@
           ],
           "goals": [
             "politeName"
+          ],
+          "authoredAlternatives": [
+            "What’s your name, please?",
+            "What is your name, please?",
+            "Please, what is your name?"
           ]
         },
         "explanation": "Uyğun cavab: Your name, please.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d08_c06",
           "number": 6,
           "title": "Situasiyada yaz",
@@ -3512,6 +4693,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I’m Sam öz adını bildirir; please-siz ad sualı ad məqsədini göstərir, please hədəfini yox.",
+            "reason": "I’m Sam öz adını bildirir; please-siz ad sualı ad məqsədini göstərir, please hədəfini yox.",
+            "rule": "Bu növbənin məqsədi: Adı please ilə səslə istəmək.",
+            "example": "Your name, please."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d08_c07",
         "number": 7,
         "title": "Danışıq",
@@ -3529,6 +4718,10 @@
               ],
               "goals": [
                 "politeName"
+              ],
+              "authoredAlternatives": [
+                "What’s your name, please?",
+                "What is your name, please?"
               ]
             },
             "reply": "My name is Alex."
@@ -3536,6 +4729,7 @@
         ],
         "explanation": "Uyğun cavab: Your name, please.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d08_c07",
           "number": 7,
           "title": "Danışıq",
@@ -3562,6 +4756,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d08_c08",
         "number": 8,
         "title": "Qısa öyrətmə",
@@ -3575,6 +4770,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "A",
+            "reason": "Bu, təşəkkürə qarşılıqdır; diqqət çəkmək üçün hədəf deyil.",
+            "rule": "Sualdan əvvəl Excuse me işlədə bilərsən.",
+            "example": "Excuse me. What’s your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d08_c09",
         "number": 9,
         "title": "Uyğun ifadəni seç",
@@ -3593,6 +4796,7 @@
         },
         "explanation": "Uyğun cavab: Excuse me.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d08_c09",
           "number": 9,
           "title": "Uyğun ifadəni seç",
@@ -3611,6 +4815,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "You’re welcome. What’s your name?",
+            "reason": "Ad sualı var, amma başlanğıc təşəkkür qarşılığıdır.",
+            "rule": "Diqqət çəkmək üçün Excuse me.",
+            "example": "Excuse me. Your name, please."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d08_c10",
         "number": 10,
         "title": "Situasiyada yaz",
@@ -3624,10 +4836,14 @@
           "goals": [
             "askName",
             "attention"
+          ],
+          "authoredAlternatives": [
+            "Excuse me. What is your name?"
           ]
         },
         "explanation": "Uyğun cavab: Excuse me. What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d08_c10",
           "number": 10,
           "title": "Situasiyada yaz",
@@ -3647,6 +4863,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Tək öz adını demək qarşı tərəfin adını istəmək deyil.",
+            "reason": "Tək öz adını demək qarşı tərəfin adını istəmək deyil.",
+            "rule": "Bu növbənin məqsədi: Səsli diqqət çəkmə və ad xahişi.",
+            "example": "Excuse me. What’s your name, please?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d08_c11",
         "number": 11,
         "title": "Danışıq",
@@ -3664,6 +4888,10 @@
               ],
               "goals": [
                 "politeName"
+              ],
+              "authoredAlternatives": [
+                "Excuse me. Your name, please",
+                "Excuse me. What is your name?"
               ]
             },
             "reply": "My name is Alex."
@@ -3671,6 +4899,7 @@
         ],
         "explanation": "Uyğun cavab: Excuse me. What’s your name, please?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d08_c11",
           "number": 11,
           "title": "Danışıq",
@@ -3697,6 +4926,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d08_c12",
         "number": 12,
         "title": "Şərti səhv təkrarı",
@@ -3705,6 +4935,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d08_c13",
         "number": 13,
         "title": "Nəticə",
@@ -3747,6 +4978,7 @@
     "goal": "Kiçik səhvə görə üzr istəyə və üzrü qəbul edə bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d09_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -3755,6 +4987,14 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Bu ad sualıdır; təşəkkür qarşılığı deyil.",
+            "rule": "Thanks — You’re welcome.",
+            "example": "Thank you. — No problem."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d09_c02",
         "number": 2,
         "title": "Başlanğıc təkrarı — seç",
@@ -3773,6 +5013,7 @@
         },
         "explanation": "Uyğun cavab: You’re welcome.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d09_c02",
           "number": 2,
           "title": "Başlanğıc təkrarı — seç",
@@ -3793,6 +5034,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "What’s my name?",
+            "reason": "Öz adını soruşursan.",
+            "rule": "Qarşı tərəf üçün your.",
+            "example": "What is your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d09_c03",
         "number": 3,
         "title": "Başlanğıc təkrarı — yaz",
@@ -3805,10 +5054,14 @@
           ],
           "goals": [
             "askName"
+          ],
+          "authoredAlternatives": [
+            "What is your name?"
           ]
         },
         "explanation": "Uyğun cavab: What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d09_c03",
           "number": 3,
           "title": "Başlanğıc təkrarı — yaz",
@@ -3827,6 +5080,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d09_c04",
         "number": 4,
         "title": "Qısa öyrətmə",
@@ -3840,6 +5094,7 @@
         ]
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d09_c05",
         "number": 5,
         "title": "Qısa öyrətmə",
@@ -3855,6 +5110,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Thank you.",
+            "reason": "Bu, təşəkkürdür; baş vermiş kiçik səhvə görə üzr tələb olunur.",
+            "rule": "Kiçik səhvə görə Sorry deyə bilərsən.",
+            "example": "I’m sorry."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d09_c06",
         "number": 6,
         "title": "Maskotun səhvini düzəlt",
@@ -3867,10 +5130,16 @@
           ],
           "goals": [
             "sorry"
+          ],
+          "authoredAlternatives": [
+            "I’m sorry",
+            "I am sorry",
+            "Excuse me"
           ]
         },
         "explanation": "Uyğun cavab: Sorry.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d09_c06",
           "number": 6,
           "title": "Maskotun səhvini düzəlt",
@@ -3892,6 +5161,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "You’re welcome.",
+            "reason": "Bu növbədə təşəkkür edilməyib; üzr qəbul olunur.",
+            "rule": "Üzrə No problem deyə bilərsən.",
+            "example": "Sorry. — No problem."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d09_c07",
         "number": 7,
         "title": "Dinlə və qarşılıq yaz",
@@ -3902,11 +5179,17 @@
           "answers": [
             "No problem."
           ],
-          "exact": true
+          "exact": true,
+          "authoredAlternatives": [
+            "That’s OK",
+            "That’s all right",
+            "It’s OK"
+          ]
         },
         "audio": "I’m sorry.",
         "explanation": "Uyğun cavab: No problem.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d09_c07",
           "number": 7,
           "title": "Dinlə və qarşılıq yaz",
@@ -3925,6 +5208,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "You’re welcome təşəkkür qarşılığıdır.",
+            "reason": "You’re welcome təşəkkür qarşılığıdır.",
+            "rule": "Bu növbənin məqsədi: Üzrü qəbul etmək.",
+            "example": "No problem."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d09_c08",
         "number": 8,
         "title": "Danışıq",
@@ -3942,12 +5233,18 @@
               ],
               "goals": [
                 "noProblem"
+              ],
+              "authoredAlternatives": [
+                "That’s OK",
+                "It’s OK",
+                "That’s all right"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: No problem.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d09_c08",
           "number": 8,
           "title": "Danışıq",
@@ -3974,6 +5271,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Alex",
+            "reason": "Alex eybi olmadığını deyir; üzr istəyən Sam-dır.",
+            "rule": "Sorry üzrdür; No problem qəbul ola bilər.",
+            "example": "Alex: I’m sorry. Sam: No problem."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d09_c09",
         "number": 9,
         "title": "Oxu və danışanı tap",
@@ -3988,6 +5293,7 @@
         },
         "explanation": "Uyğun cavab: Sam",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d09_c09",
           "number": 9,
           "title": "Oxu və danışanı tap",
@@ -4004,6 +5310,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Goodbye",
+            "reason": "Bu sağollaşmadır; üzrü qəbul edən qarşılıq deyil.",
+            "rule": "Eybi yoxdursa No problem de.",
+            "example": "I’m sorry. — No problem."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d09_c10",
         "number": 10,
         "title": "Maskotun səhvini düzəlt",
@@ -4016,10 +5330,15 @@
           ],
           "goals": [
             "noProblem"
+          ],
+          "authoredAlternatives": [
+            "That’s OK",
+            "It’s OK"
           ]
         },
         "explanation": "Uyğun cavab: No problem.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d09_c10",
           "number": 10,
           "title": "Maskotun səhvini düzəlt",
@@ -4039,6 +5358,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Thank you təşəkkürdür; üzr istəmir.",
+            "reason": "Thank you təşəkkürdür; üzr istəmir.",
+            "rule": "Bu növbənin məqsədi: Kiçik səhvə görə səslə üzr istəmək.",
+            "example": "Sorry."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d09_c11",
         "number": 11,
         "title": "Danışıq",
@@ -4056,6 +5383,11 @@
               ],
               "goals": [
                 "sorry"
+              ],
+              "authoredAlternatives": [
+                "I’m sorry",
+                "I am sorry",
+                "Excuse me"
               ]
             },
             "reply": "No problem."
@@ -4063,6 +5395,7 @@
         ],
         "explanation": "Uyğun cavab: Sorry.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d09_c11",
           "number": 11,
           "title": "Danışıq",
@@ -4089,6 +5422,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d09_c12",
         "number": 12,
         "title": "Şərti səhv təkrarı",
@@ -4097,6 +5431,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d09_c13",
         "number": 13,
         "title": "Nəticə",
@@ -4140,6 +5475,7 @@
     "goal": "Anlamadığımı bildirə və deyiləni təkrar istəyə bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d10_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -4148,6 +5484,14 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I’m Sam.",
+            "reason": "Hal sualı adla cavablandırılıb.",
+            "rule": "Hal və əks sual ver.",
+            "example": "I’m OK. And you?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d10_c02",
         "number": 2,
         "title": "Başlanğıc təkrarı — yaz",
@@ -4161,10 +5505,14 @@
           "goals": [
             "askFeeling",
             "feeling"
+          ],
+          "authoredAlternatives": [
+            "I’m OK/not very well. How are you?"
           ]
         },
         "explanation": "Uyğun cavab: I’m fine. And you?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d10_c02",
           "number": 2,
           "title": "Başlanğıc təkrarı — yaz",
@@ -4184,6 +5532,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Bu ad sualıdır; təşəkkür qarşılığı deyil.",
+            "rule": "Thanks — You’re welcome.",
+            "example": "Thank you. — No problem."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d10_c03",
         "number": 3,
         "title": "Başlanğıc təkrarı — seç",
@@ -4202,6 +5558,7 @@
         },
         "explanation": "Uyğun cavab: You’re welcome.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d10_c03",
           "number": 3,
           "title": "Başlanğıc təkrarı — seç",
@@ -4222,6 +5579,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d10_c04",
         "number": 4,
         "title": "Qısa öyrətmə",
@@ -4235,6 +5593,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Hal cavabı deyil; anlamama bildirir.",
+            "rule": "I don’t understand = Anlamıram.",
+            "example": "Sorry, I don’t understand."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d10_c05",
         "number": 5,
         "title": "Dinlə və mənanı seç",
@@ -4254,6 +5620,7 @@
         "audio": "I don’t understand.",
         "explanation": "Uyğun cavab: Anlamadığını",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d10_c05",
           "number": 5,
           "title": "Dinlə və mənanı seç",
@@ -4275,6 +5642,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I understand.",
+            "reason": "Don’t yoxdur; mənası “Anlayıram” olur.",
+            "rule": "İnkarı buraxma.",
+            "example": "I do not understand."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d10_c06",
         "number": 6,
         "title": "Situasiyada yaz",
@@ -4287,10 +5662,14 @@
           ],
           "goals": [
             "dontUnderstand"
+          ],
+          "authoredAlternatives": [
+            "I do not understand"
           ]
         },
         "explanation": "Uyğun cavab: I don’t understand.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d10_c06",
           "number": 6,
           "title": "Situasiyada yaz",
@@ -4310,6 +5689,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I understand əks məna verir; not/don’t buraxılmır.",
+            "reason": "I understand əks məna verir; not/don’t buraxılmır.",
+            "rule": "Bu növbənin məqsədi: Anlamadığını səslə bildirmək.",
+            "example": "I don’t understand."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d10_c07",
         "number": 7,
         "title": "Danışıq",
@@ -4327,6 +5714,10 @@
               ],
               "goals": [
                 "dontUnderstand"
+              ],
+              "authoredAlternatives": [
+                "I do not understand",
+                "Sorry, I don’t understand"
               ]
             },
             "sample": "I don’t understand."
@@ -4334,6 +5725,7 @@
         ],
         "explanation": "Uyğun cavab: I don’t understand.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d10_c07",
           "number": 7,
           "title": "Danışıq",
@@ -4359,6 +5751,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d10_c08",
         "number": 8,
         "title": "Qısa öyrətmə",
@@ -4372,6 +5765,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Could say you that again, please?",
+            "reason": "Xahişin əvvəlində Could you bloku qorunmayıb.",
+            "rule": "Could you + say that + again + please.",
+            "example": "Could you say that again, please?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d10_c09",
         "number": 9,
         "title": "Hissələrdən xahiş qur",
@@ -4384,10 +5785,15 @@
           ],
           "goals": [
             "repeat"
+          ],
+          "authoredAlternatives": [
+            "Please, could you say that again?",
+            "Could you please say that again?"
           ]
         },
         "explanation": "Uyğun cavab: Could you say that again, please?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d10_c09",
           "number": 9,
           "title": "Hissələrdən xahiş qur",
@@ -4406,6 +5812,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "slowly",
+            "reason": "Bu söz sürət bildirir; verilən tapşırıq yenidən demək üçündür.",
+            "rule": "Again = yenidən.",
+            "example": "Again, please."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d10_c10",
         "number": 10,
         "title": "Boşluğu yaz",
@@ -4416,10 +5830,16 @@
           "answers": [
             "again"
           ],
-          "exact": true
+          "exact": true,
+          "authoredAlternatives": [
+            "once more",
+            "one more time",
+            "once again"
+          ]
         },
         "explanation": "Uyğun cavab: again",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d10_c10",
           "number": 10,
           "title": "Boşluğu yaz",
@@ -4438,6 +5858,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I’m Sam öz adını bildirir; I don’t understand çətinliyi bildirir, açıq təkrar xahişi deyil.",
+            "reason": "I’m Sam öz adını bildirir; I don’t understand çətinliyi bildirir, açıq təkrar xahişi deyil.",
+            "rule": "Bu növbənin məqsədi: Təkrar xahişini səslə vermək.",
+            "example": "Could you say that again, please?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d10_c11",
         "number": 11,
         "title": "Danışıq",
@@ -4455,6 +5883,12 @@
               ],
               "goals": [
                 "repeat"
+              ],
+              "authoredAlternatives": [
+                "Could you say it again, please?",
+                "Can you say that again, please?",
+                "Could you repeat that, please?",
+                "Again, please"
               ]
             },
             "sample": "Could you say that again, please?",
@@ -4463,6 +5897,7 @@
         ],
         "explanation": "Uyğun cavab: Could you say that again, please?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d10_c11",
           "number": 11,
           "title": "Danışıq",
@@ -4489,6 +5924,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Bu hal bildirir, təkrar istəmir.",
+            "rule": "Again təkrar məqsədini bildirir.",
+            "example": "Could you say that again, please?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d10_c12",
         "number": 12,
         "title": "Məqsədi seç",
@@ -4507,6 +5950,7 @@
         },
         "explanation": "Uyğun cavab: Again, please.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d10_c12",
           "number": 12,
           "title": "Məqsədi seç",
@@ -4526,6 +5970,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Mətn hal yox, ad bildirir.",
+            "rule": "Təkrarda eyni məlumat yenidən deyilir.",
+            "example": "A: I’m Alex. B: Again, please. A: I’m Alex."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d10_c13",
         "number": 13,
         "title": "Qısa dialoqu oxu",
@@ -4544,6 +5996,7 @@
         },
         "explanation": "Uyğun cavab: Ad təqdimatı",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d10_c13",
           "number": 13,
           "title": "Qısa dialoqu oxu",
@@ -4564,6 +6017,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Tək I don’t understand anlamama hissəsini göstərir; təkrar xahişi ayrıca çatmır.",
+            "reason": "Tək I don’t understand anlamama hissəsini göstərir; təkrar xahişi ayrıca çatmır.",
+            "rule": "Bu növbənin məqsədi: Anlamama və açıq təkrar xahişini birləşdirmək.",
+            "example": "I don’t understand. Could you say that again, please?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d10_c14",
         "number": 14,
         "title": "Danışıq",
@@ -4582,6 +6043,10 @@
               "goals": [
                 "dontUnderstand",
                 "repeat"
+              ],
+              "authoredAlternatives": [
+                "Sorry, I don’t understand. Again, please",
+                "I do not understand. Could you repeat that, please?"
               ]
             },
             "reply": "How are you?"
@@ -4589,6 +6054,7 @@
         ],
         "explanation": "Uyğun cavab: I don’t understand. Could you say that again, please?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d10_c14",
           "number": 14,
           "title": "Danışıq",
@@ -4615,6 +6081,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d10_c15",
         "number": 15,
         "title": "Şərti səhv təkrarı",
@@ -4623,6 +6090,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d10_c16",
         "number": 16,
         "title": "Nəticə",
@@ -4686,6 +6154,7 @@
     "goal": "Daha yavaş danışıq və yavaş təkrar istəyə, sonra sadə suala qayıda bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d11_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -4694,6 +6163,14 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "I understand.",
+            "reason": "Don’t yoxdur; mənası “Anlayıram” olur.",
+            "rule": "İnkarı buraxma.",
+            "example": "I do not understand."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d11_c02",
         "number": 2,
         "title": "Başlanğıc təkrarı — yaz",
@@ -4706,10 +6183,14 @@
           ],
           "goals": [
             "dontUnderstand"
+          ],
+          "authoredAlternatives": [
+            "I do not understand"
           ]
         },
         "explanation": "Uyğun cavab: I don’t understand.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d11_c02",
           "number": 2,
           "title": "Başlanğıc təkrarı — yaz",
@@ -4729,6 +6210,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Bu hal bildirir, təkrar istəmir.",
+            "rule": "Again təkrar məqsədini bildirir.",
+            "example": "Could you say that again, please?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d11_c03",
         "number": 3,
         "title": "Başlanğıc təkrarı — seç",
@@ -4747,6 +6236,7 @@
         },
         "explanation": "Uyğun cavab: Again, please.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d11_c03",
           "number": 3,
           "title": "Başlanğıc təkrarı — seç",
@@ -4766,6 +6256,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d11_c04",
         "number": 4,
         "title": "Qısa öyrətmə",
@@ -4779,6 +6270,14 @@
         ]
       },
       {
+        "feedbacks": [
+          {
+            "condition": "B",
+            "reason": "Ad dəyişmək deyil; sürətin azalması istənir.",
+            "rule": "More slowly = daha yavaş.",
+            "example": "Can you repeat that more slowly, please?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d11_c05",
         "number": 5,
         "title": "Dinlə və seç",
@@ -4798,6 +6297,7 @@
         "audio": "More slowly, please.",
         "explanation": "Uyğun cavab: Daha yavaş danışılmasını",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d11_c05",
           "number": 5,
           "title": "Dinlə və seç",
@@ -4819,6 +6319,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "More please slowly.",
+            "reason": "More slowly birləşməsi ayrılıb.",
+            "rule": "More slowly birlikdə işlənir.",
+            "example": "More slowly, please."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d11_c06",
         "number": 6,
         "title": "Sözlərdən xahiş qur",
@@ -4831,10 +6339,14 @@
           ],
           "goals": [
             "slow"
+          ],
+          "authoredAlternatives": [
+            "Please, more slowly"
           ]
         },
         "explanation": "Uyğun cavab: More slowly, please.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d11_c06",
           "number": 6,
           "title": "Sözlərdən xahiş qur",
@@ -4854,6 +6366,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Tək Again, please təkrar istəyir, sürətin azalmasını açıq bildirmir.",
+            "reason": "Tək Again, please təkrar istəyir, sürətin azalmasını açıq bildirmir.",
+            "rule": "Bu növbənin məqsədi: Yavaş danışmağı səslə istəmək.",
+            "example": "More slowly, please."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d11_c07",
         "number": 7,
         "title": "Danışıq",
@@ -4871,6 +6391,10 @@
               ],
               "goals": [
                 "slow"
+              ],
+              "authoredAlternatives": [
+                "Could you say that more slowly, please?",
+                "Can you repeat that more slowly, please?"
               ]
             },
             "sample": "More slowly, please.",
@@ -4880,6 +6404,7 @@
         ],
         "explanation": "Uyğun cavab: More slowly, please.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d11_c07",
           "number": 7,
           "title": "Danışıq",
@@ -4907,6 +6432,20 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Again, please.",
+            "reason": "Təkrar var, sürət tələbi yoxdur.",
+            "rule": "İki məqsəd üçün again/repeat və more slowly işlət.",
+            "example": "Could you repeat that more slowly, please?"
+          },
+          {
+            "condition": "More slowly, please.",
+            "reason": "Sürət istəyi var; bu iki məqsədli tapşırıqda təkrar da açıq deyilməlidir.",
+            "rule": "Hər iki tələbi bildir.",
+            "example": "Again, please. More slowly, please."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d11_c08",
         "number": 8,
         "title": "Situasiyada yaz",
@@ -4920,10 +6459,16 @@
           "goals": [
             "repeat",
             "slow"
+          ],
+          "authoredAlternatives": [
+            "Could you say that again more slowly, please?",
+            "Could you say it again, more slowly, please?",
+            "Again, please. More slowly, please"
           ]
         },
         "explanation": "Uyğun cavab: Can you repeat that more slowly, please?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d11_c08",
           "number": 8,
           "title": "Situasiyada yaz",
@@ -4944,6 +6489,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Sam",
+            "reason": "Sam yalnız təkrar istəyir; Alex sürəti də bildirir.",
+            "rule": "Repeat/again təkrarı, more slowly sürəti göstərir.",
+            "example": "Again, please. More slowly, please. — iki tələb birlikdədir."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d11_c09",
         "number": 9,
         "title": "Qısa mesajdan məlumat tap",
@@ -4958,6 +6511,7 @@
         },
         "explanation": "Uyğun cavab: Alex",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d11_c09",
           "number": 9,
           "title": "Qısa mesajdan məlumat tap",
@@ -4974,6 +6528,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Tək Again sürət tələbini; tək More slowly isə bu tapşırıqda açıq təkrar hissəsini göstərmir.",
+            "reason": "Tək Again sürət tələbini; tək More slowly isə bu tapşırıqda açıq təkrar hissəsini göstərmir.",
+            "rule": "Bu növbənin məqsədi: Təkrar və sürət tələblərini səslə birləşdirmək.",
+            "example": "Can you repeat that more slowly, please?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d11_c10",
         "number": 10,
         "title": "Danışıq",
@@ -4992,6 +6554,10 @@
               "goals": [
                 "repeat",
                 "slow"
+              ],
+              "authoredAlternatives": [
+                "Could you say it again more slowly, please?",
+                "Again, please. More slowly, please"
               ]
             },
             "reply": "What’s your name?",
@@ -5000,6 +6566,7 @@
         ],
         "explanation": "Uyğun cavab: Can you repeat that more slowly, please?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d11_c10",
           "number": 10,
           "title": "Danışıq",
@@ -5026,6 +6593,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Tək I’m fine ad sualını cavablandırmır.",
+            "reason": "Tək I’m fine ad sualını cavablandırmır.",
+            "rule": "Bu növbənin məqsədi: Yavaş verilmiş ad sualını anlayıb cavablandırmaq.",
+            "example": "I’m Sam."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d11_c11",
         "number": 11,
         "title": "Danışıq",
@@ -5043,12 +6618,17 @@
               ],
               "goals": [
                 "introduce"
+              ],
+              "authoredAlternatives": [
+                "My name is [ad]",
+                "I am [ad]"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: I’m Sam.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d11_c11",
           "number": 11,
           "title": "Danışıq",
@@ -5075,6 +6655,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d11_c12",
         "number": 12,
         "title": "Şərti səhv təkrarı",
@@ -5083,6 +6664,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d11_c13",
         "number": 13,
         "title": "Nəticə",
@@ -5126,6 +6708,7 @@
     "goal": "Öyrəndiklərimi qısa qarşılıqlı səsli tanışlıqda birləşdirə bilirəm.",
     "cards": [
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d12_c01",
         "number": 1,
         "title": "Məqsəd",
@@ -5134,6 +6717,14 @@
         "kind": "intro"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Bye! bu qarşılıq deyil.",
+            "reason": "Bye! bu qarşılıq deyil.",
+            "rule": "Bu növbənin məqsədi: Təşəkkürə qarşılığı əvvəlki bilikdən xatırlamaq.",
+            "example": "You’re welcome."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d12_c02",
         "number": 2,
         "title": "Danışıq",
@@ -5151,12 +6742,17 @@
               ],
               "goals": [
                 "welcome"
+              ],
+              "authoredAlternatives": [
+                "No problem",
+                "You are welcome"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: You’re welcome.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d12_c02",
           "number": 2,
           "title": "Danışıq",
@@ -5184,6 +6780,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "You’re welcome təşəkkür qarşılığıdır.",
+            "reason": "You’re welcome təşəkkür qarşılığıdır.",
+            "rule": "Bu növbənin məqsədi: Üzr qarşılığını xatırlamaq.",
+            "example": "No problem."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d12_c03",
         "number": 3,
         "title": "Danışıq",
@@ -5201,12 +6805,18 @@
               ],
               "goals": [
                 "noProblem"
+              ],
+              "authoredAlternatives": [
+                "That’s OK",
+                "That’s all right",
+                "It’s OK"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: No problem.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d12_c03",
           "number": 3,
           "title": "Danışıq",
@@ -5233,6 +6843,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d12_c04",
         "number": 4,
         "title": "Söhbətə hazırlıq",
@@ -5241,6 +6852,14 @@
         "kind": "teach"
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Tək Hi! salamı göstərir, ad və sual çatmır; tək öz adı əks sual deyil.",
+            "reason": "Tək Hi! salamı göstərir, ad və sual çatmır; tək öz adı əks sual deyil.",
+            "rule": "Bu növbənin məqsədi: Salam+ad+ad sualını səslə birləşdirmək.",
+            "example": "Hi. I’m Sam. What’s your name?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d12_c05",
         "number": 5,
         "title": "Danışıq",
@@ -5260,12 +6879,17 @@
                 "greet",
                 "askName",
                 "introduce"
+              ],
+              "authoredAlternatives": [
+                "Hello. My name is [ad]. What is your name?",
+                "Hi. I am [ad]. What’s your name?"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: Hi. I’m Sam. What’s your name?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d12_c05",
           "number": 5,
           "title": "Danışıq",
@@ -5293,6 +6917,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Bye! görüşü vaxtından əvvəl bitirir; tək öz adı sosial qarşılığı göstərmir.",
+            "reason": "Bye! görüşü vaxtından əvvəl bitirir; tək öz adı sosial qarşılığı göstərmir.",
+            "rule": "Bu növbənin məqsədi: Tanışlıq ifadəsinə səslə qarşılıq vermək.",
+            "example": "You too."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d12_c06",
         "number": 6,
         "title": "Danışıq",
@@ -5310,12 +6942,17 @@
               ],
               "goals": [
                 "meet"
+              ],
+              "authoredAlternatives": [
+                "Nice to meet you too",
+                "Nice to meet you"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: You too.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d12_c06",
           "number": 6,
           "title": "Danışıq",
@@ -5342,6 +6979,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Tək Again, please yalnız təkrarı; tək More slowly, please yalnız açıq sürət hissəsini göstərir. Tək I’m fine rolun çətinlik məqsədini yerinə yetirmir.",
+            "reason": "Tək Again, please yalnız təkrarı; tək More slowly, please yalnız açıq sürət hissəsini göstərir. Tək I’m fine rolun çətinlik məqsədini yerinə yetirmir.",
+            "rule": "Bu növbənin məqsədi: Anlamama+təkrar+sürət istəklərini səslə birləşdirmək.",
+            "example": "I don’t understand. Can you repeat that more slowly, please?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d12_c07",
         "number": 7,
         "title": "Danışıq",
@@ -5361,12 +7006,17 @@
                 "dontUnderstand",
                 "repeat",
                 "slow"
+              ],
+              "authoredAlternatives": [
+                "Sorry, I don’t understand. Could you say it again more slowly, please?",
+                "I do not understand. Again, please. More slowly, please"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: I don’t understand. Can you repeat that more slowly, please?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d12_c07",
           "number": 7,
           "title": "Danışıq",
@@ -5394,6 +7044,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Öz adını demək hal cavabı deyil. Mənfi hal bu açıq seçimdə düzgündür.",
+            "reason": "Öz adını demək hal cavabı deyil. Mənfi hal bu açıq seçimdə düzgündür.",
+            "rule": "Bu növbənin məqsədi: Suala qayıdıb hal+əks sualı səslə vermək.",
+            "example": "I’m OK, thanks. And you?"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d12_c08",
         "number": 8,
         "title": "Danışıq",
@@ -5413,6 +7071,11 @@
                 "askFeeling",
                 "feeling",
                 "thanks"
+              ],
+              "authoredAlternatives": [
+                "I’m fine. How are you?",
+                "I’m not very well. And you?",
+                "Fine, thanks. And you?"
               ]
             },
             "reply": "I’m fine, thanks.",
@@ -5423,6 +7086,7 @@
         ],
         "explanation": "Uyğun cavab: I’m OK, thanks. And you?",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d12_c08",
           "number": 8,
           "title": "Danışıq",
@@ -5449,6 +7113,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "You’re welcome üzr qarşılığını bu növbədə göstərmir.",
+            "reason": "You’re welcome üzr qarşılığını bu növbədə göstərmir.",
+            "rule": "Bu növbənin məqsədi: Söhbətdə üzrü qəbul etmək.",
+            "example": "No problem."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d12_c09",
         "number": 9,
         "title": "Danışıq",
@@ -5466,12 +7138,18 @@
               ],
               "goals": [
                 "noProblem"
+              ],
+              "authoredAlternatives": [
+                "That’s OK",
+                "It’s OK",
+                "That’s all right"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: No problem.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d12_c09",
           "number": 9,
           "title": "Danışıq",
@@ -5498,6 +7176,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Tək Sorry üzr bildirir; tələb olunan təşəkkür qarşılığı deyil.",
+            "reason": "Tək Sorry üzr bildirir; tələb olunan təşəkkür qarşılığı deyil.",
+            "rule": "Bu növbənin məqsədi: Əvvəlki üzrlə bağlı təşəkkürü cavablandırmaq.",
+            "example": "You’re welcome."
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d12_c10",
         "number": 10,
         "title": "Danışıq",
@@ -5515,12 +7201,17 @@
               ],
               "goals": [
                 "welcome"
+              ],
+              "authoredAlternatives": [
+                "You are welcome",
+                "No problem"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: You’re welcome.",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d12_c10",
           "number": 10,
           "title": "Danışıq",
@@ -5548,6 +7239,14 @@
         }
       },
       {
+        "feedbacks": [
+          {
+            "condition": "Hello! və Hi! yeni salamdır.",
+            "reason": "Hello! və Hi! yeni salamdır.",
+            "rule": "Bu növbənin məqsədi: Səsli söhbəti uyğun bitirmək.",
+            "example": "Bye!"
+          }
+        ],
         "id": "a1_en_b1_20261105_v2_d12_c11",
         "number": 11,
         "title": "Danışıq",
@@ -5565,12 +7264,16 @@
               ],
               "goals": [
                 "farewell"
+              ],
+              "authoredAlternatives": [
+                "Goodbye!"
               ]
             }
           }
         ],
         "explanation": "Uyğun cavab: Bye!",
         "review": {
+          "feedbacks": [],
           "id": "a1_en_b1_20261105_v2_d12_c11",
           "number": 11,
           "title": "Danışıq",
@@ -5597,6 +7300,7 @@
         }
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d12_c12",
         "number": 12,
         "title": "Şərti səsli təkrar",
@@ -5605,6 +7309,7 @@
         "kind": "review"
       },
       {
+        "feedbacks": [],
         "id": "a1_en_b1_20261105_v2_d12_c13",
         "number": 13,
         "title": "Nəticə",

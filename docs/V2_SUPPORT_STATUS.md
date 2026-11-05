@@ -1,49 +1,40 @@
-# 7 groups / 12 lessons — v2 integration draft
+# V2 support status — 7 groups / 12 lessons
 
-This is **not a release-ready implementation**. The working home branch is preserved. The author ZIP is the source of truth; the archive SHA-256 is in `b1GroupsV2.json` and `V2_IMPORT_READINESS.json`.
+## Implemented
 
-## Confirmed structure
+The author ZIP remains immutable. `import-b1-v2.py` and `compile-v2-extras.py` compile learner text, hidden acceptance rules, audio text, feedback banks and supplements into typed data. The archive SHA is recorded in the group manifest/readiness record. No old lesson is merely renamed as a new lesson. The main course has exactly twelve versioned IDs in seven groups (1/1/2/2/3/2/1).
 
-| Group | Lesson numbers | Main lesson count |
-|---|---|---:|
-| İlk salam | 1 | 1 |
-| Mənim adım… | 2 | 1 |
-| Adın nədir? | 3, 4 | 2 |
-| Necəsən? | 5, 6 | 2 |
-| Xoş sözlər | 7, 8, 9 | 3 |
-| Bir də, lütfən | 10, 11 | 2 |
-| Gəl danışaq! | 12 | 1 |
+- Seven native map cards retain the existing lavender/orange home, mascot and island dimensions. Counts and the twelve-lesson percentage derive from real completions. Taps open a bottom panel; each row launches its own lesson and offers Start/Continue/Replay. Order checks apply at the session boundary. Draft cursor, responses, initial answer, sticky help/transcript evidence and adapted flow IDs persist. Opening/finishing a lesson does not start the next lesson. Old XP, dictionary and completion records are preserved without granting new v2 completions.
+- Teaching words/phrases use longest authored-phrase matching and an opt-in meaning/example/English-TTS panel. Ellipsis templates and contraction/slash aliases work. New teaching entries are saved once; known items stay tappable without fresh coloring. Assessment choices do not receive correctness coloring before grading. Meaning/transcript support is sticky across hiding and reload; audio replay cannot erase that help. Azerbaijani translations are not sent to TTS.
+- Native speech uses explicit record/review/replay/send for v2. The recording-only fallback also has an explicit send action and cannot report an assessed speech result by itself. Silence/no verified microphone level, cancellation/backgrounding, unknown recognition and skip do not earn a fabricated speech result. Existing recognition/recording infrastructure is reused; service and device availability are not assumed.
+- Main voice stages have authored reply audio and gates for correct/partial/unknown/skipped answers. D12 repeat/speed partial criteria remain separate; the requested slow audio is actually sent at the slower rate. Spoken success never auto-advances a question. Successful criteria can be retained while the failed goal is retried in its authored new situation.
+- D01-K10 retains the correct input field, disables editing of that retained field and retries the incorrect field in the author's video-call situation. The initial submitted text stays in the stored task. Only one retry is offered; continued difficulty remains Needs practice.
+- Feedback banks are compiled separately from learner text. A matching factual error can show the author's reason/rule/new example alongside the actual response. A description that cannot be matched to the actual response receives neutral feedback; an author's hypothetical wrong answer is never attributed to the learner. Changed retry situations do not reuse an original situation's specific reason.
+- Spaced review can replace an appropriate authored opening warm-up with a prior failed skill's authored bank task, with the same input/audio modality. It does not append unreviewed questions or change the lesson count. The chosen flow IDs are frozen for resume. Authored long-term warm-ups remain; there is no invented calendar scheduler.
 
-The 12 new versioned lesson IDs are distinct from the previous seven-lesson IDs. Existing XP, saved completions and dictionary entries are not reset or converted into new completions. Old completion IDs cannot inflate the new denominator.
+## Separate supplements
 
-## Implemented and checked in code
+`/lesson/supplement` opens the following flows. Their attempts/results use separate storage, never the main completion/XP transaction.
 
-- Native home keeps the lavender/orange colors, original mascot, seven map cards, island width/height and footer. Cards now carry group labels and real `completed/total` counts. A highlighted group follows the latest unfinished attempt or first incomplete lesson. The map never represents a task card as a standalone lesson.
-- Group taps open a native bottom panel. Each row has its own real lesson ID and `Başla`, `Davam et`, or `Yenidən məşq et` label. A locked row explains its prerequisite. The session store rechecks the predecessor even for a direct lesson URL. The old dark chapter map is bypassed for these group taps. AI action opens the final conversation group instead of the old chapter map.
-- Header completion counts only the 12 IDs. Finishing one lesson does not start/finish another. A completed lesson can be replayed. Attempts/cursor, actual submitted text and assessment/help evidence persist for return to an unfinished attempt.
-- The source compiler separates learner section A from author keys, explanations and retry banks. It emits 169 runtime stages, preserving authored plan numbers; multi-stage 7A/7B and 11A/11B are not counted as extra lessons. No author sections are rendered as learner Markdown. Author answer keys are used by the offline grader, never as pre-answer UI text.
-- A two-field rule/UI exists for D01-K10: missing input stays Unknown, not a language error; the two criteria are assessed separately. Its authored retry behavior is still a blocker below.
-- Teaching text has longest-phrase-first authored vocabulary lookup, a small meaning/example panel and English-only TTS. `You’re welcome` remains a whole expression. Ellipses in `I am…` are templates rather than required literal characters. New-word coloring is a per-displayed-card snapshot of previously taught dictionary entries; later known entries remain tappable without the fresh color. Names are not synthesized into vocabulary.
-- Taught entries are added through the existing dictionary store; repeated teaching/completion does not create duplicate entries. Apostrophe, contraction and authored slash variants share identity keys. No meaning, IPA or translation is generated by the app.
-- Assessed prompt vocabulary has no fresh-word correctness cue. Opening help marks the attempt/task. Audio meaning is opt-in; opening its support marks a sticky transcript/help record, surviving hiding/reopening and reload, so replay cannot restore independent listening credit. Audio payload checks reject Azerbaijani instructional prose. Only English is sent to TTS.
-- Three separate supplemental entries exist outside the 12-ID denominator, with an honest “not ready” message. The old seven-lesson exam is not silently used for the new v2 course.
+| Entry | Implemented flow |
+|---|---|
+| Keçid imtahanı | Explicit A/B selection; 14 numbered tasks + two separate follow-up subgoals in each variant; hidden answers until the final result; audio/help/skip/typed-versus-spoken evidence; prerequisite gates for follow-up audio; stored draft/results; new attempt and targeted practice links. |
+| Özünü yoxla | Six authored tasks, optional unknown/skip handling, hidden pre-result answers, at most two targeted practice suggestions. The sixth repeat+slow practice uses its own authored two-goal prompt rather than falsely requiring the D12 third goal. |
+| Hekayə | Opens after twelve main completions; three authored reading passages and five assessed stages; opt-in English dialogue audio; separate voices when available; one authored new-situation retry per actual error; original and assisted retry results remain separate. |
 
-## Release blockers / not yet supported completely
+A/B results show actual goal evidence. **The packet intentionally supplies no automatic gate threshold.** The app does not invent a threshold, award a module pass or unlock future content from these results. That is a separate product-policy choice. Skipped/technical speech is Unverified, not a language weakness. No supplement contributes to the main twelve-lesson percentage or dictionary.
 
-1. **Author-specific speech branches and manual send flow.** 37 voice-stage cases need explicit conversion/review of the correct/partial/wrong/unknown/skip path, conditional reply audio, retained subgoals and the author's record → replay → send interaction. Existing native recording/recognition infrastructure is reused, but it is not certification of these v2 conversations. `V2_IMPORT_READINESS.json` lists each stage. No device/ASR service run was performed.
-2. **D01-K10 per-field retry.** The initial two-field grader is checked. Retrying only the failed field in its newly authored situation while preserving the successful field is not implemented. The current generic retry fallback is not a substitute for this author bank.
-3. **Complete answer/feedback parity.** 113 authored canonical answer samples pass, including role-name, am/is and literal-dictation boundaries. That is not exhaustive proof of every alternative, meaning-changing response, partial criterion or five-part author explanation. The compiler's preliminary semantic rule mapping needs full B/C/D-bank review before release. Author texts are not rewritten, but rendering/acceptance parity is not yet certified.
-4. **New A/B exam, self-check and story exercises.** Their separate home entries do not yet launch the new assessment/read/retry flows. Old A/B scoring is not applied. The new packet explicitly leaves the gate threshold as an unconfigured product decision; no replacement threshold is invented. No supplemental entry grants main lesson completion.
-5. **Spaced recall.** Authored warm-ups remain in the source flow. The old seven-lesson automatic recall insertion is disabled for v2, because it would add unreviewed questions to the new authored order. The new spaced-review policy needs its own mapping.
-6. **Visual and native validation.** The actual group panel, card-label fit at large system fonts, keyboard, safe area, pronunciation service and listening/meaning interactions need an iPhone/Android run. Mock native primitives and a successful web export do not prove native geometry or microphone behavior. The earlier proposed seven-screen light-theme redesign is not claimed implemented by this content integration.
+## Verification
 
-Do not merge or describe the entire v2 package as ready while these blockers remain.
+- TypeScript and Expo lint pass with no new errors/warnings; the existing profile `handleLogout` warning remains. Profile/package/lock files are unchanged.
+- `check-v2-groups.cjs`: 113 main canonical answers plus grouping, version isolation, grammar/name/literal-dictation and compound-input boundaries, persisted cursor/help, separate completion and dictionary deduplication.
+- `check-v2-supplements.cjs`: 127 explicit authored alternatives; 43 supplemental canonical answers; 37 voice-stage correct/unknown/unrelated cases; A/B 14+2 structure; support/technical/skip/spoken boundaries; follow-up gates; saved-state validation; retained-field retry; single story retry and authored warm-up replacement.
+- `check-v2-home-render.cjs`: mocked native 320/390/430 inputs, all seven group-panel callbacks, lock reason, updated percentage and all three supplemental destinations.
+- `check-v2-supplement-render.cjs`: a complete six-question self-check with explicit save/continue, no pre-result answer reveal, manual voice submission, saved result reload, no automatic navigation and the story prerequisite. Audio/native primitives are mocked.
+- Expo web export passes.
 
-## Checks
+## What has not been verified
 
-- `node scripts/check-v2-groups.cjs`: 7/12 mapping, denominator/version isolation, 113 canonical answers, compound empty/partial boundaries, am/is and role names, literal dictation, phrase lookup, English audio payloads, persisted cursor/evidence, predecessor checks, separate completion and vocabulary deduplication.
-- `V2_RENDERER=/path/to/react-test-renderer node scripts/check-v2-home-render.cjs`: native seven-card inputs at widths 320/390/430, actual group→panel→lesson callbacks, locked reason and updated progress. External React 19.2.3 renderer; app dependencies unchanged. `check-home-render.cjs` delegates to this suite.
-- `npx tsc --noEmit` and `npx expo lint`: no errors; the pre-existing unused `handleLogout` profile warning remains.
-- Expo web export passes. No browser screenshot or physical-device validation was performed.
+A physical iPhone/Android run, actual microphone/record/replay, recognizer confidence/network behavior, platform voice availability, native keyboard/safe-area geometry and animation smoothness are **not tested here**. These are device QA items, not completed validations. No claim of 100% language-answer coverage, official A1 certification or live ASR validation is made. Test fixtures cover the stated cases, not every possible free answer. The new supplemental screens use the light style; the previously discussed full visual redesign of all legacy lesson screens is not claimed by this content/flow batch.
 
-Reproduce compilation: `python scripts/import-b1-v2.py path/to/BirTalk_7_Qrup_12_Ders_2026-11-05_v2.zip`. The user-supplied ZIP is never overwritten. Its original author content is not replaced by a relabeled old seven-lesson packet.
+The work remains on the isolated `codex/v2-groups-12-lessons-20261105` branch / PR #3 for device QA. It is not silently merged into the working home branch.

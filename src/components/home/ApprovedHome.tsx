@@ -1,7 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Image, Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useUserStore } from '../../store/userStore';
 import type { HomeCourse } from '../../utils/homeCourse';
 import { HomeDashboard as OriginalHomeDashboard } from './HomeDashboard';
@@ -23,16 +23,15 @@ const TILES = [
   { x: 220, y: 1037, symbol: 'speech' },
 ] as const;
 
-export function HomeDashboard({ course, language, level, xp, compact = false, topInset = 0, onSelect, onOpen, onNavigate, onLessonOpen }: {
+export function HomeDashboard({ course, language, level, xp, compact = false, topInset = 0, onSelect, onOpen, onNavigate, onLessonOpen, onSupplement }: {
   course: HomeCourse; language: string; level: string; xp: number; compact?: boolean; topInset?: number;
-  onSelect: () => void; onOpen: (id: string) => void; onNavigate?: (destination: Destination) => void; onLessonOpen?: (id: string) => void;
+  onSelect: () => void; onOpen: (id: string) => void; onNavigate?: (destination: Destination) => void; onLessonOpen?: (id: string) => void; onSupplement?: (kind: string) => void;
 }) {
   const { width, fontScale = 1 } = useWindowDimensions();
   const streak = useUserStore(s => s.streak);
   const completed = useUserStore(s => s.completedLessons);
   const attempts = useUserStore(s => s.attempts);
   const groups = buildHomeGroups(completed, attempts);
-  const [extra, setExtra] = useState<string | null>(null);
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
   const currentGroup = resumeGroup(completed, attempts);
   const [headerHeight, setHeaderHeight] = useState(80);
@@ -140,7 +139,7 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
           </View>
         </View>
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, paddingVertical: 14 }}>
-          {['Keçid imtahanı', 'Özünü yoxla', 'Hekayə'].map(label => <Pressable key={label} accessibilityRole="button" onPress={() => setExtra(label)} style={{ padding: 12, borderRadius: 16, backgroundColor: '#EEE0FA', minHeight: 44 }}><Text style={{ color: '#6C3890', fontWeight: '700' }}>{label}</Text></Pressable>)}
+          {['Keçid imtahanı', 'Özünü yoxla', 'Hekayə'].map(label => <Pressable key={label} accessibilityRole="button" onPress={() => onSupplement?.(label === 'Keçid imtahanı' ? 'exam' : label === 'Özünü yoxla' ? 'self-check' : 'story')} style={{ padding: 12, borderRadius: 16, backgroundColor: '#EEE0FA', minHeight: 44 }}><Text style={{ color: '#6C3890', fontWeight: '700' }}>{label}</Text></Pressable>)}
         </View>
         {preview && <Pressable disabled={preview.state === 'planned'} accessibilityRole="button"
           accessibilityState={{ disabled: preview.state === 'planned' }}
@@ -153,9 +152,6 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
         </Pressable>}
       </View>
     </ScrollView>
-    <Modal visible={Boolean(extra)} transparent animationType="fade" onRequestClose={() => setExtra(null)}>
-      <View style={{ flex: 1, justifyContent: 'center', padding: 24, backgroundColor: 'rgba(35,15,50,.5)' }}><View style={{ backgroundColor: '#FBF4FF', borderRadius: 24, padding: 24, gap: 16 }}><Text style={s.mapTitle}>{extra}</Text><Text style={{ color: '#633C7D', lineHeight: 23 }}>Bu v2 əlavəsinin qiymətləndirmə axını hələ hazır deyil. 12 əsas dərsin faizinə daxil deyil.</Text><Pressable accessibilityRole="button" onPress={() => setExtra(null)} style={{ minHeight: 44, justifyContent: 'center' }}><Text style={s.progressText}>Bağla</Text></Pressable></View></View>
-    </Modal>
     <LessonGroupPanel key={selectedGroup ?? 'closed'} groupId={selectedGroup} onClose={() => setSelectedGroup(null)} onLesson={id => onLessonOpen?.(id)} />
   </LinearGradient>;
 }

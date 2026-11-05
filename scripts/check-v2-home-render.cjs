@@ -26,11 +26,13 @@ const ids=getAllModules()[0].lessonIds;
 const course=()=>buildHomeCourse({modules:getAllModules(),language:'en',level:'A1',completedLessons:user.completedLessons,placementResults:[],availableLessonIds:new Set(ids)});
 (async()=>{
  for(width of [320,390,430]){
-  user.completedLessons=[];const opened=[];let tree;
-  const element=()=>React.createElement(HomeDashboard,{course:course(),language:'en',level:'A1',xp:0,onSelect(){},onOpen(){throw Error('group tap must not route through old module screen')},onLessonOpen:id=>opened.push(id)});
+  user.completedLessons=[];const opened=[];const supplements=[];let tree;
+  const element=()=>React.createElement(HomeDashboard,{course:course(),language:'en',level:'A1',xp:0,onSelect(){},onOpen(){throw Error('group tap must not route through old module screen')},onLessonOpen:id=>opened.push(id),onSupplement:kind=>supplements.push(kind)});
   await act(async()=>{tree=create(element())});
   const groups=tree.root.findAllByType('Pressable').filter(n=>n.props.accessibilityLabel?.endsWith('Qrupu aç'));
   assert.equal(groups.length,7);assert.equal(tree.root.findAllByType('Image').length,1);
+  for(const label of ['Keçid imtahanı','Özünü yoxla','Hekayə']){const action=tree.root.findAllByType('Pressable').find(n=>n.findAllByType('Text').some(t=>t.children.includes(label)));assert.ok(action);await act(async()=>action.props.onPress());}
+  assert.deepEqual(supplements,['exam','self-check','story']);
   await act(async()=>groups[0].props.onPress());
   let panel=tree.root.findByType(Panel);assert.equal(panel.findByType('Modal').props.visible,true);
   let row=panel.findAllByType('Pressable').find(n=>n.props.accessibilityLabel?.startsWith('1. '));assert.ok(row);

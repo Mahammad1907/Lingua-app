@@ -200,3 +200,13 @@ Ayrıca draftda 7/12 məlumat modeli, qrup paneli, ayrıca dərs callback-ləri,
 **Buraxılışa hazır deyil:** 37 səsli mərhələnin müəllifə uyğun şaxələri/manual göndərmə, D01-K10-da yalnız səhv sahənin yeni situasiyada təkrarı, bütün alternativ/izah banklarının tam uyğunluğu, yeni A/B/Özünü yoxla/hekayə axınları və aralı təkrar adapteri. V2 imtahanına köhnə hədd tətbiq edilmir. Əlavə girişlər hazır olmadığını açıq göstərir. Məna dəstəyi ilə dinləmə izi gizlətmə/yüklənmədən sonra da müstəqil nəticəyə çevrilməməlidir.
 
 Ətraflı yoxlanmış/yoxlanmamış siyahı: docs/V2_SUPPORT_STATUS.md; mərhələ siyahısı: docs/V2_IMPORT_READINESS.json. Real telefon, mikrofon, ASR xidməti və native animasiya yoxlanmayıb. Tam işlək paket kimi təqdim etmə; draftı istifadəçinin işləyən versiyasına birləşdirmə.
+
+## V2 qalan axınların tamamlanması — 5 noyabr 2026
+
+İstifadəçi qalan işləri tamamlamağı açıq tapşırdı. Əsas 7/12 bağlamasına əlavə olaraq D01-K10 düzgün sahəni saxlayan yeni situasiyalı təkrar, qismən düzgün səsli meyarların saxlanması, müəllifdən gələn cavab audiosu və yavaş sürət, v2 üçün əl ilə səs göndərmə, dəyişən təkrar üçün müəllif bankı və uyğun başlanğıc xatırlamasının əvəzlənməsi bağlandı. Qaldığı axının ID-ləri və ilkin cavab ayrıca saxlanır.
+
+Yeni A/B (14 nömrə + 2 altməqsəd), altı tapşırıqlı Özünü yoxla və 12 əsas dərsdən sonra açılan hekayə ayrıca `/lesson/supplement` axınındadır. Cavablar cəhd bitəndə açılır; məna/texniki/səs sübutu ayrıca saxlanır. Hekayə üçün yalnız real səhvlərə bir yeni situasiyalı təkrar var. Əlavələrin yaddaşı əsas dərs/XP əməliyyatından ayrıdır, 12-lik faiz dəyişmir. Özünü yoxlada və imtahanda ən çox iki uyğun təkrar keçidi verilir.
+
+**Məhsul qərarı:** müəllif paketi avtomatik keçid həddi vermir. Heç bir hədd uydurulmadı; imtahan nəticəsi var, lakin onunla avtomatik kilid açılmır. İstifadəçi ayrıca qərar vermədən köhnə hədd yeni paketə köçürülməsin.
+
+Kod yoxlamaları: 113 əsas kanonik cavab, 127 açıq müəllif alternativi, 43 əlavə cavabı, 37 səsli mərhələnin əsas halları, yeddi qrup/üç əlavə keçidi və tam altı suallıq mock-render axını keçir. TypeScript/lint və veb yığımı keçir. Əvvəlki hazırlıq qeydindəki kod boşluqları bu mərhələdə yenilənib; aktual siyahı docs/V2_SUPPORT_STATUS.md-dir. Fiziki telefon, ASR xidməti, mikrofon və native həndəsə yoxlanmayıb. Bu təsdiqlər kod testidir, cihaz yoxlaması deyil.
