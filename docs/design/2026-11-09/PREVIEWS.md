@@ -1,5 +1,7 @@
 # Önizləmə arxivi — yekun tətbiq ekranları deyil
 
+Aktual kod və test hesabatı: [IMPLEMENTATION.md](IMPLEMENTATION.md).
+
 Bütün nümunələr baxış üçündür. Söhbətdə seçilmiş qaydalar əsas sənəddədir; bütün bir maket avtomatik təsdiqlənmiş sayılmır. Telefon çərçivəsi, saat və batareya tətbiq rasteri deyil. Şəkillər tətbiqin assets qovluğuna bağlanmayıb.
 
 | Nümunə | Status |
@@ -23,6 +25,6 @@ Bütün nümunələr baxış üçündür. Söhbətdə seçilmiş qaydalar əsas 
 - Düşünən, təəccüblənən və anlamayan mimikaların yan-yana nümunəsi.
 - Dərs sonu ayrıca nəticə/kolleksiya ekranının yenidən dizaynı; əvvəlki üçüncü ekran qəbul edilməyib.
 - Ana səhifənin real 7/12 göstəricili təkmilləşdirilmiş maketi.
-- Təsdiqlənmiş quruluşun native kodda tətbiqi, funksional və fiziki cihaz yoxlaması.
+- Tətbiq edilmiş ortaq native quruluşun fiziki cihazda yoxlanması və hələ çatışmayan səhnələrin hazırlanması.
 
 Konkret əşya şəkilləri bu tanışlıq paketinə əlavə edilmir. Köhnə bütöv personaj/lövhə istinadlarının hamısı bu lokal arxivdə yoxdur; mətn qaydası onların hazır/yerləşdirilmiş olduğu iddiası deyil.

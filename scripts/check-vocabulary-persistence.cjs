@@ -4,12 +4,12 @@ const original = Module._load; let disk = null, fail = false, delayed;
 const storage = { getItem: async () => delayed ? new Promise(resolve => { delayed = resolve; }) : disk, setItem: async (_key, value) => { if(fail) throw Error('storage unavailable'); disk=value; } };
 Module._load = function(id,...args) { if(id==='@react-native-async-storage/async-storage')return storage;if(id==='zustand')return {create:createStore};return original.call(this,id,...args); };
 require.extensions['.ts']=(m,f)=>m._compile(ts.transpileModule(fs.readFileSync(f,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true,resolveJsonModule:true}}).outputText,f);
-const { b1Packet }=require('../src/data/b1Course.ts'), { newLessonWords }=require('../src/utils/lessonVocabulary.ts'), { vocabularyKey }=require('../src/utils/vocabularyIdentity.ts');
+const { b1Packet }=require('../src/data/b1Course.ts'), { newLessonWords }=require('../src/utils/lessonVocabulary.ts'), { vocabularyKey, vocabularyKeys }=require('../src/utils/vocabularyIdentity.ts');
 function fresh() { delete require.cache[require.resolve('../src/store/vocabularyStore.ts')];return require('../src/store/vocabularyStore.ts').useVocabularyStore; }
 (async()=>{
  let store=fresh();await store.getState().loadFromStorage();
  for(const l of b1Packet)await store.getState().addLessonWords(l.id);
- const words=store.getState().allWords;const keys=new Set(words.map(w=>vocabularyKey(w.word)));
+ const words=store.getState().allWords;const keys=new Set(words.flatMap(w=>vocabularyKeys(w.word)));
  for(const l of b1Packet)for(const w of newLessonWords(l,b1Packet))assert.ok(keys.has(vocabularyKey(w)),`highlighted word has a dictionary card: ${w}`);
  for(const l of b1Packet)await store.getState().addLessonWords(l.id);
  assert.equal(store.getState().allWords.length, words.length, 'repeated completion never duplicates words');

@@ -38,7 +38,8 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
       if (!alive.current || turn.phase === 'idle') return;
       if (handlers.current.suspended) { turn.cancel(); setPhase('idle'); setLevel(0); return; }
       const recognized = turn.finish();
-      const result = recognized ? { ...recognized, uri: audioUri.current || undefined } : null; setLevel(0);
+      const trusted = recognized && typeof recognized.confidence === 'number' && Number.isFinite(recognized.confidence) && recognized.confidence >= .35 && recognized.confidence <= 1;
+      const result = recognized && (!handlers.current.autoSubmit || trusted) ? { ...recognized, uri: audioUri.current || undefined } : null; setLevel(0);
       if (result && handlers.current.autoSubmit && AppState.currentState === 'active') {
         // The finished turn is consumed before calling out: duplicate native end
         // events cannot send the same recognized utterance again.

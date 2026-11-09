@@ -89,6 +89,29 @@ async function main() {
     assert.equal(results.length, 4, 'unmounted hook cannot submit');
     assert.ok(aborts >= 3);
     assert.ok([...listeners.values()].every(set => set.size === 0), 'all native listeners are removed');
+    effects.length = 0;
+    const automatic = [];
+    // eslint-disable-next-line react-hooks/rules-of-hooks -- Same isolated hook boundary.
+    const auto = useLessonSpeech({ autoSubmit: true, onBusyChange() {}, onFinal: result => { automatic.push(result); return null; } });
+    for (const effect of effects) { const cleanup = effect(); if (typeof cleanup === 'function') cleanups.push(cleanup); }
+    await auto.start();
+    emit('result', { isFinal: false, results: [{ transcript: 'Hi', confidence: .9 }] }); emit('end');
+    assert.equal(automatic.length, 0, 'partial transcript never auto-submits');
+    for (const confidence of [undefined, -1, NaN, .1, 1.1]) {
+      await auto.start(); emit('result', { isFinal: true, results: [{ transcript: 'Hi!', confidence }] }); emit('end');
+      assert.equal(automatic.length, 0, 'missing/invalid/low confidence is never auto-graded');
+    }
+    await auto.start(); emit('result', { isFinal: true, results: [{ transcript: 'Hi!', confidence: .9 }] });
+    assert.equal(automatic.length, 0, 'waits for native end before sending final');
+    emit('end'); emit('end'); auto.confirm('Hi!');
+    assert.equal(automatic.length, 1, 'trusted final automatically submits once, no manual send');
+    await auto.start(); auto.cancel(); emit('result', { isFinal: true, results: [{ transcript: 'Bye!', confidence: .9 }] }); emit('end');
+    assert.equal(automatic.length, 1, 'cancel disarms auto-submit');
+    await auto.start(); background('background'); emit('result', { isFinal: true, results: [{ transcript: 'Bye!', confidence: .9 }] }); emit('end');
+    assert.equal(automatic.length, 1, 'background disarms auto-submit');
+    await auto.start(); emit('error', { error: 'network' }); emit('end');
+    assert.equal(automatic.length, 1, 'technical errors never become answers');
+    console.log('PASS: trusted final auto-submit exactly once; partial/unknown-confidence/cancel/background/technical events never submit. Native mocked.');
     console.log('PASS: native review/confirm/edit, duplicate protection, on-device default, explicit network consent/retry, missing service/model, cancellation, permission and lifecycle boundaries.');
   } finally { for (const cleanup of cleanups.reverse()) cleanup(); Module._load = originalLoad; }
 }

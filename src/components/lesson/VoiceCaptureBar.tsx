@@ -7,15 +7,16 @@ import { LessonIcon, ink } from './LessonSurface';
 export default function VoiceCaptureBar({ recording = false, label, busy = false, onMic, onClose, children }: PropsWithChildren<{
   active: boolean; recording?: boolean; level?: number; label: string; busy?: boolean; onMic: () => void; onClose?: () => void;
 }>) {
-  const { colors: ink } = useLessonTheme();
+  const { colors: ink, light } = useLessonTheme();
   const s = useLessonStyles(baseStyles);
   return <View testID="compact-voice-bar" style={s.box}>
+    {light ? children : null}
     <View style={s.row}>
       <Pressable accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled: busy }} disabled={busy} onPress={onMic} style={[s.mic, recording && s.live]}><LessonIcon name={recording ? 'pause' : 'mic'} size={25} color={recording ? ink.orange : ink.violet} /></Pressable>
       <View style={s.wave}><Text accessibilityLiveRegion="polite" style={s.label}>{label}</Text></View>
       {onClose ? <Pressable accessibilityRole="button" accessibilityLabel="Səsli paneli bağla" onPress={onClose} style={s.close}><Text style={s.cross}>×</Text></Pressable> : null}
     </View>
-    {children}
+    {!light ? children : null}
   </View>;
 }
 export const compactVoiceStyle = StyleSheet.create({ link: { color: '#C8B3FF', fontSize: 14, lineHeight: 21, fontWeight: '600', minHeight: 44, paddingVertical: 10, textAlign: 'center' }, note: { color: ink.muted, fontSize: 13, lineHeight: 19 }, actions: { flexDirection: 'row', gap: 8 }, action: { flex: 1, minHeight: 44, alignItems: 'center', justifyContent: 'center', borderRadius: 12, backgroundColor: '#29233F', paddingHorizontal: 8 }, actionText: { color: '#C8B3FF', fontSize: 14, lineHeight: 21, fontWeight: '600' }, error: { color: '#FFB2A2', fontSize: 13, lineHeight: 19 } });

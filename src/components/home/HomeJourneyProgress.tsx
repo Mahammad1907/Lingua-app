@@ -31,8 +31,8 @@ export function connectorLength(d: string) {
   return Math.ceil(length);
 }
 
-export function HomeJourneyProgress({ completedCount, percent, scale, headerHeight, captionExtra }: {
-  completedCount: number; percent: number; scale: number; headerHeight: number; captionExtra: number;
+export function HomeJourneyProgress({ completedCount, percent, scale, headerHeight, captionExtra, verticalScale = 1 }: {
+  completedCount: number; percent: number; scale: number; headerHeight: number; captionExtra: number; verticalScale?: number;
 }) {
   const reduced = useReducedMotion();
   const id = `island${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
@@ -63,7 +63,7 @@ export function HomeJourneyProgress({ completedCount, percent, scale, headerHeig
   }, [count, target, reduced, progress, route]);
 
   return <View pointerEvents="none" accessible={false} style={StyleSheet.absoluteFill}>
-    <Svg width={682 * scale} height={headerHeight + 737 * scale + captionExtra} viewBox="43 392 682 858"
+    <Svg width={682 * scale} height={headerHeight + 737 * scale * verticalScale + captionExtra} viewBox="43 392 682 858"
       preserveAspectRatio="none" style={StyleSheet.absoluteFill}>
       <Defs>
         <LinearGradient id={`${id}base`} x1="10%" y1="0%" x2="90%" y2="100%">
@@ -79,7 +79,7 @@ export function HomeJourneyProgress({ completedCount, percent, scale, headerHeig
         inputRange: [0, 100], outputRange: [0, .36], extrapolate: 'clamp',
       })} />
     </Svg>
-    <Svg width={682 * scale} height={737 * scale + captionExtra} viewBox={`43 507 682 ${737 + extra}`}
+    <Svg width={682 * scale} height={737 * scale * verticalScale + captionExtra} viewBox={`43 507 682 ${737 + extra}`} preserveAspectRatio="none"
       style={{ position: 'absolute', top: headerHeight }}>
       {connectors.map((d, index) => <Path key={`track-${index}`} d={d}
         fill="none" stroke="#D7B8EB" strokeWidth={3} strokeLinecap="round" />)}

@@ -2,18 +2,20 @@
 
 Tarix: 9 noyabr 2026. Bu sənəd söhbətdə seçilmiş qaydaların vahid mənbəyidir. Köhnə dəftərdəki ziddiyyətli görünüş və göndərmə qeydlərinə münasibətdə bu tarixli seçimlər əsasdır. Müəllif məzmunu və qiymətləndirmə sübutlarının bütövlüyü dəyişmir.
 
+**Son tətbiq və test hesabatı:** [IMPLEMENTATION.md](IMPLEMENTATION.md). Maket arxivi işlək ekran deyil.
+
 ## 1. Statusu düzgün göstərmək
 
 | Hissə | Bu yükləmədə status |
 |---|---|
 | Qaydalar, adlar, qəbul şərtləri | Sənədləşdirilib |
-| Mövcud vizual nümunələr | Dizayn arxivinə yüklənir; işlək ekran deyil |
-| Yeni ana ekranın peşəkarlaşdırılması | Tələblər təsdiqlənib; bu commitdə tətbiq edilmir |
-| Yeni dərs görünüşləri və avtomatik səs göndərmə | Tələblər qeydə alınıb; bu commitdə tətbiq edilmir |
-| Əvvəlki v2 kodu və 10 şəkil | Əvvəlki branchdə var; yeni maketlərlə tam uyğunluğu təsdiqlənməyib |
+| Mövcud vizual nümunələr | Dizayn arxivindədir; işlək ekran deyil |
+| Yeni ana ekranın peşəkarlaşdırılması | Kodda tətbiq edilib; əhatə və yoxlama məhdudiyyətləri IMPLEMENTATION.md-dədir |
+| Yeni dərs görünüşləri və avtomatik səs göndərmə | Əsas v2 axınına bağlanıb; etibarlı avtomatik səs təqdimetməsi JS testində yoxlanıb, cihazda yoxlanmayıb |
+| Əvvəlki v2 kodu və 10 şəkil | Köhnə şəkillər arxivdədir; yeni renderer və yeni asset vəziyyəti tətbiq hesabatındadır |
 | Real telefon, mikrofon, ASR, native ölçülər | Bu yükləmədə yoxlanmayıb |
 
-Əvvəlki rəng yenilənməsi istifadəçinin göndərdiyi ekran quruluşunun tam tətbiqi deyildi. Onu razılaşdırılmış yekun dizayn və ya cihazda yoxlanmış ekran kimi təqdim etmək olmaz. Bu commit tətbiq məntiqini, SDK/paketləri, profili və işlək ana ekran branchini dəyişmir. Vizual şəkli bütöv ekran fonu kimi tətbiqə yerləşdirmək olmaz: mətn, düymə, input və audio idarəsi işlək native elementlər olmalıdır.
+Əvvəlki rəng yenilənməsi istifadəçinin göndərdiyi ekran quruluşunun tam tətbiqi deyildi. Onu razılaşdırılmış yekun dizayn və ya cihazda yoxlanmış ekran kimi təqdim etmək olmaz. Maket arxivinin ilk yükləməsi tətbiq dəyişikliyi deyildi. Sonrakı kod dəyişikliklərinin ayrıca hesabatı yuxarıdadır; SDK/paketlər, profil və işçi ana ekran branchi saxlanır. Vizual şəkli bütöv ekran fonu kimi tətbiqə yerləşdirmək olmaz: mətn, düymə, input və audio idarəsi işlək native elementlər olmalıdır.
 
 ## 2. Ana səhifə: 7 qrup, 12 ayrıca dərs
 
@@ -68,7 +70,7 @@ Köhnə dərs səhnələri avtomatik təkrar istifadə edilmir; lövhə ideyası
 ## 6. Sadə danışıq idarəsi və avtomatik göndərmə
 
 - Əsas mikrofon və “Danışmaq üçün toxun” yazısı qalır. Bu yazının altında təlimat, Dinlə/Yenidən yaz/Göndər sətri və əlavə alt düymələr olmur.
-- Toxunuş qeyd açır; danışıq bitəndə bir real cavab avtomatik təqdim edilir. Bu yeni seçim v2 üçün əvvəlki məcburi manual Göndər görünüşünü əvəz edən **tələbdir**, hələ həmin davranışın kodda qurulduğunun sübutu deyil.
+- Toxunuş qeyd açır; danışıq bitəndə bir real cavab avtomatik təqdim edilir. Bu yeni seçim v2 üçün əvvəlki məcburi manual Göndər görünüşünü əvəz edən **tələbdir**, Kod və JS sərhəd yoxlamalarının cari vəziyyəti IMPLEMENTATION.md-dədir; cihaz yoxlaması ayrıca qalır.
 - Avtomatik göndərmə kartı avtomatik keçmir. Yoxlamadan sonra uyğun geribildirim və ayrıca davam addımı qalır.
 - Native sistem yalnız yekun, kifayət qədər etibarlı tanınmış mətni qiymətləndirməyə ötürür. Qismən tanıma, səssizlik, icazə/xidmət xətası, ləğv, arxa plana keçid və təkrar callback saxta cavab və ya dil səhvi yaratmır.
 - Yalnız səs yazısı varsa, onu ötürmək danışıq bacarığının yoxlanması deyil. Səs etibarlı yoxlanmayıbsa “Yoxlanmadı” qalır; yazılı məşq danışıq sübutu olmur.

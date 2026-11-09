@@ -1,8 +1,8 @@
 const assert=require('node:assert/strict'), fs=require('node:fs'), Module=require('node:module'), ts=require('typescript'), React=require('react');
-const original=Module._load; let width=390;const user={completedLessons:[],attempts:{},streak:0};
+const original=Module._load; let width=390, fontScale=1;const user={completedLessons:[],attempts:{},streak:0};
 const absoluteFill={position:'absolute',top:0,left:0,right:0,bottom:0};
 class Value{constructor(v){this.v=v}setValue(v){this.v=v}stopAnimation(){}interpolate(){return this.v}}
-const native={View:'View',Text:'Text',Image:'Image',Modal:'Modal',Pressable:'Pressable',ScrollView:'ScrollView',StyleSheet:{create:s=>s,absoluteFill},useWindowDimensions:()=>({width,fontScale:1,height:844}),Animated:{Value,createAnimatedComponent:x=>x,parallel:()=>({start(){},stop(){}})},Easing:{cubic:x=>x,inOut:x=>x}};
+const native={View:'View',Text:'Text',Image:'Image',Modal:'Modal',Pressable:'Pressable',ScrollView:'ScrollView',StyleSheet:{create:s=>s,absoluteFill},useWindowDimensions:()=>({width,fontScale,height:844}),Animated:{Value,View:'View',createAnimatedComponent:x=>x,parallel:()=>({start(){},stop(){}})},Easing:{cubic:x=>x,inOut:x=>x}};
 Module._load=function(name,parent,main){
  if(name==='react')return React;if(name==='react-native')return native;
  if(name==='react-native-safe-area-context')return {useSafeAreaInsets:()=>({top:0,bottom:34})};
@@ -25,11 +25,12 @@ const {getAllModules}=require('../src/data/modules.ts');const {lessons}=require(
 const ids=getAllModules()[0].lessonIds;
 const course=()=>buildHomeCourse({modules:getAllModules(),language:'en',level:'A1',completedLessons:user.completedLessons,placementResults:[],availableLessonIds:new Set(ids)});
 (async()=>{
- for(width of [320,390,430]){
+ for(fontScale of [1,1.6]) for(width of [320,390,430]){
   user.completedLessons=[];const opened=[];const supplements=[];let tree;
   const element=()=>React.createElement(HomeDashboard,{course:course(),language:'en',level:'A1',xp:0,onSelect(){},onOpen(){throw Error('group tap must not route through old module screen')},onLessonOpen:id=>opened.push(id),onSupplement:kind=>supplements.push(kind)});
   await act(async()=>{tree=create(element())});
   const groups=tree.root.findAllByType('Pressable').filter(n=>n.props.accessibilityLabel?.endsWith('Qrupu aç'));
+  assert.equal(groups.length,7);const geometry=groups.map(n=>n.parent.props.style);for(const column of [[0,2,4,6],[1,3,5]])for(let i=1;i<column.length;i++){const prev=column[i-1],next=column[i];const tile=groups[prev].props.style({pressed:false})[1];assert.ok(geometry[next].top>=geometry[prev].top+tile.height,'text-height-aware map cards never overlap in a column');}
   assert.equal(groups.length,7);assert.equal(tree.root.findAllByType('Image').length,1);
   for(const label of ['Keçid imtahanı','Özünü yoxla','Hekayə']){const action=tree.root.findAllByType('Pressable').find(n=>n.findAllByType('Text').some(t=>t.children.includes(label)));assert.ok(action);await act(async()=>action.props.onPress());}
   assert.deepEqual(supplements,['exam','self-check','story']);
@@ -43,7 +44,8 @@ const course=()=>buildHomeCourse({modules:getAllModules(),language:'en',level:'A
   user.completedLessons=[ids[0]];await act(async()=>tree.update(element()));panel=tree.root.findByType(Panel);
   row=panel.findAllByType('Pressable').find(n=>n.props.accessibilityLabel?.startsWith('2. '));await act(async()=>row.props.onPress());assert.deepEqual(opened,[ids[0],ids[1]]);
   const progress=tree.root.findAllByType('View').find(n=>n.props.accessibilityRole==='progressbar');assert.equal(progress.props.accessibilityValue.now,8);
+  user.completedLessons=[ids[0],ids[1],ids[1],'supplement-only'];await act(async()=>tree.update(element()));const updated=tree.root.findAllByType('View').find(n=>n.props.accessibilityRole==='progressbar');assert.equal(updated.props.accessibilityValue.now,17,'2 unique main lessons / 12 = 17%; duplicates and supplements excluded');
   await act(async()=>tree.unmount());
  }
- console.log('PASS: native 7-card home at 320/390/430, bottom panel, real lesson callbacks, lock reason, unlock on updated progress, 1/12=8%, and original high-resolution mascot. Native geometry not certified.');
+ console.log('PASS: native 7-card home at 320/390/430 with 1×/1.6× font and non-overlapping map bounds, bottom panel, real lesson callbacks, lock reason, unlock on updated progress, 1/12=8%, and original high-resolution mascot. Native geometry not certified.');
 })().catch(e=>{console.error(e);process.exitCode=1}).finally(()=>{Module._load=original});

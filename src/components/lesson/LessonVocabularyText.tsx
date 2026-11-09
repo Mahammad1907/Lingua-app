@@ -1,4 +1,4 @@
-import { vocabularyKey } from '../../utils/vocabularyIdentity';
+import { vocabularyKeys } from '../../utils/vocabularyIdentity';
 import { useState } from 'react';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 import { Text } from 'react-native';
@@ -12,11 +12,11 @@ export default function LessonVocabularyText({ text, packet, onSelect, highlight
   const { colors: ink } = useLessonTheme();
   const prior = b1Packet.filter(p => p.order < packet.order).flatMap(p => p.vocabulary);
   const vocabulary = [...packet.vocabulary, ...prior];
-  const [known] = useState(() => new Set(useVocabularyStore.getState().allWords.filter(v => v.language === 'en').map(v => vocabularyKey(v.word))));
+  const [known] = useState(() => new Set(useVocabularyStore.getState().allWords.filter(v => v.language === 'en').flatMap(v => vocabularyKeys(v.word))));
   return <>{vocabularySegments(text, vocabulary).map((part, i) => part.entry
     ? <Text key={i} onPress={onSelect ? event => { event?.stopPropagation(); onSelect(part.entry!); } : undefined}
       accessibilityRole={onSelect ? 'button' : undefined}
       accessibilityLabel={onSelect ? `${part.text}: mənasını göstər` : undefined}
-      style={highlight && !known.has(vocabularyKey(part.entry.word)) ? { color: ink.orange, fontWeight: '700' } : undefined}>{part.text}</Text>
+      style={highlight && !vocabularyKeys(part.entry.word).some(key => known.has(key)) ? { color: ink.orange, fontWeight: '700' } : undefined}>{part.text}</Text>
     : part.text)}</>;
 }

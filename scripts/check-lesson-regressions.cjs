@@ -2,7 +2,11 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs'); const ts = require('typescript');
 require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true, resolveJsonModule: true } }).outputText, filename);
 const { assessPacketAnswer: assess } = require('../src/utils/packetAnswer.ts');
-const { b1Packet, packetFlow } = require('../src/data/b1Course.ts');
+const { packetFlow } = require('../src/data/b1Course.ts');
+const { resolveMascot } = require('../src/utils/mascot.ts');
+// These numbered retry/slow-follow-up assertions describe the original seven
+// lessons. The current 12-lesson packet has its own v2 author/evidence suites.
+const b1Packet = resolveMascot(require('../src/data/b1Packet.json'));
 const { audioMeaning } = require('../src/utils/lessonPresentation.ts');
 const { summarizeEvidence } = require('../src/utils/lessonEvidence.ts');
 const { newLessonWords, vocabularyParts } = require('../src/utils/lessonVocabulary.ts');

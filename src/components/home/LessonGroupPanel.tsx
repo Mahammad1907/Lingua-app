@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useUserStore } from '../../store/userStore';
@@ -7,13 +8,14 @@ import { HomeIcon } from './HomeIcon';
 export default function LessonGroupPanel({ groupId, onClose, onLesson }: {
   groupId: string | null; onClose: () => void; onLesson: (id: string) => void;
 }) {
+  const reduced = useReducedMotion();
   const insets = useSafeAreaInsets();
   const completed = useUserStore(s => s.completedLessons);
   const attempts = useUserStore(s => s.attempts);
   const groups = buildHomeGroups(completed, attempts);
   const group = groups.find(g => g.id === groupId);
   const [error, setError] = useState('');
-  return <Modal visible={Boolean(group)} transparent animationType="slide" onRequestClose={onClose}>
+  return <Modal visible={Boolean(group)} transparent animationType={reduced ? 'none' : 'slide'} onRequestClose={onClose}>
     <View style={s.scrim}>
       <Pressable accessibilityRole="button" accessibilityLabel="Paneli bağla" onPress={onClose} style={StyleSheet.absoluteFill} />
       {group && <View style={[s.sheet, { paddingBottom: Math.max(20, insets.bottom) }]} accessibilityViewIsModal>

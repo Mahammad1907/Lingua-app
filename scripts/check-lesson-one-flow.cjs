@@ -3,7 +3,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),Module=require(
 const original=Module._load,storage=new Map(),navigation=[],spoken=[];
 class Value{constructor(v){this.v=v}setValue(v){this.v=v}stopAnimation(){}interpolate(x){return x.outputRange.at(-1)}}
 const component=name=>name;
-const rn={View:'View',Text:'Text',Pressable:'Pressable',TouchableOpacity:'Pressable',TextInput:'TextInput',ScrollView:'ScrollView',KeyboardAvoidingView:'KeyboardAvoidingView',Image:'Image',ActivityIndicator:'Spinner',Platform:{OS:'ios'},StyleSheet:{create:s=>s,flatten:s=>Array.isArray(s)?Object.assign({},...s.filter(Boolean).map(v=>rn.StyleSheet.flatten(v))):s,absoluteFill:{}},useWindowDimensions:()=>({width:390,height:844,fontScale:1}),Keyboard:{dismiss(){},addListener:()=>({remove(){}})},BackHandler:{addEventListener:()=>({remove(){}})},AccessibilityInfo:{isReduceMotionEnabled:async()=>true,addEventListener:()=>({remove(){}})},Alert:{alert(){}},Modal:({visible,children})=>visible?React.createElement('Modal',null,children):null,Animated:{Value,View:'View',Text:'Text',createAnimatedComponent:component,timing:()=>({start:cb=>cb?.({finished:true}),stop(){}}),sequence:()=>({start:cb=>cb?.({finished:true}),stop(){}}),parallel:()=>({start:cb=>cb?.({finished:true}),stop(){}})},Easing:{linear:()=>{}}};
+const rn={View:'View',Text:'Text',Pressable:'Pressable',TouchableOpacity:'Pressable',TextInput:'TextInput',ScrollView:'ScrollView',KeyboardAvoidingView:'KeyboardAvoidingView',Image:'Image',ActivityIndicator:'Spinner',Platform:{OS:'ios'},AppState:{currentState:'active',addEventListener:()=>({remove(){}})},StyleSheet:{create:s=>s,flatten:s=>Array.isArray(s)?Object.assign({},...s.filter(Boolean).map(v=>rn.StyleSheet.flatten(v))):s,absoluteFill:{}},useWindowDimensions:()=>({width:390,height:844,fontScale:1}),Keyboard:{dismiss(){},addListener:()=>({remove(){}})},BackHandler:{addEventListener:()=>({remove(){}})},AccessibilityInfo:{isReduceMotionEnabled:async()=>true,addEventListener:()=>({remove(){}})},Alert:{alert(){}},Modal:({visible,children})=>visible?React.createElement('Modal',null,children):null,Animated:{Value,View:'View',Text:'Text',createAnimatedComponent:component,timing:()=>({start:cb=>cb?.({finished:true}),stop(){}}),sequence:()=>({start:cb=>cb?.({finished:true}),stop(){}}),parallel:()=>({start:cb=>cb?.({finished:true}),stop(){}})},Easing:{linear:()=>{}}};
 Module._load=function(name,parent,main){
  if(name==='react')return React;
  if(name==='react-native')return rn;
@@ -39,27 +39,27 @@ const flatten=n=>typeof n==='string'?n:Array.isArray(n)?n.map(flatten).join(''):
  const cursor=()=>Object.values(user.getState().attempts)[0].cursor;
  const expect=c=>assert.equal(cursor(),packet.id+'_'+c);
  const write=async text=>{const input=tree.root.findAllByType('TextInput').find(n=>n.props.editable!==false);assert.ok(input,'writable input');await act(async()=>input.props.onChangeText(text));};
- const send=async text=>{const voice=tree.root.findByType('VoiceInput');assert.equal(voice.props.manualSend,true);await act(async()=>voice.props.onFinal({text,confidence:1,edited:false,token:'speech-'+cursor()}));};
+ const send=async text=>{const voice=tree.root.findByType('VoiceInput');assert.equal(voice.props.manualSend,false);await act(async()=>voice.props.onFinal({text,confidence:1,edited:false,token:'speech-'+cursor()}));};
  await press('Dərsə başla');expect('c02');
  assert.equal(vocab.getState().allWords.length,2,'first teach auto-saves only Hello and Hi');
  let fresh=tree.root.findAllByType('Text').filter(n=>n.props.accessibilityLabel==='Hello: mənasını göstər'||n.props.accessibilityLabel==='Hello!: mənasını göstər');assert.ok(fresh.length);assert.ok(fresh.some(n=>n.props.style?.color==='#AB5008'),'new word has accessible accent');
  await act(async()=>fresh[0].props.onPress());assert.match(all(),/Salam/);await press('İngiliscə dinlə');assert.equal(spoken.at(-1).replace(/[.!]/g,''),'Hello');await press('Bağla');
  await press('Davam et');expect('c03');await press('Səsi dinlə');await press('Sağollaşır.');await press('Yoxla');assert.match(all(),/Səhv cavab/);expect('c03');await next();
  expect('c04');await write('Hi!');await press('Yoxla');assert.match(all(),/Müstəqil/);await next();
- expect('c05');await press('Səsi dinlə');await send('Hi!');assert.match(all(),/Düzdür · Köməklə/);await next();
+ expect('c05');assert.equal(tree.root.findAllByType('Image').length,1,'approved mascot only for mascot dialogue');await press('Səsi dinlə');const uncertain=tree.root.findByType('VoiceInput');let message;await act(async()=>{message=uncertain.props.onFinal({text:'Bye!',confidence:undefined,edited:false,token:'untrusted'});});assert.match(message,/etibarlı tanınmadı/);assert.equal(Object.values(user.getState().attempts)[0].tasks[packet.id+'_c05']?.wrong||0,0,'unknown confidence is not a language mistake');await send('Hi!');assert.match(all(),/Düzdür/);await next();
  expect('c06');assert.equal(vocab.getState().allWords.length,4);await press('Davam et');expect('c07a');await press('Goodbye!');await press('Yoxla');await next();
- expect('c07b');await press('Səsi başa düşmürəm');assert.match(all(),/Bye!/);await press('Mətni gizlət');await write('Bye');await press('Yoxla');assert.match(all(),/Düzdür · Köməklə/);await next();
- expect('c08');await press('İndi danışa bilmirəm');expect('c09');await write('Bye!');await press('Yoxla');await next();expect('c10');
+ expect('c07b');assert.equal(tree.root.findAllByType('Image').length,0,'no illustration in assessed listening');await press('Səsi başa düşmürəm');assert.match(all(),/Bye!/);await press('Mətni gizlət');await write('Bye');await press('Yoxla');assert.match(all(),/Düzdür/);await next();
+ expect('c08');await press('Keç');expect('c09');await write('Bye!');await press('Yoxla');await next();expect('c10');
  const inputs=tree.root.findAllByType('TextInput');await act(async()=>inputs[0].props.onChangeText('Hello!'));await act(async()=>tree.root.findAllByType('TextInput')[1].props.onChangeText('Hello!'));await press('Yoxla');assert.match(all(),/Qismən düz/);await next();
  expect('c11a');await act(async()=>tree.root.findByType('VoiceInput').props.onUnverifiedRecording({token:'real-recording',uri:'file://recording',duration:1500}));assert.match(all(),/Yoxlanmadı/);assert.doesNotMatch(all(),/Səhv cavab · Təkrar/);await press('Yoxlanmadı ilə davam et');
- expect('c11b');await send('Bye!');await next();assert.match(all(),/Etdiyin səhvlərin təkrarı/);await press('Davam et');
- assert.match(all(),/Başqa danışanı dinlə/);await press('Səsi dinlə');await press('Salam verir.');await press('Yoxla');assert.match(all(),/Düzdür · Köməklə/);await next();
+ expect('c11b');await press('Söhbət yaddaşı');assert.ok(Object.values(user.getState().attempts)[0].helpedTaskIds.includes(packet.id+'_c11b'),'opening prior dialogue before answering persists help');await act(async()=>tree.root.findAllByType('Pressable').find(n=>n.props.accessibilityLabel==='İzahı bağla').props.onPress());await send('Bye!');await next();assert.match(all(),/Etdiyin səhvlərin təkrarı/);await press('Davam et');
+ assert.match(all(),/Başqa danışanı dinlə/);await press('Səsi dinlə');await press('Salam verir.');await press('Yoxla');assert.match(all(),/Düzdür/);await next();
  assert.match(all(),/Video görüş/);const retained=tree.root.findAllByType('TextInput');assert.equal(retained[0].props.value,'Hello!');assert.equal(retained[0].props.editable,false);await write('Bye!');await press('Yoxla');await next();
  expect('c13');assert.match(all(),/Konkret nəticən/);assert.match(all(),/Danışıq: 2\/4 cavab yoxlanıb/);
  const attempt=Object.values(user.getState().attempts)[0],outcomes=Object.fromEntries(Object.entries(attempt.tasks).map(([id,t])=>[id,{status:t.resolved?t.evidence?.assisted?'assisted':'independent':'unverified',evidence:t.evidence}]));
  const results=skillResults(packet,outcomes);assert.equal(results.filter(r=>r.voice&&r.verifiedVoice).length,2);assert.equal(results.find(r=>r.id.endsWith('c08')).status,'Yoxlanmadı');assert.ok(results.find(r=>r.id.endsWith('c07b')).listening);
  assert.equal(attempt.tasks[packet.id+'_c10'].initialAnswer,'["Hello!","Hello!"]');assert.equal(navigation.length,0);
- await press('Nəticəni saxla');assert.ok(user.getState().completedLessons.includes(packet.id));assert.equal(vocab.getState().allWords.length,4,'no duplicate dictionary entries');assert.equal(navigation.length,0,'no auto-next lesson');
+ await press('Nəticəni saxla');assert.ok(user.getState().completedLessons.includes(packet.id));assert.equal(vocab.getState().allWords.length,4,'no duplicate dictionary entries');assert.equal(navigation.length,0,'no auto-next lesson');await press('Öyrəndiklərim');assert.match(all(),/Goodbye/);await act(async()=>tree.root.findAllByType('Pressable').find(n=>n.props.accessibilityLabel==='İzahı bağla').props.onPress());
  await press('Tapşırıqların nəticələri');assert.match(all(),/Yoxlanmadı/);await act(async()=>tree.unmount());
  const {stagePresentation}=require('../src/components/lesson/LessonStageHeading.tsx');
  assert.equal(stagePresentation(b1Packet[1].cards.find(c=>c.number===7)).title,'Qrammatika');
@@ -73,6 +73,7 @@ const flatten=n=>typeof n==='string'?n:Array.isArray(n)?n.map(flatten).join(''):
    const screen=tree.root.findByType('KeyboardAvoidingView');
    assert.equal(rn.StyleSheet.flatten(screen.props.style).backgroundColor,'#F7F0FF');
    assert.equal(Object.values(user.getState().attempts)[0].cursor,card.id);
+   assert.doesNotMatch(all(),/Köməklə|KÖMƏKLƏ|köməklə/);
    assert.doesNotMatch(all(),/Gizli cavab|Müəllif üçün|Tələb olunan funksiya|Görünən nümunə:/);
    await act(async()=>tree.unmount());matrixCount++;
   }

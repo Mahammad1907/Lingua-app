@@ -24,9 +24,10 @@ export function LessonIcon({ name, color, size = 22 }: { name: LessonIconName; c
   };
   return <Svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color || colors.violet} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">{name === 'keyboard' && <Rect x={1} y={3} width={22} height={18} rx={3} />}<Path d={paths[name]} /></Svg>;
 }
-export function Surface({ children, accent = 'violet' }: PropsWithChildren<{ accent?: 'violet' | 'orange' | 'mint' }>) {
+export function Surface({ children, accent = 'violet', plain = false }: PropsWithChildren<{ accent?: 'violet' | 'orange' | 'mint'; plain?: boolean }>) {
   const { light, colors: ink } = useLessonTheme();
   const ui = useLessonStyles(baseUI);
+  if (plain) return <View style={{ gap: 8 }}>{children}</View>;
   return <LinearGradient colors={light ? accent === 'orange' ? ['#FFF8ED', '#FFE9D0'] : accent === 'mint' ? ['#F6FFF8', '#E9F7EE'] : ['#FFFDFF', '#F0E1FC'] : accent === 'mint' ? ['#173939', '#131B30'] : ['#1C1D3C', '#111329']} style={[ui.surface, { borderColor: accent === 'mint' ? ink.mint : accent === 'orange' ? light ? '#F1C48C' : '#9A652F' : light ? ink.border : '#554681' }]}>{children}</LinearGradient>;
 }
 export function LessonEnergy() {

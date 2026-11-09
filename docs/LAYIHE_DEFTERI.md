@@ -244,3 +244,8 @@ Son vizual düzəliş: personajlar başdan ayağa tam görünür; bütün şəki
 Mimika (düşünən/təəccüblənən/anlamayan), müasir ekran prinsipləri və seçilmiş əlavə 1–2–3 fikirləri də vahid sənəddə bərpa edilib. Rədd edilən nağıl və həddindən artıq robot variantları, yeni qulaqlıq/geyim təklifləri tətbiq tapşırığı deyil.
 
 Yüklənən şəkillər [önizləmə arxivindədir](design/2026-11-09/PREVIEWS.md). Bunlar kod və ya təsdiqlənmiş native ekran deyil. Bu yeniləmə yalnız sənədlər və dizayn arxividir; yeni qaydaların tətbiq koduna inteqrasiyası və real telefon yoxlaması ayrıca qalır. Profil, müəllif məzmunu/kart sırası, qiymətləndirmə sübutları, SDK və imtahan həddi dəyişməyib.
+
+
+## 9 noyabr 2026 — native dərs UI və real 7/12 irəliləyiş tətbiqi
+
+Son vəziyyət: `docs/design/2026-11-09/IMPLEMENTATION.md`. Mövcud kapüşonlu maskot saxlanıb, yeni uydurulan maskot və uyğun olmayan yumru başlı insanlar rədd edilib. İstinad şəkildən tam boy bucaqlı oyuncaq variantı ayrıca asset kimi yerləşdirilib; bütün mövzuların səhnələrinin hazır olduğu deyilmir. Dərs 1 komponent axını və 157 mərhələ renderi, real qrup/ümumi say, etibarlı səsin bir dəfə avtomatik təqdim olunması, daxili dəstək sübutu, məna/nümunə/lüğət yaddaşı yoxlanır. Profil, paket məzmunu və imtahan həddi dəyişmir. Fiziki cihaz və dəqiq audio-söz sinxronizasiyası tamamlanmayıb; hesabatda ayrılıb.

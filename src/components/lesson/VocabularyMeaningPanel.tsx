@@ -8,7 +8,7 @@ export default function VocabularyMeaningPanel({ entry, onClose, onSpeak }: {
   return <Modal visible={Boolean(entry)} transparent animationType={reduced ? 'none' : 'fade'} onRequestClose={onClose}>
     <View style={s.backdrop}><Pressable accessibilityRole="button" accessibilityLabel="Məna panelini bağla" onPress={onClose} style={StyleSheet.absoluteFill} />
       {entry && <View style={s.card} accessibilityViewIsModal><Text style={s.title}>{entry.word}</Text><Text style={s.meaning}>{entry.translation}</Text>
-        <Text style={s.example}>{entry.example}</Text><Text style={s.note}>{entry.exampleAz}</Text>
+        {entry.example ? <><Text style={s.example}>{entry.example}</Text><Text style={s.note}>{entry.exampleAz}</Text></> : null}
         <Pressable accessibilityRole="button" onPress={() => onSpeak(entry.word.split(/\s*\/\s*/)[0].replace(/…/g, ''))} style={s.button}><Text style={s.buttonText}>İngiliscə dinlə</Text></Pressable>
         <Pressable accessibilityRole="button" onPress={onClose} style={s.close}><Text style={s.note}>Bağla</Text></Pressable>
       </View>}
