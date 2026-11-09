@@ -1,11 +1,11 @@
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren, ReactNode } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 // Reuse the actual approved mascot. Text and controls are never part of a bitmap.
-export default function TeachingBoardScene({ children }: PropsWithChildren) {
+export default function TeachingBoardScene({ children, art }: PropsWithChildren<{ art?: ReactNode }>) {
   return <View testID="teaching-board-scene" style={s.scene}>
-    <Image source={require('../../../assets/onboarding/welcome.png')} accessible={false} resizeMode="contain" style={s.teacher} />
+    {art ? <View style={s.teacher}>{art}</View> : <Image source={require('../../../assets/onboarding/welcome.png')} accessible={false} resizeMode="contain" style={s.teacher} />}
     <View style={s.boardWrap}><LinearGradient colors={['#FDF8FF', '#EAD8F9']} style={s.board}>{children}</LinearGradient><View style={s.feet}><View style={s.foot} /><View style={s.foot} /></View></View>
   </View>;
 }

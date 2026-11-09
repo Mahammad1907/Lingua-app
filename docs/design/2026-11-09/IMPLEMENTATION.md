@@ -1,5 +1,7 @@
 # Tətbiq vəziyyəti — 9 noyabr 2026
 
+**Son səhnə əlavəsi:** [SCENES.md](SCENES.md). Aşağıdakı ilkin yükləmədə çatışmayan 10 mövzu səhnəsi dəsti və üç mimika artıq hazırlanıb; uyğun səhnələr əsas dərslərə bağlanıb. Canlı lövhənin söz vurğusu həqiqi `onBoundary` hadisəsinə bağlanıb. Cihaz yoxlaması ayrıca qalır.
+
 Branch: `codex/v2-groups-12-lessons-20261105`. Baxış: PR #3. Bu hesabat işlək kod dəyişikliyini əvvəlki maket arxivindən ayırır. Fiziki cihaz yoxlaması aparılmayıb.
 
 ## Kodda yerləşdirilənlər
@@ -32,7 +34,7 @@ Ana ekrandakı əvvəl “AI söhbət” adlanan düymə sərbəst AI xidməti q
 | Yerli lövhə | Koddan qurulub; ekran maketi raster fon kimi istifadə olunmur. |
 | Əvvəlki P01–P09 2D şəkillər | Fayllar uyğunluq/arxiv üçün qalır. Yeni əsas v2 dərs renderer-i və hekayə onları göstərmir. |
 | Bu söhbətdə səhv yaradılan yeni maskot və yumru başlı insanlar | Rədd edilib, tətbiq assets-inə və səhnələrinə bağlanmayıb. |
-| Digər mövzuların ayrıca səhnələri; düşünən/təəccüblənən/anlamayan mimikalar | Hələ hazırlanmayıb. Hazır olmayan şəklin yerinə əlaqəsiz səhnə qoşulmur. |
+| Digər mövzuların səhnələri və üç mimika | Tamamlanıb; fayl, kart və göstərmə qaydası SCENES.md-dədir. |
 
 İllüstrasiyalar `contain` ilə, tam bədən göstərilərək yerləşdirilir. Personajın üstünə geniş blur və ayaqları silən maska tətbiq edilmir. Şəkilsiz tapşırıqlarda boş şəkil sahəsi saxlanmır. Dinləmə, yazı, boşluq və səhv təkrarına cavabı açan dekorativ şəkil qoyulmur.
 
@@ -61,8 +63,8 @@ Renderer yoxlamaları üçün test aləti layihə paketlərinə əlavə edilməd
 
 1. Fiziki iPhone/Android-də Dərs 1-in ölçüsü, klaviatura, icazə, səs tanıma xidmətinin etibarlılıq vermədiyi hal, səssizlik, arxa plan, offline, sürət və reduced motion yoxlamaları.
 2. Dərs 2–12-ni real cihazda ayrıca başdan sona keçmək. Ortaq renderer-in açılması bu yoxlamanın əvəzi deyil.
-3. Digər mövzular üçün seçilmiş personajlarla kontekstə uyğun ayrıca səhnələr və üç mimikanın nümunəsi. Tam dəst hazır kimi göstərilmir.
-4. Dəqiq audio-söz sərhədi ilə sinxron vurğu hələ tətbiq edilməyib. Mövcud söz toxunuşu və qısa kart reaksiyası bu funksiyanın əvəzi sayılmır.
+3. Səhnə və mimika dəsti hazırlanıb; native göstərmə ölçülərinin fiziki cihazda təsdiqi qalır.
+4. Audio-söz vurğusu həqiqi sərhəd hadisəsinə bağlanıb; fərqli telefon səs mühərriklərində real yoxlama qalır. Hadisə yoxdursa saxta vurğu olmur.
 5. Gələcək konkret əşya dərslərinin müəllif şəkil/məna/nümunə planı və keçid imtahanının qəbul qaydası ayrıca müəyyənləşdirilməlidir. Tanışlıq dərslərinə yeni əşya sözləri əlavə edilməyib.
 
 Profil, müəllif paket JSON-u, dərs ardıcıllığı və imtahan həddi bu dəyişiklikdə yenilənmir. PR işçi ana ekran branchinə avtomatik birləşdirilmir.

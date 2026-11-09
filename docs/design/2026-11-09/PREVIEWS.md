@@ -28,3 +28,8 @@ Bütün nümunələr baxış üçündür. Söhbətdə seçilmiş qaydalar əsas 
 - Tətbiq edilmiş ortaq native quruluşun fiziki cihazda yoxlanması və hələ çatışmayan səhnələrin hazırlanması.
 
 Konkret əşya şəkilləri bu tanışlıq paketinə əlavə edilmir. Köhnə bütöv personaj/lövhə istinadlarının hamısı bu lokal arxivdə yoxdur; mətn qaydası onların hazır/yerləşdirilmiş olduğu iddiası deyil.
+
+
+## Tamamlanan səhnə əlavəsi
+
+[SCENES.md](SCENES.md): əvvəl çatışmayan mövzu səhnələri və mimika nümunəsi artıq hazırlanıb, uyğun səhnələr native dərslərə bağlanıb. Yuxarıdakı maket statusları tarixi arxivdir. Real cihaz yoxlaması ayrıca qalır.

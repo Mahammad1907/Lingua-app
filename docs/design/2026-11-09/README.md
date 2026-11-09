@@ -105,7 +105,7 @@ Köhnə dərs səhnələri avtomatik təkrar istifadə edilmir; lövhə ideyası
 8. Söhbətin vizual yaddaşı: tamamlanan növbələr balonlarda qalır; gələcək hədəf əvvəlcədən açılmır. **Balonların yanında kiçik profil şəkilləri yoxdur.** Keçmiş balon cari cavabı açırsa dəstək izi saxlanılır.
 9. Dərs sonu “öyrəndiklərim” kolleksiyası: faktiki öyrədilən ifadə, uyğun şəkil, məna və ingilis audio. Əlavə XP/tamamlanma/duplikat lüğət yaratmır. Kolleksiya ideyası təsdiqlənib, əvvəlki üçüncü ekranın quruluşu isə rədd edilib.
 
-Mimika nümunəsi üçün düşünən, təəccüblənən və anlamayan ifadələr eyni personaj görünüşü ilə yan-yana hazırlanacaq. Bu nümunə hələ hazır deyil. Qulaqlıq, yeni geyim, saç formasının ayrıca dəyişdirilməsi və sadəcə dekorasiya üçün yeni məktəb/park səhnəsi seçilməyib. Son iki əlavə təklif (izahın iki səhnəsi və “Burada qalmışdın” önizləməsi) ayrıca təsdiqlənməyib.
+Mimika nümunəsi üçün düşünən, təəccüblənən və anlamayan ifadələr eyni personaj görünüşü ilə yan-yana hazırlanacaq. Bu nümunə artıq hazırdır: [SCENES.md](SCENES.md). Qulaqlıq, yeni geyim, saç formasının ayrıca dəyişdirilməsi və sadəcə dekorasiya üçün yeni məktəb/park səhnəsi seçilməyib. Son iki əlavə təklif (izahın iki səhnəsi və “Burada qalmışdın” önizləməsi) ayrıca təsdiqlənməyib.
 
 ## 10. Hərəkət, səs və əlçatanlıq
 

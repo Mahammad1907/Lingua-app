@@ -1,6 +1,8 @@
 import { LessonThemeProvider, useLessonTheme, useLessonStyles } from './LessonTheme';
 import LessonWordChip from './LessonWordChip';
 import LessonCardTransition from './LessonCardTransition';
+import CurrentSceneArt from './CurrentSceneArt';
+import { currentTeachingScene } from '../../utils/currentScenePlan';
 import LessonDialogueScene from './LessonDialogueScene';
 import LessonDialogueHistory, { DialogueTurn } from './LessonDialogueHistory';
 import LessonLearnedCollection from './LessonLearnedCollection';
@@ -46,6 +48,7 @@ import WrittenAnswerInput from './WrittenAnswerInput';
 import ListeningScene from './ListeningScene';
 import LessonVocabularyText from './LessonVocabularyText';
 import VocabularyMeaningPanel from './VocabularyMeaningPanel';
+import { speechBoundary, type SpeechHighlight } from '../../utils/speechHighlight';
 import { safeTeachingEntry } from '../../utils/pictureTeaching';
 import { vocabularySegments } from '../../utils/contextVocabulary';
 import type { VocabularyEntry } from '../../utils/contextVocabulary';
@@ -114,6 +117,7 @@ function PacketLessonContent({ packet }: { packet: Content }) {
   const [completionError, setCompletionError] = useState(''); const [done, setDone] = useState(false);
   const [busy, setBusy] = useState(false);
   const [keyboard, setKeyboard] = useState(false);
+  const [speechFocus, setSpeechFocus] = useState<SpeechHighlight | null>(null);
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed] = useLessonSpeed();
   const [detailsOpen, setDetailsOpen] = useState(false);
@@ -173,7 +177,7 @@ function PacketLessonContent({ packet }: { packet: Content }) {
     setTranscriptShown(true); setTranscriptVisible(true); if (card) useUserStore.getState().markTranscript(attempt, card.id); setSoundError(''); useUserStore.getState().useHelp(attempt, card?.id);
   };
   const speak = async (text: string, rate = 0.75, listenTask = false) => {
-    const request = ++sequence.current; clearWatchdog(); setSoundError('');
+    const request = ++sequence.current; clearWatchdog(); setSoundError(''); setSpeechFocus(null);
     const failed = () => {
       if (request !== sequence.current) return;
       sequence.current += 1; clearWatchdog(); void Speech.stop(); setPlaying(false);
@@ -186,6 +190,7 @@ function PacketLessonContent({ packet }: { packet: Content }) {
       await Speech.stop(); if (request !== sequence.current) return;
       setPlaying(true);
       Speech.speak(text, { language: 'en-GB', rate,
+        onBoundary: (event: { charIndex: number; charLength: number }) => { if (request === sequence.current) setSpeechFocus(speechBoundary(text, event.charIndex, event.charLength)); },
         onDone: () => { if (request === sequence.current) { clearWatchdog(); setPlaying(false); if (listenTask) setHeard(true); } },
         onStopped: () => { if (request === sequence.current) { clearWatchdog(); setPlaying(false); } },
         onError: failed,
@@ -385,10 +390,11 @@ function PacketLessonContent({ packet }: { packet: Content }) {
       </> : <>
         {!light && card.kind !== 'voice' && !voiceLayout && sceneHeight > 0 ? audio ? <ListeningScene playing={playing} height={sceneHeight} /> : scene ? <ReusableLessonScene name={scene} height={sceneHeight} /> : <ClassroomScene height={sceneHeight} text={boardText.slice(0, 90)} freshWords={card.kind === 'teach' && !packet.version ? newLessonWords(packet, b1Packet) : undefined} /> : null}
         <View style={[s.taskBody, voiceLayout && s.voiceBody]}>
-        {light && !keyboard && !feedback && !reviewing && card.kind === 'voice' && (packet.order === 1 || packet.order <= 4 && card.number < 10) && height >= 760 && fontScale <= 1.15 ? <LessonDialogueScene mascot={packet.order === 1 || /maskot/i.test(card.body)} /> : null}
+        {light && !keyboard && !feedback && !reviewing && card.kind === 'voice'  && height >= 760 && fontScale <= 1.15 ? <LessonDialogueScene order={packet.order} mascot={packet.order === 1 || /maskot/i.test(card.body)} /> : null}
+        {light && card.kind === 'teach' && !card.board && currentTeachingScene(packet.order, card) ? <CurrentSceneArt scene={currentTeachingScene(packet.order, card)!} /> : null}
         {reviewing ? <LessonReviewNotice key={card.id} /> : card.id.startsWith('recheck:') ? <Text style={s.note}>Əvvəl məşq etdiyin bu bacarığı yenidən yoxlayaq.</Text> : null}
         {audio && card.kind !== 'voice' ? <Text style={s.cardTitle}>{turn?.prompt || card.body}</Text> : <Surface plain={light && (card.kind === 'teach' || card.kind === 'voice')} accent={card.kind === 'intro' ? 'orange' : 'violet'}>
-          <View style={s.scenario}>{!(light && card.kind === 'teach') ? <View style={s.ruleLine} /> : null}<View style={s.flex}>{canHelp ? <Pressable accessibilityRole="button" accessibilityLabel="Kömək göstər" accessibilityState={{ expanded: help }} onPress={() => { setHelp(v => !v); useUserStore.getState().useHelp(attempt, card?.id); }} style={s.help}><LessonIcon name="hint" size={17} /><Text style={s.helpLink}>Kömək {help ? '−' : '+'}</Text></Pressable> : null}{reviewing ? <Text style={s.kicker}>YENİ TAPŞIRIQ</Text> : null}<Text style={card.kind === 'intro' ? s.cardTitle : s.body}>{card.kind === 'teach' ? <LessonVocabularyText key={card.id} text={teachingText(card)} packet={packet} onSelect={entry => selectMeaning(entry)} /> : <LessonVocabularyText key={card.id} text={turn?.prompt?.replace(/\n\nGörünən nümunə:[\s\S]*$/, '') || teachingText(card)} packet={packet} highlight={false} onSelect={entry => { setHelp(true); useUserStore.getState().useHelp(attempt, card?.id); selectMeaning(entry); }} />}</Text>{packet.version && card.board ? light && card.kind === 'teach' ? <LessonTeachingBoard text={card.board} packet={packet} cardId={card.id + ':board'} onSelect={selectMeaning} onSpeak={text => void speak(text)} /> : <Text style={s.body}><LessonVocabularyText key={card.id + ':board'} text={card.board} packet={packet} highlight={card.kind === 'teach'} onSelect={entry => { if (task) { setHelp(true); useUserStore.getState().useHelp(attempt, card.id); } selectMeaning(entry); }} /></Text> : null}{card.kind === 'teach' && card.body.includes('\n\n') ? <Text style={s.note}><LessonVocabularyText key={card.id} text={card.body.split(/\n\s*\n/).slice(1).join('\n\n')} packet={packet} onSelect={entry => selectMeaning(entry)} /></Text> : null}
+          <View style={s.scenario}>{!(light && card.kind === 'teach') ? <View style={s.ruleLine} /> : null}<View style={s.flex}>{canHelp ? <Pressable accessibilityRole="button" accessibilityLabel="Kömək göstər" accessibilityState={{ expanded: help }} onPress={() => { setHelp(v => !v); useUserStore.getState().useHelp(attempt, card?.id); }} style={s.help}><LessonIcon name="hint" size={17} /><Text style={s.helpLink}>Kömək {help ? '−' : '+'}</Text></Pressable> : null}{reviewing ? <Text style={s.kicker}>YENİ TAPŞIRIQ</Text> : null}<Text style={card.kind === 'intro' ? s.cardTitle : s.body}>{card.kind === 'teach' ? <LessonVocabularyText key={card.id} text={teachingText(card)} packet={packet} onSelect={entry => selectMeaning(entry)} /> : <LessonVocabularyText key={card.id} text={turn?.prompt?.replace(/\n\nGörünən nümunə:[\s\S]*$/, '') || teachingText(card)} packet={packet} highlight={false} onSelect={entry => { setHelp(true); useUserStore.getState().useHelp(attempt, card?.id); selectMeaning(entry); }} />}</Text>{packet.version && card.board ? light && card.kind === 'teach' ? <LessonTeachingBoard text={card.board} packet={packet} cardId={card.id + ':board'} focus={playing ? speechFocus : null} onSelect={selectMeaning} onSpeak={text => void speak(text)} /> : <Text style={s.body}><LessonVocabularyText key={card.id + ':board'} text={card.board} packet={packet} highlight={card.kind === 'teach'} onSelect={entry => { if (task) { setHelp(true); useUserStore.getState().useHelp(attempt, card.id); } selectMeaning(entry); }} /></Text> : null}{card.kind === 'teach' && card.body.includes('\n\n') ? <Text style={s.note}><LessonVocabularyText key={card.id} text={card.body.split(/\n\s*\n/).slice(1).join('\n\n')} packet={packet} onSelect={entry => selectMeaning(entry)} /></Text> : null}
 
             {help && !reviewing && canHelp ? <Text style={s.note}>{hint}</Text> : null}
           </View></View>

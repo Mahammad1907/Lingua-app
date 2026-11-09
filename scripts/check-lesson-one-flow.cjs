@@ -1,6 +1,6 @@
 /* End-to-end component flow with mocked native/audio boundaries, not device QA. */
 const assert=require('node:assert/strict'),fs=require('node:fs'),Module=require('node:module'),ts=require('typescript'),React=require('react');
-const original=Module._load,storage=new Map(),navigation=[],spoken=[];
+const original=Module._load,storage=new Map(),navigation=[],spoken=[];let speechOptions,finishSpeechImmediately=true;
 class Value{constructor(v){this.v=v}setValue(v){this.v=v}stopAnimation(){}interpolate(x){return x.outputRange.at(-1)}}
 const component=name=>name;
 const rn={View:'View',Text:'Text',Pressable:'Pressable',TouchableOpacity:'Pressable',TextInput:'TextInput',ScrollView:'ScrollView',KeyboardAvoidingView:'KeyboardAvoidingView',Image:'Image',ActivityIndicator:'Spinner',Platform:{OS:'ios'},AppState:{currentState:'active',addEventListener:()=>({remove(){}})},StyleSheet:{create:s=>s,flatten:s=>Array.isArray(s)?Object.assign({},...s.filter(Boolean).map(v=>rn.StyleSheet.flatten(v))):s,absoluteFill:{}},useWindowDimensions:()=>({width:390,height:844,fontScale:1}),Keyboard:{dismiss(){},addListener:()=>({remove(){}})},BackHandler:{addEventListener:()=>({remove(){}})},AccessibilityInfo:{isReduceMotionEnabled:async()=>true,addEventListener:()=>({remove(){}})},Alert:{alert(){}},Modal:({visible,children})=>visible?React.createElement('Modal',null,children):null,Animated:{Value,View:'View',Text:'Text',createAnimatedComponent:component,timing:()=>({start:cb=>cb?.({finished:true}),stop(){}}),sequence:()=>({start:cb=>cb?.({finished:true}),stop(){}}),parallel:()=>({start:cb=>cb?.({finished:true}),stop(){}})},Easing:{linear:()=>{}}};
@@ -9,7 +9,7 @@ Module._load=function(name,parent,main){
  if(name==='react-native')return rn;
  if(name==='react-native-safe-area-context')return {useSafeAreaInsets:()=>({top:44,bottom:34})};
  if(name==='expo-router')return {Stack:{Screen:()=>null},useRouter:()=>({replace:p=>navigation.push(p)}),useFocusEffect:()=>{}};
- if(name==='expo-speech')return {stop:async()=>{},speak:(text,opts)=>{spoken.push(text);opts.onDone?.()}};
+ if(name==='expo-speech')return {stop:async()=>{},speak:(text,opts)=>{spoken.push(text);speechOptions=opts;if(finishSpeechImmediately)opts.onDone?.()}};
  if(name==='expo-status-bar')return {StatusBar:()=>null};
  if(name==='expo-haptics')return {ImpactFeedbackStyle:{Light:1},impactAsync:async()=>{}};
  if(name==='expo-linear-gradient')return {LinearGradient:'Gradient'};
@@ -42,8 +42,12 @@ const flatten=n=>typeof n==='string'?n:Array.isArray(n)?n.map(flatten).join(''):
  const send=async text=>{const voice=tree.root.findByType('VoiceInput');assert.equal(voice.props.manualSend,false);await act(async()=>voice.props.onFinal({text,confidence:1,edited:false,token:'speech-'+cursor()}));};
  await press('Dərsə başla');expect('c02');
  assert.equal(vocab.getState().allWords.length,2,'first teach auto-saves only Hello and Hi');
- let fresh=tree.root.findAllByType('Text').filter(n=>n.props.accessibilityLabel==='Hello: mənasını göstər'||n.props.accessibilityLabel==='Hello!: mənasını göstər');assert.ok(fresh.length);assert.ok(fresh.some(n=>n.props.style?.color==='#AB5008'),'new word has accessible accent');
+ let fresh=tree.root.findAllByType('Text').filter(n=>n.props.accessibilityLabel==='Hello: mənasını göstər'||n.props.accessibilityLabel==='Hello!: mənasını göstər');assert.ok(fresh.length);assert.ok(fresh.some(n=>rn.StyleSheet.flatten(n.props.style)?.color==='#AB5008'),'new word has accessible accent');
  await act(async()=>fresh[0].props.onPress());assert.match(all(),/Salam/);await press('İngiliscə dinlə');assert.equal(spoken.at(-1).replace(/[.!]/g,''),'Hello');await press('Bağla');
+ finishSpeechImmediately=false;await act(async()=>tree.root.findAllByType('Pressable').find(n=>n.props.accessibilityLabel==='Lövhədəki ifadəni ingiliscə dinlə').props.onPress());
+ assert.equal(tree.root.findAllByType('Text').filter(n=>n.props.style?.backgroundColor==='#E6C9F8').length,0,'no timer-driven fake word focus');
+ await act(async()=>speechOptions.onBoundary({charIndex:0,charLength:5}));assert.ok(tree.root.findAllByType('Text').some(n=>n.props.style?.backgroundColor==='#E6C9F8'),'native boundary highlights the spoken word');
+ await act(async()=>speechOptions.onDone());assert.equal(tree.root.findAllByType('Text').filter(n=>n.props.style?.backgroundColor==='#E6C9F8').length,0,'focus clears when speech finishes');finishSpeechImmediately=true;
  await press('Davam et');expect('c03');await press('Səsi dinlə');await press('Sağollaşır.');await press('Yoxla');assert.match(all(),/Səhv cavab/);expect('c03');await next();
  expect('c04');await write('Hi!');await press('Yoxla');assert.match(all(),/Müstəqil/);await next();
  expect('c05');assert.equal(tree.root.findAllByType('Image').length,1,'approved mascot only for mascot dialogue');await press('Səsi dinlə');const uncertain=tree.root.findByType('VoiceInput');let message;await act(async()=>{message=uncertain.props.onFinal({text:'Bye!',confidence:undefined,edited:false,token:'untrusted'});});assert.match(message,/etibarlı tanınmadı/);assert.equal(Object.values(user.getState().attempts)[0].tasks[packet.id+'_c05']?.wrong||0,0,'unknown confidence is not a language mistake');await send('Hi!');assert.match(all(),/Düzdür/);await next();
