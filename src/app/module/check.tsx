@@ -1,3 +1,4 @@
+import V2Supplement from '../../components/lesson/V2Supplement';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -5,13 +6,14 @@ import EnergyMeter from '../../components/EnergyMeter';
 import { useUserStore } from '../../store/userStore';
 import { moduleTest, moduleUnlocked } from '../../utils/moduleAccess';
 import { isSessionAnswerCorrect } from '../../utils/sessionAnswer';
-import PacketExam from '../../components/lesson/PacketExam';
+
 
 export default function ModuleCheck() {
   const { moduleId } = useLocalSearchParams<{ moduleId?: string }>();
-  if (moduleId === 'module_1') return <PacketExam />;
+  if (moduleId === 'module_1') return <V2ExamPending />;
   return <Exam key={moduleId ?? 'missing'} moduleId={moduleId ?? ''} />;
 }
+function V2ExamPending() { return <V2Supplement kind="exam"/>; }
 function Exam({ moduleId }: { moduleId: string }) {
   const router = useRouter();
   const test = moduleTest(moduleId);

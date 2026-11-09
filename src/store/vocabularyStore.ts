@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { lessons } from '../data/lessons';
-import { vocabularyKey } from '../utils/vocabularyIdentity';
+import { vocabularyKey, vocabularyKeys } from '../utils/vocabularyIdentity';
 
 const STORAGE_KEY = '@birtalk_vocabulary';
 const WORDS_PER_PAGE = 30;
@@ -59,7 +59,7 @@ interface VocabularyState {
   testResults: TestResult[];
   wrongWords: WrongWord[];
 
-  addLessonWords: (lessonId: string) => Promise<void>;
+  addLessonWords: (lessonId: string, taughtWords?: readonly string[]) => Promise<void>;
   getPage: (pageNumber: number) => VocabPage | undefined;
   getTotalPages: () => number;
   saveTestResult: (
@@ -108,16 +108,16 @@ export const useVocabularyStore = create<VocabularyState>((set, get) => ({
   testResults: [],
   wrongWords: [],
 
-  addLessonWords: async (lessonId) => {
+  addLessonWords: async (lessonId, taughtWords) => {
     await get().loadFromStorage();
     const state = get(), lesson = lessons.find(l => l.id === lessonId);
     if (!lesson) throw new Error('Dərsin lüğəti tapılmadı.');
-    const known = new Set(state.allWords.map(v => `${v.language}:${vocabularyKey(v.word)}`));
+    const known = new Set(state.allWords.flatMap(v => vocabularyKeys(v.word).map(key => `${v.language}:${key}`)));
     const newWords: VocabWord[] = [];
     for (const v of lesson.vocabulary) {
-      const key = `${lesson.language}:${vocabularyKey(v.word)}`;
-      if (known.has(key)) continue;
-      known.add(key);
+      if (taughtWords && !taughtWords.includes(v.word)) continue;
+      if (vocabularyKeys(v.word).some(alias => known.has(`${lesson.language}:${alias}`))) continue;
+      vocabularyKeys(v.word).forEach(alias => known.add(`${lesson.language}:${alias}`));
       newWords.push({ ...v, id: `${lessonId}_${v.id}`, language: lesson.language, level: lesson.level,
         lessonId: lesson.id, lessonTitle: lesson.titleAz });
     }
@@ -127,7 +127,7 @@ export const useVocabularyStore = create<VocabularyState>((set, get) => ({
       return authored ? { ...word, acceptedAnswers: authored.acceptedAnswers, acceptedTranslations: authored.acceptedTranslations, quizEligible: authored.quizEligible } : word;
     }), ...newWords];
     set({ allWords, pages: buildPages(allWords),
-      completedLessons: [...new Set([...state.completedLessons, lessonId])] });
+      completedLessons: taughtWords ? state.completedLessons : [...new Set([...state.completedLessons, lessonId])] });
     await get().saveToStorage();
   },
   reconcileCompletedLessons: async (ids) => {

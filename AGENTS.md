@@ -148,3 +148,18 @@ The user authorizes suitable, compact visuals for audio questions. Search the ex
 ## Fixed lesson viewport — user authorization 2 November 2026
 
 The user explicitly renewed the requirement that all active lesson cards fit the screen without main-page scrolling, and asked to remove the two-person illustration from the listening wave card. This supersedes earlier instructions to preserve the scrolling PacketLesson body. Keep the existing colors, grading, evidence, recording and explicit Continue behavior. The active B1 PacketLesson and PacketExam use FixedLessonViewport; their body is measured in the space remaining between the safe-area header and footer. Artwork yields first, then the body fits the available rectangle. Long result details and explanations open in dismissible overlays. Do not silently reintroduce main-page scrolling or clip answer controls. Legacy non-packet routes have not been migrated by this batch. Do not claim physical-device validation from JS layout tests.
+
+
+## Latest design and interaction decisions — 9 November 2026
+
+Before working on home or lesson UI, read `docs/design/2026-11-09/README.md` and its linked preview status index. These user decisions supersede conflicting older presentation/manual-send notes, while preserving authored content and assessment evidence. Do not treat generated mockups as implemented screens or approved final assets. In particular: keep full bodies visible, feather only outer scene edges, omit unnecessary question illustrations and chat avatars, keep assistance evidence internally without the visible “Köməklə” label, and treat voice auto-submit as an unimplemented requirement until verified. This documentation upload is not runtime implementation or device QA.
+
+
+## Implementation checkpoint — 9 November 2026
+
+Read `docs/design/2026-11-09/IMPLEMENTATION.md` for the actual runtime/test scope. Main v2 speech uses trusted-final auto-submit; keep legacy/manual supplementary flows separate. The rejected generated mascot and rounded-head pair must not be introduced. Teaching uses the existing onboarding mascot and native lavender board. New reference-derived greeting art is a partial set, not evidence all topic scenes were finished. Native typography is preserved in v2: normally fitted content stays fixed; measured card overflow keeps large text/keyboard/support reachable while header and primary action remain fixed. This accessibility tradeoff differs from the older whole-body shrinking implementation and still needs physical-device review. Do not claim no-overflow/device verification from mocked layout tests. Preserve the packet JSON and profile.
+
+
+## Scene completion checkpoint — 9 November 2026
+
+The scene gap in the prior checkpoint is now addressed; read `docs/design/2026-11-09/SCENES.md`. All ten current topic contexts have assets and explicit teaching mappings; all twelve lessons have contextual dialogue mappings, preserving named mascot roles. Three full-body expression studies are prepared as a reference asset, not an extra student vocabulary lesson. Keep assessment/retry cards image-free and preserve full atlas-cell aspect ratios. Native TTS boundary events drive teaching-word focus; never synthesize timings when a voice engine supplies no boundaries. Physical-device QA is still pending.

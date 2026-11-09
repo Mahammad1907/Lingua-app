@@ -2,11 +2,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { getModuleById } from '../../data/modules';
 import { useUserStore } from '../../store/userStore';
 import type { HomeCourse } from '../../utils/homeCourse';
 import { HomeDashboard as OriginalHomeDashboard } from './HomeDashboard';
 import { HomeJourneyProgress } from './HomeJourneyProgress';
+import LessonGroupPanel from './LessonGroupPanel';
+import HomeSectionProgress from './HomeSectionProgress';
+import { buildHomeGroups, resumeGroup } from '../../utils/homeGroups';
 import { HomeSymbol, type HomeSymbolName } from './HomeSymbol';
 
 export { HOME_LANGUAGES } from './HomeDashboard';
@@ -22,35 +24,43 @@ const TILES = [
   { x: 220, y: 1037, symbol: 'speech' },
 ] as const;
 
-export function HomeDashboard({ course, language, level, xp, compact = false, topInset = 0, onSelect, onOpen, onNavigate }: {
+export function HomeDashboard({ course, language, level, xp, compact = false, topInset = 0, onSelect, onOpen, onNavigate, onLessonOpen, onSupplement }: {
   course: HomeCourse; language: string; level: string; xp: number; compact?: boolean; topInset?: number;
-  onSelect: () => void; onOpen: (id: string) => void; onNavigate?: (destination: Destination) => void;
+  onSelect: () => void; onOpen: (id: string) => void; onNavigate?: (destination: Destination) => void; onLessonOpen?: (id: string) => void; onSupplement?: (kind: string) => void;
 }) {
   const { width, fontScale = 1 } = useWindowDimensions();
   const streak = useUserStore(s => s.streak);
   const completed = useUserStore(s => s.completedLessons);
+  const attempts = useUserStore(s => s.attempts);
+  const groups = buildHomeGroups(completed, attempts);
+  const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
+  const currentGroup = resumeGroup(completed, attempts);
   const [headerHeight, setHeaderHeight] = useState(80);
-  const [captionHeight, setCaptionHeight] = useState(90);
+
   const module = course.items.find(item => item.order === 1 && item.lessonsCount > 0);
   const preview = course.items.find(item => item.order === 2);
   const renderedReference = language === 'en' && level === 'A1' && Boolean(module);
   const pageWidth = Math.min(Math.max(240, width - 24), 480);
   const scale = pageWidth / 682;
   const largeText = fontScale > 1.3;
+  const textHeight = Math.max(1, fontScale ** 1.5);
 
   if (!renderedReference || !module) {
     return <OriginalHomeDashboard course={course} language={language} level={level} xp={xp}
       compact={compact} topInset={topInset} onSelect={onSelect} onOpen={onOpen} />;
   }
 
-  const ids = getModuleById(module.id)?.lessonIds ?? [];
-  const next = ids.findIndex(id => !completed.includes(id));
+
   const moduleLocked = module.state === 'locked' || module.state === 'planned';
-  const tileSize = 136 * scale;
+  const tileSize = Math.max(56, 136 * scale) * textHeight;
+  const completedCount = groups.reduce((sum, group) => sum + group.count, 0);
+  const lessonCount = groups.reduce((sum, group) => sum + group.lessons.length, 0);
+  const percent = Math.round(completedCount / Math.max(1, lessonCount) * 100);
+  const groupWidth = pageWidth * .42;
   // Give the existing listening caption extra space at larger system text sizes;
   // later tiles and their route links move together, never underneath the CTA.
-  const captionExtra = Math.max(0, (722 - 507) * scale + tileSize + 4 + captionHeight + 8 - (967 - 507) * scale);
-  const bodyHeight = 737 * scale + captionExtra;
+  const captionExtra = 0;
+  const bodyHeight = 737 * scale * textHeight + captionExtra;
 
   return <LinearGradient colors={['#FAF5FF', '#F1E4FC', '#F8F0FF']} style={s.screen}>
     <StatusBar style="dark" />
@@ -75,7 +85,7 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
         </View>
         <View style={[s.hero, { minHeight: pageWidth * .23 }]}>
           <Text style={[s.greeting, { fontSize: pageWidth < 340 ? 29 : 32 }, largeText && s.largeGreeting]}>Salam, Leyla!</Text>
-          <View pointerEvents="none" style={[s.mascotCrop, { width: pageWidth * .32, height: pageWidth * .29 }]}>
+          <View pointerEvents="none" style={[s.mascotCrop, { width: pageWidth * .32, height: pageWidth * .34 }]}>
             <Image source={require('../../../assets/onboarding/welcome.png')} accessible={false} resizeMode="contain"
               style={{ width: pageWidth * .32, height: pageWidth * .34 }} />
           </View>
@@ -87,57 +97,55 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
               <HomeSymbol name="analysis" size={36} /><Text style={s.actionText}>Analiz</Text>
             </LinearGradient>
           </Pressable>
-          <Pressable accessibilityRole="button" accessibilityLabel="AI söhbət"
+          <Pressable accessibilityRole="button" accessibilityLabel="Danışıq dərslərini aç"
             accessibilityState={{ disabled: moduleLocked }} disabled={moduleLocked}
-            onPress={() => onOpen(module.id)} style={({ pressed }) => [s.action, pressed && s.pressed]}>
+            onPress={() => setSelectedGroup(groups[6].id)} style={({ pressed }) => [s.action, pressed && s.pressed]}>
             <LinearGradient colors={['#FFF4E5', '#FFDCC7']} style={s.actionBody}>
-              <HomeSymbol name="robot" size={36} /><Text style={s.actionText}>AI söhbət</Text>
+              <HomeSymbol name="robot" size={36} /><Text style={s.actionText}>Danışıq</Text>
             </LinearGradient>
           </Pressable>
         </View>
         <View style={s.map}>
-          <HomeJourneyProgress key={module.id} completedCount={next < 0 ? ids.length : next}
-            percent={module.percent} scale={scale} headerHeight={headerHeight} captionExtra={captionExtra} />
+          <HomeJourneyProgress key={module.id} completedCount={groups.findIndex(g => g.count < g.lessons.length) < 0 ? 7 : groups.findIndex(g => g.count < g.lessons.length)}
+            percent={percent} scale={scale} verticalScale={textHeight} headerHeight={headerHeight} captionExtra={captionExtra} />
           <View style={s.mapHeading} onLayout={event => setHeaderHeight(event.nativeEvent.layout.height)}>
-            <Text style={s.mapTitle}>Bölmə {module.order} · {module.title}</Text>
+            <Text style={s.mapTitle}>{module.title}</Text>
             <View style={s.liveProgress} accessible accessibilityRole="progressbar" accessibilityLabel="Bölmədə irəliləyiş"
-              accessibilityValue={{ min: 0, max: 100, now: module.percent,
-                text: `${module.completedCount}/${module.lessonsCount} dərs · ${module.percent}%` }}>
-              <Text style={s.progressText}>{module.completedCount}/{module.lessonsCount} dərs · {module.percent}%</Text>
+              accessibilityValue={{ min: 0, max: 100, now: percent,
+                text: `${completedCount}/${lessonCount} dərs tamamlanıb · ${percent}%` }}>
+              <Text style={s.progressText}>{completedCount}/{lessonCount} dərs tamamlanıb · {percent}%</Text>
             </View>
+            <HomeSectionProgress percent={percent} />
           </View>
           <View style={{ height: bodyHeight }}>
-            {TILES.map(({ x, y, symbol }, index) => {
-              if (!ids[index]) return null;
-              const blocked = moduleLocked || (next >= 0 && index > next);
-              const done = completed.includes(ids[index]);
-              const listening = symbol === 'headphones';
-              return <View key={ids[index]} style={{ position: 'absolute', left: (x - 43) * scale,
-                top: (y - 507) * scale + (index >= 5 ? captionExtra : 0), width: tileSize }}>
+            {TILES.map(({ y, symbol }, index) => {
+              if (!groups[index]) return null;
+              const group = groups[index];
+              const blocked = !group;
+              const done = group.count === group.lessons.length;
+              const listening = group.id === currentGroup;
+              return <View key={groups[index].id} style={{ position: 'absolute', left: pageWidth * ([1, 3, 5].includes(index) ? .53 : .05),
+                top: (y - 507) * scale * textHeight + (index >= 5 ? captionExtra : 0), width: groupWidth }}>
                 <Pressable accessibilityRole="button" disabled={blocked}
-                  accessibilityState={{ disabled: blocked }}
-                  accessibilityLabel={`Dərs ${index + 1}: ${done ? 'tamamlanıb, bölməni aç' : blocked ? 'kilidlidir' : 'bölməni aç'}`}
-                  onPress={() => onOpen(module.id)}
-                  style={({ pressed }) => [s.tile, { width: tileSize, height: tileSize, borderRadius: tileSize * .25 }, pressed && s.pressed]}>
+                  accessibilityState={{ disabled: blocked, selected: listening, expanded: selectedGroup === group.id }}
+                  accessibilityLabel={`${group.title}: ${group.count}/${group.lessons.length} dərs. Qrupu aç`}
+                  onPress={() => setSelectedGroup(group.id)}
+                  style={({ pressed }) => [s.tile, { width: groupWidth, height: tileSize, borderRadius: tileSize * .25 }, pressed && s.pressed]}>
                   <LinearGradient colors={listening ? ['#FFD56B', '#FFAB37', '#FF8A22']
-                    : index >= 4 ? ['#FFFFFF', '#F2EDF6', '#DDD5E6'] : ['#FFFBFF', '#F1E1FE', '#DFBFF6']}
+                    : ['#FFFBFF', '#F1E1FE', '#DFBFF6']}
                     start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[s.tileBody, { borderRadius: tileSize * .25 }]}>
-                    <HomeSymbol name={symbol} size={tileSize * .8} muted={index >= 4 && !done} />
+                    <HomeSymbol name={symbol} size={Math.min(48, tileSize / textHeight * .48)} />
+                    <View style={{ flex: 1 }}><Text style={[s.groupTitle, { fontSize: pageWidth < 330 ? 11 : 13 }]}>{group.title}</Text><Text style={s.groupCount}>{group.count}/{group.lessons.length} dərs</Text>{listening && !done ? <Text style={s.currentAction}>Davam et ›</Text> : null}</View>
                   </LinearGradient>
                   {done && <View pointerEvents="none" style={s.done}><HomeSymbol name="check" size={13} /></View>}
                 </Pressable>
-                {listening && <View onLayout={event => setCaptionHeight(event.nativeEvent.layout.height)} style={[s.caption, { width: Math.max(132, tileSize + 42), left: -21 }]}>
-                  <Text style={s.captionTitle}>Dinlə və anla</Text>
-                  <View style={s.duration}><Text style={s.durationText}>7 dəqiqə</Text></View>
-                  <Pressable accessibilityRole="button" accessibilityLabel="Aktiv dərs üçün Başla"
-                    accessibilityState={{ disabled: moduleLocked }} disabled={moduleLocked}
-                    onPress={() => onOpen(module.id)} style={({ pressed }) => [s.start, pressed && s.pressed]}>
-                    <LinearGradient colors={['#FFB350', '#FF8B29']} style={s.startBody}><Text style={s.startText}>Başla</Text></LinearGradient>
-                  </Pressable>
-                </View>}
+
               </View>;
             })}
           </View>
+        </View>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, paddingVertical: 14 }}>
+          {['Keçid imtahanı', 'Özünü yoxla', 'Hekayə'].map(label => <Pressable key={label} accessibilityRole="button" onPress={() => onSupplement?.(label === 'Keçid imtahanı' ? 'exam' : label === 'Özünü yoxla' ? 'self-check' : 'story')} style={{ padding: 12, borderRadius: 16, backgroundColor: '#EEE0FA', minHeight: 44 }}><Text style={{ color: '#6C3890', fontWeight: '700' }}>{label}</Text></Pressable>)}
         </View>
         {preview && <Pressable disabled={preview.state === 'planned'} accessibilityRole="button"
           accessibilityState={{ disabled: preview.state === 'planned' }}
@@ -150,6 +158,7 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
         </Pressable>}
       </View>
     </ScrollView>
+    <LessonGroupPanel key={selectedGroup ?? 'closed'} groupId={selectedGroup} onClose={() => setSelectedGroup(null)} onLesson={id => onLessonOpen?.(id)} />
   </LinearGradient>;
 }
 
@@ -195,10 +204,11 @@ const s = StyleSheet.create({
   map: { position: 'relative', marginHorizontal: 0 },
   mapHeading: { alignItems: 'center', paddingTop: 18, paddingBottom: 10, paddingHorizontal: 16, gap: 5 },
   mapTitle: { color: '#2E1048', fontSize: 22, lineHeight: 28, fontWeight: '900', textAlign: 'center', letterSpacing: -.4 },
-  liveProgress: { backgroundColor: '#E5BFF8', borderRadius: 20, paddingHorizontal: 12, paddingVertical: 2 },
-  progressText: { color: '#7932B7', fontSize: 16, lineHeight: 22, fontWeight: '800', textAlign: 'center' },
+  liveProgress: { backgroundColor: '#EBD3F9', borderRadius: 20, paddingHorizontal: 12, paddingVertical: 2 },
+  progressText: { color: '#7932B7', fontSize: 13, lineHeight: 20, fontWeight: '800', textAlign: 'center' },
   tile: { shadowColor: '#9D66BD', shadowOpacity: .28, shadowRadius: 3, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
-  tileBody: { flex: 1, justifyContent: 'center', alignItems: 'center', borderWidth: 1.5, borderColor: '#FBF5FF' },
+  currentAction: { fontSize: 10, lineHeight: 14, color: '#592B0D', fontWeight: '800', marginTop: 2 }, groupLabel: { position: 'absolute', left: -12, right: -12, top: '62%', alignItems: 'center' }, groupTitle: { fontSize: 11, lineHeight: 16, fontWeight: '800', color: '#39194D', textAlign: 'left' }, groupCount: { fontSize: 10, lineHeight: 12, color: '#7C39AE', fontWeight: '700' },
+  tileBody: { flex: 1, flexDirection: 'row', paddingHorizontal: 6, gap: 4, justifyContent: 'center', alignItems: 'center', borderWidth: 1.5, borderColor: '#FBF5FF' },
   done: { position: 'absolute', right: -3, bottom: -3, width: 21, height: 21, borderRadius: 11,
     backgroundColor: '#8C3ACE', borderWidth: 2, borderColor: '#FAF1FF', justifyContent: 'center', alignItems: 'center' },
   caption: { marginTop: 4, alignItems: 'center' },

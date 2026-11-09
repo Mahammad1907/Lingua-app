@@ -1,0 +1,195 @@
+{
+  "sourceSha256": "f23f87b0526d9642cc953ed7a9fe42e0801855911ef84879144c3e0bcd068bc1",
+  "lessons": 12,
+  "groups": 7,
+  "cards": 169,
+  "unsupported": [],
+  "speechDeviceChecks": [
+    {
+      "card": "a1_en_b1_20261105_v2_d01_c05",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d01_c08",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d01_c11a",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d01_c11b",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d02_c08",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d02_c12",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d02_c16a",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d02_c16b",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d03_c09",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d03_c12",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d04_c07",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d04_c10",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d05_c09",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d05_c13",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d06_c07",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d06_c10",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d07_c08",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d07_c11",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d08_c07",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d08_c11",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d09_c08",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d09_c11",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d10_c07",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d10_c11",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d10_c14",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d11_c07",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d11_c10",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d11_c11",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d12_c02",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d12_c03",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d12_c05",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d12_c06",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d12_c07",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d12_c08",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d12_c09",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d12_c10",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    },
+    {
+      "card": "a1_en_b1_20261105_v2_d12_c11",
+      "feature": "conditionalVoiceBranch",
+      "status": "code-path-tested; native device validation pending"
+    }
+  ],
+  "gatePolicyConfigured": false
+}

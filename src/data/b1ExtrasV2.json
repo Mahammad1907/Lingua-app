@@ -1,0 +1,1116 @@
+{
+  "exam-A": {
+    "title": "Keçid imtahanı · A",
+    "cards": [
+      {
+        "id": "exam_A_01",
+        "number": 1,
+        "title": "Tapşırıq 1",
+        "kind": "task",
+        "body": "Danışan nə edir?",
+        "rule": {
+          "answers": [
+            "Salam verir."
+          ],
+          "exact": true
+        },
+        "options": [
+          "Salam verir.",
+          "Sağollaşır."
+        ],
+        "audio": "Hello!",
+        "meaning": "Salam!",
+        "reviewTarget": {
+          "lesson": 1,
+          "number": 3
+        }
+      },
+      {
+        "id": "exam_A_02",
+        "number": 2,
+        "title": "Tapşırıq 2",
+        "kind": "task",
+        "body": "Danışanın adını yaz.",
+        "rule": {
+          "answers": [
+            "Sam"
+          ],
+          "exact": true
+        },
+        "options": null,
+        "audio": "Hi. I’m Sam.",
+        "meaning": "Salam. Mən Samam.",
+        "reviewTarget": {
+          "lesson": 2,
+          "number": 5
+        }
+      },
+      {
+        "id": "exam_A_03",
+        "number": 3,
+        "title": "Tapşırıq 3",
+        "kind": "task",
+        "body": "Nice to meet you.\nBu nə bildirir?",
+        "rule": {
+          "answers": [
+            "Tanışlıqdan məmnunluq"
+          ],
+          "exact": true
+        },
+        "options": [
+          "Tanışlıqdan məmnunluq",
+          "Ad soruşmaq"
+        ],
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 4,
+          "number": 5
+        }
+      },
+      {
+        "id": "exam_A_04",
+        "number": 4,
+        "title": "Tapşırıq 4",
+        "kind": "task",
+        "body": "Ad təqdimatını tamamla: I ___ Alex.",
+        "rule": {
+          "answers": [
+            "am"
+          ],
+          "exact": true
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 2,
+          "number": 7
+        }
+      },
+      {
+        "id": "exam_A_05",
+        "number": 5,
+        "title": "Tapşırıq 5",
+        "kind": "task",
+        "body": "Sam öz adını deyir: My name am Sam. Düzəldib yaz.",
+        "rule": {
+          "answers": [
+            "My name is Sam.",
+            "I’m Sam.",
+            "I am Sam.",
+            "My name’s Sam."
+          ],
+          "goals": [
+            "introduce"
+          ],
+          "roleName": "Sam"
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 2,
+          "number": 11
+        }
+      },
+      {
+        "id": "exam_A_06",
+        "number": 6,
+        "title": "Tapşırıq 6",
+        "kind": "task",
+        "body": "Yeni qonağın adını soruşan tam sualı yaz.",
+        "rule": {
+          "answers": [
+            "What’s your name?",
+            "What is your name?"
+          ],
+          "goals": [
+            "askName"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 3,
+          "number": 11
+        }
+      },
+      {
+        "id": "exam_A_07",
+        "number": 7,
+        "title": "Tapşırıq 7",
+        "kind": "task",
+        "body": "How are you? sualına öz halına uyğun cavab ver və eyni sualı qarşı tərəfə qaytar.",
+        "rule": {
+          "answers": [
+            "I’m fine. And you?",
+            "I’m OK/not very well. How are you?"
+          ],
+          "goals": [
+            "feeling",
+            "askFeeling"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 6,
+          "number": 8
+        }
+      },
+      {
+        "id": "exam_A_08",
+        "number": 8,
+        "title": "Tapşırıq 8",
+        "kind": "task",
+        "body": "Qeydiyyat rolunda qarşı tərəfin adını nəzakətlə istə. Please işlət.",
+        "rule": {
+          "answers": [
+            "Your name, please.",
+            "What is your name, please?",
+            "What’s your name, please?"
+          ],
+          "goals": [
+            "politeName"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 8,
+          "number": 6
+        }
+      },
+      {
+        "id": "exam_A_09",
+        "number": 9,
+        "title": "Tapşırıq 9",
+        "kind": "task",
+        "body": "Qarşı tərəf: Sorry. Sənə görə eybi yoxdur. Uyğun cavab yaz.",
+        "rule": {
+          "answers": [
+            "No problem.",
+            "That’s OK.",
+            "It’s OK.",
+            "That’s all right."
+          ],
+          "goals": [
+            "noProblem"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 9,
+          "number": 7
+        }
+      },
+      {
+        "id": "exam_A_10",
+        "number": 10,
+        "title": "Tapşırıq 10",
+        "kind": "task",
+        "body": "Qarşı tərəf: Thank you. Dəyməz mənalı qarşılıq yaz.",
+        "rule": {
+          "answers": [
+            "You’re welcome.",
+            "You are welcome.",
+            "No problem."
+          ],
+          "goals": [
+            "welcome"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 7,
+          "number": 9
+        }
+      },
+      {
+        "id": "exam_A_11",
+        "number": 11,
+        "title": "Tapşırıq 11",
+        "kind": "voice",
+        "body": "Salama səslə qarşılıq ver.",
+        "rule": {
+          "answers": [
+            "Hello!"
+          ],
+          "goals": [
+            "greet"
+          ]
+        },
+        "options": null,
+        "audio": "Hi!",
+        "meaning": "Salam!",
+        "reviewTarget": {
+          "lesson": 1,
+          "number": 5
+        }
+      },
+      {
+        "id": "exam_A_12",
+        "number": 12,
+        "title": "Tapşırıq 12",
+        "kind": "voice",
+        "body": "Seçdiyin adla özünü təqdim et və qarşı tərəfin adını soruş.",
+        "rule": {
+          "answers": [
+            "I’m [ad]. What’s your name?"
+          ],
+          "goals": [
+            "introduce",
+            "askName"
+          ]
+        },
+        "options": null,
+        "audio": "Hello!",
+        "meaning": "Salam!",
+        "reviewTarget": {
+          "lesson": 3,
+          "number": 12
+        }
+      },
+      {
+        "id": "exam_A_12b",
+        "number": 12,
+        "title": "Tapşırıq 12",
+        "kind": "voice",
+        "body": "Tanış olduğuna şad olduğunu səslə bildir.",
+        "rule": {
+          "answers": [
+            "You too."
+          ],
+          "goals": [
+            "meet"
+          ]
+        },
+        "options": null,
+        "audio": "I’m Alex. Nice to meet you.",
+        "meaning": "Mən Aleksəm. Tanış olduğuma şadam.",
+        "after": {
+          "id": "exam_A_12",
+          "goals": [
+            "introduce",
+            "askName"
+          ]
+        }
+      },
+      {
+        "id": "exam_A_13",
+        "number": 13,
+        "title": "Tapşırıq 13",
+        "kind": "voice",
+        "body": "Rol: verilən sualı anlamırsan. Anlamadığını bildir və onu həm təkrar, həm daha yavaş deməsini açıq istə.",
+        "rule": {
+          "answers": [
+            "I don’t understand. Can you repeat that more slowly, please?"
+          ],
+          "goals": [
+            "dontUnderstand",
+            "repeat",
+            "slow"
+          ]
+        },
+        "options": null,
+        "audio": "How are you?",
+        "meaning": "Necəsən?",
+        "reviewTarget": {
+          "lesson": 12,
+          "number": 7
+        }
+      },
+      {
+        "id": "exam_A_13b",
+        "number": 13,
+        "title": "Tapşırıq 13",
+        "kind": "voice",
+        "body": "Yavaş təkrarlanan suala səslə cavab ver.",
+        "rule": {
+          "answers": [
+            "I’m fine."
+          ],
+          "goals": [
+            "feeling"
+          ]
+        },
+        "options": null,
+        "audio": "How are you?",
+        "meaning": "Necəsən?",
+        "rate": 0.45,
+        "after": {
+          "id": "exam_A_13",
+          "goals": [
+            "slow"
+          ]
+        }
+      },
+      {
+        "id": "exam_A_14",
+        "number": 14,
+        "title": "Tapşırıq 14",
+        "kind": "voice",
+        "body": "Görüş bitir. Qarşı tərəf sağollaşmamış sən sağollaşmanı başlat.",
+        "rule": {
+          "answers": [
+            "Goodbye!",
+            "Bye!"
+          ],
+          "goals": [
+            "farewell"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 1,
+          "number": 11,
+          "suffix": "b"
+        }
+      }
+    ],
+    "exam": true,
+    "source": "05_Kecid_Imtahani_A_B.md"
+  },
+  "exam-B": {
+    "title": "Keçid imtahanı · B",
+    "cards": [
+      {
+        "id": "exam_B_01",
+        "number": 1,
+        "title": "Tapşırıq 1",
+        "kind": "task",
+        "body": "Danışan nə edir?",
+        "rule": {
+          "answers": [
+            "Sağollaşır."
+          ],
+          "exact": true
+        },
+        "options": [
+          "Salam verir.",
+          "Sağollaşır."
+        ],
+        "audio": "Bye!",
+        "meaning": "Sağ ol!",
+        "reviewTarget": {
+          "lesson": 1,
+          "number": 3
+        }
+      },
+      {
+        "id": "exam_B_02",
+        "number": 2,
+        "title": "Tapşırıq 2",
+        "kind": "task",
+        "body": "Danışanın adını yaz.",
+        "rule": {
+          "answers": [
+            "Alex"
+          ],
+          "exact": true
+        },
+        "options": null,
+        "audio": "Hello. My name is Alex.",
+        "meaning": "Salam. Mənim adım Aleksdir.",
+        "reviewTarget": {
+          "lesson": 2,
+          "number": 5
+        }
+      },
+      {
+        "id": "exam_B_03",
+        "number": 3,
+        "title": "Tapşırıq 3",
+        "kind": "task",
+        "body": "Nice to meet you, Sam.\nBu nə bildirir?",
+        "rule": {
+          "answers": [
+            "Tanışlıqdan məmnunluq"
+          ],
+          "exact": true
+        },
+        "options": [
+          "Tanışlıqdan məmnunluq",
+          "Ad soruşmaq"
+        ],
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 4,
+          "number": 5
+        }
+      },
+      {
+        "id": "exam_B_04",
+        "number": 4,
+        "title": "Tapşırıq 4",
+        "kind": "task",
+        "body": "Ad təqdimatını tamamla: I ___ Sam.",
+        "rule": {
+          "answers": [
+            "am"
+          ],
+          "exact": true
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 2,
+          "number": 7
+        }
+      },
+      {
+        "id": "exam_B_05",
+        "number": 5,
+        "title": "Tapşırıq 5",
+        "kind": "task",
+        "body": "Alex öz adını deyir: My name am Alex. Düzəldib yaz.",
+        "rule": {
+          "answers": [
+            "My name is Alex.",
+            "I’m Alex.",
+            "I am Alex.",
+            "My name’s Alex."
+          ],
+          "goals": [
+            "introduce"
+          ],
+          "roleName": "Alex"
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 2,
+          "number": 11
+        }
+      },
+      {
+        "id": "exam_B_06",
+        "number": 6,
+        "title": "Tapşırıq 6",
+        "kind": "task",
+        "body": "Yeni tanışının adını soruşan tam sualı yaz.",
+        "rule": {
+          "answers": [
+            "What’s your name?",
+            "What is your name?"
+          ],
+          "goals": [
+            "askName"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 3,
+          "number": 11
+        }
+      },
+      {
+        "id": "exam_B_07",
+        "number": 7,
+        "title": "Tapşırıq 7",
+        "kind": "task",
+        "body": "How are you? sualına öz halına uyğun cavab ver və eyni sualı qarşı tərəfə qaytar.",
+        "rule": {
+          "answers": [
+            "I’m fine. And you?",
+            "I’m OK/not very well. How are you?"
+          ],
+          "goals": [
+            "feeling",
+            "askFeeling"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 6,
+          "number": 8
+        }
+      },
+      {
+        "id": "exam_B_08",
+        "number": 8,
+        "title": "Tapşırıq 8",
+        "kind": "task",
+        "body": "Tanışlıq oyununun girişində qarşı tərəfin adını nəzakətlə istə. Please işlət.",
+        "rule": {
+          "answers": [
+            "Your name, please.",
+            "What is your name, please?",
+            "What’s your name, please?"
+          ],
+          "goals": [
+            "politeName"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 8,
+          "number": 6
+        }
+      },
+      {
+        "id": "exam_B_09",
+        "number": 9,
+        "title": "Tapşırıq 9",
+        "kind": "task",
+        "body": "Qarşı tərəf: Sorry. Sənə görə eybi yoxdur. Uyğun cavab yaz.",
+        "rule": {
+          "answers": [
+            "No problem.",
+            "That’s OK.",
+            "It’s OK.",
+            "That’s all right."
+          ],
+          "goals": [
+            "noProblem"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 9,
+          "number": 7
+        }
+      },
+      {
+        "id": "exam_B_10",
+        "number": 10,
+        "title": "Tapşırıq 10",
+        "kind": "task",
+        "body": "Qarşı tərəf: Thank you. Dəyməz mənalı qarşılıq yaz.",
+        "rule": {
+          "answers": [
+            "You’re welcome.",
+            "You are welcome.",
+            "No problem."
+          ],
+          "goals": [
+            "welcome"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 7,
+          "number": 9
+        }
+      },
+      {
+        "id": "exam_B_11",
+        "number": 11,
+        "title": "Tapşırıq 11",
+        "kind": "voice",
+        "body": "Salama səslə qarşılıq ver.",
+        "rule": {
+          "answers": [
+            "Hello!"
+          ],
+          "goals": [
+            "greet"
+          ]
+        },
+        "options": null,
+        "audio": "Hello!",
+        "meaning": "Salam!",
+        "reviewTarget": {
+          "lesson": 1,
+          "number": 5
+        }
+      },
+      {
+        "id": "exam_B_12",
+        "number": 12,
+        "title": "Tapşırıq 12",
+        "kind": "voice",
+        "body": "Seçdiyin adla özünü təqdim et və qarşı tərəfin adını soruş.",
+        "rule": {
+          "answers": [
+            "I’m [ad]. What’s your name?"
+          ],
+          "goals": [
+            "introduce",
+            "askName"
+          ]
+        },
+        "options": null,
+        "audio": "Hi!",
+        "meaning": "Salam!",
+        "reviewTarget": {
+          "lesson": 3,
+          "number": 12
+        }
+      },
+      {
+        "id": "exam_B_12b",
+        "number": 12,
+        "title": "Tapşırıq 12",
+        "kind": "voice",
+        "body": "Tanış olduğuna şad olduğunu səslə bildir.",
+        "rule": {
+          "answers": [
+            "You too."
+          ],
+          "goals": [
+            "meet"
+          ]
+        },
+        "options": null,
+        "audio": "I’m Alex. Nice to meet you.",
+        "meaning": "Mən Aleksəm. Tanış olduğuma şadam.",
+        "after": {
+          "id": "exam_B_12",
+          "goals": [
+            "introduce",
+            "askName"
+          ]
+        }
+      },
+      {
+        "id": "exam_B_13",
+        "number": 13,
+        "title": "Tapşırıq 13",
+        "kind": "voice",
+        "body": "Rol: verilən sualı anlamırsan. Anlamadığını bildir və onu həm təkrar, həm daha yavaş deməsini açıq istə.",
+        "rule": {
+          "answers": [
+            "I don’t understand. Can you repeat that more slowly, please?"
+          ],
+          "goals": [
+            "dontUnderstand",
+            "repeat",
+            "slow"
+          ]
+        },
+        "options": null,
+        "audio": "What’s your name?",
+        "meaning": "Adın nədir?",
+        "reviewTarget": {
+          "lesson": 12,
+          "number": 7
+        }
+      },
+      {
+        "id": "exam_B_13b",
+        "number": 13,
+        "title": "Tapşırıq 13",
+        "kind": "voice",
+        "body": "Yavaş təkrarlanan suala səslə cavab ver.",
+        "rule": {
+          "answers": [
+            "I’m Sam."
+          ],
+          "goals": [
+            "introduce"
+          ]
+        },
+        "options": null,
+        "audio": "What’s your name?",
+        "meaning": "Adın nədir?",
+        "rate": 0.45,
+        "after": {
+          "id": "exam_B_13",
+          "goals": [
+            "slow"
+          ]
+        }
+      },
+      {
+        "id": "exam_B_14",
+        "number": 14,
+        "title": "Tapşırıq 14",
+        "kind": "voice",
+        "body": "Görüş bitir. Qarşı tərəf sağollaşmamış sən sağollaşmanı başlat.",
+        "rule": {
+          "answers": [
+            "Goodbye!",
+            "Bye!"
+          ],
+          "goals": [
+            "farewell"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": "Audio yoxdur.",
+        "reviewTarget": {
+          "lesson": 1,
+          "number": 11,
+          "suffix": "b"
+        }
+      }
+    ],
+    "exam": true,
+    "source": "05_Kecid_Imtahani_A_B.md"
+  },
+  "self-check": {
+    "title": "Özünü yoxla",
+    "cards": [
+      {
+        "id": "self_1",
+        "number": 1,
+        "title": "Tapşırıq 1",
+        "kind": "task",
+        "body": "Dinlə. Danışan nə edir?",
+        "rule": {
+          "answers": [
+            "Sağollaşır"
+          ],
+          "exact": true
+        },
+        "options": [
+          "Salam verir",
+          "Sağollaşır"
+        ],
+        "audio": "Goodbye!",
+        "meaning": "Sağ ol!",
+        "reviewTarget": {
+          "lesson": 1,
+          "number": 3
+        }
+      },
+      {
+        "id": "self_2",
+        "number": 2,
+        "title": "Tapşırıq 2",
+        "kind": "task",
+        "body": "Yeni tanışına salam və seçdiyin adla özünü təqdim edən mesaj yaz",
+        "rule": {
+          "answers": [
+            "Hi. I’m [ad]."
+          ],
+          "goals": [
+            "greet",
+            "introduce"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": null,
+        "reviewTarget": {
+          "lesson": 2,
+          "number": 15
+        }
+      },
+      {
+        "id": "self_3",
+        "number": 3,
+        "title": "Tapşırıq 3",
+        "kind": "voice",
+        "body": "Adını de və onun adını soruş. Səslə cavab ver. Danış / Keç",
+        "rule": {
+          "answers": [
+            "I’m [ad]. What’s your name?"
+          ],
+          "goals": [
+            "introduce",
+            "askName"
+          ]
+        },
+        "options": null,
+        "audio": "Hi. What’s your name?",
+        "meaning": "Salam. Adın nədir?",
+        "reviewTarget": {
+          "lesson": 3,
+          "number": 12
+        }
+      },
+      {
+        "id": "self_4",
+        "number": 4,
+        "title": "Tapşırıq 4",
+        "kind": "task",
+        "body": "How are you? mesajına öz halına uyğun cavab yaz və sualı qaytar",
+        "rule": {
+          "answers": [
+            "I’m fine. And you?"
+          ],
+          "goals": [
+            "feeling",
+            "askFeeling"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": null,
+        "reviewTarget": {
+          "lesson": 6,
+          "number": 8
+        }
+      },
+      {
+        "id": "self_5",
+        "number": 5,
+        "title": "Tapşırıq 5",
+        "kind": "task",
+        "body": "Tanışın Thank you yazır. Qarşılıq yaz",
+        "rule": {
+          "answers": [
+            "You’re welcome."
+          ],
+          "goals": [
+            "welcome"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": null,
+        "reviewTarget": {
+          "lesson": 7,
+          "number": 6
+        }
+      },
+      {
+        "id": "self_6",
+        "number": 6,
+        "title": "Tapşırıq 6",
+        "kind": "voice",
+        "body": "Rol: sualı həm yenidən, həm daha yavaş eşitmək istəyirsən. Hər iki istəyi səslə de. Danış / Keç",
+        "rule": {
+          "answers": [
+            "Could you say that again more slowly, please?"
+          ],
+          "goals": [
+            "repeat",
+            "slow"
+          ]
+        },
+        "options": null,
+        "audio": "How are you?",
+        "meaning": "Necəsən?",
+        "reviewTarget": {
+          "lesson": 12,
+          "number": 7
+        }
+      }
+    ],
+    "exam": true,
+    "source": "06_Ozunu_Yoxla.md"
+  },
+  "story": {
+    "title": "İki tanış, iki mesaj",
+    "cards": [
+      {
+        "id": "story_read_1",
+        "number": 1,
+        "kind": "read",
+        "title": "Oxu",
+        "body": "Sam: Hello. I’m Sam. What’s your name? / Alex: I’m Alex. Nice to meet you. / Sam: You too."
+      },
+      {
+        "id": "story_3",
+        "number": 3,
+        "title": "Tapşırıq 3",
+        "kind": "task",
+        "body": "Adını əvvəl kim deyir?",
+        "rule": {
+          "answers": [
+            "Sam"
+          ],
+          "exact": true
+        },
+        "options": null,
+        "audio": null,
+        "meaning": null,
+        "review": {
+          "id": "story_3_retry",
+          "number": 3,
+          "title": "Tapşırıq 3",
+          "kind": "task",
+          "body": "Alex: Hello. I’m Alex. / Sam: Hi. I’m Sam.\nKim öz adını əvvəl deyir?",
+          "rule": {
+            "answers": [
+              "Alex"
+            ],
+            "exact": true
+          },
+          "options": null,
+          "audio": null,
+          "meaning": null
+        }
+      },
+      {
+        "id": "story_read_2",
+        "number": 2,
+        "kind": "read",
+        "title": "Oxu",
+        "body": "Alex: How are you? / Sam: I’m OK. And you? / Alex: I’m fine, thanks."
+      },
+      {
+        "id": "story_5",
+        "number": 5,
+        "title": "Tapşırıq 5",
+        "kind": "task",
+        "body": "I’m fine deyən kimdir?",
+        "rule": {
+          "answers": [
+            "Alex"
+          ],
+          "exact": true
+        },
+        "options": null,
+        "audio": null,
+        "meaning": null,
+        "review": {
+          "id": "story_5_retry",
+          "number": 5,
+          "title": "Tapşırıq 5",
+          "kind": "task",
+          "body": "Sam: I’m not very well. / Alex: I’m OK.\nKim özünü yaxşı hiss etmir?",
+          "rule": {
+            "answers": [
+              "Sam"
+            ],
+            "exact": true
+          },
+          "options": null,
+          "audio": null,
+          "meaning": null
+        }
+      },
+      {
+        "id": "story_6",
+        "number": 6,
+        "title": "Tapşırıq 6",
+        "kind": "voice",
+        "body": "Yeni görüşdəsən. Öz halını de və qarşı tərəfdən soruş.",
+        "rule": {
+          "answers": [
+            "I’m OK. And you?"
+          ],
+          "goals": [
+            "feeling",
+            "askFeeling"
+          ]
+        },
+        "options": null,
+        "audio": "How are you?",
+        "meaning": "Necəsən?",
+        "review": {
+          "id": "story_6_retry",
+          "number": 6,
+          "title": "Tapşırıq 6",
+          "kind": "voice",
+          "body": "Halını de və sualı qaytar.",
+          "rule": {
+            "answers": [
+              "I’m fine. And you?"
+            ],
+            "goals": [
+              "feeling",
+              "askFeeling"
+            ]
+          },
+          "options": null,
+          "audio": "Hello. How are you?",
+          "meaning": "Salam. Necəsən?"
+        }
+      },
+      {
+        "id": "story_read_3",
+        "number": 3,
+        "kind": "read",
+        "title": "Oxu",
+        "body": "Sam: Goodbye, Alex! / Alex: Bye, Sam!"
+      },
+      {
+        "id": "story_8",
+        "number": 8,
+        "title": "Tapşırıq 8",
+        "kind": "task",
+        "body": "Mesajların yeri qarışıb. Görüşün əvvəlini seç:",
+        "rule": {
+          "answers": [
+            "Hello. I’m Sam."
+          ],
+          "exact": true
+        },
+        "options": [
+          "Goodbye, Alex!",
+          "Hello. I’m Sam."
+        ],
+        "audio": null,
+        "meaning": null,
+        "review": {
+          "id": "story_8_retry",
+          "number": 8,
+          "title": "Tapşırıq 8",
+          "kind": "task",
+          "body": "Görüşün sonunu seç:",
+          "rule": {
+            "answers": [
+              "Bye!"
+            ],
+            "exact": true
+          },
+          "options": [
+            "Hi!",
+            "Bye!"
+          ],
+          "audio": null,
+          "meaning": null
+        }
+      },
+      {
+        "id": "story_9",
+        "number": 9,
+        "title": "Tapşırıq 9",
+        "kind": "task",
+        "body": "Hekayənin sonunda Alex-in yerinə uyğun bir sağollaşma yaz.",
+        "rule": {
+          "answers": [
+            "Bye!",
+            "Goodbye!"
+          ],
+          "goals": [
+            "farewell"
+          ]
+        },
+        "options": null,
+        "audio": null,
+        "meaning": null,
+        "review": {
+          "id": "story_9_retry",
+          "number": 9,
+          "title": "Tapşırıq 9",
+          "kind": "task",
+          "body": "Yeni mesajlaşmanız bitdi. Son mesajını yaz.",
+          "rule": {
+            "answers": [
+              "Bye!",
+              "Goodbye!"
+            ],
+            "goals": [
+              "farewell"
+            ]
+          },
+          "options": null,
+          "audio": null,
+          "meaning": null
+        }
+      }
+    ],
+    "requiresAllLessons": true,
+    "source": "07_Elave_Oxu_Hekayesi.md"
+  }
+}

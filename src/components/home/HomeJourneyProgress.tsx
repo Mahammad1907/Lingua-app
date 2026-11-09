@@ -8,12 +8,12 @@ const ISLAND = 'M 380 396 C 467 421 565 374 624 426 C 659 458 650 510 671 548 C 
 
 export function homeConnectors(extra: number) {
   return [
-    'M 290 575 C 341 601 380 570 437 575',
-    'M 454 643 C 450 660 374 666 317 696',
-    'M 317 741 C 378 775 410 729 460 757',
-    'M 474 858 C 409 884 342 873 282 899',
-    `M 282 961 C 319 ${992 + extra * .35} 365 ${983 + extra} 396 ${986 + extra}`,
-    `M 409 ${1078 + extra} C 393 ${1080 + extra} 380 ${1085 + extra} 356 ${1080 + extra}`,
+    'M 363 575 C 380 593 390 570 404 575',
+    'M 454 643 C 450 660 384 666 363 696',
+    'M 363 741 C 378 775 390 729 404 757',
+    'M 474 858 C 409 884 380 873 363 899',
+    `M 363 961 C 319 ${992 + extra * .35} 365 ${983 + extra} 404 ${986 + extra}`,
+    `M 409 ${1078 + extra} C 393 ${1080 + extra} 380 ${1085 + extra} 363 ${1080 + extra}`,
   ];
 }
 export function connectorLength(d: string) {
@@ -31,8 +31,8 @@ export function connectorLength(d: string) {
   return Math.ceil(length);
 }
 
-export function HomeJourneyProgress({ completedCount, percent, scale, headerHeight, captionExtra }: {
-  completedCount: number; percent: number; scale: number; headerHeight: number; captionExtra: number;
+export function HomeJourneyProgress({ completedCount, percent, scale, headerHeight, captionExtra, verticalScale = 1 }: {
+  completedCount: number; percent: number; scale: number; headerHeight: number; captionExtra: number; verticalScale?: number;
 }) {
   const reduced = useReducedMotion();
   const id = `island${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
@@ -63,7 +63,7 @@ export function HomeJourneyProgress({ completedCount, percent, scale, headerHeig
   }, [count, target, reduced, progress, route]);
 
   return <View pointerEvents="none" accessible={false} style={StyleSheet.absoluteFill}>
-    <Svg width={682 * scale} height={headerHeight + 737 * scale + captionExtra} viewBox="43 392 682 858"
+    <Svg width={682 * scale} height={headerHeight + 737 * scale * verticalScale + captionExtra} viewBox="43 392 682 858"
       preserveAspectRatio="none" style={StyleSheet.absoluteFill}>
       <Defs>
         <LinearGradient id={`${id}base`} x1="10%" y1="0%" x2="90%" y2="100%">
@@ -79,7 +79,7 @@ export function HomeJourneyProgress({ completedCount, percent, scale, headerHeig
         inputRange: [0, 100], outputRange: [0, .36], extrapolate: 'clamp',
       })} />
     </Svg>
-    <Svg width={682 * scale} height={737 * scale + captionExtra} viewBox={`43 507 682 ${737 + extra}`}
+    <Svg width={682 * scale} height={737 * scale * verticalScale + captionExtra} viewBox={`43 507 682 ${737 + extra}`} preserveAspectRatio="none"
       style={{ position: 'absolute', top: headerHeight }}>
       {connectors.map((d, index) => <Path key={`track-${index}`} d={d}
         fill="none" stroke="#D7B8EB" strokeWidth={3} strokeLinecap="round" />)}

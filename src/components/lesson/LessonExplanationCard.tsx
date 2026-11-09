@@ -1,3 +1,4 @@
+import { useLessonStyles } from './LessonTheme';
 import { useEffect, useRef, useState, type PropsWithChildren } from 'react';
 import { Animated, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -5,6 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 export default function LessonExplanationCard({ visible, onClose, children, title = 'Səhv cavabın izahı' }: PropsWithChildren<{ visible: boolean; onClose: () => void; title?: string }>) {
+  const s = useLessonStyles(baseStyles);
   const insets = useSafeAreaInsets(), reduced = useReducedMotion();
   const [shine] = useState(() => new Animated.Value(0)), [exit] = useState(() => new Animated.Value(0));
   const [width, setWidth] = useState(300);
@@ -35,4 +37,4 @@ export default function LessonExplanationCard({ visible, onClose, children, titl
     </View>
   </Modal>;
 }
-const s = StyleSheet.create({ overlay: { flex: 1, backgroundColor: '#040617BD', justifyContent: 'center', paddingHorizontal: 22 }, card: { width: '100%', maxWidth: 500, maxHeight: '85%', alignSelf: 'center', borderRadius: 24, borderWidth: 1, borderColor: '#AC94E4', backgroundColor: '#24213D', overflow: 'hidden' }, header: { flexDirection: 'row', alignItems: 'center', paddingLeft: 18, paddingRight: 8, borderBottomWidth: 1, borderBottomColor: '#6A588F', backgroundColor: '#302948' }, title: { flex: 1, color: '#FFF', fontSize: 18, lineHeight: 25, fontWeight: '800' }, close: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' }, cross: { color: '#D6C5FF', fontSize: 28 }, scroll: { flexGrow: 0 }, content: { padding: 18, gap: 14 }, done: { minHeight: 50, margin: 14, borderRadius: 15, overflow: 'hidden' }, doneFill: { minHeight: 50, alignItems: 'center', justifyContent: 'center' }, doneText: { color: '#291D2B', fontSize: 16, fontWeight: '800' }, shine: { position: 'absolute', top: 0, bottom: 0, width: 55, backgroundColor: '#FFF8D8' } });
+const baseStyles = StyleSheet.create({ overlay: { flex: 1, backgroundColor: '#040617BD', justifyContent: 'center', paddingHorizontal: 22 }, card: { width: '100%', maxWidth: 500, maxHeight: '85%', alignSelf: 'center', borderRadius: 24, borderWidth: 1, borderColor: '#AC94E4', backgroundColor: '#24213D', overflow: 'hidden' }, header: { flexDirection: 'row', alignItems: 'center', paddingLeft: 18, paddingRight: 8, borderBottomWidth: 1, borderBottomColor: '#6A588F', backgroundColor: '#302948' }, title: { flex: 1, color: '#FFF', fontSize: 18, lineHeight: 25, fontWeight: '800' }, close: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' }, cross: { color: '#D6C5FF', fontSize: 28 }, scroll: { flexGrow: 0 }, content: { padding: 18, gap: 14 }, done: { minHeight: 50, margin: 14, borderRadius: 15, overflow: 'hidden' }, doneFill: { minHeight: 50, alignItems: 'center', justifyContent: 'center' }, doneText: { color: '#291D2B', fontSize: 16, fontWeight: '800' }, shine: { position: 'absolute', top: 0, bottom: 0, width: 55, backgroundColor: '#FFF8D8' } });

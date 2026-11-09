@@ -1,0 +1,77 @@
+{
+  "version": "2026-11-05-v2",
+  "archiveSha256": "f23f87b0526d9642cc953ed7a9fe42e0801855911ef84879144c3e0bcd068bc1",
+  "groups": [
+    {
+      "id": "a1_en_b1_20261105_v2_g1",
+      "title": "İlk salam",
+      "lessonIds": [
+        "a1_en_b1_20261105_v2_d01"
+      ]
+    },
+    {
+      "id": "a1_en_b1_20261105_v2_g2",
+      "title": "Mənim adım…",
+      "lessonIds": [
+        "a1_en_b1_20261105_v2_d02"
+      ]
+    },
+    {
+      "id": "a1_en_b1_20261105_v2_g3",
+      "title": "Adın nədir?",
+      "lessonIds": [
+        "a1_en_b1_20261105_v2_d03",
+        "a1_en_b1_20261105_v2_d04"
+      ]
+    },
+    {
+      "id": "a1_en_b1_20261105_v2_g4",
+      "title": "Necəsən?",
+      "lessonIds": [
+        "a1_en_b1_20261105_v2_d05",
+        "a1_en_b1_20261105_v2_d06"
+      ]
+    },
+    {
+      "id": "a1_en_b1_20261105_v2_g5",
+      "title": "Xoş sözlər",
+      "lessonIds": [
+        "a1_en_b1_20261105_v2_d07",
+        "a1_en_b1_20261105_v2_d08",
+        "a1_en_b1_20261105_v2_d09"
+      ]
+    },
+    {
+      "id": "a1_en_b1_20261105_v2_g6",
+      "title": "Bir də, lütfən",
+      "lessonIds": [
+        "a1_en_b1_20261105_v2_d10",
+        "a1_en_b1_20261105_v2_d11"
+      ]
+    },
+    {
+      "id": "a1_en_b1_20261105_v2_g7",
+      "title": "Gəl danışaq!",
+      "lessonIds": [
+        "a1_en_b1_20261105_v2_d12"
+      ]
+    }
+  ],
+  "extras": [
+    {
+      "id": "exam",
+      "title": "Keçid imtahanı",
+      "source": "05_Kecid_Imtahani_A_B.md"
+    },
+    {
+      "id": "self-check",
+      "title": "Özünü yoxla",
+      "source": "06_Ozunu_Yoxla.md"
+    },
+    {
+      "id": "story",
+      "title": "Əlavə oxu hekayəsi",
+      "source": "07_Elave_Oxu_Hekayesi.md"
+    }
+  ]
+}
