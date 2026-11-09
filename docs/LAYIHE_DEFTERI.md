@@ -231,3 +231,16 @@ Real iPhone/Android, mikrofon/ASR, safe area/klaviatura və animasiya hamarlığ
 İstifadəçi lövhədən başqa köhnə dərs şəkillərindən imtina etdi, yeni iki 2D personajı təsdiqlədi və paketdəki şəkil səhnələrini onlarla hazırlamağı/yükləməyi istədi. P01–P09 üçün 10 sözsüz yeni vizual hazırlandı; P07 diqqət/üzr olmaqla iki ayrı səhnədir. Native lövhə saxlanır, köhnə personajlar yeni v2 giriş/lövhə/təkrar səhnələrindən çıxarılır. İnsan avatarı daimi maskot adı deyil. Profil və ana səhifə dəyişmir.
 
 Hazır/yerləşdirilən/gələcək şəkillər docs/V2_PICTURE_STATUS.md-də ayrıca qeyd olunur. Yeni əşya/meyvə sözləri bu tanışlıq paketinə əlavə edilmir; uyğun gələcək müəllif məzmunu olmadan yeni söz, tərcümə və cümlə uydurulmur. Öyrətmədə müəllif lüğətindən məna, ingiliscə audio, nümunə və tərcümə var; qiymətləndirmədə həmin blok gizlidir. Əvvəlki öyrətmə və cari hədəf xaricində söz olan nümunə sadə token yoxlaması ilə gizlənir. Yeni söz rəngi, toxunma mənası və avtomatik təkrarsız lüğət əlavə etməsi mövcud sistemdə saxlanılır. Fayllar və komponent testləri ilə fiziki telefon yoxlaması ayrı göstərilməlidir.
+
+
+## 9 noyabr 2026 — ana səhifə və dərs təcrübəsi üzrə vahid qərarlar
+
+İstifadəçi son danışılmış bütün qaydaların MD-də toplanmasını və GitHub-a yüklənməsini tapşırdı. Cari tələblərin əsas mənbəyi: [docs/design/2026-11-09/README.md](design/2026-11-09/README.md). Orada 7 qrupun adları, 12 əsas dərsin real faizi, peşəkar ana ekran, səkkiz tapşırıq təqdimatı, vizualın yalnız uyğun kartda istifadəsi, tam bədən/personajların kəsilməməsi, dar yumşaq kənarlar, yığcam şriftlər, kiçik chat avatarlarının çıxarılması, görünən “Köməklə” yazısının götürülməsi (daxili dəstək izi saxlanır), sadə avtomatik səs göndərmə tələbi, mimikalar, qarşılıqlı səhnə, söhbət yaddaşı və dərs sonu kolleksiyası qeyd olunur.
+
+Son səs tələbi: toxunanda qeyd, danışıq bitəndə bir dəfə avtomatik göndərmə; avtomatik kart keçidi yoxdur. “Danışmaq üçün toxun” yazısının altında əlavə idarə/yazı olmur. Texniki və ya yalnız yazılmış səs bacarıq təsdiqi deyil. Bu, əvvəlki manual Göndər qeydinə nisbətən yeni tələbdir; hazır kod davranışı kimi təqdim olunmur.
+
+Son vizual düzəliş: personajlar başdan ayağa tam görünür; bütün şəkil bulanıqlaşdırılmır, yalnız ən xarici dar sahə fonla birləşir. Son kəsilmiş ayaqlı nümunə qəbul edilmir. Yazı, boşluq, dinləmə, iki sahəli tapşırıq və təkrarda dekorativ səhnə göstərilmir. Nəticə yalnız dərsin sonunda ayrıdır; əvvəlki üçüncü ekran maketi rədd edilib, nəticə/kolleksiya funksiyası ləğv edilməyib.
+
+Mimika (düşünən/təəccüblənən/anlamayan), müasir ekran prinsipləri və seçilmiş əlavə 1–2–3 fikirləri də vahid sənəddə bərpa edilib. Rədd edilən nağıl və həddindən artıq robot variantları, yeni qulaqlıq/geyim təklifləri tətbiq tapşırığı deyil.
+
+Yüklənən şəkillər [önizləmə arxivindədir](design/2026-11-09/PREVIEWS.md). Bunlar kod və ya təsdiqlənmiş native ekran deyil. Bu yeniləmə yalnız sənədlər və dizayn arxividir; yeni qaydaların tətbiq koduna inteqrasiyası və real telefon yoxlaması ayrıca qalır. Profil, müəllif məzmunu/kart sırası, qiymətləndirmə sübutları, SDK və imtahan həddi dəyişməyib.

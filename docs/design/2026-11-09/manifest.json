@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-09",
+  "kind": "design-preview-archive",
+  "productionReady": false,
+  "runtimeChanged": false,
+  "images": [
+    {
+      "file": "previews/01-compact-teaching-chat.webp",
+      "source": "exec-a2880242-a11a-4ebc-b312-c810149a57a9.png",
+      "sha256": "e670c15033a831ee74862e59c3f1a3e94c1a2ad9590e19b69b6e762465d63986",
+      "status": "Aralıq nümunə: avatarlar çıxarılıb; səhnə kənarları son seçim deyil."
+    },
+    {
+      "file": "previews/02-teaching-listening-choice.webp",
+      "source": "exec-c587166d-c943-4f41-a9be-6a3456257c94.png",
+      "sha256": "537cda69ae1274139d463a7b015d6a73baaa85fb8ae99818d1c1a967e2414099",
+      "status": "Aralıq nümunə: öyrətmə və dinləyib seçmə; ölçülər və səhnə sərhədləri yekun deyil."
+    },
+    {
+      "file": "previews/03-writing-gap-old.webp",
+      "source": "exec-1fe91535-0c02-4e63-8b34-11c823aec273.png",
+      "sha256": "dc402218475a616c8caebd93e8aa99b969b36142106e9b116ef8b71525b98d09",
+      "status": "Əvəzlənib: yazı/boşluq kartlarında dekorativ səhnə çıxarılmalıdır."
+    },
+    {
+      "file": "previews/04-dictation-dual-old.webp",
+      "source": "exec-ee8b7005-c579-4554-98f6-56892a2739ab.png",
+      "sha256": "43d008e5dad5d7ffe07ae3714b776729c937713d3f144a058489f1d70eba8e55",
+      "status": "Əvəzlənib: səhnə və gün/gecə ikonları uyğun deyil."
+    },
+    {
+      "file": "previews/05-dictation-dual-icons-fixed.webp",
+      "source": "exec-dbea4541-bc7d-4e9d-9ddc-64ffc82da141.png",
+      "sha256": "6faae86e30fa88e526c31972e33334867600619c4eac0629961276d2758fc133",
+      "status": "Aralıq düzəliş: gün/gecə ikonları çıxarılıb; səhnələr hələ çıxarılmalıdır."
+    },
+    {
+      "file": "previews/06-speech-retry-manual-old.webp",
+      "source": "exec-299a632f-a6cd-46d0-a672-1dc7d16c5147.png",
+      "sha256": "8cccbdb7df7aeee804b925926d6706f07479a8d7919eb0642e288174f0f102ed",
+      "status": "Əvəzlənib: manual göndərmə paneli və təkrar səhnəsi son tələbə uyğun deyil."
+    },
+    {
+      "file": "previews/07-writing-gap-no-scenes.webp",
+      "source": "exec-d68ec7b5-143d-4665-a634-8603740205ab.png",
+      "sha256": "307df2ae082cb6f2f886b1e4effa8234dad3ac7bcb6170d9b83e63b4168e2177",
+      "status": "Son istiqamət: şəkilsiz yazı/boşluq; həddindən artıq boşluq və ölçülər native tətbiqdə düzəldilməlidir."
+    },
+    {
+      "file": "previews/08-listening-no-scenes.webp",
+      "source": "exec-a77ea5b0-7749-4e9e-86e7-f840c432b97e.png",
+      "sha256": "664acc771d7619f3950a117b96a711938c9af0f4c434ce293ac75628638686bc",
+      "status": "Son istiqamət: şəkilsiz dinləmə; yalnız audio və cavab idarələri."
+    },
+    {
+      "file": "previews/09-dual-retry-no-scenes.webp",
+      "source": "exec-3d3daeec-4bb1-43ac-8a59-4d8024b9a8fe.png",
+      "sha256": "3bc4cb1dcfa9a82900003ac5cf532beee10126478fb88ec0d10e8d99692d809d",
+      "status": "Son istiqamət: şəkilsiz iki sahə və düzgün sahəni saxlayan təkrar."
+    },
+    {
+      "file": "previews/10-soft-edge-teaching-speech.webp",
+      "source": "exec-c00d4f8e-76d6-41b5-9a46-34e8b085d89a.png",
+      "sha256": "69cdd1e3e15db07719a0bc31272207bf0048e4bfd92bc5e3968d2bfc900ec080",
+      "status": "Əvəzlənib: geniş blur və artıq alt səs idarələri; tam bədən təsdiqlənməyib."
+    },
+    {
+      "file": "previews/11-simple-microphone.webp",
+      "source": "exec-c2a72570-8823-4256-b27f-5a6ea0e22d8b.png",
+      "sha256": "c3844044e27d44613ae5da659b1b3242f45915d47aca7c2d6c2683f930430a96",
+      "status": "İdarə sadəliyi seçilib; geniş blur və aşağıdan kəsilən personajlar qəbul edilmir."
+    },
+    {
+      "file": "previews/12-crisp-interior-needs-full-body.webp",
+      "source": "exec-30b1f818-358c-4270-8283-412396bda1b7.png",
+      "sha256": "94350e58e777c9210137ab23e0f9b2b35fb4c4f872adf134edd555a7c7232f09",
+      "status": "Daxili aydınlıq və yalnız kənar keçidi istiqaməti seçilib; ayaqlar kəsildiyi üçün bütöv maket qəbul edilmir."
+    }
+  ]
+}

@@ -148,3 +148,8 @@ The user authorizes suitable, compact visuals for audio questions. Search the ex
 ## Fixed lesson viewport — user authorization 2 November 2026
 
 The user explicitly renewed the requirement that all active lesson cards fit the screen without main-page scrolling, and asked to remove the two-person illustration from the listening wave card. This supersedes earlier instructions to preserve the scrolling PacketLesson body. Keep the existing colors, grading, evidence, recording and explicit Continue behavior. The active B1 PacketLesson and PacketExam use FixedLessonViewport; their body is measured in the space remaining between the safe-area header and footer. Artwork yields first, then the body fits the available rectangle. Long result details and explanations open in dismissible overlays. Do not silently reintroduce main-page scrolling or clip answer controls. Legacy non-packet routes have not been migrated by this batch. Do not claim physical-device validation from JS layout tests.
+
+
+## Latest design and interaction decisions — 9 November 2026
+
+Before working on home or lesson UI, read `docs/design/2026-11-09/README.md` and its linked preview status index. These user decisions supersede conflicting older presentation/manual-send notes, while preserving authored content and assessment evidence. Do not treat generated mockups as implemented screens or approved final assets. In particular: keep full bodies visible, feather only outer scene edges, omit unnecessary question illustrations and chat avatars, keep assistance evidence internally without the visible “Köməklə” label, and treat voice auto-submit as an unimplemented requirement until verified. This documentation upload is not runtime implementation or device QA.
