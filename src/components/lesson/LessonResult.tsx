@@ -11,7 +11,7 @@ export default function LessonResult({ title, goal, done, missing, summary, evid
   const total = summary.independent + summary.assisted + summary.wrong + summary.unverified;
   return <View style={s.box}>
     <Text style={s.badge}>{missing ? 'Davam edək' : 'Dərsin nəticəsi'}</Text>
-    <View style={s.celebration}><View style={s.halo} /><LessonMascot height={145} /></View>
+    <View style={s.celebration}><View style={s.halo} /><LessonMascot height={145} pose={missing ? 'teaching' : 'complete'} /></View>
     <Text accessibilityRole="header" style={s.title}>{missing ? 'Dərs hələ tamamlanmayıb' : done ? 'Dərs tamamlandı!' : 'Məşqi tamamladın!'}</Text>
     <Text style={s.subtitle}>{title}</Text>
     {missing ? <Text style={s.error}>{missing} məcburi tapşırıq qalır. Düzgün cavabların saxlanılıb.</Text> : null}

@@ -170,3 +170,12 @@ The user authorized implementing the shared lesson screen system and the first e
 - Module.topicGroups is explicit seven-group author metadata. Validate unique groups, complete nonduplicated lesson coverage and nonempty groups. Never infer one group per existing lesson.
 - Active held speech uses en-GB local-only recognition. Missing on-device support falls back to unverified recording; no cloud request is authorized. A confirmed wrong speaking response offers at most one immediate retry, preserving initial evidence and the bounded authored review.
 - Prepared recordings are optional bundled en-GB assets, bound from recording-plan.json through scripts/prepare-lesson-audio.cjs --bind. There are currently no recording files; device TTS remains the fallback. Never describe a generated text plan or mocked player completion as recorded audio/device validation.
+
+## Complete approved visual set — 11 November 2026
+
+- Twelve additional assets are now generated and connected: nine toy-world scenes and three plain-cloak mascot poses. Provenance and prompts: assets/lessons/scenes/visual-completion-20261111.json. Do not describe the implementation as having only two new pictures.
+- Active placements come from approvedLessonScenes.ts: 15 authored cards, 16 picture placements. Keep images selective; no consecutive image reuse, independent listening/choice/word-bank cues, or stale original-situation images in review.
+- Stable historical ReusableLessonScene IDs point to the approved new people. Preserve Leyla/Ali identities and the mascot's plain cloak/bare feet. Do not resurrect the older people for a new lesson.
+- Additional teaching examples remain fully available with English audio in the common bottom sheet. Main-screen compaction must not delete or rewrite them.
+- Development preview has a complete artwork gallery, authored listening choices and stale-callback protection. Its results never award learner evidence.
+- Latest checks: 89 Jest tests, 11 Node checks, TypeScript/lint and web export. Device and screenshot verification remain outstanding; browser access was blocked by AT-SPI provider availability. Audio files and authored group mapping are still missing, not inferred from test success.

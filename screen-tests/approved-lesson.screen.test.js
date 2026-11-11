@@ -332,3 +332,28 @@ test('object metadata without a known structure cannot create a blank lesson wit
  const source=b1Packet[0]; const card={...source.cards.find(c=>c.kind==='teach'),objectWord:{kind:'object',word:'apple',translation:'alma',image:'apple',example:'This is an apple.',exampleAz:'Bu, almadır.',structureTaught:false,pronunciation:{ipa:'/ˈæp.əl/',source:'https://dictionary.cambridge.org/pronunciation/english/apple',checkedAt:'2026-11-11',locale:'en-GB'}}};
  await renderAsync(<PacketLesson packet={{...source,cards:[source.cards[0],card,source.cards.at(-1)]}}/>); await tick(); await press('Dərsə başla'); expect(screen.getByText('Davam et')).toBeEnabled(); expect(screen.queryByText('Məşqə keç')).not.toBeOnTheScreen();
 });
+test('preview listening uses the authored choices, requires listening and writes no learner achievement', async () => {
+ const Preview=require('../src/components/lesson/LessonPreview').default;
+ await renderAsync(<Preview/>); await act(async()=>fireEvent.press(screen.getByLabelText('Ekran seç'))); await press('4. Dinlə və seç');
+ const card=b1Packet[0].cards.find(c=>c.kind==='task' && c.audio && c.options);
+ expect(screen.getByText('Yoxla')).toBeDisabled(); expect(screen.getByText(card.options[0])).toBeDisabled();
+ await listen(); await press(card.rule.answers[0]); await press('Yoxla');
+ expect(screen.getByText('✓ Düzgündür')).toBeOnTheScreen(); expect(useUserStore.getState().attempts).toEqual({}); expect(useVocabularyStore.getState().allWords).toEqual([]);
+});
+test('a late preview audio completion cannot unlock a different listening screen', async () => {
+ const Preview=require('../src/components/lesson/LessonPreview').default;
+ await renderAsync(<Preview/>); await act(async()=>fireEvent.press(screen.getByLabelText('Ekran seç'))); await press('4. Dinlə və seç');
+ await act(async()=>fireEvent.press(screen.getByLabelText('Səsi dinlə'))); const old=Speech.speak.mock.calls.at(-1)[1];
+ await act(async()=>fireEvent.press(screen.getByLabelText('Ekran seç'))); await press('5. Dinlə və yaz');
+ await act(async()=>old.onDone()); expect(screen.getByLabelText('Cavabını ingiliscə yaz').props.editable).toBe(false);
+ await listen(); expect(screen.getByLabelText('Cavabını ingiliscə yaz').props.editable).toBe(true);
+});
+test('all approved scenes are reachable in the device gallery; image errors offer a retry', async () => {
+ const Preview=require('../src/components/lesson/LessonPreview').default;
+ const {approvedSceneLabels}=require('../src/utils/approvedLessonScenes');
+ await renderAsync(<Preview/>); await act(async()=>fireEvent.press(screen.getByLabelText('Ekran seç'))); await press('Bütün vizuallara bax');
+ Object.values(approvedSceneLabels).forEach(label=>expect(screen.getByLabelText(label)).toBeOnTheScreen());
+ await act(async()=>fireEvent(screen.getByLabelText(approvedSceneLabels['toy-entrance']),'error',{nativeEvent:{error:'unavailable'}}));
+ await act(async()=>fireEvent.press(screen.getByLabelText(`${approvedSceneLabels['toy-entrance']} şəklini yenidən yüklə`)));
+ expect(screen.getByLabelText(approvedSceneLabels['toy-entrance']).props.recyclingKey).toBe('toy-entrance:1');
+});

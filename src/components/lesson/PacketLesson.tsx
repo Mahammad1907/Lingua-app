@@ -23,7 +23,8 @@ import TwoMessageInput from './TwoMessageInput';
 import ObjectWordCard, { isReadyObjectWord } from './ObjectWordCard';
 import { objectImage, contentScene } from '../../utils/lessonContentAssets';
 import { assessMessages, messageValues, retainedMessages, messageAnswerText, type MessageResults } from '../../utils/messageTask';
-import { Image } from 'expo-image';
+import ApprovedLessonScene from './ApprovedLessonScene';
+import { buildApprovedScenePlan } from '../../utils/approvedLessonScenes';
 import { preparedAudioSource } from '../../data/preparedLessonAudio';
 import { playPreparedAudio } from '../../utils/preparedAudioPlayback';
 import HoldVoiceInput from './HoldVoiceInput';
@@ -114,7 +115,7 @@ function PacketLessonBody({ packet }: { packet: Content }) {
   const retained = reviewing && card?.messages ? retainedMessages(card, outcomes[original.id]?.fields) : {};
   const messages = { ...retained, ...messageValues(answer) };
   const printableAnswer = card?.messages ? messageAnswerText(card, messages) : answer;
-  const scene = card?.kind === 'task' && !audio && !card.options && !card.words && !card.messages && !reviewing && card.rule?.goals?.includes('farewell') && /Leylagildən/.test(card.body) ? contentScene('toy-farewell') : undefined;
+  const selectedScenes = reviewing ? [] : buildApprovedScenePlan(flow)[index] || [];
   const textPrompt = technicalText || transcriptShown;
   const promptReady = heard || textPrompt;
   const voiceLayout = Boolean(voiceOpen || card?.kind === 'voice' && promptReady);
@@ -359,11 +360,11 @@ function PacketLessonBody({ packet }: { packet: Content }) {
       </> : <>
         {reviewing ? <Text style={s.review}>↻ Təkrar</Text> : null}
         {card.kind !== 'teach' ? <Text accessibilityRole="header" style={s.title}>{title}</Text> : null}
-        {card.kind === 'teach' ? readyObject ? <ObjectWordCard entry={readyObject} onSpeak={text => void speak(text)} onPractice={() => { if (!vocabularyError) advance(); }} /> : <LessonTeaching key={card.id} card={card} packet={packet} onSpeak={text => void speak(text)} /> : <>
+        {card.kind === 'teach' ? readyObject ? <ObjectWordCard entry={readyObject} onSpeak={text => void speak(text)} onPractice={() => { if (!vocabularyError) advance(); }} /> : <LessonTeaching key={card.id} card={card} packet={packet} onSpeak={text => void speak(text)} scenes={selectedScenes} artworkHeight={keyboard || fontScale > 1.35 ? 0 : Math.max(85, Math.min(145, viewportHeight * .24))} /> : <>
           <Text style={s.instruction}>{turn?.prompt || card.body}</Text>
-          {scene ? <Image source={scene} contentFit="cover" accessibilityLabel="Əli Leylagildən ayrılır" style={{ width: '100%', height: 125, borderRadius: 20 }} /> : null}
+          {selectedScenes.length && !keyboard && fontScale <= 1.35 ? <ApprovedLessonScene ids={selectedScenes} height={Math.max(95, Math.min(145, viewportHeight * .25))} /> : null}
           {audio ? <View style={s.audio}>
-            {card.kind === 'voice' ? <LessonMascot height={60} style={{ width: 44 }} /> : null}
+            {card.kind === 'voice' ? <LessonMascot height={60} pose="listening" style={{ width: 44 }} /> : null}
             <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Səsi dayandır' : 'Səsi dinlə'} disabled={capturing} onPress={() => { if (playing) { sequence.current++; clearWatchdog(); stopPlayback(); setPlaying(false); } else void speak(audio, turn?.rate || .75, true); }} style={s.play}><LessonIcon name={playing ? 'pause' : 'play'} color="#FFF" /></Pressable>
             <View style={{ flex: 1 }}><LessonAudioWave playing={playing} /></View>
             <Pressable accessibilityRole="button" accessibilityLabel="Yavaş dinlə" disabled={capturing} onPress={() => void speak(audio, Math.min(.45, turn?.rate || .75), true)} style={s.slow}><LessonIcon name="turtle" size={25} /><Text style={s.small}>Yavaş dinlə</Text></Pressable>

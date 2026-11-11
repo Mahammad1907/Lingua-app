@@ -2,13 +2,13 @@ import { Image as NativeImage } from 'react-native';
 import { Image } from 'expo-image';
 export const classroomSource = require('../../assets/lessons/written-classroom.webp');
 export const lessonSceneSources = {
-  conversation: require('../../assets/lessons/conversation-3d.webp'),
-  gratitude: require('../../assets/lessons/scenes/gratitude-3d.webp'),
-  apology: require('../../assets/lessons/scenes/apology-3d.webp'),
-  clarify: require('../../assets/lessons/scenes/clarify-3d.webp'),
-  farewell: require('../../assets/lessons/scenes/farewell-3d.webp'),
-  'name-card': require('../../assets/lessons/scenes/name-card-3d.webp'),
-  feelings: require('../../assets/lessons/scenes/feelings-3d.webp'),
+  conversation: require('../../assets/lessons/scenes/toy-park.webp'),
+  gratitude: require('../../assets/lessons/scenes/toy-gratitude.webp'),
+  apology: require('../../assets/lessons/scenes/toy-apology.webp'),
+  clarify: require('../../assets/lessons/scenes/toy-clarify.webp'),
+  farewell: require('../../assets/lessons/scenes/toy-farewell.webp'),
+  'name-card': require('../../assets/lessons/scenes/toy-introduction.webp'),
+  feelings: require('../../assets/lessons/scenes/toy-feeling-okay.webp'),
 };
 const warmed = new Set<string>();
 export async function warmLessonArtwork(sources: readonly number[] = [classroomSource, lessonSceneSources.conversation]) {

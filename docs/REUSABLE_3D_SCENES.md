@@ -63,3 +63,9 @@ I am / My name is və my / your müqayisə kartları lövhədə qalır. Yeni sə
 ## 11 noyabr 2026 — təsdiqlənmiş oyuncaq dünyası
 
 Son qərar köhnə insan səhnələrinin görünüşünü aktiv yeni dərslər üçün əvəz edir. `toy-park` əvvəl təsdiqlənmiş parkdır; `toy-farewell` Leylagildən ayrılma, `object-apple` isə yalnız əşya kartı üçündür. Yeni səhnələr yazısızdır, Leyla və Əli istinad görünüşünü saxlayır. Promptlar `assets/lessons/scenes/approved-20261111.json`-dadır. Köhnə fayllar arxiv/imtahan uyğunluğu üçün silinməyib. Mövzusu uyğun gəlməyən kartda parkı göstərmək və ya şəkli hər tapşırığa yerləşdirmək olmaz.
+
+## 11 noyabr 2026 — əlavə 12 vizualın tam dəsti
+
+Doqquz yeni səhnə və üç maskot pozası `visual-completion-20261111.json` kataloqunda tam prompt və mənşə ilə qeyd olunub. Mənbə istinadları istifadəçinin bu söhbətdə verdiyi Leyla/Əli, ana maskot və təsdiqlənmiş parkdır. Aktiv yerləşmə `approvedLessonScenes.ts` vasitəsilə müəllifin real vəziyyətlərinə bağlanır. Əsas audio/variant/söz-bankı yoxlamalarında səhnə yoxdur, təkrarda köhnə vəziyyət şəkli göstərilmir. Yeni şəkil yaratmazdan əvvəl bu 11 uyğun insan səhnəsini (park və sağollaşma daxil) nəzərdən keçir. Eyni səhnəni yeni dərs/dil üçün yenidən yaratma.
+
+Köhnə conversation/gratitude/apology/clarify/farewell/name-card/feelings ID-ləri `ReusableLessonScene` daxilində təsdiqlənmiş yeni personajlara yönəlir. Şəkillər bütöv göstərilir, native mətn qatına cavab yazılması bu şəkil kataloqunun işi deyil. Yeni söz kartları üçün alma ayrıca object-apple ID-sindədir; ünsiyyət ifadələrinə əşya kartı tətbiq edilmir.
