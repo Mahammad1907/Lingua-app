@@ -245,3 +245,12 @@ test.each(b1Packet.map(packet => [packet.order, packet]))('lesson %s: mistakes i
  expect(Object.values(progress.initialEvidence).every(item => item.correct === false)).toBe(true);
  expect(mockRouter.replace).not.toHaveBeenCalled();
 });
+test('a contextual choice uses the short screen heading and has no extra Skip footer', async () => {
+ const packet = b1Packet[1]; useUserStore.setState({ completedLessons: [b1Packet[0].id] });
+ await renderAsync(<PacketLesson packet={packet} />); await tick(); await press('Dərsə başla');
+ const firstTask = packetFlow(packet).find(c => c.kind === 'task'); await checkAnswer(firstTask, firstTask.rule.answers[0]); await press('Davam et');
+ expect(screen.getByRole('header').props.children).toBe('Cavabı seç');
+ expect(screen.getByText('Tanışın gedir.\nSağollaşmaq üçün ifadəni seç.', { exact: true })).toBeOnTheScreen();
+ expect(screen.queryByText('Keç', { exact: true })).not.toBeOnTheScreen();
+ expect(screen.getByText('Yoxla', { exact: true })).toBeDisabled();
+});

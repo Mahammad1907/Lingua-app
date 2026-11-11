@@ -223,3 +223,7 @@ Yoxlama bu söhbətdə yerli mənbədəki 803a6d4e8cc497e75c51f9ec1fa6750acc5f37
 - Xəritənin 7 mövzu qrupu ayrıca dərs sayı deyil. Qrup daxilində dərslər ayrıca açılıb tamamlanır. Yeni qrup–dərs siyahısı hələ verilmədiyindən mövcud 7 dərs özbaşına 7 qrupa çevrilmir.
 
 11 noyabr tarixli 3D səhnə və əşya söz kartı qeydləri də qüvvədədir. Bu tarixli yeni tətbiqin faktiki yoxlama nəticələri və açıq qalan işlər docs/LESSON_UI_20261111.md faylında qeyd olunur. Əvvəlki test hesabatları öz tarixlərinə aiddir və yeni ekranların avtomatik təsdiqi sayılmır.
+
+## İlk real ekran baxışı — 11 noyabr 2026
+
+İstifadəçinin iOS Expo Go görüntüsü yeni dərs kodunun açıldığını təsdiqlədi, lakin maketə tam uyğunluğu yox. Uzun kart başlığı, seçim–düymə boşluğu və bütün tapşırıqlarda göstərilən Keç uyğunlaşdırıldı; əsas sual/cavab məzmunu qorundu. Sütun formalı audio dalğası və öyrətmənin tünd bənövşəyi maskot sahəsi seçilmiş istinada yaxınlaşdırıldı. Yoxlama: 75 avtomatik test, TypeScript və lint (0 xəta, əvvəlki 1 xəbərdarlıq). Yeni yerləşmənin iPhone-da yenidən yoxlanması lazımdır. Bölmə xəritəsinin köhnə görünüşü və oradakı boş şəkil dairələri bu dərs düzəlişinə daxil deyil.
