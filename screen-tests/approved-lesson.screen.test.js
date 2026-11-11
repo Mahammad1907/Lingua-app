@@ -357,3 +357,13 @@ test('all approved scenes are reachable in the device gallery; image errors offe
  await act(async()=>fireEvent.press(screen.getByLabelText(`${approvedSceneLabels['toy-entrance']} şəklini yenidən yüklə`)));
  expect(screen.getByLabelText(approvedSceneLabels['toy-entrance']).props.recyclingKey).toBe('toy-entrance:1');
 });
+test('reference fix is limited to the first lesson introduction; Start still opens its authored teaching card', async () => {
+ const {firstWelcomeCopy}=require('../src/components/lesson/FirstLessonWelcome');
+ await renderAsync(<PacketLesson packet={b1Packet[0]}/>); await tick();
+ expect(screen.getByTestId('reference-first-welcome')).toBeOnTheScreen(); expect(screen.queryByTestId('packet-lesson-viewport')).not.toBeOnTheScreen();
+ expect(screen.getByText(firstWelcomeCopy.subtitle)).toBeOnTheScreen(); firstWelcomeCopy.objectives.forEach(text=>expect(screen.getByText(text)).toBeOnTheScreen());
+ expect(screen.getAllByText('Dərsə başla')).toHaveLength(1); await press('Dərsə başla');
+ expect(screen.queryByTestId('reference-first-welcome')).not.toBeOnTheScreen(); expect(screen.getByTestId('packet-lesson-viewport')).toBeOnTheScreen();
+ await act(async()=>cleanup()); useUserStore.setState({attempts:{}}); await renderAsync(<PacketLesson packet={b1Packet[1]}/>); await tick();
+ expect(screen.queryByTestId('reference-first-welcome')).not.toBeOnTheScreen(); expect(screen.getByText('Tanışlıq öz adından başlayır.')).toBeOnTheScreen();
+});

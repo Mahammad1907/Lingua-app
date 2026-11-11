@@ -245,3 +245,7 @@ Development dərs menyusunda Ekran nümunələri real komponentlərə tez baxı�
 15 uyğun kartda 16 şəkil yerləşdirməsi var; bütün ekranlara şəkil qoyulmur. Ardıcıl təkrar və qiymətləndirilən dinləmə/seçimdə cavab ipucu yoxlanır. Köhnə insan səhnə ID-ləri də yeni Leyla/Əli şəkillərinə yönəldilir. İki mesaj önbaxışı qapıda qarşılama/ayrılma şəkillərini istifadə edir. Şəkillərin daxilində söz və cavab yoxdur.
 
 Bütün müəllif nümunələri saxlanır; əsas nümunə ekranda, digərləri Bütün nümunələr/Qısa izah panelində audio və tərcümə ilə açılır. Vizual dəsti developer önbaxışının menyusundan ayrıca əlçatandır. Önbaxışın audio yarışları və dinləmədən əvvəl cavabın açılması düzəldilib. 89 Jest testi, 11 Node yoxlaması, TypeScript/lint və veb export keçib; bir köhnə lint xəbərdarlığı qalır. AT-SPI brauzer məhdudiyyəti səbəbindən real UI screenshot-u, fiziki iPhone/audio/mikrofon təsdiqi yoxdur. Qrup bölgüsü/yeni müəllif kartları, real Britaniya audio faylları və hesabat çatdırılması üçün xarici konfiqurasiya hələ açıqdır.
+
+## 11 noyabr 2026 — geniş icra dayandırıldı, bir giriş ekranı ilə yenidən başlanır
+
+İstifadəçi nəticədən və sərf olunan limitdən narazı olduğunu bildirdi. Razılaşma: yeni şəkil və geniş dəyişiklik yoxdur; bir ekran düzəldilib telefonda qəbul olunmadan qalanlarına keçilmir. İstifadəçi öyrətmə əvəzinə birinci dərsin giriş istinadını yenidən göndərib “Bunnan başla” dedi. Cari dar iş yalnız həmin girişdir; docs/FIRST_LESSON_WELCOME.md sərhədi qeyd edir. Digər ekranların keyfiyyəti avtomatik test sayına əsasən təsdiqlənməməlidir.

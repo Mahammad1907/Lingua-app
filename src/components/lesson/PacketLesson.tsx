@@ -39,6 +39,7 @@ import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import { LessonButton, LessonIcon, SelectionMark, ink } from './ApprovedLessonSurface';
 import { lessonHint } from '../../utils/lessonGuide';
 import LessonWelcome from './LessonWelcome';
+import FirstLessonWelcome from './FirstLessonWelcome';
 import LessonExitDialog from './LessonExitDialog';
 import WrittenAnswerInput from './WrittenAnswerInput';
 import { LessonVocabularyProvider } from './LessonVocabularyText';
@@ -306,6 +307,7 @@ function PacketLessonBody({ packet }: { packet: Content }) {
   if (!card || !attempt) return <View style={[s.screen, { padding: 24 }]}><Text style={s.body}>{checkpointError || 'Dərs hazırlanır…'}</Text>{checkpointError ? <LessonButton label="Yenidən cəhd et" onPress={() => setBoot(v => v + 1)} /> : null}<TouchableOpacity onPress={() => router.back()}><Text style={s.link}>Geri</Text></TouchableOpacity></View>;
   const isResult = card.kind === 'result';
   const isIntro = card.kind === 'intro';
+  const referenceIntro = isIntro && packet.id === 'a1_en_b1_v2_d1';
   const correct = feedback?.status === 'correct';
   const answerMotion: LessonMotion = !feedback || feedback.status === 'unknown' ? 'idle' :
     correct ? outcomes[card.id]?.status === 'assisted' ? 'assisted' : 'correct' : 'incorrect';
@@ -345,15 +347,16 @@ function PacketLessonBody({ packet }: { packet: Content }) {
   const primaryAction = () => isResult ? done ? leave() : missing.length ? retryMissing() : void finish() : !task || locked ? advance() : check();
   const primaryLabel = isResult ? done ? 'Bölməyə qayıt' : missing.length ? 'Qalan tapşırıqları tamamla' : 'Nəticəni saxla' : isIntro ? 'Dərsə başla' : task && !locked ? 'Yoxla' : 'Davam et';
   return <KeyboardAvoidingView style={[s.screen, { paddingTop: insets.top }]} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-    <LinearGradient pointerEvents="none" colors={['#F5EEFF', '#EFE3FC', '#F6F0FF']} style={StyleSheet.absoluteFill} />
+    <LinearGradient pointerEvents="none" colors={referenceIntro ? ['#EEE0FC', '#F5ECFF', '#EAD9FA'] : ['#F5EEFF', '#EFE3FC', '#F6F0FF']} style={StyleSheet.absoluteFill} />
     <StatusBar style="dark" />
     <Stack.Screen options={{ headerShown: false, gestureEnabled: false }} />
-    <View style={s.header}>
-      <Pressable accessibilityRole="button" accessibilityLabel="Dərsdən geri çıx" onPress={exit} style={s.round}><LessonIcon name="back" color={ink.text} /></Pressable>
-      <Text style={s.lessonName}>Dərs {packet.order}</Text><View style={{ width: 1, height: 25, backgroundColor: ink.violet }} />
+    <View style={[s.header, referenceIntro && { paddingLeft: 36, paddingRight: 28, paddingVertical: 10, gap: 14 }]}>
+      <Pressable accessibilityRole="button" accessibilityLabel="Dərsdən geri çıx" onPress={exit} style={[s.round, referenceIntro && { width: 32, height: 32, borderRadius: 16 }]}><LessonIcon name="back" color={ink.text} /></Pressable>
+      <Text style={[s.lessonName, referenceIntro && { fontSize: 16 }]}>Dərs {packet.order}</Text><View style={{ width: 1, height: 25, backgroundColor: ink.violet }} />
       <LessonProgressBar value={isResult ? missing.length ? .99 : 1 : reviewing ? .9 + .09 * (1 - queue.length / Math.max(1, reviewTotal)) : .9 * index / Math.max(1, flow.length - 1)} />
       <Pressable accessibilityRole="button" accessibilityLabel="Dərs menyusu" disabled={capturing} onPress={() => setMenuOpen(true)} style={s.menu}><Text style={s.dots}>⋮</Text></Pressable>
     </View>
+    {referenceIntro ? <FirstLessonWelcome title={packet.title} onStart={primaryAction} disabled={disabled || Boolean(vocabularyError)} bottomInset={insets.bottom} notice={checkpointError ? <Text accessibilityLiveRegion="polite" style={s.error}>{checkpointError}</Text> : undefined} /> : <>
     <FixedLessonViewport fill={Boolean(card.options && !keyboard)} testID="packet-lesson-viewport" onHeight={setViewportHeight} contentContainerStyle={s.content}>
       {isIntro ? <LessonWelcome packet={packet} compact={height < 850 || fontScale > 1.15} sceneHeight={Math.max(110, Math.min(180, viewportHeight * .29))} /> : isResult ? <>
         <LessonResult title={packet.title} goal={metadata?.canDo || packet.goal} done={done} missing={missing.length} summary={summary} evidence={evidenceSummary} receipt={receipt} error={completionError} onDetails={() => setDetailsOpen(true)} />
@@ -391,6 +394,7 @@ function PacketLessonBody({ packet }: { packet: Content }) {
       {task && feedback?.status === 'unknown' && (answer.trim() || recordedReply) ? <LessonButton label="Yoxlanmadı ilə davam et" onPress={continueUnverified} /> : null}
       {card.kind === 'voice' && !locked && !keyboard ? <Pressable accessibilityRole="button" disabled={capturing} onPress={skip} style={[s.pill, { alignSelf: 'center' }]}><Text style={s.link}>Keç</Text></Pressable> : null}
     </View>
+    </>}
     <LessonHelpSheet visible={helpOpen} onClose={() => setHelpOpen(false)} hint={hint || (card.kind === 'voice' ? 'Qarşı tərəfin dediyini dinlə və vəziyyətə uyğun qısa cavab ver.' : 'Səsi dinlə və tapşırıqda istənən cavabı seç və ya yaz.')} audio={Boolean(audio)} speaking={card.kind === 'voice'} revealed={help} example={card.messageExample?.join(' / ')} exampleRevealed={exampleShown} onExample={() => { setExampleShown(true); setHelp(true); useUserStore.getState().useHelp(attempt); }} onHint={() => { setHelp(true); useUserStore.getState().useHelp(attempt); }} onText={() => { if (!transcriptVisible) revealTextPrompt(); setHelpOpen(false); }} />
     {feedback ? <LessonFeedback key={`${card.id}:${feedback.status}`} verdict={feedback} explanation={feedback.status === 'unknown' || correct ? feedback.message : card.messages ? feedback.message : feedbackCopy(card, answer).reason} shortRule={card.explanation || hint || feedback.message} example={authoredExample} assisted={outcomes[card.id]?.status === 'assisted'} answer={printableAnswer || built.map(i => card.words![i]).join(' ')} accepted={card.messages ? card.messages.map(field => `${field.label}: ${field.rule.answers.join(' / ')}`) : rule?.answers} needsPractice={reviewing && !correct && locked} open={feedbackOpen && !reportOpen} onClose={() => setFeedbackOpen(false)} onReport={() => { setFeedbackOpen(false); setReportOpen(true); }} onContinue={feedback.status === 'unknown' && !answer.trim() && !recordedReply ? undefined : continueAnswer} disabled={!continueReady} onRetry={card.kind === 'voice' && (feedback.status === 'unknown' || !reviewing && !correct && !outcomes[card.id]?.voiceRetryUsed) ? () => {
       if (!continueReady) return;

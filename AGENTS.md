@@ -179,3 +179,7 @@ The user authorized implementing the shared lesson screen system and the first e
 - Additional teaching examples remain fully available with English audio in the common bottom sheet. Main-screen compaction must not delete or rewrite them.
 - Development preview has a complete artwork gallery, authored listening choices and stale-callback protection. Its results never award learner evidence.
 - Latest checks: 89 Jest tests, 11 Node checks, TypeScript/lint and web export. Device and screenshot verification remain outstanding; browser access was blocked by AT-SPI provider availability. Audio files and authored group mapping are still missing, not inferred from test success.
+
+## Current narrow correction after rejection — 11 November 2026
+
+The user rejected the broad visual result and the cost of that approach. Stop image generation and broad UI edits. Work on one screen, verify it on the user's phone and wait for their acceptance before applying its layout to other screens. The user explicitly selected the first lesson INTRODUCTION reference (“Bunnan başla”), superseding the proposed teaching-screen starting point. Current change is FirstLessonWelcome for a1_en_b1_v2_d1 only, plus its developer preview. Other lesson screens and content must stay unchanged. See docs/FIRST_LESSON_WELCOME.md. Automated tests do not establish visual acceptance.
