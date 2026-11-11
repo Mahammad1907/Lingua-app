@@ -4,18 +4,19 @@ import { AppState, Platform } from 'react-native';
 import { getSpeechEngine } from '../utils/speechEngine';
 import { SpeechTurn, type SpokenAnswer } from '../utils/speechTurn';
 
-export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, autoStart = false, autoSubmit = false }: {
+export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, autoStart = false, autoSubmit = false, holdToSpeak = false, locale = 'en-US', localOnly = false }: {
   onFinal: (answer: SpokenAnswer) => string | null;
   onBusyChange: (busy: boolean) => void;
-  suspended?: boolean; autoStart?: boolean; autoSubmit?: boolean;
+  suspended?: boolean; autoStart?: boolean; autoSubmit?: boolean; holdToSpeak?: boolean; locale?: 'en-GB' | 'en-US'; localOnly?: boolean;
 }) {
-  const [engine] = useState(getSpeechEngine);
+  const [engine] = useState(() => { const native = getSpeechEngine(); if (!localOnly) return native; try { return native?.supportsOnDeviceRecognition() ? native : null; } catch { return null; } });
   const [turn] = useState(() => new SpeechTurn());
   const [phase, setPhase] = useState<'idle' | 'preparing' | 'listening' | 'processing' | 'review'>('idle');
   const [partial, setPartial] = useState(''), [message, setMessage] = useState('');
   const [level, setLevel] = useState(0), [needsNetwork, setNeedsNetwork] = useState(false);
   const [needsModel, setNeedsModel] = useState(false);
   const [draft, setDraft] = useState<SpokenAnswer | null>(null), [reviewText, setReviewText] = useState('');
+  const held = useRef(false), buffered = useRef<SpokenAnswer | null>(null);
   const candidate = useRef<SpokenAnswer | null>(null);
   const audioUri = useRef(''), audioStart = useRef(0), audioGeneration = useRef(0);
   const networkAllowed = useRef(false);
@@ -29,22 +30,24 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
     const invalidate = () => { generation.current += 1; pending.current = false; };
     const abort = () => { try { engine?.abort(); } catch { closing.current = false; } };
     const fail = (text: string) => {
-      turn.cancel(); candidate.current = null; setDraft(null); generation.current++; pending.current = false;
+      held.current = false; buffered.current = null; turn.cancel(); candidate.current = null; setDraft(null); generation.current++; pending.current = false;
       closing.current = true; abort();
       if (alive.current) { setPhase('idle'); setLevel(0); setMessage(text); }
     };
     const finish = () => {
       closing.current = false;
       if (!alive.current || turn.phase === 'idle') return;
-      if (handlers.current.suspended) { turn.cancel(); setPhase('idle'); setLevel(0); return; }
+      if (handlers.current.suspended || AppState.currentState !== 'active') { held.current = false; buffered.current = null; turn.cancel(); setPhase('idle'); setLevel(0); return; }
       const recognized = turn.finish();
       const result = recognized ? { ...recognized, uri: audioUri.current || undefined } : null; setLevel(0);
+      if (result && holdToSpeak && held.current) { buffered.current = result; setPhase('processing'); return; }
       if (result && handlers.current.autoSubmit && AppState.currentState === 'active') {
         // The finished turn is consumed before calling out: duplicate native end
         // events cannot send the same recognized utterance again.
         candidate.current = null;
         const message = handlers.current.onFinal({ ...result, edited: false });
         if (!message) { setDraft(null); setReviewText(''); setPhase('idle'); setMessage(''); return; }
+        if (holdToSpeak) { candidate.current = null; setDraft(null); setPhase('idle'); setMessage(message); return; }
         candidate.current = result; setDraft(result); setReviewText(result.text); setPhase('review'); setMessage(message); return;
       }
       candidate.current = result; setDraft(result); setReviewText(result?.text || '');
@@ -84,15 +87,15 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
       if (action === 'empty' || action === 'timeout') fail(action === 'empty' ? 'Səs eşidilmədi. Mikrofona toxunub yenidən danış.' : 'Yekun mətn alınmadı. Yenidən danış; bu, səhv sayılmır.');
     }, 120);
     const app = AppState.addEventListener('change', state => {
-      if (state !== 'active' && turn.phase !== 'idle') fail('Danışıq dayandırıldı. Hazır olanda yenidən danış.');
+      if (state !== 'active' && (turn.phase !== 'idle' || held.current || buffered.current || pending.current)) fail('Danışıq dayandırıldı. Hazır olanda yenidən danış.');
     });
     return () => {
-      alive.current = false; candidate.current = null; invalidate(); turn.cancel();
+      alive.current = false; held.current = false; buffered.current = null; candidate.current = null; invalidate(); turn.cancel();
       clearInterval(timer); app.remove(); subscriptions.forEach(s => s.remove()); abort(); handlers.current.onBusyChange(false);
     };
-  }, [engine, turn]);
+  }, [engine, turn, holdToSpeak]);
   const cancel = useCallback(() => {
-    generation.current++; audioUri.current = ''; audioStart.current = 0; pending.current = false; candidate.current = null; setDraft(null); setReviewText('');
+    held.current = false; buffered.current = null; generation.current++; audioUri.current = ''; audioStart.current = 0; pending.current = false; candidate.current = null; setDraft(null); setReviewText('');
     if (turn.phase !== 'idle') { closing.current = true; turn.cancel(); try { engine?.abort(); } catch { closing.current = false; } }
     setPhase('idle'); setLevel(0); setMessage('');
   }, [engine, turn]);
@@ -101,7 +104,8 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
     if (!engine) { setMessage('Səs tanıma Expo Go-da açılmır. Bu funksiya üçün ayrıca BirTalk tətbiqi lazımdır.'); return; }
     if (pending.current || turn.phase !== 'idle' || handlers.current.suspended) return;
     if (closing.current) { setMessage('Mikrofon bağlanır. Bir an sonra yenidən toxun.'); return; }
-    const useNetwork = network || networkAllowed.current;
+    if (holdToSpeak) held.current = true;
+    const useNetwork = !localOnly && (network || networkAllowed.current);
     const request = ++generation.current;
     pending.current = true; audioUri.current = ''; audioStart.current = 0; audioGeneration.current = request; candidate.current = null; setDraft(null); setReviewText(''); setPhase('preparing'); setMessage(''); setPartial('');
     try {
@@ -116,15 +120,24 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
       if (!engine.isRecognitionAvailable()) { setMessage('Telefonun səs tanıma xidməti hazır deyil. Yenidən cəhd et.'); return; }
       networkAllowed.current = useNetwork;
       turn.begin(Date.now()); setNeedsModel(false); setNeedsNetwork(false); setLevel(0); setPhase('listening');
-      engine.start({ lang: 'en-US', interimResults: true, continuous: false, maxAlternatives: 1, requiresOnDeviceRecognition: !useNetwork, ...(engine.supportsRecording?.() ? { recordingOptions: { persist: true } } : {}), volumeChangeEventOptions: { enabled: true, intervalMillis: 120 } });
+      engine.start({ lang: locale, interimResults: true, continuous: false, maxAlternatives: 1, requiresOnDeviceRecognition: !useNetwork, ...(engine.supportsRecording?.() ? { recordingOptions: { persist: true } } : {}), volumeChangeEventOptions: { enabled: true, intervalMillis: 120 } });
     } catch { if (!alive.current || request !== generation.current) return; turn.cancel(); try { engine.abort(); } catch { /* Native service may already be closed. */ } if (alive.current) setMessage('Səs tanıma açılmadı. Yenidən cəhd et.'); }
     finally {
       if (request === generation.current) { pending.current = false; if (alive.current && turn.phase === 'idle') setPhase('idle'); }
     }
-  }, [engine, turn]);
+  }, [engine, turn, holdToSpeak, locale, localOnly]);
   useEffect(() => { if (!autoStart) return; const timer = setTimeout(() => void start(), 0); return () => clearTimeout(timer); }, [autoStart, start]);
+  const deliverBuffered = (result: SpokenAnswer) => {
+    if (!alive.current || handlers.current.suspended || AppState.currentState !== 'active') { buffered.current = null; return; }
+    buffered.current = null;
+    const message = handlers.current.onFinal({ ...result, edited: false });
+    setPhase('idle'); setMessage(message || ''); setDraft(null); setReviewText('');
+  };
   const stop = () => {
-    if (turn.phase !== 'listening') return;
+    held.current = false;
+    if (buffered.current) { deliverBuffered(buffered.current); return; }
+    if (pending.current && turn.phase === 'idle') { cancel(); return; }
+    if (turn.phase === 'idle') return;
     turn.processing(Date.now()); setPhase('processing');
     try { engine?.stop(); } catch { cancel(); setMessage('Səs alınmadı. Yenidən cəhd et.'); }
   };
@@ -148,7 +161,7 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
     if (!engine || Platform.OS !== 'android' || !(Number(Platform.Version) >= 33) || pending.current || candidate.current || handlers.current.suspended || turn.phase !== 'idle') return;
     const request = ++generation.current; pending.current = true; setPhase('preparing'); setMessage('');
     try {
-      const result = await engine.androidTriggerOfflineModelDownload({ locale: 'en-US' });
+      const result = await engine.androidTriggerOfflineModelDownload({ locale });
       if (!alive.current || request !== generation.current) return;
       setMessage(result.status === 'download_success' ? 'İngilis dili modeli hazırdır. Mikrofona toxunub yenidən danış.' : 'Telefonun model yükləməsini tamamla, sonra mikrofona toxun.');
       if (result.status === 'download_success') setNeedsModel(false);

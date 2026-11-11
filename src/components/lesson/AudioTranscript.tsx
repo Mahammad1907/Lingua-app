@@ -1,6 +1,6 @@
 import { Animated, Pressable, StyleSheet } from 'react-native';
 import { useLessonTextMotion } from './LessonTextMotion';
-import { ink } from './LessonSurface';
+import { ink } from './ApprovedLessonSurface';
 
 export default function AudioTranscript({ text, onHide }: { text: string; onHide: () => void }) {
   const motion = useLessonTextMotion('reveal');

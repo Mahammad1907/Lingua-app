@@ -209,3 +209,43 @@ Yoxlama bu söhbətdə yerli mənbədəki 803a6d4e8cc497e75c51f9ec1fa6750acc5f37
 - `check-vocabulary-persistence.cjs` və `check-lesson-regressions.cjs` yenidən işləndi və keçdi: mövcud təkrarsızlıq/yaddaş və cavab/vurğu qaydalarını yoxlayırlar. İlk öyrətmə vaxtı əlavə, yeni əşya kartı, IPA mənbələri və real cihaz audio yoxlamasını təsdiqləmirlər.
 
 **Status:** Bu əlavədə tələb və mövcud vəziyyət sənədləşdirilib. Yeni əşya kartı, ilk öyrətmə anında lüğət əlavəsi və audio vahidləşdirilməsi bu qeydlə tətbiq edilməyib; real telefon sınağı aparılmayıb.
+
+## Cari ekran qaydalarının üstünlüyü və tətbiqə başlanması — 11 noyabr 2026
+
+İstifadəçi “Tamam edək də onda” ilə ortaq ekran sisteminin və mövcud ilk dərsin hazırlanmasını təsdiqlədi. Bu söhbətdəki son qaydalar əvvəlki ziddiyyətli qeydlərdən üstündür:
+
+- Açıq bənövşəyi dərs ekranları, tünd başlıqlar, bənövşəyi əsas düymələr və yoxlamadan sonra yaşıl/qırmızı nəticələr qəbul edilmiş istiqamətdir. Köhnə tünd dərs palitrası və narıncı əsas düymə bu yeni ekranların istinadı deyil.
+- Təkrar üçün ayrıca giriş ekranı göstərilmir. Səhv edilən tapşırığın öz quruluşu yeni müəllif vəziyyəti ilə və kiçik “Təkrar” qeydi ilə qayıdır. Sonsuz təkrar və avtomatik növbəti dərs yoxdur.
+- Aktiv danışıq mikrofonu basılı saxlanılır; buraxanda cavab bir dəfə çatdırılır. İstifadəçinin səsini dinləmə və ayrıca göndərmə düyməsi yoxdur. Bu, əvvəlki toxunub başlatma/danışıq-bitmə idarəsini əvəz edir. Tanınma qeyri-müəyyənliyi dil səhvi deyil.
+- Dinləmədə “İpucu / Mətnlə davam et”, danışıqda “İpucu / Mətni göstər” eyni aşağı paneldədir. “İndi dinləyə bilmirəm” əsas dinləmə ekranında Yoxla-nın üstündədir. Köhnə “Səsi başa düşmürəm” əsas yardım adı bu düzülüşdə istifadə edilmir; mətn açılmasının dinləmə sübutunu ləğv etməsi qalır.
+- Ətraflı izah “Mənə başa sal” adlanır və Sənin cavabın / Uyğun cavablar / Səbəb / Qısa qayda / Yeni nümunə hissələrinə ayrılır. Köhnə alternativ izah başlıqları bu yeni ekran sisteminin əsası deyil. Qiymətləndirilmiş düzgün və səhv nəticədə yuxarı sağda bayraqlı “Xəta bildir” və menyudan giriş nəzərdə tutulur.
+- Qısa söhbət əvvəlcədən hazırlanmış ifadələr və cavablarla API-siz qurulur. Əvvəlki Azure/hibrid müzakirələri tarixçə və ayrıca sınaq qeydləridir; onların yeni axında avtomatik qoşulduğu nəzərdə tutulmur. Hazır audio fayllarının tədarükü ayrıca işdir; mövcud mətn səsləndirməsi hazır yazılmış audio kimi təqdim edilməməlidir.
+- Xəritənin 7 mövzu qrupu ayrıca dərs sayı deyil. Qrup daxilində dərslər ayrıca açılıb tamamlanır. Yeni qrup–dərs siyahısı hələ verilmədiyindən mövcud 7 dərs özbaşına 7 qrupa çevrilmir.
+
+11 noyabr tarixli 3D səhnə və əşya söz kartı qeydləri də qüvvədədir. Bu tarixli yeni tətbiqin faktiki yoxlama nəticələri və açıq qalan işlər docs/LESSON_UI_20261111.md faylında qeyd olunur. Əvvəlki test hesabatları öz tarixlərinə aiddir və yeni ekranların avtomatik təsdiqi sayılmır.
+
+## İlk real ekran baxışı — 11 noyabr 2026
+
+İstifadəçinin iOS Expo Go görüntüsü yeni dərs kodunun açıldığını təsdiqlədi, lakin maketə tam uyğunluğu yox. Uzun kart başlığı, seçim–düymə boşluğu və bütün tapşırıqlarda göstərilən Keç uyğunlaşdırıldı; əsas sual/cavab məzmunu qorundu. Sütun formalı audio dalğası və öyrətmənin tünd bənövşəyi maskot sahəsi seçilmiş istinada yaxınlaşdırıldı. Yoxlama: 75 avtomatik test, TypeScript və lint (0 xəta, əvvəlki 1 xəbərdarlıq). Yeni yerləşmənin iPhone-da yenidən yoxlanması lazımdır. Bölmə xəritəsinin köhnə görünüşü və oradakı boş şəkil dairələri bu dərs düzəlişinə daxil deyil.
+
+## 11 noyabr 2026 — A-dan Z-yə icra tapşırığı və cari kod
+
+İstifadəçi seçilmiş bütün dərs ekranlarını və davranışları başdan sona tətbiq etməyi açıq tapşırdı. Bu icra hazır dərs mətninin özbaşına dəyişdirilməsinə icazə vermir. Cari vəziyyət və fiziki cihaz yoxlama siyahısı `docs/LESSON_UI_20261111.md`-də yeniləndi.
+
+Öyrətmə/nəticə ekranları ortaq komponentlərə keçirildi. İki mesaj sadəcə UI komponenti olmaqdan çıxıb müəllif sahələri, ayrı qaydalar, düzgün hissənin saxlanması, nümunə köməyi və checkpoint ilə PacketLesson-a bağlandı. Əşya kartı yalnız müəllifin object metadatası, məlum nümunə quruluşu və mənbəli IPA ilə açılır; alma nümunəsi kursa əlavə olunmadan development önbaxışındadır. İfadələrə bütöv toxunma və cari məzmuna uyğun avtomatik lüğət əlavəsi düzəldildi.
+
+Aktiv mikrofon en-GB on-device tanıma ilə məhduddur; xidmət yoxdursa yazı unverified qalır. Səhv danışıqda bir dərhal cəhd var; ilkin sübut və məhdud son təkrar qorunur. Hazır audionun player lifecycle-ı və dəqiq müəllif mətnlərindən 123 sətirlik recording-plan əlavə edildi; real səsyazma faylları hələ yoxdur. Hesabat hələ yalnız cihazda saxlanır. 7 qrupun struktur/model/ekran yolu hazırdır, amma təsdiqlənməmiş bölgü uydurulmur.
+
+Development dərs menyusunda Ekran nümunələri real komponentlərə tez baxış verir, XP/proqress/lüğəti dəyişmir. Buradakı alma və iki mesaj yalnız istifadəçinin verdiyi nümunələrdir. Bu bölmə tamamlanmış kurs və ya real cihaz sınağı deyil. Yeni yazısız sağollaşma və alma aktivləri əlavə olundu; təsdiqlənmiş park yenidən istifadə edildi. Expo Image-a keçid iPhone-dakı boş şəkillər üçün tətbiq edilib, nəticə telefonda təkrar yoxlanmalıdır.
+
+## 11 noyabr 2026 — tam vizual dəsti üçün yenidən açıq icra
+
+İstifadəçi iki yeni vizualın kifayət etmədiyini bildirdi, bütün işin tam hazırlanmasını yenidən tapşırdı və “Bu dəfə səhfsiz hazırla” dedi. Hazır dərs məzmunu dəyişdirilmədən 12 əlavə vizual yaradıldı: qarşılama, təqdimat, ad soruşma, yaxşı/normal/yaxşı olmayan hal, təşəkkür, üzr, aydınlaşdırma və maskotun öyrətmə/dinləmə/tamamlama pozaları. Orijinalların adları, tam promptlar və repo yolları visual-completion-20261111.json-da saxlanır. Yeni paket 704266 baytdır.
+
+15 uyğun kartda 16 şəkil yerləşdirməsi var; bütün ekranlara şəkil qoyulmur. Ardıcıl təkrar və qiymətləndirilən dinləmə/seçimdə cavab ipucu yoxlanır. Köhnə insan səhnə ID-ləri də yeni Leyla/Əli şəkillərinə yönəldilir. İki mesaj önbaxışı qapıda qarşılama/ayrılma şəkillərini istifadə edir. Şəkillərin daxilində söz və cavab yoxdur.
+
+Bütün müəllif nümunələri saxlanır; əsas nümunə ekranda, digərləri Bütün nümunələr/Qısa izah panelində audio və tərcümə ilə açılır. Vizual dəsti developer önbaxışının menyusundan ayrıca əlçatandır. Önbaxışın audio yarışları və dinləmədən əvvəl cavabın açılması düzəldilib. 89 Jest testi, 11 Node yoxlaması, TypeScript/lint və veb export keçib; bir köhnə lint xəbərdarlığı qalır. AT-SPI brauzer məhdudiyyəti səbəbindən real UI screenshot-u, fiziki iPhone/audio/mikrofon təsdiqi yoxdur. Qrup bölgüsü/yeni müəllif kartları, real Britaniya audio faylları və hesabat çatdırılması üçün xarici konfiqurasiya hələ açıqdır.
+
+## 11 noyabr 2026 — geniş icra dayandırıldı, bir giriş ekranı ilə yenidən başlanır
+
+İstifadəçi nəticədən və sərf olunan limitdən narazı olduğunu bildirdi. Razılaşma: yeni şəkil və geniş dəyişiklik yoxdur; bir ekran düzəldilib telefonda qəbul olunmadan qalanlarına keçilmir. İstifadəçi öyrətmə əvəzinə birinci dərsin giriş istinadını yenidən göndərib “Bunnan başla” dedi. Cari dar iş yalnız həmin girişdir; docs/FIRST_LESSON_WELCOME.md sərhədi qeyd edir. Digər ekranların keyfiyyəti avtomatik test sayına əsasən təsdiqlənməməlidir.

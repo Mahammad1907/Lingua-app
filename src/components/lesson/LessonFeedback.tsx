@@ -1,43 +1,28 @@
-import * as Haptics from 'expo-haptics';
-import { useEffect, useState } from 'react';
-import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import type { PacketVerdict } from '../../utils/packetAnswer';
-import { LessonIcon, ink } from './LessonSurface';
+import { LessonButton, LessonIcon, ink } from './ApprovedLessonSurface';
 import SpellingNote from './SpellingNote';
-import LessonExplanationCard from './LessonExplanationCard';
-import LessonTextMotion, { useLessonTextMotion } from './LessonTextMotion';
-import AnswerVocabulary from './AnswerVocabulary';
-import type { PacketLesson } from '../../data/b1PacketTypes';
-
-export default function LessonFeedback({ verdict, explanation, meaning, assisted = false, answer, accepted, needsPractice = false, example, vocabulary = [], vocabularyText = '' }: { verdict: PacketVerdict; explanation: string; meaning: string | null; assisted?: boolean; answer?: string; accepted?: string[]; needsPractice?: boolean; example?: string; vocabulary?: PacketLesson['vocabulary']; vocabularyText?: string }) {
-  const correct = verdict.status === 'correct';
-  const state = correct ? assisted ? 'assisted' : 'correct' : verdict.status === 'unknown' ? 'idle' : 'incorrect';
-  const motion = useLessonTextMotion(state);
-  const [detailsOpen, setDetailsOpen] = useState(false);
-  const plain = (value: string) => value.toLocaleLowerCase('en').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-  const match = vocabulary.find(entry => plain(entry.word) === plain(vocabularyText));
-  useEffect(() => {
-    if (!correct || motion.reduced) return;
-    void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
-  }, [correct, motion.reduced]);
-  return <Animated.View accessibilityLiveRegion="polite" style={[s.box, correct && s.correct, motion.borderStyle('#9D7450'), verdict.status === 'unknown' && s.unverified]}>
-    <View style={s.row}><Animated.View style={motion.iconStyle}><LessonIcon name={correct ? 'check' : 'hint'} color={correct ? ink.mint : verdict.status === 'unknown' ? ink.muted : ink.orange} size={23} /></Animated.View><LessonTextMotion state={state} style={[s.title, correct && { color: ink.mint }, verdict.status === 'unknown' && { color: ink.muted }]}>{correct ? verdict.spellingCorrections?.length ? 'Cavab qəbul olundu' : 'Düzdür!' : verdict.status === 'unknown' ? 'Yenidən cəhd et' : verdict.status === 'partial' ? 'Cavabın bir hissəsi düzdür' : 'Bu dəfə alınmadı'}</LessonTextMotion></View>
-    {correct && verdict.spellingCorrections?.length ? <SpellingNote corrections={verdict.spellingCorrections} /> : null}
-    {!correct ? <Text style={s.note}>{explanation || verdict.message}</Text> : null}
-    {verdict.status !== 'unknown' && !correct && accepted?.length ? <Text style={s.note}>Uyğun cavab: {accepted.join(' / ')}</Text> : null}
-    {verdict.status !== 'unknown' && (meaning || match?.translation) ? <Text style={s.note}>{meaning || `${match?.word} — ${match?.translation}`}</Text> : null}
-    {needsPractice ? <Text style={s.note}>Yenidən məşq lazımdır. Davam edə bilərsən; bu bacarığa sonra qayıdacağıq.</Text> : null}
-    {verdict.status !== 'unknown' && answer !== undefined && accepted?.length ? <>
-      <Pressable accessibilityRole="button" accessibilityState={{ expanded: detailsOpen }} onPress={() => setDetailsOpen(v => !v)}><Text style={s.link}>Cavabın izahı ›</Text></Pressable>
-      <LessonExplanationCard visible={detailsOpen} title="Cavabın izahı" onClose={() => setDetailsOpen(false)}>
-        <Text style={s.detail}>Sənin cavabın: {answer}</Text>
-        <Text style={s.detailAnswer}>Belə cavab verə bilərsən: {accepted.join(' / ')}</Text>
-        {meaning ? <Text style={s.detail}>{meaning}</Text> : null}
-        {!correct && explanation ? <Text style={s.detail}>{explanation}</Text> : null}
-        {!correct && example ? <Text style={s.detail}>{example}</Text> : null}
-        <AnswerVocabulary text={vocabularyText} vocabulary={vocabulary} />
-      </LessonExplanationCard>
-    </> : null}
-  </Animated.View>;
+import LessonSheet from './LessonSheet';
+import { ReportAction } from './LessonReportSheet';
+export default function LessonFeedback({ verdict, explanation, assisted = false, answer, accepted, needsPractice = false, example, shortRule, onContinue, onReport, disabled = false, open = true, onClose, onRetry }: { verdict: PacketVerdict; explanation: string; meaning?: string | null; assisted?: boolean; answer?: string; accepted?: string[]; needsPractice?: boolean; example?: string; shortRule?: string; onContinue?: () => void; onReport?: () => void; disabled?: boolean; open?: boolean; onClose?: () => void; onRetry?: () => void }) {
+  const [details, setDetails] = useState(false);
+  const correct = verdict.status === 'correct', unknown = verdict.status === 'unknown';
+  const color = unknown ? ink.violet : correct ? ink.mint : ink.error;
+  const title = unknown ? 'Yoxlanmadı' : correct ? 'Düzgündür' : 'Bir daha baxaq';
+  return <LessonSheet visible={open} onClose={onClose || (() => {})} title={details ? 'Mənə başa sal' : `${unknown ? 'ⓘ' : correct ? '✓' : '!'} ${title}`} action={onReport ? <ReportAction onPress={onReport} /> : undefined} footer={onContinue ? <LessonButton disabled={disabled} tone={unknown ? 'primary' : correct ? 'correct' : 'wrong'} label="Davam et" onPress={onContinue} /> : undefined}>
+    <View accessibilityLiveRegion="polite" style={{ gap: 12 }}>
+      {details ? <>
+        {[['Sənin cavabın', answer || '—'], ['Uyğun cavablar', accepted?.join(' / ') || '—'], ['Səbəb', explanation], ['Qısa qayda', shortRule || explanation], ['Yeni nümunə', example || accepted?.[0] || '—']].map(([label, value]) => <View key={label} style={s.section}><Text style={s.label}>{label}</Text><Text style={s.text}>{value}</Text></View>)}
+      </> : <>
+        <Text style={[s.status, { color }]}>{unknown ? verdict.message : correct ? assisted ? 'Cavabı köməklə tamamladın.' : 'Cavabın bu vəziyyətə uyğundur.' : explanation}</Text>
+        {correct && verdict.spellingCorrections?.length ? <SpellingNote corrections={verdict.spellingCorrections} /> : null}
+        {!correct && !unknown && accepted?.length ? <Text style={s.text}>Uyğun cavab: {accepted.join(' / ')}</Text> : null}
+        {needsPractice ? <Text style={s.text}>Bu hissəni sonra yenidən məşq edəcəyik.</Text> : null}
+        {onRetry ? <Pressable accessibilityRole="button" disabled={disabled} onPress={onRetry} style={s.help}><Text style={s.label}>Yenidən cəhd et</Text></Pressable> : null}
+        {!unknown ? <Pressable accessibilityRole="button" onPress={() => setDetails(true)} style={s.help}><LessonIcon name="hint" size={18} /><Text style={s.label}>Mənə başa sal</Text></Pressable> : null}
+      </>}
+    </View>
+  </LessonSheet>;
 }
-const s = StyleSheet.create({ detail: { color: '#FAF8FF', fontSize: 15, lineHeight: 23 }, detailAnswer: { color: '#8CF0D3', fontSize: 16, lineHeight: 24, fontWeight: '700' }, unverified: { borderColor: '#554681', backgroundColor: '#15162F' }, box: { padding: 14, gap: 6, borderWidth: 1, borderColor: '#9D7450', borderRadius: 18, backgroundColor: '#2A2230', overflow: 'hidden' }, correct: { borderColor: '#50B9A2', backgroundColor: '#133431' }, flash: { borderRadius: 18, backgroundColor: ink.mint }, row: { flexDirection: 'row', gap: 9, alignItems: 'center' }, title: { flex: 1, color: '#FFD2A5', fontSize: 15, lineHeight: 21, fontWeight: '800' }, note: { color: ink.text, fontSize: 13, lineHeight: 19 }, link: { color: '#C1B0F2', fontSize: 14, lineHeight: 21, fontWeight: '600', minHeight: 40, paddingVertical: 8 } });
+const s = StyleSheet.create({ status: { fontSize: 16, lineHeight: 24, fontWeight: '600' }, text: { color: ink.text, fontSize: 16, lineHeight: 24 }, label: { color: ink.violet, fontSize: 14, fontWeight: '700' }, section: { borderBottomWidth: 1, borderColor: ink.border, paddingBottom: 12, gap: 6 }, help: { flexDirection: 'row', gap: 7, alignItems: 'center', alignSelf: 'flex-end', minHeight: 44, borderRadius: 22, borderWidth: 1, borderColor: ink.border, paddingHorizontal: 14, justifyContent: 'center' } });

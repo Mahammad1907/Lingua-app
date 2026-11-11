@@ -130,7 +130,7 @@ export const useUserStore = create<UserState>((set, get) => ({
     const requiredVoice = packet?.order === 7 && a.expected.includes(taskId);
     if (correct === true && requiredVoice && evidence?.input === 'written') return;
     const task = { firstCorrect: old?.firstCorrect ?? correct === true, resolved: correct === true,
-      skipped: correct === null, wrong: (old?.wrong ?? 0) + (correct === false ? 1 : 0), token, evidence };
+      firstEvidence: old?.firstEvidence ?? evidence, skipped: correct === null, wrong: (old?.wrong ?? 0) + (correct === false ? 1 : 0), token, evidence };
     set((s) => ({ attempts: { ...s.attempts, [id]: { ...a, tasks: { ...a.tasks, [taskId]: task } } } }));
     if (correct === false) get().loseHeart();
   },
@@ -177,6 +177,7 @@ export const useUserStore = create<UserState>((set, get) => ({
       const progress: LessonProgress = { lessonId: a.lessonId, completed, correctCount: correct,
         wrongCount: a.expected.reduce((sum, key) => sum + (a.tasks[key]?.wrong ?? 0), 0), score: total ? Math.round(correct / total * 100) : 0,
         xpEarned: xp, completedAt: now.toISOString(), evidence: summarizeEvidence(Object.values(a.tasks)),
+        initialEvidence: Object.fromEntries(Object.entries(a.tasks).map(([key, task]) => [key, { correct: task.firstCorrect, evidence: task.firstEvidence }])),
         practiceNeeds: getPacketLesson(a.lessonId) ? Object.entries(a.tasks).filter(([key, t]) => !key.startsWith('recheck:') && t.wrong > 0).map(([key]) => key) : undefined,
         rechecks: Object.entries(a.tasks).filter(([key]) => key.startsWith('recheck:')).map(([key, t]) => ({ sourceLessonId: key.split(':')[1], taskId: key.split(':')[2], status: !t.resolved ? t.settled === 'needsPractice' ? 'wrong' as const : 'unverified' as const : t.evidence?.assisted ? 'assisted' as const : 'independent' as const })) };
       set({ xp: s.xp + xp, rewards, streak, streakStart, lastQualifiedDay, lastPlayedDate: completed ? today : s.lastPlayedDate,

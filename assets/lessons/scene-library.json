@@ -134,5 +134,145 @@
       "unwell"
     ],
     "description": "Eyni qadın personajın üç halı: yaxşı, normal, özünü yaxşı hiss etməyən. Yazı və cavab işarələri yoxdur."
+  },
+  {
+    "id": "toy-park",
+    "file": "assets/lessons/scenes/toy-park.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world",
+      "meeting",
+      "park"
+    ],
+    "description": "Təsdiqlənmiş yeni Leyla və Əli; yazısız oyuncaq parkı. Yalnız uyğun görüş vəziyyətində."
+  },
+  {
+    "id": "toy-farewell",
+    "file": "assets/lessons/scenes/toy-farewell.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world",
+      "farewell",
+      "home"
+    ],
+    "description": "Əli Leylagildən ayrılır; Leyla qapıda qalır. Native sual və cavab şəkilə yazılmır."
+  },
+  {
+    "id": "object-apple",
+    "file": "assets/lessons/scenes/object-apple.webp",
+    "tags": [
+      "approved-20261111",
+      "object",
+      "apple"
+    ],
+    "description": "Şəffaf fonda aydın alma. Əşya söz kartı üçün; salamlaşma dərsinə əlavə edilmir."
+  },
+  {
+    "id": "toy-entrance",
+    "file": "assets/lessons/scenes/toy-entrance.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world"
+    ],
+    "description": "toy-entrance — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
+  },
+  {
+    "id": "toy-introduction",
+    "file": "assets/lessons/scenes/toy-introduction.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world"
+    ],
+    "description": "toy-introduction — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
+  },
+  {
+    "id": "toy-ask-name",
+    "file": "assets/lessons/scenes/toy-ask-name.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world"
+    ],
+    "description": "toy-ask-name — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
+  },
+  {
+    "id": "toy-feeling-good",
+    "file": "assets/lessons/scenes/toy-feeling-good.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world"
+    ],
+    "description": "toy-feeling-good — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
+  },
+  {
+    "id": "toy-feeling-okay",
+    "file": "assets/lessons/scenes/toy-feeling-okay.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world"
+    ],
+    "description": "toy-feeling-okay — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
+  },
+  {
+    "id": "toy-feeling-unwell",
+    "file": "assets/lessons/scenes/toy-feeling-unwell.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world"
+    ],
+    "description": "toy-feeling-unwell — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
+  },
+  {
+    "id": "toy-gratitude",
+    "file": "assets/lessons/scenes/toy-gratitude.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world"
+    ],
+    "description": "toy-gratitude — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
+  },
+  {
+    "id": "toy-apology",
+    "file": "assets/lessons/scenes/toy-apology.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world"
+    ],
+    "description": "toy-apology — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
+  },
+  {
+    "id": "toy-clarify",
+    "file": "assets/lessons/scenes/toy-clarify.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world"
+    ],
+    "description": "toy-clarify — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
+  },
+  {
+    "id": "mascot-teaching",
+    "file": "assets/mascot/mascot-teaching.webp",
+    "tags": [
+      "approved-20261111",
+      "mascot"
+    ],
+    "description": "mascot-teaching — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
+  },
+  {
+    "id": "mascot-listening",
+    "file": "assets/mascot/mascot-listening.webp",
+    "tags": [
+      "approved-20261111",
+      "mascot"
+    ],
+    "description": "mascot-listening — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
+  },
+  {
+    "id": "mascot-complete",
+    "file": "assets/mascot/mascot-complete.webp",
+    "tags": [
+      "approved-20261111",
+      "mascot"
+    ],
+    "description": "mascot-complete — təsdiqlənmiş personaj görünüşü; yazısız statik 3D vizual."
   }
 ]

@@ -148,3 +148,38 @@ The user authorizes suitable, compact visuals for audio questions. Search the ex
 ## Fixed lesson viewport — user authorization 2 November 2026
 
 The user explicitly renewed the requirement that all active lesson cards fit the screen without main-page scrolling, and asked to remove the two-person illustration from the listening wave card. This supersedes earlier instructions to preserve the scrolling PacketLesson body. Keep the existing colors, grading, evidence, recording and explicit Continue behavior. The active B1 PacketLesson and PacketExam use FixedLessonViewport; their body is measured in the space remaining between the safe-area header and footer. Artwork yields first, then the body fits the available rectangle. Long result details and explanations open in dismissible overlays. Do not silently reintroduce main-page scrolling or clip answer controls. Legacy non-packet routes have not been migrated by this batch. Do not claim physical-device validation from JS layout tests.
+
+## Current lesson UI decisions — 11 November 2026
+
+The user authorized implementing the shared lesson screen system and the first existing lesson with the references supplied in this conversation. These current decisions supersede conflicting historical UI and artwork instructions above; history is retained in docs/LAYIHE_DEFTERI.md.
+
+- Use the approved pale lavender lesson background, dark plum text, purple primary controls, green/red checked outcomes, uniform typography, rounded borders and restrained shadows. Use one bottom-sheet system for help, feedback, explanations, word meanings and reports.
+- Preserve authored lesson content and grading. Seven map topic groups are not seven lessons; do not fabricate their mapping or unprovided lesson content. Generic two-message and object-card components may be prepared, but only bind them to suitable approved authored content.
+- Hold the microphone while speaking and submit once on release. No learner-recording playback or separate voice send button on the active lesson. Unrecognized, silent, cancelled and technical captures earn no language verdict. Short conversation is local with authored responses; no active cloud transcription path is authorized by this batch.
+- No standalone review-introduction screen. Return to the original task modality with the authored new situation and a small “Təkrar” notice. Keep explicit Continue and bounded retries.
+- The main mascot is the supplied floppy orange-hood/plain-cloak figure with brown face/hands/bare feet and yellow oval eyes. No trousers, shoes, drawstrings or pockets. Leyla and Əli are separate recurring human scene characters in the approved 3D toy-world style. Images are selective, not on every screen; do not repeat one image on consecutive tasks or reveal an assessed answer.
+- Add each word/expression to the dictionary once when its teaching is first shown, without requiring a tap or lesson completion. Tapping reveals authored contextual meaning/example. Image-word-audio cards are for authored object names only; examples require previously taught structures. Use sourced UK IPA and en-GB output; do not manufacture missing IPA or penalize valid US variants solely for accent.
+- Report forms must state their actual delivery status. Local outbox storage is not a successful remote submission. Preserve first-attempt evidence, transcript-help boundaries and durable partial progress. Describe automated checks separately from physical-device or visual verification.
+
+## Authorized A–Z implementation continuation — 11 November 2026
+
+- The user explicitly authorized the full discussed lesson UI scope. Current implementation status is docs/LESSON_UI_20261111.md; do not repeat earlier component-only status as current.
+- PacketCard.messages uses two explicit authored field rules, optional messageHint/messageExample and stable scene IDs. Keep correct fields across the bounded review only when valid under the review's rule. Checkpoint must retain field evidence; do not invent two-message tasks in existing lesson JSON.
+- PacketCard.objectWord needs an authored object classification, sourced UK IPA/date and an already-taught example structure. An invalid/incomplete object card must not produce a blank lesson or hide Continue. Its word is added at teaching time from the actual packet vocabulary.
+- Development-only lesson/preview is a showroom, not curriculum or achievement evidence. Never award progress/XP or add its sample vocabulary. Its report action still writes the real local outbox.
+- Module.topicGroups is explicit seven-group author metadata. Validate unique groups, complete nonduplicated lesson coverage and nonempty groups. Never infer one group per existing lesson.
+- Active held speech uses en-GB local-only recognition. Missing on-device support falls back to unverified recording; no cloud request is authorized. A confirmed wrong speaking response offers at most one immediate retry, preserving initial evidence and the bounded authored review.
+- Prepared recordings are optional bundled en-GB assets, bound from recording-plan.json through scripts/prepare-lesson-audio.cjs --bind. There are currently no recording files; device TTS remains the fallback. Never describe a generated text plan or mocked player completion as recorded audio/device validation.
+
+## Complete approved visual set — 11 November 2026
+
+- Twelve additional assets are now generated and connected: nine toy-world scenes and three plain-cloak mascot poses. Provenance and prompts: assets/lessons/scenes/visual-completion-20261111.json. Do not describe the implementation as having only two new pictures.
+- Active placements come from approvedLessonScenes.ts: 15 authored cards, 16 picture placements. Keep images selective; no consecutive image reuse, independent listening/choice/word-bank cues, or stale original-situation images in review.
+- Stable historical ReusableLessonScene IDs point to the approved new people. Preserve Leyla/Ali identities and the mascot's plain cloak/bare feet. Do not resurrect the older people for a new lesson.
+- Additional teaching examples remain fully available with English audio in the common bottom sheet. Main-screen compaction must not delete or rewrite them.
+- Development preview has a complete artwork gallery, authored listening choices and stale-callback protection. Its results never award learner evidence.
+- Latest checks: 89 Jest tests, 11 Node checks, TypeScript/lint and web export. Device and screenshot verification remain outstanding; browser access was blocked by AT-SPI provider availability. Audio files and authored group mapping are still missing, not inferred from test success.
+
+## Current narrow correction after rejection — 11 November 2026
+
+The user rejected the broad visual result and the cost of that approach. Stop image generation and broad UI edits. Work on one screen, verify it on the user's phone and wait for their acceptance before applying its layout to other screens. The user explicitly selected the first lesson INTRODUCTION reference (“Bunnan başla”), superseding the proposed teaching-screen starting point. Current change is FirstLessonWelcome for a1_en_b1_v2_d1 only, plus its developer preview. Other lesson screens and content must stay unchanged. See docs/FIRST_LESSON_WELCOME.md. Automated tests do not establish visual acceptance.

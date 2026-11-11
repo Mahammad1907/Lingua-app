@@ -19,3 +19,9 @@ for (const [width, height] of [[320, 340], [390, 600], [430, 700]]) {
   }
  });
 }
+test('choice layouts can fill the measured area while preserving unscaled controls', async () => {
+ await render(<FixedLessonViewport fill><Text>Choice content</Text></FixedLessonViewport>);
+ await act(async () => fireEvent(screen.getByTestId('fixed-lesson-viewport'), 'layout', { nativeEvent: { layout: { width: 390, height: 600 } } }));
+ const style = StyleSheet.flatten(screen.getByTestId('fixed-lesson-viewport-content').props.style);
+ expect(style.minHeight).toBe(598); expect(style.transform[0].scale).toBe(1);
+});

@@ -140,6 +140,8 @@ export interface Lesson {
 // MODUL
 // ═══════════════════════════════════════
 
+/** Authored topic groups contain lesson IDs; they never stand in for lessons. */
+export interface TopicGroup { id: string; title: string; lessonIds: string[] }
 export interface Module {
   id: string;
   title: string;
@@ -151,6 +153,7 @@ export interface Module {
   order: number;
   icon: string;
   lessonIds: string[];
+  topicGroups?: TopicGroup[];
   finalReviewId?: string;
   hasSpeakingPractice?: boolean;
   speakingTitle?: string;
@@ -170,6 +173,7 @@ export interface LessonProgress {
   xpEarned: number;
   completedAt?: string;
   evidence?: import('../utils/lessonEvidence').LessonEvidence;
+  initialEvidence?: Record<string, { correct: boolean; evidence?: import('../utils/lessonEvidence').TaskEvidence }>;
   practiceNeeds?: string[];
   rechecks?: { sourceLessonId: string; taskId: string; status: 'independent' | 'assisted' | 'wrong' | 'unverified' }[];
 }

@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-11",
+  "generator": "built-in image generation",
+  "assets": [
+    {
+      "id": "toy-park",
+      "file": "assets/lessons/scenes/toy-park.webp",
+      "source": "exec-bef77f93-59a2-472d-8bbd-cf3423ea2257.png",
+      "prompt": "Previously approved scene from this conversation: Leyla and Ali meet in the rounded modular 3D toy park; reuse without regenerating.",
+      "usage": "Preview for a matching encounter. No curriculum content is invented."
+    },
+    {
+      "id": "toy-farewell",
+      "file": "assets/lessons/scenes/toy-farewell.webp",
+      "source": "exec-ec4de4b6-ce98-432a-8b0a-22406b0d14a2.png",
+      "prompt": "Use case: illustration-story. Asset: BirTalk mobile lesson situation illustration, landscape 3:2. Use both attached local images as identity/style references, NOT edit targets. Create a different farewell scene at Leyla's house entrance. Exact same silver bob-haired girl with purple star hair clip, purple shirt and trousers, white star emblem, belt and purple sneakers; same brown sculpted hair boy with orange hoodie and trousers, blue pocket/cuffs, purple backpack and blue sneakers. Leyla stands just inside open doorway on the left; Ali walks out to the right, looking back and waving goodbye, one foot midstep. Warm cream modular toy house, lilac rounded door and low gate, a small round green plant. Soft warm light, polished but slightly matte plastic 3D toy-diorama, rounded modular forms, matching reference proportions and friendly faces. Keep both figures clear for a small lesson card, no crowded detail. No text, no letters, no speech bubbles, no labels, no symbols containing answers, no additional characters, no mascot.",
+      "usage": "Authored first-lesson task: Ali leaves Leyla's home. No answer text."
+    },
+    {
+      "id": "object-apple",
+      "file": "assets/lessons/scenes/object-apple.webp",
+      "source": "exec-b562d5a8-af46-44e2-b4b0-b7bdc4226635.png",
+      "prompt": "Use case: stylized-concept. BirTalk English object vocabulary card asset. One clearly recognizable red apple with short brown stem and one green leaf, centered and fully visible with comfortable empty margins. Beautiful rounded 3D toy-world style, smooth slightly matte material, gentle natural highlights, soft warm studio light. Simple clean silhouette, soft small ground shadow. Genuine transparent background. No face, no character, no text, no labels, no additional objects, no letters or numbers. Landscape 3:2 composition so it fits a mobile word card.",
+      "usage": "User-supplied apple card in development preview only; no new object lesson."
+    }
+  ]
+}

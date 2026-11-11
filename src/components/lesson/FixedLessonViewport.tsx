@@ -4,8 +4,8 @@ import { StyleSheet, View, type StyleProp, type ViewStyle } from 'react-native';
 // Header/footer are siblings: only the lesson body uses the remaining real area.
 // Natural content is measured without a height constraint. Fitting it does not
 // change its measurement, so showing help/feedback cannot start a layout loop.
-export default function FixedLessonViewport({ children, contentContainerStyle, onHeight, testID = 'fixed-lesson-viewport' }: PropsWithChildren<{
-  contentContainerStyle?: StyleProp<ViewStyle>; onHeight?: (height: number) => void; testID?: string;
+export default function FixedLessonViewport({ children, contentContainerStyle, onHeight, testID = 'fixed-lesson-viewport', fill = false }: PropsWithChildren<{
+  fill?: boolean; contentContainerStyle?: StyleProp<ViewStyle>; onHeight?: (height: number) => void; testID?: string;
 }>) {
   const [area, setArea] = useState({ width: 0, height: 0 });
   const [bodyHeight, setBodyHeight] = useState(0);
@@ -17,7 +17,7 @@ export default function FixedLessonViewport({ children, contentContainerStyle, o
   }}>
     <View testID={`${testID}-content`} onLayout={e => setBodyHeight(e.nativeEvent.layout.height)} style={[
       s.body, contentContainerStyle,
-      { width: area.width || '100%', left: area.width * (1 - scale) / 2, transform: [{ scale }], transformOrigin: 'top left' },
+      { minHeight: fill && area.height > 0 ? Math.max(0, area.height - 2) : undefined, width: area.width || '100%', left: area.width * (1 - scale) / 2, transform: [{ scale }], transformOrigin: 'top left' },
     ]}>{children}</View>
   </View>;
 }

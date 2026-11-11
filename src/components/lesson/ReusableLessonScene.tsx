@@ -1,17 +1,12 @@
-import LessonImage from './LessonImage';
-import { lessonSceneSources } from '../../utils/lessonAssets';
-import { StyleSheet, View } from 'react-native';
+import ApprovedLessonScene from './ApprovedLessonScene';
 import type { ReusableSceneId } from '../../utils/packetScene';
-
-// Stable IDs are deliberately independent of lesson IDs, language and level.
-// Reuse an existing source here before generating art for another lesson.
-
-export default function ReusableLessonScene({ name, height }: { name: ReusableSceneId; height?: number }) {
-  return <View style={[s.frame, height !== undefined && { height, aspectRatio: undefined, marginBottom: 0 }]}>
-    <LessonImage source={lessonSceneSources[name]} style={s.image} />
-  </View>;
+import type { ApprovedSceneId } from '../../utils/approvedLessonScenes';
+const aliases: Record<ReusableSceneId, readonly ApprovedSceneId[]> = {
+  conversation: ['toy-park'], gratitude: ['toy-gratitude'], apology: ['toy-apology'],
+  clarify: ['toy-clarify'], farewell: ['toy-farewell'], 'name-card': ['toy-introduction'],
+  feelings: ['toy-feeling-good', 'toy-feeling-okay', 'toy-feeling-unwell'],
+};
+/** Preserve stable historical IDs while consistently rendering the approved people. */
+export default function ReusableLessonScene({ name, height = 180 }: { name: ReusableSceneId; height?: number }) {
+  return <ApprovedLessonScene ids={aliases[name]} height={height} />;
 }
-const s = StyleSheet.create({
-  frame: { width: '100%', aspectRatio: 1.5, marginBottom: 14, borderRadius: 22, overflow: 'hidden', backgroundColor: '#090C20' },
-  image: { width: '100%', height: '100%' },
-});

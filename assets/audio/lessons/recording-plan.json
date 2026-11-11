@@ -1,0 +1,617 @@
+[
+  {
+    "id": "334d016f755cd6dc",
+    "text": "Hello!",
+    "locale": "en-GB"
+  },
+  {
+    "id": "ca51ce1fb15acc6d",
+    "text": "Hi!",
+    "locale": "en-GB"
+  },
+  {
+    "id": "1cb7b221b7adda1c",
+    "text": "Goodbye!",
+    "locale": "en-GB"
+  },
+  {
+    "id": "c330978d116519d7",
+    "text": "Bye!",
+    "locale": "en-GB"
+  },
+  {
+    "id": "185f8db32271fe25",
+    "text": "Hello",
+    "locale": "en-GB"
+  },
+  {
+    "id": "82584d725cc598ec",
+    "text": "Hello, Leyla!",
+    "locale": "en-GB"
+  },
+  {
+    "id": "3639efcd08abb273",
+    "text": "Hi",
+    "locale": "en-GB"
+  },
+  {
+    "id": "398cb348d49019f0",
+    "text": "Hi, Ali!",
+    "locale": "en-GB"
+  },
+  {
+    "id": "c015ad6ddaf8bb50",
+    "text": "Goodbye",
+    "locale": "en-GB"
+  },
+  {
+    "id": "3ca032acb2a8bcc4",
+    "text": "Goodbye, Leyla!",
+    "locale": "en-GB"
+  },
+  {
+    "id": "128901223aac8df3",
+    "text": "Bye",
+    "locale": "en-GB"
+  },
+  {
+    "id": "02d6ffcd331c07d8",
+    "text": "Bye, Ali!",
+    "locale": "en-GB"
+  },
+  {
+    "id": "c60556c1d9c8b6c9",
+    "text": "I am Leyla.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "2649b3723644f88d",
+    "text": "I’m Leyla.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "0a3baeb0b1ff5390",
+    "text": "Hi. I’m Ali.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "9f658799c22ad663",
+    "text": "Hello. I’m Leyla.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "d2c835e019daac2e",
+    "text": "Hello. I’m BirFox.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "3c6956bd287065a6",
+    "text": "My name is Leyla.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "78f68297dff24f9e",
+    "text": "Hi. My name is BirFox.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "6d99a45020077ba5",
+    "text": "Hello. My name is Ali.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "95b92e6c4d09700b",
+    "text": "Hello. My name is Leyla.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "622bdc303236ff52",
+    "text": "Hi. I’m BirFox.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "a5ff37b8779364fc",
+    "text": "I’m … / I am …",
+    "locale": "en-GB"
+  },
+  {
+    "id": "dbf17c3a4c8d0251",
+    "text": "My name is …",
+    "locale": "en-GB"
+  },
+  {
+    "id": "93dcd29592078477",
+    "text": "My name is Ali.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "4bf898d4fe48d94d",
+    "text": "i’m",
+    "locale": "en-GB"
+  },
+  {
+    "id": "de7d1b721a1e0632",
+    "text": "i",
+    "locale": "en-GB"
+  },
+  {
+    "id": "ab6db599234d2636",
+    "text": "am",
+    "locale": "en-GB"
+  },
+  {
+    "id": "038468518ad8122e",
+    "text": "my",
+    "locale": "en-GB"
+  },
+  {
+    "id": "82a3537ff0dbce7e",
+    "text": "name",
+    "locale": "en-GB"
+  },
+  {
+    "id": "fa51fd49abf67705",
+    "text": "is",
+    "locale": "en-GB"
+  },
+  {
+    "id": "0a77cb6cb41bdead",
+    "text": "Hi. I’m Leyla.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "f1308ce0cf77aa9d",
+    "text": "What’s your name?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "b7bc3f438183072b",
+    "text": "What is your name?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "f763724ed9493ff0",
+    "text": "I’m BirFox.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "b8c79c8e5d08e67a",
+    "text": "Hello. What’s your name?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "39954823f73a76e3",
+    "text": "Nice to meet you.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "0d7e51633a6b78b7",
+    "text": "You too.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "ba2fccea610d6ca5",
+    "text": "Nice to meet you too.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "f94c397af37efdf6",
+    "text": "I’m BirFox. Nice to meet you.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "2225fdc1d819dba8",
+    "text": "What’s your name? / What is your name?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "befbfe510cc23397",
+    "text": "I’m Ali. Nice to meet you.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "32d58374cf19fc48",
+    "text": "You too. / Nice to meet you too.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "47e7e056d89cedf2",
+    "text": "what’s",
+    "locale": "en-GB"
+  },
+  {
+    "id": "4d040d3f6466018c",
+    "text": "your",
+    "locale": "en-GB"
+  },
+  {
+    "id": "749ab2c0d06c42ae",
+    "text": "what",
+    "locale": "en-GB"
+  },
+  {
+    "id": "e186022d0931afe9",
+    "text": "nice",
+    "locale": "en-GB"
+  },
+  {
+    "id": "663ea1bfffe5038f",
+    "text": "to",
+    "locale": "en-GB"
+  },
+  {
+    "id": "8ccb033c0e48b27f",
+    "text": "meet",
+    "locale": "en-GB"
+  },
+  {
+    "id": "bb0347a468d97e98",
+    "text": "you",
+    "locale": "en-GB"
+  },
+  {
+    "id": "94c05f1c45a1d1a9",
+    "text": "too",
+    "locale": "en-GB"
+  },
+  {
+    "id": "df287dfc1406ed2b",
+    "text": "How are you?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "6d0dbffae6d8380d",
+    "text": "I’m fine, thanks.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "1b7d7038d2f847f1",
+    "text": "Hi. How are you?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "e0989b8ce1f7f0a9",
+    "text": "I’m fine. And you?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "d7d666945a40b36f",
+    "text": "Hello. How are you?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "7a52fd30649f24e3",
+    "text": "I’m OK.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "83c83110394deef6",
+    "text": "I am not very well.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "c66b244a592e63a7",
+    "text": "I’m not very well.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "b7c3f7cb74dd1742",
+    "text": "I’m fine. / I am fine.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "ff80498f13ed621d",
+    "text": "Thanks. / Thank you.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "0c1c23dc335e76d0",
+    "text": "And you?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "0909a00c87827cbd",
+    "text": "I’m OK. / I am OK.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "26576bc84a954f1a",
+    "text": "I’m OK, thanks.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "65e8476a9258fccb",
+    "text": "I’m not very well. / I am not very well.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "8044aae1f86875d9",
+    "text": "how",
+    "locale": "en-GB"
+  },
+  {
+    "id": "ba78973ddcf98d4e",
+    "text": "are",
+    "locale": "en-GB"
+  },
+  {
+    "id": "d14a58bae804a2b8",
+    "text": "fine",
+    "locale": "en-GB"
+  },
+  {
+    "id": "a6a2729cbf6bcadc",
+    "text": "thanks",
+    "locale": "en-GB"
+  },
+  {
+    "id": "e67fd73a84918e64",
+    "text": "thank",
+    "locale": "en-GB"
+  },
+  {
+    "id": "6201111b83a0cb5b",
+    "text": "and",
+    "locale": "en-GB"
+  },
+  {
+    "id": "2689367b205c16ce",
+    "text": "ok",
+    "locale": "en-GB"
+  },
+  {
+    "id": "254bb97b57f12e16",
+    "text": "not",
+    "locale": "en-GB"
+  },
+  {
+    "id": "4c6a4839f83d20d2",
+    "text": "very",
+    "locale": "en-GB"
+  },
+  {
+    "id": "a7722b765d15608d",
+    "text": "well",
+    "locale": "en-GB"
+  },
+  {
+    "id": "f51bead488e14b65",
+    "text": "Thanks.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "8569efc4ed5a6273",
+    "text": "Thank you.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "90c6428a741ff945",
+    "text": "You’re welcome.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "ea50b2f75179dbff",
+    "text": "You are welcome.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "3afdda2c098fc834",
+    "text": "Thank you!",
+    "locale": "en-GB"
+  },
+  {
+    "id": "5b224f61670a29c3",
+    "text": "Your name, please.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "fa120587cef0d232",
+    "text": "Excuse me.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "2f931c4d8b12cfc4",
+    "text": "Excuse me. What’s your name?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "9f7d79d9b6a23846",
+    "text": "Sorry.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "e2e046944cce02d6",
+    "text": "I’m sorry.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "082cb158de32f2d9",
+    "text": "No problem.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "9317a84bd54abe32",
+    "text": "Sorry!",
+    "locale": "en-GB"
+  },
+  {
+    "id": "97eb453d700ff41a",
+    "text": "You’re welcome. / You are welcome.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "251eb6746e988d2e",
+    "text": "Thank you. — You’re welcome.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "56ccc4dcfc96534b",
+    "text": "please",
+    "locale": "en-GB"
+  },
+  {
+    "id": "6c28f899485188de",
+    "text": "Sorry. / I’m sorry.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "d1a46267e97d37aa",
+    "text": "I’m sorry. — No problem.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "78b14a179bdaebfe",
+    "text": "Sorry. — No problem.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "e646415c0a9b6aa0",
+    "text": "you’re",
+    "locale": "en-GB"
+  },
+  {
+    "id": "280d44ab1e9f79b5",
+    "text": "welcome",
+    "locale": "en-GB"
+  },
+  {
+    "id": "b76c1db1f24b29fe",
+    "text": "excuse",
+    "locale": "en-GB"
+  },
+  {
+    "id": "2744ccd10c7533bd",
+    "text": "me",
+    "locale": "en-GB"
+  },
+  {
+    "id": "484aab2f2cd0f77b",
+    "text": "sorry",
+    "locale": "en-GB"
+  },
+  {
+    "id": "9390298f3fb0c5b1",
+    "text": "no",
+    "locale": "en-GB"
+  },
+  {
+    "id": "47a49356720831b6",
+    "text": "problem",
+    "locale": "en-GB"
+  },
+  {
+    "id": "1aa7b1c1d5fb1fd6",
+    "text": "Thanks!",
+    "locale": "en-GB"
+  },
+  {
+    "id": "065de1707528190a",
+    "text": "I don’t understand.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "85c50b74c7664a25",
+    "text": "I do not understand.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "308c8f3227d091b7",
+    "text": "Again, please.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "1534c878b6ccec86",
+    "text": "Could you say that again, please?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "c5bc871d0d12c52a",
+    "text": "More slowly, please.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "caa50d21d1ca039d",
+    "text": "Can you repeat that more slowly, please?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "446ea430fe84f13d",
+    "text": "My name is BirFox.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "a10af8c4b3a0a5a5",
+    "text": "I don’t understand. / I do not understand.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "3adae526ae702eb2",
+    "text": "Sorry. I don’t understand.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "ad62ad758904bd9d",
+    "text": "Could you say that again, please? / Again, please.",
+    "locale": "en-GB"
+  },
+  {
+    "id": "507e5a1032cef755",
+    "text": "More slowly, please. / Can you repeat that more slowly, please?",
+    "locale": "en-GB"
+  },
+  {
+    "id": "af904c75047a7246",
+    "text": "don’t",
+    "locale": "en-GB"
+  },
+  {
+    "id": "f9dc689e6d50ad6f",
+    "text": "understand",
+    "locale": "en-GB"
+  },
+  {
+    "id": "ac0b52a2ae6ef999",
+    "text": "do",
+    "locale": "en-GB"
+  },
+  {
+    "id": "0e031e954a432055",
+    "text": "could",
+    "locale": "en-GB"
+  },
+  {
+    "id": "a0b967fc60136d2e",
+    "text": "say",
+    "locale": "en-GB"
+  },
+  {
+    "id": "8e7fc0236af43df9",
+    "text": "that",
+    "locale": "en-GB"
+  },
+  {
+    "id": "b4c9e14061c2fd45",
+    "text": "again",
+    "locale": "en-GB"
+  },
+  {
+    "id": "187897ce0afcf20b",
+    "text": "more",
+    "locale": "en-GB"
+  },
+  {
+    "id": "793080bb3a187fca",
+    "text": "slowly",
+    "locale": "en-GB"
+  },
+  {
+    "id": "9f584196e7fe6de8",
+    "text": "can",
+    "locale": "en-GB"
+  },
+  {
+    "id": "25e2b6b106523880",
+    "text": "repeat",
+    "locale": "en-GB"
+  }
+]

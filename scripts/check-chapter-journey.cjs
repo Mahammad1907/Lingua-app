@@ -80,3 +80,10 @@ for (const width of [272, 327, 345, 382, 480]) {
   assert.ok(bridge.every((point) => point.x >= 0 && point.x <= width));
 }
 console.log('PASS: completion vs accuracy, corrected/skipped tasks, latest attempt, unlock preservation, unique IDs, 40 lessons, route endpoints and equal-distance dots at five widths.');
+const { validateTopicGroups } = require('../src/utils/topicGroups.ts');
+const ids=Array.from({length:9},(_,i)=>`lesson-${i}`);
+const moduleFixture={lessonIds:ids,topicGroups:Array.from({length:7},(_,i)=>({id:`group-${i}`,title:`Topic ${i}`,lessonIds:i===6?ids.slice(6):[ids[i]]}))};
+assert.equal(validateTopicGroups({lessonIds:ids}),undefined,'missing authored groups never becomes seven inferred lessons');
+assert.equal(validateTopicGroups(moduleFixture)[6].lessonIds.length,3,'a group may contain several independent lessons');
+assert.throws(()=>validateTopicGroups({...moduleFixture,topicGroups:moduleFixture.topicGroups.slice(0,6)}));
+assert.throws(()=>validateTopicGroups({...moduleFixture,topicGroups:moduleFixture.topicGroups.map((g,i)=>i===6?{...g,lessonIds:[ids[0]]}:g)}));
