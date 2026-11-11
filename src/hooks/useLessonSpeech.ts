@@ -4,12 +4,12 @@ import { AppState, Platform } from 'react-native';
 import { getSpeechEngine } from '../utils/speechEngine';
 import { SpeechTurn, type SpokenAnswer } from '../utils/speechTurn';
 
-export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, autoStart = false, autoSubmit = false, holdToSpeak = false }: {
+export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, autoStart = false, autoSubmit = false, holdToSpeak = false, locale = 'en-US', localOnly = false }: {
   onFinal: (answer: SpokenAnswer) => string | null;
   onBusyChange: (busy: boolean) => void;
-  suspended?: boolean; autoStart?: boolean; autoSubmit?: boolean; holdToSpeak?: boolean;
+  suspended?: boolean; autoStart?: boolean; autoSubmit?: boolean; holdToSpeak?: boolean; locale?: 'en-GB' | 'en-US'; localOnly?: boolean;
 }) {
-  const [engine] = useState(getSpeechEngine);
+  const [engine] = useState(() => { const native = getSpeechEngine(); if (!localOnly) return native; try { return native?.supportsOnDeviceRecognition() ? native : null; } catch { return null; } });
   const [turn] = useState(() => new SpeechTurn());
   const [phase, setPhase] = useState<'idle' | 'preparing' | 'listening' | 'processing' | 'review'>('idle');
   const [partial, setPartial] = useState(''), [message, setMessage] = useState('');
@@ -105,7 +105,7 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
     if (pending.current || turn.phase !== 'idle' || handlers.current.suspended) return;
     if (closing.current) { setMessage('Mikrofon bağlanır. Bir an sonra yenidən toxun.'); return; }
     if (holdToSpeak) held.current = true;
-    const useNetwork = network || networkAllowed.current;
+    const useNetwork = !localOnly && (network || networkAllowed.current);
     const request = ++generation.current;
     pending.current = true; audioUri.current = ''; audioStart.current = 0; audioGeneration.current = request; candidate.current = null; setDraft(null); setReviewText(''); setPhase('preparing'); setMessage(''); setPartial('');
     try {
@@ -120,12 +120,12 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
       if (!engine.isRecognitionAvailable()) { setMessage('Telefonun səs tanıma xidməti hazır deyil. Yenidən cəhd et.'); return; }
       networkAllowed.current = useNetwork;
       turn.begin(Date.now()); setNeedsModel(false); setNeedsNetwork(false); setLevel(0); setPhase('listening');
-      engine.start({ lang: 'en-US', interimResults: true, continuous: false, maxAlternatives: 1, requiresOnDeviceRecognition: !useNetwork, ...(engine.supportsRecording?.() ? { recordingOptions: { persist: true } } : {}), volumeChangeEventOptions: { enabled: true, intervalMillis: 120 } });
+      engine.start({ lang: locale, interimResults: true, continuous: false, maxAlternatives: 1, requiresOnDeviceRecognition: !useNetwork, ...(engine.supportsRecording?.() ? { recordingOptions: { persist: true } } : {}), volumeChangeEventOptions: { enabled: true, intervalMillis: 120 } });
     } catch { if (!alive.current || request !== generation.current) return; turn.cancel(); try { engine.abort(); } catch { /* Native service may already be closed. */ } if (alive.current) setMessage('Səs tanıma açılmadı. Yenidən cəhd et.'); }
     finally {
       if (request === generation.current) { pending.current = false; if (alive.current && turn.phase === 'idle') setPhase('idle'); }
     }
-  }, [engine, turn, holdToSpeak]);
+  }, [engine, turn, holdToSpeak, locale, localOnly]);
   useEffect(() => { if (!autoStart) return; const timer = setTimeout(() => void start(), 0); return () => clearTimeout(timer); }, [autoStart, start]);
   const deliverBuffered = (result: SpokenAnswer) => {
     if (!alive.current || handlers.current.suspended || AppState.currentState !== 'active') { buffered.current = null; return; }
@@ -161,7 +161,7 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
     if (!engine || Platform.OS !== 'android' || !(Number(Platform.Version) >= 33) || pending.current || candidate.current || handlers.current.suspended || turn.phase !== 'idle') return;
     const request = ++generation.current; pending.current = true; setPhase('preparing'); setMessage('');
     try {
-      const result = await engine.androidTriggerOfflineModelDownload({ locale: 'en-US' });
+      const result = await engine.androidTriggerOfflineModelDownload({ locale });
       if (!alive.current || request !== generation.current) return;
       setMessage(result.status === 'download_success' ? 'İngilis dili modeli hazırdır. Mikrofona toxunub yenidən danış.' : 'Telefonun model yükləməsini tamamla, sonra mikrofona toxun.');
       if (result.status === 'download_success') setNeedsModel(false);

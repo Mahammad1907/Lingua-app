@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
+import type { Lesson } from '../data/types';
 import { lessons } from '../data/lessons';
 import { vocabularyKey } from '../utils/vocabularyIdentity';
 
@@ -60,7 +61,7 @@ interface VocabularyState {
   wrongWords: WrongWord[];
 
   addLessonWords: (lessonId: string) => Promise<void>;
-  addTaughtWords: (lessonId: string, words: readonly string[]) => Promise<void>;
+  addTaughtWords: (lessonId: string, words: readonly string[], authoredVocabulary?: readonly Lesson['vocabulary'][number][]) => Promise<void>;
   getPage: (pageNumber: number) => VocabPage | undefined;
   getTotalPages: () => number;
   saveTestResult: (
@@ -116,21 +117,22 @@ export const useVocabularyStore = create<VocabularyState>((set, get) => ({
     set(state => ({ completedLessons: [...new Set([...state.completedLessons, lessonId])] }));
     await get().saveToStorage();
   },
-  addTaughtWords: async (lessonId, words) => {
+  addTaughtWords: async (lessonId, words, authoredVocabulary) => {
     await get().loadFromStorage();
     const state = get(), lesson = lessons.find(l => l.id === lessonId);
     if (!lesson) throw new Error('Dərsin lüğəti tapılmadı.');
+    const entries = authoredVocabulary || lesson.vocabulary;
     const known = new Set(state.allWords.map(v => `${v.language}:${vocabularyKey(v.word)}`));
     const newWords: VocabWord[] = [];
     const taught = new Set(words.map(vocabularyKey));
-    for (const v of lesson.vocabulary.filter(v => taught.has(vocabularyKey(v.word)))) {
+    for (const v of entries.filter(v => taught.has(vocabularyKey(v.word)))) {
       const key = `${lesson.language}:${vocabularyKey(v.word)}`;
       if (known.has(key)) continue;
       known.add(key);
       newWords.push({ ...v, id: `${lessonId}_${v.id}`, language: lesson.language, level: lesson.level,
         lessonId: lesson.id, lessonTitle: lesson.titleAz });
     }
-    const metadata = new Map(lesson.vocabulary.filter(v => taught.has(vocabularyKey(v.word))).map(v => [vocabularyKey(v.word), v]));
+    const metadata = new Map(entries.filter(v => taught.has(vocabularyKey(v.word))).map(v => [vocabularyKey(v.word), v]));
     const allWords = [...state.allWords.map(word => {
       const authored = word.language === lesson.language ? metadata.get(vocabularyKey(word.word)) : undefined;
       return authored ? { ...word, acceptedAnswers: authored.acceptedAnswers, acceptedTranslations: authored.acceptedTranslations, quizEligible: authored.quizEligible } : word;

@@ -2,6 +2,8 @@ import { Stack, useFocusEffect, useLocalSearchParams, useRouter } from 'expo-rou
 import { useCallback, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import TopicGroupMap from '../../components/chapter/TopicGroupMap';
+import { validateTopicGroups } from '../../utils/topicGroups';
 import ChapterJourney from '../../components/chapter/ChapterJourney';
 import EnergyMeter from '../../components/EnergyMeter';
 import { getLessonById } from '../../data/lessons';
@@ -13,7 +15,7 @@ import { buildChapterJourney } from '../../utils/chapterJourney';
 import { moduleUnlocked } from '../../utils/moduleAccess';
 
 export default function ModuleScreen() {
-  const params = useLocalSearchParams<{ id: string | string[] }>();
+  const params = useLocalSearchParams<{ id: string | string[]; group?: string }>();
   const moduleId = Array.isArray(params.id) ? params.id[0] : params.id;
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -31,6 +33,10 @@ export default function ModuleScreen() {
     .map(getLessonById).filter((lesson): lesson is Lesson => Boolean(lesson)), [moduleData]);
   const items = useMemo(() => buildChapterJourney(lessons, completed, attempts, placementPassed),
     [lessons, completed, attempts, placementPassed]);
+  let groups: ReturnType<typeof validateTopicGroups>;
+  let groupError = '';
+  try { groups = moduleData ? validateTopicGroups(moduleData) : undefined; } catch { groupError = 'Mövzu qrupları hələ hazır deyil.'; }
+  const selectedGroup = groups?.find(group => group.id === params.group);
   const back = () => { if (router.canGoBack()) router.back(); else router.replace('/'); };
 
   if (!moduleData || !moduleUnlocked(moduleData.id, completed, placementResults)) {
@@ -42,16 +48,19 @@ export default function ModuleScreen() {
       </View>
     </>;
   }
+  if (groupError) return <View style={[s.error, { backgroundColor: '#F3ECFF' }]}><Text style={{ color: '#2A1034', fontSize: 20 }}>{groupError}</Text><Pressable accessibilityRole="button" onPress={back} style={s.back}><Text style={s.backText}>Geri qayıt</Text></Pressable></View>;
+  if (groups && !selectedGroup) return <><Stack.Screen options={{ headerShown: false }} /><TopicGroupMap title={moduleData.titleAz} groups={groups} lessons={items} topInset={insets.top} bottomInset={insets.bottom} onBack={back} onOpen={group => router.push({ pathname: '/module/[id]', params: { id: moduleData.id, group } })} /></>;
+  const shownItems = selectedGroup ? items.filter(item => selectedGroup.lessonIds.includes(item.lesson.id)) : items;
   const openLesson = (id: string) => {
     // Recheck availability at the boundary; never navigate from a stale locked card.
-    if (!items.some((item) => item.lesson.id === id && item.status !== 'locked')) return;
+    if (!shownItems.some((item) => item.lesson.id === id && item.status !== 'locked')) return;
     if (getShortSession(id)) router.push({ pathname: '/lesson/session', params: { id } });
     else router.push({ pathname: '/lesson/vocabulary', params: { id } });
   };
   return <>
     <Stack.Screen options={{ headerShown: false }} />
-    <ChapterJourney title={moduleData.titleAz} order={moduleData.order} level={moduleData.level}
-      items={items} energy={<EnergyMeter appearance="chapter" />} topInset={insets.top} bottomInset={insets.bottom}
+    <ChapterJourney title={selectedGroup?.title || moduleData.titleAz} order={moduleData.order} level={moduleData.level}
+      items={shownItems} energy={<EnergyMeter appearance="chapter" />} topInset={insets.top} bottomInset={insets.bottom}
       onBack={back} onLessonPress={openLesson} active={focused} />
   </>;
 }

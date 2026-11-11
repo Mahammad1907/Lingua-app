@@ -140,6 +140,8 @@ export interface Lesson {
 // MODUL
 // ═══════════════════════════════════════
 
+/** Authored topic groups contain lesson IDs; they never stand in for lessons. */
+export interface TopicGroup { id: string; title: string; lessonIds: string[] }
 export interface Module {
   id: string;
   title: string;
@@ -151,6 +153,7 @@ export interface Module {
   order: number;
   icon: string;
   lessonIds: string[];
+  topicGroups?: TopicGroup[];
   finalReviewId?: string;
   hasSpeakingPractice?: boolean;
   speakingTitle?: string;

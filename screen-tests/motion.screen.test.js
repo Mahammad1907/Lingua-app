@@ -61,7 +61,7 @@ test('typing alone never starts correct or incorrect feedback', async () => {
 test('recognition uncertainty does not animate as an incorrect answer', async () => {
   const timing = jest.spyOn(Animated, 'timing');
   await render(<LessonFeedback verdict={{ status: 'unknown', criteria: [], message: 'Səs tanınmadı' }} explanation="Səs tanınmadı" meaning={null}/>);
-  expect(screen.getByText('ⓘ Səs yoxlanmadı')).toBeOnTheScreen();
+  expect(screen.getByText('ⓘ Yoxlanmadı')).toBeOnTheScreen();
   expect(timing).not.toHaveBeenCalled();
 });
 

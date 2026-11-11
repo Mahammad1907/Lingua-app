@@ -1,0 +1,14 @@
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { HomeIcon } from '../home/HomeIcon';
+import type { TopicGroup } from '../../data/types';
+import type { JourneyLesson } from '../../utils/chapterJourney';
+import { LessonIcon, ink } from '../lesson/ApprovedLessonSurface';
+export default function TopicGroupMap({ title, groups, lessons, onBack, onOpen, topInset, bottomInset }: { title: string; groups: TopicGroup[]; lessons: JourneyLesson[]; onBack: () => void; onOpen: (id: string) => void; topInset: number; bottomInset: number }) {
+  return <View style={[s.screen, { paddingTop: topInset }]}><View style={s.header}><Pressable accessibilityRole="button" accessibilityLabel="Geri" onPress={onBack} style={s.back}><LessonIcon name="back" /></Pressable><Text style={s.heading}>{title}</Text></View><Text style={s.note}>Mövzu qrupunu seç. Hər dərs ayrıca açılır.</Text>
+    <ScrollView contentContainerStyle={[s.map, { paddingBottom: bottomInset + 24 }]}>{groups.map((group, index) => {
+      const items=lessons.filter(item=>group.lessonIds.includes(item.lesson.id)); const done=items.filter(item=>item.status==='completed').length;
+      const locked=!items.some(item=>item.status!=='locked');
+      return <View key={group.id} style={{ alignItems: index % 2 ? 'flex-end' : 'flex-start' }}><Pressable accessibilityRole="button" accessibilityState={{disabled:locked}} disabled={locked} onPress={()=>onOpen(group.id)} style={[s.group, locked&&{opacity:.6}]}><View style={s.number}><Text style={s.numberText}>{index+1}</Text></View><View style={{flex:1,gap:5}}><Text style={s.title}>{group.title}</Text><Text style={s.small}>{done}/{items.length} dərs tamamlanıb</Text></View><HomeIcon name={locked?'lock':'arrow'} color={ink.violet} /></Pressable>{index<groups.length-1?<Text accessible={false} style={s.path}>•{ '\n'}•{ '\n'}•</Text>:null}</View>;
+    })}</ScrollView></View>;
+}
+const s=StyleSheet.create({ screen:{flex:1,backgroundColor:ink.bg},header:{flexDirection:'row',gap:12,alignItems:'center',padding:20},back:{width:44,height:44,borderRadius:22,backgroundColor:ink.soft,justifyContent:'center',alignItems:'center'},heading:{flex:1,color:ink.text,fontSize:25,fontWeight:'800'},note:{color:ink.muted,fontSize:15,lineHeight:22,paddingHorizontal:24,marginBottom:12},map:{paddingHorizontal:24},group:{width:'92%',minHeight:104,borderRadius:25,borderWidth:1,borderColor:ink.border,backgroundColor:ink.card,padding:16,flexDirection:'row',gap:12,alignItems:'center',shadowColor:ink.violet,shadowOffset:{width:0,height:3},shadowOpacity:.08,shadowRadius:8},number:{width:40,height:40,borderRadius:20,backgroundColor:ink.soft,alignItems:'center',justifyContent:'center'},numberText:{color:ink.violet,fontWeight:'800',fontSize:22},title:{color:ink.text,fontWeight:'800',fontSize:18,lineHeight:24},small:{color:ink.muted,fontSize:13},path:{color:'#B591E7',alignSelf:'center',fontSize:16,lineHeight:14,padding:7} });

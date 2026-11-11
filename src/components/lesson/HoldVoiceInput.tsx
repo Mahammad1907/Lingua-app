@@ -17,7 +17,7 @@ function Mic({ label, active, pending, onStart, onRelease, onCancel, level = 0 }
   </View>;
 }
 export default function HoldVoiceInput({ onFinal, onUnverifiedRecording, onBusyChange, suspended }: { onFinal: (answer: SpokenAnswer) => string | null; onUnverifiedRecording: (recording: UnverifiedRecording) => void; onBusyChange: (busy: boolean) => void; suspended: boolean }) {
-  const speech = useLessonSpeech({ onFinal, onBusyChange, suspended, autoSubmit: true, holdToSpeak: true });
+  const speech = useLessonSpeech({ onFinal, onBusyChange, suspended, autoSubmit: true, holdToSpeak: true, locale: 'en-GB', localOnly: true });
   if (!speech.available) return <RawHoldRecorder onRecorded={onUnverifiedRecording} onBusyChange={onBusyChange} suspended={suspended} />;
   const pending = speech.phase === 'processing' || speech.phase === 'preparing';
   return <View style={{ gap: 8 }}><Mic active={speech.phase === 'listening'} pending={pending} level={speech.level} label={speech.phase === 'listening' ? 'Səsin yazılır…' : pending ? 'Cavabın yoxlanılır…' : 'Basılı saxla və danış'} onStart={() => { if (!speech.busy && !suspended) void speech.start(); }} onRelease={speech.stop} onCancel={speech.cancel} />{speech.message ? <Text accessibilityLiveRegion="polite" style={s.note}>{speech.message}</Text> : null}</View>;

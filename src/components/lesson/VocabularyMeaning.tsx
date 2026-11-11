@@ -6,8 +6,8 @@ import type { PacketLesson } from '../../data/b1PacketTypes';
 import LessonSheet from './LessonSheet';
 import { LessonIcon, ink } from './ApprovedLessonSurface';
 
-export default function VocabularyMeaning({ entry, onClose }: { entry: PacketLesson['vocabulary'][number] | null; onClose: () => void }) {
-  const pronunciation = entry ? verifiedPronunciation(entry.word) : null;
+export default function VocabularyMeaning({ entry, onClose, verified }: { entry: PacketLesson['vocabulary'][number] | null; onClose: () => void; verified?: { ipa: string; source: string; checkedAt: string; locale: 'en-GB' } }) {
+  const pronunciation = entry ? verified || verifiedPronunciation(entry.word) : null;
   const [error, setError] = useState('');
   useEffect(() => { if (entry) return () => { void Speech.stop(); }; }, [entry]);
   const speak = async (text: string) => {

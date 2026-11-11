@@ -1,0 +1,75 @@
+/** Development-only showroom. Uses the real lesson components, never records progress or rewards. */
+import { useEffect, useState } from 'react';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Stack, useRouter } from 'expo-router';
+import * as Speech from 'expo-speech';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
+import { b1Packet } from '../../data/b1Course';
+import type { PacketCard } from '../../data/b1PacketTypes';
+import { assessPacketAnswer, type PacketVerdict } from '../../utils/packetAnswer';
+import { assessMessages, type MessageResults } from '../../utils/messageTask';
+import { contentScene, objectImage } from '../../utils/lessonContentAssets';
+import { LessonButton, LessonIcon, SelectionMark, ink } from './ApprovedLessonSurface';
+import FixedLessonViewport from './FixedLessonViewport';
+import LessonWelcome from './LessonWelcome';
+import LessonTeaching from './LessonTeaching';
+import LessonResult from './LessonResult';
+import LessonFeedback from './LessonFeedback';
+import LessonSheet from './LessonSheet';
+import LessonHelpSheet from './LessonHelpSheet';
+import LessonReportSheet, { ReportAction } from './LessonReportSheet';
+import LessonProgressBar from './ApprovedLessonProgressBar';
+import LessonAudioWave from './LessonAudioWave';
+import LessonMascot from './LessonMascot';
+import HoldVoiceInput from './HoldVoiceInput';
+import TwoMessageInput from './TwoMessageInput';
+import ObjectWordCard from './ObjectWordCard';
+import { LessonVocabularyProvider } from './LessonVocabularyText';
+const names = ['Dərsə giriş', 'Öyrətmə', 'Yazı tapşırığı', 'Dinlə və seç', 'Dinlə və yaz', 'Səslə cavab ver', 'İki mesaj yaz', 'Yeni söz', 'Dərsin nəticəsi'];
+const messages: NonNullable<PacketCard['messages']> = [
+  { id: 'opening', label: 'Görüşün əvvəlində', placeholder: 'Salamını yaz', rule: { answers: ['Hello!', 'Hi!'], goals: ['greet'] } },
+  { id: 'closing', label: 'Görüşün sonunda', placeholder: 'Sağollaşmanı yaz', rule: { answers: ['Bye!', 'Goodbye!'], goals: ['farewell'] } },
+];
+const messageCard: PacketCard = { id: 'preview', number: 1, title: 'İki mesaj yaz', kind: 'task', body: '', source: 'Bu söhbətdə verilmiş vizual nümunə; kursa əlavə edilməyib.', messages };
+export default function LessonPreview() {
+  if (!__DEV__) return null;
+  return <LessonVocabularyProvider><PreviewBody /></LessonVocabularyProvider>;
+}
+function PreviewBody() {
+  const router = useRouter(), insets = useSafeAreaInsets();
+  const [index, setIndex] = useState(0), [picker, setPicker] = useState(false), [answer, setAnswer] = useState('');
+  const [values, setValues] = useState<Record<string, string>>({}), [fields, setFields] = useState<MessageResults>({});
+  const [feedback, setFeedback] = useState<PacketVerdict | null>(null), [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [help, setHelp] = useState(false), [helpOpen, setHelpOpen] = useState(false), [example, setExample] = useState(false), [text, setText] = useState(false);
+  const [report, setReport] = useState(false), [playing, setPlaying] = useState(false), [busy, setBusy] = useState(false);
+  useEffect(() => () => { void Speech.stop(); }, []);
+  const reset = (next: number) => { void Speech.stop(); setPlaying(false); setIndex(next); setAnswer(''); setValues({}); setFields({}); setFeedback(null); setFeedbackOpen(false); setHelp(false); setHelpOpen(false); setExample(false); setText(false); setPicker(false); };
+  const speak = (value: string, slow = false) => { void Speech.stop(); setPlaying(true); Speech.speak(value, { language: 'en-GB', rate: slow ? .45 : .75, onDone: () => setPlaying(false), onStopped: () => setPlaying(false), onError: () => setPlaying(false) }); };
+  const showVerdict = (verdict: PacketVerdict) => { setFeedback(verdict); setFeedbackOpen(true); };
+  const check = () => {
+    if (index === 6) { const result = assessMessages(messageCard, values); setFields(result.fields); showVerdict(result.verdict); }
+    else showVerdict(assessPacketAnswer(answer, { answers: ['Hello!', 'Hi!'], goals: ['greet'] }));
+  };
+  const audio = [3, 4, 5].includes(index), task = [2, 3, 4, 5, 6].includes(index);
+  const locked = Boolean(feedback && feedback.status !== 'unknown');
+  const content = index === 0 ? <LessonWelcome packet={b1Packet[0]} compact sceneHeight={170} /> : index === 1 ? <LessonTeaching card={b1Packet[0].cards.find(c => c.kind === 'teach')!} packet={b1Packet[0]} onSpeak={speak} /> : index === 7 ? <ObjectWordCard entry={{ kind: 'object', word: 'apple', translation: 'alma', image: objectImage('apple')!, example: 'This is an apple.', exampleAz: 'Bu, almadır.', structureTaught: true, pronunciation: { ipa: '/ˈæp.əl/', source: 'https://dictionary.cambridge.org/pronunciation/english/apple', checkedAt: '2026-11-11', locale: 'en-GB' } }} onSpeak={speak} onPractice={() => reset(2)} /> : index === 8 ? <LessonResult title={b1Packet[0].title} goal={b1Packet[0].goal} done={false} missing={0} summary={{ independent: 6, assisted: 2, wrong: 1, unverified: 1 }} evidence={{ written: 6, spoken: 2, listeningIndependent: 2, listeningAssisted: 1, textHelp: 1, technicalText: 0 }} receipt="" error="" onDetails={() => setPicker(true)} /> : <>
+    <Text style={s.title}>{index === 2 ? 'Qısa salam yaz' : names[index]}</Text>
+    <Text style={s.note}>{index === 6 ? 'Görüşün əvvəlində salam, sonunda isə sağollaşma yaz.' : index === 2 ? 'Tanışınla qarşılaşdın. Ona ingiliscə salam yaz.' : index === 5 ? 'Salama səslə cavab ver.' : 'Səsi dinlə və tapşırığı tamamla.'}</Text>
+    {audio ? <View style={s.audio}>{index === 5 ? <LessonMascot height={55} style={{ width: 40 }} /> : null}<Pressable accessibilityRole="button" accessibilityLabel="Səsi dinlə" onPress={() => speak('Hello!')} style={s.play}><LessonIcon name="play" color="#FFF" /></Pressable><View style={{ flex: 1 }}><LessonAudioWave playing={playing} /></View><Pressable accessibilityRole="button" onPress={() => speak('Hello!', true)} style={s.slow}><LessonIcon name="turtle" /><Text style={s.small}>Yavaş dinlə</Text></Pressable></View> : null}
+    <Pressable accessibilityRole="button" onPress={() => setHelpOpen(true)} style={s.hint}><LessonIcon name="hint" /><Text style={s.link}>İpucu</Text></Pressable>
+    {text ? <Text style={s.note}>Hello!</Text> : null}
+    {index === 6 ? <TwoMessageInput fields={messages} values={values} results={locked ? fields : {}} scenes={[contentScene('toy-park')!, contentScene('toy-farewell')!]} onChange={(id, value) => setValues(old => ({ ...old, [id]: value }))} disabled={locked} /> : index === 5 ? <HoldVoiceInput key={index} suspended={helpOpen || picker || report || feedbackOpen} onBusyChange={setBusy} onFinal={spoken => { setAnswer(spoken.text); const verdict=assessPacketAnswer(spoken.text, { answers: ['Hello!', 'Hi!'], goals: ['greet'] }, true); showVerdict(verdict); return null; }} onUnverifiedRecording={() => showVerdict({ status: 'unknown', criteria: [], message: 'Səsin yazıldı, amma yoxlanmadı.' })} /> : index === 3 ? <View style={s.choices}>{['Hello!', 'Bye!'].map(option => <Pressable key={option} accessibilityRole="radio" accessibilityState={{ selected: answer === option }} disabled={locked} onPress={() => setAnswer(option)} style={[s.option, answer === option && { borderColor: ink.violet }]}><SelectionMark selected={answer === option} correct={Boolean(locked && feedback?.status === 'correct' && answer === option)} /><Text style={s.optionText}>{option}</Text></Pressable>)}</View> : <TextInput accessibilityLabel="Cavabını ingiliscə yaz" value={answer} onChangeText={setAnswer} editable={!locked} placeholder="Cavabını yaz" placeholderTextColor={ink.muted} style={s.input} />}
+  </>;
+  return <View style={[s.screen, { paddingTop: insets.top }]}><LinearGradient colors={['#F5EEFF', '#EFE3FC']} style={StyleSheet.absoluteFill} /><Stack.Screen options={{ headerShown: false }} />
+    <View style={s.header}><Pressable accessibilityRole="button" accessibilityLabel="Geri" onPress={() => router.back()} style={s.round}><LessonIcon name="back" /></Pressable><Text style={s.name}>Nümunə</Text><LessonProgressBar key={index} value={index / (names.length - 1)} /><Pressable accessibilityRole="button" accessibilityLabel="Ekran seç" disabled={busy} onPress={() => setPicker(true)} style={s.round}><Text style={s.name}>⋮</Text></Pressable></View>
+    <Pressable accessibilityRole="button" disabled={busy} onPress={() => setPicker(true)} style={s.notice}><Text style={s.small}>Sınaq: {names[index]} · irəliləyişə yazılmır ▾</Text></Pressable>
+    <FixedLessonViewport fill={index === 3} contentContainerStyle={s.content}>{content}</FixedLessonViewport>
+    <View style={[s.footer, { paddingBottom: Math.max(12, insets.bottom) }]}>{audio && index !== 5 ? <Pressable accessibilityRole="button" onPress={() => setHelpOpen(true)} style={s.hint}><Text style={s.link}>İndi dinləyə bilmirəm</Text></Pressable> : null}{index === 7 ? null : index === 5 ? <Pressable accessibilityRole="button" disabled={busy} onPress={() => reset(6)} style={s.hint}><Text style={s.link}>Keç</Text></Pressable> : <LessonButton label={index === 0 ? 'Dərsə başla' : task && !feedback ? 'Yoxla' : 'Davam et'} disabled={task && !feedback && (index === 6 ? messages.some(f => !values[f.id]?.trim()) : !answer.trim())} onPress={task && !feedback ? check : () => reset((index + 1) % names.length)} />}</View>
+    <LessonSheet visible={picker} onClose={() => setPicker(false)} title="Ekran nümunələri"><Text style={s.note}>Bu bölmə vizual və cihaz sınağı üçündür. Kurs məzmununa əlavə edilmir, XP və lüğət dəyişmir.</Text>{names.map((name, i) => <Pressable key={name} accessibilityRole="button" onPress={() => reset(i)} style={s.option}><Text style={s.optionText}>{i + 1}. {name}</Text></Pressable>)}<ReportAction onPress={() => { setPicker(false); setReport(true); }} /></LessonSheet>
+    <LessonHelpSheet visible={helpOpen} onClose={() => setHelpOpen(false)} audio={audio} speaking={index === 5} hint={index === 6 ? 'Birinci sahədə görüşü başlayan salamı yaz. İkinci sahədə ayrılarkən dediyin sağollaşmanı yaz.' : 'Söhbəti salamla başla.'} revealed={help} onHint={() => setHelp(true)} onText={() => { setText(true); setHelpOpen(false); }} example={index === 6 ? 'Hello! / Bye!' : undefined} onExample={() => setExample(true)} exampleRevealed={example} />
+    {feedback ? <LessonFeedback verdict={feedback} answer={index === 6 ? messages.map(f => `${f.label}: ${values[f.id]}`).join('\n') : answer} accepted={index === 6 ? ['Hello! / Hi!', 'Bye! / Goodbye!'] : ['Hello!', 'Hi!']} explanation={index === 6 ? feedback.message : 'Bye sağollaşmaq üçündür. Burada salam vermək lazımdır.'} shortRule="Görüşə başlayanda salam veririk." example="Qonşunla qarşılaşırsan: Hello!" open={feedbackOpen} onClose={() => setFeedbackOpen(false)} onContinue={() => reset((index + 1) % names.length)} onRetry={index === 5 ? () => { setFeedback(null); setFeedbackOpen(false); } : undefined} onReport={() => { setFeedbackOpen(false); setReport(true); }} /> : null}
+    <LessonReportSheet visible={report} onClose={() => setReport(false)} context={{ lessonId: 'preview', cardId: names[index], answer, verdict: feedback?.status }} />
+  </View>;
+}
+const s = StyleSheet.create({ screen: { flex: 1, backgroundColor: ink.bg }, header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 20, paddingVertical: 10 }, round: { width: 40, height: 40, borderRadius: 20, backgroundColor: ink.soft, justifyContent: 'center', alignItems: 'center' }, name: { color: ink.text, fontSize: 17, fontWeight: '800' }, notice: { alignSelf: 'center', paddingHorizontal: 12, minHeight: 32, justifyContent: 'center' }, content: { paddingHorizontal: 20, paddingVertical: 12, gap: 12 }, title: { color: ink.text, fontSize: 28, lineHeight: 34, fontWeight: '800' }, note: { color: ink.muted, fontSize: 16, lineHeight: 23 }, small: { color: ink.muted, fontSize: 12, lineHeight: 18 }, link: { color: ink.violet, fontSize: 15, fontWeight: '700' }, footer: { paddingHorizontal: 20, paddingTop: 10, gap: 10 }, hint: { alignSelf: 'flex-end', flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 44, borderRadius: 22, borderWidth: 1, borderColor: ink.border, paddingHorizontal: 14, backgroundColor: ink.soft }, audio: { flexDirection: 'row', alignItems: 'center', gap: 10, borderRadius: 22, padding: 12, borderWidth: 1, borderColor: ink.border }, play: { width: 46, height: 46, borderRadius: 23, backgroundColor: ink.violet, alignItems: 'center', justifyContent: 'center' }, slow: { minWidth: 65, alignItems: 'center', gap: 5 }, choices: { flex: 1, justifyContent: 'flex-end', gap: 10 }, option: { minHeight: 54, padding: 14, flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: ink.card, borderWidth: 1, borderColor: ink.border, borderRadius: 18 }, optionText: { color: ink.text, fontSize: 17, fontWeight: '600' }, input: { minHeight: 54, padding: 14, borderWidth: 1, borderColor: ink.border, borderRadius: 18, color: ink.text, fontSize: 17, backgroundColor: ink.card } });

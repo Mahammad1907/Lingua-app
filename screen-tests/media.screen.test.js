@@ -38,8 +38,8 @@ test('approved introduction keeps the full title, plain mascot and authored obje
   const packet = b1Packet[0], intro = lessonIntroduction(packet);
   await render(<LessonWelcome packet={packet} compact sceneHeight={180} />);
   expect(screen.getByRole('header').props.children).toBe(packet.title);
-  expect(screen.getByLabelText('Narıncı başlıqlı dərs bələdçisi').props.resizeMode).toBe('contain');
-  expect(screen.queryByTestId('lesson-image')).not.toBeOnTheScreen();
+  expect(screen.getByLabelText('Narıncı başlıqlı dərs bələdçisi').props.contentFit).toBe('contain');
+  expect(screen.getAllByTestId('lesson-image')).toHaveLength(1);
   intro.objectives.forEach(text => expect(screen.getByText(text)).toBeOnTheScreen());
   expect(screen.getByText(intro.subtitle)).toBeOnTheScreen();
 });

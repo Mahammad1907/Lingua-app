@@ -227,3 +227,13 @@ Yoxlama bu söhbətdə yerli mənbədəki 803a6d4e8cc497e75c51f9ec1fa6750acc5f37
 ## İlk real ekran baxışı — 11 noyabr 2026
 
 İstifadəçinin iOS Expo Go görüntüsü yeni dərs kodunun açıldığını təsdiqlədi, lakin maketə tam uyğunluğu yox. Uzun kart başlığı, seçim–düymə boşluğu və bütün tapşırıqlarda göstərilən Keç uyğunlaşdırıldı; əsas sual/cavab məzmunu qorundu. Sütun formalı audio dalğası və öyrətmənin tünd bənövşəyi maskot sahəsi seçilmiş istinada yaxınlaşdırıldı. Yoxlama: 75 avtomatik test, TypeScript və lint (0 xəta, əvvəlki 1 xəbərdarlıq). Yeni yerləşmənin iPhone-da yenidən yoxlanması lazımdır. Bölmə xəritəsinin köhnə görünüşü və oradakı boş şəkil dairələri bu dərs düzəlişinə daxil deyil.
+
+## 11 noyabr 2026 — A-dan Z-yə icra tapşırığı və cari kod
+
+İstifadəçi seçilmiş bütün dərs ekranlarını və davranışları başdan sona tətbiq etməyi açıq tapşırdı. Bu icra hazır dərs mətninin özbaşına dəyişdirilməsinə icazə vermir. Cari vəziyyət və fiziki cihaz yoxlama siyahısı `docs/LESSON_UI_20261111.md`-də yeniləndi.
+
+Öyrətmə/nəticə ekranları ortaq komponentlərə keçirildi. İki mesaj sadəcə UI komponenti olmaqdan çıxıb müəllif sahələri, ayrı qaydalar, düzgün hissənin saxlanması, nümunə köməyi və checkpoint ilə PacketLesson-a bağlandı. Əşya kartı yalnız müəllifin object metadatası, məlum nümunə quruluşu və mənbəli IPA ilə açılır; alma nümunəsi kursa əlavə olunmadan development önbaxışındadır. İfadələrə bütöv toxunma və cari məzmuna uyğun avtomatik lüğət əlavəsi düzəldildi.
+
+Aktiv mikrofon en-GB on-device tanıma ilə məhduddur; xidmət yoxdursa yazı unverified qalır. Səhv danışıqda bir dərhal cəhd var; ilkin sübut və məhdud son təkrar qorunur. Hazır audionun player lifecycle-ı və dəqiq müəllif mətnlərindən 123 sətirlik recording-plan əlavə edildi; real səsyazma faylları hələ yoxdur. Hesabat hələ yalnız cihazda saxlanır. 7 qrupun struktur/model/ekran yolu hazırdır, amma təsdiqlənməmiş bölgü uydurulmur.
+
+Development dərs menyusunda Ekran nümunələri real komponentlərə tez baxış verir, XP/proqress/lüğəti dəyişmir. Buradakı alma və iki mesaj yalnız istifadəçinin verdiyi nümunələrdir. Bu bölmə tamamlanmış kurs və ya real cihaz sınağı deyil. Yeni yazısız sağollaşma və alma aktivləri əlavə olundu; təsdiqlənmiş park yenidən istifadə edildi. Expo Image-a keçid iPhone-dakı boş şəkillər üçün tətbiq edilib, nəticə telefonda təkrar yoxlanmalıdır.

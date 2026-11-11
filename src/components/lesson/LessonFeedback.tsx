@@ -5,11 +5,11 @@ import { LessonButton, LessonIcon, ink } from './ApprovedLessonSurface';
 import SpellingNote from './SpellingNote';
 import LessonSheet from './LessonSheet';
 import { ReportAction } from './LessonReportSheet';
-export default function LessonFeedback({ verdict, explanation, assisted = false, answer, accepted, needsPractice = false, example, shortRule, onContinue, onReport, disabled = false, open = true, onClose }: { verdict: PacketVerdict; explanation: string; meaning?: string | null; assisted?: boolean; answer?: string; accepted?: string[]; needsPractice?: boolean; example?: string; shortRule?: string; onContinue?: () => void; onReport?: () => void; disabled?: boolean; open?: boolean; onClose?: () => void }) {
+export default function LessonFeedback({ verdict, explanation, assisted = false, answer, accepted, needsPractice = false, example, shortRule, onContinue, onReport, disabled = false, open = true, onClose, onRetry }: { verdict: PacketVerdict; explanation: string; meaning?: string | null; assisted?: boolean; answer?: string; accepted?: string[]; needsPractice?: boolean; example?: string; shortRule?: string; onContinue?: () => void; onReport?: () => void; disabled?: boolean; open?: boolean; onClose?: () => void; onRetry?: () => void }) {
   const [details, setDetails] = useState(false);
   const correct = verdict.status === 'correct', unknown = verdict.status === 'unknown';
   const color = unknown ? ink.violet : correct ? ink.mint : ink.error;
-  const title = unknown ? 'Səs yoxlanmadı' : correct ? 'Düzgündür' : 'Bir daha baxaq';
+  const title = unknown ? 'Yoxlanmadı' : correct ? 'Düzgündür' : 'Bir daha baxaq';
   return <LessonSheet visible={open} onClose={onClose || (() => {})} title={details ? 'Mənə başa sal' : `${unknown ? 'ⓘ' : correct ? '✓' : '!'} ${title}`} action={onReport ? <ReportAction onPress={onReport} /> : undefined} footer={onContinue ? <LessonButton disabled={disabled} tone={unknown ? 'primary' : correct ? 'correct' : 'wrong'} label="Davam et" onPress={onContinue} /> : undefined}>
     <View accessibilityLiveRegion="polite" style={{ gap: 12 }}>
       {details ? <>
@@ -19,6 +19,7 @@ export default function LessonFeedback({ verdict, explanation, assisted = false,
         {correct && verdict.spellingCorrections?.length ? <SpellingNote corrections={verdict.spellingCorrections} /> : null}
         {!correct && !unknown && accepted?.length ? <Text style={s.text}>Uyğun cavab: {accepted.join(' / ')}</Text> : null}
         {needsPractice ? <Text style={s.text}>Bu hissəni sonra yenidən məşq edəcəyik.</Text> : null}
+        {onRetry ? <Pressable accessibilityRole="button" disabled={disabled} onPress={onRetry} style={s.help}><Text style={s.label}>Yenidən cəhd et</Text></Pressable> : null}
         {!unknown ? <Pressable accessibilityRole="button" onPress={() => setDetails(true)} style={s.help}><LessonIcon name="hint" size={18} /><Text style={s.label}>Mənə başa sal</Text></Pressable> : null}
       </>}
     </View>

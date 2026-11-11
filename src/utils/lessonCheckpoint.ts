@@ -2,8 +2,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { PacketCard } from '../data/b1PacketTypes';
 import type { PacketVerdict } from './packetAnswer';
 import type { LessonAttempt } from './rewards';
+import type { MessageResults } from './messageTask';
 import type { TaskEvidence } from './lessonEvidence';
-export interface PacketOutcome { answer: string; status: 'independent' | 'assisted' | 'wrong' | 'unverified'; spoken: boolean; reason?: string; evidence?: TaskEvidence }
+export interface PacketOutcome { answer: string; status: 'independent' | 'assisted' | 'wrong' | 'unverified'; spoken: boolean; reason?: string; evidence?: TaskEvidence; fields?: MessageResults; voiceRetryUsed?: boolean }
 export interface LessonCheckpoint {
   version: 1; lessonId: string; flowIds: string[]; attempt: LessonAttempt;
   index: number; answer: string; built: number[]; feedback: PacketVerdict | null;

@@ -1,4 +1,5 @@
-import { Image, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Image } from 'expo-image';
 import type { JourneyArtwork } from '../../utils/chapterJourney';
 import { HomeArtwork } from '../home/HomeArtwork';
 
@@ -13,16 +14,17 @@ export function ChapterArtwork({ name, size }: { name: JourneyArtwork; size: num
   }
   const [column, row] = cells[name as keyof typeof cells];
   return <View pointerEvents="none" style={{ width: size, height: size, overflow: 'hidden' }}>
-    <Image source={atlas} accessible={false} resizeMode="stretch" style={[s.atlas,
+    <Image source={atlas} accessible={false} contentFit="fill" style={[s.atlas,
       { width: size * 2, height: size * 2, left: -column * size, top: -row * size }]} />
   </View>;
 }
 export function ReferenceArtwork({ name, width, height }: { name: 'fox' | 'identity'; width: number; height: number }) {
   // The fox tail extends beyond the nominal half-cell in the generated atlas.
   // Crop the real clean bounds so the tail is retained and the ID stays separate.
-  const crop = name === 'fox' ? { x: 0, width: 0.56 } : { x: 0.56, width: 0.44 };
+  if (name === 'fox') return <Image source={require('../../../assets/mascot/lesson-guide.webp')} contentFit="contain" style={{ width, height }} accessible={false} />;
+  const crop = { x: 0.56, width: 0.44 };
   return <View pointerEvents="none" style={{ width, height, overflow: 'hidden' }}>
-    <Image source={referenceAtlas} accessible={false} resizeMode="stretch" style={[s.atlas,
+    <Image source={referenceAtlas} accessible={false} contentFit="fill" style={[s.atlas,
       { width: width / crop.width, height, left: -crop.x / crop.width * width, top: 0 }]} />
   </View>;
 }

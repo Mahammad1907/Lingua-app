@@ -134,5 +134,37 @@
       "unwell"
     ],
     "description": "Eyni qadın personajın üç halı: yaxşı, normal, özünü yaxşı hiss etməyən. Yazı və cavab işarələri yoxdur."
+  },
+  {
+    "id": "toy-park",
+    "file": "assets/lessons/scenes/toy-park.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world",
+      "meeting",
+      "park"
+    ],
+    "description": "Təsdiqlənmiş yeni Leyla və Əli; yazısız oyuncaq parkı. Yalnız uyğun görüş vəziyyətində."
+  },
+  {
+    "id": "toy-farewell",
+    "file": "assets/lessons/scenes/toy-farewell.webp",
+    "tags": [
+      "approved-20261111",
+      "toy-world",
+      "farewell",
+      "home"
+    ],
+    "description": "Əli Leylagildən ayrılır; Leyla qapıda qalır. Native sual və cavab şəkilə yazılmır."
+  },
+  {
+    "id": "object-apple",
+    "file": "assets/lessons/scenes/object-apple.webp",
+    "tags": [
+      "approved-20261111",
+      "object",
+      "apple"
+    ],
+    "description": "Şəffaf fonda aydın alma. Əşya söz kartı üçün; salamlaşma dərsinə əlavə edilmir."
   }
 ]

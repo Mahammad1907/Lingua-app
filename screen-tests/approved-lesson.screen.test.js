@@ -254,3 +254,81 @@ test('a contextual choice uses the short screen heading and has no extra Skip fo
  expect(screen.queryByText('Keç', { exact: true })).not.toBeOnTheScreen();
  expect(screen.getByText('Yoxla', { exact: true })).toBeDisabled();
 });
+
+const messagePacket = () => {
+ const source = b1Packet[0]; const first = source.cards.find(c => c.kind === 'task');
+ const messages = [{ id: 'opening', label: 'Görüşün əvvəlində', placeholder: 'Salamını yaz', rule: { answers: ['Hello!', 'Hi!'], goals: ['greet'] } }, { id: 'closing', label: 'Görüşün sonunda', placeholder: 'Sağollaşmanı yaz', rule: { answers: ['Bye!', 'Goodbye!'], goals: ['farewell'] } }];
+ const task = { ...first, audio: undefined, options: undefined, words: undefined, body: 'Görüşün əvvəlində salam, sonunda isə sağollaşma yaz.', messages, messageHint: 'Birinci sahədə görüşü başlayan salamı yaz. İkinci sahədə ayrılarkən dediyin sağollaşmanı yaz.', messageExample: ['Hello!', 'Bye!'], scenes: ['toy-park', 'toy-farewell'] };
+ task.review = { ...task, body: 'Yeni görüş başlayır və sonra bitir. İki uyğun mesaj yaz.', review: undefined };
+ return { ...source, cards: [source.cards[0], task, source.cards.at(-1)] };
+};
+test('two-message task checks both fields only on Check and keeps its correct field on bounded review', async () => {
+ const packet = messagePacket(); await renderAsync(<PacketLesson packet={packet} />); await tick(); await press('Dərsə başla');
+ expect(screen.getByText('Yoxla')).toBeDisabled();
+ await act(async () => fireEvent.changeText(screen.getByLabelText('Görüşün əvvəlində'), 'Hello!'));
+ expect(screen.getByText('Yoxla')).toBeDisabled();
+ await act(async () => fireEvent.changeText(screen.getByLabelText('Görüşün sonunda'), 'Hello!'));
+ expect(screen.queryByText(/Bir daha baxaq/)).not.toBeOnTheScreen(); await press('Yoxla'); await tick(700);
+ expect(screen.getByText('! Bir daha baxaq')).toBeOnTheScreen();
+ expect(screen.getByLabelText('Görüşün əvvəlində').props.editable).toBe(false);
+ await press('Davam et'); expect(screen.getByText('↻ Təkrar')).toBeOnTheScreen();
+ expect(screen.getByLabelText('Görüşün əvvəlində').props.value).toBe('Hello!'); expect(screen.getByLabelText('Görüşün əvvəlində').props.editable).toBe(false);
+ expect(screen.getByLabelText('Görüşün sonunda').props.value).toBe('');
+ await act(async () => fireEvent.changeText(screen.getByLabelText('Görüşün sonunda'), 'Bye!')); await press('Yoxla'); await tick(700); await press('Davam et');
+ expect(screen.queryByText('↻ Təkrar')).not.toBeOnTheScreen();
+ const attempt = Object.values(useUserStore.getState().attempts)[0]; const task = attempt.tasks[packet.cards[1].id];
+ expect(task.firstCorrect).toBe(false); expect(task.resolved).toBe(true); expect(task.evidence.assisted).toBe(true);
+});
+test('two-message example is opt-in and marks the response assisted; merely opening help does not', async () => {
+ await renderAsync(<PacketLesson packet={messagePacket()} />); await tick(); await press('Dərsə başla'); await press('İpucu');
+ expect(screen.queryByText('Nümunəni göstər')).not.toBeOnTheScreen();
+ await press('İpucu'); await press('Nümunəni göstər'); expect(screen.getByText('Hello! / Bye!')).toBeOnTheScreen();
+ await act(async () => fireEvent.press(screen.getByLabelText('Kömək seç panelini bağla')));
+ await act(async () => { fireEvent.changeText(screen.getByLabelText('Görüşün əvvəlində'), 'Hello!'); fireEvent.changeText(screen.getByLabelText('Görüşün sonunda'), 'Bye!'); });
+ await press('Yoxla'); expect(Object.values(Object.values(useUserStore.getState().attempts)[0].tasks)[0].evidence.assisted).toBe(true);
+});
+test('two-message partial answer and retained field survive process-state restoration', async () => {
+ const packet=messagePacket(); await renderAsync(<PacketLesson packet={packet} />); await tick(); await press('Dərsə başla');
+ await act(async () => { fireEvent.changeText(screen.getByLabelText('Görüşün əvvəlində'), 'Hi!'); fireEvent.changeText(screen.getByLabelText('Görüşün sonunda'), 'Hi!'); });
+ await press('Yoxla'); await tick(700); await press('Davam et'); await tick(); await act(async () => cleanup()); useUserStore.setState({ attempts: {} });
+ await renderAsync(<PacketLesson packet={packet} />); await tick(); expect(screen.getByLabelText('Görüşün əvvəlində').props.value).toBe('Hi!'); expect(screen.getByLabelText('Görüşün əvvəlində').props.editable).toBe(false);
+ expect(screen.getByLabelText('Görüşün sonunda').props.value).toBe('');
+});
+test('teaching explanation remains authored and contextual multiword expressions open their meaning', async () => {
+ const source=b1Packet[1]; const card=source.cards.find(c=>c.kind==='teach' && c.examples.includes('My name is Leyla.'));
+ const packet={...source,cards:[source.cards[0],card,source.cards.at(-1)]}; await renderAsync(<PacketLesson packet={packet}/>); await tick(); await press('Dərsə başla');
+ await press('Qısa izah'); expect(screen.getByText(/Sonuna adını əlavə et/)).toBeOnTheScreen();
+ await act(async()=>fireEvent.press(screen.getByLabelText('Qısa izah panelini bağla')));
+ const labels = screen.getAllByLabelText(/My name is: mənası və nümunəsi/); await act(async()=>fireEvent.press(labels[0]));
+ expect(screen.getByText('Mənim adım …-dır/-dir', {exact:true})).toBeOnTheScreen();
+});
+test('held speech uses British on-device recognition; unavailable local recognition falls back to unverified recording', async () => {
+ mockEngine=engine(); const props={onFinal:jest.fn(()=>null),onUnverifiedRecording:jest.fn(),onBusyChange:()=>{},suspended:false};
+ const view=await renderAsync(<HoldVoiceInput {...props}/>); await act(async()=>fireEvent(screen.getByLabelText('Basılı saxla və danış'),'pressIn'));
+ expect(mockEngine.start).toHaveBeenCalledWith(expect.objectContaining({lang:'en-GB',requiresOnDeviceRecognition:true}));
+ await view.unmountAsync(); mockEngine=engine(); mockEngine.supportsOnDeviceRecognition=()=>false;
+ await renderAsync(<HoldVoiceInput {...props}/>); const mic=screen.getByLabelText('Basılı saxla və danış'); await act(async()=>fireEvent(mic,'pressIn')); await tick(130); await act(async()=>fireEvent(mic,'pressOut'));
+ expect(mockEngine.start).not.toHaveBeenCalled(); expect(props.onFinal).not.toHaveBeenCalled(); expect(props.onUnverifiedRecording).toHaveBeenCalledTimes(1);
+});
+test('a confirmed spoken mistake offers one immediate retry while preserving original evidence', async () => {
+ mockEngine=engine(); const source=b1Packet[0]; const voice=packetFlow(source).find(c=>c.kind==='voice');
+ const packet={...source,cards:[source.cards[0],voice,source.cards.at(-1)]}; await renderAsync(<PacketLesson packet={packet}/>); await tick(); await press('Dərsə başla'); await listen();
+ const say=async value=>{ const mic=screen.getByLabelText('Basılı saxla və danış'); await act(async()=>fireEvent(mic,'pressIn')); await act(async()=>{mockEngine.emit('result',{isFinal:true,results:[{transcript:value,confidence:.9}]});mockEngine.emit('end');}); await act(async()=>fireEvent(mic,'pressOut')); await tick(700); };
+ await say('Bye!'); expect(screen.getByText('! Bir daha baxaq')).toBeOnTheScreen(); await press('Yenidən cəhd et');
+ await say('Bye!'); expect(screen.queryByText('Yenidən cəhd et')).not.toBeOnTheScreen();
+ const task=Object.values(useUserStore.getState().attempts)[0].tasks[voice.id]; expect(task.firstCorrect).toBe(false); expect(task.firstEvidence.input).toBe('spoken');
+ await press('Davam et'); expect(screen.getByText('↻ Təkrar')).toBeOnTheScreen();
+});
+test('an authored object card adds its word before practice, opens sourced meaning and speaks English only', async () => {
+ const source=b1Packet[0]; const card={...source.cards.find(c=>c.kind==='teach'),body:'',board:undefined,examples:[],introducedWords:['apple'],objectWord:{kind:'object',word:'apple',translation:'alma',image:'apple',example:'This is an apple.',exampleAz:'Bu, almadır.',structureTaught:true,pronunciation:{ipa:'/ˈæp.əl/',source:'https://dictionary.cambridge.org/pronunciation/english/apple',checkedAt:'2026-11-11',locale:'en-GB'}}};
+ const packet={...source,cards:[source.cards[0],card,source.cards.at(-1)],vocabulary:[{word:'apple',translation:'alma',pronunciation:'',example:'This is an apple.',exampleAz:'Bu, almadır.',usageNote:''}]};
+ await renderAsync(<PacketLesson packet={packet}/>); await tick(); await press('Dərsə başla');
+ expect(useVocabularyStore.getState().allWords.map(v=>v.word)).toEqual(['apple']); expect(screen.queryByText('Davam et')).not.toBeOnTheScreen();
+ await act(async()=>fireEvent.press(screen.getByLabelText('Sözü ingiliscə dinlə'))); expect(Speech.speak.mock.calls.at(-1)).toEqual(['apple',expect.objectContaining({language:'en-GB'})]);
+ await act(async()=>fireEvent.press(screen.getByLabelText('apple: mənası və nümunəsi'))); expect(screen.getAllByText('/ˈæp.əl/').length).toBeGreaterThan(0);
+ await act(async()=>fireEvent.press(screen.getByLabelText('apple panelini bağla'))); await press('Məşqə keç'); expect(screen.getByText('Dərs hələ tamamlanmayıb')).toBeOnTheScreen(); expect(screen.queryByText('Məşqə keç')).not.toBeOnTheScreen();
+});
+test('object metadata without a known structure cannot create a blank lesson with no Continue', async () => {
+ const source=b1Packet[0]; const card={...source.cards.find(c=>c.kind==='teach'),objectWord:{kind:'object',word:'apple',translation:'alma',image:'apple',example:'This is an apple.',exampleAz:'Bu, almadır.',structureTaught:false,pronunciation:{ipa:'/ˈæp.əl/',source:'https://dictionary.cambridge.org/pronunciation/english/apple',checkedAt:'2026-11-11',locale:'en-GB'}}};
+ await renderAsync(<PacketLesson packet={{...source,cards:[source.cards[0],card,source.cards.at(-1)]}}/>); await tick(); await press('Dərsə başla'); expect(screen.getByText('Davam et')).toBeEnabled(); expect(screen.queryByText('Məşqə keç')).not.toBeOnTheScreen();
+});
