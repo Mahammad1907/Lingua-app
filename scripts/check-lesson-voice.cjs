@@ -42,21 +42,10 @@ for (const viewport of [240, 400, 580, 700]) for (const body of [180, 300, 600])
 }
 assert.match(lessonCorrection({ rule: { goals: ['farewell'] } }, 'Hi!', { status: 'wrong', message: '' }), /Goodbye/);
 const source = fs.readFileSync(require.resolve('../src/components/lesson/PacketLesson.tsx'), 'utf8');
-const ast = ts.createSourceFile('PacketLesson.tsx', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
-let inlineFeedback = false;
-function visit(node) {
-  if (ts.isJsxElement(node) && node.openingElement.tagName.getText(ast) === 'ScrollView') {
-    function findFeedback(child) {
-      if (ts.isJsxSelfClosingElement(child) && child.tagName.getText(ast) === 'LessonFeedback') inlineFeedback = true;
-      ts.forEachChild(child, findFeedback);
-    }
-    ts.forEachChild(node, findFeedback);
-  }
-  ts.forEachChild(node, visit);
-}
-visit(ast);
-assert.ok(inlineFeedback, 'feedback belongs below answers inside the content, never in an overlay footer');
+assert.ok(source.includes('<HoldVoiceInput'), 'active lesson uses press-and-hold voice input');
+assert.ok(source.includes('onContinue={feedback.status'), 'feedback retains explicit continuation');
+assert.ok(!source.includes('setReviewIntro(true)'), 'retry has no separate introduction screen');
 assert.ok(!source.includes('SoundMark'), 'the player cannot duplicate the hero waveform');
 assert.ok(!source.includes('RecognizedVoiceComposer'), 'lessons no longer mount the record/replay fallback');
 assert.ok(!source.includes('İndi sən danış'), 'redundant speaking heading is removed');
-console.log('PASS: silence, partial/final/end order, confidence, timeout, cancel, duplicate submit, released native cleanup, measured decoration and inline feedback structure.');
+console.log('PASS: silence, partial/final/end order, confidence, timeout, cancel, duplicate submit, released native cleanup, measured decoration, hold control and explicit feedback continuation.');

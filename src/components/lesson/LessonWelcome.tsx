@@ -1,27 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native';
 import type { PacketLesson } from '../../data/b1PacketTypes';
 import { lessonIntroduction } from '../../utils/lessonGuide';
-import { newLessonWords } from '../../utils/lessonVocabulary';
-import { b1Packet } from '../../data/b1Course';
-import { ClassroomScene, ink, Surface } from './LessonSurface';
-import LessonTextMotion from './LessonTextMotion';
-
+import { ink, Surface } from './ApprovedLessonSurface';
+import LessonMascot from './LessonMascot';
 export default function LessonWelcome({ packet, compact, sceneHeight }: { packet: PacketLesson; compact: boolean; sceneHeight: number }) {
   const intro = lessonIntroduction(packet);
   return <View style={s.welcome}>
-    <View style={s.label}><Text style={s.labelText}>DƏRS {packet.order}</Text></View>
-    <Text accessibilityRole="header" style={[s.title, compact && { fontSize: 28, lineHeight: 34 }]}>{packet.title}</Text>
+    <Text style={s.label}>İlk tanışlıq</Text>
+    <Text accessibilityRole="header" style={[s.title, compact && { fontSize: 29, lineHeight: 35 }]}>{packet.title}</Text>
     <Text style={s.subtitle}>{intro.subtitle}</Text>
-    <View style={s.scene}><ClassroomScene text={intro.board} height={sceneHeight} freshWords={newLessonWords(packet, b1Packet)} fit="contain" welcome /></View>
-    <Surface accent="violet"><Text style={s.kicker}>BU DƏRSDƏ ÖYRƏNƏCƏKSƏN</Text>
-      {intro.objectives.map((text, index) => <View key={text} style={[s.objective, compact && { paddingVertical: 7 }]}>{packet.order === 1 && index === 1 ? <View style={{ width: 29, height: 27 }}><Text style={[s.icon, { position: 'absolute', left: 8, top: 7, fontSize: 19 }]}>💬</Text><Text style={[s.icon, { position: 'absolute', left: 0, top: 0 }]}>💬</Text></View> : <Text style={s.icon}>{(packet.order === 1 ? ['💬', '💬', '👋'] : ['💬', '👋', '🗨️'])[index]}</Text>}<LessonTextMotion state="reveal" trigger={packet.id} style={s.objectiveText}>{text}</LessonTextMotion></View>)}
-    </Surface>
-    <Text style={s.caption}>Dinlə, məşq et və özün cavab ver.</Text>
+    <LessonMascot height={Math.max(100, Math.min(sceneHeight, 180))} />
+    <Surface><Text style={s.kicker}>Bu dərsdə</Text>{intro.objectives.map((text, index) => <View key={text} style={s.objective}><Text style={s.icon}>{['👋', '💬', '↗'][index]}</Text><Text style={s.objectiveText}>{text}</Text></View>)}</Surface>
   </View>;
 }
-const s = StyleSheet.create({
-  welcome: { gap: 6 }, label: { alignSelf: 'flex-start', paddingHorizontal: 13, paddingVertical: 5, backgroundColor: '#201D57', borderWidth: 1, borderColor: '#3F329C', borderRadius: 16 }, labelText: { color: ink.violet, fontSize: 11, fontWeight: '800', letterSpacing: 1 },
-  title: { color: ink.text, fontSize: 33, lineHeight: 39, fontWeight: '800', letterSpacing: -.8 }, subtitle: { color: '#BDB0F2', fontSize: 16, lineHeight: 23 }, scene: { marginHorizontal: -20, marginBottom: -7 },
-  kicker: { color: '#C2B2FF', fontSize: 11, lineHeight: 16, fontWeight: '800', letterSpacing: 1, marginBottom: 3 }, objective: { flexDirection: 'row', gap: 12, alignItems: 'center', paddingVertical: 12, paddingHorizontal: 12, borderRadius: 15, borderWidth: 1, borderColor: '#4A3C9C', backgroundColor: '#181941' }, icon: { fontSize: 23 }, objectiveText: { flex: 1, color: ink.text, fontSize: 15, lineHeight: 21, fontWeight: '600' }, caption: { textAlign: 'center', color: ink.violet, fontSize: 12, lineHeight: 18, marginTop: 3 },
-});
-
+const s = StyleSheet.create({ welcome: { gap: 12 }, label: { alignSelf: 'flex-start', color: ink.violet, backgroundColor: '#E4D3F9', paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, fontSize: 14, fontWeight: '700' }, title: { color: ink.text, fontSize: 33, lineHeight: 39, fontWeight: '800', letterSpacing: -.8 }, subtitle: { color: ink.muted, fontSize: 16, lineHeight: 23 }, kicker: { color: ink.text, fontSize: 22, fontWeight: '800', marginBottom: 3 }, objective: { flexDirection: 'row', gap: 16, alignItems: 'center', paddingVertical: 9, borderBottomWidth: 1, borderBottomColor: '#E0CCF3' }, icon: { fontSize: 22, width: 30, color: ink.violet }, objectiveText: { flex: 1, color: ink.text, fontSize: 16, lineHeight: 22, fontWeight: '600' } });

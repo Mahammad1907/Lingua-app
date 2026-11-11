@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Animated, Keyboard, Pressable, StyleSheet, TextInput, View } from 'react-native';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import LessonVoiceInput from './LessonVoiceInput';
-import { LessonIcon, ink } from './LessonSurface';
+import { LessonIcon, ink } from './ApprovedLessonSurface';
 import { useLessonTextMotion, type LessonMotion } from './LessonTextMotion';
 
 const AnimatedInput = Animated.createAnimatedComponent(TextInput);
 
-export default function WrittenAnswerInput({ value, onChange, onVoiceFinal, disabled, onBusyChange, onFocus, suspended = false, motionState = 'idle', onVoiceModeChange, onUnverifiedRecording }: { onUnverifiedRecording?: (recording: UnverifiedRecording) => void; onVoiceModeChange?: (open: boolean) => void;
+export default function WrittenAnswerInput({ value, onChange, onVoiceFinal, disabled, onBusyChange, onFocus, suspended = false, motionState = 'idle', onVoiceModeChange, onUnverifiedRecording, allowVoice = true }: { allowVoice?: boolean; onUnverifiedRecording?: (recording: UnverifiedRecording) => void; onVoiceModeChange?: (open: boolean) => void;
   value: string; onChange: (text: string) => void; onVoiceFinal: (answer: SpokenAnswer) => string | null;
   disabled: boolean; onBusyChange: (busy: boolean) => void; onFocus: () => void; suspended?: boolean; motionState?: LessonMotion;
 }) {
@@ -15,8 +15,8 @@ export default function WrittenAnswerInput({ value, onChange, onVoiceFinal, disa
   const motion = useLessonTextMotion(motionState);
   const changeVoice = (open: boolean) => { Keyboard.dismiss(); setVoice(open); onVoiceModeChange?.(open); };
   return <View style={s.container}>
-    <Animated.View style={[s.frame, motion.borderStyle('#A297EF')]}><LessonIcon name="keyboard" /><AnimatedInput accessibilityLabel="Cavabını ingiliscə yaz" value={value} editable={!disabled && !voice} onFocus={onFocus} onChangeText={onChange} autoCorrect={false} autoCapitalize="none" multiline style={[s.input, motion.transformStyle, motion.active && { color: motion.color(ink.text) }]} placeholder="Cavabını yaz və ya de" placeholderTextColor={ink.muted} /><Pressable accessibilityRole="button" accessibilityLabel={voice ? 'Yazılı cavaba qayıt' : 'Cavabını mikrofonla de'} disabled={disabled} onPress={() => changeVoice(!voice)} style={s.mic}><LessonIcon name={voice ? 'keyboard' : 'mic'} /></Pressable></Animated.View>
+    <Animated.View style={[s.frame, motion.borderStyle('#BCA0DF')]}><LessonIcon name="keyboard" /><AnimatedInput accessibilityLabel="Cavabını ingiliscə yaz" value={value} editable={!disabled && !voice} onFocus={onFocus} onChangeText={onChange} autoCorrect={false} autoCapitalize="none" multiline style={[s.input, motion.transformStyle, motion.active && { color: motion.color(ink.text) }]} placeholder="Cavabını yaz və ya de" placeholderTextColor={ink.muted} />{allowVoice ? <Pressable accessibilityRole="button" accessibilityLabel={voice ? 'Yazılı cavaba qayıt' : 'Cavabını mikrofonla de'} disabled={disabled} onPress={() => changeVoice(!voice)} style={s.mic}><LessonIcon name={voice ? 'keyboard' : 'mic'} /></Pressable> : null}</Animated.View>
     {voice && !disabled ? <LessonVoiceInput compact onUnverifiedRecording={onUnverifiedRecording} autoStart onClose={() => changeVoice(false)} suspended={suspended} onBusyChange={onBusyChange} onFinal={result => { onChange(result.text); return onVoiceFinal(result); }} /> : null}
   </View>;
 }
-const s = StyleSheet.create({ container: { gap: 10 }, frame: { flexDirection: 'row', alignItems: 'center', gap: 11, paddingLeft: 15, paddingRight: 7, borderRadius: 20, borderWidth: 1.5, borderColor: '#A297EF', backgroundColor: '#21213D' }, input: { flex: 1, minHeight: 56, maxHeight: 100, paddingVertical: 13, fontSize: 16, lineHeight: 23, color: ink.text }, mic: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center', backgroundColor: '#332B51' } });
+const s = StyleSheet.create({ container: { gap: 10 }, frame: { flexDirection: 'row', alignItems: 'center', gap: 11, paddingLeft: 15, paddingRight: 7, borderRadius: 20, borderWidth: 1.5, borderColor: '#BCA0DF', backgroundColor: '#FCFAFF' }, input: { flex: 1, minHeight: 56, maxHeight: 100, paddingVertical: 13, fontSize: 16, lineHeight: 23, color: ink.text }, mic: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E9DCFA' } });

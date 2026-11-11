@@ -34,14 +34,14 @@ test('image failure has a retry, successful load settles, a new source resets lo
   await view.rerender(<LessonImage source={2} />);
   expect(screen.getByText('Şəkil yüklənir…')).toBeOnTheScreen();
 });
-test('original introduction keeps the full title, uncropped board, objectives and caption', async () => {
+test('approved introduction keeps the full title, plain mascot and authored objectives', async () => {
   const packet = b1Packet[0], intro = lessonIntroduction(packet);
   await render(<LessonWelcome packet={packet} compact sceneHeight={180} />);
   expect(screen.getByRole('header').props.children).toBe(packet.title);
-  expect(screen.getByTestId('lesson-image').props.contentFit).toBe('contain');
-  expect(screen.getByText(intro.board)).toBeOnTheScreen();
+  expect(screen.getByLabelText('Narıncı başlıqlı dərs bələdçisi').props.resizeMode).toBe('contain');
+  expect(screen.queryByTestId('lesson-image')).not.toBeOnTheScreen();
   intro.objectives.forEach(text => expect(screen.getByText(text)).toBeOnTheScreen());
-  expect(screen.getByText('Dinlə, məşq et və özün cavab ver.')).toBeOnTheScreen();
+  expect(screen.getByText(intro.subtitle)).toBeOnTheScreen();
 });
 test('web images do not require native source resolution; teaching boards color individual new words', async () => {
   const nativeResolve = NativeImage.resolveAssetSource;

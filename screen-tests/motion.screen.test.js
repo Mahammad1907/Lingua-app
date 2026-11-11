@@ -7,6 +7,7 @@ import LessonFeedback from '../src/components/lesson/LessonFeedback';
 import LessonExplanationCard from '../src/components/lesson/LessonExplanationCard';
 import AudioTranscript from '../src/components/lesson/AudioTranscript';
 
+jest.mock('@react-native-async-storage/async-storage', () => ({ getItem: jest.fn(async () => null), setItem: jest.fn(async () => {}) }));
 let mockReduced = false;
 jest.mock('react-native-safe-area-context',()=>({useSafeAreaInsets:()=>({top:0,bottom:0,left:0,right:0})}));
 jest.mock('../src/hooks/useReducedMotion', () => ({ useReducedMotion: () => mockReduced }));
@@ -60,7 +61,7 @@ test('typing alone never starts correct or incorrect feedback', async () => {
 test('recognition uncertainty does not animate as an incorrect answer', async () => {
   const timing = jest.spyOn(Animated, 'timing');
   await render(<LessonFeedback verdict={{ status: 'unknown', criteria: [], message: 'Səs tanınmadı' }} explanation="Səs tanınmadı" meaning={null}/>);
-  expect(screen.getByText('Yenidən cəhd et')).toBeOnTheScreen();
+  expect(screen.getByText('ⓘ Səs yoxlanmadı')).toBeOnTheScreen();
   expect(timing).not.toHaveBeenCalled();
 });
 

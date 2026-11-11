@@ -1,4 +1,4 @@
-import type { PacketLesson } from '../data/b1PacketTypes';
+import type { PacketCard, PacketLesson } from '../data/b1PacketTypes';
 import { normalizeApostrophes } from './spelling';
 const tokens = (text: string) => normalizeApostrophes(text).toLowerCase().match(/[\p{L}]+(?:'[\p{L}]+)*/gu) ?? [];
 export function newLessonWords(packet: PacketLesson, earlier: readonly PacketLesson[]): Set<string> {
@@ -12,4 +12,14 @@ export function vocabularyParts(text: string, fresh: ReadonlySet<string>): { tex
   return text.split(/([\p{L}]+(?:[‘’´ʼʻ`'][\p{L}]+)*)/gu).filter(Boolean).map(part => ({
     text: part, fresh: fresh.has(normalizeApostrophes(part).toLowerCase()),
   }));
+}
+
+// Only the teaching text/examples currently visible to the learner introduce a word.
+export function introducedVocabulary(card: PacketCard, packet: PacketLesson): string[] {
+  if (card.kind !== 'teach') return [];
+  const text = ` ${tokens([card.body, card.board, ...(card.examples || [])].filter(Boolean).join(' ')).join(' ')} `;
+  return packet.vocabulary.filter(entry => {
+    const key = tokens(entry.word).join(' ');
+    return key && text.includes(` ${key} `);
+  }).map(entry => entry.word);
 }

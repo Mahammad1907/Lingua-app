@@ -1,5 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import { verifiedPronunciation } from '../../data/verifiedPronunciations';
 import * as Speech from 'expo-speech';
 import {
   ScrollView,
@@ -40,10 +41,11 @@ export default function WordDetailScreen() {
     );
   }
 
+  const pronunciation = verifiedPronunciation(word.word);
   const speak = () => {
     Speech.stop();
     Speech.speak(word.word, {
-      language: 'en-US',
+      language: 'en-GB',
       rate: 0.5,
       pitch: 1.0,
     });
@@ -76,12 +78,12 @@ export default function WordDetailScreen() {
             <Text style={styles.mainWord}>{word.word}</Text>
             <Text style={styles.mainTranslation}>{word.translation}</Text>
 
-            <View style={styles.pronunciationBox}>
+            {pronunciation ? <View style={styles.pronunciationBox}>
               <Text style={styles.pronunciationLabel}>TƏLƏFFÜZ</Text>
               <Text style={styles.pronunciationText}>
-                {word.pronunciation}
+                {pronunciation.ipa}
               </Text>
-            </View>
+            </View> : null}
 
             <TouchableOpacity
               style={styles.speakButton}

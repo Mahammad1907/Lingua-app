@@ -209,3 +209,17 @@ Yoxlama bu söhbətdə yerli mənbədəki 803a6d4e8cc497e75c51f9ec1fa6750acc5f37
 - `check-vocabulary-persistence.cjs` və `check-lesson-regressions.cjs` yenidən işləndi və keçdi: mövcud təkrarsızlıq/yaddaş və cavab/vurğu qaydalarını yoxlayırlar. İlk öyrətmə vaxtı əlavə, yeni əşya kartı, IPA mənbələri və real cihaz audio yoxlamasını təsdiqləmirlər.
 
 **Status:** Bu əlavədə tələb və mövcud vəziyyət sənədləşdirilib. Yeni əşya kartı, ilk öyrətmə anında lüğət əlavəsi və audio vahidləşdirilməsi bu qeydlə tətbiq edilməyib; real telefon sınağı aparılmayıb.
+
+## Cari ekran qaydalarının üstünlüyü və tətbiqə başlanması — 11 noyabr 2026
+
+İstifadəçi “Tamam edək də onda” ilə ortaq ekran sisteminin və mövcud ilk dərsin hazırlanmasını təsdiqlədi. Bu söhbətdəki son qaydalar əvvəlki ziddiyyətli qeydlərdən üstündür:
+
+- Açıq bənövşəyi dərs ekranları, tünd başlıqlar, bənövşəyi əsas düymələr və yoxlamadan sonra yaşıl/qırmızı nəticələr qəbul edilmiş istiqamətdir. Köhnə tünd dərs palitrası və narıncı əsas düymə bu yeni ekranların istinadı deyil.
+- Təkrar üçün ayrıca giriş ekranı göstərilmir. Səhv edilən tapşırığın öz quruluşu yeni müəllif vəziyyəti ilə və kiçik “Təkrar” qeydi ilə qayıdır. Sonsuz təkrar və avtomatik növbəti dərs yoxdur.
+- Aktiv danışıq mikrofonu basılı saxlanılır; buraxanda cavab bir dəfə çatdırılır. İstifadəçinin səsini dinləmə və ayrıca göndərmə düyməsi yoxdur. Bu, əvvəlki toxunub başlatma/danışıq-bitmə idarəsini əvəz edir. Tanınma qeyri-müəyyənliyi dil səhvi deyil.
+- Dinləmədə “İpucu / Mətnlə davam et”, danışıqda “İpucu / Mətni göstər” eyni aşağı paneldədir. “İndi dinləyə bilmirəm” əsas dinləmə ekranında Yoxla-nın üstündədir. Köhnə “Səsi başa düşmürəm” əsas yardım adı bu düzülüşdə istifadə edilmir; mətn açılmasının dinləmə sübutunu ləğv etməsi qalır.
+- Ətraflı izah “Mənə başa sal” adlanır və Sənin cavabın / Uyğun cavablar / Səbəb / Qısa qayda / Yeni nümunə hissələrinə ayrılır. Köhnə alternativ izah başlıqları bu yeni ekran sisteminin əsası deyil. Qiymətləndirilmiş düzgün və səhv nəticədə yuxarı sağda bayraqlı “Xəta bildir” və menyudan giriş nəzərdə tutulur.
+- Qısa söhbət əvvəlcədən hazırlanmış ifadələr və cavablarla API-siz qurulur. Əvvəlki Azure/hibrid müzakirələri tarixçə və ayrıca sınaq qeydləridir; onların yeni axında avtomatik qoşulduğu nəzərdə tutulmur. Hazır audio fayllarının tədarükü ayrıca işdir; mövcud mətn səsləndirməsi hazır yazılmış audio kimi təqdim edilməməlidir.
+- Xəritənin 7 mövzu qrupu ayrıca dərs sayı deyil. Qrup daxilində dərslər ayrıca açılıb tamamlanır. Yeni qrup–dərs siyahısı hələ verilmədiyindən mövcud 7 dərs özbaşına 7 qrupa çevrilmir.
+
+11 noyabr tarixli 3D səhnə və əşya söz kartı qeydləri də qüvvədədir. Bu tarixli yeni tətbiqin faktiki yoxlama nəticələri və açıq qalan işlər docs/LESSON_UI_20261111.md faylında qeyd olunur. Əvvəlki test hesabatları öz tarixlərinə aiddir və yeni ekranların avtomatik təsdiqi sayılmır.

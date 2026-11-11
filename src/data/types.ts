@@ -170,6 +170,7 @@ export interface LessonProgress {
   xpEarned: number;
   completedAt?: string;
   evidence?: import('../utils/lessonEvidence').LessonEvidence;
+  initialEvidence?: Record<string, { correct: boolean; evidence?: import('../utils/lessonEvidence').TaskEvidence }>;
   practiceNeeds?: string[];
   rechecks?: { sourceLessonId: string; taskId: string; status: 'independent' | 'assisted' | 'wrong' | 'unverified' }[];
 }

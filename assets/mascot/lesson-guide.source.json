@@ -1,0 +1,8 @@
+{
+  "asset": "assets/mascot/lesson-guide.webp",
+  "createdAt": "2026-11-11",
+  "tool": "built-in imagegen",
+  "reference": "User-supplied FC713766-E61E-4B20-872A-3EB55A4271E3(1).jpeg, main mascot reference in this conversation",
+  "prompt": "Edit the supplied mascot reference into ONE isolated transparent-background production app asset. Extract/recreate ONLY the large full body mascot on left, exclude right icon and silhouette. Keep exact identity, proportions, orange sideways floppy hood, plain simple orange cloak, dark brown face hands and bare feet, two yellow vertical oval open eyes, happy small mouth, one hand waving. No straps no belt no book no shoes no trousers no pockets no drawstrings. Beautiful smooth soft 3D render exactly matching reference. Entire body within canvas with comfortable margin, centered. Genuine transparent background. No ground plane or text or extra objects. This is the approved BirTalk main mascot for lesson intro and speaking avatar.",
+  "export": "Static transparent WebP, maximum 600 by 700 pixels, quality 90. Used only by LessonMascot; existing onboarding artwork is separate."
+}
