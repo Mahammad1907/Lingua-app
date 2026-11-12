@@ -152,3 +152,7 @@ The user explicitly renewed the requirement that all active lesson cards fit the
 ## Redesigned lesson screens — 12 November 2026
 
 The user approved a new unified light design and authorized placing Lesson 1 (docs/BirTalk_Ders_1_Yekun.md) into it. Lesson 1 now runs on `src/components/design/DesignLesson.tsx` with content in `src/data/lesson1Design.ts`; lessons 2–7 still use PacketLesson. This supersedes the earlier "preserve the existing screens" rules for Lesson 1. Copy learner-facing text from the final lesson documents; do not invent content. Character names are empty on purpose and live only in `src/config/characters.ts` (use `{M}`, `{G}`, `{B}` tokens). User decisions newer than the document: red wrong state; hold-to-talk sends on release; "İndi dinləyə bilmirəm" skips (listening Unverified); "Mənə başa sal" closes only with X and has no Continue; teaching Continue is green; no separate review intro screen. Details: docs/LAYIHE_DEFTERI.md. Device behaviour is not verified.
+
+## Lesson standard — 13 November 2026
+
+Every new or rewritten lesson follows `docs/DERS_STANDARTI.md` (length, card order, support fading, 3-option choices, five-part explanations, name tokens, CEFR A1 mapping). Describe the course as "based on CEFR A1 descriptors", never as certified CEFR-compliant.
