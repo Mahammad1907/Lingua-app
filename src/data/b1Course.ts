@@ -1,10 +1,27 @@
 import { resolveMascot } from '../utils/mascot';
+import { CHARACTERS, characterEn, hasCharacterName, resolveNames } from '../config/characters';
 import raw from './b1Packet.json';
+import { lesson1Design } from './lesson1Design';
 import type { PacketCard, PacketLesson } from './b1PacketTypes';
 import type { Exercise, Lesson } from './types';
 import { LESSON_XP } from '../utils/rewards';
 
-export const b1Packet = resolveMascot(raw) as unknown as PacketLesson[];
+// Older lessons have the placeholder names Leyla / Əli (Ali) written into their data.
+// Once a name is chosen in src/config/characters.ts it replaces them everywhere.
+function legacyNames<T>(value: T): T {
+  const swap = (text: string) => text
+    .replace(/Leyla/g, hasCharacterName('girl') ? CHARACTERS.girl.az : 'Leyla')
+    .replace(/Əli/g, hasCharacterName('boy') ? CHARACTERS.boy.az : 'Əli')
+    .replace(/\bAli\b/g, hasCharacterName('boy') ? characterEn('boy') : 'Ali');
+  if (typeof value === 'string') return swap(value) as T;
+  if (Array.isArray(value)) return value.map(legacyNames) as T;
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([k, v]) => [swap(k), legacyNames(v)])) as T;
+  return value;
+}
+const packets = legacyNames(resolveMascot(raw)) as unknown as PacketLesson[];
+// Lesson 1 vocabulary follows the redesigned lesson (docs/BirTalk_Ders_1_Yekun.md).
+const lesson1Words = resolveNames(lesson1Design.vocabulary).map(({ teachCard: _card, ...word }) => ({ ...word, lexical: true, acceptedAnswers: [], acceptedTranslations: [word.translation] }));
+export const b1Packet = packets.map(p => p.id === lesson1Design.id ? { ...p, vocabulary: lesson1Words } : p);
 export const getPacketLesson = (id: string) => b1Packet.find((lesson) => lesson.id === id);
 export function packetFlow(lesson: PacketLesson): PacketCard[] {
   const cards = lesson.order === 1 ? lesson.cards.filter(c => c.number !== 10) : [...lesson.cards];

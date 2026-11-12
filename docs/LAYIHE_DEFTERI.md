@@ -209,3 +209,16 @@ Yoxlama bu söhbətdə yerli mənbədəki 803a6d4e8cc497e75c51f9ec1fa6750acc5f37
 - `check-vocabulary-persistence.cjs` və `check-lesson-regressions.cjs` yenidən işləndi və keçdi: mövcud təkrarsızlıq/yaddaş və cavab/vurğu qaydalarını yoxlayırlar. İlk öyrətmə vaxtı əlavə, yeni əşya kartı, IPA mənbələri və real cihaz audio yoxlamasını təsdiqləmirlər.
 
 **Status:** Bu əlavədə tələb və mövcud vəziyyət sənədləşdirilib. Yeni əşya kartı, ilk öyrətmə anında lüğət əlavəsi və audio vahidləşdirilməsi bu qeydlə tətbiq edilməyib; real telefon sınağı aparılmayıb.
+
+## Yeni dərs ekranları — Dərs 1, 12 noyabr 2026
+
+İstifadəçi yeni vahid dizaynı (açıq bənövşəyi fon, bənövşəyi/narıncı vurğular, aşağıdan açılan vahid panellər, kapsul düymələr) təsdiqlədi və Dərs 1-in `docs/BirTalk_Ders_1_Yekun.md` məzmunu ilə bu ekranlara yerləşdirilməsini istədi. Bu qərar əvvəlki tünd PacketLesson görünüşünü Dərs 1 üçün əvəz edir; Dərs 2–7 hələ köhnə ekranlardadır.
+
+- **Məzmun:** Dərs 1 mətni yekun sənəddən olduğu kimi köçürülüb: `src/data/lesson1Design.ts` (13 kart, Kart 7 iki mərhələ, Kart 10 iki sahə, Kart 11 iki növbə, T1–T10 təkrar bankı, bütün beş hissəli izahlar). Müəllif qeydləri öyrənənə göstərilmir. Ekran şəkillərindəki nümunə mətnlər deyil, sənəddəki mətn istifadə olunur.
+- **Yekun sənədlə fərqli olan, istifadəçinin yeni qərarları:** səhv rəngi qırmızıdır; mikrofon basılı saxlanılır, buraxanda cavab bir dəfə göndərilir (ayrıca “Cavabı göndər” və öz səsini dinləmə yoxdur); “İndi dinləyə bilmirəm” birbaşa keçir və dinləmə Yoxlanmadı qalır; “Mənə başa sal” yalnız X ilə bağlanır, içində “Davam et” yoxdur; öyrətmə ekranındakı “Davam et” yaşıldır; ayrıca təkrar giriş ekranı yoxdur — səhv olan tapşırığın öz ekranı “Təkrar” qeydi ilə qayıdır.
+- **Kart 10 nümunəsi:** dizayndakı “Nümunəni göstər” yekun sənəddə nümunə olmadığı üçün (“Hazır söz bankı və nümunə yoxdur”) göstərilmir.
+- **Ad sistemi:** maskot, gümüşü saçlı qız və narıncı geyimli oğlanın adları hələ seçilməyib və boşdur. Yeganə yer: `src/config/characters.ts`. Ad boş olanda Azərbaycan mətnində neytral söz (“dostun”, “qız”, “oğlan”, hal şəkilçiləri ilə), ingiliscə nümunədə ad buraxılır (“Hello!”). Ad yazılanda Dərs 1-də hər yerdə, Dərs 2–7-də isə BirFox/Leyla/Əli (Ali) yer tutucularının yerinə tətbiq olunur. Dərs 2–7 adlar boş olanda hələ köhnə yer tutucuları göstərir. Yeni ad seçiləndə şəkilçiləri cihazda yoxla.
+- **Maskot şəkli:** istifadəçinin son istinadından kəsilib: `assets/mascot/hood_full.png`, `assets/mascot/hood_head.png`. Dərs səhnə şəkilləri (Leyla/Əli) hələ hazırlanmayıb; ekranlarda şəkil yeri boş saxlanılıb.
+- **“Xəta bildir”:** forma bildirişi yalnız telefonda saxlayır (`birtalk.errorReports.v1`), serverə göndərilmir.
+- **Lüğət:** sözlər ilk öyrədildiyi kartda “Lüğətim”ə təkrarsız əlavə olunur; sözə toxunanda məna pəncərəsi açılır.
+- **Yoxlama:** `scripts/check-design-lesson.cjs` (məzmunun sənədlə uyğunluğu, adlar, qiymətləndirmə, izah seçimi, nəticə statusları) və mövcud məzmun/qiymətləndirmə yoxlamaları keçir. Bu mühitdə `node_modules` quraşdırıla bilmədiyi üçün tam `tsc`, `expo lint` və ekran render testləri işlədilməyib. Real telefonda görünüş, səs, mikrofon (basılı saxla), klaviatura və irəliləyişin saxlanması **yoxlanmayıb**.

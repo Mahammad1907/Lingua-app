@@ -20,7 +20,7 @@ interface UserData {
 interface UserState extends UserData {
   hydrated: boolean; storageError: string | null;
   attempts: Record<string, LessonAttempt>; receipts: Record<string, RewardReceipt>;
-  beginLesson: (lessonId: string, mode?: 'session' | 'practice', recallIds?: string[]) => string;
+  beginLesson: (lessonId: string, mode?: 'session' | 'practice', recallIds?: string[], taskIds?: { required: string[]; optional: string[] }) => string;
   abandonLesson: (attemptId: string) => boolean;
   recordTask: (attemptId: string, taskId: string, correct: boolean | null, token: string, evidence?: TaskEvidence) => void;
   settlePacketTask: (attemptId: string, taskId: string, status: 'needsPractice' | 'unverified' | 'skipped') => void;
@@ -97,7 +97,7 @@ export const useUserStore = create<UserState>((set, get) => ({
     if (last && last !== localDay() && last !== previousDay()) set({ streak: 0 });
   },
   resetAll: () => { set({ ...initial, attempts: {}, receipts: {} }); void get().saveToStorage().catch(() => {}); },
-  beginLesson: (lessonId, mode = 'session', recallIds = []) => {
+  beginLesson: (lessonId, mode = 'session', recallIds = [], taskIds) => {
     const lesson = lessons.find((l) => l.id === lessonId);
     if (!get().hydrated || !lesson || !moduleUnlocked(lesson.moduleId, get().completedLessons, get().placementResults)) return '';
     const session = mode === 'session' ? getShortSession(lessonId) : undefined;
@@ -108,7 +108,8 @@ export const useUserStore = create<UserState>((set, get) => ({
     for (let i = 0; i < count; i++) expected.push(`voice:${i}`);
     activities?.game.stops.forEach((_, i) => expected.push(`game:${i}`));
     const packet = getPacketLesson(lessonId);
-    const packetIds = packet ? packetTaskIds(packet) : undefined;
+    // Redesigned lessons pass their own task ids; older packet lessons derive them from the packet.
+    const packetIds = taskIds ?? (packet ? packetTaskIds(packet) : undefined);
     const id = `${Date.now()}-${++sequence}`;
     set((s) => ({ attempts: { ...s.attempts, [id]: { id, lessonId, expected: packetIds?.required ?? expected, optional: packetIds ? [...new Set([...packetIds.optional, ...recallIds])] : undefined, tasks: {}, assisted: false, finished: false } } })); return id;
   },
