@@ -366,3 +366,5 @@ Kod yoxlamaları keçir; telefonda yoxlanmayıb.
 - **Söhbəti sırala** (`match`, `mode: 'order'`): 3–4 balon qarışıq gəlir, toxunanda səslənir və növbəti boş yerə keçir; qız solda, oğlan sağda; yerləşmiş balona toxunanda geri qayıdır. Dərs 4 (d4_c07), 7 (d7_c09), 8 (d8_c08) — əvvəlki “Mesajı qur” tapşırıqlarının yerinə.
 - **Cavab cütü** (`match`, `mode: 'reply'`): cümləyə onun ingiliscə cavabını qoşmaq, bir cavab artıqdır (tipik səhv, məs. “Please.”). Dərs 5 (d5_c13) və 8 (d8_c13) — yeni tapşırıq.
 Hər ikisi “Kim nə dedi?” kimi yoxlanır; səhv olsa dərsin sonunda başqa söhbətlə təkrar gəlir. `check-taught.cjs` balon və cavabları da yoxlayır.
+
+**13 noyabr 2026, 23:54 — istifadəçi:** toxunub yerləşdirmə ekranlarında (Kim nə dedi?, Cavab cütü, Söhbəti sırala) Kömək düyməsi yoxdur.

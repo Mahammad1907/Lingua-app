@@ -343,7 +343,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const bubbleWho: Who = voiceBubble ? (task.speaker === 'mascot' ? 'M' : 'other') : quoteWho;
     const mascotTalks = task.speaker === 'mascot' && !audio && !quote;
     const scene = sceneImage(task.scenes);
-    const helpButton = !repeat && !result ? <Capsule tone="outline" small align="flex-end" icon="bulb" label="Kömək" onPress={() => setHelpOpen(true)} /> : null;
+    // No Kömək on the tap-to-place screens (Kim nə dedi?, Cavab cütü, Söhbəti sırala) — user, 13 Nov 2026.
+    const helpButton = !repeat && !result && task.type !== 'match' ? <Capsule tone="outline" small align="flex-end" icon="bulb" label="Kömək" onPress={() => setHelpOpen(true)} /> : null;
     const helpUnderAudio = Boolean(audio && !voiceBubble && !repeat);
     // The model answer: the task's own sample, or (opened through Kömək) the first accepted answer.
     // Bug fixed 13 Nov: tasks without a written sample offered “Nümunəni göstər” but showed nothing.
