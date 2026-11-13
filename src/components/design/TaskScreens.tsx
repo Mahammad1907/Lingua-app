@@ -60,11 +60,11 @@ export function ImageSlot({ scenes, height = 150 }: { scenes?: string[]; height?
   </View>;
 }
 
-/** Round sound buttons used everywhere: purple play, and the turtle (slow) with no text. */
+/** Round sound buttons used everywhere, icons only (user, 13 Nov 2026): purple play and the turtle (slow). */
 export function PlayButton({ onPress, size = 48, playing, label = 'Dinlə' }: { onPress: () => void; size?: number; playing?: boolean; label?: string }) {
   return <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : label} onPress={onPress} hitSlop={4}
-    style={({ pressed }) => [s.playPill, { height: size, borderRadius: size / 2 }, pressed && { opacity: .85 }]}>
-    <Icon name="play" size={size * .36} color="#fff" /><Text style={[s.playText, { fontSize: size >= 44 ? 16 : 15 }]}>Dinlə</Text>
+    style={({ pressed }) => [s.playRound, { width: size, height: size, borderRadius: size / 2 }, pressed && { opacity: .85 }]}>
+    <Icon name="play" size={size * .42} color="#fff" />
   </Pressable>;
 }
 export function SlowButton({ onPress, size = 48 }: { onPress: () => void; size?: number }) {
@@ -298,8 +298,7 @@ const s = StyleSheet.create({
   sayRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
   sayCard: { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 14, borderRadius: radius.card, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
-  playPill: { flexDirection: 'row', gap: 6, paddingHorizontal: 14, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center' },
-  playText: { color: '#fff', ...font.extrabold },
+  playRound: { backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', paddingLeft: 3 },
   slowRound: { backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   learnChip: { alignSelf: 'flex-start', backgroundColor: d.purpleSoft, borderRadius: 999, paddingHorizontal: 16, paddingVertical: 6, marginBottom: 4 },
   learnChipText: { color: d.purple, fontSize: 15, ...font.bold },
@@ -362,8 +361,8 @@ const s = StyleSheet.create({
   spotText: { fontSize: 18, ...font.extrabold },
   phrase: { alignItems: 'center', gap: 6, padding: 18, borderRadius: radius.card, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
   phraseText: { color: d.ink, fontSize: 26, lineHeight: 34, textAlign: 'center', ...font.extrabold },
-  phraseNote: { color: d.inkSoft, fontSize: 14, textAlign: 'center', ...font.semibold },
+  phraseNote: { color: d.ink, fontSize: 15, textAlign: 'center', ...font.semibold },
   wordImage: { width: '100%', height: 170, borderRadius: 18, backgroundColor: d.purpleSoft },
-  ipa: { color: d.inkSoft, fontSize: 14, ...font.semibold },
+  ipa: { color: d.ink, fontSize: 14, ...font.semibold },
   exampleEn: { color: d.ink, fontSize: 18, ...font.extrabold },
 });

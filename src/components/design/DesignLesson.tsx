@@ -553,7 +553,7 @@ const s = StyleSheet.create({
   transcriptText: { color: d.purple, fontSize: 20, ...font.extrabold },
   scene: { width: '100%', aspectRatio: 16 / 9, borderRadius: 22, backgroundColor: d.purpleSoft },
   sample: { flexDirection: 'row', alignItems: 'center', gap: 14, borderRadius: 18, backgroundColor: '#E8DDFB', paddingHorizontal: 18, minHeight: 56 },
-  sampleLabel: { color: d.lavenderText, fontSize: 17, ...font.semibold },
+  sampleLabel: { color: d.purple, fontSize: 17, ...font.bold },
   sampleText: { flex: 1, flexShrink: 1, color: d.purple, fontSize: 22, lineHeight: 28, paddingVertical: 10, ...font.extrabold },
   notice: { color: d.purple, fontSize: 15, ...font.bold },
   resultRow: { flexDirection: 'row', alignItems: 'center', gap: 10, flexWrap: 'wrap', paddingVertical: 4 },

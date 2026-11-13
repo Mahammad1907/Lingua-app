@@ -351,3 +351,5 @@ Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edi
 Özüm yoxlayanda tapılan: əvvəlki siyahının 10-cu bəndindəki “… yerinə [ad] nişanı” **edilməmişdi** — indi bütün ekranlarda (seçimlər, balonlar, söz düymələri, nümunə, nəticə panelləri) “…” ad yeri “[ad]” kimi görünür. Əvvəlki 14-cü bənd (Lüğətim sətri) söz pəncərəsində qalmışdı — çıxarıldı.
 
 Kod yoxlamaları keçir; telefonda yoxlanmayıb.
+
+**13 noyabr 2026, 21:40 — istifadəçi (təkrar şikayət):** səs düyməsi yalnız play ikonudur, “Dinlə” yazısı yoxdur (hər yerdə dairəvi play + tısbağa). Vəziyyət və tapşırıq sətirləri oxunaqlı olmalıdır: vəziyyət sətri tünd bənövşəyi (#5B1FD1) extrabold 18, tapşırıq sətri tünd (#2A1240) extrabold 19. Kiçik izah mətnləri (ds.small, mikrofon altı, nəticə qısa səbəbi, nümunə etiketi) də tündləşdirildi. Solğun (#4B3566 / lavanda) mətn əsas ekran məzmununda işlədilmir.

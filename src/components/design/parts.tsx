@@ -135,10 +135,11 @@ export function Card({ children, style }: { children: ReactNode; style?: StylePr
 export const ds = StyleSheet.create({
   title: { color: d.ink, fontSize: 26, lineHeight: 32, ...font.extrabold, letterSpacing: -.3 },
   titleLarge: { color: d.ink, fontSize: 30, lineHeight: 36, ...font.extrabold, letterSpacing: -.5 },
-  instruction: { color: d.ink, fontSize: 17, lineHeight: 24, ...font.bold },
-  subtitle: { color: '#4B3566', fontSize: 17, lineHeight: 24, ...font.bold },
+  // Situation + task lines must read clearly (user, repeated): strong purple and dark ink, extra bold, larger.
+  instruction: { color: d.ink, fontSize: 19, lineHeight: 26, ...font.extrabold },
+  subtitle: { color: d.purple, fontSize: 18, lineHeight: 25, ...font.extrabold },
   body: { color: d.ink, fontSize: 16, ...font.regular, lineHeight: 23 },
-  small: { color: d.inkSoft, fontSize: 13, ...font.regular, lineHeight: 19 },
+  small: { color: d.ink, fontSize: 14, ...font.semibold, lineHeight: 20 },
   label: { color: d.lavenderText, fontSize: 14, lineHeight: 19, ...font.bold },
   strong: { color: d.ink, fontSize: 17, lineHeight: 24, ...font.bold },
 });

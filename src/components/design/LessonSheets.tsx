@@ -127,7 +127,7 @@ const s = StyleSheet.create({
   titleRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   badge: { width: 36, height: 36, borderRadius: 18, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
   title: { color: d.ink, fontSize: 24, ...font.extrabold, flexShrink: 1 },
-  short: { color: d.lavenderText, fontSize: 16, lineHeight: 22, ...font.semibold },
+  short: { color: d.ink, fontSize: 16, lineHeight: 22, ...font.bold },
   answerBox: { borderRadius: radius.field, backgroundColor: d.purpleSoft, paddingVertical: 10, paddingHorizontal: 14 },
   answerText: { color: d.ink, fontSize: 16, ...font.regular, lineHeight: 22 },
   actions: { flexDirection: 'row', justifyContent: 'flex-end', gap: 8, flexWrap: 'wrap' },

@@ -138,8 +138,8 @@ const s = StyleSheet.create({
   mic: { width: 92, height: 92, borderRadius: 46, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', ...shadow, shadowOpacity: .3 },
   micActive: { backgroundColor: '#7B2FE0', transform: [{ scale: 1.04 }] },
   title: { color: d.ink, fontSize: 19, ...font.extrabold, marginTop: 4 },
-  sub: { color: d.lavenderText, fontSize: 15, ...font.semibold, textAlign: 'center' },
+  sub: { color: d.purple, fontSize: 16, ...font.bold, textAlign: 'center' },
   netBtn: { minHeight: 44, paddingHorizontal: 16, borderRadius: 999, borderWidth: 1, borderColor: d.purple, justifyContent: 'center' },
   netText: { color: d.purple, fontSize: 15, ...font.semibold },
-  message: { color: d.inkSoft, fontSize: 14, ...font.regular, lineHeight: 20, textAlign: 'center', paddingHorizontal: 12 },
+  message: { color: d.ink, fontSize: 15, ...font.semibold, lineHeight: 20, textAlign: 'center', paddingHorizontal: 12 },
 });
