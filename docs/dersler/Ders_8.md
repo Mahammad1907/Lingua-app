@@ -127,7 +127,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **Düzgün olanda:** Tanışlığa cavab verib adını dedin.  
 - *İzah (başqa səhvdə):* İki cavab: You too! + adın. — Uyğun: You too! My name is …. Səbəb: Xoş sözə və ad sualına cavab verirsən. Qayda: You too! + My name is … Nümunə: You too! I'm …  
 
-## Kart 9 — Kim nə dedi?: Cavab cütü
+## Kart 9 — Cavab cütü: Cavab cütü
 
 **Tapşırıq:** Hər deyilənə bir cavab var. Cümləyə toxun, sonra onun cavabını seç.  
 **Cütlər:** Sorry! — No problem.; Thank you! — You're welcome.; Nice to meet you! — You too! · artıq: Excuse me.  
@@ -181,10 +181,10 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **Düzgün olanda:** Başa düşmədiyini deyib təkrar istədin.  
 - *İzah (başqa səhvdə):* İki hissə lazımdır. — Uyğun: Sorry? I don't understand. Again, please. Səbəb: Başa düşmədiyini de və xahiş et. Qayda: I don’t understand + Again, please. Nümunə: I don't understand. Again, please.  
 
-## Kart 12 — Kim nə dedi?: Söhbəti sırala
+## Kart 12 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Ziyafətdə tanışlıq. Balonlara toxun, söhbəti sıraya düz.  
-**Cütlər:** 1 — Hi! How are you?; 2 — I'm fine, thanks. And you?; 3 — I'm OK. What's your name?; 4 — I'm …. Nice to meet you! · artıq:   
+**Düzgün sıra:** 1. Hi! How are you? → 2. I'm fine, thanks. And you? → 3. I'm OK. What's your name? → 4. I'm …. Nice to meet you!  
 **İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
 **Düzgün olanda:** Salam, hal, ad və xoş söz — bütöv söhbət.  
 - *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm …. Nice to meet you!. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm …. Nice to meet you!  
@@ -192,7 +192,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Başqa tanışlıq. Balonlara toxun, söhbəti sıraya düz.  
-**Cütlər:** 1 — Hello! What's your name?; 2 — My name is …; 3 — Nice to meet you.; 4 — You too. · artıq:   
+**Düzgün sıra:** 1. Hello! What's your name? → 2. My name is … → 3. Nice to meet you. → 4. You too.  
 **İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
 **Düzgün olanda:** Ad sualı, cavab və xoş sözlər düz sıradadır.  
 - *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! What's your name? → My name is … → Nice to meet you. → You too. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hello! What's your name? → My name is … → Nice to meet you. → You too.  

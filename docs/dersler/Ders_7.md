@@ -11,11 +11,13 @@ Başa düşməmək normaldır — bunu demək bacarıqdır.
 
 ## Kart 2 — Yeni söz
 
-**Sorry? I don't understand.** /ˈsɑri aɪ doʊnt ˌʌndərˈstænd/ — Nə dedin? Başa düşmürəm.
+**Sorry? I don't understand.** — Nə dedin? Başa düşmürəm.
 
-Sual kimi deyilən “Sorry?” — “nə dedin?” deməkdir.
+Oxunuşu: sari? ay dount andərstend · IPA: /ˈsɑri aɪ doʊnt ˌʌndərˈstænd/
 
 Nümunə: **Sorry? I don't understand.** — Bağışla, nə dedin? Başa düşmürəm.
+
+Qeyd: Sual kimi deyilən “Sorry?” — “nə dedin?” deməkdir.
 
 ## Kart 3 — Seç: Dinlə və anla
 
@@ -37,11 +39,13 @@ Nümunə: **Sorry? I don't understand.** — Bağışla, nə dedin? Başa düşm
 
 ## Kart 4 — Yeni söz
 
-**Again, please.** /əˈɡen pliz/ — Bir də, zəhmət olmasa.
+**Again, please.** — Bir də, zəhmət olmasa.
 
-Uzun forması: Could you say that again, please?
+Oxunuşu: əgen, pliz · IPA: /əˈɡen pliz/
 
 Nümunə: **Could you say that again, please?** — Bir də deyə bilərsən?
+
+Qeyd: Uzun forması: Could you say that again, please?
 
 ## Kart 5 — Seç: Dinlə və anla
 
@@ -83,11 +87,13 @@ Nümunə: **Could you say that again, please?** — Bir də deyə bilərsən?
 
 ## Kart 7 — Yeni söz
 
-**Slowly, please.** /ˈsloʊli pliz/ — Yavaş, zəhmət olmasa.
+**Slowly, please.** — Yavaş, zəhmət olmasa.
 
-Çox sürətli danışanda deyilir.
+Oxunuşu: slouli, pliz · IPA: /ˈsloʊli pliz/
 
 Nümunə: **Sorry? Slowly, please.** — Nə dedin? Yavaş, zəhmət olmasa.
+
+Qeyd: Çox sürətli danışanda deyilir.
 
 ## Kart 8 — Kim nə dedi?: Kim nə dedi?
 
@@ -105,10 +111,10 @@ Nümunə: **Sorry? Slowly, please.** — Nə dedin? Yavaş, zəhmət olmasa.
 **Düzgün olanda:** Hər cümlə öz yerində.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Again, please. — Bir də, zəhmət olmasa.; No problem. — Eybi yox.; Thank you! — Təşəkkür edirəm!. Səbəb: Xahiş, üzrə cavab və təşəkkür fərqlidir. Qayda: Mənaya görə qoş. Nümunə: Again, please.  
 
-## Kart 9 — Kim nə dedi?: Söhbəti sırala
+## Kart 9 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Oğlan çox sürətli danışır. Balonlara toxun, söhbəti sıraya düz.  
-**Cütlər:** 1 — Hellohowareyou!; 2 — Sorry? Slowly, please.; 3 — How are you?; 4 — I'm fine, thanks. · artıq:   
+**Düzgün sıra:** 1. Hellohowareyou! → 2. Sorry? Slowly, please. → 3. How are you? → 4. I'm fine, thanks.  
 **İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
 **Düzgün olanda:** Əvvəl başa düşmədin, xahiş etdin, sonra cavab verdin.  
 - *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks.  
@@ -116,7 +122,7 @@ Nümunə: **Sorry? Slowly, please.** — Nə dedin? Yavaş, zəhmət olmasa.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qız sürətli soruşur. Balonlara toxun, söhbəti sıraya düz.  
-**Cütlər:** 1 — Hiwhat'syourname?; 2 — Sorry? Again, please.; 3 — What's your name?; 4 — My name is … · artıq:   
+**Düzgün sıra:** 1. Hiwhat'syourname? → 2. Sorry? Again, please. → 3. What's your name? → 4. My name is …  
 **İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
 **Düzgün olanda:** Xahiş, təkrar və cavab düz sıradadır.  
 - *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hiwhat'syourname? → Sorry? Again, please. → What's your name? → My name is …. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hiwhat'syourname? → Sorry? Again, please. → What's your name? → My name is …  

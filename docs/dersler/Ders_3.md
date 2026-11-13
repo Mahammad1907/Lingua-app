@@ -28,11 +28,13 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson3.ts`-dən yarad
 
 ## Kart 3 — Yeni söz
 
-**What's your name?** /wʌts jʊr neɪm/ — Adın nədir?
+**What's your name?** — Adın nədir?
 
-Cavab: I'm … və ya My name is …
+Oxunuşu: uats yor neym? · IPA: /wʌts jʊr neɪm/
 
 Nümunə: **Hi! What's your name?** — Salam! Adın nədir?
+
+Qeyd: Cavab: I'm … və ya My name is …
 
 ## Kart 4 — Mesaj yaz (sözlərdən): Mesajı qur
 
@@ -75,11 +77,13 @@ Nümunə: **Hi! What's your name?** — Salam! Adın nədir?
 
 ## Kart 6 — Yeni söz
 
-**Nice to meet you.** /naɪs tə mit ju/ — Tanış olmağıma şadam.
+**Nice to meet you.** — Tanış olmağıma şadam.
 
-Adları deyəndən sonra deyilir.
+Oxunuşu: nays tu mit yu · IPA: /naɪs tə mit ju/
 
 Nümunə: **I'm …. Nice to meet you!** — Mən …-am. Tanış olmağıma şadam!
+
+Qeyd: Adları deyəndən sonra deyilir.
 
 ## Kart 7 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -99,11 +103,13 @@ Nümunə: **I'm …. Nice to meet you!** — Mən …-am. Tanış olmağıma şa
 
 ## Kart 8 — Yeni söz
 
-**You too.** /ju tu/ — Mən də.
+**You too.** — Mən də.
 
-“Nice to meet you”ya qısa cavabdır.
+Oxunuşu: yu tu · IPA: /ju tu/
 
 Nümunə: **Nice to meet you! — You too!** — Tanış olmağıma şadam! — Mən də!
+
+Qeyd: “Nice to meet you”ya qısa cavabdır.
 
 ## Kart 9 — Kim nə dedi?: Kim nə dedi?
 

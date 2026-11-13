@@ -30,11 +30,13 @@ Nəzakət sözləri söhbəti yumşaldır.
 
 ## Kart 3 — Yeni söz
 
-**Thank you! · Thanks!** /θæŋk ju/ · /θæŋks/ — Təşəkkür edirəm! · Sağ ol!
+**Thank you! · Thanks!** — Təşəkkür edirəm! · Sağ ol!
 
-Thanks daha qısa və qeyri-rəsmidir.
+Oxunuşu: **th**enk yu · **th**enks · IPA: /θæŋk ju/ · /θæŋks/
 
 Nümunə: **Thanks! Bye!** — Sağ ol! Hələlik!
+
+Qeyd: Thanks daha qısa və qeyri-rəsmidir.
 
 ## Kart 4 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -54,11 +56,13 @@ Nümunə: **Thanks! Bye!** — Sağ ol! Hələlik!
 
 ## Kart 5 — Yeni söz
 
-**You're welcome.** /jʊr ˈwelkəm/ — Dəyməz.
+**You're welcome.** — Dəyməz.
 
-Təşəkkürə cavabdır.
+Oxunuşu: yor uelkəm · IPA: /jʊr ˈwelkəm/
 
 Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəyməz.
+
+Qeyd: Təşəkkürə cavabdır.
 
 ## Kart 6 — Səslə cavab: Təşəkkürə cavab ver
 
@@ -83,11 +87,13 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 
 ## Kart 7 — Yeni söz
 
-**please** /pliz/ — zəhmət olmasa
+**please** — zəhmət olmasa
 
-Xahiş edəndə deyilir, təşəkkürə cavab deyil.
+Oxunuşu: pliz · IPA: /pliz/
 
 Nümunə: **Tea, please.** — Çay, zəhmət olmasa.
+
+Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 
 ## Kart 8 — Kim nə dedi?: Kim nə dedi?
 
@@ -162,7 +168,7 @@ Nümunə: **Tea, please.** — Çay, zəhmət olmasa.
 **Düzgün olanda:** Halını dedin, təşəkkür etdin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Sıra: I’m fine, thanks. And you? — Uyğun: I'm fine, thanks. And you?. Səbəb: “welcome” təşəkkürə cavabdır, burada lazım deyil. Qayda: Halın + thanks + And you? Nümunə: I'm fine, thanks. And you?  
 
-## Kart 12 — Kim nə dedi?: Cavab cütü
+## Kart 12 — Cavab cütü: Cavab cütü
 
 **Tapşırıq:** Hər deyilənə bir cavab var. Cümləyə toxun, sonra onun cavabını seç.  
 **Cütlər:** Thank you! — You're welcome.; How are you? — I'm fine, thanks.; Nice to meet you. — You too. · artıq: Please.  

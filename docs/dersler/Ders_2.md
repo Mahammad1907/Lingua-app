@@ -11,11 +11,15 @@ Tanış olanda adını deyirsən.
 
 ## Kart 2 — Yeni söz
 
-**I'm …** /aɪm/ — Mən …-am
+**I'm …** — Mən …-am
 
-I həmişə böyük hərflə yazılır.
+Oxunuşu: aym … · IPA: /aɪm/
+
+Quruluşu: I'm [ad].
 
 Nümunə: **Hello! I'm …** — Salam! Mən …-am.
+
+Qeyd: I həmişə böyük hərflə yazılır.
 
 ## Kart 3 — Səslə cavab: Özünü səslə təqdim et
 
@@ -39,11 +43,15 @@ Nümunə: **Hello! I'm …** — Salam! Mən …-am.
 
 ## Kart 4 — Yeni söz
 
-**My name is …** /maɪ neɪm ɪz/ — Mənim adım …-dır
+**My name is …** — Mənim adım …-dır
 
-“I'm …” ilə eyni mənadadır.
+Oxunuşu: may neym iz … · IPA: /maɪ neɪm ɪz/
+
+Quruluşu: My name is [ad].
 
 Nümunə: **Hi! My name is …** — Salam! Mənim adım …-dır.
+
+Qeyd: “I'm …” ilə eyni mənadadır.
 
 ## Kart 5 — Sözü tamamla: Sözü tamamla
 

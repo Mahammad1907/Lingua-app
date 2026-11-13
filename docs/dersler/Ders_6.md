@@ -11,11 +11,13 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson6.ts`-dən yarad
 
 ## Kart 2 — Yeni söz
 
-**Excuse me** /ɪkˈskjuz mi/ — Bağışlayın
+**Excuse me** — Bağışlayın
 
-Sual verməzdən əvvəl diqqəti çəkmək üçün.
+Oxunuşu: ikskyuz mi · IPA: /ɪkˈskjuz mi/
 
 Nümunə: **Excuse me, what's your name?** — Bağışlayın, adınız nədir?
+
+Qeyd: Sual verməzdən əvvəl diqqəti çəkmək üçün.
 
 ## Kart 3 — Kim nə dedi?: Kim nə dedi?
 
@@ -35,11 +37,13 @@ Nümunə: **Excuse me, what's your name?** — Bağışlayın, adınız nədir?
 
 ## Kart 4 — Yeni söz
 
-**Sorry!** /ˈsɑri/ — Bağışla!
+**Sorry!** — Bağışla!
 
-Səhv edəndə deyilir.
+Oxunuşu: sari · IPA: /ˈsɑri/
 
 Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
+
+Qeyd: Səhv edəndə deyilir.
 
 ## Kart 5 — Seç: Hansı “bağışlayın”?
 
@@ -61,11 +65,13 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 
 ## Kart 6 — Yeni söz
 
-**No problem.** /noʊ ˈprɑbləm/ — Eybi yox.
+**No problem.** — Eybi yox.
 
-Üzrü qəbul edəndə deyilir.
+Oxunuşu: nou prabləm · IPA: /noʊ ˈprɑbləm/
 
 Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
+
+Qeyd: Üzrü qəbul edəndə deyilir.
 
 ## Kart 7 — Səhnədə tap: Səhnədə tap
 
