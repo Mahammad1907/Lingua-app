@@ -80,13 +80,12 @@ export interface TeachCard {
 export interface WordCard {
   type: 'word'; id: string; number: number;
   word: string; pronunciation: string; az: string; example: string; exampleAz: string;
+  /** One short note (only the first is shown). */
   notes?: string[]; scenes?: string[];
   /** Reading in Azerbaijani letters (American pronunciation, no phonetic marks); **th** marks a sound Azerbaijani has no letter for. */
   reading?: string;
   /** “Quruluşu”: the pattern(s); [ad] marks the slot for a name. */
   structure?: string[];
-  /** Other phrases taught on this card, each with sound. A phrase only mentioned in a note is NOT taught. */
-  more?: { en: string; az: string; reading?: string }[];
 }
 export interface ResultGoal { group: string; text: string; tasks: string[] }
 

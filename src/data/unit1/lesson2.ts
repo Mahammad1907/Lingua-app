@@ -25,10 +25,16 @@ export const lesson2: DesignLesson = {
       ],
     },
     {
-      type: 'word', id: 'd2_c02', number: 2,
-      word: "I'm … · My name is …", pronunciation: '/aɪm/ · /maɪ neɪm ɪz/', reading: 'aym … · may neym iz …', az: 'Mən …-am · Mənim adım …-dır',
-      notes: ['Hər ikisi ilə adını deyirsən. I’m daha qısadır.', 'I həmişə böyük hərflə yazılır.'],
+      type: 'word', id: 'd2_c02', number: 2, structure: ["I'm [ad]."],
+      word: "I'm …", pronunciation: '/aɪm/', reading: 'aym …', az: 'Mən …-am',
+      notes: ['I həmişə böyük hərflə yazılır.'],
       example: "Hello! I'm …", exampleAz: 'Salam! Mən …-am.',
+    },
+    {
+      type: 'word', id: 'd2_c02b', number: 3, structure: ['My name is [ad].'],
+      word: 'My name is …', pronunciation: '/maɪ neɪm ɪz/', reading: 'may neym iz …', az: 'Mənim adım …-dır',
+      notes: ["“I'm …” ilə eyni mənadadır."],
+      example: 'Hi! My name is …', exampleAz: 'Salam! Mənim adım …-dır.',
     },
     {
       type: 'choice', id: 'd2_c03', number: 3, scenes: ['d2/new-friend'], title: 'Düzgün cümləni seç', why: 'İngiliscə “is” ayrıca söz kimi deyilir.',
@@ -143,6 +149,6 @@ export const lesson2: DesignLesson = {
   },
   vocabulary: [
     { word: "I'm", translation: 'Mən …-am', example: "I'm …", exampleAz: 'Mən …-am.', usageNote: 'I am-ın qısa formasıdır.', pronunciation: '/aɪm/', teachCard: 'd2_c02' },
-    { word: 'My name is', translation: 'Mənim adım …-dır', example: 'My name is …', exampleAz: 'Mənim adım …', usageNote: 'Adını demək üçün.', pronunciation: '/maɪ neɪm ɪz/', teachCard: 'd2_c02' },
+    { word: 'My name is', translation: 'Mənim adım …-dır', example: 'My name is …', exampleAz: 'Mənim adım …', usageNote: 'Adını demək üçün.', pronunciation: '/maɪ neɪm ɪz/', teachCard: 'd2_c02b' },
   ],
 };

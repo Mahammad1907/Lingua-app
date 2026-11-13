@@ -40,7 +40,7 @@ export const lesson3: DesignLesson = {
     {
       type: 'word', id: 'd3_c03', number: 3,
       word: "What's your name?", pronunciation: '/wʌts jʊr neɪm/', reading: 'uats yor neym?', az: 'Adın nədir?',
-      notes: ['What’s = What is.', 'Cavab: I’m … və ya My name is …', 'Dosta da, tanımadığın adama da demək olar.'],
+      notes: ["Cavab: I'm … və ya My name is …"],
       example: "Hi! What's your name?", exampleAz: 'Salam! Adın nədir?',
     },
     {
@@ -74,8 +74,14 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'word', id: 'd3_c06', number: 6,
-      word: 'Nice to meet you. · You too.', pronunciation: '/naɪs tə mit ju/ · /ju tu/', reading: 'nays tu mit yu · yu tu', az: 'Tanış olmağıma şadam. · Mən də.',
-      notes: ['Adları deyəndən sonra deyilir.', 'Cavab qısa ola bilər: You too!'],
+      word: 'Nice to meet you.', pronunciation: '/naɪs tə mit ju/', reading: 'nays tu mit yu', az: 'Tanış olmağıma şadam.',
+      notes: ['Adları deyəndən sonra deyilir.'],
+      example: "I'm …. Nice to meet you!", exampleAz: 'Mən …-am. Tanış olmağıma şadam!',
+    },
+    {
+      type: 'word', id: 'd3_c06b', number: 7,
+      word: 'You too.', pronunciation: '/ju tu/', reading: 'yu tu', az: 'Mən də.',
+      notes: ['“Nice to meet you”ya qısa cavabdır.'],
       example: 'Nice to meet you! — You too!', exampleAz: 'Tanış olmağıma şadam! — Mən də!',
     },
     {
@@ -162,6 +168,6 @@ export const lesson3: DesignLesson = {
   vocabulary: [
     { word: "What's your name?", translation: 'Adın nədir?', example: "Hi! What's your name?", exampleAz: 'Salam! Adın nədir?', usageNote: 'What’s = What is.', pronunciation: '/wʌts jʊr neɪm/', teachCard: 'd3_c03' },
     { word: 'Nice to meet you', translation: 'Tanış olmağıma şadam', example: 'Nice to meet you!', exampleAz: 'Tanış olmağıma şadam!', usageNote: 'Tanış olanda deyilir.', pronunciation: '/naɪs tə mit ju/', teachCard: 'd3_c06' },
-    { word: 'You too', translation: 'Mən də', example: 'You too!', exampleAz: 'Mən də!', usageNote: '“Nice to meet you”ya cavab.', pronunciation: '/ju tu/', teachCard: 'd3_c06' },
+    { word: 'You too', translation: 'Mən də', example: 'You too!', exampleAz: 'Mən də!', usageNote: '“Nice to meet you”ya cavab.', pronunciation: '/ju tu/', teachCard: 'd3_c06b' },
   ],
 };

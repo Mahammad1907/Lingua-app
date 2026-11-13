@@ -1,6 +1,6 @@
 // Rule (user, 13 Nov 2026): no task may show or ask for an English word that was not taught before it.
-// "Taught" = the word appears on an earlier Yeni söz / Öyrən card of this lesson (word, example, structure,
-// extra phrases) or in any earlier lesson. Notes do not count: a word mentioned only in a note is not taught.
+// "Taught" = the word appears on an earlier Yeni söz / Öyrən card of this lesson (word, example, structure)
+// or in any earlier lesson. Notes do not count: a word mentioned only in a note is not taught.
 // Retry versions run after the whole lesson, so they may use anything taught in the lesson.
 const fs = require('node:fs');
 const ts = require('typescript');
@@ -30,7 +30,7 @@ const GLOSS = new Set(Object.keys(GLOSSARY).flatMap(k => words(k)));
 const english = text => /[a-z]/i.test(text || '') && !/[əğıöüşçƏĞİÖÜŞÇ]/.test(text) && words(text).some(w => GLOSS.has(w));
 
 function teaches(card) {
-  if (card.type === 'word') return [card.word, card.example, ...(card.structure || []), ...(card.more || []).map(m => m.en)];
+  if (card.type === 'word') return [card.word, card.example, ...(card.structure || [])];
   if (card.type === 'teach') return [...card.phrases.map(p => p.en), ...(card.structure || []), card.example?.en];
   return [];
 }

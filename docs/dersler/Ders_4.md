@@ -14,8 +14,6 @@ Salamdan sonra hal soruşulur.
 **How are you?** /haʊ ɑr ju/ — Necəsən?
 
 Salamdan sonra soruşulur.
-Cavab: I’m fine, thanks. And you?
-Dosta da, tanımadığın adama da demək olar.
 
 Nümunə: **Hi! How are you?** — Salam! Necəsən?
 
@@ -37,13 +35,39 @@ Nümunə: **Hi! How are you?** — Salam! Necəsən?
 
 ## Kart 4 — Yeni söz
 
-**I'm fine, thanks. · And you?** /aɪm faɪn θæŋks/ · /ænd ju/ — Yaxşıyam, sağ ol. · Bəs sən?
+**I'm fine, thanks. And you?** /aɪm faɪn θæŋks ænd ju/ — Yaxşıyam, sağ ol. Bəs sən?
 
 th — dilin ucu dişlərin arasında.
 
-Nümunə: **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
+Nümunə: **How are you? — I'm fine, thanks. And you?** — Necəsən? — Yaxşıyam, sağ ol. Bəs sən?
 
-## Kart 5 — Seç: Dinlə və anla
+## Kart 5 — Sözü tamamla: Sözü tamamla
+
+**Tapşırıq:** Oğlan cavab verir. Hansı söz çatmır?  
+**Cümlə:** I ___ fine, thanks.  
+**Seçimlər:** is / am / are — **düzgün:** am  
+**İpucu:** Dərs 2-də “I’m” iki sözün qısa forması idi. Hansı söz gizlənib?  
+**Düzgün olanda:** “I” ilə “am” gəlir.  
+- *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: “Mən yaxşıyam” — “-am” ingiliscə ayrıca “am” sözüdür. Qayda: I am fine = I’m fine. Nümunə: I'm fine, thanks.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Qız soruşur. Hansı söz çatmır?  
+**Cümlə:** How ___ you?  
+**Seçimlər:** am / is / are — **düzgün:** are  
+**İpucu:** Bu dərsdə öyrəndiyin “Necəsən?” sualını tam xatırla.  
+**Düzgün olanda:** “you” ilə “are” gəlir.  
+- *İzah (başqa səhvdə):* “you” ilə “are” gəlir. — Uyğun: are. Səbəb: “you” (sən) ilə həmişə “are” işlənir. Qayda: you ilə are gəlir: you are. Nümunə: How are you?  
+
+## Kart 6 — Yeni söz
+
+**I'm not very well.** /aɪm nɑt ˈveri wel/ — Çox yaxşı deyiləm.
+
+not = deyil
+
+Nümunə: **How are you? — I'm not very well.** — Necəsən? — Çox yaxşı deyiləm.
+
+## Kart 7 — Seç: Dinlə və anla
 
 **Tapşırıq:** Qızın cavabını dinlə. O necədir?  
 **Səs:** I'm not very well.  
@@ -62,25 +86,7 @@ Nümunə: **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
 **Düzgün olanda:** “fine” — yaxşı.  
 - *İzah (başqa səhvdə):* Səsdə “fine” deyilir. — Uyğun: Yaxşıdır. Səbəb: “I’m fine, thanks” — “Yaxşıyam, sağ ol”. Burada “not” yoxdur. Qayda: fine = yaxşı. Nümunə: I’m fine, thanks.  
 
-## Kart 6 — Sözü tamamla: Sözü tamamla
-
-**Tapşırıq:** Oğlan cavab verir. Hansı söz çatmır?  
-**Cümlə:** I ___ fine, thanks.  
-**Seçimlər:** is / am / are — **düzgün:** am  
-**İpucu:** Dərs 2-də “I’m” iki sözün qısa forması idi. Hansı söz gizlənib?  
-**Düzgün olanda:** “I” ilə “am” gəlir.  
-- *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: “Mən yaxşıyam” — “-am” ingiliscə ayrıca “am” sözüdür. Qayda: I am fine = I’m fine. Nümunə: I'm fine, thanks.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Qız soruşur. Hansı söz çatmır?  
-**Cümlə:** How ___ you?  
-**Seçimlər:** am / is / are — **düzgün:** are  
-**İpucu:** Bu dərsdə öyrəndiyin “Necəsən?” sualını tam xatırla.  
-**Düzgün olanda:** “you” ilə “are” gəlir.  
-- *İzah (başqa səhvdə):* “you” ilə “are” gəlir. — Uyğun: are. Səbəb: “you” (sən) ilə həmişə “are” işlənir. Qayda: you ilə are gəlir: you are. Nümunə: How are you?  
-
-## Kart 7 — Səslə cavab: Səslə cavab ver
+## Kart 8 — Səslə cavab: Səslə cavab ver
 
 **Tapşırıq:** Dostun soruşur. Cavab ver və sualı geri qaytar.  
 **Səs:** How are you?  
@@ -100,7 +106,15 @@ Nümunə: **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
 **Düzgün olanda:** Halını dedin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm OK. And you?. Səbəb: Dostun halını soruşdu. Qayda: Halın + And you? Nümunə: I'm fine, thanks. And you?  
 
-## Kart 8 — Mesaj yaz (sözlərdən): Mesajı qur
+## Kart 9 — Yeni söz
+
+**I'm OK.** /aɪm oʊˈkeɪ/ — Normalam.
+
+“I'm fine” ilə yaxındır.
+
+Nümunə: **How are you? — I'm OK.** — Necəsən? — Normalam.
+
+## Kart 10 — Mesaj yaz (sözlərdən): Mesajı qur
 
 **Tapşırıq:** Qonşunla qarşılaşdın. Sözlərdən onun halını soruş.  
 **Yazışma (Qonşu qız):** “Hi!”  
@@ -120,7 +134,7 @@ Nümunə: **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
 **Düzgün olanda:** Sual düzgün sırada qurulub.  
 - *İzah (başqa səhvdə):* Sıra: How + are + you? — Uyğun: How are you?. Səbəb: Sən onun halını soruşursan: “you” lazımdır, “I” yox. Qayda: Sualda sıra: How → are → you. Nümunə: How are you?  
 
-## Kart 9 — Dinlə və təkrarla: Dinlə və təkrarla
+## Kart 11 — Dinlə və təkrarla: Dinlə və təkrarla
 
 **Tapşırıq:** Cavabı dinlə, sonra eyni cür de.  
 **Səs:** I'm fine, thanks.  
@@ -136,7 +150,7 @@ Nümunə: **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
 **Düzgün olanda:** Sual axıcı səsləndi.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: How are you?. Səbəb: Sözləri ayırmadan, bir nəfəsdə de. Qayda: How ARE you? Nümunə: How are you?  
 
-## Kart 10 — Səslə cavab: Söhbəti sən başlat
+## Kart 12 — Səslə cavab: Söhbəti sən başlat
 
 **Tapşırıq:** Dostun ilə qarşılaşırsan. Salam ver və halını soruş.  
 **Qəbul:** məna: greet + askFeeling — nümunə: Hi! How are you? / Hello! How are you?  
@@ -153,7 +167,7 @@ Nümunə: **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
 **Düzgün olanda:** Salam verib halını soruşdun.  
 - *İzah (başqa səhvdə):* Salam və sual ikisi də lazımdır. — Uyğun: Hello! How are you?. Səbəb: Görüş salamla başlayır, sonra hal soruşulur. Qayda: Salam + How are you? Nümunə: Hi! How are you?  
 
-## Kart 11 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 13 — Dialoqu tamamla: Dialoqu tamamla
 
 **Tapşırıq:** Qonşun halını soruşur. Cavab ver və sualı geri qaytar.  
 **Yazışma (Qonşu qız):** “Hello! How are you?”  
@@ -172,7 +186,7 @@ Nümunə: **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
 **Düzgün olanda:** Halını dedin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm OK. And you?. Səbəb: Cavab verirsən və eyni sualı qaytarırsan. Qayda: Halın + And you? Nümunə: I'm fine, thanks. And you?  
 
-## Kart 12 — Səslə cavab: Tanışlıq və hal
+## Kart 14 — Səslə cavab: Tanışlıq və hal
 
 **Tapşırıq:** Dostun deyir: “Nice to meet you! How are you?” İkisinə də cavab ver.  
 **Səs:** Nice to meet you! How are you?  
@@ -208,3 +222,4 @@ Növbəti dərsdə təşəkkür etməyi öyrənəcəksən.
 | I'm fine | Yaxşıyam | I'm fine, thanks. — Yaxşıyam, sağ ol. |
 | And you? | Bəs sən? | I'm OK. And you? — Normalam. Bəs sən? |
 | I'm not very well | Çox yaxşı deyiləm | I'm not very well. — Çox yaxşı deyiləm. |
+| I'm OK | Normalam | How are you? — I'm OK. — Necəsən? — Normalam. |

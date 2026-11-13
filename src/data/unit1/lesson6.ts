@@ -40,13 +40,19 @@ export const lesson6: DesignLesson = {
     {
       type: 'word', id: 'd6_c03', number: 3,
       word: 'Excuse me', pronunciation: '/ɪkˈskjuz mi/', reading: 'ikskyuz mi', az: 'Bağışlayın',
-      notes: ['Kiminsə diqqətini çəkəndə deyilir — sual verməzdən əvvəl.', 'Səhvə görə üzr istəmək üçün deyil.', 'Tanımadığın adama da, müəllimə də deyilir.'],
+      notes: ['Sual verməzdən əvvəl diqqəti çəkmək üçün.'],
       example: "Excuse me, what's your name?", exampleAz: 'Bağışlayın, adınız nədir?',
     },
     {
       type: 'word', id: 'd6_c04', number: 4,
-      word: 'Sorry! · No problem.', pronunciation: '/ˈsɑri/ · /noʊ ˈprɑbləm/', reading: 'sari · nou prabləm', az: 'Bağışla! · Eybi yox.',
-      notes: ['Sorry — səhv edəndə, kiminsə yolunu kəsəndə.', 'No problem — üzrü qəbul edəndə.'],
+      word: 'Sorry!', pronunciation: '/ˈsɑri/', reading: 'sari', az: 'Bağışla!',
+      notes: ['Səhv edəndə deyilir.'],
+      example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.',
+    },
+    {
+      type: 'word', id: 'd6_c04b', number: 5,
+      word: 'No problem.', pronunciation: '/noʊ ˈprɑbləm/', reading: 'nou prabləm', az: 'Eybi yox.',
+      notes: ['Üzrü qəbul edəndə deyilir.'],
       example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.',
     },
     {
@@ -170,6 +176,6 @@ export const lesson6: DesignLesson = {
   vocabulary: [
     { word: 'Excuse me', translation: 'Bağışlayın', example: "Excuse me, what's your name?", exampleAz: 'Bağışlayın, adınız nədir?', usageNote: 'Diqqəti çəkmək üçün.', pronunciation: '/ɪkˈskjuz mi/', teachCard: 'd6_c03' },
     { word: 'Sorry', translation: 'Bağışla / Üzr istəyirəm', example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.', usageNote: 'Səhvə görə üzr.', pronunciation: '/ˈsɑri/', teachCard: 'd6_c04' },
-    { word: 'No problem', translation: 'Eybi yox', example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.', usageNote: 'Üzrə cavab.', pronunciation: '/noʊ ˈprɑbləm/', teachCard: 'd6_c04' },
+    { word: 'No problem', translation: 'Eybi yox', example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.', usageNote: 'Üzrə cavab.', pronunciation: '/noʊ ˈprɑbləm/', teachCard: 'd6_c04b' },
   ],
 };

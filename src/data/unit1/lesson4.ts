@@ -39,15 +39,26 @@ export const lesson4: DesignLesson = {
     {
       type: 'word', id: 'd4_c03', number: 3,
       word: 'How are you?', pronunciation: '/haʊ ɑr ju/', reading: 'hau ar yu?', az: 'Necəsən?',
-      notes: ['Salamdan sonra soruşulur.', 'Cavab: I’m fine, thanks. And you?', 'Dosta da, tanımadığın adama da demək olar.'],
+      notes: ['Salamdan sonra soruşulur.'],
       example: 'Hi! How are you?', exampleAz: 'Salam! Necəsən?',
     },
     {
       type: 'word', id: 'd4_c04', number: 4,
-      word: "I'm fine, thanks. · And you?", pronunciation: '/aɪm faɪn θæŋks/ · /ænd ju/', reading: 'aym fayn, **th**enks · end yu?', az: 'Yaxşıyam, sağ ol. · Bəs sən?',
+      word: "I'm fine, thanks. And you?", pronunciation: '/aɪm faɪn θæŋks ænd ju/', reading: 'aym fayn, **th**enks. end yu?', az: 'Yaxşıyam, sağ ol. Bəs sən?',
       notes: ['th — dilin ucu dişlərin arasında.'],
-      more: [{ en: "I'm OK.", az: 'Normalam.', reading: 'aym okey' }, { en: "I'm not very well.", az: 'Çox yaxşı deyiləm.', reading: 'aym nat veri uel' }],
-      example: "I'm fine, thanks. And you?", exampleAz: 'Yaxşıyam, sağ ol. Bəs sən?',
+      example: "How are you? — I'm fine, thanks. And you?", exampleAz: 'Necəsən? — Yaxşıyam, sağ ol. Bəs sən?',
+    },
+    {
+      type: 'word', id: 'd4_c04b', number: 5,
+      word: "I'm OK.", pronunciation: '/aɪm oʊˈkeɪ/', reading: 'aym okey', az: 'Normalam.',
+      notes: ["“I'm fine” ilə yaxındır."],
+      example: "How are you? — I'm OK.", exampleAz: 'Necəsən? — Normalam.',
+    },
+    {
+      type: 'word', id: 'd4_c04c', number: 6,
+      word: "I'm not very well.", pronunciation: '/aɪm nɑt ˈveri wel/', reading: 'aym nat veri uel', az: 'Çox yaxşı deyiləm.',
+      notes: ['not = deyil'],
+      example: "How are you? — I'm not very well.", exampleAz: 'Necəsən? — Çox yaxşı deyiləm.',
     },
     {
       type: 'choice', id: 'd4_c05', number: 5, title: 'Dinlə və anla', why: '“not very well” — çox yaxşı deyil.',
@@ -157,6 +168,7 @@ export const lesson4: DesignLesson = {
     { word: 'How are you?', translation: 'Necəsən?', example: 'Hi! How are you?', exampleAz: 'Salam! Necəsən?', usageNote: 'Salamdan sonra soruşulur.', pronunciation: '/haʊ ɑr ju/', teachCard: 'd4_c03' },
     { word: "I'm fine", translation: 'Yaxşıyam', example: "I'm fine, thanks.", exampleAz: 'Yaxşıyam, sağ ol.', usageNote: '“I’m OK” da olar.', pronunciation: '/aɪm faɪn/', teachCard: 'd4_c04' },
     { word: 'And you?', translation: 'Bəs sən?', example: "I'm OK. And you?", exampleAz: 'Normalam. Bəs sən?', usageNote: 'Sualı geri qaytarır.', pronunciation: '/ænd ju/', teachCard: 'd4_c04' },
-    { word: "I'm not very well", translation: 'Çox yaxşı deyiləm', example: "I'm not very well.", exampleAz: 'Çox yaxşı deyiləm.', usageNote: 'Bu dərsdə yalnız tanımaq üçündür.', pronunciation: '/aɪm nɑt ˈveri wel/', teachCard: 'd4_c04' },
+    { word: "I'm not very well", translation: 'Çox yaxşı deyiləm', example: "I'm not very well.", exampleAz: 'Çox yaxşı deyiləm.', usageNote: 'Pis olanda deyilir.', pronunciation: '/aɪm nɑt ˈveri wel/', teachCard: 'd4_c04c' },
+    { word: "I'm OK", translation: 'Normalam', example: "How are you? — I'm OK.", exampleAz: 'Necəsən? — Normalam.', usageNote: '“I’m fine” ilə yaxındır.', pronunciation: '/aɪm oʊˈkeɪ/', teachCard: 'd4_c04b' },
   ],
 };

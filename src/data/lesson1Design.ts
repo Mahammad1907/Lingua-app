@@ -37,9 +37,9 @@ export const lesson1Design: DesignLesson = {
       goals: [{ icon: 'wave', text: 'Salam verməyi' }, { icon: 'chat', text: 'Salama cavab verməyi' }, { icon: 'bye', text: 'Sağollaşmağı məşq edəcəksən' }],
     },
     {
-      type: 'word', id: 'd1_c02', number: 2, scenes: ['d1/word-hello'],
+      type: 'word', id: 'd1_c02', number: 2, scenes: ['d1/word-hello'], structure: ['Hello!', 'Hello, [ad]!'],
       word: 'Hello! · Hi!', pronunciation: '/həˈloʊ/ · /haɪ/', reading: 'helou · hay', az: 'Salam!',
-      notes: ['Hello ümumi salamlaşmadır. Hi daha qeyri-rəsmidir.'], structure: ['Hello!', 'Hello, [ad]!'],
+      notes: ['Hi daha qeyri-rəsmidir.'],
       example: 'Hello{en,G}!', exampleAz: 'Salam{,G}!',
     },
     {
@@ -111,9 +111,9 @@ export const lesson1Design: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'd1_c06', number: 6, scenes: ['d1/word-goodbye'],
+      type: 'word', id: 'd1_c06', number: 6, scenes: ['d1/word-goodbye'], structure: ['Goodbye!', 'Bye, [ad]!'],
       word: 'Goodbye! · Bye!', pronunciation: '/ˌɡʊdˈbaɪ/ · /baɪ/', reading: 'qudbay · bay', az: 'Görüşənədək! · Hələlik!',
-      notes: ['Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.'], structure: ['Goodbye!', 'Bye, [ad]!'],
+      notes: ['Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.'],
       example: 'Bye{en,B}!', exampleAz: 'Hələlik{,B}!',
     },
     {

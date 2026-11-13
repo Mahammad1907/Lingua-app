@@ -240,47 +240,49 @@ function Pattern({ text }: { text: string }) {
 
 /** Teaching card (approved “İlk salam” design): purple banner with the mascot and the phrase in a bubble,
  *  then Mənası · Oxunuşu · Quruluşu · other phrases · Qeyd · Nümunə rows. Used for Yeni söz and Öyrən cards. */
-export function LearnView({ chip, title, lead, phrases, az, reading, ipa, structure, more, notes, example, scenes, dialog, onPlay, onWord }: {
+export function LearnView({ chip, title, lead, phrases, az, reading, ipa, structure, notes, example, scenes, dialog, onPlay, onWord }: {
   chip: string; title?: string; lead?: string; phrases: string[]; az: string; reading?: string; ipa?: string; structure?: string[];
-  more?: { en: string; az: string; reading?: string }[]; notes?: string[]; example?: { en: string; az: string }; scenes?: string[];
+  notes?: string[]; example?: { en: string; az: string }; scenes?: string[];
   /** A short conversation (girl and boy take turns) instead of one phrase in the banner. */
   dialog?: { en: string; az: string }[];
   onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void;
 }) {
+  // Approved simple card (user, 13 Nov 2026): one phrase, its reading in the bubble, then Mənası · (Quruluşu) · Nümunə · one short note.
+  // No scrolling, no phonetic line (that stays in the word pop-up and Lüğətim).
   const image = sceneImage(scenes);
   const spoken = phrases.join('. ');
-  return <View style={{ gap: 12 }}>
+  const long = phrases.join(' ').length > 16;
+  void ipa;
+  return <View style={{ gap: 10 }}>
     <View style={{ gap: 4 }}>
       <View style={s.learnChip}><Text style={s.learnChipText}>{chip}</Text></View>
       {title ? <Text accessibilityRole="header" style={ds.title}>{title}</Text> : null}
-      <Text style={ds.subtitle}>{lead ?? 'Dinlə və nümunəyə bax.'}</Text>
+      {lead ? <Text style={ds.subtitle}>{lead}</Text> : null}
     </View>
-    {image ? <Image source={image} style={s.wordImage} contentFit="cover" accessibilityIgnoresInvertColors /> : <ImageSlot scenes={scenes} height={64} />}
+    {image ? <Image source={image} style={s.wordImage} contentFit="cover" accessibilityIgnoresInvertColors /> : <ImageSlot scenes={scenes} height={56} />}
     {dialog ? <View style={[s.info, shadow, { paddingVertical: 10, gap: 10 }]}>{dialog.map((l, i) => <View key={l.en} style={s.moreRow}>
       <Avatar who={i % 2 ? 'B' : 'G'} size={40} />
       <View style={{ flex: 1 }}><TapText text={l.en} style={s.dialogEn} onWord={onWord} /><Text style={s.moreAz}>{l.az}</Text></View>
       <PlayButton onPress={() => onPlay(l.en)} size={40} label={`Dinlə: ${l.en}`} />
-    </View>)}</View> : null}
-    {dialog ? null : <View style={[s.banner, shadow]}>
-      <Image source={mascotFull} style={{ width: 96, height: 120 }} contentFit="contain" accessibilityLabel="Maskot" />
+    </View>)}</View> : <View style={[s.banner, shadow]}>
+      <Image source={mascotFull} style={{ width: 78, height: 96 }} contentFit="contain" accessibilityLabel="Maskot" />
       <View style={s.bannerBubble}>
-        {phrases.map(p => <Text key={p} accessibilityRole="header" style={[s.bannerText, phrases.length > 1 && { fontSize: 26, lineHeight: 32 }]}>{nameSlot(p)}</Text>)}
-        <View style={s.bannerAudio}><PlayButton onPress={() => onPlay(spoken)} size={46} /><SlowButton onPress={() => onPlay(spoken, .45)} size={46} /></View>
+        {phrases.map(p => <Text key={p} accessibilityRole="header" style={[s.bannerText, long && { fontSize: 24, lineHeight: 30 }]}>{nameSlot(p)}</Text>)}
+        {reading ? <Reading text={reading} /> : null}
+        <View style={s.bannerAudio}><PlayButton onPress={() => onPlay(spoken)} size={44} /><SlowButton onPress={() => onPlay(spoken, .45)} size={44} /></View>
       </View>
     </View>}
     <View style={[s.info, shadow]}>
       {dialog ? null : <InfoRow first icon="tag" label="Mənası"><Text style={s.infoStrong}>{az}</Text></InfoRow>}
-      {reading ? <InfoRow icon="speaker" label="Oxunuşu"><Reading text={reading} left />{ipa ? <Text style={s.ipa}>{ipa}</Text> : null}</InfoRow> : null}
       {structure?.length ? <InfoRow icon="layers" label="Quruluşu"><View style={s.patterns}>{structure.map(p => <Pattern key={p} text={p} />)}</View></InfoRow> : null}
-      {more?.length ? <InfoRow icon="chat" label="Bunu da öyrən">{more.map(m => <View key={m.en} style={s.moreRow}>
-        <View style={{ flex: 1 }}><TapText text={m.en} style={s.infoStrong} onWord={onWord} /><Text style={s.moreAz}>{m.az}</Text>{m.reading ? <Reading text={m.reading} left /> : null}</View>
-        <PlayButton onPress={() => onPlay(m.en)} size={40} label={`Dinlə: ${m.en}`} />
-      </View>)}</InfoRow> : null}
-      {notes?.length ? <InfoRow first={Boolean(dialog)} icon="bulb" label="Qeyd">{notes.map(n => <Text key={n} style={ds.body}>{n}</Text>)}</InfoRow> : null}
-      {example ? <View style={s.exampleBox}>
-        <View style={s.infoIcon}><Icon name="chat" size={22} color={d.purple} /></View>
-        <View style={{ flex: 1, gap: 2 }}><Text style={ds.label}>Nümunə</Text><TapText text={example.en} style={s.exampleEn} onWord={onWord} /><Text style={s.moreAz}>{example.az}</Text></View>
-        <PlayButton onPress={() => onPlay(example.en)} size={44} label="Nümunəni dinlə" />
+      {example ? <View style={[s.infoRow, !dialog && s.infoLine, { alignItems: 'center' }]}>
+        <View style={s.infoIcon}><Icon name="chat" size={20} color={d.purple} /></View>
+        <View style={{ flex: 1, gap: 1 }}><Text style={ds.label}>Nümunə</Text><TapText text={example.en} style={s.exampleEn} onWord={onWord} /><Text style={s.moreAz}>{nameSlot(example.az)}</Text></View>
+        <PlayButton onPress={() => onPlay(example.en)} size={40} label="Nümunəni dinlə" />
+      </View> : null}
+      {notes?.length ? <View style={[s.infoRow, (example || !dialog) && s.infoLine, { alignItems: 'center' }]}>
+        <View style={s.infoIcon}><Icon name="bulb" size={20} color={d.purple} /></View>
+        <Text style={[s.noteText, { flex: 1 }]}>{notes[0]}</Text>
       </View> : null}
     </View>
   </View>;
@@ -289,7 +291,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
 /** “Yeni söz” card on the approved teaching layout. */
 export function WordView({ card, onPlay, onWord }: { card: WordCard; onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void }) {
   return <LearnView chip="Yeni söz" phrases={card.word.split(/\s*·\s*/)} az={card.az} reading={card.reading} ipa={card.pronunciation} structure={card.structure}
-    more={card.more} notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} onPlay={onPlay} onWord={onWord} />;
+    notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} onPlay={onPlay} onWord={onWord} />;
 }
 
 const s = StyleSheet.create({
@@ -302,14 +304,15 @@ const s = StyleSheet.create({
   slowRound: { backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   learnChip: { alignSelf: 'flex-start', backgroundColor: d.purpleSoft, borderRadius: 999, paddingHorizontal: 16, paddingVertical: 6, marginBottom: 4 },
   learnChipText: { color: d.purple, fontSize: 15, ...font.bold },
-  banner: { flexDirection: 'row', alignItems: 'center', gap: 10, borderRadius: 26, backgroundColor: '#5B2BC9', padding: 14 },
-  bannerBubble: { flex: 1, alignItems: 'center', gap: 8, backgroundColor: '#fff', borderRadius: 22, paddingVertical: 14, paddingHorizontal: 12 },
-  bannerText: { color: d.ink, fontSize: 32, lineHeight: 38, textAlign: 'center', ...font.extrabold },
+  banner: { flexDirection: 'row', alignItems: 'center', gap: 8, borderRadius: 24, backgroundColor: '#5B2BC9', padding: 12 },
+  bannerBubble: { flex: 1, alignItems: 'center', gap: 6, backgroundColor: '#fff', borderRadius: 22, paddingVertical: 12, paddingHorizontal: 10 },
+  bannerText: { color: d.ink, fontSize: 30, lineHeight: 36, textAlign: 'center', ...font.extrabold },
   bannerAudio: { flexDirection: 'row', gap: 12 },
   info: { borderRadius: radius.card, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border, paddingHorizontal: 14, paddingVertical: 4 },
-  infoRow: { flexDirection: 'row', gap: 12, paddingVertical: 10 },
+  infoRow: { flexDirection: 'row', gap: 12, paddingVertical: 9 },
+  noteText: { color: d.ink, fontSize: 15, lineHeight: 21, ...font.semibold },
   infoLine: { borderTopWidth: 1, borderTopColor: d.border },
-  infoIcon: { width: 42, height: 42, borderRadius: 21, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
+  infoIcon: { width: 36, height: 36, borderRadius: 18, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   infoStrong: { color: d.ink, fontSize: 20, lineHeight: 26, ...font.extrabold },
   patterns: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   pattern: { paddingHorizontal: 14, paddingVertical: 6, borderRadius: 999, backgroundColor: d.purpleSoft },
@@ -317,7 +320,6 @@ const s = StyleSheet.create({
   moreRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 2 },
   dialogEn: { color: d.ink, fontSize: 18, lineHeight: 24, ...font.extrabold },
   moreAz: { color: d.lavenderText, fontSize: 15, ...font.bold },
-  exampleBox: { flexDirection: 'row', alignItems: 'center', gap: 12, marginVertical: 8, padding: 12, borderRadius: 18, backgroundColor: '#EFE6FD' },
   sayBubble: { flex: 1, gap: 10, paddingHorizontal: 16, paddingVertical: 14, borderRadius: 22, borderTopLeftRadius: 6, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
   sayText: { color: d.ink, fontSize: 20, lineHeight: 27, ...font.extrabold },
   sayAudio: { flexDirection: 'row', alignItems: 'center', gap: 10 },
@@ -325,7 +327,7 @@ const s = StyleSheet.create({
   chipsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'flex-end' },
   chip: { minHeight: 40, paddingHorizontal: 14, borderRadius: 14, backgroundColor: d.purple, justifyContent: 'center' },
   chipText: { color: '#fff', fontSize: 17, ...font.extrabold },
-  reading: { color: d.lavenderText, fontSize: 17, textAlign: 'center', ...font.bold },
+  reading: { color: d.purple, fontSize: 17, textAlign: 'center', ...font.extrabold },
   inRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 8 },
   inBubble: { maxWidth: '78%', paddingHorizontal: 16, paddingVertical: 11, borderRadius: 20, borderBottomLeftRadius: 6, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
   bubbleText: { color: d.ink, fontSize: 17, lineHeight: 23, ...font.bold },
