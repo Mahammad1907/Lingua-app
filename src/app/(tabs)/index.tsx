@@ -9,6 +9,7 @@ import { lessons } from '../../data/lessons';
 import { getAllModules } from '../../data/modules';
 import { useUserStore } from '../../store/userStore';
 import { buildHomeCourse } from '../../utils/homeCourse';
+import { getShortSession } from '../../data/firstConversation';
 import { moduleTest } from '../../utils/moduleAccess';
 
 const SELECTION_KEY = '@birtalk_home_selection_v1';
@@ -59,6 +60,7 @@ export default function Home() {
   return <View style={styles.root}>
     <HomeDashboard course={course} language={selection.language} level={selection.level} xp={xp}
       compact={width < 360} topInset={insets.top} onNavigate={navigate} onSelect={() => setPickerOpen(true)}
+      onLesson={(id) => router.push(getShortSession(id) ? { pathname: '/lesson/session', params: { id } } : { pathname: '/lesson/vocabulary', params: { id } })}
       onOpen={(id) => {
         if (course.items.find((item) => item.id === id)?.state === 'locked') setLockedId(id);
         else router.push({ pathname: '/module/[id]', params: { id } });
