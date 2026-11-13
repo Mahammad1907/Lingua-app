@@ -331,3 +331,23 @@ Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edi
 26. Gündəlik təkrar kartı ana səhifədə: əsasən səhv edilən ifadələr, qalanı çoxdan görülməyənlər.
 
 **13 noyabr 2026 — 1–26 bəndləri tətbiq olundu** (istifadəçi “bitdi, hamısını tətbiq et” dedi). Ana səhifə A5 (dərsə toxunanda kart), Analiz ekranı (`src/app/analysis.tsx`), AI söhbət boş ekranı (`src/app/ai-chat.tsx`), köhnə bölmə ekranı ana səhifəyə yönləndirilir. Kod yoxlamaları keçir; telefonda yoxlanmayıb.
+
+## Telefonda görülən xətalar — ikinci siyahı (13 noyabr 2026, axşam) — tətbiq olundu
+
+İstifadəçi “hələlik bu qədər, başlaya bilərsən” dedi. Bəndlər və nə edildi:
+
+1. Vəziyyət sətri solğun idi → `ds.subtitle` tünd (9bd8416-da edilmişdi; telefonda köhnə versiya açılmışdı).
+2. Oxunuşlar Amerika tələffüzü ilə, iki nöqtə və fonetik işarə yoxdur (“hau ar yu?”, “uats yor neym?”, “sari”). IPA da Amerika variantına keçirildi (ː yoxdur, /oʊ/, /ɑ/).
+3. Yavaş dinləmə yalnız tısbağa ikonudur (yazısız); “Dinlə” düyməsi yazı ilə qalır.
+4. **Ən vacib qayda:** heç bir tapşırıq əvvəl öyrədilməmiş ingilis sözünü göstərmir və soruşmur. Yalnız qeyddə keçən söz öyrədilmiş sayılmır. `scripts/check-taught.cjs` bunu yoxlayır. Tapılan 34 pozuntu düzəldildi (məs. “I'm not very well”, “I'm OK”, “Could you say that again, please?” indi “Bunu da öyrən” sətrində səsi ilə öyrədilir).
+5. “İndi dinləyə bilmirəm”in üstündə kəsilən düymə (Kömək) → dinləmədə Kömək səs kartının altındadır (təsdiqlənmiş dizayndakı kimi).
+6. Dinləmədə mətn yalnız Kömək → “Mətnlə davam et” və ya ⋮ → “Səs açılmır” ilə açılır (kod belədir).
+7. 12 noyabr “İlk salam” öyrətmə dizaynı qaytarıldı: bənövşəyi banner, maskot, balonda ifadə + Dinlə + tısbağa; sətirlər Mənası · Oxunuşu · Quruluşu · Bunu da öyrən · Qeyd · Nümunə. “Yeni söz” və “Öyrən” kartları bu görünüşdədir; Dərs 1-də Quruluşu: Hello! / Hello, [ad]! və Goodbye! / Bye, [ad]!.
+8. 12 noyabr dizaynları əsasdır; sonradan əlavə olunan ekranlar onlarla birlikdə qalır (istifadəçi razıdır), eyni dizayn dilində. Səsli cavabda danışanın kartı təsdiqlənmiş səs kartı kimidir: avatar, cümlə, Dinlə + dalğa, tısbağa.
+9. Dərslər şablon deyil: eyni ekran növü dalbadal gəlmir (bir söhbətin növbələri istisna), səsli tapşırıqlar dərsə paylanıb, iki dərs eyni üç ekranla bitmir — `check-taught.cjs` yoxlayır. Yeni ekran növü əvvəlcə maket kimi göstərilir, istifadəçi təsdiqləyəndən sonra koda keçir.
+10. “Səslə cavab ver”: nümunə alt sətrə keçir; maskot dairədə kəsilmir; Kömək dizayndakı yerdə; mikrofon yazısı təsdiqlənmiş dizayndakı “Basılı saxla və danış” (bir toxunuşla da işləyir).
+11. Şəkil yerləri: Dərs 2, 6, 8-ə 10 yeni işarə (SEKIL_SIYAHISI §6); Yeni söz kartlarında da işarə görünür. Söhbət/səsli/dinləmə ekranlarında şəkil yoxdur, avatar və səs kartı var.
+
+Özüm yoxlayanda tapılan: əvvəlki siyahının 10-cu bəndindəki “… yerinə [ad] nişanı” **edilməmişdi** — indi bütün ekranlarda (seçimlər, balonlar, söz düymələri, nümunə, nəticə panelləri) “…” ad yeri “[ad]” kimi görünür. Əvvəlki 14-cü bənd (Lüğətim sətri) söz pəncərəsində qalmışdı — çıxarıldı.
+
+Kod yoxlamaları keçir; telefonda yoxlanmayıb.

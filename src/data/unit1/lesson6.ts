@@ -25,31 +25,32 @@ export const lesson6: DesignLesson = {
       ],
     },
     {
-      type: 'choice', id: 'd6_c02', number: 2, title: 'Xatırla', why: 'Təşəkkürə cavab: You’re welcome.', hint: 'Təşəkkürə cavab — Dərs 5-də öyrəndin.',
+      type: 'choice', id: 'd6_c02', number: 2, scenes: ['d6/thank-girl'], title: 'Xatırla', why: 'Təşəkkürə cavab: You’re welcome.', hint: 'Təşəkkürə cavab — Dərs 5-də öyrəndin.',
       prompt: 'Sən qıza “Thank you!” dedin.\nO nə cavab verər?', options: ['Please.', "You're welcome.", 'How are you?'], answer: "You're welcome.",
       variants: [
         pick('Please.', '“Please” xahişdir.', ex("You're welcome.", 'Təşəkkürə cavab “Dəyməz” — “You’re welcome”dur.', 'Thank you → You’re welcome.', "Thanks! — You're welcome.")),
         pick('How are you?', 'Bu, hal sualıdır.', ex("You're welcome.", 'Təşəkkürə cavab verilir, yeni sual yox.', 'Thank you → You’re welcome.', "Thank you! — You're welcome.")),
       ],
       review: {
+        scenes: ['d6/directions'],
         title: 'Xatırla', why: 'Kömək alanda təşəkkür edirsən.', hint: 'Sənə kömək edəndə nə deyirsən? Dərs 5-i xatırla.', prompt: 'Oğlan sənə yol göstərdi.\nNə deyərsən?', options: ["You're welcome.", 'Thank you!', 'Please.'], answer: 'Thank you!',
         variants: [other('Kömək alan təşəkkür edir.', ex('Thank you!', '“You’re welcome” cavabdır, “please” xahişdir.', 'Kömək alanda: Thank you!', 'Thanks!'))],
       },
     },
     {
       type: 'word', id: 'd6_c03', number: 3,
-      word: 'Excuse me', pronunciation: '/ɪkˈskjuːz miː/', reading: 'ikskyuz mi', az: 'Bağışlayın',
+      word: 'Excuse me', pronunciation: '/ɪkˈskjuz mi/', reading: 'ikskyuz mi', az: 'Bağışlayın',
       notes: ['Kiminsə diqqətini çəkəndə deyilir — sual verməzdən əvvəl.', 'Səhvə görə üzr istəmək üçün deyil.', 'Tanımadığın adama da, müəllimə də deyilir.'],
       example: "Excuse me, what's your name?", exampleAz: 'Bağışlayın, adınız nədir?',
     },
     {
       type: 'word', id: 'd6_c04', number: 4,
-      word: 'Sorry! · No problem.', pronunciation: '/ˈsɒri/ · /nəʊ ˈprɒbləm/', reading: 'sori · nou problem', az: 'Bağışla! · Eybi yox.',
+      word: 'Sorry! · No problem.', pronunciation: '/ˈsɑri/ · /noʊ ˈprɑbləm/', reading: 'sari · nou prabləm', az: 'Bağışla! · Eybi yox.',
       notes: ['Sorry — səhv edəndə, kiminsə yolunu kəsəndə.', 'No problem — üzrü qəbul edəndə.'],
       example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.',
     },
     {
-      type: 'choice', id: 'd6_c05', number: 5, title: 'Hansı “bağışlayın”?', why: 'Diqqət çəkəndə: Excuse me.',
+      type: 'choice', id: 'd6_c05', number: 5, scenes: ['d6/street-ask'], title: 'Hansı “bağışlayın”?', why: 'Diqqət çəkəndə: Excuse me.',
       prompt: 'Küçədə birindən sual soruşmaq istəyirsən.\nNə ilə başlayarsan?', options: ['Sorry!', 'Excuse me.', 'No problem.'], answer: 'Excuse me.',
       hint: 'Səhv etmisən, yoxsa sadəcə danışmaq istəyirsən?', hintAssists: true,
       variants: [
@@ -57,6 +58,7 @@ export const lesson6: DesignLesson = {
         pick('No problem.', '“No problem” üzrə cavabdır.', ex('Excuse me.', 'Söhbətə başlayırsan, diqqəti çəkirsən.', 'Diqqət → Excuse me.', 'Excuse me!')),
       ],
       review: {
+        scenes: ['d6/foot-step'],
         title: 'Hansı “bağışlayın”?', why: 'Səhv edəndə: Sorry.', prompt: 'Təsadüfən birinin ayağına basdın.\nNə deyərsən?', options: ['Excuse me.', 'Sorry!', 'Thank you!'], answer: 'Sorry!',
         hint: 'Səhv etmisən, yoxsa sadəcə danışmaq istəyirsən?', hintAssists: true,
         variants: [
@@ -84,7 +86,7 @@ export const lesson6: DesignLesson = {
       rule: exact('Excuse me'),
       variants: [other('Bir daha dinlə və yavaş de.', ex('Excuse me.', 'Azərbaycan dilində vurğu çox vaxt sondadır, burada isə ortada.', 'ex-CUSE me.', 'Excuse me.'))],
       review: {
-        title: 'Dinlə və təkrarla', why: 'Vurğu düzgün yerdə idi.', prompt: 'Dinlə, sonra eyni cür de.', audio: 'Sorry!', repeat: { stress: 'Sorry', note: 'Vurğu əvvəldədir: SO-rry.', reading: 'sori' },
+        title: 'Dinlə və təkrarla', why: 'Vurğu düzgün yerdə idi.', prompt: 'Dinlə, sonra eyni cür de.', audio: 'Sorry!', repeat: { stress: 'Sorry', note: 'Vurğu əvvəldədir: SO-rry.', reading: 'sari' },
         rule: exact('Sorry'),
         variants: [other('Bir daha dinlə və yavaş de.', ex('Sorry!', 'Birinci heca güclü deyilir.', 'SO-rry.', 'Sorry!'))],
       },
@@ -112,7 +114,7 @@ export const lesson6: DesignLesson = {
     {
       type: 'write', id: 'd6_c10', number: 10, title: 'Dialoqu tamamla', why: 'Üzrü qəbul etdin.', hint: 'O üzr istədi. Sən “Eybi yox” deyirsən.',
       prompt: 'Oğlan səhvən çantanı yerə saldı və üzr istədi.\nÜzrünü qəbul et.', placeholder: 'Cavabını yaz',
-      chat: { partner: 'Oğlan', from: 'B', lines: [{ from: 'B', text: 'Oh! Sorry!' }] }, rule: noProblem,
+      chat: { partner: 'Oğlan', from: 'B', lines: [{ from: 'B', text: 'Sorry!' }] }, rule: noProblem,
       variants: [
         insteadOf('sorry', 'Səhv onundur — sən üzrü qəbul edirsən.', ex('No problem.', 'Üzrə “Sorry” ilə yox, “No problem” ilə cavab verilir.', 'Sorry → No problem.', 'Sorry! — No problem.')),
         other('Üzrə cavab: No problem.', ex('No problem.', 'O, üzr istədi. Sən “Eybi yox” deyirsən.', 'Sorry → No problem.', 'No problem.')),
@@ -166,8 +168,8 @@ export const lesson6: DesignLesson = {
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',
   },
   vocabulary: [
-    { word: 'Excuse me', translation: 'Bağışlayın', example: "Excuse me, what's your name?", exampleAz: 'Bağışlayın, adınız nədir?', usageNote: 'Diqqəti çəkmək üçün.', pronunciation: '/ɪkˈskjuːz miː/', teachCard: 'd6_c03' },
-    { word: 'Sorry', translation: 'Bağışla / Üzr istəyirəm', example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.', usageNote: 'Səhvə görə üzr.', pronunciation: '/ˈsɒri/', teachCard: 'd6_c04' },
-    { word: 'No problem', translation: 'Eybi yox', example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.', usageNote: 'Üzrə cavab.', pronunciation: '/nəʊ ˈprɒbləm/', teachCard: 'd6_c04' },
+    { word: 'Excuse me', translation: 'Bağışlayın', example: "Excuse me, what's your name?", exampleAz: 'Bağışlayın, adınız nədir?', usageNote: 'Diqqəti çəkmək üçün.', pronunciation: '/ɪkˈskjuz mi/', teachCard: 'd6_c03' },
+    { word: 'Sorry', translation: 'Bağışla / Üzr istəyirəm', example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.', usageNote: 'Səhvə görə üzr.', pronunciation: '/ˈsɑri/', teachCard: 'd6_c04' },
+    { word: 'No problem', translation: 'Eybi yox', example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.', usageNote: 'Üzrə cavab.', pronunciation: '/noʊ ˈprɑbləm/', teachCard: 'd6_c04' },
   ],
 };

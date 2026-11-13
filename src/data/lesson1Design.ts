@@ -38,8 +38,8 @@ export const lesson1Design: DesignLesson = {
     },
     {
       type: 'word', id: 'd1_c02', number: 2, scenes: ['d1/word-hello'],
-      word: 'Hello! · Hi!', pronunciation: '/həˈləʊ/ · /haɪ/', reading: 'hellou · hay', az: 'Salam!',
-      notes: ['Hello ümumi salamlaşmadır. Hi daha qeyri-rəsmidir.', 'Adı sonra əlavə edə bilərsən.'],
+      word: 'Hello! · Hi!', pronunciation: '/həˈloʊ/ · /haɪ/', reading: 'helou · hay', az: 'Salam!',
+      notes: ['Hello ümumi salamlaşmadır. Hi daha qeyri-rəsmidir.'], structure: ['Hello!', 'Hello, [ad]!'],
       example: 'Hello{en,G}!', exampleAz: 'Salam{,G}!',
     },
     {
@@ -113,7 +113,7 @@ export const lesson1Design: DesignLesson = {
     {
       type: 'word', id: 'd1_c06', number: 6, scenes: ['d1/word-goodbye'],
       word: 'Goodbye! · Bye!', pronunciation: '/ˌɡʊdˈbaɪ/ · /baɪ/', reading: 'qudbay · bay', az: 'Görüşənədək! · Hələlik!',
-      notes: ['Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.', 'Adı sonra əlavə edə bilərsən.'],
+      notes: ['Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.'], structure: ['Goodbye!', 'Bye, [ad]!'],
       example: 'Bye{en,B}!', exampleAz: 'Hələlik{,B}!',
     },
     {
@@ -300,7 +300,7 @@ export const lesson1Design: DesignLesson = {
     button: 'Bölməyə qayıt',
   },
   vocabulary: [
-    { word: 'Hello', translation: 'Salam', example: 'Hello{en,G}!', exampleAz: 'Salam{,G}!', usageNote: 'Hello ümumi salamlaşmadır.', pronunciation: '/həˈləʊ/', teachCard: 'd1_c02' },
+    { word: 'Hello', translation: 'Salam', example: 'Hello{en,G}!', exampleAz: 'Salam{,G}!', usageNote: 'Hello ümumi salamlaşmadır.', pronunciation: '/həˈloʊ/', teachCard: 'd1_c02' },
     { word: 'Hi', translation: 'Salam', example: 'Hi{en,B}!', exampleAz: 'Salam{,B}!', usageNote: 'Hi daha qeyri-rəsmi salamlaşmadır.', pronunciation: '/haɪ/', teachCard: 'd1_c02' },
     { word: 'Goodbye', translation: 'Görüşənədək', example: 'Goodbye{en,G}!', exampleAz: 'Görüşənədək{,G}!', usageNote: 'Goodbye burada ayrılma mənasındadır.', pronunciation: '/ˌɡʊdˈbaɪ/', teachCard: 'd1_c06' },
     { word: 'Bye', translation: 'Hələlik', example: 'Bye{en,B}!', exampleAz: 'Hələlik{,B}!', usageNote: 'Bye daha qeyri-rəsmi sağollaşmadır.', pronunciation: '/baɪ/', teachCard: 'd1_c06' },

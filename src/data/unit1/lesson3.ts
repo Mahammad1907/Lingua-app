@@ -39,7 +39,7 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'word', id: 'd3_c03', number: 3,
-      word: "What's your name?", pronunciation: '/wɒts jɔː neɪm/', reading: 'uots yor neym?', az: 'Adın nədir?',
+      word: "What's your name?", pronunciation: '/wʌts jʊr neɪm/', reading: 'uats yor neym?', az: 'Adın nədir?',
       notes: ['What’s = What is.', 'Cavab: I’m … və ya My name is …', 'Dosta da, tanımadığın adama da demək olar.'],
       example: "Hi! What's your name?", exampleAz: 'Salam! Adın nədir?',
     },
@@ -47,7 +47,7 @@ export const lesson3: DesignLesson = {
       type: 'write', id: 'd3_c04', number: 4, title: 'Mesajı qur', why: 'Sual düzgün sırada qurulub.',
       prompt: 'Yeni yoldaşının adını bilmirsən.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni yoldaş', from: 'B', lines: [{ from: 'B', text: 'Hello!' }] },
-      tiles: ['your', 'is', "What's", 'name', 'you', '?'], rule: exact("What's your name?"),
+      tiles: ['your', 'is', "What's", 'name', 'my', '?'], rule: exact("What's your name?"),
       hint: 'Bu dərsin əvvəlində öyrəndiyin ad sualını qur. Sual “Nə” mənasındakı sözlə başlayır.', hintAssists: false,
       variants: [other('Sıra: What’s + your + name?', ex("What's your name?", '“What’s” içində artıq “is” var. “you” — sən, “your” — sənin.', 'What’s + your + name?', "Hello! What's your name?"))],
       review: {
@@ -59,11 +59,11 @@ export const lesson3: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'd3_c05', number: 5, title: 'Sözü tamamla', why: '“your” — sənin.', hint: '“Sənin adın” deyirik, “sən adın” yox. İngiliscə də “sən” və “sənin” fərqli sözlərdir.',
+      type: 'choice', id: 'd3_c05', number: 5, title: 'Sözü tamamla', why: '“your” — sənin.', hint: '“Sənin adın” deyirik. Hansı söz “sənin” deməkdir?',
       prompt: 'Oğlan qızın adını soruşur.\nHansı söz çatmır?',
-      gap: { speaker: 'B', before: "What's", after: 'name?' }, options: ['you', 'your', 'my'], answer: 'your',
+      gap: { speaker: 'B', before: "What's", after: 'name?' }, options: ['I', 'your', 'my'], answer: 'your',
       variants: [
-        pick('you', '“you” — sən; burada “sənin” lazımdır.', ex('your', '“Sənin adın” deyirik, ona görə “your”.', 'What’s your name?', "Hi! What's your name?")),
+        pick('I', '“I” — mən; burada “sənin” lazımdır.', ex('your', '“Sənin adın” deyirik, ona görə “your”.', 'What’s your name?', "Hi! What's your name?")),
         pick('my', '“my” — mənim. O, öz adını soruşmur.', ex('your', 'Qarşı tərəfin adını soruşanda “your” deyilir.', 'What’s your name?', "Hello! What's your name?")),
       ],
       review: {
@@ -74,7 +74,7 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'word', id: 'd3_c06', number: 6,
-      word: 'Nice to meet you. · You too.', pronunciation: '/naɪs tə miːt juː/ · /juː tuː/', reading: 'nays tu mit yu · yu tu', az: 'Tanış olmağıma şadam. · Mən də.',
+      word: 'Nice to meet you. · You too.', pronunciation: '/naɪs tə mit ju/ · /ju tu/', reading: 'nays tu mit yu · yu tu', az: 'Tanış olmağıma şadam. · Mən də.',
       notes: ['Adları deyəndən sonra deyilir.', 'Cavab qısa ola bilər: You too!'],
       example: 'Nice to meet you! — You too!', exampleAz: 'Tanış olmağıma şadam! — Mən də!',
     },
@@ -84,7 +84,7 @@ export const lesson3: DesignLesson = {
       rule: exact('Nice to meet you'),
       variants: [other('Bir daha dinlə və yavaş de.', ex('Nice to meet you.', '“to” zəif və qısa deyilir, “meet” güclü.', 'Vurğu “meet” sözünə düşür.', 'Nice to MEET you.'))],
       review: {
-        title: 'Dinlə və təkrarla', why: 'Sual axıcı səsləndi.', prompt: 'Sualı dinlə, sonra eyni cür de.', audio: "What's your name?", repeat: { stress: 'name', note: 'Səs sonda bir az enir.', reading: 'uots yor neym?' },
+        title: 'Dinlə və təkrarla', why: 'Sual axıcı səsləndi.', prompt: 'Sualı dinlə, sonra eyni cür de.', audio: "What's your name?", repeat: { stress: 'name', note: 'Səs sonda bir az enir.', reading: 'uats yor neym?' },
         rule: exact("What's your name"),
         variants: [other('Bir daha dinlə və yavaş de.', ex("What's your name?", '“What’s” bir hecadır: /wɒts/.', 'Vurğu “name” sözünə düşür.', "What's your NAME?"))],
       },
@@ -143,7 +143,7 @@ export const lesson3: DesignLesson = {
       ],
       review: {
         title: 'Söhbəti bitir', why: 'Görüşü sağollaşma ilə bitirdin.', hint: 'Görüş bitir. Dərs 1-in sağollaşma sözlərini xatırla.', prompt: 'Dərs bitdi, evə gedirsən.\nYoldaşınla sağollaş.', placeholder: 'Cavabını yaz',
-        chat: { partner: 'Zal yoldaşı', from: 'B', lines: [{ from: 'B', text: 'See you!' }] }, rule: bye,
+        chat: { partner: 'Zal yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Bye!' }] }, rule: bye,
         variants: [other('Sağollaşma ifadəsi yaz.', ex('Bye! / Goodbye!', 'Görüş bitir, sağollaşırsan.', 'Ayrılarkən: Bye! / Goodbye!', 'Bye!'))],
       },
     },
@@ -160,8 +160,8 @@ export const lesson3: DesignLesson = {
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',
   },
   vocabulary: [
-    { word: "What's your name?", translation: 'Adın nədir?', example: "Hi! What's your name?", exampleAz: 'Salam! Adın nədir?', usageNote: 'What’s = What is.', pronunciation: '/wɒts jɔː neɪm/', teachCard: 'd3_c03' },
-    { word: 'Nice to meet you', translation: 'Tanış olmağıma şadam', example: 'Nice to meet you!', exampleAz: 'Tanış olmağıma şadam!', usageNote: 'Tanış olanda deyilir.', pronunciation: '/naɪs tə miːt juː/', teachCard: 'd3_c06' },
-    { word: 'You too', translation: 'Mən də', example: 'You too!', exampleAz: 'Mən də!', usageNote: '“Nice to meet you”ya cavab.', pronunciation: '/juː tuː/', teachCard: 'd3_c06' },
+    { word: "What's your name?", translation: 'Adın nədir?', example: "Hi! What's your name?", exampleAz: 'Salam! Adın nədir?', usageNote: 'What’s = What is.', pronunciation: '/wʌts jʊr neɪm/', teachCard: 'd3_c03' },
+    { word: 'Nice to meet you', translation: 'Tanış olmağıma şadam', example: 'Nice to meet you!', exampleAz: 'Tanış olmağıma şadam!', usageNote: 'Tanış olanda deyilir.', pronunciation: '/naɪs tə mit ju/', teachCard: 'd3_c06' },
+    { word: 'You too', translation: 'Mən də', example: 'You too!', exampleAz: 'Mən də!', usageNote: '“Nice to meet you”ya cavab.', pronunciation: '/ju tu/', teachCard: 'd3_c06' },
   ],
 };

@@ -6,7 +6,7 @@ import * as Speech from 'expo-speech';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, BackHandler, Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import type { DesignLesson as Lesson, IntroCard, TeachCard, TwoTask, Who } from '../../data/designLessonTypes';
+import type { DesignLesson as Lesson, IntroCard, TwoTask, Who } from '../../data/designLessonTypes';
 import { useUserStore } from '../../store/userStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 import {
@@ -16,10 +16,10 @@ import {
 import type { TaskEvidence } from '../../utils/lessonEvidence';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import HoldToTalk from './HoldToTalk';
-import { ChatThread, GapSentence, ImageSlot, MatchBoard, PhraseCard, PickedChips, SayBubble, SceneSpots, TileTray, WordView } from './TaskScreens';
+import { ChatThread, GapSentence, ImageSlot, MatchBoard, PhraseCard, PickedChips, SayBubble, SceneSpots, TileTray, WordView, LearnView } from './TaskScreens';
 import Icon from './Icons';
 import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
-import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, MainButton, Sheet, SheetOption, ds } from './parts';
+import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
 import { d, shadow, font } from './theme';
 import { sceneImage } from '../../config/sceneImages';
 import { glossOf } from '../../data/unit1/glossary';
@@ -305,7 +305,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (!current) return null;
     if (current.type === 'intro') return <IntroView card={current} title={lesson.title} size={imageSize} />;
     if (current.type === 'word') return <WordView card={current} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
-    if (current.type === 'teach') return <TeachView card={current} lesson={lesson} onPlay={t => speak(t)} onWord={setWord} />;
+    if (current.type === 'teach') return <LearnView chip="Öyrən" title={current.title} lead={current.lead} phrases={current.phrases.map(p => p.en)} az={current.phrases.map(p => p.az).join(' · ')}
+      dialog={current.phrases.length > 2 ? current.phrases : undefined}
+      structure={current.structure} notes={current.notes} example={current.example} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
     return taskView();
   })();
 
@@ -341,6 +343,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const bubbleWho: Who = voiceBubble ? (task.speaker === 'mascot' ? 'M' : 'other') : quoteWho;
     const mascotTalks = task.speaker === 'mascot' && !audio && !quote;
     const scene = sceneImage(task.scenes);
+    const helpButton = !repeat && !result ? <Capsule tone="outline" small align="flex-end" icon="bulb" label="Kömək" onPress={() => setHelpOpen(true)} /> : null;
+    const helpUnderAudio = Boolean(audio && !voiceBubble && !repeat);
     const sampleVisible = task.type === 'voice' && Boolean(task.sample) && (lesson.order <= 2 || sampleShown);
     return <View style={[s.gap, { flex: 1 }]}>
       {reviewing ? <View style={{ gap: 6 }}><Chip label="Təkrar" />{reviewStep === 0 ? <Text style={ds.small}>{lesson.notices.review}</Text> : null}</View> : null}
@@ -352,13 +356,15 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {scene && !spotsShown ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
       {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.45)} /> : null}
       {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.45, listeningTask)} /> : null}
+      {/* Approved design: on listening tasks Kömək sits right under the audio card; elsewhere under the answers. */}
+      {helpUnderAudio ? helpButton : null}
       {soundError && !textShown ? <Card style={{ gap: 10 }}><Text style={ds.body}>{lesson.notices.soundFailed}</Text>
         <View style={s.row}><Capsule small icon="retry" label="Yenidən dinlə" onPress={() => speak(audio!, 0.85, true)} /><Capsule small icon="doc" label="Mətnlə davam et" onPress={() => { setTechnical(true); setTextShown(true); setTextVisible(true); }} /></View></Card> : null}
       {textVisible && audio && listeningTask ? <Pressable accessibilityRole="button" accessibilityHint="Mətni gizlətmək üçün toxun" onPress={() => setTextVisible(false)} style={s.transcript}>
-        <Text style={s.transcriptText}>{audio}</Text>
+        <Text style={s.transcriptText}>{nameSlot(audio)}</Text>
         <Text style={ds.small}>Audio mətnini görürsən. Bu hissədə dinləmə yoxlanmadı.</Text>
       </Pressable> : null}
-      {sampleVisible ? <View style={s.sample}><Text style={s.sampleLabel}>Nümunə</Text><View style={s.vline} /><Text style={s.sampleText}>{task.type === 'voice' ? task.sample : ''}</Text></View> : null}
+      {sampleVisible ? <View style={s.sample}><Text style={s.sampleLabel}>Nümunə</Text><View style={s.vline} /><Text style={s.sampleText}>{task.type === 'voice' && task.sample ? nameSlot(task.sample) : ''}</Text></View> : null}
       {repeat && audio ? <><AudioPanel playing={playing} onPlay={() => speak(audio, 0.85)} onSlow={() => speak(audio, 0.45)} /><PhraseCard text={audio} stress={repeat.stress} note={repeat.note} reading={repeat.reading} /></> : null}
       {task.type === 'choice' && task.gap ? <GapSentence speaker={task.gap.speaker} before={task.gap.before} after={task.gap.after} options={task.options} value={choice} onSay={say}
         disabled={Boolean(result && result.kind !== 'unverified')} mark={single ? markOf(single.status) : undefined}
@@ -381,7 +387,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {task.type === 'two' ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
         graded={result?.kind === 'two' ? result.graded : undefined} keep={reviewing ? keepFields[task.id]?.fields : undefined} /> : null}
       {/* Help sits under the answers, on the right: read the task, try, then ask for help. */}
-      {!repeat && !result ? <Capsule tone="outline" small align="flex-end" icon="bulb" label="Kömək" onPress={() => setHelpOpen(true)} /> : null}
+      {!helpUnderAudio ? helpButton : null}
       {notice ? <Text accessibilityLiveRegion="polite" style={s.notice}>{notice}</Text> : null}
       {task.type === 'voice' && (!result || voiceRetry) ? <View style={{ paddingTop: 4, gap: 12, alignItems: 'center' }}>
         <HoldToTalk onFinal={onSpoken} onRecording={onRecording} onBusyChange={setVoiceBusy} suspended={helpOpen || explainOpen || reportOpen || menuOpen} />
@@ -397,7 +403,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (!current) return null;
     if (current.type === 'intro') return <MainButton label={current.start} onPress={next} arrow />;
     if (current.type === 'teach') return <MainButton label="Davam et" tone="green" onPress={next} arrow />;
-    if (current.type === 'word') return <MainButton label="Anladım" onPress={next} />;
+    if (current.type === 'word') return <MainButton label="Davam et" tone="green" onPress={next} arrow />;
     if (!task) return null;
     if (result?.kind === 'unverified') return <ResultPanel tone="neutral" title="Yoxlanmadı" short={result.message} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)}
       actions={<>{task.type === 'voice' && !result.recording ? <Capsule small label="Keç" onPress={skipVoice} /> : null}<Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { setResult(null); setCollapsed(false); }} /></>}
@@ -485,45 +491,6 @@ function IntroView({ card, title, size }: { card: IntroCard; title: string; size
   </View>;
 }
 
-function NewWordText({ text, lesson, onWord, style }: { text: string; lesson: Lesson; onWord: (w: string) => void; style: object }) {
-  const words = new Map(lesson.vocabulary.map(v => [v.word.toLowerCase(), v.word]));
-  return <Text style={style}>{text.split(/(\b[A-Za-z]+\b)/).map((part, i) => {
-    const key = words.get(part.toLowerCase());
-    return key ? <Text key={i} accessibilityRole="link" accessibilityHint="Sözün mənasını aç" onPress={() => onWord(key)} style={{ color: d.purple }}>{part}</Text> : part;
-  })}</Text>;
-}
-
-function TeachView({ card, lesson, onPlay, onWord }: { card: TeachCard; lesson: Lesson; onPlay: (t: string) => void; onWord: (w: string) => void }) {
-  const first = card.phrases[0];
-  return <View style={s.gap}>
-    <Chip label="Öyrən" />
-    <Text accessibilityRole="header" style={ds.title}>{card.title}</Text>
-    {card.lead ? <Text style={ds.subtitle}>{card.lead}</Text> : null}
-    <View style={s.hero}>
-      <Image source={mascotFull} style={{ width: 130, height: 150 }} contentFit="contain" accessibilityLabel="Maskot" />
-      <View style={s.bubble}>
-        <NewWordText text={first.en} lesson={lesson} onWord={onWord} style={s.bubbleText} />
-        <Pressable accessibilityRole="button" accessibilityLabel={`Dinlə: ${first.en}`} onPress={() => onPlay(first.en)} style={s.smallPlay}><Icon name="play" size={20} color={d.purple} /></Pressable>
-      </View>
-    </View>
-    <Card style={{ gap: 0, paddingVertical: 6 }}>
-      <View style={s.infoRow}>
-        <View style={s.infoIcon}><Icon name="tag" size={22} color={d.purple} /></View>
-        <View style={{ flex: 1, gap: 6 }}><Text style={ds.label}>Mənası</Text>
-          {card.phrases.map(p => <View key={p.en} style={s.phrase}>
-            <Text style={[ds.strong, { flex: 1 }]}><NewWordText text={p.en} lesson={lesson} onWord={onWord} style={ds.strong} /> — {p.az}</Text>
-            <Pressable accessibilityRole="button" accessibilityLabel={`Dinlə: ${p.en}`} onPress={() => onPlay(p.en)} style={s.smallPlay}><Icon name="play" size={18} color={d.purple} /></Pressable>
-          </View>)}
-        </View>
-      </View>
-      {card.notes.length ? <View style={[s.infoRow, { borderTopWidth: 1, borderTopColor: d.border }]}>
-        <View style={s.infoIcon}><Icon name="chat" size={22} color={d.purple} /></View>
-        <View style={{ flex: 1, gap: 4 }}><Text style={ds.label}>Qısa izah</Text>{card.notes.map(n => <NewWordText key={n} text={n} lesson={lesson} onWord={onWord} style={ds.body} />)}</View>
-      </View> : null}
-    </Card>
-  </View>;
-}
-
 function TwoFields({ task, values, onChange, graded, keep }: { task: TwoTask; values: Record<string, string>; onChange: (id: string, v: string) => void; graded?: TwoGraded; keep?: TwoGraded['fields'] }) {
   return <View style={s.gap}>{task.fields.map(f => {
     const kept = keep?.[f.id]?.status === 'correct';
@@ -545,7 +512,6 @@ function WordSheet({ word, lesson, onClose, onPlay }: { word: string | null; les
     <Text style={ds.body}>{v.usageNote}</Text>
     <Text style={ds.label}>Nümunə</Text>
     <View style={s.row}><View style={{ flex: 1 }}><Text style={ds.strong}>{v.example}</Text><Text style={ds.small}>{v.exampleAz}</Text></View><Capsule small icon="play" label="Dinlə" onPress={() => onPlay(v.example)} /></View>
-    <Text style={ds.small}>Bu söz “Lüğətim”ə əlavə olunub.</Text>
   </Sheet>;
 }
 
@@ -583,21 +549,12 @@ const s = StyleSheet.create({
   goal: { flexDirection: 'row', alignItems: 'center', gap: 14, minHeight: 58 },
   goalIcon: { width: 44, alignItems: 'center' },
   vline: { width: 1, alignSelf: 'stretch', marginVertical: 8, backgroundColor: d.border },
-  hero: { flexDirection: 'row', alignItems: 'center', gap: 12, borderRadius: 26, backgroundColor: '#5B2BC9', padding: 14, ...shadow },
-  bubble: { flex: 1, alignItems: 'center', gap: 8, backgroundColor: '#fff', borderRadius: 22, paddingVertical: 16, paddingHorizontal: 12 },
-  bubbleText: { color: d.ink, fontSize: 34, ...font.extrabold },
-  smallPlay: { width: 44, height: 44, borderRadius: 22, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
-  infoRow: { flexDirection: 'row', gap: 12, paddingVertical: 10 },
-  infoIcon: { width: 44, height: 44, borderRadius: 22, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
-  phrase: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   transcript: { borderRadius: 16, backgroundColor: d.purpleSoft, padding: 12, gap: 4 },
   transcriptText: { color: d.purple, fontSize: 20, ...font.extrabold },
-  speakerRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  speakerHead: { width: 52, height: 52, borderRadius: 26, backgroundColor: d.purpleSoft },
   scene: { width: '100%', aspectRatio: 16 / 9, borderRadius: 22, backgroundColor: d.purpleSoft },
   sample: { flexDirection: 'row', alignItems: 'center', gap: 14, borderRadius: 18, backgroundColor: '#E8DDFB', paddingHorizontal: 18, minHeight: 56 },
   sampleLabel: { color: d.lavenderText, fontSize: 17, ...font.semibold },
-  sampleText: { color: d.purple, fontSize: 24, ...font.extrabold },
+  sampleText: { flex: 1, flexShrink: 1, color: d.purple, fontSize: 22, lineHeight: 28, paddingVertical: 10, ...font.extrabold },
   notice: { color: d.purple, fontSize: 15, ...font.bold },
   resultRow: { flexDirection: 'row', alignItems: 'center', gap: 10, flexWrap: 'wrap', paddingVertical: 4 },
   status: { borderWidth: 1.5, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 },

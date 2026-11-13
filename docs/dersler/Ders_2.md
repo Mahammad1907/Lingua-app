@@ -40,7 +40,7 @@ Nümunə: **Hello! I'm …** — Salam! Mən …-am.
 
 **Tapşırıq:** Qız özünü təqdim edir. Cümləsində hansı söz çatmır?  
 **Cümlə:** Hi! I ___ …  
-**Seçimlər:** am / is / are — **düzgün:** am  
+**Seçimlər:** am / is / my — **düzgün:** am  
 **İpucu:** Bu dərsdə “I’m” öyrəndin. O, iki sözün qısa formasıdır. Hansı söz gizlənib?  
 **Düzgün olanda:** “I” ilə “am” gəlir.  
 - *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: “I” (mən) sözündən sonra “am” işlənir. Qayda: I am = I’m. Nümunə: I'm …  
@@ -49,63 +49,12 @@ Nümunə: **Hello! I'm …** — Salam! Mən …-am.
 
 **Tapşırıq:** Oğlan adını deyir. Cümləsində hansı söz çatmır?  
 **Cümlə:** Hello! My name ___ …  
-**Seçimlər:** am / is / are — **düzgün:** is  
+**Seçimlər:** am / is / my — **düzgün:** is  
 **İpucu:** “Mənim adım Aysudur” — “-dur” hissəsini ingiliscə hansı söz verir?  
 **Düzgün olanda:** “My name” ilə “is” gəlir.  
 - *İzah (başqa səhvdə):* “My name” ilə “is” gəlir. — Uyğun: is. Səbəb: “My name” (mənim adım) bir şeydir, onunla “is” işlənir. Qayda: My name is + adın. Nümunə: My name is …  
 
-## Kart 5 — Kim nə dedi?: Kim nə dedi?
-
-**Tapşırıq:** Hər cümləyə mənasını qoş.  
-**Cütlər:** Hi! — Salam!; I'm … — Mən …-am.; Bye! — Hələlik! · artıq: Sağ ol!  
-**İpucu:** Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.  
-**Düzgün olanda:** Salam, sağollaşma və ad — hər biri öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hi! — Salam!; I’m … — Mən …-am.; Bye! — Hələlik!. Səbəb: Hi görüşü başladır, Bye bitirir, I’m adını deyir. Qayda: Əvvəl salam, sonra ad; sonda sağollaşma. Nümunə: Hi! I’m … Bye!  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Hər cümləyə mənasını qoş.  
-**Cütlər:** Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək! · artıq: Necəsən?  
-**İpucu:** Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.  
-**Düzgün olanda:** Salam, sağollaşma və ad — hər biri öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək!. Səbəb: Hello görüşü başladır, Goodbye bitirir, My name is adını deyir. Qayda: Əvvəl salam, sonra ad; sonda sağollaşma. Nümunə: Hello! My name is …  
-
-## Kart 6 — Dinlə və təkrarla: Dinlə və təkrarla
-
-**Tapşırıq:** İfadəni dinlə, sonra eyni cür de.  
-**Səs:** My name is  
-**Qəbul:** dəqiq: My name is  
-**Düzgün olanda:** Ayrı-ayrı sözlər birlikdə səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: My name is. Səbəb: Üç söz birlikdə, axıcı deyilir. Qayda: Vurğu “name” sözünə düşür. Nümunə: My NAME is …  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** İfadəni dinlə, sonra eyni cür de.  
-**Səs:** Hello! I'm  
-**Qəbul:** dəqiq: Hello! I'm  
-**Düzgün olanda:** Qısa forma düzgün səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Hello! I'm. Səbəb: “I’m” iki söz kimi yox, bir heca kimi deyilir. Qayda: I’m = /aɪm/. Nümunə: Hello! I'm …  
-
-## Kart 7 — Dialoqu tamamla: Dialoqu tamamla
-
-**Tapşırıq:** Yeni qonşun sənə yazır. Salam ver və adını de.  
-**Yazışma (Yeni qonşu):** “Hello!”  
-**Qəbul:** məna: greet + introduce — nümunə: Hello! I'm … / Hi! My name is …  
-**İpucu:** İki hissə yaz: əvvəl qonşuna salam ver, sonra özünü təqdim et.  
-**Düzgün olanda:** Salam verdin və adını dedin.  
-- *İzah (cavab “farewell” işini görəndə):* Görüş yeni başlayır — sağollaşma yox, salam lazımdır. — Uyğun: Hello! I'm …. Səbəb: Bye / Goodbye görüşü bitirir. Burada görüş başlayır. Qayda: Salam + adın. Nümunə: Hi! My name is …  
-- *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hello! I'm …. Səbəb: Qonşun salam verdi. Sən də salam verib adını deyirsən. Qayda: Salam + I’m / My name is + adın. Nümunə: Hi! My name is …  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Məktəbdə yeni yoldaşın yazır. Salam ver və adını de.  
-**Yazışma (Yeni yoldaş):** “Hi!”  
-**Qəbul:** məna: greet + introduce — nümunə: Hello! I'm … / Hi! My name is …  
-**İpucu:** İki hissə yaz: əvvəl yoldaşına salam ver, sonra özünü təqdim et.  
-**Düzgün olanda:** Salam verdin və adını dedin.  
-- *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hi! I'm …. Səbəb: Yoldaşın salam verdi. Sən də salam verib adını deyirsən. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! I'm …  
-
-## Kart 8 — Səslə cavab: Özünü səslə təqdim et
+## Kart 5 — Səslə cavab: Özünü səslə təqdim et
 
 **Tapşırıq:** Dostun salam verir. Salam ver və adını de.  
 **Səs:** Hello!  
@@ -124,6 +73,57 @@ Nümunə: **Hello! I'm …** — Salam! Mən …-am.
 **İpucu:** Əvvəl salam, sonra adın.  
 **Düzgün olanda:** Salam verdin və adını dedin.  
 - *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hi! My name is …. Səbəb: Dostun salam verdi. Cavabda salam və adın olmalıdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! I'm …  
+
+## Kart 6 — Kim nə dedi?: Kim nə dedi?
+
+**Tapşırıq:** Hər cümləyə mənasını qoş.  
+**Cütlər:** Hi! — Salam!; I'm … — Mən …-am.; Bye! — Hələlik! · artıq: Sağ ol!  
+**İpucu:** Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.  
+**Düzgün olanda:** Salam, sağollaşma və ad — hər biri öz yerində.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hi! — Salam!; I’m … — Mən …-am.; Bye! — Hələlik!. Səbəb: Hi görüşü başladır, Bye bitirir, I’m adını deyir. Qayda: Əvvəl salam, sonra ad; sonda sağollaşma. Nümunə: Hi! I’m … Bye!  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Hər cümləyə mənasını qoş.  
+**Cütlər:** Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək! · artıq: Necəsən?  
+**İpucu:** Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.  
+**Düzgün olanda:** Salam, sağollaşma və ad — hər biri öz yerində.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək!. Səbəb: Hello görüşü başladır, Goodbye bitirir, My name is adını deyir. Qayda: Əvvəl salam, sonra ad; sonda sağollaşma. Nümunə: Hello! My name is …  
+
+## Kart 7 — Dinlə və təkrarla: Dinlə və təkrarla
+
+**Tapşırıq:** İfadəni dinlə, sonra eyni cür de.  
+**Səs:** My name is  
+**Qəbul:** dəqiq: My name is  
+**Düzgün olanda:** Ayrı-ayrı sözlər birlikdə səsləndi.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: My name is. Səbəb: Üç söz birlikdə, axıcı deyilir. Qayda: Vurğu “name” sözünə düşür. Nümunə: My NAME is …  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** İfadəni dinlə, sonra eyni cür de.  
+**Səs:** Hello! I'm  
+**Qəbul:** dəqiq: Hello! I'm  
+**Düzgün olanda:** Qısa forma düzgün səsləndi.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Hello! I'm. Səbəb: “I’m” iki söz kimi yox, bir heca kimi deyilir. Qayda: I’m = /aɪm/. Nümunə: Hello! I'm …  
+
+## Kart 8 — Dialoqu tamamla: Dialoqu tamamla
+
+**Tapşırıq:** Yeni qonşun sənə yazır. Salam ver və adını de.  
+**Yazışma (Yeni qonşu):** “Hello!”  
+**Qəbul:** məna: greet + introduce — nümunə: Hello! I'm … / Hi! My name is …  
+**İpucu:** İki hissə yaz: əvvəl qonşuna salam ver, sonra özünü təqdim et.  
+**Düzgün olanda:** Salam verdin və adını dedin.  
+- *İzah (cavab “farewell” işini görəndə):* Görüş yeni başlayır — sağollaşma yox, salam lazımdır. — Uyğun: Hello! I'm …. Səbəb: Bye / Goodbye görüşü bitirir. Burada görüş başlayır. Qayda: Salam + adın. Nümunə: Hi! My name is …  
+- *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hello! I'm …. Səbəb: Qonşun salam verdi. Sən də salam verib adını deyirsən. Qayda: Salam + I’m / My name is + adın. Nümunə: Hi! My name is …  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Məktəbdə yeni yoldaşın yazır. Salam ver və adını de.  
+**Yazışma (Yeni yoldaş):** “Hi!”  
+**Qəbul:** məna: greet + introduce — nümunə: Hello! I'm … / Hi! My name is …  
+**İpucu:** İki hissə yaz: əvvəl yoldaşına salam ver, sonra özünü təqdim et.  
+**Düzgün olanda:** Salam verdin və adını dedin.  
+- *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hi! I'm …. Səbəb: Yoldaşın salam verdi. Sən də salam verib adını deyirsən. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! I'm …  
 
 ## Kart 9 — Səslə cavab: Nümunəsiz de
 

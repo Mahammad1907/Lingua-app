@@ -28,7 +28,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson3.ts`-dən yarad
 
 ## Kart 3 — Yeni söz
 
-**What's your name?** /wɒts jɔː neɪm/ — Adın nədir?
+**What's your name?** /wʌts jʊr neɪm/ — Adın nədir?
 
 What’s = What is.
 Cavab: I’m … və ya My name is …
@@ -40,7 +40,7 @@ Nümunə: **Hi! What's your name?** — Salam! Adın nədir?
 
 **Tapşırıq:** Yeni yoldaşının adını bilmirsən. Sözlərdən sual qur.  
 **Yazışma (Yeni yoldaş):** “Hello!”  
-**Sözlər:** your · is · What's · name · you · ?  
+**Sözlər:** your · is · What's · name · my · ?  
 **Qəbul:** dəqiq: What's your name?  
 **İpucu:** Bu dərsin əvvəlində öyrəndiyin ad sualını qur. Sual “Nə” mənasındakı sözlə başlayır.  
 **Düzgün olanda:** Sual düzgün sırada qurulub.  
@@ -60,10 +60,10 @@ Nümunə: **Hi! What's your name?** — Salam! Adın nədir?
 
 **Tapşırıq:** Oğlan qızın adını soruşur. Hansı söz çatmır?  
 **Cümlə:** What's ___ name?  
-**Seçimlər:** you / your / my — **düzgün:** your  
-**İpucu:** “Sənin adın” deyirik, “sən adın” yox. İngiliscə də “sən” və “sənin” fərqli sözlərdir.  
+**Seçimlər:** I / your / my — **düzgün:** your  
+**İpucu:** “Sənin adın” deyirik. Hansı söz “sənin” deməkdir?  
 **Düzgün olanda:** “your” — sənin.  
-- *İzah (“you” seçiləndə):* “you” — sən; burada “sənin” lazımdır. — Uyğun: your. Səbəb: “Sənin adın” deyirik, ona görə “your”. Qayda: What’s your name? Nümunə: Hi! What's your name?  
+- *İzah (“I” seçiləndə):* “I” — mən; burada “sənin” lazımdır. — Uyğun: your. Səbəb: “Sənin adın” deyirik, ona görə “your”. Qayda: What’s your name? Nümunə: Hi! What's your name?  
 - *İzah (“my” seçiləndə):* “my” — mənim. O, öz adını soruşmur. — Uyğun: your. Səbəb: Qarşı tərəfin adını soruşanda “your” deyilir. Qayda: What’s your name? Nümunə: Hello! What's your name?  
 
 **Təkrar (yeni vəziyyət):**
@@ -77,7 +77,7 @@ Nümunə: **Hi! What's your name?** — Salam! Adın nədir?
 
 ## Kart 6 — Yeni söz
 
-**Nice to meet you. · You too.** /naɪs tə miːt juː/ · /juː tuː/ — Tanış olmağıma şadam. · Mən də.
+**Nice to meet you. · You too.** /naɪs tə mit ju/ · /ju tu/ — Tanış olmağıma şadam. · Mən də.
 
 Adları deyəndən sonra deyilir.
 Cavab qısa ola bilər: You too!
@@ -100,7 +100,23 @@ Nümunə: **Nice to meet you! — You too!** — Tanış olmağıma şadam! — 
 **Düzgün olanda:** Sual axıcı səsləndi.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: What's your name?. Səbəb: “What’s” bir hecadır: /wɒts/. Qayda: Vurğu “name” sözünə düşür. Nümunə: What's your NAME?  
 
-## Kart 8 — Seç: Cavabı seç
+## Kart 8 — Səslə cavab: Adını soruş
+
+**Tapşırıq:** Dostun ilə tanış olursan. Onun adını soruş.  
+**Qəbul:** məna: askName — nümunə: What's your name?  
+**İpucu:** Bu dərsin əvvəlində öyrəndiyin sualı xatırla.  
+**Düzgün olanda:** Adı düzgün soruşdun.  
+- *İzah (başqa səhvdə):* Adı soruşmaq üçün sual lazımdır. — Uyğun: What's your name?. Səbəb: Adını demək yox, onun adını soruşmaq lazımdır. Qayda: What’s your name? Nümunə: Hi! What's your name?  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Sinifdə yeni uşaq var. Onun adını soruş.  
+**Qəbul:** məna: askName — nümunə: What's your name?  
+**İpucu:** Bu dərsin əvvəlində öyrəndiyin sualı xatırla.  
+**Düzgün olanda:** Adı düzgün soruşdun.  
+- *İzah (başqa səhvdə):* Adı soruşmaq üçün sual lazımdır. — Uyğun: What's your name?. Səbəb: Sən onun adını öyrənmək istəyirsən. Qayda: What’s your name? Nümunə: Hello! What's your name?  
+
+## Kart 9 — Seç: Cavabı seç
 
 **Tapşırıq:** Oğlan deyir: “Nice to meet you!” Necə cavab verərsən?  
 **Seçimlər:** Goodbye! / You too! / What's your name? — **düzgün:** You too!  
@@ -117,7 +133,7 @@ Nümunə: **Nice to meet you! — You too!** — Tanış olmağıma şadam! — 
 **Düzgün olanda:** You too — “Mən də”.  
 - *İzah (başqa səhvdə):* Burada “Mən də” deyirsən. — Uyğun: You too!. Səbəb: “Nice to meet you”ya qısa cavab “You too!”dur. Qayda: Nice to meet you → You too! Nümunə: Nice to meet you! — You too!  
 
-## Kart 9 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 10 — Dialoqu tamamla: Dialoqu tamamla
 
 **Tapşırıq:** Qız adını deyib səninkini soruşur. Adını de.  
 **Yazışma (Qonşu qız):** “Hi! I'm …” → “What's your name?”  
@@ -135,22 +151,6 @@ Nümunə: **Nice to meet you! — You too!** — Tanış olmağıma şadam! — 
 **İpucu:** Oğlan sənin adını soruşur. Dərs 2-də adını necə deyirdin?  
 **Düzgün olanda:** Sualı başa düşdün və adını dedin.  
 - *İzah (başqa səhvdə):* Adını I’m və ya My name is ilə de. — Uyğun: I'm … / My name is …. Səbəb: “What’s your name?” sualına cavab adındır. Qayda: What’s your name? → My name is … Nümunə: I'm …  
-
-## Kart 10 — Səslə cavab: Adını soruş
-
-**Tapşırıq:** Dostun ilə tanış olursan. Onun adını soruş.  
-**Qəbul:** məna: askName — nümunə: What's your name?  
-**İpucu:** Bu dərsin əvvəlində öyrəndiyin sualı xatırla.  
-**Düzgün olanda:** Adı düzgün soruşdun.  
-- *İzah (başqa səhvdə):* Adı soruşmaq üçün sual lazımdır. — Uyğun: What's your name?. Səbəb: Adını demək yox, onun adını soruşmaq lazımdır. Qayda: What’s your name? Nümunə: Hi! What's your name?  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Sinifdə yeni uşaq var. Onun adını soruş.  
-**Qəbul:** məna: askName — nümunə: What's your name?  
-**İpucu:** Bu dərsin əvvəlində öyrəndiyin sualı xatırla.  
-**Düzgün olanda:** Adı düzgün soruşdun.  
-- *İzah (başqa səhvdə):* Adı soruşmaq üçün sual lazımdır. — Uyğun: What's your name?. Səbəb: Sən onun adını öyrənmək istəyirsən. Qayda: What’s your name? Nümunə: Hello! What's your name?  
 
 ## Kart 11 — Səslə cavab: Tanışlığa cavab ver
 
@@ -183,7 +183,7 @@ Nümunə: **Nice to meet you! — You too!** — Tanış olmağıma şadam! — 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Dərs bitdi, evə gedirsən. Yoldaşınla sağollaş.  
-**Yazışma (Zal yoldaşı):** “See you!”  
+**Yazışma (Zal yoldaşı):** “Bye!”  
 **Qəbul:** məna: farewell — nümunə: Bye! / Goodbye!  
 **İpucu:** Görüş bitir. Dərs 1-in sağollaşma sözlərini xatırla.  
 **Düzgün olanda:** Görüşü sağollaşma ilə bitirdin.  

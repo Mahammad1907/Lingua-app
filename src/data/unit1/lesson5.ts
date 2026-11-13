@@ -38,7 +38,7 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'word', id: 'd5_c03', number: 3,
-      word: 'Thank you! · Thanks!', pronunciation: '/θæŋk juː/ · /θæŋks/', reading: '**th**enk yu · **th**enks', az: 'Təşəkkür edirəm! · Sağ ol!',
+      word: 'Thank you! · Thanks!', pronunciation: '/θæŋk ju/ · /θæŋks/', reading: '**th**enk yu · **th**enks', az: 'Təşəkkür edirəm! · Sağ ol!',
       notes: ['Thanks daha qısa və qeyri-rəsmidir.', 'th — dilin ucu dişlərin arasında.', 'Hər kəsə demək olar.'],
       example: 'Thanks! Bye!', exampleAz: 'Sağ ol! Hələlik!',
     },
@@ -55,7 +55,7 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'word', id: 'd5_c05', number: 5,
-      word: "You're welcome. · please", pronunciation: '/jɔː ˈwelkəm/ · /pliːz/', reading: 'yor uelkəm · pliz', az: 'Dəyməz. · zəhmət olmasa',
+      word: "You're welcome. · please", pronunciation: '/jʊr ˈwelkəm/ · /pliz/', reading: 'yor uelkəm · pliz', az: 'Dəyməz. · zəhmət olmasa',
       notes: ['“You’re welcome” — təşəkkürə cavabdır.', '“please” xahiş edəndə deyilir. Təşəkkürə cavab deyil.'],
       example: "Thank you! — You're welcome.", exampleAz: 'Təşəkkür edirəm! — Dəyməz.',
     },
@@ -160,9 +160,9 @@ export const lesson5: DesignLesson = {
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',
   },
   vocabulary: [
-    { word: 'Thank you', translation: 'Təşəkkür edirəm', example: 'Thank you!', exampleAz: 'Təşəkkür edirəm!', usageNote: 'Thanks daha qısadır.', pronunciation: '/θæŋk juː/', teachCard: 'd5_c03' },
+    { word: 'Thank you', translation: 'Təşəkkür edirəm', example: 'Thank you!', exampleAz: 'Təşəkkür edirəm!', usageNote: 'Thanks daha qısadır.', pronunciation: '/θæŋk ju/', teachCard: 'd5_c03' },
     { word: 'Thanks', translation: 'Sağ ol', example: 'Thanks! Bye!', exampleAz: 'Sağ ol! Hələlik!', usageNote: 'Qeyri-rəsmi.', pronunciation: '/θæŋks/', teachCard: 'd5_c03' },
-    { word: "You're welcome", translation: 'Dəyməz', example: "Thank you! — You're welcome.", exampleAz: 'Təşəkkür edirəm! — Dəyməz.', usageNote: 'Təşəkkürə cavab.', pronunciation: '/jɔː ˈwelkəm/', teachCard: 'd5_c05' },
-    { word: 'please', translation: 'zəhmət olmasa', example: 'Tea, please.', exampleAz: 'Çay, zəhmət olmasa.', usageNote: 'Xahiş edəndə deyilir.', pronunciation: '/pliːz/', teachCard: 'd5_c05' },
+    { word: "You're welcome", translation: 'Dəyməz', example: "Thank you! — You're welcome.", exampleAz: 'Təşəkkür edirəm! — Dəyməz.', usageNote: 'Təşəkkürə cavab.', pronunciation: '/jʊr ˈwelkəm/', teachCard: 'd5_c05' },
+    { word: 'please', translation: 'zəhmət olmasa', example: 'Tea, please.', exampleAz: 'Çay, zəhmət olmasa.', usageNote: 'Xahiş edəndə deyilir.', pronunciation: '/pliz/', teachCard: 'd5_c05' },
   ],
 };

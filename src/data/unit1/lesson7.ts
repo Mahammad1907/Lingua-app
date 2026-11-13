@@ -37,14 +37,15 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'word', id: 'd7_c03', number: 3,
-      word: "Sorry? · I don't understand.", pronunciation: '/ˈsɒri/ · /aɪ dəʊnt ˌʌndəˈstænd/', reading: 'sori? · ay dount andərstend', az: 'Bağışla, nə dedin? · Başa düşmürəm.',
+      word: "Sorry? · I don't understand.", pronunciation: '/ˈsɑri/ · /aɪ doʊnt ˌʌndərˈstænd/', reading: 'sari? · ay dount andərstend', az: 'Bağışla, nə dedin? · Başa düşmürəm.',
       notes: ['Sual kimi deyilən “Sorry?” — “nə dedin?” deməkdir.', 'Başa düşmədiyini açıq demək nəzakətlidir.'],
       example: "Sorry? I don't understand.", exampleAz: 'Bağışla, nə dedin? Başa düşmürəm.',
     },
     {
       type: 'word', id: 'd7_c04', number: 4,
-      word: 'Again, please. · Slowly, please.', pronunciation: '/əˈɡen pliːz/ · /ˈsləʊli pliːz/', reading: 'əgen, pliz · slouli, pliz', az: 'Bir də, zəhmət olmasa. · Yavaş, zəhmət olmasa.',
-      notes: ['Qısa və nəzakətli xahişlərdir.', 'Eşidə bilərsən: “Could you say that again, please?” — “Bir də deyə bilərsən?”'],
+      word: 'Again, please. · Slowly, please.', pronunciation: '/əˈɡen pliz/ · /ˈsloʊli pliz/', reading: 'əgen, pliz · slouli, pliz', az: 'Bir də, zəhmət olmasa. · Yavaş, zəhmət olmasa.',
+      notes: ['Qısa və nəzakətli xahişlərdir.'],
+      more: [{ en: 'Could you say that again, please?', az: 'Bir də deyə bilərsən?', reading: 'kud yu sey **th**et əgen, pliz' }],
       example: 'Sorry? Again, please.', exampleAz: 'Nə dedin? Bir də, zəhmət olmasa.',
     },
     {
@@ -161,8 +162,8 @@ export const lesson7: DesignLesson = {
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',
   },
   vocabulary: [
-    { word: "I don't understand", translation: 'Başa düşmürəm', example: "Sorry? I don't understand.", exampleAz: 'Nə dedin? Başa düşmürəm.', usageNote: 'Başa düşməyəndə.', pronunciation: '/aɪ dəʊnt ˌʌndəˈstænd/', teachCard: 'd7_c03' },
-    { word: 'Again, please', translation: 'Bir də, zəhmət olmasa', example: 'Sorry? Again, please.', exampleAz: 'Nə dedin? Bir də, zəhmət olmasa.', usageNote: 'Təkrar istəmək.', pronunciation: '/əˈɡen pliːz/', teachCard: 'd7_c04' },
-    { word: 'Slowly, please', translation: 'Yavaş, zəhmət olmasa', example: 'Slowly, please.', exampleAz: 'Yavaş, zəhmət olmasa.', usageNote: 'Yavaş danışmağı istəmək.', pronunciation: '/ˈsləʊli pliːz/', teachCard: 'd7_c04' },
+    { word: "I don't understand", translation: 'Başa düşmürəm', example: "Sorry? I don't understand.", exampleAz: 'Nə dedin? Başa düşmürəm.', usageNote: 'Başa düşməyəndə.', pronunciation: '/aɪ doʊnt ˌʌndərˈstænd/', teachCard: 'd7_c03' },
+    { word: 'Again, please', translation: 'Bir də, zəhmət olmasa', example: 'Sorry? Again, please.', exampleAz: 'Nə dedin? Bir də, zəhmət olmasa.', usageNote: 'Təkrar istəmək.', pronunciation: '/əˈɡen pliz/', teachCard: 'd7_c04' },
+    { word: 'Slowly, please', translation: 'Yavaş, zəhmət olmasa', example: 'Slowly, please.', exampleAz: 'Yavaş, zəhmət olmasa.', usageNote: 'Yavaş danışmağı istəmək.', pronunciation: '/ˈsloʊli pliz/', teachCard: 'd7_c04' },
   ],
 };

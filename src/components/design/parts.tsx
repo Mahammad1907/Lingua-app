@@ -5,6 +5,9 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 import Icon, { type IconName } from './Icons';
 import { d, radius, shadow, font } from './theme';
 
+/** “…” standing alone in an English line is the name slot: it is shown as [ad] (earlier item 10). “Slowly…” keeps its dots. */
+export const nameSlot = (text: string) => text.replace(/(^|[\s,(“"])…/g, '$1[ad]');
+
 export function Header({ title, progress, onBack, onMenu }: { title: string; progress: number; onBack: () => void; onMenu?: () => void }) {
   const reduced = useReducedMotion();
   const width = useRef(new Animated.Value(progress)).current;
@@ -94,7 +97,7 @@ export function Waveform({ active, height = 44 }: { active?: boolean; height?: n
   })}</View>;
 }
 
-/** Counterpart audio: play, waveform and “Yavaş dinlə” next to it. */
+/** Counterpart audio: play, waveform and the turtle (slow) next to it. */
 export function AudioPanel({ playing, onPlay, onSlow, avatar }: { playing: boolean; onPlay: () => void; onSlow: () => void; avatar?: ReactNode }) {
   return <View style={[s.audio, shadow]}>
     {avatar ? <><View style={s.avatar}>{avatar}</View><View style={s.vline} /></> : null}
@@ -103,9 +106,9 @@ export function AudioPanel({ playing, onPlay, onSlow, avatar }: { playing: boole
     </Pressable>
     <View style={{ flex: 1 }}><Waveform active={playing} /></View>
     <View style={s.vline} />
-    <Pressable accessibilityRole="button" accessibilityLabel="Yavaş dinlə" onPress={onSlow} style={s.slow}>
-      <View style={s.slowIcon}><Icon name="turtle" size={26} color={d.purple} /></View>
-      <Text style={s.slowText}>Yavaş dinlə</Text>
+    {/* Slow listening: the turtle alone (user, 13 Nov 2026) — the screen reader still says “Yavaş dinlə”. */}
+    <Pressable accessibilityRole="button" accessibilityLabel="Yavaş dinlə" onPress={onSlow} hitSlop={6} style={({ pressed }) => [s.slowIcon, pressed && { opacity: .8 }]}>
+      <Icon name="turtle" size={30} color={d.purple} />
     </Pressable>
   </View>;
 }
@@ -115,7 +118,7 @@ export function ChoiceOption({ label, selected, state, onPress, disabled }: { la
   return <Pressable accessibilityRole="radio" accessibilityState={{ selected, disabled }} accessibilityLabel={label} disabled={disabled} onPress={onPress}
     style={[s.choice, { borderColor: border }, selected && !state && { backgroundColor: d.purpleSoft, borderWidth: 2 }, state && { borderWidth: 2 }]}>
     <View style={[s.radio, selected && { borderColor: border }]}>{selected ? <View style={[s.radioDot, { backgroundColor: border }]} /> : null}</View>
-    <Text style={s.choiceText}>{label}</Text>
+    <Text style={s.choiceText}>{nameSlot(label)}</Text>
   </Pressable>;
 }
 
@@ -176,9 +179,7 @@ const s = StyleSheet.create({
   avatar: { width: 64, height: 64, alignItems: 'center', justifyContent: 'center' },
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
   play: { width: 64, height: 64, borderRadius: 32, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', paddingLeft: 3, ...shadow },
-  slow: { alignItems: 'center', gap: 4, minWidth: 74 },
-  slowIcon: { width: 48, height: 48, borderRadius: 24, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
-  slowText: { color: d.ink, fontSize: 13, ...font.semibold },
+  slowIcon: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   choice: { flexDirection: 'row', alignItems: 'center', gap: 16, minHeight: 64, paddingHorizontal: 20, borderRadius: radius.field, borderWidth: 1, backgroundColor: d.surface },
   radio: { width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: d.borderStrong, alignItems: 'center', justifyContent: 'center' },
   radioDot: { width: 14, height: 14, borderRadius: 7 },

@@ -83,3 +83,20 @@ Dərs 2–8-də şəkilsiz də işləyən quruluş seçildi: “Səhnədə tap�
 | 5.5 | Dərs 2–8 · “Yeni söz” kartları | Hər yeni ifadə üçün bir şəkil (istəyə bağlı; şəkilsiz də işləyir) | — | `assets/lessons/dN/word-*.webp` | sonra |
 
 Şəkil gələndə `src/config/sceneImages.ts`-ə bir sətir əlavə olunur (məs. `'d6/cafe-spill': require('../../assets/lessons/d6/cafe-spill.webp')`).
+
+## 6. Dərs 2–8 — vəziyyət şəkilləri (13 noyabr 2026)
+
+Tətbiqdə bu yerlərdə hələlik qırıq xətli çərçivə və şəklin nömrəsi görünür (`SHOW_IMAGE_SLOTS`). Söhbət, “Sözü tamamla”, səsli cavab və dinləmə ekranlarında şəkil yoxdur: orada danışanın avatarı və ya səs kartı vizual rolunu oynayır. “Yeni söz” kartlarında maskot banneri var; əlavə səhnə yalnız siyahıdakı yerlərdə.
+
+| # | Yer | Səhnə | Fayl | Status |
+|---|---|---|---|---|
+| 6.1 | Dərs 2 · “Hansı cümlə düzgündür?” | Yeni tanışlar: qız özünü oğlana təqdim edir | `assets/lessons/d2/new-friend.webp` | ⏳ |
+| 6.2 | Dərs 2 · eyni tapşırığın təkrarı | Sinifdə yeni yoldaşlar tanış olur | `assets/lessons/d2/new-classmates.webp` | ⏳ |
+| 6.3 | Dərs 2 · “Adını yaz” | Qeydiyyat masası: işçi soruşur, oğlan cavab verir | `assets/lessons/d2/registration.webp` | ⏳ |
+| 6.4 | Dərs 2 · təkrar | Telefonda oyun profili yaradılır | `assets/lessons/d2/game-profile.webp` | ⏳ |
+| 6.5 | Dərs 6 · “O nə cavab verər?” | Oğlan qıza təşəkkür edir, qız gülümsəyir | `assets/lessons/d6/thank-girl.webp` | ⏳ |
+| 6.6 | Dərs 6 · təkrar | Oğlan küçədə yol göstərir | `assets/lessons/d6/directions.webp` | ⏳ |
+| 6.7 | Dərs 6 · “Nə ilə başlayarsan?” | Küçədə qız yoldan keçənə yaxınlaşır | `assets/lessons/d6/street-ask.webp` | ⏳ |
+| 6.8 | Dərs 6 · təkrar | Avtobusda biri təsadüfən başqasının ayağına basır | `assets/lessons/d6/foot-step.webp` | ⏳ |
+| 6.9 | Dərs 8 · “İki mesaj yaz” | Ziyafətdə iki nəfər tanış olur | `assets/lessons/d8/party-meet.webp` | ⏳ |
+| 6.10 | Dərs 8 · təkrar | Onlayn dərs: ekranda yoldaşlar | `assets/lessons/d8/online-class.webp` | ⏳ |

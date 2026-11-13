@@ -160,3 +160,7 @@ Every new or rewritten lesson follows `docs/DERS_STANDARTI.md` (length, card ord
 ## Bölmə 1 on the new screens — 13 November 2026
 
 All eight Bölmə 1 lessons run on `DesignLesson` (`src/data/designLessons.ts`). Lessons 2–8 live in `src/data/unit1/`; edit text there and regenerate `docs/dersler/Ders_N.md` with `node scripts/export-unit1-docs.cjs`. New task screens are in `src/components/design/TaskScreens.tsx`. Wrong options come from `docs/AZ_OYRENEN_SEHVLERI.md`. Home is the code-drawn island (`src/components/home/IslandHome.tsx`). Run `node scripts/check-unit1.cjs` after any lesson change. Not verified on a device.
+
+## Taught-before-asked rule — 13 November 2026
+
+No task may show or ask for an English word that was not taught earlier (a word only mentioned in a note is not taught). Teach it on a Yeni söz / Öyrən card (`more`, `structure`) first. Same screen type never twice in a row; lessons must not end the same way. Run `node scripts/check-taught.cjs` after any lesson change. Readings use American pronunciation in Azerbaijani letters with no phonetic marks. The approved 12 Nov 2026 design images are the base; new screen types are shown to the user as a mockup before coding.

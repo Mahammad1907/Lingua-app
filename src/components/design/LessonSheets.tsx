@@ -4,7 +4,7 @@ import { Modal, Pressable, StyleSheet, Text, TextInput, View } from 'react-nativ
 import type { Graded } from '../../utils/designLesson';
 import { englishWords, glossOf } from '../../data/unit1/glossary';
 import Icon from './Icons';
-import { Capsule, MainButton, Sheet, ds } from './parts';
+import { Capsule, MainButton, Sheet, ds, nameSlot } from './parts';
 import { d, radius, shadow, font } from './theme';
 
 /** Inline result panel: correct (green) / wrong (red) / neutral (not assessed). Locks until “Davam et”. */
@@ -24,7 +24,7 @@ export function ResultPanel({ tone, title, short, answers, corrections, assisted
     {short ? <Text style={s.short}>{short}</Text> : null}
     {assisted ? <Text style={ds.small}>Köməklə qeyd olundu.</Text> : null}
     {corrections?.length ? <Text style={ds.small}>Cavab qəbul olundu. Kiçik yazı düzəlişi: {corrections.map(c => `${c.before} → ${c.after}`).join(', ')}</Text> : null}
-    {answers ? <View style={s.answerBox}><Text style={s.answerText}><Text style={{ ...font.extrabold }}>Uyğun cavab: </Text>{answers}</Text></View> : null}
+    {answers ? <View style={s.answerBox}><Text style={s.answerText}><Text style={{ ...font.extrabold }}>Uyğun cavab: </Text>{nameSlot(answers)}</Text></View> : null}
     <View style={s.actions}>
       <Pressable accessibilityRole="button" accessibilityLabel="Xəta bildir" onPress={onReport} hitSlop={6} style={s.flag}><Icon name="flag" size={18} color={d.lavenderText} /></Pressable>
       <View style={{ flex: 1 }} />
@@ -60,7 +60,7 @@ export function ExplainSheet({ visible, explain, onClose, onReport, onSay }: { v
   return <Sheet visible={visible} onClose={onClose} dismissible={false} title="Mənə başa sal" icon="bulb" tall
     right={<Pressable accessibilityRole="button" accessibilityLabel="Xəta bildir" onPress={onReport} hitSlop={6} style={s.flag}><Icon name="flag" size={18} color={d.lavenderText} /></Pressable>}>
     {row('Sənin cavabın', <View style={{ gap: 4 }}>{typeof yours === 'string' ? <Text style={ds.strong}>{yours}</Text> : yours}{legend}</View>, true)}
-    {row('Uyğun cavablar', explain.answers)}
+    {row('Uyğun cavablar', nameSlot(explain.answers))}
     {right ? row('Söz-söz', <View style={{ gap: 8 }}>
       <View style={s.wordRow}>{right.map((w, i) => <Pressable key={i} accessibilityRole="button" accessibilityHint="Mənasını gör və dinlə" onPress={() => { setOpen(w); onSay?.(w); }}
         style={[s.wordChip, open === w && s.wordChipOn]}><Text style={[s.wordChipText, open === w && { color: '#fff' }]}>{w}</Text></Pressable>)}</View>
@@ -69,7 +69,7 @@ export function ExplainSheet({ visible, explain, onClose, onReport, onSay }: { v
     </View>) : null}
     {row('Səbəb', explain.reason)}
     {row('Qısa qayda', explain.rule)}
-    {row('Yeni nümunə', explain.example)}
+    {row('Yeni nümunə', nameSlot(explain.example))}
   </Sheet>;
 }
 

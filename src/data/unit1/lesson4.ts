@@ -38,14 +38,15 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'word', id: 'd4_c03', number: 3,
-      word: 'How are you?', pronunciation: '/haʊ ɑː juː/', reading: 'hau a: yu?', az: 'Necəsən?',
+      word: 'How are you?', pronunciation: '/haʊ ɑr ju/', reading: 'hau ar yu?', az: 'Necəsən?',
       notes: ['Salamdan sonra soruşulur.', 'Cavab: I’m fine, thanks. And you?', 'Dosta da, tanımadığın adama da demək olar.'],
       example: 'Hi! How are you?', exampleAz: 'Salam! Necəsən?',
     },
     {
       type: 'word', id: 'd4_c04', number: 4,
-      word: "I'm fine, thanks. · And you?", pronunciation: '/aɪm faɪn θæŋks/ · /ænd juː/', reading: 'aym fayn, **th**enks · end yu?', az: 'Yaxşıyam, sağ ol. · Bəs sən?',
-      notes: ['Yerinə “I’m OK.” də demək olar.', 'Pis olanda deyilir: I’m not very well. (Çox yaxşı deyiləm.)', 'th — dilin ucu dişlərin arasında.'],
+      word: "I'm fine, thanks. · And you?", pronunciation: '/aɪm faɪn θæŋks/ · /ænd ju/', reading: 'aym fayn, **th**enks · end yu?', az: 'Yaxşıyam, sağ ol. · Bəs sən?',
+      notes: ['th — dilin ucu dişlərin arasında.'],
+      more: [{ en: "I'm OK.", az: 'Normalam.', reading: 'aym okey' }, { en: "I'm not very well.", az: 'Çox yaxşı deyiləm.', reading: 'aym nat veri uel' }],
       example: "I'm fine, thanks. And you?", exampleAz: 'Yaxşıyam, sağ ol. Bəs sən?',
     },
     {
@@ -88,7 +89,7 @@ export const lesson4: DesignLesson = {
       rule: exact("I'm fine thanks"),
       variants: [other('Bir daha dinlə və yavaş de.', ex("I'm fine, thanks.", '“thanks” “tenks” kimi yox, dil dişlərin arasında deyilir.', 'th = /θ/.', "I'm FINE, thanks."))],
       review: {
-        title: 'Dinlə və təkrarla', why: 'Sual axıcı səsləndi.', prompt: 'Sualı dinlə, sonra eyni cür de.', audio: 'How are you?', repeat: { stress: 'are', note: 'Üç söz bir nəfəsdə deyilir.', reading: 'hau a: yu?' },
+        title: 'Dinlə və təkrarla', why: 'Sual axıcı səsləndi.', prompt: 'Sualı dinlə, sonra eyni cür de.', audio: 'How are you?', repeat: { stress: 'are', note: 'Üç söz bir nəfəsdə deyilir.', reading: 'hau ar yu?' },
         rule: exact('How are you'),
         variants: [other('Bir daha dinlə və yavaş de.', ex('How are you?', 'Sözləri ayırmadan, bir nəfəsdə de.', 'How ARE you?', 'How are you?'))],
       },
@@ -153,9 +154,9 @@ export const lesson4: DesignLesson = {
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',
   },
   vocabulary: [
-    { word: 'How are you?', translation: 'Necəsən?', example: 'Hi! How are you?', exampleAz: 'Salam! Necəsən?', usageNote: 'Salamdan sonra soruşulur.', pronunciation: '/haʊ ɑː juː/', teachCard: 'd4_c03' },
+    { word: 'How are you?', translation: 'Necəsən?', example: 'Hi! How are you?', exampleAz: 'Salam! Necəsən?', usageNote: 'Salamdan sonra soruşulur.', pronunciation: '/haʊ ɑr ju/', teachCard: 'd4_c03' },
     { word: "I'm fine", translation: 'Yaxşıyam', example: "I'm fine, thanks.", exampleAz: 'Yaxşıyam, sağ ol.', usageNote: '“I’m OK” da olar.', pronunciation: '/aɪm faɪn/', teachCard: 'd4_c04' },
-    { word: 'And you?', translation: 'Bəs sən?', example: "I'm OK. And you?", exampleAz: 'Normalam. Bəs sən?', usageNote: 'Sualı geri qaytarır.', pronunciation: '/ænd juː/', teachCard: 'd4_c04' },
-    { word: "I'm not very well", translation: 'Çox yaxşı deyiləm', example: "I'm not very well.", exampleAz: 'Çox yaxşı deyiləm.', usageNote: 'Bu dərsdə yalnız tanımaq üçündür.', pronunciation: '/aɪm nɒt ˈveri wel/', teachCard: 'd4_c04' },
+    { word: 'And you?', translation: 'Bəs sən?', example: "I'm OK. And you?", exampleAz: 'Normalam. Bəs sən?', usageNote: 'Sualı geri qaytarır.', pronunciation: '/ænd ju/', teachCard: 'd4_c04' },
+    { word: "I'm not very well", translation: 'Çox yaxşı deyiləm', example: "I'm not very well.", exampleAz: 'Çox yaxşı deyiləm.', usageNote: 'Bu dərsdə yalnız tanımaq üçündür.', pronunciation: '/aɪm nɑt ˈveri wel/', teachCard: 'd4_c04' },
   ],
 };

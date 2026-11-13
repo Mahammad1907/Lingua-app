@@ -84,7 +84,7 @@ export const lesson8: DesignLesson = {
       },
     },
     {
-      type: 'two', id: 'd8_c07', number: 7, title: 'İki mesaj yaz', why: 'Özünü təqdim etdin və onun adını soruşdun.', hint: 'Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.',
+      type: 'two', id: 'd8_c07', number: 7, scenes: ['d8/party-meet'], title: 'İki mesaj yaz', why: 'Özünü təqdim etdin və onun adını soruşdun.', hint: 'Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.',
       prompt: 'Ziyafətdə yeni biri ilə tanış olursan.\nİki mesaj yaz:\n1. Salam ver və adını de.\n2. Onun adını soruş.',
       fields: [
         { id: 'd8_c07a', label: 'Birinci mesaj', placeholder: 'Salam + adın', rule: greetIntro, purpose: 'salam verib adını demək', empty: 'Birinci mesajı da yaz.' },
@@ -95,6 +95,7 @@ export const lesson8: DesignLesson = {
         { field: 'd8_c07b', match: { other: true }, explain: ex("What's your name?", 'Bu mesajda {purpose} lazımdır.', 'What’s your name?', "Excuse me, what's your name?") },
       ],
       review: {
+        scenes: ['d8/online-class'],
         title: 'İki mesaj yaz', why: 'Özünü təqdim etdin və onun adını soruşdun.', hint: 'Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.',
         prompt: 'Onlayn dərsdə yeni yoldaşa yazırsan.\nİki mesaj yaz:\n1. Salam ver və adını de.\n2. Onun adını soruş.',
         fields: [

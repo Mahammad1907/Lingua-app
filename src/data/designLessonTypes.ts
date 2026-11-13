@@ -70,14 +70,23 @@ export type DesignTask = ChoiceTask | WriteTask | TwoTask | VoiceTask | MatchTas
 export type ReviewOf<T extends DesignTask> = T extends DesignTask ? Omit<T, 'id' | 'number' | 'type'> : never;
 
 export interface IntroCard { type: 'intro'; id: string; badge: string; subtitle: string; goals: { icon: 'wave' | 'chat' | 'bye'; text: string }[]; start: string }
-export interface TeachCard { type: 'teach'; id: string; number: number; title: string; lead?: string; phrases: { en: string; az: string }[]; notes: string[] }
+export interface TeachCard {
+  type: 'teach'; id: string; number: number; title: string; lead?: string; phrases: { en: string; az: string }[]; notes: string[];
+  /** “Quruluşu”: the pattern(s); [ad] marks the slot for a name. */
+  structure?: string[];
+  example?: { en: string; az: string };
+}
 /** “Yeni söz”: one new word or phrase, shown right before the task that first uses it. */
 export interface WordCard {
   type: 'word'; id: string; number: number;
   word: string; pronunciation: string; az: string; example: string; exampleAz: string;
   notes?: string[]; scenes?: string[];
-  /** Reading in Azerbaijani letters; **th** marks a sound Azerbaijani has no letter for. */
+  /** Reading in Azerbaijani letters (American pronunciation, no phonetic marks); **th** marks a sound Azerbaijani has no letter for. */
   reading?: string;
+  /** “Quruluşu”: the pattern(s); [ad] marks the slot for a name. */
+  structure?: string[];
+  /** Other phrases taught on this card, each with sound. A phrase only mentioned in a note is NOT taught. */
+  more?: { en: string; az: string; reading?: string }[];
 }
 export interface ResultGoal { group: string; text: string; tasks: string[] }
 

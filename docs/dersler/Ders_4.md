@@ -9,7 +9,17 @@ Salamdan sonra hal soruşulur.
 - Necə olduğunu soruşa bilirəm.
 - Halımı deyib “And you?” ilə qaytarıram.
 
-## Kart 2 — Kim nə dedi?: Kim nə dedi?
+## Kart 2 — Yeni söz
+
+**How are you?** /haʊ ɑr ju/ — Necəsən?
+
+Salamdan sonra soruşulur.
+Cavab: I’m fine, thanks. And you?
+Dosta da, tanımadığın adama da demək olar.
+
+Nümunə: **Hi! How are you?** — Salam! Necəsən?
+
+## Kart 3 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Keçən dərsləri xatırla. Hər cümləyə mənasını qoş.  
 **Cütlər:** Hello! — Salam!; What's your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam. · artıq: Hələlik!  
@@ -25,22 +35,10 @@ Salamdan sonra hal soruşulur.
 **Düzgün olanda:** Keçən dərslərin ifadələrini xatırladın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: You too! — Mən də!; I’m … — Mən …-am.; Goodbye! — Görüşənədək!. Səbəb: Hər ifadənin öz işi var: cavab, ad, sağollaşma. Qayda: Mənaya görə qoş. Nümunə: Nice to meet you! — You too!  
 
-## Kart 3 — Yeni söz
-
-**How are you?** /haʊ ɑː juː/ — Necəsən?
-
-Salamdan sonra soruşulur.
-Cavab: I’m fine, thanks. And you?
-Dosta da, tanımadığın adama da demək olar.
-
-Nümunə: **Hi! How are you?** — Salam! Necəsən?
-
 ## Kart 4 — Yeni söz
 
-**I'm fine, thanks. · And you?** /aɪm faɪn θæŋks/ · /ænd juː/ — Yaxşıyam, sağ ol. · Bəs sən?
+**I'm fine, thanks. · And you?** /aɪm faɪn θæŋks/ · /ænd ju/ — Yaxşıyam, sağ ol. · Bəs sən?
 
-Yerinə “I’m OK.” də demək olar.
-Pis olanda deyilir: I’m not very well. (Çox yaxşı deyiləm.)
 th — dilin ucu dişlərin arasında.
 
 Nümunə: **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
@@ -82,62 +80,7 @@ Nümunə: **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
 **Düzgün olanda:** “you” ilə “are” gəlir.  
 - *İzah (başqa səhvdə):* “you” ilə “are” gəlir. — Uyğun: are. Səbəb: “you” (sən) ilə həmişə “are” işlənir. Qayda: you ilə are gəlir: you are. Nümunə: How are you?  
 
-## Kart 7 — Mesaj yaz (sözlərdən): Mesajı qur
-
-**Tapşırıq:** Qonşunla qarşılaşdın. Sözlərdən onun halını soruş.  
-**Yazışma (Qonşu qız):** “Hi!”  
-**Sözlər:** you · How · is · are · your · ?  
-**Qəbul:** dəqiq: How are you?  
-**İpucu:** “Necəsən?” sualını qur. Sual “Necə” mənasındakı sözlə başlayır.  
-**Düzgün olanda:** Sual düzgün sırada qurulub.  
-- *İzah (başqa səhvdə):* Sıra: How + are + you? — Uyğun: How are you?. Səbəb: Sual sözü “How” əvvəldə, sonra “are”, sonra “you”. Qayda: Sualda sıra: How → are → you. Nümunə: Hi! How are you?  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Dostun sənə yazdı. Sözlərdən onun halını soruş.  
-**Yazışma (Yoldaş):** “Hello!”  
-**Sözlər:** are · am · How · you · I · ?  
-**Qəbul:** dəqiq: How are you?  
-**İpucu:** “Necəsən?” sualını qur. Sual “Necə” mənasındakı sözlə başlayır.  
-**Düzgün olanda:** Sual düzgün sırada qurulub.  
-- *İzah (başqa səhvdə):* Sıra: How + are + you? — Uyğun: How are you?. Səbəb: Sən onun halını soruşursan: “you” lazımdır, “I” yox. Qayda: Sualda sıra: How → are → you. Nümunə: How are you?  
-
-## Kart 8 — Dinlə və təkrarla: Dinlə və təkrarla
-
-**Tapşırıq:** Cavabı dinlə, sonra eyni cür de.  
-**Səs:** I'm fine, thanks.  
-**Qəbul:** dəqiq: I'm fine thanks  
-**Düzgün olanda:** Cavab axıcı səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: I'm fine, thanks. Səbəb: “thanks” “tenks” kimi yox, dil dişlərin arasında deyilir. Qayda: th = /θ/. Nümunə: I'm FINE, thanks.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Sualı dinlə, sonra eyni cür de.  
-**Səs:** How are you?  
-**Qəbul:** dəqiq: How are you  
-**Düzgün olanda:** Sual axıcı səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: How are you?. Səbəb: Sözləri ayırmadan, bir nəfəsdə de. Qayda: How ARE you? Nümunə: How are you?  
-
-## Kart 9 — Dialoqu tamamla: Dialoqu tamamla
-
-**Tapşırıq:** Qonşun halını soruşur. Cavab ver və sualı geri qaytar.  
-**Yazışma (Qonşu qız):** “Hello! How are you?”  
-**Qəbul:** məna: feeling + askFeeling — nümunə: I'm fine, thanks. And you? / I'm OK. And you?  
-**İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  
-**Düzgün olanda:** Halını dedin və sualı qaytardın.  
-- *İzah (cavab “askFeeling” işini görəndə):* Halını da de. — Uyğun: I'm fine, thanks. And you?. Səbəb: Sualı qaytarmısan, amma öz halını deməmisən. Qayda: Halın + And you? Nümunə: I'm OK. And you?  
-- *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm fine, thanks. And you?. Səbəb: Qonşun soruşdu. Sən cavab verirsən və eyni sualı ona qaytarırsan. Qayda: Halın + And you? Nümunə: I'm OK. And you?  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Kursda yoldaşın halını soruşur. Cavab ver və sualı geri qaytar.  
-**Yazışma (Kurs yoldaşı):** “Hi! How are you?”  
-**Qəbul:** məna: feeling + askFeeling — nümunə: I'm fine, thanks. And you? / I'm OK. And you?  
-**İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  
-**Düzgün olanda:** Halını dedin və sualı qaytardın.  
-- *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm OK. And you?. Səbəb: Cavab verirsən və eyni sualı qaytarırsan. Qayda: Halın + And you? Nümunə: I'm fine, thanks. And you?  
-
-## Kart 10 — Səslə cavab: Səslə cavab ver
+## Kart 7 — Səslə cavab: Səslə cavab ver
 
 **Tapşırıq:** Dostun soruşur. Cavab ver və sualı geri qaytar.  
 **Səs:** How are you?  
@@ -157,7 +100,43 @@ Nümunə: **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
 **Düzgün olanda:** Halını dedin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm OK. And you?. Səbəb: Dostun halını soruşdu. Qayda: Halın + And you? Nümunə: I'm fine, thanks. And you?  
 
-## Kart 11 — Səslə cavab: Söhbəti sən başlat
+## Kart 8 — Mesaj yaz (sözlərdən): Mesajı qur
+
+**Tapşırıq:** Qonşunla qarşılaşdın. Sözlərdən onun halını soruş.  
+**Yazışma (Qonşu qız):** “Hi!”  
+**Sözlər:** you · How · is · are · your · ?  
+**Qəbul:** dəqiq: How are you?  
+**İpucu:** “Necəsən?” sualını qur. Sual “Necə” mənasındakı sözlə başlayır.  
+**Düzgün olanda:** Sual düzgün sırada qurulub.  
+- *İzah (başqa səhvdə):* Sıra: How + are + you? — Uyğun: How are you?. Səbəb: Sual sözü “How” əvvəldə, sonra “are”, sonra “you”. Qayda: Sualda sıra: How → are → you. Nümunə: Hi! How are you?  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Dostun sənə yazdı. Sözlərdən onun halını soruş.  
+**Yazışma (Yoldaş):** “Hello!”  
+**Sözlər:** are · am · How · you · I · ?  
+**Qəbul:** dəqiq: How are you?  
+**İpucu:** “Necəsən?” sualını qur. Sual “Necə” mənasındakı sözlə başlayır.  
+**Düzgün olanda:** Sual düzgün sırada qurulub.  
+- *İzah (başqa səhvdə):* Sıra: How + are + you? — Uyğun: How are you?. Səbəb: Sən onun halını soruşursan: “you” lazımdır, “I” yox. Qayda: Sualda sıra: How → are → you. Nümunə: How are you?  
+
+## Kart 9 — Dinlə və təkrarla: Dinlə və təkrarla
+
+**Tapşırıq:** Cavabı dinlə, sonra eyni cür de.  
+**Səs:** I'm fine, thanks.  
+**Qəbul:** dəqiq: I'm fine thanks  
+**Düzgün olanda:** Cavab axıcı səsləndi.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: I'm fine, thanks. Səbəb: “thanks” “tenks” kimi yox, dil dişlərin arasında deyilir. Qayda: th = /θ/. Nümunə: I'm FINE, thanks.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Sualı dinlə, sonra eyni cür de.  
+**Səs:** How are you?  
+**Qəbul:** dəqiq: How are you  
+**Düzgün olanda:** Sual axıcı səsləndi.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: How are you?. Səbəb: Sözləri ayırmadan, bir nəfəsdə de. Qayda: How ARE you? Nümunə: How are you?  
+
+## Kart 10 — Səslə cavab: Söhbəti sən başlat
 
 **Tapşırıq:** Dostun ilə qarşılaşırsan. Salam ver və halını soruş.  
 **Qəbul:** məna: greet + askFeeling — nümunə: Hi! How are you? / Hello! How are you?  
@@ -173,6 +152,25 @@ Nümunə: **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
 **İpucu:** Əvvəl salam ver, sonra halını soruş.  
 **Düzgün olanda:** Salam verib halını soruşdun.  
 - *İzah (başqa səhvdə):* Salam və sual ikisi də lazımdır. — Uyğun: Hello! How are you?. Səbəb: Görüş salamla başlayır, sonra hal soruşulur. Qayda: Salam + How are you? Nümunə: Hi! How are you?  
+
+## Kart 11 — Dialoqu tamamla: Dialoqu tamamla
+
+**Tapşırıq:** Qonşun halını soruşur. Cavab ver və sualı geri qaytar.  
+**Yazışma (Qonşu qız):** “Hello! How are you?”  
+**Qəbul:** məna: feeling + askFeeling — nümunə: I'm fine, thanks. And you? / I'm OK. And you?  
+**İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  
+**Düzgün olanda:** Halını dedin və sualı qaytardın.  
+- *İzah (cavab “askFeeling” işini görəndə):* Halını da de. — Uyğun: I'm fine, thanks. And you?. Səbəb: Sualı qaytarmısan, amma öz halını deməmisən. Qayda: Halın + And you? Nümunə: I'm OK. And you?  
+- *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm fine, thanks. And you?. Səbəb: Qonşun soruşdu. Sən cavab verirsən və eyni sualı ona qaytarırsan. Qayda: Halın + And you? Nümunə: I'm OK. And you?  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Kursda yoldaşın halını soruşur. Cavab ver və sualı geri qaytar.  
+**Yazışma (Kurs yoldaşı):** “Hi! How are you?”  
+**Qəbul:** məna: feeling + askFeeling — nümunə: I'm fine, thanks. And you? / I'm OK. And you?  
+**İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  
+**Düzgün olanda:** Halını dedin və sualı qaytardın.  
+- *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm OK. And you?. Səbəb: Cavab verirsən və eyni sualı qaytarırsan. Qayda: Halın + And you? Nümunə: I'm fine, thanks. And you?  
 
 ## Kart 12 — Səslə cavab: Tanışlıq və hal
 
