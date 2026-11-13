@@ -10,12 +10,13 @@ import type { DesignLesson as Lesson, IntroCard, TeachCard, TwoTask } from '../.
 import { useUserStore } from '../../store/userStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 import {
-  gradeChoice, gradeText, gradeTwo, isTask, lessonFlow, lessonTaskIds, resolveLesson, reviewTask, statusLabels, taskStatus,
+  gradeChoice, gradeMatch, gradeText, gradeTwo, isTask, joinTiles, lessonFlow, lessonTaskIds, resolveLesson, reviewTask, statusLabels, taskStatus,
   type FlowCard, type Graded, type TaskRecord, type TwoGraded,
 } from '../../utils/designLesson';
 import type { TaskEvidence } from '../../utils/lessonEvidence';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import HoldToTalk from './HoldToTalk';
+import { ChatThread, GapSentence, MatchBoard, PhraseCard, SceneSpots, TileTray, WordView } from './TaskScreens';
 import Icon from './Icons';
 import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
 import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, MainButton, Sheet, SheetOption, ds } from './parts';
@@ -48,6 +49,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   // Current answer state.
   const [choice, setChoice] = useState(''); const [text, setText] = useState('');
   const [two, setTwo] = useState<Record<string, string>>({});
+  const [picked, setPicked] = useState<number[]>([]);
+  const [pairs, setPairs] = useState<Record<string, string>>({}); const [activeRow, setActiveRow] = useState('');
   const [result, setResult] = useState<Result | null>(null);
   const [notice, setNotice] = useState('');
   const [collapsed, setCollapsed] = useState(false);
@@ -100,7 +103,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   // New words go into “Lüğətim” the moment they are first taught (no duplicates).
   useEffect(() => {
-    if (current?.type !== 'teach') return;
+    if (current?.type !== 'teach' && current?.type !== 'word') return;
     const words = lesson.vocabulary.filter(v => v.teachCard === current.id).map(v => v.word);
     if (words.length) void useVocabularyStore.getState().addTaughtWords(lesson.id, words).catch(() => {});
   }, [current, lesson]);
@@ -115,7 +118,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   const resetCard = () => {
     stopAudio(); Keyboard.dismiss(); locked.current = false;
-    setChoice(''); setText(''); setTwo({}); setResult(null); setNotice(''); setCollapsed(false); setHintUsed(false); setVoiceRetry(false); setVoiceRetried(false);
+    setChoice(''); setText(''); setTwo({}); setPicked([]); setPairs({}); setActiveRow(''); setResult(null); setNotice(''); setCollapsed(false); setHintUsed(false); setVoiceRetry(false); setVoiceRetried(false);
     setHeard(false); setSoundError(false); setTextShown(false); setTextVisible(false); setTechnical(false);
     setHelpOpen(false); setHintOpen(false); setExplainOpen(false);
   };
@@ -195,6 +198,13 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       }
       if (!reviewing && graded.status === 'wrong') { setKeepFields(k => ({ ...k, [task.id]: { fields: graded.fields, values: two } })); enqueue(task.id); }
       setResult({ kind: 'two', graded });
+      return;
+    }
+    if (task.type === 'match') {
+      const graded = gradeMatch(task, pairs);
+      if (graded.status === 'empty') { setNotice('Hər cümləyə bir məna qoy.'); return; }
+      setNotice(''); locked.current = true; store(task.id, graded.status === 'correct', false);
+      setResult({ kind: 'single', graded });
       return;
     }
     const graded = task.type === 'choice' ? gradeChoice(task, choice) : task.type === 'write' ? gradeText(task, text) : undefined;
@@ -283,6 +293,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (showResult) return <ResultView lesson={lesson} records={records} finish={finish} />;
     if (!current) return null;
     if (current.type === 'intro') return <IntroView card={current} title={lesson.title} size={imageSize} />;
+    if (current.type === 'word') return <WordView card={current} onPlay={t => speak(t)} />;
     if (current.type === 'teach') return <TeachView card={current} lesson={lesson} onPlay={t => speak(t)} onWord={setWord} />;
     return taskView();
   })();
@@ -291,11 +302,19 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (!task) return null;
     const single = result?.kind === 'single' ? result.graded : undefined;
     const fieldState = (status?: string) => status === 'correct' ? 'correct' as const : status === 'wrong' ? 'wrong' as const : undefined;
-    const hasHelp = Boolean(task.hint || audio);
+    const repeat = task.type === 'voice' ? task.repeat : undefined;
+    const hasHelp = Boolean(task.hint || (audio && !repeat));
     // Voice tasks: the only help is the text, so the button toggles it directly.
     const directText = task.type === 'voice' && Boolean(audio) && !task.hint;
     const helpLabel = directText ? (textVisible ? 'Mətni gizlət' : 'Mətni göstər') : audio ? 'Kömək' : 'İpucu';
     const helpIcon = directText ? 'doc' as const : 'bulb' as const;
+    const markOf = (status: string) => status === 'correct' ? 'correct' as const : status === 'wrong' ? 'wrong' as const : undefined;
+    const spotsShown = task.type === 'choice' && Boolean(task.spots && sceneImage(task.scenes));
+    const pickTiles = (next: number[]) => {
+      if (task.type !== 'write' || !task.tiles) return;
+      setPicked(next); setText(joinTiles(next.map(i => task.tiles![i])));
+      if (result?.kind === 'unverified') setResult(null);
+    };
     const lines = task.prompt.split('\n');
     const context = lines.length > 1 ? lines[0] : '';
     const instruction = lines.length > 1 ? lines.slice(1).join('\n') : lines[0];
@@ -318,9 +337,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
           <Text style={ds.instruction}>{instruction}</Text>
         </View>
       </View>
-      {scene ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : null}
+      {scene && !spotsShown ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : null}
       {audio ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.45, listeningTask)}
-        avatar={task.speaker === 'mascot' ? <Image source={mascotHead} style={{ width: 62, height: 48 }} contentFit="contain" accessibilityLabel={characterAz('mascot') || 'Danışan'} /> : undefined} /> : null}
+        avatar={task.speaker === 'mascot' && !repeat ? <Image source={mascotHead} style={{ width: 62, height: 48 }} contentFit="contain" accessibilityLabel={characterAz('mascot') || 'Danışan'} /> : undefined} /> : null}
       {soundError && !textShown ? <Card style={{ gap: 10 }}><Text style={ds.body}>{lesson.notices.soundFailed}</Text>
         <View style={s.row}><Capsule small icon="retry" label="Yenidən dinlə" onPress={() => speak(audio!, 0.85, true)} /><Capsule small icon="doc" label="Mətnlə davam et" onPress={() => { setTechnical(true); setTextShown(true); setTextVisible(true); }} /></View></Card> : null}
       {textVisible && audio ? <Pressable accessibilityRole="button" accessibilityHint="Mətni gizlətmək üçün toxun" onPress={() => setTextVisible(false)} style={s.transcript}>
@@ -328,10 +347,25 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         {listeningTask ? <Text style={ds.small}>Audio mətnini görürsən. Bu hissədə dinləmə yoxlanmadı.</Text> : null}
       </Pressable> : null}
       {task.type === 'voice' && task.sample ? <View style={s.sample}><Text style={s.sampleLabel}>Nümunə</Text><View style={s.vline} /><Text style={s.sampleText}>{task.sample}</Text></View> : null}
-      {task.type === 'choice' ? <View style={s.gap}>{task.options.map(o => <ChoiceOption key={o} label={o} selected={choice === o} disabled={Boolean(result && result.kind !== 'unverified')}
+      {repeat && audio ? <PhraseCard text={audio} stress={repeat.stress} note={repeat.note} /> : null}
+      {task.type === 'choice' && task.gap ? <GapSentence speaker={task.gap.speaker} before={task.gap.before} after={task.gap.after} options={task.options} value={choice}
+        disabled={Boolean(result && result.kind !== 'unverified')} mark={single ? markOf(single.status) : undefined}
+        onPick={o => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} /> : null}
+      {task.type === 'choice' && spotsShown ? <SceneSpots scenes={task.scenes} spots={task.spots!} value={choice} disabled={Boolean(result && result.kind !== 'unverified')}
+        mark={single ? markOf(single.status) : undefined} onPick={o => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} /> : null}
+      {task.type === 'match' ? <MatchBoard task={task} pairs={pairs} active={activeRow} disabled={Boolean(result)} marks={single?.rows}
+        onActive={en => { setActiveRow(en); if (pairs[en]) setPairs(p => { const { [en]: _gone, ...rest } = p; return rest; }); setNotice(''); }}
+        onPlace={az => { const target = activeRow && !pairs[activeRow] ? activeRow : task.rows.find(r => !pairs[r.en])?.en; if (!target) return;
+          setPairs(p => ({ ...p, [target]: az })); setNotice(''); setActiveRow(task.rows.find(r => r.en !== target && !pairs[r.en])?.en ?? ''); }} /> : null}
+      {task.type === 'write' && task.chat ? <ChatThread partner={task.chat.partner} from={task.chat.from} lines={task.chat.lines} placeholder={task.tiles ? 'Sözlərə toxun…' : 'Sənin cavabın…'}
+        mine={text} mark={single ? markOf(single.status) : undefined}>
+        {task.tiles ? <TileTray tiles={task.tiles} picked={picked} disabled={locked.current}
+          onPick={i => pickTiles(picked.includes(i) ? picked.filter(x => x !== i) : [...picked, i])} /> : null}
+      </ChatThread> : null}
+      {task.type === 'choice' && !task.gap && !spotsShown ? <View style={s.gap}>{task.options.map(o => <ChoiceOption key={o} label={o} selected={choice === o} disabled={Boolean(result && result.kind !== 'unverified')}
         state={single && choice === o ? (single.status === 'correct' ? 'correct' : single.status === 'wrong' ? 'wrong' : undefined) : undefined}
         onPress={() => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} />)}</View> : null}
-      {task.type === 'write' ? <Field onSubmit={() => { if (text.trim() && !(listeningTask && !heard && !textShown && !technical)) check(); }} value={text} onChange={v => { setText(v); if (result?.kind === 'unverified') setResult(null); }} placeholder={task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
+      {task.type === 'write' && !task.tiles ? <Field onSubmit={() => { if (text.trim() && !(listeningTask && !heard && !textShown && !technical)) check(); }} value={text} onChange={v => { setText(v); if (result?.kind === 'unverified') setResult(null); }} placeholder={task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
       {task.type === 'two' ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
         graded={result?.kind === 'two' ? result.graded : undefined} keep={reviewing ? keepFields[task.id]?.fields : undefined} /> : null}
       {/* Help sits under the answers, on the right: read the task, try, then ask for help. */}
@@ -349,6 +383,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (!current) return null;
     if (current.type === 'intro') return <MainButton label={current.start} onPress={next} arrow />;
     if (current.type === 'teach') return <MainButton label="Davam et" tone="green" onPress={next} arrow />;
+    if (current.type === 'word') return <MainButton label="Anladım" onPress={next} />;
     if (!task) return null;
     if (result?.kind === 'unverified') return <ResultPanel tone="neutral" title="Yoxlanmadı" short={result.message} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)}
       actions={<>{task.type === 'voice' && !result.recording ? <Capsule small label="Keç" onPress={skipVoice} /> : null}<Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { setResult(null); setCollapsed(false); }} /></>}
@@ -364,7 +399,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         onExplain={graded.explain ? () => setExplainOpen(true) : undefined} onReport={() => setReportOpen(true)} onContinue={next}
         actions={task.type === 'voice' && !reviewing && !voiceRetried ? <Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { locked.current = false; setVoiceRetry(true); setVoiceRetried(true); setCollapsed(true); }} /> : undefined} />;
     }
-    const empty = task.type === 'choice' ? !choice : task.type === 'write' ? !text.trim() : task.type === 'two' ? !Object.values(two).some(v => v.trim()) : true;
+    const empty = task.type === 'choice' ? !choice : task.type === 'write' ? !text.trim() : task.type === 'two' ? !Object.values(two).some(v => v.trim())
+      : task.type === 'match' ? task.rows.some(r => !pairs[r.en]) : true;
     const needsAudio = listeningTask && !heard && !textShown && !technical;
     return <View style={{ gap: 12 }}>
       {listeningTask ? <Capsule icon="muted" label="İndi dinləyə bilmirəm" onPress={cannotListen} /> : null}

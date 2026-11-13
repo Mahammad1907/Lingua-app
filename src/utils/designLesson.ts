@@ -1,9 +1,9 @@
 // Pure lesson logic for the redesigned lesson screens (no React, so it can be tested in Node).
-import type { DesignLesson, DesignTask, Explanation, IntroCard, ReviewOf, TeachCard, TwoTask, Variant } from '../data/designLessonTypes';
+import type { DesignLesson, DesignTask, Explanation, IntroCard, MatchTask, ReviewOf, TeachCard, TwoTask, Variant, WordCard } from '../data/designLessonTypes';
 import { resolveNames } from '../config/characters';
 import { assessPacketAnswer, normalizePacketAnswer, type PacketVerdict } from './packetAnswer';
 
-export type FlowCard = IntroCard | TeachCard | DesignTask;
+export type FlowCard = IntroCard | TeachCard | WordCard | DesignTask;
 export type Verdict = 'correct' | 'wrong' | 'unknown' | 'empty';
 
 export interface Graded {
@@ -13,6 +13,8 @@ export interface Graded {
   /** Five-part explanation (“Mənə başa sal”). Present for confirmed wrong answers only. */
   explain?: Explanation & { yourAnswer: string };
   spellingCorrections?: PacketVerdict['spellingCorrections'];
+  /** “Kim nə dedi?”: which sentences got the right meaning. */
+  rows?: Record<string, 'correct' | 'wrong'>;
 }
 
 export interface TwoGraded { fields: Record<string, Graded>; status: Verdict; short?: string; explain?: Graded['explain']; emptyNotice?: string }
@@ -20,7 +22,7 @@ export interface TwoGraded { fields: Record<string, Graded>; status: Verdict; sh
 export function resolveLesson(lesson: DesignLesson): DesignLesson { return resolveNames(lesson); }
 
 export function isTask(card: FlowCard | undefined): card is DesignTask {
-  return Boolean(card && (card.type === 'choice' || card.type === 'write' || card.type === 'two' || card.type === 'voice'));
+  return Boolean(card && (card.type === 'choice' || card.type === 'write' || card.type === 'two' || card.type === 'voice' || card.type === 'match'));
 }
 
 export function lessonFlow(lesson: DesignLesson): FlowCard[] {
@@ -80,6 +82,21 @@ export function gradeText(task: Extract<DesignTask, { type: 'write' | 'voice' }>
   if (verdict.status === 'unknown') return { status: 'unknown' };
   const variant = pickVariant(task.variants, value, voice);
   return { status: 'wrong', short: variant?.short ?? variant?.explain.reason, explain: explainOf(variant, value) };
+}
+
+/** Tiles in the order the learner tapped them, as one sentence (“My name is Leyla .” → “My name is Leyla.”). */
+export function joinTiles(tiles: string[]) {
+  return tiles.join(' ').replace(/\s+([.,!?])/g, '$1').trim();
+}
+
+export function gradeMatch(task: MatchTask, pairs: Record<string, string>): Graded {
+  if (task.rows.some(r => !pairs[r.en])) return { status: 'empty' };
+  const rows = Object.fromEntries(task.rows.map(r => [r.en, pairs[r.en] === r.az ? 'correct' as const : 'wrong' as const]));
+  if (Object.values(rows).every(v => v === 'correct')) return { status: 'correct', rows };
+  const wrong = task.rows.find(r => rows[r.en] === 'wrong')!;
+  const variant = task.variants.find(v => 'option' in v.match && v.match.option === wrong.en) ?? task.variants.find(v => 'other' in v.match);
+  const yourAnswer = task.rows.filter(r => rows[r.en] === 'wrong').map(r => `${r.en} — ${pairs[r.en]}`).join('; ');
+  return { status: 'wrong', rows, short: variant?.short ?? variant?.explain.reason, explain: explainOf(variant, yourAnswer) };
 }
 
 export function gradeTwo(task: TwoTask, values: Record<string, string>, keep: Record<string, Graded> = {}): TwoGraded {

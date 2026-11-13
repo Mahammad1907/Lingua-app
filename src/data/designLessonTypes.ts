@@ -24,8 +24,25 @@ interface BaseTask {
   /** Planned scene image(s) — see docs/SEKIL_SIYAHISI.md. Registered in src/config/sceneImages.ts; nothing is shown until the file exists. */
   scenes?: string[];
 }
-export interface ChoiceTask extends BaseTask { type: 'choice'; audio?: string; options: string[]; answer: string }
-export interface WriteTask extends BaseTask { type: 'write'; audio?: string; placeholder: string; rule: PacketRule }
+/** Who speaks in a chat bubble or sentence: mascot, girl, boy or someone unnamed. */
+export type Who = 'M' | 'G' | 'B' | 'other';
+export interface ChatLine { from: Who; text: string }
+
+export interface ChoiceTask extends BaseTask {
+  type: 'choice'; audio?: string; options: string[]; answer: string;
+  /** “Sözü tamamla”: the options fill a gap in one spoken sentence. */
+  gap?: { speaker?: Who; before: string; after: string };
+  /** “Səhnədə tap”: numbered places on the scene picture, one per option (x, y in % of the picture).
+   *  Until the picture file exists the options are shown as a normal list. */
+  spots?: { option: string; x: number; y: number }[];
+}
+export interface WriteTask extends BaseTask {
+  type: 'write'; audio?: string; placeholder: string; rule: PacketRule;
+  /** “Dialoqu tamamla” / “Mesaj yaz”: the task is shown as a short chat; the learner's reply is the last bubble. */
+  chat?: { partner: string; from: Who; lines: ChatLine[] };
+  /** “Mesaj yaz”: the reply is built from these word tiles instead of typed. Extra tiles are distractors. */
+  tiles?: string[];
+}
 export interface TwoField { id: string; label: string; placeholder: string; rule: PacketRule; purpose: string; empty: string }
 export interface TwoTask extends BaseTask { type: 'two'; fields: TwoField[] }
 export interface VoiceTask extends BaseTask {
@@ -37,17 +54,32 @@ export interface VoiceTask extends BaseTask {
   rule: PacketRule;
   /** The counterpart's reply after a correct answer. Not listening evidence. */
   reply?: string;
+  /** “Dinlə və təkrarla”: the phrase is shown; `audio` is the model to imitate. Pronunciation practice, not listening evidence. */
+  repeat?: { stress?: string; note?: string };
 }
-export type DesignTask = ChoiceTask | WriteTask | TwoTask | VoiceTask;
+/** “Kim nə dedi?”: put the meaning next to each sentence. */
+export interface MatchTask extends BaseTask {
+  type: 'match';
+  rows: { en: string; az: string; from?: Who }[];
+  /** Extra meanings that fit no sentence. */
+  extra: string[];
+}
+export type DesignTask = ChoiceTask | WriteTask | TwoTask | VoiceTask | MatchTask;
 export type ReviewOf<T extends DesignTask> = T extends DesignTask ? Omit<T, 'id' | 'number' | 'type'> : never;
 
 export interface IntroCard { type: 'intro'; id: string; badge: string; subtitle: string; goals: { icon: 'wave' | 'chat' | 'bye'; text: string }[]; start: string }
 export interface TeachCard { type: 'teach'; id: string; number: number; title: string; lead?: string; phrases: { en: string; az: string }[]; notes: string[] }
+/** “Yeni söz”: one new word or phrase, shown right before the task that first uses it. */
+export interface WordCard {
+  type: 'word'; id: string; number: number;
+  word: string; pronunciation: string; az: string; example: string; exampleAz: string;
+  note?: string; scenes?: string[];
+}
 export interface ResultGoal { group: string; text: string; tasks: string[] }
 
 export interface DesignLesson {
   id: string; order: number; title: string; section: string;
-  cards: (IntroCard | TeachCard | TaskWithReview)[];
+  cards: (IntroCard | TeachCard | WordCard | TaskWithReview)[];
   result: {
     done: string[]; incomplete: string; goals: ResultGoal[]; closing: string; button: string;
     technical: string; unverified: string;
