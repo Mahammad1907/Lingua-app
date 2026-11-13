@@ -7,6 +7,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { characterAz, hasCharacterName } from '../../config/characters';
 import { missingScenes, sceneImage } from '../../config/sceneImages';
 import type { ChatLine, MatchTask, WordCard, Who } from '../../data/designLessonTypes';
+import { glossOf } from '../../data/unit1/glossary';
 import Icon from './Icons';
 import { ds } from './parts';
 import { d, font, radius, shadow } from './theme';
@@ -30,6 +31,16 @@ export function Avatar({ who, size = 34 }: { who: Who; size?: number }) {
   </View>;
 }
 
+/** English text whose known words can be tapped (meaning + sound). Other characters stay plain. */
+export function TapText({ text, style, onWord }: { text: string; style: any; onWord?: (w: string) => void }) {
+  if (!onWord) return <Text style={style}>{text}</Text>;
+  const parts = text.split(/(\s+)/);
+  return <Text style={style}>{parts.map((p, i) => {
+    const word = p.replace(/^[“"(]+|[.,!?”")…]+$/g, '');
+    return word && glossOf(word) ? <Text key={i} onPress={() => onWord(word)} suppressHighlighting={false} style={{ textDecorationLine: 'underline', textDecorationStyle: 'dotted', textDecorationColor: d.borderStrong }}>{p}</Text> : p;
+  })}</Text>;
+}
+
 /** Temporary dashed frame where a picture will go (docs/SEKIL_SIYAHISI.md). */
 export function ImageSlot({ scenes, height = 150 }: { scenes?: string[]; height?: number }) {
   const notes = missingScenes(scenes);
@@ -41,11 +52,11 @@ export function ImageSlot({ scenes, height = 150 }: { scenes?: string[]; height?
 }
 
 /** What the other person says: big avatar and a white speech bubble; the sound buttons sit inside the bubble. */
-export function SayBubble({ who, text, onPlay, onSlow, playing }: { who: Who; text: string; onPlay?: () => void; onSlow?: () => void; playing?: boolean }) {
+export function SayBubble({ who, text, onPlay, onSlow, playing, onWord }: { who: Who; text: string; onPlay?: () => void; onSlow?: () => void; playing?: boolean; onWord?: (w: string) => void }) {
   return <View style={s.sayRow}>
     <Avatar who={who} size={56} />
     <View style={[s.sayBubble, shadow]}>
-      <Text style={s.sayText}>{text}</Text>
+      <TapText text={text} style={s.sayText} onWord={onWord} />
       {onPlay ? <View style={s.sayAudio}>
         <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Dinlə'} onPress={onPlay} style={({ pressed }) => [s.sayPlay, pressed && { opacity: .85 }]}>
           <Icon name="play" size={16} color="#fff" /><Text style={s.sayPlayText}>Dinlə</Text>
@@ -58,21 +69,21 @@ export function SayBubble({ who, text, onPlay, onSlow, playing }: { who: Who; te
   </View>;
 }
 
-function Bubble({ line }: { line: ChatLine }) {
+function Bubble({ line, onWord }: { line: ChatLine; onWord?: (w: string) => void }) {
   return <View style={s.inRow}>
     <Avatar who={line.from} />
-    <View style={s.inBubble}><Text style={s.bubbleText}>{line.text}</Text></View>
+    <View style={s.inBubble}><TapText text={line.text} style={s.bubbleText} onWord={onWord} /></View>
   </View>;
 }
 
 /** Chat thread for “Dialoqu tamamla” and “Mesaj yaz”. The learner's bubble is the last one. */
-export function ChatThread({ partner, lines, mine, placeholder, mark, chips, onSay, children }: {
-  partner: string; from: Who; lines: ChatLine[]; mine: string; placeholder: string; mark?: Mark; chips?: ReactNode; onSay?: (t: string) => void; children?: ReactNode;
+export function ChatThread({ partner, lines, mine, placeholder, mark, chips, onSay, onWord, children }: {
+  partner: string; from: Who; lines: ChatLine[]; mine: string; placeholder: string; mark?: Mark; chips?: ReactNode; onSay?: (t: string) => void; onWord?: (w: string) => void; children?: ReactNode;
 }) {
   return <View style={s.thread}>
     <View style={s.threadHead}><Text style={s.threadName}>{partner}</Text></View>
     <View style={s.threadBody}>
-      {lines.map((l, i) => <Pressable key={i} disabled={!onSay} onPress={() => onSay?.(l.text)} accessibilityHint={onSay ? 'Dinləmək üçün toxun' : undefined}><Bubble line={l} /></Pressable>)}
+      {lines.map((l, i) => <Pressable key={i} disabled={!onSay} onPress={() => onSay?.(l.text)} accessibilityHint={onSay ? 'Dinləmək üçün toxun' : undefined}><Bubble line={l} onWord={onWord} /></Pressable>)}
       <View accessibilityLabel={mine ? `Sənin cavabın: ${mine}` : placeholder}
         style={[s.outBubble, !mine && !chips && s.outEmpty, mark && { backgroundColor: markColor(mark, d.purple), borderColor: markColor(mark, d.purple) }, chips ? s.outChips : null]}>
         {chips ?? <Text style={[s.bubbleText, mine ? { color: '#fff' } : { color: d.lavenderText }]}>{mine || placeholder}</Text>}
@@ -199,7 +210,7 @@ export function Reading({ text }: { text: string }) {
 }
 
 /** “Yeni söz”: picture (or its temporary frame), the word with sound and slow sound, both readings, meaning, notes and one example. */
-export function WordView({ card, onPlay }: { card: WordCard; onPlay: (t: string, rate?: number) => void }) {
+export function WordView({ card, onPlay, onWord }: { card: WordCard; onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void }) {
   const image = sceneImage(card.scenes);
   const spoken = card.word.replace(/\s*·\s*/g, '. ');
   return <View style={{ gap: 14 }}>
@@ -222,7 +233,7 @@ export function WordView({ card, onPlay }: { card: WordCard; onPlay: (t: string,
     </View>
     <Pressable accessibilityRole="button" accessibilityHint="Nümunəni dinlə" onPress={() => onPlay(card.example)} style={s.example}>
       <Text style={s.exampleLabel}>NÜMUNƏ</Text>
-      <Text style={s.exampleEn}>{card.example}</Text>
+      <TapText text={card.example} style={s.exampleEn} onWord={onWord} />
       <Text style={s.exampleAz}>{card.exampleAz}</Text>
     </Pressable>
   </View>;

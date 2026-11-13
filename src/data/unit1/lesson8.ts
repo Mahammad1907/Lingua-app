@@ -37,54 +37,54 @@ export const lesson8: DesignLesson = {
       notes: ['Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən.'],
     },
     {
-      type: 'choice', id: 'd8_c03', number: 3, title: 'Dinlə və cavab seç', why: 'Nice to meet you → You too!',
+      type: 'choice', id: 'd8_c03', number: 3, title: 'Dinlə və cavab seç', why: 'Nice to meet you → You too!', hint: 'Oğlan xoş söz dedi. Dərs 3-də ona necə cavab verilirdi?',
       prompt: 'Ziyafətdə oğlan sənə deyir.\nNecə cavab verərsən?', audio: 'Nice to meet you!', options: ['Please.', 'You too!', 'Sorry!'], answer: 'You too!',
       variants: [
         pick('Please.', '“Please” xahişdir.', ex('You too!', 'Xoş sözə xoş cavab: “You too!”', 'Nice to meet you → You too!', 'Nice to meet you! — You too!')),
         pick('Sorry!', 'Səhv etməmisən.', ex('You too!', '“Sorry” üzrdür. Burada tanışlığa cavab verirsən.', 'Nice to meet you → You too!', 'Nice to meet you! — You too!')),
       ],
       review: {
-        title: 'Dinlə və cavab seç', why: 'Thank you → You’re welcome.', prompt: 'Qıza su verdin. O deyir.\nNecə cavab verərsən?', audio: 'Thank you!', options: ["You're welcome.", 'You too!', 'Again, please.'], answer: "You're welcome.",
+        title: 'Dinlə və cavab seç', why: 'Thank you → You’re welcome.', hint: 'Ona su verdin, o təşəkkür etdi. Dərs 5-i xatırla.', prompt: 'Qıza su verdin. O deyir.\nNecə cavab verərsən?', audio: 'Thank you!', options: ["You're welcome.", 'You too!', 'Again, please.'], answer: "You're welcome.",
         variants: [other('Təşəkkürə cavab: You’re welcome.', ex("You're welcome.", '“You too” tanışlığa cavabdır, “Again, please” təkrar xahişidir.', 'Thank you → You’re welcome.', "Thanks! — You're welcome."))],
       },
     },
     {
-      type: 'choice', id: 'd8_c04', number: 4, title: 'Sözü tamamla', why: 'Halından sonra təşəkkür.',
+      type: 'choice', id: 'd8_c04', number: 4, title: 'Sözü tamamla', why: 'Halından sonra təşəkkür.', hint: 'Dərs 4-ün cavabını xatırla: halın, sonra təşəkkür.',
       prompt: 'Qız halını deyir.\nHansı söz çatmır?', gap: { speaker: 'G', before: "I'm fine,", after: '. And you?' }, options: ['please', 'thanks', 'sorry'], answer: 'thanks',
       variants: [other('Halından sonra “thanks”.', ex('thanks', 'Sual verənə təşəkkür edirsən: I’m fine, thanks.', 'Halın + thanks + And you?', "I'm fine, thanks. And you?"))],
       review: {
-        title: 'Sözü tamamla', why: 'Nice to meet you.', prompt: 'Oğlan tanış olur.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'Nice to', after: 'you!' }, options: ['meet', 'welcome', 'understand'], answer: 'meet',
+        title: 'Sözü tamamla', why: 'Nice to meet you.', hint: 'Dərs 3-də tanışlıqda deyilən xoş sözü xatırla.', prompt: 'Oğlan tanış olur.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'Nice to', after: 'you!' }, options: ['meet', 'welcome', 'understand'], answer: 'meet',
         variants: [other('Nice to meet you.', ex('meet', '“Nice to meet you” — Tanış olmağıma şadam.', 'Nice to meet you!', 'Nice to meet you! — You too!'))],
       },
     },
     {
-      type: 'match', id: 'd8_c05', number: 5, title: 'Kim nə dedi?', why: 'İki “bağışlayın”ı ayırdın.',
+      type: 'match', id: 'd8_c05', number: 5, title: 'Kim nə dedi?', why: 'İki “bağışlayın”ı ayırdın.', hint: 'İki “bağışlayın”ı ayır: biri diqqət çəkir, biri üzrdür.',
       prompt: 'Hər cümləyə mənasını qoş.',
       rows: [{ en: 'Excuse me.', az: 'Bağışlayın (diqqət).', from: 'B' }, { en: 'Sorry!', az: 'Üzr istəyirəm!', from: 'G' }, { en: 'No problem.', az: 'Eybi yox.', from: 'M' }],
       extra: ['Dəyməz.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Excuse me. — Bağışlayın (diqqət).; Sorry! — Üzr istəyirəm!; No problem. — Eybi yox.', 'Excuse me diqqət çəkir, Sorry üzrdür, No problem üzrə cavabdır.', 'Diqqət → Excuse me; səhv → Sorry.', 'Sorry! — No problem.'))],
       review: {
-        title: 'Kim nə dedi?', why: 'Hər cümlə öz yerində.', prompt: 'Hər cümləyə mənasını qoş.',
+        title: 'Kim nə dedi?', why: 'Hər cümlə öz yerində.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Hər cümləyə mənasını qoş.',
         rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "I don't understand.", az: 'Başa düşmürəm.', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
         extra: ['Yavaş, zəhmət olmasa.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; I don’t understand. — Başa düşmürəm.; Goodbye! — Görüşənədək!', 'Salam, kömək istəmək və sağollaşma fərqli işlərdir.', 'Mənaya görə qoş.', "Hello! … Sorry? I don't understand. … Goodbye!"))],
       },
     },
     {
-      type: 'choice', id: 'd8_c06', number: 6, title: 'Səhnədə tap', why: 'Gedən sağollaşır.',
+      type: 'choice', id: 'd8_c06', number: 6, title: 'Səhnədə tap', why: 'Gedən sağollaşır.', hint: 'Kim gedir?',
       prompt: 'Ziyafətdə üç nəfər var.\nKim “Goodbye!” deyir?', scenes: ['d8/party'],
       spots: [{ option: 'Tort kəsən qız', x: 26, y: 44 }, { option: 'Qapıdan çıxan oğlan', x: 80, y: 40 }, { option: 'Musiqiyə qulaq asan adam', x: 50, y: 74 }],
       options: ['Tort kəsən qız', 'Qapıdan çıxan oğlan', 'Musiqiyə qulaq asan adam'], answer: 'Qapıdan çıxan oğlan',
       variants: [other('Gedən adam sağollaşır.', ex('Qapıdan çıxan oğlan', 'O, ziyafətdən gedir — “Goodbye!” deyir.', 'Ayrılarkən: Goodbye! / Bye!', 'Goodbye!'))],
       review: {
-        title: 'Səhnədə tap', why: 'Yeni gələn salam verir.', prompt: 'Ziyafətin girişində üç nəfər var.\nKim “Hello!” deyir?', scenes: ['d8/party-door'],
+        title: 'Səhnədə tap', why: 'Yeni gələn salam verir.', hint: 'Kim indi gəldi?', prompt: 'Ziyafətin girişində üç nəfər var.\nKim “Hello!” deyir?', scenes: ['d8/party-door'],
         spots: [{ option: 'Paltosunu geyinən oğlan', x: 24, y: 40 }, { option: 'Masada oturan adam', x: 76, y: 66 }, { option: 'Yenicə içəri girən qız', x: 54, y: 34 }],
         options: ['Paltosunu geyinən oğlan', 'Masada oturan adam', 'Yenicə içəri girən qız'], answer: 'Yenicə içəri girən qız',
         variants: [other('Yeni gələn salam verir.', ex('Yenicə içəri girən qız', 'O, indi gəldi — görüş başlayır.', 'Gələndə: Hello! / Hi!', 'Hello!'))],
       },
     },
     {
-      type: 'two', id: 'd8_c07', number: 7, title: 'İki mesaj yaz', why: 'Özünü təqdim etdin və onun adını soruşdun.',
+      type: 'two', id: 'd8_c07', number: 7, title: 'İki mesaj yaz', why: 'Özünü təqdim etdin və onun adını soruşdun.', hint: 'Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.',
       prompt: 'Ziyafətdə yeni biri ilə tanış olursan.\nİki mesaj yaz:\n1. Salam ver və adını de.\n2. Onun adını soruş.',
       fields: [
         { id: 'd8_c07a', label: 'Birinci mesaj', placeholder: 'Salam + adın', rule: greetIntro, purpose: 'salam verib adını demək', empty: 'Birinci mesajı da yaz.' },
@@ -95,7 +95,7 @@ export const lesson8: DesignLesson = {
         { field: 'd8_c07b', match: { other: true }, explain: ex("What's your name?", 'Bu mesajda {purpose} lazımdır.', 'What’s your name?', "Excuse me, what's your name?") },
       ],
       review: {
-        title: 'İki mesaj yaz', why: 'Özünü təqdim etdin və onun adını soruşdun.',
+        title: 'İki mesaj yaz', why: 'Özünü təqdim etdin və onun adını soruşdun.', hint: 'Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.',
         prompt: 'Onlayn dərsdə yeni yoldaşa yazırsan.\nİki mesaj yaz:\n1. Salam ver və adını de.\n2. Onun adını soruş.',
         fields: [
           { id: 'd8_c07a', label: 'Birinci mesaj', placeholder: 'Salam + adın', rule: greetIntro, purpose: 'salam verib adını demək', empty: 'Birinci mesajı da yaz.' },
@@ -108,13 +108,13 @@ export const lesson8: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd8_c08', number: 8, title: 'Mesajı qur', why: 'Tanışlığa cavab verib halını soruşdun.',
+      type: 'write', id: 'd8_c08', number: 8, title: 'Mesajı qur', why: 'Tanışlığa cavab verib halını soruşdun.', hint: 'Əvvəl xoş sözə cavab ver, sonra halını soruş.',
       prompt: 'Oğlan adını dedi və “Nice to meet you!” yazdı.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Ziyafətdə oğlan', from: 'B', lines: [{ from: 'B', text: "Hi! I'm …" }, { from: 'B', text: 'Nice to meet you!' }] },
       tiles: ['How', 'too!', 'please', 'You', 'are', 'you', '?'], rule: exact('You too! How are you?'),
       variants: [other('You too! How are you?', ex('You too! How are you?', 'Əvvəl xoş sözə cavab, sonra hal sualı.', 'You too! + How are you?', 'You too! How are you?'))],
       review: {
-        title: 'Mesajı qur', why: 'Təşəkkürə düzgün cavab verdin.', prompt: 'Qız sənə təşəkkür yazdı.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
+        title: 'Mesajı qur', why: 'Təşəkkürə düzgün cavab verdin.', hint: 'Təşəkkürə cavab — Dərs 5-i xatırla.', prompt: 'Qız sənə təşəkkür yazdı.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Ziyafətdə qız', from: 'G', lines: [{ from: 'G', text: 'Thank you!' }] },
         tiles: ['please', "You're", 'Sorry', 'welcome', '.'], rule: exact("You're welcome."),
         variants: [other("You're welcome.", ex("You're welcome.", 'Təşəkkürə cavab — “Dəyməz”.', 'Thank you → You’re welcome.', "You're welcome."))],
@@ -124,45 +124,45 @@ export const lesson8: DesignLesson = {
       type: 'write', id: 'd8_c09', number: 9, title: 'Kömək istə', why: 'Başa düşmədiyini deyib təkrar istədin.',
       prompt: 'Musiqi yüksəkdir, qızın dediyini anlamadın.\nBaşa düşmədiyini de və bir də deməsini xahiş et.', placeholder: 'Cavabını yaz',
       chat: { partner: 'Ziyafətdə qız', from: 'G', lines: [{ from: 'G', text: "Hiwhat'syourname?" }] }, rule: help,
-      hint: 'İki hissə: başa düşmürəm + bir də, zəhmət olmasa.', hintAssists: false,
+      hint: 'İki hissə: başa düşmədiyini de, sonra bir də deməsini xahiş et.', hintAssists: false,
       variants: [other('İki hissə lazımdır.', ex("Sorry? I don't understand. Again, please.", 'Başa düşmədiyini de və xahiş et.', 'I don’t understand + Again, please.', "I don't understand. Again, please."))],
       review: {
         title: 'Kömək istə', why: 'Başa düşmədiyini deyib təkrar istədin.', prompt: 'Oğlan sürətli danışdı.\nBaşa düşmədiyini de və bir də deməsini xahiş et.', placeholder: 'Cavabını yaz',
         chat: { partner: 'Ziyafətdə oğlan', from: 'B', lines: [{ from: 'B', text: 'Hellohowareyou?' }] }, rule: help,
-        hint: 'İki hissə: başa düşmürəm + bir də, zəhmət olmasa.', hintAssists: false,
+        hint: 'İki hissə: başa düşmədiyini de, sonra bir də deməsini xahiş et.', hintAssists: false,
         variants: [other('İki hissə lazımdır.', ex("Sorry? I don't understand. Again, please.", 'Başa düşmədiyini de və xahiş et.', 'I don’t understand + Again, please.', "I don't understand. Again, please."))],
       },
     },
     {
-      type: 'voice', id: 'd8_c10', number: 10, speaker: 'mascot', title: 'Söhbət: salam və hal', why: 'Salam verdin, halını dedin və soruşdun.',
+      type: 'voice', id: 'd8_c10', number: 10, speaker: 'mascot', title: 'Söhbət: salam və hal', why: 'Salam verdin, halını dedin və soruşdun.', hint: 'Üç hissə: salam, öz halın, sualı geri qaytar.',
       prompt: '{M} ziyafətdə səni görür.\nSalam ver, halını de və onu da soruş.', audio: 'Hi! How are you?', rule: goal(['greet', 'feeling', 'askFeeling'], ["Hi! I'm fine, thanks. And you?"]),
       variants: [
         insteadOf('farewell', 'Görüş yeni başlayır.', ex("Hi! I'm fine, thanks. And you?", 'Sağollaşma sonda olur.', 'Salam + halın + And you?', "Hello! I'm OK. And you?")),
         other('Üç hissə: salam, halın, sual.', ex("Hi! I'm fine, thanks. And you?", '{M} salam verib halını soruşdu.', 'Salam + halın + And you?', "Hello! I'm OK. And you?")),
       ],
       review: {
-        speaker: 'mascot', title: 'Söhbət: salam və hal', why: 'Salam verdin, halını dedin və soruşdun.', prompt: 'Ertəsi gün {m} yenə soruşur.\nSalam ver, halını de və onu da soruş.', audio: 'Hello! How are you?', rule: goal(['greet', 'feeling', 'askFeeling'], ["Hello! I'm OK. And you?"]),
+        speaker: 'mascot', title: 'Söhbət: salam və hal', why: 'Salam verdin, halını dedin və soruşdun.', hint: 'Üç hissə: salam, öz halın, sualı geri qaytar.', prompt: 'Ertəsi gün {m} yenə soruşur.\nSalam ver, halını de və onu da soruş.', audio: 'Hello! How are you?', rule: goal(['greet', 'feeling', 'askFeeling'], ["Hello! I'm OK. And you?"]),
         variants: [other('Üç hissə: salam, halın, sual.', ex("Hello! I'm OK. And you?", '{M} salam verib halını soruşdu.', 'Salam + halın + And you?', "Hi! I'm fine, thanks. And you?"))],
       },
     },
     {
-      type: 'voice', id: 'd8_c11', number: 11, speaker: 'mascot', title: 'Söhbət: tanışlıq', why: 'Tanışlığa cavab verib adını dedin.',
+      type: 'voice', id: 'd8_c11', number: 11, speaker: 'mascot', title: 'Söhbət: tanışlıq', why: 'Tanışlığa cavab verib adını dedin.', hint: 'İki cavab: xoş sözə və ad sualına.',
       prompt: '{M} deyir: “Nice to meet you! What’s your name?”\nİkisinə də cavab ver.', audio: "Nice to meet you! What's your name?", rule: goal(['meet', 'introduce'], ["You too! I'm …"]),
       variants: [other('İki cavab: You too! + adın.', ex("You too! I'm …", 'Xoş sözə və ad sualına cavab verirsən.', 'You too! + I’m …', "Nice to meet you too! My name is …"))],
       review: {
-        speaker: 'mascot', title: 'Söhbət: tanışlıq', why: 'Tanışlığa cavab verib adını dedin.', prompt: 'Yeni qonaq deyir: “Nice to meet you! What’s your name?”\nİkisinə də cavab ver.', audio: "Nice to meet you! What's your name?", rule: goal(['meet', 'introduce'], ["You too! My name is …"]),
+        speaker: 'mascot', title: 'Söhbət: tanışlıq', why: 'Tanışlığa cavab verib adını dedin.', hint: 'İki cavab: xoş sözə və ad sualına.', prompt: 'Yeni qonaq deyir: “Nice to meet you! What’s your name?”\nİkisinə də cavab ver.', audio: "Nice to meet you! What's your name?", rule: goal(['meet', 'introduce'], ["You too! My name is …"]),
         variants: [other('İki cavab: You too! + adın.', ex("You too! My name is …", 'Xoş sözə və ad sualına cavab verirsən.', 'You too! + My name is …', "You too! I'm …"))],
       },
     },
     {
-      type: 'voice', id: 'd8_c12', number: 12, speaker: 'mascot', title: 'Söhbət: sağollaşma', why: 'Təşəkkürə cavab verib sağollaşdın.',
+      type: 'voice', id: 'd8_c12', number: 12, speaker: 'mascot', title: 'Söhbət: sağollaşma', why: 'Təşəkkürə cavab verib sağollaşdın.', hint: 'Əvvəl təşəkkürə cavab ver, sonra sağollaş.',
       prompt: 'Ziyafət bitir. {M} deyir: “Thank you! Bye!”\nCavab ver və sağollaş.', audio: 'Thank you! Bye!', rule: goal(['welcome', 'farewell'], ["You're welcome. Bye!"]),
       variants: [
         insteadOf('greet', 'Ziyafət bitir — salam yox, sağollaşma.', ex("You're welcome. Bye!", 'Görüş bitir.', 'You’re welcome + Bye!', "You're welcome. Goodbye!")),
         other('İki hissə: cavab və sağollaşma.', ex("You're welcome. Bye!", '{M} təşəkkür edib sağollaşdı.', 'You’re welcome + Bye!', "You're welcome. Goodbye!")),
       ],
       review: {
-        speaker: 'mascot', title: 'Söhbət: sağollaşma', why: 'Təşəkkürə cavab verib sağollaşdın.', prompt: 'Qonaqlar gedir. {M} deyir: “Thanks! Goodbye!”\nCavab ver və sağollaş.', audio: 'Thanks! Goodbye!', rule: goal(['welcome', 'farewell'], ["You're welcome. Goodbye!"]),
+        speaker: 'mascot', title: 'Söhbət: sağollaşma', why: 'Təşəkkürə cavab verib sağollaşdın.', hint: 'Əvvəl təşəkkürə cavab ver, sonra sağollaş.', prompt: 'Qonaqlar gedir. {M} deyir: “Thanks! Goodbye!”\nCavab ver və sağollaş.', audio: 'Thanks! Goodbye!', rule: goal(['welcome', 'farewell'], ["You're welcome. Goodbye!"]),
         variants: [other('İki hissə: cavab və sağollaşma.', ex("You're welcome. Goodbye!", 'Təşəkkürə cavab verib sağollaşırsan.', 'You’re welcome + Goodbye!', "You're welcome. Bye!"))],
       },
     },

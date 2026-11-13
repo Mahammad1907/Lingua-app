@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState, type ReactNode } from 'react';
 import { Modal, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import type { Graded } from '../../utils/designLesson';
+import { englishWords, glossOf } from '../../data/unit1/glossary';
 import Icon from './Icons';
 import { Capsule, MainButton, Sheet, ds } from './parts';
 import { d, radius, shadow, font } from './theme';
@@ -33,15 +34,39 @@ export function ResultPanel({ tone, title, short, answers, corrections, assisted
   </View>;
 }
 
-export function ExplainSheet({ visible, explain, onClose, onReport }: { visible: boolean; explain?: Graded['explain']; onClose: () => void; onReport: () => void }) {
+/** Is this text an English sentence we can explain word by word? */
+function englishSentence(text: string) {
+  const words = englishWords(text);
+  const known = words.filter(w => glossOf(w)).length;
+  return words.length > 0 && known >= Math.max(1, Math.ceil(words.length * .6)) ? words : undefined;
+}
+
+export function ExplainSheet({ visible, explain, onClose, onReport, onSay }: { visible: boolean; explain?: Graded['explain']; onClose: () => void; onReport: () => void; onSay?: (t: string) => void }) {
+  const [open, setOpen] = useState('');
   if (!explain) return null;
-  const row = (label: string, text: string, mine?: boolean) => <View style={s.exRow} key={label}>
+  const row = (label: string, body: ReactNode, mine?: boolean) => <View style={s.exRow} key={label}>
     <Text style={ds.label}>{label}</Text>
-    <View style={[s.exBox, mine && s.exMine]}><Text style={ds.strong}>{text}</Text></View>
+    <View style={[s.exBox, mine && s.exMine]}>{typeof body === 'string' ? <Text style={ds.strong}>{body}</Text> : body}</View>
   </View>;
-  return <Sheet visible={visible} onClose={onClose} dismissible={false} title="Mənə başa sal" icon="bulb" tall right={<Pressable accessibilityRole="button" accessibilityLabel="Xəta bildir" onPress={onReport} hitSlop={6} style={s.flag}><Icon name="flag" size={18} color={d.lavenderText} /></Pressable>}>
-    {row('Sənin cavabın', explain.yourAnswer, true)}
+  // Word by word: the first accepted English answer, each word with its meaning and job.
+  const right = englishSentence(explain.answers.split(/\s+\/\s+|;\s*/)[0]);
+  const mine = englishSentence(explain.yourAnswer);
+  const rightSet = new Set((right ?? []).map(w => w.toLowerCase()));
+  const yours = mine && right ? <Text style={ds.strong}>{mine.map((w, i) => {
+    const lw = w.toLowerCase(); const extra = !rightSet.has(lw); const moved = !extra && right[i]?.toLowerCase() !== lw;
+    return <Text key={i} style={extra ? s.wordExtra : moved ? s.wordMoved : undefined}>{w}{i < mine.length - 1 ? ' ' : ''}</Text>;
+  })}</Text> : explain.yourAnswer;
+  const legend = mine && right ? <Text style={ds.small}><Text style={s.wordExtra}>qırmızı</Text> — artıq və ya səhv söz · <Text style={s.wordMoved}>narıncı</Text> — yeri dəyişib</Text> : null;
+  return <Sheet visible={visible} onClose={onClose} dismissible={false} title="Mənə başa sal" icon="bulb" tall
+    right={<Pressable accessibilityRole="button" accessibilityLabel="Xəta bildir" onPress={onReport} hitSlop={6} style={s.flag}><Icon name="flag" size={18} color={d.lavenderText} /></Pressable>}>
+    {row('Sənin cavabın', <View style={{ gap: 4 }}>{typeof yours === 'string' ? <Text style={ds.strong}>{yours}</Text> : yours}{legend}</View>, true)}
     {row('Uyğun cavablar', explain.answers)}
+    {right ? row('Söz-söz', <View style={{ gap: 8 }}>
+      <View style={s.wordRow}>{right.map((w, i) => <Pressable key={i} accessibilityRole="button" accessibilityHint="Mənasını gör və dinlə" onPress={() => { setOpen(w); onSay?.(w); }}
+        style={[s.wordChip, open === w && s.wordChipOn]}><Text style={[s.wordChipText, open === w && { color: '#fff' }]}>{w}</Text></Pressable>)}</View>
+      {right.map(w => glossOf(w)).some(Boolean) ? <View style={{ gap: 4 }}>{right.map((w, i) => { const g = glossOf(w); return g ? <Text key={i} style={[ds.body, open === w && { color: d.purple }]}>
+        <Text style={{ ...font.extrabold }}>{w}</Text> — {g.az}{g.role ? ` (${g.role})` : ''}</Text> : null; })}</View> : null}
+    </View>) : null}
     {row('Səbəb', explain.reason)}
     {row('Qısa qayda', explain.rule)}
     {row('Yeni nümunə', explain.example)}
@@ -88,6 +113,12 @@ export function MenuPopover({ visible, onClose, items, top }: { visible: boolean
 }
 
 const s = StyleSheet.create({
+  wordRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
+  wordChip: { minHeight: 40, paddingHorizontal: 14, borderRadius: 14, backgroundColor: '#fff', borderWidth: 1, borderColor: d.borderStrong, justifyContent: 'center' },
+  wordChipOn: { backgroundColor: d.purple, borderColor: d.purple },
+  wordChipText: { color: d.ink, fontSize: 17, ...font.extrabold },
+  wordExtra: { color: d.red, textDecorationLine: 'line-through', ...font.extrabold },
+  wordMoved: { color: '#C2570A', ...font.extrabold },
   flag: { width: 40, height: 40, borderRadius: 20, borderWidth: 1, borderColor: d.border, alignItems: 'center', justifyContent: 'center' },
   panel: { backgroundColor: '#F4EEFD', borderRadius: 26, borderWidth: 1, borderColor: d.border, padding: 18, paddingTop: 8, gap: 10 },
   handle: { alignSelf: 'center', width: 44, height: 5, borderRadius: 3, backgroundColor: '#C5ADF2' },

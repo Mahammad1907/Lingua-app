@@ -13,6 +13,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson6.ts`-dən yarad
 
 **Tapşırıq:** Sən qıza “Thank you!” dedin. O nə cavab verər?  
 **Seçimlər:** Please. / You're welcome. / How are you? — **düzgün:** You're welcome.  
+**İpucu:** Təşəkkürə cavab — Dərs 5-də öyrəndin.  
 **Düzgün olanda:** Təşəkkürə cavab: You’re welcome.  
 - *İzah (“Please.” seçiləndə):* “Please” xahişdir. — Uyğun: You're welcome. Səbəb: Təşəkkürə cavab “Dəyməz” — “You’re welcome”dur. Qayda: Thank you → You’re welcome. Nümunə: Thanks! — You're welcome.  
 - *İzah (“How are you?” seçiləndə):* Bu, hal sualıdır. — Uyğun: You're welcome. Səbəb: Təşəkkürə cavab verilir, yeni sual yox. Qayda: Thank you → You’re welcome. Nümunə: Thank you! — You're welcome.  
@@ -21,6 +22,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson6.ts`-dən yarad
 
 **Tapşırıq:** Oğlan sənə yol göstərdi. Nə deyərsən?  
 **Seçimlər:** You're welcome. / Thank you! / Please. — **düzgün:** Thank you!  
+**İpucu:** Sənə kömək edəndə nə deyirsən? Dərs 5-i xatırla.  
 **Düzgün olanda:** Kömək alanda təşəkkür edirsən.  
 - *İzah (başqa səhvdə):* Kömək alan təşəkkür edir. — Uyğun: Thank you!. Səbəb: “You’re welcome” cavabdır, “please” xahişdir. Qayda: Kömək alanda: Thank you! Nümunə: Thanks!  
 
@@ -30,6 +32,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson6.ts`-dən yarad
 
 Kiminsə diqqətini çəkəndə deyilir — sual verməzdən əvvəl.
 Səhvə görə üzr istəmək üçün deyil.
+Tanımadığın adama da, müəllimə də deyilir.
 
 Nümunə: **Excuse me, what's your name?** — Bağışlayın, adınız nədir?
 
@@ -64,6 +67,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 
 **Tapşırıq:** Kafedə üç nəfər var. Kim “Sorry!” deməlidir?  
 **Seçimlər:** Kitab oxuyan qız / Qəhvəni yerə tökən oğlan / Pəncərədən baxan adam — **düzgün:** Qəhvəni yerə tökən oğlan  
+**İpucu:** Kim səhv etdi?  
 **Düzgün olanda:** Səhv edən üzr istəyir.  
 - *İzah (başqa səhvdə):* Üzrü səhv edən istəyir. — Uyğun: Qəhvəni yerə tökən oğlan. Səbəb: O, səhv etdi — qəhvəni tökdü. “Sorry!” onun sözüdür. Qayda: Səhv → Sorry. Nümunə: Sorry! — No problem.  
 
@@ -71,6 +75,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 
 **Tapşırıq:** Dayanacaqda üç nəfər var. Kim “Excuse me” deməlidir?  
 **Seçimlər:** Avtobus gözləyən oğlan / Telefonla danışan adam / Yol soruşmaq istəyən qız — **düzgün:** Yol soruşmaq istəyən qız  
+**İpucu:** Kim birindən nəsə soruşmaq istəyir?  
 **Düzgün olanda:** Sual verməzdən əvvəl: Excuse me.  
 - *İzah (başqa səhvdə):* Diqqəti sual verən çəkir. — Uyğun: Yol soruşmaq istəyən qız. Səbəb: O, birindən soruşmaq istəyir — əvvəl “Excuse me” deyir. Qayda: Diqqət → Excuse me. Nümunə: Excuse me!  
 
@@ -95,6 +100,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 **Tapşırıq:** Qız tanımadığı oğlanın adını soruşur. Hansı söz çatmır?  
 **Cümlə:** Excuse me, ___ your name?  
 **Seçimlər:** how / what's / sorry — **düzgün:** what's  
+**İpucu:** Dərs 3-ün ad sualını xatırla.  
 **Düzgün olanda:** Excuse me + sual.  
 - *İzah (başqa səhvdə):* Ad sualı “What’s” ilə başlayır. — Uyğun: what's. Səbəb: Ad sualı: What’s your name? Əvvəlinə nəzakət üçün “Excuse me” gəlir. Qayda: Excuse me, what’s your name? Nümunə: Excuse me, what's your name?  
 
@@ -103,6 +109,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 **Tapşırıq:** Oğlan üzr istədi. Qız cavab verir. Hansı söz çatmır?  
 **Cümlə:** No ___ .  
 **Seçimlər:** sorry / problem / please — **düzgün:** problem  
+**İpucu:** O üzr istədi. Bu dərsdə “Eybi yox” mənasında ifadə öyrəndin.  
 **Düzgün olanda:** No problem — Eybi yox.  
 - *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: problem. Səbəb: “No problem” — “Eybi yox”. Qayda: Sorry → No problem. Nümunə: Sorry! — No problem.  
 
@@ -112,6 +119,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 **Yazışma (Tədbirdə qız):** —  
 **Sözlər:** your · Excuse · sorry · what's · me, · name · ?  
 **Qəbul:** dəqiq: Excuse me, what's your name?  
+**İpucu:** Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.  
 **Düzgün olanda:** Nəzakətlə diqqət çəkib adı soruşdun.  
 - *İzah (başqa səhvdə):* Excuse me, what’s your name? — Uyğun: Excuse me, what's your name?. Səbəb: Əvvəl diqqət (Excuse me), sonra sual. “sorry” burada lazım deyil. Qayda: Excuse me + sual. Nümunə: Excuse me, what's your name?  
 
@@ -121,6 +129,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 **Yazışma (Yeni iş yoldaşı):** —  
 **Sözlər:** me, · name · Excuse · you · what's · your · ?  
 **Qəbul:** dəqiq: Excuse me, what's your name?  
+**İpucu:** Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.  
 **Düzgün olanda:** Nəzakətlə diqqət çəkib adı soruşdun.  
 - *İzah (başqa səhvdə):* Excuse me, what’s your name? — Uyğun: Excuse me, what's your name?. Səbəb: “your” — sənin; “you” burada uyğun deyil. Qayda: Excuse me + sual. Nümunə: Excuse me, what's your name?  
 
@@ -129,6 +138,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 **Tapşırıq:** Oğlan səhvən çantanı yerə saldı və üzr istədi. Üzrünü qəbul et.  
 **Yazışma (Oğlan):** “Oh! Sorry!”  
 **Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
+**İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
 - *İzah (cavab “sorry” işini görəndə):* Səhv onundur — sən üzrü qəbul edirsən. — Uyğun: No problem. Səbəb: Üzrə “Sorry” ilə yox, “No problem” ilə cavab verilir. Qayda: Sorry → No problem. Nümunə: Sorry! — No problem.  
 - *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: O, üzr istədi. Sən “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: No problem.  
@@ -138,6 +148,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 **Tapşırıq:** Qız sənin növbənə keçdi və üzr istədi. Üzrünü qəbul et.  
 **Yazışma (Qız):** “I'm sorry!”  
 **Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
+**İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
 - *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: O, üzr istədi. Sən “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: No problem.  
 
@@ -147,6 +158,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 **Səs:** Sorry!  
 **Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
 **Nümunə göstərilir:** No problem.  
+**İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
 - *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: Dostun üzr istədi. Sən “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: No problem.  
 
@@ -156,6 +168,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 **Səs:** I'm sorry!  
 **Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
 **Nümunə göstərilir:** No problem.  
+**İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
 - *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: Üzrə “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: That's OK.  
 
@@ -163,6 +176,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 
 **Tapşırıq:** Dostunun ayağına təsadüfən basdın. Üzr istə.  
 **Qəbul:** məna: sorry — nümunə: Sorry! / I'm sorry.  
+**İpucu:** Səhv sənindir. Üzr istə.  
 **Düzgün olanda:** Səhvə görə üzr istədin.  
 - *İzah (cavab “attention” işini görəndə):* “Excuse me” diqqət üçündür — burada səhv etmisən. — Uyğun: Sorry!. Səbəb: Səhvə görə “Sorry” deyilir. Qayda: Səhv → Sorry. Nümunə: I'm sorry!  
 - *İzah (başqa səhvdə):* Üzr ifadəsi de. — Uyğun: Sorry!. Səbəb: Səhv sənindir, üzr istəyirsən. Qayda: Səhv → Sorry. Nümunə: I'm sorry!  
@@ -171,6 +185,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 
 **Tapşırıq:** Dostunun kitabını səhvən yerə saldın. Üzr istə.  
 **Qəbul:** məna: sorry — nümunə: Sorry! / I'm sorry.  
+**İpucu:** Səhv sənindir. Üzr istə.  
 **Düzgün olanda:** Səhvə görə üzr istədin.  
 - *İzah (başqa səhvdə):* Üzr ifadəsi de. — Uyğun: Sorry!. Səbəb: Səhv sənindir, üzr istəyirsən. Qayda: Səhv → Sorry. Nümunə: Sorry!  
 
@@ -178,6 +193,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 
 **Tapşırıq:** Sinifdə yeni uşağın adını bilmirsən. Diqqətini çək və adını soruş.  
 **Qəbul:** məna: attention + askName — nümunə: Excuse me, what's your name?  
+**İpucu:** İki hissə: əvvəl diqqəti çək, sonra adını soruş.  
 **Düzgün olanda:** Diqqət çəkib adı soruşdun.  
 - *İzah (başqa səhvdə):* Excuse me + ad sualı. — Uyğun: Excuse me, what's your name?. Səbəb: Tanımadığın adama əvvəl “Excuse me” deyirsən. Qayda: Excuse me + What’s your name? Nümunə: Excuse me, what's your name?  
 
@@ -185,6 +201,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 
 **Tapşırıq:** Kitabxanada yanındakı qızın adını bilmirsən. Diqqətini çək və adını soruş.  
 **Qəbul:** məna: attention + askName — nümunə: Excuse me, what's your name?  
+**İpucu:** İki hissə: əvvəl diqqəti çək, sonra adını soruş.  
 **Düzgün olanda:** Diqqət çəkib adı soruşdun.  
 - *İzah (başqa səhvdə):* Excuse me + ad sualı. — Uyğun: Excuse me, what's your name?. Səbəb: Tanımadığın adama əvvəl “Excuse me” deyirsən. Qayda: Excuse me + What’s your name? Nümunə: Excuse me, what's your name?  
 

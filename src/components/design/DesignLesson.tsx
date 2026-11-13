@@ -22,6 +22,7 @@ import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonShe
 import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, MainButton, Sheet, SheetOption, ds } from './parts';
 import { d, shadow, font } from './theme';
 import { sceneImage } from '../../config/sceneImages';
+import { glossOf } from '../../data/unit1/glossary';
 import { characterAz } from '../../config/characters';
 
 const mascotFull = require('../../../assets/mascot/hood_full.png');
@@ -55,6 +56,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const [notice, setNotice] = useState('');
   const [collapsed, setCollapsed] = useState(false);
   const [hintUsed, setHintUsed] = useState(false); const [sampleShown, setSampleShown] = useState(false);
+  // A word whose meaning is open; looking a word up during a task counts as help.
+  const [gloss, setGloss] = useState(''); const [peeked, setPeeked] = useState(false);
   const [voiceRetry, setVoiceRetry] = useState(false); const [voiceRetried, setVoiceRetried] = useState(false);
   const [voiceBusy, setVoiceBusy] = useState(false);
   // Audio state.
@@ -120,7 +123,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     stopAudio(); Keyboard.dismiss(); locked.current = false;
     setChoice(''); setText(''); setTwo({}); setPicked([]); setPairs({}); setActiveRow(''); setResult(null); setNotice(''); setCollapsed(false); setHintUsed(false); setVoiceRetry(false); setVoiceRetried(false);
     setHeard(false); setSoundError(false); setTextShown(false); setTextVisible(false); setTechnical(false);
-    setHelpOpen(false); setHintOpen(false); setExplainOpen(false); setSampleShown(false);
+    setHelpOpen(false); setHintOpen(false); setExplainOpen(false); setSampleShown(false); setGloss(''); setPeeked(false);
   };
 
   const finishLesson = useCallback(async () => {
@@ -149,7 +152,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   const evidence = (spoken: boolean): TaskEvidence => ({
     input: spoken ? 'spoken' : 'written',
-    assisted: Boolean(reviewing || meaningHint || sampleShown || (task?.type === 'voice' && task.sample && lesson.order <= 2)),
+    assisted: Boolean(reviewing || meaningHint || sampleShown || peeked || (task?.type === 'voice' && task.sample && lesson.order <= 2)),
     listening: Boolean(listeningTask && heard && !textShown && !technical),
     technicalText: Boolean(listeningTask && technical), transcriptShown: Boolean(listeningTask && textShown && !technical),
   });
@@ -300,7 +303,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (showResult) return <ResultView lesson={lesson} records={records} finish={finish} />;
     if (!current) return null;
     if (current.type === 'intro') return <IntroView card={current} title={lesson.title} size={imageSize} />;
-    if (current.type === 'word') return <WordView card={current} onPlay={(t, rate) => speak(t, rate ?? 0.85)} />;
+    if (current.type === 'word') return <WordView card={current} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
     if (current.type === 'teach') return <TeachView card={current} lesson={lesson} onPlay={t => speak(t)} onWord={setWord} />;
     return taskView();
   })();
@@ -313,6 +316,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const repeat = task.type === 'voice' ? task.repeat : undefined;
     const spotsShown = task.type === 'choice' && Boolean(task.spots && sceneImage(task.scenes));
     const say = (t: string) => speak(t.replace(/…/g, ''), 0.85);
+    const lookUp = result ? undefined : (w: string) => { setGloss(w); if (!peeked) { setPeeked(true); useUserStore.getState().useHelp(attempt); } };
     // Word tiles: punctuation is never a tile; the sentence's own end mark is added automatically.
     const tiles = task.type === 'write' && task.tiles ? task.tiles.filter(t => !/^[.,!?]+$/.test(t)) : undefined;
     const endMark = task.type === 'write' && task.tiles ? (task.rule.answers[0]?.match(/[.!?]$/)?.[0] ?? '') : '';
@@ -344,7 +348,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         : <View style={{ gap: 2 }}>{context ? <Text style={ds.subtitle}>{context}</Text> : null}<Text style={ds.instruction}>{instruction}</Text></View>}
       {mascotTalks && context ? <Text style={ds.subtitle}>{context}</Text> : null}
       {scene && !spotsShown ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
-      {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.45)} /> : null}
+      {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.45)} /> : null}
       {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.45, listeningTask)} /> : null}
       {soundError && !textShown ? <Card style={{ gap: 10 }}><Text style={ds.body}>{lesson.notices.soundFailed}</Text>
         <View style={s.row}><Capsule small icon="retry" label="Yenidən dinlə" onPress={() => speak(audio!, 0.85, true)} /><Capsule small icon="doc" label="Mətnlə davam et" onPress={() => { setTechnical(true); setTextShown(true); setTextVisible(true); }} /></View></Card> : null}
@@ -363,7 +367,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         onActive={en => { setActiveRow(en); if (pairs[en]) setPairs(p => { const { [en]: _gone, ...rest } = p; return rest; }); setNotice(''); }}
         onPlace={az => { const target = activeRow && !pairs[activeRow] ? activeRow : task.rows.find(r => !pairs[r.en])?.en; if (!target) return;
           setPairs(p => ({ ...p, [target]: az })); setNotice(''); setActiveRow(task.rows.find(r => r.en !== target && !pairs[r.en])?.en ?? ''); }} /> : null}
-      {task.type === 'write' && task.chat ? <ChatThread partner={task.chat.partner} from={task.chat.from} lines={task.chat.lines} onSay={say} placeholder={tiles ? 'Sözlərə toxun…' : 'Sənin cavabın…'}
+      {task.type === 'write' && task.chat ? <ChatThread partner={task.chat.partner} from={task.chat.from} lines={task.chat.lines} onSay={say} onWord={lookUp} placeholder={tiles ? 'Sözlərə toxun…' : 'Sənin cavabın…'}
         mine={text} mark={single ? markOf(single.status) : undefined}
         chips={tiles ? <PickedChips tiles={tiles} picked={picked} disabled={locked.current} placeholder="Sözlərə toxun…" onRemove={i => pickTiles(picked.filter(x => x !== i))} /> : undefined}>
         {tiles ? <TileTray tiles={tiles} picked={picked} disabled={locked.current} onSay={say} onPick={i => pickTiles([...picked, i])} /> : null}
@@ -401,7 +405,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       if (textHelp) return <ResultPanel tone="neutral" title={graded.status === 'correct' ? 'Cavab uyğundur' : 'Mətnlə məşq etdin'} short={technical ? lesson.result.technical : 'Audio mətnini gördün. Dinləmə yoxlanmadı.'}
         collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
       if (graded.status === 'correct') return <ResultPanel tone="correct" title="Düzgündür" short={task.why} corrections={result.kind === 'single' ? result.graded.spellingCorrections : undefined}
-        assisted={!reviewing && Boolean(meaningHint || sampleShown || (task.type === 'voice' && task.sample && lesson.order <= 2))} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
+        assisted={!reviewing && Boolean(meaningHint || sampleShown || peeked || (task.type === 'voice' && task.sample && lesson.order <= 2))} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
       return <ResultPanel tone="wrong" title="Bir daha baxaq" short={graded.short} answers={graded.explain?.answers} collapsed={collapsed} onCollapse={() => setCollapsed(true)}
         onExplain={graded.explain ? () => setExplainOpen(true) : undefined} onReport={() => setReportOpen(true)} onContinue={next}
         actions={task.type === 'voice' && !reviewing && !voiceRetried ? <Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { locked.current = false; setVoiceRetry(true); setVoiceRetried(true); setCollapsed(true); }} /> : undefined} />;
@@ -426,6 +430,13 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       onPress={() => { setHelpOpen(false); stopAudio(); setTextShown(true); setTextVisible(true); useUserStore.getState().useHelp(attempt); }} /> : null}
   </Sheet> : null;
 
+  const glossInfo = gloss ? glossOf(gloss) : undefined;
+  const glossSheet = <Sheet visible={Boolean(gloss)} onClose={() => setGloss('')} title={gloss}>
+    {glossInfo ? <><Text style={ds.strong}>{glossInfo.az}</Text>{glossInfo.role ? <Text style={ds.body}>{glossInfo.role}</Text> : null}</> : null}
+    <Capsule icon="speaker" label="Dinlə" align="flex-start" onPress={() => speak(gloss)} />
+    {task && peeked ? <Text style={ds.small}>Bu tapşırıqda söz mənasına baxdın — nəticə “Köməklə” qeyd olunacaq.</Text> : null}
+  </Sheet>;
+
   return <KeyboardAvoidingView style={[s.screen, { paddingTop: insets.top }]} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
     <Stack.Screen options={{ headerShown: false, gestureEnabled: false }} />
     <Header title={`Dərs ${lesson.order}`} progress={progress} onBack={exit} onMenu={showResult ? undefined : () => setMenuOpen(true)} />
@@ -440,7 +451,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     <View style={[s.footer, { paddingBottom: Math.max(14, insets.bottom + 6) }]}>{footer}</View>
 
     {help}
-    <ExplainSheet visible={explainOpen} explain={result && result.kind !== 'unverified' ? result.graded.explain : undefined} onClose={() => setExplainOpen(false)} onReport={() => { setExplainOpen(false); setTimeout(() => setReportOpen(true), SHEET_GAP); }} />
+    {glossSheet}
+    <ExplainSheet onSay={t => speak(t)} visible={explainOpen} explain={result && result.kind !== 'unverified' ? result.graded.explain : undefined} onClose={() => setExplainOpen(false)} onReport={() => { setExplainOpen(false); setTimeout(() => setReportOpen(true), SHEET_GAP); }} />
     <ReportSheet visible={reportOpen} onClose={() => setReportOpen(false)} context={reportContext} />
     <MenuPopover visible={menuOpen} onClose={() => setMenuOpen(false)} top={insets.top + 58} items={[
       { label: 'Xəta bildir', icon: 'alert', onPress: () => setTimeout(() => setReportOpen(true), SHEET_GAP) },

@@ -14,6 +14,7 @@ Nəzakət sözləri söhbəti yumşaldır.
 **Tapşırıq:** Oğlanın sualını dinlə. O nə soruşur?  
 **Səs:** How are you?  
 **Seçimlər:** Adını soruşur. / Halını soruşur. / Sağollaşır. — **düzgün:** Halını soruşur.  
+**İpucu:** Dərs 3 və 4-ün iki sualını xatırla: biri adı, biri halı soruşur. Səsdəki hansıdır?  
 **Düzgün olanda:** How are you? — Necəsən?  
 - *İzah (“Adını soruşur.” seçiləndə):* Ad sualı “What’s your name?”dir. — Uyğun: Halını soruşur. Səbəb: Səsdə “How are you?” deyilir — “Necəsən?”. Qayda: How are you? — hal; What’s your name? — ad. Nümunə: How are you? — I’m fine.  
 - *İzah (“Sağollaşır.” seçiləndə):* Bu sualdır, sağollaşma yox. — Uyğun: Halını soruşur. Səbəb: “How are you?” sualdır — “Necəsən?”. Qayda: How are you? = Necəsən? Nümunə: Hi! How are you?  
@@ -23,6 +24,7 @@ Nəzakət sözləri söhbəti yumşaldır.
 **Tapşırıq:** Qızın sualını dinlə. O nə soruşur?  
 **Səs:** What's your name?  
 **Seçimlər:** Halını soruşur. / Sağollaşır. / Adını soruşur. — **düzgün:** Adını soruşur.  
+**İpucu:** Dərs 3 və 4-ün iki sualını xatırla: biri adı, biri halı soruşur. Səsdəki hansıdır?  
 **Düzgün olanda:** What’s your name? — Adın nədir?  
 - *İzah (başqa səhvdə):* “name” sözünə qulaq as. — Uyğun: Adını soruşur. Səbəb: Səsdə “What’s your name?” deyilir — “Adın nədir?”. Qayda: name = ad. Nümunə: What's your name? — I'm …  
 
@@ -31,7 +33,8 @@ Nəzakət sözləri söhbəti yumşaldır.
 **Thank you! · Thanks!** /θæŋk juː/ · /θæŋks/ — Təşəkkür edirəm! · Sağ ol!
 
 Thanks daha qısa və qeyri-rəsmidir.
-“th” deyəndə dil dişlərin arasında olur.
+th — dilin ucu dişlərin arasında.
+Hər kəsə demək olar.
 
 Nümunə: **Thanks! Bye!** — Sağ ol! Hələlik!
 
@@ -64,6 +67,7 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 
 **Tapşırıq:** Hər cümləyə mənasını qoş.  
 **Cütlər:** Thank you! — Təşəkkür edirəm!; You're welcome. — Dəyməz.; Please. — Zəhmət olmasa. · artıq: Bağışla.  
+**İpucu:** Hər söz nə vaxt deyilir: kömək alanda, kömək edəndə, yoxsa xahiş edəndə?  
 **Düzgün olanda:** Üç nəzakət sözü öz yerində.  
 - *İzah (“Please.” seçiləndə):* “Please” — zəhmət olmasa. — Uyğun: Please. — Zəhmət olmasa. Səbəb: “Please” xahiş edəndə deyilir. Təşəkkürə cavab “You’re welcome”dur. Qayda: Thank you → You’re welcome. Xahiş → please. Nümunə: Thank you! — You're welcome.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; Please. — Zəhmət olmasa. Səbəb: Hər nəzakət sözünün öz işi var. Qayda: Təşəkkür, cavab, xahiş. Nümunə: Thanks! — You're welcome.  
@@ -72,6 +76,7 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 
 **Tapşırıq:** Hər cümləyə mənasını qoş.  
 **Cütlər:** Thanks! — Sağ ol!; How are you? — Necəsən?; You're welcome. — Dəyməz. · artıq: Mən də!  
+**İpucu:** Hər söz nə vaxt deyilir: kömək alanda, kömək edəndə, yoxsa xahiş edəndə?  
 **Düzgün olanda:** Hər cümlə öz yerində.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thanks! — Sağ ol!; How are you? — Necəsən?; You’re welcome. — Dəyməz. Səbəb: Təşəkkür, sual və cavab fərqli işlərdir. Qayda: Mənaya görə qoş. Nümunə: Thanks! — You're welcome.  
 
@@ -79,6 +84,7 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 
 **Tapşırıq:** Qıza kömək etdin. O deyir: “Thank you!” Necə cavab verərsən?  
 **Seçimlər:** Please. / You're welcome. / Thank you! — **düzgün:** You're welcome.  
+**İpucu:** Kömək edən sənsən, o sənə təşəkkür edir. Bu dərsdə “Dəyməz” mənasında söz öyrəndin.  
 **Düzgün olanda:** Təşəkkürə cavab: You’re welcome.  
 - *İzah (“Please.” seçiləndə):* “Buyurun” kimi düşünmə: təşəkkürə cavab “You’re welcome”dur. — Uyğun: You're welcome. Səbəb: Azərbaycan dilində “buyurun” hər yerdə işlənir. İngiliscə “please” yalnız xahişdir. Qayda: Thank you → You’re welcome. Nümunə: Thanks! — You're welcome.  
 - *İzah (“Thank you!” seçiləndə):* Təşəkkürü geri qaytarmırsan — cavab verirsən. — Uyğun: You're welcome. Səbəb: Sən kömək etdin, o təşəkkür etdi. Sən “Dəyməz” deyirsən. Qayda: Thank you → You’re welcome. Nümunə: Thank you! — You're welcome.  
@@ -87,6 +93,7 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 
 **Tapşırıq:** Oğlana yol göstərdin. O deyir: “Thanks!” Necə cavab verərsən?  
 **Seçimlər:** You're welcome. / Please. / Bye! — **düzgün:** You're welcome.  
+**İpucu:** Kömək edən sənsən, o sənə təşəkkür edir. Bu dərsdə “Dəyməz” mənasında söz öyrəndin.  
 **Düzgün olanda:** Təşəkkürə cavab: You’re welcome.  
 - *İzah (başqa səhvdə):* Təşəkkürə cavab “You’re welcome”dur. — Uyğun: You're welcome. Səbəb: “Please” xahişdir, “Bye” sağollaşmadır. Qayda: Thanks → You’re welcome. Nümunə: Thanks! — You're welcome.  
 
@@ -95,6 +102,7 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 **Tapşırıq:** Kafedə çay istəyirsən. Hansı söz nəzakətlidir?  
 **Cümlə:** Tea, ___ .  
 **Seçimlər:** please / thanks / welcome — **düzgün:** please  
+**İpucu:** Hələ çayı almamısan, xahiş edirsən. Bu dərsdəki xahiş sözünü xatırla.  
 **Düzgün olanda:** Xahiş edəndə “please”.  
 - *İzah (“thanks” seçiləndə):* Hələ heç nə almamısan — əvvəl xahiş edirsən. — Uyğun: please. Səbəb: “thanks” sonra, aldıqdan sonra deyilir. Qayda: Xahiş → please; aldıqdan sonra → thanks. Nümunə: Tea, please. … Thanks!  
 - *İzah (“welcome” seçiləndə):* “welcome” təşəkkürə cavabdır. — Uyğun: please. Səbəb: Xahiş edəndə “please” deyilir. Qayda: Xahiş → please. Nümunə: Tea, please.  
@@ -104,6 +112,7 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 **Tapşırıq:** Qonşun təşəkkür etdi. Cavabında hansı söz çatmır?  
 **Cümlə:** You're ___ .  
 **Seçimlər:** please / welcome / thanks — **düzgün:** welcome  
+**İpucu:** O sənə təşəkkür etdi. Bu dərsdə “Dəyməz” mənasında söz öyrəndin.  
 **Düzgün olanda:** “You’re welcome” — Dəyməz.  
 - *İzah (başqa səhvdə):* Təşəkkürə cavab: You’re welcome. — Uyğun: welcome. Səbəb: “You’re welcome” birlikdə “Dəyməz” deməkdir. Qayda: Thank you → You’re welcome. Nümunə: You're welcome.  
 
@@ -113,6 +122,7 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 **Yazışma (Qonşu qız):** “Hi! How are you?”  
 **Sözlər:** And · I'm · please · thanks. · fine, · you · ?  
 **Qəbul:** dəqiq: I'm fine, thanks. And you?  
+**İpucu:** Dərs 4-dəki cavabı xatırla: əvvəl halın, sonra təşəkkür, sonda sualı qaytar.  
 **Düzgün olanda:** Halını dedin, təşəkkür etdin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Sıra: I’m fine, thanks. And you? — Uyğun: I'm fine, thanks. And you?. Səbəb: Əvvəl halın və təşəkkür, sonra sual. “please” burada lazım deyil. Qayda: Halın + thanks + And you? Nümunə: I'm fine, thanks. And you?  
 
@@ -122,6 +132,7 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 **Yazışma (Yoldaş):** “Hello! How are you?”  
 **Sözlər:** I'm · welcome · fine, · And · thanks. · you · ?  
 **Qəbul:** dəqiq: I'm fine, thanks. And you?  
+**İpucu:** Dərs 4-dəki cavabı xatırla: əvvəl halın, sonra təşəkkür, sonda sualı qaytar.  
 **Düzgün olanda:** Halını dedin, təşəkkür etdin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Sıra: I’m fine, thanks. And you? — Uyğun: I'm fine, thanks. And you?. Səbəb: “welcome” təşəkkürə cavabdır, burada lazım deyil. Qayda: Halın + thanks + And you? Nümunə: I'm fine, thanks. And you?  
 
@@ -130,17 +141,19 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 **Tapşırıq:** Qonşun düşən açarını sənə qaytardı. Ona təşəkkür et.  
 **Yazışma (Qonşu oğlan):** —  
 **Qəbul:** məna: thanks — nümunə: Thank you! / Thanks!  
+**İpucu:** Kömək sənə edildi. Sən nə deyirsən?  
 **Düzgün olanda:** Kömək üçün təşəkkür etdin.  
 - *İzah (cavab “welcome” işini görəndə):* Kömək sənə edildi — sən təşəkkür edirsən. — Uyğun: Thank you! / Thanks!. Səbəb: “You’re welcome” təşəkkürə cavabdır. Qayda: Kömək alanda: Thank you! Nümunə: Thanks!  
-- *İzah (başqa səhvdə):* Təşəkkür ifadəsi yaz. — Uyğun: Thank you! / Thanks!. Səbəb: Kimsə sənə kömək edəndə təşəkkür edirsən. Qayda: Thank you! / Thanks! Nümunə: Thank you!  
+- *İzah (başqa səhvdə):* Təşəkkür ifadəsi yaz. — Uyğun: Thank you! / Thanks!. Səbəb: Kimsə sənə kömək edəndə təşəkkür edirsən. Qayda: Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən. Nümunə: Thank you!  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Yoldaşın sənə qələm verdi. Ona təşəkkür et.  
 **Yazışma (Yoldaş):** —  
 **Qəbul:** məna: thanks — nümunə: Thank you! / Thanks!  
+**İpucu:** Kömək sənə edildi. Sən nə deyirsən?  
 **Düzgün olanda:** Kömək üçün təşəkkür etdin.  
-- *İzah (başqa səhvdə):* Təşəkkür ifadəsi yaz. — Uyğun: Thank you! / Thanks!. Səbəb: Kimsə sənə nəsə verəndə təşəkkür edirsən. Qayda: Thank you! / Thanks! Nümunə: Thanks!  
+- *İzah (başqa səhvdə):* Təşəkkür ifadəsi yaz. — Uyğun: Thank you! / Thanks!. Səbəb: Kimsə sənə nəsə verəndə təşəkkür edirsən. Qayda: Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən. Nümunə: Thanks!  
 
 ## Kart 11 — Səslə cavab: Təşəkkürə cavab ver
 
@@ -148,6 +161,7 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 **Səs:** Thank you!  
 **Qəbul:** məna: welcome — nümunə: You're welcome.  
 **Nümunə göstərilir:** You're welcome.  
+**İpucu:** Sən kömək etdin, o təşəkkür etdi. “Dəyməz” de.  
 **Düzgün olanda:** Təşəkkürə düzgün cavab verdin.  
 - *İzah (cavab “thanks” işini görəndə):* Təşəkkürü qaytarmırsan — cavab verirsən. — Uyğun: You're welcome. Səbəb: Sən kömək etdin. “Dəyməz” deyirsən. Qayda: Thank you → You’re welcome. Nümunə: You're welcome.  
 - *İzah (başqa səhvdə):* Təşəkkürə cavab: You’re welcome. — Uyğun: You're welcome. Səbəb: “Please” xahişdir, cavab deyil. Qayda: Thank you → You’re welcome. Nümunə: You're welcome.  
@@ -158,6 +172,7 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 **Səs:** Thanks!  
 **Qəbul:** məna: welcome — nümunə: You're welcome.  
 **Nümunə göstərilir:** You're welcome.  
+**İpucu:** Sən kömək etdin, o təşəkkür etdi. “Dəyməz” de.  
 **Düzgün olanda:** Təşəkkürə düzgün cavab verdin.  
 - *İzah (başqa səhvdə):* Təşəkkürə cavab: You’re welcome. — Uyğun: You're welcome. Səbəb: Sən kömək etdin. “Dəyməz” deyirsən. Qayda: Thanks → You’re welcome. Nümunə: You're welcome.  
 
@@ -165,15 +180,17 @@ Nümunə: **Thank you! — You're welcome.** — Təşəkkür edirəm! — Dəym
 
 **Tapşırıq:** Dostun sənə çətir verir. Təşəkkür et.  
 **Qəbul:** məna: thanks — nümunə: Thank you! / Thanks!  
+**İpucu:** Sənə nəsə verəndə nə deyirsən?  
 **Düzgün olanda:** Təşəkkürü özün dedin.  
-- *İzah (başqa səhvdə):* Təşəkkür ifadəsi de. — Uyğun: Thank you! / Thanks!. Səbəb: Sənə nəsə verəndə təşəkkür edirsən. Qayda: Thank you! / Thanks! Nümunə: Thank you!  
+- *İzah (başqa səhvdə):* Təşəkkür ifadəsi de. — Uyğun: Thank you! / Thanks!. Səbəb: Sənə nəsə verəndə təşəkkür edirsən. Qayda: Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən. Nümunə: Thank you!  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Dostun sənə qapını açır. Təşəkkür et.  
 **Qəbul:** məna: thanks — nümunə: Thank you! / Thanks!  
+**İpucu:** Sənə nəsə verəndə nə deyirsən?  
 **Düzgün olanda:** Təşəkkürü özün dedin.  
-- *İzah (başqa səhvdə):* Təşəkkür ifadəsi de. — Uyğun: Thank you! / Thanks!. Səbəb: Sənə kömək edəndə təşəkkür edirsən. Qayda: Thank you! / Thanks! Nümunə: Thanks!  
+- *İzah (başqa səhvdə):* Təşəkkür ifadəsi de. — Uyğun: Thank you! / Thanks!. Səbəb: Sənə kömək edəndə təşəkkür edirsən. Qayda: Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən. Nümunə: Thanks!  
 
 ## Nəticə
 

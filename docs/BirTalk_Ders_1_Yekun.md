@@ -122,7 +122,7 @@ Səsi dinlə. BirFox nə edir?
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** Sözün görüşü başlatdığını, yoxsa bitirdiyini düşün.
+**İpucu:** Bir də dinlə. Bu söz görüş başlayanda deyilir, yoxsa bitəndə?
 
 ### Cavab açarı
 
@@ -168,7 +168,7 @@ Ona ingiliscə qısa salam yaz.
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** Qısa bir salam ifadəsi kifayətdir.
+**İpucu:** Bu dərsin əvvəlində iki salam sözü öyrəndin. Onlardan birini yaz.
 
 ### Cavab açarı
 
@@ -294,7 +294,7 @@ Hansı ifadə uyğundur?
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** İfadələri görüşə başlayarkən işlədilən salamla müqayisə et.
+**İpucu:** Görüş bitir. Seçimlərdən hansı görüşü bitirir, hansı başladır?
 
 **Cavab açarı**
 - Uyğun cavab: **Goodbye!**
@@ -328,7 +328,7 @@ Səsi dinlə və eşitdiyin sözü yaz.
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** Mənası eyni olan başqa ifadəni deyil, səsdə eşitdiyin sözü yaz.
+**İpucu:** “Yavaş dinlə” ilə bir də qulaq as. Eyni mənalı başqa sözü yox, məhz eşitdiyini yaz.
 
 **Cavab açarı**
 - Audio: **Bye!** Mətni əvvəlcədən göstərilmir.
@@ -426,7 +426,7 @@ Onun yerinə uyğun sağollaşma yaz.
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** BirFox-un dediyi ifadəni onun indi etdiyi hərəkətlə müqayisə et.
+**İpucu:** BirFox gedir. Gedən adam salam verir, yoxsa sağollaşır?
 
 ### Cavab açarı
 
@@ -472,7 +472,7 @@ Bir tanışınla qısa görüşün var.
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** Hər sahədə görüşün həmin anına uyğun ifadə yaz.
+**İpucu:** Birinci sahədə görüş başlayır, ikincidə bitir. Hər birinə uyğun sözü yaz.
 
 ### Cavab açarı
 
@@ -611,6 +611,8 @@ Düzgün paneldə “Düzgündür” başlığının altında bir cümlə görü
 | 10 | Əvvəldə salam, sonda sağollaşma. | eyni |
 | 11A | Görüşü salamla özün başlatdın. | eyni |
 | 11B | Görüşü sağollaşma ilə özün bitirdin. | eyni |
+
+İpucuları 13 noyabr 2026-da `docs/IPUCU_TEKLIFI.md` üzrə yeniləndi; səsli kartlarda “Kömək” iki pillədir (ipucu → nümunə).
 
 ## Kart 12 — Ehtiyac olduqda səhvlərin təkrarı
 

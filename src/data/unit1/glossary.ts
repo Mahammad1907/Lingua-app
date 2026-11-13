@@ -1,0 +1,51 @@
+// Meaning and job of every English word used in Bölmə 1, for “tap a word” and the word-by-word explanation.
+export interface Gloss { az: string; role?: string }
+
+export const GLOSSARY: Record<string, Gloss> = {
+  hello: { az: 'salam', role: 'görüşü başladır' },
+  hi: { az: 'salam', role: 'görüşü başladır, daha sadə' },
+  goodbye: { az: 'görüşənədək', role: 'görüşü bitirir' },
+  bye: { az: 'hələlik', role: 'görüşü bitirir, daha sadə' },
+  i: { az: 'mən', role: 'həmişə böyük hərflə yazılır' },
+  "i'm": { az: 'mən …-am', role: 'I am-ın qısası' },
+  am: { az: '-am, -əm', role: '“I” ilə işlənir' },
+  my: { az: 'mənim' },
+  name: { az: 'ad' },
+  is: { az: '-dır, -dir', role: 'bir şey haqqında: my name is' },
+  what: { az: 'nə', role: 'sualı başladır' },
+  "what's": { az: 'nədir', role: 'What is-in qısası, sualı başladır' },
+  your: { az: 'sənin' },
+  you: { az: 'sən, siz' },
+  nice: { az: 'xoş' },
+  to: { az: '(feldən əvvəl gələn kiçik söz)' },
+  meet: { az: 'tanış olmaq, görüşmək' },
+  too: { az: 'də, həmçinin' },
+  how: { az: 'necə', role: 'sualı başladır' },
+  are: { az: '-san, -sınız', role: '“you” ilə işlənir' },
+  fine: { az: 'yaxşı' },
+  ok: { az: 'normal, yaxşı' },
+  thanks: { az: 'sağ ol' },
+  thank: { az: 'təşəkkür etmək', role: 'thank you birlikdə' },
+  and: { az: 'və, bəs' },
+  not: { az: 'deyil', role: 'mənanı tərsinə çevirir' },
+  very: { az: 'çox' },
+  well: { az: 'yaxşı' },
+  "you're": { az: 'sən …-san', role: 'you are-un qısası' },
+  welcome: { az: 'xoş gəldin; you’re welcome = dəyməz' },
+  please: { az: 'zəhmət olmasa', role: 'xahişi nəzakətli edir' },
+  excuse: { az: 'bağışlamaq', role: 'excuse me birlikdə — diqqət çəkmək' },
+  me: { az: 'məni, mənə' },
+  sorry: { az: 'bağışla; sual kimi — nə dedin?' },
+  no: { az: 'yox' },
+  problem: { az: 'problem', role: 'no problem = eybi yox' },
+  "don't": { az: '-mır, -mir', role: 'do not-un qısası, inkar' },
+  understand: { az: 'başa düşmək' },
+  again: { az: 'yenə, bir də' },
+  slowly: { az: 'yavaş' },
+  tea: { az: 'çay' },
+  "that's": { az: 'bu …-dır', role: 'that is-in qısası' },
+};
+
+/** Words of an English sentence, as they appear (without punctuation). */
+export const englishWords = (text: string) => text.split(/\s+/).map(w => w.replace(/^[“"(]+|[.,!?”")…]+$/g, '')).filter(w => w && w !== '…');
+export const glossOf = (word: string): Gloss | undefined => GLOSSARY[word.toLowerCase().replace(/’/g, "'")];
