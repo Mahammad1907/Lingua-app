@@ -18,6 +18,8 @@ import Icon from './Icons';
 import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
 import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, MainButton, Sheet, SheetOption, ds } from './parts';
 import { d, shadow } from './theme';
+import { sceneImage } from '../../config/sceneImages';
+import { characterAz } from '../../config/characters';
 
 const mascotFull = require('../../../assets/mascot/hood_full.png');
 const mascotHead = require('../../../assets/mascot/hood_head.png');
@@ -280,7 +282,17 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const single = result?.kind === 'single' ? result.graded : undefined;
     const fieldState = (status?: string) => status === 'correct' ? 'correct' as const : status === 'wrong' ? 'wrong' as const : undefined;
     const hasHelp = Boolean(task.hint || audio);
+    // Voice tasks: the only help is the text, so the button toggles it directly.
+    const directText = task.type === 'voice' && Boolean(audio) && !task.hint;
+    const helpLabel = directText ? (textVisible ? 'Mətni gizlət' : 'Mətni göstər') : audio ? 'Kömək' : 'İpucu';
+    const helpIcon = directText ? 'doc' as const : 'bulb' as const;
+    const lines = task.prompt.split('\n');
+    const context = lines.length > 1 ? lines[0] : '';
+    const instruction = lines.length > 1 ? lines.slice(1).join('\n') : lines[0];
+    const mascotRow = task.speaker === 'mascot' && !audio;
+    const scene = sceneImage(task.scenes);
     const openHelp = () => {
+      if (directText) { stopAudio(); setTextShown(true); setTextVisible(v => !v); return; }
       if (audio) { setHelpOpen(true); return; }
       setHintOpen(true); setHintUsed(true);
       if (task.hintAssists) useUserStore.getState().useHelp(attempt);
@@ -288,9 +300,17 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     return <View style={s.gap}>
       {reviewing ? <View style={{ gap: 6 }}><Chip label="Təkrar" />{reviewStep === 0 ? <Text style={ds.small}>{lesson.notices.review}</Text> : null}</View> : null}
       <Text accessibilityRole="header" style={ds.title}>{task.title}</Text>
-      <Text style={ds.subtitle}>{task.prompt}</Text>
+      {/* Situation lines are quieter; the line that says what to do is the strongest. */}
+      <View style={mascotRow ? s.speakerRow : undefined}>
+        {mascotRow ? <Image source={mascotHead} style={s.speakerHead} contentFit="contain" accessibilityLabel={characterAz('mascot') || 'Dostun'} /> : null}
+        <View style={{ flex: 1, gap: 2 }}>
+          {context ? <Text style={ds.subtitle}>{context}</Text> : null}
+          <Text style={ds.instruction}>{instruction}</Text>
+        </View>
+      </View>
+      {scene ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : null}
       {audio ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.45, listeningTask)}
-        avatar={task.type === 'voice' ? <Image source={mascotHead} style={{ width: 62, height: 48 }} contentFit="contain" accessibilityLabel="Danışan" /> : undefined} /> : null}
+        avatar={task.speaker === 'mascot' ? <Image source={mascotHead} style={{ width: 62, height: 48 }} contentFit="contain" accessibilityLabel={characterAz('mascot') || 'Danışan'} /> : undefined} /> : null}
       {soundError && !textShown ? <Card style={{ gap: 10 }}><Text style={ds.body}>{lesson.notices.soundFailed}</Text>
         <View style={s.row}><Capsule small icon="retry" label="Yenidən dinlə" onPress={() => speak(audio!, 0.85, true)} /><Capsule small icon="doc" label="Mətnlə davam et" onPress={() => { setTechnical(true); setTextShown(true); setTextVisible(true); }} /></View></Card> : null}
       {textVisible && audio ? <Pressable accessibilityRole="button" accessibilityHint="Mətni gizlətmək üçün toxun" onPress={() => setTextVisible(false)} style={s.transcript}>
@@ -298,13 +318,14 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         {listeningTask ? <Text style={ds.small}>Audio mətnini görürsən. Bu hissədə dinləmə yoxlanmadı.</Text> : null}
       </Pressable> : null}
       {task.type === 'voice' && task.sample ? <View style={s.sample}><Text style={s.sampleLabel}>Nümunə</Text><View style={s.vline} /><Text style={s.sampleText}>{task.sample}</Text></View> : null}
-      {hasHelp ? <View style={{ alignItems: 'flex-end' }}><Capsule tone="outline" small icon="bulb" label="İpucu" onPress={openHelp} /></View> : null}
       {task.type === 'choice' ? <View style={s.gap}>{task.options.map(o => <ChoiceOption key={o} label={o} selected={choice === o} disabled={Boolean(result && result.kind !== 'unverified')}
         state={single && choice === o ? (single.status === 'correct' ? 'correct' : single.status === 'wrong' ? 'wrong' : undefined) : undefined}
         onPress={() => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} />)}</View> : null}
       {task.type === 'write' ? <Field value={text} onChange={v => { setText(v); if (result?.kind === 'unverified') setResult(null); }} placeholder={task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
       {task.type === 'two' ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
         graded={result?.kind === 'two' ? result.graded : undefined} keep={reviewing ? keepFields[task.id]?.fields : undefined} /> : null}
+      {/* Help sits under the answers, on the right: read the task, try, then ask for help. */}
+      {hasHelp ? <Capsule tone="outline" small align="flex-end" icon={helpIcon} label={helpLabel} onPress={openHelp} /> : null}
       {notice ? <Text accessibilityLiveRegion="polite" style={s.notice}>{notice}</Text> : null}
       {task.type === 'voice' && (!result || result.kind === 'unverified' || voiceRetry) ? <View style={{ paddingTop: 6 }}>
         <HoldToTalk onFinal={onSpoken} onRecording={onRecording} onBusyChange={setVoiceBusy} suspended={helpOpen || explainOpen || reportOpen || menuOpen} />
@@ -497,8 +518,11 @@ const s = StyleSheet.create({
   phrase: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   transcript: { borderRadius: 16, backgroundColor: d.purpleSoft, padding: 12, gap: 4 },
   transcriptText: { color: d.purple, fontSize: 20, fontWeight: '800' },
+  speakerRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  speakerHead: { width: 52, height: 52, borderRadius: 26, backgroundColor: d.purpleSoft },
+  scene: { width: '100%', aspectRatio: 16 / 9, borderRadius: 22, backgroundColor: d.purpleSoft },
   sample: { flexDirection: 'row', alignItems: 'center', gap: 14, borderRadius: 18, backgroundColor: '#E8DDFB', paddingHorizontal: 18, minHeight: 56 },
-  sampleLabel: { color: d.lavender, fontSize: 17, fontWeight: '600' },
+  sampleLabel: { color: d.lavenderText, fontSize: 17, fontWeight: '600' },
   sampleText: { color: d.purple, fontSize: 24, fontWeight: '800' },
   notice: { color: d.purple, fontSize: 15, fontWeight: '700' },
   resultRow: { flexDirection: 'row', alignItems: 'center', gap: 10, flexWrap: 'wrap', paddingVertical: 4 },

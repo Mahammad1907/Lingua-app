@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Animated, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View, type StyleProp, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
@@ -27,9 +27,9 @@ export function Chip({ label }: { label: string }) {
   return <View style={s.chip}><Text style={s.chipText}>{label}</Text></View>;
 }
 
-export function Capsule({ label, icon, onPress, tone = 'soft', disabled, small, accessibilityLabel }: { label: string; icon?: IconName; onPress: () => void; tone?: 'soft' | 'outline' | 'orange'; disabled?: boolean; small?: boolean; accessibilityLabel?: string }) {
+export function Capsule({ label, icon, onPress, tone = 'soft', disabled, small, accessibilityLabel, align = 'center' }: { label: string; icon?: IconName; onPress: () => void; tone?: 'soft' | 'outline' | 'orange'; disabled?: boolean; small?: boolean; accessibilityLabel?: string; align?: 'center' | 'flex-start' | 'flex-end' }) {
   return <Pressable accessibilityRole="button" accessibilityLabel={accessibilityLabel ?? label} accessibilityState={{ disabled }} disabled={disabled} onPress={onPress} hitSlop={6}
-    style={({ pressed }) => [s.capsule, tone === 'outline' && s.capsuleOutline, tone === 'orange' && s.capsuleOrange, small && s.capsuleSmall, pressed && { opacity: .75 }, disabled && { opacity: .5 }]}>
+    style={({ pressed }) => [s.capsule, { alignSelf: align }, tone === 'outline' && s.capsuleOutline, tone === 'orange' && s.capsuleOrange, small && s.capsuleSmall, pressed && { opacity: .75 }, disabled && { opacity: .5 }]}>
     {icon ? <View style={tone === 'soft' ? s.capsuleIcon : undefined}><Icon name={icon} size={small ? 17 : 19} color={d.purple} /></View> : null}
     <Text style={[s.capsuleText, small && { fontSize: 14 }]}>{label}</Text>
   </Pressable>;
@@ -39,7 +39,7 @@ export type ButtonTone = 'purple' | 'green' | 'red';
 export function MainButton({ label, onPress, disabled, tone = 'purple', arrow }: { label: string; onPress: () => void; disabled?: boolean; tone?: ButtonTone; arrow?: boolean }) {
   const bg = disabled ? d.purpleDisabled : tone === 'green' ? d.green : tone === 'red' ? d.red : d.purple;
   return <Pressable accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled }} disabled={disabled} onPress={onPress}
-    style={({ pressed }) => [s.main, { backgroundColor: bg }, !disabled && shadow, pressed && { opacity: .88 }]}>
+    style={({ pressed }) => [s.main, { backgroundColor: bg }, !disabled && shadow, pressed && { opacity: .88, transform: [{ scale: .98 }] }]}>
     <Text style={[s.mainText, disabled && { color: d.purpleDisabledText }]}>{label}</Text>
     {arrow && !disabled ? <Icon name="arrow" size={24} color="#fff" /> : null}
   </Pressable>;
@@ -76,6 +76,9 @@ const BARS = [8, 14, 22, 12, 26, 18, 30, 22, 38, 28, 44, 32, 26, 40, 20, 30, 16,
 export function Waveform({ active, height = 44 }: { active?: boolean; height?: number }) {
   const reduced = useReducedMotion();
   const pulse = useRef(new Animated.Value(1)).current;
+  // Only as many bars as fit, so the wave never runs under the buttons next to it.
+  const [width, setWidth] = useState(0);
+  const bars = width ? BARS.slice(0, Math.max(5, Math.min(BARS.length, Math.floor((width + 3) / 6.5)))) : [];
   useEffect(() => {
     if (!active || reduced) { pulse.setValue(1); return; }
     const loop = Animated.loop(Animated.sequence([
@@ -84,9 +87,9 @@ export function Waveform({ active, height = 44 }: { active?: boolean; height?: n
     ]));
     loop.start(); return () => loop.stop();
   }, [active, reduced, pulse]);
-  const mid = (BARS.length - 1) / 2;
-  return <View style={[s.wave, { height }]}>{BARS.map((h, i) => {
-    const center = Math.abs(i - mid) < 5;
+  const mid = (bars.length - 1) / 2;
+  return <View onLayout={e => setWidth(e.nativeEvent.layout.width)} style={[s.wave, { height, overflow: 'hidden' }]}>{bars.map((h, i) => {
+    const center = Math.abs(i - mid) < Math.max(2, bars.length / 4.5);
     return <Animated.View key={i} style={{ width: 3.5, borderRadius: 2, height: h * height / 46, backgroundColor: center ? d.orange : d.lavender, opacity: center ? 1 : .8, transform: [{ scaleY: active && i % 2 ? pulse : 1 }] }} />;
   })}</View>;
 }
@@ -127,11 +130,13 @@ export function Card({ children, style }: { children: ReactNode; style?: StylePr
 }
 
 export const ds = StyleSheet.create({
-  title: { color: d.ink, fontSize: 30, lineHeight: 36, fontWeight: '800', letterSpacing: -.5 },
-  subtitle: { color: d.lavender, fontSize: 17, lineHeight: 24, fontWeight: '600' },
+  title: { color: d.ink, fontSize: 26, lineHeight: 32, fontWeight: '800', letterSpacing: -.3 },
+  titleLarge: { color: d.ink, fontSize: 30, lineHeight: 36, fontWeight: '800', letterSpacing: -.5 },
+  instruction: { color: d.ink, fontSize: 17, lineHeight: 24, fontWeight: '700' },
+  subtitle: { color: d.lavenderText, fontSize: 17, lineHeight: 24, fontWeight: '600' },
   body: { color: d.ink, fontSize: 16, lineHeight: 23 },
   small: { color: d.inkSoft, fontSize: 13, lineHeight: 19 },
-  label: { color: d.lavender, fontSize: 14, lineHeight: 19, fontWeight: '700' },
+  label: { color: d.lavenderText, fontSize: 14, lineHeight: 19, fontWeight: '700' },
   strong: { color: d.ink, fontSize: 17, lineHeight: 24, fontWeight: '700' },
 });
 

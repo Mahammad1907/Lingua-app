@@ -10,7 +10,7 @@ import { Waveform } from './parts';
 import { d, shadow } from './theme';
 
 /**
- * Press and hold to talk; releasing sends the answer once.
+ * Press and hold to talk; releasing sends the answer once. A short tap starts, a second tap finishes.
  * With native speech recognition only a final transcript is delivered (never a partial).
  * Without it (e.g. Expo Go) a real recording is delivered as unverified — it is never graded.
  */
@@ -95,16 +95,36 @@ function RecorderHold({ onRecording, onBusyChange, disabled, suspended }: { onRe
 }
 
 function MicView({ active, level, disabled, status, message, onIn, onOut }: { active: boolean; level: number; disabled?: boolean; status: string; message?: string; onIn: () => void; onOut: () => void }) {
+  // Two ways to talk: hold and release (sends on release), or a short tap to start and another tap to finish.
+  const pressedAt = useRef(0), tapMode = useRef(false), ending = useRef(false), wasActive = useRef(false);
+  const [tapping, setTapping] = useState(false);
+  useEffect(() => {
+    // Recording ended on its own (silence, app in background, help opened): leave tap mode.
+    if (wasActive.current && !active) { tapMode.current = false; ending.current = false; setTapping(false); }
+    wasActive.current = active;
+  }, [active]);
+  const pressIn = () => {
+    pressedAt.current = Date.now();
+    if (tapMode.current) { ending.current = true; return; }
+    onIn();
+  };
+  const pressOut = () => {
+    if (ending.current) { ending.current = false; tapMode.current = false; setTapping(false); onOut(); return; }
+    if (Date.now() - pressedAt.current < 350) { tapMode.current = true; setTapping(true); return; }
+    onOut();
+  };
+  const sub = tapping ? 'Bitirəndə yenidən toxun.' : status || 'Buraxanda cavabın göndəriləcək.';
   return <View style={s.wrap}>
     <View style={[s.halo, active && s.haloActive]}>
-      <Pressable accessibilityRole="button" accessibilityLabel="Mikrofon. Basılı saxla və danış, buraxanda cavabın göndəriləcək." accessibilityState={{ disabled, busy: active }}
-        disabled={disabled} onPressIn={onIn} onPressOut={onOut} style={[s.mic, active && s.micActive, disabled && { opacity: .5 }]}>
-        <Icon name="mic" size={46} color="#fff" stroke={2.2} />
+      <Pressable accessibilityRole="button" accessibilityLabel="Mikrofon. Basılı saxla və danış, buraxanda cavabın göndəriləcək. Və ya bir dəfə toxun, danış, sonra yenidən toxun." accessibilityState={{ disabled, busy: active }}
+        disabled={disabled} onPressIn={pressIn} onPressOut={pressOut} style={[s.mic, active && s.micActive, disabled && { opacity: .5 }]}>
+        <Icon name={tapping && active ? 'stop' : 'mic'} size={46} color="#fff" stroke={2.2} />
       </Pressable>
     </View>
-    <Text style={s.title}>Basılı saxla və danış</Text>
-    <Text accessibilityLiveRegion="polite" style={s.sub}>{status || 'Buraxanda cavabın göndəriləcək.'}</Text>
-    <View style={{ height: 26, opacity: active ? 1 : .45 }}><Waveform active={active && level > .04 || active} height={24} /></View>
+    <Text style={s.title}>{tapping ? 'Danış' : 'Basılı saxla və danış'}</Text>
+    <Text accessibilityLiveRegion="polite" style={s.sub}>{sub}</Text>
+    {/* The wave appears only while the microphone is really open. */}
+    <View style={{ height: 26, width: 180 }}>{active ? <Waveform active={level > .04 || active} height={24} /> : null}</View>
     {message ? <Text accessibilityLiveRegion="polite" style={s.message}>{message}</Text> : null}
   </View>;
 }
@@ -116,7 +136,7 @@ const s = StyleSheet.create({
   mic: { width: 112, height: 112, borderRadius: 56, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', ...shadow, shadowOpacity: .3 },
   micActive: { backgroundColor: '#7B2FE0', transform: [{ scale: 1.04 }] },
   title: { color: d.ink, fontSize: 22, fontWeight: '800', marginTop: 4 },
-  sub: { color: d.lavender, fontSize: 15, fontWeight: '600', textAlign: 'center' },
+  sub: { color: d.lavenderText, fontSize: 15, fontWeight: '600', textAlign: 'center' },
   netBtn: { minHeight: 44, paddingHorizontal: 16, borderRadius: 999, borderWidth: 1, borderColor: d.purple, justifyContent: 'center' },
   netText: { color: d.purple, fontSize: 15, fontWeight: '600' },
   message: { color: d.inkSoft, fontSize: 14, lineHeight: 20, textAlign: 'center', paddingHorizontal: 12 },

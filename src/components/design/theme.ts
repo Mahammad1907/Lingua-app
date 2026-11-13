@@ -8,7 +8,8 @@ export const d = {
   borderStrong: '#B79CF0',
   ink: '#2A1240',
   inkSoft: '#4B3566',
-  lavender: '#8E63E8',
+  lavender: '#8E63E8',          // decorative only (waveform, borders)
+  lavenderText: '#6B45C8',      // readable text on the light background (≥5:1)
   purple: '#5B1FD1',
   purpleSoft: '#E6DAFB',
   purpleDisabled: '#CFC2E6',

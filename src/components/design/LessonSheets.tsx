@@ -16,12 +16,12 @@ export function ResultPanel({ tone, title, short, answers, corrections, assisted
   return <View style={[s.panel, shadow]}>
     <View style={s.handle} />
     <View style={s.topRow}>
+      {/* No close button: the panel stays until “Davam et” (collapse is only used internally for a voice retry). */}
       <Capsule small tone="outline" icon="flag" label="Xəta bildir" onPress={onReport} />
-      <Pressable accessibilityRole="button" accessibilityLabel="Paneli gizlət" onPress={onCollapse} hitSlop={8} style={s.close}><Icon name="close" size={16} color={d.ink} /></Pressable>
     </View>
     <View accessibilityLiveRegion="polite" style={s.titleRow}>
       {tone === 'correct' ? <View style={[s.badge, { borderColor: d.green, backgroundColor: d.greenSoft }]}><Icon name="check" size={20} color={d.green} stroke={2.6} /></View>
-        : tone === 'wrong' ? <Icon name="alert" size={32} color={d.red} /> : <Icon name="alert" size={30} color={d.lavender} />}
+        : tone === 'wrong' ? <Icon name="alert" size={32} color={d.red} /> : <Icon name="alert" size={30} color={d.lavenderText} />}
       <Text style={s.title}>{title}</Text>
     </View>
     {short ? <Text style={s.short}>{short}</Text> : null}
@@ -95,7 +95,7 @@ const s = StyleSheet.create({
   titleRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   badge: { width: 36, height: 36, borderRadius: 18, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
   title: { color: d.ink, fontSize: 24, fontWeight: '800', flexShrink: 1 },
-  short: { color: d.lavender, fontSize: 16, lineHeight: 22, fontWeight: '600' },
+  short: { color: d.lavenderText, fontSize: 16, lineHeight: 22, fontWeight: '600' },
   answerBox: { borderRadius: radius.field, backgroundColor: d.purpleSoft, paddingVertical: 10, paddingHorizontal: 14 },
   answerText: { color: d.ink, fontSize: 16, lineHeight: 22 },
   actions: { flexDirection: 'row', justifyContent: 'flex-end', gap: 8, flexWrap: 'wrap' },

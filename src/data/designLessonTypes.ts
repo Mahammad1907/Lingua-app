@@ -19,6 +19,10 @@ interface BaseTask {
   /** A hint that points to the meaning makes a correct answer “Köməklə”. Format/approach hints do not. */
   hintAssists?: boolean;
   variants: Variant[];
+  /** The mascot speaks or is talked about in this task: its avatar is shown so learners know who “dostun” is. */
+  speaker?: 'mascot';
+  /** Planned scene image(s) — see docs/SEKIL_SIYAHISI.md. Registered in src/config/sceneImages.ts; nothing is shown until the file exists. */
+  scenes?: string[];
 }
 export interface ChoiceTask extends BaseTask { type: 'choice'; audio?: string; options: string[]; answer: string }
 export interface WriteTask extends BaseTask { type: 'write'; audio?: string; placeholder: string; rule: PacketRule }
