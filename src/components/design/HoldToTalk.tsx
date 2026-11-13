@@ -120,7 +120,7 @@ function MicView({ active, level, disabled, status, message, onIn, onOut }: { ac
     <View style={[s.halo, active && s.haloActive]}>
       <Pressable accessibilityRole="button" accessibilityLabel="Mikrofon. Basılı saxla və danış, buraxanda cavabın göndəriləcək. Və ya bir dəfə toxun, danış, sonra yenidən toxun." accessibilityState={{ disabled, busy: active }}
         disabled={disabled} onPressIn={pressIn} onPressOut={pressOut} style={[s.mic, active && s.micActive, disabled && { opacity: .5 }]}>
-        <Icon name={tapping && active ? 'stop' : 'mic'} size={46} color="#fff" stroke={2.2} />
+        <Icon name={tapping && active ? 'stop' : 'mic'} size={38} color="#fff" stroke={2.2} />
       </Pressable>
     </View>
     <Text style={s.title}>{tapping ? 'Danış' : 'Basılı saxla və danış'}</Text>
@@ -133,11 +133,11 @@ function MicView({ active, level, disabled, status, message, onIn, onOut }: { ac
 
 const s = StyleSheet.create({
   wrap: { alignItems: 'center', gap: 4 },
-  halo: { width: 150, height: 150, borderRadius: 75, backgroundColor: 'rgba(142,99,232,.12)', alignItems: 'center', justifyContent: 'center' },
+  halo: { width: 124, height: 124, borderRadius: 62, backgroundColor: 'rgba(142,99,232,.12)', alignItems: 'center', justifyContent: 'center' },
   haloActive: { backgroundColor: 'rgba(242,122,18,.18)' },
-  mic: { width: 112, height: 112, borderRadius: 56, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', ...shadow, shadowOpacity: .3 },
+  mic: { width: 92, height: 92, borderRadius: 46, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', ...shadow, shadowOpacity: .3 },
   micActive: { backgroundColor: '#7B2FE0', transform: [{ scale: 1.04 }] },
-  title: { color: d.ink, fontSize: 22, ...font.extrabold, marginTop: 4 },
+  title: { color: d.ink, fontSize: 19, ...font.extrabold, marginTop: 4 },
   sub: { color: d.lavenderText, fontSize: 15, ...font.semibold, textAlign: 'center' },
   netBtn: { minHeight: 44, paddingHorizontal: 16, borderRadius: 999, borderWidth: 1, borderColor: d.purple, justifyContent: 'center' },
   netText: { color: d.purple, fontSize: 15, ...font.semibold },

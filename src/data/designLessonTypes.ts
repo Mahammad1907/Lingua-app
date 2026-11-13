@@ -57,7 +57,7 @@ export interface VoiceTask extends BaseTask {
   /** The counterpart's reply after a correct answer. Not listening evidence. */
   reply?: string;
   /** “Dinlə və təkrarla”: the phrase is shown; `audio` is the model to imitate. Pronunciation practice, not listening evidence. */
-  repeat?: { stress?: string; note?: string };
+  repeat?: { stress?: string; note?: string; reading?: string };
 }
 /** “Kim nə dedi?”: put the meaning next to each sentence. */
 export interface MatchTask extends BaseTask {
@@ -76,6 +76,8 @@ export interface WordCard {
   type: 'word'; id: string; number: number;
   word: string; pronunciation: string; az: string; example: string; exampleAz: string;
   notes?: string[]; scenes?: string[];
+  /** Reading in Azerbaijani letters; **th** marks a sound Azerbaijani has no letter for. */
+  reading?: string;
 }
 export interface ResultGoal { group: string; text: string; tasks: string[] }
 

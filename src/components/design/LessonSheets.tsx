@@ -15,10 +15,6 @@ export function ResultPanel({ tone, title, short, answers, corrections, assisted
   if (collapsed) return <View style={{ gap: 10 }}>{button}</View>;
   return <View style={[s.panel, shadow]}>
     <View style={s.handle} />
-    <View style={s.topRow}>
-      {/* No close button: the panel stays until “Davam et” (collapse is only used internally for a voice retry). */}
-      <Capsule small tone="outline" icon="flag" label="Xəta bildir" onPress={onReport} />
-    </View>
     <View accessibilityLiveRegion="polite" style={s.titleRow}>
       {tone === 'correct' ? <View style={[s.badge, { borderColor: d.green, backgroundColor: d.greenSoft }]}><Icon name="check" size={20} color={d.green} stroke={2.6} /></View>
         : tone === 'wrong' ? <Icon name="alert" size={32} color={d.red} /> : <Icon name="alert" size={30} color={d.lavenderText} />}
@@ -28,7 +24,11 @@ export function ResultPanel({ tone, title, short, answers, corrections, assisted
     {assisted ? <Text style={ds.small}>Köməklə qeyd olundu.</Text> : null}
     {corrections?.length ? <Text style={ds.small}>Cavab qəbul olundu. Kiçik yazı düzəlişi: {corrections.map(c => `${c.before} → ${c.after}`).join(', ')}</Text> : null}
     {answers ? <View style={s.answerBox}><Text style={s.answerText}><Text style={{ ...font.extrabold }}>Uyğun cavab: </Text>{answers}</Text></View> : null}
-    {onExplain || actions ? <View style={s.actions}>{actions}{onExplain ? <Capsule small icon="bulb" label="Mənə başa sal" onPress={onExplain} /> : null}</View> : null}
+    <View style={s.actions}>
+      <Pressable accessibilityRole="button" accessibilityLabel="Xəta bildir" onPress={onReport} hitSlop={6} style={s.flag}><Icon name="flag" size={18} color={d.lavenderText} /></Pressable>
+      <View style={{ flex: 1 }} />
+      {actions}{onExplain ? <Capsule small icon="bulb" label="Mənə başa sal" onPress={onExplain} /> : null}
+    </View>
     {button}
   </View>;
 }
@@ -39,7 +39,7 @@ export function ExplainSheet({ visible, explain, onClose, onReport }: { visible:
     <Text style={ds.label}>{label}</Text>
     <View style={[s.exBox, mine && s.exMine]}><Text style={ds.strong}>{text}</Text></View>
   </View>;
-  return <Sheet visible={visible} onClose={onClose} dismissible={false} title="Mənə başa sal" icon="bulb" tall right={<Capsule small tone="outline" icon="flag" label="Xəta bildir" onPress={onReport} />}>
+  return <Sheet visible={visible} onClose={onClose} dismissible={false} title="Mənə başa sal" icon="bulb" tall right={<Pressable accessibilityRole="button" accessibilityLabel="Xəta bildir" onPress={onReport} hitSlop={6} style={s.flag}><Icon name="flag" size={18} color={d.lavenderText} /></Pressable>}>
     {row('Sənin cavabın', explain.yourAnswer, true)}
     {row('Uyğun cavablar', explain.answers)}
     {row('Səbəb', explain.reason)}
@@ -88,6 +88,7 @@ export function MenuPopover({ visible, onClose, items, top }: { visible: boolean
 }
 
 const s = StyleSheet.create({
+  flag: { width: 40, height: 40, borderRadius: 20, borderWidth: 1, borderColor: d.border, alignItems: 'center', justifyContent: 'center' },
   panel: { backgroundColor: '#F4EEFD', borderRadius: 26, borderWidth: 1, borderColor: d.border, padding: 18, paddingTop: 8, gap: 10 },
   handle: { alignSelf: 'center', width: 44, height: 5, borderRadius: 3, backgroundColor: '#C5ADF2' },
   topRow: { flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', gap: 8 },

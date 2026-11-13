@@ -111,7 +111,7 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'voice', id: 'd2_c09', number: 9, speaker: 'mascot', title: 'Nümunəsiz de', why: 'Özünü nümunəsiz təqdim etdin.',
-      prompt: 'İndi nümunə yoxdur.\nSalam ver və adını de.', rule: greetIntro, reply: 'Hello!',
+      prompt: 'İndi növbə səndədir!\nSalam ver və adını de.', rule: greetIntro, reply: 'Hello!',
       variants: [other('Salam və adın ikisi də lazımdır.', ex("Hello! I'm …", 'Tanışlıqda əvvəl salam, sonra ad gəlir.', 'Salam + I’m / My name is + adın.', 'Hi! My name is …'))],
       review: {
         speaker: 'mascot', title: 'Nümunəsiz de', why: 'Özünü nümunəsiz təqdim etdin.', prompt: 'Yeni qrupla tanış olursan.\nSalam ver və adını de.', rule: greetIntro, reply: 'Hi!',

@@ -4,8 +4,8 @@
 import { Image } from 'expo-image';
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { characterAz } from '../../config/characters';
-import { sceneImage } from '../../config/sceneImages';
+import { characterAz, hasCharacterName } from '../../config/characters';
+import { missingScenes, sceneImage } from '../../config/sceneImages';
 import type { ChatLine, MatchTask, WordCard, Who } from '../../data/designLessonTypes';
 import Icon from './Icons';
 import { ds } from './parts';
@@ -16,13 +16,46 @@ const mascotHead = require('../../../assets/mascot/hood_head.png');
 type Mark = 'correct' | 'wrong' | undefined;
 const markColor = (m: Mark, fallback: string) => m === 'correct' ? d.green : m === 'wrong' ? d.red : fallback;
 
-/** Small round avatar: the mascot picture, or the girl's purple / boy's orange colour until their pictures exist. */
+/** Round avatar: the mascot picture, or the girl's purple / boy's orange circle with an initial until their pictures exist. */
 export function Avatar({ who, size = 34 }: { who: Who; size?: number }) {
   if (who === 'M') return <Image source={mascotHead} style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: d.purpleSoft }} contentFit="contain"
     accessibilityLabel={characterAz('mascot') || 'Dostun'} />;
-  const look = who === 'G' ? { backgroundColor: '#E9D9FF', borderColor: d.purple } : who === 'B' ? { backgroundColor: '#FFD9B8', borderColor: d.orange } : { backgroundColor: d.purpleSoft, borderColor: d.borderStrong };
-  return <View accessibilityLabel={who === 'G' ? characterAz('girl') || 'Qız' : who === 'B' ? characterAz('boy') || 'Oğlan' : undefined}
-    style={[{ width: size, height: size, borderRadius: size / 2, borderWidth: 2 }, look]} />;
+  const role = who === 'G' ? 'girl' as const : who === 'B' ? 'boy' as const : undefined;
+  const name = role ? characterAz(role) || (role === 'girl' ? 'Qız' : 'Oğlan') : '';
+  const initial = role && hasCharacterName(role) ? name.charAt(0) : role === 'girl' ? 'Q' : role === 'boy' ? 'O' : '•';
+  const look = who === 'G' ? { backgroundColor: '#E9D9FF', borderColor: d.purple, color: d.purple } : who === 'B' ? { backgroundColor: '#FFE1C4', borderColor: d.orange, color: '#B4530A' } : { backgroundColor: d.purpleSoft, borderColor: d.borderStrong, color: d.lavenderText };
+  return <View accessibilityLabel={name || undefined}
+    style={{ width: size, height: size, borderRadius: size / 2, borderWidth: 2, alignItems: 'center', justifyContent: 'center', backgroundColor: look.backgroundColor, borderColor: look.borderColor }}>
+    <Text style={{ color: look.color, fontSize: size * .42, ...font.extrabold }}>{initial}</Text>
+  </View>;
+}
+
+/** Temporary dashed frame where a picture will go (docs/SEKIL_SIYAHISI.md). */
+export function ImageSlot({ scenes, height = 150 }: { scenes?: string[]; height?: number }) {
+  const notes = missingScenes(scenes);
+  if (!notes.length) return null;
+  return <View style={[s.imageSlot, { minHeight: height }]} accessibilityLabel="Burada şəkil olacaq">
+    <Icon name="layers" size={22} color={d.lavender} />
+    {notes.map(n => <Text key={n} style={s.slotNote}>Şəkil {n}</Text>)}
+  </View>;
+}
+
+/** What the other person says: big avatar and a white speech bubble; the sound buttons sit inside the bubble. */
+export function SayBubble({ who, text, onPlay, onSlow, playing }: { who: Who; text: string; onPlay?: () => void; onSlow?: () => void; playing?: boolean }) {
+  return <View style={s.sayRow}>
+    <Avatar who={who} size={56} />
+    <View style={[s.sayBubble, shadow]}>
+      <Text style={s.sayText}>{text}</Text>
+      {onPlay ? <View style={s.sayAudio}>
+        <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Dinlə'} onPress={onPlay} style={({ pressed }) => [s.sayPlay, pressed && { opacity: .85 }]}>
+          <Icon name="play" size={16} color="#fff" /><Text style={s.sayPlayText}>Dinlə</Text>
+        </Pressable>
+        {onSlow ? <Pressable accessibilityRole="button" accessibilityLabel="Yavaş dinlə" onPress={onSlow} style={({ pressed }) => [s.saySlow, pressed && { opacity: .85 }]}>
+          <Icon name="turtle" size={18} color={d.purple} /><Text style={s.saySlowText}>Yavaş</Text>
+        </Pressable> : null}
+      </View> : null}
+    </View>
+  </View>;
 }
 
 function Bubble({ line }: { line: ChatLine }) {
@@ -33,41 +66,48 @@ function Bubble({ line }: { line: ChatLine }) {
 }
 
 /** Chat thread for “Dialoqu tamamla” and “Mesaj yaz”. The learner's bubble is the last one. */
-export function ChatThread({ partner, from, lines, mine, placeholder, mark, children }: {
-  partner: string; from: Who; lines: ChatLine[]; mine: string; placeholder: string; mark?: Mark; children?: ReactNode;
+export function ChatThread({ partner, lines, mine, placeholder, mark, chips, onSay, children }: {
+  partner: string; from: Who; lines: ChatLine[]; mine: string; placeholder: string; mark?: Mark; chips?: ReactNode; onSay?: (t: string) => void; children?: ReactNode;
 }) {
   return <View style={s.thread}>
-    <View style={s.threadHead}>
-      <Avatar who={from} size={30} />
-      <Text style={s.threadName}>{partner}</Text>
-    </View>
+    <View style={s.threadHead}><Text style={s.threadName}>{partner}</Text></View>
     <View style={s.threadBody}>
-      {lines.map((l, i) => <Bubble key={i} line={l} />)}
+      {lines.map((l, i) => <Pressable key={i} disabled={!onSay} onPress={() => onSay?.(l.text)} accessibilityHint={onSay ? 'Dinləmək üçün toxun' : undefined}><Bubble line={l} /></Pressable>)}
       <View accessibilityLabel={mine ? `Sənin cavabın: ${mine}` : placeholder}
-        style={[s.outBubble, !mine && s.outEmpty, mark && { backgroundColor: markColor(mark, d.purple), borderColor: markColor(mark, d.purple) }]}>
-        <Text style={[s.bubbleText, mine ? { color: '#fff' } : { color: d.lavenderText }]}>{mine || placeholder}</Text>
+        style={[s.outBubble, !mine && !chips && s.outEmpty, mark && { backgroundColor: markColor(mark, d.purple), borderColor: markColor(mark, d.purple) }, chips ? s.outChips : null]}>
+        {chips ?? <Text style={[s.bubbleText, mine ? { color: '#fff' } : { color: d.lavenderText }]}>{mine || placeholder}</Text>}
       </View>
     </View>
     {children}
   </View>;
 }
 
-/** Word tiles under the chat. A tapped tile moves into the reply and leaves a dashed place; tapping the place takes the word back. */
-export function TileTray({ tiles, picked, onPick, disabled }: { tiles: string[]; picked: number[]; onPick: (i: number) => void; disabled?: boolean }) {
+/** The reply being built: each picked word is a chip inside the learner's bubble; tapping it sends it back to its place. */
+export function PickedChips({ tiles, picked, onRemove, disabled, placeholder }: { tiles: string[]; picked: number[]; onRemove: (i: number) => void; disabled?: boolean; placeholder: string }) {
+  if (!picked.length) return <Text style={[s.bubbleText, { color: d.lavenderText }]}>{placeholder}</Text>;
+  return <View style={s.chipsRow}>
+    {picked.map(i => <Pressable key={i} accessibilityRole="button" accessibilityLabel={`${tiles[i]}, geri qaytar`} disabled={disabled} onPress={() => onRemove(i)} hitSlop={4} style={s.chip}>
+      <Text style={s.chipText}>{tiles[i]}</Text>
+    </Pressable>)}
+  </View>;
+}
+
+/** Word tiles under the chat. Each word keeps its own place: a used word stays there faded; tapping a word says it and adds it. */
+export function TileTray({ tiles, picked, onPick, onSay, disabled }: { tiles: string[]; picked: number[]; onPick: (i: number) => void; onSay?: (t: string) => void; disabled?: boolean }) {
   return <View style={s.tray}>
     {tiles.map((t, i) => {
       const used = picked.includes(i);
-      return <Pressable key={i} accessibilityRole="button" accessibilityLabel={used ? `${t}, cavabdan çıxar` : t} accessibilityState={{ disabled }}
-        disabled={disabled} onPress={() => onPick(i)} style={({ pressed }) => [used ? s.tileUsed : s.tile, pressed && { transform: [{ scale: .96 }] }]}>
-        <Text style={[s.tileText, used && { opacity: 0 }]}>{t}</Text>
+      return <Pressable key={i} accessibilityRole="button" accessibilityLabel={used ? `${t}, artıq cavabdadır` : t} accessibilityState={{ disabled: disabled || used }}
+        disabled={disabled || used} onPress={() => { onSay?.(t); onPick(i); }} style={({ pressed }) => [s.tile, used && s.tileUsed, pressed && { transform: [{ scale: .96 }] }]}>
+        <Text style={[s.tileText, used && { color: d.purpleDisabledText }]}>{t}</Text>
       </Pressable>;
     })}
   </View>;
 }
 
 /** “Sözü tamamla”: one sentence in a bubble with a gap, options as a row of pills. */
-export function GapSentence({ speaker, before, after, options, value, onPick, mark, disabled }: {
-  speaker?: Who; before: string; after: string; options: string[]; value: string; onPick: (o: string) => void; mark?: Mark; disabled?: boolean;
+export function GapSentence({ speaker, before, after, options, value, onPick, onSay, mark, disabled }: {
+  speaker?: Who; before: string; after: string; options: string[]; value: string; onPick: (o: string) => void; onSay?: (t: string) => void; mark?: Mark; disabled?: boolean;
 }) {
   return <View style={s.inRow}>
     {speaker ? <Avatar who={speaker} size={40} /> : null}
@@ -79,7 +119,7 @@ export function GapSentence({ speaker, before, after, options, value, onPick, ma
       <View style={s.pills}>
         {options.map(o => {
           const on = value === o;
-          return <Pressable key={o} accessibilityRole="radio" accessibilityState={{ selected: on, disabled }} disabled={disabled} onPress={() => onPick(o)}
+          return <Pressable key={o} accessibilityRole="radio" accessibilityState={{ selected: on, disabled }} disabled={disabled} onPress={() => { onSay?.(o); onPick(o); }}
             style={[s.pill, on && s.pillOn, on && mark && { borderColor: markColor(mark, d.purple) }]}>
             <Text style={s.pillText}>{o}</Text>
           </Pressable>;
@@ -90,8 +130,8 @@ export function GapSentence({ speaker, before, after, options, value, onPick, ma
 }
 
 /** “Kim nə dedi?”: sentence bubbles with a meaning slot; meanings below. Tap a slot, then a meaning (or just a meaning: it fills the first empty slot). */
-export function MatchBoard({ task, pairs, active, onActive, onPlace, marks, disabled }: {
-  task: MatchTask; pairs: Record<string, string>; active: string; onActive: (en: string) => void; onPlace: (az: string) => void;
+export function MatchBoard({ task, pairs, active, onActive, onPlace, onSay, marks, disabled }: {
+  task: MatchTask; pairs: Record<string, string>; active: string; onActive: (en: string) => void; onPlace: (az: string) => void; onSay?: (t: string) => void;
   marks?: Record<string, 'correct' | 'wrong'>; disabled?: boolean;
 }) {
   const used = new Set(Object.values(pairs));
@@ -102,7 +142,7 @@ export function MatchBoard({ task, pairs, active, onActive, onPlace, marks, disa
         const value = pairs[r.en], mark = marks?.[r.en], on = active === r.en && !disabled;
         return <View key={r.en} style={s.matchRow}>
           {r.from ? <Avatar who={r.from} size={30} /> : null}
-          <View style={s.matchBubble}><Text style={s.matchEn}>{r.en}</Text></View>
+          <Pressable accessibilityRole="button" accessibilityHint="Dinləmək üçün toxun" onPress={() => onSay?.(r.en)} style={s.matchBubble}><Text style={s.matchEn}>{r.en}</Text></Pressable>
           <Pressable accessibilityRole="button" accessibilityLabel={value ? `${r.en}: ${value}. Dəyişmək üçün toxun` : `${r.en}: mənası boşdur`} disabled={disabled}
             onPress={() => onActive(r.en)} style={[s.slot, value ? s.slotFilled : s.slotEmpty, on && s.slotActive,
               mark === 'correct' && { backgroundColor: d.greenSoft, borderColor: d.green }, mark === 'wrong' && { backgroundColor: d.redSoft, borderColor: d.red }]}>
@@ -141,28 +181,42 @@ export function SceneSpots({ scenes, spots, value, onPick, mark, disabled }: {
 }
 
 /** “Dinlə və təkrarla”: the phrase, with the stressed word in orange. */
-export function PhraseCard({ text, stress, note }: { text: string; stress?: string; note?: string }) {
+export function PhraseCard({ text, stress, note, reading }: { text: string; stress?: string; note?: string; reading?: string }) {
   const parts = stress ? text.split(new RegExp(`(\\b${stress.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b)`)) : [text];
   return <View style={s.phrase}>
     <Text style={s.phraseText}>{parts.map((p, i) => p === stress ? <Text key={i} style={{ color: d.orange }}>{p}</Text> : p)}</Text>
+    {reading ? <Reading text={reading} /> : null}
     {note ? <Text style={s.phraseNote}>{note}</Text> : null}
   </View>;
 }
 
-/** “Yeni söz”: picture (when ready), the word with sound, pronunciation, meaning and one example. */
-export function WordView({ card, onPlay }: { card: WordCard; onPlay: (t: string) => void }) {
+/** Azerbaijani-letter reading; **th** parts are bold (no Azerbaijani letter for that sound). */
+export function Reading({ text }: { text: string }) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/);
+  return <Text style={s.reading} accessibilityLabel={`Oxunuşu: ${text.replace(/\*/g, '')}`}>
+    {parts.map((p, i) => p.startsWith('**') ? <Text key={i} style={{ ...font.extrabold, color: d.orange }}>{p.slice(2, -2)}</Text> : p)}
+  </Text>;
+}
+
+/** “Yeni söz”: picture (or its temporary frame), the word with sound and slow sound, both readings, meaning, notes and one example. */
+export function WordView({ card, onPlay }: { card: WordCard; onPlay: (t: string, rate?: number) => void }) {
   const image = sceneImage(card.scenes);
-  return <View style={{ gap: 16 }}>
+  const spoken = card.word.replace(/\s*·\s*/g, '. ');
+  return <View style={{ gap: 14 }}>
     <View style={s.newChip}><Text style={s.newChipText}>Yeni söz</Text></View>
     <View style={[s.wordCard, shadow]}>
-      {image ? <Image source={image} style={s.wordImage} contentFit="cover" accessibilityIgnoresInvertColors /> : null}
-      <View style={s.wordRow}>
-        <Text accessibilityRole="header" style={s.word}>{card.word}</Text>
-        <Pressable accessibilityRole="button" accessibilityLabel="Dinlə" onPress={() => onPlay(card.word.replace(/\s*\/\s*/g, '. '))} hitSlop={6} style={s.listen}>
-          <Icon name="speaker" size={22} color={d.purple} />
+      {image ? <Image source={image} style={s.wordImage} contentFit="cover" accessibilityIgnoresInvertColors /> : <ImageSlot scenes={card.scenes} height={120} />}
+      <Text accessibilityRole="header" style={s.word}>{card.word}</Text>
+      <Text style={s.ipa}>{card.pronunciation}</Text>
+      {card.reading ? <Reading text={card.reading} /> : null}
+      <View style={s.sayAudio}>
+        <Pressable accessibilityRole="button" accessibilityLabel="Dinlə" onPress={() => onPlay(spoken)} style={({ pressed }) => [s.sayPlay, pressed && { opacity: .85 }]}>
+          <Icon name="play" size={16} color="#fff" /><Text style={s.sayPlayText}>Dinlə</Text>
+        </Pressable>
+        <Pressable accessibilityRole="button" accessibilityLabel="Yavaş dinlə" onPress={() => onPlay(spoken, .45)} style={({ pressed }) => [s.saySlow, pressed && { opacity: .85 }]}>
+          <Icon name="turtle" size={18} color={d.purple} /><Text style={s.saySlowText}>Yavaş dinlə</Text>
         </Pressable>
       </View>
-      <Text style={s.ipa}>{card.pronunciation}</Text>
       <Text style={s.az}>{card.az}</Text>
       {card.notes?.map(n => <Text key={n} style={[ds.body, { textAlign: 'center' }]}>{n}</Text>)}
     </View>
@@ -171,11 +225,25 @@ export function WordView({ card, onPlay }: { card: WordCard; onPlay: (t: string)
       <Text style={s.exampleEn}>{card.example}</Text>
       <Text style={s.exampleAz}>{card.exampleAz}</Text>
     </Pressable>
-    <View style={s.saved}><Icon name="doc" size={18} color={d.purple} /><Text style={s.savedText}>“Lüğətim”ə əlavə olundu</Text></View>
   </View>;
 }
 
 const s = StyleSheet.create({
+  imageSlot: { alignItems: 'center', justifyContent: 'center', gap: 6, padding: 14, borderRadius: 18, borderWidth: 1.5, borderStyle: 'dashed', borderColor: d.borderStrong, backgroundColor: 'rgba(230,218,251,.45)' },
+  slotNote: { color: d.lavenderText, fontSize: 13, textAlign: 'center', ...font.bold },
+  sayRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
+  sayBubble: { flex: 1, gap: 10, paddingHorizontal: 16, paddingVertical: 14, borderRadius: 22, borderTopLeftRadius: 6, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
+  sayText: { color: d.ink, fontSize: 20, lineHeight: 27, ...font.extrabold },
+  sayAudio: { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
+  sayPlay: { flexDirection: 'row', alignItems: 'center', gap: 6, height: 40, paddingHorizontal: 14, borderRadius: 20, backgroundColor: d.purple },
+  sayPlayText: { color: '#fff', fontSize: 15, ...font.extrabold },
+  saySlow: { flexDirection: 'row', alignItems: 'center', gap: 6, height: 40, paddingHorizontal: 14, borderRadius: 20, backgroundColor: d.purpleSoft },
+  saySlowText: { color: d.purple, fontSize: 15, ...font.extrabold },
+  outChips: { backgroundColor: d.purpleSoft, borderColor: d.borderStrong, paddingHorizontal: 8, paddingVertical: 8 },
+  chipsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'flex-end' },
+  chip: { minHeight: 40, paddingHorizontal: 14, borderRadius: 14, backgroundColor: d.purple, justifyContent: 'center' },
+  chipText: { color: '#fff', fontSize: 17, ...font.extrabold },
+  reading: { color: d.lavenderText, fontSize: 17, textAlign: 'center', ...font.bold },
   inRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 8 },
   inBubble: { maxWidth: '78%', paddingHorizontal: 16, paddingVertical: 11, borderRadius: 20, borderBottomLeftRadius: 6, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
   bubbleText: { color: d.ink, fontSize: 17, lineHeight: 23, ...font.bold },
@@ -187,7 +255,7 @@ const s = StyleSheet.create({
   outEmpty: { backgroundColor: 'transparent', borderStyle: 'dashed', borderColor: d.lavender },
   tray: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, padding: 12, backgroundColor: '#fff', borderTopWidth: 1, borderTopColor: d.purpleSoft },
   tile: { minHeight: 44, minWidth: 44, paddingHorizontal: 16, borderRadius: 22, borderWidth: 1, borderColor: '#C5ADF2', backgroundColor: '#F4EEFD', alignItems: 'center', justifyContent: 'center' },
-  tileUsed: { minHeight: 44, minWidth: 44, paddingHorizontal: 16, borderRadius: 22, borderWidth: 1.5, borderStyle: 'dashed', borderColor: '#C5ADF2' },
+  tileUsed: { backgroundColor: '#F7F3FC', borderStyle: 'dashed', borderColor: '#DCD0F0' },
   tileText: { color: d.ink, fontSize: 17, ...font.bold },
   gapBubble: { paddingHorizontal: 20, paddingVertical: 18, borderRadius: 24, borderBottomLeftRadius: 6, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
   gapText: { color: d.ink, fontSize: 26, lineHeight: 38, ...font.extrabold },
@@ -217,15 +285,11 @@ const s = StyleSheet.create({
   newChipText: { color: '#B4530A', fontSize: 14, ...font.extrabold },
   wordCard: { alignItems: 'center', gap: 10, paddingHorizontal: 16, paddingTop: 18, paddingBottom: 20, borderRadius: 26, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
   wordImage: { width: '100%', height: 170, borderRadius: 18, backgroundColor: d.purpleSoft },
-  wordRow: { flexDirection: 'row', alignItems: 'center', gap: 12, flexWrap: 'wrap', justifyContent: 'center' },
   word: { color: d.purple, fontSize: 36, lineHeight: 44, textAlign: 'center', ...font.extrabold },
-  listen: { width: 44, height: 44, borderRadius: 22, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   ipa: { color: d.inkSoft, fontSize: 15, marginTop: -6, ...font.semibold },
   az: { color: d.ink, fontSize: 22, textAlign: 'center', ...font.extrabold },
   example: { gap: 6, paddingHorizontal: 16, paddingVertical: 14, borderRadius: 18, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
   exampleLabel: { color: d.lavenderText, fontSize: 13, letterSpacing: .5, ...font.extrabold },
   exampleEn: { color: d.ink, fontSize: 18, ...font.extrabold },
   exampleAz: { color: d.inkSoft, fontSize: 15, ...font.semibold },
-  saved: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  savedText: { color: d.inkSoft, fontSize: 14, ...font.bold },
 });

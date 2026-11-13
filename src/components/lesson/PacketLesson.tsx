@@ -223,7 +223,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     if (busy) return;
     sequence.current += 1; clearWatchdog(); void Speech.stop(); Keyboard.dismiss();
     if (attempt && !done) useUserStore.getState().abandonLesson(attempt);
-    setExitOpen(false); router.replace({ pathname: '/module/[id]', params: { id: 'module_1' } });
+    setExitOpen(false); router.replace('/(tabs)');
   };
   const exit = () => {
     if (busy || capturing) return;
