@@ -286,3 +286,16 @@ Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edi
 46. Ana səhifə konsepti (istifadəçinin ideyası, 13 noyabr 2026): hər bölmə bir **adadır**. Ada açıq rəngdə başlayır, dərslər keçdikcə **su kimi aşağıdan yuxarı dolur** (istifadəçi su variantını seçdi), bölmə bitəndə tünd rəngə keçir və parıldayır. Tam tündləşmə yalnız bölmə məqsədləri müstəqil yerinə yetiriləndə olur. Yol aşağıdan (sahil) yuxarıya (zirvədəki bayraq = bölmə söhbəti) qalxır; keçilmiş yol düz, qarşıdakı nöqtəli; maskot aktiv dərsin yanında durur; hər dərsin adı görünür; kilidli dərsdə qıfıl. Növbəti bölmə körpü ilə bağlı, dumanlı/kilidli ada kimi görünür. Ada kodla çəkilir (şəkil deyil). "Analiz" və "AI söhbət" yerində qalır (AI söhbət planlaşdırılır, hələlik toxunulmur). Maket: kətanın "Ana səhifə — ada konsepti" bölməsi.
 47. Ada konseptinə istifadəçi düzəlişləri (13 noyabr 2026): yol **yuxarıdan aşağı** gedir (Dərs 1 yuxarıda, bölmə söhbəti aşağıda); su da yuxarıdan aşağı axır (zirvədəki bulaq kimi); adanın forması istifadəçinin öz dizaynındakı dalğalı, buludabənzər formadır; dərslər arasındakı əlaqə xətti **qalındır və faiz kimi dolur** — başda solğun, irəlilədikcə tündləşir, aktiv dərsdən sonrakı hissə qismən dolu; **ikonlar hələ hazır deyil** — hələlik düyünlərdə dərs nömrələri, ikonlar dərslər yekunlaşanda qoyulur.
 48. Dərslərin yeni ekranlara uyğunlaşdırılması (13 noyabr 2026): Dərs 2–8 birbaşa yeni ekran növlərinə görə yazılır (hər kartda ekran növü qeyd olunur; yeni sözlər "Yeni söz" ekranı ilə lazım olan anda). Dərs 1 üçün təklif (istifadəçiyə hər dəyişiklik əvvəlcə göstərilir): kart 2 və 6 → "Yeni söz" ekranları; kart 4 → "Mesaj yaz"; kart 7A → "Səhnədə tap". Məzmun, məqsəd və izahlar eyni qalır; yalnız ekran formasına görə qısa mətn uyğunlaşdırması. Səbəb: müxtəliflik qaydası (ən azı 5 tapşırıq növü) — Dərs 1-də hazırda 4 növ var.
+
+
+## Bölmə 1 yeni ekranlarda — 13 noyabr 2026
+
+İstifadəçi “qərar verdiklərimizin hamısını tətbiq et” dedi. Edilənlər:
+- 7 yeni ekran növü + “Yeni söz” kodlandı (`src/components/design/TaskScreens.tsx`): Mesaj yaz (söz düymələri), Dialoqu tamamla (yazışma), Sözü tamamla (boşluq), Kim nə dedi? (uyğunlaşdır), Səhnədə tap (şəkil gələnə qədər siyahı), Dinlə və təkrarla.
+- Dərs 1: kart 2 və 6 “Yeni söz”, kart 4 yazışma görünüşü, düzgün cavabdan sonra qısa səbəb, 7A-ya şəkil yeri (`docs/TEKLIF_DERS1_MEZMUN.md` — tətbiq olundu).
+- Ana səhifə ada kimi kodla çəkildi (`src/components/home/IslandHome.tsx`); köhnə şəkil-ana səhifə və şəkil-menyu çıxarıldı.
+- Azərbaycanlı öyrənən səhvləri: `docs/AZ_OYRENEN_SEHVLERI.md`.
+- Dərs 2–8 xəritəyə görə yenidən yazıldı (`src/data/unit1/lesson2–8.ts`), hamısı yeni ekranlarda işləyir. Oxunaqlı mətn: `docs/dersler/Ders_N.md` (dərs faylından yaradılır). Dərs 8 — bölmə söhbəti — yeni əlavə olundu; bölmədə indi 8 dərs var.
+- Personaj adları boş olduğu üçün ad lazım olan ingilis cümlələrində “…” işlənir; öyrənən öz adını deyir.
+- Köhnə Dərs 2–7 kartları yalnız bölmə imtahanı üçün saxlanılır.
+- Yoxlama: `node scripts/check-unit1.cjs`, `check-design-lesson.cjs` və köhnə yoxlamalar keçir. **Telefonda yoxlanmayıb.**

@@ -156,3 +156,7 @@ The user approved a new unified light design and authorized placing Lesson 1 (do
 ## Lesson standard — 13 November 2026
 
 Every new or rewritten lesson follows `docs/DERS_STANDARTI.md` (length, card order, support fading, 3-option choices, five-part explanations, name tokens, CEFR A1 mapping). Describe the course as "based on CEFR A1 descriptors", never as certified CEFR-compliant.
+
+## Bölmə 1 on the new screens — 13 November 2026
+
+All eight Bölmə 1 lessons run on `DesignLesson` (`src/data/designLessons.ts`). Lessons 2–8 live in `src/data/unit1/`; edit text there and regenerate `docs/dersler/Ders_N.md` with `node scripts/export-unit1-docs.cjs`. New task screens are in `src/components/design/TaskScreens.tsx`. Wrong options come from `docs/AZ_OYRENEN_SEHVLERI.md`. Home is the code-drawn island (`src/components/home/IslandHome.tsx`). Run `node scripts/check-unit1.cjs` after any lesson change. Not verified on a device.

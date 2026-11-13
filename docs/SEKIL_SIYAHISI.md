@@ -70,6 +70,16 @@ Ada və yol kodla çəkilir — şəkil lazım deyil. Lazım olanlar:
 | 4.2 | "Səhnədə tap" | Hər tapşırıq üçün 3 personajlı bir səhnə — dərslər yazılanda | dərslərlə birlikdə |
 | 4.3 | Avatarlar | Qız və oğlanın dairəvi baş avatarları (mesajlaşma ekranları üçün) | `assets/characters/girl-avatar.png`, `boy-avatar.png` · ⏳ |
 
-## 5. Dərs 2–8
+## 5. Dərs 2–8 (13 noyabr 2026, dərslər yazıldı)
 
-Dərslər `docs/BOLME_1_XERITESI.md` üzrə yazılanda hər dərsin şəkilləri bu sənədə ayrıca bölmə kimi əlavə olunur.
+Dərs 2–8-də şəkilsiz də işləyən quruluş seçildi: “Səhnədə tap” kartları şəkil gələnə qədər adi seçim siyahısı kimi görünür, şəkil gələndə nömrəli nöqtələr şəklin üstünə düşür. Nöqtələrin yeri (x, y — şəklin %-i ilə) dərs faylında yazılıb; şəkil hazır olanda yerləri şəklə görə düzəltmək lazım ola bilər.
+
+| # | Yer | Səhnə | Personaj | Fayl və id | Status |
+|---|---|---|---|---|---|
+| 5.1 | Dərs 6, kart 6 · Səhnədə tap | Kafe: solda kitab oxuyan qız, ortada qəhvəni yerə tökən oğlan, sağda pəncərədən baxan adam | qız, oğlan, 1 neytral | `assets/lessons/d6/cafe-spill.webp` · `d6/cafe-spill` | ⏳ |
+| 5.2 | Dərs 6, kart 6 təkrar | Avtobus dayanacağı: solda gözləyən oğlan, ortada yol soruşmaq istəyən qız, sağda telefonla danışan adam | qız, oğlan, 1 neytral | `assets/lessons/d6/bus-stop.webp` · `d6/bus-stop` | ⏳ |
+| 5.3 | Dərs 8, kart 6 · Səhnədə tap | Ziyafət: solda tort kəsən qız, ortada musiqiyə qulaq asan adam, sağda qapıdan çıxan oğlan | qız, oğlan, 1 neytral | `assets/lessons/d8/party.webp` · `d8/party` | ⏳ |
+| 5.4 | Dərs 8, kart 6 təkrar | Ziyafətin girişi: solda paltosunu geyinən oğlan, ortada yenicə girən qız, sağda masada oturan adam | qız, oğlan, 1 neytral | `assets/lessons/d8/party-door.webp` · `d8/party-door` | ⏳ |
+| 5.5 | Dərs 2–8 · “Yeni söz” kartları | Hər yeni ifadə üçün bir şəkil (istəyə bağlı; şəkilsiz də işləyir) | — | `assets/lessons/dN/word-*.webp` | sonra |
+
+Şəkil gələndə `src/config/sceneImages.ts`-ə bir sətir əlavə olunur (məs. `'d6/cafe-spill': require('../../assets/lessons/d6/cafe-spill.webp')`).

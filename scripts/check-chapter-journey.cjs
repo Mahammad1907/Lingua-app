@@ -8,7 +8,7 @@ require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileMo
 const { buildChapterJourney, journeyRoute, clampPercent, chapterReferenceLayout } = require('../src/utils/chapterJourney.ts');
 const { lessons } = require('../src/data/lessons.ts');
 const source = lessons.filter((lesson) => lesson.moduleId === 'module_1').sort((a, b) => a.order - b.order);
-assert.equal(source.length, 7);
+assert.equal(source.length, 8);
 let items = buildChapterJourney(source, [], {}, false);
 assert.deepEqual(items.map((item) => item.status), ['current', ...source.slice(1).map(() => 'locked')]);
 assert.ok(items.every((item) => item.percent === 0));
@@ -29,7 +29,7 @@ assert.equal(buildChapterJourney(source, completed, attempts, false)[2].percent,
 const newer = { ...attempts, newer: attempt('newer', ['a', 'b'], { a: result(true) }) };
 assert.equal(buildChapterJourney(source, completed, newer, false)[2].percent, 50, 'use latest attempt, not best accuracy or sum of attempts');
 assert.equal(buildChapterJourney(source, [...completed, source[2].id], newer, false)[2].percent, 100);
-assert.equal(buildChapterJourney([...source, source[0]], completed, {}, false).length, 7, 'unique stable lesson IDs');
+assert.equal(buildChapterJourney([...source, source[0]], completed, {}, false).length, 8, 'unique stable lesson IDs');
 assert.deepEqual(buildChapterJourney([], [], {}, false), []);
 const allDone = buildChapterJourney(source, source.map((lesson) => lesson.id), {}, false);
 assert.ok(allDone.every((item) => item.percent === 100 && item.status === 'completed'));

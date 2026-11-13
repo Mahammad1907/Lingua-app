@@ -1,7 +1,8 @@
 import { resolveMascot } from '../utils/mascot';
 import { CHARACTERS, characterEn, hasCharacterName, resolveNames } from '../config/characters';
 import raw from './b1Packet.json';
-import { lesson1Design } from './lesson1Design';
+import { designLessons } from './designLessons';
+import type { DesignLesson } from './designLessonTypes';
 import type { PacketCard, PacketLesson } from './b1PacketTypes';
 import type { Exercise, Lesson } from './types';
 import { LESSON_XP } from '../utils/rewards';
@@ -19,9 +20,16 @@ function legacyNames<T>(value: T): T {
   return value;
 }
 const packets = legacyNames(resolveMascot(raw)) as unknown as PacketLesson[];
-// Lesson 1 vocabulary follows the redesigned lesson (docs/BirTalk_Ders_1_Yekun.md).
-const lesson1Words = resolveNames(lesson1Design.vocabulary).map(({ teachCard: _card, ...word }) => ({ ...word, lexical: true, acceptedAnswers: [], acceptedTranslations: [word.translation] }));
-export const b1Packet = packets.map(p => p.id === lesson1Design.id ? { ...p, vocabulary: lesson1Words } : p);
+// Lessons on the new screens own their title and vocabulary. The old packet cards stay only for the section exam;
+// a lesson with no old packet (Dərs 8) gets an empty one so progress, vocabulary and the home screen know it.
+const designWords = (lesson: DesignLesson) => resolveNames(lesson.vocabulary).map(({ teachCard: _card, ...word }) => ({ ...word, lexical: true, acceptedAnswers: [], acceptedTranslations: [word.translation] }));
+const designPacket = (lesson: DesignLesson, old?: PacketLesson): PacketLesson => ({
+  ...(old ?? { cards: [] }), id: lesson.id, order: lesson.order, title: resolveNames(lesson.title), goal: resolveNames(lesson.result.done[1] ?? lesson.title), vocabulary: designWords(lesson),
+});
+export const b1Packet: PacketLesson[] = [
+  ...packets.map(p => { const d = designLessons.find(l => l.id === p.id); return d ? designPacket(d, p) : p; }),
+  ...designLessons.filter(d => !packets.some(p => p.id === d.id)).map(d => designPacket(d)),
+].sort((a, b) => a.order - b.order);
 export const getPacketLesson = (id: string) => b1Packet.find((lesson) => lesson.id === id);
 export function packetFlow(lesson: PacketLesson): PacketCard[] {
   const cards = lesson.order === 1 ? lesson.cards.filter(c => c.number !== 10) : [...lesson.cards];
@@ -49,10 +57,10 @@ export function packetExercise(card: PacketCard): Exercise {
 export const b1Lessons: Lesson[] = b1Packet.map((lesson) => ({
   id: lesson.id, title: lesson.title, titleAz: lesson.title, description: lesson.goal,
   language: 'en', level: 'A1', moduleId: 'module_1', order: lesson.order,
-  xpReward: LESSON_XP, estimatedTime: lesson.order === 7 ? 10 : 8,
-  focus: lesson.order === 7 ? 'speaking' : lesson.order <= 3 ? 'grammar' : 'vocabulary',
-  parentGroup: lesson.order === 7 ? 'final' : 'd1', subOrder: lesson.order,
-  isReview: lesson.order === 7, reviewType: lesson.order === 7 ? 'module_review' : undefined,
+  xpReward: LESSON_XP, estimatedTime: lesson.order === 8 ? 10 : 8,
+  focus: lesson.order === 8 ? 'speaking' : lesson.order <= 3 ? 'grammar' : 'vocabulary',
+  parentGroup: lesson.order === 8 ? 'final' : 'd1', subOrder: lesson.order,
+  isReview: lesson.order === 8, reviewType: lesson.order === 8 ? 'module_review' : undefined,
   canDo: lesson.goal,
   exercises: packetFlow(lesson).filter((c) => c.kind === 'task' || lesson.order === 7 && c.kind === 'voice').map(packetExercise),
   vocabulary: lesson.vocabulary.map((v, index) => ({ ...v, id: `${lesson.id}_v${index + 1}` })),
