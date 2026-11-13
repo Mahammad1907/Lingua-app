@@ -263,7 +263,7 @@ Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edi
 
 ### G. Ekranların peşəkarlığı
 31. Əl ilə çəkilmiş ikonlar → vahid ikon dəsti (`@expo/vector-icons`).
-32. Brend şrift (Nunito və ya Inter; Azərbaycan hərfləri ilə) — **istifadəçi seçimi gözlənilir**.
+32. Brend şrift: **Nunito** (istifadəçi seçdi, 13 noyabr 2026; Azərbaycan hərfləri ilə yoxlanmalıdır).
 33. Ölçü şkalası (başlıq 26 / tapşırıq 17 / mətn 16) və 8-lik boşluq sistemi.
 34. Vəziyyət açıq rəngdə, tapşırığın özü tünd rəngdə.
 35. Düymə basılma effekti və haptics (düz/səhv cavab, mikrofon).
@@ -275,3 +275,5 @@ Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edi
 ### H. Sistem (təklif, istifadəçi ilə müzakirədə)
 40. Dərslər eyni şablonla ard-arda gəlməsin: müxtəliflik qaydaları (bax `DERS_STANDARTI.md`, "Müxtəliflik").
 41. Yeni ekran növləri: cümlə qur, boşluğu doldur, dialoqu tamamla, uyğunlaşdır, şəkil seç, dinlə və təkrarla.
+42. **Yeni söz ekranı** (istifadəçi istədi): yeni söz dərsin içində, ilk işlənəcəyi tapşırıqdan dərhal əvvəl ayrıca ekranda çıxır — söz, şəkil, tələffüz və səs, məna, nümunə, "Lüğətim"ə əlavə qeydi.
+43. Yeni ekranların maketləri (təklif, istifadəçi təsdiqi gözlənilir): https://claude.ai/artifact/UzABLnqpX55ys9nDEwKYHD
