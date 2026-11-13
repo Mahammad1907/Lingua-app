@@ -276,4 +276,6 @@ Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edi
 40. Dərslər eyni şablonla ard-arda gəlməsin: müxtəliflik qaydaları (bax `DERS_STANDARTI.md`, "Müxtəliflik").
 41. Yeni ekran növləri: cümlə qur, boşluğu doldur, dialoqu tamamla, uyğunlaşdır, şəkil seç, dinlə və təkrarla.
 42. **Yeni söz ekranı** (istifadəçi istədi): yeni söz dərsin içində, ilk işlənəcəyi tapşırıqdan dərhal əvvəl ayrıca ekranda çıxır — söz, şəkil, tələffüz və səs, məna, nümunə, "Lüğətim"ə əlavə qeydi.
-43. Yeni ekranların maketləri (təklif, istifadəçi təsdiqi gözlənilir): https://claude.ai/artifact/UzABLnqpX55ys9nDEwKYHD
+43. Yeni ekranların maketləri **istifadəçi tərəfindən təsdiqləndi** (13 noyabr 2026): https://claude.ai/artifact/UzABLnqpX55ys9nDEwKYHD
+    Prinsip: hər tapşırıq kiçik bir söhbətdir — nitq balonları, personaj avatarları, mesajlaşma görünüşü. Duolingo və digər tətbiqlərdən ilham almaq olar, surət olmaz: iki sütunlu cüt düymələr, 2×2 şəkil şəbəkəsi, xətt üstündə ağ söz düymələri və 3D (0 3px 0) kölgəli düymələr işlənmir. "Süni intellekt görünüşü" (qradiyent, emoji, eyni tipli kartlar) yoxdur.
+    Ekranlar: Yeni söz; Mesaj yaz (cümlə qur); Sözü tamamla (boşluq); Dialoqu tamamla; Kim nə dedi? (uyğunlaşdır); Səhnədə tap (şəkil seç); Dinlə və təkrarla.
