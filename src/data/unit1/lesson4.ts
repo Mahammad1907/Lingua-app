@@ -106,17 +106,15 @@ export const lesson4: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd4_c09', number: 9, title: 'Dialoqu tamamla', why: 'Halını dedin və sualı qaytardın.',
-      prompt: 'Qonşun halını soruşur.\nCavab ver və sualı geri qaytar.', placeholder: 'Cavabını yaz',
-      chat: { partner: 'Qonşu qız', from: 'G', lines: [{ from: 'G', text: 'Hello! How are you?' }] }, rule: answerBack,
+      type: 'write', id: 'd4_c09', number: 9, title: 'Dinlə və yaz', why: 'Halını dedin və sualı qaytardın.',
+      prompt: 'Qonşunu dinlə.\nCavab ver və sualı geri qaytar.', audio: 'Hello! How are you?', placeholder: 'Cavabını yaz', rule: answerBack,
       hint: 'İki hissə: öz halını de, sonra eyni sualı ona qaytar.', hintAssists: false,
       variants: [
         insteadOf('askFeeling', 'Halını da de.', ex("I'm fine, thanks. And you?", 'Sualı qaytarmısan, amma öz halını deməmisən.', 'Halın + And you?', "I'm OK. And you?")),
         other('Halını de və “And you?” soruş.', ex("I'm fine, thanks. And you?", 'Qonşun soruşdu. Sən cavab verirsən və eyni sualı ona qaytarırsan.', 'Halın + And you?', "I'm OK. And you?")),
       ],
       review: {
-        title: 'Dialoqu tamamla', why: 'Halını dedin və sualı qaytardın.', prompt: 'Kursda yoldaşın halını soruşur.\nCavab ver və sualı geri qaytar.', placeholder: 'Cavabını yaz',
-        chat: { partner: 'Kurs yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Hi! How are you?' }] }, rule: answerBack, hint: 'İki hissə: öz halını de, sonra eyni sualı ona qaytar.', hintAssists: false,
+        title: 'Dinlə və yaz', why: 'Halını dedin və sualı qaytardın.', prompt: 'Kurs yoldaşını dinlə.\nCavab ver və sualı geri qaytar.', audio: 'Hi! How are you?', placeholder: 'Cavabını yaz', rule: answerBack, hint: 'İki hissə: öz halını de, sonra eyni sualı ona qaytar.', hintAssists: false,
         variants: [other('Halını de və “And you?” soruş.', ex("I'm OK. And you?", 'Cavab verirsən və eyni sualı qaytarırsan.', 'Halın + And you?', "I'm fine, thanks. And you?"))],
       },
     },

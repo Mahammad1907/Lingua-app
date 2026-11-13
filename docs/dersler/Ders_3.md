@@ -121,9 +121,10 @@ Nümunə: **Nice to meet you! — You too!** — Tanış olmağıma şadam! — 
 **Düzgün olanda:** Adı düzgün soruşdun.  
 - *İzah (başqa səhvdə):* Adı soruşmaq üçün sual lazımdır. — Uyğun: What's your name?. Səbəb: Sən onun adını öyrənmək istəyirsən. Qayda: What’s your name? Nümunə: Hello! What's your name?  
 
-## Kart 10 — Seç: Cavabı seç
+## Kart 10 — Seç: Dinlə və seç
 
-**Tapşırıq:** Oğlan deyir: “Nice to meet you!” Necə cavab verərsən?  
+**Tapşırıq:** Oğlanı dinlə. Necə cavab verərsən?  
+**Səs:** Nice to meet you!  
 **Seçimlər:** Goodbye! / You too! / What's your name? — **düzgün:** You too!  
 **İpucu:** Oğlan xoş söz dedi. Bu dərsdə ona qısa cavab öyrəndin: “Mən də”.  
 **Düzgün olanda:** You too — “Mən də”.  
@@ -132,16 +133,16 @@ Nümunə: **Nice to meet you! — You too!** — Tanış olmağıma şadam! — 
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qız deyir: “Nice to meet you!” Necə cavab verərsən?  
+**Tapşırıq:** Qızı dinlə. Necə cavab verərsən?  
+**Səs:** Nice to meet you!  
 **Seçimlər:** You too! / My name is … / Hi! — **düzgün:** You too!  
 **İpucu:** Qız xoş söz dedi. Bu dərsdə ona qısa cavab öyrəndin: “Mən də”.  
 **Düzgün olanda:** You too — “Mən də”.  
 - *İzah (başqa səhvdə):* Burada “Mən də” deyirsən. — Uyğun: You too!. Səbəb: “Nice to meet you”ya qısa cavab “You too!”dur. Qayda: Nice to meet you → You too! Nümunə: Nice to meet you! — You too!  
 
-## Kart 11 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 11 — Yaz: Adını yaz
 
-**Tapşırıq:** Qız adını deyib səninkini soruşur. Adını de.  
-**Yazışma (Qonşu qız):** “Hi! I'm …” → “What's your name?”  
+**Tapşırıq:** Qız adını deyib soruşur: “Hi! I’m …. What’s your name?” Adını yaz.  
 **Qəbul:** məna: introduce — nümunə: I'm … / My name is …  
 **İpucu:** Qız sənin adını soruşur. Dərs 2-də adını necə deyirdin?  
 **Düzgün olanda:** Sualı başa düşdün və adını dedin.  
@@ -150,8 +151,7 @@ Nümunə: **Nice to meet you! — You too!** — Tanış olmağıma şadam! — 
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İdman zalında oğlan soruşur. Adını de.  
-**Yazışma (Zal yoldaşı):** “Hello! What's your name?”  
+**Tapşırıq:** Oğlan idman zalında soruşur: “Hello! What’s your name?” Adını yaz.  
 **Qəbul:** məna: introduce — nümunə: I'm … / My name is …  
 **İpucu:** Oğlan sənin adını soruşur. Dərs 2-də adını necə deyirdin?  
 **Düzgün olanda:** Sualı başa düşdün və adını dedin.  

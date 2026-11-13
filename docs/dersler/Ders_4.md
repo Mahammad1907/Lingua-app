@@ -167,10 +167,10 @@ Nümunə: **How are you? — I'm OK.** — Necəsən? — Normalam.
 **Düzgün olanda:** Salam verib halını soruşdun.  
 - *İzah (başqa səhvdə):* Salam və sual ikisi də lazımdır. — Uyğun: Hello! How are you?. Səbəb: Görüş salamla başlayır, sonra hal soruşulur. Qayda: Salam + How are you? Nümunə: Hi! How are you?  
 
-## Kart 13 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 13 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Qonşun halını soruşur. Cavab ver və sualı geri qaytar.  
-**Yazışma (Qonşu qız):** “Hello! How are you?”  
+**Tapşırıq:** Qonşunu dinlə. Cavab ver və sualı geri qaytar.  
+**Səs:** Hello! How are you?  
 **Qəbul:** məna: feeling + askFeeling — nümunə: I'm fine, thanks. And you? / I'm OK. And you?  
 **İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  
 **Düzgün olanda:** Halını dedin və sualı qaytardın.  
@@ -179,8 +179,8 @@ Nümunə: **How are you? — I'm OK.** — Necəsən? — Normalam.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Kursda yoldaşın halını soruşur. Cavab ver və sualı geri qaytar.  
-**Yazışma (Kurs yoldaşı):** “Hi! How are you?”  
+**Tapşırıq:** Kurs yoldaşını dinlə. Cavab ver və sualı geri qaytar.  
+**Səs:** Hi! How are you?  
 **Qəbul:** məna: feeling + askFeeling — nümunə: I'm fine, thanks. And you? / I'm OK. And you?  
 **İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  
 **Düzgün olanda:** Halını dedin və sualı qaytardın.  

@@ -175,10 +175,9 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 **Düzgün olanda:** Nəzakətlə diqqət çəkib adı soruşdun.  
 - *İzah (başqa səhvdə):* Excuse me, what’s your name? — Uyğun: Excuse me, what's your name?. Səbəb: “your” — sənin; “you” burada uyğun deyil. Qayda: Excuse me + sual. Nümunə: Excuse me, what's your name?  
 
-## Kart 13 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 13 — Yaz: Cavabını yaz
 
-**Tapşırıq:** Oğlan səhvən çantanı yerə saldı və üzr istədi. Üzrünü qəbul et.  
-**Yazışma (Oğlan):** “Sorry!”  
+**Tapşırıq:** Oğlan səhvən çantanı yerə saldı və deyir: “Sorry!” Üzrünü qəbul et.  
 **Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
 **İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
@@ -187,8 +186,7 @@ Nümunə: **Sorry! — No problem.** — Bağışla! — Eybi yox.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qız sənin növbənə keçdi və üzr istədi. Üzrünü qəbul et.  
-**Yazışma (Qız):** “I'm sorry!”  
+**Tapşırıq:** Qız sənin növbənə keçdi və deyir: “I’m sorry!” Üzrünü qəbul et.  
 **Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
 **İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  

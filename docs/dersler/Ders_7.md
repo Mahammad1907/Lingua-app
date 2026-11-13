@@ -176,10 +176,9 @@ Nümunə: **Sorry? Slowly, please.** — Nə dedin? Yavaş, zəhmət olmasa.
 **Düzgün olanda:** Xahiş edəndə “please”.  
 - *İzah (başqa səhvdə):* Xahiş — please. — Uyğun: please. Səbəb: Xahişi nəzakətli edən söz “please”dir. Qayda: Again, please. Nümunə: Slowly, please.  
 
-## Kart 13 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 13 — Yaz: Cavabını yaz
 
-**Tapşırıq:** Oğlan çox sürətli danışır. Ondan yavaş danışmağı xahiş et.  
-**Yazışma (Oğlan):** “Hellohowareyounicetomeetyou!”  
+**Tapşırıq:** Oğlan çox sürətli deyir: “Hellohowareyounicetomeetyou!” Ondan yavaş danışmağı xahiş et.  
 **Qəbul:** məna: slow — nümunə: Slowly, please.  
 **İpucu:** Problem sürətdədir. Ondan nə xahiş edirsən?  
 **Düzgün olanda:** Yavaş danışmağı xahiş etdin.  
@@ -188,8 +187,7 @@ Nümunə: **Sorry? Slowly, please.** — Nə dedin? Yavaş, zəhmət olmasa.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qız çox sürətli soruşdu. Ondan yavaş danışmağı xahiş et.  
-**Yazışma (Qız):** “Hiwhat'syourname?”  
+**Tapşırıq:** Qız çox sürətli soruşur: “Hiwhat’syourname?” Ondan yavaş danışmağı xahiş et.  
 **Qəbul:** məna: slow — nümunə: Slowly, please.  
 **İpucu:** Problem sürətdədir. Ondan nə xahiş edirsən?  
 **Düzgün olanda:** Yavaş danışmağı xahiş etdin.  

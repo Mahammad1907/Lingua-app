@@ -118,16 +118,14 @@ export const lesson6: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd6_c10', number: 10, title: 'Dialoqu tamamla', why: 'Üzrü qəbul etdin.', hint: 'O üzr istədi. Sən “Eybi yox” deyirsən.',
-      prompt: 'Oğlan səhvən çantanı yerə saldı və üzr istədi.\nÜzrünü qəbul et.', placeholder: 'Cavabını yaz',
-      chat: { partner: 'Oğlan', from: 'B', lines: [{ from: 'B', text: 'Sorry!' }] }, rule: noProblem,
+      type: 'write', id: 'd6_c10', number: 10, title: 'Cavabını yaz', why: 'Üzrü qəbul etdin.', hint: 'O üzr istədi. Sən “Eybi yox” deyirsən.',
+      prompt: 'Oğlan səhvən çantanı yerə saldı və deyir: “Sorry!”\nÜzrünü qəbul et.', placeholder: 'Cavabını yaz', rule: noProblem,
       variants: [
         insteadOf('sorry', 'Səhv onundur — sən üzrü qəbul edirsən.', ex('No problem.', 'Üzrə “Sorry” ilə yox, “No problem” ilə cavab verilir.', 'Sorry → No problem.', 'Sorry! — No problem.')),
         other('Üzrə cavab: No problem.', ex('No problem.', 'O, üzr istədi. Sən “Eybi yox” deyirsən.', 'Sorry → No problem.', 'No problem.')),
       ],
       review: {
-        title: 'Dialoqu tamamla', why: 'Üzrü qəbul etdin.', hint: 'O üzr istədi. Sən “Eybi yox” deyirsən.', prompt: 'Qız sənin növbənə keçdi və üzr istədi.\nÜzrünü qəbul et.', placeholder: 'Cavabını yaz',
-        chat: { partner: 'Qız', from: 'G', lines: [{ from: 'G', text: "I'm sorry!" }] }, rule: noProblem,
+        title: 'Cavabını yaz', why: 'Üzrü qəbul etdin.', hint: 'O üzr istədi. Sən “Eybi yox” deyirsən.', prompt: 'Qız sənin növbənə keçdi və deyir: “I’m sorry!”\nÜzrünü qəbul et.', placeholder: 'Cavabını yaz', rule: noProblem,
         variants: [other('Üzrə cavab: No problem.', ex('No problem.', 'O, üzr istədi. Sən “Eybi yox” deyirsən.', 'Sorry → No problem.', 'No problem.'))],
       },
     },

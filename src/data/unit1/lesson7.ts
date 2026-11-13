@@ -114,16 +114,14 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd7_c10', number: 10, title: 'Dialoqu tamamla', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir. Ondan nə xahiş edirsən?',
-      prompt: 'Oğlan çox sürətli danışır.\nOndan yavaş danışmağı xahiş et.', placeholder: 'Cavabını yaz',
-      chat: { partner: 'Oğlan', from: 'B', lines: [{ from: 'B', text: 'Hellohowareyounicetomeetyou!' }] }, rule: slow,
+      type: 'write', id: 'd7_c10', number: 10, title: 'Cavabını yaz', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir. Ondan nə xahiş edirsən?',
+      prompt: 'Oğlan çox sürətli deyir: “Hellohowareyounicetomeetyou!”\nOndan yavaş danışmağı xahiş et.', placeholder: 'Cavabını yaz', rule: slow,
       variants: [
         insteadOf('repeat', 'Bu da olar, amma burada “yavaş” xahiş et.', ex('Slowly, please.', 'Problem sürətdir — yavaş danışmağı istəyirsən.', 'Xahişin sonuna “please” gəlir.', 'Slowly, please.')),
         other('Yavaş danışmağı xahiş et.', ex('Slowly, please.', 'O çox sürətli danışır.', 'Xahişin sonuna “please” gəlir.', 'Sorry? Slowly, please.')),
       ],
       review: {
-        title: 'Dialoqu tamamla', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir. Ondan nə xahiş edirsən?', prompt: 'Qız çox sürətli soruşdu.\nOndan yavaş danışmağı xahiş et.', placeholder: 'Cavabını yaz',
-        chat: { partner: 'Qız', from: 'G', lines: [{ from: 'G', text: "Hiwhat'syourname?" }] }, rule: slow,
+        title: 'Cavabını yaz', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir. Ondan nə xahiş edirsən?', prompt: 'Qız çox sürətli soruşur: “Hiwhat’syourname?”\nOndan yavaş danışmağı xahiş et.', placeholder: 'Cavabını yaz', rule: slow,
         variants: [other('Yavaş danışmağı xahiş et.', ex('Slowly, please.', 'O çox sürətli danışır.', 'Xahişin sonuna “please” gəlir.', 'Slowly, please.'))],
       },
     },
