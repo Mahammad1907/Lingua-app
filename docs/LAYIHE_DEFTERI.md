@@ -279,3 +279,5 @@ Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edi
 43. Yeni ekranların maketləri **istifadəçi tərəfindən təsdiqləndi** (13 noyabr 2026): https://claude.ai/artifact/UzABLnqpX55ys9nDEwKYHD
     Prinsip: hər tapşırıq kiçik bir söhbətdir — nitq balonları, personaj avatarları, mesajlaşma görünüşü. Duolingo və digər tətbiqlərdən ilham almaq olar, surət olmaz: iki sütunlu cüt düymələr, 2×2 şəkil şəbəkəsi, xətt üstündə ağ söz düymələri və 3D (0 3px 0) kölgəli düymələr işlənmir. "Süni intellekt görünüşü" (qradiyent, emoji, eyni tipli kartlar) yoxdur.
     Ekranlar: Yeni söz; Mesaj yaz (cümlə qur); Sözü tamamla (boşluq); Dialoqu tamamla; Kim nə dedi? (uyğunlaşdır); Səhnədə tap (şəkil seç); Dinlə və təkrarla.
+44. Sonrakı bölmələr üçün lazım olacaq ekranlar (həmin bölmə yazılanda dizayn olunur): Qısa mətn oxu (Bölmə 3–6), Forma doldur (Bölmə 2), Rol oyunu — çox növbəli söhbət (hər bölmənin sonu), "Edə bilirəm" irəliləyiş ekranı, Gündəlik təkrar ekranı.
+45. Ana səhifə ekranı istifadəçiyə görə "bərbaddır" — yenidən dizayn olunmalıdır (13 noyabr 2026).
