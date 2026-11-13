@@ -16,6 +16,8 @@ interface UserData {
   xp: number; streak: number; hearts: number; level: string; lastPlayedDate: string | null;
   completedLessons: string[]; lessonProgress: LessonProgress[]; placementResults: PlacementResult[];
   rewards: Record<string, RewardRecord>; lastQualifiedDay: string | null; streakStart: string | null;
+  /** How far an unfinished lesson got (0–100), for the home screen. Cleared when the lesson is completed. */
+  lessonPartial: Record<string, number>;
 }
 interface UserState extends UserData {
   hydrated: boolean; storageError: string | null;
@@ -25,6 +27,7 @@ interface UserState extends UserData {
   recordTask: (attemptId: string, taskId: string, correct: boolean | null, token: string, evidence?: TaskEvidence) => void;
   settlePacketTask: (attemptId: string, taskId: string, status: 'needsPractice' | 'unverified' | 'skipped') => void;
   useHelp: (attemptId: string) => void;
+  setLessonPartial: (lessonId: string, percent: number) => void;
   finishLesson: (attemptId: string) => Promise<RewardReceipt>;
   claimReceipt: (id: string) => RewardReceipt | undefined;
   finishExam: (moduleId: string, answers: Record<string, boolean>, evidence?: ExamEvidence) => Promise<{ passed: boolean; xp: number; correct: number }>;
@@ -37,7 +40,7 @@ interface UserState extends UserData {
   hasPassedPlacement: (id: string) => boolean;
 }
 const initial: UserData = { xp: 0, streak: 0, hearts: MAX_ENERGY, level: 'A1', lastPlayedDate: null,
-  completedLessons: [], lessonProgress: [], placementResults: [], rewards: {}, lastQualifiedDay: null, streakStart: null };
+  completedLessons: [], lessonProgress: [], placementResults: [], rewards: {}, lastQualifiedDay: null, streakStart: null, lessonPartial: {} };
 let writes: Promise<void> = Promise.resolve();
 let hydration: Promise<void> | undefined;
 let sequence = 0;
@@ -64,7 +67,8 @@ export const useUserStore = create<UserState>((set, get) => ({
           set({ xp: saved.xp ?? 0, hearts: Math.max(0, Math.min(MAX_ENERGY, saved.hearts ?? MAX_ENERGY)),
             level: saved.level ?? 'A1', completedLessons: completed, lessonProgress: saved.lessonProgress ?? [], placementResults: results,
             rewards, lastQualifiedDay: saved.lastQualifiedDay ?? null, streakStart: saved.streakStart ?? null,
-            streak: saved.lastQualifiedDay ? saved.streak ?? 0 : 0, lastPlayedDate: saved.lastPlayedDate ?? null });
+            streak: saved.lastQualifiedDay ? saved.streak ?? 0 : 0, lastPlayedDate: saved.lastPlayedDate ?? null,
+            lessonPartial: saved.lessonPartial && typeof saved.lessonPartial === 'object' ? saved.lessonPartial : {} });
         }
         set({ hydrated: true, storageError: null }); get().checkDailyStreak();
       } catch { set({ storageError: 'İrəliləyiş oxunmadı. Tətbiqi yenidən açaraq cəhd et.' }); hydration = undefined; }
@@ -74,10 +78,10 @@ export const useUserStore = create<UserState>((set, get) => ({
   saveToStorage: () => {
     if (!get().hydrated) return Promise.reject(new Error('İrəliləyiş hələ yüklənməyib.'));
     const { xp, hearts, level, streak, lastPlayedDate, completedLessons, lessonProgress, placementResults,
-      rewards, lastQualifiedDay, streakStart } = get();
+      rewards, lastQualifiedDay, streakStart, lessonPartial } = get();
     // Rewards, completion and unlocks are one atomic value; writes cannot overtake one another.
     const snapshot = JSON.stringify({ rewardVersion: 1, xp, hearts, level, streak, lastPlayedDate,
-      completedLessons, lessonProgress, placementResults, rewards, lastQualifiedDay, streakStart });
+      completedLessons, lessonProgress, placementResults, rewards, lastQualifiedDay, streakStart, lessonPartial });
     const write = writes.catch(() => {}).then(() => AsyncStorage.setItem(STORAGE_KEY, snapshot)); writes = write;
     return write.then(() => { set({ storageError: null }); }, (error: unknown) => {
       set({ storageError: 'İrəliləyiş saxlanmadı. Yenidən cəhd et.' }); throw error;
@@ -118,6 +122,11 @@ export const useUserStore = create<UserState>((set, get) => ({
     if (!a || a.finished || finishing.has(id)) return false;
     set((state) => { const attempts = { ...state.attempts }; delete attempts[id]; return { attempts }; });
     return true;
+  },
+  setLessonPartial: (lessonId, percent) => {
+    const value = Math.max(0, Math.min(99, Math.round(percent)));
+    if (!get().hydrated || get().completedLessons.includes(lessonId) || (get().lessonPartial[lessonId] ?? 0) >= value) return;
+    set(s => ({ lessonPartial: { ...s.lessonPartial, [lessonId]: value } })); void get().saveToStorage().catch(() => {});
   },
   useHelp: (id) => {
     const a = get().attempts[id];
@@ -181,6 +190,7 @@ export const useUserStore = create<UserState>((set, get) => ({
         practiceNeeds: getPacketLesson(a.lessonId) ? Object.entries(a.tasks).filter(([key, t]) => !key.startsWith('recheck:') && t.wrong > 0).map(([key]) => key) : undefined,
         rechecks: Object.entries(a.tasks).filter(([key]) => key.startsWith('recheck:')).map(([key, t]) => ({ sourceLessonId: key.split(':')[1], taskId: key.split(':')[2], status: !t.resolved ? t.settled === 'needsPractice' ? 'wrong' as const : 'unverified' as const : t.evidence?.assisted ? 'assisted' as const : 'independent' as const })) };
       set({ xp: s.xp + xp, rewards, streak, streakStart, lastQualifiedDay, lastPlayedDate: completed ? today : s.lastPlayedDate,
+        lessonPartial: completed ? Object.fromEntries(Object.entries(s.lessonPartial).filter(([k]) => k !== a.lessonId)) : s.lessonPartial,
         completedLessons, lessonProgress: completed ? [...s.lessonProgress.filter((p) => p.lessonId !== a.lessonId), progress] : s.lessonProgress,
         attempts: { ...s.attempts, [id]: { ...a, finished: true } }, receipts: { ...s.receipts, [id]: receipt } });
       await get().saveToStorage(); return receipt;

@@ -184,3 +184,12 @@ Pedaqoji qövs eyni qalır (öyrət → tanı → qur → danış), amma hər d�
 - [ ] İstehsal üçün A1-dən yuxarı qrammatika tələb olunmur
 - [ ] Ardıcıl iki kart eyni ekran növündə deyil; ən azı 5 tapşırıq növü var
 - [ ] Açılış və məkan əvvəlki dərsdən fərqlidir
+
+## 17. Nümunənin azalması və Kömək (13 noyabr 2026)
+
+- Dərs 1–2: yeni ifadənin ilk səsli kartında nümunə açıq görünür.
+- Dərs 3–8: nümunə görünmür; “Kömək” 1-ci pillə ipucu (Müstəqil qalır), 2-ci pillə nümunə (Köməklə).
+- Bölmə 2-dən: hazır cavab nümunəsi yoxdur; kömək ipucu və ya başqa vəziyyətdən oxşar nümunədir.
+- İpucu: termin yox, cavab yox, konkret yol (vəziyyət sualı və ya “harada öyrəndin”), 1–2 cümlə. Öyrənən kart nömrəsini görmür — “Kart 3” yazılmır.
+- Sözə toxunub mənaya baxmaq tapşırıqda “Köməklə” sayılır; cavab variantlarında məna göstərilmir.
+- Hər Yeni söz / Dinlə və təkrarla kartında Azərbaycan hərfləri ilə oxunuş (th qalın saxlanır, w → u).

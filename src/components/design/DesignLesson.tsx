@@ -136,6 +136,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   const next = () => {
     resetCard();
+    if (!reviewing) useUserStore.getState().setLessonPartial(lesson.id, (index + 1) / flow.length * 100);
     if (reviewing) {
       if (reviewStep + 1 < queue.length) setReviewStep(v => v + 1);
       else { setReviewing(false); setShowResult(true); void finishLesson(); }

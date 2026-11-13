@@ -329,3 +329,5 @@ Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edi
 24. Ana səhifə dizaynı: 3 yeni variant kətanda (A illüstrasiyalı ada, B sadə siyahı + ada nişanı, C oyun xəritəsi) — istifadəçi seçəcək.
 25. Hər dərsin yanında faiz (100% / yarımçıq % / 0%); yarımçıq dərsin gedişatı saxlanacaq.
 26. Gündəlik təkrar kartı ana səhifədə: əsasən səhv edilən ifadələr, qalanı çoxdan görülməyənlər.
+
+**13 noyabr 2026 — 1–26 bəndləri tətbiq olundu** (istifadəçi “bitdi, hamısını tətbiq et” dedi). Ana səhifə A5 (dərsə toxunanda kart), Analiz ekranı (`src/app/analysis.tsx`), AI söhbət boş ekranı (`src/app/ai-chat.tsx`), köhnə bölmə ekranı ana səhifəyə yönləndirilir. Kod yoxlamaları keçir; telefonda yoxlanmayıb.
