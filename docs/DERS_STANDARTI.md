@@ -156,7 +156,18 @@ Qayda: bir ifadə bir dərsdə 4 dəfədən çox soruşulmur. Daha çox lazım o
 - **"Could you…?" / "Can you repeat that…?":** xahiş üçün modal felləri adətən A2 qrammatikası sayılır. A1-də istehsal üçün qısa formalar ("Sorry?", "Again, please.", "Slowly, please.") öyrədilir; uzun forma yalnız tanıma (dinləyib anlama) üçün verilir.
 - **Ümumi həcm:** A1 üçün təxminən 90–100 təlimat saatı. Bölmə 1 bunun kiçik bir hissəsidir — "A1 səviyyəsini bitirdin" demək olmaz.
 
-## 15. Yeni dərs yoxlama siyahısı
+## 15. Müxtəliflik — dərslər şablon kimi görünməsin
+
+Pedaqoji qövs eyni qalır (öyrət → tanı → qur → danış), amma hər dərsin görünüşü fərqlənir:
+
+- **Ardıcıl iki kart eyni ekran növündə olmur** (öyrətmə istisna deyil: dalbadal ən çox 2).
+- **Hər dərsdə ən azı 5 fərqli tapşırıq növü** işlənir; ardıcıl iki dərs eyni növ ardıcıllığı ilə başlamır.
+- **Açılış dəyişir:** bəzi dərslər səhnə ilə, bəziləri sual ilə ("Bu adam nə dedi?"), bəziləri maskotun kiçik problemi ilə başlayır.
+- **Məkan dəyişir:** küçə, məktəb, iş yeri, kafe, telefon, mesajlaşma, video zəng — ardıcıl iki dərsdə eyni məkan əsas olmur.
+- **Hər dərsdə bir sürpriz:** yumor, gözlənilməz hadisə və ya mini oyun (məsələn, vaxta qarşı uyğunlaşdırma).
+- **Yoxlama:** yeni dərs yazılanda avtomatik yoxlama skripti bu qaydaları tətbiq edir (planlaşdırılır).
+
+## 16. Yeni dərs yoxlama siyahısı
 
 - [ ] 10–12 kart, ən çox 2–3 yeni ifadə
 - [ ] Səhnə ilə başlayır, səhnəyə qayıtmaqla bitir
@@ -171,3 +182,5 @@ Qayda: bir ifadə bir dərsdə 4 dəfədən çox soruşulmur. Daha çox lazım o
 - [ ] Əvvəlki dərslərdən 2–3 ifadə yeni vəziyyətdə qayıdır (spiral)
 - [ ] Heç bir ifadə bir dərsdə 4 dəfədən çox soruşulmur
 - [ ] İstehsal üçün A1-dən yuxarı qrammatika tələb olunmur
+- [ ] Ardıcıl iki kart eyni ekran növündə deyil; ən azı 5 tapşırıq növü var
+- [ ] Açılış və məkan əvvəlki dərsdən fərqlidir

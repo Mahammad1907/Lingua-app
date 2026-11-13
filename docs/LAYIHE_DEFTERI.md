@@ -223,16 +223,55 @@ Yoxlama bu söhbətdə yerli mənbədəki 803a6d4e8cc497e75c51f9ec1fa6750acc5f37
 - **Lüğət:** sözlər ilk öyrədildiyi kartda “Lüğətim”ə təkrarsız əlavə olunur; sözə toxunanda məna pəncərəsi açılır.
 - **Yoxlama:** `scripts/check-design-lesson.cjs` (məzmunun sənədlə uyğunluğu, adlar, qiymətləndirmə, izah seçimi, nəticə statusları) və mövcud məzmun/qiymətləndirmə yoxlamaları keçir. Bu mühitdə `node_modules` quraşdırıla bilmədiyi üçün tam `tsc`, `expo lint` və ekran render testləri işlədilməyib. Real telefonda görünüş, səs, mikrofon (basılı saxla), klaviatura və irəliləyişin saxlanması **yoxlanmayıb**.
 
-## Gözləyən düzəlişlər — Dərs 1 yeni ekranları, 13 noyabr 2026
+## Gözləyən işlər — tam siyahı (13 noyabr 2026)
 
-İstifadəçi iPhone-da Dərs 1-i açdı və aşağıdakıları qeyd etdi. Bunlar hələ düzəldilməyib; istifadəçi "düzəlt" deyəndə birlikdə edilir.
+Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edilir; E Bölmə 1 yenidən yazılanda həll olunur.
 
-1. "İpucu" kapsulu ortada və cavab sahəsinin üstündədir; sahənin altında, sağda olmalıdır (Capsule stilindəki `alignSelf: 'center'` sağa düzləməni üstələyir).
-2. Səsli ekranın audio panelində dalğa oynat düyməsinin və "Yavaş dinlə" dairəsinin üstünə daşır; dalğa ayrılan genişliyə sığmalı və kəsilməlidir.
-3. Səsli tapşırıqda ipucu yoxdur, düymə yalnız "Mətni göstər"i açır; düymənin adı "Mətni göstər" olsun, yeri sağda.
-4. Mikrofonun altındakı solğun bəzək dalğası boş halda da görünür; yalnız yazı zamanı görünsün.
-5. Maskot avatar kəsimində əlin bir hissəsi görünür; şəkli yenidən kəs.
-6. Uzun başlıqlar iki sətrə düşüb mikrofonu aşağı itələyir; başlıq şriftini bir az kiçilt.
-7. Yazı ekranında aşağıda böyük boşluq qalır (zövq məsələsi, istifadəçi ilə dəqiqləşdir).
+### A. Ekran düzəlişləri (Dərs 1, telefonda görülən)
+1. "İpucu" kapsulu ortada və sahənin üstündədir → sahənin altında, sağda (Capsule-dakı `alignSelf: 'center'` səbəbdir).
+2. Səsli ekranda dalğa oynat düyməsinin və "Yavaş dinlə"nin üstünə daşır → genişliyə sığsın, kəsilsin.
+3. Səsli tapşırıqda düymə "İpucu" adlanır, amma yalnız mətni açır → "Mətni göstər", sağda.
+4. Mikrofonun altındakı solğun dalğa boş halda görünür → yalnız yazı zamanı.
+5. Maskot avatarında əl parçası görünür → yenidən kəs.
+6. Uzun başlıqlar iki sətrə düşür → başlıq şkalası kiçilir (bax G).
+7. Yazı ekranında aşağıda boşluq → 4 və 9-cu kartlara şəkil gəlir; şəkil hazır olana qədər yumşaq boş çərçivə.
 
-Əvvəl qeyd olunan və hələ edilməmiş tövsiyələr: dinləmə ekranında "İpucu" → "Kömək" adı, açıq bənövşəyi yazıların kontrastı, mikrofon üçün "toxun–danış–toxun" alternativi, nəticə panelində X-in çıxarılması, maskotun danışdığı ekranlarda kiçik şəkli; Dərs 4 kart 16-da birinci mesaj Leyla olmalıdır; Dərs 2–6 başlığında "Ali-un" → "Əlinin".
+### B. Əvvəl razılaşdırılmış ekran təklifləri
+8. Dinləmə ekranında "İpucu" → "Kömək".
+9. Açıq bənövşəyi mətnin kontrastı artırılır.
+10. Mikrofon üçün əlavə yol: toxun–danış–toxun (əsas üsul basılı saxlamaq qalır).
+11. Nəticə panelindən X çıxarılır ("Mənə başa sal"da qalır).
+12. Maskotun danışdığı ekranlarda kiçik şəkli görünür.
+
+### C. Məzmun xətaları
+13. Dərs 1: "Goodbye = Sağ ol" təşəkkürlə qarışır → "Hələlik / Görüşənədək".
+14. Dərs 4 kart 16: birinci mesaj Leyla olmalıdır.
+15. Dərs 2–6 başlığı: "Ali-un" → "Əlinin".
+
+### D. Dərs 1 məzmunu
+16. Seçimlər 2 deyil, 3 variantlı.
+17. Ağır izah cümlələri sadələşdirilir.
+18. Düzgün cavab üçün qısa səbəb (məzmun lazımdır).
+19. Öyrətmə ekranı üçün "Quruluşu" və "Nümunə" (məzmun lazımdır).
+20. Yanlış variantlar Azərbaycan dilli öyrənənlərin real səhvlərindən (səhvlər sənədi hazırlanmalıdır).
+
+### E. Dərs 2–7 (Bölmə 1 yenidən yazılanda həll olunur — `docs/BOLME_1_XERITESI.md`)
+21. Dərslər 18–21 kartdır. 22. Seçimlər 2 variantlıdır. 23. İzahlar şablondur. 24. Başlıqlar müəllif etiketidir. 25. Təkrar paylanmayıb ("Excuse me" cəmi 1 yoxlama). 26. Dərs 5-də 5 ifadə. 27. Dərs 6-da A1-dən ağır forma. 28. Dərs 7 demək olar tam səslidir. 29. Lüğətə "i", "am", "is" düşür. 30. Təbii ifadələr, tələffüz, mədəni qeydlər yoxdur.
+
+### F. Şəkillər (Dərs 1)
+Şəkil olan kartlar: 2 (qarşılaşma), 4 (həyətdə rastlaşma), 6 (qapıda ayrılıq), 9 (maskot qapıdan çıxır, yazısız nitq balonu), 10 (görüşün əvvəli və sonu, 2 şəkil); təkrar: T2, T7, T8 (2 şəkil). Təxminən 10 şəkil. Dinləmə və səsli kartlarda səhnə şəkli yoxdur. İstifadəçidən dizayn şəkillərindəki qapı/darvaza səhnələrinin ayrıca faylları istəniləcək; qalanlar üçün prompt yazılacaq.
+
+### G. Ekranların peşəkarlığı
+31. Əl ilə çəkilmiş ikonlar → vahid ikon dəsti (`@expo/vector-icons`).
+32. Brend şrift (Nunito və ya Inter; Azərbaycan hərfləri ilə) — **istifadəçi seçimi gözlənilir**.
+33. Ölçü şkalası (başlıq 26 / tapşırıq 17 / mətn 16) və 8-lik boşluq sistemi.
+34. Vəziyyət açıq rəngdə, tapşırığın özü tünd rəngdə.
+35. Düymə basılma effekti və haptics (düz/səhv cavab, mikrofon).
+36. Kartlar arası qısa keçid animasiyası.
+37. Klaviatura açıqkən "Yoxla" görünsün, "Done" yoxlasın.
+38. Maskotun düz/səhv reaksiyası — 2–3 əlavə maskot şəkli lazımdır.
+39. Kiçik/böyük iPhone və böyük şriftlə ekran yoxlaması.
+
+### H. Sistem (təklif, istifadəçi ilə müzakirədə)
+40. Dərslər eyni şablonla ard-arda gəlməsin: müxtəliflik qaydaları (bax `DERS_STANDARTI.md`, "Müxtəliflik").
+41. Yeni ekran növləri: cümlə qur, boşluğu doldur, dialoqu tamamla, uyğunlaşdır, şəkil seç, dinlə və təkrarla.
