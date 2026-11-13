@@ -227,6 +227,8 @@ Yoxlama bu söhbətdə yerli mənbədəki 803a6d4e8cc497e75c51f9ec1fa6750acc5f37
 
 Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edilir; E Bölmə 1 yenidən yazılanda həll olunur.
 
+**13 noyabr 2026 — görülənlər:** 1–17, 32–37 kodda edildi (commit 17d452f, 25d5be5 və məzmun commiti). Qeyd: 7-ci bənddə boş çərçivə əvəzinə şəkil yeri `src/config/sceneImages.ts`-də qeyd olunur, fayl gələnə qədər heç nə göstərilmir (yarımçıq görünməsin). Bütün lazımi şəkillər: `docs/SEKIL_SIYAHISI.md`. 31 (ikon dəsti) təxirə salındı. Telefonda yoxlanmayıb.
+
 ### A. Ekran düzəlişləri (Dərs 1, telefonda görülən)
 1. "İpucu" kapsulu ortada və sahənin üstündədir → sahənin altında, sağda (Capsule-dakı `alignSelf: 'center'` səbəbdir).
 2. Səsli ekranda dalğa oynat düyməsinin və "Yavaş dinlə"nin üstünə daşır → genişliyə sığsın, kəsilsin.

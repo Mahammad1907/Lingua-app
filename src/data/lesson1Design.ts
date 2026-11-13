@@ -44,15 +44,21 @@ export const lesson1Design: DesignLesson = {
     },
     {
       type: 'choice', id: 'd1_c03', speaker: 'mascot', number: 3, title: 'Dinlə və anla', prompt: 'Səsi dinlə. {M} nə edir?',
-      audio: 'Hi!', options: ['Salam verir.', 'Sağollaşır.'], answer: 'Salam verir.',
+      audio: 'Hi!', options: ['Salam verir.', 'Sağollaşır.', 'Təşəkkür edir.'], answer: 'Salam verir.',
       hint: 'Sözün görüşü başlatdığını, yoxsa bitirdiyini düşün.', hintAssists: true,
-      variants: [{ match: { other: true }, short: 'Hi salamlaşmaq üçündür. Bu səsdə {m} salam verir.', explain: {
+      variants: [{ match: { option: 'Təşəkkür edir.' }, short: 'Hi təşəkkür deyil, salamdır. Bu səsdə {m} salam verir.', explain: {
+        answers: 'Salam verir.', reason: 'Səsdə “Hi!” deyilir. Bu, təşəkkür yox, salamdır.',
+        rule: 'Hello və Hi salam vermək üçün işlənir.', example: 'Bir tanışın səninlə qarşılaşır və “Hello!” deyir. O, salam verir.' } },
+      { match: { other: true }, short: 'Hi salamlaşmaq üçündür. Bu səsdə {m} salam verir.', explain: {
         answers: 'Salam verir.', reason: 'Səsdə “Hi!” deyilir. “Sağollaşır” seçimi bu salamın mənasına uyğun deyil.',
         rule: 'Hello və Hi salam vermək üçün işlənir.', example: 'Bir tanışın səninlə qarşılaşır və “Hello!” deyir. O, salam verir.' } }],
       review: {
-        title: 'Dinlə və anla', prompt: 'Dinlə. Danışan nə edir?', audio: 'Hello!', options: ['Salam verir.', 'Sağollaşır.'], answer: 'Salam verir.',
+        title: 'Dinlə və anla', prompt: 'Dinlə. Danışan nə edir?', audio: 'Hello!', options: ['Sağollaşır.', 'Təşəkkür edir.', 'Salam verir.'], answer: 'Salam verir.',
         hint: 'Sözün görüşü başlatdığını, yoxsa bitirdiyini düşün.', hintAssists: true,
-        variants: [{ match: { other: true }, short: 'Hello salamlaşmaq üçündür. Bu səsdə danışan salam verir.', explain: {
+        variants: [{ match: { option: 'Təşəkkür edir.' }, short: 'Hello təşəkkür deyil, salamdır. Bu səsdə danışan salam verir.', explain: {
+          answers: 'Salam verir.', reason: 'Səsdə “Hello!” deyilir. Bu, təşəkkür yox, salamdır.',
+          rule: 'Hello və Hi salam vermək üçün işlənir.', example: '“Hi!” — salam verir.' } },
+        { match: { other: true }, short: 'Hello salamlaşmaq üçündür. Bu səsdə danışan salam verir.', explain: {
           answers: 'Salam verir.', reason: 'Səsdə “Hello!” deyilir. “Sağollaşır” seçimi bu salamın mənasına uyğun deyil.',
           rule: 'Hello və Hi salam vermək üçün işlənir.', example: '“Hi!” — salam verir.' } }],
       },
@@ -107,20 +113,25 @@ export const lesson1Design: DesignLesson = {
     {
       type: 'teach', id: 'd1_c06', number: 6, title: 'Sağollaşmanı öyrən',
       lead: 'Görüş bitəndə bu ifadələrdən biri ilə sağollaşa bilərsən:',
-      phrases: [{ en: 'Goodbye!', az: 'Sağ ol!' }, { en: 'Bye!', az: 'Sağ ol!' }],
+      phrases: [{ en: 'Goodbye!', az: 'Görüşənədək!' }, { en: 'Bye!', az: 'Hələlik!' }],
       notes: ['Bye daha qeyri-rəsmi sağollaşmadır.'],
     },
     {
       type: 'choice', id: 'd1_c07a', number: 7, title: 'Oxu və seç', prompt: 'Görüş bitdi. İndi gedirsən.\nHansı ifadə uyğundur?',
-      options: ['Hello!', 'Goodbye!'], answer: 'Goodbye!',
+      options: ['Hello!', 'Goodbye!', 'Hi!'], answer: 'Goodbye!',
       hint: 'İfadələri görüşə başlayarkən işlədilən salamla müqayisə et.', hintAssists: true,
-      variants: [{ match: { other: true }, explain: {
+      variants: [{ match: { option: 'Hi!' }, explain: {
+        answers: 'Bu seçimlərdə Goodbye! Sərbəst sağollaşmada Bye! də uyğundur.', reason: 'Hi salamlaşmaq üçündür. Burada görüş bitir.',
+        rule: 'Ayrılarkən sağollaşma ifadəsi seç.', example: 'Söhbətin sonunda tanışından ayrılırsan: “Bye!”' } },
+      { match: { other: true }, explain: {
         answers: 'Bu seçimlərdə Goodbye! Sərbəst sağollaşmada Bye! də uyğundur.', reason: 'Hello salamlaşmaq üçündür. Burada görüş bitir.',
         rule: 'Ayrılarkən sağollaşma ifadəsi seç.', example: 'Söhbətin sonunda tanışından ayrılırsan: “Bye!”' } }],
       review: {
-        title: 'Oxu və seç', prompt: 'Yazışmanız bitir. Hansı mesaj uyğundur?', options: ['Hi!', 'Bye!'], answer: 'Bye!',
+        title: 'Oxu və seç', prompt: 'Yazışmanız bitir. Hansı mesaj uyğundur?', options: ['Hi!', 'Bye!', 'Hello!'], answer: 'Bye!',
         hint: 'İfadələri görüşə başlayarkən işlədilən salamla müqayisə et.', hintAssists: true,
-        variants: [{ match: { other: true }, explain: {
+        variants: [{ match: { option: 'Hello!' }, explain: {
+          answers: 'Bye!', reason: 'Yazışma bitir. Hello salamlaşmaq üçündür.', rule: 'Ayrılarkən sağollaş.', example: '“Goodbye!”' } },
+        { match: { other: true }, explain: {
           answers: 'Bye!', reason: 'Yazışma bitir. Hi salamlaşmaq üçündür.', rule: 'Ayrılarkən sağollaş.', example: '“Goodbye!”' } }],
       },
     },
@@ -133,11 +144,11 @@ export const lesson1Design: DesignLesson = {
           answers: 'Bye!', reason: 'Goodbye mənaca uyğundur, amma audio məhz Bye sözüdür. Bu tapşırıq eynimənalı başqa ifadə seçməyi yoxlamır.',
           rule: 'Eşitdiyini yazmaq tapşırığında səslənən sözü yaz.', example: 'Başqa səsdə “Goodbye!” eşidirsənsə, “Goodbye” yazırsan.' } },
         { match: { words: ['hello', 'hi'] }, explain: {
-          answers: 'Bye!', reason: 'Audio Bye sözüdür. Hello və Hi başqa səslənən salamlaşma sözləridir. Bu cavab təkbaşına səhvin dinləmədən, yazıdan və ya diqqətdən qaynaqlandığını sübut etmir.',
+          answers: 'Bye!', reason: 'Audio Bye sözüdür. Hello və Hi başqa səslənən salamlaşma sözləridir.',
           rule: 'Audioda eşitdiyin sözü yaz.', example: '“Hello!” eşidirsənsə, “Hello” yazırsan.' } },
         { match: { other: true }, explain: {
-          answers: 'Bye!', reason: 'Yazdığın cavab audiodakı Bye sözünə uyğun gəlmir. Səhvin şəxsi səbəbi barədə fərziyyə irəli sürülmür.',
-          rule: 'Səslənən sözü yaz; mənanı dəyişməyən aydın yazı fərqləri ayrıca nəzərə alınır.', example: '“Hi!” eşidəndə “Hi” yazılır.' } },
+          answers: 'Bye!', reason: 'Yazdığın söz audiodakı Bye sözü deyil.',
+          rule: 'Səslənən sözü yaz.', example: '“Hi!” eşidəndə “Hi” yazılır.' } },
       ],
       review: {
         title: 'Eşitdiyini yaz', prompt: 'Səsi dinlə və eşitdiyin sözü yaz.', audio: 'Goodbye!', placeholder: 'Eşitdiyin sözü yaz',
@@ -146,11 +157,11 @@ export const lesson1Design: DesignLesson = {
           { match: { words: ['bye'] }, short: 'Bye də sağollaşmadır. Bu səsdə isə Goodbye deyilir. Burada eşitdiyin sözü yazmaq tələb olunur.', explain: {
             answers: 'Goodbye!', reason: 'Bu səsdə Bye deyil, Goodbye deyilir.', rule: 'Səslənən sözü yaz.', example: '“Hi!” eşidəndə “Hi” yazılır.' } },
           { match: { words: ['hello', 'hi'] }, explain: {
-            answers: 'Goodbye!', reason: 'Audio Goodbye sözüdür. Hello və Hi başqa səslənən salamlaşma sözləridir. Bu cavab təkbaşına səhvin dinləmədən, yazıdan və ya diqqətdən qaynaqlandığını sübut etmir.',
+            answers: 'Goodbye!', reason: 'Audio Goodbye sözüdür. Hello və Hi başqa səslənən salamlaşma sözləridir.',
             rule: 'Audioda eşitdiyin sözü yaz.', example: '“Hello!” eşidirsənsə, “Hello” yazırsan.' } },
           { match: { other: true }, explain: {
-            answers: 'Goodbye!', reason: 'Yazdığın cavab audiodakı Goodbye sözünə uyğun gəlmir. Səhvin şəxsi səbəbi barədə fərziyyə irəli sürülmür.',
-            rule: 'Səslənən sözü yaz; mənanı dəyişməyən aydın yazı fərqləri ayrıca nəzərə alınır.', example: '“Hi!” eşidəndə “Hi” yazılır.' } },
+            answers: 'Goodbye!', reason: 'Yazdığın söz audiodakı Goodbye sözü deyil.',
+            rule: 'Səslənən sözü yaz.', example: '“Hi!” eşidəndə “Hi” yazılır.' } },
         ],
       },
     },
@@ -291,7 +302,7 @@ export const lesson1Design: DesignLesson = {
   vocabulary: [
     { word: 'Hello', translation: 'Salam', example: 'Hello{en,G}!', exampleAz: 'Salam{,G}!', usageNote: 'Hello ümumi salamlaşmadır.', pronunciation: '/həˈləʊ/', teachCard: 'd1_c02' },
     { word: 'Hi', translation: 'Salam', example: 'Hi{en,B}!', exampleAz: 'Salam{,B}!', usageNote: 'Hi daha qeyri-rəsmi salamlaşmadır.', pronunciation: '/haɪ/', teachCard: 'd1_c02' },
-    { word: 'Goodbye', translation: 'Sağ ol', example: 'Goodbye{en,G}!', exampleAz: 'Sağ ol{,G}!', usageNote: 'Goodbye burada ayrılma mənasındadır.', pronunciation: '/ˌɡʊdˈbaɪ/', teachCard: 'd1_c06' },
-    { word: 'Bye', translation: 'Sağ ol', example: 'Bye{en,B}!', exampleAz: 'Sağ ol{,B}!', usageNote: 'Bye daha qeyri-rəsmi sağollaşmadır.', pronunciation: '/baɪ/', teachCard: 'd1_c06' },
+    { word: 'Goodbye', translation: 'Görüşənədək', example: 'Goodbye{en,G}!', exampleAz: 'Görüşənədək{,G}!', usageNote: 'Goodbye burada ayrılma mənasındadır.', pronunciation: '/ˌɡʊdˈbaɪ/', teachCard: 'd1_c06' },
+    { word: 'Bye', translation: 'Hələlik', example: 'Bye{en,B}!', exampleAz: 'Hələlik{,B}!', usageNote: 'Bye daha qeyri-rəsmi sağollaşmadır.', pronunciation: '/baɪ/', teachCard: 'd1_c06' },
   ],
 };

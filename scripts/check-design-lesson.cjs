@@ -61,6 +61,15 @@ assert.equal(L.gradeChoice(c3, 'Salam verir.').status, 'correct');
 const wrong3 = L.gradeChoice(c3, 'Sağollaşır.');
 assert.equal(wrong3.status, 'wrong'); assert.equal(wrong3.explain.yourAnswer, 'Sağollaşır.');
 assert.equal(wrong3.short, 'Hi salamlaşmaq üçündür. Bu səsdə dostun salam verir.');
+// Every choice has three options; each wrong option gets an explanation that names it correctly.
+for (const t of lesson.cards.filter(c => c.type === 'choice')) {
+  for (const task of [t, L.reviewTask(lesson, t.id)]) {
+    assert.equal(task.options.length, 3, `${t.id} has three options`);
+    for (const o of task.options.filter(o => o !== task.answer)) assert.equal(L.gradeChoice(task, o).status, 'wrong');
+  }
+}
+assert.equal(L.gradeChoice(c3, 'Təşəkkür edir.').explain.reason, 'Səsdə “Hi!” deyilir. Bu, təşəkkür yox, salamdır.');
+assert.equal(L.gradeChoice(card('d1_c07a'), 'Hi!').explain.reason, 'Hi salamlaşmaq üçündür. Burada görüş bitir.');
 const c4 = card('d1_c04');
 assert.equal(L.gradeText(c4, 'Hello!').status, 'correct');
 assert.equal(L.gradeText(c4, 'hi').status, 'correct');

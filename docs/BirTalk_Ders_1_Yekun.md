@@ -111,6 +111,7 @@ Səsi dinlə. BirFox nə edir?
 
 - Salam verir.
 - Sağollaşır.
+- Təşəkkür edir.
 
 **Düymələr:** Səsi dinlə · Yoxla  
 **Sonra:** Davam et  
@@ -134,6 +135,16 @@ Qısa geribildirim: “Hi salamlaşmaq üçündür. Bu səsdə BirFox salam veri
 - **Sənin cavabın:** “{seçilmiş variant}”.
 - **Uyğun cavab:** Salam verir.
 - **Səbəb:** Səsdə “Hi!” deyilir. “Sağollaşır” seçimi bu salamın mənasına uyğun deyil.
+- **Qısa qayda:** Hello və Hi salam vermək üçün işlənir.
+- **Yeni nümunə:** Bir tanışın səninlə qarşılaşır və “Hello!” deyir. O, salam verir.
+
+**İzah 1a — “Təşəkkür edir.” seçiləndə** (13 noyabr 2026: üçüncü seçim əlavə olundu)
+
+Qısa geribildirim: “Hi təşəkkür deyil, salamdır. Bu səsdə BirFox salam verir.”
+
+- **Sənin cavabın:** “Təşəkkür edir.”
+- **Uyğun cavab:** Salam verir.
+- **Səbəb:** Səsdə “Hi!” deyilir. Bu, təşəkkür yox, salamdır.
 - **Qısa qayda:** Hello və Hi salam vermək üçün işlənir.
 - **Yeni nümunə:** Bir tanışın səninlə qarşılaşır və “Hello!” deyir. O, salam verir.
 
@@ -240,8 +251,8 @@ Tanıma qeyri-müəyyəndirsə: “Səsli cavabın dəqiq tanınmadı. Yenidən 
 
 Görüş bitəndə bu ifadələrdən biri ilə sağollaşa bilərsən:
 
-**Goodbye! — Sağ ol!**  
-**Bye! — Sağ ol!**
+**Goodbye! — Görüşənədək!**  
+**Bye! — Hələlik!**
 
 Bye daha qeyri-rəsmi sağollaşmadır.
 
@@ -249,7 +260,7 @@ Bye daha qeyri-rəsmi sağollaşmadır.
 
 ### Hazırlayan üçün
 
-Dəqiq audio: **Goodbye!** və **Bye!**. Qiymətləndirmə yoxdur. “Sağ ol” bu kartda görüşü bitirmək mənasındadır. İlk dərsdə təşəkkür mənası və “Sağ olun” fərqi ayrıca mövzuya çevrilmir.
+Dəqiq audio: **Goodbye!** və **Bye!**. Qiymətləndirmə yoxdur. Tərcümədə “Sağ ol” işlədilmir, çünki təşəkkür mənası ilə qarışır (13 noyabr 2026 qərarı).
 
 ## Kart 7 — Sağollaşmanı seç və eşitdiyini yaz
 
@@ -263,6 +274,7 @@ Hansı ifadə uyğundur?
 
 - Hello!
 - Goodbye!
+- Hi!
 
 **Düymə:** Yoxla  
 **Sonra:** Davam et  
@@ -279,6 +291,13 @@ Hansı ifadə uyğundur?
 - **Sənin cavabın:** “{seçilmiş variant}”.
 - **Uyğun cavab:** bu seçimlərdə Goodbye! Sərbəst sağollaşmada Bye! də uyğundur.
 - **Səbəb:** Hello salamlaşmaq üçündür. Burada görüş bitir.
+- **Qısa qayda:** Ayrılarkən sağollaşma ifadəsi seç.
+- **Yeni nümunə:** Söhbətin sonunda tanışından ayrılırsan: “Bye!”
+
+**İzah 6a — “Hi!” seçiləndə** (13 noyabr 2026: üçüncü seçim əlavə olundu)
+- **Sənin cavabın:** “Hi!”
+- **Uyğun cavab:** bu seçimlərdə Goodbye! Sərbəst sağollaşmada Bye! də uyğundur.
+- **Səbəb:** Hi salamlaşmaq üçündür. Burada görüş bitir.
 - **Qısa qayda:** Ayrılarkən sağollaşma ifadəsi seç.
 - **Yeni nümunə:** Söhbətin sonunda tanışından ayrılırsan: “Bye!”
 
@@ -321,7 +340,7 @@ Qısa geribildirim: “Goodbye da sağollaşmadır. Bu səsdə isə Bye deyilir.
 **İzah 8 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki cavab}”.
 - **Uyğun cavab:** Bye!
-- **Səbəb:** Audio Bye sözüdür. Hello və Hi başqa səslənən salamlaşma sözləridir. Bu cavab təkbaşına səhvin dinləmədən, yazıdan və ya diqqətdən qaynaqlandığını sübut etmir.
+- **Səbəb:** Audio Bye sözüdür. Hello və Hi başqa səslənən salamlaşma sözləridir.
 - **Qısa qayda:** Audioda eşitdiyin sözü yaz.
 - **Yeni nümunə:** “Hello!” eşidirsənsə, “Hello” yazırsan.
 
@@ -330,8 +349,8 @@ Qısa geribildirim: “Goodbye da sağollaşmadır. Bu səsdə isə Bye deyilir.
 **İzah 9 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki cavab}”.
 - **Uyğun cavab:** Bye!
-- **Səbəb:** Yazdığın cavab audiodakı Bye sözünə uyğun gəlmir. Səhvin şəxsi səbəbi barədə fərziyyə irəli sürülmür.
-- **Qısa qayda:** Səslənən sözü yaz; mənanı dəyişməyən aydın yazı fərqləri ayrıca nəzərə alınır.
+- **Səbəb:** Yazdığın söz audiodakı Bye sözü deyil.
+- **Qısa qayda:** Səslənən sözü yaz.
 - **Yeni nümunə:** “Hi!” eşidəndə “Hi” yazılır.
 
 ## Kart 8 — Sağollaşmaya səslə cavab ver
@@ -649,10 +668,11 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 - Yeni vəziyyət: telefonda başqa danışan salam verir.
 - Audio: **Hello!**
 - Sual: “Dinlə. Danışan nə edir?”
-- Seçimlər: Salam verir / Sağollaşır.
+- Seçimlər: Sağollaşır / Təşəkkür edir / Salam verir.
 - Uyğun cavab: Salam verir.
 - Bacarıq: salam səsinin mənasını tanımaq.
 - İzah: Kart 3-ün beş hissəsi istifadə edilir; faktiki cavab saxlanılır, audiodakı söz **Hello** kimi yenilənir. Yeni nümunə: “Hi!” — salam verir.
+- “Təşəkkür edir.” seçiləndə: qısa geribildirim “Hello təşəkkür deyil, salamdır. Bu səsdə danışan salam verir.”; səbəb “Səsdə “Hello!” deyilir. Bu, təşəkkür yox, salamdır.”
 
 ### T2 — Kart 4 üçün yazılı salam
 
@@ -673,10 +693,11 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 ### T4 — Kart 7A üçün yazılı seçim
 
 - Sual: “Yazışmanız bitir. Hansı mesaj uyğundur?”
-- Seçimlər: Hi! / Bye!
+- Seçimlər: Hi! / Bye! / Hello!
 - Uyğun cavab: Bye!
 - Bacarıq: yazılı sağollaşmanı vəziyyətə uyğun tanımaq.
 - İzah: faktiki seçilən Hi!; uyğun Bye!; səbəb yazışmanın bitməsidir; qayda ayrılarkən sağollaşmaqdır; yeni nümunə “Goodbye!”.
+- Hello! seçiləndə səbəb: “Yazışma bitir. Hello salamlaşmaq üçündür.”
 - “Goodbye” bu konkret seçimdə yoxdur; müəllif izahında alternativ kimi verilə bilər.
 
 ### T5 — Kart 7B üçün eşidilən söz
@@ -770,8 +791,8 @@ Hər təkrar üçün yuxarıda konkret hədəf söz və uyğun əsas izah göst�
 |---|---|---|---|
 | Hello | Salam | Hello, Leyla! | Salam, Leyla! |
 | Hi | Salam | Hi, Ali! | Salam, Əli! |
-| Goodbye | Sağ ol | Goodbye, Leyla! | Sağ ol, Leyla! |
-| Bye | Sağ ol | Bye, Ali! | Sağ ol, Əli! |
+| Goodbye | Görüşənədək | Goodbye, Leyla! | Görüşənədək, Leyla! |
+| Bye | Hələlik | Bye, Ali! | Hələlik, Əli! |
 
 Hello ümumi, Hi daha qeyri-rəsmi salamlaşmadır. Bye daha qeyri-rəsmi sağollaşmadır. Goodbye və Bye burada ayrılma mənasındadır.
 
