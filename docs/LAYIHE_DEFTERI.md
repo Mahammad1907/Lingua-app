@@ -222,3 +222,17 @@ Yoxlama bu söhbətdə yerli mənbədəki 803a6d4e8cc497e75c51f9ec1fa6750acc5f37
 - **“Xəta bildir”:** forma bildirişi yalnız telefonda saxlayır (`birtalk.errorReports.v1`), serverə göndərilmir.
 - **Lüğət:** sözlər ilk öyrədildiyi kartda “Lüğətim”ə təkrarsız əlavə olunur; sözə toxunanda məna pəncərəsi açılır.
 - **Yoxlama:** `scripts/check-design-lesson.cjs` (məzmunun sənədlə uyğunluğu, adlar, qiymətləndirmə, izah seçimi, nəticə statusları) və mövcud məzmun/qiymətləndirmə yoxlamaları keçir. Bu mühitdə `node_modules` quraşdırıla bilmədiyi üçün tam `tsc`, `expo lint` və ekran render testləri işlədilməyib. Real telefonda görünüş, səs, mikrofon (basılı saxla), klaviatura və irəliləyişin saxlanması **yoxlanmayıb**.
+
+## Gözləyən düzəlişlər — Dərs 1 yeni ekranları, 13 noyabr 2026
+
+İstifadəçi iPhone-da Dərs 1-i açdı və aşağıdakıları qeyd etdi. Bunlar hələ düzəldilməyib; istifadəçi "düzəlt" deyəndə birlikdə edilir.
+
+1. "İpucu" kapsulu ortada və cavab sahəsinin üstündədir; sahənin altında, sağda olmalıdır (Capsule stilindəki `alignSelf: 'center'` sağa düzləməni üstələyir).
+2. Səsli ekranın audio panelində dalğa oynat düyməsinin və "Yavaş dinlə" dairəsinin üstünə daşır; dalğa ayrılan genişliyə sığmalı və kəsilməlidir.
+3. Səsli tapşırıqda ipucu yoxdur, düymə yalnız "Mətni göstər"i açır; düymənin adı "Mətni göstər" olsun, yeri sağda.
+4. Mikrofonun altındakı solğun bəzək dalğası boş halda da görünür; yalnız yazı zamanı görünsün.
+5. Maskot avatar kəsimində əlin bir hissəsi görünür; şəkli yenidən kəs.
+6. Uzun başlıqlar iki sətrə düşüb mikrofonu aşağı itələyir; başlıq şriftini bir az kiçilt.
+7. Yazı ekranında aşağıda böyük boşluq qalır (zövq məsələsi, istifadəçi ilə dəqiqləşdir).
+
+Əvvəl qeyd olunan və hələ edilməmiş tövsiyələr: dinləmə ekranında "İpucu" → "Kömək" adı, açıq bənövşəyi yazıların kontrastı, mikrofon üçün "toxun–danış–toxun" alternativi, nəticə panelində X-in çıxarılması, maskotun danışdığı ekranlarda kiçik şəkli; Dərs 4 kart 16-da birinci mesaj Leyla olmalıdır; Dərs 2–6 başlığında "Ali-un" → "Əlinin".
