@@ -299,3 +299,23 @@ Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edi
 - Personaj adları boş olduğu üçün ad lazım olan ingilis cümlələrində “…” işlənir; öyrənən öz adını deyir.
 - Köhnə Dərs 2–7 kartları yalnız bölmə imtahanı üçün saxlanılır.
 - Yoxlama: `node scripts/check-unit1.cjs`, `check-design-lesson.cjs` və köhnə yoxlamalar keçir. **Telefonda yoxlanmayıb.**
+
+## Telefonda görülən xətalar — toplanır (13 noyabr 2026, Expo Go)
+
+İstifadəçi “bitdi” deyənə qədər kod dəyişmir. Hər düzəlişdən sonra bütün ekran növləri və 8 dərs yoxlanır, istifadəçiyə “bu ekranlara bax” siyahısı verilir (istifadəçinin iş qaydası).
+
+1. Dərs bitib növbəti dərsə keçəndə ekran titrəyir/yellənir → ləğv.
+2. (1 ilə birləşdi.)
+3. İpucuları: termin yox, cavab birbaşa yox, konkret yol + nümunə. Qaranlıq olanlar yenidən yazılır (D1 k4, 7A, 7B, k9, k10; D2 k3 və təkrarı; D3 k4); ipucu olmayan tapşırıqlara əlavə olunur (D5 hamısı, Sözü tamamla, Mesaj yaz, Kim nə dedi?).
+4. Azərbaycan hərfləri ilə oxunuş (fonetik yazı da qalır). th qalın “th” kimi saxlanır (*thenk yu*) + bir dəfə qeyd “dilin ucu dişlərin arasında”; w → “u” (*uelkəm*). Yeni söz və Dinlə və təkrarla kartlarında.
+5. “Yoxlanmadı” paneli mikrofonu örtür.
+6. İngilis sözünə toxunanda məna + oxunuş + səs. Öyrətmə/Yeni söz/nümunədə sərbəst; tapşırıqda “Köməklə” sayılır; cavab variantlarında yoxdur.
+7. Maskot danışan kartlar söhbət görünüşü: böyük maskot + ağ nitq balonu, tapşırıq tünd; mənfi ifadələr müsbət (“İndi növbə səndədir!”); səsli ekranlarda alt boşluq yox (mikrofon aşağı, Keç altında).
+8. Nümunəsiz səsli/yazılı tapşırıqlarda iki pilləli “Kömək”: 1) ipucu (Müstəqil qalır), 2) nümunə (Köməklə).
+9. Köhnə tünd “Bölmə” ekranı (module/[id], tülkü) silinir; AI söhbət düyməsi hələlik “AI söhbət tezliklə”; keçid imtahanı və dərs sonu qayıdış adaya.
+10. Sitat olan tapşırıqlar nitq balonu + avatar; “…” yerinə [ad] nişanı; solğun vəziyyət sətri tündləşir.
+11. Nəticə panelində “Xəta bildir” kiçik ikon kimi aşağıya.
+12. Səs düyməsi hər yerdə eyni: “Dinlə” + “Yavaş dinlə” cütü; kiçik dinamik ikonu çıxır.
+13. (4 ilə birlikdə) oxunuş həm fonetik, həm Azərbaycan hərfləri ilə.
+14. “Lüğətim”ə əlavə olundu sətri ekrandan çıxır (söz yenə lüğətə düşür).
+15. Yeni söz kartında: suallarda cavab nümunəsi + “Kimə deyilir?” qeydi; az məlumatlı sətirlər çıxır.
