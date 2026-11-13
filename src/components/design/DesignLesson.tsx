@@ -342,12 +342,13 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const mascotTalks = task.speaker === 'mascot' && !audio && !quote;
     const scene = sceneImage(task.scenes);
     const sampleVisible = task.type === 'voice' && Boolean(task.sample) && (lesson.order <= 2 || sampleShown);
-    return <View style={s.gap}>
+    return <View style={[s.gap, { flex: 1 }]}>
       {reviewing ? <View style={{ gap: 6 }}><Chip label="Təkrar" />{reviewStep === 0 ? <Text style={ds.small}>{lesson.notices.review}</Text> : null}</View> : null}
       <Text accessibilityRole="header" style={ds.title}>{task.title}</Text>
       {mascotTalks ? <SayBubble who="M" text={instruction} />
         : <View style={{ gap: 2 }}>{context ? <Text style={ds.subtitle}>{context}</Text> : null}<Text style={ds.instruction}>{instruction}</Text></View>}
       {mascotTalks && context ? <Text style={ds.subtitle}>{context}</Text> : null}
+      <View style={s.work}>
       {scene && !spotsShown ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
       {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.45)} /> : null}
       {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.45, listeningTask)} /> : null}
@@ -386,6 +387,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         <HoldToTalk onFinal={onSpoken} onRecording={onRecording} onBusyChange={setVoiceBusy} suspended={helpOpen || explainOpen || reportOpen || menuOpen} />
         {!result ? <Capsule label="Keç" onPress={skipVoice} disabled={voiceBusy} /> : null}
       </View> : null}
+      </View>
     </View>;
   }
 
@@ -445,7 +447,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     <ScrollView style={{ flex: 1 }} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" bounces={false} alwaysBounceVertical={false}
       overScrollMode="never" onLayout={e => setViewport(e.nativeEvent.layout.height)}>
       {/* A short slide-in marks each new card; Reanimated skips it when the system asks for reduced motion. */}
-      <Animated.View key={`${showResult ? 'result' : reviewing ? `r${reviewStep}` : index}`} entering={FadeIn.duration(180)}>
+      <Animated.View key={`${showResult ? 'result' : reviewing ? `r${reviewStep}` : index}`} entering={FadeIn.duration(180)} style={{ flexGrow: 1 }}>
         {body}
       </Animated.View>
     </ScrollView>
@@ -575,6 +577,7 @@ const s = StyleSheet.create({
   content: { paddingHorizontal: 20, paddingTop: 6, paddingBottom: 16, flexGrow: 1 },
   footer: { paddingHorizontal: 20, paddingTop: 8, gap: 10 },
   gap: { gap: 14 },
+  work: { flex: 1, justifyContent: 'center', gap: 14, paddingVertical: 8 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 10, flexWrap: 'wrap' },
   disc: { backgroundColor: 'rgba(142,99,232,.13)', alignItems: 'center', justifyContent: 'center' },
   goal: { flexDirection: 'row', alignItems: 'center', gap: 14, minHeight: 58 },

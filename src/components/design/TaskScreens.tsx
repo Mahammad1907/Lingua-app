@@ -4,6 +4,7 @@
 import { Image } from 'expo-image';
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import Svg, { Circle, Path } from 'react-native-svg';
 import { characterAz, hasCharacterName } from '../../config/characters';
 import { missingScenes, sceneImage } from '../../config/sceneImages';
 import type { ChatLine, MatchTask, WordCard, Who } from '../../data/designLessonTypes';
@@ -23,11 +24,15 @@ export function Avatar({ who, size = 34 }: { who: Who; size?: number }) {
     accessibilityLabel={characterAz('mascot') || 'Dostun'} />;
   const role = who === 'G' ? 'girl' as const : who === 'B' ? 'boy' as const : undefined;
   const name = role ? characterAz(role) || (role === 'girl' ? 'Qız' : 'Oğlan') : '';
-  const initial = role && hasCharacterName(role) ? name.charAt(0) : role === 'girl' ? 'Q' : role === 'boy' ? 'O' : '•';
-  const look = who === 'G' ? { backgroundColor: '#E9D9FF', borderColor: d.purple, color: d.purple } : who === 'B' ? { backgroundColor: '#FFE1C4', borderColor: d.orange, color: '#B4530A' } : { backgroundColor: d.purpleSoft, borderColor: d.borderStrong, color: d.lavenderText };
+  const look = who === 'G' ? { bg: '#EFE3FF', ring: d.purple, body: '#8E63E8', hair: '#5B1FD1' } : who === 'B' ? { bg: '#FFEBD6', ring: d.orange, body: '#F27A12', hair: '#7A3A0A' } : { bg: d.purpleSoft, ring: d.borderStrong, body: '#B9AED0', hair: '#8C7FA6' };
   return <View accessibilityLabel={name || undefined}
-    style={{ width: size, height: size, borderRadius: size / 2, borderWidth: 2, alignItems: 'center', justifyContent: 'center', backgroundColor: look.backgroundColor, borderColor: look.borderColor }}>
-    <Text style={{ color: look.color, fontSize: size * .42, ...font.extrabold }}>{initial}</Text>
+    style={{ width: size, height: size, borderRadius: size / 2, borderWidth: 2, borderColor: look.ring, backgroundColor: look.bg, overflow: 'hidden', alignItems: 'center', justifyContent: 'flex-end' }}>
+    <Svg width={size * .86} height={size * .78} viewBox="0 0 40 36">
+      <Path d="M4 36c1-8 7-12 16-12s15 4 16 12z" fill={look.body} />
+      <Circle cx={20} cy={15} r={8.5} fill="#F6D2B8" />
+      {who === 'G' ? <Path d="M11 16c0-7 4-11 9-11s9 4 9 11c-2-4-5-6-9-6s-7 2-9 6zM10 15c-1 5 0 9 2 11M30 15c1 5 0 9-2 11" fill={look.hair} stroke={look.hair} strokeWidth={2} />
+        : <Path d="M11.5 14c0-6 4-9 8.5-9s8.5 3 8.5 9c-2-3-5-4.5-8.5-4.5s-6.5 1.5-8.5 4.5z" fill={look.hair} />}
+    </Svg>
   </View>;
 }
 
@@ -116,26 +121,26 @@ export function TileTray({ tiles, picked, onPick, onSay, disabled }: { tiles: st
   </View>;
 }
 
-/** “Sözü tamamla”: one sentence in a bubble with a gap, options as a row of pills. */
+/** “Sözü tamamla”: the speaker says one sentence with a gap; the options sit under it, centred. */
 export function GapSentence({ speaker, before, after, options, value, onPick, onSay, mark, disabled }: {
   speaker?: Who; before: string; after: string; options: string[]; value: string; onPick: (o: string) => void; onSay?: (t: string) => void; mark?: Mark; disabled?: boolean;
 }) {
-  return <View style={s.inRow}>
-    {speaker ? <Avatar who={speaker} size={40} /> : null}
-    <View style={{ flex: 1, gap: 14 }}>
-      <View style={s.gapBubble}>
-        <Text style={s.gapText}>{before}{before ? ' ' : ''}<Text style={[s.gapSlot, mark && { color: markColor(mark, d.purple), backgroundColor: mark === 'correct' ? d.greenSoft : d.redSoft }]}>
-          {value ? ` ${value} ` : '      '}</Text>{after.startsWith('.') || after.startsWith('?') || after.startsWith('!') || after.startsWith(',') ? '' : ' '}{after}</Text>
-      </View>
-      <View style={s.pills}>
-        {options.map(o => {
-          const on = value === o;
-          return <Pressable key={o} accessibilityRole="radio" accessibilityState={{ selected: on, disabled }} disabled={disabled} onPress={() => { onSay?.(o); onPick(o); }}
-            style={[s.pill, on && s.pillOn, on && mark && { borderColor: markColor(mark, d.purple) }]}>
-            <Text style={s.pillText}>{o}</Text>
-          </Pressable>;
-        })}
-      </View>
+  const color = mark === 'correct' ? d.green : mark === 'wrong' ? d.red : d.purple;
+  const sentence = <Text style={s.gapText}>{before}{before ? ' ' : ''}<Text style={[s.gapSlot, value ? { color, backgroundColor: mark === 'correct' ? d.greenSoft : mark === 'wrong' ? d.redSoft : d.purpleSoft } : null]}>
+    {value ? ` ${value} ` : ' ______ '}</Text>{/^[.,!?]/.test(after) ? '' : ' '}{after}</Text>;
+  return <View style={{ gap: 18 }}>
+    <View style={s.sayRow}>
+      {speaker ? <Avatar who={speaker} size={56} /> : null}
+      <View style={[s.sayBubble, shadow, !speaker && { borderTopLeftRadius: 22 }]}>{sentence}</View>
+    </View>
+    <View style={s.pills}>
+      {options.map(o => {
+        const on = value === o;
+        return <Pressable key={o} accessibilityRole="radio" accessibilityState={{ selected: on, disabled }} disabled={disabled} onPress={() => { onSay?.(o); onPick(o); }}
+          style={({ pressed }) => [s.pill, on && s.pillOn, on && mark && { borderColor: color, backgroundColor: mark === 'correct' ? d.greenSoft : d.redSoft }, pressed && { transform: [{ scale: .96 }] }]}>
+          <Text style={[s.pillText, on && { color }]}>{o}</Text>
+        </Pressable>;
+      })}
     </View>
   </View>;
 }
@@ -269,12 +274,12 @@ const s = StyleSheet.create({
   tileUsed: { backgroundColor: '#F7F3FC', borderStyle: 'dashed', borderColor: '#DCD0F0' },
   tileText: { color: d.ink, fontSize: 17, ...font.bold },
   gapBubble: { paddingHorizontal: 20, paddingVertical: 18, borderRadius: 24, borderBottomLeftRadius: 6, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
-  gapText: { color: d.ink, fontSize: 26, lineHeight: 38, ...font.extrabold },
+  gapText: { color: d.ink, fontSize: 28, lineHeight: 40, ...font.extrabold },
   gapSlot: { color: d.purple, backgroundColor: d.purpleSoft },
-  pills: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  pill: { minHeight: 46, paddingHorizontal: 22, borderRadius: 23, borderWidth: 1, borderColor: '#C5ADF2', backgroundColor: '#fff', justifyContent: 'center' },
+  pills: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, justifyContent: 'center' },
+  pill: { minHeight: 56, minWidth: 92, alignItems: 'center', paddingHorizontal: 24, borderRadius: 28, borderWidth: 1, borderColor: '#C5ADF2', backgroundColor: '#fff', justifyContent: 'center' },
   pillOn: { borderWidth: 2, borderColor: d.purple, backgroundColor: d.purpleSoft },
-  pillText: { color: d.ink, fontSize: 19, ...font.extrabold },
+  pillText: { color: d.ink, fontSize: 21, ...font.extrabold },
   matchRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   matchBubble: { flex: 1, paddingHorizontal: 14, paddingVertical: 10, borderRadius: 16, borderBottomLeftRadius: 6, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
   matchEn: { color: d.ink, fontSize: 17, ...font.extrabold },

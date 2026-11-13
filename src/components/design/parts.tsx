@@ -133,7 +133,7 @@ export const ds = StyleSheet.create({
   title: { color: d.ink, fontSize: 26, lineHeight: 32, ...font.extrabold, letterSpacing: -.3 },
   titleLarge: { color: d.ink, fontSize: 30, lineHeight: 36, ...font.extrabold, letterSpacing: -.5 },
   instruction: { color: d.ink, fontSize: 17, lineHeight: 24, ...font.bold },
-  subtitle: { color: d.lavenderText, fontSize: 17, lineHeight: 24, ...font.semibold },
+  subtitle: { color: '#4B3566', fontSize: 17, lineHeight: 24, ...font.bold },
   body: { color: d.ink, fontSize: 16, ...font.regular, lineHeight: 23 },
   small: { color: d.inkSoft, fontSize: 13, ...font.regular, lineHeight: 19 },
   label: { color: d.lavenderText, fontSize: 14, lineHeight: 19, ...font.bold },
