@@ -86,18 +86,23 @@ Bu dərsdə salam verməyi, salama cavab verməyi və sağollaşmağı məşq ed
 
 Qiymətləndirmə yoxdur. Mövcud giriş ekranı, məqsədlər, şəkil və düymə saxlanılır. Məqsəd mətninin qısa görünmə animasiyası mövcud görünüşü dəyişməməlidir.
 
-## Kart 2 — Salamlaşmanı öyrən
+## Kart 2 — Yeni söz: Hello! · Hi!
+
+Ekran növü: **Yeni söz** (13 noyabr 2026-dan; əvvəl “Salamlaşmanı öyrən” öyrətmə kartı idi).
 
 ### Öyrənənin görəcəyi mətn
 
-**Hello! — Salam!**  
-**Hi! — Salam!**
+Nişan: Yeni söz  
+Şəkil: SEKIL_SIYAHISI 1.11 (hazır olanda)  
+**Hello! · Hi!** — /həˈləʊ/ · /haɪ/ — **Salam!**
 
-Biri ilə qarşılaşanda bu ifadələrdən biri ilə salam verə bilərsən.
+Hello ümumi salamlaşmadır. Hi daha qeyri-rəsmidir.  
+Adı sonra əlavə edə bilərsən.
 
-Hello ümumi salamlaşmadır. Hi daha qeyri-rəsmidir. Sənə salam verənə hər ikisi ilə cavab verə bilərsən.
+NÜMUNƏ: **Hello, Leyla!** — Salam, Leyla!  
+“Lüğətim”ə əlavə olundu
 
-**Düymələr:** hər ifadənin yanında dinləmə · Davam et
+**Düymələr:** söz və nümunənin yanında dinləmə · Anladım
 
 ### Hazırlayan üçün
 
@@ -149,6 +154,8 @@ Qısa geribildirim: “Hi təşəkkür deyil, salamdır. Bu səsdə BirFox salam
 - **Yeni nümunə:** Bir tanışın səninlə qarşılaşır və “Hello!” deyir. O, salam verir.
 
 ## Kart 4 — Salamı özün yaz
+
+Ekran növü: **Mesaj yaz** — yazışma görünüşü (başlıqda “Tanışın”), cavab mesaj balonunda görünür. Təkrarda (T2) da eyni görünüş.
 
 ### Öyrənənin görəcəyi mətn
 
@@ -245,24 +252,31 @@ Qısa geribildirim: “BirFox salam verir. Cavabın da salamlaşma olmalıdır.�
 
 Tanıma qeyri-müəyyəndirsə: “Səsli cavabın dəqiq tanınmadı. Yenidən səs yaza və ya bu məşqi keçə bilərsən.” Dil səhvi və tələffüz hökmü verilmir.
 
-## Kart 6 — Sağollaşmanı öyrən
+## Kart 6 — Yeni söz: Goodbye! · Bye!
+
+Ekran növü: **Yeni söz** (13 noyabr 2026-dan; əvvəl “Sağollaşmanı öyrən” öyrətmə kartı idi).
 
 ### Öyrənənin görəcəyi mətn
 
-Görüş bitəndə bu ifadələrdən biri ilə sağollaşa bilərsən:
+Nişan: Yeni söz  
+Şəkil: SEKIL_SIYAHISI 1.12 (hazır olanda)  
+**Goodbye! · Bye!** — /ˌɡʊdˈbaɪ/ · /baɪ/ — **Görüşənədək! · Hələlik!**
 
-**Goodbye! — Görüşənədək!**  
-**Bye! — Hələlik!**
+Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.  
+Adı sonra əlavə edə bilərsən.
 
-Bye daha qeyri-rəsmi sağollaşmadır.
+NÜMUNƏ: **Bye, Ali!** — Hələlik, Əli!  
+“Lüğətim”ə əlavə olundu
 
-**Düymələr:** hər ifadənin yanında dinləmə · Davam et
+**Düymələr:** söz və nümunənin yanında dinləmə · Anladım
 
 ### Hazırlayan üçün
 
 Dəqiq audio: **Goodbye!** və **Bye!**. Qiymətləndirmə yoxdur. Tərcümədə “Sağ ol” işlədilmir, çünki təşəkkür mənası ilə qarışır (13 noyabr 2026 qərarı).
 
 ## Kart 7 — Sağollaşmanı seç və eşitdiyini yaz
+
+7A-da səhnə şəkli (SEKIL_SIYAHISI 1.13) hazır olanda sualın üstündə göstərilir; sual və seçimlər dəyişmir.
 
 ### A mərhələsi — Oxu və seç
 
@@ -580,6 +594,23 @@ BirFox ilə sağollaş.
 - **Səbəb:** Bu növbədə görüşü bitirən ifadə tələb olunur. Cavab sağollaşmanı yerinə yetirmir.
 - **Qısa qayda:** Görüşü sağollaşma ilə bitir.
 - **Yeni nümunə:** Getməzdən əvvəl “Bye!” deyirsən.
+
+## Düzgün cavabdan sonra qısa səbəb (13 noyabr 2026)
+
+Düzgün paneldə “Düzgündür” başlığının altında bir cümlə görünür:
+
+| Kart | Əsas | Təkrar |
+|---|---|---|
+| 3 | Hi salamdır — BirFox salam verir. | Hello salamdır — danışan salam verir. |
+| 4 | Hello və Hi görüşü başladır. | eyni |
+| 5 | Salama salamla cavab verdin. | eyni |
+| 7A | Goodbye görüşü bitirir. | Bye görüşü bitirir. |
+| 7B | Səsdə Bye deyildi. | Səsdə Goodbye deyildi. |
+| 8 | Sağollaşmaya sağollaşma ilə cavab verdin. | eyni |
+| 9 | BirFox gedir — ona Bye və ya Goodbye yaraşır. | eyni |
+| 10 | Əvvəldə salam, sonda sağollaşma. | eyni |
+| 11A | Görüşü salamla özün başlatdın. | eyni |
+| 11B | Görüşü sağollaşma ilə özün bitirdin. | eyni |
 
 ## Kart 12 — Ehtiyac olduqda səhvlərin təkrarı
 

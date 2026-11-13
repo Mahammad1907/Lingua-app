@@ -393,7 +393,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       const textHelp = textHelpActive && result.kind === 'single';
       if (textHelp) return <ResultPanel tone="neutral" title={graded.status === 'correct' ? 'Cavab uyğundur' : 'Mətnlə məşq etdin'} short={technical ? lesson.result.technical : 'Audio mətnini gördün. Dinləmə yoxlanmadı.'}
         collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
-      if (graded.status === 'correct') return <ResultPanel tone="correct" title="Düzgündür" corrections={result.kind === 'single' ? result.graded.spellingCorrections : undefined}
+      if (graded.status === 'correct') return <ResultPanel tone="correct" title="Düzgündür" short={task.why} corrections={result.kind === 'single' ? result.graded.spellingCorrections : undefined}
         assisted={!reviewing && Boolean(meaningHint || (task.type === 'voice' && task.sample))} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
       return <ResultPanel tone="wrong" title="Bir daha baxaq" short={graded.short} answers={graded.explain?.answers} collapsed={collapsed} onCollapse={() => setCollapsed(true)}
         onExplain={graded.explain ? () => setExplainOpen(true) : undefined} onReport={() => setReportOpen(true)} onContinue={next}

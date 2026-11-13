@@ -164,7 +164,7 @@ export function WordView({ card, onPlay }: { card: WordCard; onPlay: (t: string)
       </View>
       <Text style={s.ipa}>{card.pronunciation}</Text>
       <Text style={s.az}>{card.az}</Text>
-      {card.note ? <Text style={[ds.body, { textAlign: 'center' }]}>{card.note}</Text> : null}
+      {card.notes?.map(n => <Text key={n} style={[ds.body, { textAlign: 'center' }]}>{n}</Text>)}
     </View>
     <Pressable accessibilityRole="button" accessibilityHint="Nümunəni dinlə" onPress={() => onPlay(card.example)} style={s.example}>
       <Text style={s.exampleLabel}>NÜMUNƏ</Text>

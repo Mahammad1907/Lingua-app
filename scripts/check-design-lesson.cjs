@@ -70,6 +70,19 @@ for (const t of lesson.cards.filter(c => c.type === 'choice')) {
 }
 assert.equal(L.gradeChoice(c3, 'Təşəkkür edir.').explain.reason, 'Səsdə “Hi!” deyilir. Bu, təşəkkür yox, salamdır.');
 assert.equal(L.gradeChoice(card('d1_c07a'), 'Hi!').explain.reason, 'Hi salamlaşmaq üçündür. Burada görüş bitir.');
+
+// New screen forms (13 Nov 2026).
+assert.deepEqual(lesson.cards.filter(c => c.type === 'word').map(c => c.id), ['d1_c02', 'd1_c06'], 'cards 2 and 6 are Yeni söz');
+for (const c of lesson.cards.filter(c => c.type === 'word')) assert.ok(lesson.vocabulary.some(v => v.teachCard === c.id), `${c.id} adds words to Lüğətim`);
+for (const t of lesson.cards.filter(L.isTask)) assert.ok(t.why && !/[{}]/.test(t.why), `${t.id} has a resolved correct-answer reason`);
+assert.ok(card('d1_c04').chat, 'card 4 is a chat');
+assert.equal(L.joinTiles(['My', 'name', 'is', 'Leyla', '.']), 'My name is Leyla.');
+const match = { type: 'match', id: 'm', rows: [{ en: 'Thank you!', az: 'Sağ ol' }, { en: 'Sorry!', az: 'Bağışla' }], extra: ['Zəhmət olmasa'],
+  variants: [{ match: { other: true }, explain: { answers: 'a', reason: 'r', rule: 'q', example: 'e' } }] };
+assert.equal(L.gradeMatch(match, { 'Thank you!': 'Sağ ol' }).status, 'empty');
+assert.equal(L.gradeMatch(match, { 'Thank you!': 'Sağ ol', 'Sorry!': 'Bağışla' }).status, 'correct');
+const mw = L.gradeMatch(match, { 'Thank you!': 'Bağışla', 'Sorry!': 'Sağ ol' });
+assert.equal(mw.status, 'wrong'); assert.equal(mw.rows['Sorry!'], 'wrong'); assert.ok(mw.explain.yourAnswer.includes('Thank you! — Bağışla'));
 const c4 = card('d1_c04');
 assert.equal(L.gradeText(c4, 'Hello!').status, 'correct');
 assert.equal(L.gradeText(c4, 'hi').status, 'correct');

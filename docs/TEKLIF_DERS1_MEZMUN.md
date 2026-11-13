@@ -1,6 +1,6 @@
-# Dərs 1 — məzmun təklifi (təsdiq gözləyir)
+# Dərs 1 — məzmun təklifi
 
-Bu sənəddəki mətnlər **hələ tətbiqə qoyulmayıb**. Təsdiqlədiyin bəndləri `BirTalk_Ders_1_Yekun.md`-yə və koda köçürəcəyəm. Dəyişmək istədiyin yeri birbaşa yaz.
+**Status (13 noyabr 2026): tətbiq olundu** — istifadəçi “qərar verdiklərimizin hamısını tətbiq et” dedi. 19-cu bənd “Yeni söz” kartlarının qeydinə və nümunəsinə birləşdi; 7A sualı şəkil gələnə qədər dəyişmir. Yekun mətn: `BirTalk_Ders_1_Yekun.md`.
 
 Adlar token kimidir: `{M}` maskot, `{G}` qız, `{B}` oğlan (ad boşdursa “dostun / qız / oğlan” görünür).
 

@@ -16,6 +16,8 @@ export interface Variant { match: VariantMatch; short?: string; explain: Explana
 interface BaseTask {
   id: string; number: number; title: string; prompt: string;
   hint?: string;
+  /** One short sentence after a correct answer: why it fits (repeats the rule, teaches nothing new). */
+  why?: string;
   /** A hint that points to the meaning makes a correct answer “Köməklə”. Format/approach hints do not. */
   hintAssists?: boolean;
   variants: Variant[];
@@ -73,7 +75,7 @@ export interface TeachCard { type: 'teach'; id: string; number: number; title: s
 export interface WordCard {
   type: 'word'; id: string; number: number;
   word: string; pronunciation: string; az: string; example: string; exampleAz: string;
-  note?: string; scenes?: string[];
+  notes?: string[]; scenes?: string[];
 }
 export interface ResultGoal { group: string; text: string; tasks: string[] }
 
