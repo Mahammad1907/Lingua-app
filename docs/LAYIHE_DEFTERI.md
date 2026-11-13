@@ -319,3 +319,13 @@ Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edi
 13. (4 ilə birlikdə) oxunuş həm fonetik, həm Azərbaycan hərfləri ilə.
 14. “Lüğətim”ə əlavə olundu sətri ekrandan çıxır (söz yenə lüğətə düşür).
 15. Yeni söz kartında: suallarda cavab nümunəsi + “Kimə deyilir?” qeydi; az məlumatlı sətirlər çıxır.
+16. Mesaj yaz: seçilən sözlər balonun içində düymə kimi, toxunanda öz əvvəlki yerinə qayıdır; aşağıda istifadə olunan söz solğun amma oxunur; durğu işarələri avtomatik; avatar baş hərfli rəngli dairə, yalnız mesajın yanında; söhbət qutusu boşluğu doldurur.
+17. Söz düymələrinə, Sözü tamamla seçimlərinə, Kim nə dedi? ingilis cümlələrinə toxunanda səslənir (Müstəqil qalır).
+18. Mənə başa sal: söz-söz hissə (hər söz toxunanda səs + mənası/işi), öyrənənin cavabında artıq söz qırmızı, yeri səhv söz narıncı; Qısa qayda cavabı təkrarlamır. Bütün cümlələr üçün söz izahı yazılacaq.
+19–21. Bütün səsli ekranlar bir sxem: maskot + nitq balonunda sual (Dinlə/Yavaş dinlə balonda), tünd tapşırıq, nümunə tam (sətrə keçir), mikrofon bir az kiçik, altında Keç; ayrıca “Mətni göstər” yox, sitat tapşırıqda təkrarlanmır.
+20. Nümunə azalır: Dərs 1–2 ilk səsli kartda açıq; Dərs 3–8 yalnız Kömək 2-ci pilləsi (Köməklə); Bölmə 2-dən hazır cavab nümunəsi yoxdur. DERS_STANDARTI-yə yazılacaq.
+22. Şəkil gələcək yerlərdə müvəqqəti qırıq-xətli işarə (SEKIL_SIYAHISI nömrəsi + təsvir), ayardakı açarla söndürülür.
+23. Ana səhifə bir ekrana sığır; “Davam et” kartı dərsləri örtmür; maskot yeri; yol kontrastı; Analiz yuxarıda kiçik ikon; AI söhbət aşağı menyuda ayrıca bölmə (içi boş, “Tezliklə”).
+24. Ana səhifə dizaynı: 3 yeni variant kətanda (A illüstrasiyalı ada, B sadə siyahı + ada nişanı, C oyun xəritəsi) — istifadəçi seçəcək.
+25. Hər dərsin yanında faiz (100% / yarımçıq % / 0%); yarımçıq dərsin gedişatı saxlanacaq.
+26. Gündəlik təkrar kartı ana səhifədə: əsasən səhv edilən ifadələr, qalanı çoxdan görülməyənlər.
