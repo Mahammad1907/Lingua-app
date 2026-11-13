@@ -26,3 +26,14 @@ export const d = {
 
 export const shadow = { shadowColor: d.shadow, shadowOpacity: 0.12, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 2 } as const;
 export const radius = { card: 22, field: 16, pill: 999 };
+
+/**
+ * Nunito, loaded once in src/app/_layout.tsx. Each weight is its own file, so styles use the family
+ * (not fontWeight) — Android cannot pick weights from one custom family.
+ */
+export const font = {
+  regular: { fontFamily: 'Nunito-Regular' },
+  semibold: { fontFamily: 'Nunito-SemiBold' },
+  bold: { fontFamily: 'Nunito-Bold' },
+  extrabold: { fontFamily: 'Nunito-ExtraBold' },
+} as const;

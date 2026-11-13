@@ -4,7 +4,7 @@ import { Modal, Pressable, StyleSheet, Text, TextInput, View } from 'react-nativ
 import type { Graded } from '../../utils/designLesson';
 import Icon from './Icons';
 import { Capsule, MainButton, Sheet, ds } from './parts';
-import { d, radius, shadow } from './theme';
+import { d, radius, shadow, font } from './theme';
 
 /** Inline result panel: correct (green) / wrong (red) / neutral (not assessed). Locks until “Davam et”. */
 export function ResultPanel({ tone, title, short, answers, corrections, assisted, onExplain, onReport, onContinue, continueLabel = 'Davam et', actions, collapsed, onCollapse }: {
@@ -27,7 +27,7 @@ export function ResultPanel({ tone, title, short, answers, corrections, assisted
     {short ? <Text style={s.short}>{short}</Text> : null}
     {assisted ? <Text style={ds.small}>Köməklə qeyd olundu.</Text> : null}
     {corrections?.length ? <Text style={ds.small}>Cavab qəbul olundu. Kiçik yazı düzəlişi: {corrections.map(c => `${c.before} → ${c.after}`).join(', ')}</Text> : null}
-    {answers ? <View style={s.answerBox}><Text style={s.answerText}><Text style={{ fontWeight: '800' }}>Uyğun cavab: </Text>{answers}</Text></View> : null}
+    {answers ? <View style={s.answerBox}><Text style={s.answerText}><Text style={{ ...font.extrabold }}>Uyğun cavab: </Text>{answers}</Text></View> : null}
     {onExplain || actions ? <View style={s.actions}>{actions}{onExplain ? <Capsule small icon="bulb" label="Mənə başa sal" onPress={onExplain} /> : null}</View> : null}
     {button}
   </View>;
@@ -94,10 +94,10 @@ const s = StyleSheet.create({
   close: { width: 36, height: 36, borderRadius: 18, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   titleRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   badge: { width: 36, height: 36, borderRadius: 18, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
-  title: { color: d.ink, fontSize: 24, fontWeight: '800', flexShrink: 1 },
-  short: { color: d.lavenderText, fontSize: 16, lineHeight: 22, fontWeight: '600' },
+  title: { color: d.ink, fontSize: 24, ...font.extrabold, flexShrink: 1 },
+  short: { color: d.lavenderText, fontSize: 16, lineHeight: 22, ...font.semibold },
   answerBox: { borderRadius: radius.field, backgroundColor: d.purpleSoft, paddingVertical: 10, paddingHorizontal: 14 },
-  answerText: { color: d.ink, fontSize: 16, lineHeight: 22 },
+  answerText: { color: d.ink, fontSize: 16, ...font.regular, lineHeight: 22 },
   actions: { flexDirection: 'row', justifyContent: 'flex-end', gap: 8, flexWrap: 'wrap' },
   exRow: { gap: 4, borderTopWidth: 1, borderTopColor: d.border, paddingTop: 8 },
   exBox: { borderRadius: 14, backgroundColor: d.purpleSoft, paddingVertical: 10, paddingHorizontal: 14 },
@@ -106,8 +106,8 @@ const s = StyleSheet.create({
   reasonOn: { borderColor: d.purple, borderWidth: 2 },
   radio: { width: 24, height: 24, borderRadius: 12, borderWidth: 2, borderColor: d.borderStrong, alignItems: 'center', justifyContent: 'center' },
   dot: { width: 12, height: 12, borderRadius: 6, backgroundColor: d.purple },
-  note: { minHeight: 80, borderRadius: radius.field, borderWidth: 1, borderColor: d.borderStrong, backgroundColor: d.surface, padding: 12, fontSize: 16, color: d.ink, textAlignVertical: 'top' },
+  note: { minHeight: 80, borderRadius: radius.field, borderWidth: 1, borderColor: d.borderStrong, backgroundColor: d.surface, padding: 12, fontSize: 16, ...font.regular, color: d.ink, textAlignVertical: 'top' },
   menu: { position: 'absolute', right: 16, minWidth: 220, borderRadius: 18, backgroundColor: '#F7F2FE', borderWidth: 1, borderColor: d.border, overflow: 'hidden' },
   menuItem: { flexDirection: 'row', alignItems: 'center', gap: 14, minHeight: 52, paddingHorizontal: 16 },
-  menuText: { color: d.ink, fontSize: 17, fontWeight: '600' },
+  menuText: { color: d.ink, fontSize: 17, ...font.semibold },
 });

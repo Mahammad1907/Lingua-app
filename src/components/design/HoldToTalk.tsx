@@ -1,4 +1,5 @@
 import { AudioModule, RecordingPresets, setAudioModeAsync, useAudioRecorder } from 'expo-audio';
+import * as Haptics from 'expo-haptics';
 import * as Speech from 'expo-speech';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
@@ -7,7 +8,7 @@ import { safelyReadRecorder, safelyStopRecorder } from '../../utils/recordedAudi
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import Icon from './Icons';
 import { Waveform } from './parts';
-import { d, shadow } from './theme';
+import { d, shadow, font } from './theme';
 
 /**
  * Press and hold to talk; releasing sends the answer once. A short tap starts, a second tap finishes.
@@ -106,6 +107,7 @@ function MicView({ active, level, disabled, status, message, onIn, onOut }: { ac
   const pressIn = () => {
     pressedAt.current = Date.now();
     if (tapMode.current) { ending.current = true; return; }
+    void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
     onIn();
   };
   const pressOut = () => {
@@ -135,9 +137,9 @@ const s = StyleSheet.create({
   haloActive: { backgroundColor: 'rgba(242,122,18,.18)' },
   mic: { width: 112, height: 112, borderRadius: 56, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', ...shadow, shadowOpacity: .3 },
   micActive: { backgroundColor: '#7B2FE0', transform: [{ scale: 1.04 }] },
-  title: { color: d.ink, fontSize: 22, fontWeight: '800', marginTop: 4 },
-  sub: { color: d.lavenderText, fontSize: 15, fontWeight: '600', textAlign: 'center' },
+  title: { color: d.ink, fontSize: 22, ...font.extrabold, marginTop: 4 },
+  sub: { color: d.lavenderText, fontSize: 15, ...font.semibold, textAlign: 'center' },
   netBtn: { minHeight: 44, paddingHorizontal: 16, borderRadius: 999, borderWidth: 1, borderColor: d.purple, justifyContent: 'center' },
-  netText: { color: d.purple, fontSize: 15, fontWeight: '600' },
-  message: { color: d.inkSoft, fontSize: 14, lineHeight: 20, textAlign: 'center', paddingHorizontal: 12 },
+  netText: { color: d.purple, fontSize: 15, ...font.semibold },
+  message: { color: d.inkSoft, fontSize: 14, ...font.regular, lineHeight: 20, textAlign: 'center', paddingHorizontal: 12 },
 });

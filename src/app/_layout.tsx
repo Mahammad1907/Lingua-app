@@ -1,4 +1,5 @@
 import { warmLessonArtwork } from '../utils/lessonAssets';
+import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
@@ -13,6 +14,14 @@ export default function RootLayout() {
   const loadVocab = useVocabularyStore((state) => state.loadFromStorage);
   const vocabReady = useVocabularyStore(state => state.hydrated);
   const vocabError = useVocabularyStore(state => state.storageError);
+  // Lesson design font. If loading fails the app continues with the system font.
+  const [fontsLoaded, fontError] = useFonts({
+    'Nunito-Regular': require('../../assets/fonts/Nunito-Regular.ttf'),
+    'Nunito-SemiBold': require('../../assets/fonts/Nunito-SemiBold.ttf'),
+    'Nunito-Bold': require('../../assets/fonts/Nunito-Bold.ttf'),
+    'Nunito-ExtraBold': require('../../assets/fonts/Nunito-ExtraBold.ttf'),
+  });
+  const fontsReady = fontsLoaded || Boolean(fontError);
 
   useEffect(() => {
     void warmLessonArtwork();
@@ -29,7 +38,7 @@ export default function RootLayout() {
     return () => listener.remove();
   }, []);
 
-  if (!hydrated || !vocabReady) return <View style={{ flex: 1, backgroundColor: '#0a0a1a', justifyContent: 'center', padding: 24 }}>
+  if (!hydrated || !vocabReady || !fontsReady) return <View style={{ flex: 1, backgroundColor: '#0a0a1a', justifyContent: 'center', padding: 24 }}>
     <Text style={{ color: '#fff', textAlign: 'center' }}>{storageError || vocabError || 'İrəliləyiş yüklənir…'}</Text>
     {storageError || vocabError ? <Pressable onPress={() => { void loadUser().catch(() => {}); void loadVocab().catch(() => {}); }}><Text style={{ color: '#ffb24d', textAlign: 'center', padding: 16 }}>Yenidən cəhd et</Text></Pressable> : null}
   </View>;

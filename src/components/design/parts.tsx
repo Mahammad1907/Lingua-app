@@ -3,7 +3,7 @@ import { Animated, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, Vi
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import Icon, { type IconName } from './Icons';
-import { d, radius, shadow } from './theme';
+import { d, radius, shadow, font } from './theme';
 
 export function Header({ title, progress, onBack, onMenu }: { title: string; progress: number; onBack: () => void; onMenu?: () => void }) {
   const reduced = useReducedMotion();
@@ -119,9 +119,9 @@ export function ChoiceOption({ label, selected, state, onPress, disabled }: { la
   </Pressable>;
 }
 
-export function Field({ value, onChange, placeholder, state, editable = true, label }: { value: string; onChange: (v: string) => void; placeholder: string; state?: 'correct' | 'wrong'; editable?: boolean; label?: string }) {
+export function Field({ value, onChange, placeholder, state, editable = true, label, onSubmit }: { value: string; onChange: (v: string) => void; placeholder: string; state?: 'correct' | 'wrong'; editable?: boolean; label?: string; onSubmit?: () => void }) {
   return <TextInput accessibilityLabel={label ?? placeholder} value={value} onChangeText={onChange} placeholder={placeholder} placeholderTextColor="#9C8BB8"
-    editable={editable} autoCapitalize="none" autoCorrect={false} spellCheck={false} maxLength={200} returnKeyType="done"
+    editable={editable} autoCapitalize="none" autoCorrect={false} spellCheck={false} maxLength={200} returnKeyType="done" onSubmitEditing={onSubmit} submitBehavior="blurAndSubmit"
     style={[s.field, state === 'wrong' && { borderColor: d.red }, state === 'correct' && { borderColor: d.green }]} />;
 }
 
@@ -130,47 +130,47 @@ export function Card({ children, style }: { children: ReactNode; style?: StylePr
 }
 
 export const ds = StyleSheet.create({
-  title: { color: d.ink, fontSize: 26, lineHeight: 32, fontWeight: '800', letterSpacing: -.3 },
-  titleLarge: { color: d.ink, fontSize: 30, lineHeight: 36, fontWeight: '800', letterSpacing: -.5 },
-  instruction: { color: d.ink, fontSize: 17, lineHeight: 24, fontWeight: '700' },
-  subtitle: { color: d.lavenderText, fontSize: 17, lineHeight: 24, fontWeight: '600' },
-  body: { color: d.ink, fontSize: 16, lineHeight: 23 },
-  small: { color: d.inkSoft, fontSize: 13, lineHeight: 19 },
-  label: { color: d.lavenderText, fontSize: 14, lineHeight: 19, fontWeight: '700' },
-  strong: { color: d.ink, fontSize: 17, lineHeight: 24, fontWeight: '700' },
+  title: { color: d.ink, fontSize: 26, lineHeight: 32, ...font.extrabold, letterSpacing: -.3 },
+  titleLarge: { color: d.ink, fontSize: 30, lineHeight: 36, ...font.extrabold, letterSpacing: -.5 },
+  instruction: { color: d.ink, fontSize: 17, lineHeight: 24, ...font.bold },
+  subtitle: { color: d.lavenderText, fontSize: 17, lineHeight: 24, ...font.semibold },
+  body: { color: d.ink, fontSize: 16, ...font.regular, lineHeight: 23 },
+  small: { color: d.inkSoft, fontSize: 13, ...font.regular, lineHeight: 19 },
+  label: { color: d.lavenderText, fontSize: 14, lineHeight: 19, ...font.bold },
+  strong: { color: d.ink, fontSize: 17, lineHeight: 24, ...font.bold },
 });
 
 const s = StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, paddingTop: 6, paddingBottom: 10 },
   round: { width: 44, height: 44, borderRadius: 22, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center', ...shadow },
-  headerTitle: { color: d.ink, fontSize: 19, fontWeight: '700' },
+  headerTitle: { color: d.ink, fontSize: 19, ...font.bold },
   divider: { width: 1.5, height: 26, backgroundColor: d.lavender },
   track: { flex: 1, height: 10, borderRadius: 5, backgroundColor: '#D9CBF4', overflow: 'hidden' },
   fill: { height: '100%', borderRadius: 5, backgroundColor: d.purple },
   dots: { width: 28, alignItems: 'center', justifyContent: 'center', minHeight: 44 },
   chip: { alignSelf: 'flex-start', backgroundColor: d.purpleSoft, borderRadius: radius.pill, paddingHorizontal: 16, paddingVertical: 6 },
-  chipText: { color: d.purple, fontSize: 15, fontWeight: '700' },
+  chipText: { color: d.purple, fontSize: 15, ...font.bold },
   capsule: { flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'center', minHeight: 44, paddingHorizontal: 18, borderRadius: radius.pill, borderWidth: 1, borderColor: d.borderStrong, backgroundColor: '#EFE5FD', ...shadow },
   capsuleOutline: { backgroundColor: 'transparent', borderColor: d.purple, shadowOpacity: 0, elevation: 0 },
   capsuleOrange: { backgroundColor: d.orangeSoft, borderColor: d.orange },
   capsuleSmall: { minHeight: 38, paddingHorizontal: 14 },
   capsuleIcon: { width: 28, height: 28, borderRadius: 14, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
-  capsuleText: { color: d.purple, fontSize: 16, fontWeight: '600' },
+  capsuleText: { color: d.purple, fontSize: 16, ...font.semibold },
   main: { minHeight: 56, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', gap: 10, paddingHorizontal: 20 },
-  mainText: { color: '#fff', fontSize: 20, fontWeight: '700' },
+  mainText: { color: '#fff', fontSize: 20, ...font.bold },
   backdrop: { flex: 1, backgroundColor: 'rgba(42,18,64,.35)' },
   sheet: { position: 'absolute', left: 0, right: 0, bottom: 0, backgroundColor: '#F4EEFD', borderTopLeftRadius: 30, borderTopRightRadius: 30, paddingHorizontal: 20, paddingTop: 10, gap: 10, maxHeight: '75%', ...shadow },
   handle: { alignSelf: 'center', width: 48, height: 6, borderRadius: 3, backgroundColor: '#C5ADF2' },
   sheetTop: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', gap: 10 },
   sheetTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 10, flex: 1, paddingTop: 6 },
   sheetIcon: { width: 44, height: 44, borderRadius: 22, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
-  sheetTitle: { color: d.ink, fontSize: 26, lineHeight: 32, fontWeight: '800', flexShrink: 1 },
+  sheetTitle: { color: d.ink, fontSize: 26, lineHeight: 32, ...font.extrabold, flexShrink: 1 },
   sheetActions: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   closeBtn: { width: 40, height: 40, borderRadius: 20, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center', ...shadow },
   option: { flexDirection: 'row', alignItems: 'center', gap: 18, minHeight: 56, paddingHorizontal: 20, borderRadius: radius.field, borderWidth: 1.5, borderColor: d.borderStrong, backgroundColor: '#F2EAFE' },
   optionOrange: { backgroundColor: d.orangeSoft, borderColor: d.orange },
-  optionText: { color: d.ink, fontSize: 19, fontWeight: '700' },
-  optionNote: { color: d.purple, fontSize: 13, textAlign: 'center', marginTop: 4 },
+  optionText: { color: d.ink, fontSize: 19, ...font.bold },
+  optionNote: { color: d.purple, fontSize: 13, ...font.regular, textAlign: 'center', marginTop: 4 },
   wave: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 3 },
   audio: { flexDirection: 'row', alignItems: 'center', gap: 10, padding: 14, borderRadius: radius.card, borderWidth: 1, borderColor: d.border, backgroundColor: d.surface },
   avatar: { width: 64, height: 64, alignItems: 'center', justifyContent: 'center' },
@@ -178,11 +178,11 @@ const s = StyleSheet.create({
   play: { width: 64, height: 64, borderRadius: 32, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', paddingLeft: 3, ...shadow },
   slow: { alignItems: 'center', gap: 4, minWidth: 74 },
   slowIcon: { width: 48, height: 48, borderRadius: 24, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
-  slowText: { color: d.ink, fontSize: 13, fontWeight: '600' },
+  slowText: { color: d.ink, fontSize: 13, ...font.semibold },
   choice: { flexDirection: 'row', alignItems: 'center', gap: 16, minHeight: 64, paddingHorizontal: 20, borderRadius: radius.field, borderWidth: 1, backgroundColor: d.surface },
   radio: { width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: d.borderStrong, alignItems: 'center', justifyContent: 'center' },
   radioDot: { width: 14, height: 14, borderRadius: 7 },
-  choiceText: { color: d.ink, fontSize: 19, fontWeight: '700', flex: 1 },
-  field: { minHeight: 58, borderRadius: radius.field, borderWidth: 1.5, borderColor: d.borderStrong, backgroundColor: d.surface, paddingHorizontal: 18, fontSize: 19, color: d.ink, fontWeight: '600' },
+  choiceText: { color: d.ink, fontSize: 19, ...font.bold, flex: 1 },
+  field: { minHeight: 58, borderRadius: radius.field, borderWidth: 1.5, borderColor: d.borderStrong, backgroundColor: d.surface, paddingHorizontal: 18, fontSize: 19, color: d.ink, ...font.semibold },
   card: { borderRadius: radius.card, borderWidth: 1, borderColor: d.border, backgroundColor: d.surface, padding: 16 },
 });

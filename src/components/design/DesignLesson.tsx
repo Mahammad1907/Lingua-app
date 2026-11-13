@@ -1,4 +1,6 @@
 import { Image } from 'expo-image';
+import * as Haptics from 'expo-haptics';
+import Animated, { FadeIn, FadeInRight } from 'react-native-reanimated';
 import { Stack, useFocusEffect, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -17,7 +19,7 @@ import HoldToTalk from './HoldToTalk';
 import Icon from './Icons';
 import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
 import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, MainButton, Sheet, SheetOption, ds } from './parts';
-import { d, shadow } from './theme';
+import { d, shadow, font } from './theme';
 import { sceneImage } from '../../config/sceneImages';
 import { characterAz } from '../../config/characters';
 
@@ -170,6 +172,14 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   const textHelpActive = listeningTask && (textShown || technical);
 
+  // A light buzz for confirmed verdicts only (never for unverified or technical states).
+  useEffect(() => {
+    if (!result || result.kind === 'unverified') return;
+    const status = result.graded.status;
+    if (status === 'correct') void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
+    else if (status === 'wrong') void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error).catch(() => {});
+  }, [result]);
+
   const check = () => {
     if (!task || locked.current || result) return;
     if (task.type === 'two') {
@@ -321,7 +331,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {task.type === 'choice' ? <View style={s.gap}>{task.options.map(o => <ChoiceOption key={o} label={o} selected={choice === o} disabled={Boolean(result && result.kind !== 'unverified')}
         state={single && choice === o ? (single.status === 'correct' ? 'correct' : single.status === 'wrong' ? 'wrong' : undefined) : undefined}
         onPress={() => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} />)}</View> : null}
-      {task.type === 'write' ? <Field value={text} onChange={v => { setText(v); if (result?.kind === 'unverified') setResult(null); }} placeholder={task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
+      {task.type === 'write' ? <Field onSubmit={() => { if (text.trim() && !(listeningTask && !heard && !textShown && !technical)) check(); }} value={text} onChange={v => { setText(v); if (result?.kind === 'unverified') setResult(null); }} placeholder={task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
       {task.type === 'two' ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
         graded={result?.kind === 'two' ? result.graded : undefined} keep={reviewing ? keepFields[task.id]?.fields : undefined} /> : null}
       {/* Help sits under the answers, on the right: read the task, try, then ask for help. */}
@@ -376,7 +386,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     {/* Fits without scrolling on normal phones; scrolls only when the content is taller (large text, keyboard). */}
     <ScrollView style={{ flex: 1 }} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" bounces={false} alwaysBounceVertical={false}
       overScrollMode="never" onLayout={e => setViewport(e.nativeEvent.layout.height)}>
-      {body}
+      {/* A short slide-in marks each new card; Reanimated skips it when the system asks for reduced motion. */}
+      <Animated.View key={`${showResult ? 'result' : reviewing ? `r${reviewStep}` : index}`} entering={showResult ? FadeIn.duration(260) : FadeInRight.duration(240).springify().damping(22)}>
+        {body}
+      </Animated.View>
     </ScrollView>
     <View style={[s.footer, { paddingBottom: Math.max(14, insets.bottom + 6) }]}>{footer}</View>
 
@@ -511,21 +524,21 @@ const s = StyleSheet.create({
   vline: { width: 1, alignSelf: 'stretch', marginVertical: 8, backgroundColor: d.border },
   hero: { flexDirection: 'row', alignItems: 'center', gap: 12, borderRadius: 26, backgroundColor: '#5B2BC9', padding: 14, ...shadow },
   bubble: { flex: 1, alignItems: 'center', gap: 8, backgroundColor: '#fff', borderRadius: 22, paddingVertical: 16, paddingHorizontal: 12 },
-  bubbleText: { color: d.ink, fontSize: 34, fontWeight: '800' },
+  bubbleText: { color: d.ink, fontSize: 34, ...font.extrabold },
   smallPlay: { width: 44, height: 44, borderRadius: 22, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   infoRow: { flexDirection: 'row', gap: 12, paddingVertical: 10 },
   infoIcon: { width: 44, height: 44, borderRadius: 22, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   phrase: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   transcript: { borderRadius: 16, backgroundColor: d.purpleSoft, padding: 12, gap: 4 },
-  transcriptText: { color: d.purple, fontSize: 20, fontWeight: '800' },
+  transcriptText: { color: d.purple, fontSize: 20, ...font.extrabold },
   speakerRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   speakerHead: { width: 52, height: 52, borderRadius: 26, backgroundColor: d.purpleSoft },
   scene: { width: '100%', aspectRatio: 16 / 9, borderRadius: 22, backgroundColor: d.purpleSoft },
   sample: { flexDirection: 'row', alignItems: 'center', gap: 14, borderRadius: 18, backgroundColor: '#E8DDFB', paddingHorizontal: 18, minHeight: 56 },
-  sampleLabel: { color: d.lavenderText, fontSize: 17, fontWeight: '600' },
-  sampleText: { color: d.purple, fontSize: 24, fontWeight: '800' },
-  notice: { color: d.purple, fontSize: 15, fontWeight: '700' },
+  sampleLabel: { color: d.lavenderText, fontSize: 17, ...font.semibold },
+  sampleText: { color: d.purple, fontSize: 24, ...font.extrabold },
+  notice: { color: d.purple, fontSize: 15, ...font.bold },
   resultRow: { flexDirection: 'row', alignItems: 'center', gap: 10, flexWrap: 'wrap', paddingVertical: 4 },
   status: { borderWidth: 1.5, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 },
-  statusText: { fontSize: 13, fontWeight: '700' },
+  statusText: { fontSize: 13, ...font.bold },
 });
