@@ -33,8 +33,6 @@ export const SCENE_NOTES: Record<string, string> = {
   'd2/new-classmates': '6.2 · Sinifdə yeni yoldaşlar tanış olur',
   'd2/registration': '6.3 · Qeydiyyat masası: işçi soruşur, oğlan cavab verir',
   'd2/game-profile': '6.4 · Telefonda oyun profili yaradılır',
-  'd6/thank-girl': '6.5 · Oğlan qıza təşəkkür edir, qız gülümsəyir',
-  'd6/directions': '6.6 · Oğlan küçədə yol göstərir',
   'd6/street-ask': '6.7 · Küçədə qız yoldan keçənə yaxınlaşır',
   'd6/foot-step': '6.8 · Avtobusda biri təsadüfən başqasının ayağına basır',
   'd8/party-meet': '6.9 · Ziyafətdə iki nəfər tanış olur',

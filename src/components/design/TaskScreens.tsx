@@ -174,7 +174,7 @@ export function MatchBoard({ task, pairs, active, onActive, onPlace, onSay, mark
           <Pressable accessibilityRole="button" accessibilityLabel={value ? `${r.en}: ${value}. Dəyişmək üçün toxun` : `${r.en}: mənası boşdur`} disabled={disabled}
             onPress={() => onActive(r.en)} style={[s.slot, value ? s.slotFilled : s.slotEmpty, on && s.slotActive,
               mark === 'correct' && { backgroundColor: d.greenSoft, borderColor: d.green }, mark === 'wrong' && { backgroundColor: d.redSoft, borderColor: d.red }]}>
-            <Text numberOfLines={2} style={[s.slotText, mark && { color: markColor(mark, d.purple) }]}>{value || (on ? '?' : '')}</Text>
+            <Text numberOfLines={2} style={[s.slotText, mark && { color: markColor(mark, d.purple) }]}>{value ? nameSlot(value) : on ? '?' : ''}</Text>
           </Pressable>
         </View>;
       })}
@@ -182,7 +182,7 @@ export function MatchBoard({ task, pairs, active, onActive, onPlace, onSay, mark
     <View style={s.meanings}>
       {meanings.map(m => <Pressable key={m} accessibilityRole="button" accessibilityState={{ disabled: disabled || used.has(m) }} disabled={disabled || used.has(m)}
         onPress={() => onPlace(m)} style={[s.meaning, used.has(m) && { opacity: .35 }]}>
-        <Text style={s.meaningText}>{m}</Text>
+        <Text style={s.meaningText}>{nameSlot(m)}</Text>
       </Pressable>)}
     </View>
   </View>;

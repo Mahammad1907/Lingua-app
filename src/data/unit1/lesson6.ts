@@ -25,16 +25,16 @@ export const lesson6: DesignLesson = {
       ],
     },
     {
-      type: 'choice', id: 'd6_c02', number: 2, scenes: ['d6/thank-girl'], title: 'Xatırla', why: 'Təşəkkürə cavab: You’re welcome.', hint: 'Təşəkkürə cavab — Dərs 5-də öyrəndin.',
-      prompt: 'Sən qıza “Thank you!” dedin.\nO nə cavab verər?', options: ['Please.', "You're welcome.", 'How are you?'], answer: "You're welcome.",
-      variants: [
-        pick('Please.', '“Please” xahişdir.', ex("You're welcome.", 'Təşəkkürə cavab “Dəyməz” — “You’re welcome”dur.', 'Thank you → You’re welcome.', "Thanks! — You're welcome.")),
-        pick('How are you?', 'Bu, hal sualıdır.', ex("You're welcome.", 'Təşəkkürə cavab verilir, yeni sual yox.', 'Thank you → You’re welcome.', "Thank you! — You're welcome.")),
-      ],
+      type: 'match', id: 'd6_c02', number: 2, title: 'Kim nə dedi?', why: 'Keçən dərslərin ifadələrini xatırladın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy. Qalanların seçimi azalacaq.',
+      prompt: 'Keçən dərsləri xatırla.\nHər cümləyə mənasını qoş.',
+      rows: [{ en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'G' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'B' }, { en: 'How are you?', az: 'Necəsən?', from: 'M' }],
+      extra: ['Zəhmət olmasa.'],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; How are you? — Necəsən?', 'Təşəkkür, ona cavab və hal sualı — üç ayrı iş.', 'Mənaya görə qoş.', "Thank you! — You're welcome."))],
       review: {
-        scenes: ['d6/directions'],
-        title: 'Xatırla', why: 'Kömək alanda təşəkkür edirsən.', hint: 'Sənə kömək edəndə nə deyirsən? Dərs 5-i xatırla.', prompt: 'Oğlan sənə yol göstərdi.\nNə deyərsən?', options: ["You're welcome.", 'Thank you!', 'Please.'], answer: 'Thank you!',
-        variants: [other('Kömək alan təşəkkür edir.', ex('Thank you!', '“You’re welcome” cavabdır, “please” xahişdir.', 'Kömək alanda: Thank you!', 'Thanks!'))],
+        title: 'Kim nə dedi?', why: 'Bu dərsin ifadələrini xatırladın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy. Qalanların seçimi azalacaq.', prompt: 'Bu dərsi xatırla.\nHər cümləyə mənasını qoş.',
+        rows: [{ en: 'Excuse me', az: 'Bağışlayın', from: 'G' }, { en: 'Sorry!', az: 'Bağışla!', from: 'B' }, { en: 'No problem.', az: 'Eybi yox.', from: 'G' }],
+        extra: ['Dəyməz.'],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Excuse me — Bağışlayın; Sorry! — Bağışla!; No problem. — Eybi yox.', '“Excuse me” diqqəti çəkir, “Sorry” üzrdür, “No problem” üzrə cavabdır.', 'Mənaya görə qoş.', 'Sorry! — No problem.'))],
       },
     },
     {

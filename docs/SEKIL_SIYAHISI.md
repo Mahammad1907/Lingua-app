@@ -94,8 +94,6 @@ Tətbiqdə bu yerlərdə hələlik qırıq xətli çərçivə və şəklin nömr
 | 6.2 | Dərs 2 · eyni tapşırığın təkrarı | Sinifdə yeni yoldaşlar tanış olur | `assets/lessons/d2/new-classmates.webp` | ⏳ |
 | 6.3 | Dərs 2 · “Adını yaz” | Qeydiyyat masası: işçi soruşur, oğlan cavab verir | `assets/lessons/d2/registration.webp` | ⏳ |
 | 6.4 | Dərs 2 · təkrar | Telefonda oyun profili yaradılır | `assets/lessons/d2/game-profile.webp` | ⏳ |
-| 6.5 | Dərs 6 · “O nə cavab verər?” | Oğlan qıza təşəkkür edir, qız gülümsəyir | `assets/lessons/d6/thank-girl.webp` | ⏳ |
-| 6.6 | Dərs 6 · təkrar | Oğlan küçədə yol göstərir | `assets/lessons/d6/directions.webp` | ⏳ |
 | 6.7 | Dərs 6 · “Nə ilə başlayarsan?” | Küçədə qız yoldan keçənə yaxınlaşır | `assets/lessons/d6/street-ask.webp` | ⏳ |
 | 6.8 | Dərs 6 · təkrar | Avtobusda biri təsadüfən başqasının ayağına basır | `assets/lessons/d6/foot-step.webp` | ⏳ |
 | 6.9 | Dərs 8 · “İki mesaj yaz” | Ziyafətdə iki nəfər tanış olur | `assets/lessons/d8/party-meet.webp` | ⏳ |

@@ -17,22 +17,21 @@ Sual verməzdən əvvəl diqqəti çəkmək üçün.
 
 Nümunə: **Excuse me, what's your name?** — Bağışlayın, adınız nədir?
 
-## Kart 3 — Seç: Xatırla
+## Kart 3 — Kim nə dedi?: Kim nə dedi?
 
-**Tapşırıq:** Sən qıza “Thank you!” dedin. O nə cavab verər?  
-**Seçimlər:** Please. / You're welcome. / How are you? — **düzgün:** You're welcome.  
-**İpucu:** Təşəkkürə cavab — Dərs 5-də öyrəndin.  
-**Düzgün olanda:** Təşəkkürə cavab: You’re welcome.  
-- *İzah (“Please.” seçiləndə):* “Please” xahişdir. — Uyğun: You're welcome. Səbəb: Təşəkkürə cavab “Dəyməz” — “You’re welcome”dur. Qayda: Thank you → You’re welcome. Nümunə: Thanks! — You're welcome.  
-- *İzah (“How are you?” seçiləndə):* Bu, hal sualıdır. — Uyğun: You're welcome. Səbəb: Təşəkkürə cavab verilir, yeni sual yox. Qayda: Thank you → You’re welcome. Nümunə: Thank you! — You're welcome.  
+**Tapşırıq:** Keçən dərsləri xatırla. Hər cümləyə mənasını qoş.  
+**Cütlər:** Thank you! — Təşəkkür edirəm!; You're welcome. — Dəyməz.; How are you? — Necəsən? · artıq: Zəhmət olmasa.  
+**İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy. Qalanların seçimi azalacaq.  
+**Düzgün olanda:** Keçən dərslərin ifadələrini xatırladın.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; How are you? — Necəsən?. Səbəb: Təşəkkür, ona cavab və hal sualı — üç ayrı iş. Qayda: Mənaya görə qoş. Nümunə: Thank you! — You're welcome.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Oğlan sənə yol göstərdi. Nə deyərsən?  
-**Seçimlər:** You're welcome. / Thank you! / Please. — **düzgün:** Thank you!  
-**İpucu:** Sənə kömək edəndə nə deyirsən? Dərs 5-i xatırla.  
-**Düzgün olanda:** Kömək alanda təşəkkür edirsən.  
-- *İzah (başqa səhvdə):* Kömək alan təşəkkür edir. — Uyğun: Thank you!. Səbəb: “You’re welcome” cavabdır, “please” xahişdir. Qayda: Kömək alanda: Thank you! Nümunə: Thanks!  
+**Tapşırıq:** Bu dərsi xatırla. Hər cümləyə mənasını qoş.  
+**Cütlər:** Excuse me — Bağışlayın; Sorry! — Bağışla!; No problem. — Eybi yox. · artıq: Dəyməz.  
+**İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy. Qalanların seçimi azalacaq.  
+**Düzgün olanda:** Bu dərsin ifadələrini xatırladın.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Excuse me — Bağışlayın; Sorry! — Bağışla!; No problem. — Eybi yox. Səbəb: “Excuse me” diqqəti çəkir, “Sorry” üzrdür, “No problem” üzrə cavabdır. Qayda: Mənaya görə qoş. Nümunə: Sorry! — No problem.  
 
 ## Kart 4 — Yeni söz
 
