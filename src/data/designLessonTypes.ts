@@ -62,6 +62,10 @@ export interface VoiceTask extends BaseTask {
 /** “Kim nə dedi?”: put the meaning next to each sentence. */
 export interface MatchTask extends BaseTask {
   type: 'match';
+  /** meaning — “Kim nə dedi?” (sentence → Azerbaijani meaning, default);
+   *  reply — “Cavab cütü” (sentence → its English reply);
+   *  order — “Söhbəti sırala” (rows are the turns in the right order: en = turn number, az = the line). */
+  mode?: 'meaning' | 'reply' | 'order';
   rows: { en: string; az: string; from?: Who }[];
   /** Extra meanings that fit no sentence. */
   extra: string[];

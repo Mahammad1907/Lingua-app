@@ -162,8 +162,10 @@ export function MatchBoard({ task, pairs, active, onActive, onPlace, onSay, mark
   task: MatchTask; pairs: Record<string, string>; active: string; onActive: (en: string) => void; onPlace: (az: string) => void; onSay?: (t: string) => void;
   marks?: Record<string, 'correct' | 'wrong'>; disabled?: boolean;
 }) {
+  if (task.mode === 'order') return <OrderBoard task={task} pairs={pairs} active={active} onActive={onActive} onPlace={onPlace} onSay={onSay} marks={marks} disabled={disabled} />;
+  const reply = task.mode === 'reply';
   const used = new Set(Object.values(pairs));
-  const meanings = [...task.rows.map(r => r.az), ...task.extra].sort((a, b) => a.localeCompare(b, 'az'));
+  const meanings = [...task.rows.map(r => r.az), ...task.extra].sort((a, b) => a.localeCompare(b, reply ? 'en' : 'az'));
   return <View style={{ gap: 14 }}>
     <View style={{ gap: 12 }}>
       {task.rows.map(r => {
@@ -171,8 +173,9 @@ export function MatchBoard({ task, pairs, active, onActive, onPlace, onSay, mark
         return <View key={r.en} style={s.matchRow}>
           {r.from ? <Avatar who={r.from} size={30} /> : null}
           <Pressable accessibilityRole="button" accessibilityHint="Dinləmək üçün toxun" onPress={() => onSay?.(r.en)} style={s.matchBubble}><Text style={s.matchEn}>{nameSlot(r.en)}</Text></Pressable>
-          <Pressable accessibilityRole="button" accessibilityLabel={value ? `${r.en}: ${value}. Dəyişmək üçün toxun` : `${r.en}: mənası boşdur`} disabled={disabled}
-            onPress={() => onActive(r.en)} style={[s.slot, value ? s.slotFilled : s.slotEmpty, on && s.slotActive,
+          {reply ? <Icon name="arrow" size={16} color={d.lavender} /> : null}
+          <Pressable accessibilityRole="button" accessibilityLabel={value ? `${r.en}: ${value}. Dəyişmək üçün toxun` : `${r.en}: ${reply ? 'cavabı' : 'mənası'} boşdur`} disabled={disabled}
+            onPress={() => onActive(r.en)} style={[s.slot, reply && { width: 132 }, value ? s.slotFilled : s.slotEmpty, on && s.slotActive,
               mark === 'correct' && { backgroundColor: d.greenSoft, borderColor: d.green }, mark === 'wrong' && { backgroundColor: d.redSoft, borderColor: d.red }]}>
             <Text numberOfLines={2} style={[s.slotText, mark && { color: markColor(mark, d.purple) }]}>{value ? nameSlot(value) : on ? '?' : ''}</Text>
           </Pressable>
@@ -181,9 +184,51 @@ export function MatchBoard({ task, pairs, active, onActive, onPlace, onSay, mark
     </View>
     <View style={s.meanings}>
       {meanings.map(m => <Pressable key={m} accessibilityRole="button" accessibilityState={{ disabled: disabled || used.has(m) }} disabled={disabled || used.has(m)}
-        onPress={() => onPlace(m)} style={[s.meaning, used.has(m) && { opacity: .35 }]}>
+        onPress={() => { if (reply) onSay?.(m); onPlace(m); }} style={[s.meaning, used.has(m) && { opacity: .35 }]}>
         <Text style={s.meaningText}>{nameSlot(m)}</Text>
       </Pressable>)}
+    </View>
+  </View>;
+}
+
+/** Same order every time, but never the answer order (so the tray is never already solved). */
+function trayOrder(items: string[]): string[] {
+  const hash = (t: string) => [...t].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
+  const out = [...items].sort((a, b) => hash(a) - hash(b));
+  return out.every((t, i) => t === items[i]) ? [...out.slice(1), out[0]] : out;
+}
+
+/** “Söhbəti sırala”: numbered places for each turn (girl left, boy right); tap a bubble below to put it in the next empty place,
+ *  tap a placed bubble to send it back. Bubbles speak when tapped. */
+function OrderBoard({ task, pairs, active, onActive, onPlace, onSay, marks, disabled }: {
+  task: MatchTask; pairs: Record<string, string>; active: string; onActive: (en: string) => void; onPlace: (az: string) => void; onSay?: (t: string) => void;
+  marks?: Record<string, 'correct' | 'wrong'>; disabled?: boolean;
+}) {
+  const used = new Set(Object.values(pairs));
+  const tray = trayOrder([...task.rows.map(r => r.az), ...task.extra]);
+  const speaker = new Map(task.rows.map(r => [r.az, r.from]));
+  return <View style={{ gap: 10 }}>
+    {task.rows.map(r => {
+      const value = pairs[r.en], mark = marks?.[r.en], right = r.from === 'B';
+      const color = mark === 'correct' ? d.green : mark === 'wrong' ? d.red : undefined;
+      return <View key={r.en} style={[s.turn, right && { flexDirection: 'row-reverse' }]}>
+        <View style={s.turnNo}><Text style={s.turnNoText}>{r.en}</Text></View>
+        {r.from ? <Avatar who={r.from} size={34} /> : null}
+        <Pressable accessibilityRole="button" disabled={disabled || !value} onPress={() => onActive(r.en)}
+          accessibilityLabel={value ? `${r.en}: ${value}. Geri qaytarmaq üçün toxun` : `${r.en}: boş yer`}
+          style={[s.turnSlot, value ? s.turnFilled : s.slotEmpty, active === r.en && !value && s.slotActive, color && { borderColor: color, backgroundColor: mark === 'correct' ? d.greenSoft : d.redSoft }]}>
+          {value ? <Text style={[s.turnText, color && { color }]}>{nameSlot(value)}</Text> : null}
+        </Pressable>
+      </View>;
+    })}
+    <View style={s.orderTray}>
+      {tray.filter(t => !used.has(t)).map(t => <Pressable key={t} accessibilityRole="button" accessibilityHint="Dinlə və növbəti boş yerə qoy" disabled={disabled}
+        onPress={() => { onSay?.(t); onPlace(t); }} style={({ pressed }) => [s.orderChip, pressed && { transform: [{ scale: .97 }] }]}>
+        {speaker.get(t) ? <Avatar who={speaker.get(t)!} size={26} /> : null}
+        <Text style={[s.turnText, { flex: 1 }]}>{nameSlot(t)}</Text>
+        <View style={s.chipPlay}><Icon name="play" size={12} color="#fff" /></View>
+      </Pressable>)}
+      {used.size === tray.length ? <Text style={[ds.small, { textAlign: 'center' }]}>Hamısı yerindədir. Yoxla.</Text> : null}
     </View>
   </View>;
 }
@@ -358,6 +403,15 @@ const s = StyleSheet.create({
   meanings: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, padding: 12, borderRadius: 18, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
   meaning: { minHeight: 44, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, borderColor: '#C5ADF2', backgroundColor: '#F4EEFD', justifyContent: 'center' },
   meaningText: { color: d.ink, fontSize: 15, ...font.extrabold },
+  turn: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  turnNo: { width: 26, height: 26, borderRadius: 13, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center' },
+  turnNoText: { color: '#fff', fontSize: 13, ...font.extrabold },
+  turnSlot: { flex: 1, minHeight: 46, borderRadius: 16, justifyContent: 'center', paddingHorizontal: 14, paddingVertical: 8 },
+  turnFilled: { backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
+  turnText: { color: d.ink, fontSize: 16, lineHeight: 22, ...font.extrabold },
+  orderTray: { gap: 8, padding: 10, borderRadius: 18, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
+  orderChip: { flexDirection: 'row', alignItems: 'center', gap: 10, minHeight: 46, paddingHorizontal: 10, borderRadius: 14, borderWidth: 1, borderColor: '#C5ADF2', backgroundColor: '#F4EEFD' },
+  chipPlay: { width: 26, height: 26, borderRadius: 13, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', paddingLeft: 2 },
   scene: { width: '100%', aspectRatio: 1.1, borderRadius: 24, overflow: 'hidden', backgroundColor: d.purpleSoft, borderWidth: 1, borderColor: d.border },
   spot: { position: 'absolute', width: 40, height: 40, marginLeft: -20, marginTop: -20, borderRadius: 20, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
   spotText: { fontSize: 18, ...font.extrabold },

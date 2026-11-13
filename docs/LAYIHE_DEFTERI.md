@@ -361,3 +361,8 @@ Kod yoxlamaları keçir; telefonda yoxlanmayıb.
 **13 noyabr 2026, 22:16 — xəta (istifadəçi):** bəzi səsli tapşırıqlarda Kömək → “Nümunəni göstər” basılanda heç nə çıxmırdı: yazılı nümunəsi olmayan tapşırıqlarda nümunə yalnız `sample` sahəsindən götürülürdü. İndi nümunə yoxdursa birinci qəbul olunan cavab göstərilir. Eyni yoxlamada tapıldı: səsləndirmə `en-GB` idi, oxunuşlar isə Amerika tələffüzündədir — bütün tətbiqdə səs `en-US`-ə keçirildi (Amerika tələffüzü qərarı köhnə “UK pronunciation” qaydasını əvəz edir).
 
 **13 noyabr 2026, 22:23 — istifadəçi:** “Kim nə dedi?” ekranı çox bəyənilir, sayı artırılsın. Dərs 3-ə yeni tapşırıq (d3_c13, tanışlıq cümlələri) əlavə olundu, Dərs 6-nın “Xatırla” seçimi (d6_c02) bu ekrana çevrildi (6.5/6.6 şəkilləri artıq lazım deyil). İndi 2–8-ci dərslərin hamısında var. Azərbaycanca mənalarda da ad yeri [ad] kimi görünür.
+
+**13 noyabr 2026, 22:34 — iki yeni ekran təsdiqləndi (maket göstərildi, istifadəçi “hər ikisi olsun, qəbul”):**
+- **Söhbəti sırala** (`match`, `mode: 'order'`): 3–4 balon qarışıq gəlir, toxunanda səslənir və növbəti boş yerə keçir; qız solda, oğlan sağda; yerləşmiş balona toxunanda geri qayıdır. Dərs 4 (d4_c07), 7 (d7_c09), 8 (d8_c08) — əvvəlki “Mesajı qur” tapşırıqlarının yerinə.
+- **Cavab cütü** (`match`, `mode: 'reply'`): cümləyə onun ingiliscə cavabını qoşmaq, bir cavab artıqdır (tipik səhv, məs. “Please.”). Dərs 5 (d5_c13) və 8 (d8_c13) — yeni tapşırıq.
+Hər ikisi “Kim nə dedi?” kimi yoxlanır; səhv olsa dərsin sonunda başqa söhbətlə təkrar gəlir. `check-taught.cjs` balon və cavabları da yoxlayır.

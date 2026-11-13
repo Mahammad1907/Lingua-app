@@ -109,16 +109,16 @@ export const lesson8: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd8_c08', number: 8, title: 'Mesajı qur', why: 'Tanışlığa cavab verib halını soruşdun.', hint: 'Əvvəl xoş sözə cavab ver, sonra halını soruş.',
-      prompt: 'Oğlan adını dedi və “Nice to meet you!” yazdı.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
-      chat: { partner: 'Ziyafətdə oğlan', from: 'B', lines: [{ from: 'B', text: "Hi! I'm …" }, { from: 'B', text: 'Nice to meet you!' }] },
-      tiles: ['How', 'too!', 'please', 'You', 'are', 'you', '?'], rule: exact('You too! How are you?'),
-      variants: [other('You too! How are you?', ex('You too! How are you?', 'Əvvəl xoş sözə cavab, sonra hal sualı.', 'You too! + How are you?', 'You too! How are you?'))],
+      type: 'match', mode: 'order', id: 'd8_c08', number: 8, title: 'Söhbəti sırala', why: 'Salam, hal, ad və xoş söz — bütöv söhbət.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.',
+      prompt: 'Ziyafətdə tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
+      rows: [{ en: '1', az: 'Hi! How are you?', from: 'G' }, { en: '2', az: "I'm fine, thanks. And you?", from: 'B' }, { en: '3', az: "I'm OK. What's your name?", from: 'G' }, { en: '4', az: "I'm …. Nice to meet you!", from: 'B' }],
+      extra: [],
+      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm …. Nice to meet you!", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'Sual → cavab.', "Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm …. Nice to meet you!"))],
       review: {
-        title: 'Mesajı qur', why: 'Təşəkkürə düzgün cavab verdin.', hint: 'Təşəkkürə cavab — Dərs 5-i xatırla.', prompt: 'Qız sənə təşəkkür yazdı.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
-        chat: { partner: 'Ziyafətdə qız', from: 'G', lines: [{ from: 'G', text: 'Thank you!' }] },
-        tiles: ['please', "You're", 'Sorry', 'welcome', '.'], rule: exact("You're welcome."),
-        variants: [other("You're welcome.", ex("You're welcome.", 'Təşəkkürə cavab — “Dəyməz”.', 'Thank you → You’re welcome.', "You're welcome."))],
+        title: 'Söhbəti sırala', why: 'Ad sualı, cavab və xoş sözlər düz sıradadır.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.', prompt: 'Başqa tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
+        rows: [{ en: '1', az: "Hello! What's your name?", from: 'B' }, { en: '2', az: 'My name is …', from: 'G' }, { en: '3', az: 'Nice to meet you.', from: 'B' }, { en: '4', az: 'You too.', from: 'G' }],
+        extra: [],
+        variants: [other('Söhbətin sırası düz deyil.', ex("Hello! What's your name? → My name is … → Nice to meet you. → You too.", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'Sual → cavab.', "Hello! What's your name? → My name is … → Nice to meet you. → You too."))],
       },
     },
     {
@@ -156,6 +156,19 @@ export const lesson8: DesignLesson = {
       },
     },
     {
+      type: 'match', mode: 'reply', id: 'd8_c13', number: 13, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə ingiliscə necə cavab verilir? Bir cavab artıqdır.',
+      prompt: 'Hər deyilənə bir cavab var.\nCümləyə toxun, sonra onun cavabını seç.',
+      rows: [{ en: 'Sorry!', az: 'No problem.', from: 'B' }, { en: 'Thank you!', az: "You're welcome.", from: 'G' }, { en: 'Nice to meet you!', az: 'You too!', from: 'M' }],
+      extra: ['Excuse me.'],
+      variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Sorry! — No problem.; Thank you! — You're welcome.; Nice to meet you! — You too!", 'Hər cümlənin öz cavabı var: təşəkkürə, suala, üzrə fərqli cavab verilir.', 'Deyilənə uyğun cavab.', 'Sorry! — No problem.'))],
+      review: {
+        title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə ingiliscə necə cavab verilir? Bir cavab artıqdır.', prompt: 'Başqa söhbətlər.\nCümləyə toxun, sonra onun cavabını seç.',
+        rows: [{ en: "I'm sorry!", az: 'No problem.', from: 'G' }, { en: 'How are you?', az: "I'm OK.", from: 'B' }, { en: "What's your name?", az: 'My name is …', from: 'M' }],
+        extra: ['Please.'],
+        variants: [other('Bir cümlənin cavabı yerində deyil.', ex("I'm sorry! — No problem.; How are you? — I'm OK.; What's your name? — My name is …", 'Hər cümlənin öz cavabı var.', 'Deyilənə uyğun cavab.', "I'm sorry! — No problem."))],
+      },
+    },
+    {
       type: 'voice', id: 'd8_c12', number: 12, speaker: 'mascot', title: 'Söhbət: sağollaşma', why: 'Təşəkkürə cavab verib sağollaşdın.', hint: 'Əvvəl təşəkkürə cavab ver, sonra sağollaş.',
       prompt: 'Ziyafət bitir. {M} deyir: “Thank you! Bye!”\nCavab ver və sağollaş.', audio: 'Thank you! Bye!', rule: goal(['welcome', 'farewell'], ["You're welcome. Bye!"]),
       variants: [
@@ -172,8 +185,8 @@ export const lesson8: DesignLesson = {
     done: ['Bölmə 1 tamamlandı', 'Artıq ingiliscə qısa tanışlıq söhbəti apara bilirsən.'],
     incomplete: 'Bölmə söhbəti tam bitmədi. Yoxlanmayan hissələrə sonra qayıda bilərsən.',
     goals: [
-      { group: 'Tanıma', text: 'Söhbətdə eşitdiyini anlamaq', tasks: ['d8_c03', 'd8_c04', 'd8_c05', 'd8_c06'] },
-      { group: 'Yazı', text: 'Tanışlıq mesajları və kömək istəmək', tasks: ['d8_c07a', 'd8_c07b', 'd8_c08', 'd8_c09'] },
+      { group: 'Tanıma', text: 'Söhbətdə eşitdiyini anlamaq', tasks: ['d8_c08', 'd8_c03', 'd8_c04', 'd8_c05', 'd8_c06'] },
+      { group: 'Yazı', text: 'Tanışlıq mesajları və kömək istəmək', tasks: ['d8_c07a', 'd8_c07b', 'd8_c09'] },
       { group: 'Danışıq', text: 'Qısa söhbəti başdan sona aparmaq', tasks: ['d8_c10', 'd8_c11', 'd8_c12'] },
     ],
     closing: 'Növbəti bölmə: şəxsi məlumat — hərflər, rəqəmlər, yaş.', button: 'Ana səhifəyə qayıt',

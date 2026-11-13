@@ -114,25 +114,21 @@ Nümunə: **How are you? — I'm not very well.** — Necəsən? — Çox yaxş�
 
 Nümunə: **How are you? — I'm OK.** — Necəsən? — Normalam.
 
-## Kart 10 — Mesaj yaz (sözlərdən): Mesajı qur
+## Kart 10 — Kim nə dedi?: Söhbəti sırala
 
-**Tapşırıq:** Qonşunla qarşılaşdın. Sözlərdən onun halını soruş.  
-**Yazışma (Qonşu qız):** “Hi!”  
-**Sözlər:** you · How · is · are · your · ?  
-**Qəbul:** dəqiq: How are you?  
-**İpucu:** “Necəsən?” sualını qur. Sual “Necə” mənasındakı sözlə başlayır.  
-**Düzgün olanda:** Sual düzgün sırada qurulub.  
-- *İzah (başqa səhvdə):* Sıra: How + are + you? — Uyğun: How are you?. Səbəb: Sual sözü “How” əvvəldə, sonra “are”, sonra “you”. Qayda: Sualda sıra: How → are → you. Nümunə: Hi! How are you?  
+**Tapşırıq:** Qız və oğlan küçədə rastlaşır. Balonlara toxun, söhbəti sıraya düz.  
+**Cütlər:** 1 — Hi! How are you?; 2 — I'm fine, thanks. And you?; 3 — I'm OK. Bye! · artıq:   
+**İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
+**Düzgün olanda:** Söhbət sualla başladı, cavab və qayıdan sual gəldi.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Dostun sənə yazdı. Sözlərdən onun halını soruş.  
-**Yazışma (Yoldaş):** “Hello!”  
-**Sözlər:** are · am · How · you · I · ?  
-**Qəbul:** dəqiq: How are you?  
-**İpucu:** “Necəsən?” sualını qur. Sual “Necə” mənasındakı sözlə başlayır.  
-**Düzgün olanda:** Sual düzgün sırada qurulub.  
-- *İzah (başqa səhvdə):* Sıra: How + are + you? — Uyğun: How are you?. Səbəb: Sən onun halını soruşursan: “you” lazımdır, “I” yox. Qayda: Sualda sıra: How → are → you. Nümunə: How are you?  
+**Tapşırıq:** Oğlan və qız dərsdən sonra görüşür. Balonlara toxun, söhbəti sıraya düz.  
+**Cütlər:** 1 — Hello! How are you?; 2 — I'm not very well. And you?; 3 — I'm fine, thanks. · artıq:   
+**İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
+**Düzgün olanda:** Sual, cavab və ona reaksiya düz sıradadır.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! How are you? → I'm not very well. And you? → I'm fine, thanks. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hello! How are you? → I'm not very well. And you? → I'm fine, thanks.  
 
 ## Kart 11 — Dinlə və təkrarla: Dinlə və təkrarla
 

@@ -105,25 +105,21 @@ Nümunə: **Sorry? Slowly, please.** — Nə dedin? Yavaş, zəhmət olmasa.
 **Düzgün olanda:** Hər cümlə öz yerində.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Again, please. — Bir də, zəhmət olmasa.; No problem. — Eybi yox.; Thank you! — Təşəkkür edirəm!. Səbəb: Xahiş, üzrə cavab və təşəkkür fərqlidir. Qayda: Mənaya görə qoş. Nümunə: Again, please.  
 
-## Kart 9 — Mesaj yaz (sözlərdən): Mesajı qur
+## Kart 9 — Kim nə dedi?: Söhbəti sırala
 
-**Tapşırıq:** Qonşun çox sürətli səsli mesaj göndərdi. Sözlərdən cavab qur.  
-**Yazışma (Qonşu qız):** “Hellohowareyounicetomeetyou!”  
-**Sözlər:** understand · Sorry? · not · don't · I · .  
-**Qəbul:** dəqiq: Sorry? I don't understand.  
-**İpucu:** Əvvəl “nə dedin?” soruş, sonra başa düşmədiyini de.  
-**Düzgün olanda:** Başa düşmədiyini düzgün dedin.  
-- *İzah (başqa səhvdə):* Sorry? I don’t understand. — Uyğun: Sorry? I don't understand. Səbəb: İnkar “don’t” ilədir, “not” tək işlənmir. Qayda: I don’t understand. Nümunə: Sorry? I don't understand.  
+**Tapşırıq:** Oğlan çox sürətli danışır. Balonlara toxun, söhbəti sıraya düz.  
+**Cütlər:** 1 — Hellohowareyou!; 2 — Sorry? Slowly, please.; 3 — How are you?; 4 — I'm fine, thanks. · artıq:   
+**İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
+**Düzgün olanda:** Əvvəl başa düşmədin, xahiş etdin, sonra cavab verdin.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Yoldaşın çox sürətli yazır və danışır. Sözlərdən xahiş qur.  
-**Yazışma (Yoldaş):** “Hiwhat'syourname?”  
-**Sözlər:** sorry · please · Slowly, · thanks · .  
-**Qəbul:** dəqiq: Slowly, please.  
-**İpucu:** Problem sürətdədir. Ondan nə xahiş edirsən?  
-**Düzgün olanda:** Yavaş danışmağı nəzakətlə istədin.  
-- *İzah (başqa səhvdə):* Slowly, please. — Uyğun: Slowly, please. Səbəb: Xahiş “please” ilə bitir. Qayda: Xahişin sonuna “please” gəlir. Nümunə: Slowly, please.  
+**Tapşırıq:** Qız sürətli soruşur. Balonlara toxun, söhbəti sıraya düz.  
+**Cütlər:** 1 — Hiwhat'syourname?; 2 — Sorry? Again, please.; 3 — What's your name?; 4 — My name is … · artıq:   
+**İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
+**Düzgün olanda:** Xahiş, təkrar və cavab düz sıradadır.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hiwhat'syourname? → Sorry? Again, please. → What's your name? → My name is …. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hiwhat'syourname? → Sorry? Again, please. → What's your name? → My name is …  
 
 ## Kart 10 — Dinlə və təkrarla: Dinlə və təkrarla
 

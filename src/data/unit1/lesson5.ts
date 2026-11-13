@@ -145,6 +145,19 @@ export const lesson5: DesignLesson = {
       },
     },
     {
+      type: 'match', mode: 'reply', id: 'd5_c13', number: 13, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə ingiliscə necə cavab verilir? Bir cavab artıqdır.',
+      prompt: 'Hər deyilənə bir cavab var.\nCümləyə toxun, sonra onun cavabını seç.',
+      rows: [{ en: 'Thank you!', az: "You're welcome.", from: 'G' }, { en: 'How are you?', az: "I'm fine, thanks.", from: 'B' }, { en: 'Nice to meet you.', az: 'You too.', from: 'M' }],
+      extra: ['Please.'],
+      variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Thank you! — You're welcome.; How are you? — I'm fine, thanks.; Nice to meet you. — You too.", 'Hər cümlənin öz cavabı var: təşəkkürə, suala, üzrə fərqli cavab verilir.', 'Deyilənə uyğun cavab.', "Thank you! — You're welcome."))],
+      review: {
+        title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə ingiliscə necə cavab verilir? Bir cavab artıqdır.', prompt: 'Başqa söhbətlər.\nCümləyə toxun, sonra onun cavabını seç.',
+        rows: [{ en: 'Thanks!', az: "You're welcome.", from: 'B' }, { en: "What's your name?", az: "I'm …", from: 'G' }, { en: 'Hello!', az: 'Hi!', from: 'M' }],
+        extra: ['Please.'],
+        variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Thanks! — You're welcome.; What's your name? — I'm …; Hello! — Hi!", 'Hər cümlənin öz cavabı var.', 'Deyilənə uyğun cavab.', "Thanks! — You're welcome."))],
+      },
+    },
+    {
       type: 'voice', id: 'd5_c12', number: 12, speaker: 'mascot', title: 'Nümunəsiz təşəkkür et', why: 'Təşəkkürü özün dedin.', hint: 'Sənə nəsə verəndə nə deyirsən?',
       prompt: '{M} sənə çətir verir.\nTəşəkkür et.', rule: thanks, reply: "You're welcome!",
       variants: [other('Təşəkkür ifadəsi de.', ex('Thank you! / Thanks!', 'Sənə nəsə verəndə təşəkkür edirsən.', 'Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən.', 'Thank you!'))],

@@ -13,7 +13,7 @@ const { unit1Lessons } = require('../src/data/unit1/index.ts');
 
 const NAME = 'Aysu';
 const filled = text => text.replace(/…/g, NAME);
-const kind = t => t.type === 'write' ? (t.tiles ? 'tiles' : t.chat ? 'chat' : 'write') : t.type === 'choice' ? (t.gap ? 'gap' : t.spots ? 'scene' : 'choice') : t.type === 'voice' ? (t.repeat ? 'repeat' : 'voice') : t.type;
+const kind = t => t.type === 'write' ? (t.tiles ? 'tiles' : t.chat ? 'chat' : 'write') : t.type === 'choice' ? (t.gap ? 'gap' : t.spots ? 'scene' : 'choice') : t.type === 'voice' ? (t.repeat ? 'repeat' : 'voice') : t.type === 'match' ? (t.mode || 'match') : t.type;
 const ids = new Set();
 
 for (const raw of unit1Lessons) {

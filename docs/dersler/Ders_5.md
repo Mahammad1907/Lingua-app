@@ -162,7 +162,23 @@ Nümunə: **Tea, please.** — Çay, zəhmət olmasa.
 **Düzgün olanda:** Halını dedin, təşəkkür etdin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Sıra: I’m fine, thanks. And you? — Uyğun: I'm fine, thanks. And you?. Səbəb: “welcome” təşəkkürə cavabdır, burada lazım deyil. Qayda: Halın + thanks + And you? Nümunə: I'm fine, thanks. And you?  
 
-## Kart 12 — Səslə cavab: Nümunəsiz təşəkkür et
+## Kart 12 — Kim nə dedi?: Cavab cütü
+
+**Tapşırıq:** Hər deyilənə bir cavab var. Cümləyə toxun, sonra onun cavabını seç.  
+**Cütlər:** Thank you! — You're welcome.; How are you? — I'm fine, thanks.; Nice to meet you. — You too. · artıq: Please.  
+**İpucu:** Hər cümləyə ingiliscə necə cavab verilir? Bir cavab artıqdır.  
+**Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
+- *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: Thank you! — You're welcome.; How are you? — I'm fine, thanks.; Nice to meet you. — You too. Səbəb: Hər cümlənin öz cavabı var: təşəkkürə, suala, üzrə fərqli cavab verilir. Qayda: Deyilənə uyğun cavab. Nümunə: Thank you! — You're welcome.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Başqa söhbətlər. Cümləyə toxun, sonra onun cavabını seç.  
+**Cütlər:** Thanks! — You're welcome.; What's your name? — I'm …; Hello! — Hi! · artıq: Please.  
+**İpucu:** Hər cümləyə ingiliscə necə cavab verilir? Bir cavab artıqdır.  
+**Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
+- *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: Thanks! — You're welcome.; What's your name? — I'm …; Hello! — Hi!. Səbəb: Hər cümlənin öz cavabı var. Qayda: Deyilənə uyğun cavab. Nümunə: Thanks! — You're welcome.  
+
+## Kart 13 — Səslə cavab: Nümunəsiz təşəkkür et
 
 **Tapşırıq:** Dostun sənə çətir verir. Təşəkkür et.  
 **Qəbul:** məna: thanks — nümunə: Thank you! / Thanks!  
@@ -178,7 +194,7 @@ Nümunə: **Tea, please.** — Çay, zəhmət olmasa.
 **Düzgün olanda:** Təşəkkürü özün dedin.  
 - *İzah (başqa səhvdə):* Təşəkkür ifadəsi de. — Uyğun: Thank you! / Thanks!. Səbəb: Sənə kömək edəndə təşəkkür edirsən. Qayda: Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən. Nümunə: Thanks!  
 
-## Kart 13 — Dialoqu tamamla: Təşəkkür et
+## Kart 14 — Dialoqu tamamla: Təşəkkür et
 
 **Tapşırıq:** Qonşun düşən açarını sənə qaytardı. Ona təşəkkür et.  
 **Yazışma (Qonşu oğlan):** —  

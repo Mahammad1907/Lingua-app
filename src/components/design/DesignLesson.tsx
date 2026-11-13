@@ -213,7 +213,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     }
     if (task.type === 'match') {
       const graded = gradeMatch(task, pairs);
-      if (graded.status === 'empty') { setNotice('Hər cümləyə bir məna qoy.'); return; }
+      if (graded.status === 'empty') { setNotice(task.mode === 'order' ? 'Bütün balonları yerləşdir.' : task.mode === 'reply' ? 'Hər cümləyə bir cavab qoy.' : 'Hər cümləyə bir məna qoy.'); return; }
       setNotice(''); locked.current = true; store(task.id, graded.status === 'correct', false);
       setResult({ kind: 'single', graded });
       return;
