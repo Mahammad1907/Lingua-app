@@ -22,7 +22,10 @@ import { d, shadow } from './theme';
 const mascotFull = require('../../../assets/mascot/hood_full.png');
 const mascotHead = require('../../../assets/mascot/hood_head.png');
 
-type Result = { kind: 'single'; graded: Graded } | { kind: 'two'; graded: TwoGraded } | { kind: 'unverified'; message: string; recording?: boolean };
+// iOS refuses to present a sheet while the previous one is still animating closed.
+const SHEET_GAP = 650;
+
+type Result = { kind: 'single'; graded: Graded } | { kind: 'two'; graded: TwoGraded } | { kind: 'unverified'; message: string; recording?: boolean; two?: TwoGraded };
 
 export default function DesignLesson({ source }: { source: Lesson }) {
   const lesson = useMemo(() => resolveLesson(source), [source]);
@@ -57,7 +60,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const [explainOpen, setExplainOpen] = useState(false); const [reportOpen, setReportOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); const [word, setWord] = useState<string | null>(null);
   const [finish, setFinish] = useState<{ completed: boolean } | null>(null);
-  const [overflow, setOverflow] = useState(false); const [viewport, setViewport] = useState(0);
+  const [viewport, setViewport] = useState(0);
 
   const sequence = useRef(0); const locked = useRef(false); const tokens = useRef(0);
   const reviewIds = reviewing ? queue : [];
@@ -110,7 +113,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     stopAudio(); Keyboard.dismiss(); locked.current = false;
     setChoice(''); setText(''); setTwo({}); setResult(null); setNotice(''); setCollapsed(false); setHintUsed(false); setVoiceRetry(false); setVoiceRetried(false);
     setHeard(false); setSoundError(false); setTextShown(false); setTextVisible(false); setTechnical(false);
-    setHelpOpen(false); setHintOpen(false); setExplainOpen(false); setOverflow(false);
+    setHelpOpen(false); setHintOpen(false); setExplainOpen(false);
   };
 
   const finishLesson = useCallback(async () => {
@@ -170,11 +173,13 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (task.type === 'two') {
       const graded = gradeTwo(task, two, reviewing ? keepFields[task.id]?.fields : undefined);
       if (graded.status === 'empty') { setNotice(graded.emptyNotice ?? ''); return; }
-      if (graded.status === 'unknown') { setResult({ kind: 'unverified', message: lesson.notices.unknown }); return; }
+      if (graded.status === 'unknown') { setResult({ kind: 'unverified', message: lesson.notices.unknown, two: graded }); return; }
       setNotice(''); locked.current = true; Keyboard.dismiss();
       for (const field of task.fields) {
         if (reviewing && keepFields[task.id]?.fields[field.id]?.status === 'correct') continue;
-        store(field.id, graded.fields[field.id].status === 'correct', false);
+        const status = graded.fields[field.id].status;
+        // A part that could not be assessed is never stored as a language mistake.
+        if (status === 'unknown') settleUnverified(field.id); else store(field.id, status === 'correct', false);
       }
       if (!reviewing && graded.status === 'wrong') { setKeepFields(k => ({ ...k, [task.id]: { fields: graded.fields, values: two } })); enqueue(task.id); }
       setResult({ kind: 'two', graded });
@@ -196,7 +201,15 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   const continueUnverified = () => {
     if (!task) return;
-    if (task.type === 'two') task.fields.forEach(f => settleUnverified(f.id)); else settleUnverified(task.id);
+    if (task.type === 'two') {
+      const parts = result?.kind === 'unverified' ? result.two?.fields : undefined;
+      locked.current = true;
+      task.fields.forEach(f => {
+        if (reviewing && keepFields[task.id]?.fields[f.id]?.status === 'correct') return;
+        const status = parts?.[f.id]?.status;
+        if (status === 'correct' || status === 'wrong') store(f.id, status === 'correct', false); else settleUnverified(f.id);
+      });
+    } else settleUnverified(task.id);
     next();
   };
 
@@ -217,7 +230,11 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const onSpoken = (answer: SpokenAnswer): string | null => {
     if (!task || task.type !== 'voice' || locked.current || (result && result.kind !== 'unverified' && !voiceRetry)) return null;
     const graded = gradeText(task, answer.text, true);
-    if (graded.status === 'unknown' || graded.status === 'empty') { setResult({ kind: 'unverified', message: lesson.notices.voiceUnknown }); return null; }
+    if (graded.status === 'unknown' || graded.status === 'empty') {
+      // A retry that is not recognised keeps the first verdict on screen.
+      if (voiceRetry) { setNotice(lesson.notices.voiceUnknown); return null; }
+      setResult({ kind: 'unverified', message: lesson.notices.voiceUnknown }); return null;
+    }
     locked.current = true;
     if (voiceRetry) {
       // The first verdict stays recorded; the retry is practice and only updates the panel.
@@ -327,7 +344,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   const help = task && audio ? <Sheet visible={helpOpen} onClose={() => setHelpOpen(false)} title="Kömək seç">
     <Text style={[ds.subtitle, { marginTop: -6 }]}>Necə davam etmək istəyirsən?</Text>
-    {task.hint ? <SheetOption icon="bulb" label="İpucu" onPress={() => { setHelpOpen(false); setHintUsed(true); if (task.hintAssists) useUserStore.getState().useHelp(attempt); setTimeout(() => setHintOpen(true), 350); }} /> : null}
+    {task.hint ? <SheetOption icon="bulb" label="İpucu" onPress={() => { setHelpOpen(false); setHintUsed(true); if (task.hintAssists) useUserStore.getState().useHelp(attempt); setTimeout(() => setHintOpen(true), SHEET_GAP); }} /> : null}
     <SheetOption icon="doc" highlight label={task.type === 'voice' ? (textVisible ? 'Mətni gizlət' : 'Mətni göstər') : 'Mətnlə davam et'} note={listeningTask ? 'Dinləmə yoxlanmamış qalacaq.' : undefined}
       onPress={() => { setHelpOpen(false); stopAudio(); setTextShown(true); setTextVisible(v => task.type === 'voice' ? !v : true); if (listeningTask) useUserStore.getState().useHelp(attempt); }} />
   </Sheet> : null;
@@ -335,19 +352,19 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   return <KeyboardAvoidingView style={[s.screen, { paddingTop: insets.top }]} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
     <Stack.Screen options={{ headerShown: false, gestureEnabled: false }} />
     <Header title={`Dərs ${lesson.order}`} progress={progress} onBack={exit} onMenu={showResult ? undefined : () => setMenuOpen(true)} />
-    <ScrollView style={{ flex: 1 }} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" bounces={false}
-      scrollEnabled={overflow} onLayout={e => setViewport(e.nativeEvent.layout.height)}
-      onContentSizeChange={(_w, h) => setOverflow(viewport > 0 && h > viewport + 1)}>
+    {/* Fits without scrolling on normal phones; scrolls only when the content is taller (large text, keyboard). */}
+    <ScrollView style={{ flex: 1 }} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" bounces={false} alwaysBounceVertical={false}
+      overScrollMode="never" onLayout={e => setViewport(e.nativeEvent.layout.height)}>
       {body}
     </ScrollView>
     <View style={[s.footer, { paddingBottom: Math.max(14, insets.bottom + 6) }]}>{footer}</View>
 
     {help}
     {task?.hint ? <Sheet visible={hintOpen} onClose={() => setHintOpen(false)} title="İpucu" icon="bulb"><Text style={ds.strong}>{task.hint}</Text></Sheet> : null}
-    <ExplainSheet visible={explainOpen} explain={result && result.kind !== 'unverified' ? result.graded.explain : undefined} onClose={() => setExplainOpen(false)} onReport={() => { setExplainOpen(false); setTimeout(() => setReportOpen(true), 350); }} />
+    <ExplainSheet visible={explainOpen} explain={result && result.kind !== 'unverified' ? result.graded.explain : undefined} onClose={() => setExplainOpen(false)} onReport={() => { setExplainOpen(false); setTimeout(() => setReportOpen(true), SHEET_GAP); }} />
     <ReportSheet visible={reportOpen} onClose={() => setReportOpen(false)} context={reportContext} />
     <MenuPopover visible={menuOpen} onClose={() => setMenuOpen(false)} top={insets.top + 58} items={[
-      { label: 'Xəta bildir', icon: 'alert', onPress: () => setTimeout(() => setReportOpen(true), 250) },
+      { label: 'Xəta bildir', icon: 'alert', onPress: () => setTimeout(() => setReportOpen(true), SHEET_GAP) },
       ...(audio ? [{ label: 'Səs açılmır', icon: 'muted' as const, onPress: () => { stopAudio(); setTechnical(true); setTextShown(true); setTextVisible(true); } }] : []),
     ]} />
     <WordSheet word={word} lesson={lesson} onClose={() => setWord(null)} onPlay={t => speak(t)} />

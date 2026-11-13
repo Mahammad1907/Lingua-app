@@ -30,21 +30,35 @@ type SpeechApi = ReturnType<typeof useLessonSpeech>;
 
 function NativeHold({ speech, disabled }: { speech: SpeechApi; disabled?: boolean }) {
   const held = useRef(false);
+  const [network, setNetwork] = useState(false);
   const listening = speech.phase === 'listening';
   const pending = speech.phase === 'preparing' || speech.phase === 'processing';
   // Released before the microphone actually opened: stop as soon as it does.
   useEffect(() => { if (listening && !held.current) speech.stop(); }, [listening, speech]);
   const status = listening ? 'Səsin yazılır… Buraxanda göndəriləcək.' : speech.phase === 'processing' ? 'Yoxlanılır…' : speech.phase === 'preparing' ? 'Hazırlanır…' : '';
-  return <MicView active={listening} level={listening ? speech.level : 0} disabled={disabled || speech.phase === 'processing'} status={status} message={pending ? '' : speech.message}
-    onIn={() => { held.current = true; if (speech.phase === 'idle') void speech.start(); }}
-    onOut={() => { held.current = false; if (speech.phase === 'listening') speech.stop(); }} />;
+  return <View style={{ gap: 8, alignItems: 'center' }}>
+    <MicView active={listening} level={listening ? speech.level : 0} disabled={disabled || speech.phase === 'processing'} status={status} message={pending ? '' : speech.message}
+      onIn={() => {
+        held.current = true;
+        // A stale review/processing state (e.g. after backgrounding) must never leave the mic dead.
+        if (speech.phase === 'review') speech.cancel();
+        if (speech.phase === 'idle' || speech.phase === 'review') void speech.start(network);
+      }}
+      onOut={() => { held.current = false; if (speech.phase === 'listening') speech.stop(); }} />
+    {speech.needsNetwork && !network ? <Pressable accessibilityRole="button" onPress={() => setNetwork(true)} style={s.netBtn}>
+      <Text style={s.netText}>İnternet ilə səs tanımaya icazə ver</Text>
+    </Pressable> : null}
+  </View>;
 }
 
 function RecorderHold({ onRecording, onBusyChange, disabled, suspended }: { onRecording: (r: UnverifiedRecording) => void; onBusyChange: (b: boolean) => void; disabled?: boolean; suspended?: boolean }) {
   const recorder = useAudioRecorder({ ...RecordingPresets.HIGH_QUALITY, isMeteringEnabled: true });
   const [recording, setRecording] = useState(false), [busy, setBusy] = useState(false), [message, setMessage] = useState('');
   const held = useRef(false), serial = useRef(0), mounted = useRef(true);
-  useEffect(() => { onBusyChange(busy || recording); }, [busy, recording, onBusyChange]);
+  // Parent callbacks change every render; keep them in refs so recording is never torn down by a re-render.
+  const deliver = useRef(onRecording), busyChange = useRef(onBusyChange);
+  useEffect(() => { deliver.current = onRecording; busyChange.current = onBusyChange; }, [onRecording, onBusyChange]);
+  useEffect(() => { busyChange.current(busy || recording); }, [busy, recording]);
   const stop = useCallback(async (send: boolean) => {
     if (!safelyReadRecorder(() => recorder.isRecording)) return;
     setBusy(true);
@@ -52,11 +66,11 @@ function RecorderHold({ onRecording, onBusyChange, disabled, suspended }: { onRe
       const duration = recorder.currentTime; await recorder.stop(); await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: true });
       if (!mounted.current) return;
       setRecording(false);
-      if (send && recorder.uri && duration >= .4 && AppState.currentState === 'active') onRecording({ uri: recorder.uri, duration, token: `hold:${++serial.current}` });
+      if (send && recorder.uri && duration >= .4 && AppState.currentState === 'active') deliver.current({ uri: recorder.uri, duration, token: `hold:${++serial.current}` });
       else if (send) setMessage('Yazı çox qısa oldu. Mikrofonu basılı saxlayıb danış.');
     } catch { if (mounted.current) setMessage('Səs yazılmadı. Yenidən cəhd et.'); }
     finally { if (mounted.current) setBusy(false); }
-  }, [recorder, onRecording]);
+  }, [recorder]);
   const start = useCallback(async () => {
     if (busy || recording) return;
     setBusy(true); setMessage('');
@@ -74,8 +88,8 @@ function RecorderHold({ onRecording, onBusyChange, disabled, suspended }: { onRe
   useEffect(() => {
     mounted.current = true;
     const app = AppState.addEventListener('change', state => { if (state !== 'active') void stop(false); });
-    return () => { mounted.current = false; app.remove(); safelyStopRecorder(recorder); void setAudioModeAsync({ allowsRecording: false }).catch(() => {}); onBusyChange(false); };
-  }, [recorder, stop, onBusyChange]);
+    return () => { mounted.current = false; app.remove(); safelyStopRecorder(recorder); void setAudioModeAsync({ allowsRecording: false }).catch(() => {}); busyChange.current(false); };
+  }, [recorder, stop]);
   return <MicView active={recording} level={0} disabled={disabled} status={recording ? 'Səsin yazılır… Buraxanda göndəriləcək.' : busy ? 'Hazırlanır…' : ''} message={message}
     onIn={() => { held.current = true; void start(); }} onOut={() => { held.current = false; void stop(true); }} />;
 }
@@ -103,5 +117,7 @@ const s = StyleSheet.create({
   micActive: { backgroundColor: '#7B2FE0', transform: [{ scale: 1.04 }] },
   title: { color: d.ink, fontSize: 22, fontWeight: '800', marginTop: 4 },
   sub: { color: d.lavender, fontSize: 15, fontWeight: '600', textAlign: 'center' },
+  netBtn: { minHeight: 44, paddingHorizontal: 16, borderRadius: 999, borderWidth: 1, borderColor: d.purple, justifyContent: 'center' },
+  netText: { color: d.purple, fontSize: 15, fontWeight: '600' },
   message: { color: d.inkSoft, fontSize: 14, lineHeight: 20, textAlign: 'center', paddingHorizontal: 12 },
 });

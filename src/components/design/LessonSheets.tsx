@@ -39,7 +39,7 @@ export function ExplainSheet({ visible, explain, onClose, onReport }: { visible:
     <Text style={ds.label}>{label}</Text>
     <View style={[s.exBox, mine && s.exMine]}><Text style={ds.strong}>{text}</Text></View>
   </View>;
-  return <Sheet visible={visible} onClose={onClose} title="Mənə başa sal" icon="bulb" tall right={<Capsule small tone="outline" icon="flag" label="Xəta bildir" onPress={onReport} />}>
+  return <Sheet visible={visible} onClose={onClose} dismissible={false} title="Mənə başa sal" icon="bulb" tall right={<Capsule small tone="outline" icon="flag" label="Xəta bildir" onPress={onReport} />}>
     {row('Sənin cavabın', explain.yourAnswer, true)}
     {row('Uyğun cavablar', explain.answers)}
     {row('Səbəb', explain.reason)}

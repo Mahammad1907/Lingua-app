@@ -45,10 +45,10 @@ export function MainButton({ label, onPress, disabled, tone = 'purple', arrow }:
   </Pressable>;
 }
 
-export function Sheet({ visible, onClose, children, title, icon, right, tall }: { visible: boolean; onClose: () => void; children: ReactNode; title?: string; icon?: IconName; right?: ReactNode; tall?: boolean }) {
+export function Sheet({ visible, onClose, children, title, icon, right, tall, dismissible = true, onDismiss }: { visible: boolean; onClose: () => void; children: ReactNode; title?: string; icon?: IconName; right?: ReactNode; tall?: boolean; dismissible?: boolean; onDismiss?: () => void }) {
   const insets = useSafeAreaInsets();
-  return <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose} statusBarTranslucent>
-    <Pressable accessibilityLabel="Bağla" style={s.backdrop} onPress={onClose} />
+  return <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose} onDismiss={onDismiss} statusBarTranslucent>
+    {dismissible ? <Pressable accessibilityLabel="Bağla" style={s.backdrop} onPress={onClose} /> : <View style={s.backdrop} />}
     <View style={[s.sheet, { paddingBottom: Math.max(18, insets.bottom + 8) }, tall && { maxHeight: '86%' }]}>
       <View style={s.handle} />
       <View style={s.sheetTop}>
