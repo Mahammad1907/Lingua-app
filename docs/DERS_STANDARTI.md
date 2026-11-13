@@ -1,6 +1,6 @@
 # BirTalk dərs standartı
 
-Versiya 1 · 13 noyabr 2026
+Versiya 2 · 13 noyabr 2026 (araşdırma əsasında yeniləndi)
 
 Bu sənəd hər yeni dərsin necə yazılacağını müəyyən edir. Məzmun hazırlanan söhbətdə yeni dərs yazanda bu sənədi əsas götür. Burada olmayan qərarlar `docs/LAYIHE_DEFTERI.md`-də qeyd olunur.
 
@@ -108,7 +108,55 @@ CEFR dərs proqramı deyil, səviyyə təsvirləridir ("can-do" cümlələri). R
 - Hər məqsəd ən azı bir sərbəst tapşırıqla yoxlansın.
 - Nəticə ekranı bacarıqları məqsədlər üzrə göstərsin.
 
-## 10. Yeni dərs yoxlama siyahısı
+## 10. Elmi əsaslar (araşdırma, 13 noyabr 2026)
+
+Qaydaların arxasındakı tədqiqatlar. "Güc" sütunu sübutun nə qədər möhkəm olduğunu göstərir.
+
+| Qayda | Əsas | Güc |
+|---|---|---|
+| Yenidən oxutmaq yox, **xatırlatmaq** (tapşırıq) | Karpicke & Roediger, *Science* 2008: təkrar test uzunmüddətli yaddaşı kəskin artırır, təkrar oxuma artırmır | Güclü |
+| Təkrarı **vaxta yay**, bir yerə yığma | Spacing effekti; L2 sözlərində paylanmış təkrar yığılmış təkrardan təxminən 2 dəfə yaxşıdır (Nakata 2015) | Güclü |
+| Aralığın **olması** onun formasından vacibdir | Genişlənən və bərabər aralıqların fərqi kiçikdir və ya yoxdur (Nakata 2015; Kang və b. 2014) | Orta |
+| İlk öyrənmədə qruplaşdır, sonra **qarışdır** | Interleaving fayda verir, xüsusən bir neçə sessiya boyunca (Pan və b. 2019, 2024) | Orta |
+| İlk cəhddə uğur təxminən **80–90%** olsun | "85% qaydası" (Wilson və b. 2019) — yalnız sadə iki seçimli tapşırıqlarda və maşın öyrənməsində sübut olunub; insan dərsi üçün istiqamət kimi götürülür | Zəif |
+| İrəliləyiş **görünən** olsun | SDT: bacarıq hissi (competence) motivasiyanın əsas hərəkətvericisidir; tətbiqlərdə irəliləyiş göstəriciləri bunu dəstəkləyir | Orta |
+| Vaxt və seriya **irəliləyiş deyil** | Duolingo istifadəçilərində sərf olunan vaxt real irəliləyişlə əlaqəli çıxmayıb (Oxford, 2023, kiçik nümunə) | Zəif–orta |
+| A1 üçün **~90–100 saat** | Cambridge English təlimat saatları | Rəsmi təxmin |
+
+## 11. Təkrar cədvəli (spiral)
+
+Hər yeni ifadə bu yolu keçir:
+
+1. **Öyrədildiyi dərsdə:** 2–3 xatırlatma, aralarında başqa kartlar olmaqla. Dalbadal eyni ifadə soruşulmur.
+2. **Növbəti dərsdə:** bir dəfə, yeni materialın içində (məsələn, "Hi, I'm Leyla" — salam + yeni ifadə).
+3. **2–3 dərs sonra:** bir dəfə, nümunəsiz, yeni vəziyyətdə.
+4. **Bölmənin son dərsində:** böyük söhbətin içində.
+5. **Gündəlik təkrar** (planlaşdırılır): dərsdən kənar 2–3 dəqiqə; zəif ifadələr daha tez qayıdır.
+
+Qayda: bir ifadə bir dərsdə 4 dəfədən çox soruşulmur. Daha çox lazım olsa, təkrarı sonrakı dərslərə yay.
+
+## 12. Çətinlik
+
+- **Hədəf:** ilk cəhddə təxminən 80–90% düz cavab. Hamısı asandırsa — darıxdırır; yarısı səhvdirsə — ruhdan salır.
+- **Hər dərsdə bir "gərgin an":** öyrənənin əvvəlki biliyi ilə yenini birləşdirdiyi, bir az çətin tapşırıq (adətən sərbəst yazı və ya danışıq).
+- **Real istifadəçi məlumatı gələndə:** hansı tapşırıqda ilk cəhd uğuru 60%-dən aşağı və ya 98%-dən yuxarıdırsa, həmin tapşırıq yenidən baxılır.
+
+## 13. İrəliləyişi görünən etmək
+
+- **"Edə bilirəm" siyahısı:** hər bölmənin məqsədləri. Bir məqsəd yalnız nümunəsiz, müstəqil cavabla yaşıl olur.
+- **"Əvvəl / indi":** dərsdə çətinlik olan bacarıq sonrakı dərsdə müstəqil alındıqda öyrənənə göstərilir ("Dərs 2-də çətin idi — indi özün etdin").
+- **Bölmə sonu söhbəti:** bütün bölmənin ifadələri bir real söhbətdə. Nəticə bacarıqlar üzrə göstərilir.
+- **İrəliləyiş sayılmayanlar:** keçən vaxt, seriya günləri, açılan kartların sayı, nümunə ilə verilən cavablar.
+- **Tətbiqin hesablaya biləcəyi göstəricilər:** müstəqil alınan məqsədlərin sayı; ilk cəhd uğuru (bölmə üzrə); əvvəl çətin olub sonra müstəqil alınan bacarıqlar; gecikmiş təkrarda (2+ dərs sonra) uğur faizi.
+
+## 14. CEFR — dəqiqləşdirmələr
+
+- **Səviyyə:** Bölmə 1-in əksər hədəfləri A1-in sosial ünsiyyət hissəsidir, bəziləri Pre-A1 səviyyəsindədir (qısa, sadə suallar yavaş və təkrarla deyilsə başa düşmək).
+- **Hazır ifadələr:** A1-də ifadələr bütöv blok kimi öyrədilir, qrammatika kimi yox. "My name is…" qrammatika dərsi deyil, hazır ifadədir.
+- **"Could you…?" / "Can you repeat that…?":** xahiş üçün modal felləri adətən A2 qrammatikası sayılır. A1-də istehsal üçün qısa formalar ("Sorry?", "Again, please.", "Slowly, please.") öyrədilir; uzun forma yalnız tanıma (dinləyib anlama) üçün verilir.
+- **Ümumi həcm:** A1 üçün təxminən 90–100 təlimat saatı. Bölmə 1 bunun kiçik bir hissəsidir — "A1 səviyyəsini bitirdin" demək olmaz.
+
+## 15. Yeni dərs yoxlama siyahısı
 
 - [ ] 10–12 kart, ən çox 2–3 yeni ifadə
 - [ ] Səhnə ilə başlayır, səhnəyə qayıtmaqla bitir
@@ -120,3 +168,6 @@ CEFR dərs proqramı deyil, səviyyə təsvirləridir ("can-do" cümlələri). R
 - [ ] Adlar tokenlədir, yalnız iki insan personaj var
 - [ ] Hər səhv tapşırığın təkrar variantı var (yeni vəziyyət)
 - [ ] Məqsədlər "edə bilirəm" formasında və CEFR A1 təsvirinə bağlıdır
+- [ ] Əvvəlki dərslərdən 2–3 ifadə yeni vəziyyətdə qayıdır (spiral)
+- [ ] Heç bir ifadə bir dərsdə 4 dəfədən çox soruşulmur
+- [ ] İstehsal üçün A1-dən yuxarı qrammatika tələb olunmur
