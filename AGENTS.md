@@ -164,3 +164,5 @@ All eight Bölmə 1 lessons run on `DesignLesson` (`src/data/designLessons.ts`).
 ## Taught-before-asked rule — 13 November 2026
 
 No task may show or ask for an English word that was not taught earlier (a word only mentioned in a note is not taught). Teach it on a Yeni söz / Öyrən card (`more`, `structure`) first. Same screen type never twice in a row; lessons must not end the same way. Run `node scripts/check-taught.cjs` after any lesson change. Readings use American pronunciation in Azerbaijani letters with no phonetic marks. The approved 12 Nov 2026 design images are the base; new screen types are shown to the user as a mockup before coding.
+
+Speech uses `en-US` everywhere (13 Nov 2026): the user chose American pronunciation; this replaces the earlier UK pronunciation rule.

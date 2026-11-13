@@ -22,7 +22,7 @@ import { getPacketLesson } from '../../data/b1Course';
 import { Language, Lesson } from '../../data/types';
 
 const TTS_LANG_MAP: Partial<Record<Language, string>> = {
-  en: 'en-GB',
+  en: 'en-US',
 };
 // ═══════════════════════════════════════
 // VOCABULARY ŞƏKİLLƏRİ

@@ -39,7 +39,7 @@ export default function PacketExam() {
     try {
       await Speech.stop(); if (request !== speech.current) return;
       setPlaying(true);
-      Speech.speak(current.audio!, { language: 'en-GB', rate,
+      Speech.speak(current.audio!, { language: 'en-US', rate,
         onDone: () => { if (request === speech.current) { clearTimer(); setPlaying(false); setHeard(true); } },
         onError: failed,
         onStopped: () => { if (request === speech.current) { clearTimer(); setPlaying(false); } },

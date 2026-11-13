@@ -65,7 +65,7 @@ export default function VoiceChatLesson({ turns, onFinish, onBack, initialName =
     try {
       if (playing === index && index >= 0) { await Speech.stop(); setPlaying(-1); return; }
       setActive(''); setPlaying(index); setSoundError(''); await Speech.stop();
-      Speech.speak(text, { language: 'en-GB', rate: 0.75,
+      Speech.speak(text, { language: 'en-US', rate: 0.75,
         onDone: () => { if (request !== speechSequence.current) return; setPlaying(-1); if (index === sent.length) setHeard(true); },
         onStopped: () => { if (request === speechSequence.current) setPlaying(-1); },
         onError: () => { if (request === speechSequence.current) { setPlaying(-1); setSoundError('Səs açılmadı. Telefonun səs rejimini yoxlayıb yenidən bas.'); } },

@@ -138,7 +138,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     try {
       await Speech.stop(); if (request !== sequence.current) return;
       setPlaying(true);
-      Speech.speak(text, { language: 'en-GB', rate,
+      Speech.speak(text, { language: 'en-US', rate,
         onDone: () => { if (request === sequence.current) { clearWatchdog(); setPlaying(false); if (listenTask) setHeard(true); } },
         onStopped: () => { if (request === sequence.current) { clearWatchdog(); setPlaying(false); } },
         onError: failed,

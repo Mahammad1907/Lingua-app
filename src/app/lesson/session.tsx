@@ -110,7 +110,7 @@ function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSessio
   };
   const speak = async (text: string) => {
     await Speech.stop();
-    Speech.speak(text, { language: 'en-GB', rate: 0.75 });
+    Speech.speak(text, { language: 'en-US', rate: 0.75 });
   };
 
   if (finished) return <View style={[styles.screen, styles.result, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>

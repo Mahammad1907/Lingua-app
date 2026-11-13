@@ -96,7 +96,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       if (request !== sequence.current) { clearTimeout(watchdog); return; }
       setPlaying(true);
       Speech.speak(value, {
-        language: 'en-GB', rate,
+        language: 'en-US', rate,
         onDone: () => { clearTimeout(watchdog); if (request === sequence.current) { setPlaying(false); if (listening) setHeard(true); } },
         onStopped: () => { clearTimeout(watchdog); if (request === sequence.current) setPlaying(false); },
         onError: () => { clearTimeout(watchdog); failed(); },
@@ -345,7 +345,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const scene = sceneImage(task.scenes);
     const helpButton = !repeat && !result ? <Capsule tone="outline" small align="flex-end" icon="bulb" label="Kömək" onPress={() => setHelpOpen(true)} /> : null;
     const helpUnderAudio = Boolean(audio && !voiceBubble && !repeat);
-    const sampleVisible = task.type === 'voice' && Boolean(task.sample) && (lesson.order <= 2 || sampleShown);
+    // The model answer: the task's own sample, or (opened through Kömək) the first accepted answer.
+    // Bug fixed 13 Nov: tasks without a written sample offered “Nümunəni göstər” but showed nothing.
+    const sampleText = task.type === 'voice' && !task.repeat ? task.sample ?? (sampleShown ? task.rule.answers[0] : undefined) : undefined;
+    const sampleVisible = Boolean(sampleText) && ((lesson.order <= 2 && task.type === 'voice' && Boolean(task.sample)) || sampleShown);
     return <View style={[s.gap, { flex: 1 }]}>
       {reviewing ? <View style={{ gap: 6 }}><Chip label="Təkrar" />{reviewStep === 0 ? <Text style={ds.small}>{lesson.notices.review}</Text> : null}</View> : null}
       <Text accessibilityRole="header" style={ds.title}>{task.title}</Text>
@@ -364,7 +367,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         <Text style={s.transcriptText}>{nameSlot(audio)}</Text>
         <Text style={ds.small}>Audio mətnini görürsən. Bu hissədə dinləmə yoxlanmadı.</Text>
       </Pressable> : null}
-      {sampleVisible ? <View style={s.sample}><Text style={s.sampleLabel}>Nümunə</Text><View style={s.vline} /><Text style={s.sampleText}>{task.type === 'voice' && task.sample ? nameSlot(task.sample) : ''}</Text></View> : null}
+      {sampleVisible ? <View style={s.sample}><Text style={s.sampleLabel}>Nümunə</Text><View style={s.vline} /><Text style={s.sampleText}>{sampleText ? nameSlot(sampleText) : ''}</Text></View> : null}
       {repeat && audio ? <><AudioPanel playing={playing} onPlay={() => speak(audio, 0.85)} onSlow={() => speak(audio, 0.45)} /><PhraseCard text={audio} stress={repeat.stress} note={repeat.note} reading={repeat.reading} /></> : null}
       {task.type === 'choice' && task.gap ? <GapSentence speaker={task.gap.speaker} before={task.gap.before} after={task.gap.after} options={task.options} value={choice} onSay={say}
         disabled={Boolean(result && result.kind !== 'unverified')} mark={single ? markOf(single.status) : undefined}

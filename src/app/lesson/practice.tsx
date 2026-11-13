@@ -29,7 +29,7 @@ import { playCorrectSound, playWrongSound } from '../../utils/sound';
 import { AnswerLanguage } from '../../utils/wordDatabase';
 
 const TTS_LANG_MAP: Partial<Record<Language, string>> = {
-  en: 'en-GB',
+  en: 'en-US',
 };
 
 function normalizeWord(raw: string): string {
@@ -157,13 +157,13 @@ function PracticeLesson({ lesson }: { lesson: Lesson }) {
       try {
         const voices = await Speech.getAvailableVoicesAsync();
         const samantha = voices.find(
-          (v) => v.language === 'en-GB' && v.name.includes('Samantha')
+          (v) => v.language === 'en-US' && v.name.includes('Samantha')
         );
         const google = voices.find(
-          (v) => v.language === 'en-GB' && v.name.includes('Google')
+          (v) => v.language === 'en-US' && v.name.includes('Google')
         );
         const chosen =
-          samantha || google || voices.find((v) => v.language === 'en-GB');
+          samantha || google || voices.find((v) => v.language === 'en-US');
         setBestVoice(chosen?.identifier);
       } catch (e) {
         console.log(e);

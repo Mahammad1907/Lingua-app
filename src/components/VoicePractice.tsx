@@ -123,7 +123,7 @@ export default function VoicePractice({ prompt, examples, onDone, last }: {
       player.pause();
       await Speech.stop();
       await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: true });
-      Speech.speak(text, { language: 'en-GB', rate: 0.75 });
+      Speech.speak(text, { language: 'en-US', rate: 0.75 });
     } catch {
       setMessage('Nümunənin səsi açıla bilmədi. Mətni oxuyub məşq edə bilərsən.');
     }
