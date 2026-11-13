@@ -16,7 +16,7 @@ import {
 import type { TaskEvidence } from '../../utils/lessonEvidence';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import HoldToTalk from './HoldToTalk';
-import { ChatThread, GapSentence, ImageSlot, MatchBoard, PhraseCard, PickedChips, SayBubble, SceneSpots, TileTray, WordView, LearnView } from './TaskScreens';
+import { ChatThread, GapSentence, ImageSlot, MatchBoard, PhraseCard, PickedChips, SayBubble, SceneSpots, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
 import Icon from './Icons';
 import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
 import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
@@ -442,7 +442,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const glossInfo = gloss ? glossOf(gloss) : undefined;
   const glossSheet = <Sheet visible={Boolean(gloss)} onClose={() => setGloss('')} title={gloss}>
     {glossInfo ? <><Text style={ds.strong}>{glossInfo.az}</Text>{glossInfo.role ? <Text style={ds.body}>{glossInfo.role}</Text> : null}</> : null}
-    <Capsule icon="speaker" label="Dinlə" align="flex-start" onPress={() => speak(gloss)} />
+    <PlayButton onPress={() => speak(gloss)} size={48} label={`Dinlə: ${gloss}`} />
     {task && peeked ? <Text style={ds.small}>Bu tapşırıqda söz mənasına baxdın — nəticə “Köməklə” qeyd olunacaq.</Text> : null}
   </Sheet>;
 
@@ -507,11 +507,11 @@ function WordSheet({ word, lesson, onClose, onPlay }: { word: string | null; les
   const v = lesson.vocabulary.find(x => x.word === word);
   if (!v) return null;
   return <Sheet visible={Boolean(word)} onClose={onClose} title={v.word}>
-    <View style={s.row}><Text style={ds.small}>{v.pronunciation}</Text><Capsule small icon="speaker" label="Dinlə" onPress={() => onPlay(v.word)} /></View>
+    <View style={s.row}><Text style={ds.small}>{v.pronunciation}</Text><PlayButton onPress={() => onPlay(v.word)} size={40} label={`Dinlə: ${v.word}`} /></View>
     <Text style={ds.label}>Mənası</Text><Text style={ds.strong}>{v.translation}</Text>
     <Text style={ds.body}>{v.usageNote}</Text>
     <Text style={ds.label}>Nümunə</Text>
-    <View style={s.row}><View style={{ flex: 1 }}><Text style={ds.strong}>{v.example}</Text><Text style={ds.small}>{v.exampleAz}</Text></View><Capsule small icon="play" label="Dinlə" onPress={() => onPlay(v.example)} /></View>
+    <View style={s.row}><View style={{ flex: 1 }}><Text style={ds.strong}>{v.example}</Text><Text style={ds.small}>{v.exampleAz}</Text></View><PlayButton onPress={() => onPlay(v.example)} size={40} label="Nümunəni dinlə" /></View>
   </Sheet>;
 }
 
