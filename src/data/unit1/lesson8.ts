@@ -26,7 +26,7 @@ export const lesson8: DesignLesson = {
       ],
     },
     {
-      type: 'teach', id: 'd8_c02', number: 2, title: 'Ziyafətdə',
+      type: 'teach', id: 'd8_c02', number: 2, scenes: ['d8/party-talk'], title: 'Ziyafətdə',
       lead: 'Qız və oğlan ziyafətdə tanış olur. Hər cümləni dinlə:',
       phrases: [
         { en: 'Hi! How are you?', az: 'Salam! Necəsən?' },

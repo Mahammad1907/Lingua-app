@@ -100,3 +100,30 @@ Tətbiqdə bu yerlərdə hələlik qırıq xətli çərçivə və şəklin nömr
 | 6.8 | Dərs 6 · təkrar | Avtobusda biri təsadüfən başqasının ayağına basır | `assets/lessons/d6/foot-step.webp` | ⏳ |
 | 6.9 | Dərs 8 · “İki mesaj yaz” | Ziyafətdə iki nəfər tanış olur | `assets/lessons/d8/party-meet.webp` | ⏳ |
 | 6.10 | Dərs 8 · təkrar | Onlayn dərs: ekranda yoldaşlar | `assets/lessons/d8/online-class.webp` | ⏳ |
+
+
+## 7. Yeni söz kartları — Dərs 2–8 (13 noyabr 2026)
+
+Hər yeni ifadə üçün onun işləndiyi anı göstərən kiçik səhnə. Kartda maskot bannerinin üstündə görünür; şəklin içində yazı olmasın.
+
+| # | Kart | Səhnə | Fayl | Status |
+|---|---|---|---|---|
+| 7.1 | Dərs 2 · d2_c02 | Qız əlini sinəsinə qoyub özünü təqdim edir | `assets/lessons/d2/word-im.webp` | ⏳ |
+| 7.2 | Dərs 2 · d2_c02b | Oğlan ad kartını göstərib adını deyir | `assets/lessons/d2/word-my-name.webp` | ⏳ |
+| 7.3 | Dərs 3 · d3_c03 | Oğlan yeni tanış olduğu qızdan adını soruşur | `assets/lessons/d3/word-whats-your-name.webp` | ⏳ |
+| 7.4 | Dərs 3 · d3_c06 | İki nəfər əl sıxır, gülümsəyir | `assets/lessons/d3/word-nice-to-meet.webp` | ⏳ |
+| 7.5 | Dərs 3 · d3_c06b | Qız əl sıxarkən gülümsəyib cavab verir | `assets/lessons/d3/word-you-too.webp` | ⏳ |
+| 7.6 | Dərs 4 · d4_c03 | İki dost rastlaşır, biri halını soruşur | `assets/lessons/d4/word-how-are-you.webp` | ⏳ |
+| 7.7 | Dərs 4 · d4_c04 | Oğlan gülümsəyib baş barmağını qaldırır | `assets/lessons/d4/word-im-fine.webp` | ⏳ |
+| 7.8 | Dərs 4 · d4_c04b | Qız əli ilə “normal” işarəsi edir | `assets/lessons/d4/word-im-ok.webp` | ⏳ |
+| 7.9 | Dərs 4 · d4_c04c | Oğlan yorğun görünür, əli alnında | `assets/lessons/d4/word-not-well.webp` | ⏳ |
+| 7.10 | Dərs 5 · d5_c03 | Qız qapını saxlayan oğlana təşəkkür edir | `assets/lessons/d5/word-thank-you.webp` | ⏳ |
+| 7.11 | Dərs 5 · d5_c05 | Oğlan gülümsəyib “dəyməz” deyir | `assets/lessons/d5/word-welcome.webp` | ⏳ |
+| 7.12 | Dərs 5 · d5_c05b | Kafedə qız çay istəyir | `assets/lessons/d5/word-please.webp` | ⏳ |
+| 7.13 | Dərs 6 · d6_c03 | Qız yoldan keçənə yaxınlaşıb diqqətini çəkir | `assets/lessons/d6/word-excuse-me.webp` | ⏳ |
+| 7.14 | Dərs 6 · d6_c04 | Oğlan təsadüfən qızın ayağına basır | `assets/lessons/d6/word-sorry.webp` | ⏳ |
+| 7.15 | Dərs 6 · d6_c04b | Qız gülümsəyib əlini yelləyir: eybi yox | `assets/lessons/d6/word-no-problem.webp` | ⏳ |
+| 7.16 | Dərs 7 · d7_c03 | Oğlan çaşqındır, başını qaşıyır | `assets/lessons/d7/word-dont-understand.webp` | ⏳ |
+| 7.17 | Dərs 7 · d7_c04 | Qız əlini qulağına tutub “bir də” istəyir | `assets/lessons/d7/word-again.webp` | ⏳ |
+| 7.18 | Dərs 7 · d7_c04b | Oğlan əli ilə “yavaş” işarəsi edir | `assets/lessons/d7/word-slowly.webp` | ⏳ |
+| 7.19 | Dərs 8 · d8_c02 | Ziyafət: qız və oğlan söhbət edir | `assets/lessons/d8/party-talk.webp` | ⏳ |

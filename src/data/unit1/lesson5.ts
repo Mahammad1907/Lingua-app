@@ -37,7 +37,7 @@ export const lesson5: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'd5_c03', number: 3,
+      type: 'word', id: 'd5_c03', number: 3, scenes: ['d5/word-thank-you'],
       word: 'Thank you! · Thanks!', pronunciation: '/θæŋk ju/ · /θæŋks/', reading: '**th**enk yu · **th**enks', az: 'Təşəkkür edirəm! · Sağ ol!',
       notes: ['Thanks daha qısa və qeyri-rəsmidir.'],
       example: 'Thanks! Bye!', exampleAz: 'Sağ ol! Hələlik!',
@@ -54,13 +54,13 @@ export const lesson5: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'd5_c05', number: 5,
+      type: 'word', id: 'd5_c05', number: 5, scenes: ['d5/word-welcome'],
       word: "You're welcome.", pronunciation: '/jʊr ˈwelkəm/', reading: 'yor uelkəm', az: 'Dəyməz.',
       notes: ['Təşəkkürə cavabdır.'],
       example: "Thank you! — You're welcome.", exampleAz: 'Təşəkkür edirəm! — Dəyməz.',
     },
     {
-      type: 'word', id: 'd5_c05b', number: 6,
+      type: 'word', id: 'd5_c05b', number: 6, scenes: ['d5/word-please'],
       word: 'please', pronunciation: '/pliz/', reading: 'pliz', az: 'zəhmət olmasa',
       notes: ['Xahiş edəndə deyilir, təşəkkürə cavab deyil.'],
       example: 'Tea, please.', exampleAz: 'Çay, zəhmət olmasa.',

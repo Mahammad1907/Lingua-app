@@ -38,7 +38,7 @@ export const lesson3: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'd3_c03', number: 3,
+      type: 'word', id: 'd3_c03', number: 3, scenes: ['d3/word-whats-your-name'],
       word: "What's your name?", pronunciation: '/wʌts jʊr neɪm/', reading: 'uats yor neym?', az: 'Adın nədir?',
       notes: ["Cavab: I'm … və ya My name is …"],
       example: "Hi! What's your name?", exampleAz: 'Salam! Adın nədir?',
@@ -73,13 +73,13 @@ export const lesson3: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'd3_c06', number: 6,
+      type: 'word', id: 'd3_c06', number: 6, scenes: ['d3/word-nice-to-meet'],
       word: 'Nice to meet you.', pronunciation: '/naɪs tə mit ju/', reading: 'nays tu mit yu', az: 'Tanış olmağıma şadam.',
       notes: ['Adları deyəndən sonra deyilir.'],
       example: "I'm …. Nice to meet you!", exampleAz: 'Mən …-am. Tanış olmağıma şadam!',
     },
     {
-      type: 'word', id: 'd3_c06b', number: 7,
+      type: 'word', id: 'd3_c06b', number: 7, scenes: ['d3/word-you-too'],
       word: 'You too.', pronunciation: '/ju tu/', reading: 'yu tu', az: 'Mən də.',
       notes: ['“Nice to meet you”ya qısa cavabdır.'],
       example: 'Nice to meet you! — You too!', exampleAz: 'Tanış olmağıma şadam! — Mən də!',

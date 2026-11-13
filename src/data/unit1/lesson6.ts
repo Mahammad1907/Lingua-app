@@ -38,19 +38,19 @@ export const lesson6: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'd6_c03', number: 3,
+      type: 'word', id: 'd6_c03', number: 3, scenes: ['d6/word-excuse-me'],
       word: 'Excuse me', pronunciation: '/ɪkˈskjuz mi/', reading: 'ikskyuz mi', az: 'Bağışlayın',
       notes: ['Sual verməzdən əvvəl diqqəti çəkmək üçün.'],
       example: "Excuse me, what's your name?", exampleAz: 'Bağışlayın, adınız nədir?',
     },
     {
-      type: 'word', id: 'd6_c04', number: 4,
+      type: 'word', id: 'd6_c04', number: 4, scenes: ['d6/word-sorry'],
       word: 'Sorry!', pronunciation: '/ˈsɑri/', reading: 'sari', az: 'Bağışla!',
       notes: ['Səhv edəndə deyilir.'],
       example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.',
     },
     {
-      type: 'word', id: 'd6_c04b', number: 5,
+      type: 'word', id: 'd6_c04b', number: 5, scenes: ['d6/word-no-problem'],
       word: 'No problem.', pronunciation: '/noʊ ˈprɑbləm/', reading: 'nou prabləm', az: 'Eybi yox.',
       notes: ['Üzrü qəbul edəndə deyilir.'],
       example: 'Sorry! — No problem.', exampleAz: 'Bağışla! — Eybi yox.',

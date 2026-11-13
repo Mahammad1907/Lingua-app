@@ -25,13 +25,13 @@ export const lesson2: DesignLesson = {
       ],
     },
     {
-      type: 'word', id: 'd2_c02', number: 2, structure: ["I'm [ad]."],
+      type: 'word', id: 'd2_c02', number: 2, scenes: ['d2/word-im'], structure: ["I'm [ad]."],
       word: "I'm …", pronunciation: '/aɪm/', reading: 'aym …', az: 'Mən …-am',
       notes: ['I həmişə böyük hərflə yazılır.'],
       example: "Hello! I'm …", exampleAz: 'Salam! Mən …-am.',
     },
     {
-      type: 'word', id: 'd2_c02b', number: 3, structure: ['My name is [ad].'],
+      type: 'word', id: 'd2_c02b', number: 3, scenes: ['d2/word-my-name'], structure: ['My name is [ad].'],
       word: 'My name is …', pronunciation: '/maɪ neɪm ɪz/', reading: 'may neym iz …', az: 'Mənim adım …-dır',
       notes: ["“I'm …” ilə eyni mənadadır."],
       example: 'Hi! My name is …', exampleAz: 'Salam! Mənim adım …-dır.',

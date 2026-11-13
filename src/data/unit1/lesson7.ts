@@ -36,19 +36,19 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'd7_c03', number: 3,
+      type: 'word', id: 'd7_c03', number: 3, scenes: ['d7/word-dont-understand'],
       word: "Sorry? I don't understand.", pronunciation: '/ˈsɑri aɪ doʊnt ˌʌndərˈstænd/', reading: 'sari? ay dount andərstend', az: 'Nə dedin? Başa düşmürəm.',
       notes: ['Sual kimi deyilən “Sorry?” — “nə dedin?” deməkdir.'],
       example: "Sorry? I don't understand.", exampleAz: 'Bağışla, nə dedin? Başa düşmürəm.',
     },
     {
-      type: 'word', id: 'd7_c04', number: 4,
+      type: 'word', id: 'd7_c04', number: 4, scenes: ['d7/word-again'],
       word: 'Again, please.', pronunciation: '/əˈɡen pliz/', reading: 'əgen, pliz', az: 'Bir də, zəhmət olmasa.',
       notes: ['Uzun forması: Could you say that again, please?'],
       example: 'Could you say that again, please?', exampleAz: 'Bir də deyə bilərsən?',
     },
     {
-      type: 'word', id: 'd7_c04b', number: 5,
+      type: 'word', id: 'd7_c04b', number: 5, scenes: ['d7/word-slowly'],
       word: 'Slowly, please.', pronunciation: '/ˈsloʊli pliz/', reading: 'slouli, pliz', az: 'Yavaş, zəhmət olmasa.',
       notes: ['Çox sürətli danışanda deyilir.'],
       example: 'Sorry? Slowly, please.', exampleAz: 'Nə dedin? Yavaş, zəhmət olmasa.',

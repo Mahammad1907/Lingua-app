@@ -307,7 +307,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (current.type === 'word') return <WordView card={current} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
     if (current.type === 'teach') return <LearnView chip="Öyrən" title={current.title} lead={current.lead} phrases={current.phrases.map(p => p.en)} az={current.phrases.map(p => p.az).join(' · ')}
       dialog={current.phrases.length > 2 ? current.phrases : undefined}
-      structure={current.structure} notes={current.notes} example={current.example} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
+      structure={current.structure} notes={current.notes} example={current.example} scenes={current.scenes} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
     return taskView();
   })();
 

@@ -75,6 +75,7 @@ export interface TeachCard {
   /** “Quruluşu”: the pattern(s); [ad] marks the slot for a name. */
   structure?: string[];
   example?: { en: string; az: string };
+  scenes?: string[];
 }
 /** “Yeni söz”: one new word or phrase, shown right before the task that first uses it. */
 export interface WordCard {

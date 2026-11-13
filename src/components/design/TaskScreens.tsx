@@ -54,9 +54,9 @@ export function TapText({ text: raw, style, onWord }: { text: string; style: any
 export function ImageSlot({ scenes, height = 150 }: { scenes?: string[]; height?: number }) {
   const notes = missingScenes(scenes);
   if (!notes.length) return null;
+  // Temporary, deliberately loud marker so the user sees every place that waits for a picture.
   return <View style={[s.imageSlot, { minHeight: height }]} accessibilityLabel="Burada şəkil olacaq">
-    <Icon name="layers" size={22} color={d.lavender} />
-    {notes.map(n => <Text key={n} style={s.slotNote}>Şəkil {n}</Text>)}
+    {notes.map(n => <Text key={n} style={s.slotNote}>ŞƏKİL {n}</Text>)}
   </View>;
 }
 
@@ -259,7 +259,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
       {title ? <Text accessibilityRole="header" style={ds.title}>{title}</Text> : null}
       {lead ? <Text style={ds.subtitle}>{lead}</Text> : null}
     </View>
-    {image ? <Image source={image} style={s.wordImage} contentFit="cover" accessibilityIgnoresInvertColors /> : <ImageSlot scenes={scenes} height={56} />}
+    {image ? <Image source={image} style={s.wordImage} contentFit="cover" accessibilityIgnoresInvertColors /> : <ImageSlot scenes={scenes} height={44} />}
     {dialog ? <View style={[s.info, shadow, { paddingVertical: 10, gap: 10 }]}>{dialog.map((l, i) => <View key={l.en} style={s.moreRow}>
       <Avatar who={i % 2 ? 'B' : 'G'} size={40} />
       <View style={{ flex: 1 }}><TapText text={l.en} style={s.dialogEn} onWord={onWord} /><Text style={s.moreAz}>{l.az}</Text></View>
@@ -295,8 +295,8 @@ export function WordView({ card, onPlay, onWord }: { card: WordCard; onPlay: (t:
 }
 
 const s = StyleSheet.create({
-  imageSlot: { alignItems: 'center', justifyContent: 'center', gap: 6, padding: 14, borderRadius: 18, borderWidth: 1.5, borderStyle: 'dashed', borderColor: d.borderStrong, backgroundColor: 'rgba(230,218,251,.45)' },
-  slotNote: { color: d.lavenderText, fontSize: 13, textAlign: 'center', ...font.bold },
+  imageSlot: { alignItems: 'center', justifyContent: 'center', gap: 4, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 16, borderWidth: 2, borderStyle: 'dashed', borderColor: d.orange, backgroundColor: d.orangeSoft },
+  slotNote: { color: '#B4530A', fontSize: 14, textAlign: 'center', ...font.extrabold },
   sayRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
   sayCard: { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 14, borderRadius: radius.card, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
