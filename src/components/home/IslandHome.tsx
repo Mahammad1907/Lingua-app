@@ -12,7 +12,11 @@ import Icon from '../design/Icons';
 import { d, font, shadow } from '../design/theme';
 import { HomeIcon } from './HomeIcon';
 
-export interface IslandLesson { id: string; number: number; title: string; phrases?: string }
+/** A map lesson. With `parts` (Bölmə 2: lessons 1, 3, 7) the node stands for both parts: the ring is split in two
+ *  and the card lets you open each part; the node is done when both parts are done. */
+export interface IslandLesson { id: string; number: number; title: string; phrases?: string; parts?: { id: string; title: string }[] }
+/** Section exam button under the map (flag). Opens when every lesson of the section is done. */
+export interface IslandExam { id: string; percent: number | null; passed: boolean }
 
 const mascotHead = require('../../../assets/mascot/hood_head.png');
 
@@ -43,25 +47,28 @@ function water(w: number, h: number, level: number) {
 }
 
 export function IslandHome({ section, sectionTitle, lessons, completed, partial, locked, nextSection, streak, xp, languageLabel, topInset, bottomSpace, review,
-  onSelectLanguage, onOpenLesson, onAnalysis, onReview, onNextSection }: {
+  onSelectLanguage, onOpenLesson, onAnalysis, onReview, onNextSection, exam, onPrevSection }: {
   section: number; sectionTitle: string; lessons: IslandLesson[]; completed: string[]; partial: Record<string, number>; locked: boolean;
   nextSection?: { title: string; available: boolean };
+  exam?: IslandExam; onPrevSection?: () => void;
   streak: number; xp: number; languageLabel: string; topInset: number; bottomSpace: number; review: { count: number };
   onSelectLanguage: () => void; onOpenLesson: (id: string) => void; onAnalysis: () => void; onReview: () => void; onNextSection: () => void;
 }) {
   const { width, height } = useWindowDimensions();
   const [open, setOpen] = useState<IslandLesson | null>(null);
   const count = lessons.length;
-  const doneCount = lessons.filter(l => completed.includes(l.id)).length;
-  const active = locked ? -1 : lessons.findIndex(l => !completed.includes(l.id));
+  const partPct = (id: string) => completed.includes(id) ? 100 : partial[id] ?? 0;
+  const isDone = (l: IslandLesson) => l.parts ? l.parts.every(p => completed.includes(p.id)) : completed.includes(l.id);
+  const doneCount = lessons.filter(isDone).length;
+  const active = locked ? -1 : lessons.findIndex(l => !isDone(l));
   const finished = count > 0 && doneCount === count;
   const level = count ? doneCount / count : 0;
-  const percentOf = (l: IslandLesson) => completed.includes(l.id) ? 100 : partial[l.id] ?? 0;
+  const percentOf = (l: IslandLesson) => l.parts ? Math.round(l.parts.reduce((a, p) => a + partPct(p.id), 0) / l.parts.length) : partPct(l.id);
   const activePart = active >= 0 ? percentOf(lessons[active]) / 100 : 0;
 
   // Size the island to the space left between the header and the review card + menu.
   const W = Math.min(width - 28, 400);
-  const H = Math.max(360, height - topInset - 132 - 92 - bottomSpace - 16);
+  const H = Math.max(360, height - topInset - 132 - 92 - bottomSpace - 16 - (exam ? 66 : 0));
   const pts: Pt[] = lessons.map((_, i) => ({ x: W * (i % 2 ? .72 : .28), y: 34 + i * (H - 68) / Math.max(count - 1, 1) }));
   const w = water(W, H, level);
   const sx = W / 350, sy = H / 800;
@@ -82,7 +89,11 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
 
     <View style={s.head}>
       <View style={{ flex: 1 }}>
-        <Text style={s.sectionNo}>BÖLMƏ {section}</Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          {onPrevSection ? <Pressable accessibilityRole="button" accessibilityLabel={`Bölmə ${section - 1}-ə qayıt`} onPress={onPrevSection} hitSlop={8} style={s.prev}>
+            <Icon name="back" size={13} color={d.purple} /><Text style={s.prevText}>Bölmə {section - 1}</Text></Pressable> : null}
+          <Text style={s.sectionNo}>BÖLMƏ {section}</Text>
+        </View>
         <Text accessibilityRole="header" style={s.sectionTitle}>{sectionTitle}</Text>
       </View>
       <View style={s.progress} accessibilityLabel={`${doneCount} dərs bitib, ${Math.round(level * 100)} faiz`}>
@@ -117,7 +128,7 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       </Svg>
 
       {lessons.map((lesson, i) => {
-        const p = pts[i], done = completed.includes(lesson.id), isActive = i === active;
+        const p = pts[i], done = isDone(lesson), isActive = i === active;
         const size = isActive ? ACTIVE : NODE, pct = percentOf(lesson);
         const r = size / 2 - 3, c = 2 * Math.PI * r;
         const reachable = !locked && (done || isActive);
@@ -130,7 +141,16 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
               isActive && s.nodeActiveShadow, pressed && { transform: [{ scale: .95 }] }]}>
             <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
               <Circle cx={size / 2} cy={size / 2} r={r} stroke={isActive ? 'rgba(242,122,18,.25)' : '#E6DAFB'} strokeWidth={4} fill="none" />
-              {pct > 0 && pct < 100 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={d.orange} strokeWidth={4} fill="none" strokeLinecap="round"
+              {lesson.parts ? lesson.parts.map((part, k) => {
+                // Two halves with a small gap at the top and bottom; each half fills with its own part.
+                const gap = 7, half = c / lesson.parts!.length, len = half - gap, fill = len * partPct(part.id) / 100;
+                const at = `rotate(${-90 + k * 360 / lesson.parts!.length} ${size / 2} ${size / 2})`;
+                return <G key={part.id}>
+                  <Circle cx={size / 2} cy={size / 2} r={r} stroke="#fff" strokeWidth={5} fill="none" strokeDasharray={`${gap} ${c}`} strokeDashoffset={gap / 2} transform={at} />
+                  {fill > 0 && !done ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={partPct(part.id) === 100 ? d.purple : d.orange} strokeWidth={4} fill="none"
+                    strokeDasharray={`${fill} ${c}`} strokeDashoffset={-gap / 2} transform={at} /> : null}
+                </G>;
+              }) : pct > 0 && pct < 100 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={d.orange} strokeWidth={4} fill="none" strokeLinecap="round"
                 strokeDasharray={`${c * pct / 100} ${c}`} transform={`rotate(-90 ${size / 2} ${size / 2})`} /> : null}
             </Svg>
             <View style={[s.nodeInner, { width: size - 14, height: size - 14, borderRadius: (size - 14) / 2 },
@@ -156,6 +176,17 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       <View style={s.reviewBtn}><Text style={s.reviewBtnText}>Başla</Text></View>
     </Pressable>
 
+    {exam ? <Pressable accessibilityRole="button" disabled={!finished || locked} onPress={() => onOpenLesson(exam.id)}
+      accessibilityLabel={`Bölmə ${section} imtahanı${finished ? '' : ', bütün dərsləri bitirəndə açılır'}`}
+      style={({ pressed }) => [s.exam, exam.passed && { borderColor: d.green }, (!finished || locked) && { opacity: .6 }, pressed && { opacity: .9 }]}>
+      <View style={[s.examIcon, exam.passed && { backgroundColor: d.greenSoft }]}><Icon name="flag" size={20} color={exam.passed ? d.greenText : d.purple} /></View>
+      <View style={{ flex: 1 }}>
+        <Text style={s.examTitle}>Bölmə imtahanı</Text>
+        <Text style={s.examSub}>{!finished ? 'Bütün dərsləri bitirəndə açılır' : exam.passed ? `Keçdin · ${exam.percent}%` : exam.percent !== null ? `Son nəticə ${exam.percent}% · keçmək üçün 80%` : 'Kömək yoxdur · keçmək üçün 80%'}</Text>
+      </View>
+      {finished && !locked ? <Icon name="arrow" size={18} color={d.purple} /> : null}
+    </Pressable> : null}
+
     {nextSection && finished ? <Pressable accessibilityRole="button" disabled={!nextSection.available} onPress={onNextSection} style={s.next}>
       <Text style={s.nextText}>Bölmə {section + 1} · {nextSection.title}</Text>
     </Pressable> : null}
@@ -163,13 +194,23 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
     <Modal visible={Boolean(open)} transparent animationType="fade" onRequestClose={() => setOpen(null)}>
       <Pressable accessibilityLabel="Bağla" style={s.backdrop} onPress={() => setOpen(null)}>
         {open ? (() => {
-          const pct = percentOf(open), done = completed.includes(open.id), isActive = lessons[active]?.id === open.id;
+          const pct = percentOf(open), done = isDone(open), isActive = lessons[active]?.id === open.id;
           const reachable = !locked && (done || isActive);
+          const go = (id: string) => { setOpen(null); onOpenLesson(id); };
           return <Pressable style={[s.sheet, shadow]} onPress={() => {}}>
             <View style={s.sheetHead}><Text style={s.sheetTitle}>Dərs {open.number} · {open.title}</Text><Text style={[s.sheetPct, { color: pct === 100 ? d.green : d.orange }]}>{pct}%</Text></View>
             {open.phrases ? <Text style={s.sheetPhrases}>{open.phrases}</Text> : null}
             <View style={s.sheetTrack}><View style={[s.sheetFill, { width: `${pct}%`, backgroundColor: pct === 100 ? d.green : d.orange }]} /></View>
-            {reachable ? <Pressable accessibilityRole="button" onPress={() => { const id = open.id; setOpen(null); onOpenLesson(id); }} style={({ pressed }) => [s.sheetBtn, done && { backgroundColor: d.purple }, pressed && { opacity: .9 }]}>
+            {reachable && open.parts ? open.parts.map((part, k) => {
+              const pp = partPct(part.id), partDone = pp === 100, partOpen = k === 0 || completed.includes(open.parts![k - 1].id);
+              return <View key={part.id} style={s.partRow}>
+                <View style={{ flex: 1 }}><Text style={s.partTitle}>{k + 1}-ci hissə · {part.title}</Text><Text style={[s.partPct, { color: partDone ? d.greenText : pp ? d.orangeText : d.inkSoft }]}>{pp}%</Text></View>
+                {partOpen ? <Pressable accessibilityRole="button" accessibilityLabel={`${k + 1}-ci hissə: ${partDone ? 'yenidən keç' : pp ? 'davam et' : 'başla'}`} onPress={() => go(part.id)}
+                  style={({ pressed }) => [s.partBtn, partDone && { backgroundColor: d.purple }, pressed && { opacity: .9 }]}>
+                  <Text style={s.partBtnText}>{partDone ? 'Yenidən' : pp ? 'Davam' : 'Başla'}</Text></Pressable>
+                  : <Text style={s.partLocked}>1-ci hissədən sonra</Text>}
+              </View>;
+            }) : reachable ? <Pressable accessibilityRole="button" onPress={() => go(open.id)} style={({ pressed }) => [s.sheetBtn, done && { backgroundColor: d.purple }, pressed && { opacity: .9 }]}>
               <Text style={s.sheetBtnText}>{done ? 'Yenidən keç' : pct ? 'Davam et' : 'Başla'}</Text><Icon name="arrow" size={16} color="#fff" />
             </Pressable> : <Text style={s.sheetLocked}>Bu dərs əvvəlki dərsi bitirəndə açılacaq.</Text>}
           </Pressable>;
@@ -235,6 +276,18 @@ const s = StyleSheet.create({
   reviewSub: { color: '#CDBDEB', fontSize: 12, ...font.bold },
   reviewBtn: { height: 34, paddingHorizontal: 14, borderRadius: 17, backgroundColor: d.orange, justifyContent: 'center' },
   reviewBtnText: { color: '#fff', fontSize: 14, ...font.extrabold },
+  prev: { flexDirection: 'row', alignItems: 'center', gap: 2, height: 22, paddingHorizontal: 8, borderRadius: 11, backgroundColor: d.purpleSoft },
+  prevText: { color: d.purple, fontSize: 11, ...font.extrabold },
+  exam: { flexDirection: 'row', alignItems: 'center', gap: 12, marginHorizontal: 16, marginTop: 8, padding: 10, borderRadius: 20, backgroundColor: '#fff', borderWidth: 1.5, borderColor: d.borderStrong },
+  examIcon: { width: 40, height: 40, borderRadius: 14, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
+  examTitle: { color: d.ink, fontSize: 15, ...font.extrabold },
+  examSub: { color: d.inkSoft, fontSize: 12, ...font.bold },
+  partRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 6, borderTopWidth: 1, borderTopColor: '#F0E8FC' },
+  partTitle: { color: d.ink, fontSize: 15, ...font.extrabold },
+  partPct: { fontSize: 13, ...font.extrabold },
+  partBtn: { height: 40, paddingHorizontal: 16, borderRadius: 20, backgroundColor: d.orange, justifyContent: 'center' },
+  partBtnText: { color: '#fff', fontSize: 15, ...font.extrabold },
+  partLocked: { color: d.inkSoft, fontSize: 13, ...font.bold },
   next: { alignSelf: 'center', marginTop: 8, paddingHorizontal: 16, paddingVertical: 10, borderRadius: 20, backgroundColor: '#fff', borderWidth: 1, borderColor: d.borderStrong },
   nextText: { color: d.ink, fontSize: 15, ...font.extrabold },
   backdrop: { flex: 1, backgroundColor: 'rgba(42,18,64,.32)', justifyContent: 'center', padding: 24 },

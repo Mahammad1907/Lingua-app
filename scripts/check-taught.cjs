@@ -41,6 +41,7 @@ function asks(t) {
   if (t.audio) add('audio', t.audio);
   if (t.type === 'choice') { t.options.forEach(o => add('option', o)); if (t.gap) { add('gap', t.gap.before); add('gap', t.gap.after); } }
   if (t.type === 'write') { t.rule.answers.forEach(a => add('qəbul', a)); t.chat?.lines.forEach(l => add('chat', l.text)); t.tiles?.forEach(x => add('tile', x)); }
+  if (t.type === 'two' && t.form) { add('form', t.form.title); add('form', t.form.subtitle); t.fields.forEach(f => add('form', f.label)); }
   if (t.type === 'two') t.fields.forEach(f => f.rule.answers.forEach(a => add('qəbul', a)));
   if (t.type === 'voice') { add('sample', t.sample); t.rule.answers.forEach(a => add('qəbul', a)); add('reply', t.reply); }
   if (t.type === 'match') {
@@ -79,7 +80,7 @@ for (const raw of designLessons) {
 
 // Variety (user, 13 Nov 2026): no template. The same screen type never comes twice in a row
 // (except the turns of one conversation, e.g. c11a + c11b), and no two lessons share the same last three screens.
-const kind = c => !L.isTask(c) ? c.type : c.type === 'write' ? (c.tiles ? 'tiles' : c.chat ? 'chat' : 'write') : c.type === 'choice' ? (c.gap ? 'gap' : c.spots ? 'scene' : 'choice') : c.type === 'voice' ? (c.repeat ? 'repeat' : 'voice') : c.type === 'match' ? (c.mode === 'order' ? 'order' : c.mode === 'reply' ? 'pairs' : 'match') : c.type;
+const kind = c => !L.isTask(c) ? c.type : c.type === 'two' && c.form ? 'form' : c.type === 'write' ? (c.keypad ? 'keypad' : c.letters ? 'letters' : c.tiles ? 'tiles' : c.chat ? 'chat' : 'write') : c.type === 'choice' ? (c.gap ? 'gap' : c.spots ? 'scene' : 'choice') : c.type === 'voice' ? (c.repeat ? 'repeat' : 'voice') : c.type === 'match' ? (c.mode === 'order' ? 'order' : c.mode === 'reply' ? 'pairs' : 'match') : c.type;
 const endings = new Map();
 for (const raw of designLessons) {
   const cards = raw.cards;

@@ -8,6 +8,8 @@ export const goalLabels: Record<PacketGoal, string> = {
   feeling: 'Halını bildirmək', fine: 'Yaxşı olduğunu demək', unwell: 'Yaxşı olmadığını demək', askFeeling: 'Qarşı tərəfin halını soruşmaq',
   thanks: 'Təşəkkür etmək', welcome: 'Təşəkkürə cavab', sorry: 'Üzr istəmək', noProblem: 'Üzrü qəbul etmək', politeName: 'Adı nəzakətlə istəmək',
   attention: 'Diqqəti nəzakətlə çəkmək', dontUnderstand: 'Anlamadığını bildirmək', repeat: 'Təkrar istəmək', slow: 'Yavaş danışmağı istəmək', reason: 'Təkrarın səbəbini anlamaq',
+  askPhone: 'Telefon nömrəsini soruşmaq', askSpell: 'Hərf-hərf deməyi xahiş etmək', askLastName: 'Soyadı soruşmaq', askEmail: 'E-poçtu soruşmaq',
+  askAge: 'Yaşı soruşmaq', confirm: 'Düz olduğunu soruşmaq', confirmYes: 'Düz olduğunu təsdiqləmək',
 };
 export function normalizePacketAnswer(text: string): string {
   return normalizeApostrophes(text).toLowerCase().replace(/\u0307/g, '').replace(/[‘’]/g, "'")
@@ -31,6 +33,14 @@ const patterns: Partial<Record<PacketGoal, RegExp>> = {
   noProblem: /\b(?:no problem|that is (?:ok|okay|all right)|it is (?:ok|okay|all right)|never mind)\b/g,
   dontUnderstand: /\bi (?:do not|cannot|can't) understand\b/g,
   repeat: /\b(?:(?:could|can|would) you (?:please )?(?:say (?:that|it) again|repeat(?: that| it)?)(?: more slowly)?|(?:please )?say (?:that|it) again|(?:please )?repeat(?: that| it)?|again|pardon)\b/g,
+  // Bölmə 2
+  askPhone: /\bwhat is your (?:phone |telephone )?number\b/g,
+  askSpell: /\b(?:how do you spell (?:it|that|your (?:last |first )?name)|(?:can|could) you (?:please )?spell (?:it|that|your (?:last |first )?name))\b/g,
+  askLastName: /\bwhat is your (?:last name|surname)\b/g,
+  askEmail: /\bwhat is your (?:e ?-?mail)(?: address)?\b/g,
+  askAge: /\bhow old are you\b/g,
+  confirm: /\bis (?:that|it) (?:right|correct)\b/g,
+  confirmYes: /\byes(?: that is (?:right|correct)| it is)?\b/g,
   slow: /\b(?:(?:could|can|would) you (?:please )?(?:repeat(?: that| it)?|speak|say (?:it|that))(?: more)? (?:slowly|slower)|(?:please )?speak(?: more)? (?:slowly|slower)|(?:please )?(?:more )?slowly|slower|slow)\b/g,
 };
 export interface PacketVerdict { status: 'correct' | 'partial' | 'wrong' | 'unknown'; criteria: { goal: string; passed: boolean }[]; message: string; spellingCorrections?: { before: string; after: string }[] }
@@ -56,7 +66,7 @@ function assessNormalizedAnswer(value: string, rule: PacketRule, voice = false):
   if (/(başa düşm|anlamayıb|anlamadığı|anlamadı|eşitməyib|eşitmədiyi)/u.test(input)) found.add('reason');
   let rest = input;
   // Remove complete courtesy/context phrases before extracting the chosen name.
-  for (const goal of ['dontUnderstand','politeName','slow','repeat','askName','askFeeling','unwell','fine','feeling','meet','thanks','welcome','noProblem','sorry','attention','greet','farewell'] as PacketGoal[]) {
+  for (const goal of ['askPhone','askSpell','askLastName','askEmail','askAge','confirm','confirmYes','dontUnderstand','politeName','slow','repeat','askName','askFeeling','unwell','fine','feeling','meet','thanks','welcome','noProblem','sorry','attention','greet','farewell'] as PacketGoal[]) {
     const pattern = patterns[goal]; if (pattern) rest = rest.replace(pattern, ' ');
   }
   rest = rest.replace(/\byour name\b/g, ' ').replace(/\bplease\b/g, ' ').trim();
@@ -81,6 +91,10 @@ function assessNormalizedAnswer(value: string, rule: PacketRule, voice = false):
 // Fuzz only written English spelling. Names, short grammar words and real-word
 // substitutions stay exact; recognition uncertainty is never repaired this way.
 export function assessPacketAnswer(value: string, rule: PacketRule, voice = false): PacketVerdict {
+  // Learner data (own number, age, e-mail, name): the pattern decides (Bölmə 2).
+  if (rule.pattern && value.trim() && new RegExp(rule.pattern, 'iu').test(normalizeApostrophes(value).trim())) {
+    return { status: 'correct', criteria: [{ goal: 'Tapşırığın cavabı', passed: true }], message: 'Cavab tapşırığa uyğundur.' };
+  }
   const original = assessNormalizedAnswer(value, rule, voice);
   if (voice || original.status === 'correct' || !value.trim()) return original;
   const words = normalizePacketAnswer(value).split(' ');

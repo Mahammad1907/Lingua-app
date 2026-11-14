@@ -422,3 +422,88 @@ const s = StyleSheet.create({
   ipa: { color: d.ink, fontSize: 14, ...font.semibold },
   exampleEn: { color: d.ink, fontSize: 18, ...font.extrabold },
 });
+
+// ---------- Bölmə 2 screens (14 noyabr 2026) ----------
+// “Nömrəni yığ”: a phone keypad. The number appears on a phone-style display in groups of 3–2–2.
+const KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', '⌫'];
+const groupDigits = (v: string) => v.replace(/(\d{3})(\d{0,3})(\d{0,2})(\d*)/, (_, a, b, c, rest) => [a, b, c, rest].filter(Boolean).join(' ')) || v;
+export function PhoneKeypad({ value, onChange, disabled, mark, label }: { value: string; onChange: (v: string) => void; disabled?: boolean; mark?: Mark; label: string }) {
+  const color = markColor(mark, d.ink);
+  return <View style={n.phone}>
+    <View style={[n.display, mark === 'correct' && { borderColor: d.green }, mark === 'wrong' && { borderColor: d.red }]} accessibilityLabel={`${label}: ${value || 'boş'}`}>
+      <Text style={n.displayLabel}>{label}</Text>
+      <Text style={[n.displayText, { color }, !value && { color: d.purpleDisabledText }]} numberOfLines={1} adjustsFontSizeToFit>{value ? groupDigits(value) : '— — —'}</Text>
+    </View>
+    <View style={n.keys}>
+      {KEYS.map((k, i) => k === '' ? <View key={i} style={n.keySpace} /> : <Pressable key={i} disabled={disabled || (k === '⌫' && !value)}
+        accessibilityRole="button" accessibilityLabel={k === '⌫' ? 'Sil' : k}
+        onPress={() => onChange(k === '⌫' ? value.slice(0, -1) : (value + k).slice(0, 15))}
+        style={({ pressed }) => [n.key, k === '⌫' && n.keyErase, pressed && { backgroundColor: d.purpleSoft, transform: [{ scale: .96 }] }, disabled && { opacity: .5 }]}>
+        <Text style={[n.keyText, k === '⌫' && { color: d.purple, fontSize: 22 }]}>{k}</Text>
+      </Pressable>)}
+    </View>
+  </View>;
+}
+
+/** “Hərfləri tut”: big letter boxes fill from left to right; tapping a placed letter takes it back. Letters are not voiced (that would give the answer away). */
+export function LetterBoard({ letters, picked, onPick, onRemove, disabled, mark, length }: {
+  letters: string[]; picked: number[]; onPick: (i: number) => void; onRemove: (i: number) => void; disabled?: boolean; mark?: Mark; length: number;
+}) {
+  const slots = Math.max(length, picked.length);
+  const border = mark === 'correct' ? d.green : mark === 'wrong' ? d.red : d.borderStrong;
+  return <View style={{ gap: 18 }}>
+    <View style={n.slots} accessibilityLabel={`Cavab: ${picked.map(i => letters[i]).join(' ') || 'boş'}`}>
+      {Array.from({ length: slots }, (_, k) => {
+        const i = picked[k];
+        return <Pressable key={k} disabled={disabled || i === undefined} accessibilityRole="button" accessibilityLabel={i === undefined ? 'Boş yer' : `${letters[i]}, geri qaytar`}
+          onPress={() => i !== undefined && onRemove(i)} style={[n.slot, { borderColor: i === undefined ? d.border : border }, i !== undefined && { backgroundColor: '#fff' }]}>
+          <Text style={[n.slotText, { color: markColor(mark, d.purple) }]}>{i === undefined ? '' : letters[i]}</Text>
+        </Pressable>;
+      })}
+    </View>
+    <View style={n.letters}>
+      {letters.map((l, i) => {
+        const used = picked.includes(i);
+        return <Pressable key={i} disabled={disabled || used} accessibilityRole="button" accessibilityLabel={used ? `${l}, artıq cavabdadır` : l}
+          onPress={() => onPick(i)} style={({ pressed }) => [n.letter, used && n.letterUsed, pressed && { transform: [{ scale: .94 }] }]}>
+          <Text style={[n.letterText, used && { color: d.purpleDisabledText }]}>{l}</Text>
+        </Pressable>;
+      })}
+    </View>
+  </View>;
+}
+
+/** “Formanı doldur”: a printed registration form — header band, numbered rows with a line to write on. */
+export function FormSheet({ title, subtitle, children }: { title: string; subtitle?: string; children: ReactNode }) {
+  return <View style={[n.form, shadow]}>
+    <View style={n.formHead}>
+      <Icon name="doc" size={22} color="#fff" />
+      <View style={{ flex: 1 }}><Text style={n.formTitle}>{title}</Text>{subtitle ? <Text style={n.formSub}>{subtitle}</Text> : null}</View>
+    </View>
+    <View style={n.formBody}>{children}</View>
+  </View>;
+}
+
+const n = StyleSheet.create({
+  phone: { gap: 14, alignItems: 'center' },
+  display: { alignSelf: 'stretch', borderRadius: 20, borderWidth: 2, borderColor: d.border, backgroundColor: '#fff', paddingHorizontal: 18, paddingVertical: 10, gap: 2 },
+  displayLabel: { color: d.lavenderText, fontSize: 14, ...font.bold },
+  displayText: { fontSize: 32, lineHeight: 40, letterSpacing: 2, ...font.extrabold },
+  keys: { width: 264, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 10 },
+  key: { width: 80, height: 52, borderRadius: 26, backgroundColor: '#fff', borderWidth: 1.5, borderColor: d.border, alignItems: 'center', justifyContent: 'center' },
+  keyErase: { backgroundColor: d.purpleSoft, borderColor: d.purpleSoft },
+  keySpace: { width: 80, height: 52 },
+  keyText: { color: d.ink, fontSize: 26, ...font.extrabold },
+  slots: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8 },
+  slot: { width: 48, height: 58, borderRadius: 14, borderWidth: 2, borderStyle: 'dashed', backgroundColor: d.surface, alignItems: 'center', justifyContent: 'center' },
+  slotText: { fontSize: 30, ...font.extrabold },
+  letters: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 10 },
+  letter: { width: 54, height: 54, borderRadius: 16, backgroundColor: '#fff', borderWidth: 1.5, borderColor: d.borderStrong, alignItems: 'center', justifyContent: 'center', ...shadow },
+  letterUsed: { backgroundColor: d.surface, borderColor: d.border, shadowOpacity: 0, elevation: 0 },
+  letterText: { color: d.purple, fontSize: 26, ...font.extrabold },
+  form: { borderRadius: 22, backgroundColor: '#fff', overflow: 'hidden', borderWidth: 1, borderColor: d.border },
+  formHead: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: d.purple, paddingHorizontal: 16, paddingVertical: 12 },
+  formTitle: { color: '#fff', fontSize: 19, letterSpacing: .5, ...font.extrabold },
+  formSub: { color: '#E6DAFB', fontSize: 14, ...font.bold },
+  formBody: { padding: 16, gap: 14 },
+});

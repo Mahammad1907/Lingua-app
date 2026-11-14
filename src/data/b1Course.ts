@@ -54,13 +54,16 @@ export function packetExercise(card: PacketCard): Exercise {
     acceptedAnswers: rule?.answers.slice(1), options: card.options, words: card.words,
     explanation: card.explanation || '', difficulty: 1, questionLang: 'az', answerLang: 'en' };
 }
+// Section of a lesson on the new screens (Bölmə 2+, exams); the old packet lessons are all Bölmə 1.
+const unitOf = (id: string) => designLessons.find(l => l.id === id)?.unit ?? 1;
+const finalOf = (id: string, order: number) => { const d = designLessons.find(l => l.id === id); return d ? d.exam || (d.unit === 2 && d.number === 8) || (!d.unit && order === 8) : order === 8; };
 export const b1Lessons: Lesson[] = b1Packet.map((lesson) => ({
   id: lesson.id, title: lesson.title, titleAz: lesson.title, description: lesson.goal,
-  language: 'en', level: 'A1', moduleId: 'module_1', order: lesson.order,
-  xpReward: LESSON_XP, estimatedTime: lesson.order === 8 ? 10 : 8,
-  focus: lesson.order === 8 ? 'speaking' : lesson.order <= 3 ? 'grammar' : 'vocabulary',
-  parentGroup: lesson.order === 8 ? 'final' : 'd1', subOrder: lesson.order,
-  isReview: lesson.order === 8, reviewType: lesson.order === 8 ? 'module_review' : undefined,
+  language: 'en', level: 'A1', moduleId: `module_${unitOf(lesson.id)}`, order: lesson.order,
+  xpReward: LESSON_XP, estimatedTime: finalOf(lesson.id, lesson.order) ? 10 : 8,
+  focus: finalOf(lesson.id, lesson.order) ? 'speaking' : lesson.order <= 3 ? 'grammar' : 'vocabulary',
+  parentGroup: finalOf(lesson.id, lesson.order) ? 'final' : unitOf(lesson.id) === 2 ? 'd2' : 'd1', subOrder: lesson.order,
+  isReview: finalOf(lesson.id, lesson.order), reviewType: finalOf(lesson.id, lesson.order) ? 'module_review' : undefined,
   canDo: lesson.goal,
   exercises: packetFlow(lesson).filter((c) => c.kind === 'task' || lesson.order === 7 && c.kind === 'voice').map(packetExercise),
   vocabulary: lesson.vocabulary.map((v, index) => ({ ...v, id: `${lesson.id}_v${index + 1}` })),

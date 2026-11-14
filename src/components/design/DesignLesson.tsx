@@ -16,7 +16,7 @@ import {
 import type { TaskEvidence } from '../../utils/lessonEvidence';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import HoldToTalk from './HoldToTalk';
-import { ChatThread, GapSentence, ImageSlot, MatchBoard, PhraseCard, PickedChips, SayBubble, SceneSpots, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
+import { ChatThread, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
 import Icon from './Icons';
 import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
 import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
@@ -148,7 +148,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   };
 
   const update = (id: string, patch: Partial<TaskRecord>) => setRecords(all => ({ ...all, [id]: { ...all[id], ...patch } }));
-  const enqueue = (id: string) => { if (!reviewing) setQueue(q => q.includes(id) ? q : [...q, id]); };
+  const enqueue = (id: string) => { if (!reviewing && !lesson.exam) setQueue(q => q.includes(id) ? q : [...q, id]); };
   const meaningHint = Boolean(hintUsed && task?.hintAssists);
 
   const evidence = (spoken: boolean): TaskEvidence => ({
@@ -301,7 +301,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   // ---------- Content ----------
   const imageSize = Math.max(120, Math.min(250, (viewport || height * .6) * .32));
   const body = (() => {
-    if (showResult) return <ResultView lesson={lesson} records={records} finish={finish} />;
+    if (showResult) return lesson.exam ? <ExamResult lesson={lesson} records={records} finish={finish} /> : <ResultView lesson={lesson} records={records} finish={finish} />;
     if (!current) return null;
     if (current.type === 'intro') return <IntroView card={current} title={lesson.title} size={imageSize} />;
     if (current.type === 'word') return <WordView card={current} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
@@ -323,6 +323,12 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     // Word tiles: punctuation is never a tile; the sentence's own end mark is added automatically.
     const tiles = task.type === 'write' && task.tiles ? task.tiles.filter(t => !/^[.,!?]+$/.test(t)) : undefined;
     const endMark = task.type === 'write' && task.tiles ? (task.rule.answers[0]?.match(/[.!?]$/)?.[0] ?? '') : '';
+    const letters = task.type === 'write' ? task.letters : undefined;
+    const pickLetters = (next: number[]) => {
+      if (!letters) return;
+      setPicked(next); setText(next.map(i => letters[i]).join(''));
+      if (result?.kind === 'unverified') setResult(null);
+    };
     const pickTiles = (next: number[]) => {
       if (!tiles) return;
       setPicked(next); setText(next.length ? joinTiles(next.map(i => tiles[i])) + endMark : '');
@@ -344,7 +350,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const mascotTalks = task.speaker === 'mascot' && !audio && !quote;
     const scene = sceneImage(task.scenes);
     // No Kömək on the tap-to-place screens (Kim nə dedi?, Cavab cütü, Söhbəti sırala) — user, 13 Nov 2026.
-    const helpButton = !repeat && !result && task.type !== 'match' ? <Capsule tone="outline" small align="flex-end" icon="bulb" label="Kömək" onPress={() => setHelpOpen(true)} /> : null;
+    // Section exams measure without help: no Kömək at all.
+    const helpButton = !lesson.exam && !repeat && !result && task.type !== 'match' ? <Capsule tone="outline" small align="flex-end" icon="bulb" label="Kömək" onPress={() => setHelpOpen(true)} /> : null;
     const helpUnderAudio = Boolean(audio && !voiceBubble && !repeat);
     // The model answer: the task's own sample, or (opened through Kömək) the first accepted answer.
     // Bug fixed 13 Nov: tasks without a written sample offered “Nümunəni göstər” but showed nothing.
@@ -387,7 +394,11 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {task.type === 'choice' && !task.gap && !spotsShown ? <View style={s.gap}>{task.options.map(o => <ChoiceOption key={o} label={o} selected={choice === o} disabled={Boolean(result && result.kind !== 'unverified')}
         state={single && choice === o ? (single.status === 'correct' ? 'correct' : single.status === 'wrong' ? 'wrong' : undefined) : undefined}
         onPress={() => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} />)}</View> : null}
-      {task.type === 'write' && !task.tiles ? <Field onSubmit={() => { if (text.trim() && !(listeningTask && !heard && !textShown && !technical)) check(); }} value={text} onChange={v => { setText(v); if (result?.kind === 'unverified') setResult(null); }} placeholder={task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
+      {task.type === 'write' && task.keypad ? <PhoneKeypad label={task.placeholder} value={text} disabled={locked.current} mark={single ? markOf(single.status) : undefined}
+        onChange={v => { setText(v.replace(/\D/g, '')); if (result?.kind === 'unverified') setResult(null); }} /> : null}
+      {task.type === 'write' && letters ? <LetterBoard letters={letters} picked={picked} length={task.rule.answers[0]?.length ?? 4} disabled={locked.current}
+        mark={single ? markOf(single.status) : undefined} onPick={i => pickLetters([...picked, i])} onRemove={i => pickLetters(picked.filter(x => x !== i))} /> : null}
+      {task.type === 'write' && !task.tiles && !task.keypad && !letters ? <Field onSubmit={() => { if (text.trim() && !(listeningTask && !heard && !textShown && !technical)) check(); }} value={text} onChange={v => { setText(v); if (result?.kind === 'unverified') setResult(null); }} placeholder={task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
       {task.type === 'two' ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
         graded={result?.kind === 'two' ? result.graded : undefined} keep={reviewing ? keepFields[task.id]?.fields : undefined} /> : null}
       {/* Help sits under the answers, on the right: read the task, try, then ask for help. */}
@@ -452,7 +463,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   return <KeyboardAvoidingView style={[s.screen, { paddingTop: insets.top }]} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
     <Stack.Screen options={{ headerShown: false, gestureEnabled: false }} />
-    <Header title={`Dərs ${lesson.order}`} progress={progress} onBack={exit} onMenu={showResult ? undefined : () => setMenuOpen(true)} />
+    <Header title={lessonLabel(lesson)} progress={progress} onBack={exit} onMenu={showResult ? undefined : () => setMenuOpen(true)} />
     {/* Fits without scrolling on normal phones; scrolls only when the content is taller (large text, keyboard). */}
     <ScrollView style={{ flex: 1 }} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" bounces={false} alwaysBounceVertical={false}
       overScrollMode="never" onLayout={e => setViewport(e.nativeEvent.layout.height)}>
@@ -496,6 +507,15 @@ function IntroView({ card, title, size }: { card: IntroCard; title: string; size
 }
 
 function TwoFields({ task, values, onChange, graded, keep }: { task: TwoTask; values: Record<string, string>; onChange: (id: string, v: string) => void; graded?: TwoGraded; keep?: TwoGraded['fields'] }) {
+  if (task.form) return <FormSheet title={task.form.title} subtitle={task.form.subtitle}>{task.fields.map((f, i) => {
+    const kept = keep?.[f.id]?.status === 'correct';
+    const status = graded?.fields[f.id]?.status ?? (kept ? 'correct' : undefined);
+    return <View key={f.id} style={{ gap: 4 }}>
+      <Text style={[ds.label, { color: d.purple }]}>{i + 1}. {f.label}</Text>
+      <Field label={f.label} value={values[f.id] ?? ''} onChange={v => onChange(f.id, v)} placeholder={f.placeholder}
+        editable={!graded && !kept} state={status === 'correct' ? 'correct' : status === 'wrong' ? 'wrong' : undefined} />
+    </View>;
+  })}</FormSheet>;
   return <View style={s.gap}>{task.fields.map(f => {
     const kept = keep?.[f.id]?.status === 'correct';
     const status = graded?.fields[f.id]?.status ?? (kept ? 'correct' : undefined);
@@ -542,7 +562,54 @@ function ResultView({ lesson, records, finish }: { lesson: Lesson; records: Reco
   </View>;
 }
 
+/** Header line: “Dərs 3” (Bölmə 1), “Dərs 1 · 2-ci hissə” (map lesson with parts), “Bölmə imtahanı”. */
+function lessonLabel(lesson: Lesson) {
+  if (lesson.exam) return 'Bölmə imtahanı';
+  const n = lesson.number ?? lesson.order;
+  return lesson.part ? `Dərs ${n} · ${lesson.part}-ci hissə` : `Dərs ${n}`;
+}
+
+/** Exam score: only verified first answers count (Expo Go cannot check speech — those stay “Yoxlanmadı”).
+ *  Pass = at least 80 % of the verified answers, and at least 60 % of the tasks verified. */
+export function examScore(lesson: Lesson, records: Record<string, TaskRecord>) {
+  const ids = lessonTaskIds(lesson).required.concat(lessonTaskIds(lesson).optional);
+  const verified = ids.filter(id => records[id]?.first);
+  const correct = verified.filter(id => records[id]?.first === 'correct').length;
+  const percent = verified.length ? Math.round(correct / verified.length * 100) : 0;
+  const enough = ids.length > 0 && verified.length >= Math.ceil(ids.length * .6);
+  return { percent, correct, verified: verified.length, total: ids.length, enough, passed: enough && percent >= 80 };
+}
+
+function ExamResult({ lesson, records, finish }: { lesson: Lesson; records: Record<string, TaskRecord>; finish: { completed: boolean } | null }) {
+  const score = examScore(lesson, records);
+  const saved = useRef(false);
+  useEffect(() => {
+    if (!finish || saved.current || !score.enough) return;
+    saved.current = true; useUserStore.getState().saveSectionExam(lesson.id, score.percent, score.passed);
+  }, [finish, lesson.id, score.enough, score.percent, score.passed]);
+  const color = { independent: d.greenText, assisted: d.orangeText, needsPractice: d.redText, unverified: d.lavenderText } as const;
+  const tone = !score.enough ? d.lavenderText : score.passed ? d.greenText : d.redText;
+  return <View style={s.gap}>
+    <View style={[s.examScore, { borderColor: tone }]}>
+      <Icon name="flag" size={30} color={tone} />
+      <Text style={[s.examPct, { color: tone }]}>{score.enough ? `${score.percent}%` : '—'}</Text>
+      <Text style={[ds.strong, { color: tone, textAlign: 'center' }]}>{!score.enough ? 'Nəticə yoxlanmadı' : score.passed ? 'İmtahandan keçdin' : 'Hələ keçmədin — 80% lazımdır'}</Text>
+      <Text style={[ds.small, { textAlign: 'center' }]}>{score.enough ? `${score.verified} yoxlanan cavabdan ${score.correct}-i düzgündür.` : 'Çox tapşırıq yoxlanmadı (səs və ya keçid). Yenidən cəhd et.'}</Text>
+    </View>
+    {lesson.result.goals.map(g => {
+      const st = g.tasks.every(id => records[id]?.first === 'correct') ? 'independent' as const : g.tasks.some(id => records[id]?.first === 'wrong') ? 'needsPractice' as const : 'unverified' as const;
+      return <View key={g.text} style={s.resultRow}>
+        <Text style={[ds.body, { flex: 1 }]}>{g.text}</Text>
+        <View style={[s.status, { borderColor: color[st] }]}><Text style={[s.statusText, { color: color[st] }]}>{st === 'independent' ? 'Bacarırsan' : st === 'needsPractice' ? 'Məşq lazımdır' : 'Yoxlanmadı'}</Text></View>
+      </View>;
+    })}
+    <Text style={ds.body}>{score.passed ? lesson.result.closing : '“Məşq lazımdır” yazılan bacarıqların dərslərinə qayıt, sonra imtahanı yenidən ver.'}</Text>
+  </View>;
+}
+
 const s = StyleSheet.create({
+  examScore: { alignItems: 'center', gap: 6, padding: 18, borderRadius: 24, borderWidth: 2, backgroundColor: '#fff' },
+  examPct: { fontSize: 46, lineHeight: 52, ...font.extrabold },
   screen: { flex: 1, backgroundColor: d.bg },
   content: { paddingHorizontal: 20, paddingTop: 6, paddingBottom: 16, flexGrow: 1 },
   footer: { paddingHorizontal: 20, paddingTop: 8, gap: 10 },

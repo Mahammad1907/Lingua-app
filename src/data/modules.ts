@@ -24,6 +24,24 @@ export const modules: Module[] = [
     speakingDescription:
       'Öyrəndiyin salamlaşma ifadələrini botla danışıqda istifadə et',
   },
+  {
+    // docs/BOLME_2_XERITESI.md — 8 map lessons; lessons 1, 3 and 7 have two parts (11 lesson ids).
+    id: 'module_2',
+    title: 'Personal details',
+    titleAz: 'Şəxsi məlumat',
+    description: '8 dərs: rəqəmlər, telefon, hərflər, hərf-hərf demək, ad və soyad, e-poçt, yaş və qeydiyyat söhbəti',
+    language: 'en',
+    level: 'A1',
+    order: 2,
+    phase: 1,
+    icon: '🪪',
+    lessonIds: [
+      'a1_en_b2_d1a', 'a1_en_b2_d1b', 'a1_en_b2_d2', 'a1_en_b2_d3a', 'a1_en_b2_d3b', 'a1_en_b2_d4',
+      'a1_en_b2_d5', 'a1_en_b2_d6', 'a1_en_b2_d7a', 'a1_en_b2_d7b', 'a1_en_b2_d8',
+    ],
+    finalReviewId: 'a1_en_b2_d8',
+    hasSpeakingPractice: false,
+  },
 ];
 
 // ═══════════════════════════════════════

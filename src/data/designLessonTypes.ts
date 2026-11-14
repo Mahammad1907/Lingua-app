@@ -40,13 +40,18 @@ export interface ChoiceTask extends BaseTask {
 }
 export interface WriteTask extends BaseTask {
   type: 'write'; audio?: string; placeholder: string; rule: PacketRule;
+  /** “Nömrəni yığ” (Bölmə 2): the answer is typed on a phone keypad (digits only). `placeholder` is the screen label. */
+  keypad?: boolean;
+  /** “Hərfləri tut” (Bölmə 2): the answer is built from these letter tiles (capital letters, joined without spaces). Extra tiles are distractors. */
+  letters?: string[];
   /** “Dialoqu tamamla” / “Mesaj yaz”: the task is shown as a short chat; the learner's reply is the last bubble. */
   chat?: { partner: string; from: Who; lines: ChatLine[] };
   /** “Mesaj yaz”: the reply is built from these word tiles instead of typed. Extra tiles are distractors. */
   tiles?: string[];
 }
 export interface TwoField { id: string; label: string; placeholder: string; rule: PacketRule; purpose: string; empty: string }
-export interface TwoTask extends BaseTask { type: 'two'; fields: TwoField[] }
+/** `form` = “Formanı doldur” (Bölmə 2): the fields are shown as a printed registration form with this heading. */
+export interface TwoTask extends BaseTask { type: 'two'; fields: TwoField[]; form?: { title: string; subtitle?: string } }
 export interface VoiceTask extends BaseTask {
   type: 'voice';
   /** What the counterpart says before the learner answers. Absent = the learner speaks first. */
@@ -96,6 +101,14 @@ export interface ResultGoal { group: string; text: string; tasks: string[] }
 
 export interface DesignLesson {
   id: string; order: number; title: string; section: string;
+  /** Section (Bölmə) number; absent = Bölmə 1. */
+  unit?: number;
+  /** Lesson number on the section map (1–8) when it differs from `order`. */
+  number?: number;
+  /** A map lesson split in two: this lesson is part 1 or 2 (docs/BOLME_2_XERITESI.md §0). */
+  part?: 1 | 2;
+  /** Section exam: no Kömək or hints, no retry round, pass mark 80 % (docs/BOLME_2_XERITESI.md §0). */
+  exam?: boolean;
   cards: (IntroCard | TeachCard | WordCard | TaskWithReview)[];
   result: {
     done: string[]; incomplete: string; goals: ResultGoal[]; closing: string; button: string;
