@@ -116,3 +116,8 @@ node scripts/export-unit1-docs.cjs   # docs/dersler/Ders_N.md yenilə
 4. Yoxlama: `check-taught.cjs` (yeni bölməni də yükləməlidir), `check-unit1.cjs`-ə oxşar `check-unit2.cjs`, `export-unit1-docs.cjs`-ə oxşar export.
 5. Hər bölmədən sonra müstəqil yoxlayıcı agent (mətni yazmayan) — hesabatı olduğu kimi istifadəçiyə göstər.
 6. Ana səhifədə yeni bölmə: `src/data/modules.ts`, `src/data/b1Course.ts`, `IslandHome.tsx`.
+
+## 10. Şəkillər və Bölmə 1-in məzmunu (yeni dərslər üçün)
+
+- **Şəkillər hələlik boş qalır.** Şəkil yaratma və ya axtarma. Yeni dərslərdə şəkil lazım olan yerə yalnız işarə qoy: kartda `scenes: ['dN/ad']`, `src/config/sceneImages.ts`-də `SCENE_NOTES`-a qısa təsvir (“8.3 · …”), `docs/SEKIL_SIYAHISI.md`-yə sətir (⏳). Tətbiqdə narıncı “ŞƏKİL” işarəsi görünəcək. Şəkillər sonra ayrıca hazırlanacaq; buraxılışdan əvvəl işarələr gizlədilməlidir (audit).
+- **Bölmə 1-də nə öyrədilib — tam siyahı:** `docs/dersler/BirTalk_Bolme1_Ders1-8.md` (8 dərsin bütün kartları, cavablar, izahlar) və hər dərs ayrıca `docs/dersler/Ders_1.md … Ders_8.md`. Öyrədilmiş ifadələr: Hello/Hi, Goodbye/Bye, I'm …, My name is …, What's your name?, Nice to meet you., You too., How are you?, I'm fine, thanks. And you?, I'm OK., I'm not very well., Thank you!/Thanks!, You're welcome., please, Excuse me, Sorry!, No problem., Sorry? I don't understand., Again, please., Slowly, please. Bölmə 2 bunların üstünə qurulur və onları spiral təkrar edir; `check-taught.cjs` əvvəlki bölmələrin sözlərini öyrədilmiş sayır.
