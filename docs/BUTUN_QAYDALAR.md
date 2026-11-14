@@ -50,6 +50,25 @@ Bu fayl istifadəçinin indiyə qədər verdiyi bütün qərarların yığcam si
 6. Başqa tapşırığın cümləsini köçürmə; izahda IPA yoxdur.
 7. Öyrədilmiş formalar: I + am → I'm; How are you?; My name is (is ayrıca söz); I'm not very well — burada not; I don't understand — burada don't; please = xahiş; thanks = təşəkkür (həm də “I'm fine, thanks”); You're welcome = təşəkkürə cavab; Excuse me = “Bağışlayın (diqqət)”, Sorry! = “Bağışlayın (səhv)”; Sorry? = nə dedin.
 
+## C2. İpucu necə yazılır (hər tapşırıqda və hər Təkrarda)
+
+1. Bir qısa cümlə, öyrənənə yol göstərir — cavabı demir, cavabın yarısını da açmır.
+2. Ekrandakı vəziyyətə uyğundur; Təkrarda vəziyyət dəyişibsə, ipucu da yeni vəziyyətə görə yazılır (əsas tapşırıqdan köçürülmür).
+3. Ekranda olmayan şeydən danışmır; öyrədilməmiş ingilis sözü, IPA, termin yoxdur.
+4. Əvvəlki dərsə istinad edirsə, düzgün dərsi göstərir.
+5. Toxun-yerləşdir ekranlarında (Kim nə dedi?, Cavab cütü, Söhbəti sırala) Kömək düyməsi olmadığı üçün ipucu göstərilmir.
+
+| Pis | Niyə | Yaxşı |
+|---|---|---|
+| “Sual kimi deyilən ‘Sorry?’ üzr deyil, ‘nə dedin?’ deməkdir.” | cavabı açır | “Sual kimi deyilən sözə diqqət et — o, üzr deyil.” |
+| “Sənə nəsə verəndə nə deyirsən?” (vəziyyət: qapını açır) | vəziyyətə uymur | “Sənə kömək edəndə nə deyirsən?” |
+| “…yoxsa xahiş edəndə?” (ekranda please yoxdur) | ekranda olmayan şey | “…yoxsa hal soruşanda?” |
+| “ingiliscə ‘-am’ ayrıca sözdür” | cavabı demək olar açır | “Azərbaycancada şəkilçi olan hissə ingiliscə I-dan sonra ayrıca söz kimi gəlir.” |
+| “Başa düşməyəndə nə deyirsən?” (vəziyyət: eşitmədin) | Again ≠ I don't understand | “Eşitməyəndə nə deyirsən?” |
+| — | yaxşı nümunə | “Əvvəl salam, sonra adın.” |
+
+Yoxlama: `check-taught.cjs` ipucularda öyrədilməmiş sözü, IPA-nı və qadağan sözləri tutur; məntiqi (vəziyyətə uyğunluq, cavabı açmaq) isə yalnız müstəqil yoxlayıcı tutur — yeni dərslərdən sonra ona mütləq ipuclarını da yoxlat.
+
 ## D. Tələffüz və səs
 
 1. Səs hər yerdə **en-US** (Amerika).
