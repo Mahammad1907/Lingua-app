@@ -22,10 +22,10 @@ Qeyd: Salamdan sonra soruşulur.
 ## Kart 3 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Keçən dərsləri xatırla. Hər cümləyə mənasını qoş.  
-**Cütlər:** Hello! — Salam!; What's your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam. · artıq: Hələlik!  
+**Cütlər:** Hello! — Salam!; What's your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam. · artıq: Hələlik!  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Keçən dərslərin ifadələrini xatırladın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam. Səbəb: Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir. Qayda: What’s your name? — ad sualı; Nice to meet you. — xoş söz. Nümunə: Hi! What’s your name? … Nice to meet you!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam. Səbəb: Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir. Qayda: What’s your name? — ad sualı; Nice to meet you. — xoş söz. Nümunə: Hi! What’s your name? … Nice to meet you!  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -110,7 +110,7 @@ Qeyd: “I'm fine” ilə yaxındır.
 **Nümunə göstərilir:** I'm fine, thanks. And you?  
 **İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  
 **Düzgün olanda:** Halını dedin və sualı qaytardın.  
-- *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm fine, thanks. And you? Səbəb: Dostun halını soruşdu. Qayda: Halın + And you? Nümunə: I'm OK. And you?  
+- *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm fine, thanks. And you? Səbəb: Dostun halını soruşdu — halını deyib eyni sualı ona qaytarırsan. Qayda: Halın + And you? Nümunə: I'm OK. And you?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -120,14 +120,14 @@ Qeyd: “I'm fine” ilə yaxındır.
 **Nümunə göstərilir:** I'm OK. And you?  
 **İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  
 **Düzgün olanda:** Halını dedin və sualı qaytardın.  
-- *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm OK. And you? Səbəb: Dostun halını soruşdu. Qayda: Halın + And you? Nümunə: I'm fine, thanks. And you?  
+- *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm OK. And you? Səbəb: Dostun halını soruşdu — halını deyib eyni sualı ona qaytarırsan. Qayda: Halın + And you? Nümunə: I'm fine, thanks. And you?  
 
 ## Kart 10 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Qız və oğlan küçədə rastlaşır. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Hi! How are you? → 2. I'm fine, thanks. And you? → 3. I'm OK. Bye!  
 **İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
-**Düzgün olanda:** Söhbət sualla başladı, cavab və qayıdan sual gəldi.  
+**Düzgün olanda:** Söhbət salam və sualla başladı, sonra cavab və qayıdan sual gəldi.  
 - *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye! Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: How are you? — sual; I’m fine, thanks. And you? — cavab və qayıdan sual. Nümunə: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!  
 
 **Təkrar (yeni vəziyyət):**

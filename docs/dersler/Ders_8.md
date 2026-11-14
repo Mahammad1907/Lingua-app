@@ -17,7 +17,7 @@ Qız və oğlan ziyafətdə tanış olur. Hər cümləni dinlə:
 - **Hi! How are you?** — Salam! Necəsən?
 - **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
 - **I'm OK. What's your name?** — Normalam. Adın nədir?
-- **I'm … Nice to meet you!** — Mən …-am. Tanış olmağıma şadam!
+- **I'm … Nice to meet you!** — Mən …-am. Tanış olduğuma şadam!
 
 Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən.
 
@@ -56,7 +56,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **Seçimlər:** meet / welcome / understand — **düzgün:** meet  
 **İpucu:** Dərs 3-də tanışlıqda deyilən xoş sözü xatırla.  
 **Düzgün olanda:** Nice to meet you.  
-- *İzah (başqa səhvdə):* Nice to meet you. — Uyğun: meet. Səbəb: “Nice to meet you” — Tanış olmağıma şadam. Qayda: Nice to meet you! Nümunə: Nice to meet you! — You too!  
+- *İzah (başqa səhvdə):* Nice to meet you. — Uyğun: meet. Səbəb: “Nice to meet you” — Tanış olduğuma şadam. Qayda: Nice to meet you! Nümunə: Nice to meet you! — You too!  
 
 ## Kart 5 — Səslə cavab: Söhbət: salam və hal
 
@@ -151,7 +151,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **İpucu:** Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.  
 **Düzgün olanda:** Özünü təqdim etdin və onun adını soruşdun.  
 - *İzah (“Birinci mesaj” səhv olanda):* Uyğun: Hi! I'm … Səbəb: Bu mesajda salam və adın lazımdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! My name is …  
-- *İzah (“İkinci mesaj” səhv olanda):* Uyğun: What's your name? Səbəb: Bu mesajda onun adını soruşmalısan. Qayda: What’s your name? Nümunə: Excuse me, what's your name?  
+- *İzah (“İkinci mesaj” səhv olanda):* Uyğun: What's your name? Səbəb: Bu mesajda onun adını soruşmalısan. Qayda: What’s your name? Nümunə: Hi! I'm … What's your name?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -222,6 +222,6 @@ Bölmə 1 tamamlandı — Artıq ingiliscə qısa tanışlıq söhbəti apara bi
 
 - Tanıma: Söhbətdə eşitdiyini anlamaq
 - Yazı: Tanışlıq mesajları və kömək istəmək
-- Danışıq: Qısa söhbəti başdan sona aparmaq
+- Danışıq: Söhbətin salam, tanışlıq və sağollaşma hissələrində cavab vermək
 
 Növbəti bölmə: şəxsi məlumat — hərflər, rəqəmlər, yaş.

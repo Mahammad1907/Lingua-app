@@ -92,7 +92,7 @@ export const lesson7: DesignLesson = {
       prompt: 'Oğlan başa düşmür.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'Sorry? I', after: 'understand.' }, options: ['am', "don't", 'not'], answer: "don't",
       variants: [
         pick('not', '“I not understand” deyilmir.', ex("don't", 'I not understand demirik, burada don’t lazımdır.', 'I’m not very well — burada not, I don’t understand — burada don’t.', "Sorry? I don't understand.")),
-        pick('am', '“am” burada lazım deyil.', ex("don't", '“Başa düşmürəm” — I don’t understand.', 'I don’t understand.', "Sorry? I don't understand.")),
+        pick('am', '“am” burada lazım deyil.', ex("don't", 'I am understand demirik, burada don’t lazımdır.', 'I’m not very well — burada not; I don’t understand — burada don’t.', "Sorry? I don't understand.")),
       ],
       review: {
         title: 'Sözü tamamla', why: 'Xahiş edəndə “please”.', hint: 'Xahişi nəzakətli edən söz Dərs 5-dən tanışdır.', prompt: 'Qız bir də eşitmək istəyir.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'Again,', after: '.' }, options: ['sorry', 'thanks', 'please'], answer: 'please',
@@ -106,7 +106,7 @@ export const lesson7: DesignLesson = {
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks.", 'Sürətli danışdı, sən xahiş etdin, o yavaş təkrar etdi.', 'Slowly, please — çox sürətli idi; Again, please — eşitmədin.', "Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks."))],
       review: {
-        title: 'Söhbəti sırala', why: 'Xahiş, təkrar və cavab düz sıradadır.', hint: 'Düşün: başa düşməyəndə nə deyirsən və bundan sonra nə olur?', prompt: 'Səs-küydə qızın sualını eşitmədin.\nBalonlara toxun, söhbəti sıraya düz.',
+        title: 'Söhbəti sırala', why: 'Xahiş, təkrar və cavab düz sıradadır.', hint: 'Düşün: eşitməyəndə nə deyirsən və bundan sonra nə olur?', prompt: 'Səs-küydə qızın sualını eşitmədin.\nBalonlara toxun, söhbəti sıraya düz.',
         rows: [{ en: '1', az: "Hi! What's your name?", from: 'G' }, { en: '2', az: 'Sorry? Again, please.', from: 'B' }, { en: '3', az: "What's your name?", from: 'G' }, { en: '4', az: 'My name is …', from: 'B' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Hi! What's your name? → Sorry? Again, please. → What's your name? → My name is …", 'Sualı eşitmədin, sən təkrar istədin, o yenidən soruşdu.', 'Again, please — eşitmədin; Slowly, please — çox sürətli idi.', "Hi! What's your name? → Sorry? Again, please. → What's your name? → My name is …"))],
@@ -126,7 +126,7 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'voice', id: 'd7_c11', number: 11, speaker: 'mascot', title: 'Təkrar istə', why: 'Təkrarı nəzakətlə istədin.', hint: 'Dərsin “bir də” xahişini xatırla.',
-      prompt: '{M} nəsə dedi, amma eşitmədin.\nBir də deməsini xahiş et.', audio: 'Hello! How are you?', sample: 'Sorry? Again, please.', rule: again,
+      prompt: 'Səs-küydə {m} nəsə dedi, eşitmədin.\nBir də deməsini xahiş et.', audio: 'Hello! How are you?', sample: 'Sorry? Again, please.', rule: again,
       variants: [other('Again, please.', ex('Sorry? Again, please.', 'Eşitmədin — bir də deməsini istəyirsən.', 'Sorry? Again, please. — eşitmədin; Sorry? I don’t understand. — başa düşmürsən.', 'Again, please.'))],
       review: {
         speaker: 'mascot', title: 'Təkrar istə', why: 'Təkrarı nəzakətlə istədin.', hint: 'Dərsin “bir də” xahişini xatırla.', prompt: 'Səs-küylü yerdə {m} nəsə dedi.\nBir də deməsini xahiş et.', audio: "What's your name?", rule: again,

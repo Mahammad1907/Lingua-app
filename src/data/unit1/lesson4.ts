@@ -26,9 +26,9 @@ export const lesson4: DesignLesson = {
     {
       type: 'match', id: 'd4_c02', number: 2, title: 'Kim nə dedi?', why: 'Keçən dərslərin ifadələrini xatırladın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
       prompt: 'Keçən dərsləri xatırla.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olmağıma şadam.', from: 'G' }],
+      rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'G' }],
       extra: ['Hələlik!'],
-      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam.', 'Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir.', 'What’s your name? — ad sualı; Nice to meet you. — xoş söz.', 'Hi! What’s your name? … Nice to meet you!'))],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam.', 'Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir.', 'What’s your name? — ad sualı; Nice to meet you. — xoş söz.', 'Hi! What’s your name? … Nice to meet you!'))],
       review: {
         title: 'Kim nə dedi?', why: 'Keçən dərslərin ifadələrini xatırladın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Keçən dərsləri xatırla.\nHər cümləyə mənasını qoş.',
         rows: [{ en: 'You too!', az: 'Mən də!', from: 'B' }, { en: "I'm …", az: 'Mən …-am.', from: 'G' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
@@ -84,7 +84,7 @@ export const lesson4: DesignLesson = {
       },
     },
     {
-      type: 'match', mode: 'order', id: 'd4_c07', number: 7, title: 'Söhbəti sırala', why: 'Söhbət sualla başladı, cavab və qayıdan sual gəldi.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.',
+      type: 'match', mode: 'order', id: 'd4_c07', number: 7, title: 'Söhbəti sırala', why: 'Söhbət salam və sualla başladı, sonra cavab və qayıdan sual gəldi.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.',
       prompt: 'Qız və oğlan küçədə rastlaşır.\nBalonlara toxun, söhbəti sıraya düz.',
       rows: [{ en: '1', az: 'Hi! How are you?', from: 'G' }, { en: '2', az: "I'm fine, thanks. And you?", from: 'B' }, { en: '3', az: "I'm OK. Bye!", from: 'G' }],
       extra: [],
@@ -123,10 +123,10 @@ export const lesson4: DesignLesson = {
     {
       type: 'voice', id: 'd4_c10', number: 10, speaker: 'mascot', title: 'Səslə cavab ver', why: 'Halını dedin və sualı qaytardın.', hint: 'İki hissə: öz halını de, sonra eyni sualı ona qaytar.',
       prompt: '{M} soruşur.\nCavab ver və sualı geri qaytar.', audio: 'How are you?', sample: "I'm fine, thanks. And you?", rule: answerBack,
-      variants: [other('Halını de və “And you?” soruş.', ex("I'm fine, thanks. And you?", '{M} halını soruşdu.', 'Halın + And you?', "I'm OK. And you?"))],
+      variants: [other('Halını de və “And you?” soruş.', ex("I'm fine, thanks. And you?", '{M} halını soruşdu — halını deyib eyni sualı ona qaytarırsan.', 'Halın + And you?', "I'm OK. And you?"))],
       review: {
         speaker: 'mascot', title: 'Səslə cavab ver', why: 'Halını dedin və sualı qaytardın.', hint: 'İki hissə: öz halını de, sonra eyni sualı ona qaytar.', prompt: 'Axşam {m} yenə soruşur.\nCavab ver və sualı geri qaytar.', audio: 'How are you?', sample: "I'm OK. And you?", rule: answerBack,
-        variants: [other('Halını de və “And you?” soruş.', ex("I'm OK. And you?", '{M} halını soruşdu.', 'Halın + And you?', "I'm fine, thanks. And you?"))],
+        variants: [other('Halını de və “And you?” soruş.', ex("I'm OK. And you?", '{M} halını soruşdu — halını deyib eyni sualı ona qaytarırsan.', 'Halın + And you?', "I'm fine, thanks. And you?"))],
       },
     },
     {

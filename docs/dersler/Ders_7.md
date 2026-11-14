@@ -66,7 +66,7 @@ Nümunə: **Sorry? Again, please.** — Nə dedin? Bir də, zəhmət olmasa.
 
 ## Kart 6 — Səslə cavab: Təkrar istə
 
-**Tapşırıq:** Dostun nəsə dedi, amma eşitmədin. Bir də deməsini xahiş et.  
+**Tapşırıq:** Səs-küydə dostun nəsə dedi, eşitmədin. Bir də deməsini xahiş et.  
 **Səs:** Hello! How are you?  
 **Qəbul:** məna: repeat — nümunə: Again, please. / Sorry? Again, please.  
 **Nümunə göstərilir:** Sorry? Again, please.  
@@ -122,7 +122,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 
 **Tapşırıq:** Səs-küydə qızın sualını eşitmədin. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Hi! What's your name? → 2. Sorry? Again, please. → 3. What's your name? → 4. My name is …  
-**İpucu:** Düşün: başa düşməyəndə nə deyirsən və bundan sonra nə olur?  
+**İpucu:** Düşün: eşitməyəndə nə deyirsən və bundan sonra nə olur?  
 **Düzgün olanda:** Xahiş, təkrar və cavab düz sıradadır.  
 - *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! What's your name? → Sorry? Again, please. → What's your name? → My name is … Səbəb: Sualı eşitmədin, sən təkrar istədin, o yenidən soruşdu. Qayda: Again, please — eşitmədin; Slowly, please — çox sürətli idi. Nümunə: Hi! What's your name? → Sorry? Again, please. → What's your name? → My name is …  
 
@@ -166,7 +166,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 **İpucu:** “Başa düşmürəm” — bu dərsin əvvəlindəki cümləni xatırla.  
 **Düzgün olanda:** I don’t understand — başa düşmürəm.  
 - *İzah (“not” seçiləndə):* “I not understand” deyilmir. — Uyğun: don't. Səbəb: I not understand demirik, burada don’t lazımdır. Qayda: I’m not very well — burada not, I don’t understand — burada don’t. Nümunə: Sorry? I don't understand.  
-- *İzah (“am” seçiləndə):* “am” burada lazım deyil. — Uyğun: don't. Səbəb: “Başa düşmürəm” — I don’t understand. Qayda: I don’t understand. Nümunə: Sorry? I don't understand.  
+- *İzah (“am” seçiləndə):* “am” burada lazım deyil. — Uyğun: don't. Səbəb: I am understand demirik, burada don’t lazımdır. Qayda: I’m not very well — burada not; I don’t understand — burada don’t. Nümunə: Sorry? I don't understand.  
 
 **Təkrar (yeni vəziyyət):**
 

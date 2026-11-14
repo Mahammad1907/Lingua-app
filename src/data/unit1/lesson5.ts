@@ -95,9 +95,9 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'choice', id: 'd5_c08', number: 8, title: 'Sözü tamamla', why: 'Xahiş edəndə “please”.', hint: 'Çay istəyirsən — xahiş edəndə hansı söz deyilir?',
-      prompt: 'Kafedə çay istəyirsən.\nHansı söz nəzakətlidir?', gap: { before: 'Tea,', after: '.' }, options: ['please', 'thanks', 'welcome'], answer: 'please',
+      prompt: 'Kafedə çay istəyirsən.\nHansı söz çatmır?', gap: { before: 'Tea,', after: '.' }, options: ['please', 'thanks', 'welcome'], answer: 'please',
       variants: [
-        pick('thanks', 'Hələ çayı istəyirsən — bu, xahişdir.', ex('please', 'Hələ çayı istəyirsən.', 'Tea, please — xahiş; Thanks! — təşəkkür.', 'Tea, please. … Thanks!')),
+        pick('thanks', 'Hələ çayı istəyirsən — bu, xahişdir.', ex('please', 'Thanks təşəkkürdür, sən isə hələ çay istəyirsən.', 'Tea, please — xahiş; Thanks! — təşəkkür.', 'Tea, please. … Thanks!')),
         pick('welcome', '“welcome” təşəkkürə cavabdır.', ex('please', 'Xahiş edəndə “please” deyilir.', 'Xahiş → please.', 'Tea, please.')),
       ],
       review: {

@@ -77,9 +77,9 @@ export const lesson2: DesignLesson = {
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hi! — Salam!; I’m … — Mən …-am.; Bye! — Hələlik!', 'Hi görüşü başladır, Bye bitirir, I’m adını deyir.', 'Hi! — görüşün əvvəli; Bye! — görüşün sonu.', 'Hi! I’m … Bye!'))],
       review: {
         title: 'Kim nə dedi?', why: 'Salam, sağollaşma və ad — hər biri öz yerində.', hint: 'Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.', prompt: 'Hər cümləyə mənasını qoş.',
-        rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: 'My name is …', az: 'Mənim adım …', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
+        rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: 'My name is …', az: 'Mənim adım …-dır.', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
         extra: ['Necəsən?'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək!', 'Hello görüşü başladır, Goodbye bitirir, My name is adını deyir.', 'Hello! — görüşün əvvəli; Goodbye! — görüşün sonu.', 'Hello! My name is …'))],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; My name is … — Mənim adım …-dır.; Goodbye! — Görüşənədək!', 'Hello görüşü başladır, Goodbye bitirir, My name is adını deyir.', 'Hello! — görüşün əvvəli; Goodbye! — görüşün sonu.', 'Hello! My name is …'))],
       },
     },
     {
@@ -111,16 +111,16 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'voice', id: 'd2_c08', number: 8, speaker: 'mascot', title: 'Özünü səslə təqdim et', why: 'Salam verdin və adını dedin.', hint: 'Əvvəl salam, sonra adın.',
-      prompt: '{M} salam verir.\nSalam ver və adını de.', audio: 'Hello!', sample: "Hello! I'm …", rule: greetIntroEarly,
-      variants: [other('Salam və adın ikisi də lazımdır.', ex("Hello! I'm …", '{M} salam verdi, sən də salam verib adını deyirsən.', 'Salam + I’m + adın.', 'Hi! I’m …'))],
+      prompt: 'Yeni tanışın salam verir.\nSalam ver və adını de.', audio: 'Hello!', sample: "Hello! I'm …", rule: greetIntroEarly,
+      variants: [other('Salam və adın ikisi də lazımdır.', ex("Hello! I'm …", 'Tanışın salam verdi, sən də salam verib adını deyirsən.', 'Salam + I’m + adın.', 'Hi! I’m …'))],
       review: {
-        speaker: 'mascot', title: 'Özünü səslə təqdim et', why: 'Salam verdin və adını dedin.', hint: 'Əvvəl salam, sonra adın.', prompt: 'Yeni gün. {M} yenə salam verir.\nSalam ver və adını de.', audio: 'Hi!', sample: "Hi! My name is …", rule: greetIntro,
-        variants: [other('Salam və adın ikisi də lazımdır.', ex("Hi! My name is …", '{M} salam verdi, sən də salam verib adını deyirsən.', 'Salam + I’m / My name is + adın.', "Hello! I'm …"))],
+        speaker: 'mascot', title: 'Özünü səslə təqdim et', why: 'Salam verdin və adını dedin.', hint: 'Əvvəl salam, sonra adın.', prompt: 'Kursda yeni yoldaşın salam verir.\nSalam ver və adını de.', audio: 'Hi!', sample: "Hi! My name is …", rule: greetIntro,
+        variants: [other('Salam və adın ikisi də lazımdır.', ex("Hi! My name is …", 'Yoldaşın salam verdi, sən də salam verib adını deyirsən.', 'Salam + I’m / My name is + adın.', "Hello! I'm …"))],
       },
     },
     {
       type: 'voice', id: 'd2_c09', number: 9, speaker: 'mascot', title: 'Nümunəsiz de', why: 'Özünü nümunəsiz təqdim etdin.', hint: 'Əvvəl salam, sonra adın.',
-      prompt: 'İndi növbə səndədir!\nSalam ver və adını de.', rule: greetIntro, reply: 'Hello!',
+      prompt: 'Kursda yeni müəllimlə tanış olursan.\nSalam ver və adını de.', rule: greetIntro, reply: 'Hello!',
       variants: [other('Salam və adın ikisi də lazımdır.', ex("Hello! I'm …", 'Tanışlıqda əvvəl salam, sonra ad gəlir.', 'Salam + I’m / My name is + adın.', 'Hi! My name is …'))],
       review: {
         speaker: 'mascot', title: 'Nümunəsiz de', why: 'Özünü nümunəsiz təqdim etdin.', hint: 'Əvvəl salam, sonra adın.', prompt: 'Yeni qrupla tanış olursan.\nSalam ver və adını de.', rule: greetIntro, reply: 'Hi!',
@@ -151,6 +151,6 @@ export const lesson2: DesignLesson = {
   },
   vocabulary: [
     { word: "I'm", translation: 'Mən …-am', example: "I'm …", exampleAz: 'Mən …-am.', usageNote: 'I am-ın qısa formasıdır.', pronunciation: '/aɪm/', teachCard: 'd2_c02' },
-    { word: 'My name is', translation: 'Mənim adım …-dır', example: 'My name is …', exampleAz: 'Mənim adım …', usageNote: 'Adını demək üçün.', pronunciation: '/maɪ neɪm ɪz/', teachCard: 'd2_c02b' },
+    { word: 'My name is', translation: 'Mənim adım …-dır', example: 'My name is …', exampleAz: 'Mənim adım …-dır.', usageNote: 'Adını demək üçün.', pronunciation: '/maɪ neɪm ɪz/', teachCard: 'd2_c02b' },
   ],
 };

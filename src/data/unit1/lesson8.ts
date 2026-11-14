@@ -32,7 +32,7 @@ export const lesson8: DesignLesson = {
         { en: 'Hi! How are you?', az: 'Salam! Necəsən?' },
         { en: "I'm fine, thanks. And you?", az: 'Yaxşıyam, sağ ol. Bəs sən?' },
         { en: "I'm OK. What's your name?", az: 'Normalam. Adın nədir?' },
-        { en: "I'm … Nice to meet you!", az: 'Mən …-am. Tanış olmağıma şadam!' },
+        { en: "I'm … Nice to meet you!", az: 'Mən …-am. Tanış olduğuma şadam!' },
       ],
       notes: ['Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən.'],
     },
@@ -54,7 +54,7 @@ export const lesson8: DesignLesson = {
       variants: [other('Halından sonra “thanks”.', ex('thanks', 'Sual verənə təşəkkür edirsən: I’m fine, thanks.', 'Halın + thanks + And you?', "I'm fine, thanks. And you?"))],
       review: {
         title: 'Sözü tamamla', why: 'Nice to meet you.', hint: 'Dərs 3-də tanışlıqda deyilən xoş sözü xatırla.', prompt: 'Oğlan tanış olur.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'Nice to', after: 'you!' }, options: ['meet', 'welcome', 'understand'], answer: 'meet',
-        variants: [other('Nice to meet you.', ex('meet', '“Nice to meet you” — Tanış olmağıma şadam.', 'Nice to meet you!', 'Nice to meet you! — You too!'))],
+        variants: [other('Nice to meet you.', ex('meet', '“Nice to meet you” — Tanış olduğuma şadam.', 'Nice to meet you!', 'Nice to meet you! — You too!'))],
       },
     },
     {
@@ -92,7 +92,7 @@ export const lesson8: DesignLesson = {
       ],
       variants: [
         { field: 'd8_c07a', match: { other: true }, explain: ex("Hi! I'm …", 'Bu mesajda salam və adın lazımdır.', 'Salam + I’m / My name is + adın.', 'Hello! My name is …') },
-        { field: 'd8_c07b', match: { other: true }, explain: ex("What's your name?", 'Bu mesajda onun adını soruşmalısan.', 'What’s your name?', "Excuse me, what's your name?") },
+        { field: 'd8_c07b', match: { other: true }, explain: ex("What's your name?", 'Bu mesajda onun adını soruşmalısan.', 'What’s your name?', "Hi! I'm … What's your name?") },
       ],
       review: {
         scenes: ['d8/online-class'],
@@ -187,7 +187,7 @@ export const lesson8: DesignLesson = {
     goals: [
       { group: 'Tanıma', text: 'Söhbətdə eşitdiyini anlamaq', tasks: ['d8_c08', 'd8_c03', 'd8_c04', 'd8_c05', 'd8_c06'] },
       { group: 'Yazı', text: 'Tanışlıq mesajları və kömək istəmək', tasks: ['d8_c07a', 'd8_c07b', 'd8_c09'] },
-      { group: 'Danışıq', text: 'Qısa söhbəti başdan sona aparmaq', tasks: ['d8_c10', 'd8_c11', 'd8_c12'] },
+      { group: 'Danışıq', text: 'Söhbətin salam, tanışlıq və sağollaşma hissələrində cavab vermək', tasks: ['d8_c10', 'd8_c11', 'd8_c12'] },
     ],
     closing: 'Növbəti bölmə: şəxsi məlumat — hərflər, rəqəmlər, yaş.', button: 'Ana səhifəyə qayıt',
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',

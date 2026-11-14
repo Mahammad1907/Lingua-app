@@ -131,12 +131,12 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 
 ## Kart 10 — Sözü tamamla: Sözü tamamla
 
-**Tapşırıq:** Kafedə çay istəyirsən. Hansı söz nəzakətlidir?  
+**Tapşırıq:** Kafedə çay istəyirsən. Hansı söz çatmır?  
 **Cümlə:** Tea, ___ .  
 **Seçimlər:** please / thanks / welcome — **düzgün:** please  
 **İpucu:** Çay istəyirsən — xahiş edəndə hansı söz deyilir?  
 **Düzgün olanda:** Xahiş edəndə “please”.  
-- *İzah (“thanks” seçiləndə):* Hələ çayı istəyirsən — bu, xahişdir. — Uyğun: please. Səbəb: Hələ çayı istəyirsən. Qayda: Tea, please — xahiş; Thanks! — təşəkkür. Nümunə: Tea, please. … Thanks!  
+- *İzah (“thanks” seçiləndə):* Hələ çayı istəyirsən — bu, xahişdir. — Uyğun: please. Səbəb: Thanks təşəkkürdür, sən isə hələ çay istəyirsən. Qayda: Tea, please — xahiş; Thanks! — təşəkkür. Nümunə: Tea, please. … Thanks!  
 - *İzah (“welcome” seçiləndə):* “welcome” təşəkkürə cavabdır. — Uyğun: please. Səbəb: Xahiş edəndə “please” deyilir. Qayda: Xahiş → please. Nümunə: Tea, please.  
 
 **Təkrar (yeni vəziyyət):**

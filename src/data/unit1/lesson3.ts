@@ -74,15 +74,15 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'word', id: 'd3_c06', number: 6, scenes: ['d3/word-nice-to-meet'],
-      word: 'Nice to meet you.', pronunciation: '/naɪs tə mit ju/', reading: 'nays tu mit yu', az: 'Tanış olmağıma şadam.',
+      word: 'Nice to meet you.', pronunciation: '/naɪs tə mit ju/', reading: 'nays tu mit yu', az: 'Tanış olduğuma şadam.',
       notes: ['Adları deyəndən sonra deyilir.'],
-      example: "I'm … Nice to meet you!", exampleAz: 'Mən …-am. Tanış olmağıma şadam!',
+      example: "I'm … Nice to meet you!", exampleAz: 'Mən …-am. Tanış olduğuma şadam!',
     },
     {
       type: 'word', id: 'd3_c06b', number: 7, scenes: ['d3/word-you-too'],
       word: 'You too.', pronunciation: '/ju tu/', reading: 'yu tu', az: 'Mən də.',
       notes: ['“Nice to meet you”ya qısa cavabdır.'],
-      example: 'Nice to meet you! — You too!', exampleAz: 'Tanış olmağıma şadam! — Mən də!',
+      example: 'Nice to meet you! — You too!', exampleAz: 'Tanış olduğuma şadam! — Mən də!',
     },
     {
       type: 'voice', id: 'd3_c07', number: 7, title: 'Dinlə və təkrarla', why: 'İfadə axıcı səsləndi.',
@@ -122,14 +122,14 @@ export const lesson3: DesignLesson = {
     {
       type: 'match', id: 'd3_c13', number: 13, title: 'Kim nə dedi?', why: 'Tanışlığın üç cümləsini tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
       prompt: 'Tanışlıq söhbəti.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olmağıma şadam.', from: 'G' }, { en: 'You too.', az: 'Mən də.', from: 'B' }],
+      rows: [{ en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'G' }, { en: 'You too.', az: 'Mən də.', from: 'B' }],
       extra: ['Hələlik!'],
-      variants: [other('Bir cümlənin mənası yerində deyil.', ex('What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam.; You too. — Mən də.', 'Əvvəl ad soruşulur, sonra xoş söz deyilir və ona cavab verilir.', 'Nice to meet you. — tanışlığın xoş sözü; You too. — ona cavab.', "What's your name? … Nice to meet you! — You too!"))],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('What’s your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam.; You too. — Mən də.', 'Əvvəl ad soruşulur, sonra xoş söz deyilir və ona cavab verilir.', 'Nice to meet you. — tanışlığın xoş sözü; You too. — ona cavab.', "What's your name? … Nice to meet you! — You too!"))],
       review: {
         title: 'Kim nə dedi?', why: 'Tanışlığın cümlələrini tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Başqa tanışlıq.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'Hi!', az: 'Salam!', from: 'G' }, { en: 'My name is …', az: 'Mənim adım …-dır.', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olmağıma şadam.', from: 'G' }],
+        rows: [{ en: 'Hi!', az: 'Salam!', from: 'G' }, { en: 'My name is …', az: 'Mənim adım …-dır.', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'G' }],
         extra: ['Mən də.'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hi! — Salam!; My name is … — Mənim adım …-dır.; Nice to meet you. — Tanış olmağıma şadam.', 'Salam, ad və xoş söz.', 'My name is … — adını demək; Nice to meet you. — xoş söz.', 'Hi! My name is … Nice to meet you!'))],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hi! — Salam!; My name is … — Mənim adım …-dır.; Nice to meet you. — Tanış olduğuma şadam.', 'Hi salam verir, My name is adını deyir, Nice to meet you isə xoş sözdür.', 'My name is … — adını demək; Nice to meet you. — xoş söz.', 'Hi! My name is … Nice to meet you!'))],
       },
     },
     {
@@ -153,7 +153,7 @@ export const lesson3: DesignLesson = {
     {
       type: 'write', id: 'd3_c12', number: 12, title: 'Söhbəti bitir', why: 'Görüşü sağollaşma ilə bitirdin.', hint: 'Dərs 1-in sağollaşma sözlərini xatırla.',
       prompt: 'Tanışlıq bitdi, gedirsən.\nSağollaş.', placeholder: 'Cavabını yaz',
-      chat: { partner: 'Qonşu qız', from: 'G', lines: [{ from: 'G', text: 'Nice to meet you!' }, { from: 'G', text: 'You too!' }] }, rule: bye,
+      chat: { partner: 'Qonşu qız', from: 'G', lines: [{ from: 'G', text: 'Nice to meet you!' }] }, rule: bye,
       variants: [
         insteadOf('greet', 'Gedirsən — salam yox, sağollaşma.', ex('Bye! / Goodbye!', 'Hello və Hi görüşü başladır, sən isə gedirsən.', 'Ayrılarkən: Bye! / Goodbye!', 'Bye!')),
         other('Sağollaşma ifadəsi yaz.', ex('Bye! / Goodbye!', 'Görüş bitir, sağollaşırsan.', 'Ayrılarkən: Bye! / Goodbye!', 'Goodbye!')),
@@ -178,7 +178,7 @@ export const lesson3: DesignLesson = {
   },
   vocabulary: [
     { word: "What's your name?", translation: 'Adın nədir?', example: "Hi! What's your name?", exampleAz: 'Salam! Adın nədir?', usageNote: 'What’s = What is.', pronunciation: '/wʌts jʊr neɪm/', teachCard: 'd3_c03' },
-    { word: 'Nice to meet you', translation: 'Tanış olmağıma şadam', example: 'Nice to meet you!', exampleAz: 'Tanış olmağıma şadam!', usageNote: 'Tanış olanda deyilir.', pronunciation: '/naɪs tə mit ju/', teachCard: 'd3_c06' },
+    { word: 'Nice to meet you', translation: 'Tanış olduğuma şadam', example: 'Nice to meet you!', exampleAz: 'Tanış olduğuma şadam!', usageNote: 'Tanış olanda deyilir.', pronunciation: '/naɪs tə mit ju/', teachCard: 'd3_c06' },
     { word: 'You too', translation: 'Mən də', example: 'You too!', exampleAz: 'Mən də!', usageNote: '“Nice to meet you”ya cavab.', pronunciation: '/ju tu/', teachCard: 'd3_c06b' },
   ],
 };

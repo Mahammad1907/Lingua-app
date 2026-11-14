@@ -114,7 +114,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 - *İzah (“Hello!” seçiləndə):* Uyğun: Bye! Səbəb: Yazışma bitir, Hello isə salamlaşmaq üçündür. Qayda: Ayrılarkən sağollaş. Nümunə: “Goodbye!”  
 - *İzah (başqa səhvdə):* Uyğun: Bye! Səbəb: Yazışma bitir, Hi isə salamlaşmaq üçündür. Qayda: Ayrılarkən sağollaş. Nümunə: “Goodbye!”  
 
-## Kart 7 — Yaz: Eşitdiyini yaz
+## Kart 8 — Yaz: Eşitdiyini yaz
 
 **Tapşırıq:** Səsi dinlə və eşitdiyin sözü yaz.  
 **Səs:** Bye!  
@@ -136,7 +136,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 - *İzah (başqa səhvdə):* Uyğun: Goodbye! Səbəb: Səsdə Goodbye deyilir, Hello və Hi yox. Qayda: Səsdə eşitdiyin sözü yaz. Nümunə: “Hello!” eşidirsənsə, “Hello” yazırsan.  
 - *İzah (başqa səhvdə):* Uyğun: Goodbye! Səbəb: Yazdığın söz səsdəki Goodbye deyil. Qayda: Səslənən sözü yaz. Nümunə: “Hi!” eşidəndə “Hi” yazılır.  
 
-## Kart 8 — Səslə cavab: Sağollaşmaya səslə cavab ver
+## Kart 9 — Səslə cavab: Sağollaşmaya səslə cavab ver
 
 **Tapşırıq:** Dostun səninlə sağollaşır. Sən də səslə sağollaş.  
 **Səs:** Goodbye!  
@@ -156,7 +156,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 - *İzah (cavab “greet” işini görəndə):* Bu ifadə salamlaşmaq üçündür. Dostun isə səninlə sağollaşır. — Uyğun: səslə Goodbye! / Bye! Səbəb: Hello və Hi görüşü başladır, dostun isə səninlə sağollaşır. Qayda: Sağollaşmaya sağollaşma ilə cavab ver. Nümunə: Qarşı tərəf “Bye!” deyir. Sən “Goodbye!” deyirsən.  
 - *İzah (başqa səhvdə):* Uyğun: səslə Goodbye! / Bye! Səbəb: Bu cavab sağollaşmaya sağollaşma ilə qarşılıq vermir. Qayda: Görüş bitəndə sağollaşma ifadəsi işlət. Nümunə: Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.  
 
-## Kart 9 — Yaz: Dostuna kömək et
+## Kart 10 — Yaz: Dostuna kömək et
 
 **Tapşırıq:** Dostun görüşü bitirib gedir, amma “Hello!” deyir. Onun yerinə uyğun sağollaşma yaz.  
 **Qəbul:** məna: farewell — nümunə: Goodbye! / Bye!  
@@ -174,7 +174,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 - *İzah (cavab “greet” işini görəndə):* Bu ifadə salamlaşmaq üçündür. Burada görüş bitir və sağollaşmaq lazımdır. — Uyğun: Goodbye! / Bye! Səbəb: Dostun gedir, salam isə görüşü bitirmir. Qayda: Görüşün sonunda sağollaş. Nümunə: Tanışınla söhbəti bitirirsən: “Bye!”  
 - *İzah (başqa səhvdə):* Uyğun: Goodbye! / Bye! Səbəb: Yazdığın söz sağollaşma deyil. Qayda: İfadəni vəziyyətin başlanmasına və ya bitməsinə uyğun seç. Nümunə: Dostun qapıdan çıxarkən “Goodbye!” deyir.  
 
-## Kart 10 — İki mesaj yaz: İki mesajı özün yaz
+## Kart 11 — İki mesaj yaz: İki mesajı özün yaz
 
 **Tapşırıq:** Bir tanışınla qısa görüşün var. İki qısa mesaj yaz: 1. Görüşə başlayarkən deyəcəyin salam. 2. Ayrılarkən deyəcəyin sağollaşma.  
 **Görüşün əvvəlində:** məna: greet — nümunə: Hello! / Hi!  
@@ -198,7 +198,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 - *İzah (“Görüşün sonunda” sahəsində cavab “greet” işini görəndə):* Birinci mesaj uyğundur. İkinci mesajda görüşü bitirən ifadə lazımdır. — Uyğun: Goodbye! / Bye! Səbəb: İkinci sahədə ayrılırsan, Hello və Hi isə görüşü başladır. Qayda: Görüşün sonunda sağollaşma yaz. Nümunə: Söhbət bitir: “Goodbye!”  
 - *İzah (başqa səhvdə):* Uyğun: Başlanğıc üçün Hello! / Hi!; son üçün Goodbye! / Bye! Səbəb: Bu mesaj görüşün bu anına uyğun deyil. Qayda: Hər mesajı görüşün həmin anına uyğun yaz. Nümunə: Əvvəl “Hello!”, ayrılarkən “Goodbye!”  
 
-## Kart 11 — Səslə cavab: Salamı sən başlat
+## Kart 12 — Səslə cavab: Salamı sən başlat
 
 **Tapşırıq:** Dostunu görürsən. Salamı sən başlat.  
 **Qəbul:** məna: greet — nümunə: Hello! / Hi!  
@@ -216,7 +216,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 - *İzah (cavab “farewell” işini görəndə):* Uyğun: səslə Hello! / Hi! Səbəb: Yeni qarşılaşırsan, sağollaşma isə görüşü bitirir. Qayda: Yeni görüşü salamla başlat. Nümunə: Dostunu görürsən və “Hello!” deyirsən.  
 - *İzah (başqa səhvdə):* Uyğun: səslə Hello! / Hi! Səbəb: Dediyin söz salam deyil. Qayda: Qarşı tərəfə salam ifadəsi de. Nümunə: Yeni görüşdə əvvəl sən “Hi!” deyirsən.  
 
-## Kart 11 — Səslə cavab: Sağollaşmanı sən başlat
+## Kart 13 — Səslə cavab: Sağollaşmanı sən başlat
 
 **Tapşırıq:** Bir az sonra görüş bitir. Dostundan ayrılırsan, sağollaş.  
 **Qəbul:** məna: farewell — nümunə: Goodbye! / Bye!  
