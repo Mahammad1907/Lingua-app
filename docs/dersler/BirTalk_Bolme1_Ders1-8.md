@@ -70,7 +70,7 @@ Qeyd: Hi daha qeyri-rəsmidir.
 **Qəbul:** məna: greet — nümunə: Hello! / Hi!  
 **İpucu:** Dərsin əvvəlindəki salam sözlərindən birini yaz.  
 **Düzgün olanda:** Hello və Hi görüşü başladır.  
-- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Bye və Goodbye görüşü bitirir, sən isə tanışınla yeni qarşılaşmısan. Qayda: Görüşü salamla başlat. Nümunə: Tanışını məktəbin qarşısında görürsən: “Hi!”  
+- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan. Qayda: Görüşü salamla başlat. Nümunə: Tanışını məktəbin qarşısında görürsən: “Hi!”  
 - *İzah (başqa səhvdə):* Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz salam deyil. Qayda: Cavab qarşı tərəfə salam verməlidir. Nümunə: Qonşunla qarşılaşırsan: “Hello!”  
 
 **Təkrar (yeni vəziyyət):**
@@ -80,7 +80,7 @@ Qeyd: Hi daha qeyri-rəsmidir.
 **Qəbul:** məna: greet — nümunə: Hello! / Hi!  
 **İpucu:** Dərsin əvvəlindəki salam sözlərindən birini yaz.  
 **Düzgün olanda:** Hello və Hi görüşü başladır.  
-- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Bye və Goodbye görüşü bitirir, sən isə tanışınla yeni qarşılaşmısan. Qayda: Görüşü salamla başlat. Nümunə: “Hello!” ilə salamlaş.  
+- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan. Qayda: Görüşü salamla başlat. Nümunə: “Hello!” ilə salamlaş.  
 - *İzah (başqa səhvdə):* Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz salam deyil. Qayda: Cavab qarşı tərəfə salam verməlidir. Nümunə: “Hello!” ilə salamlaş.  
 
 ## Kart 5 — Səslə cavab: Salama səslə cavab ver
@@ -131,7 +131,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 **Tapşırıq:** Yazışmanız bitir. Hansı mesaj uyğundur?  
 **Seçimlər:** Hi! / Bye! / Hello! — **düzgün:** Bye!  
 **İpucu:** Yazışma bitir — hansı mesaj sağollaşmadır?  
-**Düzgün olanda:** Bye görüşü bitirir.  
+**Düzgün olanda:** Bye yazışmanı bitirir.  
 - *İzah (“Hello!” seçiləndə):* Uyğun: Bye! Səbəb: Yazışma bitir, Hello isə salamlaşmaq üçündür. Qayda: Ayrılarkən sağollaş. Nümunə: “Goodbye!”  
 - *İzah (başqa səhvdə):* Uyğun: Bye! Səbəb: Yazışma bitir, Hi isə salamlaşmaq üçündür. Qayda: Ayrılarkən sağollaş. Nümunə: “Goodbye!”  
 
@@ -165,7 +165,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 **İpucu:** Gedən adama sağollaşma ilə cavab ver.  
 **Düzgün olanda:** Sağollaşmaya sağollaşma ilə cavab verdin.  
 - *İzah (cavab “greet” işini görəndə):* Bu ifadə salamlaşmaq üçündür. Dostun isə səninlə sağollaşır. — Uyğun: səslə Goodbye! / Bye! Səbəb: Hello və Hi görüşü başladır, dostun isə səninlə sağollaşır. Qayda: Sağollaşmaya sağollaşma ilə cavab ver. Nümunə: Qarşı tərəf “Bye!” deyir. Sən “Goodbye!” deyirsən.  
-- *İzah (başqa səhvdə):* Uyğun: səslə Goodbye! / Bye! Səbəb: Bu cavab görüşü bitirən qarşılıq vermir. Qayda: Görüş bitəndə sağollaşma ifadəsi işlət. Nümunə: Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.  
+- *İzah (başqa səhvdə):* Uyğun: səslə Goodbye! / Bye! Səbəb: Bu cavab sağollaşmaya sağollaşma ilə qarşılıq vermir. Qayda: Görüş bitəndə sağollaşma ifadəsi işlət. Nümunə: Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -175,7 +175,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 **İpucu:** Gedən adama sağollaşma ilə cavab ver.  
 **Düzgün olanda:** Sağollaşmaya sağollaşma ilə cavab verdin.  
 - *İzah (cavab “greet” işini görəndə):* Bu ifadə salamlaşmaq üçündür. Dostun isə səninlə sağollaşır. — Uyğun: səslə Goodbye! / Bye! Səbəb: Hello və Hi görüşü başladır, dostun isə səninlə sağollaşır. Qayda: Sağollaşmaya sağollaşma ilə cavab ver. Nümunə: Qarşı tərəf “Bye!” deyir. Sən “Goodbye!” deyirsən.  
-- *İzah (başqa səhvdə):* Uyğun: səslə Goodbye! / Bye! Səbəb: Bu cavab görüşü bitirən qarşılıq vermir. Qayda: Görüş bitəndə sağollaşma ifadəsi işlət. Nümunə: Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.  
+- *İzah (başqa səhvdə):* Uyğun: səslə Goodbye! / Bye! Səbəb: Bu cavab sağollaşmaya sağollaşma ilə qarşılıq vermir. Qayda: Görüş bitəndə sağollaşma ifadəsi işlət. Nümunə: Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.  
 
 ## Kart 9 — Yaz: Dostuna kömək et
 
@@ -282,7 +282,6 @@ Növbəti dərsdə bu ifadələri yeni vəziyyətlərdə istifadə edəcəyik.
 | Goodbye | Görüşənədək | Goodbye! — Görüşənədək! |
 | Bye | Hələlik | Bye! — Hələlik! |
 
-
 ---
 
 # Dərs 2 — Adını de
@@ -347,14 +346,14 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Seçimlər:** am / is / my — **düzgün:** am  
 **İpucu:** “I’m” iki sözün qısa formasıdır — ikinci söz hansıdır?  
 **Düzgün olanda:** “I” ilə “am” gəlir.  
-- *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: “I” (mən) sözündən sonra “am” işlənir. Qayda: I am = I’m. Nümunə: I'm …  
+- *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: “I” (mən) sözündən sonra “am” işlənir. Qayda: I ilə is demirik: I am … → I’m … Nümunə: I'm …  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Oğlan özünü təqdim edir. Cümləsində hansı söz çatmır?  
 **Cümlə:** Hello! I ___ …  
 **Seçimlər:** am / is / my — **düzgün:** am  
-**İpucu:** Azərbaycanca “Mən …-am” deyirik, ingiliscə “-am” ayrıca sözdür.  
+**İpucu:** Azərbaycancada şəkilçi olan hissə ingiliscə I-dan sonra ayrıca söz kimi gəlir.  
 **Düzgün olanda:** “I” ilə “am” gəlir.  
 - *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: I ilə is və my demirik, I ilə am gəlir. Qayda: I + am → I'm. Nümunə: Hello! I'm …  
 
@@ -369,12 +368,12 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İndi qısa formanı seç. Hansı cümlə düzgündür?  
-**Seçimlər:** I'm … / I … / I is … — **düzgün:** I'm …  
-**İpucu:** “I” ilə hansı söz birləşib qısa forma yaradır?  
-**Düzgün olanda:** I’m — I am-ın qısa formasıdır.  
-- *İzah (“I …” seçiləndə):* “am” buraxılıb. — Uyğun: I'm … (I am …). Səbəb: “I …” cümləsində am yoxdur, I’m isə I am-ın qısa formasıdır. Qayda: I'm / I am + adın. Nümunə: I'm …  
-- *İzah (“I is …” seçiləndə):* “I” ilə “am” işlənir. — Uyğun: I'm … Səbəb: I ilə is demirik, I’m isə I am-ın qısa formasıdır. Qayda: I + am → I'm. Nümunə: Hello! I'm …  
+**Tapşırıq:** Qonşun adını demək istəyir. Hansı cümlə düzgündür?  
+**Seçimlər:** I name is … / My name … / My name is … — **düzgün:** My name is …  
+**İpucu:** Azərbaycanca “adım …-dır” deyirik, ingiliscə “-dır” ayrıca sözdür.  
+**Düzgün olanda:** İngiliscə “is” ayrıca söz kimi deyilir.  
+- *İzah (“My name …” seçiləndə):* “is” buraxılıb. — Uyğun: My name is … Səbəb: Azərbaycancada -dır şəkilçidir, ingiliscə is isə ayrıca sözdür. Qayda: My name is … — düzgün; My name … — is çatmır. Nümunə: Hi! My name is …  
+- *İzah (“I name is …” seçiləndə):* “I” yox, “My” lazımdır. — Uyğun: My name is … Səbəb: “I” — mən, “my” — mənim deməkdir, ad isə “mənim adım”dır. Qayda: My name is … — mənim adım; I’m … — mən …-am. Nümunə: Hello! My name is …  
 
 ## Kart 7 — Kim nə dedi?: Kim nə dedi?
 
@@ -382,7 +381,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Cütlər:** Hi! — Salam!; I'm … — Mən …-am.; Bye! — Hələlik! · artıq: Sağ ol!  
 **İpucu:** Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.  
 **Düzgün olanda:** Salam, sağollaşma və ad — hər biri öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hi! — Salam!; I’m … — Mən …-am.; Bye! — Hələlik! Səbəb: Hi görüşü başladır, Bye bitirir, I’m adını deyir. Qayda: Əvvəl salam, sonra ad; sonda sağollaşma. Nümunə: Hi! I’m … Bye!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hi! — Salam!; I’m … — Mən …-am.; Bye! — Hələlik! Səbəb: Hi görüşü başladır, Bye bitirir, I’m adını deyir. Qayda: Hi! — görüşün əvvəli; Bye! — görüşün sonu. Nümunə: Hi! I’m … Bye!  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -390,7 +389,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Cütlər:** Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək! · artıq: Necəsən?  
 **İpucu:** Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.  
 **Düzgün olanda:** Salam, sağollaşma və ad — hər biri öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək! Səbəb: Hello görüşü başladır, Goodbye bitirir, My name is adını deyir. Qayda: Əvvəl salam, sonra ad; sonda sağollaşma. Nümunə: Hello! My name is …  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək! Səbəb: Hello görüşü başladır, Goodbye bitirir, My name is adını deyir. Qayda: Hello! — görüşün əvvəli; Goodbye! — görüşün sonu. Nümunə: Hello! My name is …  
 
 ## Kart 8 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -406,7 +405,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Səs:** Hello! I'm  
 **Qəbul:** dəqiq: Hello! I'm  
 **Düzgün olanda:** Qısa forma düzgün səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Hello! I'm. Səbəb: Səsdə I’m qısa formadadır və bir heca kimi deyilir. Qayda: I’m = /aɪm/. Nümunə: Hello! I'm …  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Hello! I'm. Səbəb: Səsdə I’m qısa formadadır və bir heca kimi deyilir. Qayda: I’m — “aym”, bir heca; I am — iki heca. Nümunə: Hello! I'm …  
 
 ## Kart 9 — Dialoqu tamamla: Dialoqu tamamla
 
@@ -445,7 +444,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 
 ## Kart 11 — Yaz: Adını yaz
 
-**Tapşırıq:** Qeydiyyatda soruşurlar: “Kimsən?” Adını ingiliscə cümlə ilə yaz.  
+**Tapşırıq:** Qeydiyyatda adını soruşurlar. Adını ingiliscə cümlə ilə yaz.  
 **Qəbul:** məna: introduce — nümunə: I'm … / My name is …  
 **İpucu:** Bu dərsin iki formasından birini işlət, sonuna öz adını yaz.  
 **Düzgün olanda:** Qısa və düzgün təqdimat.  
@@ -476,7 +475,6 @@ Növbəti dərsdə başqasının adını soruşacaqsan.
 | I'm | Mən …-am | I'm … — Mən …-am. |
 | My name is | Mənim adım …-dır | My name is … — Mənim adım … |
 
-
 ---
 
 # Dərs 3 — Adını soruş
@@ -488,7 +486,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson3.ts`-dən yarad
 İndi başqasının adını öyrənirsən.
 
 - Başqasının adını soruşa bilirəm.
-- Tanış olanda “Nice to meet you” deyir, ona “You too” ilə cavab verirəm.
+- Biri “Nice to meet you” deyəndə “You too” ilə cavab verirəm.
 
 ## Kart 2 — Seç: Oxu və anla
 
@@ -580,7 +578,7 @@ Qeyd: Adları deyəndən sonra deyilir.
 **Səs:** What's your name?  
 **Qəbul:** dəqiq: What's your name  
 **Düzgün olanda:** Sual axıcı səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: What's your name? Səbəb: “What’s” bir hecadır: /wʌts/. Qayda: Vurğu “name” sözünə düşür. Nümunə: What's your NAME?  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: What's your name? Səbəb: “What’s” bir hecadır: “uats”. Qayda: Vurğu “name” sözünə düşür. Nümunə: What's your NAME?  
 
 ## Kart 8 — Yeni söz
 
@@ -598,7 +596,7 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 **Cütlər:** What's your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam.; You too. — Mən də. · artıq: Hələlik!  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Tanışlığın üç cümləsini tanıdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam.; You too. — Mən də. Səbəb: Əvvəl ad soruşulur, sonra xoş söz deyilir və ona cavab verilir. Qayda: Mənaya görə qoş. Nümunə: What's your name? … Nice to meet you! — You too!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam.; You too. — Mən də. Səbəb: Əvvəl ad soruşulur, sonra xoş söz deyilir və ona cavab verilir. Qayda: Nice to meet you. — tanışlığın xoş sözü; You too. — ona cavab. Nümunə: What's your name? … Nice to meet you! — You too!  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -606,11 +604,11 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 **Cütlər:** Hi! — Salam!; My name is … — Mənim adım …-dır.; Nice to meet you. — Tanış olmağıma şadam. · artıq: Mən də.  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Tanışlığın cümlələrini tanıdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hi! — Salam!; My name is … — Mənim adım …-dır.; Nice to meet you. — Tanış olmağıma şadam. Səbəb: Salam, ad və xoş söz. Qayda: Mənaya görə qoş. Nümunə: Hi! My name is … Nice to meet you!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hi! — Salam!; My name is … — Mənim adım …-dır.; Nice to meet you. — Tanış olmağıma şadam. Səbəb: Salam, ad və xoş söz. Qayda: My name is … — adını demək; Nice to meet you. — xoş söz. Nümunə: Hi! My name is … Nice to meet you!  
 
 ## Kart 10 — Səslə cavab: Adını soruş
 
-**Tapşırıq:** Dostun səninlə tanış olur. Onun adını soruş.  
+**Tapşırıq:** Yeni tanışın deyir: “Hi!” Onun adını soruş.  
 **Qəbul:** məna: askName — nümunə: What's your name?  
 **İpucu:** Bu dərsin əvvəlində öyrəndiyin sualı xatırla.  
 **Düzgün olanda:** Adı düzgün soruşdun.  
@@ -662,7 +660,7 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 
 ## Kart 13 — Səslə cavab: Tanışlığa cavab ver
 
-**Tapşırıq:** Dostun deyir: “Nice to meet you!” Cavab ver.  
+**Tapşırıq:** Yeni tanışın deyir: “Nice to meet you!” Cavab ver.  
 **Səs:** Nice to meet you!  
 **Qəbul:** məna: meet — nümunə: You too! / Nice to meet you too!  
 **İpucu:** Xoş sözə “Mən də” mənasında qısa cavab ver.  
@@ -690,7 +688,7 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Dərs bitdi, evə gedirsən. Yoldaşınla sağollaş.  
+**Tapşırıq:** Məşq bitdi, evə gedirsən. Zal yoldaşınla sağollaş.  
 **Yazışma (Zal yoldaşı):** “Bye!”  
 **Qəbul:** məna: farewell — nümunə: Bye! / Goodbye!  
 **İpucu:** Dərs 1-in sağollaşma sözlərini xatırla.  
@@ -715,7 +713,6 @@ Növbəti dərsdə “Necəsən?” soruşacaqsan.
 | Nice to meet you | Tanış olmağıma şadam | Nice to meet you! — Tanış olmağıma şadam! |
 | You too | Mən də | You too! — Mən də! |
 
-
 ---
 
 # Dərs 4 — Necəsən?
@@ -727,7 +724,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson4.ts`-dən yarad
 Salamdan sonra hal soruşulur.
 
 - Necə olduğunu soruşa bilirəm.
-- Halımı deyib “And you?” ilə qaytarıram.
+- Halımı deyib sualı “And you?” ilə qaytarıram.
 
 ## Kart 2 — Yeni söz
 
@@ -745,7 +742,7 @@ Qeyd: Salamdan sonra soruşulur.
 **Cütlər:** Hello! — Salam!; What's your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam. · artıq: Hələlik!  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Keçən dərslərin ifadələrini xatırladın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam. Səbəb: Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir. Qayda: Salam → ad → Nice to meet you. Nümunə: Hi! What’s your name? … Nice to meet you!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam. Səbəb: Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir. Qayda: What’s your name? — ad sualı; Nice to meet you. — xoş söz. Nümunə: Hi! What’s your name? … Nice to meet you!  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -753,13 +750,13 @@ Qeyd: Salamdan sonra soruşulur.
 **Cütlər:** You too! — Mən də!; I'm … — Mən …-am.; Goodbye! — Görüşənədək! · artıq: Adın nədir?  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Keçən dərslərin ifadələrini xatırladın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: You too! — Mən də!; I’m … — Mən …-am.; Goodbye! — Görüşənədək! Səbəb: Hər ifadənin öz işi var: cavab, ad, sağollaşma. Qayda: Mənaya görə qoş. Nümunə: Nice to meet you! — You too!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: You too! — Mən də!; I’m … — Mən …-am.; Goodbye! — Görüşənədək! Səbəb: Hər ifadənin öz işi var: cavab, ad, sağollaşma. Qayda: You too! — xoş sözə cavab; Goodbye! — sağollaşma. Nümunə: Nice to meet you! — You too!  
 
 ## Kart 4 — Yeni söz
 
 **I'm fine, thanks. And you?** — Yaxşıyam, sağ ol. Bəs sən?
 
-Oxunuşu: aym fayn, **th**enks. end yu? · IPA: /aɪm faɪn θæŋks ænd ju/
+Oxunuşu: aym fayn, **th**ənks. ənd yu? · IPA: /aɪm faɪn θæŋks ænd ju/
 
 Nümunə: **How are you? — I'm fine, thanks. And you?** — Necəsən? — Yaxşıyam, sağ ol. Bəs sən?
 
@@ -772,7 +769,7 @@ Qeyd: th — dilin ucu dişlərin arasında.
 **Seçimlər:** is / am / are — **düzgün:** am  
 **İpucu:** “I’m” iki sözün qısa formasıdır — ikinci söz hansıdır?  
 **Düzgün olanda:** “I” ilə “am” gəlir.  
-- *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: “Mən yaxşıyam” — “-am” ingiliscə ayrıca “am” sözüdür. Qayda: I am fine = I’m fine. Nümunə: I'm fine, thanks.  
+- *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: “Mən yaxşıyam” — “-am” ingiliscə ayrıca “am” sözüdür. Qayda: I ilə is demirik: I am fine → I’m fine. Nümunə: I'm fine, thanks.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -810,13 +807,13 @@ Qeyd: not am-dan sonra gəlir: I am not → I’m not.
 **Seçimlər:** Çox yaxşı deyil. / Yaxşıdır. / Sağollaşır. — **düzgün:** Yaxşıdır.  
 **İpucu:** Səsdə “not” sözü varmı, ona qulaq as.  
 **Düzgün olanda:** “fine” — yaxşı.  
-- *İzah (başqa səhvdə):* Səsdə “fine” deyilir. — Uyğun: Yaxşıdır. Səbəb: “I’m fine, thanks” — “Yaxşıyam, sağ ol” deməkdir, burada “not” yoxdur. Qayda: fine = yaxşı. Nümunə: I’m fine, thanks.  
+- *İzah (başqa səhvdə):* Səsdə “fine” deyilir. — Uyğun: Yaxşıdır. Səbəb: “I’m fine, thanks” — “Yaxşıyam, sağ ol” deməkdir, burada “not” yoxdur. Qayda: I’m fine — Yaxşıyam; I’m not very well — Çox yaxşı deyiləm. Nümunə: I’m fine, thanks.  
 
 ## Kart 8 — Yeni söz
 
 **I'm OK.** — Normalam.
 
-Oxunuşu: aym okey · IPA: /aɪm oʊˈkeɪ/
+Oxunuşu: aym oukey · IPA: /aɪm oʊˈkeɪ/
 
 Nümunə: **How are you? — I'm OK.** — Necəsən? — Normalam.
 
@@ -848,7 +845,7 @@ Qeyd: “I'm fine” ilə yaxındır.
 **Düzgün sıra:** 1. Hi! How are you? → 2. I'm fine, thanks. And you? → 3. I'm OK. Bye!  
 **İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
 **Düzgün olanda:** Söhbət sualla başladı, cavab və qayıdan sual gəldi.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye! Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye! Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: How are you? — sual; I’m fine, thanks. And you? — cavab və qayıdan sual. Nümunə: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -856,7 +853,7 @@ Qeyd: “I'm fine” ilə yaxındır.
 **Düzgün sıra:** 1. Hello! How are you? → 2. I'm not very well. And you? → 3. I'm fine, thanks.  
 **İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
 **Düzgün olanda:** Sual, cavab və ona reaksiya düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! How are you? → I'm not very well. And you? → I'm fine, thanks. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hello! How are you? → I'm not very well. And you? → I'm fine, thanks.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! How are you? → I'm not very well. And you? → I'm fine, thanks. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: How are you? — sual; I’m not very well. And you? — cavab və qayıdan sual. Nümunə: Hello! How are you? → I'm not very well. And you? → I'm fine, thanks.  
 
 ## Kart 11 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -864,7 +861,7 @@ Qeyd: “I'm fine” ilə yaxındır.
 **Səs:** I'm fine, thanks.  
 **Qəbul:** dəqiq: I'm fine thanks  
 **Düzgün olanda:** Cavab axıcı səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: I'm fine, thanks. Səbəb: “thanks” “tenks” kimi yox, dil dişlərin arasında deyilir. Qayda: th = /θ/. Nümunə: I'm FINE, thanks.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: I'm fine, thanks. Səbəb: “thanks” “tenks” kimi yox, dil dişlərin arasında deyilir. Qayda: th — dilin ucu dişlərin arasında: “tenks” yox, thanks. Nümunə: I'm fine, thanks.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -912,7 +909,7 @@ Qeyd: “I'm fine” ilə yaxındır.
 
 ## Kart 14 — Səslə cavab: Tanışlıq və hal
 
-**Tapşırıq:** Dostun deyir: “Nice to meet you! How are you?” İkisinə də cavab ver.  
+**Tapşırıq:** Yeni tanışın deyir: “Nice to meet you! How are you?” İkisinə də cavab ver.  
 **Səs:** Nice to meet you! How are you?  
 **Qəbul:** məna: meet + feeling — nümunə: You too! I'm fine, thanks. / Nice to meet you too! I'm OK.  
 **İpucu:** Xoş sözə və suala ayrıca cavab ver.  
@@ -948,7 +945,6 @@ Növbəti dərsdə təşəkkür etməyi öyrənəcəksən.
 | I'm not very well | Çox yaxşı deyiləm | I'm not very well. — Çox yaxşı deyiləm. |
 | I'm OK | Normalam | How are you? — I'm OK. — Necəsən? — Normalam. |
 
-
 ---
 
 # Dərs 5 — Təşəkkür və xahiş
@@ -960,7 +956,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson5.ts`-dən yarad
 Nəzakət sözləri söhbəti yumşaldır.
 
 - Təşəkkür edə və təşəkkürə cavab verə bilirəm.
-- Xahiş edəndə “please” deyirəm.
+- Xahiş edəndə “please” sözünü seçə bilirəm.
 
 ## Kart 2 — Seç: Dinlə və anla
 
@@ -970,7 +966,7 @@ Nəzakət sözləri söhbəti yumşaldır.
 **İpucu:** Sualın ilk sözünə qulaq as.  
 **Düzgün olanda:** How are you? — Necəsən?  
 - *İzah (“Adını soruşur.” seçiləndə):* Ad sualı “What’s your name?”dir. — Uyğun: Halını soruşur. Səbəb: Səsdə “How are you?” deyilir — “Necəsən?”. Qayda: How are you? — hal; What’s your name? — ad. Nümunə: How are you? — I’m fine.  
-- *İzah (“Sağollaşır.” seçiləndə):* Bu sualdır, sağollaşma yox. — Uyğun: Halını soruşur. Səbəb: “How are you?” sualdır — “Necəsən?”. Qayda: How are you? = Necəsən? Nümunə: Hi! How are you?  
+- *İzah (“Sağollaşır.” seçiləndə):* Bu sualdır, sağollaşma yox. — Uyğun: Halını soruşur. Səbəb: “How are you?” sualdır — “Necəsən?”. Qayda: How are you? — hal; Bye! — sağollaşma. Nümunə: Hi! How are you?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -979,13 +975,13 @@ Nəzakət sözləri söhbəti yumşaldır.
 **Seçimlər:** Halını soruşur. / Sağollaşır. / Adını soruşur. — **düzgün:** Adını soruşur.  
 **İpucu:** Sualın ilk sözünə qulaq as.  
 **Düzgün olanda:** What’s your name? — Adın nədir?  
-- *İzah (başqa səhvdə):* “name” sözünə qulaq as. — Uyğun: Adını soruşur. Səbəb: Səsdə “What’s your name?” deyilir — “Adın nədir?”. Qayda: name = ad. Nümunə: What's your name? — I'm …  
+- *İzah (başqa səhvdə):* “name” sözünə qulaq as. — Uyğun: Adını soruşur. Səbəb: Səsdə “What’s your name?” deyilir — “Adın nədir?”. Qayda: What’s your name? — ad; How are you? — hal. Nümunə: What's your name? — I'm …  
 
 ## Kart 3 — Yeni söz
 
 **Thank you! · Thanks!** — Təşəkkür edirəm! · Sağ ol!
 
-Oxunuşu: **th**enk yu · **th**enks · IPA: /θæŋk ju/ · /θæŋks/
+Oxunuşu: **th**ənk yu · **th**ənks · IPA: /θæŋk ju/ · /θæŋks/
 
 Nümunə: **Thanks! Bye!** — Sağ ol! Hələlik!
 
@@ -997,7 +993,7 @@ Qeyd: Thanks daha qısa və qeyri-rəsmidir.
 **Səs:** Thank you.  
 **Qəbul:** dəqiq: Thank you  
 **Düzgün olanda:** “th” səsi alındı.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Thank you. Səbəb: “th” Azərbaycan dilində yoxdur, dili dişlərin arasına qoyub üfür. Qayda: th = /θ/. Nümunə: THANK you.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Thank you. Səbəb: “th” Azərbaycan dilində yoxdur, dili dişlərin arasına qoyub üfür. Qayda: th — dilin ucu dişlərin arasında: “tenk yu” yox, thank you. Nümunə: THANK you.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -1005,7 +1001,7 @@ Qeyd: Thanks daha qısa və qeyri-rəsmidir.
 **Səs:** Thanks!  
 **Qəbul:** dəqiq: Thanks  
 **Düzgün olanda:** “th” səsi alındı.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Thanks! Səbəb: “th” — dil dişlərin arasında. Qayda: th = /θ/. Nümunə: THANKS!  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Thanks! Səbəb: “th” — dil dişlərin arasında. Qayda: th — dilin ucu dişlərin arasında: “tenks” yox, thanks. Nümunə: THANKS!  
 
 ## Kart 5 — Yeni söz
 
@@ -1054,8 +1050,8 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 **Cütlər:** Thank you! — Təşəkkür edirəm!; You're welcome. — Dəyməz.; Please. — Zəhmət olmasa. · artıq: Bağışla.  
 **İpucu:** Hər söz nə vaxt deyilir: kömək alanda, kömək edəndə, yoxsa xahiş edəndə?  
 **Düzgün olanda:** Üç nəzakət sözü öz yerində.  
-- *İzah (“Please.” seçiləndə):* “Please” — zəhmət olmasa. — Uyğun: Please. — Zəhmət olmasa. Səbəb: “Please” xahiş edəndə deyilir, təşəkkürə cavab isə “You’re welcome”dur. Qayda: Please — xahiş, You’re welcome — təşəkkürə cavab. Nümunə: Thank you! — You're welcome.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; Please. — Zəhmət olmasa. Səbəb: Hər nəzakət sözünün öz işi var. Qayda: Təşəkkür, cavab, xahiş. Nümunə: Thanks! — You're welcome.  
+- *İzah (“Please.” seçiləndə):* “Please” — zəhmət olmasa. — Uyğun: Please. — Zəhmət olmasa. Səbəb: “Please” xahiş edəndə deyilir, təşəkkürə cavab isə “You’re welcome”dur. Qayda: Please — xahiş; You’re welcome — təşəkkürə cavab. Nümunə: Thank you! — You're welcome.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; Please. — Zəhmət olmasa. Səbəb: Hər nəzakət sözünün öz işi var. Qayda: Thank you! — təşəkkür; You’re welcome. — təşəkkürə cavab. Nümunə: Thanks! — You're welcome.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -1063,7 +1059,7 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 **Cütlər:** Thanks! — Sağ ol!; How are you? — Necəsən?; You're welcome. — Dəyməz. · artıq: Mən də!  
 **İpucu:** Hər cümlə nə vaxt deyilir: kömək alanda, kömək edəndə, yoxsa hal soruşanda?  
 **Düzgün olanda:** Hər cümlə öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thanks! — Sağ ol!; How are you? — Necəsən?; You’re welcome. — Dəyməz. Səbəb: Təşəkkür, sual və cavab fərqli işlərdir. Qayda: Mənaya görə qoş. Nümunə: Thanks! — You're welcome.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thanks! — Sağ ol!; How are you? — Necəsən?; You’re welcome. — Dəyməz. Səbəb: Təşəkkür, sual və cavab fərqli işlərdir. Qayda: Thanks! — təşəkkür; How are you? — hal sualı. Nümunə: Thanks! — You're welcome.  
 
 ## Kart 9 — Seç: Cavabı seç
 
@@ -1127,7 +1123,7 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 **Cütlər:** Thank you! — You're welcome.; How are you? — I'm fine, thanks.; Nice to meet you. — You too. · artıq: Please.  
 **İpucu:** Hər cümləyə uyğun cavabı tap, bir cavab artıqdır.  
 **Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: Thank you! — You're welcome.; How are you? — I'm fine, thanks.; Nice to meet you. — You too. Səbəb: Təşəkkürə, suala və xoş sözə fərqli cavab verilir. Qayda: Deyilənə uyğun cavab. Nümunə: Thank you! — You're welcome.  
+- *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: Thank you! — You're welcome.; How are you? — I'm fine, thanks.; Nice to meet you. — You too. Səbəb: Təşəkkürə, suala və xoş sözə fərqli cavab verilir. Qayda: Thank you! → You’re welcome; Nice to meet you. → You too. Nümunə: Thank you! — You're welcome.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -1135,7 +1131,7 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 **Cütlər:** Thanks! — You're welcome.; What's your name? — I'm …; Hello! — Hi! · artıq: Please.  
 **İpucu:** Hər cümləyə uyğun cavabı tap, bir cavab artıqdır.  
 **Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: Thanks! — You're welcome.; What's your name? — I'm …; Hello! — Hi! Səbəb: Təşəkkürə, ad sualına və salama fərqli cavab verilir. Qayda: Deyilənə uyğun cavab. Nümunə: Thanks! — You're welcome.  
+- *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: Thanks! — You're welcome.; What's your name? — I'm …; Hello! — Hi! Səbəb: Təşəkkürə, ad sualına və salama fərqli cavab verilir. Qayda: Thanks! → You’re welcome; What’s your name? → I’m … Nümunə: Thanks! — You're welcome.  
 
 ## Kart 13 — Səslə cavab: Nümunəsiz təşəkkür et
 
@@ -1191,7 +1187,6 @@ Növbəti dərsdə üzr istəməyi öyrənəcəksən.
 | You're welcome | Dəyməz | Thank you! — You're welcome. — Təşəkkür edirəm! — Dəyməz. |
 | please | zəhmət olmasa | Tea, please. — Çay, zəhmət olmasa. |
 
-
 ---
 
 # Dərs 6 — Bağışlayın, üzr
@@ -1221,7 +1216,7 @@ Qeyd: Sual verməzdən əvvəl diqqəti çəkmək üçün.
 **Cütlər:** Thank you! — Təşəkkür edirəm!; You're welcome. — Dəyməz.; How are you? — Necəsən? · artıq: Zəhmət olmasa.  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Keçən dərslərin ifadələrini xatırladın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; How are you? — Necəsən? Səbəb: Təşəkkür, ona cavab və hal sualı — üç ayrı iş. Qayda: Mənaya görə qoş. Nümunə: Thank you! — You're welcome.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; How are you? — Necəsən? Səbəb: Təşəkkür, ona cavab və hal sualı — üç ayrı iş. Qayda: Thank you! — təşəkkür; You’re welcome. — təşəkkürə cavab. Nümunə: Thank you! — You're welcome.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -1229,7 +1224,7 @@ Qeyd: Sual verməzdən əvvəl diqqəti çəkmək üçün.
 **Cütlər:** Excuse me — Bağışlayın (diqqət); Sorry! — Bağışlayın (səhv); No problem. — Eybi yox. · artıq: Dəyməz.  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Bu dərsin ifadələrini xatırladın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Excuse me — Bağışlayın (diqqət); Sorry! — Bağışlayın (səhv); No problem. — Eybi yox. Səbəb: “Excuse me” diqqəti çəkir, “Sorry” üzrdür, “No problem” üzrə cavabdır. Qayda: Mənaya görə qoş. Nümunə: Sorry! — No problem.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Excuse me — Bağışlayın (diqqət); Sorry! — Bağışlayın (səhv); No problem. — Eybi yox. Səbəb: “Excuse me” diqqəti çəkir, “Sorry” üzrdür, “No problem” üzrə cavabdır. Qayda: Excuse me — diqqət; Sorry! — səhv. Nümunə: Sorry! — No problem.  
 
 ## Kart 4 — Yeni söz
 
@@ -1237,18 +1232,18 @@ Qeyd: Sual verməzdən əvvəl diqqəti çəkmək üçün.
 
 Oxunuşu: sari · IPA: /ˈsɑri/
 
-Nümunə: **Sorry! — No problem.** — Bağışlayın! — Eybi yox.
+Nümunə: **Sorry!** — Bağışlayın!
 
 Qeyd: Səhv edəndə deyilir.
 
 ## Kart 5 — Seç: Hansı “bağışlayın”?
 
 **Tapşırıq:** Küçədə birindən sual soruşmaq istəyirsən. Nə ilə başlayarsan?  
-**Seçimlər:** Sorry! / Excuse me. / No problem. — **düzgün:** Excuse me.  
+**Seçimlər:** Sorry! / Excuse me. / Thank you! — **düzgün:** Excuse me.  
 **İpucu:** Səhv etmisən, yoxsa sadəcə danışmaq istəyirsən?  
 **Düzgün olanda:** Diqqət çəkəndə: Excuse me.  
 - *İzah (“Sorry!” seçiləndə):* Səhv etməmisən — sadəcə diqqət çəkirsən. — Uyğun: Excuse me. Səbəb: İkisi də “bağışlayın”dır, amma “Sorry” səhvə görə üzrdür. Qayda: Diqqət → Excuse me; səhv → Sorry. Nümunə: Excuse me, what's your name?  
-- *İzah (“No problem.” seçiləndə):* “No problem” üzrə cavabdır. — Uyğun: Excuse me. Səbəb: Söhbətə başlayırsan, diqqəti çəkirsən. Qayda: Diqqət → Excuse me. Nümunə: Excuse me!  
+- *İzah (“Thank you!” seçiləndə):* “Thank you” təşəkkürdür. — Uyğun: Excuse me. Səbəb: Hələ heç nə almamısan, söhbətə başlayırsan və diqqəti çəkirsən. Qayda: Diqqət → Excuse me; təşəkkür → Thank you. Nümunə: Excuse me!  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -1427,7 +1422,6 @@ Növbəti dərsdə başa düşmədiyini deməyi öyrənəcəksən.
 | Sorry | Bağışlayın (səhv) | Sorry! — No problem. — Bağışlayın! — Eybi yox. |
 | No problem | Eybi yox | Sorry! — No problem. — Bağışlayın! — Eybi yox. |
 
-
 ---
 
 # Dərs 7 — Başa düşmürəm
@@ -1445,7 +1439,7 @@ Başa düşməmək normaldır — bunu demək bacarıqdır.
 
 **Sorry? I don't understand.** — Nə dedin? Başa düşmürəm.
 
-Oxunuşu: sari? ay dount andərstend · IPA: /ˈsɑri aɪ doʊnt ˌʌndərˈstænd/
+Oxunuşu: sari? ay dount andərstənd · IPA: /ˈsɑri aɪ doʊnt ˌʌndərˈstænd/
 
 Nümunə: **Sorry? I don't understand.** — Nə dedin? Başa düşmürəm.
 
@@ -1485,7 +1479,7 @@ Nümunə: **Sorry? Again, please.** — Nə dedin? Bir də, zəhmət olmasa.
 **Seçimlər:** Adını soruşur. / Bir də deməyini istəyir. / Sağollaşır. — **düzgün:** Bir də deməyini istəyir.  
 **İpucu:** Səsdə “please”-dən əvvəlki sözə qulaq as.  
 **Düzgün olanda:** “again” — bir də.  
-- *İzah (başqa səhvdə):* “again” — bir də. — Uyğun: Bir də deməyini istəyir. Səbəb: Səsdə “Again, please” deyilir — “Bir də, zəhmət olmasa”. Qayda: again = bir də. Nümunə: Sorry? Again, please.  
+- *İzah (başqa səhvdə):* “again” — bir də. — Uyğun: Bir də deməyini istəyir. Səbəb: Səsdə “Again, please” deyilir — “Bir də, zəhmət olmasa”. Qayda: Sorry? Again, please. — bir də de; Sorry? I don’t understand. — başa düşmürəm. Nümunə: Sorry? Again, please.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -1494,27 +1488,27 @@ Nümunə: **Sorry? Again, please.** — Nə dedin? Bir də, zəhmət olmasa.
 **Seçimlər:** Təşəkkür edir. / Yavaş danışmağı istəyir. / Halını soruşur. — **düzgün:** Yavaş danışmağı istəyir.  
 **İpucu:** Səsdə “please”-dən əvvəlki sözə qulaq as.  
 **Düzgün olanda:** “slowly” — yavaş.  
-- *İzah (başqa səhvdə):* “slowly” — yavaş. — Uyğun: Yavaş danışmağı istəyir. Səbəb: “Slowly, please” — “Yavaş, zəhmət olmasa”. Qayda: slowly = yavaş. Nümunə: Slowly, please.  
+- *İzah (başqa səhvdə):* “slowly” — yavaş. — Uyğun: Yavaş danışmağı istəyir. Səbəb: “Slowly, please” — “Yavaş, zəhmət olmasa”. Qayda: Again, please — bir də; Slowly, please — yavaş. Nümunə: Slowly, please.  
 
 ## Kart 6 — Səslə cavab: Təkrar istə
 
-**Tapşırıq:** Dostun çox sürətli danışdı. Bir də deməsini xahiş et.  
-**Səs:** Hello how are you nice to meet you  
+**Tapşırıq:** Dostun nəsə dedi, amma eşitmədin. Bir də deməsini xahiş et.  
+**Səs:** Hello! How are you?  
 **Qəbul:** məna: repeat — nümunə: Again, please. / Sorry? Again, please.  
 **Nümunə göstərilir:** Sorry? Again, please.  
 **İpucu:** Dərsin “bir də” xahişini xatırla.  
 **Düzgün olanda:** Təkrarı nəzakətlə istədin.  
-- *İzah (başqa səhvdə):* Again, please. — Uyğun: Sorry? Again, please. Səbəb: Eşitmədin — bir də deməsini istəyirsən. Qayda: Eşitməyəndə “bir də” xahiş edirsən. Nümunə: Again, please.  
+- *İzah (başqa səhvdə):* Again, please. — Uyğun: Sorry? Again, please. Səbəb: Eşitmədin — bir də deməsini istəyirsən. Qayda: Sorry? Again, please. — eşitmədin; Sorry? I don’t understand. — başa düşmürsən. Nümunə: Again, please.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Səs-küylü yerdə dostun nəsə dedi. Bir də deməsini xahiş et.  
-**Səs:** What's your name  
+**Səs:** What's your name?  
 **Qəbul:** məna: repeat — nümunə: Again, please. / Sorry? Again, please.  
 **Nümunə göstərilir:** Sorry? Again, please.  
 **İpucu:** Dərsin “bir də” xahişini xatırla.  
 **Düzgün olanda:** Təkrarı nəzakətlə istədin.  
-- *İzah (başqa səhvdə):* Again, please. — Uyğun: Again, please. Səbəb: Eşitmədin — bir də deməsini istəyirsən. Qayda: Eşitməyəndə “bir də” xahiş edirsən. Nümunə: Sorry? Again, please.  
+- *İzah (başqa səhvdə):* Again, please. — Uyğun: Again, please. Səbəb: Səs-küydə eşitmədin — bir də deməsini istəyirsən. Qayda: Again, please — eşitmədin; Slowly, please — çox sürətli idi. Nümunə: Sorry? Again, please.  
 
 ## Kart 7 — Yeni söz
 
@@ -1532,7 +1526,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Cütlər:** Sorry? — Nə dedin?; I don't understand. — Başa düşmürəm.; Slowly, please. — Yavaş, zəhmət olmasa. · artıq: Eybi yox.  
 **İpucu:** Sual kimi deyilən sözə diqqət et — o, üzr deyil.  
 **Düzgün olanda:** Hər xahiş öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Sorry? — Nə dedin?; I don’t understand. — Başa düşmürəm.; Slowly, please. — Yavaş, zəhmət olmasa. Səbəb: Sual kimi “Sorry?” üzr deyil — “nə dedin?”dir. Qayda: Mənaya görə qoş. Nümunə: Sorry? I don't understand.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Sorry? — Nə dedin?; I don’t understand. — Başa düşmürəm.; Slowly, please. — Yavaş, zəhmət olmasa. Səbəb: Sual kimi “Sorry?” üzr deyil — “nə dedin?”dir. Qayda: Sorry? — nə dedin; Sorry! — üzr. Nümunə: Sorry? I don't understand.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -1540,7 +1534,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Cütlər:** Again, please. — Bir də, zəhmət olmasa.; No problem. — Eybi yox.; Thank you! — Təşəkkür edirəm! · artıq: Necəsən?  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Hər cümlə öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Again, please. — Bir də, zəhmət olmasa.; No problem. — Eybi yox.; Thank you! — Təşəkkür edirəm! Səbəb: Xahiş, üzrə cavab və təşəkkür fərqlidir. Qayda: Mənaya görə qoş. Nümunə: Again, please.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Again, please. — Bir də, zəhmət olmasa.; No problem. — Eybi yox.; Thank you! — Təşəkkür edirəm! Səbəb: Xahiş, üzrə cavab və təşəkkür fərqlidir. Qayda: Again, please — xahiş; No problem. — üzrə cavab. Nümunə: Again, please.  
 
 ## Kart 9 — Söhbəti sırala: Söhbəti sırala
 
@@ -1548,15 +1542,15 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Düzgün sıra:** 1. Hellohowareyou! → 2. Sorry? Slowly, please. → 3. How are you? → 4. I'm fine, thanks.  
 **İpucu:** Düşün: başa düşməyəndə nə deyirsən və bundan sonra nə olur?  
 **Düzgün olanda:** Əvvəl başa düşmədin, xahiş etdin, sonra cavab verdin.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks. Səbəb: Sürətli danışdı, sən xahiş etdin, o yavaş təkrar etdi. Qayda: Başa düşməyəndə → Sorry? Slowly, please. Nümunə: Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks. Səbəb: Sürətli danışdı, sən xahiş etdin, o yavaş təkrar etdi. Qayda: Slowly, please — çox sürətli idi; Again, please — eşitmədin. Nümunə: Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qız sürətli soruşur. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hiwhat'syourname? → 2. Sorry? Again, please. → 3. What's your name? → 4. My name is …  
+**Tapşırıq:** Səs-küydə qızın sualını eşitmədin. Balonlara toxun, söhbəti sıraya düz.  
+**Düzgün sıra:** 1. Hi! What's your name? → 2. Sorry? Again, please. → 3. What's your name? → 4. My name is …  
 **İpucu:** Düşün: başa düşməyəndə nə deyirsən və bundan sonra nə olur?  
 **Düzgün olanda:** Xahiş, təkrar və cavab düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hiwhat'syourname? → Sorry? Again, please. → What's your name? → My name is … Səbəb: Sürətli soruşdu, sən təkrar istədin, o yenidən soruşdu. Qayda: Başa düşməyəndə → Sorry? Again, please. Nümunə: Hiwhat'syourname? → Sorry? Again, please. → What's your name? → My name is …  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! What's your name? → Sorry? Again, please. → What's your name? → My name is … Səbəb: Sualı eşitmədin, sən təkrar istədin, o yenidən soruşdu. Qayda: Again, please — eşitmədin; Slowly, please — çox sürətli idi. Nümunə: Hi! What's your name? → Sorry? Again, please. → What's your name? → My name is …  
 
 ## Kart 10 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -1580,7 +1574,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Qəbul:** məna: dontUnderstand — nümunə: I don't understand.  
 **İpucu:** Bu dərsin əvvəlində öyrəndiyin “Başa düşmürəm” cümləsini de.  
 **Düzgün olanda:** Başa düşmədiyini açıq dedin.  
-- *İzah (başqa səhvdə):* I don't understand. — Uyğun: I don't understand. Səbəb: Mənasını bilmirsən, ona görə “Başa düşmürəm” deyirsən. Qayda: I don’t understand. Nümunə: Sorry? I don't understand.  
+- *İzah (başqa səhvdə):* I don't understand. — Uyğun: I don't understand. Səbəb: Mənasını bilmirsən, ona görə “Başa düşmürəm” deyirsən. Qayda: I don’t understand. — burada don’t; I’m not very well. — burada not. Nümunə: Sorry? I don't understand.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -1588,7 +1582,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Qəbul:** məna: dontUnderstand — nümunə: I don't understand.  
 **İpucu:** Bu dərsin əvvəlində öyrəndiyin “Başa düşmürəm” cümləsini de.  
 **Düzgün olanda:** Başa düşmədiyini açıq dedin.  
-- *İzah (başqa səhvdə):* I don't understand. — Uyğun: I don't understand. Səbəb: Mənasını bilmirsən, ona görə “Başa düşmürəm” deyirsən. Qayda: I don’t understand. Nümunə: I don't understand.  
+- *İzah (başqa səhvdə):* I don't understand. — Uyğun: I don't understand. Səbəb: Heç nə anlamadın, ona görə “Başa düşmürəm” deyirsən. Qayda: I don’t understand. — burada don’t; I’m not very well. — burada not. Nümunə: I don't understand.  
 
 ## Kart 12 — Sözü tamamla: Sözü tamamla
 
@@ -1661,7 +1655,6 @@ Növbəti dərs — bölmə söhbəti: öyrəndiklərinin hamısı bir yerdə.
 | I don't understand | Başa düşmürəm | Sorry? I don't understand. — Nə dedin? Başa düşmürəm. |
 | Again, please | Bir də, zəhmət olmasa | Sorry? Again, please. — Nə dedin? Bir də, zəhmət olmasa. |
 | Slowly, please | Yavaş, zəhmət olmasa | Slowly, please. — Yavaş, zəhmət olmasa. |
-
 
 ---
 
@@ -1758,7 +1751,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **Cütlər:** Hello! — Salam!; I don't understand. — Başa düşmürəm.; Goodbye! — Görüşənədək! · artıq: Yavaş, zəhmət olmasa.  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Hər cümlə öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; I don’t understand. — Başa düşmürəm.; Goodbye! — Görüşənədək! Səbəb: Salam, kömək istəmək və sağollaşma fərqli işlərdir. Qayda: Mənaya görə qoş. Nümunə: Hello! … Sorry? I don't understand. … Goodbye!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; I don’t understand. — Başa düşmürəm.; Goodbye! — Görüşənədək! Səbəb: Salam, kömək istəmək və sağollaşma fərqli işlərdir. Qayda: Hello! — görüşün əvvəli; Goodbye! — görüşün sonu. Nümunə: Hello! … Sorry? I don't understand. … Goodbye!  
 
 ## Kart 7 — Səhnədə tap: Səhnədə tap
 
@@ -1778,7 +1771,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 
 ## Kart 8 — Səslə cavab: Söhbət: tanışlıq
 
-**Tapşırıq:** Dostun deyir: “Nice to meet you! What’s your name?” İkisinə də cavab ver.  
+**Tapşırıq:** Yeni tanışın deyir: “Nice to meet you! What’s your name?” İkisinə də cavab ver.  
 **Səs:** Nice to meet you! What's your name?  
 **Qəbul:** məna: meet + introduce — nümunə: You too! I'm …  
 **İpucu:** İki cavab: xoş sözə və ad sualına.  
@@ -1800,7 +1793,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **Cütlər:** Sorry! — No problem.; Thank you! — You're welcome.; Nice to meet you! — You too! · artıq: Excuse me.  
 **İpucu:** Hər cümləyə uyğun cavabı tap, bir cavab artıqdır.  
 **Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: Sorry! — No problem.; Thank you! — You're welcome.; Nice to meet you! — You too! Səbəb: Üzrə, təşəkkürə və xoş sözə fərqli cavab verilir. Qayda: Deyilənə uyğun cavab. Nümunə: Sorry! — No problem.  
+- *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: Sorry! — No problem.; Thank you! — You're welcome.; Nice to meet you! — You too! Səbəb: Üzrə, təşəkkürə və xoş sözə fərqli cavab verilir. Qayda: Sorry! → No problem; Thank you! → You’re welcome. Nümunə: Sorry! — No problem.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -1808,7 +1801,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **Cütlər:** I'm sorry! — No problem.; How are you? — I'm OK.; What's your name? — My name is … · artıq: Please.  
 **İpucu:** Hər cümləyə uyğun cavabı tap, bir cavab artıqdır.  
 **Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: I'm sorry! — No problem.; How are you? — I'm OK.; What's your name? — My name is … Səbəb: Üzrə, hal sualına və ad sualına fərqli cavab verilir. Qayda: Deyilənə uyğun cavab. Nümunə: I'm sorry! — No problem.  
+- *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: I'm sorry! — No problem.; How are you? — I'm OK.; What's your name? — My name is … Səbəb: Üzrə, hal sualına və ad sualına fərqli cavab verilir. Qayda: I’m sorry! → No problem; How are you? → I’m OK. Nümunə: I'm sorry! — No problem.  
 
 ## Kart 10 — İki mesaj yaz: İki mesaj yaz
 
@@ -1832,7 +1825,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 
 ## Kart 11 — Dialoqu tamamla: Kömək istə
 
-**Tapşırıq:** Qız çox sürətli yazdı, nə yazdığını anlamadın. Başa düşmədiyini de və bir də yazmasını xahiş et.  
+**Tapşırıq:** Qız boşluqsuz, qarışıq yazdı, nə yazdığını anlamadın. Başa düşmədiyini de və bir də yazmasını xahiş et.  
 **Yazışma (Ziyafətdə qız):** “Hiwhat'syourname?”  
 **Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Again, please.  
 **İpucu:** Əvvəl başa düşmədiyini de, sonra təkrar xahiş et.  
@@ -1841,7 +1834,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Oğlan çox sürətli yazdı. Başa düşmədiyini de və bir də yazmasını xahiş et.  
+**Tapşırıq:** Oğlan boşluqsuz, qarışıq yazdı, nə yazdığını anlamadın. Başa düşmədiyini de və bir də yazmasını xahiş et.  
 **Yazışma (Ziyafətdə oğlan):** “Hellohowareyou?”  
 **Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Again, please.  
 **İpucu:** Əvvəl başa düşmədiyini de, sonra təkrar xahiş et.  
@@ -1854,7 +1847,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **Düzgün sıra:** 1. Hi! How are you? → 2. I'm fine, thanks. And you? → 3. I'm OK. What's your name? → 4. I'm … Nice to meet you!  
 **İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
 **Düzgün olanda:** Salam, hal, ad və xoş söz — bütöv söhbət.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm … Nice to meet you! Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm … Nice to meet you!  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm … Nice to meet you! Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: How are you? — əvvəl sual; I’m fine, thanks. And you? — sonra cavab. Nümunə: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm … Nice to meet you!  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -1862,11 +1855,11 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **Düzgün sıra:** 1. Hello! What's your name? → 2. My name is … → 3. Nice to meet you. → 4. You too.  
 **İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
 **Düzgün olanda:** Ad sualı, cavab və xoş sözlər düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! What's your name? → My name is … → Nice to meet you. → You too. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: Sual → cavab. Nümunə: Hello! What's your name? → My name is … → Nice to meet you. → You too.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! What's your name? → My name is … → Nice to meet you. → You too. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: What’s your name? — əvvəl sual; My name is … — sonra cavab. Nümunə: Hello! What's your name? → My name is … → Nice to meet you. → You too.  
 
 ## Kart 13 — Səslə cavab: Söhbət: sağollaşma
 
-**Tapşırıq:** Ziyafət bitir. Dostun deyir: “Thank you! Bye!” Cavab ver və sağollaş.  
+**Tapşırıq:** Ziyafət sənin evindədir və bitir. Dostun deyir: “Thank you! Bye!” Cavab ver və sağollaş.  
 **Səs:** Thank you! Bye!  
 **Qəbul:** məna: welcome + farewell — nümunə: You're welcome. Bye!  
 **İpucu:** Əvvəl təşəkkürə cavab ver, sonra sağollaş.  
@@ -1892,7 +1885,6 @@ Bölmə 1 tamamlandı — Artıq ingiliscə qısa tanışlıq söhbəti apara bi
 - Danışıq: Qısa söhbəti başdan sona aparmaq
 
 Növbəti bölmə: şəxsi məlumat — hərflər, rəqəmlər, yaş.
-
 
 ---
 

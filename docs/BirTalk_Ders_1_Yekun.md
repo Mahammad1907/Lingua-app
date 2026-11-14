@@ -187,7 +187,7 @@ Qısa geribildirim: “Bu ifadə sağollaşmaq üçündür. Burada salam vermək
 **İzah 2 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki yazılmış cavab}”.
 - **Uyğun cavablar:** Hello! / Hi!
-- **Səbəb:** Bye və Goodbye görüşü bitirir, sən isə tanışınla yeni qarşılaşmısan.
+- **Səbəb:** Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan.
 - **Qısa qayda:** Görüşü salamla başlat.
 - **Yeni nümunə:** Tanışını məktəbin qarşısında görürsən: “Hi!”
 
@@ -409,7 +409,7 @@ Qısa geribildirim: “Bu ifadə salamlaşmaq üçündür. BirFox isə səninlə
 **İzah 11 — Mənə başa sal**
 - **Sənin cavabın:** “{etibarlı təsdiqlənmiş səsli cavab}”.
 - **Uyğun cavablar:** səslə Goodbye! / Bye!
-- **Səbəb:** Bu cavab görüşü bitirən qarşılıq vermir. Tanınması qeyri-müəyyən səs üçün bu hökm göstərilmir.
+- **Səbəb:** Bu cavab sağollaşmaya sağollaşma ilə qarşılıq vermir. Tanınması qeyri-müəyyən səs üçün bu hökm göstərilmir.
 - **Qısa qayda:** Görüş bitəndə sağollaşma ifadəsi işlət.
 - **Yeni nümunə:** Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.
 
@@ -604,7 +604,7 @@ Düzgün paneldə “Düzgündür” başlığının altında bir cümlə görü
 | 3 | Hi salamdır — BirFox salam verir. | Hello salamdır — danışan salam verir. |
 | 4 | Hello və Hi görüşü başladır. | eyni |
 | 5 | Salama salamla cavab verdin. | eyni |
-| 7A | Goodbye görüşü bitirir. | Bye görüşü bitirir. |
+| 7A | Goodbye görüşü bitirir. | Bye yazışmanı bitirir. |
 | 7B | Səsdə Bye deyildi. | Səsdə Goodbye deyildi. |
 | 8 | Sağollaşmaya sağollaşma ilə cavab verdin. | eyni |
 | 9 | BirFox gedir — ona Bye və ya Goodbye yaraşır. | eyni |

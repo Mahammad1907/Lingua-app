@@ -49,12 +49,12 @@ export const lesson2: DesignLesson = {
       ],
       review: {
         scenes: ['d2/new-classmates'],
-        title: 'Düzgün cümləni seç', why: 'I’m — I am-ın qısa formasıdır.', prompt: 'İndi qısa formanı seç.\nHansı cümlə düzgündür?',
-        options: ["I'm …", 'I …', 'I is …'], answer: "I'm …",
-        hint: '“I” ilə hansı söz birləşib qısa forma yaradır?', hintAssists: false,
+        title: 'Düzgün cümləni seç', why: 'İngiliscə “is” ayrıca söz kimi deyilir.', prompt: 'Qonşun adını demək istəyir.\nHansı cümlə düzgündür?',
+        options: ['I name is …', 'My name …', 'My name is …'], answer: 'My name is …',
+        hint: 'Azərbaycanca “adım …-dır” deyirik, ingiliscə “-dır” ayrıca sözdür.', hintAssists: false,
         variants: [
-          pick('I …', '“am” buraxılıb.', ex("I'm … (I am …)", '“I …” cümləsində am yoxdur, I’m isə I am-ın qısa formasıdır.', "I'm / I am + adın.", "I'm …")),
-          pick('I is …', '“I” ilə “am” işlənir.', ex("I'm …", 'I ilə is demirik, I’m isə I am-ın qısa formasıdır.', "I + am → I'm.", "Hello! I'm …")),
+          pick('My name …', '“is” buraxılıb.', ex('My name is …', 'Azərbaycancada -dır şəkilçidir, ingiliscə is isə ayrıca sözdür.', 'My name is … — düzgün; My name … — is çatmır.', 'Hi! My name is …')),
+          pick('I name is …', '“I” yox, “My” lazımdır.', ex('My name is …', '“I” — mən, “my” — mənim deməkdir, ad isə “mənim adım”dır.', 'My name is … — mənim adım; I’m … — mən …-am.', 'Hello! My name is …')),
         ],
       },
     },
@@ -62,9 +62,9 @@ export const lesson2: DesignLesson = {
       type: 'choice', id: 'd2_c04', number: 4, title: 'Sözü tamamla', why: '“I” ilə “am” gəlir.', hint: '“I’m” iki sözün qısa formasıdır — ikinci söz hansıdır?',
       prompt: 'Qız özünü təqdim edir.\nCümləsində hansı söz çatmır?',
       gap: { speaker: 'G', before: 'Hi! I', after: '…' }, options: ['am', 'is', 'my'], answer: 'am',
-      variants: [other('“I” ilə “am” gəlir.', ex('am', '“I” (mən) sözündən sonra “am” işlənir.', 'I am = I’m.', "I'm …"))],
+      variants: [other('“I” ilə “am” gəlir.', ex('am', '“I” (mən) sözündən sonra “am” işlənir.', 'I ilə is demirik: I am … → I’m …', "I'm …"))],
       review: {
-        title: 'Sözü tamamla', why: '“I” ilə “am” gəlir.', hint: 'Azərbaycanca “Mən …-am” deyirik, ingiliscə “-am” ayrıca sözdür.', prompt: 'Oğlan özünü təqdim edir.\nCümləsində hansı söz çatmır?',
+        title: 'Sözü tamamla', why: '“I” ilə “am” gəlir.', hint: 'Azərbaycancada şəkilçi olan hissə ingiliscə I-dan sonra ayrıca söz kimi gəlir.', prompt: 'Oğlan özünü təqdim edir.\nCümləsində hansı söz çatmır?',
         gap: { speaker: 'B', before: 'Hello! I', after: '…' }, options: ['am', 'is', 'my'], answer: 'am',
         variants: [other('“I” ilə “am” gəlir.', ex('am', 'I ilə is və my demirik, I ilə am gəlir.', "I + am → I'm.", "Hello! I'm …"))],
       },
@@ -74,12 +74,12 @@ export const lesson2: DesignLesson = {
       prompt: 'Hər cümləyə mənasını qoş.',
       rows: [{ en: 'Hi!', az: 'Salam!', from: 'B' }, { en: "I'm …", az: 'Mən …-am.', from: 'G' }, { en: 'Bye!', az: 'Hələlik!', from: 'M' }],
       extra: ['Sağ ol!'],
-      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hi! — Salam!; I’m … — Mən …-am.; Bye! — Hələlik!', 'Hi görüşü başladır, Bye bitirir, I’m adını deyir.', 'Əvvəl salam, sonra ad; sonda sağollaşma.', 'Hi! I’m … Bye!'))],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hi! — Salam!; I’m … — Mən …-am.; Bye! — Hələlik!', 'Hi görüşü başladır, Bye bitirir, I’m adını deyir.', 'Hi! — görüşün əvvəli; Bye! — görüşün sonu.', 'Hi! I’m … Bye!'))],
       review: {
         title: 'Kim nə dedi?', why: 'Salam, sağollaşma və ad — hər biri öz yerində.', hint: 'Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.', prompt: 'Hər cümləyə mənasını qoş.',
         rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: 'My name is …', az: 'Mənim adım …', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
         extra: ['Necəsən?'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək!', 'Hello görüşü başladır, Goodbye bitirir, My name is adını deyir.', 'Əvvəl salam, sonra ad; sonda sağollaşma.', 'Hello! My name is …'))],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək!', 'Hello görüşü başladır, Goodbye bitirir, My name is adını deyir.', 'Hello! — görüşün əvvəli; Goodbye! — görüşün sonu.', 'Hello! My name is …'))],
       },
     },
     {
@@ -88,9 +88,9 @@ export const lesson2: DesignLesson = {
       rule: exact('My name is'),
       variants: [other('Bir daha dinlə və yavaş de.', ex('My name is', 'Üç söz birlikdə, axıcı deyilir.', 'Vurğu “name” sözünə düşür.', 'My NAME is …'))],
       review: {
-        title: 'Dinlə və təkrarla', why: 'Qısa forma düzgün səsləndi.', prompt: 'İfadəni dinlə, sonra eyni cür de.', audio: "Hello! I'm", repeat: { stress: 'Hello', note: '“I’m” bir hecadır: /aɪm/.', reading: 'helou! aym' },
+        title: 'Dinlə və təkrarla', why: 'Qısa forma düzgün səsləndi.', prompt: 'İfadəni dinlə, sonra eyni cür de.', audio: "Hello! I'm", repeat: { stress: 'Hello', note: '“I’m” bir hecadır: “aym”.', reading: 'helou! aym' },
         rule: exact("Hello! I'm"),
-        variants: [other('Bir daha dinlə və yavaş de.', ex("Hello! I'm", 'Səsdə I’m qısa formadadır və bir heca kimi deyilir.', 'I’m = /aɪm/.', "Hello! I'm …"))],
+        variants: [other('Bir daha dinlə və yavaş de.', ex("Hello! I'm", 'Səsdə I’m qısa formadadır və bir heca kimi deyilir.', 'I’m — “aym”, bir heca; I am — iki heca.', "Hello! I'm …"))],
       },
     },
     {
@@ -129,7 +129,7 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'write', id: 'd2_c10', number: 10, scenes: ['d2/registration'], title: 'Adını yaz', why: 'Qısa və düzgün təqdimat.', hint: 'Bu dərsin iki formasından birini işlət, sonuna öz adını yaz.',
-      prompt: 'Qeydiyyatda soruşurlar: “Kimsən?”\nAdını ingiliscə cümlə ilə yaz.', placeholder: "I'm …", rule: intro,
+      prompt: 'Qeydiyyatda adını soruşurlar.\nAdını ingiliscə cümlə ilə yaz.', placeholder: "I'm …", rule: intro,
       variants: [other('I’m və ya My name is ilə yaz.', ex("I'm … / My name is …", 'Tapşırıq cümlə istəyir, tək ad isə cümlə deyil.', 'I’m + adın və ya My name is + adın.', "I'm …"))],
       review: {
         scenes: ['d2/game-profile'],

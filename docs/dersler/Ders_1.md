@@ -49,7 +49,7 @@ Qeyd: Hi daha qeyri-rəsmidir.
 **Qəbul:** məna: greet — nümunə: Hello! / Hi!  
 **İpucu:** Dərsin əvvəlindəki salam sözlərindən birini yaz.  
 **Düzgün olanda:** Hello və Hi görüşü başladır.  
-- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Bye və Goodbye görüşü bitirir, sən isə tanışınla yeni qarşılaşmısan. Qayda: Görüşü salamla başlat. Nümunə: Tanışını məktəbin qarşısında görürsən: “Hi!”  
+- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan. Qayda: Görüşü salamla başlat. Nümunə: Tanışını məktəbin qarşısında görürsən: “Hi!”  
 - *İzah (başqa səhvdə):* Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz salam deyil. Qayda: Cavab qarşı tərəfə salam verməlidir. Nümunə: Qonşunla qarşılaşırsan: “Hello!”  
 
 **Təkrar (yeni vəziyyət):**
@@ -59,7 +59,7 @@ Qeyd: Hi daha qeyri-rəsmidir.
 **Qəbul:** məna: greet — nümunə: Hello! / Hi!  
 **İpucu:** Dərsin əvvəlindəki salam sözlərindən birini yaz.  
 **Düzgün olanda:** Hello və Hi görüşü başladır.  
-- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Bye və Goodbye görüşü bitirir, sən isə tanışınla yeni qarşılaşmısan. Qayda: Görüşü salamla başlat. Nümunə: “Hello!” ilə salamlaş.  
+- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan. Qayda: Görüşü salamla başlat. Nümunə: “Hello!” ilə salamlaş.  
 - *İzah (başqa səhvdə):* Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz salam deyil. Qayda: Cavab qarşı tərəfə salam verməlidir. Nümunə: “Hello!” ilə salamlaş.  
 
 ## Kart 5 — Səslə cavab: Salama səslə cavab ver
@@ -110,7 +110,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 **Tapşırıq:** Yazışmanız bitir. Hansı mesaj uyğundur?  
 **Seçimlər:** Hi! / Bye! / Hello! — **düzgün:** Bye!  
 **İpucu:** Yazışma bitir — hansı mesaj sağollaşmadır?  
-**Düzgün olanda:** Bye görüşü bitirir.  
+**Düzgün olanda:** Bye yazışmanı bitirir.  
 - *İzah (“Hello!” seçiləndə):* Uyğun: Bye! Səbəb: Yazışma bitir, Hello isə salamlaşmaq üçündür. Qayda: Ayrılarkən sağollaş. Nümunə: “Goodbye!”  
 - *İzah (başqa səhvdə):* Uyğun: Bye! Səbəb: Yazışma bitir, Hi isə salamlaşmaq üçündür. Qayda: Ayrılarkən sağollaş. Nümunə: “Goodbye!”  
 
@@ -144,7 +144,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 **İpucu:** Gedən adama sağollaşma ilə cavab ver.  
 **Düzgün olanda:** Sağollaşmaya sağollaşma ilə cavab verdin.  
 - *İzah (cavab “greet” işini görəndə):* Bu ifadə salamlaşmaq üçündür. Dostun isə səninlə sağollaşır. — Uyğun: səslə Goodbye! / Bye! Səbəb: Hello və Hi görüşü başladır, dostun isə səninlə sağollaşır. Qayda: Sağollaşmaya sağollaşma ilə cavab ver. Nümunə: Qarşı tərəf “Bye!” deyir. Sən “Goodbye!” deyirsən.  
-- *İzah (başqa səhvdə):* Uyğun: səslə Goodbye! / Bye! Səbəb: Bu cavab görüşü bitirən qarşılıq vermir. Qayda: Görüş bitəndə sağollaşma ifadəsi işlət. Nümunə: Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.  
+- *İzah (başqa səhvdə):* Uyğun: səslə Goodbye! / Bye! Səbəb: Bu cavab sağollaşmaya sağollaşma ilə qarşılıq vermir. Qayda: Görüş bitəndə sağollaşma ifadəsi işlət. Nümunə: Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -154,7 +154,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 **İpucu:** Gedən adama sağollaşma ilə cavab ver.  
 **Düzgün olanda:** Sağollaşmaya sağollaşma ilə cavab verdin.  
 - *İzah (cavab “greet” işini görəndə):* Bu ifadə salamlaşmaq üçündür. Dostun isə səninlə sağollaşır. — Uyğun: səslə Goodbye! / Bye! Səbəb: Hello və Hi görüşü başladır, dostun isə səninlə sağollaşır. Qayda: Sağollaşmaya sağollaşma ilə cavab ver. Nümunə: Qarşı tərəf “Bye!” deyir. Sən “Goodbye!” deyirsən.  
-- *İzah (başqa səhvdə):* Uyğun: səslə Goodbye! / Bye! Səbəb: Bu cavab görüşü bitirən qarşılıq vermir. Qayda: Görüş bitəndə sağollaşma ifadəsi işlət. Nümunə: Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.  
+- *İzah (başqa səhvdə):* Uyğun: səslə Goodbye! / Bye! Səbəb: Bu cavab sağollaşmaya sağollaşma ilə qarşılıq vermir. Qayda: Görüş bitəndə sağollaşma ifadəsi işlət. Nümunə: Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.  
 
 ## Kart 9 — Yaz: Dostuna kömək et
 

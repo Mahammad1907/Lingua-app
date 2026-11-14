@@ -106,6 +106,51 @@ for (const raw of designLessons) {
   for (const t of texts.filter(Boolean)) for (const b of BANNED) if (b.test(t)) problems.push(`Dərs ${raw.order} izah/ipucu qadağan ifadə (${b}): “${t}”`);
 }
 
+// Rule (review 2, 14 Nov 2026): a phrase with its own Yeni söz card is not shown anywhere earlier in the lesson —
+// not in options, audio, examples, explanations, hints, nor in an earlier word card's example.
+// Whole-phrase match, case-insensitive, punctuation ignored. Retries run after the lesson, so `review` is skipped;
+// the intro's goal list is a can-do statement, not a task, and is skipped too. Earlier lessons do not count.
+const norm = s => ' ' + (s || '').replace(/[’‘]/g, "'").toLowerCase().replace(/[^a-z']+/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
+const SKIP_KEYS = new Set(['review', 'id', 'scenes', 'pronunciation', 'reading', 'icon', 'speaker', 'from']);
+const strings = (value, out = []) => {
+  if (typeof value === 'string') out.push(value);
+  else if (Array.isArray(value)) value.forEach(v => strings(v, out));
+  else if (value && typeof value === 'object') for (const [k, v] of Object.entries(value)) if (!SKIP_KEYS.has(k)) strings(v, out);
+  return out;
+};
+for (const raw of designLessons) {
+  const lesson = L.resolveLesson(raw);
+  lesson.cards.forEach((card, i) => {
+    if (card.type !== 'word') return;
+    for (const phrase of card.word.split(' · ')) {
+      const p = norm(phrase);
+      if (!p.trim()) continue;
+      for (const before of lesson.cards.slice(0, i)) {
+        if (before.type === 'intro') continue;
+        for (const text of strings(before)) if (norm(text).includes(p)) problems.push(`Dərs ${lesson.order}: “${phrase}” öz kartından (${card.id}) əvvəl ${before.id}-də görünür: “${text}”`);
+      }
+    }
+  });
+}
+
+// Rule (review 2, 14 Nov 2026): Qayda is a pair of forms, not a dictionary translation or a generic line; no IPA for the learner.
+const DICT = /^\s*[A-Za-z’' ]+\s*=\s*[^;]+$/;
+const GENERIC = ['Mənaya görə qoş.', 'Deyilənə uyğun cavab.', 'Təşəkkür, cavab, xahiş.'];
+const IPA = /\/[^/\n]*[ɪæθʊʌɑʃŋˈ][^/\n]*\/|\/[^/\nğıöüşçĞİÖÜŞÇ ]*ə[^/\nğıöüşçĞİÖÜŞÇ ]*\//;
+for (const raw of designLessons) {
+  const lesson = L.resolveLesson(raw);
+  const tasks = lesson.cards.filter(L.isTask).flatMap(c => [[c.id, c], [`${c.id} (təkrar)`, L.reviewTask(lesson, c.id)]]);
+  for (const [id, t] of tasks) {
+    for (const v of t.variants || []) {
+      const e = v.explain || {};
+      if (e.rule && DICT.test(e.rule)) problems.push(`Dərs ${lesson.order} ${id}: qayda lüğət tərcüməsidir: “${e.rule}”`);
+      if (e.rule && GENERIC.includes(e.rule.trim())) problems.push(`Dərs ${lesson.order} ${id}: qayda ümumi cümlədir: “${e.rule}”`);
+      for (const x of [e.rule, e.reason, e.example]) if (x && IPA.test(x)) problems.push(`Dərs ${lesson.order} ${id}: izahda IPA: “${x}”`);
+    }
+    for (const x of [t.hint, t.repeat?.note]) if (x && IPA.test(x)) problems.push(`Dərs ${lesson.order} ${id}: ipucu/qeyddə IPA: “${x}”`);
+  }
+}
+
 if (problems.length) {
   console.error(`${problems.length} problem:\n` + problems.join('\n'));
   process.exit(1);

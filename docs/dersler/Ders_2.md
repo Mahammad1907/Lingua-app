@@ -60,14 +60,14 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Seçimlər:** am / is / my — **düzgün:** am  
 **İpucu:** “I’m” iki sözün qısa formasıdır — ikinci söz hansıdır?  
 **Düzgün olanda:** “I” ilə “am” gəlir.  
-- *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: “I” (mən) sözündən sonra “am” işlənir. Qayda: I am = I’m. Nümunə: I'm …  
+- *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: “I” (mən) sözündən sonra “am” işlənir. Qayda: I ilə is demirik: I am … → I’m … Nümunə: I'm …  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Oğlan özünü təqdim edir. Cümləsində hansı söz çatmır?  
 **Cümlə:** Hello! I ___ …  
 **Seçimlər:** am / is / my — **düzgün:** am  
-**İpucu:** Azərbaycanca “Mən …-am” deyirik, ingiliscə “-am” ayrıca sözdür.  
+**İpucu:** Azərbaycancada şəkilçi olan hissə ingiliscə I-dan sonra ayrıca söz kimi gəlir.  
 **Düzgün olanda:** “I” ilə “am” gəlir.  
 - *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: I ilə is və my demirik, I ilə am gəlir. Qayda: I + am → I'm. Nümunə: Hello! I'm …  
 
@@ -82,12 +82,12 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İndi qısa formanı seç. Hansı cümlə düzgündür?  
-**Seçimlər:** I'm … / I … / I is … — **düzgün:** I'm …  
-**İpucu:** “I” ilə hansı söz birləşib qısa forma yaradır?  
-**Düzgün olanda:** I’m — I am-ın qısa formasıdır.  
-- *İzah (“I …” seçiləndə):* “am” buraxılıb. — Uyğun: I'm … (I am …). Səbəb: “I …” cümləsində am yoxdur, I’m isə I am-ın qısa formasıdır. Qayda: I'm / I am + adın. Nümunə: I'm …  
-- *İzah (“I is …” seçiləndə):* “I” ilə “am” işlənir. — Uyğun: I'm … Səbəb: I ilə is demirik, I’m isə I am-ın qısa formasıdır. Qayda: I + am → I'm. Nümunə: Hello! I'm …  
+**Tapşırıq:** Qonşun adını demək istəyir. Hansı cümlə düzgündür?  
+**Seçimlər:** I name is … / My name … / My name is … — **düzgün:** My name is …  
+**İpucu:** Azərbaycanca “adım …-dır” deyirik, ingiliscə “-dır” ayrıca sözdür.  
+**Düzgün olanda:** İngiliscə “is” ayrıca söz kimi deyilir.  
+- *İzah (“My name …” seçiləndə):* “is” buraxılıb. — Uyğun: My name is … Səbəb: Azərbaycancada -dır şəkilçidir, ingiliscə is isə ayrıca sözdür. Qayda: My name is … — düzgün; My name … — is çatmır. Nümunə: Hi! My name is …  
+- *İzah (“I name is …” seçiləndə):* “I” yox, “My” lazımdır. — Uyğun: My name is … Səbəb: “I” — mən, “my” — mənim deməkdir, ad isə “mənim adım”dır. Qayda: My name is … — mənim adım; I’m … — mən …-am. Nümunə: Hello! My name is …  
 
 ## Kart 7 — Kim nə dedi?: Kim nə dedi?
 
@@ -95,7 +95,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Cütlər:** Hi! — Salam!; I'm … — Mən …-am.; Bye! — Hələlik! · artıq: Sağ ol!  
 **İpucu:** Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.  
 **Düzgün olanda:** Salam, sağollaşma və ad — hər biri öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hi! — Salam!; I’m … — Mən …-am.; Bye! — Hələlik! Səbəb: Hi görüşü başladır, Bye bitirir, I’m adını deyir. Qayda: Əvvəl salam, sonra ad; sonda sağollaşma. Nümunə: Hi! I’m … Bye!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hi! — Salam!; I’m … — Mən …-am.; Bye! — Hələlik! Səbəb: Hi görüşü başladır, Bye bitirir, I’m adını deyir. Qayda: Hi! — görüşün əvvəli; Bye! — görüşün sonu. Nümunə: Hi! I’m … Bye!  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -103,7 +103,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Cütlər:** Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək! · artıq: Necəsən?  
 **İpucu:** Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.  
 **Düzgün olanda:** Salam, sağollaşma və ad — hər biri öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək! Səbəb: Hello görüşü başladır, Goodbye bitirir, My name is adını deyir. Qayda: Əvvəl salam, sonra ad; sonda sağollaşma. Nümunə: Hello! My name is …  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; My name is … — Mənim adım …; Goodbye! — Görüşənədək! Səbəb: Hello görüşü başladır, Goodbye bitirir, My name is adını deyir. Qayda: Hello! — görüşün əvvəli; Goodbye! — görüşün sonu. Nümunə: Hello! My name is …  
 
 ## Kart 8 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -119,7 +119,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Səs:** Hello! I'm  
 **Qəbul:** dəqiq: Hello! I'm  
 **Düzgün olanda:** Qısa forma düzgün səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Hello! I'm. Səbəb: Səsdə I’m qısa formadadır və bir heca kimi deyilir. Qayda: I’m = /aɪm/. Nümunə: Hello! I'm …  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Hello! I'm. Səbəb: Səsdə I’m qısa formadadır və bir heca kimi deyilir. Qayda: I’m — “aym”, bir heca; I am — iki heca. Nümunə: Hello! I'm …  
 
 ## Kart 9 — Dialoqu tamamla: Dialoqu tamamla
 
@@ -158,7 +158,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 
 ## Kart 11 — Yaz: Adını yaz
 
-**Tapşırıq:** Qeydiyyatda soruşurlar: “Kimsən?” Adını ingiliscə cümlə ilə yaz.  
+**Tapşırıq:** Qeydiyyatda adını soruşurlar. Adını ingiliscə cümlə ilə yaz.  
 **Qəbul:** məna: introduce — nümunə: I'm … / My name is …  
 **İpucu:** Bu dərsin iki formasından birini işlət, sonuna öz adını yaz.  
 **Düzgün olanda:** Qısa və düzgün təqdimat.  

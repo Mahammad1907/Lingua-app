@@ -7,7 +7,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson3.ts`-dən yarad
 İndi başqasının adını öyrənirsən.
 
 - Başqasının adını soruşa bilirəm.
-- Tanış olanda “Nice to meet you” deyir, ona “You too” ilə cavab verirəm.
+- Biri “Nice to meet you” deyəndə “You too” ilə cavab verirəm.
 
 ## Kart 2 — Seç: Oxu və anla
 
@@ -99,7 +99,7 @@ Qeyd: Adları deyəndən sonra deyilir.
 **Səs:** What's your name?  
 **Qəbul:** dəqiq: What's your name  
 **Düzgün olanda:** Sual axıcı səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: What's your name? Səbəb: “What’s” bir hecadır: /wʌts/. Qayda: Vurğu “name” sözünə düşür. Nümunə: What's your NAME?  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: What's your name? Səbəb: “What’s” bir hecadır: “uats”. Qayda: Vurğu “name” sözünə düşür. Nümunə: What's your NAME?  
 
 ## Kart 8 — Yeni söz
 
@@ -117,7 +117,7 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 **Cütlər:** What's your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam.; You too. — Mən də. · artıq: Hələlik!  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Tanışlığın üç cümləsini tanıdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam.; You too. — Mən də. Səbəb: Əvvəl ad soruşulur, sonra xoş söz deyilir və ona cavab verilir. Qayda: Mənaya görə qoş. Nümunə: What's your name? … Nice to meet you! — You too!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam.; You too. — Mən də. Səbəb: Əvvəl ad soruşulur, sonra xoş söz deyilir və ona cavab verilir. Qayda: Nice to meet you. — tanışlığın xoş sözü; You too. — ona cavab. Nümunə: What's your name? … Nice to meet you! — You too!  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -125,11 +125,11 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 **Cütlər:** Hi! — Salam!; My name is … — Mənim adım …-dır.; Nice to meet you. — Tanış olmağıma şadam. · artıq: Mən də.  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Tanışlığın cümlələrini tanıdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hi! — Salam!; My name is … — Mənim adım …-dır.; Nice to meet you. — Tanış olmağıma şadam. Səbəb: Salam, ad və xoş söz. Qayda: Mənaya görə qoş. Nümunə: Hi! My name is … Nice to meet you!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hi! — Salam!; My name is … — Mənim adım …-dır.; Nice to meet you. — Tanış olmağıma şadam. Səbəb: Salam, ad və xoş söz. Qayda: My name is … — adını demək; Nice to meet you. — xoş söz. Nümunə: Hi! My name is … Nice to meet you!  
 
 ## Kart 10 — Səslə cavab: Adını soruş
 
-**Tapşırıq:** Dostun səninlə tanış olur. Onun adını soruş.  
+**Tapşırıq:** Yeni tanışın deyir: “Hi!” Onun adını soruş.  
 **Qəbul:** məna: askName — nümunə: What's your name?  
 **İpucu:** Bu dərsin əvvəlində öyrəndiyin sualı xatırla.  
 **Düzgün olanda:** Adı düzgün soruşdun.  
@@ -181,7 +181,7 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 
 ## Kart 13 — Səslə cavab: Tanışlığa cavab ver
 
-**Tapşırıq:** Dostun deyir: “Nice to meet you!” Cavab ver.  
+**Tapşırıq:** Yeni tanışın deyir: “Nice to meet you!” Cavab ver.  
 **Səs:** Nice to meet you!  
 **Qəbul:** məna: meet — nümunə: You too! / Nice to meet you too!  
 **İpucu:** Xoş sözə “Mən də” mənasında qısa cavab ver.  
@@ -209,7 +209,7 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Dərs bitdi, evə gedirsən. Yoldaşınla sağollaş.  
+**Tapşırıq:** Məşq bitdi, evə gedirsən. Zal yoldaşınla sağollaş.  
 **Yazışma (Zal yoldaşı):** “Bye!”  
 **Qəbul:** məna: farewell — nümunə: Bye! / Goodbye!  
 **İpucu:** Dərs 1-in sağollaşma sözlərini xatırla.  

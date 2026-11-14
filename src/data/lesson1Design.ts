@@ -68,7 +68,7 @@ export const lesson1Design: DesignLesson = {
       placeholder: 'Cavabını yaz', rule: greet, hint: 'Dərsin əvvəlindəki salam sözlərindən birini yaz.',
       variants: [
         { match: { goal: 'farewell' }, short: 'Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır.', explain: {
-          answers: 'Hello! / Hi!', reason: 'Bye və Goodbye görüşü bitirir, sən isə tanışınla yeni qarşılaşmısan.',
+          answers: 'Hello! / Hi!', reason: 'Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan.',
           rule: 'Görüşü salamla başlat.', example: 'Tanışını məktəbin qarşısında görürsən: “Hi!”' } },
         { match: { other: true }, short: 'Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır.', explain: {
           answers: 'Hello! / Hi!', reason: 'Yazdığın söz salam deyil.',
@@ -79,7 +79,7 @@ export const lesson1Design: DesignLesson = {
         hint: 'Dərsin əvvəlindəki salam sözlərindən birini yaz.',
         variants: [
           { match: { goal: 'farewell' }, short: 'Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır.', explain: {
-            answers: 'Hello! / Hi!', reason: 'Bye və Goodbye görüşü bitirir, sən isə tanışınla yeni qarşılaşmısan.',
+            answers: 'Hello! / Hi!', reason: 'Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan.',
             rule: 'Görüşü salamla başlat.', example: '“Hello!” ilə salamlaş.' } },
           { match: { other: true }, short: 'Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır.', explain: {
             answers: 'Hello! / Hi!', reason: 'Yazdığın söz salam deyil.',
@@ -126,7 +126,7 @@ export const lesson1Design: DesignLesson = {
       { match: { other: true }, explain: {
         answers: 'Goodbye!', reason: 'Hello salamlaşmaq üçündür, burada isə görüş bitir.',
         rule: 'Ayrılarkən sağollaşma ifadəsi seç.', example: 'Söhbətin sonunda tanışından ayrılırsan: “Bye!”' } }],
-      review: { why: 'Bye görüşü bitirir.',
+      review: { why: 'Bye yazışmanı bitirir.',
         title: 'Oxu və seç', prompt: 'Yazışmanız bitir. Hansı mesaj uyğundur?', options: ['Hi!', 'Bye!', 'Hello!'], answer: 'Bye!',
         hint: 'Yazışma bitir — hansı mesaj sağollaşmadır?', hintAssists: true,
         variants: [{ match: { option: 'Hello!' }, explain: {
@@ -173,7 +173,7 @@ export const lesson1Design: DesignLesson = {
           answers: 'səslə Goodbye! / Bye!', reason: 'Hello və Hi görüşü başladır, {m} isə səninlə sağollaşır.',
           rule: 'Sağollaşmaya sağollaşma ilə cavab ver.', example: 'Qarşı tərəf “Bye!” deyir. Sən “Goodbye!” deyirsən.' } },
         { match: { other: true }, explain: {
-          answers: 'səslə Goodbye! / Bye!', reason: 'Bu cavab görüşü bitirən qarşılıq vermir.',
+          answers: 'səslə Goodbye! / Bye!', reason: 'Bu cavab sağollaşmaya sağollaşma ilə qarşılıq vermir.',
           rule: 'Görüş bitəndə sağollaşma ifadəsi işlət.', example: 'Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.' } },
       ],
       review: {
@@ -183,7 +183,7 @@ export const lesson1Design: DesignLesson = {
             answers: 'səslə Goodbye! / Bye!', reason: 'Hello və Hi görüşü başladır, {m} isə səninlə sağollaşır.',
             rule: 'Sağollaşmaya sağollaşma ilə cavab ver.', example: 'Qarşı tərəf “Bye!” deyir. Sən “Goodbye!” deyirsən.' } },
           { match: { other: true }, explain: {
-            answers: 'səslə Goodbye! / Bye!', reason: 'Bu cavab görüşü bitirən qarşılıq vermir.',
+            answers: 'səslə Goodbye! / Bye!', reason: 'Bu cavab sağollaşmaya sağollaşma ilə qarşılıq vermir.',
             rule: 'Görüş bitəndə sağollaşma ifadəsi işlət.', example: 'Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.' } },
         ],
       },

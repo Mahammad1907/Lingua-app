@@ -29,12 +29,12 @@ export const lesson6: DesignLesson = {
       prompt: 'Keçən dərsləri xatırla.\nHər cümləyə mənasını qoş.',
       rows: [{ en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'G' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'B' }, { en: 'How are you?', az: 'Necəsən?', from: 'M' }],
       extra: ['Zəhmət olmasa.'],
-      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; How are you? — Necəsən?', 'Təşəkkür, ona cavab və hal sualı — üç ayrı iş.', 'Mənaya görə qoş.', "Thank you! — You're welcome."))],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; How are you? — Necəsən?', 'Təşəkkür, ona cavab və hal sualı — üç ayrı iş.', 'Thank you! — təşəkkür; You’re welcome. — təşəkkürə cavab.', "Thank you! — You're welcome."))],
       review: {
         title: 'Kim nə dedi?', why: 'Bu dərsin ifadələrini xatırladın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Bu dərsi xatırla.\nHər cümləyə mənasını qoş.',
         rows: [{ en: 'Excuse me', az: 'Bağışlayın (diqqət)', from: 'G' }, { en: 'Sorry!', az: 'Bağışlayın (səhv)', from: 'B' }, { en: 'No problem.', az: 'Eybi yox.', from: 'G' }],
         extra: ['Dəyməz.'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Excuse me — Bağışlayın (diqqət); Sorry! — Bağışlayın (səhv); No problem. — Eybi yox.', '“Excuse me” diqqəti çəkir, “Sorry” üzrdür, “No problem” üzrə cavabdır.', 'Mənaya görə qoş.', 'Sorry! — No problem.'))],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Excuse me — Bağışlayın (diqqət); Sorry! — Bağışlayın (səhv); No problem. — Eybi yox.', '“Excuse me” diqqəti çəkir, “Sorry” üzrdür, “No problem” üzrə cavabdır.', 'Excuse me — diqqət; Sorry! — səhv.', 'Sorry! — No problem.'))],
       },
     },
     {
@@ -47,7 +47,7 @@ export const lesson6: DesignLesson = {
       type: 'word', id: 'd6_c04', number: 4, scenes: ['d6/word-sorry'],
       word: 'Sorry!', pronunciation: '/ˈsɑri/', reading: 'sari', az: 'Bağışlayın (səhv)',
       notes: ['Səhv edəndə deyilir.'],
-      example: 'Sorry! — No problem.', exampleAz: 'Bağışlayın! — Eybi yox.',
+      example: 'Sorry!', exampleAz: 'Bağışlayın!',
     },
     {
       type: 'word', id: 'd6_c04b', number: 5, scenes: ['d6/word-no-problem'],
@@ -57,11 +57,11 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'choice', id: 'd6_c05', number: 5, scenes: ['d6/street-ask'], title: 'Hansı “bağışlayın”?', why: 'Diqqət çəkəndə: Excuse me.',
-      prompt: 'Küçədə birindən sual soruşmaq istəyirsən.\nNə ilə başlayarsan?', options: ['Sorry!', 'Excuse me.', 'No problem.'], answer: 'Excuse me.',
+      prompt: 'Küçədə birindən sual soruşmaq istəyirsən.\nNə ilə başlayarsan?', options: ['Sorry!', 'Excuse me.', 'Thank you!'], answer: 'Excuse me.',
       hint: 'Səhv etmisən, yoxsa sadəcə danışmaq istəyirsən?', hintAssists: true,
       variants: [
         pick('Sorry!', 'Səhv etməmisən — sadəcə diqqət çəkirsən.', ex('Excuse me.', 'İkisi də “bağışlayın”dır, amma “Sorry” səhvə görə üzrdür.', 'Diqqət → Excuse me; səhv → Sorry.', "Excuse me, what's your name?")),
-        pick('No problem.', '“No problem” üzrə cavabdır.', ex('Excuse me.', 'Söhbətə başlayırsan, diqqəti çəkirsən.', 'Diqqət → Excuse me.', 'Excuse me!')),
+        pick('Thank you!', '“Thank you” təşəkkürdür.', ex('Excuse me.', 'Hələ heç nə almamısan, söhbətə başlayırsan və diqqəti çəkirsən.', 'Diqqət → Excuse me; təşəkkür → Thank you.', 'Excuse me!')),
       ],
       review: {
         scenes: ['d6/foot-step'],

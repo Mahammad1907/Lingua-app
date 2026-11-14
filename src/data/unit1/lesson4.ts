@@ -20,7 +20,7 @@ export const lesson4: DesignLesson = {
       type: 'intro', id: 'd4_c01', badge: 'İlk tanışlıq', subtitle: 'Salamdan sonra hal soruşulur.', start: 'Dərsə başla',
       goals: [
         { icon: 'chat', text: 'Necə olduğunu soruşa bilirəm.' },
-        { icon: 'wave', text: 'Halımı deyib “And you?” ilə qaytarıram.' },
+        { icon: 'wave', text: 'Halımı deyib sualı “And you?” ilə qaytarıram.' },
       ],
     },
     {
@@ -28,12 +28,12 @@ export const lesson4: DesignLesson = {
       prompt: 'Keçən dərsləri xatırla.\nHər cümləyə mənasını qoş.',
       rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olmağıma şadam.', from: 'G' }],
       extra: ['Hələlik!'],
-      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam.', 'Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir.', 'Salam → ad → Nice to meet you.', 'Hi! What’s your name? … Nice to meet you!'))],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam.', 'Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir.', 'What’s your name? — ad sualı; Nice to meet you. — xoş söz.', 'Hi! What’s your name? … Nice to meet you!'))],
       review: {
         title: 'Kim nə dedi?', why: 'Keçən dərslərin ifadələrini xatırladın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Keçən dərsləri xatırla.\nHər cümləyə mənasını qoş.',
         rows: [{ en: 'You too!', az: 'Mən də!', from: 'B' }, { en: "I'm …", az: 'Mən …-am.', from: 'G' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
         extra: ['Adın nədir?'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex('You too! — Mən də!; I’m … — Mən …-am.; Goodbye! — Görüşənədək!', 'Hər ifadənin öz işi var: cavab, ad, sağollaşma.', 'Mənaya görə qoş.', 'Nice to meet you! — You too!'))],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex('You too! — Mən də!; I’m … — Mən …-am.; Goodbye! — Görüşənədək!', 'Hər ifadənin öz işi var: cavab, ad, sağollaşma.', 'You too! — xoş sözə cavab; Goodbye! — sağollaşma.', 'Nice to meet you! — You too!'))],
       },
     },
     {
@@ -44,13 +44,13 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'word', id: 'd4_c04', number: 4, scenes: ['d4/word-im-fine'],
-      word: "I'm fine, thanks. And you?", pronunciation: '/aɪm faɪn θæŋks ænd ju/', reading: 'aym fayn, **th**enks. end yu?', az: 'Yaxşıyam, sağ ol. Bəs sən?',
+      word: "I'm fine, thanks. And you?", pronunciation: '/aɪm faɪn θæŋks ænd ju/', reading: 'aym fayn, **th**ənks. ənd yu?', az: 'Yaxşıyam, sağ ol. Bəs sən?',
       notes: ['th — dilin ucu dişlərin arasında.'],
       example: "How are you? — I'm fine, thanks. And you?", exampleAz: 'Necəsən? — Yaxşıyam, sağ ol. Bəs sən?',
     },
     {
       type: 'word', id: 'd4_c04b', number: 5, scenes: ['d4/word-im-ok'],
-      word: "I'm OK.", pronunciation: '/aɪm oʊˈkeɪ/', reading: 'aym okey', az: 'Normalam.',
+      word: "I'm OK.", pronunciation: '/aɪm oʊˈkeɪ/', reading: 'aym oukey', az: 'Normalam.',
       notes: ["“I'm fine” ilə yaxındır."],
       example: "How are you? — I'm OK.", exampleAz: 'Necəsən? — Normalam.',
     },
@@ -71,13 +71,13 @@ export const lesson4: DesignLesson = {
       review: {
         title: 'Dinlə və anla', why: '“fine” — yaxşı.', prompt: 'Oğlanın cavabını dinlə.\nO necədir?', audio: "I'm fine, thanks.",
         options: ['Çox yaxşı deyil.', 'Yaxşıdır.', 'Sağollaşır.'], answer: 'Yaxşıdır.', hint: 'Səsdə “not” sözü varmı, ona qulaq as.', hintAssists: true,
-        variants: [other('Səsdə “fine” deyilir.', ex('Yaxşıdır.', '“I’m fine, thanks” — “Yaxşıyam, sağ ol” deməkdir, burada “not” yoxdur.', 'fine = yaxşı.', 'I’m fine, thanks.'))],
+        variants: [other('Səsdə “fine” deyilir.', ex('Yaxşıdır.', '“I’m fine, thanks” — “Yaxşıyam, sağ ol” deməkdir, burada “not” yoxdur.', 'I’m fine — Yaxşıyam; I’m not very well — Çox yaxşı deyiləm.', 'I’m fine, thanks.'))],
       },
     },
     {
       type: 'choice', id: 'd4_c06', number: 6, title: 'Sözü tamamla', why: '“I” ilə “am” gəlir.', hint: '“I’m” iki sözün qısa formasıdır — ikinci söz hansıdır?',
       prompt: 'Oğlan cavab verir.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'I', after: 'fine, thanks.' }, options: ['is', 'am', 'are'], answer: 'am',
-      variants: [other('“I” ilə “am” gəlir.', ex('am', '“Mən yaxşıyam” — “-am” ingiliscə ayrıca “am” sözüdür.', 'I am fine = I’m fine.', "I'm fine, thanks."))],
+      variants: [other('“I” ilə “am” gəlir.', ex('am', '“Mən yaxşıyam” — “-am” ingiliscə ayrıca “am” sözüdür.', 'I ilə is demirik: I am fine → I’m fine.', "I'm fine, thanks."))],
       review: {
         title: 'Sözü tamamla', why: '“you” ilə “are” gəlir.', hint: 'Bu dərsdə öyrəndiyin “Necəsən?” sualını tam xatırla.', prompt: 'Qız soruşur.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'How', after: 'you?' }, options: ['am', 'is', 'are'], answer: 'are',
         variants: [other('“you” ilə “are” gəlir.', ex('are', 'How is you? demirik, you ilə are gəlir.', 'How are you?', 'Hi! How are you?'))],
@@ -88,19 +88,19 @@ export const lesson4: DesignLesson = {
       prompt: 'Qız və oğlan küçədə rastlaşır.\nBalonlara toxun, söhbəti sıraya düz.',
       rows: [{ en: '1', az: 'Hi! How are you?', from: 'G' }, { en: '2', az: "I'm fine, thanks. And you?", from: 'B' }, { en: '3', az: "I'm OK. Bye!", from: 'G' }],
       extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'Sual → cavab.', "Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!"))],
+      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'How are you? — sual; I’m fine, thanks. And you? — cavab və qayıdan sual.', "Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!"))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab və ona reaksiya düz sıradadır.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.', prompt: 'Oğlan və qız dərsdən sonra görüşür.\nBalonlara toxun, söhbəti sıraya düz.',
         rows: [{ en: '1', az: 'Hello! How are you?', from: 'B' }, { en: '2', az: "I'm not very well. And you?", from: 'G' }, { en: '3', az: "I'm fine, thanks.", from: 'B' }],
         extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("Hello! How are you? → I'm not very well. And you? → I'm fine, thanks.", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'Sual → cavab.', "Hello! How are you? → I'm not very well. And you? → I'm fine, thanks."))],
+        variants: [other('Söhbətin sırası düz deyil.', ex("Hello! How are you? → I'm not very well. And you? → I'm fine, thanks.", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'How are you? — sual; I’m not very well. And you? — cavab və qayıdan sual.', "Hello! How are you? → I'm not very well. And you? → I'm fine, thanks."))],
       },
     },
     {
       type: 'voice', id: 'd4_c08', number: 8, title: 'Dinlə və təkrarla', why: 'Cavab axıcı səsləndi.',
-      prompt: 'Cavabı dinlə, sonra eyni cür de.', audio: "I'm fine, thanks.", repeat: { stress: 'fine', note: '“thanks” sözündə dil dişlərin arasındadır: /θ/.', reading: 'aym fayn, **th**enks' },
+      prompt: 'Cavabı dinlə, sonra eyni cür de.', audio: "I'm fine, thanks.", repeat: { stress: 'fine', note: '“thanks” sözündə dilin ucu dişlərin arasındadır.', reading: 'aym fayn, **th**ənks' },
       rule: exact("I'm fine thanks"),
-      variants: [other('Bir daha dinlə və yavaş de.', ex("I'm fine, thanks.", '“thanks” “tenks” kimi yox, dil dişlərin arasında deyilir.', 'th = /θ/.', "I'm FINE, thanks."))],
+      variants: [other('Bir daha dinlə və yavaş de.', ex("I'm fine, thanks.", '“thanks” “tenks” kimi yox, dil dişlərin arasında deyilir.', 'th — dilin ucu dişlərin arasında: “tenks” yox, thanks.', "I'm fine, thanks."))],
       review: {
         title: 'Dinlə və təkrarla', why: 'Sual axıcı səsləndi.', prompt: 'Sualı dinlə, sonra eyni cür de.', audio: 'How are you?', repeat: { stress: 'are', note: 'Üç söz bir nəfəsdə deyilir.', reading: 'hau ar yu?' },
         rule: exact('How are you'),
@@ -142,12 +142,12 @@ export const lesson4: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'd4_c12', number: 12, speaker: 'mascot', title: 'Tanışlıq və hal', why: 'Tanışlığa cavab verib halını dedin.', hint: 'Xoş sözə və suala ayrıca cavab ver.',
-      prompt: '{M} deyir: “Nice to meet you! How are you?”\nİkisinə də cavab ver.', audio: 'Nice to meet you! How are you?',
+      type: 'voice', id: 'd4_c12', number: 12, title: 'Tanışlıq və hal', why: 'Tanışlığa cavab verib halını dedin.', hint: 'Xoş sözə və suala ayrıca cavab ver.',
+      prompt: 'Yeni tanışın deyir: “Nice to meet you! How are you?”\nİkisinə də cavab ver.', audio: 'Nice to meet you! How are you?',
       rule: goal(['meet', 'feeling'], ["You too! I'm fine, thanks.", "Nice to meet you too! I'm OK."]),
       variants: [other('İki cavab: “You too!” və halın.', ex("You too! I'm fine, thanks.", 'Xoş söz və sual deyildi, hər ikisinə cavab lazımdır.', 'You too! + halın.', "Nice to meet you too! I'm OK."))],
       review: {
-        speaker: 'mascot', title: 'Tanışlıq və hal', why: 'Tanışlığa cavab verib halını dedin.', hint: 'Xoş sözə və suala ayrıca cavab ver.', prompt: 'Yeni yoldaşın deyir: “Nice to meet you! How are you?”\nİkisinə də cavab ver.', audio: 'Nice to meet you! How are you?',
+        title: 'Tanışlıq və hal', why: 'Tanışlığa cavab verib halını dedin.', hint: 'Xoş sözə və suala ayrıca cavab ver.', prompt: 'Yeni yoldaşın deyir: “Nice to meet you! How are you?”\nİkisinə də cavab ver.', audio: 'Nice to meet you! How are you?',
         rule: goal(['meet', 'feeling'], ["You too! I'm OK.", "Nice to meet you too! I'm fine."]),
         variants: [other('İki cavab: “You too!” və halın.', ex("You too! I'm OK.", 'Xoş sözə və suala ayrıca cavab verilir.', 'You too! + halın.', "You too! I'm fine, thanks."))],
       },

@@ -25,7 +25,7 @@ Qeyd: Sual verməzdən əvvəl diqqəti çəkmək üçün.
 **Cütlər:** Thank you! — Təşəkkür edirəm!; You're welcome. — Dəyməz.; How are you? — Necəsən? · artıq: Zəhmət olmasa.  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Keçən dərslərin ifadələrini xatırladın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; How are you? — Necəsən? Səbəb: Təşəkkür, ona cavab və hal sualı — üç ayrı iş. Qayda: Mənaya görə qoş. Nümunə: Thank you! — You're welcome.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; How are you? — Necəsən? Səbəb: Təşəkkür, ona cavab və hal sualı — üç ayrı iş. Qayda: Thank you! — təşəkkür; You’re welcome. — təşəkkürə cavab. Nümunə: Thank you! — You're welcome.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -33,7 +33,7 @@ Qeyd: Sual verməzdən əvvəl diqqəti çəkmək üçün.
 **Cütlər:** Excuse me — Bağışlayın (diqqət); Sorry! — Bağışlayın (səhv); No problem. — Eybi yox. · artıq: Dəyməz.  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Bu dərsin ifadələrini xatırladın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Excuse me — Bağışlayın (diqqət); Sorry! — Bağışlayın (səhv); No problem. — Eybi yox. Səbəb: “Excuse me” diqqəti çəkir, “Sorry” üzrdür, “No problem” üzrə cavabdır. Qayda: Mənaya görə qoş. Nümunə: Sorry! — No problem.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Excuse me — Bağışlayın (diqqət); Sorry! — Bağışlayın (səhv); No problem. — Eybi yox. Səbəb: “Excuse me” diqqəti çəkir, “Sorry” üzrdür, “No problem” üzrə cavabdır. Qayda: Excuse me — diqqət; Sorry! — səhv. Nümunə: Sorry! — No problem.  
 
 ## Kart 4 — Yeni söz
 
@@ -41,18 +41,18 @@ Qeyd: Sual verməzdən əvvəl diqqəti çəkmək üçün.
 
 Oxunuşu: sari · IPA: /ˈsɑri/
 
-Nümunə: **Sorry! — No problem.** — Bağışlayın! — Eybi yox.
+Nümunə: **Sorry!** — Bağışlayın!
 
 Qeyd: Səhv edəndə deyilir.
 
 ## Kart 5 — Seç: Hansı “bağışlayın”?
 
 **Tapşırıq:** Küçədə birindən sual soruşmaq istəyirsən. Nə ilə başlayarsan?  
-**Seçimlər:** Sorry! / Excuse me. / No problem. — **düzgün:** Excuse me.  
+**Seçimlər:** Sorry! / Excuse me. / Thank you! — **düzgün:** Excuse me.  
 **İpucu:** Səhv etmisən, yoxsa sadəcə danışmaq istəyirsən?  
 **Düzgün olanda:** Diqqət çəkəndə: Excuse me.  
 - *İzah (“Sorry!” seçiləndə):* Səhv etməmisən — sadəcə diqqət çəkirsən. — Uyğun: Excuse me. Səbəb: İkisi də “bağışlayın”dır, amma “Sorry” səhvə görə üzrdür. Qayda: Diqqət → Excuse me; səhv → Sorry. Nümunə: Excuse me, what's your name?  
-- *İzah (“No problem.” seçiləndə):* “No problem” üzrə cavabdır. — Uyğun: Excuse me. Səbəb: Söhbətə başlayırsan, diqqəti çəkirsən. Qayda: Diqqət → Excuse me. Nümunə: Excuse me!  
+- *İzah (“Thank you!” seçiləndə):* “Thank you” təşəkkürdür. — Uyğun: Excuse me. Səbəb: Hələ heç nə almamısan, söhbətə başlayırsan və diqqəti çəkirsən. Qayda: Diqqət → Excuse me; təşəkkür → Thank you. Nümunə: Excuse me!  
 
 **Təkrar (yeni vəziyyət):**
 
