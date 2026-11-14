@@ -134,16 +134,20 @@ export function TileTray({ tiles, picked, onPick, onSay, disabled }: { tiles: st
 }
 
 /** “Sözü tamamla”: the speaker says one sentence with a gap; the options sit under it, centred. */
-export function GapSentence({ speaker, before, after, options, value, onPick, onSay, mark, disabled }: {
+export function GapSentence({ speaker, before, after, options, value, onPick, onSay, mark, disabled, pieces, lit = -1, onReplay }: {
   speaker?: Who; before: string; after: string; options: string[]; value: string; onPick: (o: string) => void; onSay?: (t: string) => void; mark?: Mark; disabled?: boolean;
+  /** After the answer: the full correct sentence in pieces; `lit` is the piece being read (green). */
+  pieces?: string[]; lit?: number; onReplay?: () => void;
 }) {
   const color = mark === 'correct' ? d.greenText : mark === 'wrong' ? d.redText : d.purple;
-  const sentence = <Text style={s.gapText}>{nameSlot(before)}{before ? ' ' : ''}<Text style={[s.gapSlot, value ? { color, backgroundColor: mark === 'correct' ? d.greenSoft : mark === 'wrong' ? d.redSoft : d.purpleSoft } : null]}>
+  const read = pieces ? <Text style={s.gapText}>{pieces.map((p, i) => <Text key={i} style={i === lit ? { color: d.greenText, backgroundColor: d.greenSoft } : null}>{nameSlot(p)}{p.endsWith('-') || i === pieces.length - 1 ? '' : ' '}</Text>)}</Text> : null;
+  const sentence = read ?? <Text style={s.gapText}>{nameSlot(before)}{before ? ' ' : ''}<Text style={[s.gapSlot, value ? { color, backgroundColor: mark === 'correct' ? d.greenSoft : mark === 'wrong' ? d.redSoft : d.purpleSoft } : null]}>
     {value ? ` ${value} ` : ' ______ '}</Text>{/^[.,!?]/.test(after) ? '' : ' '}{nameSlot(after)}</Text>;
   return <View style={{ gap: 18 }}>
     <View style={s.sayRow}>
       {speaker ? <Avatar who={speaker} size={56} /> : null}
-      <View style={[s.sayBubble, shadow, !speaker && { borderTopLeftRadius: 22 }]}>{sentence}</View>
+      <View style={[s.sayBubble, shadow, !speaker && { borderTopLeftRadius: 22 }]}>{sentence}
+        {onReplay ? <Pressable accessibilityRole="button" accessibilityLabel="Yenidən dinlə" onPress={onReplay} hitSlop={8} style={{ alignSelf: 'flex-end', marginTop: 6 }}><Icon name="play" size={22} color={d.purple} /></Pressable> : null}</View>
     </View>
     <View style={s.pills}>
       {options.map(o => {

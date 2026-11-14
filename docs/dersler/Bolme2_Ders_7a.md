@@ -123,7 +123,27 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 **Düzgün olanda:** Geriyə sayımı düz davam etdirdin.  
 - *İzah (başqa səhvdə):* Bir sıranın davamı yerində deyil. — Uyğun: Twenty, nineteen… — Eighteen!; Thirteen, twelve… — Eleven!; Seventeen, sixteen… — Fifteen! Səbəb: Geriyə sayanda hər sıra bir rəqəm azalır. Qayda: Twelve… → eleven; Sixteen… → fifteen. Nümunə: Twenty, nineteen, eighteen!  
 
-## Kart 10 — Yaz: Dinlə və yaz
+## Kart 10 — Hərfləri tut: Hərfləri tut
+
+**Tapşırıq:** Məşqçi zalın Wi-Fi adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Səs:** G, Y, M.  
+**Hərflər:** G Y M J I N  
+**Qəbul:** dəqiq: GYM  
+**İpucu:** Hər hərfi eşidən kimi toxun; “ci” və “cey”, “uay” və “ay” fərqinə qulaq as.  
+**Düzgün olanda:** G-Y-M — zalın Wi-Fi adı.  
+- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: GYM. Səbəb: Səsdə üç hərf var: ci, uay, em. Qayda: G — ci; Y — uay. Nümunə: G, Y, M.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Hovuzun qəbulu Wi-Fi adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Səs:** P, double O, L.  
+**Hərflər:** P O O L U Q  
+**Qəbul:** dəqiq: POOL  
+**İpucu:** Hər hərfi eşidən kimi toxun; qoşa hərfə diqqət et.  
+**Düzgün olanda:** P-O-O-L — hovuzun Wi-Fi adı.  
+- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: POOL. Səbəb: Səsdə “pi, double O, el” deyilir: double O — OO. Qayda: double O — OO; double L — LL. Nümunə: P, double O, L.  
+
+## Kart 11 — Yaz: Dinlə və yaz
 
 **Tapşırıq:** Qəbulda qadın dolabının nömrəsini deyir. Eşitdiyin sözü yaz.  
 **Səs:** Fifteen.  
@@ -141,7 +161,7 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 **Düzgün olanda:** thirteen — three yox, thir-.  
 - *İzah (başqa səhvdə):* Yazılışı yoxla. — Uyğun: thirteen. Səbəb: 13-də “three” dəyişir: thir- + teen. Qayda: four → fourteen; three → thirteen. Nümunə: Thirteen, fourteen, fifteen!  
 
-## Kart 11 — Sözü tamamla: Sözü tamamla
+## Kart 12 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Qız dolabının nömrəsini deyir: 12. Hansı söz çatmır?  
 **Cümlə:** It's ___ .  
@@ -161,7 +181,7 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 - *İzah (“oneteen” seçiləndə):* Belə söz yoxdur: 11 — eleven. — Uyğun: eleven. Səbəb: “-teen” 13-dən başlayır; 11-in öz sözü var. Qayda: eleven — 11; thirteen — 13. Nümunə: It's eleven.  
 - *İzah (“seventeen” seçiləndə):* “seventeen” — 17. — Uyğun: eleven. Səbəb: “seventeen” on yeddidir, dolab isə 11-dir. Qayda: eleven — 11; seventeen — 17. Nümunə: It's eleven.  
 
-## Kart 12 — Səhnədə tap: Səhnədə tap
+## Kart 13 — Səhnədə tap: Səhnədə tap
 
 **Tapşırıq:** Zalda dolablar sıra ilə düzülüb. Qəbul sənin dolabını deyir. Şəkildə həmin dolabı tap.  
 **Səs:** Seventeen.  
@@ -181,7 +201,7 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 - *İzah (“9-cu dolab” seçiləndə):* “nine” — 9; səsdə “teen” də var. — Uyğun: 19-cu dolab. Səbəb: Sözün sonunda “teen” var — bu, 19-dur. Qayda: nine — 9; nineteen — 19. Nümunə: Nineteen.  
 - *İzah (“18-ci dolab” seçiləndə):* “eighteen” — 18; səsdə “nine” var. — Uyğun: 19-cu dolab. Səbəb: Sözün əvvəlində “nine” var, “eigh” yox. Qayda: eighteen — 18; nineteen — 19. Nümunə: Nineteen.  
 
-## Kart 13 — Səslə cavab: Dolabını de
+## Kart 14 — Səslə cavab: Dolabını de
 
 **Tapşırıq:** Qəbulda soruşurlar ki, dolabın neçədir. Sənin dolabın 18-dir. Nömrəni de.  
 **Qəbul:** dəqiq: It's eighteen. · öz məlumatı: /^(?:it'?s\s+|it is\s+)?(?:eighteen|18)[.!]?$/  
@@ -201,7 +221,7 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 
 Dərs 7 · 1-ci hissə tamamlandı — Artıq 11–20 rəqəmlərini tanıyırsan, yazırsan və dolabının nömrəsini deyə bilirsən.
 
-- Tanıma: 11–20 rəqəmlərini eşidib tanımaq
+- Tanıma: 11–20 rəqəmlərini və hərfləri eşidib tanımaq
 - Yazı: Eşitdiyin rəqəmi sözlə yazmaq
 - Danışıq: 11–20 rəqəmlərini demək
 

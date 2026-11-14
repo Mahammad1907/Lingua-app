@@ -68,6 +68,27 @@ function pickVariant(variants: Variant[], value: string, voice: boolean, field?:
 const explainOf = (variant: Variant | undefined, yourAnswer: string, purpose?: string): Graded['explain'] =>
   variant ? { ...variant.explain, reason: variant.explain.reason.replace('{purpose}', purpose ?? ''), yourAnswer } : undefined;
 
+/** Learner's own data (e-mail) written almost right: show THEIR address corrected and name the exact slip,
+ *  never someone else's model address (15 Nov 2026). Returns undefined when no safe single fix exists. */
+const DOMAINS = /(gmail|mail|yahoo|outlook|hotmail|icloud|box|list|inbox|yandex)(\.|\s+dot\s+)/i;
+export function ownDataFix(value: string, rule: { pattern?: string }): { fixed: string; reason: string } | undefined {
+  if (!rule.pattern) return undefined;
+  const raw = value.trim();
+  const ok = (v: string) => new RegExp(rule.pattern!, 'iu').test(v);
+  const tries: [string, string][] = [];
+  if (/\s+(at|et)\s+/i.test(raw)) tries.push([raw.replace(/\s+(at|et)\s+/i, '@').replace(/\s+dot\s+/gi, '.'), 'Ünvanda “at” sözü yox, @ işarəsi yazılır.']);
+  if (/\s+dot\s+/i.test(raw)) tries.push([raw.replace(/\s+dot\s+/gi, '.'), 'Ünvanda “dot” sözü yox, nöqtə (.) yazılır.']);
+  if (!raw.includes('@') && DOMAINS.test(raw)) tries.push([raw.replace(DOMAINS, (m) => `@${m}`).replace(/@\s+/, '@').replace(/\s+@/, '@'), '@ işarəsi çatışmır: addan sonra @, sonra poçt xidmətinin adı.']);
+  if (raw.includes('@') && /@[a-z0-9-]+\s*com$/i.test(raw)) tries.push([raw.replace(/\s*com$/i, '.com'), 'Sonda nöqtə çatışmır: .com']);
+  for (const [fixed, reason] of tries) if (fixed !== raw && ok(fixed)) return { fixed, reason };
+  return undefined;
+}
+const withOwnFix = (graded: Graded, value: string, rule: { pattern?: string }): Graded => {
+  const fix = ownDataFix(value, rule);
+  if (!fix || graded.status !== 'wrong') return graded;
+  return { ...graded, short: fix.reason, explain: { answers: fix.fixed, reason: fix.reason, rule: '', example: '', ...(graded.explain ? { rule: graded.explain.rule, example: graded.explain.example } : {}), yourAnswer: value } as Graded['explain'] };
+};
+
 export function gradeChoice(task: Extract<DesignTask, { type: 'choice' }>, option: string): Graded {
   if (!option) return { status: 'empty' };
   if (option === task.answer) return { status: 'correct' };
@@ -84,7 +105,7 @@ export function gradeText(task: Extract<DesignTask, { type: 'write' | 'voice' }>
   // Speech the grader cannot judge stays “Yoxlanmadı” — unless it is one of the task's known typical mistakes
   // (e.g. “I have 25 years”), which is a real language error with its own explanation (14 Nov 2026).
   if (verdict.status === 'unknown' && !(variant && !('other' in variant.match))) return { status: 'unknown' };
-  return { status: 'wrong', short: variant?.short ?? variant?.explain.reason, explain: explainOf(variant, value) };
+  return withOwnFix({ status: 'wrong', short: variant?.short ?? variant?.explain.reason, explain: explainOf(variant, value) }, value, task.rule);
 }
 
 /** Tiles in the order the learner tapped them, as one sentence (“My name is Leyla .” → “My name is Leyla.”). */
@@ -127,7 +148,7 @@ export function gradeTwo(task: TwoTask, values: Record<string, string>, keep: Re
     if (fields[field.id].status !== 'wrong') continue;
     const variant = pickVariant(task.variants.filter(v => !('swapped' in v.match)), values[field.id], false, field.id);
     const short = variant?.short && !(field.id === second.id && fields[first.id].status !== 'correct') ? variant.short : variant?.explain.reason.replace('{purpose}', field.purpose);
-    fields[field.id] = { status: 'wrong', short, explain: explainOf(variant, values[field.id], field.purpose) };
+    fields[field.id] = withOwnFix({ status: 'wrong', short, explain: explainOf(variant, values[field.id], field.purpose) }, values[field.id], field.rule);
   }
   const statuses = task.fields.map(f => fields[f.id].status);
   const wrong = task.fields.find(f => fields[f.id].status === 'wrong');

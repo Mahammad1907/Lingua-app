@@ -11,7 +11,7 @@ const asWords = (address: string, words: string): Variant => ({
 });
 
 export const exam: DesignLesson = {
-  id: 'a1_en_b2_exam', order: 21, unit: 2, exam: true, title: 'Bölmə 2 imtahanı', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_exam', order: 22, unit: 2, exam: true, title: 'Bölmə 2 imtahanı', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {
@@ -32,7 +32,7 @@ export const exam: DesignLesson = {
       type: 'voice', id: 'u2x_c03', number: 3, title: 'Nömrəni de', why: 'Nömrəni rəqəm-rəqəm dedin.',
       prompt: 'İdman zalının qəbulu soruşur: “What\'s your phone number?”\nÖz nömrəni de (istəsən, uydurma).', audio: "What's your phone number?", reply: 'Thank you!',
       rule: own(PHONE, "It's zero five zero, three two one, four five, six seven."),
-      variants: [...PHONE_MISTAKES, other("It's + nömrə.", ex("It's zero five zero, three two one, four five, six seven.", 'Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de.', "It's 050… — düzdür; My phone is 050… — olmur.", "What's your phone number? — It's oh five five…"))],
+      variants: [...PHONE_MISTAKES, other("It's + nömrə.", ex("It's zero five zero, three two one, four five, six seven.", 'Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de.', "What's your phone number? — It's 050…", "What's your phone number? — It's oh five five…"))],
     },
     {
       type: 'two', id: 'u2x_c04', number: 4, title: 'Formanı doldur', why: 'Ad və soyad öz yerindədir.', scenes: ['u2/form-course'],

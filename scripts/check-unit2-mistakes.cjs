@@ -28,14 +28,14 @@ module.exports = (rejects, find) => {
   rejectsField('u2d2_c13', 'u2d2_c13a', "What's your number phone?");
   rejectsField('u2d2_c13', 'u2d2_c13a', 'My phone?');
   rejectsField('u2d2_c13', 'u2d2_c13b', 'Is that true?');
-  // Dərs 3: E ↔ I, G ↔ J, H “aş”
-  rejects('u2d3a_c07', 'KPB');
-  rejects('u2d3a_c10', 'G, K, G.', true);
-  rejects('u2d3a_c12', '10 KP 205');
-  rejects('u2d3b_c03', '10 RE 302');
-  rejects('u2d3b_c05', 'LHE');
-  rejects('u2d3b_c12', 'V, A, V.', true);
-  rejects('u2d3b_c13', 'My phone is 050 321 45 67.');
+  // Dərs 3: E ↔ I, G ↔ J, H “aş”, W ↔ V
+  rejects('u2d3a_c06', 'MTB');
+  rejects('u2d3a_c10', '10 SI 517');
+  rejects('u2d3b_c05', 'JVA');
+  rejects('u2d3b_c09', '10 SJ 331');
+  rejects('u2d3c_c05', 'AKG');
+  rejects('u2d3c_c07', 'L, H, E.', true);
+  rejects('u2d3c_c11', 'My name is', true);
   // Dərs 4: “How you spell?”, double-ı “two” demək
   rejects('u2d4_c07', 'How you spell it?');
   rejects('u2d4_c07', 'How is your spell?');

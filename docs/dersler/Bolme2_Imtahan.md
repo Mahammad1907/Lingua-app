@@ -25,7 +25,7 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 **Qəbul:** məna:  — nümunə: It's zero five zero, three two one, four five, six seven. · öz məlumatı: /^(?:it'?s\s+|it is\s+|my (?:phone )?number is\s+)?(?:(?:zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine|\d)[\s,.-]*){7,15}[.!]?$/  
 **Düzgün olanda:** Nömrəni rəqəm-rəqəm dedin.  
 - *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər. Qayda: It's 050 321 45 67. — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
-- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: It's 050… — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's oh five five…  
+- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: What's your phone number? — It's 050… Nümunə: What's your phone number? — It's oh five five…  
 
 ## Kart 4 — Formanı doldur: Formanı doldur
 

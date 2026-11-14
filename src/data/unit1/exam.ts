@@ -41,7 +41,7 @@ export const unit1Exam: DesignLesson[] = [{
       prompt: 'Kursun ilk günüdür. Qrupun söhbətinə ilk mesajını yazırsan.\nSalam ver və adını yaz.', placeholder: 'Salam + adın', rule: greetIntro,
       variants: [
         insteadOf('farewell', 'Tanışlıq yeni başlayır.', ex('Hello! My name is …', 'Sağollaşma söhbətin sonunda olur, sən isə qrupla yeni tanış olursan.', 'Salam + I’m … / Salam + My name is …', "Hi! I'm …")),
-        other('Salam və adın lazımdır.', ex('Hello! My name is …', 'Azərbaycancada “-am” və “-dır” şəkilçidir, ingiliscə am və is ayrıca sözdür.', 'I + am → I’m …; My name is …', "Hi! I'm …")),
+        other('Salam və adın lazımdır.', ex('Hello! My name is …', 'Əvvəl salam ver, sonra I’m və ya My name is ilə adını de; yazılışı yoxla.', 'I + am → I’m …; My name is …', "Hi! I'm …")),
       ],
     },
     {
@@ -58,7 +58,7 @@ export const unit1Exam: DesignLesson[] = [{
       prompt: 'Kafedə növbədə yanındakı qadını kursdan tanıyırsan, amma adını bilmirsən.\nOnun adını soruş.', rule: goal(['askName'], ["What's your name?"]),
       variants: [
         insteadOf('introduce', 'Sən öz adını dedin, onunkunu soruşmadın.', ex("What's your name?", '“My name is …” sənin adındır, sual deyil.', 'My name is … — öz adın; What’s your name? — onun adı.', "Hi! What's your name?")),
-        other('Ad sualı lazımdır.', ex("What's your name?", 'Onun adını bilmək üçün sual verirsən: your name, “you name” yox.', 'What’s your name? — sual; My name is … — cavab.', "Hello! What's your name?")),
+        other('Ad sualı lazımdır.', ex("What's your name?", 'Onun adını What’s your name? sualı ilə soruşursan; sözləri və sırasını yoxla.', 'What’s your name? — sual; My name is … — cavab.', "Hello! What's your name?")),
       ],
     },
     {
@@ -92,13 +92,13 @@ export const unit1Exam: DesignLesson[] = [{
       prompt: 'İşdə yeni həmkarla tanış oldun.\nSözlərdən “Tanış olduğuma şadam” cümləsini qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni həmkar', from: 'B', lines: [{ from: 'B', text: 'Hello!' }] },
       tiles: ['meet', 'you', 'Nice', 'your', 'to', 'too', '.'], rule: exact('Nice to meet you.'),
-      variants: [other('Söz sırası və ya bir söz düz deyil.', ex('Nice to meet you.', 'Azərbaycanca “tanış olduğuma” bir sözdür, ingiliscə “to meet” iki sözdür və sonda “your” yox, “you” gəlir.', 'Nice to meet you. — xoş söz; You too. — ona cavab.', 'Nice to meet you! — You too!'))],
+      variants: [other('Söz sırası və ya bir söz düz deyil.', ex('Nice to meet you.', 'Dörd söz bu sırada gəlir: Nice, to, meet, you.', 'Nice to meet you. — xoş söz; You too. — ona cavab.', 'Nice to meet you! — You too!'))],
     },
     {
       type: 'voice', id: 'u1x_c10', number: 10, title: 'Danış: kömək istə', why: 'Başa düşmədiyini dedin və təkrar istədin.',
       prompt: 'Kafedə ofisiant sənə uzun bir şey dedi, heç nə başa düşmürsən.\nBaşa düşmədiyini de və bir də deməsini xahiş et.',
       rule: goal(['dontUnderstand', 'repeat'], ["Sorry? I don't understand. Again, please."]),
-      variants: [other('İki hissə: başa düşmürəm + bir də.', ex("Sorry? I don't understand. Again, please.", '“I not understand” və “I am understand” demirik.', 'I’m not very well. — burada not; I don’t understand. — burada don’t.', "I don't understand. Again, please."))],
+      variants: [other('İki hissə: başa düşmürəm + bir də.', ex("Sorry? I don't understand. Again, please.", 'Əvvəl başa düşmədiyini I don’t understand ilə de, sonra bir də deməsini xahiş et.', 'I don’t understand. — başa düşmürəm; Again, please. — bir də.', "I don't understand. Again, please."))],
     },
     {
       type: 'match', mode: 'reply', id: 'u1x_c11', number: 11, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.',
@@ -124,8 +124,8 @@ export const unit1Exam: DesignLesson[] = [{
         { id: 'u1x_c13b', label: 'İkinci mesaj', placeholder: 'Sağollaş', rule: goal(['farewell'], ['Goodbye!', 'Bye!']), purpose: 'sağollaşmaq', empty: 'İkinci mesajı da yaz.' },
       ],
       variants: [
-        { field: 'u1x_c13a', match: { other: true }, explain: ex('Thank you!', 'Kömək edənə təşəkkür edirsən; “Please” xahişdir, “You’re welcome” təşəkkürə cavabdır.', 'Thank you! — təşəkkür; You’re welcome. — ona cavab.', "Thank you! — You're welcome.") },
-        { field: 'u1x_c13b', match: { other: true }, explain: ex('Bye!', 'Həmkarın gedir — sağollaşırsan; “Hello” görüşün əvvəlində deyilir.', 'Hello! — gələndə; Goodbye! — gedəndə.', 'Goodbye!') },
+        { field: 'u1x_c13a', match: { other: true }, explain: ex('Thank you!', 'Təşəkkür üçün Thank you! və ya Thanks! yazılır — yazılışı yoxla.', 'Thank you! — təşəkkür; You’re welcome. — ona cavab.', "Thank you! — You're welcome.") },
+        { field: 'u1x_c13b', match: { other: true }, explain: ex('Bye!', 'Həmkarın gedir — sağollaşma üçün Goodbye! və ya Bye! yazılır; yazılışı yoxla.', 'Hello! — gələndə; Goodbye! — gedəndə.', 'Goodbye!') },
       ],
     },
     {

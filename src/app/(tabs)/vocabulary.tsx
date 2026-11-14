@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import { useVocabularyStore } from '../../store/vocabularyStore';
+import { AlphabetBoard } from '../../components/design/AlphabetBoard';
 
 export default function VocabularyTab() {
   const router = useRouter();
@@ -56,6 +57,8 @@ export default function VocabularyTab() {
             <Text style={styles.settingsIcon}>⚙️</Text>
           </TouchableOpacity>
         </View>
+
+        <AlphabetBoard />
 
         {storageError ? <View><Text style={{ color: '#FFB5A7', marginVertical: 8 }}>{storageError}</Text><TouchableOpacity onPress={() => void useVocabularyStore.getState().saveToStorage().catch(() => {})}><Text style={{ color: '#FFAB38', paddingVertical: 12 }}>Yenidən saxla</Text></TouchableOpacity></View> : null}
         {/* Statistika — 3 KLİKLƏNƏN KART */}

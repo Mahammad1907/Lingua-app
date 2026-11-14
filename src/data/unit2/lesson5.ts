@@ -11,7 +11,7 @@ const last = own(NAME, 'Mammadova');
 const myLast = own(LAST_NAME_SAID, 'My last name is …');
 
 export const lesson5: DesignLesson = {
-  id: 'a1_en_b2_d5', order: 16, unit: 2, number: 5, title: 'Ad və soyad', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d5', order: 17, unit: 2, number: 5, title: 'Ad və soyad', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {

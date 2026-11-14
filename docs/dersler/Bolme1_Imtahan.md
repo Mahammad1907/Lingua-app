@@ -25,7 +25,7 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 **Qəbul:** məna: greet + introduce — nümunə: Hello! My name is … / Hi! I'm …  
 **Düzgün olanda:** Salam verdin və adını dedin.  
 - *İzah (cavab “farewell” işini görəndə):* Tanışlıq yeni başlayır. — Uyğun: Hello! My name is … Səbəb: Sağollaşma söhbətin sonunda olur, sən isə qrupla yeni tanış olursan. Qayda: Salam + I’m … / Salam + My name is … Nümunə: Hi! I'm …  
-- *İzah (başqa səhvdə):* Salam və adın lazımdır. — Uyğun: Hello! My name is … Səbəb: Azərbaycancada “-am” və “-dır” şəkilçidir, ingiliscə am və is ayrıca sözdür. Qayda: I + am → I’m …; My name is … Nümunə: Hi! I'm …  
+- *İzah (başqa səhvdə):* Salam və adın lazımdır. — Uyğun: Hello! My name is … Səbəb: Əvvəl salam ver, sonra I’m və ya My name is ilə adını de; yazılışı yoxla. Qayda: I + am → I’m …; My name is … Nümunə: Hi! I'm …  
 
 ## Kart 4 — Sözü tamamla: Sözü tamamla
 
@@ -42,7 +42,7 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 **Qəbul:** məna: askName — nümunə: What's your name?  
 **Düzgün olanda:** Yeni tanışın adını soruşdun.  
 - *İzah (cavab “introduce” işini görəndə):* Sən öz adını dedin, onunkunu soruşmadın. — Uyğun: What's your name? Səbəb: “My name is …” sənin adındır, sual deyil. Qayda: My name is … — öz adın; What’s your name? — onun adı. Nümunə: Hi! What's your name?  
-- *İzah (başqa səhvdə):* Ad sualı lazımdır. — Uyğun: What's your name? Səbəb: Onun adını bilmək üçün sual verirsən: your name, “you name” yox. Qayda: What’s your name? — sual; My name is … — cavab. Nümunə: Hello! What's your name?  
+- *İzah (başqa səhvdə):* Ad sualı lazımdır. — Uyğun: What's your name? Səbəb: Onun adını What’s your name? sualı ilə soruşursan; sözləri və sırasını yoxla. Qayda: What’s your name? — sual; My name is … — cavab. Nümunə: Hello! What's your name?  
 
 ## Kart 6 — Kim nə dedi?: Kim nə dedi?
 
@@ -75,14 +75,14 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 **Sözlər:** meet · you · Nice · your · to · too · .  
 **Qəbul:** dəqiq: Nice to meet you.  
 **Düzgün olanda:** Nice to meet you — “to” da yerindədir.  
-- *İzah (başqa səhvdə):* Söz sırası və ya bir söz düz deyil. — Uyğun: Nice to meet you. Səbəb: Azərbaycanca “tanış olduğuma” bir sözdür, ingiliscə “to meet” iki sözdür və sonda “your” yox, “you” gəlir. Qayda: Nice to meet you. — xoş söz; You too. — ona cavab. Nümunə: Nice to meet you! — You too!  
+- *İzah (başqa səhvdə):* Söz sırası və ya bir söz düz deyil. — Uyğun: Nice to meet you. Səbəb: Dörd söz bu sırada gəlir: Nice, to, meet, you. Qayda: Nice to meet you. — xoş söz; You too. — ona cavab. Nümunə: Nice to meet you! — You too!  
 
 ## Kart 10 — Səslə cavab: Danış: kömək istə
 
 **Tapşırıq:** Kafedə ofisiant sənə uzun bir şey dedi, heç nə başa düşmürsən. Başa düşmədiyini de və bir də deməsini xahiş et.  
 **Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Again, please.  
 **Düzgün olanda:** Başa düşmədiyini dedin və təkrar istədin.  
-- *İzah (başqa səhvdə):* İki hissə: başa düşmürəm + bir də. — Uyğun: Sorry? I don't understand. Again, please. Səbəb: “I not understand” və “I am understand” demirik. Qayda: I’m not very well. — burada not; I don’t understand. — burada don’t. Nümunə: I don't understand. Again, please.  
+- *İzah (başqa səhvdə):* İki hissə: başa düşmürəm + bir də. — Uyğun: Sorry? I don't understand. Again, please. Səbəb: Əvvəl başa düşmədiyini I don’t understand ilə de, sonra bir də deməsini xahiş et. Qayda: I don’t understand. — başa düşmürəm; Again, please. — bir də. Nümunə: I don't understand. Again, please.  
 
 ## Kart 11 — Cavab cütü: Cavab cütü
 
@@ -106,8 +106,8 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 **Birinci mesaj:** məna: thanks — nümunə: Thank you! / Thanks!  
 **İkinci mesaj:** məna: farewell — nümunə: Goodbye! / Bye!  
 **Düzgün olanda:** Təşəkkür etdin və sağollaşdın.  
-- *İzah (“Birinci mesaj” səhv olanda):* Uyğun: Thank you! Səbəb: Kömək edənə təşəkkür edirsən; “Please” xahişdir, “You’re welcome” təşəkkürə cavabdır. Qayda: Thank you! — təşəkkür; You’re welcome. — ona cavab. Nümunə: Thank you! — You're welcome.  
-- *İzah (“İkinci mesaj” səhv olanda):* Uyğun: Bye! Səbəb: Həmkarın gedir — sağollaşırsan; “Hello” görüşün əvvəlində deyilir. Qayda: Hello! — gələndə; Goodbye! — gedəndə. Nümunə: Goodbye!  
+- *İzah (“Birinci mesaj” səhv olanda):* Uyğun: Thank you! Səbəb: Təşəkkür üçün Thank you! və ya Thanks! yazılır — yazılışı yoxla. Qayda: Thank you! — təşəkkür; You’re welcome. — ona cavab. Nümunə: Thank you! — You're welcome.  
+- *İzah (“İkinci mesaj” səhv olanda):* Uyğun: Bye! Səbəb: Həmkarın gedir — sağollaşma üçün Goodbye! və ya Bye! yazılır; yazılışı yoxla. Qayda: Hello! — gələndə; Goodbye! — gedəndə. Nümunə: Goodbye!  
 
 ## Kart 14 — Söhbəti sırala: Söhbəti sırala
 

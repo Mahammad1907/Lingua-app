@@ -3,6 +3,7 @@ import * as Haptics from 'expo-haptics';
 import Animated, { FadeIn } from 'react-native-reanimated';
 import { Stack, useFocusEffect, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
+import { setAudioModeAsync } from 'expo-audio';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, BackHandler, Keyboard, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -92,10 +93,13 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const request = ++sequence.current; setSoundError(false);
     const failed = () => { if (request !== sequence.current) return; setPlaying(false); if (listening) setSoundError(true); };
     const watchdog = setTimeout(failed, Math.max(8000, value.length * 200 / rate + 5000));
-    void Speech.stop().then(() => {
+    // Slow listening: a lower rate alone is barely audible on iOS, so short pauses go between words and letters (15 Nov 2026).
+    const text = rate < 0.6 ? value.replace(/-/g, ', ').replace(/\s+/g, ', ').replace(/,\s*,/g, ',') : value;
+    // The lesson must be heard even with the iPhone's silent switch on (15 Nov 2026).
+    void Speech.stop().then(() => setAudioModeAsync({ playsInSilentMode: true }).catch(() => {})).then(() => {
       if (request !== sequence.current) { clearTimeout(watchdog); return; }
       setPlaying(true);
-      Speech.speak(value, {
+      Speech.speak(text, {
         language: 'en-US', rate,
         onDone: () => { clearTimeout(watchdog); if (request === sequence.current) { setPlaying(false); if (listening) setHeard(true); } },
         onStopped: () => { clearTimeout(watchdog); if (request === sequence.current) setPlaying(false); },
@@ -103,6 +107,27 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       });
     }).catch(() => { clearTimeout(watchdog); failed(); });
   }, []);
+
+  // “Sözü tamamla”: after the answer the full sentence is read piece by piece and each piece lights up green
+  // (letters one by one in spellings like M-A-double M-…). Nothing is read before the answer (15 Nov 2026).
+  const [lit, setLit] = useState<{ card: string; index: number } | null>(null);
+  const playPieces = useCallback((card: string, pieces: string[]) => {
+    const request = ++sequence.current;
+    const step = (i: number) => {
+      if (request !== sequence.current) return;
+      if (i >= pieces.length) { setLit(null); setPlaying(false); return; }
+      setLit({ card, index: i }); setPlaying(true);
+      const spoken = pieces[i].replace(/[-.,!?]+$/, '').replace(/…/g, '');
+      if (!spoken) { step(i + 1); return; }
+      Speech.speak(spoken, { language: 'en-US', rate: 0.85, onDone: () => setTimeout(() => step(i + 1), 120), onStopped: () => setLit(null), onError: () => step(i + 1) });
+    };
+    void Speech.stop().then(() => setAudioModeAsync({ playsInSilentMode: true }).catch(() => {})).then(() => step(0));
+  }, []);
+  const gapDone = Boolean(task?.type === 'choice' && task.gap && result && result.kind !== 'unverified');
+  useEffect(() => {
+    if (!gapDone || !task || task.type !== 'choice' || !task.gap) return;
+    playPieces(task.id, gapPieces(task.gap.before, task.answer, task.gap.after));
+  }, [gapDone]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // New words go into “Lüğətim” the moment they are first taught (no duplicates).
   useEffect(() => {
@@ -361,12 +386,16 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {reviewing ? <View style={{ gap: 6 }}><Chip label="Təkrar" />{reviewStep === 0 ? <Text style={ds.small}>{lesson.notices.review}</Text> : null}</View> : null}
       <Text accessibilityRole="header" style={ds.title}>{task.title}</Text>
       {mascotTalks ? <SayBubble who="M" text={instruction} />
-        : <View style={{ gap: 2 }}>{context ? <Text style={ds.subtitle}>{context}</Text> : null}<Text style={ds.instruction}>{instruction}</Text></View>}
+        : <View style={s.taskCard}>{/* The task text sits in a framed card so the eye lands on it first (15 Nov 2026). */}
+          {context ? <Text style={ds.subtitle}>{context}</Text> : null}
+          {context ? <View style={s.taskRule} /> : null}
+          <View style={{ flexDirection: 'row', gap: 8, alignItems: 'flex-start' }}><View style={{ paddingTop: 5 }}><Icon name="arrow" size={18} color={d.purple} /></View><Text style={[ds.instruction, { flex: 1 }]}>{instruction}</Text></View>
+        </View>}
       {mascotTalks && context ? <Text style={ds.subtitle}>{context}</Text> : null}
       <View style={s.work}>
       {scene && !spotsShown ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
-      {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.45)} /> : null}
-      {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.45, listeningTask)} /> : null}
+      {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.4)} /> : null}
+      {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.4, listeningTask)} /> : null}
       {/* Approved design: on listening tasks Kömək sits right under the audio card; elsewhere under the answers. */}
       {helpUnderAudio ? helpButton : null}
       {soundError && !textShown ? <Card style={{ gap: 10 }}><Text style={ds.body}>{lesson.notices.soundFailed}</Text>
@@ -376,8 +405,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         <Text style={ds.small}>Audio mətnini görürsən. Bu hissədə dinləmə yoxlanmadı.</Text>
       </Pressable> : null}
       {sampleVisible ? <View style={s.sample}><Text style={s.sampleLabel}>Nümunə</Text><View style={s.vline} /><Text style={s.sampleText}>{sampleText ? nameSlot(sampleText) : ''}</Text></View> : null}
-      {repeat && audio ? <><AudioPanel playing={playing} onPlay={() => speak(audio, 0.85)} onSlow={() => speak(audio, 0.45)} /><PhraseCard text={audio} stress={repeat.stress} note={repeat.note} reading={repeat.reading} /></> : null}
+      {repeat && audio ? <><AudioPanel playing={playing} onPlay={() => speak(audio, 0.85)} onSlow={() => speak(audio, 0.4)} /><PhraseCard text={audio} stress={repeat.stress} note={repeat.note} reading={repeat.reading} /></> : null}
       {task.type === 'choice' && task.gap ? <GapSentence speaker={task.gap.speaker} before={task.gap.before} after={task.gap.after} options={task.options} value={choice} onSay={say}
+        pieces={gapDone ? gapPieces(task.gap.before, task.answer, task.gap.after) : undefined} lit={lit?.card === task.id ? lit.index : -1}
+        onReplay={gapDone ? () => playPieces(task.id, gapPieces(task.gap!.before, task.answer, task.gap!.after)) : undefined}
         disabled={Boolean(result && result.kind !== 'unverified')} mark={single ? markOf(single.status) : undefined}
         onPick={o => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} /> : null}
       {task.type === 'choice' && spotsShown ? <SceneSpots scenes={task.scenes} spots={task.spots!} value={choice} disabled={Boolean(result && result.kind !== 'unverified')}
@@ -562,11 +593,17 @@ function ResultView({ lesson, records, finish }: { lesson: Lesson; records: Reco
   </View>;
 }
 
+/** Pieces read one by one after a gap answer: words, and single letters inside spellings (M-A-double M → M · A · double M). */
+export function gapPieces(before: string, answer: string, after: string) {
+  const text = `${before} ${answer}${/^[.,!?]/.test(after) ? '' : ' '}${after}`.replace(/\s+/g, ' ').trim();
+  return text.replace(/double /g, 'double\u00a0').split(' ').flatMap(w => w.includes('-') ? w.split('-').map((x, i, all) => i < all.length - 1 ? `${x}-` : x) : [w]).map(x => x.replace(/\u00a0/g, ' ')).filter(Boolean);
+}
+
 /** Header line: “Dərs 3” (Bölmə 1), “Dərs 1 · 2-ci hissə” (map lesson with parts), “Bölmə imtahanı”. */
 function lessonLabel(lesson: Lesson) {
   if (lesson.exam) return 'Bölmə imtahanı';
   const n = lesson.number ?? lesson.order;
-  return lesson.part ? `Dərs ${n} · ${lesson.part}-ci hissə` : `Dərs ${n}`;
+  return lesson.part ? `Dərs ${n} · ${lesson.part}-${lesson.part === 3 ? 'cü' : 'ci'} hissə` : `Dərs ${n}`;
 }
 
 /** Exam score: only verified first answers count (Expo Go cannot check speech — those stay “Yoxlanmadı”).
@@ -608,6 +645,8 @@ function ExamResult({ lesson, records, finish }: { lesson: Lesson; records: Reco
 }
 
 const s = StyleSheet.create({
+  taskCard: { backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: d.borderStrong, borderLeftWidth: 6, borderLeftColor: d.purple, paddingHorizontal: 16, paddingVertical: 12, gap: 8, ...shadow },
+  taskRule: { height: 1, backgroundColor: '#EDE4FB' },
   examScore: { alignItems: 'center', gap: 6, padding: 18, borderRadius: 24, borderWidth: 2, backgroundColor: '#fff' },
   examPct: { fontSize: 46, lineHeight: 52, ...font.extrabold },
   screen: { flex: 1, backgroundColor: d.bg },

@@ -24,11 +24,11 @@ const orders = designLessons.map(l => l.order);
 assert.equal(new Set(orders).size, orders.length, 'duplicate lesson orders');
 
 const all = [...unit2Lessons, ...unit1Exam, ...unit2Exam];
-assert.ok(unit2Lessons.length === 11, `Bölmə 2 has 11 lesson parts (8 map lessons, 1/3/7 in two parts): ${unit2Lessons.length}`);
+assert.ok(unit2Lessons.length === 12, `Bölmə 2 has 12 lesson parts (8 map lessons; 1 and 7 in two parts, 3 in three): ${unit2Lessons.length}`);
 assert.equal(unit1Exam.length, 1, 'Bölmə 1 exam');
 assert.equal(unit2Exam.length, 1, 'Bölmə 2 exam');
 const numbers = unit2Lessons.map(l => `${l.number}${l.part ?? ''}`);
-assert.deepEqual(numbers, ['11', '12', '2', '31', '32', '4', '5', '6', '71', '72', '8'], `map numbers/parts: ${numbers}`);
+assert.deepEqual(numbers, ['11', '12', '2', '31', '32', '33', '4', '5', '6', '71', '72', '8'], `map numbers/parts: ${numbers}`);
 
 for (const raw of all) {
   const lesson = L.resolveLesson(raw);

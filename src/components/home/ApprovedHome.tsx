@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useRef } from 'react';
+import { ScrollView, View } from 'react-native';
 import { getPacketLesson } from '../../data/b1Course';
 import { designLessons } from '../../data/designLessons';
 import { TEST_OPEN_SECTIONS } from '../../config/testAccess';
@@ -26,42 +27,43 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
   const progress = useUserStore(s => s.lessonProgress);
   const completed = useUserStore(s => s.completedLessons);
   const exams = useUserStore(s => s.sectionExams) ?? {};
-  // Which section's island is shown: the learner's current section until they switch (Bölmə 2, 14 Nov 2026).
+  // All sections with lessons are stacked on one scrolling page; it opens at the learner's current section (15 Nov 2026).
   const sections = course.items.filter(item => item.lessonsCount > 0);
   const current = sections.find(item => item.state === 'current')?.order ?? 1;
-  const [viewed, setViewed] = useState<number | null>(null);
-  const shown = viewed ?? current;
-  const module = sections.find(item => item.order === shown) ?? sections.find(item => item.order === 1);
-  const preview = module ? course.items.find(item => item.order === module.order + 1) : undefined;
-  if (language !== 'en' || level !== 'A1' || !module) {
+  const scrollRef = useRef<ScrollView>(null);
+  const scrolled = useRef(false);
+  if (language !== 'en' || level !== 'A1' || !sections.length) {
     return <OriginalHomeDashboard course={course} language={language} level={level} xp={xp}
       compact={compact} topInset={topInset} onSelect={onSelect} onOpen={onOpen} />;
   }
-
-  const ids = getModuleById(module.id)?.lessonIds ?? [];
-  const moduleLocked = module.state === 'locked' || module.state === 'planned';
-  const unit = module.order;
   const words = (id: string) => getPacketLesson(id)?.vocabulary.slice(0, 4).map(w => w.word).join(' · ') || undefined;
-  // A map lesson split in two parts (same `number`) becomes one node with two parts.
-  const unitLessons = designLessons.filter(l => (l.unit ?? 1) === unit && !l.exam && ids.includes(l.id));
-  const lessons = unit === 1 ? ids.map((id, i) => ({ id, number: i + 1, title: SHORT_TITLES[id] ?? getPacketLesson(id)?.title ?? `Dərs ${i + 1}`, phrases: words(id) }))
-    : [...new Set(unitLessons.map(l => l.number ?? l.order))].map(n => {
-      const parts = unitLessons.filter(l => (l.number ?? l.order) === n);
-      return { id: parts[0].id, number: n, title: SHORT_TITLES[`u${unit}_${n}`] ?? parts[0].title,
-        phrases: parts.map(p => words(p.id)).filter(Boolean).join(' · ') || undefined,
-        parts: parts.length > 1 ? parts.map(p => ({ id: p.id, title: p.title })) : undefined };
-    });
-  const examLesson = designLessons.find(l => l.exam && (l.unit ?? 1) === unit);
-  const exam = examLesson ? { id: examLesson.id, percent: exams[examLesson.id]?.percent ?? null, passed: exams[examLesson.id]?.passed ?? false } : undefined;
-  const prev = sections.find(item => item.order === unit - 1);
+  const sectionProps = (module: typeof sections[number]) => {
+    const ids = getModuleById(module.id)?.lessonIds ?? [];
+    const unit = module.order;
+    // A map lesson split in parts (same `number`) becomes one node with parts.
+    const unitLessons = designLessons.filter(l => (l.unit ?? 1) === unit && !l.exam && ids.includes(l.id));
+    const lessons = unit === 1 ? ids.map((id, i) => ({ id, number: i + 1, title: SHORT_TITLES[id] ?? getPacketLesson(id)?.title ?? `Dərs ${i + 1}`, phrases: words(id) }))
+      : [...new Set(unitLessons.map(l => l.number ?? l.order))].map(n => {
+        const parts = unitLessons.filter(l => (l.number ?? l.order) === n);
+        return { id: parts[0].id, number: n, title: SHORT_TITLES[`u${unit}_${n}`] ?? parts[0].title,
+          phrases: parts.map(p => words(p.id)).filter(Boolean).join(' · ') || undefined,
+          parts: parts.length > 1 ? parts.map(p => ({ id: p.id, title: p.title })) : undefined };
+      });
+    const examLesson = designLessons.find(l => l.exam && (l.unit ?? 1) === unit);
+    const exam = examLesson ? { id: examLesson.id, percent: exams[examLesson.id]?.percent ?? null, passed: exams[examLesson.id]?.passed ?? false } : undefined;
+    return { section: unit, sectionTitle: getModuleById(module.id)?.titleAz ?? module.title, lessons, completed, partial: partial ?? {},
+      locked: module.state === 'locked' || module.state === 'planned', exam, allOpen: TEST_OPEN_SECTIONS.includes(unit),
+      onOpenLesson: (id: string) => onLesson ? onLesson(id) : onOpen(module.id) };
+  };
+  const shared = { streak, xp, languageLabel: `${language.toUpperCase()} · ${level}`, topInset, bottomSpace,
+    onSelectLanguage: onSelect, onAnalysis: () => onNavigate?.('analysis'), onReview: () => onNavigate?.('review') };
   const reviewCount = hardPhrases(progress.filter(p => p.completed) as Parameters<typeof hardPhrases>[0]).length;
-  return <IslandHome section={module.order} sectionTitle={getModuleById(module.id)?.titleAz ?? module.title} lessons={lessons} completed={completed} partial={partial ?? {}}
-    locked={moduleLocked} streak={streak} xp={xp} languageLabel={`${language.toUpperCase()} · ${level}`} topInset={topInset} bottomSpace={bottomSpace}
-    review={{ count: reviewCount }}
-    nextSection={preview ? { title: preview.title, available: preview.state !== 'planned' && preview.state !== 'locked' } : undefined}
-    exam={exam} allOpen={TEST_OPEN_SECTIONS.includes(unit)} onPrevSection={prev ? () => setViewed(prev.order) : undefined}
-    onSelectLanguage={onSelect} onOpenLesson={id => onLesson ? onLesson(id) : onOpen(module.id)} onAnalysis={() => onNavigate?.('analysis')}
-    onReview={() => onNavigate?.('review')} onNextSection={() => { if (!preview) return; if (preview.lessonsCount > 0) setViewed(preview.order); else onOpen(preview.id); }} />;
+  const [first, ...rest] = sections;
+  const after = rest.map(m => <View key={m.id} onLayout={e => {
+    if (m.order !== current || scrolled.current) return;
+    scrolled.current = true; const y = e.nativeEvent.layout.y; setTimeout(() => scrollRef.current?.scrollTo({ y, animated: false }), 0);
+  }}><IslandHome {...shared} {...sectionProps(m)} review={{ count: reviewCount }} bare /></View>);
+  return <IslandHome {...shared} {...sectionProps(first)} review={{ count: reviewCount }} after={after} scrollRef={scrollRef} />;
 }
 
 /** Short names on the island (Bölmə 1 map, docs/BOLME_1_XERITESI.md). */

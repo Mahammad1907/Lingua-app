@@ -12,7 +12,7 @@ const asWords = (address: string, words: string): Variant => ({
 });
 
 export const lesson8: DesignLesson = {
-  id: 'a1_en_b2_d8', order: 20, unit: 2, number: 8, title: 'Bölmə söhbəti: qeydiyyat', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d8', order: 21, unit: 2, number: 8, title: 'Bölmə söhbəti: qeydiyyat', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {
@@ -68,12 +68,12 @@ export const lesson8: DesignLesson = {
       type: 'voice', id: 'u2d8_c05', number: 5, title: 'Nömrəni de', why: 'Nömrəni rəqəm-rəqəm dedin.', hint: 'Qısa sözlə başla, sonra rəqəmləri bir-bir de.',
       prompt: 'Qeydiyyatçı soruşur: “What\'s your phone number?”\nÖz nömrəni de (istəsən, uydurma).', audio: "What's your phone number?", reply: 'Thank you!',
       rule: own(PHONE, "It's zero five zero, three two one, four five, six seven."),
-      variants: [...PHONE_MISTAKES, other("It's + nömrə.", ex("It's zero five zero, three two one, four five, six seven.", 'Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de.', "It's zero five zero… — nömrə; My phone… — telefonun özü.", "It's oh five five, two one nine, oh three, eight eight."))],
+      variants: [...PHONE_MISTAKES, other("It's + nömrə.", ex("It's zero five zero, three two one, four five, six seven.", 'Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de.', "What's your phone number? — It's zero five zero…", "It's oh five five, two one nine, oh three, eight eight."))],
       review: {
         title: 'Nömrəni de', why: 'Nömrəni rəqəm-rəqəm dedin.', hint: 'Qısa sözlə başla, sonra rəqəmləri bir-bir de.',
         prompt: 'Ziyafətdə yeni tanış nömrəni istəyir.\nÖz nömrəni de (istəsən, uydurma).', audio: "Excuse me, what's your phone number?", reply: 'Thanks!',
         rule: own(PHONE, "It's zero five zero, three two one, four five, six seven."),
-        variants: [...PHONE_MISTAKES, other("It's + nömrə.", ex("It's zero five zero, three two one, four five, six seven.", 'Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de.', "It's zero five zero… — nömrə; My phone… — telefonun özü.", "It's zero five zero, three two one, four five, six seven."))],
+        variants: [...PHONE_MISTAKES, other("It's + nömrə.", ex("It's zero five zero, three two one, four five, six seven.", 'Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de.', "What's your phone number? — It's zero five zero…", "It's zero five zero, three two one, four five, six seven."))],
       },
     },
     {

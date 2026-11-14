@@ -107,7 +107,7 @@ export interface DesignLesson {
   /** Lesson number on the section map (1–8) when it differs from `order`. */
   number?: number;
   /** A map lesson split in two: this lesson is part 1 or 2 (docs/BOLME_2_XERITESI.md §0). */
-  part?: 1 | 2;
+  part?: 1 | 2 | 3;
   /** Section exam: no Kömək or hints, no retry round, pass mark 80 % (docs/BOLME_2_XERITESI.md §0). */
   exam?: boolean;
   cards: (IntroCard | TeachCard | WordCard | TaskWithReview)[];

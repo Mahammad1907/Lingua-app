@@ -27,7 +27,7 @@ Qeyd: spell — hərf-hərf demək.
 **Qəbul:** dəqiq: How do you spell it?  
 **İpucu:** Azərbaycancada olmayan kiçik bir söz ingiliscə sualda lazımdır.  
 **Düzgün olanda:** How-dan sonra “do” gəlir.  
-- *İzah (başqa səhvdə):* Sıra: How do you spell it? — Uyğun: How do you spell it? Səbəb: How-dan sonra “do” gəlir, sonra you spell it. Qayda: How do you spell it? — düzdür; How you spell? — olmur. Nümunə: Ganja? How do you spell it?  
+- *İzah (başqa səhvdə):* Sıra: How do you spell it? — Uyğun: How do you spell it? Səbəb: How-dan sonra “do” gəlir, sonra you spell it. Qayda: How do you spell it? — hərf-hərf; What's your name? — ad. Nümunə: Ganja? How do you spell it?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -37,7 +37,7 @@ Qeyd: spell — hərf-hərf demək.
 **Qəbul:** dəqiq: How do you spell it?  
 **İpucu:** Azərbaycancada olmayan kiçik bir söz ingiliscə sualda lazımdır.  
 **Düzgün olanda:** How-dan sonra “do” gəlir.  
-- *İzah (başqa səhvdə):* Sıra: How do you spell it? — Uyğun: How do you spell it? Səbəb: How-dan sonra “do” gəlir, sonra you spell it. Qayda: How do you spell it? — düzdür; How you spell? — olmur. Nümunə: Shamakhi? How do you spell it?  
+- *İzah (başqa səhvdə):* Sıra: How do you spell it? — Uyğun: How do you spell it? Səbəb: How-dan sonra “do” gəlir, sonra you spell it. Qayda: How do you spell it? — hərf-hərf; What's your name? — ad. Nümunə: Shamakhi? How do you spell it?  
 
 ## Kart 4 — Yeni söz
 

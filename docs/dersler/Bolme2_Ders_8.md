@@ -69,7 +69,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 **İpucu:** Qısa sözlə başla, sonra rəqəmləri bir-bir de.  
 **Düzgün olanda:** Nömrəni rəqəm-rəqəm dedin.  
 - *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər. Qayda: It's 050 321 45 67. — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
-- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: It's zero five zero… — nömrə; My phone… — telefonun özü. Nümunə: It's oh five five, two one nine, oh three, eight eight.  
+- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: What's your phone number? — It's zero five zero… Nümunə: It's oh five five, two one nine, oh three, eight eight.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -79,7 +79,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 **İpucu:** Qısa sözlə başla, sonra rəqəmləri bir-bir de.  
 **Düzgün olanda:** Nömrəni rəqəm-rəqəm dedin.  
 - *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər. Qayda: It's 050 321 45 67. — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
-- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: It's zero five zero… — nömrə; My phone… — telefonun özü. Nümunə: It's zero five zero, three two one, four five, six seven.  
+- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: What's your phone number? — It's zero five zero… Nümunə: It's zero five zero, three two one, four five, six seven.  
 
 ## Kart 6 — Nömrəni yığ: Nömrəni yığ
 

@@ -47,7 +47,7 @@ Qeyd: Sıra azərbaycancadakı kimidir: əvvəl phone, sonra number.
 **Qəbul:** dəqiq: What's your phone number?  
 **İpucu:** Azərbaycancada “telefon nömrəsi” necə sıralanır? İngiliscə də elədir.  
 **Düzgün olanda:** Sual düzgün sıradadır: phone number.  
-- *İzah (başqa səhvdə):* Sıra: What's your phone number? — Uyğun: What's your phone number? Səbəb: Əvvəl “phone”, sonra “number” gəlir. Qayda: What's your phone number? — düzdür; What's your number phone? — olmur. Nümunə: Hi! What's your phone number?  
+- *İzah (başqa səhvdə):* Sıra: What's your phone number? — Uyğun: What's your phone number? Səbəb: Əvvəl “phone”, sonra “number” gəlir. Qayda: What's your phone number? — nömrə; What's your name? — ad. Nümunə: Hi! What's your phone number?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -57,7 +57,7 @@ Qeyd: Sıra azərbaycancadakı kimidir: əvvəl phone, sonra number.
 **Qəbul:** dəqiq: What's your phone number?  
 **İpucu:** Azərbaycancada “telefon nömrəsi” necə sıralanır? İngiliscə də elədir.  
 **Düzgün olanda:** Sual düzgün sıradadır: phone number.  
-- *İzah (başqa səhvdə):* Sıra: What's your phone number? — Uyğun: What's your phone number? Səbəb: Əvvəl “phone”, sonra “number” gəlir. Qayda: What's your phone number? — düzdür; What's your number phone? — olmur. Nümunə: Excuse me, what's your phone number?  
+- *İzah (başqa səhvdə):* Sıra: What's your phone number? — Uyğun: What's your phone number? Səbəb: Əvvəl “phone”, sonra “number” gəlir. Qayda: What's your phone number? — nömrə; What's your name? — ad. Nümunə: Excuse me, what's your phone number?  
 
 ## Kart 5 — Yeni söz
 
@@ -107,7 +107,7 @@ Qeyd: Amerikada nömrədə sıfırı çox vaxt “oh” deyirlər.
 **İpucu:** Kartdakı kimi başla və rəqəmləri bir-bir de.  
 **Düzgün olanda:** Nömrəni rəqəm-rəqəm dedin.  
 - *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər. Qayda: It's 050 321 45 67. — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
-- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: It's zero five zero… — nömrə; My phone… — telefonun özü. Nümunə: It's zero five five, two one nine, zero three, eight eight.  
+- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: What's your phone number? — It's zero five zero… Nümunə: It's zero five five, two one nine, zero three, eight eight.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -117,7 +117,7 @@ Qeyd: Amerikada nömrədə sıfırı çox vaxt “oh” deyirlər.
 **İpucu:** Kartdakı kimi başla və rəqəmləri bir-bir de.  
 **Düzgün olanda:** Nömrəni rəqəm-rəqəm dedin.  
 - *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər. Qayda: It's 050 321 45 67. — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
-- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: It's zero five zero… — nömrə; My phone… — telefonun özü. Nümunə: It's zero five zero, three two one, four five, six seven.  
+- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: What's your phone number? — It's zero five zero… Nümunə: It's zero five zero, three two one, four five, six seven.  
 
 ## Kart 9 — Yeni söz
 
@@ -179,7 +179,7 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 **İkinci mesaj:** məna:  — nümunə: Is that right?  
 **İpucu:** Birinci mesajda sual ver, ikincidə yazdığını yoxla.  
 **Düzgün olanda:** Nömrəni soruşdun və yazdığını yoxladın.  
-- *İzah (“Birinci mesaj” səhv olanda):* Uyğun: What's your phone number? Səbəb: Bu mesajda onun nömrəsini soruşmalısan. Qayda: What's your phone number? — düzdür; What's your number phone? — olmur. Nümunə: Hi! What's your phone number?  
+- *İzah (“Birinci mesaj” səhv olanda):* Uyğun: What's your phone number? Səbəb: Bu mesajda onun nömrəsini soruşmalısan. Qayda: What's your phone number? — nömrə; What's your name? — ad. Nümunə: Hi! What's your phone number?  
 - *İzah (“İkinci mesaj” səhv olanda):* Uyğun: Is that right? Səbəb: Bu mesajda yazdığın nömrənin düz olduğunu soruşursan. Qayda: Is that right? — sual; Yes, that's right. — cavab. Nümunə: Oh five five… Is that right?  
 
 **Təkrar (yeni vəziyyət):**
@@ -189,7 +189,7 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 **İkinci mesaj:** məna:  — nümunə: Is that right?  
 **İpucu:** Birinci mesajda sual ver, ikincidə yazdığını yoxla.  
 **Düzgün olanda:** Nömrəni soruşdun və yazdığını yoxladın.  
-- *İzah (“Birinci mesaj” səhv olanda):* Uyğun: What's your phone number? Səbəb: Bu mesajda onun nömrəsini soruşmalısan. Qayda: What's your phone number? — düzdür; What's your number phone? — olmur. Nümunə: Excuse me, what's your phone number?  
+- *İzah (“Birinci mesaj” səhv olanda):* Uyğun: What's your phone number? Səbəb: Bu mesajda onun nömrəsini soruşmalısan. Qayda: What's your phone number? — nömrə; What's your name? — ad. Nümunə: Excuse me, what's your phone number?  
 - *İzah (“İkinci mesaj” səhv olanda):* Uyğun: Is that right? Səbəb: Bu mesajda yazdığın nömrənin düz olduğunu soruşursan. Qayda: Is that right? — sual; Yes, that's right. — cavab. Nümunə: Is that right?  
 
 ## Kart 14 — Söhbəti sırala: Söhbəti sırala

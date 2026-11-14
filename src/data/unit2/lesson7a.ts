@@ -8,7 +8,7 @@ const itsNumber = (word: string, digits: string, ...answers: string[]) =>
   said(String.raw`^(?:it'?s\s+|it is\s+)?(?:${word}|${digits})[.!]?$`, ...answers);
 
 export const lesson7a: DesignLesson = {
-  id: 'a1_en_b2_d7a', order: 18, unit: 2, number: 7, part: 1, title: 'Rəqəmlər 11–20', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d7a', order: 19, unit: 2, number: 7, part: 1, title: 'Rəqəmlər 11–20', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {
@@ -101,6 +101,18 @@ export const lesson7a: DesignLesson = {
       },
     },
     {
+      type: 'write', id: 'u2d7a_c14', number: 14, letters: ['G', 'Y', 'M', 'J', 'I', 'N'], title: 'Hərfləri tut', why: 'G-Y-M — zalın Wi-Fi adı.', hint: 'Hər hərfi eşidən kimi toxun; “ci” və “cey”, “uay” və “ay” fərqinə qulaq as.',
+      prompt: 'Məşqçi zalın Wi-Fi adını hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'G, Y, M.', placeholder: 'Wi-Fi adı',
+      rule: exact('GYM'),
+      variants: [other('Hərfləri bir-bir dinlə.', ex('GYM', 'Səsdə üç hərf var: ci, uay, em.', 'G — ci; Y — uay.', 'G, Y, M.'))],
+      review: {
+        letters: ['P', 'O', 'O', 'L', 'U', 'Q'], title: 'Hərfləri tut', why: 'P-O-O-L — hovuzun Wi-Fi adı.', hint: 'Hər hərfi eşidən kimi toxun; qoşa hərfə diqqət et.',
+        prompt: 'Hovuzun qəbulu Wi-Fi adını hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'P, double O, L.', placeholder: 'Wi-Fi adı',
+        rule: exact('POOL'),
+        variants: [other('Hərfləri bir-bir dinlə.', ex('POOL', 'Səsdə “pi, double O, el” deyilir: double O — OO.', 'double O — OO; double L — LL.', 'P, double O, L.'))],
+      },
+    },
+    {
       type: 'write', id: 'u2d7a_c10', number: 10, title: 'Dinlə və yaz', why: 'fifteen — five yox, fif-.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
       prompt: 'Qəbulda qadın dolabının nömrəsini deyir.\nEşitdiyin sözü yaz.', audio: 'Fifteen.', placeholder: 'Rəqəmi sözlə yaz',
       rule: exact('fifteen'),
@@ -167,7 +179,7 @@ export const lesson7a: DesignLesson = {
     done: ['Dərs 7 · 1-ci hissə tamamlandı', 'Artıq 11–20 rəqəmlərini tanıyırsan, yazırsan və dolabının nömrəsini deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: '11–20 rəqəmlərini eşidib tanımaq', tasks: ['u2d7a_c03', 'u2d7a_c05', 'u2d7a_c09', 'u2d7a_c11', 'u2d7a_c12'] },
+      { group: 'Tanıma', text: '11–20 rəqəmlərini və hərfləri eşidib tanımaq', tasks: ['u2d7a_c14', 'u2d7a_c03', 'u2d7a_c05', 'u2d7a_c09', 'u2d7a_c11', 'u2d7a_c12'] },
       { group: 'Yazı', text: 'Eşitdiyin rəqəmi sözlə yazmaq', tasks: ['u2d7a_c10'] },
       { group: 'Danışıq', text: '11–20 rəqəmlərini demək', tasks: ['u2d7a_c07', 'u2d7a_c13'] },
     ],

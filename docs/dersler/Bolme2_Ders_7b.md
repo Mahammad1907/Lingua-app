@@ -81,21 +81,25 @@ Nümunə: **Twenty-five, thirty-two, forty-one.** — 25, 32, 41.
 
 Qeyd: Əvvəl onluq, sonra tək rəqəm.
 
-## Kart 7 — Kim nə dedi?: Sözü rəqəmə qoş
+## Kart 7 — Seç: Cütü ayır: -teen yoxsa -ty?
 
-**Tapşırıq:** Qəbul lövhəsində dolab nömrələri. Hər sözə rəqəmini qoş.  
-**Cütlər:** forty-two — 42; twenty-four — 24; fourteen — 14 · artıq: 40  
-**İpucu:** Əvvəl onluğu tap, sonra təki.  
-**Düzgün olanda:** Onluğu və təki düz tapdın.  
-- *İzah (başqa səhvdə):* Bir rəqəm yerində deyil. — Uyğun: forty-two — 42; twenty-four — 24; fourteen — 14. Səbəb: Əvvəl onluq deyilir, sonra tək rəqəm. Qayda: forty-two — 42; twenty-four — 24. Nümunə: Twenty-five, thirty-two, forty-one.  
+**Tapşırıq:** İdman zalında məşqçi üç dolabın nömrəsini deyir. Hansı nömrələrdir?  
+**Səs:** Thirteen, forty, fifty.  
+**Seçimlər:** 30, 14, 15 / 13, 40, 50 / 13, 14, 50 — **düzgün:** 13, 40, 50  
+**İpucu:** Vurğuya qulaq as: sonda güclüdürsə “teen”, əvvəldə güclüdürsə “ty”.  
+**Düzgün olanda:** thir-TEEN, FOR-ty, FIF-ty.  
+- *İzah (“30, 14, 15” seçiləndə):* “-teen” və “-ty” yerini dəyişdin. — Uyğun: 13, 40, 50. Səbəb: Birinci sözdə vurğu sondadır (thir-TEEN), qalanlarda əvvəldə (FOR-ty, FIF-ty). Qayda: thir-TEEN — 13; THIR-ty — 30. Nümunə: Thirteen, forty, fifty.  
+- *İzah (“13, 14, 50” seçiləndə):* İkinci söz “-ty” ilə bitir. — Uyğun: 13, 40, 50. Səbəb: İkinci sözdə vurğu əvvəldədir: FOR-ty — 40. Qayda: four-TEEN — 14; FOR-ty — 40. Nümunə: Thirteen, forty, fifty.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Hovuzun lövhəsində dolab nömrələri. Hər sözə rəqəmini qoş.  
-**Cütlər:** thirty-one — 31; thirteen — 13; sixty-five — 65 · artıq: 56  
-**İpucu:** Əvvəl onluğu tap, sonra təki.  
-**Düzgün olanda:** Onluğu və təki düz tapdın.  
-- *İzah (başqa səhvdə):* Bir rəqəm yerində deyil. — Uyğun: thirty-one — 31; thirteen — 13; sixty-five — 65. Səbəb: Əvvəl onluq, sonra tək rəqəm; “teen” — 13–19. Qayda: thirteen — 13; thirty — 30. Nümunə: Thirty, forty, fifty, sixty!  
+**Tapşırıq:** Hovuzda qəbul üç dolabın nömrəsini deyir. Hansı nömrələrdir?  
+**Səs:** Thirty, fourteen, fifteen.  
+**Seçimlər:** 30, 14, 15 / 13, 40, 50 / 30, 40, 15 — **düzgün:** 30, 14, 15  
+**İpucu:** Vurğuya qulaq as: sonda güclüdürsə “teen”, əvvəldə güclüdürsə “ty”.  
+**Düzgün olanda:** THIR-ty, four-TEEN, fif-TEEN.  
+- *İzah (“13, 40, 50” seçiləndə):* “-teen” və “-ty” yerini dəyişdin. — Uyğun: 30, 14, 15. Səbəb: Birinci sözdə vurğu əvvəldədir (THIR-ty), qalanlarda sonda (four-TEEN, fif-TEEN). Qayda: THIR-ty — 30; thir-TEEN — 13. Nümunə: Thirty, fourteen, fifteen.  
+- *İzah (“30, 40, 15” seçiləndə):* İkinci söz “-teen” ilə bitir. — Uyğun: 30, 14, 15. Səbəb: İkinci sözdə vurğu sondadır: four-TEEN — 14. Qayda: four-TEEN — 14; FOR-ty — 40. Nümunə: Thirty, fourteen, fifteen.  
 
 ## Kart 8 — Yeni söz
 

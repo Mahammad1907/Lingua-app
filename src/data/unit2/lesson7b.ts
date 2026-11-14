@@ -8,7 +8,7 @@ import { AGE_MISTAKES, AGE, AGE_FIELD, NAME, notices, own, PHONE, resultTexts } 
 const myAge = own(AGE, "I'm twenty-five.", "I'm 25.");
 
 export const lesson7b: DesignLesson = {
-  id: 'a1_en_b2_d7b', order: 19, unit: 2, number: 7, part: 2, title: 'Neçə yaşın var?', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d7b', order: 20, unit: 2, number: 7, part: 2, title: 'Neçə yaşın var?', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {
@@ -69,17 +69,21 @@ export const lesson7b: DesignLesson = {
       example: 'Twenty-five, thirty-two, forty-one.', exampleAz: '25, 32, 41.',
     },
     {
-      type: 'match', id: 'u2d7b_c07', number: 7, title: 'Sözü rəqəmə qoş', why: 'Onluğu və təki düz tapdın.', hint: 'Əvvəl onluğu tap, sonra təki.',
-      prompt: 'Qəbul lövhəsində dolab nömrələri.\nHər sözə rəqəmini qoş.',
-      rows: [{ en: 'forty-two', az: '42' }, { en: 'twenty-four', az: '24' }, { en: 'fourteen', az: '14' }],
-      extra: ['40'],
-      variants: [other('Bir rəqəm yerində deyil.', ex('forty-two — 42; twenty-four — 24; fourteen — 14', 'Əvvəl onluq deyilir, sonra tək rəqəm.', 'forty-two — 42; twenty-four — 24.', 'Twenty-five, thirty-two, forty-one.'))],
+      type: 'choice', id: 'u2d7b_c07', number: 7, title: 'Cütü ayır: -teen yoxsa -ty?', why: 'thir-TEEN, FOR-ty, FIF-ty.', hint: 'Vurğuya qulaq as: sonda güclüdürsə “teen”, əvvəldə güclüdürsə “ty”.',
+      prompt: 'İdman zalında məşqçi üç dolabın nömrəsini deyir.\nHansı nömrələrdir?', audio: 'Thirteen, forty, fifty.',
+      options: ['30, 14, 15', '13, 40, 50', '13, 14, 50'], answer: '13, 40, 50',
+      variants: [
+        pick('30, 14, 15', '“-teen” və “-ty” yerini dəyişdin.', ex('13, 40, 50', 'Birinci sözdə vurğu sondadır (thir-TEEN), qalanlarda əvvəldə (FOR-ty, FIF-ty).', 'thir-TEEN — 13; THIR-ty — 30.', 'Thirteen, forty, fifty.')),
+        pick('13, 14, 50', 'İkinci söz “-ty” ilə bitir.', ex('13, 40, 50', 'İkinci sözdə vurğu əvvəldədir: FOR-ty — 40.', 'four-TEEN — 14; FOR-ty — 40.', 'Thirteen, forty, fifty.')),
+      ],
       review: {
-        title: 'Sözü rəqəmə qoş', why: 'Onluğu və təki düz tapdın.', hint: 'Əvvəl onluğu tap, sonra təki.',
-        prompt: 'Hovuzun lövhəsində dolab nömrələri.\nHər sözə rəqəmini qoş.',
-        rows: [{ en: 'thirty-one', az: '31' }, { en: 'thirteen', az: '13' }, { en: 'sixty-five', az: '65' }],
-        extra: ['56'],
-        variants: [other('Bir rəqəm yerində deyil.', ex('thirty-one — 31; thirteen — 13; sixty-five — 65', 'Əvvəl onluq, sonra tək rəqəm; “teen” — 13–19.', 'thirteen — 13; thirty — 30.', 'Thirty, forty, fifty, sixty!'))],
+        title: 'Cütü ayır: -teen yoxsa -ty?', why: 'THIR-ty, four-TEEN, fif-TEEN.', hint: 'Vurğuya qulaq as: sonda güclüdürsə “teen”, əvvəldə güclüdürsə “ty”.',
+        prompt: 'Hovuzda qəbul üç dolabın nömrəsini deyir.\nHansı nömrələrdir?', audio: 'Thirty, fourteen, fifteen.',
+        options: ['30, 14, 15', '13, 40, 50', '30, 40, 15'], answer: '30, 14, 15',
+        variants: [
+          pick('13, 40, 50', '“-teen” və “-ty” yerini dəyişdin.', ex('30, 14, 15', 'Birinci sözdə vurğu əvvəldədir (THIR-ty), qalanlarda sonda (four-TEEN, fif-TEEN).', 'THIR-ty — 30; thir-TEEN — 13.', 'Thirty, fourteen, fifteen.')),
+          pick('30, 40, 15', 'İkinci söz “-teen” ilə bitir.', ex('30, 14, 15', 'İkinci sözdə vurğu sondadır: four-TEEN — 14.', 'four-TEEN — 14; FOR-ty — 40.', 'Thirty, fourteen, fifteen.')),
+        ],
       },
     },
     {

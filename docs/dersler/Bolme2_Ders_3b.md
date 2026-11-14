@@ -1,228 +1,209 @@
-# Dərs 3 · 2-ci hissə — Hərflər 2
+# Dərs 3 · 2-ci hissə — Hərflər 2: USA, GPS, DJ
 
 Bölmə 2 · Şəxsi məlumat. Bu sənəd `src/data/unit2/lesson3b.ts`-dən yaradılıb — mətni orada dəyiş, sonra `node scripts/export-unit1-docs.cjs`.
 
 ## Giriş — Giriş
 
-Maşın nömrələri, hava limanı və qatar — qalan hərfləri də tanıyırsan.
+Hər çətin hərfi tanış qısaltma ilə öyrənirsən: USA, GPS, DJ, CD, BMW.
 
-- R, F L M N S X, I Y, O, Q U W hərflərini eşidib tanıyıram.
-- Şəhər kodunu hərf-hərf deyə bilirəm.
+- U A, G P, J, C, B W hərflərini eşidib tanıyıram.
+- G ilə J-ni, A ilə E-ni qarışdırmıram.
 
 ## Kart 2 — Yeni söz
 
-**R** — “ar” oxunan hərf
+**U, A** — U — “yu”, A — “ey”
 
-Oxunuşu: ar · IPA: /ɑr/
+Oxunuşu: yu, ey · IPA: /ju/ · /eɪ/
 
-Nümunə: **A, R.** — ey, ar
+Nümunə: **USA** — ABŞ (yu-es-ey)
 
-Qeyd: R — “ar”, “er” yox.
+Qeyd: A — “ey” oxunur, “a” yox; U — “yu”.
 
-## Kart 3 — Yaz: Dinlə və yaz
+## Kart 3 — Kim nə dedi?: Hərfi oxunuşuna qoş
+
+**Tapşırıq:** Hava limanında tabloda hərflər var. Hər hərfə onun ingiliscə oxunuşunu qoş.  
+**Cütlər:** A — ey; U — yu; I — ay · artıq: a  
+**İpucu:** Bir oxunuş Azərbaycan əlifbasındandır — o, artıqdır.  
+**Düzgün olanda:** Hər hərfin ingiliscə adını tapdın.  
+- *İzah (başqa səhvdə):* Bir hərfin oxunuşu yerində deyil. — Uyğun: A — ey; U — yu; I — ay. Səbəb: Hər hərfin ingiliscə oxunuşunu tap. Qayda: A — ey; U — yu. Nümunə: USA  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Maşın nömrələrində hərflər var. Hər hərfə onun ingiliscə oxunuşunu qoş.  
+**Cütlər:** J — cey; G — ci; W — dabəlyu · artıq: ve  
+**İpucu:** Əvvəl ən əmin olduğun hərfi yerinə qoy.  
+**Düzgün olanda:** Hər hərfin ingiliscə adını tapdın.  
+- *İzah (başqa səhvdə):* Bir hərfin oxunuşu yerində deyil. — Uyğun: J — cey; G — ci; W — dabəlyu. Səbəb: Hər hərfin ingiliscə oxunuşunu tap. Qayda: G — ci; J — cey. Nümunə: D, J.  
+
+## Kart 4 — Yeni söz
+
+**G, P** — G — “ci”, P — “pi”
+
+Oxunuşu: ci, pi · IPA: /dʒi/ · /pi/
+
+Nümunə: **GPS** — GPS (ci-pi-es)
+
+Qeyd: G — “ci” oxunur, “ge” yox.
+
+## Kart 5 — Hərfləri tut: Hərfləri tut
+
+**Tapşırıq:** Hava limanında Cenevrə uçuşu elan olunur. Elan şəhər kodunu deyir. Eşitdiyin hərflərə toxun.  
+**Səs:** G, V, A.  
+**Hərflər:** G V A E I P  
+**Qəbul:** dəqiq: GVA  
+**İpucu:** Hər hərfi eşidən kimi toxun; “ci” və “ey” səslərinə diqqət et.  
+**Düzgün olanda:** G-V-A — Cenevrə hava limanının kodu.  
+- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: GVA. Səbəb: Səsdə üç hərf var: ci, vi, ey. Qayda: G — ci; A — ey. Nümunə: G, V, A.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Tabloda Lissabon uçuşu var. Elan şəhər kodunu deyir. Eşitdiyin hərflərə toxun.  
+**Səs:** L, I, S.  
+**Hərflər:** L I S E A F  
+**Qəbul:** dəqiq: LIS  
+**İpucu:** Hər hərfi eşidən kimi toxun; ortadakı hərfin oxunuşu “ay”dır.  
+**Düzgün olanda:** L-I-S — Lissabon hava limanının kodu.  
+- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: LIS. Səbəb: Səsdə üç hərf var: el, ay, es. Qayda: I — ay; E — i. Nümunə: L, I, S.  
+
+## Kart 6 — Yeni söz
+
+**D, J** — J — “cey”
+
+Oxunuşu: di, cey · IPA: /di/ · /dʒeɪ/
+
+Nümunə: **DJ** — DJ (di-cey)
+
+Qeyd: J — “cey”; G isə “ci”.
+
+## Kart 7 — Səhnədə tap: Səhnədə tap
+
+**Tapşırıq:** Hava limanında üç qapı var. Elan sənin qapını deyir. Şəkildə həmin qapını tap.  
+**Səs:** J, four.  
+**Seçimlər:** G4 qapısı / J4 qapısı / A4 qapısı — **düzgün:** J4 qapısı  
+**İpucu:** “ci” ilə “cey”i ayır: sonunda “ey” var, yoxsa yox?  
+**Düzgün olanda:** J — “cey”.  
+- *İzah (“G4 qapısı” seçiləndə):* G — “ci”, səsdə “cey” var. — Uyğun: J4 qapısı. Səbəb: Səsdə “cey” deyilir — bu, J-dir. Qayda: J — cey; G — ci. Nümunə: J, four.  
+- *İzah (“A4 qapısı” seçiləndə):* A — “ey”, səsdə “cey” var. — Uyğun: J4 qapısı. Səbəb: Səsdə “cey” deyilir — bu, J-dir. Qayda: J — cey; A — ey. Nümunə: J, four.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Başqa terminaldasan. Elan sənin qapını deyir. Şəkildə həmin qapını tap.  
+**Səs:** G, two.  
+**Seçimlər:** J2 qapısı / E2 qapısı / G2 qapısı — **düzgün:** G2 qapısı  
+**İpucu:** “ci” ilə “cey”i ayır: sonunda “ey” var, yoxsa yox?  
+**Düzgün olanda:** G — “ci”.  
+- *İzah (“J2 qapısı” seçiləndə):* J — “cey”, səsdə “ci” var. — Uyğun: G2 qapısı. Səbəb: Səsdə “ci” deyilir — bu, G-dir. Qayda: G — ci; J — cey. Nümunə: G, two.  
+- *İzah (“E2 qapısı” seçiləndə):* E — “i”, səsdə “ci” var. — Uyğun: G2 qapısı. Səbəb: Səsdə “ci” deyilir — bu, G-dir. Qayda: G — ci; E — i. Nümunə: G, two.  
+
+## Kart 8 — Yeni söz
+
+**C, D** — C — “si”
+
+Oxunuşu: si, di · IPA: /si/ · /di/
+
+Nümunə: **CD** — CD (si-di)
+
+Qeyd: C — “si”, “ce” yox.
+
+## Kart 9 — Yaz: Dinlə və yaz
 
 **Tapşırıq:** Taksi çağırdın. Dispetçer maşının nömrəsini deyir. Nömrəni yaz.  
-**Səs:** Ten, R, H, three, zero, two.  
-**Qəbul:** dəqiq: 10 RH 302 / 10-RH-302 / 10RH302 / 10 RH302 / 10RH 302 / 10-RH 302 / 10 RH-302  
+**Səs:** Ten, C, J, three, three, one.  
+**Qəbul:** dəqiq: 10 CJ 331 / 10-CJ-331 / 10CJ331 / 10 CJ331 / 10CJ 331 / 10-CJ 331 / 10 CJ-331  
 **İpucu:** Əvvəl rəqəm, sonra iki hərf, sonra yenə rəqəmlər gəlir.  
-**Düzgün olanda:** 10 RH 302 — rəqəm, iki hərf, rəqəmlər.  
-- *İzah (başqa səhvdə):* Hərfləri və rəqəmləri yoxla. — Uyğun: 10 RH 302. Səbəb: Səsdə ten, R, H, three, zero, two deyilir; R “ar” oxunur. Qayda: R — ar; H — eyç. Nümunə: Ten, R, H, three, zero, two.  
+**Düzgün olanda:** 10 CJ 331 — rəqəm, iki hərf, rəqəmlər.  
+- *İzah (başqa səhvdə):* Hərfləri və rəqəmləri yoxla. — Uyğun: 10 CJ 331. Səbəb: Səsdə ten, C, J, three, three, one deyilir: C “si”, J “cey”. Qayda: C — si; J — cey. Nümunə: Ten, C, J, three, three, one.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Kursun qarşısında taksi gözləyirsən. Dostun maşının nömrəsini deyir. Nömrəni yaz.  
-**Səs:** Ten, A, R, five, five, one.  
-**Qəbul:** dəqiq: 10 AR 551 / 10-AR-551 / 10AR551 / 10 AR551 / 10AR 551 / 10-AR 551 / 10 AR-551  
+**Səs:** Ten, G, A, eight, zero, six.  
+**Qəbul:** dəqiq: 10 GA 806 / 10-GA-806 / 10GA806 / 10 GA806 / 10GA 806 / 10-GA 806 / 10 GA-806  
 **İpucu:** Əvvəl rəqəm, sonra iki hərf, sonra yenə rəqəmlər gəlir.  
-**Düzgün olanda:** 10 AR 551 — rəqəm, iki hərf, rəqəmlər.  
-- *İzah (başqa səhvdə):* Hərfləri və rəqəmləri yoxla. — Uyğun: 10 AR 551. Səbəb: Səsdə ten, A, R deyilir: A “ey”, R “ar”. Qayda: A — ey; R — ar. Nümunə: Ten, A, R, five, five, one.  
-
-## Kart 4 — Yeni söz
-
-**F, L, M, N, S, X** — “e” ilə başlayan hərflər
-
-Oxunuşu: ef, el, em, en, es, eks · IPA: /ef/ · /el/ · /em/ · /en/ · /es/ · /eks/
-
-Nümunə: **F, L, M, N, S, X.** — ef, el, em, en, es, eks
-
-Qeyd: Hamısı “e” ilə başlayır: X — “eks”.
-
-## Kart 5 — Hərfləri tut: Hərfləri tut
-
-**Tapşırıq:** Hava limanında London uçuşu elan olunur. Elan hava limanının kodunu deyir. Eşitdiyin hərflərə toxun.  
-**Səs:** L, H, R.  
-**Hərflər:** H R L A E M  
-**Qəbul:** dəqiq: LHR  
-**İpucu:** Hər hərfi eşidən kimi toxun; “ar” səsi hansı hərfdir — kartı xatırla.  
-**Düzgün olanda:** L-H-R — London hava limanının kodu.  
-- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: LHR. Səbəb: Səsdə “el, eyç, ar” deyilir. Qayda: R — ar; H — eyç. Nümunə: L, H, R.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Dubay uçuşu elan olunur. Eşitdiyin hərflərə toxun.  
-**Səs:** D, X, B.  
-**Hərflər:** X B D S P T  
-**Qəbul:** dəqiq: DXB  
-**İpucu:** Hər hərfi eşidən kimi toxun; “es” və “eks” fərqinə qulaq as.  
-**Düzgün olanda:** D-X-B — Dubay hava limanının kodu.  
-- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: DXB. Səbəb: Səsdə D, X, B deyilir: “di”, “eks”, “bi”. Qayda: X — eks; S — es. Nümunə: D, X, B.  
-
-## Kart 6 — Yeni söz
-
-**I, Y** — “ay” ilə bitən hərflər
-
-Oxunuşu: ay, uay · IPA: /aɪ/ · /waɪ/
-
-Nümunə: **I, Y.** — ay, uay
-
-Qeyd: I — “ay”; Y — “uay”, “ye” yox.
-
-## Kart 7 — Kim nə dedi?: Hərfi oxunuşuna qoş
-
-**Tapşırıq:** Maşın nömrələrində hərflər var. Hər hərfə onun ingiliscə oxunuşunu qoş.  
-**Cütlər:** F — ef; X — eks; Y — uay · artıq: ye  
-**İpucu:** Azərbaycan əlifbasındakı oxunuşa aldanma.  
-**Düzgün olanda:** Hər hərfin ingiliscə adını tapdın.  
-- *İzah (başqa səhvdə):* Bir hərfin oxunuşu yerində deyil. — Uyğun: F — ef; X — eks; Y — uay. Səbəb: İngiliscə X “eks”, Y “uay” oxunur. Qayda: X — eks; Y — uay. Nümunə: F, L, M, N, S, X.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Tabloda hərflər var. Hər hərfə onun ingiliscə oxunuşunu qoş.  
-**Cütlər:** W — dabəlyu; R — ar; I — ay · artıq: ve  
-**İpucu:** Əvvəl ən əmin olduğun hərfi yerinə qoy.  
-**Düzgün olanda:** Hər hərfin ingiliscə adını tapdın.  
-- *İzah (başqa səhvdə):* Bir hərfin oxunuşu yerində deyil. — Uyğun: W — dabəlyu; R — ar; I — ay. Səbəb: İngiliscə W “dabəlyu”, R “ar”, I “ay” oxunur. Qayda: W — dabəlyu; V — vi. Nümunə: Q, U, W.  
-
-## Kart 8 — Yeni söz
-
-**O** — “ou” oxunan hərf
-
-Oxunuşu: ou · IPA: /oʊ/
-
-Nümunə: **OK — O, K.** — OK — ou, key.
-
-Qeyd: Nömrədəki “oh” da belə səslənir.
-
-## Kart 9 — Seç: Dinlə və seç
-
-**Tapşırıq:** Konsertdəsən. Qapıdakı işçi biletinə baxıb sıranın hərfini deyir. Hansı hərfdir?  
-**Səs:** I.  
-**Seçimlər:** I / E / Y — **düzgün:** I  
-**İpucu:** Səsi diqqətlə dinlə: “i”, “ay” və “uay” fərqlidir.  
-**Düzgün olanda:** I — “ay”.  
-- *İzah (“E” seçiləndə):* E “i” oxunur, səsdə “ay” var. — Uyğun: I. Səbəb: Səsdəki “ay” — I-dir; E “i” oxunur. Qayda: I — ay; E — i. Nümunə: I, Y.  
-- *İzah (“Y” seçiləndə):* Y “uay” oxunur, əvvəlində “u” var. — Uyğun: I. Səbəb: Səsdə yalnız “ay” var — bu, I-dir. Qayda: I — ay; Y — uay. Nümunə: I, Y.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Qatar stansiyasında platformanın hərfi elan olunur. Hansı hərfdir?  
-**Səs:** O.  
-**Seçimlər:** A / O / U — **düzgün:** O  
-**İpucu:** Səsi diqqətlə dinlə: “ou”, “ey” və “yu” fərqlidir.  
-**Düzgün olanda:** O — “ou”.  
-- *İzah (“A” seçiləndə):* A “ey” oxunur, səsdə “ou” var. — Uyğun: O. Səbəb: Səsdəki “ou” — O-dur; A “ey” oxunur. Qayda: O — ou; A — ey. Nümunə: O, K.  
-- *İzah (“U” seçiləndə):* U “yu” oxunur, səsdə “ou” var. — Uyğun: O. Səbəb: Səsdəki “ou” — O-dur; U “yu” oxunur. Qayda: O — ou; U — yu. Nümunə: O, K.  
+**Düzgün olanda:** 10 GA 806 — rəqəm, iki hərf, rəqəmlər.  
+- *İzah (başqa səhvdə):* Hərfləri və rəqəmləri yoxla. — Uyğun: 10 GA 806. Səbəb: Səsdə ten, G, A, eight, zero, six deyilir: G “ci”, A “ey”. Qayda: G — ci; A — ey. Nümunə: Ten, G, A, eight, zero, six.  
 
 ## Kart 10 — Yeni söz
 
-**Q, U, W** — “yu” ilə bitən hərflər
+**B, W** — W — “dabəlyu”
 
-Oxunuşu: kyu, yu, dabəlyu · IPA: /kju/ · /ju/ · /ˈdʌbəlju/
+Oxunuşu: bi, dabəlyu · IPA: /bi/ · /ˈdʌbəlju/
 
-Nümunə: **Q, U, W.** — kyu, yu, dabəlyu
+Nümunə: **BMW** — BMW (bi-em-dabəlyu)
 
 Qeyd: W — “dabəlyu”, “ve” yox.
 
-## Kart 11 — Dinlə və təkrarla: Dinlə və təkrarla
+## Kart 11 — Seç: Dinlə və seç
 
-**Tapşırıq:** Qatar biletində vaqonların hərfləri var. Dinlə, sonra eyni cür de.  
-**Səs:** Q, U, W.  
-**Qəbul:** dəqiq: Q, U, W. / QUW  
-**İpucu:** Üç hərfin üçü də eyni “yu” səsi ilə bitir.  
-**Düzgün olanda:** Hərfləri dedin; W — “dabəlyu”.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Q, U, W. Səbəb: İngiliscə W “ve” yox, “dabəlyu” oxunur. Qayda: W — dabəlyu; V — vi. Nümunə: Q, U, W.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Taksinin nömrəsində iki hərf var. Dinlə, sonra eyni cür de.  
-**Səs:** H, R.  
-**Qəbul:** dəqiq: H, R. / HR  
-**İpucu:** Azərbaycan əlifbasındakı oxunuşa aldanma.  
-**Düzgün olanda:** Hərfləri dedin; R — “ar”.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: H, R. Səbəb: İngiliscə H “aş” yox, “eyç”; R “er” yox, “ar” oxunur. Qayda: H — eyç; R — ar. Nümunə: H, R.  
-
-## Kart 12 — Səslə cavab: Kodu de
-
-**Tapşırıq:** Hava limanında dostun soruşur hansı uçuşa minirsən. Biletində “WAW” yazılıb (Varşava). Kodu hərf-hərf de.  
-**Qəbul:** dəqiq: W, A, W. · öz məlumatı: /^(?:it'?s\s+)?w[\s,.-]*a[\s,.-]*w[.!]?$/  
-**İpucu:** Hər hərfi ayrıca de; W “ve” deyil.  
-**Düzgün olanda:** Kodu ingiliscə hərf-hərf dedin.  
-- *İzah (başqa səhvdə):* Hərf-hərf de. — Uyğun: W, A, W. Səbəb: İngiliscə W “dabəlyu”, A “ey” oxunur. Qayda: W — dabəlyu; V — vi. Nümunə: W, A, W.  
+**Tapşırıq:** Ofisin parkinqində mühafizəçi maşının markasını hərf-hərf deyir. Hansıdır?  
+**Səs:** B, M, W.  
+**Seçimlər:** BMV / BMW / PMW — **düzgün:** BMW  
+**İpucu:** Sonuncu hərf üç hecadır — kartı xatırla.  
+**Düzgün olanda:** B-M-W: W — “dabəlyu”.  
+- *İzah (“BMV” seçiləndə):* V “vi” oxunur, səsdə “dabəlyu” var. — Uyğun: BMW. Səbəb: Sonuncu hərf “dabəlyu”dur — W. Qayda: W — dabəlyu; V — vi. Nümunə: BMW  
+- *İzah (“PMW” seçiləndə):* P “pi” oxunur, səsdə “bi” var. — Uyğun: BMW. Səbəb: İlk hərf “bi”dir — B. Qayda: B — bi; P — pi. Nümunə: BMW  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Taksi sürücüsü soruşur hansı uçuşdur. Biletində “JFK” yazılıb (Nyu-York). Kodu hərf-hərf de.  
-**Qəbul:** dəqiq: J, F, K. · öz məlumatı: /^(?:it'?s\s+)?j[\s,.-]*f[\s,.-]*k[.!]?$/  
-**İpucu:** Hər hərfi ayrıca de; ilk hərf “je” deyil.  
-**Düzgün olanda:** Kodu ingiliscə hərf-hərf dedin.  
-- *İzah (başqa səhvdə):* Hərf-hərf de. — Uyğun: J, F, K. Səbəb: İngiliscə J “cey”, F “ef”, K “key” oxunur. Qayda: J — cey; G — ci. Nümunə: J, F, K.  
+**Tapşırıq:** Taksidə sürücü telefonunda nəyi açdığını deyir. Hansıdır?  
+**Səs:** G, P, S.  
+**Seçimlər:** JPS / GPS / GBS — **düzgün:** GPS  
+**İpucu:** İlk hərfin oxunuşuna qulaq as.  
+**Düzgün olanda:** G-P-S: G — “ci”.  
+- *İzah (“JPS” seçiləndə):* J “cey” oxunur, səsdə “ci” var. — Uyğun: GPS. Səbəb: İlk hərf “ci”dir — G. Qayda: G — ci; J — cey. Nümunə: GPS  
+- *İzah (“GBS” seçiləndə):* B “bi” oxunur, səsdə “pi” var. — Uyğun: GPS. Səbəb: Ortadakı hərf “pi”dir — P. Qayda: P — pi; B — bi. Nümunə: GPS  
 
-## Kart 13 — Dialoqu tamamla: Mesaj yaz
+## Kart 12 — Cavab cütü: Qısaltmanı tamamla
 
-**Tapşırıq:** Kursun qrup çatında nömrələr görünmür. Yeni yoldaş sənin nömrəni istəyir. Öz nömrəni yaz (istəsən, uydurma).  
-**Yazışma (Kursun qrup çatı):** “Hi! What's your phone number?”  
-**Qəbul:** məna:  — nümunə: It's 050 321 45 67. · öz məlumatı: /^(?:it'?s\s+|it is\s+|my (?:phone )?number is\s+)?(?:(?:zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine|\d)[\s,.-]*){7,15}[.!]?$/  
-**İpucu:** Dərs 2-dəki kimi: qısa söz, sonra rəqəmlər.  
-**Düzgün olanda:** Nömrəni yazdın.  
-- *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər. Qayda: It's 050 321 45 67. — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
-- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's 050 321 45 67. Səbəb: Nömrəni “It’s” ilə başla, sonra rəqəmləri yaz. Qayda: It's 050… — nömrə; My phone… — telefonun özü. Nümunə: What's your phone number? — It's 050 321 45 67.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** İdman zalının qrup çatında nömrələr görünmür. Məşqçi sənin nömrəni istəyir. Öz nömrəni yaz (istəsən, uydurma).  
-**Yazışma (Zalın qrup çatı):** “Hello! What's your phone number?”  
-**Qəbul:** məna:  — nümunə: It's 050 321 45 67. · öz məlumatı: /^(?:it'?s\s+|it is\s+|my (?:phone )?number is\s+)?(?:(?:zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine|\d)[\s,.-]*){7,15}[.!]?$/  
-**İpucu:** Dərs 2-dəki kimi: qısa söz, sonra rəqəmlər.  
-**Düzgün olanda:** Nömrəni yazdın.  
-- *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər. Qayda: It's 050 321 45 67. — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
-- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's 050 321 45 67. Səbəb: Nömrəni “It’s” ilə başla, sonra rəqəmləri yaz. Qayda: It's 050… — nömrə; My phone… — telefonun özü. Nümunə: It's 050 321 45 67.  
-
-## Kart 14 — Səhnədə tap: Səhnədə tap
-
-**Tapşırıq:** Tabloda üç uçuş var. Elan birini deyir. Şəkildə həmin uçuşu tap.  
-**Səs:** G, Y, D.  
-**Seçimlər:** JFK — Nyu-York / GYD — Bakı / IST — İstanbul — **düzgün:** GYD — Bakı  
-**İpucu:** Üç hərfin hər birinə ayrıca qulaq as.  
-**Düzgün olanda:** G-Y-D — Bakı.  
-- *İzah (“JFK — Nyu-York” seçiləndə):* Səsdə “cey, ef, key” yoxdur. — Uyğun: GYD — Bakı. Səbəb: Səsdə “ci, uay, di” deyilir. Qayda: G — ci; J — cey. Nümunə: G, Y, D.  
-- *İzah (“IST — İstanbul” seçiləndə):* Səsdə “ay, es, ti” yoxdur. — Uyğun: GYD — Bakı. Səbəb: Səsdə “ci, uay, di” deyilir. Qayda: Y — uay; I — ay. Nümunə: G, Y, D.  
+**Tapşırıq:** Dostun qısaltmanın əvvəlini deyir. Sıraya toxun, sonra onun sonunu seç.  
+**Cütlər:** U, S… — A!; G, P… — S!; B, M… — W! · artıq: V!  
+**İpucu:** Kartlardakı qısaltmaları xatırla.  
+**Düzgün olanda:** Hər qısaltmanın son hərfini tapdın.  
+- *İzah (başqa səhvdə):* Bir qısaltmanın sonu yerində deyil. — Uyğun: U, S… — A!; G, P… — S!; B, M… — W! Səbəb: Kartlardakı qısaltmaları xatırla: USA, GPS, BMW. Qayda: USA — yu-es-ey; BMW — bi-em-dabəlyu. Nümunə: GPS  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Başqa tabloda üç uçuş var. Elan birini deyir. Şəkildə həmin uçuşu tap.  
-**Səs:** D, O, H.  
-**Seçimlər:** DOH — Doha / IST — İstanbul / LHR — London — **düzgün:** DOH — Doha  
-**İpucu:** Ortadakı hərfə xüsusi qulaq as.  
-**Düzgün olanda:** D-O-H — Doha.  
-- *İzah (“IST — İstanbul” seçiləndə):* Səsdə “ay, es, ti” yoxdur. — Uyğun: DOH — Doha. Səbəb: Səsdə “di, ou, eyç” deyilir. Qayda: O — ou; I — ay. Nümunə: D, O, H.  
-- *İzah (“LHR — London” seçiləndə):* Səsdə “el, eyç, ar” yoxdur. — Uyğun: DOH — Doha. Səbəb: Səsdə “di, ou, eyç” deyilir. Qayda: D — di; L — el. Nümunə: D, O, H.  
+**Tapşırıq:** Başqa qısaltmalar. Sıraya toxun, sonra onun sonunu seç.  
+**Cütlər:** C… — D!; D… — J!; S, M… — S! · artıq: G!  
+**İpucu:** Kartlardakı qısaltmaları xatırla.  
+**Düzgün olanda:** Hər qısaltmanın son hərfini tapdın.  
+- *İzah (başqa səhvdə):* Bir qısaltmanın sonu yerində deyil. — Uyğun: C… — D!; D… — J!; S, M… — S! Səbəb: Kartlardakı qısaltmaları xatırla: CD, DJ, SMS. Qayda: DJ — di-cey; CD — si-di. Nümunə: DJ  
+
+## Kart 13 — Seç: Cütü ayır: G yoxsa J?
+
+**Tapşırıq:** Qatarda vaqonun hərfi elan olunur. Hansı hərfdir?  
+**Səs:** G.  
+**Seçimlər:** J / G / E — **düzgün:** G  
+**İpucu:** “ci” ilə “cey”i ayır.  
+**Düzgün olanda:** G — “ci”.  
+- *İzah (“J” seçiləndə):* J “cey” oxunur, səsdə “ci” var. — Uyğun: G. Səbəb: Səsdəki “ci” — G-dir. Qayda: G — ci; J — cey. Nümunə: GPS  
+- *İzah (“E” seçiləndə):* E “i” oxunur, səsdə “ci” var. — Uyğun: G. Səbəb: Səsdəki “ci” — G-dir. Qayda: G — ci; E — i. Nümunə: GPS  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Konsertdə qapıdakı işçi sıranın hərfini deyir. Hansı hərfdir?  
+**Səs:** A.  
+**Seçimlər:** E / I / A — **düzgün:** A  
+**İpucu:** “ey” ilə “i”ni ayır.  
+**Düzgün olanda:** A — “ey”.  
+- *İzah (“E” seçiləndə):* E “i” oxunur, səsdə “ey” var. — Uyğun: A. Səbəb: Səsdəki “ey” — A-dır. Qayda: A — ey; E — i. Nümunə: USA  
+- *İzah (“I” seçiləndə):* I “ay” oxunur, səsdə “ey” var. — Uyğun: A. Səbəb: Səsdəki “ey” — A-dır. Qayda: A — ey; I — ay. Nümunə: USA  
 
 ## Nəticə
 
-Dərs 3 · 2-ci hissə tamamlandı — Artıq bütün hərfləri tanıyırsan və şəhər kodunu hərf-hərf deyə bilirsən.
+Dərs 3 · 2-ci hissə tamamlandı — U A, G P, J, C, B W hərflərini tanıyırsan, G ilə J-ni və A ilə E-ni ayırırsan.
 
-- Tanıma: Eşitdiyin hərfi və kodu tanımaq
-- Yazı: Maşın nömrəsini və öz nömrəni yazmaq
-- Danışıq: Hərfləri və kodu hərf-hərf demək
+- Tanıma: Eşitdiyin hərfi və qısaltmanı tanımaq
+- Yazı: Maşın nömrəsini eşidib yazmaq
 
-Növbəti dərs — hərf-hərf de: oteldə adını və şəhərini.
+Növbəti hissə — O K, H, Q R, Y Z və hərfləri özün deyirsən.
 
 ## Lüğətim
 
 | Söz | Tərcümə | Nümunə |
 |---|---|---|
-| F, L, M, N, S, X | ef, el, em, en, es, eks | F, L, M, N, S, X. — ef, el, em, en, es, eks |
-| I, Y | ay, uay | I, Y. — ay, uay |
-| O | ou | OK — O, K. — OK — ou, key. |
-| Q, U, W | kyu, yu, dabəlyu | Q, U, W. — kyu, yu, dabəlyu |
-| R | ar | A, R. — ey, ar |
+| U, A | yu, ey | USA — ABŞ |
+| G, P | ci, pi | GPS — GPS |
+| D, J | di, cey | DJ — DJ |
+| C, D | si, di | CD — CD |
+| B, W | bi, dabəlyu | BMW — BMW |

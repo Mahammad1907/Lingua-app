@@ -50,13 +50,13 @@ export const lesson2: DesignLesson = {
       prompt: 'Kursun qrup çatına yeni üzv qoşuldu; çatda nömrələr görünmür.\nSözlərdən onun nömrəsini soruşan sual qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Kursun qrup çatı', from: 'G', lines: [{ from: 'G', text: 'Hi! Nice to meet you!' }] },
       tiles: ["What's", 'number', 'your', 'phone', 'name', 'my', '?'], rule: exact("What's your phone number?"),
-      variants: [other("Sıra: What's your phone number?", ex("What's your phone number?", 'Əvvəl “phone”, sonra “number” gəlir.', "What's your phone number? — düzdür; What's your number phone? — olmur.", "Hi! What's your phone number?"))],
+      variants: [other("Sıra: What's your phone number?", ex("What's your phone number?", 'Əvvəl “phone”, sonra “number” gəlir.', "What's your phone number? — nömrə; What's your name? — ad.", "Hi! What's your phone number?"))],
       review: {
         title: 'Sualı qur', why: 'Sual düzgün sıradadır: phone number.', hint: 'Azərbaycancada “telefon nömrəsi” necə sıralanır? İngiliscə də elədir.',
         prompt: 'Ofisin qrup çatına yeni iş yoldaşı qoşuldu; çatda nömrələr görünmür.\nSözlərdən onun nömrəsini soruşan sual qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Ofisin qrup çatı', from: 'B', lines: [{ from: 'B', text: 'Hello! How are you?' }] },
         tiles: ['phone', "What's", 'your', 'number', 'is', 'name', '?'], rule: exact("What's your phone number?"),
-        variants: [other("Sıra: What's your phone number?", ex("What's your phone number?", 'Əvvəl “phone”, sonra “number” gəlir.', "What's your phone number? — düzdür; What's your number phone? — olmur.", "Excuse me, what's your phone number?"))],
+        variants: [other("Sıra: What's your phone number?", ex("What's your phone number?", 'Əvvəl “phone”, sonra “number” gəlir.', "What's your phone number? — nömrə; What's your name? — ad.", "Excuse me, what's your phone number?"))],
       },
     },
     {
@@ -70,12 +70,12 @@ export const lesson2: DesignLesson = {
       type: 'voice', id: 'u2d2_c06', number: 6, title: 'Nömrəni de', why: 'Nömrəni rəqəm-rəqəm dedin.', hint: 'Kartdakı kimi başla və rəqəmləri bir-bir de.',
       prompt: 'Kurs yoldaşın soruşur: “What\'s your phone number?”\nÖz nömrəni de (istəsən, uydurma nömrə).', audio: "What's your phone number?", reply: 'Thanks!',
       rule: own(PHONE, MY),
-      variants: [...PHONE_MISTAKES, other("It's + nömrə.", ex(MY, 'Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de.', "It's zero five zero… — nömrə; My phone… — telefonun özü.", "It's zero five five, two one nine, zero three, eight eight."))],
+      variants: [...PHONE_MISTAKES, other("It's + nömrə.", ex(MY, 'Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de.', "What's your phone number? — It's zero five zero…", "It's zero five five, two one nine, zero three, eight eight."))],
       review: {
         title: 'Nömrəni de', why: 'Nömrəni rəqəm-rəqəm dedin.', hint: 'Kartdakı kimi başla və rəqəmləri bir-bir de.',
         prompt: 'Ofisdə yeni iş yoldaşı nömrəni soruşur.\nÖz nömrəni de (istəsən, uydurma nömrə).', audio: "Excuse me, what's your phone number?", reply: 'Thank you!',
         rule: own(PHONE, MY),
-        variants: [...PHONE_MISTAKES, other("It's + nömrə.", ex(MY, 'Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de.', "It's zero five zero… — nömrə; My phone… — telefonun özü.", MY))],
+        variants: [...PHONE_MISTAKES, other("It's + nömrə.", ex(MY, 'Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de.', "What's your phone number? — It's zero five zero…", MY))],
       },
     },
     {
@@ -141,7 +141,7 @@ export const lesson2: DesignLesson = {
         { id: 'u2d2_c13b', label: 'İkinci mesaj', placeholder: 'Düz olduğunu soruş', rule: check, purpose: 'düz olduğunu soruşmaq', empty: 'İkinci mesajı da yaz.' },
       ],
       variants: [
-        { field: 'u2d2_c13a', match: { other: true }, explain: ex("What's your phone number?", 'Bu mesajda onun nömrəsini soruşmalısan.', "What's your phone number? — düzdür; What's your number phone? — olmur.", "Hi! What's your phone number?") },
+        { field: 'u2d2_c13a', match: { other: true }, explain: ex("What's your phone number?", 'Bu mesajda onun nömrəsini soruşmalısan.', "What's your phone number? — nömrə; What's your name? — ad.", "Hi! What's your phone number?") },
         { field: 'u2d2_c13b', match: { other: true }, explain: ex('Is that right?', 'Bu mesajda yazdığın nömrənin düz olduğunu soruşursan.', "Is that right? — sual; Yes, that's right. — cavab.", 'Oh five five… Is that right?') },
       ],
       review: {
@@ -152,7 +152,7 @@ export const lesson2: DesignLesson = {
           { id: 'u2d2_c13b', label: 'İkinci mesaj', placeholder: 'Düz olduğunu soruş', rule: check, purpose: 'düz olduğunu soruşmaq', empty: 'İkinci mesajı da yaz.' },
         ],
         variants: [
-          { field: 'u2d2_c13a', match: { other: true }, explain: ex("What's your phone number?", 'Bu mesajda onun nömrəsini soruşmalısan.', "What's your phone number? — düzdür; What's your number phone? — olmur.", "Excuse me, what's your phone number?") },
+          { field: 'u2d2_c13a', match: { other: true }, explain: ex("What's your phone number?", 'Bu mesajda onun nömrəsini soruşmalısan.', "What's your phone number? — nömrə; What's your name? — ad.", "Excuse me, what's your phone number?") },
           { field: 'u2d2_c13b', match: { other: true }, explain: ex('Is that right?', 'Bu mesajda yazdığın nömrənin düz olduğunu soruşursan.', "Is that right? — sual; Yes, that's right. — cavab.", 'Is that right?') },
         ],
       },

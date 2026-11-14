@@ -36,7 +36,7 @@ export const modules: Module[] = [
     phase: 1,
     icon: '🪪',
     lessonIds: [
-      'a1_en_b2_d1a', 'a1_en_b2_d1b', 'a1_en_b2_d2', 'a1_en_b2_d3a', 'a1_en_b2_d3b', 'a1_en_b2_d4',
+      'a1_en_b2_d1a', 'a1_en_b2_d1b', 'a1_en_b2_d2', 'a1_en_b2_d3a', 'a1_en_b2_d3b', 'a1_en_b2_d3c', 'a1_en_b2_d4',
       'a1_en_b2_d5', 'a1_en_b2_d6', 'a1_en_b2_d7a', 'a1_en_b2_d7b', 'a1_en_b2_d8',
     ],
     finalReviewId: 'a1_en_b2_d8',

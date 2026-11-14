@@ -14,7 +14,7 @@ const asWords = (address: string, words: string): Variant => ({
 });
 
 export const lesson6: DesignLesson = {
-  id: 'a1_en_b2_d6', order: 17, unit: 2, number: 6, title: 'E-poçt', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d6', order: 18, unit: 2, number: 6, title: 'E-poçt', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {

@@ -9,7 +9,7 @@ const askSpell = goal(['askSpell'], ['Can you spell it, please?', 'How do you sp
 const myName = own(NAME_SPELLED, "It's …");
 
 export const lesson4: DesignLesson = {
-  id: 'a1_en_b2_d4', order: 15, unit: 2, number: 4, title: 'Hərf-hərf de', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d4', order: 16, unit: 2, number: 4, title: 'Hərf-hərf de', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {
@@ -73,13 +73,13 @@ export const lesson4: DesignLesson = {
       prompt: 'Sən oteldə resepsiyada işləyirsən. Qonaq şəhərini dedi.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Qonaq', from: 'G', lines: [{ from: 'G', text: 'Lankaran.' }] },
       tiles: ['How', 'you', 'spell', 'it', 'do', 'is', 'your', '?'], rule: exact('How do you spell it?'),
-      variants: [other('Sıra: How do you spell it?', ex('How do you spell it?', 'How-dan sonra “do” gəlir, sonra you spell it.', 'How do you spell it? — düzdür; How you spell? — olmur.', 'Ganja? How do you spell it?'))],
+      variants: [other('Sıra: How do you spell it?', ex('How do you spell it?', 'How-dan sonra “do” gəlir, sonra you spell it.', 'How do you spell it? — hərf-hərf; What\'s your name? — ad.', 'Ganja? How do you spell it?'))],
       review: {
         title: 'Sualı qur', why: 'How-dan sonra “do” gəlir.', hint: 'Azərbaycancada olmayan kiçik bir söz ingiliscə sualda lazımdır.',
         prompt: 'Kafedə yeni tanış şəhərini dedi.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Yeni tanış', from: 'B', lines: [{ from: 'B', text: 'Shamakhi.' }] },
         tiles: ['spell', 'How', 'it', 'you', 'do', 'name', 'is', '?'], rule: exact('How do you spell it?'),
-        variants: [other('Sıra: How do you spell it?', ex('How do you spell it?', 'How-dan sonra “do” gəlir, sonra you spell it.', 'How do you spell it? — düzdür; How you spell? — olmur.', 'Shamakhi? How do you spell it?'))],
+        variants: [other('Sıra: How do you spell it?', ex('How do you spell it?', 'How-dan sonra “do” gəlir, sonra you spell it.', 'How do you spell it? — hərf-hərf; What\'s your name? — ad.', 'Shamakhi? How do you spell it?'))],
       },
     },
     {

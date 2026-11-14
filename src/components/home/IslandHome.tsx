@@ -5,8 +5,8 @@
 // Tapping a lesson opens its card (no card takes space on the map). The mascot sits in the top-right corner.
 import { Image } from 'expo-image';
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { Modal, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { useState, type ReactNode, type Ref } from 'react';
+import { Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import Svg, { Circle, ClipPath, Defs, G, Path } from 'react-native-svg';
 import Icon from '../design/Icons';
 import { d, font, shadow } from '../design/theme';
@@ -47,14 +47,16 @@ function water(w: number, h: number, level: number) {
 }
 
 export function IslandHome({ section, sectionTitle, lessons, completed, partial, locked, nextSection, streak, xp, languageLabel, topInset, bottomSpace, review,
-  onSelectLanguage, onOpenLesson, onAnalysis, onReview, onNextSection, exam, onPrevSection, allOpen = false }: {
+  onSelectLanguage, onOpenLesson, onAnalysis, onReview, onNextSection, exam, onPrevSection, allOpen = false, bare = false, after, scrollRef }: {
   section: number; sectionTitle: string; lessons: IslandLesson[]; completed: string[]; partial: Record<string, number>; locked: boolean;
   nextSection?: { title: string; available: boolean };
   exam?: IslandExam; onPrevSection?: () => void;
   /** Temporary test access: every lesson, part and the exam open in any order (src/config/testAccess.ts). */
   allOpen?: boolean;
+  /** Stacked page: `bare` = only head, map and exam; `after` = the next sections under the first one. */
+  bare?: boolean; after?: ReactNode; scrollRef?: Ref<ScrollView>;
   streak: number; xp: number; languageLabel: string; topInset: number; bottomSpace: number; review: { count: number };
-  onSelectLanguage: () => void; onOpenLesson: (id: string) => void; onAnalysis: () => void; onReview: () => void; onNextSection: () => void;
+  onSelectLanguage: () => void; onOpenLesson: (id: string) => void; onAnalysis: () => void; onReview: () => void; onNextSection?: () => void;
 }) {
   const { width, height } = useWindowDimensions();
   const [open, setOpen] = useState<IslandLesson | null>(null);
@@ -71,14 +73,14 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
 
   // Size the island to the space left between the header and the review card + menu.
   const W = Math.min(width - 28, 400);
-  const H = Math.max(360, height - topInset - 132 - 92 - bottomSpace - 16 - (exam ? 66 : 0));
+  const H = Math.max(420, height - topInset - 132 - 92 - bottomSpace - 16 - 66);
   const pts: Pt[] = lessons.map((_, i) => ({ x: W * (i % 2 ? .72 : .28), y: 34 + i * (H - 68) / Math.max(count - 1, 1) }));
   const w = water(W, H, level);
   const sx = W / 350, sy = H / 800;
 
-  return <View style={[s.screen, { paddingTop: topInset + 6 }]}>
-    <StatusBar style="dark" />
-    <View style={s.topBar}>
+  const body = <>
+    {bare ? null : <StatusBar style="dark" />}
+    {bare ? null : <View style={s.topBar}>
       <Pressable accessibilityRole="button" accessibilityLabel={`Dil və səviyyə: ${languageLabel}`} onPress={onSelectLanguage} style={s.brandRow}>
         <Text style={s.brand}>BirTalk</Text>
         <View style={s.langChip}><Text style={s.langText}>{languageLabel}</Text><HomeIcon name="down" color={d.purple} size={13} /></View>
@@ -88,7 +90,7 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
         <View style={s.stat} accessibilityLabel={`${streak} gün ardıcıl`}><HomeIcon name="bolt" color={d.orange} size={15} /><Text style={s.statText}>{streak}</Text></View>
         <View style={s.stat} accessibilityLabel={`${xp} xal`}><Text style={[s.statText, { color: '#C99A00' }]}>★</Text><Text style={s.statText}>{xp}</Text></View>
       </View>
-    </View>
+    </View>}
 
     <View style={s.head}>
       <View style={{ flex: 1 }}>
@@ -170,14 +172,14 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       })}
     </View>
 
-    <Pressable accessibilityRole="button" onPress={onReview} style={({ pressed }) => [s.review, pressed && { opacity: .9 }]}>
+    {bare ? null : <Pressable accessibilityRole="button" onPress={onReview} style={({ pressed }) => [s.review, pressed && { opacity: .9 }]}>
       <View style={s.reviewIcon}><HomeIcon name="repeat" color="#FFB46B" size={20} /></View>
       <View style={{ flex: 1 }}>
         <Text style={s.reviewTitle}>Gündəlik təkrar</Text>
         <Text style={s.reviewSub}>{review.count ? `Səhv etdiyin ${review.count} ifadə · təxminən ${Math.max(1, Math.ceil(review.count / 2))} dəq` : 'Səhvlərin burada toplanacaq'}</Text>
       </View>
       <View style={s.reviewBtn}><Text style={s.reviewBtnText}>Başla</Text></View>
-    </Pressable>
+    </Pressable>}
 
     {exam ? <Pressable accessibilityRole="button" disabled={!examOpen || locked} onPress={() => onOpenLesson(exam.id)}
       accessibilityLabel={`Bölmə ${section} imtahanı${examOpen ? '' : ', bütün dərsləri bitirəndə açılır'}`}
@@ -190,7 +192,7 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       {examOpen && !locked ? <Icon name="arrow" size={18} color={d.purple} /> : null}
     </Pressable> : null}
 
-    {nextSection && (finished || nextSection.available) ? <Pressable accessibilityRole="button" disabled={!nextSection.available} onPress={onNextSection} style={s.next}>
+    {!after && nextSection && (finished || nextSection.available) ? <Pressable accessibilityRole="button" disabled={!nextSection.available} onPress={onNextSection} style={s.next}>
       <Text style={s.nextText}>Bölmə {section + 1} · {nextSection.title}</Text>
     </Pressable> : null}
 
@@ -207,11 +209,11 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
             {reachable && open.parts ? open.parts.map((part, k) => {
               const pp = partPct(part.id), partDone = pp === 100, partOpen = allOpen || k === 0 || completed.includes(open.parts![k - 1].id);
               return <View key={part.id} style={s.partRow}>
-                <View style={{ flex: 1 }}><Text style={s.partTitle}>{k + 1}-ci hissə · {part.title}</Text><Text style={[s.partPct, { color: partDone ? d.greenText : pp ? d.orangeText : d.inkSoft }]}>{pp}%</Text></View>
-                {partOpen ? <Pressable accessibilityRole="button" accessibilityLabel={`${k + 1}-ci hissə: ${partDone ? 'yenidən keç' : pp ? 'davam et' : 'başla'}`} onPress={() => go(part.id)}
+                <View style={{ flex: 1 }}><Text style={s.partTitle}>{k + 1}-{k === 2 ? 'cü' : 'ci'} hissə · {part.title}</Text><Text style={[s.partPct, { color: partDone ? d.greenText : pp ? d.orangeText : d.inkSoft }]}>{pp}%</Text></View>
+                {partOpen ? <Pressable accessibilityRole="button" accessibilityLabel={`${k + 1}-${k === 2 ? 'cü' : 'ci'} hissə: ${partDone ? 'yenidən keç' : pp ? 'davam et' : 'başla'}`} onPress={() => go(part.id)}
                   style={({ pressed }) => [s.partBtn, partDone && { backgroundColor: d.purple }, pressed && { opacity: .9 }]}>
                   <Text style={s.partBtnText}>{partDone ? 'Yenidən' : pp ? 'Davam' : 'Başla'}</Text></Pressable>
-                  : <Text style={s.partLocked}>1-ci hissədən sonra</Text>}
+                  : <Text style={s.partLocked}>{k}-ci hissədən sonra</Text>}
               </View>;
             }) : reachable ? <Pressable accessibilityRole="button" onPress={() => go(open.id)} style={({ pressed }) => [s.sheetBtn, done && { backgroundColor: d.purple }, pressed && { opacity: .9 }]}>
               <Text style={s.sheetBtnText}>{done ? 'Yenidən keç' : pct ? 'Davam et' : 'Başla'}</Text><Icon name="arrow" size={16} color="#fff" />
@@ -220,6 +222,15 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
         })() : null}
       </Pressable>
     </Modal>
+  </>;
+  // Sections are stacked on one scrolling page (15 Nov 2026): the first section renders the whole page and the
+  // following sections are passed in `after` as bare islands (head + map + exam).
+  if (bare) return <View style={{ marginTop: 28 }}>{body}</View>;
+  return <View style={s.screen}>
+    <ScrollView ref={scrollRef} contentContainerStyle={{ paddingTop: topInset + 6, paddingBottom: bottomSpace + 8 }} showsVerticalScrollIndicator={false}>
+      {body}
+      {after}
+    </ScrollView>
   </View>;
 }
 

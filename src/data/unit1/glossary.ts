@@ -78,7 +78,7 @@ export const GLOSSARY: Record<string, Gloss> = {
   that: { az: 'o, bu' },
   right: { az: 'düz, doğru' },
   yes: { az: 'bəli' },
-  do: { az: '(sualda köməkçi söz)', role: 'How do you spell it? — sual qurur' },
+  do: { az: 'sualı qurur, ayrıca tərcümə olunmur', role: 'How do you spell it?' },
   spell: { az: 'hərf-hərf demək' },
   double: { az: 'qoşa', role: 'eyni hərf iki dəfə: double L = LL' },
   can: { az: 'bilmək (bacarmaq)', role: 'Can you …? — nəzakətli xahiş' },
@@ -102,6 +102,9 @@ export const GLOSSARY: Record<string, Gloss> = {
   t: { az: 'T hərfi', role: '“ti”' }, u: { az: 'U hərfi', role: '“yu”' }, v: { az: 'V hərfi', role: '“vi”' },
   w: { az: 'W hərfi', role: '“dabəlyu”' }, x: { az: 'X hərfi', role: '“eks”' }, y: { az: 'Y hərfi', role: '“uay”' },
   z: { az: 'Z hərfi', role: '“zi”' },
+  sms: { az: 'SMS, qısa mesaj' }, tv: { az: 'televizor' }, id: { az: 'şəxsiyyət vəsiqəsi' }, usa: { az: 'ABŞ' },
+  gps: { az: 'GPS, naviqasiya' }, dj: { az: 'DJ, musiqiçi' }, cd: { az: 'CD, disk' }, bmw: { az: 'BMW (maşın markası)' },
+  hd: { az: 'HD, yüksək keyfiyyət' }, qr: { az: 'QR kod' },
 };
 
 /** Words of an English sentence, as they appear (without punctuation). */
