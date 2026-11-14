@@ -55,23 +55,23 @@ export const lesson5: DesignLesson = {
       type: 'two', id: 'u2d5_c05', number: 5, title: 'Formanı doldur', why: 'Adını və soyadını öz yerinə yazdın.', hint: 'Hər sətrin başlığını oxu: biri ad, biri soyaddır.', scenes: ['u2/form-course'],
       prompt: 'Kursa yazılırsan.\nQeydiyyat vərəqində adını və soyadını yaz.', form: { title: 'Kurs qeydiyyatı', subtitle: 'İngilis dili kursu' },
       fields: [
-        { id: 'u2d5_c05a', label: 'First name', placeholder: 'Adın', rule: first, purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
-        { id: 'u2d5_c05b', label: 'Last name', placeholder: 'Soyadın', rule: last, purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
+        { id: 'u2d5_c05a', label: 'First name', placeholder: '…', rule: first, purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
+        { id: 'u2d5_c05b', label: 'Last name', placeholder: '…', rule: last, purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
       ],
       variants: [
         { field: 'u2d5_c05a', match: { other: true }, explain: ex('…', 'Bu sətirdə yalnız adın lazımdır, cümlə yox.', 'First name — adın; Last name — soyadın.', 'My first name is …') },
         { field: 'u2d5_c05b', match: { other: true }, explain: ex('Mammadova', 'Bu sətirdə yalnız soyadın lazımdır, cümlə yox.', 'First name — adın; Last name — soyadın.', 'My last name is Mammadova.') },
       ],
       review: {
-        title: 'Formanı doldur', why: 'Adını və soyadını öz yerinə yazdın.', hint: 'Diqqət: bu formada sətirlərin sırası başqadır.', scenes: ['u2/form-gym'],
-        prompt: 'İdman zalına yazılırsan.\nFormada soyadını və adını yaz.', form: { title: 'İdman zalı', subtitle: 'Yeni üzv' },
+        title: 'Formanı doldur', why: 'Dostunun adını və soyadını öz yerinə yazdın.', hint: 'Pasportda əvvəl soyad yazılıb; formada isə sətirlərin başlığını oxu.', scenes: ['u2/form-gym'],
+        prompt: 'Dostunu idman zalına yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “ALIYEV KAMRAN”.\nFormanı doldur.', form: { title: 'İdman zalı', subtitle: 'Yeni üzv' },
         fields: [
-          { id: 'u2d5_c05b', label: 'Last name', placeholder: 'Soyadın', rule: last, purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
-          { id: 'u2d5_c05a', label: 'First name', placeholder: 'Adın', rule: first, purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
+          { id: 'u2d5_c05b', label: 'Last name', placeholder: '…', rule: exact('Aliyev'), purpose: 'soyadı yazmaq', empty: 'Soyadı da yaz.' },
+          { id: 'u2d5_c05a', label: 'First name', placeholder: '…', rule: exact('Kamran'), purpose: 'adı yazmaq', empty: 'Adı da yaz.' },
         ],
         variants: [
-          { field: 'u2d5_c05b', match: { other: true }, explain: ex('Mammadova', 'Bu sətirdə yalnız soyadın lazımdır.', 'Last name — soyadın; First name — adın.', 'My last name is Mammadova.') },
-          { field: 'u2d5_c05a', match: { other: true }, explain: ex('…', 'Bu sətirdə yalnız adın lazımdır.', 'Last name — soyadın; First name — adın.', 'My first name is …') },
+          { field: 'u2d5_c05b', match: { other: true }, explain: ex('Aliyev', 'Last name — soyaddır: pasportdakı birinci söz.', 'Last name — Aliyev; First name — Kamran.', 'My last name is Aliyev.') },
+          { field: 'u2d5_c05a', match: { other: true }, explain: ex('Kamran', 'First name — addır: pasportdakı ikinci söz.', 'First name — Kamran; Last name — Aliyev.', 'My first name is Kamran.') },
         ],
       },
     },
@@ -83,12 +83,12 @@ export const lesson5: DesignLesson = {
     {
       type: 'write', id: 'u2d5_c07', number: 7, title: 'Sualı qur', why: 'Soyadı soruşdun: last name.', hint: 'Ad yox, soyad soruşursan — kartdakı sözü xatırla.',
       prompt: 'Qeydiyyat masasında işləyirsən. Yeni tələbə gəldi.\nSözlərdən onun soyadını soruşan sual qur.', placeholder: 'Sözlərə toxun',
-      chat: { partner: 'Yeni tələbə', from: 'G', lines: [{ from: 'G', text: 'Hello!' }] },
+      chat: { partner: 'Yeni tələbə', from: 'G', lines: [{ from: 'G', text: 'Hello! Nice to meet you!' }] },
       tiles: ["What's", 'last', 'your', 'name', 'first', 'is', '?'], rule: exact("What's your last name?"),
       variants: [other("What's your last name?", ex("What's your last name?", 'Soyad “last name”dir, “first name” addır.', "What's your first name? — ad; What's your last name? — soyad.", "Hi! What's your last name?"))],
       review: {
         title: 'Sualı qur', why: 'Soyadı soruşdun: last name.', hint: 'Ad yox, soyad soruşursan — kartdakı sözü xatırla.',
-        prompt: 'İdman zalında qeydiyyatdasan. Yeni üzvün soyadını soruş.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'İdman zalında qeydiyyat masasında işləyirsən. Yeni üzv gəldi.\nSözlərdən onun soyadını soruşan sual qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Yeni üzv', from: 'B', lines: [{ from: 'B', text: 'Hi!' }] },
         tiles: ['name', "What's", 'your', 'last', 'my', 'first', '?'], rule: exact("What's your last name?"),
         variants: [other("What's your last name?", ex("What's your last name?", 'Soyad “last name”dir, “first name” addır.', "What's your first name? — ad; What's your last name? — soyad.", "What's your last name?"))],
@@ -102,26 +102,26 @@ export const lesson5: DesignLesson = {
       example: 'Hello, Ms Hasanova!', exampleAz: 'Salam, Həsənova xanım!',
     },
     {
-      type: 'choice', id: 'u2d5_c09', number: 9, title: 'Sözü tamamla', why: 'Qadına — Ms.', hint: 'Müəllim kişidir, yoxsa qadın?',
-      prompt: 'Kursun müəllimi qadındır, soyadı Hasanova.\nOna salam verirsən. Hansı söz çatmır?', gap: { speaker: 'B', before: 'Hello,', after: 'Hasanova!' },
+      type: 'choice', id: 'u2d5_c09', number: 9, title: 'Sözü tamamla', why: '-ova ilə bitən soyad qadınındır — Ms.', hint: 'Soyadın sonuna bax: -ova, yoxsa -ov?',
+      prompt: 'Kursun yeni müəllimi gəldi, soyadı Hasanova.\nOna salam verirsən. Hansı söz çatmır?', gap: { speaker: 'B', before: 'Hello,', after: 'Hasanova!' },
       options: ['Ms', 'Mr', 'last'], answer: 'Ms',
       variants: [
-        pick('Mr', '“Mr” kişiyə deyilir.', ex('Ms', 'Müəllim qadındır, ona “Ms” deyilir.', 'Mr Hasanov — kişi; Ms Hasanova — qadın.', 'Hello, Ms Hasanova!')),
+        pick('Mr', '“Mr” kişiyə deyilir.', ex('Ms', 'Hasanova — qadın soyadıdır, ona “Ms” deyilir.', 'Mr Hasanov — kişi; Ms Hasanova — qadın.', 'Hello, Ms Hasanova!')),
         pick('last', '“last” soyad sözündədir: last name.', ex('Ms', 'Salam verəndə soyaddan əvvəl “Ms” və ya “Mr” gəlir.', 'Hello, Ms Hasanova! — müraciət; last name — soyad.', 'Hello, Ms Hasanova!')),
       ],
       review: {
-        title: 'Sözü tamamla', why: 'Kişiyə — Mr.', hint: 'Müdir kişidir, yoxsa qadın?',
-        prompt: 'Ofisdə müdirin kişidir, soyadı Guliyev.\nOna salam verirsən. Hansı söz çatmır?', gap: { speaker: 'G', before: 'Hello,', after: 'Guliyev!' },
+        title: 'Sözü tamamla', why: '-ov/-yev ilə bitən soyad kişinindir — Mr.', hint: 'Soyadın sonuna bax: -yeva, yoxsa -yev?',
+        prompt: 'Ofisdə yeni müdirin soyadı Guliyev.\nOna salam verirsən. Hansı söz çatmır?', gap: { speaker: 'G', before: 'Hello,', after: 'Guliyev!' },
         options: ['Ms', 'first', 'Mr'], answer: 'Mr',
         variants: [
-          pick('Ms', '“Ms” qadına deyilir.', ex('Mr', 'Müdir kişidir, ona “Mr” deyilir.', 'Mr Guliyev — kişi; Ms Guliyeva — qadın.', 'Hello, Mr Guliyev!')),
+          pick('Ms', '“Ms” qadına deyilir.', ex('Mr', 'Guliyev — kişi soyadıdır, ona “Mr” deyilir.', 'Mr Guliyev — kişi; Ms Guliyeva — qadın.', 'Hello, Mr Guliyev!')),
           pick('first', '“first” ad sözündədir: first name.', ex('Mr', 'Salam verəndə soyaddan əvvəl “Mr” və ya “Ms” gəlir.', 'Hello, Mr Guliyev! — müraciət; first name — ad.', 'Hello, Mr Guliyev!')),
         ],
       },
     },
     {
       type: 'voice', id: 'u2d5_c10', number: 10, title: 'Soyadı soruş', why: 'Soyadı soruşdun.', hint: 'Ad yox, soyad soruşulur — kartdakı sualı xatırla.',
-      prompt: 'Kurs qeydiyyat masasındasan. Yeni tələbə yalnız adını dedi.\nOndan soyadını soruş.', reply: "It's Mammadov.",
+      prompt: 'Kurs qeydiyyat masasındasan. Yeni tələbə yalnız adını dedi.\nOndan soyadını soruş.', reply: "It's Mammadov. M-A-double M-A-D-O-V.",
       rule: askLast,
       variants: [
         insteadOf('askName', 'Adını artıq dedi — soyadını soruş.', ex("What's your last name?", 'Ad məlumdur, soyad lazımdır.', "What's your name? — ad; What's your last name? — soyad.", "Hi! What's your last name?")),
@@ -160,10 +160,10 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'match', id: 'u2d5_c13', number: 13, title: 'Kim nə dedi?', why: 'Formadakı sözlərin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun sözü yerinə qoy.',
-      prompt: 'Qeydiyyat vərəqindəki sözlər.\nHər birinə mənasını qoş.',
-      rows: [{ en: 'First name', az: 'Ad' }, { en: 'Last name', az: 'Soyad' }, { en: 'Ms', az: 'Xanım' }],
+      prompt: 'Qeydiyyat masasında eşitdiyin sözlər.\nHər birinə mənasını qoş.',
+      rows: [{ en: 'First name', az: 'Ad' }, { en: 'Last name', az: 'Soyad' }, { en: 'How do you spell it?', az: 'Hərf-hərf necə yazılır?' }],
       extra: ['Cənab'],
-      variants: [other('Bir sözün mənası yerində deyil.', ex('First name — Ad; Last name — Soyad; Ms — Xanım', 'first — ad, last — soyad; Ms qadına deyilir.', 'First name — ad; Last name — soyad.', 'Hello, Ms Hasanova!'))],
+      variants: [other('Bir sözün mənası yerində deyil.', ex('First name — Ad; Last name — Soyad; How do you spell it? — Hərf-hərf necə yazılır?', 'first — ad, last — soyad; spell — hərf-hərf demək.', 'First name — ad; Last name — soyad.', 'Mammadova? How do you spell it?'))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
         prompt: 'Qeydiyyat masasında eşitdiklərin.\nHər birinə mənasını qoş.',

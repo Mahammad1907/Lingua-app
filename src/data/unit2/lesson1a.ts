@@ -25,12 +25,12 @@ export const lesson1a: DesignLesson = {
       example: 'One tea, please.', exampleAz: 'Bir çay, zəhmət olmasa.',
     },
     {
-      type: 'voice', id: 'u2d1a_c03', number: 3, title: 'Dinlə və təkrarla', why: '“one” düzgün səsləndi.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
+      type: 'voice', id: 'u2d1a_c03', number: 3, title: 'Dinlə və təkrarla', why: 'Cümləni dedin; one — “uan”.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
       prompt: 'Kafedəsən, çay sifariş edirsən.\nDinlə, sonra eyni cür de.', audio: 'One tea, please.', repeat: { stress: 'One', note: 'one — “uan”: dodaqlar əvvəl yumrulanır.', reading: 'uan ti, pliz' },
       rule: exact('One tea, please.', '1 tea please'),
       variants: [other('Bir daha dinlə və yavaş de.', ex('One tea, please.', '“one” yazıldığı kimi yox, “uan” kimi oxunur.', 'One tea, please. — bir çay; Tea, please. — çay.', 'One tea, please.'))],
       review: {
-        title: 'Dinlə və təkrarla', why: '“three” düzgün səsləndi.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
+        title: 'Dinlə və təkrarla', why: 'Cümləni dedin; three — dil dişlərin arasında.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
         prompt: 'Liftdəsən, düymə qonşunun tərəfindədir.\nDinlə, sonra eyni cür de.', audio: 'Three, please.', repeat: { stress: 'Three', note: 'three — dil dişlərin arasına gəlir.', reading: '**th**ri, pliz' },
         rule: exact('Three, please.', '3 please'),
         variants: [other('Bir daha dinlə və yavaş de.', ex('Three, please.', '“three”də dil dişlərin arasına gəlir, “t” kimi deyilmir.', 'Three, please. — üç; Two, please. — iki.', 'Excuse me, three, please.'))],
@@ -70,12 +70,12 @@ export const lesson1a: DesignLesson = {
       type: 'write', id: 'u2d1a_c07', number: 7, keypad: true, title: 'Nömrəni yığ', why: 'four, zero, one — 401.', hint: 'Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.',
       prompt: 'Oteldə otaq telefonundasan.\nResepsiya restoranın daxili nömrəsini deyir. Dinlə və yığ.', audio: 'Four, zero, one.', placeholder: 'Daxili nömrə',
       rule: exact('401'),
-      variants: [other('Rəqəmləri bir-bir dinlə.', ex('401', 'Səsdə üç rəqəm var: four, zero, one.', 'four — 4; five — 5.', 'Four, zero, one.'))],
+      variants: [other('Rəqəmləri bir-bir dinlə.', ex('401', 'Səsdə üç rəqəm var: four, zero, one.', 'Four, zero, one. — 401; Four, one, zero. — 410.', 'Four, zero, one.'))],
       review: {
         keypad: true, title: 'Nömrəni yığ', why: 'two, five, three — 253.', hint: 'Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.',
         prompt: 'Ofisdəsən.\nİş yoldaşı daxili nömrəsini deyir. Dinlə və yığ.', audio: 'Two, five, three.', placeholder: 'Daxili nömrə',
         rule: exact('253'),
-        variants: [other('Rəqəmləri bir-bir dinlə.', ex('253', 'Səsdə üç rəqəm var: two, five, three.', 'two — 2; three — 3.', 'Two, five, three.'))],
+        variants: [other('Rəqəmləri bir-bir dinlə.', ex('253', 'Səsdə üç rəqəm var: two, five, three.', 'Two, five, three. — 253; Three, five, two. — 352.', 'Two, five, three.'))],
       },
     },
     {
@@ -93,7 +93,7 @@ export const lesson1a: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'u2d1a_c09', number: 9, title: 'Sözü tamamla', why: '“four” — dörd.', hint: 'Rəqəmlərin sırasını xatırla: üçdən sonra hansı gəlir?',
+      type: 'choice', id: 'u2d1a_c09', number: 9, title: 'Sözü tamamla', why: '“four” — dörd.', hint: 'Üç söz eyni hərflə başlayır, yalnız biri dörd deməkdir — kartı xatırla.',
       prompt: 'Qız 4-cü mərtəbəyə gedir.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'Excuse me,', after: ', please.' },
       options: ['five', 'four', 'fine'], answer: 'four',
       variants: [
@@ -101,7 +101,7 @@ export const lesson1a: DesignLesson = {
         pick('fine', '“fine” — yaxşı, rəqəm deyil.', ex('four', '“fine” halı bildirir, rəqəm deyil.', "I'm fine. — yaxşıyam; Four, please. — dörd, zəhmət olmasa.", 'Excuse me, four, please.')),
       ],
       review: {
-        title: 'Sözü tamamla', why: '“three” — üç.', hint: 'Rəqəmlərin sırasını xatırla: ikidən sonra hansı gəlir?',
+        title: 'Sözü tamamla', why: '“three” — üç.', hint: 'Dilin dişlərin arasına gəldiyi səsi xatırla.',
         prompt: 'Oğlan 3-cü mərtəbəyə gedir.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'Excuse me,', after: ', please.' },
         options: ['tea', 'three', 'two'], answer: 'three',
         variants: [
@@ -126,12 +126,12 @@ export const lesson1a: DesignLesson = {
       type: 'write', id: 'u2d1a_c11', number: 11, title: 'Dinlə və yaz', why: 'three — th ilə yazılır.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
       prompt: 'Liftdə oğlan mərtəbəni deyir.\nEşitdiyin rəqəmi sözlə yaz.', audio: 'Three, please.', placeholder: 'Rəqəmi sözlə yaz',
       rule: exact('three'),
-      variants: [other('Yazılışı yoxla.', ex('three', 'Bu söz “th” ilə başlayır.', 'two — iki; three — üç.', 'One, two, three!'))],
+      variants: [other('Yazılışı yoxla.', ex('three', 'Bu söz “th” ilə başlayır.', 'Three, please. — üç; Two, please. — iki.', 'One, two, three!'))],
       review: {
         title: 'Dinlə və yaz', why: 'five — “v” ilə bitir.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
         prompt: 'Otel resepsiyasında qadın otağın mərtəbəsini deyir.\nEşitdiyin rəqəmi sözlə yaz.', audio: 'Five.', placeholder: 'Rəqəmi sözlə yaz',
         rule: exact('five'),
-        variants: [other('Yazılışı yoxla.', ex('five', 'Bu söz “v” səsi ilə bitir, sonunda “e” yazılır.', 'four — dörd; five — beş.', 'Five, four, three, two, one, zero!'))],
+        variants: [other('Yazılışı yoxla.', ex('five', 'Bu söz “v” səsi ilə bitir, sonunda “e” yazılır.', 'Five. — beş; Four. — dörd.', 'Five, four, three, two, one, zero!'))],
       },
     },
     {
@@ -150,7 +150,7 @@ export const lesson1a: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 1 · 1-ci hissə tamamlandı', 'Artıq 0–5 rəqəmlərini eşidib tanıyır və liftdə mərtəbəni deyə bilirsən.'],
+    done: ['Dərs 1 · 1-ci hissə tamamlandı', 'Artıq 0–5 rəqəmlərini eşidib tanıyırsan və liftdə mərtəbəni deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
       { group: 'Tanıma', text: '0–5 rəqəmlərini eşidib tanımaq', tasks: ['u2d1a_c05', 'u2d1a_c07', 'u2d1a_c08', 'u2d1a_c09', 'u2d1a_c12'] },

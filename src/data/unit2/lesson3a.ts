@@ -19,17 +19,17 @@ export const lesson3a: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d3a_c02', number: 2, scenes: ['u2/word-letters-ay'],
-      word: 'A, H, J, K', pronunciation: '/eɪ/ · /eɪtʃ/ · /dʒeɪ/ · /keɪ/', reading: 'ey, eyç, cey, key', az: '“ey” ilə bitən hərflər',
+      word: 'A, H, J, K', pronunciation: '/eɪ/ · /eɪtʃ/ · /dʒeɪ/ · /keɪ/', reading: 'ey, eyç, cey, key', az: '“ey” səsi olan hərflər',
       notes: ['H — “eyç”, “aş” yox; J — “cey”.'],
       example: 'A, H, J, K.', exampleAz: 'ey, eyç, cey, key',
     },
     {
-      type: 'voice', id: 'u2d3a_c03', number: 3, title: 'Dinlə və təkrarla', why: 'Hərfləri ingiliscə dedin.', hint: 'Dörd hərfin dördündə də eyni “ey” səsi var.',
+      type: 'voice', id: 'u2d3a_c03', number: 3, title: 'Dinlə və təkrarla', why: 'Hərfləri dedin; H — “eyç”.', hint: 'Dörd hərfin dördündə də eyni “ey” səsi var.',
       prompt: 'Hava limanındasan, tabloda hərflər yanır.\nDinlə, sonra eyni cür de.', audio: 'A, H, J, K.', repeat: { stress: 'H', note: 'H — “eyç”, J — “cey”.', reading: 'ey, eyç, cey, key' },
       rule: exact('A, H, J, K.', 'AHJK'),
       variants: [other('Bir daha dinlə və yavaş de.', ex('A, H, J, K.', 'İngiliscə H “eyç”, J “cey” oxunur.', 'H — eyç; J — cey.', 'A, H, J, K.'))],
       review: {
-        title: 'Dinlə və təkrarla', why: 'Hərfləri ingiliscə dedin.', hint: 'Azərbaycan əlifbasındakı oxunuşa aldanma.',
+        title: 'Dinlə və təkrarla', why: 'Hərfləri dedin; E — “i”, G — “ci”.', hint: 'Azərbaycan əlifbasındakı oxunuşa aldanma.',
         prompt: 'Qatar stansiyasında platforma hərfləri elan olunur.\nDinlə, sonra eyni cür de.', audio: 'E, G.', repeat: { stress: 'G', note: 'E — “i”, G — “ci”.', reading: 'i, ci' },
         rule: exact('E, G.', 'EG'),
         variants: [other('Bir daha dinlə və yavaş de.', ex('E, G.', 'İngiliscə E “i”, G “ci” oxunur.', 'E — i; G — ci.', 'E, G.'))],
@@ -67,7 +67,7 @@ export const lesson3a: DesignLesson = {
       rule: exact('KBP'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('KBP', 'Səsdə K, B, P deyilir.', 'B — bi; P — pi.', 'K, B, P.'))],
       review: {
-        letters: ['E', 'K', 'P', 'B', 'G', 'A'], title: 'Hərfləri tut', why: 'P-E-K — Pekin hava limanının kodu.', hint: 'Hər hərfi eşidən kimi toxun; “i” səsi hansı hərfdir — kartı xatırla.',
+        letters: ['E', 'K', 'P', 'B', 'G', 'A'], title: 'Hərfləri tut', why: 'P-E-K — Pekin hava limanının kodu.', hint: 'Hər hərfi eşidən kimi toxun; ikinci hərfin oxunuşu Azərbaycan əlifbasındakından fərqlidir.',
         prompt: 'Tabloda Pekin uçuşu var. Elan şəhər kodunu deyir.\nEşitdiyin hərflərə toxun.', audio: 'P, E, K.', placeholder: 'Şəhər kodu',
         rule: exact('PEK'),
         variants: [other('Hərfləri bir-bir dinlə.', ex('PEK', 'Səsdə P, E, K deyilir; E “i” oxunur.', 'E — i; A — ey.', 'P, E, K.'))],
@@ -103,7 +103,7 @@ export const lesson3a: DesignLesson = {
       rule: said(spelled('HKG'), 'H, K, G.'),
       variants: [other('Hərf-hərf de.', ex('H, K, G.', 'İngiliscə H “eyç”, G “ci” oxunur.', 'H — eyç; G — ci.', 'H, K, G.'))],
       review: {
-        title: 'Kodu de', why: 'Kodu ingiliscə hərf-hərf dedin.', hint: 'Hər hərfi ayrıca de; sonuncu hərf “qe” deyil.',
+        title: 'Kodu de', why: 'Kodu ingiliscə hərf-hərf dedin.', hint: 'Hər hərfi ayrıca de; sonuncu hərf “ge” deyil.',
         prompt: 'Taksi sürücüsü soruşur hansı uçuşdur. Biletində “ZAG” yazılıb (Zaqreb).\nKodu hərf-hərf de.',
         rule: said(spelled('ZAG'), 'Z, A, G.'),
         variants: [other('Hərf-hərf de.', ex('Z, A, G.', 'İngiliscə Z “zi”, A “ey”, G “ci” oxunur.', 'Z — zi; G — ci.', 'Z, A, G.'))],
@@ -142,26 +142,26 @@ export const lesson3a: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'u2d3a_c13', number: 13, title: 'Sözü tamamla', why: 'Is that right? — düzdür?', hint: 'Dərs 2-də nömrəni yoxlayanda hansı sual verilirdi?',
-      prompt: 'Qız elanda kodu eşidib təkrar edir və yoxlayır.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'K, B, P. Is that', after: '?' },
-      options: ['right', 'well', 'name'], answer: 'right',
+      type: 'choice', id: 'u2d3a_c13', number: 13, title: 'Sözü tamamla', why: 'Slowly, please. — yavaş, zəhmət olmasa.', hint: 'Bölmə 1, Dərs 7: çox sürətli danışanda nə xahiş edirdin?',
+      prompt: 'Elan hərfləri çox sürətlə deyir. Qız yanındakı işçidən xahiş edir.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'Sorry?', after: ', please.' },
+      options: ['Thanks', 'Slowly', 'Hello'], answer: 'Slowly',
       variants: [
-        pick('well', '“well” halı bildirir.', ex('right', '“well” halı bildirir; yoxlayanda “right” deyilir.', "Is that right? — düzdür?; I'm not very well. — hal.", 'K, B, P. Is that right?')),
-        pick('name', '“name” addır.', ex('right', '“name” ad deməkdir; yoxlayanda “right” deyilir.', "Is that right? — düzdür?; What's your name? — ad.", 'K, B, P. Is that right?')),
+        pick('Thanks', '“Thanks” təşəkkürdür, xahiş deyil.', ex('Slowly', 'Elan çox sürətli idi — yavaş deməyi xahiş edir.', 'Sorry? Slowly, please. — xahiş; Thanks! — təşəkkür.', 'Sorry? Slowly, please.')),
+        pick('Hello', '“Hello” salamdır.', ex('Slowly', 'Burada salam yox, yavaş deməyi xahiş lazımdır.', 'Sorry? Slowly, please. — xahiş; Hello! — salam.', 'Sorry? Slowly, please.')),
       ],
       review: {
-        title: 'Sözü tamamla', why: "Yes, that's right. — bəli, düzdür.", hint: 'Dərs 2-də nömrə düz olanda necə təsdiq edirdin?',
-        prompt: 'Oğlan qızın təkrar etdiyi kodu təsdiqləyir.\nHansı söz çatmır?', gap: { speaker: 'B', before: "Yes, that's", after: '.' },
-        options: ['name', 'right', 'please'], answer: 'right',
+        title: 'Sözü tamamla', why: 'Is that right? — düzdür?', hint: 'Dərs 2-də nömrəni yoxlayanda hansı sual verilirdi?',
+        prompt: 'Qız elanda kodu eşidib təkrar edir və yoxlayır.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'K, B, P. Is that', after: '?' },
+        options: ['right', 'well', 'name'], answer: 'right',
         variants: [
-          pick('name', '“name” addır.', ex('right', 'Təsdiq edəndə “that’s right” deyilir.', "Yes, that's right. — təsdiq; My name is … — ad.", "K, B, P? — Yes, that's right.")),
-          pick('please', '“please” xahişdir.', ex('right', 'Burada xahiş yox, təsdiq lazımdır.', "Yes, that's right. — təsdiq; Slowly, please. — xahiş.", "Yes, that's right.")),
+          pick('well', '“well” halı bildirir.', ex('right', '“well” halı bildirir; yoxlayanda “right” deyilir.', "Is that right? — düzdür?; I'm not very well. — hal.", 'K, B, P. Is that right?')),
+          pick('name', '“name” addır.', ex('right', '“name” ad deməkdir; yoxlayanda “right” deyilir.', "Is that right? — düzdür?; What's your name? — ad.", 'K, B, P. Is that right?')),
         ],
       },
     },
   ],
   result: {
-    done: ['Dərs 3 · 1-ci hissə tamamlandı', 'Artıq A H J K, B C D, P T V Z, E G hərflərini tanıyır və kodu hərf-hərf deyə bilirsən.'],
+    done: ['Dərs 3 · 1-ci hissə tamamlandı', 'Artıq A H J K, B C D, P T V Z, E G hərflərini tanıyırsan və kodu hərf-hərf deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
       { group: 'Tanıma', text: 'Eşitdiyin hərfi tanımaq', tasks: ['u2d3a_c05', 'u2d3a_c07', 'u2d3a_c09', 'u2d3a_c11', 'u2d3a_c13'] },
@@ -172,7 +172,7 @@ export const lesson3a: DesignLesson = {
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'A, H, J, K', translation: 'ey, eyç, cey, key', example: 'A, H, J, K.', exampleAz: 'ey, eyç, cey, key', usageNote: 'Hamısı “ey” ilə bitir.', pronunciation: '/eɪ/ · /eɪtʃ/ · /dʒeɪ/ · /keɪ/', teachCard: 'u2d3a_c02' },
+    { word: 'A, H, J, K', translation: 'ey, eyç, cey, key', example: 'A, H, J, K.', exampleAz: 'ey, eyç, cey, key', usageNote: 'Hamısında “ey” səsi var.', pronunciation: '/eɪ/ · /eɪtʃ/ · /dʒeɪ/ · /keɪ/', teachCard: 'u2d3a_c02' },
     { word: 'B, C, D', translation: 'bi, si, di', example: 'B, C, D.', exampleAz: 'bi, si, di', usageNote: 'C — “si”.', pronunciation: '/bi/ · /si/ · /di/', teachCard: 'u2d3a_c04' },
     { word: 'P, T, V, Z', translation: 'pi, ti, vi, zi', example: 'P, T, V, Z.', exampleAz: 'pi, ti, vi, zi', usageNote: 'Z — “zi”.', pronunciation: '/pi/ · /ti/ · /vi/ · /zi/', teachCard: 'u2d3a_c06' },
     { word: 'E, G', translation: 'i, ci', example: 'E, G.', exampleAz: 'i, ci', usageNote: 'E — “i”, G — “ci”.', pronunciation: '/i/ · /dʒi/', teachCard: 'u2d3a_c08' },

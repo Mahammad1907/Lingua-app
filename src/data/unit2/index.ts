@@ -22,16 +22,16 @@ export function ordered(lesson: DesignLesson, ids: string[]): DesignLesson {
 
 // Order: 1a, 1b, 2, 3a, 3b, 4, 5, 6, 7a, 7b, 8 (orders 10–20); the exam is order 21.
 export const unit2Lessons: DesignLesson[] = [
-  ordered(lesson1a, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12']),
-  ordered(lesson1b, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12']),
-  ordered(lesson2, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12', 'c13', 'c14']),
+  ordered(lesson1a, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c12', 'c11']),
+  ordered(lesson1b, ['c01', 'c02', 'c05', 'c04', 'c03', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12']),
+  ordered(lesson2, ['c01', 'c02', 'c03', 'c04', 'c05', 'c08', 'c07', 'c06', 'c09', 'c10', 'c11', 'c12', 'c13', 'c14']),
   ordered(lesson3a, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12', 'c13']),
-  ordered(lesson3b, ['c01', 'c10', 'c09', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c11', 'c12', 'c13']),
-  ordered(lesson4, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12', 'c13']),
+  ordered(lesson3b, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12', 'c13', 'c14']),
+  ordered(lesson4, ['c01', 'c02', 'c07', 'c04', 'c05', 'c06', 'c10', 'c08', 'c12', 'c03', 'c13', 'c11', 'c09']),
   ordered(lesson5, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12', 'c13']),
-  ordered(lesson6, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12', 'c13']),
+  ordered(lesson6, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c13', 'c10', 'c11', 'c12']),
   ordered(lesson7a, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12', 'c13']),
-  ordered(lesson7b, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12', 'c13', 'c14']),
-  ordered(lesson8, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12', 'c13', 'c14']),
+  ordered(lesson7b, ['c01', 'c02', 'c13', 'c04', 'c05', 'c06', 'c07', 'c08', 'c03', 'c10', 'c09', 'c12', 'c14', 'c11']),
+  ordered(lesson8, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c14', 'c12', 'c13']),
 ];
 export const unit2Exam: DesignLesson[] = [exam];

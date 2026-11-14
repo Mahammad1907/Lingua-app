@@ -39,7 +39,7 @@ export const NAME = String.raw`^\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}
 /** Own last name said aloud: “It's Mammadova.” / “My last name is …”. */
 export const LAST_NAME_SAID = String.raw`^(?:(?:it'?s|it is|my last name is)\s+)?\p{L}[\p{L}'’-]{1,30}[.!]?$`;
 /** Own name spelled aloud (speech recognition may join the letters, so a whole name is accepted too). */
-export const NAME_SPELLED = String.raw`^(?:(?:it'?s|my name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$`;
+export const NAME_SPELLED = String.raw`^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$`;
 /** Own e-mail written on a form or in a message. */
 export const EMAIL = String.raw`^(?:(?:it'?s|my email is)\s+)?[\w.+-]+@[\w-]+(?:\.[\w-]+)+\.?$`;
 /** Own e-mail said aloud: “It's K-B at mail dot com.” (also with @ and . from speech recognition). “et” / “nöqtə” are not accepted. */
@@ -67,9 +67,9 @@ export const AGE_MISTAKES: Variant[] = [
   { match: { pattern: String.raw`\bhave\b|\bhas\b` }, short: 'Yaş “var” ilə yox, I’m ilə deyilir.',
     explain: ex("I'm twenty-five.", '“25 yaşım var” sözbəsöz tərcümə olunmur — ingiliscə yaşı I’m ilə deyirik.', "I'm twenty-five. — düzdür; “yaşım var” kimi tərcümə — olmur.", "How old are you? — I'm thirty.") },
   { match: { pattern: String.raw`\byears?\b(?!\s+old)` }, short: 'Yaşı demək kifayətdir.',
-    explain: ex("I'm twenty-five.", 'Yaşdan sonra o söz tək qalmır — yaşı demək kifayətdir.', "I'm twenty-five. — düzdür; yaşdan sonra yarımçıq əlavə — olmur.", "How old are you? — I'm thirty.") },
+    explain: ex("I'm twenty-five.", 'Ya yalnız yaşı de, ya da “years old” birlikdə.', "I'm twenty-five. — düzdür; I'm twenty-five years. — olmur.", "I'm twenty-five years old.") },
 ];
 export const PHONE_MISTAKES: Variant[] = [
   { match: { pattern: String.raw`\bmy phone is\b|\bnumber phone\b` }, short: 'Nömrə “phone number”dur.',
-    explain: ex("It's 050 321 45 67.", 'Telefonun özü yox, nömrəsi deyilir; söz sırası da “phone number”dur.', "My phone number is … — düzdür; My phone is … — olmur.", "What's your phone number? — It's 050 321 45 67.") },
+    explain: ex("It's 050 321 45 67.", 'Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər.', "It's 050 321 45 67. — düzdür; My phone is 050… — olmur.", "What's your phone number? — It's 050 321 45 67.") },
 ];

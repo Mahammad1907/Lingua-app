@@ -32,10 +32,10 @@ module.exports = (rejects, find) => {
   rejects('u2d3a_c07', 'KPB');
   rejects('u2d3a_c10', 'G, K, G.', true);
   rejects('u2d3a_c12', '10 KP 205');
-  rejects('u2d3b_c05', 'GID');
-  rejects('u2d3b_c05', 'JYD');
-  rejects('u2d3b_c11', 'L, H, E.', true);
-  rejects('u2d3b_c12', 'My phone is 050 321 45 67.');
+  rejects('u2d3b_c03', '10 RE 302');
+  rejects('u2d3b_c05', 'LHE');
+  rejects('u2d3b_c12', 'V, A, V.', true);
+  rejects('u2d3b_c13', 'My phone is 050 321 45 67.');
   // Dərs 4: “How you spell?”, double-ı “two” demək
   rejects('u2d4_c07', 'How you spell it?');
   rejects('u2d4_c07', 'How is your spell?');
@@ -50,8 +50,8 @@ module.exports = (rejects, find) => {
   rejects('u2d5_c12', 'My name is Aysu.', true);
   rejects('u2d5_c11', 'Guliev');
   // Dərs 6: “et”, “nöqtə”, ünvanı sözlə yazmaq
-  rejects('u2d6_c09', 'hasanova at mail dot com');
-  rejects('u2d6_c09', 'hasanova@mailcom');
+  rejects('u2d6_c09', 'abbasova at mail dot com');
+  rejects('u2d6_c09', 'abasova@mail.com');
   rejects('u2d6_c10', 'kb et mail nöqtə com', true);
   rejectsField('u2d6_c12', 'u2d6_c12c', 'kb at mail dot com');
   rejects('u2d6_c05', "What's your phone?");
@@ -68,7 +68,7 @@ module.exports = (rejects, find) => {
   rejects('u2d7b_c13', 'How are you?');
   rejects('u2d7b_c13', 'How old is you?');
   // Dərs 8 və imtahan
-  rejects('u2d8_c09', 'How you spell?', true);
+  rejectsField('u2x_c04', 'u2x_c04a', 'Hasanova');
   rejects('u2d8_c12', 'ganja5 at mail dot com');
   rejects('u2d8_c13', 'I have 25 years. And you?', true);
   rejects('u2d8_c13', "I'm 25.", true);

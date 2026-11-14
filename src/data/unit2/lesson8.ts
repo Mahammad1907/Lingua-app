@@ -4,9 +4,8 @@
 import type { DesignLesson } from '../designLessonTypes';
 import type { Variant } from '../designLessonTypes';
 import { ex, exact, goal, other, pick } from '../unit1/build';
-import { PHONE_MISTAKES, AGE_MISTAKES, AGE_FIELD, AGE_RETURN, EMAIL, NAME, notices, own, PHONE, resultTexts } from './shared';
+import { PHONE_MISTAKES, AGE_MISTAKES, AGE_FIELD, AGE_RETURN, EMAIL, NAME, NAME_SPELLED, notices, own, PHONE, resultTexts } from './shared';
 
-const askSpell = goal(['askSpell'], ['Can you spell it, please?', 'How do you spell it?']);
 const asWords = (address: string, words: string): Variant => ({
   match: { words: [words] }, short: 'Sözlər yox, işarələr yaz: @ və nöqtə.',
   explain: ex(address, '“at” @ ilə, “dot” nöqtə ilə yazılır.', 'at — @; dot — nöqtə.', "It's K-B at mail dot com."),
@@ -45,7 +44,7 @@ export const lesson8: DesignLesson = {
       ],
       review: {
         title: 'Dinlə və anla', why: '“email” — e-poçt.', hint: 'Sualın sonundakı sözə qulaq as.',
-        prompt: 'Ziyafətin sonunda iş yoldaşı sənə yaxınlaşır.\nO nə soruşur?', audio: "Thanks! Bye! Excuse me, what's your email?",
+        prompt: 'Ziyafətin sonunda iş yoldaşı sənə yaxınlaşır.\nO nə soruşur?', audio: "Excuse me, what's your email? Thanks!",
         options: ['Telefon nömrəni soruşur.', 'E-poçtunu soruşur.', 'Halını soruşur.'], answer: 'E-poçtunu soruşur.',
         variants: [
           pick('Telefon nömrəni soruşur.', 'Səsdə “phone number” yoxdur.', ex('E-poçtunu soruşur.', 'Sualın sonunda “email” var.', "What's your email? — e-poçt; What's your phone number? — nömrə.", "What's your email?")),
@@ -116,25 +115,25 @@ export const lesson8: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u2d8_c09', number: 9, title: 'Hərf-hərf soruş', why: 'Hərf-hərf deməyi nəzakətlə xahiş etdin.', hint: 'Dərs 4-ün nəzakətli xahişini xatırla.',
-      prompt: 'Ziyafətdə yeni tanış şəhərini dedi, sən onu tanımırsan.\nHərf-hərf deməsini xahiş et.', audio: "It's Lankaran.", reply: "It's L-A-N-K-A-R-A-N.",
-      rule: askSpell,
-      variants: [other('Can you spell it, please?', ex('Can you spell it, please?', 'Adı tanımırsan — hərf-hərf deməsini xahiş edirsən.', 'Can you spell it, please? — hərf-hərf; Again, please. — bir də.', 'Lankaran? Can you spell it, please?'))],
+      type: 'voice', id: 'u2d8_c09', number: 9, title: 'Soyadını hərf-hərf de', why: 'Soyadını hərf-hərf dedin.', hint: 'Soyadının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
+      prompt: 'Qeydiyyatçı soruşur: “What\'s your last name? How do you spell it?”\nSoyadını hərf-hərf de. Ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).', audio: "What's your last name? How do you spell it?", reply: 'Thank you!',
+      rule: own(NAME_SPELLED, 'My last name is …'),
+      variants: [other("It's + hərflər.", ex('My last name is …', 'Soyadını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "How do you spell it? — It's M-A-double M-A-D-O-V-A.", "It's H-A-S-A-N-O-V-A."))],
       review: {
-        title: 'Hərf-hərf soruş', why: 'Hərf-hərf deməyi nəzakətlə xahiş etdin.', hint: 'Dərs 4-ün nəzakətli xahişini xatırla.',
-        prompt: 'Qeydiyyatda tələbə soyadını dedi. Formaya yazmalısan.\nHərf-hərf deməsini xahiş et.', audio: "It's Huseynova.", reply: "It's H-U-S-E-Y-N-O-V-A.",
-        rule: askSpell,
-        variants: [other('Can you spell it, please?', ex('Can you spell it, please?', 'Soyadı yazmaq üçün hərflər lazımdır.', 'Can you spell it, please? — hərf-hərf; Slowly, please. — yavaş.', 'Huseynova? Can you spell it, please?'))],
+        title: 'Adını hərf-hərf de', why: 'Adını hərf-hərf dedin.', hint: 'Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
+        prompt: 'Ziyafətdə yeni tanış adını kartına yazmaq istəyir.\nAdını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).', audio: "What's your first name? Can you spell it, please?", reply: 'Thanks!',
+        rule: own(NAME_SPELLED, "It's …"),
+        variants: [other("It's + hərflər.", ex("It's …", 'Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "Can you spell it, please? — It's G-A-N-J-A.", "It's B-A-K-U."))],
       },
     },
     {
       type: 'two', id: 'u2d8_c10', number: 10, title: 'Formanı doldur', why: 'Qeydiyyat vərəqini tam doldurdun.', hint: 'Hər sətrin başlığını oxu və öz məlumatını yaz.', scenes: ['u2/form-course'],
       prompt: 'Kursun qeydiyyat masasındasan.\nVərəqi doldur (istəsən, uydurma məlumat).', form: { title: 'Kurs qeydiyyatı', subtitle: 'Yeni tələbə' },
       fields: [
-        { id: 'u2d8_c10a', label: 'First name', placeholder: 'Adın', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
-        { id: 'u2d8_c10b', label: 'Last name', placeholder: 'Soyadın', rule: own(NAME, 'Mammadova'), purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
-        { id: 'u2d8_c10c', label: 'Phone number', placeholder: '050 000 00 00', rule: own(PHONE, '050 321 45 67'), purpose: 'nömrəni yazmaq', empty: 'Nömrəni də yaz.' },
-        { id: 'u2d8_c10d', label: 'How old are you?', placeholder: 'Yaşın', rule: own(AGE_FIELD, '25'), purpose: 'yaşını yazmaq', empty: 'Yaşını da yaz.' },
+        { id: 'u2d8_c10a', label: 'First name', placeholder: '…', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
+        { id: 'u2d8_c10b', label: 'Last name', placeholder: '…', rule: own(NAME, 'Mammadova'), purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
+        { id: 'u2d8_c10c', label: 'Phone number', placeholder: '…', rule: own(PHONE, '050 321 45 67'), purpose: 'nömrəni yazmaq', empty: 'Nömrəni də yaz.' },
+        { id: 'u2d8_c10d', label: 'How old are you?', placeholder: '…', rule: own(AGE_FIELD, '25'), purpose: 'yaşını yazmaq', empty: 'Yaşını da yaz.' },
       ],
       variants: [
         { field: 'u2d8_c10a', match: { other: true }, explain: ex('…', 'Bu sətirdə yalnız adın lazımdır.', 'First name — adın; Last name — soyadın.', 'My first name is …') },
@@ -146,10 +145,10 @@ export const lesson8: DesignLesson = {
         title: 'Formanı doldur', why: 'Vərəqi tam doldurdun.', hint: 'Hər sətrin başlığını oxu; sıra fərqli ola bilər.', scenes: ['u2/form-gym'],
         prompt: 'İdman zalına yazılırsan.\nVərəqi doldur (istəsən, uydurma məlumat).', form: { title: 'İdman zalı', subtitle: 'Yeni üzv' },
         fields: [
-          { id: 'u2d8_c10b', label: 'Last name', placeholder: 'Soyadın', rule: own(NAME, 'Mammadova'), purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
-          { id: 'u2d8_c10a', label: 'First name', placeholder: 'Adın', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
-          { id: 'u2d8_c10d', label: 'How old are you?', placeholder: 'Yaşın', rule: own(AGE_FIELD, '25'), purpose: 'yaşını yazmaq', empty: 'Yaşını da yaz.' },
-          { id: 'u2d8_c10c', label: 'Email', placeholder: 'ad@mail.com', rule: own(EMAIL, 'ganja5@mail.com'), purpose: 'e-poçtunu yazmaq', empty: 'E-poçtunu da yaz.' },
+          { id: 'u2d8_c10b', label: 'Last name', placeholder: '…', rule: own(NAME, 'Mammadova'), purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
+          { id: 'u2d8_c10a', label: 'First name', placeholder: '…', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
+          { id: 'u2d8_c10d', label: 'How old are you?', placeholder: '…', rule: own(AGE_FIELD, '25'), purpose: 'yaşını yazmaq', empty: 'Yaşını da yaz.' },
+          { id: 'u2d8_c10c', label: 'Email', placeholder: '…', rule: own(EMAIL, 'ganja5@mail.com'), purpose: 'e-poçtunu yazmaq', empty: 'E-poçtunu da yaz.' },
         ],
         variants: [
           { field: 'u2d8_c10b', match: { other: true }, explain: ex('Mammadova', 'Bu sətirdə yalnız soyadın lazımdır.', 'Last name — soyadın; First name — adın.', 'My last name is Mammadova.') },
@@ -160,19 +159,19 @@ export const lesson8: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'u2d8_c11', number: 11, title: 'Sözü tamamla', why: 'Kişiyə — Mr.', hint: 'Kursun direktoru kişidir, yoxsa qadın?',
-      prompt: 'Ziyafətdə kursun direktoru gəlir. O kişidir, soyadı Mammadov.\nQız ona salam verir. Hansı söz çatmır?', gap: { speaker: 'G', before: 'Hello,', after: 'Mammadov! Nice to meet you.' },
+      type: 'choice', id: 'u2d8_c11', number: 11, title: 'Sözü tamamla', why: '-ov ilə bitən soyad kişinindir — Mr.', hint: 'Soyadın sonuna bax: -ova, yoxsa -ov?',
+      prompt: 'Ziyafətə kursun direktoru gəlir, soyadı Mammadov.\nQız ona salam verir. Hansı söz çatmır?', gap: { speaker: 'G', before: 'Hello,', after: 'Mammadov! Nice to meet you.' },
       options: ['Ms', 'Mr', 'last'], answer: 'Mr',
       variants: [
-        pick('Ms', '“Ms” qadına deyilir.', ex('Mr', 'Direktor kişidir, ona “Mr” deyilir.', 'Mr Mammadov — kişi; Ms Mammadova — qadın.', 'Hello, Mr Mammadov!')),
+        pick('Ms', '“Ms” qadına deyilir.', ex('Mr', 'Mammadov — kişi soyadıdır, ona “Mr” deyilir.', 'Mr Mammadov — kişi; Ms Mammadova — qadın.', 'Hello, Mr Mammadov!')),
         pick('last', '“last” soyad sözündədir: last name.', ex('Mr', 'Salam verəndə soyaddan əvvəl “Mr” və ya “Ms” gəlir.', 'Hello, Mr Mammadov! — müraciət; last name — soyad.', 'Hello, Mr Mammadov!')),
       ],
       review: {
-        title: 'Sözü tamamla', why: 'Qadına — Ms.', hint: 'Qeydiyyatçı kişidir, yoxsa qadın?',
-        prompt: 'Qeydiyyatçı qadındır, soyadı Aliyeva.\nOğlan ona təşəkkür edir. Hansı söz çatmır?', gap: { speaker: 'B', before: 'Thank you,', after: 'Aliyeva!' },
+        title: 'Sözü tamamla', why: '-yeva ilə bitən soyad qadınındır — Ms.', hint: 'Soyadın sonuna bax: -yeva, yoxsa -yev?',
+        prompt: 'Qeydiyyatçının soyadı Aliyeva.\nOğlan ona təşəkkür edir. Hansı söz çatmır?', gap: { speaker: 'B', before: 'Thank you,', after: 'Aliyeva!' },
         options: ['Mr', 'first', 'Ms'], answer: 'Ms',
         variants: [
-          pick('Mr', '“Mr” kişiyə deyilir.', ex('Ms', 'Qeydiyyatçı qadındır, ona “Ms” deyilir.', 'Mr Aliyev — kişi; Ms Aliyeva — qadın.', 'Thank you, Ms Aliyeva!')),
+          pick('Mr', '“Mr” kişiyə deyilir.', ex('Ms', 'Aliyeva — qadın soyadıdır, ona “Ms” deyilir.', 'Mr Aliyev — kişi; Ms Aliyeva — qadın.', 'Thank you, Ms Aliyeva!')),
           pick('first', '“first” ad sözündədir: first name.', ex('Ms', 'Müraciətdə soyaddan əvvəl “Ms” və ya “Mr” gəlir.', 'Thank you, Ms Aliyeva! — müraciət; first name — ad.', 'Thank you, Ms Aliyeva!')),
         ],
       },
@@ -196,17 +195,17 @@ export const lesson8: DesignLesson = {
       variants: [...AGE_MISTAKES, other("I'm … And you?", ex("I'm twenty-five. And you?", 'Yaşından sonra “And you?” ilə sualı qaytarırsan.', "I'm twenty-five. — yaş; And you? — qarşı sual.", "I'm thirty. And you?"))],
       review: {
         title: 'Yaşını de və soruş', why: 'Yaşını dedin və sualı qaytardın.', hint: 'Əvvəl yaşını de, sonra qısa qarşı sualı əlavə et.',
-        prompt: 'Qeydiyyat növbəsində yanındakı adam soruşur: “How old are you?”\nYaşını de və ondan da soruş.', audio: "I'm forty. How old are you?", reply: 'Nice!',
+        prompt: 'Qeydiyyat növbəsində yanındakı adam soruşur.\nYaşını de və ondan da soruş (istəsən, istənilən yaş).', audio: 'Hi! How old are you?', reply: 'Nice!',
         rule: own(AGE_RETURN, "I'm twenty-five. And you?"),
         variants: [...AGE_MISTAKES, other("I'm … And you?", ex("I'm twenty-five. And you?", 'Yaşından sonra “And you?” ilə sualı qaytarırsan.', "I'm twenty-five. — yaş; And you? — qarşı sual.", "I'm thirty. And you?"))],
       },
     },
     {
-      type: 'match', mode: 'order', id: 'u2d8_c14', number: 14, title: 'Söhbəti sırala', why: 'Sual, ünvan, xahiş və yavaş təkrar düz sıradadır.', hint: 'Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?',
-      prompt: 'Ziyafətdə e-poçt mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "What's your email?", from: 'G' }, { en: '2', az: "It's B-A-K-U nine at mail dot com.", from: 'B' }, { en: '3', az: "Sorry? I don't understand. Slowly, please.", from: 'G' }, { en: '4', az: 'B… A… K… U… nine at mail dot com.', from: 'B' }],
+      type: 'match', mode: 'order', id: 'u2d8_c14', number: 14, title: 'Söhbəti sırala', why: 'Sual, nömrə, çaşqınlıq və izah düz sıradadır.', hint: 'Əvvəl sual gəlir; tanış olmayan səsi eşidən soruşur, o biri izah edir.',
+      prompt: 'Ziyafətdə nömrə mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
+      rows: [{ en: '1', az: "What's your phone number?", from: 'G' }, { en: '2', az: "It's oh five five, two one nine, three oh, eight eight.", from: 'B' }, { en: '3', az: "Sorry? Oh? I don't understand.", from: 'G' }, { en: '4', az: 'Oh — zero. Zero five five, two one nine…', from: 'B' }],
       extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("What's your email? → It's B-A-K-U nine at mail dot com. → Sorry? I don't understand. Slowly, please. → B… A… K… U…", 'Ünvan sürətli deyildi, xahişdən sonra yavaş təkrar olundu.', 'Slowly, please. — sürətli idi; Again, please. — eşitmədin.', "Sorry? I don't understand. Slowly, please."))],
+      variants: [other('Söhbətin sırası düz deyil.', ex("What's your phone number? → It's oh five five… → Sorry? Oh? I don't understand. → Oh — zero. Zero five five…", 'Qız “oh” sözünü başa düşmədi, oğlan onun sıfır olduğunu izah etdi.', "oh five five — 055; zero five five — 055.", "Sorry? I don't understand."))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab, qarşı sual və xoş söz düz sıradadır.', hint: 'Əvvəl sual gəlir; cavab verən sualı geri qaytarır.',
         prompt: 'Qeydiyyat növbəsində tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
@@ -222,7 +221,7 @@ export const lesson8: DesignLesson = {
     goals: [
       { group: 'Tanıma', text: 'Qeydiyyat suallarını və hərf-hərf deyiləni anlamaq', tasks: ['u2d8_c03', 'u2d8_c04', 'u2d8_c06', 'u2d8_c07', 'u2d8_c11', 'u2d8_c14'] },
       { group: 'Yazı', text: 'Formanı doldurmaq, ünvanı yazmaq, e-poçtunu göndərmək', tasks: ['u2d8_c08', 'u2d8_c10', 'u2d8_c12'] },
-      { group: 'Danışıq', text: 'Nömrəni, yaşını demək və hərf-hərf soruşmaq', tasks: ['u2d8_c05', 'u2d8_c09', 'u2d8_c13'] },
+      { group: 'Danışıq', text: 'Nömrəni, yaşını demək və soyadını hərf-hərf demək', tasks: ['u2d8_c05', 'u2d8_c09', 'u2d8_c13'] },
     ],
     closing: 'Bölmə 2 bitdi! İndi bölmə imtahanını verə bilərsən.', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,

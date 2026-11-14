@@ -11,7 +11,7 @@ Hava limanında tablo və elanlar hərflərlə doludur.
 
 ## Kart 2 — Yeni söz
 
-**A, H, J, K** — “ey” ilə bitən hərflər
+**A, H, J, K** — “ey” səsi olan hərflər
 
 Oxunuşu: ey, eyç, cey, key · IPA: /eɪ/ · /eɪtʃ/ · /dʒeɪ/ · /keɪ/
 
@@ -25,7 +25,7 @@ Qeyd: H — “eyç”, “aş” yox; J — “cey”.
 **Səs:** A, H, J, K.  
 **Qəbul:** dəqiq: A, H, J, K. / AHJK  
 **İpucu:** Dörd hərfin dördündə də eyni “ey” səsi var.  
-**Düzgün olanda:** Hərfləri ingiliscə dedin.  
+**Düzgün olanda:** Hərfləri dedin; H — “eyç”.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: A, H, J, K. Səbəb: İngiliscə H “eyç”, J “cey” oxunur. Qayda: H — eyç; J — cey. Nümunə: A, H, J, K.  
 
 **Təkrar (yeni vəziyyət):**
@@ -34,7 +34,7 @@ Qeyd: H — “eyç”, “aş” yox; J — “cey”.
 **Səs:** E, G.  
 **Qəbul:** dəqiq: E, G. / EG  
 **İpucu:** Azərbaycan əlifbasındakı oxunuşa aldanma.  
-**Düzgün olanda:** Hərfləri ingiliscə dedin.  
+**Düzgün olanda:** Hərfləri dedin; E — “i”, G — “ci”.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: E, G. Səbəb: İngiliscə E “i”, G “ci” oxunur. Qayda: E — i; G — ci. Nümunə: E, G.  
 
 ## Kart 4 — Yeni söz
@@ -89,7 +89,7 @@ Qeyd: Z Amerikada “zi” oxunur.
 **Səs:** P, E, K.  
 **Hərflər:** E K P B G A  
 **Qəbul:** dəqiq: PEK  
-**İpucu:** Hər hərfi eşidən kimi toxun; “i” səsi hansı hərfdir — kartı xatırla.  
+**İpucu:** Hər hərfi eşidən kimi toxun; ikinci hərfin oxunuşu Azərbaycan əlifbasındakından fərqlidir.  
 **Düzgün olanda:** P-E-K — Pekin hava limanının kodu.  
 - *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: PEK. Səbəb: Səsdə P, E, K deyilir; E “i” oxunur. Qayda: E — i; A — ey. Nümunə: P, E, K.  
 
@@ -135,7 +135,7 @@ Qeyd: E — “i”, G — “ci”. Azərbaycan əlifbasındakı kimi oxunmur.
 
 **Tapşırıq:** Taksi sürücüsü soruşur hansı uçuşdur. Biletində “ZAG” yazılıb (Zaqreb). Kodu hərf-hərf de.  
 **Qəbul:** dəqiq: Z, A, G. · öz məlumatı: /^(?:it'?s\s+)?z[\s,.-]*a[\s,.-]*g[.!]?$/  
-**İpucu:** Hər hərfi ayrıca de; sonuncu hərf “qe” deyil.  
+**İpucu:** Hər hərfi ayrıca de; sonuncu hərf “ge” deyil.  
 **Düzgün olanda:** Kodu ingiliscə hərf-hərf dedin.  
 - *İzah (başqa səhvdə):* Hərf-hərf de. — Uyğun: Z, A, G. Səbəb: İngiliscə Z “zi”, A “ey”, G “ci” oxunur. Qayda: Z — zi; G — ci. Nümunə: Z, A, G.  
 
@@ -179,6 +179,16 @@ Qeyd: E — “i”, G — “ci”. Azərbaycan əlifbasındakı kimi oxunmur.
 
 ## Kart 13 — Sözü tamamla: Sözü tamamla
 
+**Tapşırıq:** Elan hərfləri çox sürətlə deyir. Qız yanındakı işçidən xahiş edir. Hansı söz çatmır?  
+**Cümlə:** Sorry? ___ , please.  
+**Seçimlər:** Thanks / Slowly / Hello — **düzgün:** Slowly  
+**İpucu:** Bölmə 1, Dərs 7: çox sürətli danışanda nə xahiş edirdin?  
+**Düzgün olanda:** Slowly, please. — yavaş, zəhmət olmasa.  
+- *İzah (“Thanks” seçiləndə):* “Thanks” təşəkkürdür, xahiş deyil. — Uyğun: Slowly. Səbəb: Elan çox sürətli idi — yavaş deməyi xahiş edir. Qayda: Sorry? Slowly, please. — xahiş; Thanks! — təşəkkür. Nümunə: Sorry? Slowly, please.  
+- *İzah (“Hello” seçiləndə):* “Hello” salamdır. — Uyğun: Slowly. Səbəb: Burada salam yox, yavaş deməyi xahiş lazımdır. Qayda: Sorry? Slowly, please. — xahiş; Hello! — salam. Nümunə: Sorry? Slowly, please.  
+
+**Təkrar (yeni vəziyyət):**
+
 **Tapşırıq:** Qız elanda kodu eşidib təkrar edir və yoxlayır. Hansı söz çatmır?  
 **Cümlə:** K, B, P. Is that ___ ?  
 **Seçimlər:** right / well / name — **düzgün:** right  
@@ -187,19 +197,9 @@ Qeyd: E — “i”, G — “ci”. Azərbaycan əlifbasındakı kimi oxunmur.
 - *İzah (“well” seçiləndə):* “well” halı bildirir. — Uyğun: right. Səbəb: “well” halı bildirir; yoxlayanda “right” deyilir. Qayda: Is that right? — düzdür?; I'm not very well. — hal. Nümunə: K, B, P. Is that right?  
 - *İzah (“name” seçiləndə):* “name” addır. — Uyğun: right. Səbəb: “name” ad deməkdir; yoxlayanda “right” deyilir. Qayda: Is that right? — düzdür?; What's your name? — ad. Nümunə: K, B, P. Is that right?  
 
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Oğlan qızın təkrar etdiyi kodu təsdiqləyir. Hansı söz çatmır?  
-**Cümlə:** Yes, that's ___ .  
-**Seçimlər:** name / right / please — **düzgün:** right  
-**İpucu:** Dərs 2-də nömrə düz olanda necə təsdiq edirdin?  
-**Düzgün olanda:** Yes, that's right. — bəli, düzdür.  
-- *İzah (“name” seçiləndə):* “name” addır. — Uyğun: right. Səbəb: Təsdiq edəndə “that’s right” deyilir. Qayda: Yes, that's right. — təsdiq; My name is … — ad. Nümunə: K, B, P? — Yes, that's right.  
-- *İzah (“please” seçiləndə):* “please” xahişdir. — Uyğun: right. Səbəb: Burada xahiş yox, təsdiq lazımdır. Qayda: Yes, that's right. — təsdiq; Slowly, please. — xahiş. Nümunə: Yes, that's right.  
-
 ## Nəticə
 
-Dərs 3 · 1-ci hissə tamamlandı — Artıq A H J K, B C D, P T V Z, E G hərflərini tanıyır və kodu hərf-hərf deyə bilirsən.
+Dərs 3 · 1-ci hissə tamamlandı — Artıq A H J K, B C D, P T V Z, E G hərflərini tanıyırsan və kodu hərf-hərf deyə bilirsən.
 
 - Tanıma: Eşitdiyin hərfi tanımaq
 - Yazı: Maşın nömrəsini eşidib yazmaq

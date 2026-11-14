@@ -19,23 +19,25 @@ Nümunə: **Five, six, seven!** — Beş, altı, yeddi!
 
 Qeyd: seven-də vurğu əvvəldədir: SE-ven.
 
-## Kart 3 — Dinlə və təkrarla: Dinlə və təkrarla
+## Kart 3 — Səhnədə tap: Səhnədə tap
 
-**Tapşırıq:** Dayanacaqda avtobusları sayırsan. Dinlə, sonra eyni cür de.  
-**Səs:** Five, six, seven.  
-**Qəbul:** dəqiq: Five, six, seven. / 5 6 7 / 567  
-**İpucu:** Əvvəl yavaş dinlə, sonra rəqəmləri bir-bir de.  
-**Düzgün olanda:** Rəqəmlər aydın səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Five, six, seven. Səbəb: Hər rəqəmi ayrıca və aydın de. Qayda: Six! — altı; Seven! — yeddi. Nümunə: Five, six, seven!  
+**Tapşırıq:** Dayanacağa üç avtobus gəlir. Oğlan sürücüdən soruşur. O hansı avtobusa minir?  
+**Səs:** Excuse me, six?  
+**Seçimlər:** 7 nömrəli avtobus / 6 nömrəli avtobus / 5 nömrəli avtobus — **düzgün:** 6 nömrəli avtobus  
+**İpucu:** İki rəqəm eyni hərflə başlayır — sözün uzunluğuna qulaq as.  
+**Düzgün olanda:** “six” — altı.  
+- *İzah (“7 nömrəli avtobus” seçiləndə):* seven — yeddi; səsdə başqa rəqəm var. — Uyğun: 6 nömrəli avtobus. Səbəb: “six” və “seven” ikisi də “s” ilə başlayır, amma six bir hecadır. Qayda: Excuse me, six? — altı; Excuse me, seven? — yeddi. Nümunə: Excuse me, six?  
+- *İzah (“5 nömrəli avtobus” seçiləndə):* five — beş; səsdə başqa rəqəm var. — Uyğun: 6 nömrəli avtobus. Səbəb: Səsdə “fayv” yox, “siks” deyilir. Qayda: Excuse me, six? — altı; Excuse me, five? — beş. Nümunə: Excuse me, six?  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Taksidə sürücü dayanacaqları sayır. Dinlə, sonra eyni cür de.  
-**Səs:** Eight, nine, ten.  
-**Qəbul:** dəqiq: Eight, nine, ten. / 8 9 10 / 8910  
-**İpucu:** Əvvəl yavaş dinlə, sonra rəqəmləri bir-bir de.  
-**Düzgün olanda:** Rəqəmlər aydın səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Eight, nine, ten. Səbəb: eight “eyt” oxunur, yazıdakı gh səslənmir. Qayda: Eight! — səkkiz; Nine! — doqquz. Nümunə: Eight, nine, ten!  
+**Tapşırıq:** Başqa dayanacaqda qız sürücüdən soruşur. O hansı avtobusu gözləyir?  
+**Səs:** Excuse me, nine?  
+**Seçimlər:** 9 nömrəli avtobus / 5 nömrəli avtobus / 8 nömrəli avtobus — **düzgün:** 9 nömrəli avtobus  
+**İpucu:** Rəqəmin ilk səsinə qulaq as.  
+**Düzgün olanda:** “nine” — doqquz.  
+- *İzah (“5 nömrəli avtobus” seçiləndə):* five — beş; səsdə başqa rəqəm var. — Uyğun: 9 nömrəli avtobus. Səbəb: “five” və “nine”də eyni “ay” səsi var, amma ilk səs fərqlidir. Qayda: Excuse me, five? — beş; Excuse me, nine? — doqquz. Nümunə: Excuse me, nine?  
+- *İzah (“8 nömrəli avtobus” seçiləndə):* eight — səkkiz; səsdə başqa rəqəm var. — Uyğun: 9 nömrəli avtobus. Səbəb: Səsdə “eyt” yox, “nayn” deyilir. Qayda: Excuse me, eight? — səkkiz; Excuse me, nine? — doqquz. Nümunə: Excuse me, nine?  
 
 ## Kart 4 — Yeni söz
 
@@ -47,25 +49,23 @@ Nümunə: **Seven, eight, nine!** — Yeddi, səkkiz, doqquz!
 
 Qeyd: eight-də “gh” oxunmur: eyt.
 
-## Kart 5 — Səhnədə tap: Səhnədə tap
+## Kart 5 — Dinlə və təkrarla: Dinlə və təkrarla
 
-**Tapşırıq:** Dayanacağa üç avtobus gəlir. Qız sürücüdən soruşur. O hansı avtobusu gözləyir?  
-**Səs:** Excuse me, nine?  
-**Seçimlər:** 9 nömrəli avtobus / 5 nömrəli avtobus / 8 nömrəli avtobus — **düzgün:** 9 nömrəli avtobus  
-**İpucu:** Rəqəmin ilk səsinə qulaq as.  
-**Düzgün olanda:** “nine” — doqquz.  
-- *İzah (“5 nömrəli avtobus” seçiləndə):* five — beş; səsdə başqa rəqəm var. — Uyğun: 9 nömrəli avtobus. Səbəb: “five” və “nine”də eyni “ay” səsi var, amma ilk səs fərqlidir. Qayda: Five? — beş; Nine? — doqquz. Nümunə: Excuse me, nine?  
-- *İzah (“8 nömrəli avtobus” seçiləndə):* eight — səkkiz; səsdə başqa rəqəm var. — Uyğun: 9 nömrəli avtobus. Səbəb: Səsdə “eyt” yox, “nayn” deyilir. Qayda: Eight? — səkkiz; Nine? — doqquz. Nümunə: Excuse me, nine?  
+**Tapşırıq:** Dayanacaqda avtobusları sayırsan. Dinlə, sonra eyni cür de.  
+**Səs:** Seven, eight, nine.  
+**Qəbul:** dəqiq: Seven, eight, nine. / 7 8 9 / 789  
+**İpucu:** Əvvəl yavaş dinlə, sonra rəqəmləri bir-bir de.  
+**Düzgün olanda:** Rəqəmləri dedin; seven-də vurğu əvvəldədir.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Seven, eight, nine. Səbəb: Hər rəqəmi ayrıca və aydın de; eight-də gh oxunmur. Qayda: Seven! — yeddi; Eight! — səkkiz. Nümunə: Seven, eight, nine!  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Oğlan dayanacaqda sürücüdən soruşur. O hansı avtobusa minir?  
-**Səs:** Excuse me, six?  
-**Seçimlər:** 7 nömrəli avtobus / 6 nömrəli avtobus / 10 nömrəli avtobus — **düzgün:** 6 nömrəli avtobus  
-**İpucu:** Rəqəmin sonuna da qulaq as.  
-**Düzgün olanda:** “six” — altı.  
-- *İzah (“7 nömrəli avtobus” seçiləndə):* seven — yeddi; səsdə başqa rəqəm var. — Uyğun: 6 nömrəli avtobus. Səbəb: “six” və “seven” ikisi də “s” ilə başlayır, amma six qısadır. Qayda: Six? — altı; Seven? — yeddi. Nümunə: Excuse me, six?  
-- *İzah (“10 nömrəli avtobus” seçiləndə):* ten — on; səsdə başqa rəqəm var. — Uyğun: 6 nömrəli avtobus. Səbəb: Səsdə “ten” yox, “six” deyilir. Qayda: Six? — altı; Ten? — on. Nümunə: Excuse me, six?  
+**Tapşırıq:** Avtobusdasan, dostun qalan dayanacaqları sayır. Dinlə, sonra eyni cür de.  
+**Səs:** Eight, nine, ten.  
+**Qəbul:** dəqiq: Eight, nine, ten. / 8 9 10 / 8910  
+**İpucu:** Əvvəl yavaş dinlə, sonra rəqəmləri bir-bir de.  
+**Düzgün olanda:** Rəqəmləri dedin; eight — “eyt”.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Eight, nine, ten. Səbəb: eight “eyt” oxunur, yazıdakı gh səslənmir. Qayda: Eight! — səkkiz; Nine! — doqquz. Nümunə: Eight, nine, ten!  
 
 ## Kart 6 — Yeni söz
 
@@ -84,7 +84,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 **Qəbul:** dəqiq: 9876  
 **İpucu:** Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.  
 **Düzgün olanda:** nine, eight, seven, six — 9876.  
-- *İzah (başqa səhvdə):* Rəqəmləri bir-bir dinlə. — Uyğun: 9876. Səbəb: Səsdə dörd rəqəm var və sıra ilə yığılır. Qayda: nine — 9; six — 6. Nümunə: Nine, eight, seven, six.  
+- *İzah (başqa səhvdə):* Rəqəmləri bir-bir dinlə. — Uyğun: 9876. Səbəb: Səsdə dörd rəqəm var və sıra ilə yığılır. Qayda: Nine, eight, seven, six. — 9876; Six, seven, eight, nine. — 6789. Nümunə: Nine, eight, seven, six.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -93,14 +93,14 @@ Qeyd: ten yazıldığı kimi oxunur.
 **Qəbul:** dəqiq: 8069  
 **İpucu:** Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.  
 **Düzgün olanda:** eight, zero, six, nine — 8069.  
-- *İzah (başqa səhvdə):* Rəqəmləri bir-bir dinlə. — Uyğun: 8069. Səbəb: Səsdə dörd rəqəm var: eight, zero, six, nine. Qayda: eight — 8; zero — 0. Nümunə: Eight, zero, six, nine.  
+- *İzah (başqa səhvdə):* Rəqəmləri bir-bir dinlə. — Uyğun: 8069. Səbəb: Səsdə dörd rəqəm var: eight, zero, six, nine. Qayda: Eight, zero, six, nine. — 8069; Eight, zero, nine, six. — 8096. Nümunə: Eight, zero, six, nine.  
 
 ## Kart 8 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Oğlan 7 nömrəli avtobusu gözləyir. Sürücüdən soruşur. Hansı söz çatmır?  
 **Cümlə:** Excuse me, ___ ?  
 **Seçimlər:** six / seven / eight — **düzgün:** seven  
-**İpucu:** Altıdan sonra hansı rəqəm gəlir?  
+**İpucu:** Yeddi sözünün iki hecası var — kartı xatırla.  
 **Düzgün olanda:** “seven” — yeddi.  
 - *İzah (“six” seçiləndə):* “six” — altı. — Uyğun: seven. Səbəb: “six” altıdır, oğlan isə 7 nömrəni gözləyir. Qayda: Six? — altı; Seven? — yeddi. Nümunə: Excuse me, seven?  
 - *İzah (“eight” seçiləndə):* “eight” — səkkiz. — Uyğun: seven. Səbəb: “eight” səkkizdir, oğlan isə 7 nömrəni gözləyir. Qayda: Seven? — yeddi; Eight? — səkkiz. Nümunə: Excuse me, seven?  
@@ -110,7 +110,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 **Tapşırıq:** Qız 8 nömrəli avtobusu gözləyir. Sürücüdən soruşur. Hansı söz çatmır?  
 **Cümlə:** Excuse me, ___ ?  
 **Seçimlər:** nine / ten / eight — **düzgün:** eight  
-**İpucu:** Yeddidən sonra hansı rəqəm gəlir?  
+**İpucu:** Səkkizin yazılışında oxunmayan hərflər var — kartı xatırla.  
 **Düzgün olanda:** “eight” — səkkiz.  
 - *İzah (“nine” seçiləndə):* “nine” — doqquz. — Uyğun: eight. Səbəb: “nine” doqquzdur, qız isə 8 nömrəni gözləyir. Qayda: Eight? — səkkiz; Nine? — doqquz. Nümunə: Excuse me, eight?  
 - *İzah (“ten” seçiləndə):* “ten” — on. — Uyğun: eight. Səbəb: “ten” ondur, qız isə 8 nömrəni gözləyir. Qayda: Eight? — səkkiz; Ten? — on. Nümunə: Excuse me, eight?  
@@ -133,19 +133,19 @@ Qeyd: ten yazıldığı kimi oxunur.
 
 ## Kart 10 — Səslə cavab: Bilet al
 
-**Tapşırıq:** Kassadasan. 10 nömrəli avtobusa bilet lazımdır. Nömrəni de və nəzakətlə xahiş et.  
-**Qəbul:** dəqiq: Ten, please. / Excuse me, ten, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:ten|10)[,.!]?\s*please[.!]?$/  
-**İpucu:** Rəqəmi de, sonra xahişi nəzakətli edən sözü əlavə et.  
-**Düzgün olanda:** Nömrəni dedin və nəzakətlə xahiş etdin.  
-- *İzah (başqa səhvdə):* Rəqəm + please. — Uyğun: Ten, please. Səbəb: Sənə 10 nömrəli avtobus lazımdır: rəqəmi de və “please” əlavə et. Qayda: Ten, please. — on; Nine, please. — doqquz. Nümunə: Excuse me, ten, please.  
+**Tapşırıq:** Avtobus kassasındasan. Kursdan 8 nəfərsiniz, 8 bilet lazımdır. Kassirə nəzakətlə de.  
+**Qəbul:** dəqiq: Eight, please. / Excuse me, eight, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:eight|8)[,.!]?\s*please[.!]?$/  
+**İpucu:** Neçə bilet lazımdır? Rəqəmi de, sonra xahişi nəzakətli edən sözü əlavə et.  
+**Düzgün olanda:** Bilet sayını dedin və nəzakətlə xahiş etdin.  
+- *İzah (başqa səhvdə):* Rəqəm + please. — Uyğun: Eight, please. Səbəb: Sizə 8 bilet lazımdır: rəqəmi de və “please” əlavə et. Qayda: Eight, please. — səkkiz; Nine, please. — doqquz. Nümunə: Excuse me, eight, please.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Kafedə 6 nömrəli masa sənindir. Ofisiant hansı masa olduğunu soruşur. Nömrəni de və nəzakətlə xahiş et.  
+**Tapşırıq:** Kafeyə 6 nəfər gəldiniz. Ofisiant neçə nəfər olduğunuzu soruşur. Nəzakətlə cavab ver.  
 **Qəbul:** dəqiq: Six, please. / Excuse me, six, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:six|6)[,.!]?\s*please[.!]?$/  
-**İpucu:** Rəqəmi de, sonra xahişi nəzakətli edən sözü əlavə et.  
-**Düzgün olanda:** Nömrəni dedin və nəzakətlə xahiş etdin.  
-- *İzah (başqa səhvdə):* Rəqəm + please. — Uyğun: Six, please. Səbəb: Sənin masan 6-dır: rəqəmi de və “please” əlavə et. Qayda: Six, please. — altı; Seven, please. — yeddi. Nümunə: Six, please.  
+**İpucu:** Neçə nəfərsiniz? Rəqəmi de, sonra xahişi nəzakətli edən sözü əlavə et.  
+**Düzgün olanda:** Nəfər sayını dedin və nəzakətlə xahiş etdin.  
+- *İzah (başqa səhvdə):* Rəqəm + please. — Uyğun: Six, please. Səbəb: Siz 6 nəfərsiniz: rəqəmi de və “please” əlavə et. Qayda: Six, please. — altı; Seven, please. — yeddi. Nümunə: Six, please.  
 
 ## Kart 11 — Yaz: Rəqəmi yaz
 
@@ -153,7 +153,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 **Qəbul:** dəqiq: eight  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla: səsdə olmayan hərflər də var.  
 **Düzgün olanda:** eight — gh yazılır, amma oxunmur.  
-- *İzah (başqa səhvdə):* Yazılışı yoxla. — Uyğun: eight. Səbəb: “eyt” deyilir, amma yazıda gh var. Qayda: eight — 8; nine — 9. Nümunə: Seven, eight, nine!  
+- *İzah (başqa səhvdə):* Yazılışı yoxla. — Uyğun: eight. Səbəb: “eyt” deyilir, amma yazıda gh var. Qayda: eight — yazıda; eyt — səsdə. Nümunə: Seven, eight, nine!  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -161,7 +161,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 **Qəbul:** dəqiq: nine  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla.  
 **Düzgün olanda:** nine — sonunda “e” var.  
-- *İzah (başqa səhvdə):* Yazılışı yoxla. — Uyğun: nine. Səbəb: “nayn” deyilir, yazıda sonda “e” var. Qayda: nine — 9; ten — 10. Nümunə: Eight, nine, ten!  
+- *İzah (başqa səhvdə):* Yazılışı yoxla. — Uyğun: nine. Səbəb: “nayn” deyilir, yazıda sonda “e” var. Qayda: nine — yazıda; nayn — səsdə. Nümunə: Eight, nine, ten!  
 
 ## Kart 12 — Dialoqu tamamla: Mesaj yaz
 
@@ -184,11 +184,11 @@ Qeyd: ten yazıldığı kimi oxunur.
 
 ## Nəticə
 
-Dərs 1 · 2-ci hissə tamamlandı — Artıq 0–10 rəqəmlərini tanıyır, nömrə yığır və bilet istəyə bilirsən.
+Dərs 1 · 2-ci hissə tamamlandı — Artıq 0–10 rəqəmlərini tanıyırsan, nömrə yığırsan və bilet istəyə bilirsən.
 
 - Tanıma: 6–10 rəqəmlərini eşidib tanımaq
 - Yazı: Rəqəmi sözlə yazmaq və təşəkkürə cavab yazmaq
-- Danışıq: Nömrəni deyib nəzakətlə xahiş etmək
+- Danışıq: Sayı deyib nəzakətlə xahiş etmək
 
 Növbəti dərs — telefon nömrəsi: soruşmaq, demək, yoxlamaq.
 

@@ -96,7 +96,7 @@ export const lesson7b: DesignLesson = {
       variants: [...AGE_MISTAKES, other("I'm + yaş.", ex("I'm twenty-five.", 'Yaş “I’m” ilə deyilir, “var” mənasında söz lazım deyil.', "I'm twenty-five. — yaş; I'm fine. — hal.", "How old are you? — I'm thirty."))],
       review: {
         title: 'Yaşını de', why: 'Yaşını dedin.', hint: 'Kartdakı kimi: “mən” + yaş.',
-        prompt: 'Kursda yeni yoldaş soruşur: “How old are you?”\nYaşını de (istəsən, istənilən yaş).', audio: "I'm forty. And you? How old are you?", reply: 'Nice!',
+        prompt: 'Kursda yeni yoldaş yaşını deyib səndən soruşur.\nYaşını de (istəsən, istənilən yaş).', audio: "I'm forty. And you?", reply: 'Nice!',
         rule: myAge,
         variants: [...AGE_MISTAKES, other("I'm + yaş.", ex("I'm twenty-five.", 'Yaş “I’m” ilə deyilir; “years old” istəsən əlavə olunur.', "I'm twenty-five. — düzdür; I'm twenty-five years old. — düzdür.", "I'm thirty. And you?"))],
       },
@@ -111,9 +111,9 @@ export const lesson7b: DesignLesson = {
       type: 'two', id: 'u2d7b_c11', number: 11, title: 'Formanı doldur', why: 'Adını, nömrəni və yaşını yazdın.', hint: 'Hər sətrin başlığını oxu; yaşı rəqəmlə yaza bilərsən.', scenes: ['u2/form-gym'],
       prompt: 'İdman zalında qeydiyyat.\nVərəqi doldur (istəsən, uydurma məlumat).', form: { title: 'İdman zalı', subtitle: 'Qeydiyyat' },
       fields: [
-        { id: 'u2d7b_c11a', label: 'First name', placeholder: 'Adın', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
-        { id: 'u2d7b_c11b', label: 'Phone number', placeholder: '050 000 00 00', rule: own(PHONE, '050 321 45 67'), purpose: 'nömrəni yazmaq', empty: 'Nömrəni də yaz.' },
-        { id: 'u2d7b_c11c', label: 'How old are you?', placeholder: 'Yaşın', rule: own(AGE_FIELD, '25'), purpose: 'yaşını yazmaq', empty: 'Yaşını da yaz.' },
+        { id: 'u2d7b_c11a', label: 'First name', placeholder: '…', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
+        { id: 'u2d7b_c11b', label: 'Phone number', placeholder: '…', rule: own(PHONE, '050 321 45 67'), purpose: 'nömrəni yazmaq', empty: 'Nömrəni də yaz.' },
+        { id: 'u2d7b_c11c', label: 'How old are you?', placeholder: '…', rule: own(AGE_FIELD, '25'), purpose: 'yaşını yazmaq', empty: 'Yaşını da yaz.' },
       ],
       variants: [
         { field: 'u2d7b_c11a', match: { other: true }, explain: ex('…', 'Bu sətirdə yalnız adın lazımdır.', 'First name — adın; Phone number — nömrən.', 'My first name is …') },
@@ -124,9 +124,9 @@ export const lesson7b: DesignLesson = {
         title: 'Formanı doldur', why: 'Yaşını, adını və nömrəni yazdın.', hint: 'Hər sətrin başlığını oxu; sıra fərqli ola bilər.', scenes: ['u2/form-pool'],
         prompt: 'Hovuza yazılırsan.\nVərəqi doldur (istəsən, uydurma məlumat).', form: { title: 'Hovuz', subtitle: 'Yeni üzv' },
         fields: [
-          { id: 'u2d7b_c11c', label: 'How old are you?', placeholder: 'Yaşın', rule: own(AGE_FIELD, '25'), purpose: 'yaşını yazmaq', empty: 'Yaşını da yaz.' },
-          { id: 'u2d7b_c11a', label: 'First name', placeholder: 'Adın', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
-          { id: 'u2d7b_c11b', label: 'Phone number', placeholder: '050 000 00 00', rule: own(PHONE, '050 321 45 67'), purpose: 'nömrəni yazmaq', empty: 'Nömrəni də yaz.' },
+          { id: 'u2d7b_c11c', label: 'How old are you?', placeholder: '…', rule: own(AGE_FIELD, '25'), purpose: 'yaşını yazmaq', empty: 'Yaşını da yaz.' },
+          { id: 'u2d7b_c11a', label: 'First name', placeholder: '…', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
+          { id: 'u2d7b_c11b', label: 'Phone number', placeholder: '…', rule: own(PHONE, '050 321 45 67'), purpose: 'nömrəni yazmaq', empty: 'Nömrəni də yaz.' },
         ],
         variants: [
           { field: 'u2d7b_c11c', match: { other: true }, explain: ex('25', 'Bu sətirdə yaşın lazımdır: rəqəmlə və ya “I’m” ilə.', "25 — rəqəmlə; I'm twenty-five. — cümlə ilə.", "I'm twenty-five.") },
@@ -162,7 +162,7 @@ export const lesson7b: DesignLesson = {
       review: {
         title: 'Sualı qur', why: 'Yaşı soruşdun: How old are you?', hint: 'Kartdakı sualı xatırla — yaş haqqında.',
         prompt: 'Kursda yeni yoldaşın yaşını formaya yazmalısan.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
-        chat: { partner: 'Kurs yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Hi! How are you?' }] },
+        chat: { partner: 'Kurs yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Hello!' }] },
         tiles: ['are', 'old', 'How', 'is', 'you', 'name', '?'], rule: exact('How old are you?'),
         variants: [other('How old are you?', ex('How old are you?', 'Yaş “How old” ilə soruşulur, sonra “are you”.', 'How are you? — hal; How old are you? — yaş.', 'How old are you?'))],
       },

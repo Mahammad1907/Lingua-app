@@ -94,10 +94,10 @@ export const lesson6: DesignLesson = {
       example: MY, exampleAz: 'kb@mail.com',
     },
     {
-      type: 'write', id: 'u2d6_c09', number: 9, title: 'Dinlə və yaz', why: 'hasanova@mail.com — hərflər, @ və nöqtə.', hint: 'Hərfləri bir-bir yaz; ünvanda boşluq olmur.',
-      prompt: 'İş yoldaşın müdirin e-poçtunu deyir.\nÜnvanı yaz.', audio: "It's H-A-S-A-N-O-V-A at mail dot com.", placeholder: 'E-poçt ünvanı',
-      rule: exact('hasanova@mail.com'),
-      variants: [asWords('hasanova@mail.com', 'hasanova at mail dot com'), other('Ünvanı yoxla.', ex('hasanova@mail.com', 'Hərflər H-A-S-A-N-O-V-A, sonra @, mail, nöqtə, com.', 'at — @; dot — nöqtə.', "It's H-A-S-A-N-O-V-A at mail dot com."))],
+      type: 'write', id: 'u2d6_c09', number: 9, title: 'Dinlə və yaz', why: 'abbasova@mail.com — double B, @ və nöqtə.', hint: 'Hərfləri bir-bir yaz; qoşa hərfə diqqət et, ünvanda boşluq olmur.',
+      prompt: 'İş yoldaşın müdirin (Ms Abbasova) e-poçtunu hərf-hərf deyir.\nÜnvanı yaz.', audio: "It's A-double B-A-S-O-V-A at mail dot com.", placeholder: 'E-poçt ünvanı',
+      rule: exact('abbasova@mail.com'),
+      variants: [asWords('abbasova@mail.com', 'abbasova at mail dot com'), other('Ünvanı yoxla.', ex('abbasova@mail.com', '“double B” — BB, sonra @, mail, nöqtə, com.', 'double B — BB; at — @.', "It's A-double B-A-S-O-V-A at mail dot com."))],
       review: {
         title: 'Dinlə və yaz', why: 'guliyev7@mail.com — hərflər, rəqəm, @ və nöqtə.', hint: 'Hərfləri və rəqəmi bir-bir yaz; ünvanda boşluq olmur.',
         prompt: 'Kursda müəllim öz e-poçtunu deyir.\nÜnvanı yaz.', audio: "It's G-U-L-I-Y-E-V seven at mail dot com.", placeholder: 'E-poçt ünvanı',
@@ -139,9 +139,9 @@ export const lesson6: DesignLesson = {
       type: 'two', id: 'u2d6_c12', number: 12, title: 'Formanı doldur', why: 'Adını, soyadını və e-poçtunu yazdın.', hint: 'Hər sətrin başlığını oxu; e-poçtda @ və nöqtə olmalıdır.', scenes: ['u2/form-office'],
       prompt: 'Ofisdə ilk günündür.\nYeni işçi vərəqini doldur (istəsən, uydurma e-poçt yaz).', form: { title: 'Yeni işçi', subtitle: 'Ofis qeydiyyatı' },
       fields: [
-        { id: 'u2d6_c12a', label: 'First name', placeholder: 'Adın', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
-        { id: 'u2d6_c12b', label: 'Last name', placeholder: 'Soyadın', rule: own(NAME, 'Mammadova'), purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
-        { id: 'u2d6_c12c', label: 'Email', placeholder: 'ad@mail.com', rule: own(EMAIL, 'ganja5@mail.com'), purpose: 'e-poçtunu yazmaq', empty: 'E-poçtunu da yaz.' },
+        { id: 'u2d6_c12a', label: 'First name', placeholder: '…', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
+        { id: 'u2d6_c12b', label: 'Last name', placeholder: '…', rule: own(NAME, 'Mammadova'), purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
+        { id: 'u2d6_c12c', label: 'Email', placeholder: '…', rule: own(EMAIL, 'ganja5@mail.com'), purpose: 'e-poçtunu yazmaq', empty: 'E-poçtunu da yaz.' },
       ],
       variants: [
         { field: 'u2d6_c12a', match: { other: true }, explain: ex('…', 'Bu sətirdə yalnız adın lazımdır.', 'First name — adın; Last name — soyadın.', 'My first name is …') },
@@ -152,9 +152,9 @@ export const lesson6: DesignLesson = {
         title: 'Formanı doldur', why: 'Adını, soyadını və e-poçtunu yazdın.', hint: 'Hər sətrin başlığını oxu; sıra fərqli ola bilər.', scenes: ['u2/form-library'],
         prompt: 'Kitabxanaya yazılırsan.\nVərəqi doldur (istəsən, uydurma e-poçt yaz).', form: { title: 'Kitabxana', subtitle: 'Yeni oxucu' },
         fields: [
-          { id: 'u2d6_c12c', label: 'Email', placeholder: 'ad@mail.com', rule: own(EMAIL, 'ganja5@mail.com'), purpose: 'e-poçtunu yazmaq', empty: 'E-poçtunu da yaz.' },
-          { id: 'u2d6_c12b', label: 'Last name', placeholder: 'Soyadın', rule: own(NAME, 'Mammadova'), purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
-          { id: 'u2d6_c12a', label: 'First name', placeholder: 'Adın', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
+          { id: 'u2d6_c12c', label: 'Email', placeholder: '…', rule: own(EMAIL, 'ganja5@mail.com'), purpose: 'e-poçtunu yazmaq', empty: 'E-poçtunu da yaz.' },
+          { id: 'u2d6_c12b', label: 'Last name', placeholder: '…', rule: own(NAME, 'Mammadova'), purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
+          { id: 'u2d6_c12a', label: 'First name', placeholder: '…', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
         ],
         variants: [
           { field: 'u2d6_c12c', match: { other: true }, explain: ex('ganja5@mail.com', 'Ünvanda @ və nöqtə olur, söz yox.', 'at — @; dot — nöqtə.', MY) },
@@ -164,17 +164,17 @@ export const lesson6: DesignLesson = {
       },
     },
     {
-      type: 'match', mode: 'order', id: 'u2d6_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, ünvan, yoxlama və təsdiq düz sıradadır.', hint: 'Əvvəl sual gəlir; ünvanı eşidən onu yoxlayır.',
+      type: 'match', mode: 'order', id: 'u2d6_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, ünvan, hərf-hərf xahişi və hərflər düz sıradadır.', hint: 'Əvvəl sual gəlir; sözü tanımayan nə soruşur?',
       prompt: 'Ofisdə e-poçt mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "What's your email?", from: 'B' }, { en: '2', az: "It's G-A-N-J-A five at mail dot com.", from: 'G' }, { en: '3', az: 'G-A-N-J-A five at mail dot com. Is that right?', from: 'B' }, { en: '4', az: "Yes, that's right.", from: 'G' }],
+      rows: [{ en: '1', az: "What's your email?", from: 'B' }, { en: '2', az: "It's ganja five at mail dot com.", from: 'G' }, { en: '3', az: 'Ganja? How do you spell it?', from: 'B' }, { en: '4', az: "G-A-N-J-A five at mail dot com.", from: 'G' }],
       extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("What's your email? → It's G-A-N-J-A five at mail dot com. → … Is that right? → Yes, that's right.", 'Sual, ünvan, yoxlama, sonra təsdiq.', "Is that right? — yoxlama; Yes, that's right. — təsdiq.", "What's your email?"))],
+      variants: [other('Söhbətin sırası düz deyil.', ex("What's your email? → It's ganja five at mail dot com. → Ganja? How do you spell it? → G-A-N-J-A five at mail dot com.", 'Sual, ünvan, hərf-hərf xahişi, sonra hərflər.', "How do you spell it? — xahiş; G-A-N-J-A — hərflər.", "What's your email?"))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, ünvan, xahiş və yavaş təkrar düz sıradadır.', hint: 'Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?',
         prompt: 'Kursda e-poçt mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
         rows: [{ en: '1', az: "Excuse me, what's your email?", from: 'G' }, { en: '2', az: "It's B-A-K-U nine at mail dot com.", from: 'B' }, { en: '3', az: 'Sorry? Slowly, please.', from: 'G' }, { en: '4', az: 'B… A… K… U… nine at mail dot com.', from: 'B' }],
         extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? Slowly, please. → B… A… K… U…", 'Ünvan sürətli deyildi, xahişdən sonra yavaş təkrar olundu.', 'Slowly, please. — sürətli idi; Again, please. — eşitmədin.', 'Sorry? Slowly, please.'))],
+        variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? Slowly, please. → B… A… K… U…", 'Ünvanı çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi.', 'Slowly, please. — sürətli idi; Again, please. — eşitmədin.', 'Sorry? Slowly, please.'))],
       },
     },
   ],

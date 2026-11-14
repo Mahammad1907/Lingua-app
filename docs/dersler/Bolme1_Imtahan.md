@@ -71,7 +71,7 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 ## Kart 9 — Mesaj yaz (sözlərdən): Cümləni qur
 
 **Tapşırıq:** İşdə yeni həmkarla tanış oldun. Sözlərdən “Tanış olduğuma şadam” cümləsini qur.  
-**Yazışma (Yeni həmkar):** —  
+**Yazışma (Yeni həmkar):** “Hello!”  
 **Sözlər:** meet · you · Nice · your · to · too · .  
 **Qəbul:** dəqiq: Nice to meet you.  
 **Düzgün olanda:** Nice to meet you — “to” da yerindədir.  
@@ -79,7 +79,7 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 
 ## Kart 10 — Səslə cavab: Danış: kömək istə
 
-**Tapşırıq:** Kafedə ofisiant sənə uzun bir şey dedi, heç nə başa düşmədin. Başa düşmədiyini de və bir də deməsini xahiş et.  
+**Tapşırıq:** Kafedə ofisiant sənə uzun bir şey dedi, heç nə başa düşmürsən. Başa düşmədiyini de və bir də deməsini xahiş et.  
 **Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Again, please.  
 **Düzgün olanda:** Başa düşmədiyini dedin və təkrar istədin.  
 - *İzah (başqa səhvdə):* İki hissə: başa düşmürəm + bir də. — Uyğun: Sorry? I don't understand. Again, please. Səbəb: “I not understand” və “I am understand” demirik. Qayda: I’m not very well. — burada not; I don’t understand. — burada don’t. Nümunə: I don't understand. Again, please.  
@@ -91,13 +91,14 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 **Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: Thanks! — You're welcome.; How are you? — I'm OK. And you?; Goodbye! — Bye! Səbəb: Təşəkkürə, hal sualına və sağollaşmaya fərqli cavab verilir. Qayda: Thanks! → You’re welcome; Goodbye! → Bye! Nümunə: Thank you! — You're welcome.  
 
-## Kart 12 — Dinlə və təkrarla: Dinlə və təkrarla
+## Kart 12 — Səslə cavab: Danış: yavaş xahiş et
 
-**Tapşırıq:** Dinlə, sonra eyni cür de.  
-**Səs:** Sorry? Slowly, please.  
-**Qəbul:** dəqiq: Sorry? Slowly, please  
-**Düzgün olanda:** Xahiş aydın səsləndi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və eyni cür de. — Uyğun: Sorry? Slowly, please. Səbəb: Səsdəki sözləri eyni sıra ilə de. Qayda: Sorry? — nə dedin; Slowly, please. — yavaş. Nümunə: Slowly, please.  
+**Tapşırıq:** Kafedə kassir çox sürətlə danışır. Ondan yavaş danışmağı xahiş et.  
+**Səs:** Hellohowareyou!  
+**Qəbul:** məna: slow — nümunə: Slowly, please. / Sorry? Slowly, please.  
+**Düzgün olanda:** Yavaş danışmağı nəzakətlə xahiş etdin.  
+- *İzah (cavab “repeat” işini görəndə):* Problem sürətdədir — yavaş danışmağı xahiş et. — Uyğun: Slowly, please. Səbəb: Eşitdin, amma çox sürətli idi — yavaş danışmağı istəyirsən. Qayda: Again, please. — bir də; Slowly, please. — yavaş. Nümunə: Sorry? Slowly, please.  
+- *İzah (başqa səhvdə):* Slowly, please. — Uyğun: Slowly, please. Səbəb: O çox sürətli danışır, ona görə “Slowly” lazımdır. Qayda: Again, please. — bir də; Slowly, please. — yavaş. Nümunə: Sorry? Slowly, please.  
 
 ## Kart 13 — İki mesaj yaz: İki mesaj yaz
 
@@ -105,7 +106,7 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 **Birinci mesaj:** məna: thanks — nümunə: Thank you! / Thanks!  
 **İkinci mesaj:** məna: farewell — nümunə: Goodbye! / Bye!  
 **Düzgün olanda:** Təşəkkür etdin və sağollaşdın.  
-- *İzah (“Birinci mesaj” səhv olanda):* Uyğun: Thank you! Səbəb: Kömək edənə təşəkkür edirsən; “Please” xahişdir, “You’re welcome” təşəkkürə cavabdır. Qayda: Thank you! — təşəkkür; You’re welcome. — ona cavab. Nümunə: I'm fine, thanks.  
+- *İzah (“Birinci mesaj” səhv olanda):* Uyğun: Thank you! Səbəb: Kömək edənə təşəkkür edirsən; “Please” xahişdir, “You’re welcome” təşəkkürə cavabdır. Qayda: Thank you! — təşəkkür; You’re welcome. — ona cavab. Nümunə: Thank you! — You're welcome.  
 - *İzah (“İkinci mesaj” səhv olanda):* Uyğun: Bye! Səbəb: Həmkarın gedir — sağollaşırsan; “Hello” görüşün əvvəlində deyilir. Qayda: Hello! — gələndə; Goodbye! — gedəndə. Nümunə: Goodbye!  
 
 ## Kart 14 — Söhbəti sırala: Söhbəti sırala

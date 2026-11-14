@@ -45,7 +45,7 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d4_c04', number: 4, scenes: ['u2/word-its-baku'],
-      word: "It's B-A-K-U.", pronunciation: '/ɪts bi eɪ keɪ ju/', reading: 'its bi-ey-key-yu', az: 'Belədir: B-A-K-U.',
+      word: "It's B-A-K-U.", pronunciation: '/ɪts bi eɪ keɪ ju/', reading: 'its bi-ey-key-yu', az: 'B-A-K-U-dur.',
       structure: ["It's + hərflər."],
       example: "How do you spell it? — It's B-A-K-U.", exampleAz: 'Hərf-hərf necə yazılır? — B-A-K-U.',
     },
@@ -90,14 +90,14 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'voice', id: 'u2d4_c09', number: 9, title: 'Adını hərf-hərf de', why: 'Adını hərf-hərf dedin.', hint: 'Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
-      prompt: 'Resepsiyaçı soruşur: “What\'s your name? How do you spell it?”\nAdını hərf-hərf de.', audio: "What's your name? How do you spell it?", reply: 'Thank you!',
+      prompt: 'Resepsiyaçı soruşur: “What\'s your name? How do you spell it?”\nAdını hərf-hərf de. Adında ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).', audio: "What's your name? How do you spell it?", reply: 'Thank you!',
       rule: myName,
-      variants: [other("It's + hərflər.", ex("It's …", 'Adının hər hərfini ingiliscə ayrıca de.', "It's B-A-K-U. — hərf-hərf; Baku. — bütöv söz.", "It's B-A-K-U."))],
+      variants: [other("It's + hərflər.", ex("It's …", 'Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "How do you spell it? — It's B-A-K-U.", "It's B-A-K-U."))],
       review: {
         title: 'Adını hərf-hərf de', why: 'Adını hərf-hərf dedin.', hint: 'Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
-        prompt: 'Kursda müəllim adını siyahıya yazır və soruşur.\nAdını hərf-hərf de.', audio: 'Can you spell it, please?', reply: 'Thanks!',
+        prompt: 'Kursda müəllim adını siyahıya yazır və soruşur.\nAdını hərf-hərf de. Adında ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).', audio: 'Can you spell it, please?', reply: 'Thanks!',
         rule: myName,
-        variants: [other("It's + hərflər.", ex("It's …", 'Adının hər hərfini ingiliscə ayrıca de.', "It's G-A-N-J-A. — hərf-hərf; Ganja. — bütöv söz.", "It's G-A-N-J-A."))],
+        variants: [other("It's + hərflər.", ex("It's …", 'Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "Can you spell it, please? — It's G-A-N-J-A.", "It's G-A-N-J-A."))],
       },
     },
     {
@@ -170,7 +170,7 @@ export const lesson4: DesignLesson = {
   },
   vocabulary: [
     { word: 'How do you spell it?', translation: 'Hərf-hərf necə yazılır?', example: 'Ganja? How do you spell it?', exampleAz: 'Gəncə? Hərf-hərf necə yazılır?', usageNote: 'spell — hərf-hərf demək.', pronunciation: '/haʊ du ju spel ɪt/', teachCard: 'u2d4_c02' },
-    { word: "It's B-A-K-U.", translation: 'Belədir: B-A-K-U.', example: "How do you spell it? — It's B-A-K-U.", exampleAz: 'Hərf-hərf necə yazılır? — B-A-K-U.', usageNote: "It's + hərflər.", pronunciation: '/ɪts bi eɪ keɪ ju/', teachCard: 'u2d4_c04' },
+    { word: "It's B-A-K-U.", translation: 'B-A-K-U-dur.', example: "How do you spell it? — It's B-A-K-U.", exampleAz: 'Hərf-hərf necə yazılır? — B-A-K-U.', usageNote: "It's + hərflər.", pronunciation: '/ɪts bi eɪ keɪ ju/', teachCard: 'u2d4_c04' },
     { word: 'double', translation: 'qoşa', example: 'Hello — H-E-double L-O.', exampleAz: 'Hello — H-E-qoşa L-O.', usageNote: 'İki eyni hərf: double L.', pronunciation: '/ˈdʌbəl/', teachCard: 'u2d4_c06' },
     { word: 'Can you spell it, please?', translation: 'Hərf-hərf deyə bilərsən, zəhmət olmasa?', example: 'Lankaran? Can you spell it, please?', exampleAz: 'Lənkəran? Hərf-hərf deyə bilərsən, zəhmət olmasa?', usageNote: 'Nəzakətli xahiş.', pronunciation: '/kən ju spel ɪt pliz/', teachCard: 'u2d4_c08' },
   ],

@@ -3,7 +3,7 @@
 import type { DesignLesson } from '../designLessonTypes';
 import type { Variant } from '../designLessonTypes';
 import { ex, exact, goal, other, pick } from '../unit1/build';
-import { AGE_MISTAKES, AGE, EMAIL, NAME, notices, own, resultTexts } from './shared';
+import { AGE_MISTAKES, AGE, EMAIL, notices, own, PHONE, PHONE_MISTAKES, resultTexts } from './shared';
 
 const asWords = (address: string, words: string): Variant => ({
   match: { words: [words] }, short: 'Sözlər yox, işarələr yaz: @ və nöqtə.',
@@ -18,35 +18,32 @@ export const exam: DesignLesson = {
       type: 'intro', id: 'u2x_c01', badge: 'Bölmə 2 imtahanı', subtitle: 'Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.', start: 'İmtahana başla',
       goals: [
         { icon: 'chat', text: 'Rəqəmləri, hərfləri və şəxsi məlumatı eşidib anlayıram.' },
-        { icon: 'wave', text: 'Nömrəmi, yaşımı deyir, hərf-hərf soruşuram.' },
-        { icon: 'bye', text: 'Formanı və e-poçtumu yaza bilirəm.' },
+        { icon: 'wave', text: 'Nömrəmi və yaşımı deyir, hərf-hərf deməyi xahiş edirəm.' },
+        { icon: 'bye', text: 'Formanı doldurur, e-poçtumu və eşitdiyim ünvanı yazıram.' },
       ],
     },
     {
       type: 'write', id: 'u2x_c02', number: 2, keypad: true, title: 'Nömrəni yığ', why: 'four, nine, zero, seven — 4907.',
       prompt: 'Oteldə resepsiya restoranın daxili nömrəsini deyir.\nDinlə və yığ.', audio: 'Four, nine, zero, seven.', placeholder: 'Daxili nömrə',
       rule: exact('4907'),
-      variants: [other('Rəqəmləri bir-bir dinlə.', ex('4907', 'Səsdə dörd rəqəm var: four, nine, zero, seven.', 'four — 4; nine — 9.', 'Four, nine, zero, seven.'))],
+      variants: [other('Rəqəmləri bir-bir dinlə.', ex('4907', 'Səsdə dörd rəqəm var: four, nine, zero, seven.', 'Four, nine, zero, seven. — 4907; Four, zero, nine, seven. — 4097.', 'Four, nine, zero, seven.'))],
     },
     {
-      type: 'choice', id: 'u2x_c03', number: 3, title: 'Dinlə və seç', why: 'W — “dabəlyu”.',
-      prompt: 'Hava limanında elan qapı hərfini deyir.\nHansı hərfdir?', audio: 'W.',
-      options: ['V', 'W', 'U'], answer: 'W',
-      variants: [
-        pick('V', 'V “vi” oxunur.', ex('W', 'Səsdə “dabəlyu” deyilir — bu, W-dir.', 'W — dabəlyu; V — vi.', 'Q, U, W.')),
-        pick('U', 'U “yu” oxunur.', ex('W', 'Səsdə “dabəlyu” deyilir — bu, W-dir.', 'W — dabəlyu; U — yu.', 'Q, U, W.')),
-      ],
+      type: 'voice', id: 'u2x_c03', number: 3, title: 'Nömrəni de', why: 'Nömrəni rəqəm-rəqəm dedin.',
+      prompt: 'İdman zalının qəbulu soruşur: “What\'s your phone number?”\nÖz nömrəni de (istəsən, uydurma).', audio: "What's your phone number?", reply: 'Thank you!',
+      rule: own(PHONE, "It's zero five zero, three two one, four five, six seven."),
+      variants: [...PHONE_MISTAKES, other("It's + nömrə.", ex("It's zero five zero, three two one, four five, six seven.", 'Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de.', "It's 050… — düzdür; My phone is 050… — olmur.", "What's your phone number? — It's oh five five…"))],
     },
     {
-      type: 'two', id: 'u2x_c04', number: 4, title: 'Formanı doldur', why: 'Adını və soyadını öz yerinə yazdın.', scenes: ['u2/form-course'],
-      prompt: 'Yeni kursa yazılırsan.\nFormada adını və soyadını yaz.', form: { title: 'Kurs qeydiyyatı', subtitle: 'Yeni tələbə' },
+      type: 'two', id: 'u2x_c04', number: 4, title: 'Formanı doldur', why: 'Ad və soyad öz yerindədir.', scenes: ['u2/form-course'],
+      prompt: 'Dostunu kursa yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “HASANOVA NIGAR”.\nFormanı doldur.', form: { title: 'Kurs qeydiyyatı', subtitle: 'Yeni tələbə' },
       fields: [
-        { id: 'u2x_c04a', label: 'Last name', placeholder: 'Soyadın', rule: own(NAME, 'Mammadova'), purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
-        { id: 'u2x_c04b', label: 'First name', placeholder: 'Adın', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
+        { id: 'u2x_c04a', label: 'First name', placeholder: '…', rule: exact('Nigar'), purpose: 'adı yazmaq', empty: 'Adı da yaz.' },
+        { id: 'u2x_c04b', label: 'Last name', placeholder: '…', rule: exact('Hasanova'), purpose: 'soyadı yazmaq', empty: 'Soyadı da yaz.' },
       ],
       variants: [
-        { field: 'u2x_c04a', match: { other: true }, explain: ex('Mammadova', 'Bu sətirdə yalnız soyadın lazımdır.', 'Last name — soyadın; First name — adın.', 'My last name is Mammadova.') },
-        { field: 'u2x_c04b', match: { other: true }, explain: ex('…', 'Bu sətirdə yalnız adın lazımdır.', 'Last name — soyadın; First name — adın.', 'My first name is …') },
+        { field: 'u2x_c04a', match: { other: true }, explain: ex('Nigar', 'First name — addır: pasportdakı ikinci söz.', 'First name — Nigar; Last name — Hasanova.', 'My first name is Nigar.') },
+        { field: 'u2x_c04b', match: { other: true }, explain: ex('Hasanova', 'Last name — soyaddır: pasportdakı birinci söz.', 'Last name — Hasanova; First name — Nigar.', 'My last name is Hasanova.') },
       ],
     },
     {
@@ -78,16 +75,16 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u2x_c09', number: 9, keypad: true, title: 'Nömrəni yığ', why: 'oh — sıfır; nömrəni rəqəm-rəqəm yığdın.',
-      prompt: 'Kurs yoldaşın nömrəsini deyir.\nDinlə və yığ.', audio: "It's oh five oh, seven seven one, two nine, four four.", placeholder: 'Telefon nömrəsi',
-      rule: exact('0507712944'),
-      variants: [other('Rəqəmləri bir-bir yoxla.', ex('0507712944', '“oh” sıfırdır; nömrə rəqəm-rəqəm deyilir.', 'oh — 0; seven seven — 77.', "It's oh five oh, seven seven one, two nine, four four."))],
+      prompt: 'Kurs yoldaşın nömrəsini deyir.\nDinlə və yığ.', audio: "It's oh seven seven, three oh two, one five, nine nine.", placeholder: 'Telefon nömrəsi',
+      rule: exact('0773021599'),
+      variants: [other('Rəqəmləri bir-bir yoxla.', ex('0773021599', '“oh” sıfırdır; nömrə rəqəm-rəqəm deyilir.', "It's oh seven seven… — 077; It's seven seven… — 77.", "It's oh seven seven, three oh two, one five, nine nine."))],
     },
     {
-      type: 'choice', id: 'u2x_c10', number: 10, title: 'Sözü tamamla', why: 'Qadına — Ms.',
-      prompt: 'Kurs müəllimi qadındır, soyadı Aliyeva.\nOna salam verirsən. Hansı söz çatmır?', gap: { speaker: 'B', before: 'Hello,', after: 'Aliyeva!' },
+      type: 'choice', id: 'u2x_c10', number: 10, title: 'Sözü tamamla', why: '-yeva ilə bitən soyad qadınındır — Ms.',
+      prompt: 'Kursun yeni müəlliminin soyadı Aliyeva.\nOna salam verirsən. Hansı söz çatmır?', gap: { speaker: 'B', before: 'Hello,', after: 'Aliyeva!' },
       options: ['Mr', 'Ms', 'first'], answer: 'Ms',
       variants: [
-        pick('Mr', '“Mr” kişiyə deyilir.', ex('Ms', 'Müəllim qadındır, ona “Ms” deyilir.', 'Mr Aliyev — kişi; Ms Aliyeva — qadın.', 'Hello, Ms Aliyeva!')),
+        pick('Mr', '“Mr” kişiyə deyilir.', ex('Ms', 'Aliyeva — qadın soyadıdır, ona “Ms” deyilir.', 'Mr Aliyev — kişi; Ms Aliyeva — qadın.', 'Hello, Ms Aliyeva!')),
         pick('first', '“first” ad sözündədir: first name.', ex('Ms', 'Salam verəndə soyaddan əvvəl “Ms” və ya “Mr” gəlir.', 'Hello, Ms Aliyeva! — müraciət; first name — ad.', 'Hello, Ms Aliyeva!')),
       ],
     },
@@ -134,14 +131,14 @@ export const exam: DesignLesson = {
     },
   ],
   result: {
-    done: ['Bölmə 2 imtahanı bitdi', 'Rəqəmləri, hərfləri, nömrəni, e-poçtu, formanı və yaşı bir yerdə yoxladın.'],
+    done: ['Bölmə 2 imtahanı bitdi', 'Rəqəmləri, hərfləri, telefon nömrəsini, e-poçtu, formanı və yaşı bir yerdə yoxladın.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Rəqəmlər', text: '0–60 rəqəmlərini və telefon nömrəsini eşidib yığmaq', tasks: ['u2x_c02', 'u2x_c09', 'u2x_c12'] },
-      { group: 'Telefon', text: 'Nömrənin yoxlanmasını anlamaq', tasks: ['u2x_c05', 'u2x_c16'] },
-      { group: 'Hərflər', text: 'Eşitdiyin hərfi və kodu tanımaq', tasks: ['u2x_c03', 'u2x_c06'] },
+      { group: 'Rəqəmlər', text: 'Eşitdiyin nömrəni yığmaq, 14 ilə 40-ı ayırmaq', tasks: ['u2x_c02', 'u2x_c09', 'u2x_c12'] },
+      { group: 'Telefon', text: 'Öz nömrəni demək və nömrənin yoxlanmasını anlamaq', tasks: ['u2x_c03', 'u2x_c05', 'u2x_c16'] },
+      { group: 'Hərflər', text: 'Eşitdiyin şəhər kodunu tanımaq', tasks: ['u2x_c06'] },
       { group: 'Hərf-hərf', text: 'Hərf-hərf deyiləni yazmaq və hərf-hərf soruşmaq', tasks: ['u2x_c07', 'u2x_c08'] },
-      { group: 'Forma', text: 'Formada ad və soyadını yazmaq, Mr və Ms-i işlətmək', tasks: ['u2x_c04', 'u2x_c10', 'u2x_c14'] },
+      { group: 'Forma', text: 'Formada ad və soyadı yerinə yazmaq, Mr və Ms-i işlətmək', tasks: ['u2x_c04', 'u2x_c10', 'u2x_c14'] },
       { group: 'E-poçt', text: 'E-poçtunu yazmaq və eşitdiyin ünvanı yazmaq', tasks: ['u2x_c11', 'u2x_c15'] },
       { group: 'Yaş', text: 'Yaşını demək', tasks: ['u2x_c13'] },
     ],

@@ -7,8 +7,8 @@ Bölmə 2 · Şəxsi məlumat. Bu sənəd `src/data/unit2/exam.ts`-dən yaradıl
 Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.
 
 - Rəqəmləri, hərfləri və şəxsi məlumatı eşidib anlayıram.
-- Nömrəmi, yaşımı deyir, hərf-hərf soruşuram.
-- Formanı və e-poçtumu yaza bilirəm.
+- Nömrəmi və yaşımı deyir, hərf-hərf deməyi xahiş edirəm.
+- Formanı doldurur, e-poçtumu və eşitdiyim ünvanı yazıram.
 
 ## Kart 2 — Nömrəni yığ: Nömrəni yığ
 
@@ -16,26 +16,26 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 **Səs:** Four, nine, zero, seven.  
 **Qəbul:** dəqiq: 4907  
 **Düzgün olanda:** four, nine, zero, seven — 4907.  
-- *İzah (başqa səhvdə):* Rəqəmləri bir-bir dinlə. — Uyğun: 4907. Səbəb: Səsdə dörd rəqəm var: four, nine, zero, seven. Qayda: four — 4; nine — 9. Nümunə: Four, nine, zero, seven.  
+- *İzah (başqa səhvdə):* Rəqəmləri bir-bir dinlə. — Uyğun: 4907. Səbəb: Səsdə dörd rəqəm var: four, nine, zero, seven. Qayda: Four, nine, zero, seven. — 4907; Four, zero, nine, seven. — 4097. Nümunə: Four, nine, zero, seven.  
 
-## Kart 3 — Seç: Dinlə və seç
+## Kart 3 — Səslə cavab: Nömrəni de
 
-**Tapşırıq:** Hava limanında elan qapı hərfini deyir. Hansı hərfdir?  
-**Səs:** W.  
-**Seçimlər:** V / W / U — **düzgün:** W  
-**Düzgün olanda:** W — “dabəlyu”.  
-- *İzah (“V” seçiləndə):* V “vi” oxunur. — Uyğun: W. Səbəb: Səsdə “dabəlyu” deyilir — bu, W-dir. Qayda: W — dabəlyu; V — vi. Nümunə: Q, U, W.  
-- *İzah (“U” seçiləndə):* U “yu” oxunur. — Uyğun: W. Səbəb: Səsdə “dabəlyu” deyilir — bu, W-dir. Qayda: W — dabəlyu; U — yu. Nümunə: Q, U, W.  
+**Tapşırıq:** İdman zalının qəbulu soruşur: “What's your phone number?” Öz nömrəni de (istəsən, uydurma).  
+**Səs:** What's your phone number?  
+**Qəbul:** məna:  — nümunə: It's zero five zero, three two one, four five, six seven. · öz məlumatı: /^(?:it'?s\s+|it is\s+|my (?:phone )?number is\s+)?(?:(?:zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine|\d)[\s,.-]*){7,15}[.!]?$/  
+**Düzgün olanda:** Nömrəni rəqəm-rəqəm dedin.  
+- *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər. Qayda: It's 050 321 45 67. — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
+- *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: It's 050… — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's oh five five…  
 
 ## Kart 4 — Formanı doldur: Formanı doldur
 
-**Tapşırıq:** Yeni kursa yazılırsan. Formada adını və soyadını yaz.  
+**Tapşırıq:** Dostunu kursa yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “HASANOVA NIGAR”. Formanı doldur.  
 **Forma:** Kurs qeydiyyatı — Yeni tələbə  
-**Last name:** məna:  — nümunə: Mammadova  
-**First name:** məna:  — nümunə: …  
-**Düzgün olanda:** Adını və soyadını öz yerinə yazdın.  
-- *İzah (“Last name” səhv olanda):* Uyğun: Mammadova. Səbəb: Bu sətirdə yalnız soyadın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My last name is Mammadova.  
-- *İzah (“First name” səhv olanda):* Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My first name is …  
+**First name:** dəqiq: Nigar  
+**Last name:** dəqiq: Hasanova  
+**Düzgün olanda:** Ad və soyad öz yerindədir.  
+- *İzah (“First name” səhv olanda):* Uyğun: Nigar. Səbəb: First name — addır: pasportdakı ikinci söz. Qayda: First name — Nigar; Last name — Hasanova. Nümunə: My first name is Nigar.  
+- *İzah (“Last name” səhv olanda):* Uyğun: Hasanova. Səbəb: Last name — soyaddır: pasportdakı birinci söz. Qayda: Last name — Hasanova; First name — Nigar. Nümunə: My last name is Hasanova.  
 
 ## Kart 5 — Seç: Dinlə və anla
 
@@ -74,18 +74,18 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 ## Kart 9 — Nömrəni yığ: Nömrəni yığ
 
 **Tapşırıq:** Kurs yoldaşın nömrəsini deyir. Dinlə və yığ.  
-**Səs:** It's oh five oh, seven seven one, two nine, four four.  
-**Qəbul:** dəqiq: 0507712944  
+**Səs:** It's oh seven seven, three oh two, one five, nine nine.  
+**Qəbul:** dəqiq: 0773021599  
 **Düzgün olanda:** oh — sıfır; nömrəni rəqəm-rəqəm yığdın.  
-- *İzah (başqa səhvdə):* Rəqəmləri bir-bir yoxla. — Uyğun: 0507712944. Səbəb: “oh” sıfırdır; nömrə rəqəm-rəqəm deyilir. Qayda: oh — 0; seven seven — 77. Nümunə: It's oh five oh, seven seven one, two nine, four four.  
+- *İzah (başqa səhvdə):* Rəqəmləri bir-bir yoxla. — Uyğun: 0773021599. Səbəb: “oh” sıfırdır; nömrə rəqəm-rəqəm deyilir. Qayda: It's oh seven seven… — 077; It's seven seven… — 77. Nümunə: It's oh seven seven, three oh two, one five, nine nine.  
 
 ## Kart 10 — Sözü tamamla: Sözü tamamla
 
-**Tapşırıq:** Kurs müəllimi qadındır, soyadı Aliyeva. Ona salam verirsən. Hansı söz çatmır?  
+**Tapşırıq:** Kursun yeni müəlliminin soyadı Aliyeva. Ona salam verirsən. Hansı söz çatmır?  
 **Cümlə:** Hello, ___ Aliyeva!  
 **Seçimlər:** Mr / Ms / first — **düzgün:** Ms  
-**Düzgün olanda:** Qadına — Ms.  
-- *İzah (“Mr” seçiləndə):* “Mr” kişiyə deyilir. — Uyğun: Ms. Səbəb: Müəllim qadındır, ona “Ms” deyilir. Qayda: Mr Aliyev — kişi; Ms Aliyeva — qadın. Nümunə: Hello, Ms Aliyeva!  
+**Düzgün olanda:** -yeva ilə bitən soyad qadınındır — Ms.  
+- *İzah (“Mr” seçiləndə):* “Mr” kişiyə deyilir. — Uyğun: Ms. Səbəb: Aliyeva — qadın soyadıdır, ona “Ms” deyilir. Qayda: Mr Aliyev — kişi; Ms Aliyeva — qadın. Nümunə: Hello, Ms Aliyeva!  
 - *İzah (“first” seçiləndə):* “first” ad sözündədir: first name. — Uyğun: Ms. Səbəb: Salam verəndə soyaddan əvvəl “Ms” və ya “Mr” gəlir. Qayda: Hello, Ms Aliyeva! — müraciət; first name — ad. Nümunə: Hello, Ms Aliyeva!  
 
 ## Kart 11 — Dialoqu tamamla: Mesaj yaz
@@ -112,7 +112,7 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 **Qəbul:** məna:  — nümunə: I'm twenty-five. / I'm 25. · öz məlumatı: /^(?:i'?m|i am)\s+(?:\d{1,3}|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ]?(?:one|two|three|four|five|six|seven|eight|nine))?|(?:ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)|(?:one|two|three|four|five|six|seven|eight|nine))(?:\s+years\s+old)?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **Düzgün olanda:** Yaşını dedin.  
 - *İzah (başqa səhvdə):* Yaş “var” ilə yox, I’m ilə deyilir. — Uyğun: I'm twenty-five. Səbəb: “25 yaşım var” sözbəsöz tərcümə olunmur — ingiliscə yaşı I’m ilə deyirik. Qayda: I'm twenty-five. — düzdür; “yaşım var” kimi tərcümə — olmur. Nümunə: How old are you? — I'm thirty.  
-- *İzah (başqa səhvdə):* Yaşı demək kifayətdir. — Uyğun: I'm twenty-five. Səbəb: Yaşdan sonra o söz tək qalmır — yaşı demək kifayətdir. Qayda: I'm twenty-five. — düzdür; yaşdan sonra yarımçıq əlavə — olmur. Nümunə: How old are you? — I'm thirty.  
+- *İzah (başqa səhvdə):* Yaşı demək kifayətdir. — Uyğun: I'm twenty-five. Səbəb: Ya yalnız yaşı de, ya da “years old” birlikdə. Qayda: I'm twenty-five. — düzdür; I'm twenty-five years. — olmur. Nümunə: I'm twenty-five years old.  
 - *İzah (başqa səhvdə):* I'm + yaş. — Uyğun: I'm twenty-five. Səbəb: Yaş “I’m” ilə deyilir; “years old” istəsən əlavə olunur. Qayda: I'm twenty-five. — düzdür; I'm twenty-five years old. — düzdür. Nümunə: How old are you? — I'm thirty.  
 
 ## Kart 14 — Kim nə dedi?: Kim nə dedi?
@@ -140,13 +140,13 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 
 ## Nəticə
 
-Bölmə 2 imtahanı bitdi — Rəqəmləri, hərfləri, nömrəni, e-poçtu, formanı və yaşı bir yerdə yoxladın.
+Bölmə 2 imtahanı bitdi — Rəqəmləri, hərfləri, telefon nömrəsini, e-poçtu, formanı və yaşı bir yerdə yoxladın.
 
-- Rəqəmlər: 0–60 rəqəmlərini və telefon nömrəsini eşidib yığmaq
-- Telefon: Nömrənin yoxlanmasını anlamaq
-- Hərflər: Eşitdiyin hərfi və kodu tanımaq
+- Rəqəmlər: Eşitdiyin nömrəni yığmaq, 14 ilə 40-ı ayırmaq
+- Telefon: Öz nömrəni demək və nömrənin yoxlanmasını anlamaq
+- Hərflər: Eşitdiyin şəhər kodunu tanımaq
 - Hərf-hərf: Hərf-hərf deyiləni yazmaq və hərf-hərf soruşmaq
-- Forma: Formada ad və soyadını yazmaq, Mr və Ms-i işlətmək
+- Forma: Formada ad və soyadı yerinə yazmaq, Mr və Ms-i işlətmək
 - E-poçt: E-poçtunu yazmaq və eşitdiyin ünvanı yazmaq
 - Yaş: Yaşını demək
 

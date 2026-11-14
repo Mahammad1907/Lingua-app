@@ -60,14 +60,14 @@ Qeyd: Azərbaycanda soyad çox vaxt əvvəl deyilir; formada isə ayrıca sətir
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İdman zalına yazılırsan. Formada soyadını və adını yaz.  
+**Tapşırıq:** Dostunu idman zalına yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “ALIYEV KAMRAN”. Formanı doldur.  
 **Forma:** İdman zalı — Yeni üzv  
-**Last name:** məna:  — nümunə: Mammadova  
-**First name:** məna:  — nümunə: …  
-**İpucu:** Diqqət: bu formada sətirlərin sırası başqadır.  
-**Düzgün olanda:** Adını və soyadını öz yerinə yazdın.  
-- *İzah (“Last name” səhv olanda):* Uyğun: Mammadova. Səbəb: Bu sətirdə yalnız soyadın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My last name is Mammadova.  
-- *İzah (“First name” səhv olanda):* Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My first name is …  
+**Last name:** dəqiq: Aliyev  
+**First name:** dəqiq: Kamran  
+**İpucu:** Pasportda əvvəl soyad yazılıb; formada isə sətirlərin başlığını oxu.  
+**Düzgün olanda:** Dostunun adını və soyadını öz yerinə yazdın.  
+- *İzah (“Last name” səhv olanda):* Uyğun: Aliyev. Səbəb: Last name — soyaddır: pasportdakı birinci söz. Qayda: Last name — Aliyev; First name — Kamran. Nümunə: My last name is Aliyev.  
+- *İzah (“First name” səhv olanda):* Uyğun: Kamran. Səbəb: First name — addır: pasportdakı ikinci söz. Qayda: First name — Kamran; Last name — Aliyev. Nümunə: My first name is Kamran.  
 
 ## Kart 6 — Yeni söz
 
@@ -81,7 +81,7 @@ Nümunə: **Hi! What's your last name?** — Salam! Soyadın nədir?
 ## Kart 7 — Mesaj yaz (sözlərdən): Sualı qur
 
 **Tapşırıq:** Qeydiyyat masasında işləyirsən. Yeni tələbə gəldi. Sözlərdən onun soyadını soruşan sual qur.  
-**Yazışma (Yeni tələbə):** “Hello!”  
+**Yazışma (Yeni tələbə):** “Hello! Nice to meet you!”  
 **Sözlər:** What's · last · your · name · first · is · ?  
 **Qəbul:** dəqiq: What's your last name?  
 **İpucu:** Ad yox, soyad soruşursan — kartdakı sözü xatırla.  
@@ -90,7 +90,7 @@ Nümunə: **Hi! What's your last name?** — Salam! Soyadın nədir?
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İdman zalında qeydiyyatdasan. Yeni üzvün soyadını soruş. Sözlərdən sual qur.  
+**Tapşırıq:** İdman zalında qeydiyyat masasında işləyirsən. Yeni üzv gəldi. Sözlərdən onun soyadını soruşan sual qur.  
 **Yazışma (Yeni üzv):** “Hi!”  
 **Sözlər:** name · What's · your · last · my · first · ?  
 **Qəbul:** dəqiq: What's your last name?  
@@ -112,22 +112,22 @@ Qeyd: Mr — kişiyə, Ms — qadına; ardınca soyad gəlir.
 
 ## Kart 9 — Sözü tamamla: Sözü tamamla
 
-**Tapşırıq:** Kursun müəllimi qadındır, soyadı Hasanova. Ona salam verirsən. Hansı söz çatmır?  
+**Tapşırıq:** Kursun yeni müəllimi gəldi, soyadı Hasanova. Ona salam verirsən. Hansı söz çatmır?  
 **Cümlə:** Hello, ___ Hasanova!  
 **Seçimlər:** Ms / Mr / last — **düzgün:** Ms  
-**İpucu:** Müəllim kişidir, yoxsa qadın?  
-**Düzgün olanda:** Qadına — Ms.  
-- *İzah (“Mr” seçiləndə):* “Mr” kişiyə deyilir. — Uyğun: Ms. Səbəb: Müəllim qadındır, ona “Ms” deyilir. Qayda: Mr Hasanov — kişi; Ms Hasanova — qadın. Nümunə: Hello, Ms Hasanova!  
+**İpucu:** Soyadın sonuna bax: -ova, yoxsa -ov?  
+**Düzgün olanda:** -ova ilə bitən soyad qadınındır — Ms.  
+- *İzah (“Mr” seçiləndə):* “Mr” kişiyə deyilir. — Uyğun: Ms. Səbəb: Hasanova — qadın soyadıdır, ona “Ms” deyilir. Qayda: Mr Hasanov — kişi; Ms Hasanova — qadın. Nümunə: Hello, Ms Hasanova!  
 - *İzah (“last” seçiləndə):* “last” soyad sözündədir: last name. — Uyğun: Ms. Səbəb: Salam verəndə soyaddan əvvəl “Ms” və ya “Mr” gəlir. Qayda: Hello, Ms Hasanova! — müraciət; last name — soyad. Nümunə: Hello, Ms Hasanova!  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ofisdə müdirin kişidir, soyadı Guliyev. Ona salam verirsən. Hansı söz çatmır?  
+**Tapşırıq:** Ofisdə yeni müdirin soyadı Guliyev. Ona salam verirsən. Hansı söz çatmır?  
 **Cümlə:** Hello, ___ Guliyev!  
 **Seçimlər:** Ms / first / Mr — **düzgün:** Mr  
-**İpucu:** Müdir kişidir, yoxsa qadın?  
-**Düzgün olanda:** Kişiyə — Mr.  
-- *İzah (“Ms” seçiləndə):* “Ms” qadına deyilir. — Uyğun: Mr. Səbəb: Müdir kişidir, ona “Mr” deyilir. Qayda: Mr Guliyev — kişi; Ms Guliyeva — qadın. Nümunə: Hello, Mr Guliyev!  
+**İpucu:** Soyadın sonuna bax: -yeva, yoxsa -yev?  
+**Düzgün olanda:** -ov/-yev ilə bitən soyad kişinindir — Mr.  
+- *İzah (“Ms” seçiləndə):* “Ms” qadına deyilir. — Uyğun: Mr. Səbəb: Guliyev — kişi soyadıdır, ona “Mr” deyilir. Qayda: Mr Guliyev — kişi; Ms Guliyeva — qadın. Nümunə: Hello, Mr Guliyev!  
 - *İzah (“first” seçiləndə):* “first” ad sözündədir: first name. — Uyğun: Mr. Səbəb: Salam verəndə soyaddan əvvəl “Mr” və ya “Ms” gəlir. Qayda: Hello, Mr Guliyev! — müraciət; first name — ad. Nümunə: Hello, Mr Guliyev!  
 
 ## Kart 10 — Səslə cavab: Soyadı soruş
@@ -185,11 +185,11 @@ Qeyd: Mr — kişiyə, Ms — qadına; ardınca soyad gəlir.
 
 ## Kart 13 — Kim nə dedi?: Kim nə dedi?
 
-**Tapşırıq:** Qeydiyyat vərəqindəki sözlər. Hər birinə mənasını qoş.  
-**Cütlər:** First name — Ad; Last name — Soyad; Ms — Xanım · artıq: Cənab  
+**Tapşırıq:** Qeydiyyat masasında eşitdiyin sözlər. Hər birinə mənasını qoş.  
+**Cütlər:** First name — Ad; Last name — Soyad; How do you spell it? — Hərf-hərf necə yazılır? · artıq: Cənab  
 **İpucu:** Əvvəl ən əmin olduğun sözü yerinə qoy.  
 **Düzgün olanda:** Formadakı sözlərin mənasını tapdın.  
-- *İzah (başqa səhvdə):* Bir sözün mənası yerində deyil. — Uyğun: First name — Ad; Last name — Soyad; Ms — Xanım. Səbəb: first — ad, last — soyad; Ms qadına deyilir. Qayda: First name — ad; Last name — soyad. Nümunə: Hello, Ms Hasanova!  
+- *İzah (başqa səhvdə):* Bir sözün mənası yerində deyil. — Uyğun: First name — Ad; Last name — Soyad; How do you spell it? — Hərf-hərf necə yazılır? Səbəb: first — ad, last — soyad; spell — hərf-hərf demək. Qayda: First name — ad; Last name — soyad. Nümunə: Mammadova? How do you spell it?  
 
 **Təkrar (yeni vəziyyət):**
 

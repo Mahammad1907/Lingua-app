@@ -106,13 +106,13 @@ Qeyd: @ işarəsi “at” deyilir, “et” yox.
 
 ## Kart 9 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** İş yoldaşın müdirin e-poçtunu deyir. Ünvanı yaz.  
-**Səs:** It's H-A-S-A-N-O-V-A at mail dot com.  
-**Qəbul:** dəqiq: hasanova@mail.com  
-**İpucu:** Hərfləri bir-bir yaz; ünvanda boşluq olmur.  
-**Düzgün olanda:** hasanova@mail.com — hərflər, @ və nöqtə.  
-- *İzah (başqa səhvdə):* Sözlər yox, işarələr yaz: @ və nöqtə. — Uyğun: hasanova@mail.com. Səbəb: “at” @ ilə, “dot” nöqtə ilə yazılır. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
-- *İzah (başqa səhvdə):* Ünvanı yoxla. — Uyğun: hasanova@mail.com. Səbəb: Hərflər H-A-S-A-N-O-V-A, sonra @, mail, nöqtə, com. Qayda: at — @; dot — nöqtə. Nümunə: It's H-A-S-A-N-O-V-A at mail dot com.  
+**Tapşırıq:** İş yoldaşın müdirin (Ms Abbasova) e-poçtunu hərf-hərf deyir. Ünvanı yaz.  
+**Səs:** It's A-double B-A-S-O-V-A at mail dot com.  
+**Qəbul:** dəqiq: abbasova@mail.com  
+**İpucu:** Hərfləri bir-bir yaz; qoşa hərfə diqqət et, ünvanda boşluq olmur.  
+**Düzgün olanda:** abbasova@mail.com — double B, @ və nöqtə.  
+- *İzah (başqa səhvdə):* Sözlər yox, işarələr yaz: @ və nöqtə. — Uyğun: abbasova@mail.com. Səbəb: “at” @ ilə, “dot” nöqtə ilə yazılır. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
+- *İzah (başqa səhvdə):* Ünvanı yoxla. — Uyğun: abbasova@mail.com. Səbəb: “double B” — BB, sonra @, mail, nöqtə, com. Qayda: double B — BB; at — @. Nümunə: It's A-double B-A-S-O-V-A at mail dot com.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -124,7 +124,23 @@ Qeyd: @ işarəsi “at” deyilir, “et” yox.
 - *İzah (başqa səhvdə):* Sözlər yox, işarələr yaz: @ və nöqtə. — Uyğun: guliyev7@mail.com. Səbəb: “at” @ ilə, “dot” nöqtə ilə yazılır. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
 - *İzah (başqa səhvdə):* Ünvanı yoxla. — Uyğun: guliyev7@mail.com. Səbəb: Hərflər G-U-L-I-Y-E-V, rəqəm 7, sonra @, mail, nöqtə, com. Qayda: at — @; dot — nöqtə. Nümunə: It's G-U-L-I-Y-E-V seven at mail dot com.  
 
-## Kart 10 — Səslə cavab: E-poçtunu de
+## Kart 10 — Söhbəti sırala: Söhbəti sırala
+
+**Tapşırıq:** Ofisdə e-poçt mübadiləsi. Balonlara toxun, söhbəti sıraya düz.  
+**Düzgün sıra:** 1. What's your email? → 2. It's ganja five at mail dot com. → 3. Ganja? How do you spell it? → 4. G-A-N-J-A five at mail dot com.  
+**İpucu:** Əvvəl sual gəlir; sözü tanımayan nə soruşur?  
+**Düzgün olanda:** Sual, ünvan, hərf-hərf xahişi və hərflər düz sıradadır.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: What's your email? → It's ganja five at mail dot com. → Ganja? How do you spell it? → G-A-N-J-A five at mail dot com. Səbəb: Sual, ünvan, hərf-hərf xahişi, sonra hərflər. Qayda: How do you spell it? — xahiş; G-A-N-J-A — hərflər. Nümunə: What's your email?  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Kursda e-poçt mübadiləsi. Balonlara toxun, söhbəti sıraya düz.  
+**Düzgün sıra:** 1. Excuse me, what's your email? → 2. It's B-A-K-U nine at mail dot com. → 3. Sorry? Slowly, please. → 4. B… A… K… U… nine at mail dot com.  
+**İpucu:** Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?  
+**Düzgün olanda:** Sual, ünvan, xahiş və yavaş təkrar düz sıradadır.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? Slowly, please. → B… A… K… U… Səbəb: Ünvanı çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi. Qayda: Slowly, please. — sürətli idi; Again, please. — eşitmədin. Nümunə: Sorry? Slowly, please.  
+
+## Kart 11 — Səslə cavab: E-poçtunu de
 
 **Tapşırıq:** Yeni iş yoldaşı soruşur: “What's your email?” Öz e-poçtunu de (istəsən, uydurma).  
 **Səs:** What's your email?  
@@ -142,7 +158,7 @@ Qeyd: @ işarəsi “at” deyilir, “et” yox.
 **Düzgün olanda:** Ünvanını dedin: @ — at, nöqtə — dot.  
 - *İzah (başqa səhvdə):* It's … at … dot com. — Uyğun: It's K-B at mail dot com. Səbəb: @ “at”, nöqtə “dot” deyilir. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
 
-## Kart 11 — Sözü tamamla: Sözü tamamla
+## Kart 12 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Oğlan e-poçtunu deyir: kb@mail.com. Hansı söz çatmır?  
 **Cümlə:** It's K-B ___ mail dot com.  
@@ -162,7 +178,7 @@ Qeyd: @ işarəsi “at” deyilir, “et” yox.
 - *İzah (“nöqtə” seçiləndə):* İngiliscə ünvanda nöqtə “dot” deyilir. — Uyğun: dot. Səbəb: Nöqtə ingiliscə “dot” deyilir. Qayda: dot — nöqtə; at — @. Nümunə: It's G-A-N-J-A five at mail dot com.  
 - *İzah (“at” seçiləndə):* “at” @ işarəsidir. — Uyğun: dot. Səbəb: Bu yerdə nöqtə var, @ yox. Qayda: at — @; dot — nöqtə. Nümunə: It's G-A-N-J-A five at mail dot com.  
 
-## Kart 12 — Formanı doldur: Formanı doldur
+## Kart 13 — Formanı doldur: Formanı doldur
 
 **Tapşırıq:** Ofisdə ilk günündür. Yeni işçi vərəqini doldur (istəsən, uydurma e-poçt yaz).  
 **Forma:** Yeni işçi — Ofis qeydiyyatı  
@@ -187,22 +203,6 @@ Qeyd: @ işarəsi “at” deyilir, “et” yox.
 - *İzah (“Email” səhv olanda):* Uyğun: ganja5@mail.com. Səbəb: Ünvanda @ və nöqtə olur, söz yox. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
 - *İzah (“Last name” səhv olanda):* Uyğun: Mammadova. Səbəb: Bu sətirdə yalnız soyadın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My last name is Mammadova.  
 - *İzah (“First name” səhv olanda):* Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My first name is …  
-
-## Kart 13 — Söhbəti sırala: Söhbəti sırala
-
-**Tapşırıq:** Ofisdə e-poçt mübadiləsi. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. What's your email? → 2. It's G-A-N-J-A five at mail dot com. → 3. G-A-N-J-A five at mail dot com. Is that right? → 4. Yes, that's right.  
-**İpucu:** Əvvəl sual gəlir; ünvanı eşidən onu yoxlayır.  
-**Düzgün olanda:** Sual, ünvan, yoxlama və təsdiq düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: What's your email? → It's G-A-N-J-A five at mail dot com. → … Is that right? → Yes, that's right. Səbəb: Sual, ünvan, yoxlama, sonra təsdiq. Qayda: Is that right? — yoxlama; Yes, that's right. — təsdiq. Nümunə: What's your email?  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Kursda e-poçt mübadiləsi. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Excuse me, what's your email? → 2. It's B-A-K-U nine at mail dot com. → 3. Sorry? Slowly, please. → 4. B… A… K… U… nine at mail dot com.  
-**İpucu:** Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?  
-**Düzgün olanda:** Sual, ünvan, xahiş və yavaş təkrar düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? Slowly, please. → B… A… K… U… Səbəb: Ünvan sürətli deyildi, xahişdən sonra yavaş təkrar olundu. Qayda: Slowly, please. — sürətli idi; Again, please. — eşitmədin. Nümunə: Sorry? Slowly, please.  
 
 ## Nəticə
 

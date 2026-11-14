@@ -90,13 +90,13 @@ export const unit1Exam: DesignLesson[] = [{
     {
       type: 'write', id: 'u1x_c09', number: 9, title: 'Cümləni qur', why: 'Nice to meet you — “to” da yerindədir.',
       prompt: 'İşdə yeni həmkarla tanış oldun.\nSözlərdən “Tanış olduğuma şadam” cümləsini qur.', placeholder: 'Sözlərə toxun',
-      chat: { partner: 'Yeni həmkar', from: 'B', lines: [] },
+      chat: { partner: 'Yeni həmkar', from: 'B', lines: [{ from: 'B', text: 'Hello!' }] },
       tiles: ['meet', 'you', 'Nice', 'your', 'to', 'too', '.'], rule: exact('Nice to meet you.'),
       variants: [other('Söz sırası və ya bir söz düz deyil.', ex('Nice to meet you.', 'Azərbaycanca “tanış olduğuma” bir sözdür, ingiliscə “to meet” iki sözdür və sonda “your” yox, “you” gəlir.', 'Nice to meet you. — xoş söz; You too. — ona cavab.', 'Nice to meet you! — You too!'))],
     },
     {
       type: 'voice', id: 'u1x_c10', number: 10, title: 'Danış: kömək istə', why: 'Başa düşmədiyini dedin və təkrar istədin.',
-      prompt: 'Kafedə ofisiant sənə uzun bir şey dedi, heç nə başa düşmədin.\nBaşa düşmədiyini de və bir də deməsini xahiş et.',
+      prompt: 'Kafedə ofisiant sənə uzun bir şey dedi, heç nə başa düşmürsən.\nBaşa düşmədiyini de və bir də deməsini xahiş et.',
       rule: goal(['dontUnderstand', 'repeat'], ["Sorry? I don't understand. Again, please."]),
       variants: [other('İki hissə: başa düşmürəm + bir də.', ex("Sorry? I don't understand. Again, please.", '“I not understand” və “I am understand” demirik.', 'I’m not very well. — burada not; I don’t understand. — burada don’t.', "I don't understand. Again, please."))],
     },
@@ -108,11 +108,13 @@ export const unit1Exam: DesignLesson[] = [{
       variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Thanks! — You're welcome.; How are you? — I'm OK. And you?; Goodbye! — Bye!", 'Təşəkkürə, hal sualına və sağollaşmaya fərqli cavab verilir.', 'Thanks! → You’re welcome; Goodbye! → Bye!', "Thank you! — You're welcome."))],
     },
     {
-      type: 'voice', id: 'u1x_c12', number: 12, title: 'Dinlə və təkrarla', why: 'Xahiş aydın səsləndi.',
-      prompt: 'Dinlə, sonra eyni cür de.', audio: 'Sorry? Slowly, please.',
-      repeat: { stress: 'Slowly', note: 'Vurğu birinci hecadadır: SLOW-ly.', reading: 'sari? slouli, pliz' },
-      rule: exact('Sorry? Slowly, please'),
-      variants: [other('Bir daha dinlə və eyni cür de.', ex('Sorry? Slowly, please.', 'Səsdəki sözləri eyni sıra ilə de.', 'Sorry? — nə dedin; Slowly, please. — yavaş.', 'Slowly, please.'))],
+      type: 'voice', id: 'u1x_c12', number: 12, title: 'Danış: yavaş xahiş et', why: 'Yavaş danışmağı nəzakətlə xahiş etdin.',
+      prompt: 'Kafedə kassir çox sürətlə danışır.\nOndan yavaş danışmağı xahiş et.', audio: 'Hellohowareyou!',
+      rule: goal(['slow'], ['Slowly, please.', 'Sorry? Slowly, please.']),
+      variants: [
+        insteadOf('repeat', 'Problem sürətdədir — yavaş danışmağı xahiş et.', ex('Slowly, please.', 'Eşitdin, amma çox sürətli idi — yavaş danışmağı istəyirsən.', 'Again, please. — bir də; Slowly, please. — yavaş.', 'Sorry? Slowly, please.')),
+        other('Slowly, please.', ex('Slowly, please.', 'O çox sürətli danışır, ona görə “Slowly” lazımdır.', 'Again, please. — bir də; Slowly, please. — yavaş.', 'Sorry? Slowly, please.')),
+      ],
     },
     {
       type: 'two', id: 'u1x_c13', number: 13, title: 'İki mesaj yaz', why: 'Təşəkkür etdin və sağollaşdın.',
@@ -122,7 +124,7 @@ export const unit1Exam: DesignLesson[] = [{
         { id: 'u1x_c13b', label: 'İkinci mesaj', placeholder: 'Sağollaş', rule: goal(['farewell'], ['Goodbye!', 'Bye!']), purpose: 'sağollaşmaq', empty: 'İkinci mesajı da yaz.' },
       ],
       variants: [
-        { field: 'u1x_c13a', match: { other: true }, explain: ex('Thank you!', 'Kömək edənə təşəkkür edirsən; “Please” xahişdir, “You’re welcome” təşəkkürə cavabdır.', 'Thank you! — təşəkkür; You’re welcome. — ona cavab.', "I'm fine, thanks.") },
+        { field: 'u1x_c13a', match: { other: true }, explain: ex('Thank you!', 'Kömək edənə təşəkkür edirsən; “Please” xahişdir, “You’re welcome” təşəkkürə cavabdır.', 'Thank you! — təşəkkür; You’re welcome. — ona cavab.', "Thank you! — You're welcome.") },
         { field: 'u1x_c13b', match: { other: true }, explain: ex('Bye!', 'Həmkarın gedir — sağollaşırsan; “Hello” görüşün əvvəlində deyilir.', 'Hello! — gələndə; Goodbye! — gedəndə.', 'Goodbye!') },
       ],
     },

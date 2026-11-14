@@ -33,7 +33,7 @@ export const lesson7a: DesignLesson = {
         pick('1', '“one” — bir; səsdə başqa söz var.', ex('11', '“eleven” ayrıca sözdür, “one one” deyil.', 'One! — bir; Eleven! — on bir.', 'Nine, ten, eleven!')),
       ],
       review: {
-        title: 'Dinlə və seç', why: '“twelve” — on iki.', hint: 'Bu söz “two” ilə başlamır — kartı xatırla.',
+        title: 'Dinlə və seç', why: '“twelve” — on iki.', hint: 'Sözün sonuna qulaq as.',
         prompt: 'Kafedə ofisiant masanın nömrəsini deyir.\nHansı nömrədir?', audio: 'Twelve.',
         options: ['2', '12', '20'], answer: '12',
         variants: [
@@ -52,12 +52,12 @@ export const lesson7a: DesignLesson = {
       type: 'write', id: 'u2d7a_c05', number: 5, keypad: true, title: 'Kodu yığ', why: 'twelve, eleven — 1211.', hint: 'Hər sözü eşidəndə iki rəqəm yığ.',
       prompt: 'İdman zalında dolabın kodu var.\nQəbul kodu deyir. Dinlə və yığ.', audio: 'Twelve, eleven.', placeholder: 'Dolabın kodu',
       rule: exact('1211'),
-      variants: [other('Hər sözdə iki rəqəm var.', ex('1211', 'twelve — 12, eleven — 11; sıra ilə yığılır.', 'twelve — 12; eleven — 11.', 'Twelve, eleven.'))],
+      variants: [other('Hər sözdə iki rəqəm var.', ex('1211', 'twelve — 12, eleven — 11; sıra ilə yığılır.', 'Twelve, eleven. — 1211; Eleven, twelve. — 1112.', 'Twelve, eleven.'))],
       review: {
         keypad: true, title: 'Kodu yığ', why: 'fifteen, nineteen — 1519.', hint: 'Hər sözü eşidəndə iki rəqəm yığ.',
         prompt: 'Ofisin qapısında kod var.\nİş yoldaşın kodu deyir. Dinlə və yığ.', audio: 'Fifteen, nineteen.', placeholder: 'Qapının kodu',
         rule: exact('1519'),
-        variants: [other('Hər sözdə iki rəqəm var.', ex('1519', 'fifteen — 15, nineteen — 19.', 'fifteen — 15; nineteen — 19.', 'Fifteen, nineteen.'))],
+        variants: [other('Hər sözdə iki rəqəm var.', ex('1519', 'fifteen — 15, nineteen — 19.', 'Fifteen, nineteen. — 1519; Nineteen, fifteen. — 1915.', 'Fifteen, nineteen.'))],
       },
     },
     {
@@ -69,12 +69,12 @@ export const lesson7a: DesignLesson = {
       example: 'Thirteen, fourteen, fifteen!', exampleAz: 'On üç, on dörd, on beş!',
     },
     {
-      type: 'voice', id: 'u2d7a_c07', number: 7, title: 'Dinlə və təkrarla', why: 'Vurğunu “teen” üzərinə qoydun.', hint: 'Hər sözün sonunu güclü de.',
+      type: 'voice', id: 'u2d7a_c07', number: 7, title: 'Dinlə və təkrarla', why: 'Rəqəmləri dedin; vurğu “teen” üzərindədir.', hint: 'Hər sözün sonunu güclü de.',
       prompt: 'Məşqçi təkrarları sayır.\nDinlə, sonra eyni cür de.', audio: 'Thirteen, fourteen, fifteen.', repeat: { stress: 'teen', note: 'Vurğu “teen” üzərindədir: thir-TEEN.', reading: '**th**ırtin, fortin, fiftin' },
       rule: exact('Thirteen, fourteen, fifteen.', '13 14 15'),
       variants: [other('Bir daha dinlə və sonunu güclü de.', ex('Thirteen, fourteen, fifteen.', 'Bu sözlərdə vurğu sondakı “teen” üzərindədir.', 'thir-TEEN — 13; four-TEEN — 14.', 'Thirteen, fourteen, fifteen!'))],
       review: {
-        title: 'Dinlə və təkrarla', why: 'Vurğunu “teen” üzərinə qoydun.', hint: 'Hər sözün sonunu güclü de.',
+        title: 'Dinlə və təkrarla', why: 'Rəqəmləri dedin; vurğu “teen” üzərindədir.', hint: 'Hər sözün sonunu güclü de.',
         prompt: 'Yoqa dərsində müəllim nəfəsləri sayır.\nDinlə, sonra eyni cür de.', audio: 'Sixteen, seventeen, eighteen.', repeat: { stress: 'teen', note: 'Vurğu “teen” üzərindədir: six-TEEN.', reading: 'sikstin, sevəntin, eytin' },
         rule: exact('Sixteen, seventeen, eighteen.', '16 17 18'),
         variants: [other('Bir daha dinlə və sonunu güclü de.', ex('Sixteen, seventeen, eighteen.', 'Bu sözlərdə vurğu sondakı “teen” üzərindədir.', 'six-TEEN — 16; eigh-TEEN — 18.', 'Sixteen, seventeen, eighteen.'))],
@@ -151,12 +151,12 @@ export const lesson7a: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u2d7a_c13', number: 13, title: 'Dolabını de', why: 'Dolabının nömrəsini dedin.', hint: 'Cavabı “budur” mənasındakı qısa sözlə başla.',
+      type: 'voice', id: 'u2d7a_c13', number: 13, title: 'Dolabını de', why: 'Dolabının nömrəsini dedin.', hint: 'Dərs 2-dəki kimi qısa sözlə başla, sonra nömrəni de.',
       prompt: 'Qəbulda soruşurlar ki, dolabın neçədir. Sənin dolabın 18-dir.\nNömrəni de.', reply: 'Eighteen. Thank you!',
       rule: itsNumber('eighteen', '18', "It's eighteen."),
       variants: [other("It's eighteen.", ex("It's eighteen.", '18 — eight + teen; “gh” oxunmur.', 'eight — 8; eighteen — 18.', "It's eighteen."))],
       review: {
-        title: 'Dolabını de', why: 'Dolabının nömrəsini dedin.', hint: 'Cavabı “budur” mənasındakı qısa sözlə başla.',
+        title: 'Dolabını de', why: 'Dolabının nömrəsini dedin.', hint: 'Dərs 2-dəki kimi qısa sözlə başla, sonra nömrəni de.',
         prompt: 'Hovuzda soruşurlar ki, dolabın neçədir. Sənin dolabın 13-dür.\nNömrəni de.', reply: 'Thirteen. Thank you!',
         rule: itsNumber('thirteen', '13', "It's thirteen."),
         variants: [other("It's thirteen.", ex("It's thirteen.", '13 — thir- + teen, “three” dəyişir.', 'three — 3; thirteen — 13.', "It's thirteen."))],
@@ -164,7 +164,7 @@ export const lesson7a: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 7 · 1-ci hissə tamamlandı', 'Artıq 11–20 rəqəmlərini tanıyır, yazır və dolabının nömrəsini deyə bilirsən.'],
+    done: ['Dərs 7 · 1-ci hissə tamamlandı', 'Artıq 11–20 rəqəmlərini tanıyırsan, yazırsan və dolabının nömrəsini deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
       { group: 'Tanıma', text: '11–20 rəqəmlərini eşidib tanımaq', tasks: ['u2d7a_c03', 'u2d7a_c05', 'u2d7a_c09', 'u2d7a_c11', 'u2d7a_c12'] },

@@ -34,7 +34,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Ziyafətin sonunda iş yoldaşı sənə yaxınlaşır. O nə soruşur?  
-**Səs:** Thanks! Bye! Excuse me, what's your email?  
+**Səs:** Excuse me, what's your email? Thanks!  
 **Seçimlər:** Telefon nömrəni soruşur. / E-poçtunu soruşur. / Halını soruşur. — **düzgün:** E-poçtunu soruşur.  
 **İpucu:** Sualın sonundakı sözə qulaq as.  
 **Düzgün olanda:** “email” — e-poçt.  
@@ -68,7 +68,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 **Qəbul:** məna:  — nümunə: It's zero five zero, three two one, four five, six seven. · öz məlumatı: /^(?:it'?s\s+|it is\s+|my (?:phone )?number is\s+)?(?:(?:zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine|\d)[\s,.-]*){7,15}[.!]?$/  
 **İpucu:** Qısa sözlə başla, sonra rəqəmləri bir-bir de.  
 **Düzgün olanda:** Nömrəni rəqəm-rəqəm dedin.  
-- *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir; söz sırası da “phone number”dur. Qayda: My phone number is … — düzdür; My phone is … — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
+- *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər. Qayda: It's 050 321 45 67. — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
 - *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: It's zero five zero… — nömrə; My phone… — telefonun özü. Nümunə: It's oh five five, two one nine, oh three, eight eight.  
 
 **Təkrar (yeni vəziyyət):**
@@ -78,7 +78,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 **Qəbul:** məna:  — nümunə: It's zero five zero, three two one, four five, six seven. · öz məlumatı: /^(?:it'?s\s+|it is\s+|my (?:phone )?number is\s+)?(?:(?:zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine|\d)[\s,.-]*){7,15}[.!]?$/  
 **İpucu:** Qısa sözlə başla, sonra rəqəmləri bir-bir de.  
 **Düzgün olanda:** Nömrəni rəqəm-rəqəm dedin.  
-- *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir; söz sırası da “phone number”dur. Qayda: My phone number is … — düzdür; My phone is … — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
+- *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər. Qayda: It's 050 321 45 67. — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
 - *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: It's zero five zero… — nömrə; My phone… — telefonun özü. Nümunə: It's zero five zero, three two one, four five, six seven.  
 
 ## Kart 6 — Nömrəni yığ: Nömrəni yığ
@@ -135,23 +135,23 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 - *İzah (başqa səhvdə):* Sözlər yox, işarələr yaz: @ və nöqtə. — Uyğun: abbasov3@mail.com. Səbəb: “at” @ ilə, “dot” nöqtə ilə yazılır. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
 - *İzah (başqa səhvdə):* Ünvanı yoxla. — Uyğun: abbasov3@mail.com. Səbəb: “double B” — BB; “at” — @; “dot” — nöqtə. Qayda: double B — BB; dot — nöqtə. Nümunə: It's A-double B-A-S-O-V three at mail dot com.  
 
-## Kart 9 — Səslə cavab: Hərf-hərf soruş
+## Kart 9 — Səslə cavab: Soyadını hərf-hərf de
 
-**Tapşırıq:** Ziyafətdə yeni tanış şəhərini dedi, sən onu tanımırsan. Hərf-hərf deməsini xahiş et.  
-**Səs:** It's Lankaran.  
-**Qəbul:** məna: askSpell — nümunə: Can you spell it, please? / How do you spell it?  
-**İpucu:** Dərs 4-ün nəzakətli xahişini xatırla.  
-**Düzgün olanda:** Hərf-hərf deməyi nəzakətlə xahiş etdin.  
-- *İzah (başqa səhvdə):* Can you spell it, please? — Uyğun: Can you spell it, please? Səbəb: Adı tanımırsan — hərf-hərf deməsini xahiş edirsən. Qayda: Can you spell it, please? — hərf-hərf; Again, please. — bir də. Nümunə: Lankaran? Can you spell it, please?  
+**Tapşırıq:** Qeydiyyatçı soruşur: “What's your last name? How do you spell it?” Soyadını hərf-hərf de. Ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).  
+**Səs:** What's your last name? How do you spell it?  
+**Qəbul:** məna:  — nümunə: My last name is … · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
+**İpucu:** Soyadının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
+**Düzgün olanda:** Soyadını hərf-hərf dedin.  
+- *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: My last name is … Səbəb: Soyadını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: How do you spell it? — It's M-A-double M-A-D-O-V-A. Nümunə: It's H-A-S-A-N-O-V-A.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qeydiyyatda tələbə soyadını dedi. Formaya yazmalısan. Hərf-hərf deməsini xahiş et.  
-**Səs:** It's Huseynova.  
-**Qəbul:** məna: askSpell — nümunə: Can you spell it, please? / How do you spell it?  
-**İpucu:** Dərs 4-ün nəzakətli xahişini xatırla.  
-**Düzgün olanda:** Hərf-hərf deməyi nəzakətlə xahiş etdin.  
-- *İzah (başqa səhvdə):* Can you spell it, please? — Uyğun: Can you spell it, please? Səbəb: Soyadı yazmaq üçün hərflər lazımdır. Qayda: Can you spell it, please? — hərf-hərf; Slowly, please. — yavaş. Nümunə: Huseynova? Can you spell it, please?  
+**Tapşırıq:** Ziyafətdə yeni tanış adını kartına yazmaq istəyir. Adını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).  
+**Səs:** What's your first name? Can you spell it, please?  
+**Qəbul:** məna:  — nümunə: It's … · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
+**İpucu:** Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
+**Düzgün olanda:** Adını hərf-hərf dedin.  
+- *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: It's … Səbəb: Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: Can you spell it, please? — It's G-A-N-J-A. Nümunə: It's B-A-K-U.  
 
 ## Kart 10 — Formanı doldur: Formanı doldur
 
@@ -185,25 +185,41 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 ## Kart 11 — Sözü tamamla: Sözü tamamla
 
-**Tapşırıq:** Ziyafətdə kursun direktoru gəlir. O kişidir, soyadı Mammadov. Qız ona salam verir. Hansı söz çatmır?  
+**Tapşırıq:** Ziyafətə kursun direktoru gəlir, soyadı Mammadov. Qız ona salam verir. Hansı söz çatmır?  
 **Cümlə:** Hello, ___ Mammadov! Nice to meet you.  
 **Seçimlər:** Ms / Mr / last — **düzgün:** Mr  
-**İpucu:** Kursun direktoru kişidir, yoxsa qadın?  
-**Düzgün olanda:** Kişiyə — Mr.  
-- *İzah (“Ms” seçiləndə):* “Ms” qadına deyilir. — Uyğun: Mr. Səbəb: Direktor kişidir, ona “Mr” deyilir. Qayda: Mr Mammadov — kişi; Ms Mammadova — qadın. Nümunə: Hello, Mr Mammadov!  
+**İpucu:** Soyadın sonuna bax: -ova, yoxsa -ov?  
+**Düzgün olanda:** -ov ilə bitən soyad kişinindir — Mr.  
+- *İzah (“Ms” seçiləndə):* “Ms” qadına deyilir. — Uyğun: Mr. Səbəb: Mammadov — kişi soyadıdır, ona “Mr” deyilir. Qayda: Mr Mammadov — kişi; Ms Mammadova — qadın. Nümunə: Hello, Mr Mammadov!  
 - *İzah (“last” seçiləndə):* “last” soyad sözündədir: last name. — Uyğun: Mr. Səbəb: Salam verəndə soyaddan əvvəl “Mr” və ya “Ms” gəlir. Qayda: Hello, Mr Mammadov! — müraciət; last name — soyad. Nümunə: Hello, Mr Mammadov!  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qeydiyyatçı qadındır, soyadı Aliyeva. Oğlan ona təşəkkür edir. Hansı söz çatmır?  
+**Tapşırıq:** Qeydiyyatçının soyadı Aliyeva. Oğlan ona təşəkkür edir. Hansı söz çatmır?  
 **Cümlə:** Thank you, ___ Aliyeva!  
 **Seçimlər:** Mr / first / Ms — **düzgün:** Ms  
-**İpucu:** Qeydiyyatçı kişidir, yoxsa qadın?  
-**Düzgün olanda:** Qadına — Ms.  
-- *İzah (“Mr” seçiləndə):* “Mr” kişiyə deyilir. — Uyğun: Ms. Səbəb: Qeydiyyatçı qadındır, ona “Ms” deyilir. Qayda: Mr Aliyev — kişi; Ms Aliyeva — qadın. Nümunə: Thank you, Ms Aliyeva!  
+**İpucu:** Soyadın sonuna bax: -yeva, yoxsa -yev?  
+**Düzgün olanda:** -yeva ilə bitən soyad qadınındır — Ms.  
+- *İzah (“Mr” seçiləndə):* “Mr” kişiyə deyilir. — Uyğun: Ms. Səbəb: Aliyeva — qadın soyadıdır, ona “Ms” deyilir. Qayda: Mr Aliyev — kişi; Ms Aliyeva — qadın. Nümunə: Thank you, Ms Aliyeva!  
 - *İzah (“first” seçiləndə):* “first” ad sözündədir: first name. — Uyğun: Ms. Səbəb: Müraciətdə soyaddan əvvəl “Ms” və ya “Mr” gəlir. Qayda: Thank you, Ms Aliyeva! — müraciət; first name — ad. Nümunə: Thank you, Ms Aliyeva!  
 
-## Kart 12 — Dialoqu tamamla: Mesaj yaz
+## Kart 12 — Söhbəti sırala: Söhbəti sırala
+
+**Tapşırıq:** Ziyafətdə nömrə mübadiləsi. Balonlara toxun, söhbəti sıraya düz.  
+**Düzgün sıra:** 1. What's your phone number? → 2. It's oh five five, two one nine, three oh, eight eight. → 3. Sorry? Oh? I don't understand. → 4. Oh — zero. Zero five five, two one nine…  
+**İpucu:** Əvvəl sual gəlir; tanış olmayan səsi eşidən soruşur, o biri izah edir.  
+**Düzgün olanda:** Sual, nömrə, çaşqınlıq və izah düz sıradadır.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: What's your phone number? → It's oh five five… → Sorry? Oh? I don't understand. → Oh — zero. Zero five five… Səbəb: Qız “oh” sözünü başa düşmədi, oğlan onun sıfır olduğunu izah etdi. Qayda: oh five five — 055; zero five five — 055. Nümunə: Sorry? I don't understand.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Qeydiyyat növbəsində tanışlıq. Balonlara toxun, söhbəti sıraya düz.  
+**Düzgün sıra:** 1. Hi! How old are you? → 2. I'm thirty-five. And you? → 3. I'm thirty. → 4. Nice to meet you!  
+**İpucu:** Əvvəl sual gəlir; cavab verən sualı geri qaytarır.  
+**Düzgün olanda:** Sual, cavab, qarşı sual və xoş söz düz sıradadır.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! How old are you? → I'm thirty-five. And you? → I'm thirty. → Nice to meet you! Səbəb: Sual, cavab və qarşı sual, sonra ikinci cavab. Qayda: How old are you? — sual; And you? — qarşı sual. Nümunə: I'm thirty-five. And you?  
+
+## Kart 13 — Dialoqu tamamla: Mesaj yaz
 
 **Tapşırıq:** Ziyafətdən sonra yeni tanış yazır. Öz e-poçtunu yaz (istəsən, uydurma).  
 **Yazışma (Yeni tanış):** “Hi! Nice to meet you! What's your email?”  
@@ -221,7 +237,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 **Düzgün olanda:** E-poçtunu yazdın.  
 - *İzah (başqa səhvdə):* ad@mail.com — Uyğun: It's ganja5@mail.com. Səbəb: Yazanda @ və nöqtə işarəsi qoyulur. Qayda: at — @; dot — nöqtə. Nümunə: It's ganja5@mail.com.  
 
-## Kart 13 — Səslə cavab: Yaşını de və soruş
+## Kart 14 — Səslə cavab: Yaşını de və soruş
 
 **Tapşırıq:** Ziyafətdə yeni tanış soruşur: “How old are you?” Yaşını de və ondan da soruş (istəsən, istənilən yaş).  
 **Səs:** How old are you?  
@@ -229,35 +245,19 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 **İpucu:** Əvvəl yaşını de, sonra Bölmə 1-dəki qısa qarşı sualı əlavə et.  
 **Düzgün olanda:** Yaşını dedin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Yaş “var” ilə yox, I’m ilə deyilir. — Uyğun: I'm twenty-five. Səbəb: “25 yaşım var” sözbəsöz tərcümə olunmur — ingiliscə yaşı I’m ilə deyirik. Qayda: I'm twenty-five. — düzdür; “yaşım var” kimi tərcümə — olmur. Nümunə: How old are you? — I'm thirty.  
-- *İzah (başqa səhvdə):* Yaşı demək kifayətdir. — Uyğun: I'm twenty-five. Səbəb: Yaşdan sonra o söz tək qalmır — yaşı demək kifayətdir. Qayda: I'm twenty-five. — düzdür; yaşdan sonra yarımçıq əlavə — olmur. Nümunə: How old are you? — I'm thirty.  
+- *İzah (başqa səhvdə):* Yaşı demək kifayətdir. — Uyğun: I'm twenty-five. Səbəb: Ya yalnız yaşı de, ya da “years old” birlikdə. Qayda: I'm twenty-five. — düzdür; I'm twenty-five years. — olmur. Nümunə: I'm twenty-five years old.  
 - *İzah (başqa səhvdə):* I'm … And you? — Uyğun: I'm twenty-five. And you? Səbəb: Yaşından sonra “And you?” ilə sualı qaytarırsan. Qayda: I'm twenty-five. — yaş; And you? — qarşı sual. Nümunə: I'm thirty. And you?  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qeydiyyat növbəsində yanındakı adam soruşur: “How old are you?” Yaşını de və ondan da soruş.  
-**Səs:** I'm forty. How old are you?  
+**Tapşırıq:** Qeydiyyat növbəsində yanındakı adam soruşur. Yaşını de və ondan da soruş (istəsən, istənilən yaş).  
+**Səs:** Hi! How old are you?  
 **Qəbul:** məna:  — nümunə: I'm twenty-five. And you? · öz məlumatı: /^(?:i'?m|i am)\s+(?:\d{1,3}|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ]?(?:one|two|three|four|five|six|seven|eight|nine))?|(?:ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)|(?:one|two|three|four|five|six|seven|eight|nine))(?:\s+years\s+old)?\s*[.!,]?\s*(?:and you|how old are you)\s*\??$/  
 **İpucu:** Əvvəl yaşını de, sonra qısa qarşı sualı əlavə et.  
 **Düzgün olanda:** Yaşını dedin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Yaş “var” ilə yox, I’m ilə deyilir. — Uyğun: I'm twenty-five. Səbəb: “25 yaşım var” sözbəsöz tərcümə olunmur — ingiliscə yaşı I’m ilə deyirik. Qayda: I'm twenty-five. — düzdür; “yaşım var” kimi tərcümə — olmur. Nümunə: How old are you? — I'm thirty.  
-- *İzah (başqa səhvdə):* Yaşı demək kifayətdir. — Uyğun: I'm twenty-five. Səbəb: Yaşdan sonra o söz tək qalmır — yaşı demək kifayətdir. Qayda: I'm twenty-five. — düzdür; yaşdan sonra yarımçıq əlavə — olmur. Nümunə: How old are you? — I'm thirty.  
+- *İzah (başqa səhvdə):* Yaşı demək kifayətdir. — Uyğun: I'm twenty-five. Səbəb: Ya yalnız yaşı de, ya da “years old” birlikdə. Qayda: I'm twenty-five. — düzdür; I'm twenty-five years. — olmur. Nümunə: I'm twenty-five years old.  
 - *İzah (başqa səhvdə):* I'm … And you? — Uyğun: I'm twenty-five. And you? Səbəb: Yaşından sonra “And you?” ilə sualı qaytarırsan. Qayda: I'm twenty-five. — yaş; And you? — qarşı sual. Nümunə: I'm thirty. And you?  
-
-## Kart 14 — Söhbəti sırala: Söhbəti sırala
-
-**Tapşırıq:** Ziyafətdə e-poçt mübadiləsi. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. What's your email? → 2. It's B-A-K-U nine at mail dot com. → 3. Sorry? I don't understand. Slowly, please. → 4. B… A… K… U… nine at mail dot com.  
-**İpucu:** Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?  
-**Düzgün olanda:** Sual, ünvan, xahiş və yavaş təkrar düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: What's your email? → It's B-A-K-U nine at mail dot com. → Sorry? I don't understand. Slowly, please. → B… A… K… U… Səbəb: Ünvan sürətli deyildi, xahişdən sonra yavaş təkrar olundu. Qayda: Slowly, please. — sürətli idi; Again, please. — eşitmədin. Nümunə: Sorry? I don't understand. Slowly, please.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Qeydiyyat növbəsində tanışlıq. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hi! How old are you? → 2. I'm thirty-five. And you? → 3. I'm thirty. → 4. Nice to meet you!  
-**İpucu:** Əvvəl sual gəlir; cavab verən sualı geri qaytarır.  
-**Düzgün olanda:** Sual, cavab, qarşı sual və xoş söz düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! How old are you? → I'm thirty-five. And you? → I'm thirty. → Nice to meet you! Səbəb: Sual, cavab və qarşı sual, sonra ikinci cavab. Qayda: How old are you? — sual; And you? — qarşı sual. Nümunə: I'm thirty-five. And you?  
 
 ## Nəticə
 
@@ -265,6 +265,6 @@ Dərs 8 tamamlandı — Qeydiyyat söhbətində adını, soyadını, nömrəni, 
 
 - Tanıma: Qeydiyyat suallarını və hərf-hərf deyiləni anlamaq
 - Yazı: Formanı doldurmaq, ünvanı yazmaq, e-poçtunu göndərmək
-- Danışıq: Nömrəni, yaşını demək və hərf-hərf soruşmaq
+- Danışıq: Nömrəni, yaşını demək və soyadını hərf-hərf demək
 
 Bölmə 2 bitdi! İndi bölmə imtahanını verə bilərsən.
