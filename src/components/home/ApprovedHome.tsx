@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { getPacketLesson } from '../../data/b1Course';
 import { designLessons } from '../../data/designLessons';
+import { TEST_OPEN_SECTIONS } from '../../config/testAccess';
 import { getModuleById } from '../../data/modules';
 import { useUserStore } from '../../store/userStore';
 import type { HomeCourse } from '../../utils/homeCourse';
@@ -58,7 +59,7 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
     locked={moduleLocked} streak={streak} xp={xp} languageLabel={`${language.toUpperCase()} · ${level}`} topInset={topInset} bottomSpace={bottomSpace}
     review={{ count: reviewCount }}
     nextSection={preview ? { title: preview.title, available: preview.state !== 'planned' && preview.state !== 'locked' } : undefined}
-    exam={exam} onPrevSection={prev ? () => setViewed(prev.order) : undefined}
+    exam={exam} allOpen={TEST_OPEN_SECTIONS.includes(unit)} onPrevSection={prev ? () => setViewed(prev.order) : undefined}
     onSelectLanguage={onSelect} onOpenLesson={id => onLesson ? onLesson(id) : onOpen(module.id)} onAnalysis={() => onNavigate?.('analysis')}
     onReview={() => onNavigate?.('review')} onNextSection={() => { if (!preview) return; if (preview.lessonsCount > 0) setViewed(preview.order); else onOpen(preview.id); }} />;
 }

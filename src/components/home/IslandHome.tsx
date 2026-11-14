@@ -47,10 +47,12 @@ function water(w: number, h: number, level: number) {
 }
 
 export function IslandHome({ section, sectionTitle, lessons, completed, partial, locked, nextSection, streak, xp, languageLabel, topInset, bottomSpace, review,
-  onSelectLanguage, onOpenLesson, onAnalysis, onReview, onNextSection, exam, onPrevSection }: {
+  onSelectLanguage, onOpenLesson, onAnalysis, onReview, onNextSection, exam, onPrevSection, allOpen = false }: {
   section: number; sectionTitle: string; lessons: IslandLesson[]; completed: string[]; partial: Record<string, number>; locked: boolean;
   nextSection?: { title: string; available: boolean };
   exam?: IslandExam; onPrevSection?: () => void;
+  /** Temporary test access: every lesson, part and the exam open in any order (src/config/testAccess.ts). */
+  allOpen?: boolean;
   streak: number; xp: number; languageLabel: string; topInset: number; bottomSpace: number; review: { count: number };
   onSelectLanguage: () => void; onOpenLesson: (id: string) => void; onAnalysis: () => void; onReview: () => void; onNextSection: () => void;
 }) {
@@ -63,6 +65,7 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   const active = locked ? -1 : lessons.findIndex(l => !isDone(l));
   const finished = count > 0 && doneCount === count;
   const level = count ? doneCount / count : 0;
+  const examOpen = finished || allOpen;
   const percentOf = (l: IslandLesson) => l.parts ? Math.round(l.parts.reduce((a, p) => a + partPct(p.id), 0) / l.parts.length) : partPct(l.id);
   const activePart = active >= 0 ? percentOf(lessons[active]) / 100 : 0;
 
@@ -176,18 +179,18 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       <View style={s.reviewBtn}><Text style={s.reviewBtnText}>Başla</Text></View>
     </Pressable>
 
-    {exam ? <Pressable accessibilityRole="button" disabled={!finished || locked} onPress={() => onOpenLesson(exam.id)}
-      accessibilityLabel={`Bölmə ${section} imtahanı${finished ? '' : ', bütün dərsləri bitirəndə açılır'}`}
-      style={({ pressed }) => [s.exam, exam.passed && { borderColor: d.green }, (!finished || locked) && { opacity: .6 }, pressed && { opacity: .9 }]}>
+    {exam ? <Pressable accessibilityRole="button" disabled={!examOpen || locked} onPress={() => onOpenLesson(exam.id)}
+      accessibilityLabel={`Bölmə ${section} imtahanı${examOpen ? '' : ', bütün dərsləri bitirəndə açılır'}`}
+      style={({ pressed }) => [s.exam, exam.passed && { borderColor: d.green }, (!examOpen || locked) && { opacity: .6 }, pressed && { opacity: .9 }]}>
       <View style={[s.examIcon, exam.passed && { backgroundColor: d.greenSoft }]}><Icon name="flag" size={20} color={exam.passed ? d.greenText : d.purple} /></View>
       <View style={{ flex: 1 }}>
         <Text style={s.examTitle}>Bölmə imtahanı</Text>
-        <Text style={s.examSub}>{!finished ? 'Bütün dərsləri bitirəndə açılır' : exam.passed ? `Keçdin · ${exam.percent}%` : exam.percent !== null ? `Son nəticə ${exam.percent}% · keçmək üçün 80%` : 'Kömək yoxdur · keçmək üçün 80%'}</Text>
+        <Text style={s.examSub}>{!examOpen ? 'Bütün dərsləri bitirəndə açılır' : exam.passed ? `Keçdin · ${exam.percent}%` : exam.percent !== null ? `Son nəticə ${exam.percent}% · keçmək üçün 80%` : 'Kömək yoxdur · keçmək üçün 80%'}</Text>
       </View>
-      {finished && !locked ? <Icon name="arrow" size={18} color={d.purple} /> : null}
+      {examOpen && !locked ? <Icon name="arrow" size={18} color={d.purple} /> : null}
     </Pressable> : null}
 
-    {nextSection && finished ? <Pressable accessibilityRole="button" disabled={!nextSection.available} onPress={onNextSection} style={s.next}>
+    {nextSection && (finished || nextSection.available) ? <Pressable accessibilityRole="button" disabled={!nextSection.available} onPress={onNextSection} style={s.next}>
       <Text style={s.nextText}>Bölmə {section + 1} · {nextSection.title}</Text>
     </Pressable> : null}
 
@@ -195,14 +198,14 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       <Pressable accessibilityLabel="Bağla" style={s.backdrop} onPress={() => setOpen(null)}>
         {open ? (() => {
           const pct = percentOf(open), done = isDone(open), isActive = lessons[active]?.id === open.id;
-          const reachable = !locked && (done || isActive);
+          const reachable = !locked && (done || isActive || allOpen);
           const go = (id: string) => { setOpen(null); onOpenLesson(id); };
           return <Pressable style={[s.sheet, shadow]} onPress={() => {}}>
             <View style={s.sheetHead}><Text style={s.sheetTitle}>Dərs {open.number} · {open.title}</Text><Text style={[s.sheetPct, { color: pct === 100 ? d.green : d.orange }]}>{pct}%</Text></View>
             {open.phrases ? <Text style={s.sheetPhrases}>{open.phrases}</Text> : null}
             <View style={s.sheetTrack}><View style={[s.sheetFill, { width: `${pct}%`, backgroundColor: pct === 100 ? d.green : d.orange }]} /></View>
             {reachable && open.parts ? open.parts.map((part, k) => {
-              const pp = partPct(part.id), partDone = pp === 100, partOpen = k === 0 || completed.includes(open.parts![k - 1].id);
+              const pp = partPct(part.id), partDone = pp === 100, partOpen = allOpen || k === 0 || completed.includes(open.parts![k - 1].id);
               return <View key={part.id} style={s.partRow}>
                 <View style={{ flex: 1 }}><Text style={s.partTitle}>{k + 1}-ci hissə · {part.title}</Text><Text style={[s.partPct, { color: partDone ? d.greenText : pp ? d.orangeText : d.inkSoft }]}>{pp}%</Text></View>
                 {partOpen ? <Pressable accessibilityRole="button" accessibilityLabel={`${k + 1}-ci hissə: ${partDone ? 'yenidən keç' : pp ? 'davam et' : 'başla'}`} onPress={() => go(part.id)}
