@@ -1,6 +1,6 @@
 # BirTalk — yeni söhbət üçün tam vəziyyət (yeniləndi: 14 noyabr 2026)
 
-Bu fayl yeni söhbətdə işə davam etmək üçündür. Əvvəlcə bunu, sonra `AGENTS.md`-ni və `docs/LAYIHE_DEFTERI.md`-nin son bölmələrini oxu.
+Bu fayl yeni söhbətdə işə davam etmək üçündür. **Bütün qaydalar bir yerdə: `docs/BUTUN_QAYDALAR.md` — onu mütləq oxu.** Əvvəlcə bunu, sonra `AGENTS.md`-ni və `docs/LAYIHE_DEFTERI.md`-nin son bölmələrini oxu.
 
 ## 1. Layihə
 

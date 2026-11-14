@@ -170,3 +170,5 @@ Speech uses `en-US` everywhere (13 Nov 2026): the user chose American pronunciat
 Full hand-off for a new session (workflow, rules, code map, open work): `docs/YENI_SOHBET_UCUN.md`. Read it first.
 
 Explanations follow `docs/IZAH_STANDARTI.md` (14 Nov 2026, from an external review the user accepted): 4 lines (Uyğun / Səbəb / Qayda / Nümunə), only the two forms on screen, no grammar terms, no “həmişə”, no untaught English in explanations or hints. `check-taught.cjs` enforces it for all eight lessons.
+
+All user rules in one place (Azerbaijani): `docs/BUTUN_QAYDALAR.md` — read it before any work.
