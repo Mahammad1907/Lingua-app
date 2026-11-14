@@ -6,6 +6,8 @@ import { ex, exact, goal, insteadOf, other, pick } from './build';
 
 const intro = goal(['introduce'], ["I'm …", 'My name is …']);
 const greetIntro = goal(['greet', 'introduce'], ["Hello! I'm …", 'Hi! My name is …']);
+// Before the “My name is” card only I'm is shown as a model (taught-before-shown).
+const greetIntroEarly = goal(['greet', 'introduce'], ["Hello! I'm …", "Hi! I'm …"]);
 
 export const lesson2: DesignLesson = {
   id: 'a1_en_b1_v2_d2', order: 2, title: 'Adını de', section: 'İlk tanışlıq',
@@ -109,7 +111,7 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'voice', id: 'd2_c08', number: 8, speaker: 'mascot', title: 'Özünü səslə təqdim et', why: 'Salam verdin və adını dedin.', hint: 'Əvvəl salam, sonra adın.',
-      prompt: '{M} salam verir.\nSalam ver və adını de.', audio: 'Hello!', sample: "Hello! I'm …", rule: greetIntro,
+      prompt: '{M} salam verir.\nSalam ver və adını de.', audio: 'Hello!', sample: "Hello! I'm …", rule: greetIntroEarly,
       variants: [other('Salam və adın ikisi də lazımdır.', ex("Hello! I'm …", '{M} salam verdi. Cavabda salam və adın olmalıdır.', 'Salam + I’m + adın.', 'Hi! I’m …'))],
       review: {
         speaker: 'mascot', title: 'Özünü səslə təqdim et', why: 'Salam verdin və adını dedin.', hint: 'Əvvəl salam, sonra adın.', prompt: 'Yeni gün. {M} yenə salam verir.\nSalam ver və adını de.', audio: 'Hi!', sample: "Hi! My name is …", rule: greetIntro,

@@ -21,7 +21,7 @@ export const lesson3: DesignLesson = {
       type: 'intro', id: 'd3_c01', badge: 'İlk tanışlıq', subtitle: 'İndi başqasının adını öyrənirsən.', start: 'Dərsə başla',
       goals: [
         { icon: 'chat', text: 'Başqasının adını soruşa bilirəm.' },
-        { icon: 'wave', text: 'Tanışlığa “Nice to meet you” ilə cavab verirəm.' },
+        { icon: 'wave', text: 'Tanış olanda “Nice to meet you” deyir, ona “You too” ilə cavab verirəm.' },
       ],
     },
     {

@@ -93,7 +93,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 **Tapşırıq:** Dostun deyir: “Sorry!” Üzrünü qəbul et.  
 **Səs:** Sorry!  
-**Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
+**Qəbul:** məna: noProblem — nümunə: No problem.  
 **Nümunə göstərilir:** No problem.  
 **İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
@@ -103,7 +103,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 **Tapşırıq:** Dostun gecikdi və deyir: “I’m sorry!” Üzrünü qəbul et.  
 **Səs:** I'm sorry!  
-**Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
+**Qəbul:** məna: noProblem — nümunə: No problem.  
 **Nümunə göstərilir:** No problem.  
 **İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
@@ -183,7 +183,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 ## Kart 13 — Yaz: Cavabını yaz
 
 **Tapşırıq:** Oğlan səhvən çantanı yerə saldı və deyir: “Sorry!” Üzrünü qəbul et.  
-**Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
+**Qəbul:** məna: noProblem — nümunə: No problem.  
 **İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
 - *İzah (cavab “sorry” işini görəndə):* Səhv onundur — sən üzrü qəbul edirsən. — Uyğun: No problem. Səbəb: Üzrə “Sorry” ilə yox, “No problem” ilə cavab verilir. Qayda: Sorry → No problem. Nümunə: Sorry! — No problem.  
@@ -192,7 +192,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qız sənin növbənə keçdi və deyir: “I’m sorry!” Üzrünü qəbul et.  
-**Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
+**Qəbul:** məna: noProblem — nümunə: No problem.  
 **İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
 - *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: O, üzr istədi. Sən “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: No problem.  

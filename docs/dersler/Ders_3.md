@@ -7,7 +7,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson3.ts`-dən yarad
 İndi başqasının adını öyrənirsən.
 
 - Başqasının adını soruşa bilirəm.
-- Tanışlığa “Nice to meet you” ilə cavab verirəm.
+- Tanış olanda “Nice to meet you” deyir, ona “You too” ilə cavab verirəm.
 
 ## Kart 2 — Seç: Oxu və anla
 

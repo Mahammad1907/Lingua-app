@@ -1,4 +1,4 @@
-# Dərs 7 — Başa düşmədim
+# Dərs 7 — Başa düşmürəm
 
 Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson7.ts`-dən yaradılıb — mətni orada dəyiş, sonra `node scripts/export-unit1-docs.cjs`.
 
@@ -6,7 +6,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson7.ts`-dən yarad
 
 Başa düşməmək normaldır — bunu demək bacarıqdır.
 
-- Başa düşmədiyimi deyə bilirəm.
+- Başa düşməyəndə “I don’t understand” deyə bilirəm.
 - Təkrar və yavaş danışmağı xahiş edirəm.
 
 ## Kart 2 — Yeni söz

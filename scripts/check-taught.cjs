@@ -1,3 +1,4 @@
+// Also: every accepted answer (not only the first) counts as shown to the learner (review, 14 Nov 2026).
 // Rule (user, 13 Nov 2026): no task may show or ask for an English word that was not taught before it.
 // "Taught" = the word appears on an earlier Yeni söz / Öyrən card of this lesson (word, example, structure)
 // or in any earlier lesson. Notes do not count: a word mentioned only in a note is not taught.
@@ -39,9 +40,9 @@ function asks(t) {
   const add = (label, text) => { if (text && english(text)) out.push([label, text]); };
   if (t.audio) add('audio', t.audio);
   if (t.type === 'choice') { t.options.forEach(o => add('option', o)); if (t.gap) { add('gap', t.gap.before); add('gap', t.gap.after); } }
-  if (t.type === 'write') { add('answer', t.rule.answers[0]); t.chat?.lines.forEach(l => add('chat', l.text)); t.tiles?.forEach(x => add('tile', x)); }
-  if (t.type === 'two') t.fields.forEach(f => add('answer', f.rule.answers[0]));
-  if (t.type === 'voice') { add('sample', t.sample); add('answer', t.rule.answers[0]); add('reply', t.reply); }
+  if (t.type === 'write') { t.rule.answers.forEach(a => add('qəbul', a)); t.chat?.lines.forEach(l => add('chat', l.text)); t.tiles?.forEach(x => add('tile', x)); }
+  if (t.type === 'two') t.fields.forEach(f => f.rule.answers.forEach(a => add('qəbul', a)));
+  if (t.type === 'voice') { add('sample', t.sample); t.rule.answers.forEach(a => add('qəbul', a)); add('reply', t.reply); }
   if (t.type === 'match') {
     if (t.mode !== 'order') t.rows.forEach(r => add('row', r.en));
     if (t.mode === 'reply' || t.mode === 'order') { t.rows.forEach(r => add(t.mode === 'order' ? 'turn' : 'reply', r.az)); t.extra.forEach(x => add('extra', x)); }

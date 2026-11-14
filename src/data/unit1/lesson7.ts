@@ -1,4 +1,4 @@
-// Bölmə 1 · Dərs 7 — Başa düşmədim (Sorry? I don't understand. Again, please. Slowly, please.).
+// Bölmə 1 · Dərs 7 — Başa düşmürəm (Sorry? I don't understand. Again, please. Slowly, please.).
 // Recognition only: Could you say that again, please? Spiral: How are you?, Excuse me, Thank you.
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, goal, insteadOf, other, pick } from './build';
@@ -8,7 +8,7 @@ const again = goal(['repeat'], ['Again, please.', 'Sorry? Again, please.']);
 const dont = goal(['dontUnderstand'], ["I don't understand."]);
 
 export const lesson7: DesignLesson = {
-  id: 'a1_en_b1_v2_d7', order: 7, title: 'Başa düşmədim', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_v2_d7', order: 7, title: 'Başa düşmürəm', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinlə və ya mətnlə davam et.',
     unknown: 'Cavabı yoxlaya bilmədim. Bir az fərqli yaz və ya yenidən cəhd et.',
@@ -20,7 +20,7 @@ export const lesson7: DesignLesson = {
     {
       type: 'intro', id: 'd7_c01', badge: 'İlk tanışlıq', subtitle: 'Başa düşməmək normaldır — bunu demək bacarıqdır.', start: 'Dərsə başla',
       goals: [
-        { icon: 'chat', text: 'Başa düşmədiyimi deyə bilirəm.' },
+        { icon: 'chat', text: 'Başa düşməyəndə “I don’t understand” deyə bilirəm.' },
         { icon: 'wave', text: 'Təkrar və yavaş danışmağı xahiş edirəm.' },
       ],
     },

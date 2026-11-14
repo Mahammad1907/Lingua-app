@@ -3,7 +3,7 @@
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, goal, insteadOf, other, pick } from './build';
 
-const noProblem = goal(['noProblem'], ['No problem.', "That's OK."]);
+const noProblem = goal(['noProblem'], ['No problem.']);
 const sorry = goal(['sorry'], ['Sorry!', "I'm sorry."]);
 const politeAsk = goal(['attention', 'askName'], ["Excuse me, what's your name?"]);
 

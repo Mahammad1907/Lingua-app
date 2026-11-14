@@ -47,7 +47,7 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
 /** Short names on the island (Bölmə 1 map, docs/BOLME_1_XERITESI.md). */
 const SHORT_TITLES: Record<string, string> = {
   a1_en_b1_v2_d1: 'Salam', a1_en_b1_v2_d2: 'Adın', a1_en_b1_v2_d3: 'Ad soruş', a1_en_b1_v2_d4: 'Necəsən?',
-  a1_en_b1_v2_d5: 'Təşəkkür', a1_en_b1_v2_d6: 'Üzr', a1_en_b1_v2_d7: 'Başa düşmədim', a1_en_b1_v2_d8: 'Bölmə söhbəti',
+  a1_en_b1_v2_d5: 'Təşəkkür', a1_en_b1_v2_d6: 'Üzr', a1_en_b1_v2_d7: 'Başa düşmürəm', a1_en_b1_v2_d8: 'Bölmə söhbəti',
 };
 
 export function HomeNavigation({ bottomInset = 0, onNavigate }: {

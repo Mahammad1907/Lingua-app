@@ -307,17 +307,17 @@ Quruluşu: I'm [ad].
 
 Nümunə: **Hello! I'm …** — Salam! Mən …-am.
 
-Qeyd: I həmişə böyük hərflə yazılır.
+Qeyd: I — mən. Böyük hərflə yazılır.
 
 ## Kart 3 — Səslə cavab: Özünü səslə təqdim et
 
 **Tapşırıq:** Dostun salam verir. Salam ver və adını de.  
 **Səs:** Hello!  
-**Qəbul:** məna: greet + introduce — nümunə: Hello! I'm … / Hi! My name is …  
+**Qəbul:** məna: greet + introduce — nümunə: Hello! I'm … / Hi! I'm …  
 **Nümunə göstərilir:** Hello! I'm …  
 **İpucu:** Əvvəl salam, sonra adın.  
 **Düzgün olanda:** Salam verdin və adını dedin.  
-- *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hello! I'm …. Səbəb: Dostun salam verdi. Cavabda salam və adın olmalıdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hi! My name is …  
+- *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hello! I'm …. Səbəb: Dostun salam verdi. Cavabda salam və adın olmalıdır. Qayda: Salam + I’m + adın. Nümunə: Hi! I’m …  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -375,7 +375,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **İpucu:** “Mən Aysuyam” deyirik. “-yam” ingiliscə ayrıca sözdür. Hansı cümlədə o söz var?  
 **Düzgün olanda:** İngiliscə “am” ayrıca söz kimi deyilir.  
 - *İzah (“I …” seçiləndə):* “am” buraxılıb. — Uyğun: I'm … (I am …). Səbəb: “Mən …-am” deyəndə ingiliscə “am” ayrıca söz kimi gəlir. Qayda: I'm / I am + adın. Nümunə: I'm …  
-- *İzah (“I is …” seçiləndə):* “I” ilə “am” işlənir. — Uyğun: I'm … (I am …). Səbəb: “is” başqa şəxslər üçündür. “I” ilə həmişə “am” gəlir. Qayda: I'm / I am + adın. Nümunə: I'm …  
+- *İzah (“I is …” seçiləndə):* “I” ilə “am” işlənir. — Uyğun: I'm …. Səbəb: “I is” demirik. I ilə am gəlir. Qayda: I + am → I'm. Nümunə: Hello! I'm …  
 
 ## Kart 7 — Kim nə dedi?: Kim nə dedi?
 
@@ -416,7 +416,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Qəbul:** məna: greet + introduce — nümunə: Hello! I'm … / Hi! My name is …  
 **İpucu:** İki hissə yaz: əvvəl qonşuna salam ver, sonra özünü təqdim et.  
 **Düzgün olanda:** Salam verdin və adını dedin.  
-- *İzah (cavab “farewell” işini görəndə):* Görüş yeni başlayır — sağollaşma yox, salam lazımdır. — Uyğun: Hello! I'm …. Səbəb: Bye / Goodbye görüşü bitirir. Burada görüş başlayır. Qayda: Salam + adın. Nümunə: Hi! My name is …  
+- *İzah (cavab “farewell” işini görəndə):* Görüş yeni başlayır — sağollaşma yox, salam lazımdır. — Uyğun: Hello! I'm …. Səbəb: Bye / Goodbye görüşü bitirir. Burada görüş başlayır. Qayda: Salam + adın. Nümunə: Hi! I’m …  
 - *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hello! I'm …. Səbəb: Qonşun salam verdi. Sən də salam verib adını deyirsən. Qayda: Salam + I’m / My name is + adın. Nümunə: Hi! My name is …  
 
 **Təkrar (yeni vəziyyət):**
@@ -489,7 +489,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson3.ts`-dən yarad
 İndi başqasının adını öyrənirsən.
 
 - Başqasının adını soruşa bilirəm.
-- Tanışlığa “Nice to meet you” ilə cavab verirəm.
+- Tanış olanda “Nice to meet you” deyir, ona “You too” ilə cavab verirəm.
 
 ## Kart 2 — Seç: Oxu və anla
 
@@ -782,7 +782,7 @@ Qeyd: th — dilin ucu dişlərin arasında.
 **Seçimlər:** am / is / are — **düzgün:** are  
 **İpucu:** Bu dərsdə öyrəndiyin “Necəsən?” sualını tam xatırla.  
 **Düzgün olanda:** “you” ilə “are” gəlir.  
-- *İzah (başqa səhvdə):* “you” ilə “are” gəlir. — Uyğun: are. Səbəb: “you” (sən) ilə həmişə “are” işlənir. Qayda: you ilə are gəlir: you are. Nümunə: How are you?  
+- *İzah (başqa səhvdə):* “you” ilə “are” gəlir. — Uyğun: are. Səbəb: How is you? demirik. you ilə are gəlir. Qayda: How are you? Nümunə: Hi! How are you?  
 
 ## Kart 6 — Yeni söz
 
@@ -792,7 +792,7 @@ Oxunuşu: aym nat veri uel · IPA: /aɪm nɑt ˈveri wel/
 
 Nümunə: **How are you? — I'm not very well.** — Necəsən? — Çox yaxşı deyiləm.
 
-Qeyd: not = deyil
+Qeyd: not am-dan sonra gəlir: I am not → I’m not.
 
 ## Kart 7 — Seç: Dinlə və anla
 
@@ -802,7 +802,7 @@ Qeyd: not = deyil
 **İpucu:** Bu dərsdə iki cavab öyrəndin: “Yaxşıyam” və “Çox yaxşı deyiləm”. Səsdəki hansına bənzəyir?  
 **Düzgün olanda:** “not very well” — çox yaxşı deyil.  
 - *İzah (“Yaxşıdır.” seçiləndə):* “not” sözü mənanı tərsinə çevirir. — Uyğun: Çox yaxşı deyil. Səbəb: Səsdə “I’m not very well” deyilir. “not” — “deyil” deməkdir. Qayda: not very well = çox yaxşı deyil. Nümunə: I’m fine. — Yaxşıyam. / I’m not very well. — Çox yaxşı deyiləm.  
-- *İzah (“Adını deyir.” seçiləndə):* Ad deyilmir, hal deyilir. — Uyğun: Çox yaxşı deyil. Səbəb: “I’m” sonra ad yox, “not very well” gəlir. Qayda: I’m + hal = necə olduğunu demək. Nümunə: I’m OK.  
+- *İzah (“Adını deyir.” seçiləndə):* Ad deyilmir, hal deyilir. — Uyğun: Çox yaxşı deyil. Səbəb: “I’m” sonra ad yox, “not very well” gəlir. Qayda: I’m + hal = necə olduğunu demək. Nümunə: I’m fine, thanks.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -813,7 +813,17 @@ Qeyd: not = deyil
 **Düzgün olanda:** “fine” — yaxşı.  
 - *İzah (başqa səhvdə):* Səsdə “fine” deyilir. — Uyğun: Yaxşıdır. Səbəb: “I’m fine, thanks” — “Yaxşıyam, sağ ol”. Burada “not” yoxdur. Qayda: fine = yaxşı. Nümunə: I’m fine, thanks.  
 
-## Kart 8 — Səslə cavab: Səslə cavab ver
+## Kart 8 — Yeni söz
+
+**I'm OK.** — Normalam.
+
+Oxunuşu: aym okey · IPA: /aɪm oʊˈkeɪ/
+
+Nümunə: **How are you? — I'm OK.** — Necəsən? — Normalam.
+
+Qeyd: “I'm fine” ilə yaxındır.
+
+## Kart 9 — Səslə cavab: Səslə cavab ver
 
 **Tapşırıq:** Dostun soruşur. Cavab ver və sualı geri qaytar.  
 **Səs:** How are you?  
@@ -832,16 +842,6 @@ Qeyd: not = deyil
 **İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  
 **Düzgün olanda:** Halını dedin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm OK. And you?. Səbəb: Dostun halını soruşdu. Qayda: Halın + And you? Nümunə: I'm fine, thanks. And you?  
-
-## Kart 9 — Yeni söz
-
-**I'm OK.** — Normalam.
-
-Oxunuşu: aym okey · IPA: /aɪm oʊˈkeɪ/
-
-Nümunə: **How are you? — I'm OK.** — Necəsən? — Normalam.
-
-Qeyd: “I'm fine” ilə yaxındır.
 
 ## Kart 10 — Söhbəti sırala: Söhbəti sırala
 
@@ -1290,7 +1290,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 **Tapşırıq:** Dostun deyir: “Sorry!” Üzrünü qəbul et.  
 **Səs:** Sorry!  
-**Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
+**Qəbul:** məna: noProblem — nümunə: No problem.  
 **Nümunə göstərilir:** No problem.  
 **İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
@@ -1300,11 +1300,11 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 **Tapşırıq:** Dostun gecikdi və deyir: “I’m sorry!” Üzrünü qəbul et.  
 **Səs:** I'm sorry!  
-**Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
+**Qəbul:** məna: noProblem — nümunə: No problem.  
 **Nümunə göstərilir:** No problem.  
 **İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
-- *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: Üzrə “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: That's OK.  
+- *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: Üzrə “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: Sorry! — No problem.  
 
 ## Kart 9 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -1380,7 +1380,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 ## Kart 13 — Yaz: Cavabını yaz
 
 **Tapşırıq:** Oğlan səhvən çantanı yerə saldı və deyir: “Sorry!” Üzrünü qəbul et.  
-**Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
+**Qəbul:** məna: noProblem — nümunə: No problem.  
 **İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
 - *İzah (cavab “sorry” işini görəndə):* Səhv onundur — sən üzrü qəbul edirsən. — Uyğun: No problem. Səbəb: Üzrə “Sorry” ilə yox, “No problem” ilə cavab verilir. Qayda: Sorry → No problem. Nümunə: Sorry! — No problem.  
@@ -1389,7 +1389,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qız sənin növbənə keçdi və deyir: “I’m sorry!” Üzrünü qəbul et.  
-**Qəbul:** məna: noProblem — nümunə: No problem. / That's OK.  
+**Qəbul:** məna: noProblem — nümunə: No problem.  
 **İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
 - *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: O, üzr istədi. Sən “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: No problem.  
@@ -1431,7 +1431,7 @@ Növbəti dərsdə başa düşmədiyini deməyi öyrənəcəksən.
 
 ---
 
-# Dərs 7 — Başa düşmədim
+# Dərs 7 — Başa düşmürəm
 
 Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson7.ts`-dən yaradılıb — mətni orada dəyiş, sonra `node scripts/export-unit1-docs.cjs`.
 
@@ -1439,7 +1439,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/lesson7.ts`-dən yarad
 
 Başa düşməmək normaldır — bunu demək bacarıqdır.
 
-- Başa düşmədiyimi deyə bilirəm.
+- Başa düşməyəndə “I don’t understand” deyə bilirəm.
 - Təkrar və yavaş danışmağı xahiş edirəm.
 
 ## Kart 2 — Yeni söz
@@ -1598,8 +1598,8 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Cümlə:** Sorry? I ___ understand.  
 **Seçimlər:** am / don't / not — **düzgün:** don't  
 **İpucu:** “Başa düşmürəm” — bu dərsin əvvəlindəki cümləni xatırla.  
-**Düzgün olanda:** “don’t” — inkar.  
-- *İzah (“not” seçiləndə):* “I not understand” deyilmir. — Uyğun: don't. Səbəb: Fel ilə inkar “do not / don’t” ilə qurulur. Qayda: I don’t understand. Nümunə: I don't understand.  
+**Düzgün olanda:** I don’t understand — başa düşmürəm.  
+- *İzah (“not” seçiləndə):* “I not understand” deyilmir. — Uyğun: don't. Səbəb: I not understand demirik. Burada don’t lazımdır. Qayda: I’m not very well. — burada not. I don’t understand. — burada don’t. Nümunə: Sorry? I don't understand.  
 - *İzah (“am” seçiləndə):* “am” burada lazım deyil. — Uyğun: don't. Səbəb: “Başa düşmürəm” — I don’t understand. Qayda: I don’t understand. Nümunə: Sorry? I don't understand.  
 
 **Təkrar (yeni vəziyyət):**
@@ -1819,8 +1819,8 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **İkinci mesaj:** məna: askName — nümunə: What's your name?  
 **İpucu:** Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.  
 **Düzgün olanda:** Özünü təqdim etdin və onun adını soruşdun.  
-- *İzah (d8_c07a səhv olanda):* Uyğun: Hi! I'm …. Səbəb: Bu mesajda {purpose} lazımdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! My name is …  
-- *İzah (d8_c07b səhv olanda):* Uyğun: What's your name?. Səbəb: Bu mesajda {purpose} lazımdır. Qayda: What’s your name? Nümunə: Excuse me, what's your name?  
+- *İzah (d8_c07a səhv olanda):* Uyğun: Hi! I'm …. Səbəb: Bu mesajda salam və adın lazımdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! My name is …  
+- *İzah (d8_c07b səhv olanda):* Uyğun: What's your name?. Səbəb: Bu mesajda onun adını soruşmalısan. Qayda: What’s your name? Nümunə: Excuse me, what's your name?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -1829,8 +1829,8 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **İkinci mesaj:** məna: askName — nümunə: What's your name?  
 **İpucu:** Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.  
 **Düzgün olanda:** Özünü təqdim etdin və onun adını soruşdun.  
-- *İzah (d8_c07a səhv olanda):* Uyğun: Hello! My name is …. Səbəb: Bu mesajda {purpose} lazımdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hi! I'm …  
-- *İzah (d8_c07b səhv olanda):* Uyğun: What's your name?. Səbəb: Bu mesajda {purpose} lazımdır. Qayda: What’s your name? Nümunə: What's your name?  
+- *İzah (d8_c07a səhv olanda):* Uyğun: Hello! My name is …. Səbəb: Bu mesajda salam və adın lazımdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hi! I'm …  
+- *İzah (d8_c07b səhv olanda):* Uyğun: What's your name?. Səbəb: Bu mesajda onun adını soruşmalısan. Qayda: What’s your name? Nümunə: What's your name?  
 
 ## Kart 11 — Dialoqu tamamla: Kömək istə
 
