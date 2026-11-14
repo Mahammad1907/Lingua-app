@@ -61,7 +61,7 @@ Qeyd: th — dilin ucu dişlərin arasında.
 **Seçimlər:** am / is / are — **düzgün:** are  
 **İpucu:** Bu dərsdə öyrəndiyin “Necəsən?” sualını tam xatırla.  
 **Düzgün olanda:** “you” ilə “are” gəlir.  
-- *İzah (başqa səhvdə):* “you” ilə “are” gəlir. — Uyğun: are. Səbəb: “you” (sən) ilə həmişə “are” işlənir. Qayda: you ilə are gəlir: you are. Nümunə: How are you?  
+- *İzah (başqa səhvdə):* “you” ilə “are” gəlir. — Uyğun: are. Səbəb: How is you? demirik. you ilə are gəlir. Qayda: How are you? Nümunə: Hi! How are you?  
 
 ## Kart 6 — Yeni söz
 
@@ -71,7 +71,7 @@ Oxunuşu: aym nat veri uel · IPA: /aɪm nɑt ˈveri wel/
 
 Nümunə: **How are you? — I'm not very well.** — Necəsən? — Çox yaxşı deyiləm.
 
-Qeyd: not = deyil
+Qeyd: not am-dan sonra gəlir: I am not → I’m not.
 
 ## Kart 7 — Seç: Dinlə və anla
 
@@ -81,7 +81,7 @@ Qeyd: not = deyil
 **İpucu:** Bu dərsdə iki cavab öyrəndin: “Yaxşıyam” və “Çox yaxşı deyiləm”. Səsdəki hansına bənzəyir?  
 **Düzgün olanda:** “not very well” — çox yaxşı deyil.  
 - *İzah (“Yaxşıdır.” seçiləndə):* “not” sözü mənanı tərsinə çevirir. — Uyğun: Çox yaxşı deyil. Səbəb: Səsdə “I’m not very well” deyilir. “not” — “deyil” deməkdir. Qayda: not very well = çox yaxşı deyil. Nümunə: I’m fine. — Yaxşıyam. / I’m not very well. — Çox yaxşı deyiləm.  
-- *İzah (“Adını deyir.” seçiləndə):* Ad deyilmir, hal deyilir. — Uyğun: Çox yaxşı deyil. Səbəb: “I’m” sonra ad yox, “not very well” gəlir. Qayda: I’m + hal = necə olduğunu demək. Nümunə: I’m OK.  
+- *İzah (“Adını deyir.” seçiləndə):* Ad deyilmir, hal deyilir. — Uyğun: Çox yaxşı deyil. Səbəb: “I’m” sonra ad yox, “not very well” gəlir. Qayda: I’m + hal = necə olduğunu demək. Nümunə: I’m fine, thanks.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -92,7 +92,17 @@ Qeyd: not = deyil
 **Düzgün olanda:** “fine” — yaxşı.  
 - *İzah (başqa səhvdə):* Səsdə “fine” deyilir. — Uyğun: Yaxşıdır. Səbəb: “I’m fine, thanks” — “Yaxşıyam, sağ ol”. Burada “not” yoxdur. Qayda: fine = yaxşı. Nümunə: I’m fine, thanks.  
 
-## Kart 8 — Səslə cavab: Səslə cavab ver
+## Kart 8 — Yeni söz
+
+**I'm OK.** — Normalam.
+
+Oxunuşu: aym okey · IPA: /aɪm oʊˈkeɪ/
+
+Nümunə: **How are you? — I'm OK.** — Necəsən? — Normalam.
+
+Qeyd: “I'm fine” ilə yaxındır.
+
+## Kart 9 — Səslə cavab: Səslə cavab ver
 
 **Tapşırıq:** Dostun soruşur. Cavab ver və sualı geri qaytar.  
 **Səs:** How are you?  
@@ -111,16 +121,6 @@ Qeyd: not = deyil
 **İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  
 **Düzgün olanda:** Halını dedin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm OK. And you?. Səbəb: Dostun halını soruşdu. Qayda: Halın + And you? Nümunə: I'm fine, thanks. And you?  
-
-## Kart 9 — Yeni söz
-
-**I'm OK.** — Normalam.
-
-Oxunuşu: aym okey · IPA: /aɪm oʊˈkeɪ/
-
-Nümunə: **How are you? — I'm OK.** — Necəsən? — Normalam.
-
-Qeyd: “I'm fine” ilə yaxındır.
 
 ## Kart 10 — Söhbəti sırala: Söhbəti sırala
 

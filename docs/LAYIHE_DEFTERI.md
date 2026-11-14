@@ -368,3 +368,5 @@ Kod yoxlamaları keçir; telefonda yoxlanmayıb.
 Hər ikisi “Kim nə dedi?” kimi yoxlanır; səhv olsa dərsin sonunda başqa söhbətlə təkrar gəlir. `check-taught.cjs` balon və cavabları da yoxlayır.
 
 **13 noyabr 2026, 23:54 — istifadəçi:** toxunub yerləşdirmə ekranlarında (Kim nə dedi?, Cavab cütü, Söhbəti sırala) Kömək düyməsi yoxdur.
+
+**14 noyabr 2026 — xarici yoxlama (istifadəçi göndərdi):** izah qaydası `docs/IZAH_STANDARTI.md`-də. Dərs 2–8-də düzəldildi: “is başqa şəxslər üçündür / həmişə am”, “you ilə həmişə are”, “Fel ilə inkar”, “don't — inkar”, “not = deyil”, `{purpose}` şablonları (Dərs 8), öyrədilmədən izahda keçən “My name is”, “I'm OK”, “That's OK”. Dərs 1 toxunulmayıb — 3 izah icazə gözləyir.

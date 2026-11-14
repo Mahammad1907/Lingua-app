@@ -12,7 +12,7 @@ const L = require('../src/utils/designLesson.ts');
 const { designLessons } = require('../src/data/designLessons.ts');
 
 // Words that are not vocabulary: placeholders and the learner's own name slot.
-const FREE = new Set(['…']);
+const FREE = new Set(['…', 'sonda', 'ex', 'cuse']); // Azerbaijani words inside explanations, stress marks like ex-CUSE
 const { GLOSSARY } = require('../src/data/unit1/glossary.ts');
 // A contraction teaches its parts too: I'm = I + am, what's = what + is.
 const PARTS = { "'m": ['am'], "'s": ['is'], "'re": ['are'], "n't": ['not'] };
@@ -46,6 +46,9 @@ function asks(t) {
     if (t.mode !== 'order') t.rows.forEach(r => add('row', r.en));
     if (t.mode === 'reply' || t.mode === 'order') { t.rows.forEach(r => add(t.mode === 'order' ? 'turn' : 'reply', r.az)); t.extra.forEach(x => add('extra', x)); }
   }
+  // Explanations, examples and hints may not show untaught English either (reviewer rule, 14 Nov 2026).
+  for (const v of t.variants || []) for (const x of [v.explain?.answers, v.explain?.rule, v.explain?.example]) if (x) x.split(/[;/—→·]|\s-\s/).forEach(part => add('izah', part));
+  for (const m of (t.hint || '').matchAll(/“([^”]+)”/g)) add('ipucu', m[1]);
   // Quoted English inside the task text (e.g. Qız deyir: “Hi!”).
   for (const m of (t.prompt || '').matchAll(/“([^”]+)”/g)) add('prompt', m[1]);
   return out;
@@ -87,6 +90,20 @@ for (const raw of designLessons) {
   const end = cards.slice(-3).map(kind).join(' ');
   if (endings.has(end)) problems.push(`Dərs ${raw.order} və Dərs ${endings.get(end)} eyni üç ekranla bitir: ${end}`);
   endings.set(end, raw.order);
+}
+
+// Explanation wording (docs/IZAH_STANDARTI.md): no empty templates, no system sentences, no rules that the next lesson makes false.
+const BANNED = [/\{purpose\}/, /müəyyən edilmədi/, /həmişə/, /başqa şəxs/, /\binkar/, /\bfel(?:i|lər|də|dən)?\b/i, /not = deyil/];
+// Lesson 1 is copied from the approved document (docs/BirTalk_Ders_1_Yekun.md) and is changed only on the user's word.
+for (const raw of designLessons.filter(l => l.order !== 1)) {
+  const lesson = L.resolveLesson(raw);
+  const texts = [];
+  const pushTask = t => { texts.push(t.hint, t.why, ...(t.variants || []).flatMap(v => [v.short, v.explain?.answers, v.explain?.reason, v.explain?.rule, v.explain?.example])); };
+  for (const c of lesson.cards) {
+    if (c.type === 'word' || c.type === 'teach') texts.push(...(c.notes || []));
+    if (L.isTask(c)) { pushTask(c); pushTask(L.reviewTask(lesson, c.id)); }
+  }
+  for (const t of texts.filter(Boolean)) for (const b of BANNED) if (b.test(t)) problems.push(`Dərs ${raw.order} izah/ipucu qadağan ifadə (${b}): “${t}”`);
 }
 
 if (problems.length) {

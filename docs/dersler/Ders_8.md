@@ -150,8 +150,8 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **İkinci mesaj:** məna: askName — nümunə: What's your name?  
 **İpucu:** Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.  
 **Düzgün olanda:** Özünü təqdim etdin və onun adını soruşdun.  
-- *İzah (d8_c07a səhv olanda):* Uyğun: Hi! I'm …. Səbəb: Bu mesajda {purpose} lazımdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! My name is …  
-- *İzah (d8_c07b səhv olanda):* Uyğun: What's your name?. Səbəb: Bu mesajda {purpose} lazımdır. Qayda: What’s your name? Nümunə: Excuse me, what's your name?  
+- *İzah (d8_c07a səhv olanda):* Uyğun: Hi! I'm …. Səbəb: Bu mesajda salam və adın lazımdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! My name is …  
+- *İzah (d8_c07b səhv olanda):* Uyğun: What's your name?. Səbəb: Bu mesajda onun adını soruşmalısan. Qayda: What’s your name? Nümunə: Excuse me, what's your name?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -160,8 +160,8 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **İkinci mesaj:** məna: askName — nümunə: What's your name?  
 **İpucu:** Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.  
 **Düzgün olanda:** Özünü təqdim etdin və onun adını soruşdun.  
-- *İzah (d8_c07a səhv olanda):* Uyğun: Hello! My name is …. Səbəb: Bu mesajda {purpose} lazımdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hi! I'm …  
-- *İzah (d8_c07b səhv olanda):* Uyğun: What's your name?. Səbəb: Bu mesajda {purpose} lazımdır. Qayda: What’s your name? Nümunə: What's your name?  
+- *İzah (d8_c07a səhv olanda):* Uyğun: Hello! My name is …. Səbəb: Bu mesajda salam və adın lazımdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hi! I'm …  
+- *İzah (d8_c07b səhv olanda):* Uyğun: What's your name?. Səbəb: Bu mesajda onun adını soruşmalısan. Qayda: What’s your name? Nümunə: What's your name?  
 
 ## Kart 11 — Dialoqu tamamla: Kömək istə
 

@@ -27,7 +27,7 @@ export const lesson2: DesignLesson = {
     {
       type: 'word', id: 'd2_c02', number: 2, scenes: ['d2/word-im'], structure: ["I'm [ad]."],
       word: "I'm …", pronunciation: '/aɪm/', reading: 'aym …', az: 'Mən …-am',
-      notes: ['I həmişə böyük hərflə yazılır.'],
+      notes: ['I — mən. Böyük hərflə yazılır.'],
       example: "Hello! I'm …", exampleAz: 'Salam! Mən …-am.',
     },
     {
@@ -52,7 +52,7 @@ export const lesson2: DesignLesson = {
         hint: '“Mən Aysuyam” deyirik. “-yam” ingiliscə ayrıca sözdür. Hansı cümlədə o söz var?', hintAssists: false,
         variants: [
           pick('I …', '“am” buraxılıb.', ex("I'm … (I am …)", '“Mən …-am” deyəndə ingiliscə “am” ayrıca söz kimi gəlir.', "I'm / I am + adın.", "I'm …")),
-          pick('I is …', '“I” ilə “am” işlənir.', ex("I'm … (I am …)", '“is” başqa şəxslər üçündür. “I” ilə həmişə “am” gəlir.', "I'm / I am + adın.", "I'm …")),
+          pick('I is …', '“I” ilə “am” işlənir.', ex("I'm …", '“I is” demirik. I ilə am gəlir.', "I + am → I'm.", "Hello! I'm …")),
         ],
       },
     },
@@ -97,7 +97,7 @@ export const lesson2: DesignLesson = {
       chat: { partner: 'Yeni qonşu', from: 'G', lines: [{ from: 'G', text: 'Hello!' }] }, rule: greetIntro,
       hint: 'İki hissə yaz: əvvəl qonşuna salam ver, sonra özünü təqdim et.', hintAssists: false,
       variants: [
-        insteadOf('farewell', 'Görüş yeni başlayır — sağollaşma yox, salam lazımdır.', ex("Hello! I'm …", 'Bye / Goodbye görüşü bitirir. Burada görüş başlayır.', 'Salam + adın.', 'Hi! My name is …')),
+        insteadOf('farewell', 'Görüş yeni başlayır — sağollaşma yox, salam lazımdır.', ex("Hello! I'm …", 'Bye / Goodbye görüşü bitirir. Burada görüş başlayır.', 'Salam + adın.', 'Hi! I’m …')),
         other('Salam və adın ikisi də lazımdır.', ex("Hello! I'm …", 'Qonşun salam verdi. Sən də salam verib adını deyirsən.', 'Salam + I’m / My name is + adın.', 'Hi! My name is …')),
       ],
       review: {
@@ -110,7 +110,7 @@ export const lesson2: DesignLesson = {
     {
       type: 'voice', id: 'd2_c08', number: 8, speaker: 'mascot', title: 'Özünü səslə təqdim et', why: 'Salam verdin və adını dedin.', hint: 'Əvvəl salam, sonra adın.',
       prompt: '{M} salam verir.\nSalam ver və adını de.', audio: 'Hello!', sample: "Hello! I'm …", rule: greetIntro,
-      variants: [other('Salam və adın ikisi də lazımdır.', ex("Hello! I'm …", '{M} salam verdi. Cavabda salam və adın olmalıdır.', 'Salam + I’m / My name is + adın.', 'Hi! My name is …'))],
+      variants: [other('Salam və adın ikisi də lazımdır.', ex("Hello! I'm …", '{M} salam verdi. Cavabda salam və adın olmalıdır.', 'Salam + I’m + adın.', 'Hi! I’m …'))],
       review: {
         speaker: 'mascot', title: 'Özünü səslə təqdim et', why: 'Salam verdin və adını dedin.', hint: 'Əvvəl salam, sonra adın.', prompt: 'Yeni gün. {M} yenə salam verir.\nSalam ver və adını de.', audio: 'Hi!', sample: "Hi! My name is …", rule: greetIntro,
         variants: [other('Salam və adın ikisi də lazımdır.', ex("Hi! My name is …", '{M} salam verdi. Cavabda salam və adın olmalıdır.', 'Salam + I’m / My name is + adın.', "Hello! I'm …"))],

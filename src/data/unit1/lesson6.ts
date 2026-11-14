@@ -135,7 +135,7 @@ export const lesson6: DesignLesson = {
       variants: [other('Üzrə cavab: No problem.', ex('No problem.', '{M} üzr istədi. Sən “Eybi yox” deyirsən.', 'Sorry → No problem.', 'No problem.'))],
       review: {
         speaker: 'mascot', title: 'Üzrü qəbul et', why: 'Üzrü qəbul etdin.', hint: 'O üzr istədi. Sən “Eybi yox” deyirsən.', prompt: '{M} gecikdi və deyir: “I’m sorry!”\nÜzrünü qəbul et.', audio: "I'm sorry!", rule: noProblem,
-        variants: [other('Üzrə cavab: No problem.', ex('No problem.', 'Üzrə “Eybi yox” deyirsən.', 'Sorry → No problem.', "That's OK."))],
+        variants: [other('Üzrə cavab: No problem.', ex('No problem.', 'Üzrə “Eybi yox” deyirsən.', 'Sorry → No problem.', 'Sorry! — No problem.'))],
       },
     },
     {

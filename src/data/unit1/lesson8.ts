@@ -91,8 +91,8 @@ export const lesson8: DesignLesson = {
         { id: 'd8_c07b', label: 'İkinci mesaj', placeholder: 'Onun adını soruş', rule: askName, purpose: 'adını soruşmaq', empty: 'İkinci mesajı da yaz.' },
       ],
       variants: [
-        { field: 'd8_c07a', match: { other: true }, explain: ex("Hi! I'm …", 'Bu mesajda {purpose} lazımdır.', 'Salam + I’m / My name is + adın.', 'Hello! My name is …') },
-        { field: 'd8_c07b', match: { other: true }, explain: ex("What's your name?", 'Bu mesajda {purpose} lazımdır.', 'What’s your name?', "Excuse me, what's your name?") },
+        { field: 'd8_c07a', match: { other: true }, explain: ex("Hi! I'm …", 'Bu mesajda salam və adın lazımdır.', 'Salam + I’m / My name is + adın.', 'Hello! My name is …') },
+        { field: 'd8_c07b', match: { other: true }, explain: ex("What's your name?", 'Bu mesajda onun adını soruşmalısan.', 'What’s your name?', "Excuse me, what's your name?") },
       ],
       review: {
         scenes: ['d8/online-class'],
@@ -103,8 +103,8 @@ export const lesson8: DesignLesson = {
           { id: 'd8_c07b', label: 'İkinci mesaj', placeholder: 'Onun adını soruş', rule: askName, purpose: 'adını soruşmaq', empty: 'İkinci mesajı da yaz.' },
         ],
         variants: [
-          { field: 'd8_c07a', match: { other: true }, explain: ex("Hello! My name is …", 'Bu mesajda {purpose} lazımdır.', 'Salam + I’m / My name is + adın.', "Hi! I'm …") },
-          { field: 'd8_c07b', match: { other: true }, explain: ex("What's your name?", 'Bu mesajda {purpose} lazımdır.', 'What’s your name?', "What's your name?") },
+          { field: 'd8_c07a', match: { other: true }, explain: ex("Hello! My name is …", 'Bu mesajda salam və adın lazımdır.', 'Salam + I’m / My name is + adın.', "Hi! I'm …") },
+          { field: 'd8_c07b', match: { other: true }, explain: ex("What's your name?", 'Bu mesajda onun adını soruşmalısan.', 'What’s your name?', "What's your name?") },
         ],
       },
     },

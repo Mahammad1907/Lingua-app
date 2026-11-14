@@ -57,7 +57,7 @@ export const lesson4: DesignLesson = {
     {
       type: 'word', id: 'd4_c04c', number: 6, scenes: ['d4/word-not-well'],
       word: "I'm not very well.", pronunciation: '/aɪm nɑt ˈveri wel/', reading: 'aym nat veri uel', az: 'Çox yaxşı deyiləm.',
-      notes: ['not = deyil'],
+      notes: ['not am-dan sonra gəlir: I am not → I’m not.'],
       example: "How are you? — I'm not very well.", exampleAz: 'Necəsən? — Çox yaxşı deyiləm.',
     },
     {
@@ -66,7 +66,7 @@ export const lesson4: DesignLesson = {
       hint: 'Bu dərsdə iki cavab öyrəndin: “Yaxşıyam” və “Çox yaxşı deyiləm”. Səsdəki hansına bənzəyir?', hintAssists: true,
       variants: [
         pick('Yaxşıdır.', '“not” sözü mənanı tərsinə çevirir.', ex('Çox yaxşı deyil.', 'Səsdə “I’m not very well” deyilir. “not” — “deyil” deməkdir.', 'not very well = çox yaxşı deyil.', 'I’m fine. — Yaxşıyam. / I’m not very well. — Çox yaxşı deyiləm.')),
-        pick('Adını deyir.', 'Ad deyilmir, hal deyilir.', ex('Çox yaxşı deyil.', '“I’m” sonra ad yox, “not very well” gəlir.', 'I’m + hal = necə olduğunu demək.', 'I’m OK.')),
+        pick('Adını deyir.', 'Ad deyilmir, hal deyilir.', ex('Çox yaxşı deyil.', '“I’m” sonra ad yox, “not very well” gəlir.', 'I’m + hal = necə olduğunu demək.', 'I’m fine, thanks.')),
       ],
       review: {
         title: 'Dinlə və anla', why: '“fine” — yaxşı.', prompt: 'Oğlanın cavabını dinlə.\nO necədir?', audio: "I'm fine, thanks.",
@@ -80,7 +80,7 @@ export const lesson4: DesignLesson = {
       variants: [other('“I” ilə “am” gəlir.', ex('am', '“Mən yaxşıyam” — “-am” ingiliscə ayrıca “am” sözüdür.', 'I am fine = I’m fine.', "I'm fine, thanks."))],
       review: {
         title: 'Sözü tamamla', why: '“you” ilə “are” gəlir.', hint: 'Bu dərsdə öyrəndiyin “Necəsən?” sualını tam xatırla.', prompt: 'Qız soruşur.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'How', after: 'you?' }, options: ['am', 'is', 'are'], answer: 'are',
-        variants: [other('“you” ilə “are” gəlir.', ex('are', '“you” (sən) ilə həmişə “are” işlənir.', 'you ilə are gəlir: you are.', 'How are you?'))],
+        variants: [other('“you” ilə “are” gəlir.', ex('are', 'How is you? demirik. you ilə are gəlir.', 'How are you?', 'Hi! How are you?'))],
       },
     },
     {

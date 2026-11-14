@@ -165,8 +165,8 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Cümlə:** Sorry? I ___ understand.  
 **Seçimlər:** am / don't / not — **düzgün:** don't  
 **İpucu:** “Başa düşmürəm” — bu dərsin əvvəlindəki cümləni xatırla.  
-**Düzgün olanda:** “don’t” — inkar.  
-- *İzah (“not” seçiləndə):* “I not understand” deyilmir. — Uyğun: don't. Səbəb: Fel ilə inkar “do not / don’t” ilə qurulur. Qayda: I don’t understand. Nümunə: I don't understand.  
+**Düzgün olanda:** I don’t understand — başa düşmürəm.  
+- *İzah (“not” seçiləndə):* “I not understand” deyilmir. — Uyğun: don't. Səbəb: I not understand demirik. Burada don’t lazımdır. Qayda: I’m not very well. — burada not. I don’t understand. — burada don’t. Nümunə: Sorry? I don't understand.  
 - *İzah (“am” seçiləndə):* “am” burada lazım deyil. — Uyğun: don't. Səbəb: “Başa düşmürəm” — I don’t understand. Qayda: I don’t understand. Nümunə: Sorry? I don't understand.  
 
 **Təkrar (yeni vəziyyət):**

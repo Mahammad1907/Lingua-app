@@ -89,10 +89,10 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'd7_c08', number: 8, title: 'Sözü tamamla', why: '“don’t” — inkar.', hint: '“Başa düşmürəm” — bu dərsin əvvəlindəki cümləni xatırla.',
+      type: 'choice', id: 'd7_c08', number: 8, title: 'Sözü tamamla', why: 'I don’t understand — başa düşmürəm.', hint: '“Başa düşmürəm” — bu dərsin əvvəlindəki cümləni xatırla.',
       prompt: 'Oğlan başa düşmür.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'Sorry? I', after: 'understand.' }, options: ['am', "don't", 'not'], answer: "don't",
       variants: [
-        pick('not', '“I not understand” deyilmir.', ex("don't", 'Fel ilə inkar “do not / don’t” ilə qurulur.', 'I don’t understand.', "I don't understand.")),
+        pick('not', '“I not understand” deyilmir.', ex("don't", 'I not understand demirik. Burada don’t lazımdır.', 'I’m not very well. — burada not. I don’t understand. — burada don’t.', "Sorry? I don't understand.")),
         pick('am', '“am” burada lazım deyil.', ex("don't", '“Başa düşmürəm” — I don’t understand.', 'I don’t understand.', "Sorry? I don't understand.")),
       ],
       review: {

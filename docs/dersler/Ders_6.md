@@ -107,7 +107,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 **Nümunə göstərilir:** No problem.  
 **İpucu:** O üzr istədi. Sən “Eybi yox” deyirsən.  
 **Düzgün olanda:** Üzrü qəbul etdin.  
-- *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: Üzrə “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: That's OK.  
+- *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: Üzrə “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: Sorry! — No problem.  
 
 ## Kart 9 — Dinlə və təkrarla: Dinlə və təkrarla
 

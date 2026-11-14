@@ -19,7 +19,7 @@ Quruluşu: I'm [ad].
 
 Nümunə: **Hello! I'm …** — Salam! Mən …-am.
 
-Qeyd: I həmişə böyük hərflə yazılır.
+Qeyd: I — mən. Böyük hərflə yazılır.
 
 ## Kart 3 — Səslə cavab: Özünü səslə təqdim et
 
@@ -29,7 +29,7 @@ Qeyd: I həmişə böyük hərflə yazılır.
 **Nümunə göstərilir:** Hello! I'm …  
 **İpucu:** Əvvəl salam, sonra adın.  
 **Düzgün olanda:** Salam verdin və adını dedin.  
-- *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hello! I'm …. Səbəb: Dostun salam verdi. Cavabda salam və adın olmalıdır. Qayda: Salam + I’m / My name is + adın. Nümunə: Hi! My name is …  
+- *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hello! I'm …. Səbəb: Dostun salam verdi. Cavabda salam və adın olmalıdır. Qayda: Salam + I’m + adın. Nümunə: Hi! I’m …  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -87,7 +87,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **İpucu:** “Mən Aysuyam” deyirik. “-yam” ingiliscə ayrıca sözdür. Hansı cümlədə o söz var?  
 **Düzgün olanda:** İngiliscə “am” ayrıca söz kimi deyilir.  
 - *İzah (“I …” seçiləndə):* “am” buraxılıb. — Uyğun: I'm … (I am …). Səbəb: “Mən …-am” deyəndə ingiliscə “am” ayrıca söz kimi gəlir. Qayda: I'm / I am + adın. Nümunə: I'm …  
-- *İzah (“I is …” seçiləndə):* “I” ilə “am” işlənir. — Uyğun: I'm … (I am …). Səbəb: “is” başqa şəxslər üçündür. “I” ilə həmişə “am” gəlir. Qayda: I'm / I am + adın. Nümunə: I'm …  
+- *İzah (“I is …” seçiləndə):* “I” ilə “am” işlənir. — Uyğun: I'm …. Səbəb: “I is” demirik. I ilə am gəlir. Qayda: I + am → I'm. Nümunə: Hello! I'm …  
 
 ## Kart 7 — Kim nə dedi?: Kim nə dedi?
 
@@ -128,7 +128,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Qəbul:** məna: greet + introduce — nümunə: Hello! I'm … / Hi! My name is …  
 **İpucu:** İki hissə yaz: əvvəl qonşuna salam ver, sonra özünü təqdim et.  
 **Düzgün olanda:** Salam verdin və adını dedin.  
-- *İzah (cavab “farewell” işini görəndə):* Görüş yeni başlayır — sağollaşma yox, salam lazımdır. — Uyğun: Hello! I'm …. Səbəb: Bye / Goodbye görüşü bitirir. Burada görüş başlayır. Qayda: Salam + adın. Nümunə: Hi! My name is …  
+- *İzah (cavab “farewell” işini görəndə):* Görüş yeni başlayır — sağollaşma yox, salam lazımdır. — Uyğun: Hello! I'm …. Səbəb: Bye / Goodbye görüşü bitirir. Burada görüş başlayır. Qayda: Salam + adın. Nümunə: Hi! I’m …  
 - *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hello! I'm …. Səbəb: Qonşun salam verdi. Sən də salam verib adını deyirsən. Qayda: Salam + I’m / My name is + adın. Nümunə: Hi! My name is …  
 
 **Təkrar (yeni vəziyyət):**

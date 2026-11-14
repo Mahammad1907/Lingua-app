@@ -78,6 +78,10 @@ node scripts/export-unit1-docs.cjs   # docs/dersler/Ders_N.md yenilə
 - Şəkil yerləri: narıncı qırıq xətli “ŞƏKİL n · …” işarəsi. Söhbət/dinləmə/səsli/Sözü tamamla/Kim nə dedi ekranlarında şəkil yoxdur.
 - Ana səhifə: A5 — yumru dərs düymələri, faiz halqaları, nöqtəli yol, toxunanda kart açılır, yuxarı sağda maskot başı, Analiz ikonu, altda üzən menyu (AI söhbət “tezliklə”).
 
+## 5a. İzahlar
+
+`docs/IZAH_STANDARTI.md` — “Mənə başa sal” izahlarının qaydası (xarici yoxlamadan, istifadəçi qəbul etdi). `check-taught.cjs` yoxlayır. Dərs 1-dəki üç köhnə izah (“{purpose} tələb olunur”, “müəyyən edilmədi”) istifadəçinin icazəsi gözləyir.
+
 ## 6. Dərslərin vəziyyəti
 
 - 8 dərs, hamısı `DesignLesson`-da. Dərs 8 = bölmə söhbəti.
