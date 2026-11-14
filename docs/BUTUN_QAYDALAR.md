@@ -28,7 +28,8 @@ Bu fayl istifadəçinin indiyə qədər verdiyi bütün qərarların yığcam si
 3. **Bir kartda bir ifadə.** Yalnız eyni mənalı qısa cütlər birlikdə: Hello/Hi, Goodbye/Bye, Thank you/Thanks.
 4. **Hibrid ekranlar:** 12 noyabr təsdiqlənmiş ekranları (Dinlə və seç, Dinlə və yaz, Yazı, Səslə cavab, İki mesaj, Seçim) + sonra əlavə olunanlar (Sözü tamamla, Mesaj yaz, Dialoq, Kim nə dedi?, Səhnədə tap, Təkrarla, Söhbəti sırala, Cavab cütü). Hər dərsdə hər iki qrupdan.
 5. **Şablon yoxdur:** eyni ekran növü dalbadal gəlmir (bir söhbətin növbələri istisna); iki dərs eyni üç ekranla bitmir; dərslərin açılışı və məkanı dəyişir.
-6. Dərs 11–14 kart (DERS_STANDARTI-dəki 10–12 köhnədir; 14-dən çox olmaz). Bir dərsdə 2–3 yeni ifadə.
+6. Dərs 11–14 kart (DERS_STANDARTI-dəki 10–12 köhnədir; 14-dən çox olmaz). **Bölmə 2-dən: bir dərsdə (hissədə) 4–6 yeni vahid** (14 noyabr; hazır ifadə və nümunə qrupu bir vahid). Bölmə 1 2–3 ilə qalır.
+6a. **Xəritədə hər bölmə sabit 8 dərs.** Çox material → dərs 2 hissəyə bölünür, xəritə uzanmır. Hər bölmənin sonunda **bölmə imtahanı** (Kömək yoxdur, keçid ≥80%). Ətraflı: `docs/BOLME_2_XERITESI.md` §0.
 7. Seçim tapşırığında **3 variant**; yanlışlar Azərbaycan dilli öyrənənin real səhvlərindən (`docs/AZ_OYRENEN_SEHVLERI.md`). İki düzgün cavab ola bilməz.
 8. Hər tapşırığın **ipucu** var: bir cümlə, yolu göstərir, cavabı açmır, vəziyyətə uyğundur, Təkrarın yeni vəziyyətinə uyğundur.
 9. Səhvlər dərsin sonunda **yeni vəziyyətdə, eyni bacarıqla** təkrar gəlir (bacarıq yox, vəziyyət dəyişir).
@@ -39,6 +40,7 @@ Bu fayl istifadəçinin indiyə qədər verdiyi bütün qərarların yığcam si
 14. Başlıq, tərcümə və ingilis cümləsi **eyni zamandadır** (I don't understand → “Başa düşmürəm”).
 15. “Edə bilirəm” və nəticə cümlələri öyrənənin **həqiqətən etdiyi işi** deyir.
 16. Kurs “CEFR A1 təsvirlərinə əsaslanır” — “CEFR sertifikatlı” demə.
+17. **Yeni ekran növləri yaradıla bilər** (14 noyabr 2026): dərsin məqsədinə lazım olanda yeni, maraqlı tapşırıq ekranları əlavə olunur. Hər yeni ekran əvvəlcə maket kimi göstərilir (A9), təsdiqdən sonra kod. Dərslər bir-birinin eyni olmamalıdır (B5).
 
 ## C. İzah qaydaları (“Mənə başa sal”) — `docs/IZAH_STANDARTI.md`
 
