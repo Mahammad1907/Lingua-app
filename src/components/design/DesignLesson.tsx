@@ -521,7 +521,7 @@ function WordSheet({ word, lesson, onClose, onPlay }: { word: string | null; les
 
 function ResultView({ lesson, records, finish }: { lesson: Lesson; records: Record<string, TaskRecord>; finish: { completed: boolean } | null }) {
   const groups = [...new Set(lesson.result.goals.map(g => g.group))];
-  const color = { independent: d.green, assisted: d.orange, needsPractice: d.red, unverified: d.lavender } as const;
+  const color = { independent: d.greenText, assisted: d.orangeText, needsPractice: d.redText, unverified: d.lavenderText } as const;
   return <View style={s.gap}>
     <Image source={mascotFull} style={{ width: 120, height: 130, alignSelf: 'center' }} contentFit="contain" accessibilityLabel="Maskot" />
     {!finish ? <Text style={ds.subtitle}>Nəticə saxlanılır…</Text> : finish.completed

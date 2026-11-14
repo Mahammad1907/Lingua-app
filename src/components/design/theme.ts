@@ -21,6 +21,10 @@ export const d = {
   red: '#DC2626',
   redSoft: '#F8DCE3',
   yellow: '#F4C430',
+  // Text versions of the accent colors (WCAG AA ≥4.5:1 on the light backgrounds) — 14 Nov 2026 audit.
+  orangeText: '#A84A08',
+  greenText: '#0F6E2A',
+  redText: '#B42318',
   shadow: '#6A3FC4',
 };
 

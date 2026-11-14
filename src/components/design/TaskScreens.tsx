@@ -17,7 +17,7 @@ const mascotHead = require('../../../assets/mascot/hood_head.png');
 const mascotFull = require('../../../assets/mascot/hood_full.png');
 
 type Mark = 'correct' | 'wrong' | undefined;
-const markColor = (m: Mark, fallback: string) => m === 'correct' ? d.green : m === 'wrong' ? d.red : fallback;
+const markColor = (m: Mark, fallback: string) => m === 'correct' ? d.greenText : m === 'wrong' ? d.redText : fallback;
 
 /** Round avatar: the mascot picture, or the girl's purple / boy's orange circle with an initial until their pictures exist. */
 export function Avatar({ who, size = 34 }: { who: Who; size?: number }) {
@@ -137,7 +137,7 @@ export function TileTray({ tiles, picked, onPick, onSay, disabled }: { tiles: st
 export function GapSentence({ speaker, before, after, options, value, onPick, onSay, mark, disabled }: {
   speaker?: Who; before: string; after: string; options: string[]; value: string; onPick: (o: string) => void; onSay?: (t: string) => void; mark?: Mark; disabled?: boolean;
 }) {
-  const color = mark === 'correct' ? d.green : mark === 'wrong' ? d.red : d.purple;
+  const color = mark === 'correct' ? d.greenText : mark === 'wrong' ? d.redText : d.purple;
   const sentence = <Text style={s.gapText}>{nameSlot(before)}{before ? ' ' : ''}<Text style={[s.gapSlot, value ? { color, backgroundColor: mark === 'correct' ? d.greenSoft : mark === 'wrong' ? d.redSoft : d.purpleSoft } : null]}>
     {value ? ` ${value} ` : ' ______ '}</Text>{/^[.,!?]/.test(after) ? '' : ' '}{nameSlot(after)}</Text>;
   return <View style={{ gap: 18 }}>
@@ -210,7 +210,7 @@ function OrderBoard({ task, pairs, active, onActive, onPlace, onSay, marks, disa
   return <View style={{ gap: 10 }}>
     {task.rows.map(r => {
       const value = pairs[r.en], mark = marks?.[r.en], right = r.from === 'B';
-      const color = mark === 'correct' ? d.green : mark === 'wrong' ? d.red : undefined;
+      const color = mark === 'correct' ? d.greenText : mark === 'wrong' ? d.redText : undefined;
       return <View key={r.en} style={[s.turn, right && { flexDirection: 'row-reverse' }]}>
         <View style={s.turnNo}><Text style={s.turnNoText}>{r.en}</Text></View>
         {r.from ? <Avatar who={r.from} size={34} /> : null}
@@ -257,7 +257,7 @@ export function SceneSpots({ scenes, spots, value, onPick, mark, disabled }: {
 export function PhraseCard({ text, stress, note, reading }: { text: string; stress?: string; note?: string; reading?: string }) {
   const parts = stress ? text.split(new RegExp(`(\\b${stress.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b)`)) : [text];
   return <View style={s.phrase}>
-    <Text style={s.phraseText}>{parts.map((p, i) => p === stress ? <Text key={i} style={{ color: d.orange }}>{p}</Text> : nameSlot(p))}</Text>
+    <Text style={s.phraseText}>{parts.map((p, i) => p === stress ? <Text key={i} style={{ color: d.orangeText }}>{p}</Text> : nameSlot(p))}</Text>
     {reading ? <Reading text={reading} /> : null}
     {note ? <Text style={s.phraseNote}>{note}</Text> : null}
   </View>;
@@ -267,7 +267,7 @@ export function PhraseCard({ text, stress, note, reading }: { text: string; stre
 export function Reading({ text, left }: { text: string; left?: boolean }) {
   const parts = text.split(/(\*\*[^*]+\*\*)/);
   return <Text style={[s.reading, left && { textAlign: 'left' }]} accessibilityLabel={`Oxunuşu: ${text.replace(/\*/g, '')}`}>
-    {parts.map((p, i) => p.startsWith('**') ? <Text key={i} style={{ ...font.extrabold, color: d.orange }}>{p.slice(2, -2)}</Text> : p)}
+    {parts.map((p, i) => p.startsWith('**') ? <Text key={i} style={{ ...font.extrabold, color: d.orangeText }}>{p.slice(2, -2)}</Text> : p)}
   </Text>;
 }
 

@@ -220,7 +220,7 @@ const s = StyleSheet.create({
   sectionTitle: { color: d.ink, fontSize: 20, ...font.extrabold },
   progress: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingLeft: 6, paddingRight: 12, paddingVertical: 6, borderRadius: 999, backgroundColor: '#fff', borderWidth: 1, borderColor: d.purpleSoft },
   progressPct: { color: d.ink, fontSize: 13, lineHeight: 15, ...font.extrabold },
-  progressSub: { color: d.inkSoft, fontSize: 11, lineHeight: 13, ...font.bold },
+  progressSub: { color: d.inkSoft, fontSize: 12, lineHeight: 15, ...font.bold },
   node: { position: 'absolute', alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff', ...shadow },
   nodeActiveShadow: { shadowColor: d.orange, shadowOpacity: .35, shadowRadius: 14 },
   nodeInner: { alignItems: 'center', justifyContent: 'center' },
@@ -252,6 +252,6 @@ const s = StyleSheet.create({
   nav: { flexDirection: 'row', gap: 2, padding: 5, borderRadius: 22, backgroundColor: '#fff' },
   navItem: { flex: 1, alignItems: 'center', gap: 2, paddingVertical: 6, borderRadius: 16 },
   navOn: { backgroundColor: '#EFE6FB' },
-  navText: { color: '#7C6F95', fontSize: 11, ...font.bold },
-  soon: { position: 'absolute', top: -4, right: 2, fontSize: 8, color: '#B4530A', backgroundColor: '#FFE3C7', borderRadius: 5, paddingHorizontal: 3, overflow: 'hidden', ...font.extrabold },
+  navText: { color: '#5E5275', fontSize: 12, ...font.bold },
+  soon: { position: 'absolute', top: -6, right: 0, fontSize: 11, color: '#A84A08', backgroundColor: '#FFE3C7', borderRadius: 5, paddingHorizontal: 3, overflow: 'hidden', ...font.extrabold },
 });

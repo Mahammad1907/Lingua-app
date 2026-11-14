@@ -117,7 +117,7 @@ const s = StyleSheet.create({
   wordChip: { minHeight: 40, paddingHorizontal: 14, borderRadius: 14, backgroundColor: '#fff', borderWidth: 1, borderColor: d.borderStrong, justifyContent: 'center' },
   wordChipOn: { backgroundColor: d.purple, borderColor: d.purple },
   wordChipText: { color: d.ink, fontSize: 17, ...font.extrabold },
-  wordExtra: { color: d.red, textDecorationLine: 'line-through', ...font.extrabold },
+  wordExtra: { color: d.redText, textDecorationLine: 'line-through', ...font.extrabold },
   wordMoved: { color: '#C2570A', ...font.extrabold },
   flag: { width: 40, height: 40, borderRadius: 20, borderWidth: 1, borderColor: d.border, alignItems: 'center', justifyContent: 'center' },
   panel: { backgroundColor: '#F4EEFD', borderRadius: 26, borderWidth: 1, borderColor: d.border, padding: 18, paddingTop: 8, gap: 10 },
