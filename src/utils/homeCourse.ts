@@ -1,4 +1,5 @@
 import type { Module, PlacementResult } from '../data/types';
+import { TEST_OPEN_SECTIONS } from '../config/testAccess';
 export type HomeArtworkKey = 'fox' | 'identity' | 'family' | 'backpack' | 'house' | 'clock' | 'guitar' | 'headphones';
 export type HomeModuleState = 'current' | 'completed' | 'available' | 'locked' | 'planned';
 export interface HomeModuleItem {
@@ -38,7 +39,8 @@ export function buildHomeCourse(input: {
     return { module, ids, count, available, done, passed: exam?.passed === true,
       examPercent: exam && exam.totalCount > 0 ? boundedPercent(exam.correctCount, exam.totalCount) : null };
   });
-  const unlocked = records.map((r, i) => r.available && (r.passed || records.slice(0, i).every((p) => p.done)));
+  // TEST_OPEN_SECTIONS: temporary test access (src/config/testAccess.ts), same rule as utils/moduleAccess.ts.
+  const unlocked = records.map((r, i) => r.available && (r.passed || TEST_OPEN_SECTIONS.includes(r.module.order) || records.slice(0, i).every((p) => p.done)));
   let current = records.findIndex((r, i) => unlocked[i] && !r.done && !r.passed);
   if (current < 0) current = records.findIndex((r, i) => unlocked[i] && !r.done);
   const items: HomeModuleItem[] = records.map((r, i) => ({
