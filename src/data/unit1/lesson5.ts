@@ -24,14 +24,14 @@ export const lesson5: DesignLesson = {
       ],
     },
     {
-      type: 'choice', id: 'd5_c02', number: 2, title: 'Dinlə və anla', why: 'How are you? — Necəsən?', hint: 'Dərs 3 və 4-ün iki sualını xatırla: biri adı, biri halı soruşur. Səsdəki hansıdır?',
+      type: 'choice', id: 'd5_c02', number: 2, title: 'Dinlə və anla', why: 'How are you? — Necəsən?', hint: 'Sualın ilk sözünə qulaq as.',
       prompt: 'Oğlanın sualını dinlə.\nO nə soruşur?', audio: 'How are you?', options: ['Adını soruşur.', 'Halını soruşur.', 'Sağollaşır.'], answer: 'Halını soruşur.',
       variants: [
         pick('Adını soruşur.', 'Ad sualı “What’s your name?”dir.', ex('Halını soruşur.', 'Səsdə “How are you?” deyilir — “Necəsən?”.', 'How are you? — hal; What’s your name? — ad.', 'How are you? — I’m fine.')),
         pick('Sağollaşır.', 'Bu sualdır, sağollaşma yox.', ex('Halını soruşur.', '“How are you?” sualdır — “Necəsən?”.', 'How are you? = Necəsən?', 'Hi! How are you?')),
       ],
       review: {
-        title: 'Dinlə və anla', why: 'What’s your name? — Adın nədir?', hint: 'Dərs 3 və 4-ün iki sualını xatırla: biri adı, biri halı soruşur. Səsdəki hansıdır?', prompt: 'Qızın sualını dinlə.\nO nə soruşur?', audio: "What's your name?",
+        title: 'Dinlə və anla', why: 'What’s your name? — Adın nədir?', hint: 'Sualın ilk sözünə qulaq as.', prompt: 'Qızın sualını dinlə.\nO nə soruşur?', audio: "What's your name?",
         options: ['Halını soruşur.', 'Sağollaşır.', 'Adını soruşur.'], answer: 'Adını soruşur.',
         variants: [other('“name” sözünə qulaq as.', ex('Adını soruşur.', 'Səsdə “What’s your name?” deyilir — “Adın nədir?”.', 'name = ad.', "What's your name? — I'm …"))],
       },
@@ -46,7 +46,7 @@ export const lesson5: DesignLesson = {
       type: 'voice', id: 'd5_c04', number: 4, title: 'Dinlə və təkrarla', why: '“th” səsi alındı.',
       prompt: 'Dinlə, sonra eyni cür de.', audio: 'Thank you.', repeat: { stress: 'Thank', note: '“tenk yu” yox: dil dişlərin arasında — /θ/.', reading: '**th**enk yu' },
       rule: exact('Thank you'),
-      variants: [other('Bir daha dinlə və yavaş de.', ex('Thank you.', '“th” Azərbaycan dilində yoxdur. Dili dişlərin arasına qoyub üfür.', 'th = /θ/.', 'THANK you.'))],
+      variants: [other('Bir daha dinlə və yavaş de.', ex('Thank you.', '“th” Azərbaycan dilində yoxdur, dili dişlərin arasına qoyub üfür.', 'th = /θ/.', 'THANK you.'))],
       review: {
         title: 'Dinlə və təkrarla', why: '“th” səsi alındı.', prompt: 'Dinlə, sonra eyni cür de.', audio: 'Thanks!', repeat: { stress: 'Thanks', note: 'Dil dişlərin arasında başlayır: /θ/.', reading: '**th**enks' },
         rule: exact('Thanks'),
@@ -71,37 +71,37 @@ export const lesson5: DesignLesson = {
       rows: [{ en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'G' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'B' }, { en: 'Please.', az: 'Zəhmət olmasa.', from: 'M' }],
       extra: ['Bağışla.'],
       variants: [
-        pick('Please.', '“Please” — zəhmət olmasa.', ex('Please. — Zəhmət olmasa.', '“Please” xahiş edəndə deyilir. Təşəkkürə cavab “You’re welcome”dur.', 'Thank you → You’re welcome. Xahiş → please.', "Thank you! — You're welcome.")),
+        pick('Please.', '“Please” — zəhmət olmasa.', ex('Please. — Zəhmət olmasa.', '“Please” xahiş edəndə deyilir, təşəkkürə cavab isə “You’re welcome”dur.', 'Please — xahiş, You’re welcome — təşəkkürə cavab.', "Thank you! — You're welcome.")),
         other('Bir cümlənin mənası yerində deyil.', ex('Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; Please. — Zəhmət olmasa.', 'Hər nəzakət sözünün öz işi var.', 'Təşəkkür, cavab, xahiş.', "Thanks! — You're welcome.")),
       ],
       review: {
-        title: 'Kim nə dedi?', why: 'Hər cümlə öz yerində.', hint: 'Hər söz nə vaxt deyilir: kömək alanda, kömək edəndə, yoxsa xahiş edəndə?', prompt: 'Hər cümləyə mənasını qoş.',
+        title: 'Kim nə dedi?', why: 'Hər cümlə öz yerində.', hint: 'Hər cümlə nə vaxt deyilir: kömək alanda, kömək edəndə, yoxsa hal soruşanda?', prompt: 'Hər cümləyə mənasını qoş.',
         rows: [{ en: 'Thanks!', az: 'Sağ ol!', from: 'B' }, { en: 'How are you?', az: 'Necəsən?', from: 'G' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'M' }],
         extra: ['Mən də!'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Thanks! — Sağ ol!; How are you? — Necəsən?; You’re welcome. — Dəyməz.', 'Təşəkkür, sual və cavab fərqli işlərdir.', 'Mənaya görə qoş.', "Thanks! — You're welcome."))],
       },
     },
     {
-      type: 'choice', id: 'd5_c07', number: 7, title: 'Cavabı seç', why: 'Təşəkkürə cavab: You’re welcome.', hint: 'Kömək edən sənsən, o sənə təşəkkür edir. Bu dərsdə “Dəyməz” mənasında söz öyrəndin.',
+      type: 'choice', id: 'd5_c07', number: 7, title: 'Cavabı seç', why: 'Təşəkkürə cavab: You’re welcome.', hint: 'Kömək edən sənsən — təşəkkürə necə cavab verilir?',
       prompt: 'Qıza kömək etdin. O deyir: “Thank you!”\nNecə cavab verərsən?', options: ['Please.', "You're welcome.", 'Thank you!'], answer: "You're welcome.",
       variants: [
-        pick('Please.', '“Buyurun” kimi düşünmə: təşəkkürə cavab “You’re welcome”dur.', ex("You're welcome.", 'Azərbaycan dilində “buyurun” hər yerdə işlənir. İngiliscə “please” yalnız xahişdir.', 'Thank you → You’re welcome.', "Thanks! — You're welcome.")),
-        pick('Thank you!', 'Təşəkkürü geri qaytarmırsan — cavab verirsən.', ex("You're welcome.", 'Sən kömək etdin, o təşəkkür etdi. Sən “Dəyməz” deyirsən.', 'Thank you → You’re welcome.', "Thank you! — You're welcome.")),
+        pick('Please.', '“Buyurun” kimi düşünmə: təşəkkürə cavab “You’re welcome”dur.', ex("You're welcome.", 'Please xahişdir, təşəkkürə cavab deyil.', 'Thank you → You’re welcome.', "Thanks! — You're welcome.")),
+        pick('Thank you!', 'Təşəkkürü geri qaytarmırsan — cavab verirsən.', ex("You're welcome.", 'O sənə təşəkkür etdi, sən isə ona cavab verirsən.', 'Thank you → You’re welcome.', "Thank you! — You're welcome.")),
       ],
       review: {
-        title: 'Cavabı seç', why: 'Təşəkkürə cavab: You’re welcome.', hint: 'Kömək edən sənsən, o sənə təşəkkür edir. Bu dərsdə “Dəyməz” mənasında söz öyrəndin.', prompt: 'Oğlana yol göstərdin. O deyir: “Thanks!”\nNecə cavab verərsən?', options: ["You're welcome.", 'Please.', 'Bye!'], answer: "You're welcome.",
+        title: 'Cavabı seç', why: 'Təşəkkürə cavab: You’re welcome.', hint: 'Kömək edən sənsən — təşəkkürə necə cavab verilir?', prompt: 'Oğlana yol göstərdin. O deyir: “Thanks!”\nNecə cavab verərsən?', options: ["You're welcome.", 'Please.', 'Bye!'], answer: "You're welcome.",
         variants: [other('Təşəkkürə cavab “You’re welcome”dur.', ex("You're welcome.", '“Please” xahişdir, “Bye” sağollaşmadır.', 'Thanks → You’re welcome.', "Thanks! — You're welcome."))],
       },
     },
     {
-      type: 'choice', id: 'd5_c08', number: 8, title: 'Sözü tamamla', why: 'Xahiş edəndə “please”.', hint: 'Hələ çayı almamısan, xahiş edirsən. Bu dərsdəki xahiş sözünü xatırla.',
+      type: 'choice', id: 'd5_c08', number: 8, title: 'Sözü tamamla', why: 'Xahiş edəndə “please”.', hint: 'Çay istəyirsən — xahiş edəndə hansı söz deyilir?',
       prompt: 'Kafedə çay istəyirsən.\nHansı söz nəzakətlidir?', gap: { before: 'Tea,', after: '.' }, options: ['please', 'thanks', 'welcome'], answer: 'please',
       variants: [
-        pick('thanks', 'Hələ heç nə almamısan — əvvəl xahiş edirsən.', ex('please', '“thanks” sonra, aldıqdan sonra deyilir.', 'Xahiş → please; aldıqdan sonra → thanks.', 'Tea, please. … Thanks!')),
+        pick('thanks', 'Hələ çayı istəyirsən — bu, xahişdir.', ex('please', 'Hələ çayı istəyirsən.', 'Tea, please — xahiş; Thanks! — təşəkkür.', 'Tea, please. … Thanks!')),
         pick('welcome', '“welcome” təşəkkürə cavabdır.', ex('please', 'Xahiş edəndə “please” deyilir.', 'Xahiş → please.', 'Tea, please.')),
       ],
       review: {
-        title: 'Sözü tamamla', why: '“You’re welcome” — Dəyməz.', hint: 'O sənə təşəkkür etdi. Bu dərsdə “Dəyməz” mənasında söz öyrəndin.', prompt: 'Qonşun təşəkkür etdi.\nCavabında hansı söz çatmır?', gap: { speaker: 'G', before: "You're", after: '.' }, options: ['please', 'welcome', 'thanks'], answer: 'welcome',
+        title: 'Sözü tamamla', why: '“You’re welcome” — Dəyməz.', hint: 'Təşəkkürə cavabın ikinci sözü hansıdır?', prompt: 'Qonşun təşəkkür etdi.\nCavabında hansı söz çatmır?', gap: { speaker: 'G', before: "You're", after: '.' }, options: ['please', 'welcome', 'thanks'], answer: 'welcome',
         variants: [other('Təşəkkürə cavab: You’re welcome.', ex('welcome', '“You’re welcome” birlikdə “Dəyməz” deməkdir.', 'Thank you → You’re welcome.', "You're welcome."))],
       },
     },
@@ -110,7 +110,7 @@ export const lesson5: DesignLesson = {
       prompt: 'Qonşun halını soruşur.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Qonşu qız', from: 'G', lines: [{ from: 'G', text: 'Hi! How are you?' }] },
       tiles: ['And', "I'm", 'please', 'thanks.', 'fine,', 'you', '?'], rule: exact("I'm fine, thanks. And you?"),
-      variants: [other('Sıra: I’m fine, thanks. And you?', ex("I'm fine, thanks. And you?", 'Əvvəl halın və təşəkkür, sonra sual. “please” burada lazım deyil.', 'Halın + thanks + And you?', "I'm fine, thanks. And you?"))],
+      variants: [other('Sıra: I’m fine, thanks. And you?', ex("I'm fine, thanks. And you?", '“please” xahişdir, burada isə halını deyib təşəkkür edirsən.', 'Halın + thanks + And you?', "I'm fine, thanks. And you?"))],
       review: {
         title: 'Mesajı qur', why: 'Halını dedin, təşəkkür etdin və sualı qaytardın.', hint: 'Dərs 4-dəki cavabı xatırla: əvvəl halın, sonra təşəkkür, sonda sualı qaytar.', prompt: 'Yoldaşın halını soruşur.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Yoldaş', from: 'B', lines: [{ from: 'B', text: 'Hello! How are you?' }] },
@@ -119,42 +119,42 @@ export const lesson5: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd5_c10', number: 10, title: 'Təşəkkür et', why: 'Kömək üçün təşəkkür etdin.', hint: 'Kömək sənə edildi. Sən nə deyirsən?',
-      prompt: 'Qonşun düşən açarını sənə qaytardı.\nOna təşəkkür et.', placeholder: 'Cavabını yaz',
+      type: 'write', id: 'd5_c10', number: 10, title: 'Təşəkkür et', why: 'Kömək üçün təşəkkür etdin.', hint: 'Sənə kömək edəndə nə deyirsən?',
+      prompt: 'Yerə saldığın açarı qonşun sənə qaytardı.\nOna təşəkkür et.', placeholder: 'Cavabını yaz',
       chat: { partner: 'Qonşu oğlan', from: 'B', lines: [] }, rule: thanks,
       variants: [
         insteadOf('welcome', 'Kömək sənə edildi — sən təşəkkür edirsən.', ex('Thank you! / Thanks!', '“You’re welcome” təşəkkürə cavabdır.', 'Kömək alanda: Thank you!', 'Thanks!')),
         other('Təşəkkür ifadəsi yaz.', ex('Thank you! / Thanks!', 'Kimsə sənə kömək edəndə təşəkkür edirsən.', 'Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən.', 'Thank you!')),
       ],
       review: {
-        title: 'Təşəkkür et', why: 'Kömək üçün təşəkkür etdin.', hint: 'Kömək sənə edildi. Sən nə deyirsən?', prompt: 'Yoldaşın sənə qələm verdi.\nOna təşəkkür et.', placeholder: 'Cavabını yaz',
+        title: 'Təşəkkür et', why: 'Kömək üçün təşəkkür etdin.', hint: 'Sənə nəsə verəndə nə deyirsən?', prompt: 'Yoldaşın sənə qələm verdi.\nOna təşəkkür et.', placeholder: 'Cavabını yaz',
         chat: { partner: 'Yoldaş', from: 'G', lines: [] }, rule: thanks,
         variants: [other('Təşəkkür ifadəsi yaz.', ex('Thank you! / Thanks!', 'Kimsə sənə nəsə verəndə təşəkkür edirsən.', 'Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən.', 'Thanks!'))],
       },
     },
     {
-      type: 'voice', id: 'd5_c11', number: 11, speaker: 'mascot', title: 'Təşəkkürə cavab ver', why: 'Təşəkkürə düzgün cavab verdin.', hint: 'Sən kömək etdin, o təşəkkür etdi. “Dəyməz” de.',
+      type: 'voice', id: 'd5_c11', number: 11, speaker: 'mascot', title: 'Təşəkkürə cavab ver', why: 'Təşəkkürə düzgün cavab verdin.', hint: 'Təşəkkürə “Dəyməz” mənasında cavab ver.',
       prompt: '{M:dat} kömək etdin. O deyir: “Thank you!”\nCavab ver.', audio: 'Thank you!', sample: "You're welcome.", rule: welcome,
       variants: [
-        insteadOf('thanks', 'Təşəkkürü qaytarmırsan — cavab verirsən.', ex("You're welcome.", 'Sən kömək etdin. “Dəyməz” deyirsən.', 'Thank you → You’re welcome.', "You're welcome.")),
-        other('Təşəkkürə cavab: You’re welcome.', ex("You're welcome.", '“Please” xahişdir, cavab deyil.', 'Thank you → You’re welcome.', "You're welcome.")),
+        insteadOf('thanks', 'Təşəkkürü qaytarmırsan — cavab verirsən.', ex("You're welcome.", 'Təşəkkürə təşəkkürlə yox, “Dəyməz” ilə cavab verilir.', 'Thank you → You’re welcome.', "You're welcome.")),
+        other('Təşəkkürə cavab: You’re welcome.', ex("You're welcome.", 'Sən kömək etdin, ona görə “Dəyməz” deyirsən.', 'Thank you → You’re welcome.', "You're welcome.")),
       ],
       review: {
-        speaker: 'mascot', title: 'Təşəkkürə cavab ver', why: 'Təşəkkürə düzgün cavab verdin.', hint: 'Sən kömək etdin, o təşəkkür etdi. “Dəyməz” de.', prompt: '{M:dat} su verdin. O deyir: “Thanks!”\nCavab ver.', audio: 'Thanks!', rule: welcome,
-        variants: [other('Təşəkkürə cavab: You’re welcome.', ex("You're welcome.", 'Sən kömək etdin. “Dəyməz” deyirsən.', 'Thanks → You’re welcome.', "You're welcome."))],
+        speaker: 'mascot', title: 'Təşəkkürə cavab ver', why: 'Təşəkkürə düzgün cavab verdin.', hint: 'Təşəkkürə “Dəyməz” mənasında cavab ver.', prompt: '{M:dat} su verdin. O deyir: “Thanks!”\nCavab ver.', audio: 'Thanks!', rule: welcome,
+        variants: [other('Təşəkkürə cavab: You’re welcome.', ex("You're welcome.", 'Sən kömək etdin, ona görə “Dəyməz” deyirsən.', 'Thanks → You’re welcome.', "You're welcome."))],
       },
     },
     {
-      type: 'match', mode: 'reply', id: 'd5_c13', number: 13, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə ingiliscə necə cavab verilir? Bir cavab artıqdır.',
+      type: 'match', mode: 'reply', id: 'd5_c13', number: 13, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə uyğun cavabı tap, bir cavab artıqdır.',
       prompt: 'Hər deyilənə bir cavab var.\nCümləyə toxun, sonra onun cavabını seç.',
       rows: [{ en: 'Thank you!', az: "You're welcome.", from: 'G' }, { en: 'How are you?', az: "I'm fine, thanks.", from: 'B' }, { en: 'Nice to meet you.', az: 'You too.', from: 'M' }],
       extra: ['Please.'],
-      variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Thank you! — You're welcome.; How are you? — I'm fine, thanks.; Nice to meet you. — You too.", 'Hər cümlənin öz cavabı var: təşəkkürə, suala, üzrə fərqli cavab verilir.', 'Deyilənə uyğun cavab.', "Thank you! — You're welcome."))],
+      variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Thank you! — You're welcome.; How are you? — I'm fine, thanks.; Nice to meet you. — You too.", 'Təşəkkürə, suala və xoş sözə fərqli cavab verilir.', 'Deyilənə uyğun cavab.', "Thank you! — You're welcome."))],
       review: {
-        title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə ingiliscə necə cavab verilir? Bir cavab artıqdır.', prompt: 'Başqa söhbətlər.\nCümləyə toxun, sonra onun cavabını seç.',
+        title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə uyğun cavabı tap, bir cavab artıqdır.', prompt: 'Başqa söhbətlər.\nCümləyə toxun, sonra onun cavabını seç.',
         rows: [{ en: 'Thanks!', az: "You're welcome.", from: 'B' }, { en: "What's your name?", az: "I'm …", from: 'G' }, { en: 'Hello!', az: 'Hi!', from: 'M' }],
         extra: ['Please.'],
-        variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Thanks! — You're welcome.; What's your name? — I'm …; Hello! — Hi!", 'Hər cümlənin öz cavabı var.', 'Deyilənə uyğun cavab.', "Thanks! — You're welcome."))],
+        variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Thanks! — You're welcome.; What's your name? — I'm …; Hello! — Hi!", 'Təşəkkürə, ad sualına və salama fərqli cavab verilir.', 'Deyilənə uyğun cavab.', "Thanks! — You're welcome."))],
       },
     },
     {
@@ -162,7 +162,7 @@ export const lesson5: DesignLesson = {
       prompt: '{M} sənə çətir verir.\nTəşəkkür et.', rule: thanks, reply: "You're welcome!",
       variants: [other('Təşəkkür ifadəsi de.', ex('Thank you! / Thanks!', 'Sənə nəsə verəndə təşəkkür edirsən.', 'Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən.', 'Thank you!'))],
       review: {
-        speaker: 'mascot', title: 'Nümunəsiz təşəkkür et', why: 'Təşəkkürü özün dedin.', hint: 'Sənə nəsə verəndə nə deyirsən?', prompt: '{M} sənə qapını açır.\nTəşəkkür et.', rule: thanks, reply: "You're welcome!",
+        speaker: 'mascot', title: 'Nümunəsiz təşəkkür et', why: 'Təşəkkürü özün dedin.', hint: 'Sənə kömək edəndə nə deyirsən?', prompt: '{M} sənə qapını açır.\nTəşəkkür et.', rule: thanks, reply: "You're welcome!",
         variants: [other('Təşəkkür ifadəsi de.', ex('Thank you! / Thanks!', 'Sənə kömək edəndə təşəkkür edirsən.', 'Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən.', 'Thanks!'))],
       },
     },

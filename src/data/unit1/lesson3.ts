@@ -25,14 +25,14 @@ export const lesson3: DesignLesson = {
       ],
     },
     {
-      type: 'choice', id: 'd3_c02', number: 2, title: 'Oxu və anla', why: 'I’m … ilə adını deyir.', hint: 'Qız sual verir, yoxsa özü haqqında nəsə deyir? Dərs 2-ni xatırla.',
+      type: 'choice', id: 'd3_c02', number: 2, title: 'Oxu və anla', why: 'I’m … ilə adını deyir.', hint: 'Qız sual verir, yoxsa özü haqqında nəsə deyir?',
       prompt: 'Qız yazır: “Hi! I’m …”\nO nə edir?', options: ['Adını soruşur.', 'Adını deyir.', 'Sağollaşır.'], answer: 'Adını deyir.',
       variants: [
-        pick('Adını soruşur.', 'Sual yoxdur — o, adını deyir.', ex('Adını deyir.', '“I’m …” — “Mən …-am” deməkdir. Bu, sual deyil.', 'I’m + ad = adını demək.', 'Hi! I’m …')),
-        pick('Sağollaşır.', 'Hi salamdır, sağollaşma deyil.', ex('Adını deyir.', 'Hi görüşü başladır. Sonra “I’m …” ilə adını deyir.', 'I’m + ad = adını demək.', 'Hello! My name is …')),
+        pick('Adını soruşur.', 'Sual yoxdur — o, adını deyir.', ex('Adını deyir.', '“I’m …” — “Mən …-am” deməkdir, bu sual deyil.', 'I’m + ad = adını demək.', 'Hi! I’m …')),
+        pick('Sağollaşır.', 'Hi salamdır, sağollaşma deyil.', ex('Adını deyir.', 'Hi görüşü başladır, sonra “I’m …” ilə adını deyir.', 'I’m + ad = adını demək.', 'Hello! My name is …')),
       ],
       review: {
-        title: 'Oxu və anla', why: 'My name is … ilə adını deyir.', hint: 'Oğlan sual verir, yoxsa özü haqqında nəsə deyir? Dərs 2-ni xatırla.', prompt: 'Oğlan yazır: “Hello! My name is …”\nO nə edir?',
+        title: 'Oxu və anla', why: 'My name is … ilə adını deyir.', hint: 'Oğlan sual verir, yoxsa özü haqqında nəsə deyir?', prompt: 'Oğlan yazır: “Hello! My name is …”\nO nə edir?',
         options: ['Sağollaşır.', 'Adını soruşur.', 'Adını deyir.'], answer: 'Adını deyir.',
         variants: [other('O, adını deyir.', ex('Adını deyir.', '“My name is …” — “Mənim adım …” deməkdir.', 'My name is + ad = adını demək.', 'Hi! I’m …'))],
       },
@@ -48,18 +48,18 @@ export const lesson3: DesignLesson = {
       prompt: 'Yeni yoldaşının adını bilmirsən.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni yoldaş', from: 'B', lines: [{ from: 'B', text: 'Hello!' }] },
       tiles: ['your', 'is', "What's", 'name', 'my', '?'], rule: exact("What's your name?"),
-      hint: 'Bu dərsin əvvəlində öyrəndiyin ad sualını qur. Sual “Nə” mənasındakı sözlə başlayır.', hintAssists: false,
-      variants: [other('Sıra: What’s + your + name?', ex("What's your name?", '“What’s” içində artıq “is” var. “you” — sən, “your” — sənin.', 'What’s + your + name?', "Hello! What's your name?"))],
+      hint: 'Sual “nə” mənasındakı sözlə başlayır.', hintAssists: false,
+      variants: [other('Sıra: What’s + your + name?', ex("What's your name?", '“my” — mənim, “your” — sənin; sən onun adını soruşursan.', 'What’s + your + name?', "Hello! What's your name?"))],
       review: {
         title: 'Mesajı qur', why: 'Sual düzgün sırada qurulub.', prompt: 'Kursda yeni qızla tanış olursan.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Kurs yoldaşı', from: 'G', lines: [{ from: 'G', text: 'Hi!' }] },
         tiles: ['name', "What's", 'my', 'your', 'is', '?'], rule: exact("What's your name?"),
-        hint: 'Bu dərsin əvvəlində öyrəndiyin ad sualını qur. Sual “Nə” mənasındakı sözlə başlayır.', hintAssists: false,
-        variants: [other('Sıra: What’s + your + name?', ex("What's your name?", '“my” — mənim, “your” — sənin. Sən onun adını soruşursan.', 'What’s + your + name?', "Hi! What's your name?"))],
+        hint: 'Sual “nə” mənasındakı sözlə başlayır.', hintAssists: false,
+        variants: [other('Sıra: What’s + your + name?', ex("What's your name?", '“my” — mənim, “your” — sənin; sən onun adını soruşursan.', 'What’s + your + name?', "Hi! What's your name?"))],
       },
     },
     {
-      type: 'choice', id: 'd3_c05', number: 5, title: 'Sözü tamamla', why: '“your” — sənin.', hint: '“Sənin adın” deyirik. Hansı söz “sənin” deməkdir?',
+      type: 'choice', id: 'd3_c05', number: 5, title: 'Sözü tamamla', why: '“your” — sənin.', hint: 'Burada “sənin” mənasındakı söz lazımdır.',
       prompt: 'Oğlan qızın adını soruşur.\nHansı söz çatmır?',
       gap: { speaker: 'B', before: "What's", after: 'name?' }, options: ['I', 'your', 'my'], answer: 'your',
       variants: [
@@ -67,7 +67,7 @@ export const lesson3: DesignLesson = {
         pick('my', '“my” — mənim. O, öz adını soruşmur.', ex('your', 'Qarşı tərəfin adını soruşanda “your” deyilir.', 'What’s your name?', "Hello! What's your name?")),
       ],
       review: {
-        title: 'Sözü tamamla', why: '“your” — sənin.', hint: '“Sənin adın” deyirik, “sən adın” yox. İngiliscə də “sən” və “sənin” fərqli sözlərdir.', prompt: 'Qız oğlanın adını soruşur.\nHansı söz çatmır?',
+        title: 'Sözü tamamla', why: '“your” — sənin.', hint: '“Sən” yox, “sənin” mənasındakı sözü seç.', prompt: 'Qız oğlanın adını soruşur.\nHansı söz çatmır?',
         gap: { speaker: 'G', before: "Hi! What's", after: 'name?' }, options: ['my', 'you', 'your'], answer: 'your',
         variants: [other('Burada “sənin” — your lazımdır.', ex('your', 'Qarşı tərəfin adını soruşanda “your” deyilir.', 'What’s your name?', "What's your name?"))],
       },
@@ -76,7 +76,7 @@ export const lesson3: DesignLesson = {
       type: 'word', id: 'd3_c06', number: 6, scenes: ['d3/word-nice-to-meet'],
       word: 'Nice to meet you.', pronunciation: '/naɪs tə mit ju/', reading: 'nays tu mit yu', az: 'Tanış olmağıma şadam.',
       notes: ['Adları deyəndən sonra deyilir.'],
-      example: "I'm …. Nice to meet you!", exampleAz: 'Mən …-am. Tanış olmağıma şadam!',
+      example: "I'm … Nice to meet you!", exampleAz: 'Mən …-am. Tanış olmağıma şadam!',
     },
     {
       type: 'word', id: 'd3_c06b', number: 7, scenes: ['d3/word-you-too'],
@@ -92,41 +92,41 @@ export const lesson3: DesignLesson = {
       review: {
         title: 'Dinlə və təkrarla', why: 'Sual axıcı səsləndi.', prompt: 'Sualı dinlə, sonra eyni cür de.', audio: "What's your name?", repeat: { stress: 'name', note: 'Səs sonda bir az enir.', reading: 'uats yor neym?' },
         rule: exact("What's your name"),
-        variants: [other('Bir daha dinlə və yavaş de.', ex("What's your name?", '“What’s” bir hecadır: /wɒts/.', 'Vurğu “name” sözünə düşür.', "What's your NAME?"))],
+        variants: [other('Bir daha dinlə və yavaş de.', ex("What's your name?", '“What’s” bir hecadır: /wʌts/.', 'Vurğu “name” sözünə düşür.', "What's your NAME?"))],
       },
     },
     {
-      type: 'choice', id: 'd3_c08', number: 8, title: 'Dinlə və seç', why: 'You too — “Mən də”.', hint: 'Oğlan xoş söz dedi. Bu dərsdə ona qısa cavab öyrəndin: “Mən də”.',
+      type: 'choice', id: 'd3_c08', number: 8, title: 'Dinlə və seç', why: 'You too — “Mən də”.', hint: 'Oğlan tanışlığın xoş sözünü dedi — ona necə cavab verilir?',
       prompt: 'Oğlanı dinlə.\nNecə cavab verərsən?', audio: 'Nice to meet you!', options: ['Goodbye!', 'You too!', "What's your name?"], answer: 'You too!',
       variants: [
-        pick('Goodbye!', 'Tanışlıq yeni başladı, hələ sağollaşmırsan.', ex('You too!', '“Nice to meet you” tanışlığın xoş sözüdür. Cavabı “You too!” olur.', 'Nice to meet you → You too!', 'Nice to meet you! — You too!')),
-        pick("What's your name?", 'Ad artıq deyilib.', ex('You too!', 'Adlar deyilib, indi xoş söz deyilir. Cavab “You too!”dur.', 'Nice to meet you → You too!', 'Nice to meet you! — You too!')),
+        pick('Goodbye!', 'Tanışlıq yeni başladı, hələ sağollaşmırsan.', ex('You too!', '“Nice to meet you” tanışlığın xoş sözüdür, cavabı “You too!” olur.', 'Nice to meet you → You too!', 'Nice to meet you! — You too!')),
+        pick("What's your name?", 'Oğlan sual vermədi, xoş söz dedi.', ex('You too!', 'Oğlan “Nice to meet you!” dedi — buna “You too!” cavabdır.', 'Nice to meet you → You too!', 'Nice to meet you! — You too!')),
       ],
       review: {
-        title: 'Dinlə və seç', why: 'You too — “Mən də”.', hint: 'Qız xoş söz dedi. Bu dərsdə ona qısa cavab öyrəndin: “Mən də”.', prompt: 'Qızı dinlə.\nNecə cavab verərsən?', audio: 'Nice to meet you!', options: ['You too!', 'My name is …', 'Hi!'], answer: 'You too!',
+        title: 'Dinlə və seç', why: 'You too — “Mən də”.', hint: 'Qız tanışlığın xoş sözünü dedi — ona necə cavab verilir?', prompt: 'Qızı dinlə.\nNecə cavab verərsən?', audio: 'Nice to meet you!', options: ['You too!', 'My name is …', 'Hi!'], answer: 'You too!',
         variants: [other('Burada “Mən də” deyirsən.', ex('You too!', '“Nice to meet you”ya qısa cavab “You too!”dur.', 'Nice to meet you → You too!', 'Nice to meet you! — You too!'))],
       },
     },
     {
-      type: 'write', id: 'd3_c09', number: 9, title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Qız sənin adını soruşur. Dərs 2-də adını necə deyirdin?',
-      prompt: 'Qız adını deyib soruşur: “Hi! I’m …. What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
+      type: 'write', id: 'd3_c09', number: 9, title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Dərs 2-də adını necə deyirdin, onu xatırla.',
+      prompt: 'Qız adını deyib soruşur: “Hi! I’m … What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
       variants: [
-        insteadOf('askName', 'O artıq soruşdu — sən cavab verirsən.', ex("I'm … / My name is …", 'Sual verilib. Cavabda adını deyirsən.', 'What’s your name? → I’m …', "My name is …")),
+        insteadOf('askName', 'O artıq soruşdu — sən cavab verirsən.', ex("I'm … / My name is …", 'Qız artıq soruşdu, sən isə adını deyirsən.', 'What’s your name? → I’m …', "My name is …")),
         other('Adını I’m və ya My name is ilə de.', ex("I'm … / My name is …", '“What’s your name?” sualına cavab adındır.', 'What’s your name? → I’m …', "I'm …")),
       ],
       review: {
-        title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Oğlan sənin adını soruşur. Dərs 2-də adını necə deyirdin?', prompt: 'Oğlan idman zalında soruşur: “Hello! What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
+        title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Dərs 2-də adını necə deyirdin, onu xatırla.', prompt: 'Oğlan idman zalında soruşur: “Hello! What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
         variants: [other('Adını I’m və ya My name is ilə de.', ex("I'm … / My name is …", '“What’s your name?” sualına cavab adındır.', 'What’s your name? → My name is …', "I'm …"))],
       },
     },
     {
-      type: 'match', id: 'd3_c13', number: 13, title: 'Kim nə dedi?', why: 'Tanışlığın üç cümləsini tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy. Qalanların seçimi azalacaq.',
+      type: 'match', id: 'd3_c13', number: 13, title: 'Kim nə dedi?', why: 'Tanışlığın üç cümləsini tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
       prompt: 'Tanışlıq söhbəti.\nHər cümləyə mənasını qoş.',
       rows: [{ en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olmağıma şadam.', from: 'G' }, { en: 'You too.', az: 'Mən də.', from: 'B' }],
       extra: ['Hələlik!'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('What’s your name? — Adın nədir?; Nice to meet you. — Tanış olmağıma şadam.; You too. — Mən də.', 'Əvvəl ad soruşulur, sonra xoş söz deyilir və ona cavab verilir.', 'Mənaya görə qoş.', "What's your name? … Nice to meet you! — You too!"))],
       review: {
-        title: 'Kim nə dedi?', why: 'Tanışlığın cümlələrini tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy. Qalanların seçimi azalacaq.', prompt: 'Başqa tanışlıq.\nHər cümləyə mənasını qoş.',
+        title: 'Kim nə dedi?', why: 'Tanışlığın cümlələrini tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Başqa tanışlıq.\nHər cümləyə mənasını qoş.',
         rows: [{ en: 'Hi!', az: 'Salam!', from: 'G' }, { en: 'My name is …', az: 'Mənim adım …-dır.', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olmağıma şadam.', from: 'G' }],
         extra: ['Mən də.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hi! — Salam!; My name is … — Mənim adım …-dır.; Nice to meet you. — Tanış olmağıma şadam.', 'Salam, ad və xoş söz.', 'Mənaya görə qoş.', 'Hi! My name is … Nice to meet you!'))],
@@ -134,32 +134,32 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'voice', id: 'd3_c10', number: 10, speaker: 'mascot', title: 'Adını soruş', why: 'Adı düzgün soruşdun.', hint: 'Bu dərsin əvvəlində öyrəndiyin sualı xatırla.',
-      prompt: '{M} ilə tanış olursan.\nOnun adını soruş.', rule: askName, reply: 'Nice to meet you!',
+      prompt: '{M} səninlə tanış olur.\nOnun adını soruş.', rule: askName, reply: 'Nice to meet you!',
       variants: [other('Adı soruşmaq üçün sual lazımdır.', ex("What's your name?", 'Adını demək yox, onun adını soruşmaq lazımdır.', 'What’s your name?', "Hi! What's your name?"))],
       review: {
-        speaker: 'mascot', title: 'Adını soruş', why: 'Adı düzgün soruşdun.', hint: 'Bu dərsin əvvəlində öyrəndiyin sualı xatırla.', prompt: 'Sinifdə yeni uşaq var.\nOnun adını soruş.', rule: askName, reply: 'Nice to meet you!',
+        speaker: 'mascot', title: 'Adını soruş', why: 'Adı düzgün soruşdun.', hint: 'Bu dərsin əvvəlində öyrəndiyin sualı xatırla.', prompt: 'Kursda yeni yoldaş var.\nOnun adını soruş.', rule: askName, reply: 'Nice to meet you!',
         variants: [other('Adı soruşmaq üçün sual lazımdır.', ex("What's your name?", 'Sən onun adını öyrənmək istəyirsən.', 'What’s your name?', "Hello! What's your name?"))],
       },
     },
     {
-      type: 'voice', id: 'd3_c11', number: 11, speaker: 'mascot', title: 'Tanışlığa cavab ver', why: 'Tanışlığa xoş cavab verdin.', hint: 'Xoş sözə qısa cavab verilir: “Mən də”.',
+      type: 'voice', id: 'd3_c11', number: 11, speaker: 'mascot', title: 'Tanışlığa cavab ver', why: 'Tanışlığa xoş cavab verdin.', hint: 'Xoş sözə “Mən də” mənasında qısa cavab ver.',
       prompt: '{M} deyir: “Nice to meet you!”\nCavab ver.', audio: 'Nice to meet you!', rule: meet,
       variants: [other('Qısa cavab: You too!', ex('You too! / Nice to meet you too!', 'Xoş sözə xoş cavab verilir.', 'Nice to meet you → You too!', 'You too!'))],
       review: {
-        speaker: 'mascot', title: 'Tanışlığa cavab ver', why: 'Tanışlığa xoş cavab verdin.', hint: 'Xoş sözə qısa cavab verilir: “Mən də”.', prompt: 'Yeni yoldaşın deyir: “Nice to meet you!”\nCavab ver.', audio: 'Nice to meet you!', rule: meet,
+        speaker: 'mascot', title: 'Tanışlığa cavab ver', why: 'Tanışlığa xoş cavab verdin.', hint: 'Xoş sözə “Mən də” mənasında qısa cavab ver.', prompt: 'Yeni yoldaşın deyir: “Nice to meet you!”\nCavab ver.', audio: 'Nice to meet you!', rule: meet,
         variants: [other('Qısa cavab: You too!', ex('You too! / Nice to meet you too!', 'Xoş sözə xoş cavab verilir.', 'Nice to meet you → You too!', 'Nice to meet you too!'))],
       },
     },
     {
-      type: 'write', id: 'd3_c12', number: 12, title: 'Söhbəti bitir', why: 'Görüşü sağollaşma ilə bitirdin.', hint: 'Görüş bitir. Dərs 1-in sağollaşma sözlərini xatırla.',
+      type: 'write', id: 'd3_c12', number: 12, title: 'Söhbəti bitir', why: 'Görüşü sağollaşma ilə bitirdin.', hint: 'Dərs 1-in sağollaşma sözlərini xatırla.',
       prompt: 'Tanışlıq bitdi, gedirsən.\nSağollaş.', placeholder: 'Cavabını yaz',
       chat: { partner: 'Qonşu qız', from: 'G', lines: [{ from: 'G', text: 'Nice to meet you!' }, { from: 'G', text: 'You too!' }] }, rule: bye,
       variants: [
-        insteadOf('greet', 'Gedirsən — salam yox, sağollaşma.', ex('Bye! / Goodbye!', 'Hello / Hi görüşü başladır. Sən gedirsən.', 'Ayrılarkən: Bye! / Goodbye!', 'Bye!')),
+        insteadOf('greet', 'Gedirsən — salam yox, sağollaşma.', ex('Bye! / Goodbye!', 'Hello və Hi görüşü başladır, sən isə gedirsən.', 'Ayrılarkən: Bye! / Goodbye!', 'Bye!')),
         other('Sağollaşma ifadəsi yaz.', ex('Bye! / Goodbye!', 'Görüş bitir, sağollaşırsan.', 'Ayrılarkən: Bye! / Goodbye!', 'Goodbye!')),
       ],
       review: {
-        title: 'Söhbəti bitir', why: 'Görüşü sağollaşma ilə bitirdin.', hint: 'Görüş bitir. Dərs 1-in sağollaşma sözlərini xatırla.', prompt: 'Dərs bitdi, evə gedirsən.\nYoldaşınla sağollaş.', placeholder: 'Cavabını yaz',
+        title: 'Söhbəti bitir', why: 'Görüşü sağollaşma ilə bitirdin.', hint: 'Dərs 1-in sağollaşma sözlərini xatırla.', prompt: 'Dərs bitdi, evə gedirsən.\nYoldaşınla sağollaş.', placeholder: 'Cavabını yaz',
         chat: { partner: 'Zal yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Bye!' }] }, rule: bye,
         variants: [other('Sağollaşma ifadəsi yaz.', ex('Bye! / Goodbye!', 'Görüş bitir, sağollaşırsan.', 'Ayrılarkən: Bye! / Goodbye!', 'Bye!'))],
       },

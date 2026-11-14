@@ -30,8 +30,9 @@ function task(t, out) {
   if (t.hint) out.push(`**İpucu:** ${t.hint}`);
   if (t.why) out.push(`**Düzgün olanda:** ${t.why}`);
   for (const v of t.variants) {
-    const m = v.match; const when = 'option' in m ? `“${m.option}” seçiləndə` : 'goal' in m ? `cavab “${m.goal}” işini görəndə` : v.field ? `${v.field} səhv olanda` : 'başqa səhvdə';
-    out.push(`- *İzah (${when}):* ${v.short ? `${v.short} — ` : ''}Uyğun: ${v.explain.answers.replace(/\.$/, "")}. Səbəb: ${v.explain.reason} Qayda: ${v.explain.rule} Nümunə: ${v.explain.example}`);
+    const m = v.match; const field = v.field && t.fields?.find(f => f.id === v.field);
+    const when = 'swapped' in m ? 'iki mesajın yeri dəyişəndə' : 'option' in m ? `“${m.option}” seçiləndə` : 'goal' in m ? `${field ? `“${field.label}” sahəsində ` : ''}cavab “${m.goal}” işini görəndə` : field ? `“${field.label}” səhv olanda` : 'başqa səhvdə';
+    out.push(`- *İzah (${when}):* ${v.short ? `${v.short} — ` : ''}Uyğun: ${v.explain.answers.replace(/\.$/, "")}${/[!?…]$/.test(v.explain.answers) ? "" : "."} Səbəb: ${v.explain.reason} Qayda: ${v.explain.rule} Nümunə: ${v.explain.example}`);
   }
 }
 

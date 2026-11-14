@@ -1,5 +1,5 @@
 // Bölmə 1 · Dərs 7 — Başa düşmürəm (Sorry? I don't understand. Again, please. Slowly, please.).
-// Recognition only: Could you say that again, please? Spiral: How are you?, Excuse me, Thank you.
+// Spiral: How are you?, Excuse me, Thank you.
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, goal, insteadOf, other, pick } from './build';
 
@@ -25,12 +25,12 @@ export const lesson7: DesignLesson = {
       ],
     },
     {
-      type: 'choice', id: 'd7_c02', number: 2, title: 'Dinlə və anla', why: 'Halını dedi və “And you?” ilə soruşdu.', hint: 'İki hissəyə qulaq as: əvvəl özü haqqında deyir, sonra sənə sual verir.',
+      type: 'choice', id: 'd7_c02', number: 2, title: 'Dinlə və anla', why: 'Halını dedi və “And you?” ilə soruşdu.', hint: 'Cümlənin iki hissəsinə ayrıca qulaq as.',
       prompt: 'Qızın cavabını dinlə.\nO nə edir?', audio: "I'm fine, thanks. And you?",
       options: ['Adını soruşur.', 'Halını deyib səni soruşur.', 'Üzr istəyir.'], answer: 'Halını deyib səni soruşur.',
       variants: [other('“fine” və “And you?” sözlərinə qulaq as.', ex('Halını deyib səni soruşur.', '“I’m fine, thanks” — halı; “And you?” — sualı geri qaytarır.', 'Halın + And you?', "I'm fine, thanks. And you?"))],
       review: {
-        title: 'Dinlə və anla', why: 'Excuse me ilə nəzakətlə adı soruşdu.', hint: 'İki hissəyə qulaq as: əvvəl diqqəti çəkir, sonra sual verir.', prompt: 'Oğlanın sözlərini dinlə.\nO nə edir?', audio: "Excuse me, what's your name?",
+        title: 'Dinlə və anla', why: 'Excuse me ilə nəzakətlə adı soruşdu.', hint: 'Cümlənin iki hissəsinə ayrıca qulaq as.', prompt: 'Oğlanın sözlərini dinlə.\nO nə edir?', audio: "Excuse me, what's your name?",
         options: ['Üzr istəyir.', 'Təşəkkür edir.', 'Adını nəzakətlə soruşur.'], answer: 'Adını nəzakətlə soruşur.',
         variants: [other('“Excuse me” üzr deyil — diqqət çəkir.', ex('Adını nəzakətlə soruşur.', '“Excuse me” diqqəti çəkir, sonra ad sualı gəlir.', 'Excuse me + sual.', "Excuse me, what's your name?"))],
       },
@@ -39,13 +39,12 @@ export const lesson7: DesignLesson = {
       type: 'word', id: 'd7_c03', number: 3, scenes: ['d7/word-dont-understand'],
       word: "Sorry? I don't understand.", pronunciation: '/ˈsɑri aɪ doʊnt ˌʌndərˈstænd/', reading: 'sari? ay dount andərstend', az: 'Nə dedin? Başa düşmürəm.',
       notes: ['Sual kimi deyilən “Sorry?” — “nə dedin?” deməkdir.'],
-      example: "Sorry? I don't understand.", exampleAz: 'Bağışla, nə dedin? Başa düşmürəm.',
+      example: "Sorry? I don't understand.", exampleAz: 'Nə dedin? Başa düşmürəm.',
     },
     {
       type: 'word', id: 'd7_c04', number: 4, scenes: ['d7/word-again'],
       word: 'Again, please.', pronunciation: '/əˈɡen pliz/', reading: 'əgen, pliz', az: 'Bir də, zəhmət olmasa.',
-      notes: ['Uzun forması: Could you say that again, please?'],
-      example: 'Could you say that again, please?', exampleAz: 'Bir də deyə bilərsən?',
+      example: 'Sorry? Again, please.', exampleAz: 'Nə dedin? Bir də, zəhmət olmasa.',
     },
     {
       type: 'word', id: 'd7_c04b', number: 5, scenes: ['d7/word-slowly'],
@@ -55,17 +54,17 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'choice', id: 'd7_c05', number: 5, title: 'Dinlə və anla', why: '“again” — bir də.',
-      prompt: 'Oğlan sənə nə deyir?\nDinlə.', audio: 'Could you say that again, please?',
-      options: ['Adını soruşur.', 'Bir də deməyini istəyir.', 'Sağollaşır.'], answer: 'Bir də deməyini istəyir.', hint: 'Bu dərsdə “Bir də deyə bilərsən?” mənasında uzun bir sual gördün. Səsdəki ona bənzəyir?', hintAssists: true,
-      variants: [other('“again” — bir də.', ex('Bir də deməyini istəyir.', 'Uzun sualdır, amma əsas söz “again”dir.', 'again = bir də.', 'Again, please.'))],
+      prompt: 'Oğlan sənə nə deyir?\nDinlə.', audio: 'Sorry? Again, please.',
+      options: ['Adını soruşur.', 'Bir də deməyini istəyir.', 'Sağollaşır.'], answer: 'Bir də deməyini istəyir.', hint: 'Səsdə “please”-dən əvvəlki sözə qulaq as.', hintAssists: true,
+      variants: [other('“again” — bir də.', ex('Bir də deməyini istəyir.', 'Səsdə “Again, please” deyilir — “Bir də, zəhmət olmasa”.', 'again = bir də.', 'Sorry? Again, please.'))],
       review: {
         title: 'Dinlə və anla', why: '“slowly” — yavaş.', prompt: 'Qız sənə nə deyir?\nDinlə.', audio: 'Slowly, please.',
-        options: ['Təşəkkür edir.', 'Yavaş danışmağı istəyir.', 'Halını soruşur.'], answer: 'Yavaş danışmağı istəyir.', hint: 'Bu dərsdə iki xahiş öyrəndin: biri “bir də”, biri “yavaş”. Səsdəki hansıdır?', hintAssists: true,
+        options: ['Təşəkkür edir.', 'Yavaş danışmağı istəyir.', 'Halını soruşur.'], answer: 'Yavaş danışmağı istəyir.', hint: 'Səsdə “please”-dən əvvəlki sözə qulaq as.', hintAssists: true,
         variants: [other('“slowly” — yavaş.', ex('Yavaş danışmağı istəyir.', '“Slowly, please” — “Yavaş, zəhmət olmasa”.', 'slowly = yavaş.', 'Slowly, please.'))],
       },
     },
     {
-      type: 'match', id: 'd7_c06', number: 6, title: 'Kim nə dedi?', why: 'Hər xahiş öz yerində.', hint: 'Sual kimi deyilən “Sorry?” üzr deyil, “nə dedin?” deməkdir.',
+      type: 'match', id: 'd7_c06', number: 6, title: 'Kim nə dedi?', why: 'Hər xahiş öz yerində.', hint: 'Sual kimi deyilən sözə diqqət et — o, üzr deyil.',
       prompt: 'Hər cümləyə mənasını qoş.',
       rows: [{ en: 'Sorry?', az: 'Nə dedin?', from: 'G' }, { en: "I don't understand.", az: 'Başa düşmürəm.', from: 'B' }, { en: 'Slowly, please.', az: 'Yavaş, zəhmət olmasa.', from: 'M' }],
       extra: ['Eybi yox.'],
@@ -92,7 +91,7 @@ export const lesson7: DesignLesson = {
       type: 'choice', id: 'd7_c08', number: 8, title: 'Sözü tamamla', why: 'I don’t understand — başa düşmürəm.', hint: '“Başa düşmürəm” — bu dərsin əvvəlindəki cümləni xatırla.',
       prompt: 'Oğlan başa düşmür.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'Sorry? I', after: 'understand.' }, options: ['am', "don't", 'not'], answer: "don't",
       variants: [
-        pick('not', '“I not understand” deyilmir.', ex("don't", 'I not understand demirik. Burada don’t lazımdır.', 'I’m not very well. — burada not. I don’t understand. — burada don’t.', "Sorry? I don't understand.")),
+        pick('not', '“I not understand” deyilmir.', ex("don't", 'I not understand demirik, burada don’t lazımdır.', 'I’m not very well — burada not, I don’t understand — burada don’t.', "Sorry? I don't understand.")),
         pick('am', '“am” burada lazım deyil.', ex("don't", '“Başa düşmürəm” — I don’t understand.', 'I don’t understand.', "Sorry? I don't understand.")),
       ],
       review: {
@@ -101,46 +100,46 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'match', mode: 'order', id: 'd7_c09', number: 9, title: 'Söhbəti sırala', why: 'Əvvəl başa düşmədin, xahiş etdin, sonra cavab verdin.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.',
+      type: 'match', mode: 'order', id: 'd7_c09', number: 9, title: 'Söhbəti sırala', why: 'Əvvəl başa düşmədin, xahiş etdin, sonra cavab verdin.', hint: 'Düşün: başa düşməyəndə nə deyirsən və bundan sonra nə olur?',
       prompt: 'Oğlan çox sürətli danışır.\nBalonlara toxun, söhbəti sıraya düz.',
       rows: [{ en: '1', az: 'Hellohowareyou!', from: 'B' }, { en: '2', az: 'Sorry? Slowly, please.', from: 'G' }, { en: '3', az: 'How are you?', from: 'B' }, { en: '4', az: "I'm fine, thanks.", from: 'G' }],
       extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks.", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'Sual → cavab.', "Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks."))],
+      variants: [other('Söhbətin sırası düz deyil.', ex("Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks.", 'Sürətli danışdı, sən xahiş etdin, o yavaş təkrar etdi.', 'Başa düşməyəndə → Sorry? Slowly, please.', "Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks."))],
       review: {
-        title: 'Söhbəti sırala', why: 'Xahiş, təkrar və cavab düz sıradadır.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.', prompt: 'Qız sürətli soruşur.\nBalonlara toxun, söhbəti sıraya düz.',
+        title: 'Söhbəti sırala', why: 'Xahiş, təkrar və cavab düz sıradadır.', hint: 'Düşün: başa düşməyəndə nə deyirsən və bundan sonra nə olur?', prompt: 'Qız sürətli soruşur.\nBalonlara toxun, söhbəti sıraya düz.',
         rows: [{ en: '1', az: "Hiwhat'syourname?", from: 'G' }, { en: '2', az: 'Sorry? Again, please.', from: 'B' }, { en: '3', az: "What's your name?", from: 'G' }, { en: '4', az: 'My name is …', from: 'B' }],
         extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("Hiwhat'syourname? → Sorry? Again, please. → What's your name? → My name is …", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'Sual → cavab.', "Hiwhat'syourname? → Sorry? Again, please. → What's your name? → My name is …"))],
+        variants: [other('Söhbətin sırası düz deyil.', ex("Hiwhat'syourname? → Sorry? Again, please. → What's your name? → My name is …", 'Sürətli soruşdu, sən təkrar istədin, o yenidən soruşdu.', 'Başa düşməyəndə → Sorry? Again, please.', "Hiwhat'syourname? → Sorry? Again, please. → What's your name? → My name is …"))],
       },
     },
     {
-      type: 'write', id: 'd7_c10', number: 10, title: 'Cavabını yaz', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir. Ondan nə xahiş edirsən?',
+      type: 'write', id: 'd7_c10', number: 10, title: 'Cavabını yaz', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir — ondan nə xahiş edirsən?',
       prompt: 'Oğlan çox sürətli deyir: “Hellohowareyounicetomeetyou!”\nOndan yavaş danışmağı xahiş et.', placeholder: 'Cavabını yaz', rule: slow,
       variants: [
-        insteadOf('repeat', 'Bu da olar, amma burada “yavaş” xahiş et.', ex('Slowly, please.', 'Problem sürətdir — yavaş danışmağı istəyirsən.', 'Xahişin sonuna “please” gəlir.', 'Slowly, please.')),
-        other('Yavaş danışmağı xahiş et.', ex('Slowly, please.', 'O çox sürətli danışır.', 'Xahişin sonuna “please” gəlir.', 'Sorry? Slowly, please.')),
+        insteadOf('repeat', 'Problem sürətdədir — yavaş danışmağı xahiş et.', ex('Slowly, please.', 'Problem sürətdədir, ona görə Slowly lazımdır.', 'Again, please — bir də; Slowly, please — yavaş.', 'Slowly, please.')),
+        other('Yavaş danışmağı xahiş et.', ex('Slowly, please.', 'O çox sürətli danışır, ona görə Slowly lazımdır.', 'Again, please — bir də; Slowly, please — yavaş.', 'Sorry? Slowly, please.')),
       ],
       review: {
-        title: 'Cavabını yaz', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir. Ondan nə xahiş edirsən?', prompt: 'Qız çox sürətli soruşur: “Hiwhat’syourname?”\nOndan yavaş danışmağı xahiş et.', placeholder: 'Cavabını yaz', rule: slow,
-        variants: [other('Yavaş danışmağı xahiş et.', ex('Slowly, please.', 'O çox sürətli danışır.', 'Xahişin sonuna “please” gəlir.', 'Slowly, please.'))],
+        title: 'Cavabını yaz', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir — ondan nə xahiş edirsən?', prompt: 'Qız çox sürətli soruşur: “Hiwhat’syourname?”\nOndan yavaş danışmağı xahiş et.', placeholder: 'Cavabını yaz', rule: slow,
+        variants: [other('Yavaş danışmağı xahiş et.', ex('Slowly, please.', 'O çox sürətli danışır, ona görə Slowly lazımdır.', 'Again, please — bir də; Slowly, please — yavaş.', 'Slowly, please.'))],
       },
     },
     {
-      type: 'voice', id: 'd7_c11', number: 11, speaker: 'mascot', title: 'Təkrar istə', why: 'Təkrarı nəzakətlə istədin.', hint: 'Eşitmədin. Bir də deməsini xahiş et.',
+      type: 'voice', id: 'd7_c11', number: 11, speaker: 'mascot', title: 'Təkrar istə', why: 'Təkrarı nəzakətlə istədin.', hint: 'Dərsin “bir də” xahişini xatırla.',
       prompt: '{M} çox sürətli danışdı.\nBir də deməsini xahiş et.', audio: 'Hello how are you nice to meet you', sample: 'Sorry? Again, please.', rule: again,
       variants: [other('Again, please.', ex('Sorry? Again, please.', 'Eşitmədin — bir də deməsini istəyirsən.', 'Eşitməyəndə “bir də” xahiş edirsən.', 'Again, please.'))],
       review: {
-        speaker: 'mascot', title: 'Təkrar istə', why: 'Təkrarı nəzakətlə istədin.', hint: 'Eşitmədin. Bir də deməsini xahiş et.', prompt: 'Səs-küylü yerdə {m} nəsə dedi.\nBir də deməsini xahiş et.', audio: "What's your name", rule: again,
+        speaker: 'mascot', title: 'Təkrar istə', why: 'Təkrarı nəzakətlə istədin.', hint: 'Dərsin “bir də” xahişini xatırla.', prompt: 'Səs-küylü yerdə {m} nəsə dedi.\nBir də deməsini xahiş et.', audio: "What's your name", rule: again,
         variants: [other('Again, please.', ex('Again, please.', 'Eşitmədin — bir də deməsini istəyirsən.', 'Eşitməyəndə “bir də” xahiş edirsən.', 'Sorry? Again, please.'))],
       },
     },
     {
       type: 'voice', id: 'd7_c12', number: 12, speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: 'Bu dərsin əvvəlində öyrəndiyin “Başa düşmürəm” cümləsini de.',
       prompt: '{M} sənə yeni bir söz deyir, mənasını bilmirsən.\nBaşa düşmədiyini de.', rule: dont, reply: 'OK! Slowly…',
-      variants: [other("I don't understand.", ex("I don't understand.", 'Bilmədiyini demək normaldır.', 'I don’t understand.', "Sorry? I don't understand."))],
+      variants: [other("I don't understand.", ex("I don't understand.", 'Mənasını bilmirsən, ona görə “Başa düşmürəm” deyirsən.', 'I don’t understand.', "Sorry? I don't understand."))],
       review: {
         speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: 'Bu dərsin əvvəlində öyrəndiyin “Başa düşmürəm” cümləsini de.', prompt: '{M} uzun cümlə dedi, heç nə anlamadın.\nBaşa düşmədiyini de.', rule: dont, reply: 'OK! Slowly…',
-        variants: [other("I don't understand.", ex("I don't understand.", 'Bilmədiyini demək normaldır.', 'I don’t understand.', "I don't understand."))],
+        variants: [other("I don't understand.", ex("I don't understand.", 'Mənasını bilmirsən, ona görə “Başa düşmürəm” deyirsən.', 'I don’t understand.', "I don't understand."))],
       },
     },
     {
@@ -158,7 +157,7 @@ export const lesson7: DesignLesson = {
     incomplete: 'Dərs tam bitmədi. Yoxlanmayan tapşırıqlara sonra qayıda bilərsən.',
     goals: [
       { group: 'Tanıma', text: 'Təkrar və yavaş xahişlərini anlamaq', tasks: ['d7_c09', 'd7_c02', 'd7_c05', 'd7_c06', 'd7_c08'] },
-      { group: 'Yazı', text: 'Başa düşmədiyini yazmaq', tasks: ['d7_c10'] },
+      { group: 'Yazı', text: 'Yavaş danışmağı yazıyla xahiş etmək', tasks: ['d7_c10'] },
       { group: 'Danışıq', text: 'Təkrar və yavaş danışmağı istəmək', tasks: ['d7_c11', 'd7_c12', 'd7_c13'] },
     ],
     closing: 'Növbəti dərs — bölmə söhbəti: öyrəndiklərinin hamısı bir yerdə.', button: 'Ana səhifəyə qayıt',

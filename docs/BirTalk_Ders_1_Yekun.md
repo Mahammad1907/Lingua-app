@@ -122,7 +122,7 @@ Səsi dinlə. BirFox nə edir?
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** Bir də dinlə. Bu söz görüş başlayanda deyilir, yoxsa bitəndə?
+**İpucu:** Bu söz görüş başlayanda deyilir, yoxsa bitəndə?
 
 ### Cavab açarı
 
@@ -139,7 +139,7 @@ Qısa geribildirim: “Hi salamlaşmaq üçündür. Bu səsdə BirFox salam veri
 **İzah 1 — Mənə başa sal**
 - **Sənin cavabın:** “{seçilmiş variant}”.
 - **Uyğun cavab:** Salam verir.
-- **Səbəb:** Səsdə “Hi!” deyilir. “Sağollaşır” seçimi bu salamın mənasına uyğun deyil.
+- **Səbəb:** Səsdə “Hi!” deyilir — bu, sağollaşma yox, salamdır.
 - **Qısa qayda:** Hello və Hi salam vermək üçün işlənir.
 - **Yeni nümunə:** Bir tanışın səninlə qarşılaşır və “Hello!” deyir. O, salam verir.
 
@@ -149,7 +149,7 @@ Qısa geribildirim: “Hi təşəkkür deyil, salamdır. Bu səsdə BirFox salam
 
 - **Sənin cavabın:** “Təşəkkür edir.”
 - **Uyğun cavab:** Salam verir.
-- **Səbəb:** Səsdə “Hi!” deyilir. Bu, təşəkkür yox, salamdır.
+- **Səbəb:** Səsdə “Hi!” deyilir — bu, təşəkkür yox, salamdır.
 - **Qısa qayda:** Hello və Hi salam vermək üçün işlənir.
 - **Yeni nümunə:** Bir tanışın səninlə qarşılaşır və “Hello!” deyir. O, salam verir.
 
@@ -168,7 +168,7 @@ Ona ingiliscə qısa salam yaz.
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** Bu dərsin əvvəlində iki salam sözü öyrəndin. Onlardan birini yaz.
+**İpucu:** Dərsin əvvəlindəki salam sözlərindən birini yaz.
 
 ### Cavab açarı
 
@@ -187,7 +187,7 @@ Qısa geribildirim: “Bu ifadə sağollaşmaq üçündür. Burada salam vermək
 **İzah 2 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki yazılmış cavab}”.
 - **Uyğun cavablar:** Hello! / Hi!
-- **Səbəb:** Bye və Goodbye görüşü bitirir. Bu vəziyyətdə isə tanışınla yeni qarşılaşmısan.
+- **Səbəb:** Bye və Goodbye görüşü bitirir, sən isə tanışınla yeni qarşılaşmısan.
 - **Qısa qayda:** Görüşü salamla başlat.
 - **Yeni nümunə:** Tanışını məktəbin qarşısında görürsən: “Hi!”
 
@@ -198,7 +198,7 @@ Qısa geribildirim: “Burada qarşı tərəfə ingiliscə salam yazmaq lazımd�
 **İzah 3 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki yazılmış cavab}”.
 - **Uyğun cavablar:** Hello! / Hi!
-- **Səbəb:** Bu, salam deyil. Hello! və ya Hi! yaz.
+- **Səbəb:** Yazdığın söz salam deyil.
 - **Qısa qayda:** Cavab qarşı tərəfə salam verməlidir.
 - **Yeni nümunə:** Qonşunla qarşılaşırsan: “Hello!”
 
@@ -294,7 +294,7 @@ Hansı ifadə uyğundur?
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** Görüş bitir. Seçimlərdən hansı görüşü bitirir, hansı başladır?
+**İpucu:** Görüş bitir — seçimlərdən hansı görüşü bitirir?
 
 **Cavab açarı**
 - Uyğun cavab: **Goodbye!**
@@ -303,15 +303,15 @@ Hansı ifadə uyğundur?
 
 **İzah 6 — Mənə başa sal**
 - **Sənin cavabın:** “{seçilmiş variant}”.
-- **Uyğun cavab:** bu seçimlərdə Goodbye! Sərbəst sağollaşmada Bye! də uyğundur.
-- **Səbəb:** Hello salamlaşmaq üçündür. Burada görüş bitir.
+- **Uyğun cavab:** Goodbye!
+- **Səbəb:** Hello salamlaşmaq üçündür, burada isə görüş bitir.
 - **Qısa qayda:** Ayrılarkən sağollaşma ifadəsi seç.
 - **Yeni nümunə:** Söhbətin sonunda tanışından ayrılırsan: “Bye!”
 
 **İzah 6a — “Hi!” seçiləndə** (13 noyabr 2026: üçüncü seçim əlavə olundu)
 - **Sənin cavabın:** “Hi!”
-- **Uyğun cavab:** bu seçimlərdə Goodbye! Sərbəst sağollaşmada Bye! də uyğundur.
-- **Səbəb:** Hi salamlaşmaq üçündür. Burada görüş bitir.
+- **Uyğun cavab:** Goodbye!
+- **Səbəb:** Hi salamlaşmaq üçündür, burada isə görüş bitir.
 - **Qısa qayda:** Ayrılarkən sağollaşma ifadəsi seç.
 - **Yeni nümunə:** Söhbətin sonunda tanışından ayrılırsan: “Bye!”
 
@@ -328,7 +328,7 @@ Səsi dinlə və eşitdiyin sözü yaz.
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** “Yavaş dinlə” ilə bir də qulaq as. Eyni mənalı başqa sözü yox, məhz eşitdiyini yaz.
+**İpucu:** Yavaş dinlə və eşitdiyin sözü olduğu kimi yaz.
 
 **Cavab açarı**
 - Audio: **Bye!** Mətni əvvəlcədən göstərilmir.
@@ -340,12 +340,12 @@ Səsi dinlə və eşitdiyin sözü yaz.
 
 **A — Goodbye yazılıb**
 
-Qısa geribildirim: “Goodbye da sağollaşmadır. Bu səsdə isə Bye deyilir. Burada eşitdiyin sözü yazmaq tələb olunur.”
+Qısa geribildirim: “Goodbye da sağollaşmadır, amma səsdə Bye deyilir.”
 
 **İzah 7 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki cavab}”.
 - **Uyğun cavab:** Bye!
-- **Səbəb:** Goodbye mənaca uyğundur, amma audio məhz Bye sözüdür. Bu tapşırıq eynimənalı başqa ifadə seçməyi yoxlamır.
+- **Səbəb:** Səsdə Goodbye yox, Bye deyilir.
 - **Qısa qayda:** Eşitdiyini yazmaq tapşırığında səslənən sözü yaz.
 - **Yeni nümunə:** Başqa səsdə “Goodbye!” eşidirsənsə, “Goodbye” yazırsan.
 
@@ -354,8 +354,8 @@ Qısa geribildirim: “Goodbye da sağollaşmadır. Bu səsdə isə Bye deyilir.
 **İzah 8 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki cavab}”.
 - **Uyğun cavab:** Bye!
-- **Səbəb:** Audio Bye sözüdür. Hello və Hi başqa səslənən salamlaşma sözləridir.
-- **Qısa qayda:** Audioda eşitdiyin sözü yaz.
+- **Səbəb:** Səsdə Bye deyilir, Hello və Hi yox.
+- **Qısa qayda:** Səsdə eşitdiyin sözü yaz.
 - **Yeni nümunə:** “Hello!” eşidirsənsə, “Hello” yazırsan.
 
 **C — Başqa, səslənən sözlə uyğunlaşmayan yazı**
@@ -363,7 +363,7 @@ Qısa geribildirim: “Goodbye da sağollaşmadır. Bu səsdə isə Bye deyilir.
 **İzah 9 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki cavab}”.
 - **Uyğun cavab:** Bye!
-- **Səbəb:** Yazdığın söz audiodakı Bye sözü deyil.
+- **Səbəb:** Yazdığın söz səsdəki Bye deyil.
 - **Qısa qayda:** Səslənən sözü yaz.
 - **Yeni nümunə:** “Hi!” eşidəndə “Hi” yazılır.
 
@@ -400,7 +400,7 @@ Qısa geribildirim: “Bu ifadə salamlaşmaq üçündür. BirFox isə səninlə
 **İzah 10 — Mənə başa sal**
 - **Sənin cavabın:** “{etibarlı təsdiqlənmiş səsli cavab}”.
 - **Uyğun cavablar:** səslə Goodbye! / Bye!
-- **Səbəb:** Hello və Hi görüşü başlatmaq üçündür. Bu növbədə isə sağollaşmaya qarşılıq verilir.
+- **Səbəb:** Hello və Hi görüşü başladır, BirFox isə səninlə sağollaşır.
 - **Qısa qayda:** Sağollaşmaya sağollaşma ilə cavab ver.
 - **Yeni nümunə:** Qarşı tərəf “Bye!” deyir. Sən “Goodbye!” deyirsən.
 
@@ -426,7 +426,7 @@ Onun yerinə uyğun sağollaşma yaz.
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** BirFox gedir. Gedən adam salam verir, yoxsa sağollaşır?
+**İpucu:** Gedən adam salam verir, yoxsa sağollaşır?
 
 ### Cavab açarı
 
@@ -443,7 +443,7 @@ Qısa geribildirim: “Bu ifadə salamlaşmaq üçündür. Burada görüş bitir
 **İzah 12 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki yazılmış cavab}”.
 - **Uyğun cavablar:** Goodbye! / Bye!
-- **Səbəb:** BirFox gedir. Yazdığın salam görüşü bitirən ifadəni əvəz etmir.
+- **Səbəb:** BirFox gedir, salam isə görüşü bitirmir.
 - **Qısa qayda:** Görüşün sonunda sağollaş.
 - **Yeni nümunə:** Tanışınla söhbəti bitirirsən: “Bye!”
 
@@ -452,7 +452,7 @@ Qısa geribildirim: “Bu ifadə salamlaşmaq üçündür. Burada görüş bitir
 **İzah 13 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki yazılmış cavab}”.
 - **Uyğun cavablar:** Goodbye! / Bye!
-- **Səbəb:** Tapşırıqda Hello əvəzinə görüşü bitirən ifadə tələb olunur. Bu cavab həmin dəyişikliklə uyğunlaşmır.
+- **Səbəb:** Yazdığın söz sağollaşma deyil.
 - **Qısa qayda:** İfadəni vəziyyətin başlanmasına və ya bitməsinə uyğun seç.
 - **Yeni nümunə:** BirFox qapıdan çıxarkən “Goodbye!” deyir.
 
@@ -472,7 +472,7 @@ Bir tanışınla qısa görüşün var.
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** Birinci sahədə görüş başlayır, ikincidə bitir. Hər birinə uyğun sözü yaz.
+**İpucu:** Birinci sahədə görüş başlayır, ikincidə bitir.
 
 ### Cavab açarı
 
@@ -501,7 +501,7 @@ Qısa geribildirim, birinci cavab uyğundursa: “Birinci mesaj uyğundur. İkin
 **İzah 15 — Mənə başa sal**
 - **Sənin cavabın:** “{ikinci sahənin faktiki cavabı}”.
 - **Uyğun cavablar:** Goodbye! / Bye!
-- **Səbəb:** İkinci sahədə artıq ayrılırsan. Hello və Hi görüşün başlanğıcına uyğundur.
+- **Səbəb:** İkinci sahədə ayrılırsan, Hello və Hi isə görüşü başladır.
 - **Qısa qayda:** Görüşün sonunda sağollaşma yaz.
 - **Yeni nümunə:** Söhbət bitir: “Goodbye!”
 
@@ -510,7 +510,7 @@ Qısa geribildirim, birinci cavab uyğundursa: “Birinci mesaj uyğundur. İkin
 **İzah 16 — Mənə başa sal**
 - **Sənin cavabın:** Əvvəldə “{birinci cavab}”; sonda “{ikinci cavab}”.
 - **Uyğun cavablar:** əvvəl Hello! / Hi!; sonda Goodbye! / Bye!
-- **Səbəb:** Sağollaşmanı başlanğıcda, salamı isə sonda yazmısan. Hər ifadənin uyğun vaxtı fərqlidir.
+- **Səbəb:** Sağollaşmanı başlanğıcda, salamı isə sonda yazmısan.
 - **Qısa qayda:** Salam görüşü başladır; sağollaşma bitirir.
 - **Yeni nümunə:** Başlanğıc: “Hi!” Son: “Bye!”
 
@@ -519,7 +519,7 @@ Qısa geribildirim, birinci cavab uyğundursa: “Birinci mesaj uyğundur. İkin
 **İzah 17 — Mənə başa sal**
 - **Sənin cavabın:** “{çətinlik olan sahənin faktiki cavabı}”.
 - **Uyğun cavablar:** başlanğıc üçün Hello! / Hi!; son üçün Goodbye! / Bye!
-- **Səbəb:** Bu mesaj görüşün bu anına uyğun deyil. Əvvəl salam, sonda sağollaşma yazılır.
+- **Səbəb:** Bu mesaj görüşün bu anına uyğun deyil.
 - **Qısa qayda:** Hər mesajı görüşün həmin anına uyğun yaz.
 - **Yeni nümunə:** Əvvəl “Hello!”, ayrılarkən “Goodbye!”
 
@@ -531,7 +531,7 @@ Qısa geribildirim, birinci cavab uyğundursa: “Birinci mesaj uyğundur. İkin
 
 **Öyrənənin görəcəyi mətn**
 
-BirFox ilə qarşılaşırsan.
+BirFox-u görürsən.
 
 Salamı sən başlat.
 
@@ -548,14 +548,14 @@ Salamı sən başlat.
 **İzah 18 — Mənə başa sal — sağollaşma deyilib**
 - **Sənin cavabın:** “{etibarlı təsdiqlənmiş səsli cavab}”.
 - **Uyğun cavablar:** səslə Hello! / Hi!
-- **Səbəb:** Yeni qarşılaşırsan. Dediyin sağollaşma görüşü bitirir, salamlaşmanı başlatmır.
+- **Səbəb:** Yeni qarşılaşırsan, sağollaşma isə görüşü bitirir.
 - **Qısa qayda:** Yeni görüşü salamla başlat.
 - **Yeni nümunə:** BirFox-u görürsən və “Hello!” deyirsən.
 
 **İzah 19 — Mənə başa sal — salam olmayan başqa etibarlı cavab**
 - **Sənin cavabın:** “{etibarlı təsdiqlənmiş səsli cavab}”.
 - **Uyğun cavablar:** səslə Hello! / Hi!
-- **Səbəb:** Bu növbənin məqsədi salamı özün başlatmaqdır. Cavab salamlaşmanı başlatmır.
+- **Səbəb:** Dediyin söz salam deyil.
 - **Qısa qayda:** Qarşı tərəfə salam ifadəsi de.
 - **Yeni nümunə:** Yeni görüşdə əvvəl sən “Hi!” deyirsən.
 
@@ -565,7 +565,7 @@ Salamı sən başlat.
 
 Bir az sonra görüş bitir.
 
-BirFox ilə sağollaş.
+BirFox-dan ayrılırsan, sağollaş.
 
 **Düymələr:** Danış · Keç  
 **Səs yazıldıqdan sonra:** Cavabı göndər  
@@ -584,14 +584,14 @@ BirFox ilə sağollaş.
 **İzah 20 — Mənə başa sal — salam deyilib**
 - **Sənin cavabın:** “{etibarlı təsdiqlənmiş səsli cavab}”.
 - **Uyğun cavablar:** səslə Goodbye! / Bye!
-- **Səbəb:** Görüş bitir. Dediyin salam yeni görüşü başlatmaq üçündür.
+- **Səbəb:** Görüş bitir, salam isə yeni görüşü başladır.
 - **Qısa qayda:** Ayrılarkən sağollaşmanı başlat.
 - **Yeni nümunə:** BirFox-dan ayrılırsan: “Goodbye!”
 
 **İzah 21 — Mənə başa sal — sağollaşma olmayan başqa etibarlı cavab**
 - **Sənin cavabın:** “{etibarlı təsdiqlənmiş səsli cavab}”.
 - **Uyğun cavablar:** səslə Goodbye! / Bye!
-- **Səbəb:** Bu növbədə görüşü bitirən ifadə tələb olunur. Cavab sağollaşmanı yerinə yetirmir.
+- **Səbəb:** Dediyin söz sağollaşma deyil.
 - **Qısa qayda:** Görüşü sağollaşma ilə bitir.
 - **Yeni nümunə:** Getməzdən əvvəl “Bye!” deyirsən.
 
@@ -705,7 +705,7 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 - Uyğun cavab: Salam verir.
 - Bacarıq: salam səsinin mənasını tanımaq.
 - İzah: Kart 3-ün beş hissəsi istifadə edilir; faktiki cavab saxlanılır, audiodakı söz **Hello** kimi yenilənir. Yeni nümunə: “Hi!” — salam verir.
-- “Təşəkkür edir.” seçiləndə: qısa geribildirim “Hello təşəkkür deyil, salamdır. Bu səsdə danışan salam verir.”; səbəb “Səsdə “Hello!” deyilir. Bu, təşəkkür yox, salamdır.”
+- “Təşəkkür edir.” seçiləndə: qısa geribildirim “Hello təşəkkür deyil, salamdır. Bu səsdə danışan salam verir.”; səbəb “Səsdə “Hello!” deyilir — bu, təşəkkür yox, salamdır.”
 
 ### T2 — Kart 4 üçün yazılı salam
 
@@ -717,7 +717,7 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 ### T3 — Kart 5 üçün səsli qarşılıq
 
 - BirFox-un səsi: **Hi!**
-- Sual: “Salamına səslə cavab ver.”
+- Sual: “BirFox “Hi!” deyir. Onun salamına səslə cavab ver.”
 - Uyğun cavablar: səslə Hello! / Hi!
 - Bacarıq: salama səslə qarşılıq vermək.
 - İzah: Kart 5-in uyğun beş hissəsi; yeni nümunə qarşı tərəfin “Hello!”, istifadəçinin “Hi!” deməsidir.
@@ -730,7 +730,7 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 - Uyğun cavab: Bye!
 - Bacarıq: yazılı sağollaşmanı vəziyyətə uyğun tanımaq.
 - İzah: faktiki seçilən Hi!; uyğun Bye!; səbəb yazışmanın bitməsidir; qayda ayrılarkən sağollaşmaqdır; yeni nümunə “Goodbye!”.
-- Hello! seçiləndə səbəb: “Yazışma bitir. Hello salamlaşmaq üçündür.”
+- Hello! seçiləndə səbəb: “Yazışma bitir, Hello isə salamlaşmaq üçündür.”
 - “Goodbye” bu konkret seçimdə yoxdur; müəllif izahında alternativ kimi verilə bilər.
 
 ### T5 — Kart 7B üçün eşidilən söz
@@ -740,14 +740,14 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 - Sual: “Səsi dinlə və eşitdiyin sözü yaz.”
 - Uyğun cavab: Goodbye.
 - Bacarıq: eşidilən sözü dəqiq müəyyən edib yazmaq.
-- Bye yazılarsa qısa geribildirim: “Bye də sağollaşmadır. Bu səsdə isə Goodbye deyilir. Burada eşitdiyin sözü yazmaq tələb olunur.”
+- Bye yazılarsa qısa geribildirim: “Bye də sağollaşmadır, amma səsdə Goodbye deyilir.”
 - Beş hissəli izah: faktiki cavab; uyğun Goodbye; səbəb bu səsdə Bye deyil Goodbye deyilməsi; qayda səslənən sözü yazmaq; yeni nümunə “Hi!” eşidəndə “Hi” yazmaq.
 - Salam və ya başqa mətn yazılarsa Kart 7B-nin müvafiq izahında hədəf söz Goodbye ilə əvəz edilir. Səhvin psixoloji səbəbi uydurulmur.
 
 ### T6 — Kart 8 üçün səsli sağollaşma qarşılığı
 
 - BirFox-un səsi: **Bye!**
-- Sual: “Sən də səslə sağollaş.”
+- Sual: “BirFox gedir və “Bye!” deyir. Sən də səslə sağollaş.”
 - Uyğun cavablar: səslə Goodbye! / Bye!
 - Bacarıq: sağollaşmaya səslə qarşılıq vermək.
 - İzah: Kart 8-dəki uyğun beş hissə; faktiki cavab dəyişdirilmir, qarşı tərəfin sözü Bye kimi göstərilir.
@@ -770,7 +770,7 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 
 ### T9 — Kart 11 üçün salamı başlatmaq
 
-- Sual: “Yeni gün BirFox ilə qarşılaşırsan. Salamı sən başlat.”
+- Sual: “Yeni gün BirFox-u görürsən. Salamı sən başlat.”
 - Uyğun cavablar: səslə Hello! / Hi!
 - BirFox-un sonrakı cavabı: **Hello!**
 - Bacarıq: salamlaşmanı səslə başlatmaq.
@@ -779,7 +779,7 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 
 ### T10 — Kart 11 üçün sağollaşmanı başlatmaq
 
-- Sual: “Yeni görüşünüz bitir. BirFox ilə sağollaş.”
+- Sual: “Yeni görüşünüz bitir. BirFox-dan ayrılarkən sağollaş.”
 - Uyğun cavablar: **səslə Goodbye! / Bye!**
 - BirFox-un sonrakı cavabı: **Goodbye!**
 - Bacarıq: sağollaşmanı səslə başlatmaq.

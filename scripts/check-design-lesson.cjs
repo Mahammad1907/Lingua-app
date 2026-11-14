@@ -68,8 +68,8 @@ for (const t of lesson.cards.filter(c => c.type === 'choice')) {
     for (const o of task.options.filter(o => o !== task.answer)) assert.equal(L.gradeChoice(task, o).status, 'wrong');
   }
 }
-assert.equal(L.gradeChoice(c3, 'Təşəkkür edir.').explain.reason, 'Səsdə “Hi!” deyilir. Bu, təşəkkür yox, salamdır.');
-assert.equal(L.gradeChoice(card('d1_c07a'), 'Hi!').explain.reason, 'Hi salamlaşmaq üçündür. Burada görüş bitir.');
+assert.equal(L.gradeChoice(c3, 'Təşəkkür edir.').explain.reason, 'Səsdə “Hi!” deyilir — bu, təşəkkür yox, salamdır.');
+assert.equal(L.gradeChoice(card('d1_c07a'), 'Hi!').explain.reason, 'Hi salamlaşmaq üçündür, burada isə görüş bitir.');
 
 // New screen forms (13 Nov 2026).
 assert.deepEqual(lesson.cards.filter(c => c.type === 'word').map(c => c.id), ['d1_c02', 'd1_c06'], 'cards 2 and 6 are Yeni söz');
@@ -91,10 +91,10 @@ assert.equal(L.gradeText(c4, '').status, 'empty');
 const c7b = card('d1_c07b');
 assert.equal(L.gradeText(c7b, 'Bye').status, 'correct');
 assert.equal(L.gradeText(c7b, 'Goodbye').explain.rule, 'Eşitdiyini yazmaq tapşırığında səslənən sözü yaz.');
-assert.equal(L.gradeText(c7b, 'Hello').explain.rule, 'Audioda eşitdiyin sözü yaz.');
+assert.equal(L.gradeText(c7b, 'Hello').explain.rule, 'Səsdə eşitdiyin sözü yaz.');
 const c9 = card('d1_c09');
 assert.equal(L.gradeText(c9, 'Bye!').status, 'correct');
-assert.equal(L.gradeText(c9, 'Hi').explain.reason, 'Dostun gedir. Yazdığın salam görüşü bitirən ifadəni əvəz etmir.');
+assert.equal(L.gradeText(c9, 'Hi').explain.reason, 'Dostun gedir, salam isə görüşü bitirmir.');
 const c10 = card('d1_c10');
 assert.equal(L.gradeTwo(c10, { d1_c10a: 'Hello!', d1_c10b: 'Bye!' }).status, 'correct');
 const swapped = L.gradeTwo(c10, { d1_c10a: 'Bye!', d1_c10b: 'Hi!' });
