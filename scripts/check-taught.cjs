@@ -95,8 +95,7 @@ for (const raw of designLessons) {
 
 // Explanation wording (docs/IZAH_STANDARTI.md): no empty templates, no system sentences, no rules that the next lesson makes false.
 const BANNED = [/\{purpose\}/, /müəyyən edilmədi/, /həmişə/, /başqa şəxs/, /\binkar/, /\bfel(?:i|lər|də|dən)?\b/i, /not = deyil/];
-// Lesson 1 is copied from the approved document (docs/BirTalk_Ders_1_Yekun.md) and is changed only on the user's word.
-for (const raw of designLessons.filter(l => l.order !== 1)) {
+for (const raw of designLessons) {
   const lesson = L.resolveLesson(raw);
   const texts = [];
   const pushTask = t => { texts.push(t.hint, t.why, ...(t.variants || []).flatMap(v => [v.short, v.explain?.answers, v.explain?.reason, v.explain?.rule, v.explain?.example])); };

@@ -198,7 +198,7 @@ Qısa geribildirim: “Burada qarşı tərəfə ingiliscə salam yazmaq lazımd�
 **İzah 3 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki yazılmış cavab}”.
 - **Uyğun cavablar:** Hello! / Hi!
-- **Səbəb:** Bu cavabın salamlaşma məqsədini yerinə yetirdiyi müəyyən edilmədi. İstifadəçinin nə düşündüyü barədə əlavə iddia verilmir.
+- **Səbəb:** Bu, salam deyil. Hello! və ya Hi! yaz.
 - **Qısa qayda:** Cavab qarşı tərəfə salam verməlidir.
 - **Yeni nümunə:** Qonşunla qarşılaşırsan: “Hello!”
 
@@ -519,7 +519,7 @@ Qısa geribildirim, birinci cavab uyğundursa: “Birinci mesaj uyğundur. İkin
 **İzah 17 — Mənə başa sal**
 - **Sənin cavabın:** “{çətinlik olan sahənin faktiki cavabı}”.
 - **Uyğun cavablar:** başlanğıc üçün Hello! / Hi!; son üçün Goodbye! / Bye!
-- **Səbəb:** Bu sahədə {salam vermək / sağollaşmaq} tələb olunur. Cavab həmin məqsədi yerinə yetirmir.
+- **Səbəb:** Bu mesaj görüşün bu anına uyğun deyil. Əvvəl salam, sonda sağollaşma yazılır.
 - **Qısa qayda:** Hər mesajı görüşün həmin anına uyğun yaz.
 - **Yeni nümunə:** Əvvəl “Hello!”, ayrılarkən “Goodbye!”
 

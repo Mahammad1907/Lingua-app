@@ -80,7 +80,7 @@ node scripts/export-unit1-docs.cjs   # docs/dersler/Ders_N.md yenilə
 
 ## 5a. İzahlar
 
-`docs/IZAH_STANDARTI.md` — “Mənə başa sal” izahlarının qaydası (xarici yoxlamadan, istifadəçi qəbul etdi). `check-taught.cjs` yoxlayır. Dərs 1-dəki üç köhnə izah (“{purpose} tələb olunur”, “müəyyən edilmədi”) istifadəçinin icazəsi gözləyir.
+`docs/IZAH_STANDARTI.md` — “Mənə başa sal” izahlarının qaydası (xarici yoxlamadan, istifadəçi qəbul etdi). `check-taught.cjs` yoxlayır.
 
 ## 6. Dərslərin vəziyyəti
 

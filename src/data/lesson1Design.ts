@@ -17,7 +17,7 @@ const twoVariants: Variant[] = [
           answers: 'Goodbye! / Bye!', reason: 'İkinci sahədə artıq ayrılırsan. Hello və Hi görüşün başlanğıcına uyğundur.',
           rule: 'Görüşün sonunda sağollaşma yaz.', example: 'Söhbət bitir: “Goodbye!”' } },
         { match: { other: true }, explain: {
-          answers: 'Başlanğıc üçün Hello! / Hi!; son üçün Goodbye! / Bye!', reason: 'Bu sahədə {purpose} tələb olunur. Cavab həmin məqsədi yerinə yetirmir.',
+          answers: 'Başlanğıc üçün Hello! / Hi!; son üçün Goodbye! / Bye!', reason: 'Bu mesaj görüşün bu anına uyğun deyil. Əvvəl salam, sonda sağollaşma yazılır.',
           rule: 'Hər mesajı görüşün həmin anına uyğun yaz.', example: 'Əvvəl “Hello!”, ayrılarkən “Goodbye!”' } },
       ];
 
@@ -71,7 +71,7 @@ export const lesson1Design: DesignLesson = {
           answers: 'Hello! / Hi!', reason: 'Bye və Goodbye görüşü bitirir. Bu vəziyyətdə isə tanışınla yeni qarşılaşmısan.',
           rule: 'Görüşü salamla başlat.', example: 'Tanışını məktəbin qarşısında görürsən: “Hi!”' } },
         { match: { other: true }, short: 'Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır.', explain: {
-          answers: 'Hello! / Hi!', reason: 'Bu cavabın salamlaşma məqsədini yerinə yetirdiyi müəyyən edilmədi.',
+          answers: 'Hello! / Hi!', reason: 'Bu, salam deyil. Hello! və ya Hi! yaz.',
           rule: 'Cavab qarşı tərəfə salam verməlidir.', example: 'Qonşunla qarşılaşırsan: “Hello!”' } },
       ],
       review: { chat: { partner: 'Tanışın', from: 'B', lines: [] },
@@ -82,7 +82,7 @@ export const lesson1Design: DesignLesson = {
             answers: 'Hello! / Hi!', reason: 'Bye və Goodbye görüşü bitirir. Bu vəziyyətdə isə tanışınla yeni qarşılaşmısan.',
             rule: 'Görüşü salamla başlat.', example: '“Hello!” ilə salamlaş.' } },
           { match: { other: true }, short: 'Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır.', explain: {
-            answers: 'Hello! / Hi!', reason: 'Bu cavabın salamlaşma məqsədini yerinə yetirdiyi müəyyən edilmədi.',
+            answers: 'Hello! / Hi!', reason: 'Bu, salam deyil. Hello! və ya Hi! yaz.',
             rule: 'Cavab qarşı tərəfə salam verməlidir.', example: '“Hello!” ilə salamlaş.' } },
         ],
       },

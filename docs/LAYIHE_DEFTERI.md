@@ -370,3 +370,5 @@ Hər ikisi “Kim nə dedi?” kimi yoxlanır; səhv olsa dərsin sonunda başqa
 **13 noyabr 2026, 23:54 — istifadəçi:** toxunub yerləşdirmə ekranlarında (Kim nə dedi?, Cavab cütü, Söhbəti sırala) Kömək düyməsi yoxdur.
 
 **14 noyabr 2026 — xarici yoxlama (istifadəçi göndərdi):** izah qaydası `docs/IZAH_STANDARTI.md`-də. Dərs 2–8-də düzəldildi: “is başqa şəxslər üçündür / həmişə am”, “you ilə həmişə are”, “Fel ilə inkar”, “don't — inkar”, “not = deyil”, `{purpose}` şablonları (Dərs 8), öyrədilmədən izahda keçən “My name is”, “I'm OK”, “That's OK”. Dərs 1 toxunulmayıb — 3 izah icazə gözləyir.
+
+**14 noyabr 2026 — istifadəçi icazə verdi:** Dərs 1-in üç izahı da standarta salındı (kodda və `BirTalk_Ders_1_Yekun.md`-də): “Bu, salam deyil. Hello! və ya Hi! yaz.” (2 yer) və “Bu mesaj görüşün bu anına uyğun deyil. Əvvəl salam, sonda sağollaşma yazılır.” İzah yoxlaması indi 8 dərsin hamısına aiddir.

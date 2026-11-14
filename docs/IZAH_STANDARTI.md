@@ -48,7 +48,7 @@ Kodda: `ex(answers, reason, rule, example)` (`src/data/unit1/build.ts`). “Sən
 
 Öyrədilməmiş söz varmı? “Həmişə” növbəti dərsi yalan çıxarırmı? Qayda iki sətirdən uzundurmu? Uzundursa, bir cütü saxla, qalanını sil.
 
-`node scripts/check-taught.cjs` avtomatik yoxlayır: izah, nümunə və ipucunda öyrədilməmiş söz; `{purpose}`, “müəyyən edilmədi”, “həmişə”, “başqa şəxs”, “inkar”, “fel”, “not = deyil”. Dərs 1 istifadəçinin sözü olmadan dəyişmir, ona görə bu yoxlamadan kənardadır.
+`node scripts/check-taught.cjs` avtomatik yoxlayır: izah, nümunə və ipucunda öyrədilməmiş söz; `{purpose}`, “müəyyən edilmədi”, “həmişə”, “başqa şəxs”, “inkar”, “fel”, “not = deyil”.
 
 ## Tapşırıq qaydası (izahdan ayrı, 14 noyabr 2026 — xarici yoxlama, istifadəçi qəbul etdi)
 

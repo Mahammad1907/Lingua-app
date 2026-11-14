@@ -169,4 +169,4 @@ Speech uses `en-US` everywhere (13 Nov 2026): the user chose American pronunciat
 
 Full hand-off for a new session (workflow, rules, code map, open work): `docs/YENI_SOHBET_UCUN.md`. Read it first.
 
-Explanations follow `docs/IZAH_STANDARTI.md` (14 Nov 2026, from an external review the user accepted): 4 lines (Uyğun / Səbəb / Qayda / Nümunə), only the two forms on screen, no grammar terms, no “həmişə”, no untaught English in explanations or hints. `check-taught.cjs` enforces it (lesson 1 excluded until the user says otherwise).
+Explanations follow `docs/IZAH_STANDARTI.md` (14 Nov 2026, from an external review the user accepted): 4 lines (Uyğun / Səbəb / Qayda / Nümunə), only the two forms on screen, no grammar terms, no “həmişə”, no untaught English in explanations or hints. `check-taught.cjs` enforces it for all eight lessons.
