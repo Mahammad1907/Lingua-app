@@ -1,4 +1,4 @@
-# BirTalk — yeni söhbət üçün tam vəziyyət (13 noyabr 2026, gecə)
+# BirTalk — yeni söhbət üçün tam vəziyyət (yeniləndi: 14 noyabr 2026)
 
 Bu fayl yeni söhbətdə işə davam etmək üçündür. Əvvəlcə bunu, sonra `AGENTS.md`-ni və `docs/LAYIHE_DEFTERI.md`-nin son bölmələrini oxu.
 
@@ -98,3 +98,21 @@ node scripts/export-unit1-docs.cjs   # docs/dersler/Ders_N.md yenilə
 5. Personaj adları seçilməyib.
 6. Bölmə 2+, yeni ekran ideyaları (Kim deyər?, Səsi tap, 2 boşluqlu dialoq), AI söhbət.
 7. Telefonda son dəyişikliklər (Yeni söz kartı, Söhbəti sırala, Cavab cütü, tünd mətnlər) hələ istifadəçi tərəfindən tam yoxlanmayıb.
+
+## 8. 14 noyabr 2026-da əlavə olunanlar
+
+- **İzah və tapşırıq standartı:** `docs/IZAH_STANDARTI.md` (xarici yoxlamadan, istifadəçi qəbul etdi). `check-taught.cjs` 8 dərsin hamısında yoxlayır: öyrədilmədən göstərmə (qəbul siyahısı, izah, ipucu daxil), ifadə öz kartından əvvəl görünmür, qadağan sözlər, Qayda sətri lüğət tərcüməsi deyil, izah/ipucunda IPA yoxdur.
+- **Üç müstəqil yoxlama** (34 → 22 → 17 bənd), hamısı düzəldi: `docs/MUSTEQIL_YOXLAMA_2026-11-14.md`, `_2_`, `_3_`. Dördüncü yoxlama aparılmadı — növbəti addım istifadəçinin telefonda yoxlamasıdır.
+- **Yeni ekranlar:** Söhbəti sırala (`match` `mode: 'order'`), Cavab cütü (`mode: 'reply'`). Bu üç toxun-yerləşdir ekranında Kömək yoxdur.
+- **Oxunaqlılıq:** `theme.ts`-də `orangeText #A84A08`, `greenText #0F6E2A`, `redText #B42318` — mətn üçün yalnız bunlar.
+- **Beynəlxalq audit:** `docs/BEYNELXALQ_AUDIT_2026-11-14.md` — mağaza bloklayıcıları: hesab silmə, placeholder-lər (ŞƏKİL, AI söhbət), işləməyən profil düymələri, məxfilik siyasəti; Azure razılığı.
+- **Funksionallıq rəyi:** `docs/FUNKSIONALLIQ_RAYI_2026-11-14.md` — ardıcıllıq təklifi: (1) gündəlik təkrar + xatırlatma/gündəlik hədəf, (2) bölmə imtahanı yeni dizaynda, (3) Bölmə 2+, (4) tələffüz (dev build).
+
+## 9. Yeni dərslər yazmaq (Bölmə 2+)
+
+1. Əvvəlcə bölmənin xəritəsini istifadəçiyə təsdiqlət (mövzular, hər dərsin məqsədi, yeni ifadələr, CEFR A1 təsvirləri). Nümunə: `docs/BOLME_1_XERITESI.md`.
+2. Dərslər `src/data/unit2/` kimi ayrıca qovluqda, `unit1/` quruluşu ilə (build.ts köməkçiləri, glossary, index.ts-də `ordered()`), `src/data/designLessons.ts`-ə əlavə.
+3. Qaydalar: `docs/DERS_STANDARTI.md`, `docs/IZAH_STANDARTI.md`, `docs/AZ_OYRENEN_SEHVLERI.md`; bir kartda bir ifadə; öyrədilmədən soruşma; hibrid ekranlar; eyni ekran dalbadal yox; Bölmə 1-in sözləri spiral təkrar olunsun.
+4. Yoxlama: `check-taught.cjs` (yeni bölməni də yükləməlidir), `check-unit1.cjs`-ə oxşar `check-unit2.cjs`, `export-unit1-docs.cjs`-ə oxşar export.
+5. Hər bölmədən sonra müstəqil yoxlayıcı agent (mətni yazmayan) — hesabatı olduğu kimi istifadəçiyə göstər.
+6. Ana səhifədə yeni bölmə: `src/data/modules.ts`, `src/data/b1Course.ts`, `IslandHome.tsx`.
