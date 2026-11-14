@@ -9,6 +9,7 @@ export type VariantMatch =
   | { words: string[] }          // the normalized answer is one of these words
   | { option: string }           // choice tasks: the chosen option
   | { swapped: true }            // two-message task: both answers are in each other's place
+  | { pattern: string }          // the raw answer matches this regular expression (typical mistakes in learner data, Bölmə 2)
   | { other: true };             // any other confirmed wrong answer
 
 export interface Variant { match: VariantMatch; short?: string; explain: Explanation; field?: string }

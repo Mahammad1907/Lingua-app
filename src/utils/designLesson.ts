@@ -60,6 +60,7 @@ function pickVariant(variants: Variant[], value: string, voice: boolean, field?:
     if ('words' in m) return m.words.some(w => normalizePacketAnswer(w) === words);
     if ('goal' in m) return fulfils(value, m.goal, voice);
     if ('option' in m) return m.option === value;
+    if ('pattern' in m) return new RegExp(m.pattern, 'iu').test(value.trim());
     return false;
   });
 }
@@ -79,8 +80,10 @@ export function gradeText(task: Extract<DesignTask, { type: 'write' | 'voice' }>
   if (!value.trim()) return { status: 'empty' };
   const verdict = assessPacketAnswer(value, task.rule, voice);
   if (verdict.status === 'correct') return { status: 'correct', spellingCorrections: verdict.spellingCorrections };
-  if (verdict.status === 'unknown') return { status: 'unknown' };
   const variant = pickVariant(task.variants, value, voice);
+  // Speech the grader cannot judge stays “Yoxlanmadı” — unless it is one of the task's known typical mistakes
+  // (e.g. “I have 25 years”), which is a real language error with its own explanation (14 Nov 2026).
+  if (verdict.status === 'unknown' && !(variant && !('other' in variant.match))) return { status: 'unknown' };
   return { status: 'wrong', short: variant?.short ?? variant?.explain.reason, explain: explainOf(variant, value) };
 }
 
