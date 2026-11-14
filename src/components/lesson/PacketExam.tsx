@@ -39,7 +39,7 @@ export default function PacketExam() {
     try {
       await Speech.stop(); if (request !== speech.current) return;
       setPlaying(true);
-      Speech.speak(current.audio!, { language: 'en-GB', rate,
+      Speech.speak(current.audio!, { language: 'en-US', rate,
         onDone: () => { if (request === speech.current) { clearTimer(); setPlaying(false); setHeard(true); } },
         onError: failed,
         onStopped: () => { if (request === speech.current) { clearTimer(); setPlaying(false); } },
@@ -93,7 +93,7 @@ export default function PacketExam() {
           <Text style={s.note}>Sənin cavabın: {response?.value || 'Keçildi'}</Text><Text style={s.note}>Uyğun nümunə: {card.rule!.answers[0]}</Text>
           {response?.verdict.criteria.map((c) => <Text key={c.goal} style={s.note}>{c.passed ? '✓' : '○'} {c.goal}</Text>)}
         </View>; })}</LessonExplanationCard>
-        <TouchableOpacity style={s.primary} onPress={() => router.replace({ pathname: '/module/[id]', params: { id: 'module_1' } })}><Text style={s.dark}>Dərslərə bax</Text></TouchableOpacity>
+        <TouchableOpacity style={s.primary} onPress={() => router.replace('/(tabs)')}><Text style={s.dark}>Dərslərə bax</Text></TouchableOpacity>
       </> : complete ? <><Text style={s.body}>{error || 'Nəticə saxlanır…'}</Text>{error ? <TouchableOpacity style={s.primary} onPress={() => void finish(responses)}><Text style={s.dark}>Yenidən saxla</Text></TouchableOpacity> : null}</> : <>
         <Text style={s.note}>{index + 1}/17 · Cavablar sınaq bitəndə açıqlanacaq</Text>
         <Text style={s.heading}>{current.body}</Text>

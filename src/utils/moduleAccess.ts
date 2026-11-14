@@ -2,6 +2,7 @@ import { lessons } from '../data/lessons';
 import { getAllModules, getModuleById } from '../data/modules';
 import { getPlacementTestByModuleId } from '../data/placementTests';
 import type { PlacementResult } from '../data/types';
+import { TEST_OPEN_SECTIONS } from '../config/testAccess';
 export function moduleHasContent(id: string): boolean {
   const m = getModuleById(id);
   return Boolean(m?.lessonIds.length && m.lessonIds.every((key) => lessons.some((l) => l.id === key)));
@@ -10,6 +11,7 @@ export function moduleUnlocked(id: string, completed: readonly string[], results
   const m = getModuleById(id);
   if (!m || !moduleHasContent(id)) return false;
   if (results.some((r) => r.moduleId === id && r.passed)) return true;
+  if (TEST_OPEN_SECTIONS.includes(m.order)) return true; // temporary test access (src/config/testAccess.ts)
   return getAllModules().filter((p) => p.language === m.language && p.level === m.level && p.order < m.order)
     .every((p) => moduleHasContent(p.id) && p.lessonIds.every((key) => completed.includes(key)));
 }

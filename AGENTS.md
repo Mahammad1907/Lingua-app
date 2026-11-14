@@ -148,3 +148,27 @@ The user authorizes suitable, compact visuals for audio questions. Search the ex
 ## Fixed lesson viewport — user authorization 2 November 2026
 
 The user explicitly renewed the requirement that all active lesson cards fit the screen without main-page scrolling, and asked to remove the two-person illustration from the listening wave card. This supersedes earlier instructions to preserve the scrolling PacketLesson body. Keep the existing colors, grading, evidence, recording and explicit Continue behavior. The active B1 PacketLesson and PacketExam use FixedLessonViewport; their body is measured in the space remaining between the safe-area header and footer. Artwork yields first, then the body fits the available rectangle. Long result details and explanations open in dismissible overlays. Do not silently reintroduce main-page scrolling or clip answer controls. Legacy non-packet routes have not been migrated by this batch. Do not claim physical-device validation from JS layout tests.
+
+## Redesigned lesson screens — 12 November 2026
+
+The user approved a new unified light design and authorized placing Lesson 1 (docs/BirTalk_Ders_1_Yekun.md) into it. Lesson 1 now runs on `src/components/design/DesignLesson.tsx` with content in `src/data/lesson1Design.ts`; lessons 2–7 still use PacketLesson. This supersedes the earlier "preserve the existing screens" rules for Lesson 1. Copy learner-facing text from the final lesson documents; do not invent content. Character names are empty on purpose and live only in `src/config/characters.ts` (use `{M}`, `{G}`, `{B}` tokens). User decisions newer than the document: red wrong state; hold-to-talk sends on release; "İndi dinləyə bilmirəm" skips (listening Unverified); "Mənə başa sal" closes only with X and has no Continue; teaching Continue is green; no separate review intro screen. Details: docs/LAYIHE_DEFTERI.md. Device behaviour is not verified.
+
+## Lesson standard — 13 November 2026
+
+Every new or rewritten lesson follows `docs/DERS_STANDARTI.md` (length, card order, support fading, 3-option choices, five-part explanations, name tokens, CEFR A1 mapping). Describe the course as "based on CEFR A1 descriptors", never as certified CEFR-compliant.
+
+## Bölmə 1 on the new screens — 13 November 2026
+
+All eight Bölmə 1 lessons run on `DesignLesson` (`src/data/designLessons.ts`). Lessons 2–8 live in `src/data/unit1/`; edit text there and regenerate `docs/dersler/Ders_N.md` with `node scripts/export-unit1-docs.cjs`. New task screens are in `src/components/design/TaskScreens.tsx`. Wrong options come from `docs/AZ_OYRENEN_SEHVLERI.md`. Home is the code-drawn island (`src/components/home/IslandHome.tsx`). Run `node scripts/check-unit1.cjs` after any lesson change. Not verified on a device.
+
+## Taught-before-asked rule — 13 November 2026
+
+No task may show or ask for an English word that was not taught earlier (a word only mentioned in a note is not taught). Teach it on its own Yeni söz card (word, example, structure) first — one phrase per card. Same screen type never twice in a row; lessons must not end the same way. Run `node scripts/check-taught.cjs` after any lesson change. Readings use American pronunciation in Azerbaijani letters with no phonetic marks. The approved 12 Nov 2026 design images are the base; new screen types are shown to the user as a mockup before coding.
+
+Speech uses `en-US` everywhere (13 Nov 2026): the user chose American pronunciation; this replaces the earlier UK pronunciation rule.
+
+Full hand-off for a new session (workflow, rules, code map, open work): `docs/YENI_SOHBET_UCUN.md`. Read it first.
+
+Explanations follow `docs/IZAH_STANDARTI.md` (14 Nov 2026, from an external review the user accepted): 4 lines (Uyğun / Səbəb / Qayda / Nümunə), only the two forms on screen, no grammar terms, no “həmişə”, no untaught English in explanations or hints. `check-taught.cjs` enforces it for all eight lessons.
+
+All user rules in one place (Azerbaijani): `docs/BUTUN_QAYDALAR.md` — read it before any work.

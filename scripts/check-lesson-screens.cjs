@@ -4,7 +4,9 @@ const ts = require('typescript');
 require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true, resolveJsonModule: true },
 }).outputText, filename);
-const { b1Packet, packetFlow } = require('../src/data/b1Course.ts');
+const course = require('../src/data/b1Course.ts');
+const { packetFlow } = course;
+const b1Packet = course.b1Packet.filter(l => l.cards.length);
 const { lessonMode, audioMeaning, heroHeight, welcomeSceneHeight } = require('../src/utils/lessonPresentation.ts');
 const { lessonIntroduction, lessonHint, teachingText, microphoneLevel } = require('../src/utils/lessonGuide.ts');
 let listening = 0; const modes = new Set();

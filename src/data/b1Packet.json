@@ -239,7 +239,7 @@
       {
         "id": "a1_en_b1_v2_d1_c09",
         "number": 9,
-        "title": "Ali-un səhvini düzəlt",
+        "title": "Əlinin səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D1_Salamlasma.md#Kart 09",
         "body": "Əli Leylagildən gedir, amma “Hi!” deyir. Onun yerinə uyğun sağollaşma yaz.",
@@ -257,7 +257,7 @@
         "review": {
           "id": "a1_en_b1_v2_d1_c09",
           "number": 9,
-          "title": "Ali-un səhvini düzəlt",
+          "title": "Əlinin səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D1_Salamlasma.md#Kart 09",
           "body": "Əli görüşdən sonra Leyladan ayrılır, amma “Hello!” deyir. Onun yerinə uyğun sağollaşma yaz.",
@@ -781,7 +781,7 @@
       {
         "id": "a1_en_b1_v2_d2_c11",
         "number": 11,
-        "title": "Ali-un səhvini düzəlt",
+        "title": "Əlinin səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 11",
         "body": "Əli adını demək istəyir, amma am sözünü səhv işlədib. Cümləni düzgün formada yenidən yaz.\n\nMy name am Ali.",
@@ -802,7 +802,7 @@
         "review": {
           "id": "a1_en_b1_v2_d2_c11",
           "number": 11,
-          "title": "Ali-un səhvini düzəlt",
+          "title": "Əlinin səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D2_Oz_adini_demek.md#Kart 11",
           "body": "Leyla adını deyir, amma am sözünü səhv işlədib. Cümləni düzgün formada yenidən yaz.\n\nMy name am Leyla.",
@@ -1514,7 +1514,7 @@
       {
         "id": "a1_en_b1_v2_d3_c11",
         "number": 11,
-        "title": "Ali-un səhvini düzəlt",
+        "title": "Əlinin səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D3_Ad_sorusmaq.md#Kart 11",
         "body": "Əli qarşısındakı şəxsin adını soruşmaq istəyir. Amma öz adı haqqında sual verir.\nƏliyə kömək et: sualı düzəldib yaz.\n\nWhat’s my name?",
@@ -1532,7 +1532,7 @@
         "review": {
           "id": "a1_en_b1_v2_d3_c11",
           "number": 11,
-          "title": "Ali-un səhvini düzəlt",
+          "title": "Əlinin səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D3_Ad_sorusmaq.md#Kart 11",
           "body": "Qonağın adını soruşmaq istəyirsən. Sualdakı my sözünü düzəlt və bütöv sualı yaz: What is my name?",
@@ -2448,7 +2448,7 @@
       {
         "id": "a1_en_b1_v2_d4_c15",
         "number": 15,
-        "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
+        "title": "əsas tapşırıq — Əlinin səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D4_Hal_ehval.md#Kart 15",
         "body": "Əli özünü yaxşı hiss etmir, amma əksini deyir. Ona kömək et: halına uyğun cavab yaz.\nI’m fine.",
@@ -2465,7 +2465,7 @@
         "review": {
           "id": "a1_en_b1_v2_d4_c15",
           "number": 15,
-          "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
+          "title": "əsas tapşırıq — Əlinin səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D4_Hal_ehval.md#Kart 15",
           "body": "Özünü yaxşı hiss etməyən Əli üçün hal cavabı yaz.",
@@ -2486,7 +2486,7 @@
         "title": "əsas tapşırıq — oxu və məlumatı tap",
         "kind": "task",
         "source": "BirTalk_A1_B1_D4_Hal_ehval.md#Kart 16",
-        "body": "Mesaj 1: Hi. I’m Ali. I’m OK.\nMesaj 2: Hello. My name is Ali. I’m not very well.\nÖzünü o qədər də yaxşı hiss etməyən şəxsin adını yaz.",
+        "body": "Mesaj 1: Hi. I’m Leyla. I’m OK.\nMesaj 2: Hello. My name is Ali. I’m not very well.\nÖzünü o qədər də yaxşı hiss etməyən şəxsin adını yaz.",
         "rule": {
           "answers": [
             "Ali"
@@ -3321,7 +3321,7 @@
       {
         "id": "a1_en_b1_v2_d5_c17",
         "number": 17,
-        "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
+        "title": "əsas tapşırıq — Əlinin səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D5_Nezaket.md#Kart 17",
         "body": "Ali təsadüfən birinə toxunub və üzr istəmək istəyir. Amma başqa məqsədli ifadə deyir. İfadəni düzəlt.\nThank you.",
@@ -3340,7 +3340,7 @@
         "review": {
           "id": "a1_en_b1_v2_d5_c17",
           "number": 17,
-          "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
+          "title": "əsas tapşırıq — Əlinin səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D5_Nezaket.md#Kart 17",
           "body": "Öz kiçik səhvinə görə üzr istə. Bir qısa ifadə yaz.",
@@ -3984,7 +3984,7 @@
       {
         "id": "a1_en_b1_v2_d6_c11",
         "number": 11,
-        "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
+        "title": "əsas tapşırıq — Əlinin səhvini düzəlt",
         "kind": "task",
         "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 11",
         "body": "Ali deyiləni anlamır, amma halından danışır. Anlamadığını bildirməsi üçün ifadəni düzəlt.\nI’m fine.",
@@ -4002,7 +4002,7 @@
         "review": {
           "id": "a1_en_b1_v2_d6_c11",
           "number": 11,
-          "title": "əsas tapşırıq — Ali-un səhvini düzəlt",
+          "title": "əsas tapşırıq — Əlinin səhvini düzəlt",
           "kind": "task",
           "source": "BirTalk_A1_B1_D6_Tekrar_istemek.md#Kart 11",
           "body": "Ali verilən izahı anlamır. Onun üçün anlamama cümləsi yaz.",

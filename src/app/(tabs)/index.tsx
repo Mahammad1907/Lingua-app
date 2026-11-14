@@ -3,12 +3,13 @@ import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { HomeDashboard, HOME_LANGUAGES, HomeNavigation, type HomeDestination } from '../../components/home/ApprovedHome';
+import { HomeDashboard, HOME_LANGUAGES, HomeNavigation, NAV_HEIGHT, type HomeDestination } from '../../components/home/ApprovedHome';
 import { HomeIcon } from '../../components/home/HomeIcon';
 import { lessons } from '../../data/lessons';
 import { getAllModules } from '../../data/modules';
 import { useUserStore } from '../../store/userStore';
 import { buildHomeCourse } from '../../utils/homeCourse';
+import { getShortSession } from '../../data/firstConversation';
 import { moduleTest } from '../../utils/moduleAccess';
 
 const SELECTION_KEY = '@birtalk_home_selection_v1';
@@ -55,13 +56,16 @@ export default function Home() {
     if (destination === 'review') router.push('/vocabulary/wrong-words-list');
     if (destination === 'vocabulary') router.navigate('/(tabs)/vocabulary');
     if (destination === 'profile') router.navigate('/(tabs)/profile');
+    if (destination === 'chat') router.push('/ai-chat');
+    if (destination === 'analysis') router.push('/analysis');
   }
   return <View style={styles.root}>
     <HomeDashboard course={course} language={selection.language} level={selection.level} xp={xp}
-      compact={width < 360} topInset={insets.top} onNavigate={navigate} onSelect={() => setPickerOpen(true)}
+      compact={width < 360} topInset={insets.top} bottomSpace={NAV_HEIGHT + Math.max(insets.bottom, 10)} onNavigate={navigate} onSelect={() => setPickerOpen(true)}
+      onLesson={(id) => router.push(getShortSession(id) ? { pathname: '/lesson/session', params: { id } } : { pathname: '/lesson/vocabulary', params: { id } })}
       onOpen={(id) => {
         if (course.items.find((item) => item.id === id)?.state === 'locked') setLockedId(id);
-        else router.push({ pathname: '/module/[id]', params: { id } });
+        else router.replace('/(tabs)');
       }} />
     <HomeNavigation bottomInset={insets.bottom} onNavigate={navigate} />
     <Modal visible={lockedId !== null} transparent animationType="fade" onRequestClose={() => setLockedId(null)}>

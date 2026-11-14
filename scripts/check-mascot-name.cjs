@@ -3,7 +3,8 @@ const fs = require('node:fs');
 const ts = require('typescript');
 require.extensions['.ts'] = (module, filename) => {
   let source = fs.readFileSync(filename, 'utf8');
-  if (filename.endsWith('/utils/mascot.ts')) source = source.replace("MASCOT_NAME: string = 'BirFox'", "MASCOT_NAME: string = 'Lopuki'");
+  // Simulate choosing a name in the single config file.
+  if (filename.endsWith('/config/characters.ts')) source = source.replace("mascot: { az: ''", "mascot: { az: 'Lopuki'");
   module._compile(ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true } }).outputText, filename);
 };
 const { mascotText, resolveMascot } = require('../src/utils/mascot.ts');

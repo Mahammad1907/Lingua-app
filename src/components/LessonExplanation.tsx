@@ -25,7 +25,7 @@ export default function LessonExplanation({ lesson, content, onContinue, onBack 
   const speak = async (text: string) => {
     try {
       await Speech.stop();
-      Speech.speak(text, { language: 'en-GB', rate: 0.75 });
+      Speech.speak(text, { language: 'en-US', rate: 0.75 });
     } catch {
       Alert.alert('Səs açıla bilmədi', 'Yenidən cəhd et.');
     }

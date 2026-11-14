@@ -209,3 +209,174 @@ Yoxlama bu söhbətdə yerli mənbədəki 803a6d4e8cc497e75c51f9ec1fa6750acc5f37
 - `check-vocabulary-persistence.cjs` və `check-lesson-regressions.cjs` yenidən işləndi və keçdi: mövcud təkrarsızlıq/yaddaş və cavab/vurğu qaydalarını yoxlayırlar. İlk öyrətmə vaxtı əlavə, yeni əşya kartı, IPA mənbələri və real cihaz audio yoxlamasını təsdiqləmirlər.
 
 **Status:** Bu əlavədə tələb və mövcud vəziyyət sənədləşdirilib. Yeni əşya kartı, ilk öyrətmə anında lüğət əlavəsi və audio vahidləşdirilməsi bu qeydlə tətbiq edilməyib; real telefon sınağı aparılmayıb.
+
+## Yeni dərs ekranları — Dərs 1, 12 noyabr 2026
+
+İstifadəçi yeni vahid dizaynı (açıq bənövşəyi fon, bənövşəyi/narıncı vurğular, aşağıdan açılan vahid panellər, kapsul düymələr) təsdiqlədi və Dərs 1-in `docs/BirTalk_Ders_1_Yekun.md` məzmunu ilə bu ekranlara yerləşdirilməsini istədi. Bu qərar əvvəlki tünd PacketLesson görünüşünü Dərs 1 üçün əvəz edir; Dərs 2–7 hələ köhnə ekranlardadır.
+
+- **Məzmun:** Dərs 1 mətni yekun sənəddən olduğu kimi köçürülüb: `src/data/lesson1Design.ts` (13 kart, Kart 7 iki mərhələ, Kart 10 iki sahə, Kart 11 iki növbə, T1–T10 təkrar bankı, bütün beş hissəli izahlar). Müəllif qeydləri öyrənənə göstərilmir. Ekran şəkillərindəki nümunə mətnlər deyil, sənəddəki mətn istifadə olunur.
+- **Yekun sənədlə fərqli olan, istifadəçinin yeni qərarları:** səhv rəngi qırmızıdır; mikrofon basılı saxlanılır, buraxanda cavab bir dəfə göndərilir (ayrıca “Cavabı göndər” və öz səsini dinləmə yoxdur); “İndi dinləyə bilmirəm” birbaşa keçir və dinləmə Yoxlanmadı qalır; “Mənə başa sal” yalnız X ilə bağlanır, içində “Davam et” yoxdur; öyrətmə ekranındakı “Davam et” yaşıldır; ayrıca təkrar giriş ekranı yoxdur — səhv olan tapşırığın öz ekranı “Təkrar” qeydi ilə qayıdır.
+- **Kart 10 nümunəsi:** dizayndakı “Nümunəni göstər” yekun sənəddə nümunə olmadığı üçün (“Hazır söz bankı və nümunə yoxdur”) göstərilmir.
+- **Ad sistemi:** maskot, gümüşü saçlı qız və narıncı geyimli oğlanın adları hələ seçilməyib və boşdur. Yeganə yer: `src/config/characters.ts`. Ad boş olanda Azərbaycan mətnində neytral söz (“dostun”, “qız”, “oğlan”, hal şəkilçiləri ilə), ingiliscə nümunədə ad buraxılır (“Hello!”). Ad yazılanda Dərs 1-də hər yerdə, Dərs 2–7-də isə BirFox/Leyla/Əli (Ali) yer tutucularının yerinə tətbiq olunur. Dərs 2–7 adlar boş olanda hələ köhnə yer tutucuları göstərir. Yeni ad seçiləndə şəkilçiləri cihazda yoxla.
+- **Maskot şəkli:** istifadəçinin son istinadından kəsilib: `assets/mascot/hood_full.png`, `assets/mascot/hood_head.png`. Dərs səhnə şəkilləri (Leyla/Əli) hələ hazırlanmayıb; ekranlarda şəkil yeri boş saxlanılıb.
+- **“Xəta bildir”:** forma bildirişi yalnız telefonda saxlayır (`birtalk.errorReports.v1`), serverə göndərilmir.
+- **Lüğət:** sözlər ilk öyrədildiyi kartda “Lüğətim”ə təkrarsız əlavə olunur; sözə toxunanda məna pəncərəsi açılır.
+- **Yoxlama:** `scripts/check-design-lesson.cjs` (məzmunun sənədlə uyğunluğu, adlar, qiymətləndirmə, izah seçimi, nəticə statusları) və mövcud məzmun/qiymətləndirmə yoxlamaları keçir. Bu mühitdə `node_modules` quraşdırıla bilmədiyi üçün tam `tsc`, `expo lint` və ekran render testləri işlədilməyib. Real telefonda görünüş, səs, mikrofon (basılı saxla), klaviatura və irəliləyişin saxlanması **yoxlanmayıb**.
+
+## Gözləyən işlər — tam siyahı (13 noyabr 2026)
+
+Hamısı hələ edilməyib. İstifadəçi "başla" deyəndə A–D birlikdə edilir; E Bölmə 1 yenidən yazılanda həll olunur.
+
+**13 noyabr 2026 — görülənlər:** 1–17, 32–37 kodda edildi (commit 17d452f, 25d5be5 və məzmun commiti). Qeyd: 7-ci bənddə boş çərçivə əvəzinə şəkil yeri `src/config/sceneImages.ts`-də qeyd olunur, fayl gələnə qədər heç nə göstərilmir (yarımçıq görünməsin). Bütün lazımi şəkillər: `docs/SEKIL_SIYAHISI.md`. 31 (ikon dəsti) təxirə salındı. Telefonda yoxlanmayıb.
+
+### A. Ekran düzəlişləri (Dərs 1, telefonda görülən)
+1. "İpucu" kapsulu ortada və sahənin üstündədir → sahənin altında, sağda (Capsule-dakı `alignSelf: 'center'` səbəbdir).
+2. Səsli ekranda dalğa oynat düyməsinin və "Yavaş dinlə"nin üstünə daşır → genişliyə sığsın, kəsilsin.
+3. Səsli tapşırıqda düymə "İpucu" adlanır, amma yalnız mətni açır → "Mətni göstər", sağda.
+4. Mikrofonun altındakı solğun dalğa boş halda görünür → yalnız yazı zamanı.
+5. Maskot avatarında əl parçası görünür → yenidən kəs.
+6. Uzun başlıqlar iki sətrə düşür → başlıq şkalası kiçilir (bax G).
+7. Yazı ekranında aşağıda boşluq → 4 və 9-cu kartlara şəkil gəlir; şəkil hazır olana qədər yumşaq boş çərçivə.
+
+### B. Əvvəl razılaşdırılmış ekran təklifləri
+8. Dinləmə ekranında "İpucu" → "Kömək".
+9. Açıq bənövşəyi mətnin kontrastı artırılır.
+10. Mikrofon üçün əlavə yol: toxun–danış–toxun (əsas üsul basılı saxlamaq qalır).
+11. Nəticə panelindən X çıxarılır ("Mənə başa sal"da qalır).
+12. Maskotun danışdığı ekranlarda kiçik şəkli görünür.
+
+### C. Məzmun xətaları
+13. Dərs 1: "Goodbye = Sağ ol" təşəkkürlə qarışır → "Hələlik / Görüşənədək".
+14. Dərs 4 kart 16: birinci mesaj Leyla olmalıdır.
+15. Dərs 2–6 başlığı: "Ali-un" → "Əlinin".
+
+### D. Dərs 1 məzmunu
+16. Seçimlər 2 deyil, 3 variantlı.
+17. Ağır izah cümlələri sadələşdirilir.
+18. Düzgün cavab üçün qısa səbəb (məzmun lazımdır).
+19. Öyrətmə ekranı üçün "Quruluşu" və "Nümunə" (məzmun lazımdır).
+20. Yanlış variantlar Azərbaycan dilli öyrənənlərin real səhvlərindən (səhvlər sənədi hazırlanmalıdır).
+
+### E. Dərs 2–7 (Bölmə 1 yenidən yazılanda həll olunur — `docs/BOLME_1_XERITESI.md`)
+21. Dərslər 18–21 kartdır. 22. Seçimlər 2 variantlıdır. 23. İzahlar şablondur. 24. Başlıqlar müəllif etiketidir. 25. Təkrar paylanmayıb ("Excuse me" cəmi 1 yoxlama). 26. Dərs 5-də 5 ifadə. 27. Dərs 6-da A1-dən ağır forma. 28. Dərs 7 demək olar tam səslidir. 29. Lüğətə "i", "am", "is" düşür. 30. Təbii ifadələr, tələffüz, mədəni qeydlər yoxdur.
+
+### F. Şəkillər (Dərs 1)
+Şəkil olan kartlar: 2 (qarşılaşma), 4 (həyətdə rastlaşma), 6 (qapıda ayrılıq), 9 (maskot qapıdan çıxır, yazısız nitq balonu), 10 (görüşün əvvəli və sonu, 2 şəkil); təkrar: T2, T7, T8 (2 şəkil). Təxminən 10 şəkil. Dinləmə və səsli kartlarda səhnə şəkli yoxdur. İstifadəçidən dizayn şəkillərindəki qapı/darvaza səhnələrinin ayrıca faylları istəniləcək; qalanlar üçün prompt yazılacaq.
+
+### G. Ekranların peşəkarlığı
+31. Əl ilə çəkilmiş ikonlar → vahid ikon dəsti (`@expo/vector-icons`).
+32. Brend şrift: **Nunito** (istifadəçi seçdi, 13 noyabr 2026; Azərbaycan hərfləri ilə yoxlanmalıdır).
+33. Ölçü şkalası (başlıq 26 / tapşırıq 17 / mətn 16) və 8-lik boşluq sistemi.
+34. Vəziyyət açıq rəngdə, tapşırığın özü tünd rəngdə.
+35. Düymə basılma effekti və haptics (düz/səhv cavab, mikrofon).
+36. Kartlar arası qısa keçid animasiyası.
+37. Klaviatura açıqkən "Yoxla" görünsün, "Done" yoxlasın.
+38. Maskotun düz/səhv reaksiyası — 2–3 əlavə maskot şəkli lazımdır.
+39. Kiçik/böyük iPhone və böyük şriftlə ekran yoxlaması.
+
+### H. Sistem (təklif, istifadəçi ilə müzakirədə)
+40. Dərslər eyni şablonla ard-arda gəlməsin: müxtəliflik qaydaları (bax `DERS_STANDARTI.md`, "Müxtəliflik").
+41. Yeni ekran növləri: cümlə qur, boşluğu doldur, dialoqu tamamla, uyğunlaşdır, şəkil seç, dinlə və təkrarla.
+42. **Yeni söz ekranı** (istifadəçi istədi): yeni söz dərsin içində, ilk işlənəcəyi tapşırıqdan dərhal əvvəl ayrıca ekranda çıxır — söz, şəkil, tələffüz və səs, məna, nümunə, "Lüğətim"ə əlavə qeydi.
+43. Yeni ekranların maketləri **istifadəçi tərəfindən təsdiqləndi** (13 noyabr 2026): https://claude.ai/artifact/UzABLnqpX55ys9nDEwKYHD
+    Prinsip: hər tapşırıq kiçik bir söhbətdir — nitq balonları, personaj avatarları, mesajlaşma görünüşü. Duolingo və digər tətbiqlərdən ilham almaq olar, surət olmaz: iki sütunlu cüt düymələr, 2×2 şəkil şəbəkəsi, xətt üstündə ağ söz düymələri və 3D (0 3px 0) kölgəli düymələr işlənmir. "Süni intellekt görünüşü" (qradiyent, emoji, eyni tipli kartlar) yoxdur.
+    Ekranlar: Yeni söz; Mesaj yaz (cümlə qur); Sözü tamamla (boşluq); Dialoqu tamamla; Kim nə dedi? (uyğunlaşdır); Səhnədə tap (şəkil seç); Dinlə və təkrarla.
+44. Sonrakı bölmələr üçün lazım olacaq ekranlar (həmin bölmə yazılanda dizayn olunur): Qısa mətn oxu (Bölmə 3–6), Forma doldur (Bölmə 2), Rol oyunu — çox növbəli söhbət (hər bölmənin sonu), "Edə bilirəm" irəliləyiş ekranı, Gündəlik təkrar ekranı.
+45. Ana səhifə ekranı istifadəçiyə görə "bərbaddır" — yenidən dizayn olunmalıdır (13 noyabr 2026).
+46. Ana səhifə konsepti (istifadəçinin ideyası, 13 noyabr 2026): hər bölmə bir **adadır**. Ada açıq rəngdə başlayır, dərslər keçdikcə **su kimi aşağıdan yuxarı dolur** (istifadəçi su variantını seçdi), bölmə bitəndə tünd rəngə keçir və parıldayır. Tam tündləşmə yalnız bölmə məqsədləri müstəqil yerinə yetiriləndə olur. Yol aşağıdan (sahil) yuxarıya (zirvədəki bayraq = bölmə söhbəti) qalxır; keçilmiş yol düz, qarşıdakı nöqtəli; maskot aktiv dərsin yanında durur; hər dərsin adı görünür; kilidli dərsdə qıfıl. Növbəti bölmə körpü ilə bağlı, dumanlı/kilidli ada kimi görünür. Ada kodla çəkilir (şəkil deyil). "Analiz" və "AI söhbət" yerində qalır (AI söhbət planlaşdırılır, hələlik toxunulmur). Maket: kətanın "Ana səhifə — ada konsepti" bölməsi.
+47. Ada konseptinə istifadəçi düzəlişləri (13 noyabr 2026): yol **yuxarıdan aşağı** gedir (Dərs 1 yuxarıda, bölmə söhbəti aşağıda); su da yuxarıdan aşağı axır (zirvədəki bulaq kimi); adanın forması istifadəçinin öz dizaynındakı dalğalı, buludabənzər formadır; dərslər arasındakı əlaqə xətti **qalındır və faiz kimi dolur** — başda solğun, irəlilədikcə tündləşir, aktiv dərsdən sonrakı hissə qismən dolu; **ikonlar hələ hazır deyil** — hələlik düyünlərdə dərs nömrələri, ikonlar dərslər yekunlaşanda qoyulur.
+48. Dərslərin yeni ekranlara uyğunlaşdırılması (13 noyabr 2026): Dərs 2–8 birbaşa yeni ekran növlərinə görə yazılır (hər kartda ekran növü qeyd olunur; yeni sözlər "Yeni söz" ekranı ilə lazım olan anda). Dərs 1 üçün təklif (istifadəçiyə hər dəyişiklik əvvəlcə göstərilir): kart 2 və 6 → "Yeni söz" ekranları; kart 4 → "Mesaj yaz"; kart 7A → "Səhnədə tap". Məzmun, məqsəd və izahlar eyni qalır; yalnız ekran formasına görə qısa mətn uyğunlaşdırması. Səbəb: müxtəliflik qaydası (ən azı 5 tapşırıq növü) — Dərs 1-də hazırda 4 növ var.
+
+
+## Bölmə 1 yeni ekranlarda — 13 noyabr 2026
+
+İstifadəçi “qərar verdiklərimizin hamısını tətbiq et” dedi. Edilənlər:
+- 7 yeni ekran növü + “Yeni söz” kodlandı (`src/components/design/TaskScreens.tsx`): Mesaj yaz (söz düymələri), Dialoqu tamamla (yazışma), Sözü tamamla (boşluq), Kim nə dedi? (uyğunlaşdır), Səhnədə tap (şəkil gələnə qədər siyahı), Dinlə və təkrarla.
+- Dərs 1: kart 2 və 6 “Yeni söz”, kart 4 yazışma görünüşü, düzgün cavabdan sonra qısa səbəb, 7A-ya şəkil yeri (`docs/TEKLIF_DERS1_MEZMUN.md` — tətbiq olundu).
+- Ana səhifə ada kimi kodla çəkildi (`src/components/home/IslandHome.tsx`); köhnə şəkil-ana səhifə və şəkil-menyu çıxarıldı.
+- Azərbaycanlı öyrənən səhvləri: `docs/AZ_OYRENEN_SEHVLERI.md`.
+- Dərs 2–8 xəritəyə görə yenidən yazıldı (`src/data/unit1/lesson2–8.ts`), hamısı yeni ekranlarda işləyir. Oxunaqlı mətn: `docs/dersler/Ders_N.md` (dərs faylından yaradılır). Dərs 8 — bölmə söhbəti — yeni əlavə olundu; bölmədə indi 8 dərs var.
+- Personaj adları boş olduğu üçün ad lazım olan ingilis cümlələrində “…” işlənir; öyrənən öz adını deyir.
+- Köhnə Dərs 2–7 kartları yalnız bölmə imtahanı üçün saxlanılır.
+- Yoxlama: `node scripts/check-unit1.cjs`, `check-design-lesson.cjs` və köhnə yoxlamalar keçir. **Telefonda yoxlanmayıb.**
+
+## Telefonda görülən xətalar — toplanır (13 noyabr 2026, Expo Go)
+
+İstifadəçi “bitdi” deyənə qədər kod dəyişmir. Hər düzəlişdən sonra bütün ekran növləri və 8 dərs yoxlanır, istifadəçiyə “bu ekranlara bax” siyahısı verilir (istifadəçinin iş qaydası).
+
+1. Dərs bitib növbəti dərsə keçəndə ekran titrəyir/yellənir → ləğv.
+2. (1 ilə birləşdi.)
+3. İpucuları: termin yox, cavab birbaşa yox, konkret yol + nümunə. Qaranlıq olanlar yenidən yazılır (D1 k4, 7A, 7B, k9, k10; D2 k3 və təkrarı; D3 k4); ipucu olmayan tapşırıqlara əlavə olunur (D5 hamısı, Sözü tamamla, Mesaj yaz, Kim nə dedi?).
+4. Azərbaycan hərfləri ilə oxunuş (fonetik yazı da qalır). th qalın “th” kimi saxlanır (*thenk yu*) + bir dəfə qeyd “dilin ucu dişlərin arasında”; w → “u” (*uelkəm*). Yeni söz və Dinlə və təkrarla kartlarında.
+5. “Yoxlanmadı” paneli mikrofonu örtür.
+6. İngilis sözünə toxunanda məna + oxunuş + səs. Öyrətmə/Yeni söz/nümunədə sərbəst; tapşırıqda “Köməklə” sayılır; cavab variantlarında yoxdur.
+7. Maskot danışan kartlar söhbət görünüşü: böyük maskot + ağ nitq balonu, tapşırıq tünd; mənfi ifadələr müsbət (“İndi növbə səndədir!”); səsli ekranlarda alt boşluq yox (mikrofon aşağı, Keç altında).
+8. Nümunəsiz səsli/yazılı tapşırıqlarda iki pilləli “Kömək”: 1) ipucu (Müstəqil qalır), 2) nümunə (Köməklə).
+9. Köhnə tünd “Bölmə” ekranı (module/[id], tülkü) silinir; AI söhbət düyməsi hələlik “AI söhbət tezliklə”; keçid imtahanı və dərs sonu qayıdış adaya.
+10. Sitat olan tapşırıqlar nitq balonu + avatar; “…” yerinə [ad] nişanı; solğun vəziyyət sətri tündləşir.
+11. Nəticə panelində “Xəta bildir” kiçik ikon kimi aşağıya.
+12. Səs düyməsi hər yerdə eyni: “Dinlə” + “Yavaş dinlə” cütü; kiçik dinamik ikonu çıxır.
+13. (4 ilə birlikdə) oxunuş həm fonetik, həm Azərbaycan hərfləri ilə.
+14. “Lüğətim”ə əlavə olundu sətri ekrandan çıxır (söz yenə lüğətə düşür).
+15. Yeni söz kartında: suallarda cavab nümunəsi + “Kimə deyilir?” qeydi; az məlumatlı sətirlər çıxır.
+16. Mesaj yaz: seçilən sözlər balonun içində düymə kimi, toxunanda öz əvvəlki yerinə qayıdır; aşağıda istifadə olunan söz solğun amma oxunur; durğu işarələri avtomatik; avatar baş hərfli rəngli dairə, yalnız mesajın yanında; söhbət qutusu boşluğu doldurur.
+17. Söz düymələrinə, Sözü tamamla seçimlərinə, Kim nə dedi? ingilis cümlələrinə toxunanda səslənir (Müstəqil qalır).
+18. Mənə başa sal: söz-söz hissə (hər söz toxunanda səs + mənası/işi), öyrənənin cavabında artıq söz qırmızı, yeri səhv söz narıncı; Qısa qayda cavabı təkrarlamır. Bütün cümlələr üçün söz izahı yazılacaq.
+19–21. Bütün səsli ekranlar bir sxem: maskot + nitq balonunda sual (Dinlə/Yavaş dinlə balonda), tünd tapşırıq, nümunə tam (sətrə keçir), mikrofon bir az kiçik, altında Keç; ayrıca “Mətni göstər” yox, sitat tapşırıqda təkrarlanmır.
+20. Nümunə azalır: Dərs 1–2 ilk səsli kartda açıq; Dərs 3–8 yalnız Kömək 2-ci pilləsi (Köməklə); Bölmə 2-dən hazır cavab nümunəsi yoxdur. DERS_STANDARTI-yə yazılacaq.
+22. Şəkil gələcək yerlərdə müvəqqəti qırıq-xətli işarə (SEKIL_SIYAHISI nömrəsi + təsvir), ayardakı açarla söndürülür.
+23. Ana səhifə bir ekrana sığır; “Davam et” kartı dərsləri örtmür; maskot yeri; yol kontrastı; Analiz yuxarıda kiçik ikon; AI söhbət aşağı menyuda ayrıca bölmə (içi boş, “Tezliklə”).
+24. Ana səhifə dizaynı: 3 yeni variant kətanda (A illüstrasiyalı ada, B sadə siyahı + ada nişanı, C oyun xəritəsi) — istifadəçi seçəcək.
+25. Hər dərsin yanında faiz (100% / yarımçıq % / 0%); yarımçıq dərsin gedişatı saxlanacaq.
+26. Gündəlik təkrar kartı ana səhifədə: əsasən səhv edilən ifadələr, qalanı çoxdan görülməyənlər.
+
+**13 noyabr 2026 — 1–26 bəndləri tətbiq olundu** (istifadəçi “bitdi, hamısını tətbiq et” dedi). Ana səhifə A5 (dərsə toxunanda kart), Analiz ekranı (`src/app/analysis.tsx`), AI söhbət boş ekranı (`src/app/ai-chat.tsx`), köhnə bölmə ekranı ana səhifəyə yönləndirilir. Kod yoxlamaları keçir; telefonda yoxlanmayıb.
+
+## Telefonda görülən xətalar — ikinci siyahı (13 noyabr 2026, axşam) — tətbiq olundu
+
+İstifadəçi “hələlik bu qədər, başlaya bilərsən” dedi. Bəndlər və nə edildi:
+
+1. Vəziyyət sətri solğun idi → `ds.subtitle` tünd (9bd8416-da edilmişdi; telefonda köhnə versiya açılmışdı).
+2. Oxunuşlar Amerika tələffüzü ilə, iki nöqtə və fonetik işarə yoxdur (“hau ar yu?”, “uats yor neym?”, “sari”). IPA da Amerika variantına keçirildi (ː yoxdur, /oʊ/, /ɑ/).
+3. Yavaş dinləmə yalnız tısbağa ikonudur (yazısız); “Dinlə” düyməsi yazı ilə qalır.
+4. **Ən vacib qayda:** heç bir tapşırıq əvvəl öyrədilməmiş ingilis sözünü göstərmir və soruşmur. Yalnız qeyddə keçən söz öyrədilmiş sayılmır. `scripts/check-taught.cjs` bunu yoxlayır. Tapılan 34 pozuntu düzəldildi (məs. “I'm not very well”, “I'm OK”, “Could you say that again, please?” indi “Bunu da öyrən” sətrində səsi ilə öyrədilir).
+5. “İndi dinləyə bilmirəm”in üstündə kəsilən düymə (Kömək) → dinləmədə Kömək səs kartının altındadır (təsdiqlənmiş dizayndakı kimi).
+6. Dinləmədə mətn yalnız Kömək → “Mətnlə davam et” və ya ⋮ → “Səs açılmır” ilə açılır (kod belədir).
+7. 12 noyabr “İlk salam” öyrətmə dizaynı qaytarıldı: bənövşəyi banner, maskot, balonda ifadə + Dinlə + tısbağa; sətirlər Mənası · Oxunuşu · Quruluşu · Bunu da öyrən · Qeyd · Nümunə. “Yeni söz” və “Öyrən” kartları bu görünüşdədir; Dərs 1-də Quruluşu: Hello! / Hello, [ad]! və Goodbye! / Bye, [ad]!.
+8. 12 noyabr dizaynları əsasdır; sonradan əlavə olunan ekranlar onlarla birlikdə qalır (istifadəçi razıdır), eyni dizayn dilində. Səsli cavabda danışanın kartı təsdiqlənmiş səs kartı kimidir: avatar, cümlə, Dinlə + dalğa, tısbağa.
+9. Dərslər şablon deyil: eyni ekran növü dalbadal gəlmir (bir söhbətin növbələri istisna), səsli tapşırıqlar dərsə paylanıb, iki dərs eyni üç ekranla bitmir — `check-taught.cjs` yoxlayır. Yeni ekran növü əvvəlcə maket kimi göstərilir, istifadəçi təsdiqləyəndən sonra koda keçir.
+10. “Səslə cavab ver”: nümunə alt sətrə keçir; maskot dairədə kəsilmir; Kömək dizayndakı yerdə; mikrofon yazısı təsdiqlənmiş dizayndakı “Basılı saxla və danış” (bir toxunuşla da işləyir).
+11. Şəkil yerləri: Dərs 2, 6, 8-ə 10 yeni işarə (SEKIL_SIYAHISI §6); Yeni söz kartlarında da işarə görünür. Söhbət/səsli/dinləmə ekranlarında şəkil yoxdur, avatar və səs kartı var.
+
+Özüm yoxlayanda tapılan: əvvəlki siyahının 10-cu bəndindəki “… yerinə [ad] nişanı” **edilməmişdi** — indi bütün ekranlarda (seçimlər, balonlar, söz düymələri, nümunə, nəticə panelləri) “…” ad yeri “[ad]” kimi görünür. Əvvəlki 14-cü bənd (Lüğətim sətri) söz pəncərəsində qalmışdı — çıxarıldı.
+
+Kod yoxlamaları keçir; telefonda yoxlanmayıb.
+
+**13 noyabr 2026, 21:40 — istifadəçi (təkrar şikayət):** səs düyməsi yalnız play ikonudur, “Dinlə” yazısı yoxdur (hər yerdə dairəvi play + tısbağa). Vəziyyət və tapşırıq sətirləri oxunaqlı olmalıdır: vəziyyət sətri tünd bənövşəyi (#5B1FD1) extrabold 18, tapşırıq sətri tünd (#2A1240) extrabold 19. Kiçik izah mətnləri (ds.small, mikrofon altı, nəticə qısa səbəbi, nümunə etiketi) də tündləşdirildi. Solğun (#4B3566 / lavanda) mətn əsas ekran məzmununda işlədilmir.
+
+**13 noyabr 2026, 21:48 — istifadəçi maketi qəbul etdi (“Əla, qəbul”):** Yeni söz kartı sadədir və sürüşmür. Bir kartda bir ifadə olur, yalnız eyni mənalı qısa cütlər bir kartda qalır (Hello/Hi, Goodbye/Bye, Thank you/Thanks). Balonda ifadə, altında Azərbaycanca oxunuş, play və tısbağa var. Altdakı kartda Mənası, Quruluşu (lazım olanda), Nümunə və bir qısa qeyd olur. Fonetik yazı kartda göstərilmir, söz pəncərəsində və Lüğətim-də qalır. “Bunu da öyrən” ləğv olundu, hər ifadə öz kartındadır. Yeni kartlar: d2_c02b, d3_c06b, d4_c04b, d4_c04c, d5_c05b, d6_c04b, d7_c04b.
+
+**13 noyabr 2026, 21:57 — hibrid (istifadəçi):** həm 12 noyabr ekranları, həm sonradan əlavə olunan ekranlar bəyənilir; dərslər qarışıq qurulur. 2–8-ci dərslərin hər birində ən azı 3 növ təsdiqlənmiş ekran (Dinlə və seç / Dinlə və yaz / Yazı / Səslə cavab / İki mesaj / Seçim) və 3–4 növ yeni ekran var. Bunun üçün d3_c08 → Dinlə və seç, d3_c09 → Yazı, d4_c09 → Dinlə və yaz, d6_c10 və d7_c10 → Yazı (sitat balonla) çevrildi; məzmun, cavab qaydası və izahlar eynidir.
+
+**13 noyabr 2026, 22:16 — xəta (istifadəçi):** bəzi səsli tapşırıqlarda Kömək → “Nümunəni göstər” basılanda heç nə çıxmırdı: yazılı nümunəsi olmayan tapşırıqlarda nümunə yalnız `sample` sahəsindən götürülürdü. İndi nümunə yoxdursa birinci qəbul olunan cavab göstərilir. Eyni yoxlamada tapıldı: səsləndirmə `en-GB` idi, oxunuşlar isə Amerika tələffüzündədir — bütün tətbiqdə səs `en-US`-ə keçirildi (Amerika tələffüzü qərarı köhnə “UK pronunciation” qaydasını əvəz edir).
+
+**13 noyabr 2026, 22:23 — istifadəçi:** “Kim nə dedi?” ekranı çox bəyənilir, sayı artırılsın. Dərs 3-ə yeni tapşırıq (d3_c13, tanışlıq cümlələri) əlavə olundu, Dərs 6-nın “Xatırla” seçimi (d6_c02) bu ekrana çevrildi (6.5/6.6 şəkilləri artıq lazım deyil). İndi 2–8-ci dərslərin hamısında var. Azərbaycanca mənalarda da ad yeri [ad] kimi görünür.
+
+**13 noyabr 2026, 22:34 — iki yeni ekran təsdiqləndi (maket göstərildi, istifadəçi “hər ikisi olsun, qəbul”):**
+- **Söhbəti sırala** (`match`, `mode: 'order'`): 3–4 balon qarışıq gəlir, toxunanda səslənir və növbəti boş yerə keçir; qız solda, oğlan sağda; yerləşmiş balona toxunanda geri qayıdır. Dərs 4 (d4_c07), 7 (d7_c09), 8 (d8_c08) — əvvəlki “Mesajı qur” tapşırıqlarının yerinə.
+- **Cavab cütü** (`match`, `mode: 'reply'`): cümləyə onun ingiliscə cavabını qoşmaq, bir cavab artıqdır (tipik səhv, məs. “Please.”). Dərs 5 (d5_c13) və 8 (d8_c13) — yeni tapşırıq.
+Hər ikisi “Kim nə dedi?” kimi yoxlanır; səhv olsa dərsin sonunda başqa söhbətlə təkrar gəlir. `check-taught.cjs` balon və cavabları da yoxlayır.
+
+**13 noyabr 2026, 23:54 — istifadəçi:** toxunub yerləşdirmə ekranlarında (Kim nə dedi?, Cavab cütü, Söhbəti sırala) Kömək düyməsi yoxdur.
+
+**14 noyabr 2026 — xarici yoxlama (istifadəçi göndərdi):** izah qaydası `docs/IZAH_STANDARTI.md`-də. Dərs 2–8-də düzəldildi: “is başqa şəxslər üçündür / həmişə am”, “you ilə həmişə are”, “Fel ilə inkar”, “don't — inkar”, “not = deyil”, `{purpose}` şablonları (Dərs 8), öyrədilmədən izahda keçən “My name is”, “I'm OK”, “That's OK”. Dərs 1 toxunulmayıb — 3 izah icazə gözləyir.
+
+**14 noyabr 2026 — istifadəçi icazə verdi:** Dərs 1-in üç izahı da standarta salındı (kodda və `BirTalk_Ders_1_Yekun.md`-də): “Bu, salam deyil. Hello! və ya Hi! yaz.” (2 yer) və “Bu mesaj görüşün bu anına uyğun deyil. Əvvəl salam, sonda sağollaşma yazılır.” İzah yoxlaması indi 8 dərsin hamısına aiddir.
+
+**14 noyabr 2026 — müstəqil yoxlama (34 bənd) və ipucları:** hesabat `docs/MUSTEQIL_YOXLAMA_2026-11-14.md`. 34 bəndin hamısı düzəldildi; bütün Səbəb sətirləri bir cümlə (96 sətir), 12 Qayda sətri; 144 ipucundan 89-u məntiqə görə yenidən yazıldı (vəziyyətə uyğun, cavabı açmır, bir cümlə). Excuse me = “Bağışlayın (diqqət)”, Sorry! = “Bağışlayın (səhv)”. Dərs 7-dən “Could you say that again, please?” çıxdı (“Sorry? Again, please.”). “{M} ilə” → “Dostunu görürsən / Dostundan ayrılırsan”.
+
+**14 noyabr 2026 — ikinci müstəqil yoxlamanın 22 bəndi düzəldildi** (`docs/MUSTEQIL_YOXLAMA_2_2026-11-14.md`). Dərs 7: Again = eşitmədin, Slowly = sürətli. Ad soruşan “Dostun” → “Yeni tanışın”. Oxunuşlarda /æ/ = “ə” (**th**ənks, ənd, andərstənd, aym oukey). Bütün match/order/reply tapşırıqlarının iki formalı qaydası var. `check-taught.cjs`: ifadə öz kartından əvvəl heç yerdə görünmür; Qayda sətri lüğət tərcüməsi/boş söz deyil; izah və ipucunda IPA yoxdur.
+
+**14 noyabr 2026 — üçüncü müstəqil yoxlamanın 17 bəndi** (`docs/MUSTEQIL_YOXLAMA_3_2026-11-14.md`): 15-i təklif olunan kimi düzəldi; 13 — söhbətdə öyrənənin balonu datada yoxdur, ona görə “You too!” silindi, cavabı öyrənən yazır; 16 — dəqiq yoxlama səbəbindən səsə toxunulmadı. “Tanış olduğuma şadam” hər yerdə. Dərs 1 kart nömrələri 1–13 ardıcıl. Dördüncü yoxlama aparılmır — növbəti addım istifadəçinin telefonda yoxlamasıdır.
+
+**14 noyabr 2026 — oxunaqlılıq (audit):** mətn üçün tünd variantlar: orangeText #A84A08, greenText #0F6E2A, redText #B42318 (≥4.5:1). Oxunuşdakı **th**, vurğu, düzgün/səhv işarələri, nəticə statusları bunlarla. Ana səhifə alt menyu 12pt (#5E5275), “tezliklə” 11pt; Analiz kiçik yazıları 12pt. Narıncı/yaşıl dolğu yalnız fon və ya böyük qalın düymə mətni üçündür.

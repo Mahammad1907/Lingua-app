@@ -87,9 +87,10 @@ export default function WordDetailScreen() {
               style={styles.speakButton}
               onPress={speak}
               activeOpacity={0.85}
+              accessibilityRole="button"
+              accessibilityLabel="Dinlə"
             >
-              <SpeakerIcon size={16} color="#ffffff" />
-              <Text style={styles.speakText}>Dinlə</Text>
+              <SpeakerIcon size={22} color="#ffffff" />
             </TouchableOpacity>
           </View>
 
@@ -211,13 +212,12 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   speakButton: {
-    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#8b5cf6',
-    paddingHorizontal: 24,
-    paddingVertical: 14,
-    borderRadius: 16,
-    gap: 8,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
   },
   speakText: {
     color: '#ffffff',
