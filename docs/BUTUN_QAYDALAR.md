@@ -41,6 +41,7 @@ Bu fayl istifadəçinin indiyə qədər verdiyi bütün qərarların yığcam si
 14. Başlıq, tərcümə və ingilis cümləsi **eyni zamandadır** (I don't understand → “Başa düşmürəm”).
 15. “Edə bilirəm” və nəticə cümlələri öyrənənin **həqiqətən etdiyi işi** deyir.
 16. Kurs “CEFR A1 təsvirlərinə əsaslanır” — “CEFR sertifikatlı” demə.
+19. **Şəkillər ən sonda** (15 noyabr 2026, istifadəçi): bütün bölmələr B2-yə qədər hazırlanır, şəkillər ən sonda bir dəfəyə yaradılır. O vaxta qədər hər şəkil yeri işarə ilə qalır və `SCENE_NOTES`-də qısa təsviri yazılır (kim, harada, nə edir). Ortaq səhnələr (kafe, ziyafət, qeydiyyat) təkrar istifadə olunur; yeni söz kartları maskotun bir neçə pozasını işlədir.
 18. **Yeni söz kartında söz-söz izah — həmişə, bütün dərslərdə** (15 noyabr 2026, istifadəçi): ifadənin ümumi mənası kifayət deyil. Kartda ifadədəki hər yeni söz ayrıca izah olunur (məs. Is — “-dır?” sualı başladır; that — o, bu; right — düz). Yeni sözlər rənglə, əvvəldən bilinənlər adi rəngdə. Çətin səs varsa (th, w…) qısa tələffüz qeydi. Bölmə 1, Bölmə 2 və bütün gələcək dərslərə aiddir.
 17. **Yeni ekran növləri yaradıla bilər** (14 noyabr 2026): dərsin məqsədinə lazım olanda yeni, maraqlı tapşırıq ekranları əlavə olunur. Hər yeni ekran əvvəlcə maket kimi göstərilir (A9), təsdiqdən sonra kod. Dərslər bir-birinin eyni olmamalıdır (B5).
 
