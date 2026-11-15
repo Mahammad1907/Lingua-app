@@ -339,11 +339,49 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
 
 /** “Yeni söz” card on the approved teaching layout. */
 export function WordView({ card, onPlay, onWord }: { card: WordCard; onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void }) {
-  return <LearnView chip="Yeni söz" phrases={card.word.split(/\s*·\s*/)} az={card.az} reading={card.reading} ipa={card.pronunciation} structure={card.structure}
-    notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} onPlay={onPlay} onWord={onWord} />;
+  const parts = wordParts(card);
+  return <View style={{ gap: 10 }}>
+    <LearnView chip="Yeni söz" phrases={card.word.split(/\s*·\s*/)} az={card.az} reading={card.reading} ipa={card.pronunciation} structure={card.structure}
+      notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} onPlay={onPlay} onWord={onWord} />
+    {parts.length ? <View style={s.parts} accessibilityLabel="Söz-söz izah">
+      {/* Every new-word card explains each word of the phrase (docs/BUTUN_QAYDALAR.md rule 18): new words in the accent colour. */}
+      <View style={s.partsRow}>{parts.map(p => <Pressable key={p.word} accessibilityRole="button" onPress={() => onPlay(p.word)} style={[s.partChip, p.fresh && s.partChipNew]}>
+        <Text style={[s.partWord, p.fresh && { color: d.purple }]}>{p.word}</Text>
+        <Text style={s.partAz} numberOfLines={2}>{p.az}</Text>
+      </Pressable>)}</View>
+      {parts.some(p => p.fresh && /th/i.test(p.word)) && !card.notes?.some(n => /\bth\b/i.test(n)) ? <Text style={s.partNote}>th — dilin ucu dişlərin arasında, Thank you-dakı kimi.</Text> : null}
+    </View> : null}
+  </View>;
+}
+
+// Which card first teaches each English word (course order) — a word is “new” only on that card.
+let FIRST: Map<string, string> | null = null;
+const tokens = (text: string) => (text.match(/[A-Za-z]+(?:'[a-z]+)?/g) ?? []).map(w => w.toLowerCase());
+function firstTaught() {
+  if (FIRST) return FIRST;
+  FIRST = new Map();
+  // Lazy require keeps the screen module free of a data import cycle.
+  const { designLessons } = require('../../data/designLessons') as typeof import('../../data/designLessons');
+  for (const l of designLessons) for (const c of l.cards) if (c.type === 'word') for (const w of tokens(c.word)) if (!FIRST.has(w)) FIRST.set(w, c.id);
+  return FIRST;
+}
+function wordParts(card: WordCard) {
+  const words = [...new Set(tokens(card.word))];
+  // Single words, letter groups and number groups need no breakdown: the meaning line already says it.
+  if (words.length < 2 || words.every(w => w.length === 1) || card.word.includes(' · ')) return [];
+  const first = firstTaught();
+  return words.map(w => { const g = glossOf(w); return g ? { word: w, az: g.az, fresh: first.get(w) === card.id } : undefined; })
+    .filter((x): x is { word: string; az: string; fresh: boolean } => Boolean(x));
 }
 
 const s = StyleSheet.create({
+  parts: { gap: 6, padding: 12, borderRadius: 18, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
+  partsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  partChip: { minWidth: 64, maxWidth: 150, paddingHorizontal: 10, paddingVertical: 6, borderRadius: 14, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
+  partChipNew: { borderColor: d.purple, backgroundColor: d.purpleSoft },
+  partWord: { color: d.ink, fontSize: 17, ...font.extrabold },
+  partAz: { color: d.inkSoft, fontSize: 13, ...font.bold },
+  partNote: { color: d.lavenderText, fontSize: 14, ...font.bold },
   imageSlot: { alignItems: 'center', justifyContent: 'center', gap: 4, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 16, borderWidth: 2, borderStyle: 'dashed', borderColor: d.orange, backgroundColor: d.orangeSoft },
   slotNote: { color: '#B4530A', fontSize: 14, textAlign: 'center', ...font.extrabold },
   sayRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
