@@ -19,7 +19,7 @@ const { GLOSSARY } = require('../src/data/unit1/glossary.ts');
 const PARTS = { "'m": ['am'], "'s": ['is'], "'re": ['are'], "n't": ['not'] };
 const words = text => {
   const out = [];
-  for (const w of (text || '').replace(/[’‘]/g, "'").toLowerCase().match(/[a-z]+(?:'[a-z]+)?/g) || []) {
+  for (const w of (text || '').replace(/\b[a-z]+-[A-Z]{2,}\b/g, ' ').replace(/[’‘]/g, "'").toLowerCase().match(/[a-z]+(?:'[a-z]+)?/g) || []) {
     if (w.length > 14) continue; // deliberately run-together “fast speech” lines, not vocabulary
     out.push(w);
     for (const [end, extra] of Object.entries(PARTS)) if (w.endsWith(end)) { out.push(w.slice(0, -end.length).replace(/^do$/, 'do'), ...extra); }
@@ -80,7 +80,7 @@ for (const raw of designLessons) {
 
 // Variety (user, 13 Nov 2026): no template. The same screen type never comes twice in a row
 // (except the turns of one conversation, e.g. c11a + c11b), and no two lessons share the same last three screens.
-const kind = c => !L.isTask(c) ? c.type : c.type === 'two' && c.form ? 'form' : c.type === 'write' ? (c.keypad ? 'keypad' : c.letters ? 'letters' : c.tiles ? 'tiles' : c.chat ? 'chat' : 'write') : c.type === 'choice' ? (c.gap ? 'gap' : c.spots ? 'scene' : 'choice') : c.type === 'voice' ? (c.repeat ? 'repeat' : 'voice') : c.type === 'match' ? (c.mode === 'order' ? 'order' : c.mode === 'reply' ? 'pairs' : 'match') : c.type;
+const kind = c => !L.isTask(c) ? c.type : c.type === 'two' && c.form ? 'form' : c.type === 'write' ? (c.keypad ? 'keypad' : c.letters ? 'letters' : c.tiles ? 'tiles' : c.chat ? 'chat' : 'write') : c.type === 'choice' ? (c.gap ? 'gap' : c.map ? 'map' : c.spots ? 'scene' : 'choice') : c.type === 'voice' ? (c.repeat ? 'repeat' : 'voice') : c.type === 'match' ? (c.mode === 'order' ? 'order' : c.mode === 'reply' ? 'pairs' : 'match') : c.type;
 const endings = new Map();
 for (const raw of designLessons) {
   const cards = raw.cards;

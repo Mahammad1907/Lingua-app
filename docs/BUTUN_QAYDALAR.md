@@ -30,6 +30,7 @@ Bu fayl istifadəçinin indiyə qədər verdiyi bütün qərarların yığcam si
 5. **Şablon yoxdur:** eyni ekran növü dalbadal gəlmir (bir söhbətin növbələri istisna); iki dərs eyni üç ekranla bitmir; dərslərin açılışı və məkanı dəyişir.
 6. Dərs 11–14 kart (DERS_STANDARTI-dəki 10–12 köhnədir; 14-dən çox olmaz). **Bölmə 2-dən: bir dərsdə (hissədə) 4–6 yeni vahid** (14 noyabr; hazır ifadə və nümunə qrupu bir vahid). Bölmə 1 2–3 ilə qalır.
 6b. **Bölmə 2 hazırdır** (14 noyabr): mətn `src/data/unit2/`, imtahanlar `src/data/unit1/exam.ts`, `src/data/unit2/exam.ts`. Hər dəyişiklikdən sonra: `node scripts/check-taught.cjs`, `check-unit1.cjs`, `check-unit2.cjs`, sonra `node scripts/export-unit1-docs.cjs` (bütün `docs/dersler/` sənədləri). Yeni ekranlar: Nömrəni yığ, Hərfləri tut, Formanı doldur; xəritədə 2 hissəli dərs və bayraqlı imtahan düyməsi. Telefonda yoxlanmayıb.
+6c. **Bölmə 3 hazırdır** (15 noyabr): mətn `src/data/unit3/` (11 hissə + `exam.ts`), xəritə `docs/BOLME_3_XERITESI.md`. Yoxlama: `node scripts/check-unit3.cjs` (səhvlər `scripts/unit3-mistakes/`). Yeni ekran: **Xəritədə tap**. “Yes, I'm.” / “Yes, she's.” kimi qısa cavablar qəbul olunmur. Telefonda yoxlanmayıb.
 6a. **Xəritədə hər bölmə sabit 8 dərs.** Çox material → dərs 2 hissəyə bölünür, xəritə uzanmır. Hər bölmənin sonunda **bölmə imtahanı** (Kömək yoxdur, keçid ≥80%). Ətraflı: `docs/BOLME_2_XERITESI.md` §0.
 7. Seçim tapşırığında **3 variant**; yanlışlar Azərbaycan dilli öyrənənin real səhvlərindən (`docs/AZ_OYRENEN_SEHVLERI.md`). İki düzgün cavab ola bilməz.
 8. Hər tapşırığın **ipucu** var: bir cümlə, yolu göstərir, cavabı açmır, vəziyyətə uyğundur, Təkrarın yeni vəziyyətinə uyğundur.
@@ -43,6 +44,7 @@ Bu fayl istifadəçinin indiyə qədər verdiyi bütün qərarların yığcam si
 16. Kurs “CEFR A1 təsvirlərinə əsaslanır” — “CEFR sertifikatlı” demə.
 19. **Şəkillər ən sonda** (15 noyabr 2026, istifadəçi): bütün bölmələr B2-yə qədər hazırlanır, şəkillər ən sonda bir dəfəyə yaradılır. O vaxta qədər hər şəkil yeri işarə ilə qalır və `SCENE_NOTES`-də qısa təsviri yazılır (kim, harada, nə edir). Ortaq səhnələr (kafe, ziyafət, qeydiyyat) təkrar istifadə olunur; yeni söz kartları maskotun bir neçə pozasını işlədir.
 18. **Yeni söz kartında söz-söz izah — həmişə, bütün dərslərdə** (15 noyabr 2026, istifadəçi): ifadənin ümumi mənası kifayət deyil. Kartda ifadədəki hər yeni söz ayrıca izah olunur (məs. Is — “-dır?” sualı başladır; that — o, bu; right — düz). Yeni sözlər rənglə, əvvəldən bilinənlər adi rəngdə. Çətin səs varsa (th, w…) qısa tələffüz qeydi. Bölmə 1, Bölmə 2 və bütün gələcək dərslərə aiddir.
+20. **"Azeri" sözü qadağandır** (15 noyabr 2026, istifadəçi): Azərbaycanda işlədilməsinə pis baxılır. Heç yerdə — kart, variant, qəbul siyahısı, izah — yalnız "Azerbaijani".
 17. **Yeni ekran növləri yaradıla bilər** (14 noyabr 2026): dərsin məqsədinə lazım olanda yeni, maraqlı tapşırıq ekranları əlavə olunur. Hər yeni ekran əvvəlcə maket kimi göstərilir (A9), təsdiqdən sonra kod. Dərslər bir-birinin eyni olmamalıdır (B5).
 
 ## C. İzah qaydaları (“Mənə başa sal”) — `docs/IZAH_STANDARTI.md`
@@ -107,6 +109,8 @@ Yoxlama: `check-taught.cjs` ipucularda öyrədilməmiş sözü, IPA-nı və qada
 node scripts/check-taught.cjs        # B1, B2, B5, C, izah/ipucu sözləri
 node scripts/check-unit1.cjs         # Dərs 2–8 quruluşu
 node scripts/check-design-lesson.cjs # Dərs 1
+node scripts/check-unit2.cjs         # Bölmə 2
+node scripts/check-unit3.cjs         # Bölmə 3
 node scripts/export-unit1-docs.cjs   # docs/dersler/*.md
 ```
 Yeni bölmə üçün eyni yoxlamalar yeni bölməyə də qoşulmalıdır.

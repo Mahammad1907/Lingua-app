@@ -2,10 +2,11 @@
 
 ## 0. Ən son vəziyyət (15 noyabr 2026) — əvvəlcə bunu oxu
 
+- **Bölmə 3 "Haradansan" hazırdır** (15 noyabr): `src/data/unit3/` (11 hissə: 1, 2a, 2b, 3a, 3b, 4, 5a, 5b, 6, 7, 8 + `exam.ts`), xəritə `docs/BOLME_3_XERITESI.md`, yoxlama `check-unit3.cjs`. Yeni ekran **Xəritədə tap** (`CountryMap`). Qayda 20: “Azeri” sözü qadağandır. Test girişi `[1, 2, 3]`. Növbəti: Bölmə 4 “Ailə və insanlar” — əvvəlcə xəritə.
 - **Bölmə 1 + Bölmə 2 hazırdır**, hər ikisinin imtahanı var (yeni ekranlarda). Bölmə 2: `src/data/unit2/` (12 hissə: 1a,1b,2,3a,3b,3c,4,5,6,7a,7b,8 + `exam.ts`), Bölmə 1 imtahanı `src/data/unit1/exam.ts`. Xəritə: `docs/BOLME_2_XERITESI.md`.
-- **Kurs planı (təsdiqlənib):** A1 10 bölmə, A2 14, B1 18, B2 20. Hər bölmə xəritədə sabit 8 dərs (çox material → dərs 2–3 hissə) + bölmə imtahanı (Kömək yox, keçid ≥80%). A1-də dərsdə 4–6 yeni vahid. Vəd/iddia mətni yoxdur. Növbəti iş: **Bölmə 3 "Haradansan"** — əvvəlcə xəritəni istifadəçiyə təsdiqə göstər.
+- **Kurs planı (təsdiqlənib):** A1 10 bölmə, A2 14, B1 18, B2 20. Hər bölmə xəritədə sabit 8 dərs (çox material → dərs 2–3 hissə) + bölmə imtahanı (Kömək yox, keçid ≥80%). A1-də dərsdə 4–6 yeni vahid. Vəd/iddia mətni yoxdur. Bölmə 3 də yazılıb (yuxarıya bax).
 - **Mühərrik (yeni):** Nömrəni yığ / Hərfləri tut / Formanı doldur ekranları; imtahan rejimi (`DesignLesson.exam`); 2–3 hissəli dərs halqası; bölmələr ana səhifədə alt-alta sürüşür (`ApprovedHome`, `IslandHome bare/after`); səssiz rejimdə səs (`setAudioModeAsync`); yavaş dinləmə fasilələrlə; “Sözü tamamla”dan sonra cümlə hissə-hissə səslənib yaşıl yanır; çərçivəli tapşırıq kartı; öz e-poçtu düzəldilmiş göstərilir (`ownDataFix`); ümumi tipik səhvlər (`COMMON_SLIPS` — What's is, It's that right); Əlifba lövhəsi (Lüğətim); yeni söz kartında avtomatik söz-söz izah (lüğətdən, qayda 18).
-- **TEST GİRİŞİ AÇIQDIR:** `src/config/testAccess.ts` → `[1, 2]` (bütün dərslər, hissələr, imtahanlar açıq). İstifadəçilərə çıxmazdan əvvəl `[]` et.
+- **TEST GİRİŞİ AÇIQDIR:** `src/config/testAccess.ts` → `[1, 2, 3]` (bütün dərslər, hissələr, imtahanlar açıq). İstifadəçilərə çıxmazdan əvvəl `[]` et.
 - **Şəkillər:** hamısı boşdur (işarə ilə). Qərar: B2-yə qədər bütün bölmələr hazırlanır, şəkillər ən sonda bir dəfəyə (qayda 19). Hər yeni şəkil yerinə `SCENE_NOTES`-də təsvir yaz.
 - **İş qaydası:** istifadəçi telefonda test edib düzəlişləri siyahı ilə göndərir; “bitti” deyənə qədər yalnız siyahıya yaz. Tokeni qənaətlə xərclə. Hər bölmədən sonra mətni yazmayan müstəqil yoxlayıcı.
 - **Açıq/bilinən:** imtahanda tanınmayan danışıq “yoxlanmadı” sayılır (xala daxil deyil); “a” hərfi lüğətdə yoxdur; Bölmə 2-nin son düzəlişlərini müstəqil yoxlayıcı yenidən oxumayıb; telefonda heç nə təsdiqlənməyib.

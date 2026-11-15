@@ -72,6 +72,8 @@ const SHORT_TITLES: Record<string, string> = {
   a1_en_b1_v2_d5: 'Təşəkkür', a1_en_b1_v2_d6: 'Üzr', a1_en_b1_v2_d7: 'Başa düşmürəm', a1_en_b1_v2_d8: 'Bölmə söhbəti',
   // Bölmə 2 (docs/BOLME_2_XERITESI.md), keyed by map number.
   u2_1: 'Rəqəmlər', u2_2: 'Telefon', u2_3: 'Hərflər', u2_4: 'Hərf-hərf', u2_5: 'Ad, soyad', u2_6: 'E-poçt', u2_7: 'Yaş', u2_8: 'Qeydiyyat',
+  // Bölmə 3 (docs/BOLME_3_XERITESI.md).
+  u3_1: 'Haradansan?', u3_2: 'Ölkələr', u3_3: 'Millət', u3_4: 'Sən …-dansan?', u3_5: 'O haradandır?', u3_6: 'Yaşayırsan', u3_7: 'Dillər', u3_8: 'Dil klubu',
 };
 
 export function HomeNavigation({ bottomInset = 0, onNavigate }: {

@@ -56,6 +56,24 @@ export const SCENE_NOTES: Record<string, string> = {
   'd7/word-again': '7.17 · Qız əlini qulağına tutub “bir də” istəyir',
   'd7/word-slowly': '7.18 · Oğlan əli ilə “yavaş” işarəsi edir',
   'd8/party-talk': '7.19 · Ziyafət: qız və oğlan söhbət edir',
+  // Bölmə 3 (rule 19, 15 Nov 2026): a few shared scenes reused across lessons, and mascot poses for the Yeni söz cards.
+  'mascot/wave': 'M.1 · Maskot əl yelləyir',
+  'mascot/point': 'M.2 · Maskot bir şeyi göstərir',
+  'mascot/think': 'M.3 · Maskot düşünür, əli çənəsində',
+  'mascot/globe': 'M.4 · Maskot kiçik qlobus tutub',
+  'mascot/ask': 'M.5 · Maskot soruşur, əlini açıb',
+  'mascot/happy': 'M.6 · Maskot sevinir, baş barmaq',
+  'u3/club': '3.1 · Dil klubu: qız, oğlan və bir neçə xarici gənc masa ətrafında tanış olur',
+  'u3/airport': '3.2 · Hava limanı: uçuş tablosu qarşısında qız və oğlan çamadanla',
+  'u3/passport': '3.3 · Pasport nəzarəti: oğlan pasportunu pəncərəyə uzadır',
+  'u3/hostel': '3.4 · Hostel resepsiyası: qız qeydiyyat vərəqi doldurur',
+  'u3/hostel-kitchen': '3.5 · Hostelin mətbəxi: oğlan xarici gənclə çay içir',
+  'u3/videocall': '3.6 · Video zəng: qız noutbukda ekrandakı dostlarını göstərir',
+  'u3/train': '3.7 · Qatar vaqonu: oğlan yanındakı sərnişinlə danışır',
+  'u3/cafe': '3.8 · Kafe: qız və xarici tanış masada söhbət edir',
+  'u3/map-class': '3.9 · Kurs sinfi: divarda sadə dünya xəritəsi, oğlan bir ölkəni göstərir',
+  'u3/exchange': '3.10 · Dil mübadiləsi masası: üzərində kiçik kartlar, qız və xarici gənc',
+  'u3/party': '3.11 · Dil klubunun ziyafəti: hamı ayaq üstə söhbət edir',
 };
 
 export function sceneImage(ids?: string[]): number | undefined {

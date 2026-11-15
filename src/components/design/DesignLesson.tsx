@@ -17,7 +17,7 @@ import {
 import type { TaskEvidence } from '../../utils/lessonEvidence';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import HoldToTalk from './HoldToTalk';
-import { ChatThread, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
+import { ChatThread, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
 import Icon from './Icons';
 import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
 import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
@@ -342,7 +342,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const fieldState = (status?: string) => status === 'correct' ? 'correct' as const : status === 'wrong' ? 'wrong' as const : undefined;
     const markOf = (status: string) => status === 'correct' ? 'correct' as const : status === 'wrong' ? 'wrong' as const : undefined;
     const repeat = task.type === 'voice' ? task.repeat : undefined;
-    const spotsShown = task.type === 'choice' && Boolean(task.spots && sceneImage(task.scenes));
+    const spotsShown = task.type === 'choice' && Boolean(task.map || task.spots && sceneImage(task.scenes));
     const say = (t: string) => speak(t.replace(/…/g, ''), 0.85);
     const lookUp = result ? undefined : (w: string) => { setGloss(w); if (!peeked) { setPeeked(true); useUserStore.getState().useHelp(attempt); } };
     // Word tiles: punctuation is never a tile; the sentence's own end mark is added automatically.
@@ -411,7 +411,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         onReplay={gapDone ? () => playPieces(task.id, gapPieces(task.gap!.before, task.answer, task.gap!.after)) : undefined}
         disabled={Boolean(result && result.kind !== 'unverified')} mark={single ? markOf(single.status) : undefined}
         onPick={o => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} /> : null}
-      {task.type === 'choice' && spotsShown ? <SceneSpots scenes={task.scenes} spots={task.spots!} value={choice} disabled={Boolean(result && result.kind !== 'unverified')}
+      {task.type === 'choice' && task.map ? <CountryMap map={task.map} options={task.options} value={choice} disabled={Boolean(result && result.kind !== 'unverified')}
+        mark={single ? markOf(single.status) : undefined} onPick={o => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} /> : null}
+      {task.type === 'choice' && spotsShown && !task.map ? <SceneSpots scenes={task.scenes} spots={task.spots!} value={choice} disabled={Boolean(result && result.kind !== 'unverified')}
         mark={single ? markOf(single.status) : undefined} onPick={o => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} /> : null}
       {task.type === 'match' ? <MatchBoard task={task} pairs={pairs} active={activeRow} disabled={Boolean(result)} marks={single?.rows} onSay={say}
         onActive={en => { setActiveRow(en); if (pairs[en]) setPairs(p => { const { [en]: _gone, ...rest } = p; return rest; }); setNotice(''); }}

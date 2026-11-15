@@ -42,6 +42,24 @@ export const modules: Module[] = [
     finalReviewId: 'a1_en_b2_d8',
     hasSpeakingPractice: false,
   },
+  {
+    // docs/BOLME_3_XERITESI.md — 8 map lessons; lessons 2, 3 and 5 have two parts (11 lesson ids).
+    id: 'module_3',
+    title: 'Where are you from?',
+    titleAz: 'Haradansan',
+    description: '8 dərs: haradan olduğun, ölkələr, millət, bəli/xeyr sualı, o (he/she), harada yaşadığın, dillər və dil klubu söhbəti',
+    language: 'en',
+    level: 'A1',
+    order: 3,
+    phase: 1,
+    icon: '🌍',
+    lessonIds: [
+      'a1_en_b3_d1', 'a1_en_b3_d2a', 'a1_en_b3_d2b', 'a1_en_b3_d3a', 'a1_en_b3_d3b', 'a1_en_b3_d4',
+      'a1_en_b3_d5a', 'a1_en_b3_d5b', 'a1_en_b3_d6', 'a1_en_b3_d7', 'a1_en_b3_d8',
+    ],
+    finalReviewId: 'a1_en_b3_d8',
+    hasSpeakingPractice: false,
+  },
 ];
 
 // ═══════════════════════════════════════

@@ -10,6 +10,7 @@ export const goalLabels: Record<PacketGoal, string> = {
   attention: 'Diqqəti nəzakətlə çəkmək', dontUnderstand: 'Anlamadığını bildirmək', repeat: 'Təkrar istəmək', slow: 'Yavaş danışmağı istəmək', reason: 'Təkrarın səbəbini anlamaq',
   askPhone: 'Telefon nömrəsini soruşmaq', askSpell: 'Hərf-hərf deməyi xahiş etmək', askLastName: 'Soyadı soruşmaq', askEmail: 'E-poçtu soruşmaq',
   askAge: 'Yaşı soruşmaq', confirm: 'Düz olduğunu soruşmaq', confirmYes: 'Düz olduğunu təsdiqləmək',
+  askFrom: 'Haradan olduğunu soruşmaq', askLive: 'Harada yaşadığını soruşmaq', askSpeak: 'Hansı dildə danışdığını soruşmaq',
 };
 export function normalizePacketAnswer(text: string): string {
   return normalizeApostrophes(text).toLowerCase().replace(/\u0307/g, '').replace(/[‘’]/g, "'")
@@ -41,6 +42,10 @@ const patterns: Partial<Record<PacketGoal, RegExp>> = {
   askAge: /\bhow old are you\b/g,
   confirm: /\bis (?:that|it) (?:right|correct)\b/g,
   confirmYes: /\byes(?: that is (?:right|correct)| it is)?\b/g,
+  // Bölmə 3
+  askFrom: /\bwhere are you from\b/g,
+  askLive: /\bwhere do you live\b/g,
+  askSpeak: /\bdo you speak\b(?: [a-z]+)?/g,
   slow: /\b(?:(?:could|can|would) you (?:please )?(?:repeat(?: that| it)?|speak|say (?:it|that))(?: more)? (?:slowly|slower)|(?:please )?speak(?: more)? (?:slowly|slower)|(?:please )?(?:more )?slowly|slower|slow)\b/g,
 };
 export interface PacketVerdict { status: 'correct' | 'partial' | 'wrong' | 'unknown'; criteria: { goal: string; passed: boolean }[]; message: string; spellingCorrections?: { before: string; after: string }[] }
@@ -66,7 +71,7 @@ function assessNormalizedAnswer(value: string, rule: PacketRule, voice = false):
   if (/(başa düşm|anlamayıb|anlamadığı|anlamadı|eşitməyib|eşitmədiyi)/u.test(input)) found.add('reason');
   let rest = input;
   // Remove complete courtesy/context phrases before extracting the chosen name.
-  for (const goal of ['askPhone','askSpell','askLastName','askEmail','askAge','confirm','confirmYes','dontUnderstand','politeName','slow','repeat','askName','askFeeling','unwell','fine','feeling','meet','thanks','welcome','noProblem','sorry','attention','greet','farewell'] as PacketGoal[]) {
+  for (const goal of ['askFrom','askLive','askSpeak','askPhone','askSpell','askLastName','askEmail','askAge','confirm','confirmYes','dontUnderstand','politeName','slow','repeat','askName','askFeeling','unwell','fine','feeling','meet','thanks','welcome','noProblem','sorry','attention','greet','farewell'] as PacketGoal[]) {
     const pattern = patterns[goal]; if (pattern) rest = rest.replace(pattern, ' ');
   }
   rest = rest.replace(/\byour name\b/g, ' ').replace(/\bplease\b/g, ' ').trim();
@@ -91,6 +96,11 @@ function assessNormalizedAnswer(value: string, rule: PacketRule, voice = false):
 // Fuzz only written English spelling. Names, short grammar words and real-word
 // substitutions stay exact; recognition uncertainty is never repaired this way.
 export function assessPacketAnswer(value: string, rule: PacketRule, voice = false): PacketVerdict {
+  // Bölmə 3: a short answer never ends in a contraction (“Yes, I'm.”, “Yes, she's.”) — the full form is needed.
+  // Checked on the raw text, because normalizing turns “I'm” into “i am”.
+  if (/\byes\s*,?\s*(?:i|he|she|it)['’]\s*[ms]\s*[.!]?\s*$/i.test(value.trim())) {
+    return { status: 'wrong', criteria: [{ goal: 'Tapşırığın cavabı', passed: false }], message: 'Qısa cavabın sonunda tam forma gəlir.' };
+  }
   // Learner data (own number, age, e-mail, name): the pattern decides (Bölmə 2).
   if (rule.pattern && value.trim() && new RegExp(rule.pattern, 'iu').test(normalizeApostrophes(value).trim())) {
     return { status: 'correct', criteria: [{ goal: 'Tapşırığın cavabı', passed: true }], message: 'Cavab tapşırığa uyğundur.' };

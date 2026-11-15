@@ -125,3 +125,29 @@ Hər yeni ifadə üçün onun işləndiyi anı göstərən kiçik səhnə. Kartd
 | 7.17 | Dərs 7 · d7_c04 | Qız əlini qulağına tutub “bir də” istəyir | `assets/lessons/d7/word-again.webp` | ⏳ |
 | 7.18 | Dərs 7 · d7_c04b | Oğlan əli ilə “yavaş” işarəsi edir | `assets/lessons/d7/word-slowly.webp` | ⏳ |
 | 7.19 | Dərs 8 · d8_c02 | Ziyafət: qız və oğlan söhbət edir | `assets/lessons/d8/party-talk.webp` | ⏳ |
+
+## 8. Bölmə 3 — ortaq səhnələr və maskot pozaları (15 noyabr 2026, qayda 19)
+
+Bölmə 3-də hər söz üçün ayrıca şəkil yoxdur: yeni söz kartları maskotun 6 pozasından birini, tapşırıqlar 11 ortaq səhnədən birini işlədir (təsvirlər `src/config/sceneImages.ts` → `SCENE_NOTES`).
+
+| № | id | Təsvir | Vəziyyət |
+|---|---|---|---|
+| M.1 | mascot/wave | Maskot əl yelləyir | ⏳ |
+| M.2 | mascot/point | Maskot bir şeyi göstərir | ⏳ |
+| M.3 | mascot/think | Maskot düşünür, əli çənəsində | ⏳ |
+| M.4 | mascot/globe | Maskot kiçik qlobus tutub | ⏳ |
+| M.5 | mascot/ask | Maskot soruşur, əlini açıb | ⏳ |
+| M.6 | mascot/happy | Maskot sevinir, baş barmaq | ⏳ |
+| 3.1 | u3/club | Dil klubu: qız, oğlan və xarici gənclər masa ətrafında | ⏳ |
+| 3.2 | u3/airport | Hava limanı: uçuş tablosu qarşısında qız və oğlan | ⏳ |
+| 3.3 | u3/passport | Pasport nəzarəti: oğlan pasportunu uzadır | ⏳ |
+| 3.4 | u3/hostel | Hostel resepsiyası: qız qeydiyyat vərəqi doldurur | ⏳ |
+| 3.5 | u3/hostel-kitchen | Hostelin mətbəxi: oğlan xarici gənclə çay içir | ⏳ |
+| 3.6 | u3/videocall | Video zəng: qız noutbukda dostlarını göstərir | ⏳ |
+| 3.7 | u3/train | Qatar vaqonu: oğlan yanındakı sərnişinlə danışır | ⏳ |
+| 3.8 | u3/cafe | Kafe: qız və xarici tanış söhbət edir | ⏳ |
+| 3.9 | u3/map-class | Kurs sinfi: divarda sadə dünya xəritəsi | ⏳ (hələ istifadə olunmur) |
+| 3.10 | u3/exchange | Dil mübadiləsi masası | ⏳ (hələ istifadə olunmur) |
+| 3.11 | u3/party | Dil klubunun ziyafəti | ⏳ |
+
+“Xəritədə tap” ekranının xəritəsi kodla çəkilir — şəkil lazım deyil.

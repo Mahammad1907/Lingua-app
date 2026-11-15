@@ -38,6 +38,9 @@ export interface ChoiceTask extends BaseTask {
   /** “Səhnədə tap”: numbered places on the scene picture, one per option (x, y in % of the picture).
    *  Until the picture file exists the options are shown as a normal list. */
   spots?: { option: string; x: number; y: number }[];
+  /** “Xəritədə tap” (Bölmə 3): the options are country names (shown only as numbers on a code-drawn map, see CountryMap).
+   *  neighbours: Russia, Georgia, Turkey, Iran (+ Azerbaijan); world: the USA, the UK/England, France, Germany, Russia, Turkey. */
+  map?: 'neighbours' | 'world';
 }
 export interface WriteTask extends BaseTask {
   type: 'write'; audio?: string; placeholder: string; rule: PacketRule;

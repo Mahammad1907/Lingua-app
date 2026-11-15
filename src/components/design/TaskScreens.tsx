@@ -4,7 +4,7 @@
 import { Image } from 'expo-image';
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import Svg, { Circle, Path } from 'react-native-svg';
+import Svg, { Circle, Path, Rect, Text as SvgText } from 'react-native-svg';
 import { characterAz, hasCharacterName } from '../../config/characters';
 import { missingScenes, sceneImage } from '../../config/sceneImages';
 import type { ChatLine, MatchTask, WordCard, Who } from '../../data/designLessonTypes';
@@ -257,6 +257,70 @@ export function SceneSpots({ scenes, spots, value, onPick, mark, disabled }: {
   </View>;
 }
 
+/** “Xəritədə tap” (Bölmə 3, approved mockup 15 Nov 2026): a simple code-drawn map. Only the option countries are numbered
+ *  and tappable; their names are never shown (that would give the answer). Azerbaijan is orange with “Sən buradasan”. */
+type MapShape = { path: string; pin: [number, number] };
+const MAPS: Record<'neighbours' | 'world', { w: number; h: number; sea?: string; home: string; label: [number, number]; shapes: Record<string, MapShape> }> = {
+  neighbours: {
+    w: 300, h: 200, sea: 'M226 70 Q246 80 240 120 Q236 140 224 128 Q218 100 226 70 Z', home: 'Azerbaijan', label: [186, 122],
+    shapes: {
+      Russia: { path: 'M8 8 H292 V66 Q220 74 160 62 Q96 70 8 64 Z', pin: [150, 34] },
+      Georgia: { path: 'M100 70 Q130 64 160 74 L156 90 Q128 94 104 86 Z', pin: [130, 80] },
+      Azerbaijan: { path: 'M160 74 Q186 70 210 80 L206 108 Q182 112 160 102 Z', pin: [184, 92] },
+      Turkey: { path: 'M8 96 Q62 88 104 92 Q130 98 150 108 L148 146 Q86 156 8 148 Z', pin: [76, 122] },
+      Iran: { path: 'M152 112 Q186 116 212 112 Q250 120 288 134 L284 192 H160 Q148 168 152 112 Z', pin: [222, 160] },
+    },
+  },
+  world: {
+    w: 300, h: 180, home: 'Azerbaijan', label: [236, 112],
+    shapes: {
+      'the USA': { path: 'M10 52 Q50 40 96 50 L92 104 Q60 116 18 104 Z', pin: [54, 78] },
+      'the UK': { path: 'M120 34 Q130 28 134 40 L132 58 Q124 62 120 54 Z', pin: [127, 46] },
+      England: { path: 'M120 34 Q130 28 134 40 L132 58 Q124 62 120 54 Z', pin: [127, 46] },
+      France: { path: 'M128 70 Q142 64 154 70 L152 92 Q138 98 128 90 Z', pin: [141, 81] },
+      Germany: { path: 'M146 46 Q160 42 170 48 L168 68 Q156 72 148 66 Z', pin: [158, 57] },
+      Russia: { path: 'M176 14 Q236 6 292 16 V60 Q236 66 180 58 Z', pin: [236, 36] },
+      Turkey: { path: 'M174 82 Q196 76 216 84 L214 98 Q194 102 176 96 Z', pin: [195, 90] },
+      Azerbaijan: { path: 'M222 80 Q230 78 236 84 L234 94 Q226 96 222 92 Z', pin: [229, 87] },
+    },
+  },
+};
+export function CountryMap({ map, options, value, onPick, mark, disabled }: {
+  map: 'neighbours' | 'world'; options: string[]; value: string; onPick: (o: string) => void; mark?: Mark; disabled?: boolean;
+}) {
+  const m = MAPS[map];
+  const homeShape = m.shapes[m.home];
+  const drawn = Object.entries(m.shapes).filter(([name]) => !(name === 'England' && !options.includes('England')) && !(name === 'the UK' && options.includes('England')));
+  return <View style={s.mapBox} accessibilityLabel="Xəritə: nömrəli ölkəyə toxun">
+    <Svg width="100%" height="100%" viewBox={`0 0 ${m.w} ${m.h}`}>
+      <Rect x={0} y={0} width={m.w} height={m.h} rx={14} fill="#E3EEFB" />
+      {m.sea ? <Path d={m.sea} fill="#C9DDF6" /> : null}
+      {drawn.map(([name, sh]) => {
+        const option = options.includes(name);
+        const home = name === m.home;
+        const on = option && value === name;
+        const fill = home ? d.orangeSoft : on ? markColor(mark, d.purple) + '33' : '#FFFFFF';
+        const stroke = home ? d.orange : on ? markColor(mark, d.purple) : d.borderStrong;
+        return <Path key={name} d={sh.path} fill={fill} stroke={stroke} strokeWidth={home || on ? 2.5 : 1.5}
+          onPress={option && !disabled ? () => onPick(name) : undefined} />;
+      })}
+      <SvgText x={m.label[0]} y={m.label[1]} fontSize={11} fontWeight="800" fill={d.orangeText} textAnchor="middle">Sən buradasan</SvgText>
+      {homeShape ? <Circle cx={homeShape.pin[0]} cy={homeShape.pin[1]} r={4} fill={d.orange} /> : null}
+    </Svg>
+    {options.map((o, i) => {
+      const sh = m.shapes[o];
+      if (!sh) return null;
+      const on = value === o;
+      const color = on ? markColor(mark, d.purple) : d.purple;
+      return <Pressable key={o} accessibilityRole="radio" accessibilityLabel={`${i + 1}`} accessibilityState={{ selected: on, disabled }} disabled={disabled}
+        onPress={() => onPick(o)} hitSlop={12}
+        style={[s.spot, { left: `${(sh.pin[0] / m.w) * 100}%`, top: `${(sh.pin[1] / m.h) * 100}%`, borderColor: color, backgroundColor: on ? color : '#fff' }, on && { shadowColor: color, shadowOpacity: .4, shadowRadius: 8 }]}>
+        <Text style={[s.spotText, { color: on ? '#fff' : d.purple }]}>{i + 1}</Text>
+      </Pressable>;
+    })}
+  </View>;
+}
+
 /** “Dinlə və təkrarla”: the phrase, with the stressed word in orange. */
 export function PhraseCard({ text, stress, note, reading }: { text: string; stress?: string; note?: string; reading?: string }) {
   const parts = stress ? text.split(new RegExp(`(\\b${stress.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b)`)) : [text];
@@ -457,6 +521,7 @@ const s = StyleSheet.create({
   scene: { width: '100%', aspectRatio: 1.1, borderRadius: 24, overflow: 'hidden', backgroundColor: d.purpleSoft, borderWidth: 1, borderColor: d.border },
   spot: { position: 'absolute', width: 40, height: 40, marginLeft: -20, marginTop: -20, borderRadius: 20, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
   spotText: { fontSize: 18, ...font.extrabold },
+  mapBox: { width: '100%', aspectRatio: 1.55, borderRadius: 18, overflow: 'hidden', borderWidth: 1, borderColor: d.border, backgroundColor: '#E3EEFB' },
   phrase: { alignItems: 'center', gap: 6, padding: 18, borderRadius: radius.card, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
   phraseText: { color: d.ink, fontSize: 26, lineHeight: 34, textAlign: 'center', ...font.extrabold },
   phraseNote: { color: d.ink, fontSize: 15, textAlign: 'center', ...font.semibold },
