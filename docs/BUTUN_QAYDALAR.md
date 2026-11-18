@@ -37,7 +37,7 @@ Bu fayl istifadəçinin indiyə qədər verdiyi bütün qərarların yığcam si
 9. Səhvlər dərsin sonunda **yeni vəziyyətdə, eyni bacarıqla** təkrar gəlir (bacarıq yox, vəziyyət dəyişir).
 10. Nümunə əvvəlcədən yalnız Dərs 1–2-də görünür; sonra yalnız Kömək ilə.
 11. **Ad yeri** “…” ekranda **[ad]** görünür (ingiliscə və azərbaycanca). Öz adını yazanda istənilən ad qəbul olunur.
-12. Personaj adları hələ boşdur: maskot `{M}` (“Dostun”), qız `{G}`, oğlan `{B}` — `src/config/characters.ts`. Yalnız iki insan personaj. Dostun adını bilirsən — ad soruşan “yeni tanış”dır, dost deyil.
+12. Personaj adları hələ boşdur: maskot `{M}` (“Dostun”), qız `{G}`, oğlan `{B}`, **xarici dost `{F}`** — `src/config/characters.ts`. **Üç daimi insan personaj** (18 noyabr 2026, istifadəçi): qız, oğlan və xarici dost (**qadın, ABŞ-dan**, ingiliscə danışır; rəngi qız-oğlandan fərqli, şəkillər çəkiləndə seçilir). Dostun adını bilirsən — ad soruşan “yeni tanış”dır, dost deyil. Birdəfəlik başqa ölkələrdən olan xaricilər adsız “Yeni tanış” qalır (dördüncü adlı personaj yoxdur). `{F}` Bölmə 4-dən istifadə olunur; Bölmə 1–3-ün “tanışlıq” tapşırıqları dəyişmir.
 13. Auditoriya **böyüklərdir**: “sinifdə uşaq” yox, “kursda yoldaş”, iş, kafe, küçə və s.
 14. Başlıq, tərcümə və ingilis cümləsi **eyni zamandadır** (I don't understand → “Başa düşmürəm”).
 15. “Edə bilirəm” və nəticə cümlələri öyrənənin **həqiqətən etdiyi işi** deyir.

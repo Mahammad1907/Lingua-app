@@ -12,7 +12,7 @@ const { lesson1Design } = require('../src/data/lesson1Design.ts');
 const L = require('../src/utils/designLesson.ts');
 
 // --- Names: empty now, neutral fallback, one place to set them later.
-for (const role of ['mascot', 'girl', 'boy']) assert.equal(names.CHARACTERS[role].az, '', `${role} name must stay empty until chosen`);
+for (const role of ['mascot', 'girl', 'boy', 'friend']) assert.equal(names.CHARACTERS[role].az, '', `${role} name must stay empty until chosen`);
 assert.equal(names.withNames('{M} nə edir?'), 'Dostun nə edir?');
 assert.equal(names.withNames('{M:dat} kömək et'), 'Dostuna kömək et');
 assert.equal(names.withNames('{M:acc} görürsən'), 'Dostunu görürsən');

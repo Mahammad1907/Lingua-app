@@ -52,7 +52,7 @@ Nümunə görünən tapşırıq heç vaxt "Müstəqil" sayılmır.
 - **Müəllif qeydləri ekrana çıxmasın:** "Bu hökm yalnız … göstərilir" kimi cümlələr yalnız müəllif üçündür.
 - **Dil sadə olsun:** cümlə 15 sözdən qısa olsun, termin işlənməsin.
 - **Adlar tokenlə yazılsın:** maskot `{M}`, qız `{G}`, oğlan `{B}` (hal şəkilçisi ilə: `{M:gen}`, `{M:dat}` və s.). Adlar yalnız `src/config/characters.ts`-də dəyişir.
-- **Yalnız iki insan personaj:** gümüşü saçlı qız və narıncı geyimli oğlan. Yeni adlı personaj əlavə olunmur.
+- **Üç daimi insan personaj** (18 noyabr 2026): gümüşü saçlı qız, narıncı geyimli oğlan və xarici dost (qadın, ABŞ-dan, `{F}`, Bölmə 4-dən). Başqa adlı personaj əlavə olunmur; birdəfəlik xaricilər adsız “Yeni tanış”dır.
 
 ## 6. Rəy və izahlar
 
@@ -176,7 +176,7 @@ Pedaqoji qövs eyni qalır (öyrət → tanı → qur → danış), amma hər d�
 - [ ] Seçimlər 3 variantlı, yanlış variantlar mənalıdır
 - [ ] Hər tapşırığın düzgün səbəbi və beş hissəli izahı var
 - [ ] Başlıqlarda müəllif etiketi yoxdur
-- [ ] Adlar tokenlədir, yalnız iki insan personaj var
+- [ ] Adlar tokenlədir, yalnız üç daimi insan personaj var (qız, oğlan, xarici dost)
 - [ ] Hər səhv tapşırığın təkrar variantı var (yeni vəziyyət)
 - [ ] Məqsədlər "edə bilirəm" formasında və CEFR A1 təsvirinə bağlıdır
 - [ ] Əvvəlki dərslərdən 2–3 ifadə yeni vəziyyətdə qayıdır (spiral)

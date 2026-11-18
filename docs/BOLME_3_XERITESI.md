@@ -7,7 +7,7 @@ Bir dərsdə (hissədə) 4–6 yeni vahid. Hər yeni söz kartında söz-söz iz
 
 ## 1. Hekayə
 
-`{G}` və `{B}` kursdan sonra beynəlxalq dil klubuna və hostelə gedir, hava limanında və video zəngdə xarici insanlarla tanış olur. Xarici danışanlar **adsız "yeni tanış"** avatarlarıdır (yalnız iki insan personaj qaydası qorunur). Maskot `{M}` bələdçidir.
+`{G}` və `{B}` kursdan sonra beynəlxalq dil klubuna və hostelə gedir, hava limanında və video zəngdə xarici insanlarla tanış olur. Xarici danışanlar **adsız "yeni tanış"** avatarlarıdır (üçüncü daimi personaj — xarici dost `{F}` — Bölmə 4-dən başlayır, qayda 12). Maskot `{M}` bələdçidir.
 
 ## 2. Dərslər
 

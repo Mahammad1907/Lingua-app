@@ -4,7 +4,7 @@
 // and vocabulary example. While a name is empty, Azerbaijani text uses the
 // neutral fallback word and English examples simply leave the name out.
 
-export type CharacterRole = 'mascot' | 'girl' | 'boy';
+export type CharacterRole = 'mascot' | 'girl' | 'boy' | 'friend';
 export type AzCase = 'nom' | 'gen' | 'dat' | 'acc' | 'abl' | 'loc';
 
 interface CharacterConfig {
@@ -25,6 +25,9 @@ export const CHARACTERS: Record<CharacterRole, CharacterConfig> = {
   girl: { az: '', en: '', hyphen: false, fallback: { nom: 'qız', gen: 'qızın', dat: 'qıza', acc: 'qızı', abl: 'qızdan', loc: 'qızda' } },
   // Boy in orange.
   boy: { az: '', en: '', hyphen: false, fallback: { nom: 'oğlan', gen: 'oğlanın', dat: 'oğlana', acc: 'oğlanı', abl: 'oğlandan', loc: 'oğlanda' } },
+  // Third recurring human (18 Nov 2026, user): the foreign friend — a woman from the USA who speaks English.
+  // Used from Bölmə 4 on, where the learner already knows her. One-time foreign speakers stay unnamed (“Yeni tanış”).
+  friend: { az: '', en: '', hyphen: false, fallback: { nom: 'xarici dost', gen: 'xarici dostun', dat: 'xarici dosta', acc: 'xarici dostu', abl: 'xarici dostdan', loc: 'xarici dostda' } },
 };
 
 const VOWELS = 'aıoueəiöü';
@@ -62,26 +65,26 @@ export function characterEn(role: CharacterRole, config = CHARACTERS): string {
 
 export const hasCharacterName = (role: CharacterRole, config = CHARACTERS) => Boolean(config[role].az.trim());
 
-const roles: Record<string, CharacterRole> = { m: 'mascot', g: 'girl', b: 'boy' };
+const roles: Record<string, CharacterRole> = { m: 'mascot', g: 'girl', b: 'boy', f: 'friend' };
 
 /**
  * Replaces name tokens in lesson text:
- * - `{M}` / `{m}` (mascot), `{G}` / `{g}` (girl), `{B}` / `{b}` (boy): Azerbaijani,
+ * - `{M}` / `{m}` (mascot), `{G}` / `{g}` (girl), `{B}` / `{b}` (boy), `{F}` / `{f}` (foreign friend): Azerbaijani,
  *   upper-case letter = capitalised. Optional case: `{M:gen}`, `{m:dat}`, `{m:acc}`, `{m:abl}`, `{m:loc}`.
  * - `{,G}`: Azerbaijani name with a leading comma (", Leyla"), or nothing while empty.
  * - `{en:M}`: English name, `{en,G}`: English name with a leading comma, or nothing while empty.
  */
 export function withNames(text: string, config = CHARACTERS): string {
   return text
-    .replace(/\{en(,)?:?([MGB])\}/g, (_all, comma: string, letter: string) => {
+    .replace(/\{en(,)?:?([MGBF])\}/g, (_all, comma: string, letter: string) => {
       const name = characterEn(roles[letter.toLowerCase()], config);
       return name ? `${comma ? ', ' : ''}${name}` : '';
     })
-    .replace(/\{,([MGBmgb])\}/g, (_all, letter: string) => {
+    .replace(/\{,([MGBFmgbf])\}/g, (_all, letter: string) => {
       const role = roles[letter.toLowerCase()];
       return hasCharacterName(role, config) ? `, ${characterAz(role, 'nom', config)}` : '';
     })
-    .replace(/\{([MGBmgb])(?::(gen|dat|acc|abl|loc))?\}/g, (_all, letter: string, kind?: AzCase) => {
+    .replace(/\{([MGBFmgbf])(?::(gen|dat|acc|abl|loc))?\}/g, (_all, letter: string, kind?: AzCase) => {
       const value = characterAz(roles[letter.toLowerCase()], kind ?? 'nom', config);
       return letter === letter.toUpperCase() ? capitalize(value) : value;
     });
