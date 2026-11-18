@@ -1,6 +1,6 @@
 // Bölmə 3 · Dərs 7 — Dillər (Do you speak …? · Yes, I do. · No, I don't. · a little · language).
 // Dil mübadiləsi masası. Dil adları millət sözləri ilə eynidir (Dərs 3) — yenidən öyrədilmir, qeyddə izah olunur.
-// Spiral: Really?, Are you …?, Where are you from?, I live in …, Slowly, please.
+// Spiral: Really?, Are you …?, Where are you from?, I live in …, More slowly, please.
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
 import { notices, own, resultTexts, SPEAK, SPEAK_MISTAKES } from './shared';
@@ -83,7 +83,7 @@ export const lesson7: DesignLesson = {
         title: 'Cavab cütü', why: 'Hər suala uyğun qısa cavabı tapdın.',
         prompt: 'Hostelin mətbəxində suallar.\nSuala toxun, sonra onun cavabını seç.',
         rows: [{ en: 'Do you speak French?', az: "No, I don't.", from: 'other' }, { en: 'Are you from Iran?', az: 'Yes, I am.', from: 'G' }, { en: 'Where do you live?', az: 'I live in Ganja.', from: 'B' }],
-        extra: ['Slowly, please.'],
+        extra: ['More slowly, please.'],
         variants: [other('Bir sualın cavabı yerində deyil.', ex("Do you speak French? — No, I don't.; Are you from Iran? — Yes, I am.; Where do you live? — I live in Ganja.", '“Do you” sualına “do” ilə, “Are you” sualına “am” ilə cavab verilir.', "Do you speak French? — No, I don't.; Are you from Iran? — Yes, I am.", "Do you speak French? — No, I don't."))],
       },
     },

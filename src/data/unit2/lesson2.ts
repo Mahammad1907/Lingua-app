@@ -1,5 +1,5 @@
 // Bölmə 2 · Dərs 2 — Telefon nömrəsi (What's your phone number? · It's zero five zero… · oh · Is that right? · Yes, that's right.).
-// Spiral: 0–10 (Dərs 1), Hi, Nice to meet you, Excuse me, Slowly, please., Again, please., Thanks, OK.
+// Spiral: 0–10 (Dərs 1), Hi, Nice to meet you, Excuse me, More slowly, please., Say that again, please., Thanks, OK.
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, goal, other, pick } from '../unit1/build';
 import { PHONE_MISTAKES, notices, own, PHONE, resultTexts } from './shared';
@@ -111,9 +111,9 @@ export const lesson2: DesignLesson = {
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
         prompt: 'Ofisdə nömrə mübadiləsi.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: "It's oh five oh…", az: 'Nömrəm 050…-dir.', from: 'B' }, { en: "Yes, that's right.", az: 'Bəli, düzdür.', from: 'G' }, { en: 'Again, please.', az: 'Bir də, zəhmət olmasa.', from: 'M' }],
+        rows: [{ en: "It's oh five oh…", az: 'Nömrəm 050…-dir.', from: 'B' }, { en: "Yes, that's right.", az: 'Bəli, düzdür.', from: 'G' }, { en: 'Say that again, please.', az: 'Bunu bir daha deyin, zəhmət olmasa.', from: 'M' }],
         extra: ['Telefon nömrən nədir?'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex("It's oh five oh… — Nömrəm 050…-dır.; Yes, that's right. — Bəli, düzdür.; Again, please. — Bir də, zəhmət olmasa.", 'Nömrə, təsdiq və xahiş fərqli işlərdir.', "Is that right? — sual; Yes, that's right. — cavab.", "Yes, that's right."))],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex("It's oh five oh… — Nömrəm 050…-dır.; Yes, that's right. — Bəli, düzdür.; Say that again, please. — Bunu bir daha deyin, zəhmət olmasa.", 'Nömrə, təsdiq və xahiş fərqli işlərdir.', "Is that right? — sual; Yes, that's right. — cavab.", "Yes, that's right."))],
       },
     },
     {
@@ -166,9 +166,9 @@ export const lesson2: DesignLesson = {
       review: {
         title: 'Söhbəti sırala', why: 'Sual, nömrə, xahiş və təkrar düz sıradadır.', hint: 'Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?',
         prompt: 'Ofisdə nömrə mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "What's your phone number?", from: 'G' }, { en: '2', az: "It's oh seven oh, two two one, eight eight, three oh.", from: 'B' }, { en: '3', az: 'Sorry? Slowly, please.', from: 'G' }, { en: '4', az: 'Oh… seven… oh… two two one…', from: 'B' }],
+        rows: [{ en: '1', az: "What's your phone number?", from: 'G' }, { en: '2', az: "It's oh seven oh, two two one, eight eight, three oh.", from: 'B' }, { en: '3', az: 'Sorry? More slowly, please.', from: 'G' }, { en: '4', az: 'Oh… seven… oh… two two one…', from: 'B' }],
         extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("What's your phone number? → It's oh seven oh… → Sorry? Slowly, please. → Oh… seven… oh…", 'Nömrəni çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi.', 'Slowly, please. — sürətli idi; Again, please. — eşitmədin.', 'Sorry? Slowly, please.'))],
+        variants: [other('Söhbətin sırası düz deyil.', ex("What's your phone number? → It's oh seven oh… → Sorry? More slowly, please. → Oh… seven… oh…", 'Nömrəni çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi.', 'More slowly, please. — sürətli idi; Say that again, please. — eşitmədin.', 'Sorry? More slowly, please.'))],
       },
     },
   ],

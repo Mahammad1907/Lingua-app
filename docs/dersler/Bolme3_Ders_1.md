@@ -92,7 +92,7 @@ Qeyd: Ölkənin adı böyük hərflə yazılır; vurğu sondadır.
 
 **Tapşırıq:** Klubun qeydiyyat masasında işçi soruşur. Haradan olduğunu de.  
 **Səs:** Hello! Where are you from?  
-**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}\s*[.!]?(?:\s*and you\s*\??)?$/  
+**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}(?:\s*,\s*(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Azərbaycancadakı “-dan” ingiliscə yerin adından əvvəl ayrıca gəlir.  
 **Düzgün olanda:** Haradan olduğunu dedin.  
 - *İzah (başqa səhvdə):* Haradan olduğunu deyəndə “from” lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-dan” şəkilçidir; ingiliscə yerin adından əvvəl ayrıca “from” gəlir. Qayda: I'm from Ganja. — haradan; I'm fine. — hal. Nümunə: Where are you from? — I'm from Azerbaijan.  
@@ -103,7 +103,7 @@ Qeyd: Ölkənin adı böyük hərflə yazılır; vurğu sondadır.
 
 **Tapşırıq:** Taksidə sürücü səninlə söhbət edir. Haradan olduğunu de.  
 **Səs:** Where are you from?  
-**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}\s*[.!]?(?:\s*and you\s*\??)?$/  
+**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}(?:\s*,\s*(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Cavabı “mən” sözü ilə başla, yerin adından əvvəl “-dan” sözünü unutma.  
 **Düzgün olanda:** Haradan olduğunu dedin.  
 - *İzah (başqa səhvdə):* Haradan olduğunu deyəndə “from” lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-dan” şəkilçidir; ingiliscə yerin adından əvvəl ayrıca “from” gəlir. Qayda: I'm from Ganja. — haradan; I'm fine. — hal. Nümunə: Where are you from? — I'm from Azerbaijan.  
@@ -203,10 +203,10 @@ Qeyd: Qarşındakı ilə eyni olanda deyilir; “You too” isə “sənə də�
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qatarda söhbət. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Excuse me, where are you from? → 2. I'm from Shamakhi. → 3. Sorry? Again, please. → 4. Shamakhi. I'm from Shamakhi.  
+**Düzgün sıra:** 1. Excuse me, where are you from? → 2. I'm from Shamakhi. → 3. Sorry? Say that again, please. → 4. Shamakhi. I'm from Shamakhi.  
 **İpucu:** Əvvəl sual gəlir; eşitməyən nə xahiş edir?  
 **Düzgün olanda:** Sual, cavab, təkrar xahişi və təkrar düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me, where are you from? → I'm from Shamakhi. → Sorry? Again, please. → Shamakhi. Səbəb: Sual, cavab, təkrar xahişi, sonra təkrar. Qayda: Sorry? Again, please. — eşitmədin; Shamakhi. — təkrar. Nümunə: Excuse me, where are you from?  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me, where are you from? → I'm from Shamakhi. → Sorry? Say that again, please. → Shamakhi. Səbəb: Sual, cavab, təkrar xahişi, sonra təkrar. Qayda: Sorry? Say that again, please. — eşitmədin; Shamakhi. — təkrar. Nümunə: Excuse me, where are you from?  
 
 ## Nəticə
 

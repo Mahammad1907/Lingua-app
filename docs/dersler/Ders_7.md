@@ -11,13 +11,13 @@ Başa düşməmək normaldır — bunu demək bacarıqdır.
 
 ## Kart 2 — Yeni söz
 
-**Sorry? I don't understand.** — Nə dedin? Başa düşmürəm.
+**Sorry? I don't understand.** — Bağışlayın? Başa düşmürəm.
 
 Oxunuşu: sari? ay dount andərstənd · IPA: /ˈsɑri aɪ doʊnt ˌʌndərˈstænd/
 
-Nümunə: **Sorry? I don't understand.** — Nə dedin? Başa düşmürəm.
+Nümunə: **Sorry? I don't understand.** — Bağışlayın? Başa düşmürəm.
 
-Qeyd: Sual kimi deyilən “Sorry?” — “nə dedin?” deməkdir.
+Qeyd: Sual kimi deyilən “Sorry?” — “Bağışlayın? / Necə?” deməkdir.
 
 ## Kart 3 — Seç: Dinlə və anla
 
@@ -31,100 +31,102 @@ Qeyd: Sual kimi deyilən “Sorry?” — “nə dedin?” deməkdir.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Oğlanın sözlərini dinlə. O nə edir?  
-**Səs:** Excuse me, what's your name?  
-**Seçimlər:** Üzr istəyir. / Təşəkkür edir. / Adını nəzakətlə soruşur. — **düzgün:** Adını nəzakətlə soruşur.  
+**Səs:** Hi! What's your name?  
+**Seçimlər:** Üzr istəyir. / Təşəkkür edir. / Salam deyib adını soruşur. — **düzgün:** Salam deyib adını soruşur.  
 **İpucu:** Cümlənin iki hissəsinə ayrıca qulaq as.  
-**Düzgün olanda:** Excuse me ilə nəzakətlə adı soruşdu.  
-- *İzah (başqa səhvdə):* “Excuse me” üzr deyil — diqqət çəkir. — Uyğun: Adını nəzakətlə soruşur. Səbəb: “Excuse me” diqqəti çəkir, sonra ad sualı gəlir. Qayda: Excuse me + sual. Nümunə: Excuse me, what's your name?  
+**Düzgün olanda:** Salam deyib adını soruşdu.  
+- *İzah (başqa səhvdə):* Səsdə “Hi” və ad sualı var. — Uyğun: Salam deyib adını soruşur. Səbəb: “Hi” salamdır, “What’s your name?” ad sualıdır. Qayda: Hi + ad sualı. Nümunə: Hi! What's your name?  
 
 ## Kart 4 — Yeni söz
 
-**Again, please.** — Bir də, zəhmət olmasa.
+**Say that again, please.** — Bunu bir daha deyin, zəhmət olmasa.
 
-Oxunuşu: əgen, pliz · IPA: /əˈɡen pliz/
+Oxunuşu: sey thət əgen, pliz · IPA: /seɪ ðæt əˈɡen pliz/
 
-Nümunə: **Sorry? Again, please.** — Nə dedin? Bir də, zəhmət olmasa.
+Nümunə: **Sorry? Say that again, please.** — Bağışlayın? Bunu bir daha deyin, zəhmət olmasa.
 
+Qeyd: Eşitmədiyini təkrar istəməyin təbii yolu: “bunu bir daha de”.
+Qeyd: th — dil ucu dişlərin arasında.
 
 ## Kart 5 — Seç: Dinlə və anla
 
 **Tapşırıq:** Oğlan sənə nə deyir? Dinlə.  
-**Səs:** Sorry? Again, please.  
+**Səs:** Sorry? Say that again, please.  
 **Seçimlər:** Adını soruşur. / Bir də deməyini istəyir. / Sağollaşır. — **düzgün:** Bir də deməyini istəyir.  
 **İpucu:** Səsdə “please”-dən əvvəlki sözə qulaq as.  
-**Düzgün olanda:** “again” — bir də.  
-- *İzah (başqa səhvdə):* “again” — bir də. — Uyğun: Bir də deməyini istəyir. Səbəb: Səsdə “Again, please” deyilir — “Bir də, zəhmət olmasa”. Qayda: Sorry? Again, please. — bir də de; Sorry? I don’t understand. — başa düşmürəm. Nümunə: Sorry? Again, please.  
+**Düzgün olanda:** “Say that again” — bunu bir daha de.  
+- *İzah (başqa səhvdə):* “again” — bir daha. — Uyğun: Bir də deməyini istəyir. Səbəb: Səsdə “Say that again, please” deyilir — “Bunu bir daha deyin, zəhmət olmasa”. Qayda: Sorry? Say that again, please. — bir də de; Sorry? I don’t understand. — başa düşmürəm. Nümunə: Sorry? Say that again, please.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qız sənə nə deyir? Dinlə.  
-**Səs:** Slowly, please.  
+**Səs:** More slowly, please.  
 **Seçimlər:** Təşəkkür edir. / Yavaş danışmağı istəyir. / Halını soruşur. — **düzgün:** Yavaş danışmağı istəyir.  
 **İpucu:** Səsdə “please”-dən əvvəlki sözə qulaq as.  
-**Düzgün olanda:** “slowly” — yavaş.  
-- *İzah (başqa səhvdə):* “slowly” — yavaş. — Uyğun: Yavaş danışmağı istəyir. Səbəb: “Slowly, please” — “Yavaş, zəhmət olmasa”. Qayda: Again, please — bir də; Slowly, please — yavaş. Nümunə: Slowly, please.  
+**Düzgün olanda:** “more slowly” — daha yavaş.  
+- *İzah (başqa səhvdə):* “more slowly” — daha yavaş. — Uyğun: Yavaş danışmağı istəyir. Səbəb: “More slowly, please” — “Daha yavaş, zəhmət olmasa”. Qayda: Say that again, please — bir də; More slowly, please — yavaş. Nümunə: More slowly, please.  
 
 ## Kart 6 — Səslə cavab: Təkrar istə
 
 **Tapşırıq:** Səs-küydə dostun nəsə dedi, eşitmədin. Bir də deməsini xahiş et.  
 **Səs:** Hello! How are you?  
-**Qəbul:** məna: repeat — nümunə: Again, please. / Sorry? Again, please.  
-**Nümunə göstərilir:** Sorry? Again, please.  
+**Qəbul:** məna: repeat — nümunə: Say that again, please. / Sorry? Say that again, please. / Again, please.  
+**Nümunə göstərilir:** Sorry? Say that again, please.  
 **İpucu:** Dərsin “bir də” xahişini xatırla.  
 **Düzgün olanda:** Təkrarı nəzakətlə istədin.  
-- *İzah (başqa səhvdə):* Again, please. — Uyğun: Sorry? Again, please. Səbəb: Eşitmədin — bir də deməsini istəyirsən. Qayda: Sorry? Again, please. — eşitmədin; Sorry? I don’t understand. — başa düşmürsən. Nümunə: Again, please.  
+- *İzah (başqa səhvdə):* Say that again, please. — Uyğun: Sorry? Say that again, please. Səbəb: Eşitmədin — bir də deməsini istəyirsən. Qayda: Sorry? Say that again, please. — eşitmədin; Sorry? I don’t understand. — başa düşmürsən. Nümunə: Say that again, please.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Səs-küylü yerdə dostun nəsə dedi. Bir də deməsini xahiş et.  
 **Səs:** What's your name?  
-**Qəbul:** məna: repeat — nümunə: Again, please. / Sorry? Again, please.  
-**Nümunə göstərilir:** Sorry? Again, please.  
+**Qəbul:** məna: repeat — nümunə: Say that again, please. / Sorry? Say that again, please. / Again, please.  
+**Nümunə göstərilir:** Sorry? Say that again, please.  
 **İpucu:** Dərsin “bir də” xahişini xatırla.  
 **Düzgün olanda:** Təkrarı nəzakətlə istədin.  
-- *İzah (başqa səhvdə):* Again, please. — Uyğun: Again, please. Səbəb: Səs-küydə eşitmədin — bir də deməsini istəyirsən. Qayda: Again, please — eşitmədin; Slowly, please — çox sürətli idi. Nümunə: Sorry? Again, please.  
+- *İzah (başqa səhvdə):* Say that again, please. — Uyğun: Say that again, please. Səbəb: Səs-küydə eşitmədin — bir də deməsini istəyirsən. Qayda: Say that again, please — eşitmədin; More slowly, please — çox sürətli idi. Nümunə: Sorry? Say that again, please.  
 
 ## Kart 7 — Yeni söz
 
-**Slowly, please.** — Yavaş, zəhmət olmasa.
+**More slowly, please.** — Daha yavaş, zəhmət olmasa.
 
-Oxunuşu: slouli, pliz · IPA: /ˈsloʊli pliz/
+Oxunuşu: mor slouli, pliz · IPA: /mɔr ˈsloʊli pliz/
 
-Nümunə: **Sorry? Slowly, please.** — Nə dedin? Yavaş, zəhmət olmasa.
+Nümunə: **Sorry? More slowly, please.** — Bağışlayın? Daha yavaş, zəhmət olmasa.
 
 Qeyd: Çox sürətli danışanda deyilir.
 
 ## Kart 8 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Hər cümləyə mənasını qoş.  
-**Cütlər:** Sorry? — Nə dedin?; I don't understand. — Başa düşmürəm.; Slowly, please. — Yavaş, zəhmət olmasa. · artıq: Eybi yox.  
+**Cütlər:** Sorry? — Necə?; I don't understand. — Başa düşmürəm.; More slowly, please. — Daha yavaş, zəhmət olmasa. · artıq: Eybi yox.  
 **İpucu:** Sual kimi deyilən sözə diqqət et — o, üzr deyil.  
 **Düzgün olanda:** Hər xahiş öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Sorry? — Nə dedin?; I don’t understand. — Başa düşmürəm.; Slowly, please. — Yavaş, zəhmət olmasa. Səbəb: Sual kimi “Sorry?” üzr deyil — “nə dedin?”dir. Qayda: Sorry? — nə dedin; Sorry! — üzr. Nümunə: Sorry? I don't understand.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Sorry? — Necə?; I don’t understand. — Başa düşmürəm.; More slowly, please. — Daha yavaş, zəhmət olmasa. Səbəb: Sual kimi “Sorry?” üzr deyil — “Bağışlayın? / Necə?” deməkdir. Qayda: Sorry? — Necə?; Sorry! — üzr. Nümunə: Sorry? I don't understand.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Hər cümləyə mənasını qoş.  
-**Cütlər:** Again, please. — Bir də, zəhmət olmasa.; No problem. — Eybi yox.; Thank you! — Təşəkkür edirəm! · artıq: Necəsən?  
+**Cütlər:** Say that again, please. — Bunu bir daha deyin, zəhmət olmasa.; No problem. — Eybi yox.; Thank you! — Təşəkkür edirəm! · artıq: Necəsən?  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Hər cümlə öz yerində.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Again, please. — Bir də, zəhmət olmasa.; No problem. — Eybi yox.; Thank you! — Təşəkkür edirəm! Səbəb: Xahiş, üzrə cavab və təşəkkür fərqlidir. Qayda: Again, please — xahiş; No problem. — üzrə cavab. Nümunə: Again, please.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Say that again, please. — Bunu bir daha deyin, zəhmət olmasa.; No problem. — Eybi yox.; Thank you! — Təşəkkür edirəm! Səbəb: Xahiş, üzrə cavab və təşəkkür fərqlidir. Qayda: Say that again, please — xahiş; No problem. — üzrə cavab. Nümunə: Say that again, please.  
 
 ## Kart 9 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Oğlan çox sürətli danışır. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hellohowareyou! → 2. Sorry? Slowly, please. → 3. How are you? → 4. I'm fine, thanks.  
+**Düzgün sıra:** 1. Hellohowareyou! → 2. Sorry? More slowly, please. → 3. How are you? → 4. I'm fine, thanks.  
 **İpucu:** Düşün: başa düşməyəndə nə deyirsən və bundan sonra nə olur?  
 **Düzgün olanda:** Əvvəl başa düşmədin, xahiş etdin, sonra cavab verdin.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks. Səbəb: Sürətli danışdı, sən xahiş etdin, o yavaş təkrar etdi. Qayda: Slowly, please — çox sürətli idi; Again, please — eşitmədin. Nümunə: Hellohowareyou! → Sorry? Slowly, please. → How are you? → I'm fine, thanks.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hellohowareyou! → Sorry? More slowly, please. → How are you? → I'm fine, thanks. Səbəb: Sürətli danışdı, sən xahiş etdin, o yavaş təkrar etdi. Qayda: More slowly, please — çox sürətli idi; Say that again, please — eşitmədin. Nümunə: Hellohowareyou! → Sorry? More slowly, please. → How are you? → I'm fine, thanks.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Səs-küydə qızın sualını eşitmədin. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hi! What's your name? → 2. Sorry? Again, please. → 3. What's your name? → 4. My name is …  
+**Düzgün sıra:** 1. Hi! What's your name? → 2. Sorry? Say that again, please. → 3. What's your name? → 4. My name is …  
 **İpucu:** Düşün: eşitməyəndə nə deyirsən və bundan sonra nə olur?  
 **Düzgün olanda:** Xahiş, təkrar və cavab düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! What's your name? → Sorry? Again, please. → What's your name? → My name is … Səbəb: Sualı eşitmədin, sən təkrar istədin, o yenidən soruşdu. Qayda: Again, please — eşitmədin; Slowly, please — çox sürətli idi. Nümunə: Hi! What's your name? → Sorry? Again, please. → What's your name? → My name is …  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is … Səbəb: Sualı eşitmədin, sən təkrar istədin, o yenidən soruşdu. Qayda: Say that again, please — eşitmədin; More slowly, please — çox sürətli idi. Nümunə: Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is …  
 
 ## Kart 10 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -137,10 +139,10 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Dinlə, sonra eyni cür de.  
-**Səs:** Again, please.  
-**Qəbul:** dəqiq: Again please  
+**Səs:** Say that again, please.  
+**Qəbul:** dəqiq: Say that again please / Again please  
 **Düzgün olanda:** Vurğu düzgün yerdə idi.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Again, please. Səbəb: Birinci heca zəif, ikinci güclü. Qayda: a-GAIN. Nümunə: Again, please.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Say that again, please. Səbəb: Birinci heca zəif, ikinci güclü. Qayda: a-GAIN. Nümunə: Say that again, please.  
 
 ## Kart 11 — Səslə cavab: Başa düşmədiyini de
 
@@ -148,7 +150,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Qəbul:** məna: dontUnderstand — nümunə: I don't understand.  
 **İpucu:** Bu dərsin əvvəlində öyrəndiyin “Başa düşmürəm” cümləsini de.  
 **Düzgün olanda:** Başa düşmədiyini açıq dedin.  
-- *İzah (başqa səhvdə):* I don't understand. — Uyğun: I don't understand. Səbəb: Mənasını bilmirsən, ona görə “Başa düşmürəm” deyirsən. Qayda: I don’t understand. — burada don’t; I’m not very well. — burada not. Nümunə: Sorry? I don't understand.  
+- *İzah (başqa səhvdə):* I don't understand. — Uyğun: I don't understand. Səbəb: Mənasını bilmirsən, ona görə “Başa düşmürəm” deyirsən. Qayda: I don’t understand. — burada don’t; I’m not great. — burada not. Nümunə: Sorry? I don't understand.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -156,7 +158,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Qəbul:** məna: dontUnderstand — nümunə: I don't understand.  
 **İpucu:** Bu dərsin əvvəlində öyrəndiyin “Başa düşmürəm” cümləsini de.  
 **Düzgün olanda:** Başa düşmədiyini açıq dedin.  
-- *İzah (başqa səhvdə):* I don't understand. — Uyğun: I don't understand. Səbəb: Heç nə anlamadın, ona görə “Başa düşmürəm” deyirsən. Qayda: I don’t understand. — burada don’t; I’m not very well. — burada not. Nümunə: I don't understand.  
+- *İzah (başqa səhvdə):* I don't understand. — Uyğun: I don't understand. Səbəb: Heç nə anlamadın, ona görə “Başa düşmürəm” deyirsən. Qayda: I don’t understand. — burada don’t; I’m not great. — burada not. Nümunə: I don't understand.  
 
 ## Kart 12 — Sözü tamamla: Sözü tamamla
 
@@ -165,34 +167,34 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Seçimlər:** am / don't / not — **düzgün:** don't  
 **İpucu:** “Başa düşmürəm” — bu dərsin əvvəlindəki cümləni xatırla.  
 **Düzgün olanda:** I don’t understand — başa düşmürəm.  
-- *İzah (“not” seçiləndə):* “I not understand” deyilmir. — Uyğun: don't. Səbəb: I not understand demirik, burada don’t lazımdır. Qayda: I’m not very well — burada not, I don’t understand — burada don’t. Nümunə: Sorry? I don't understand.  
-- *İzah (“am” seçiləndə):* “am” burada lazım deyil. — Uyğun: don't. Səbəb: I am understand demirik, burada don’t lazımdır. Qayda: I’m not very well — burada not; I don’t understand — burada don’t. Nümunə: Sorry? I don't understand.  
+- *İzah (“not” seçiləndə):* “I not understand” deyilmir. — Uyğun: don't. Səbəb: I not understand demirik, burada don’t lazımdır. Qayda: I’m not great — burada not, I don’t understand — burada don’t. Nümunə: Sorry? I don't understand.  
+- *İzah (“am” seçiləndə):* “am” burada lazım deyil. — Uyğun: don't. Səbəb: I am understand demirik, burada don’t lazımdır. Qayda: I’m not great — burada not; I don’t understand — burada don’t. Nümunə: Sorry? I don't understand.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qız bir də eşitmək istəyir. Hansı söz çatmır?  
-**Cümlə:** Again, ___ .  
+**Cümlə:** Say that again, ___ .  
 **Seçimlər:** sorry / thanks / please — **düzgün:** please  
 **İpucu:** Xahişi nəzakətli edən söz Dərs 5-dən tanışdır.  
 **Düzgün olanda:** Xahiş edəndə “please”.  
-- *İzah (başqa səhvdə):* Xahiş — please. — Uyğun: please. Səbəb: Xahişi nəzakətli edən söz “please”dir. Qayda: Again, please. Nümunə: Slowly, please.  
+- *İzah (başqa səhvdə):* Xahiş — please. — Uyğun: please. Səbəb: Xahişi nəzakətli edən söz “please”dir. Qayda: Say that again, please. Nümunə: More slowly, please.  
 
 ## Kart 13 — Yaz: Cavabını yaz
 
 **Tapşırıq:** Oğlan çox sürətli deyir: “Hellohowareyounicetomeetyou!” Ondan yavaş danışmağı xahiş et.  
-**Qəbul:** məna: slow — nümunə: Slowly, please.  
+**Qəbul:** məna: slow — nümunə: More slowly, please. / Slowly, please.  
 **İpucu:** Problem sürətdədir — ondan nə xahiş edirsən?  
 **Düzgün olanda:** Yavaş danışmağı xahiş etdin.  
-- *İzah (cavab “repeat” işini görəndə):* Problem sürətdədir — yavaş danışmağı xahiş et. — Uyğun: Slowly, please. Səbəb: Problem sürətdədir, ona görə Slowly lazımdır. Qayda: Again, please — bir də; Slowly, please — yavaş. Nümunə: Slowly, please.  
-- *İzah (başqa səhvdə):* Yavaş danışmağı xahiş et. — Uyğun: Slowly, please. Səbəb: O çox sürətli danışır, ona görə Slowly lazımdır. Qayda: Again, please — bir də; Slowly, please — yavaş. Nümunə: Sorry? Slowly, please.  
+- *İzah (cavab “repeat” işini görəndə):* Problem sürətdədir — yavaş danışmağı xahiş et. — Uyğun: More slowly, please. Səbəb: Problem sürətdədir, ona görə “More slowly” lazımdır. Qayda: Say that again, please — bir də; More slowly, please — yavaş. Nümunə: More slowly, please.  
+- *İzah (başqa səhvdə):* Yavaş danışmağı xahiş et. — Uyğun: More slowly, please. Səbəb: O çox sürətli danışır, ona görə “More slowly” lazımdır. Qayda: Say that again, please — bir də; More slowly, please — yavaş. Nümunə: Sorry? More slowly, please.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qız çox sürətli soruşur: “Hiwhat’syourname?” Ondan yavaş danışmağı xahiş et.  
-**Qəbul:** məna: slow — nümunə: Slowly, please.  
+**Qəbul:** məna: slow — nümunə: More slowly, please. / Slowly, please.  
 **İpucu:** Problem sürətdədir — ondan nə xahiş edirsən?  
 **Düzgün olanda:** Yavaş danışmağı xahiş etdin.  
-- *İzah (başqa səhvdə):* Yavaş danışmağı xahiş et. — Uyğun: Slowly, please. Səbəb: O çox sürətli danışır, ona görə Slowly lazımdır. Qayda: Again, please — bir də; Slowly, please — yavaş. Nümunə: Slowly, please.  
+- *İzah (başqa səhvdə):* Yavaş danışmağı xahiş et. — Uyğun: More slowly, please. Səbəb: O çox sürətli danışır, ona görə “More slowly” lazımdır. Qayda: Say that again, please — bir də; More slowly, please — yavaş. Nümunə: More slowly, please.  
 
 ## Kart 14 — Səslə cavab: İndi başa düşdün
 
@@ -226,6 +228,6 @@ Növbəti dərs — bölmə söhbəti: öyrəndiklərinin hamısı bir yerdə.
 
 | Söz | Tərcümə | Nümunə |
 |---|---|---|
-| I don't understand | Başa düşmürəm | Sorry? I don't understand. — Nə dedin? Başa düşmürəm. |
-| Again, please | Bir də, zəhmət olmasa | Sorry? Again, please. — Nə dedin? Bir də, zəhmət olmasa. |
-| Slowly, please | Yavaş, zəhmət olmasa | Slowly, please. — Yavaş, zəhmət olmasa. |
+| I don't understand | Başa düşmürəm | Sorry? I don't understand. — Bağışlayın? Başa düşmürəm. |
+| Say that again, please | Bunu bir daha deyin, zəhmət olmasa | Sorry? Say that again, please. — Bağışlayın? Bunu bir daha deyin, zəhmət olmasa. |
+| More slowly, please | Daha yavaş, zəhmət olmasa | More slowly, please. — Daha yavaş, zəhmət olmasa. |

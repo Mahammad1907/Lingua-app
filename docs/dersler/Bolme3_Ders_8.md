@@ -201,7 +201,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 
 **Tapşırıq:** Ziyafətdən sonra yeni tanış yazır. Harada yaşadığını yaz (istəsən, istənilən şəhər).  
 **Yazışma (Yeni tanış):** “Hi! Nice to meet you! Where do you live?”  
-**Qəbul:** məna:  — nümunə: I live in Baku. · öz məlumatı: /^i\s+live\s+(?:in\s+(?!he(?:re)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}|he(?:re))\s*[.!]?$/  
+**Qəbul:** məna:  — nümunə: I live in Baku. · öz məlumatı: /^i\s+live\s+(?:in\s+(?!he(?:re)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}(?:\s*,\s*(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?|he(?:re))\s*[.!]?$/  
 **İpucu:** Şəhərindən əvvəl kiçik bir söz lazımdır.  
 **Düzgün olanda:** Harada yaşadığını yazdın.  
 - *İzah (başqa səhvdə):* Şəhərdən əvvəl “in” gəlir. — Uyğun: I live in Baku. Səbəb: Şəhərdə yaşayırsan — “in”: Bakıda. Qayda: I live in Baku. — düzdür; I live at Baku. — olmur. Nümunə: Where do you live? — I live in Ganja.  
@@ -212,7 +212,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 
 **Tapşırıq:** Klubun çatında yeni üzv hamıdan soruşur. Harada yaşadığını yaz (istəsən, istənilən şəhər).  
 **Yazışma (Yeni üzv):** “Hello! I live in Sumgayit. Where do you live?”  
-**Qəbul:** məna:  — nümunə: I live in Ganja. · öz məlumatı: /^i\s+live\s+(?:in\s+(?!he(?:re)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}|he(?:re))\s*[.!]?$/  
+**Qəbul:** məna:  — nümunə: I live in Ganja. · öz məlumatı: /^i\s+live\s+(?:in\s+(?!he(?:re)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}(?:\s*,\s*(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?|he(?:re))\s*[.!]?$/  
 **İpucu:** Şəhərindən əvvəl kiçik bir söz lazımdır.  
 **Düzgün olanda:** Harada yaşadığını yazdın.  
 - *İzah (başqa səhvdə):* Şəhərdən əvvəl “in” gəlir. — Uyğun: I live in Baku. Səbəb: Şəhərdə yaşayırsan — “in”: Bakıda. Qayda: I live in Baku. — düzdür; I live at Baku. — olmur. Nümunə: Where do you live? — I live in Ganja.  

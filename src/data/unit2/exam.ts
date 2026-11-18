@@ -52,7 +52,7 @@ export const exam: DesignLesson = {
       options: ['Nömrəni yoxlayır.', 'Nömrəni soruşur.', 'Yavaş danışmağı xahiş edir.'], answer: 'Nömrəni yoxlayır.',
       variants: [
         pick('Nömrəni soruşur.', 'Nömrəni artıq deyir — indi yoxlayır.', ex('Nömrəni yoxlayır.', 'O, nömrəni təkrar edir və “Is that right?” soruşur.', "What's your phone number? — soruşur; Is that right? — yoxlayır.", 'Zero five five… Is that right?')),
-        pick('Yavaş danışmağı xahiş edir.', 'Səsdə “slowly” yoxdur.', ex('Nömrəni yoxlayır.', 'Səsdə “Is that right?” var, “Slowly, please” yox.', 'Is that right? — yoxlama; Slowly, please. — xahiş.', 'Zero five five… Is that right?')),
+        pick('Yavaş danışmağı xahiş edir.', 'Səsdə “slowly” yoxdur.', ex('Nömrəni yoxlayır.', 'Səsdə “Is that right?” var, “More slowly, please” yox.', 'Is that right? — yoxlama; More slowly, please. — xahiş.', 'Zero five five… Is that right?')),
       ],
     },
     {
@@ -71,7 +71,7 @@ export const exam: DesignLesson = {
       type: 'voice', id: 'u2x_c08', number: 8, title: 'Hərf-hərf soruş', why: 'Hərf-hərf deməyi nəzakətlə xahiş etdin.',
       prompt: 'Oteldə qonaq şəhərini deyir, sən onu tanımırsan.\nHərf-hərf deməsini nəzakətlə xahiş et.', audio: "It's Gabala.", reply: "It's G-A-B-A-L-A.",
       rule: goal(['askSpell'], ['Can you spell it, please?', 'How do you spell it?']),
-      variants: [other('Can you spell it, please?', ex('Can you spell it, please?', 'Adı tanımırsan — hərf-hərf deməsini xahiş edirsən.', 'Can you spell it, please? — hərf-hərf; Again, please. — bir də.', 'Gabala? Can you spell it, please?'))],
+      variants: [other('Can you spell it, please?', ex('Can you spell it, please?', 'Adı tanımırsan — hərf-hərf deməsini xahiş edirsən.', 'Can you spell it, please? — hərf-hərf; Say that again, please. — bir də.', 'Gabala? Can you spell it, please?'))],
     },
     {
       type: 'write', id: 'u2x_c09', number: 9, keypad: true, title: 'Nömrəni yığ', why: 'oh — sıfır; nömrəni rəqəm-rəqəm yığdın.',

@@ -140,10 +140,10 @@ Qeyd: Nömrəni təkrar edib yoxlayanda deyilir.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Ofisdə nömrə mübadiləsi. Hər cümləyə mənasını qoş.  
-**Cütlər:** It's oh five oh… — Nömrəm 050…-dir.; Yes, that's right. — Bəli, düzdür.; Again, please. — Bir də, zəhmət olmasa. · artıq: Telefon nömrən nədir?  
+**Cütlər:** It's oh five oh… — Nömrəm 050…-dir.; Yes, that's right. — Bəli, düzdür.; Say that again, please. — Bunu bir daha deyin, zəhmət olmasa. · artıq: Telefon nömrən nədir?  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Hər cümlənin mənasını tapdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: It's oh five oh… — Nömrəm 050…-dır.; Yes, that's right. — Bəli, düzdür.; Again, please. — Bir də, zəhmət olmasa. Səbəb: Nömrə, təsdiq və xahiş fərqli işlərdir. Qayda: Is that right? — sual; Yes, that's right. — cavab. Nümunə: Yes, that's right.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: It's oh five oh… — Nömrəm 050…-dır.; Yes, that's right. — Bəli, düzdür.; Say that again, please. — Bunu bir daha deyin, zəhmət olmasa. Səbəb: Nömrə, təsdiq və xahiş fərqli işlərdir. Qayda: Is that right? — sual; Yes, that's right. — cavab. Nümunə: Yes, that's right.  
 
 ## Kart 11 — Yeni söz
 
@@ -203,10 +203,10 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Ofisdə nömrə mübadiləsi. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. What's your phone number? → 2. It's oh seven oh, two two one, eight eight, three oh. → 3. Sorry? Slowly, please. → 4. Oh… seven… oh… two two one…  
+**Düzgün sıra:** 1. What's your phone number? → 2. It's oh seven oh, two two one, eight eight, three oh. → 3. Sorry? More slowly, please. → 4. Oh… seven… oh… two two one…  
 **İpucu:** Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?  
 **Düzgün olanda:** Sual, nömrə, xahiş və təkrar düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: What's your phone number? → It's oh seven oh… → Sorry? Slowly, please. → Oh… seven… oh… Səbəb: Nömrəni çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi. Qayda: Slowly, please. — sürətli idi; Again, please. — eşitmədin. Nümunə: Sorry? Slowly, please.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: What's your phone number? → It's oh seven oh… → Sorry? More slowly, please. → Oh… seven… oh… Səbəb: Nömrəni çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi. Qayda: More slowly, please. — sürətli idi; Say that again, please. — eşitmədin. Nümunə: Sorry? More slowly, please.  
 
 ## Nəticə
 

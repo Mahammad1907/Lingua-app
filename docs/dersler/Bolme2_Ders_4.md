@@ -90,7 +90,7 @@ Qeyd: İki eyni hərf yan-yana gələndə “double” deyilir.
 **İpucu:** Eyni hərf yan-yana gəlir — onu necə deyirsən?  
 **Düzgün olanda:** MM — double M.  
 - *İzah (“two” seçiləndə):* “two M” — iki M; hərf-hərf deyəndə “double M” deyilir. — Uyğun: double. Səbəb: Azərbaycancada “iki M” deyirik, ingiliscə “double M”. Qayda: double M — MM; two — 2. Nümunə: It's M-A-double M-A-D-O-V.  
-- *İzah (“again” seçiləndə):* “again” — bir də; xahişdə işlənir. — Uyğun: double. Səbəb: “again” təkrar xahişidir; eyni iki hərf “double” ilə deyilir. Qayda: double M — MM; Again, please. — bir də. Nümunə: It's M-A-double M-A-D-O-V.  
+- *İzah (“again” seçiləndə):* “again” — bir də; xahişdə işlənir. — Uyğun: double. Səbəb: “again” təkrar xahişidir; eyni iki hərf “double” ilə deyilir. Qayda: double M — MM; Say that again, please. — bir də. Nümunə: It's M-A-double M-A-D-O-V.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -119,7 +119,7 @@ Qeyd: Daha nəzakətli xahişdir.
 **Qəbul:** məna: askSpell — nümunə: Can you spell it, please? / How do you spell it?  
 **İpucu:** Bu dərsin nəzakətli xahişini xatırla.  
 **Düzgün olanda:** Hərf-hərf deməyi nəzakətlə xahiş etdin.  
-- *İzah (başqa səhvdə):* Can you spell it, please? — Uyğun: Can you spell it, please? Səbəb: Adı tanımırsan — hərf-hərf deməsini xahiş edirsən. Qayda: Can you spell it, please? — hərf-hərf; Again, please. — bir də. Nümunə: Shamakhi? Can you spell it, please?  
+- *İzah (başqa səhvdə):* Can you spell it, please? — Uyğun: Can you spell it, please? Səbəb: Adı tanımırsan — hərf-hərf deməsini xahiş edirsən. Qayda: Can you spell it, please? — hərf-hərf; Say that again, please. — bir də. Nümunə: Shamakhi? Can you spell it, please?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -128,7 +128,7 @@ Qeyd: Daha nəzakətli xahişdir.
 **Qəbul:** məna: askSpell — nümunə: Can you spell it, please? / How do you spell it?  
 **İpucu:** Bu dərsin nəzakətli xahişini xatırla.  
 **Düzgün olanda:** Hərf-hərf deməyi nəzakətlə xahiş etdin.  
-- *İzah (başqa səhvdə):* Can you spell it, please? — Uyğun: Can you spell it, please? Səbəb: Soyadı yazmaq üçün hərflər lazımdır. Qayda: Can you spell it, please? — hərf-hərf; Slowly, please. — yavaş. Nümunə: Guliyeva? Can you spell it, please?  
+- *İzah (başqa səhvdə):* Can you spell it, please? — Uyğun: Can you spell it, please? Səbəb: Soyadı yazmaq üçün hərflər lazımdır. Qayda: Can you spell it, please? — hərf-hərf; More slowly, please. — yavaş. Nümunə: Guliyeva? Can you spell it, please?  
 
 ## Kart 10 — Seç: Dinlə və anla
 
@@ -137,8 +137,8 @@ Qeyd: Daha nəzakətli xahişdir.
 **Seçimlər:** Hərf-hərf deməyini istəyir. / Şəhərin adını soruşur. / Yavaş danışmağını istəyir. — **düzgün:** Hərf-hərf deməyini istəyir.  
 **İpucu:** Sualın sonundakı yeni sözə qulaq as.  
 **Düzgün olanda:** “spell” — hərf-hərf demək.  
-- *İzah (“Şəhərin adını soruşur.” seçiləndə):* Adı artıq dedin — indi hərfləri istəyir. — Uyğun: Hərf-hərf deməyini istəyir. Səbəb: O, adı təkrar edir və “spell” deyir — hərfləri istəyir. Qayda: How do you spell it? — hərf-hərf; Slowly, please. — yavaş. Nümunə: Ganja? How do you spell it?  
-- *İzah (“Yavaş danışmağını istəyir.” seçiləndə):* Səsdə “slowly” yoxdur. — Uyğun: Hərf-hərf deməyini istəyir. Səbəb: Səsdə “slowly” yox, “spell” var. Qayda: How do you spell it? — hərf-hərf; Slowly, please. — yavaş. Nümunə: Ganja? How do you spell it?  
+- *İzah (“Şəhərin adını soruşur.” seçiləndə):* Adı artıq dedin — indi hərfləri istəyir. — Uyğun: Hərf-hərf deməyini istəyir. Səbəb: O, adı təkrar edir və “spell” deyir — hərfləri istəyir. Qayda: How do you spell it? — hərf-hərf; More slowly, please. — yavaş. Nümunə: Ganja? How do you spell it?  
+- *İzah (“Yavaş danışmağını istəyir.” seçiləndə):* Səsdə “slowly” yoxdur. — Uyğun: Hərf-hərf deməyini istəyir. Səbəb: Səsdə “slowly” yox, “spell” var. Qayda: How do you spell it? — hərf-hərf; More slowly, please. — yavaş. Nümunə: Ganja? How do you spell it?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -153,10 +153,10 @@ Qeyd: Daha nəzakətli xahişdir.
 ## Kart 11 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Otel resepsiyası. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Lankaran? How do you spell it? → 2. It's L-A-N-K-A-R-A-N. → 3. Sorry? Slowly, please. → 4. L… A… N… K… A… R… A… N.  
+**Düzgün sıra:** 1. Lankaran? How do you spell it? → 2. It's L-A-N-K-A-R-A-N. → 3. Sorry? More slowly, please. → 4. L… A… N… K… A… R… A… N.  
 **İpucu:** Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?  
 **Düzgün olanda:** Sual, hərflər, xahiş və yavaş təkrar düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Lankaran? How do you spell it? → It's L-A-N-K-A-R-A-N. → Sorry? Slowly, please. → L… A… N… Səbəb: Sual, hərflər, sonra yavaş təkrar xahişi. Qayda: How do you spell it? — sual; Slowly, please. — xahiş. Nümunə: Lankaran? How do you spell it?  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Lankaran? How do you spell it? → It's L-A-N-K-A-R-A-N. → Sorry? More slowly, please. → L… A… N… Səbəb: Sual, hərflər, sonra yavaş təkrar xahişi. Qayda: How do you spell it? — sual; More slowly, please. — xahiş. Nümunə: Lankaran? How do you spell it?  
 
 **Təkrar (yeni vəziyyət):**
 

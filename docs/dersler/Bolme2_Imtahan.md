@@ -44,7 +44,7 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 **Seçimlər:** Nömrəni yoxlayır. / Nömrəni soruşur. / Yavaş danışmağı xahiş edir. — **düzgün:** Nömrəni yoxlayır.  
 **Düzgün olanda:** “Is that right?” — düzdür?  
 - *İzah (“Nömrəni soruşur.” seçiləndə):* Nömrəni artıq deyir — indi yoxlayır. — Uyğun: Nömrəni yoxlayır. Səbəb: O, nömrəni təkrar edir və “Is that right?” soruşur. Qayda: What's your phone number? — soruşur; Is that right? — yoxlayır. Nümunə: Zero five five… Is that right?  
-- *İzah (“Yavaş danışmağı xahiş edir.” seçiləndə):* Səsdə “slowly” yoxdur. — Uyğun: Nömrəni yoxlayır. Səbəb: Səsdə “Is that right?” var, “Slowly, please” yox. Qayda: Is that right? — yoxlama; Slowly, please. — xahiş. Nümunə: Zero five five… Is that right?  
+- *İzah (“Yavaş danışmağı xahiş edir.” seçiləndə):* Səsdə “slowly” yoxdur. — Uyğun: Nömrəni yoxlayır. Səbəb: Səsdə “Is that right?” var, “More slowly, please” yox. Qayda: Is that right? — yoxlama; More slowly, please. — xahiş. Nümunə: Zero five five… Is that right?  
 
 ## Kart 6 — Hərfləri tut: Hərfləri tut
 
@@ -69,7 +69,7 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 **Səs:** It's Gabala.  
 **Qəbul:** məna: askSpell — nümunə: Can you spell it, please? / How do you spell it?  
 **Düzgün olanda:** Hərf-hərf deməyi nəzakətlə xahiş etdin.  
-- *İzah (başqa səhvdə):* Can you spell it, please? — Uyğun: Can you spell it, please? Səbəb: Adı tanımırsan — hərf-hərf deməsini xahiş edirsən. Qayda: Can you spell it, please? — hərf-hərf; Again, please. — bir də. Nümunə: Gabala? Can you spell it, please?  
+- *İzah (başqa səhvdə):* Can you spell it, please? — Uyğun: Can you spell it, please? Səbəb: Adı tanımırsan — hərf-hərf deməsini xahiş edirsən. Qayda: Can you spell it, please? — hərf-hərf; Say that again, please. — bir də. Nümunə: Gabala? Can you spell it, please?  
 
 ## Kart 9 — Nömrəni yığ: Nömrəni yığ
 
@@ -109,7 +109,7 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 
 **Tapşırıq:** İdman zalında məşqçi soruşur: “How old are you?” Yaşını de (istəsən, istənilən yaş).  
 **Səs:** How old are you?  
-**Qəbul:** məna:  — nümunə: I'm twenty-five. / I'm 25. · öz məlumatı: /^(?:i'?m|i am)\s+(?:\d{1,3}|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ]?(?:one|two|three|four|five|six|seven|eight|nine))?|(?:ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)|(?:one|two|three|four|five|six|seven|eight|nine))(?:\s+years\s+old)?\s*[.!]?(?:\s*and you\s*\??)?$/  
+**Qəbul:** məna:  — nümunə: I'm twenty-five. / I'm 25. · öz məlumatı: /^(?:(?:i'?m|i am)\s+)?(?:\d{1,3}|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ]?(?:one|two|three|four|five|six|seven|eight|nine))?|(?:ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)|(?:one|two|three|four|five|six|seven|eight|nine))(?:\s+years\s+old)?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **Düzgün olanda:** Yaşını dedin.  
 - *İzah (başqa səhvdə):* Yaş “var” ilə yox, I’m ilə deyilir. — Uyğun: I'm twenty-five. Səbəb: “25 yaşım var” sözbəsöz tərcümə olunmur — ingiliscə yaşı I’m ilə deyirik. Qayda: I'm twenty-five. — düzdür; “yaşım var” kimi tərcümə — olmur. Nümunə: How old are you? — I'm thirty.  
 - *İzah (başqa səhvdə):* Yaşı demək kifayətdir. — Uyğun: I'm twenty-five. Səbəb: Ya yalnız yaşı de, ya da “years old” birlikdə. Qayda: I'm twenty-five. — düzdür; I'm twenty-five years. — olmur. Nümunə: I'm twenty-five years old.  

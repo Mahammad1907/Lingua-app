@@ -17,7 +17,7 @@ Oxunuşu: ikskyuz mi · IPA: /ɪkˈskjuz mi/
 
 Nümunə: **Excuse me, what's your name?** — Bağışlayın, adınız nədir?
 
-Qeyd: Sual verməzdən əvvəl diqqəti çəkmək üçün.
+Qeyd: Burada diqqət çəkir: tanımadığın adamı (işçi, sənə kömək edən) səsləyəndə deyilir.
 
 ## Kart 3 — Kim nə dedi?: Kim nə dedi?
 
@@ -127,7 +127,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 ## Kart 10 — Sözü tamamla: Sözü tamamla
 
-**Tapşırıq:** Qız tanımadığı oğlanın adını soruşur. Hansı söz çatmır?  
+**Tapşırıq:** Qız ona kömək edən işçini səsləyir və adını soruşur. Hansı söz çatmır?  
 **Cümlə:** Excuse me, ___ your name?  
 **Seçimlər:** how / what's / sorry — **düzgün:** what's  
 **İpucu:** Dərs 3-ün ad sualını xatırla.  
@@ -162,8 +162,8 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 ## Kart 12 — Mesaj yaz (sözlərdən): Mesajı qur
 
-**Tapşırıq:** Tədbirdə yanındakı qızın adını bilmirsən. Sözlərdən nəzakətli sual qur.  
-**Yazışma (Tədbirdə qız):** —  
+**Tapşırıq:** Resepşndakı qız sənə kömək etdi, amma adını bilmirsən. Sözlərdən nəzakətli sual qur.  
+**Yazışma (Resepşndakı qız):** —  
 **Sözlər:** your · Excuse · sorry · what's · me, · name · ?  
 **Qəbul:** dəqiq: Excuse me, what's your name?  
 **İpucu:** Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.  
@@ -172,8 +172,8 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Yeni işdə bir oğlanla tanış olmaq istəyirsən. Sözlərdən nəzakətli sual qur.  
-**Yazışma (Yeni iş yoldaşı):** —  
+**Tapşırıq:** Küçədə sənə kömək edən oğlanın adını bilmirsən. Sözlərdən nəzakətli sual qur.  
+**Yazışma (Kömək edən oğlan):** —  
 **Sözlər:** me, · name · Excuse · you · what's · your · ?  
 **Qəbul:** dəqiq: Excuse me, what's your name?  
 **İpucu:** Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.  
@@ -199,19 +199,19 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 ## Kart 14 — Səslə cavab: Nəzakətlə soruş
 
-**Tapşırıq:** Kursda yeni yoldaşın adını bilmirsən. Diqqətini çək və adını soruş.  
+**Tapşırıq:** Kafedə ofisiant sənə kömək etdi, adını bilmirsən. Diqqətini çək və adını soruş.  
 **Qəbul:** məna: attention + askName — nümunə: Excuse me, what's your name?  
 **İpucu:** İki hissə: əvvəl diqqəti çək, sonra adını soruş.  
 **Düzgün olanda:** Diqqət çəkib adı soruşdun.  
-- *İzah (başqa səhvdə):* Excuse me + ad sualı. — Uyğun: Excuse me, what's your name? Səbəb: Tanımadığın adama əvvəl “Excuse me” deyirsən. Qayda: Excuse me + What’s your name? Nümunə: Excuse me, what's your name?  
+- *İzah (başqa səhvdə):* Excuse me + ad sualı. — Uyğun: Excuse me, what's your name? Səbəb: Tanımadığın adamı səsləyəndə əvvəl “Excuse me” deyirsən — burada diqqət çəkir. Qayda: Excuse me + What’s your name? Nümunə: Excuse me, what's your name?  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Kitabxanada yanındakı qızın adını bilmirsən. Diqqətini çək və adını soruş.  
+**Tapşırıq:** Kitabxanada sənə kömək edən işçi qızın adını bilmirsən. Diqqətini çək və adını soruş.  
 **Qəbul:** məna: attention + askName — nümunə: Excuse me, what's your name?  
 **İpucu:** İki hissə: əvvəl diqqəti çək, sonra adını soruş.  
 **Düzgün olanda:** Diqqət çəkib adı soruşdun.  
-- *İzah (başqa səhvdə):* Excuse me + ad sualı. — Uyğun: Excuse me, what's your name? Səbəb: Tanımadığın adama əvvəl “Excuse me” deyirsən. Qayda: Excuse me + What’s your name? Nümunə: Excuse me, what's your name?  
+- *İzah (başqa səhvdə):* Excuse me + ad sualı. — Uyğun: Excuse me, what's your name? Səbəb: Tanımadığın adamı səsləyəndə əvvəl “Excuse me” deyirsən — burada diqqət çəkir. Qayda: Excuse me + What’s your name? Nümunə: Excuse me, what's your name?  
 
 ## Nəticə
 

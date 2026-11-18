@@ -14,7 +14,7 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 
 **Tapşırıq:** Hava limanında yanındakı sərnişin soruşur: “Where are you from?” Haradan olduğunu de.  
 **Səs:** Hi! Where are you from?  
-**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. / I'm from Baku. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}\s*[.!]?(?:\s*and you\s*\??)?$/  
+**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. / I'm from Baku. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}(?:\s*,\s*(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **Düzgün olanda:** Haradan olduğunu “I’m from” ilə dedin.  
 - *İzah (başqa səhvdə):* Ölkədən əvvəl “from” lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Haradan olduğunu deyəndə “from” gəlir: Azərbaycandan. Qayda: I'm from Azerbaijan. — haradan; I'm Azerbaijani. — millət. Nümunə: Where are you from? — I'm from Baku.  
 - *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Baku. — düzdür; I from Baku. — olmur. Nümunə: Where are you from? — I'm from Ganja.  
@@ -85,7 +85,7 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 
 **Tapşırıq:** Dil klubunun çatında yeni üzv soruşur. Harada yaşadığını yaz (istəsən, istənilən şəhər).  
 **Yazışma (Yeni tanış):** “Hi! Where do you live?”  
-**Qəbul:** məna:  — nümunə: I live in Baku. · öz məlumatı: /^i\s+live\s+(?:in\s+(?!he(?:re)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}|he(?:re))\s*[.!]?$/  
+**Qəbul:** məna:  — nümunə: I live in Baku. · öz məlumatı: /^i\s+live\s+(?:in\s+(?!he(?:re)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}(?:\s*,\s*(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?|he(?:re))\s*[.!]?$/  
 **Düzgün olanda:** Harada yaşadığını “I live in” ilə yazdın.  
 - *İzah (başqa səhvdə):* Şəhərdən əvvəl “in” gəlir. — Uyğun: I live in Baku. Səbəb: Şəhərdə yaşayırsan — “in”: Bakıda. Qayda: I live in Baku. — düzdür; I live at Baku. — olmur. Nümunə: Where do you live? — I live in Ganja.  
 - *İzah (başqa səhvdə):* Burada I-dan sonra birbaşa live gəlir. — Uyğun: I live in Baku. Səbəb: “yaşayıram” üçün I-dan sonra am lazım deyil: I live. Qayda: I live in Baku. — düzdür; I'm live in Baku. — olmur. Nümunə: Where do you live? — I live in Ganja.  

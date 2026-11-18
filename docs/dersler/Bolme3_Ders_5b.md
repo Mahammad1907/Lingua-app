@@ -158,7 +158,7 @@ Qeyd: isn't — is not-un qısası.
 
 **Tapşırıq:** Video zəngdə ekranda qızın rəfiqəsi görünür. O, Fransadandır. Yeni tanış soruşur. Qısa cavab ver.  
 **Səs:** Is she from Germany?  
-**Qəbul:** dəqiq: No, she isn't. · öz məlumatı: /^no,?\s+she\s+(?:isn'?t|isn’t|is\s+not)\s*[.!]?(?:\s*she(?:'s|’s|\s+is)\s+from\s+france\s*[.!]?)?$/  
+**Qəbul:** dəqiq: No, she isn't. · öz məlumatı: /^no,?\s+she(?:\s+(?:isn'?t|isn’t|is\s+not)|(?:'s|’s)\s+not)\s*[.!]?(?:\s*she(?:'s|’s|\s+is)\s+from\s+france\s*[.!]?)?$/  
 **İpucu:** Sual kimin haqqındadır? Cavabda da o söz qayıdır.  
 **Düzgün olanda:** Qadın haqqında qısa “xeyr” cavabı verdin.  
 - *İzah (başqa səhvdə):* Qadın haqqında danışırsan — she. — Uyğun: No, she isn't. Səbəb: Azərbaycancada ikisi də “o”dur; ingiliscə qadın üçün she. Qayda: Where's she from? — qadın; Where's he from? — kişi. Nümunə: No, she isn't.  
@@ -170,7 +170,7 @@ Qeyd: isn't — is not-un qısası.
 
 **Tapşırıq:** Hostelin mətbəxində oğlanın otaq yoldaşı gürcüdür. Yeni tanış soruşur. Qısa cavab ver.  
 **Səs:** Is he Turkish?  
-**Qəbul:** dəqiq: No, he isn't. · öz məlumatı: /^no,?\s+he\s+(?:isn'?t|isn’t|is\s+not)\s*[.!]?(?:\s*he(?:'s|’s|\s+is)\s+from\s+georgia\s*[.!]?)?$/  
+**Qəbul:** dəqiq: No, he isn't. · öz məlumatı: /^no,?\s+he(?:\s+(?:isn'?t|isn’t|is\s+not)|(?:'s|’s)\s+not)\s*[.!]?(?:\s*he(?:'s|’s|\s+is)\s+from\s+georgia\s*[.!]?)?$/  
 **İpucu:** Sual kimin haqqındadır? Cavabda da o söz qayıdır.  
 **Düzgün olanda:** Kişi haqqında qısa “xeyr” cavabı verdin.  
 - *İzah (başqa səhvdə):* Kişi haqqında danışırsan — he. — Uyğun: No, he isn't. Səbəb: Azərbaycancada ikisi də “o”dur; ingiliscə kişi üçün he. Qayda: Where's he from? — kişi; Where's she from? — qadın. Nümunə: No, he isn't.  

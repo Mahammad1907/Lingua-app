@@ -7,7 +7,7 @@ const introductions = [
   { subtitle: 'Söhbəti bir sualla davam etdir.', board: 'Your name?', objectives: ['Qarşı tərəfin adını soruşmaq', 'Ad sualına cavab vermək', 'Tanışlığa qarşılıq vermək'] },
   { subtitle: 'Bir-birinizin halını soruşun.', board: 'How are you?', objectives: ['Hal-əhval soruşmaq', 'Öz halını bildirmək', 'Söhbəti qarşılıqlı davam etdirmək'] },
   { subtitle: 'Kiçik sözlər, xoş münasibət.', board: 'Thank you!', objectives: ['Təşəkkür etmək', 'Üzr istəmək', 'Nəzakətli cavab vermək'] },
-  { subtitle: 'Başa düşməyəndə söhbəti davam etdir.', board: 'Again, please!', objectives: ['Təkrar istəmək', 'Yavaş danışmağı istəmək', 'Anlamadığını bildirmək'] },
+  { subtitle: 'Başa düşməyəndə söhbəti davam etdir.', board: 'Say that again, please!', objectives: ['Təkrar istəmək', 'Yavaş danışmağı istəmək', 'Anlamadığını bildirmək'] },
   { subtitle: 'Öyrəndiklərini söhbətdə birləşdir.', board: 'Let’s talk!', objectives: ['Özünü təqdim etmək', 'Sual verib cavablandırmaq', mascotText('BirFox ilə səsli məşq etmək')] },
 ];
 export function lessonIntroduction(packet: PacketLesson) {

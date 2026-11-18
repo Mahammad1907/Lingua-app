@@ -65,23 +65,23 @@ Qeyd: th — dilin ucu dişlərin arasında.
 
 ## Kart 6 — Yeni söz
 
-**I'm not very well.** — Çox yaxşı deyiləm.
+**I'm not great.** — Çox yaxşı deyiləm.
 
-Oxunuşu: aym nat veri uel · IPA: /aɪm nɑt ˈveri wel/
+Oxunuşu: aym nat greyt · IPA: /aɪm nɑt ɡreɪt/
 
-Nümunə: **How are you? — I'm not very well.** — Necəsən? — Çox yaxşı deyiləm.
+Nümunə: **How are you? — I'm not great.** — Necəsən? — Çox yaxşı deyiləm.
 
 Qeyd: not am-dan sonra gəlir: I am not → I’m not.
 
 ## Kart 7 — Seç: Dinlə və anla
 
 **Tapşırıq:** Qızın cavabını dinlə. O necədir?  
-**Səs:** I'm not very well.  
+**Səs:** I'm not great.  
 **Seçimlər:** Yaxşıdır. / Çox yaxşı deyil. / Adını deyir. — **düzgün:** Çox yaxşı deyil.  
 **İpucu:** Səsdə “not” sözü varmı, ona qulaq as.  
-**Düzgün olanda:** I’m not very well — Çox yaxşı deyiləm.  
-- *İzah (“Yaxşıdır.” seçiləndə):* Səsdə “fine” yox, “not very well” deyilir. — Uyğun: Çox yaxşı deyil. Səbəb: Səsdə I’m not very well deyilir. Qayda: I’m fine — Yaxşıyam; I’m not very well — Çox yaxşı deyiləm. Nümunə: I’m fine. — Yaxşıyam. / I’m not very well. — Çox yaxşı deyiləm.  
-- *İzah (“Adını deyir.” seçiləndə):* Ad deyilmir, hal deyilir. — Uyğun: Çox yaxşı deyil. Səbəb: “I’m”-dən sonra ad yox, “not very well” gəlir. Qayda: I’m + hal = necə olduğunu demək. Nümunə: I’m fine, thanks.  
+**Düzgün olanda:** I’m not great — Çox yaxşı deyiləm.  
+- *İzah (“Yaxşıdır.” seçiləndə):* Səsdə “fine” yox, “not great” deyilir. — Uyğun: Çox yaxşı deyil. Səbəb: Səsdə I’m not great deyilir. Qayda: I’m fine — Yaxşıyam; I’m not great — Çox yaxşı deyiləm. Nümunə: I’m fine. — Yaxşıyam. / I’m not great. — Çox yaxşı deyiləm.  
+- *İzah (“Adını deyir.” seçiləndə):* Ad deyilmir, hal deyilir. — Uyğun: Çox yaxşı deyil. Səbəb: “I’m”-dən sonra ad yox, “not great” gəlir. Qayda: I’m + hal = necə olduğunu demək. Nümunə: I’m fine, thanks.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -90,7 +90,7 @@ Qeyd: not am-dan sonra gəlir: I am not → I’m not.
 **Seçimlər:** Çox yaxşı deyil. / Yaxşıdır. / Sağollaşır. — **düzgün:** Yaxşıdır.  
 **İpucu:** Səsdə “not” sözü varmı, ona qulaq as.  
 **Düzgün olanda:** “fine” — yaxşı.  
-- *İzah (başqa səhvdə):* Səsdə “fine” deyilir. — Uyğun: Yaxşıdır. Səbəb: “I’m fine, thanks” — “Yaxşıyam, sağ ol” deməkdir, burada “not” yoxdur. Qayda: I’m fine — Yaxşıyam; I’m not very well — Çox yaxşı deyiləm. Nümunə: I’m fine, thanks.  
+- *İzah (başqa səhvdə):* Səsdə “fine” deyilir. — Uyğun: Yaxşıdır. Səbəb: “I’m fine, thanks” — “Yaxşıyam, sağ ol” deməkdir, burada “not” yoxdur. Qayda: I’m fine — Yaxşıyam; I’m not great — Çox yaxşı deyiləm. Nümunə: I’m fine, thanks.  
 
 ## Kart 8 — Yeni söz
 
@@ -133,10 +133,10 @@ Qeyd: “I'm fine” ilə yaxındır.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Oğlan və qız dərsdən sonra görüşür. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hello! How are you? → 2. I'm not very well. And you? → 3. I'm fine, thanks.  
+**Düzgün sıra:** 1. Hello! How are you? → 2. I'm not great. And you? → 3. I'm fine, thanks.  
 **İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
 **Düzgün olanda:** Sual, cavab və ona reaksiya düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! How are you? → I'm not very well. And you? → I'm fine, thanks. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: How are you? — sual; I’m not very well. And you? — cavab və qayıdan sual. Nümunə: Hello! How are you? → I'm not very well. And you? → I'm fine, thanks.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! How are you? → I'm not great. And you? → I'm fine, thanks. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: How are you? — sual; I’m not great. And you? — cavab və qayıdan sual. Nümunə: Hello! How are you? → I'm not great. And you? → I'm fine, thanks.  
 
 ## Kart 11 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -225,5 +225,5 @@ Növbəti dərsdə təşəkkür etməyi öyrənəcəksən.
 | How are you? | Necəsən? | Hi! How are you? — Salam! Necəsən? |
 | I'm fine | Yaxşıyam | I'm fine, thanks. — Yaxşıyam, sağ ol. |
 | And you? | Bəs sən? | I'm OK. And you? — Normalam. Bəs sən? |
-| I'm not very well | Çox yaxşı deyiləm | I'm not very well. — Çox yaxşı deyiləm. |
+| I'm not great | Çox yaxşı deyiləm | I'm not great. — Çox yaxşı deyiləm. |
 | I'm OK | Normalam | How are you? — I'm OK. — Necəsən? — Normalam. |

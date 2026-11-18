@@ -45,12 +45,12 @@ export const unit1Exam: DesignLesson[] = [{
       ],
     },
     {
-      type: 'choice', id: 'u1x_c04', number: 4, title: 'Sözü tamamla', why: 'I’m not very well — not am-dan sonra gəlir.',
-      prompt: 'İşdə həmkarın yorğun görünür. Halını soruşdun, o cavab verir.\nHansı söz çatmır?', gap: { speaker: 'B', before: "I'm", after: 'very well.' },
+      type: 'choice', id: 'u1x_c04', number: 4, title: 'Sözü tamamla', why: 'I’m not great — not am-dan sonra gəlir.',
+      prompt: 'İşdə həmkarın yorğun görünür. Halını soruşdun, o cavab verir.\nHansı söz çatmır?', gap: { speaker: 'B', before: "I'm", after: 'great.' },
       options: ['not', "don't", 'no'], answer: 'not',
       variants: [
-        pick("don't", '“I’m” cümləsində don’t işlənmir.', ex('not', 'Burada artıq “I’m” var, ondan sonra don’t yox, not gəlir.', 'I’m not very well. — burada not; I don’t understand. — burada don’t.', "How are you? — I'm not very well.")),
-        pick('no', '“No” başqa ifadədədir.', ex('not', '“No” “No problem” ifadəsindədir, halını deyəndə not lazımdır.', 'I’m not very well. — not; No problem. — no.', "I'm not very well.")),
+        pick("don't", '“I’m” cümləsində don’t işlənmir.', ex('not', 'Burada artıq “I’m” var, ondan sonra don’t yox, not gəlir.', 'I’m not great. — burada not; I don’t understand. — burada don’t.', "How are you? — I'm not great.")),
+        pick('no', '“No” başqa ifadədədir.', ex('not', '“No” “No problem” ifadəsindədir, halını deyəndə not lazımdır.', 'I’m not great. — not; No problem. — no.', "I'm not great.")),
       ],
     },
     {
@@ -64,9 +64,9 @@ export const unit1Exam: DesignLesson[] = [{
     {
       type: 'match', id: 'u1x_c06', number: 6, title: 'Kim nə dedi?', why: 'Üç “bağışlayın”ı ayırdın.',
       prompt: 'Küçədə üç nəfər “bağışlayın” deyir, amma hərəsi başqa iş üçün.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'Excuse me.', az: 'Bağışlayın (diqqət).', from: 'G' }, { en: 'Sorry!', az: 'Bağışlayın (səhv).', from: 'B' }, { en: 'Sorry?', az: 'Nə dedin?', from: 'M' }],
+      rows: [{ en: 'Excuse me.', az: 'Bağışlayın (diqqət).', from: 'G' }, { en: 'Sorry!', az: 'Bağışlayın (səhv).', from: 'B' }, { en: 'Sorry?', az: 'Necə?', from: 'M' }],
       extra: ['Eybi yox.'],
-      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Excuse me. — Bağışlayın (diqqət).; Sorry! — Bağışlayın (səhv).; Sorry? — Nə dedin?', 'Excuse me diqqət çəkir, Sorry! üzrdür, sual kimi deyilən Sorry? isə “nə dedin?”dir.', 'Sorry! — üzr; Sorry? — nə dedin.', 'Sorry! — No problem.'))],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Excuse me. — Bağışlayın (diqqət).; Sorry! — Bağışlayın (səhv).; Sorry? — Necə?', 'Excuse me burada diqqət çəkir, Sorry! üzrdür, sual kimi deyilən Sorry? isə “Bağışlayın? / Necə?” deməkdir.', 'Sorry! — üzr; Sorry? — Necə?.', 'Sorry! — No problem.'))],
     },
     {
       type: 'write', id: 'u1x_c07', number: 7, title: 'Mesaj yaz', why: 'Halını dedin və sualı geri qaytardın.',
@@ -97,8 +97,8 @@ export const unit1Exam: DesignLesson[] = [{
     {
       type: 'voice', id: 'u1x_c10', number: 10, title: 'Danış: kömək istə', why: 'Başa düşmədiyini dedin və təkrar istədin.',
       prompt: 'Kafedə ofisiant sənə uzun bir şey dedi, heç nə başa düşmürsən.\nBaşa düşmədiyini de və bir də deməsini xahiş et.',
-      rule: goal(['dontUnderstand', 'repeat'], ["Sorry? I don't understand. Again, please."]),
-      variants: [other('İki hissə: başa düşmürəm + bir də.', ex("Sorry? I don't understand. Again, please.", 'Əvvəl başa düşmədiyini I don’t understand ilə de, sonra bir də deməsini xahiş et.', 'I don’t understand. — başa düşmürəm; Again, please. — bir də.', "I don't understand. Again, please."))],
+      rule: goal(['dontUnderstand', 'repeat'], ["Sorry? I don't understand. Say that again, please."]),
+      variants: [other('İki hissə: başa düşmürəm + bir də.', ex("Sorry? I don't understand. Say that again, please.", 'Əvvəl başa düşmədiyini I don’t understand ilə de, sonra bir də deməsini xahiş et.', 'I don’t understand. — başa düşmürəm; Say that again, please. — bir də.', "I don't understand. Say that again, please."))],
     },
     {
       type: 'match', mode: 'reply', id: 'u1x_c11', number: 11, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.',
@@ -110,10 +110,10 @@ export const unit1Exam: DesignLesson[] = [{
     {
       type: 'voice', id: 'u1x_c12', number: 12, title: 'Danış: yavaş xahiş et', why: 'Yavaş danışmağı nəzakətlə xahiş etdin.',
       prompt: 'Kafedə kassir çox sürətlə danışır.\nOndan yavaş danışmağı xahiş et.', audio: 'Hellohowareyou!',
-      rule: goal(['slow'], ['Slowly, please.', 'Sorry? Slowly, please.']),
+      rule: goal(['slow'], ['More slowly, please.', 'Sorry? More slowly, please.']),
       variants: [
-        insteadOf('repeat', 'Problem sürətdədir — yavaş danışmağı xahiş et.', ex('Slowly, please.', 'Eşitdin, amma çox sürətli idi — yavaş danışmağı istəyirsən.', 'Again, please. — bir də; Slowly, please. — yavaş.', 'Sorry? Slowly, please.')),
-        other('Slowly, please.', ex('Slowly, please.', 'O çox sürətli danışır, ona görə “Slowly” lazımdır.', 'Again, please. — bir də; Slowly, please. — yavaş.', 'Sorry? Slowly, please.')),
+        insteadOf('repeat', 'Problem sürətdədir — yavaş danışmağı xahiş et.', ex('More slowly, please.', 'Eşitdin, amma çox sürətli idi — yavaş danışmağı istəyirsən.', 'Say that again, please. — bir də; More slowly, please. — yavaş.', 'Sorry? More slowly, please.')),
+        other('More slowly, please.', ex('More slowly, please.', 'O çox sürətli danışır, ona görə “More slowly” lazımdır.', 'Say that again, please. — bir də; More slowly, please. — yavaş.', 'Sorry? More slowly, please.')),
       ],
     },
     {
@@ -129,16 +129,16 @@ export const unit1Exam: DesignLesson[] = [{
       ],
     },
     {
-      type: 'match', mode: 'order', id: 'u1x_c14', number: 14, title: 'Söhbəti sırala', why: 'Diqqət, təkrar xahişi, sual və cavab düz sıradadır.',
+      type: 'match', mode: 'order', id: 'u1x_c14', number: 14, title: 'Söhbəti sırala', why: 'Salam, təkrar xahişi, sual və cavab düz sıradadır.',
       prompt: 'Kafedə iki nəfər tanış olur.\nBalonlara toxun, söhbəti sıraya düz.',
       rows: [
-        { en: '1', az: "Excuse me, what's your name?", from: 'G' },
-        { en: '2', az: 'Sorry? Again, please.', from: 'B' },
+        { en: '1', az: "Hi! What's your name?", from: 'G' },
+        { en: '2', az: 'Sorry? Say that again, please.', from: 'B' },
         { en: '3', az: "What's your name?", from: 'G' },
         { en: '4', az: 'My name is … Nice to meet you.', from: 'B' },
       ],
       extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me, what's your name? → Sorry? Again, please. → What's your name? → My name is … Nice to meet you.", 'Əvvəl diqqət çəkib soruşur, eşitməyən bir də xahiş edir, sual təkrarlanır, sonra cavab gəlir.', 'What’s your name? — əvvəl sual; My name is … — sonra cavab.', "Hello! What's your name? — Hi! I'm …"))],
+      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is … Nice to meet you.", 'Əvvəl salamlaşıb soruşur, eşitməyən bir də xahiş edir, sual təkrarlanır, sonra cavab gəlir.', 'What’s your name? — əvvəl sual; My name is … — sonra cavab.', "Hello! What's your name? — Hi! I'm …"))],
     },
     {
       type: 'voice', id: 'u1x_c15', number: 15, title: 'Danış: üzrə cavab', why: 'Üzrü qəbul etdin.',
@@ -159,8 +159,8 @@ export const unit1Exam: DesignLesson[] = [{
       { group: 'Ad soruşmaq', text: 'Yeni tanışın adını soruşub ona xoş söz deyə bilirəm.', tasks: ['u1x_c05', 'u1x_c09', 'u1x_c14'] },
       { group: 'Hal', text: 'Halımı deyib qarşı tərəfi soruşa bilirəm.', tasks: ['u1x_c04', 'u1x_c07', 'u1x_c11'] },
       { group: 'Təşəkkür və xahiş', text: 'Təşəkkür edə, təşəkkürə cavab verə və “please” ilə xahiş edə bilirəm.', tasks: ['u1x_c08', 'u1x_c13a', 'u1x_c11', 'u1x_c10'] },
-      { group: 'Excuse me və Sorry', text: 'Diqqət çəkməyi üzrdən ayırıram və üzrə cavab verə bilirəm.', tasks: ['u1x_c06', 'u1x_c15', 'u1x_c14'] },
-      { group: 'Kömək istəmək', text: 'Başa düşməyəndə bunu deyib təkrar və yavaş danışmağı istəyə bilirəm.', tasks: ['u1x_c10', 'u1x_c12', 'u1x_c06'] },
+      { group: 'Excuse me və Sorry', text: 'Diqqət çəkməyi üzrdən ayırıram və üzrə cavab verə bilirəm.', tasks: ['u1x_c06', 'u1x_c15'] },
+      { group: 'Kömək istəmək', text: 'Başa düşməyəndə bunu deyib təkrar və yavaş danışmağı istəyə bilirəm.', tasks: ['u1x_c10', 'u1x_c12', 'u1x_c06', 'u1x_c14'] },
     ],
     closing: 'Keçid həddi 80 %-dir. Keçməsən, səhv etdiyin bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.', button: 'Ana səhifəyə qayıt',
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',

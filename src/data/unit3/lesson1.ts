@@ -1,6 +1,6 @@
 // Bölmə 3 · Dərs 1 — Haradansan? (Where are you from? · I'm from … · Azerbaijan · Me too.)
 // Dil klubunun açılışı. Xarici danışanlar adsız “Yeni tanış”dır (from: 'other').
-// Spiral: Hello/Hi, Nice to meet you. You too., How are you?, Excuse me, Sorry? Again, please., Thank you!
+// Spiral: Hello/Hi, Nice to meet you. You too., How are you?, Excuse me, Sorry? Say that again, please., Thank you!
 import type { DesignLesson, Variant } from '../designLessonTypes';
 import { ex, exact, goal, insteadOf, other, pick } from '../unit1/build';
 import { FROM, notices, own, resultTexts } from './shared';
@@ -188,9 +188,9 @@ export const lesson1: DesignLesson = {
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab, təkrar xahişi və təkrar düz sıradadır.', hint: 'Əvvəl sual gəlir; eşitməyən nə xahiş edir?',
         prompt: 'Qatarda söhbət.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Excuse me, where are you from?', from: 'other' }, { en: '2', az: "I'm from Shamakhi.", from: 'B' }, { en: '3', az: 'Sorry? Again, please.', from: 'other' }, { en: '4', az: "Shamakhi. I'm from Shamakhi.", from: 'B' }],
+        rows: [{ en: '1', az: 'Excuse me, where are you from?', from: 'other' }, { en: '2', az: "I'm from Shamakhi.", from: 'B' }, { en: '3', az: 'Sorry? Say that again, please.', from: 'other' }, { en: '4', az: "Shamakhi. I'm from Shamakhi.", from: 'B' }],
         extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me, where are you from? → I'm from Shamakhi. → Sorry? Again, please. → Shamakhi.", 'Sual, cavab, təkrar xahişi, sonra təkrar.', 'Sorry? Again, please. — eşitmədin; Shamakhi. — təkrar.', 'Excuse me, where are you from?'))],
+        variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me, where are you from? → I'm from Shamakhi. → Sorry? Say that again, please. → Shamakhi.", 'Sual, cavab, təkrar xahişi, sonra təkrar.', 'Sorry? Say that again, please. — eşitmədin; Shamakhi. — təkrar.', 'Excuse me, where are you from?'))],
       },
     },
   ],

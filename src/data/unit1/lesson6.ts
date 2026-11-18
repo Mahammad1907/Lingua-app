@@ -1,5 +1,5 @@
 // Bölmə 1 · Dərs 6 — Bağışlayın, üzr (Excuse me, Sorry, No problem).
-// Spiral: please, thank you, What's your name? (“Excuse me, what's your name?”). Trap: Excuse me ↔ Sorry (both “Bağışlayın”).
+// Spiral: please, thank you, What's your name? (“Excuse me, what's your name?” — only to get a stranger's attention: staff, someone who helped you). Trap: Excuse me ↔ Sorry (both “Bağışlayın”).
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, goal, insteadOf, other, pick } from './build';
 
@@ -40,7 +40,7 @@ export const lesson6: DesignLesson = {
     {
       type: 'word', id: 'd6_c03', number: 3, scenes: ['d6/word-excuse-me'],
       word: 'Excuse me', pronunciation: '/ɪkˈskjuz mi/', reading: 'ikskyuz mi', az: 'Bağışlayın (diqqət)',
-      notes: ['Sual verməzdən əvvəl diqqəti çəkmək üçün.'],
+      notes: ['Burada diqqət çəkir: tanımadığın adamı (işçi, sənə kömək edən) səsləyəndə deyilir.'],
       example: "Excuse me, what's your name?", exampleAz: 'Bağışlayın, adınız nədir?',
     },
     {
@@ -99,7 +99,7 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'choice', id: 'd6_c08', number: 8, title: 'Sözü tamamla', why: 'Excuse me + sual.', hint: 'Dərs 3-ün ad sualını xatırla.',
-      prompt: 'Qız tanımadığı oğlanın adını soruşur.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'Excuse me,', after: 'your name?' }, options: ['how', "what's", 'sorry'], answer: "what's",
+      prompt: 'Qız ona kömək edən işçini səsləyir və adını soruşur.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'Excuse me,', after: 'your name?' }, options: ['how', "what's", 'sorry'], answer: "what's",
       variants: [other('Ad sualı “What’s” ilə başlayır.', ex("what's", 'Ad sualı What’s ilə başlayır, “Excuse me” isə ondan əvvəl gəlir.', 'Excuse me, what’s your name?', "Excuse me, what's your name?"))],
       review: {
         title: 'Sözü tamamla', why: 'No problem — Eybi yox.', hint: 'Üzrə cavab ifadəsinin ikinci sözü hansıdır?', prompt: 'Oğlan üzr istədi. Qız cavab verir.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'No', after: '.' }, options: ['sorry', 'problem', 'please'], answer: 'problem',
@@ -108,12 +108,12 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'write', id: 'd6_c09', number: 9, title: 'Mesajı qur', why: 'Nəzakətlə diqqət çəkib adı soruşdun.', hint: 'Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.',
-      prompt: 'Tədbirdə yanındakı qızın adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
-      chat: { partner: 'Tədbirdə qız', from: 'G', lines: [] }, tiles: ['your', 'Excuse', 'sorry', "what's", 'me,', 'name', '?'], rule: exact("Excuse me, what's your name?"),
+      prompt: 'Resepşndakı qız sənə kömək etdi, amma adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
+      chat: { partner: 'Resepşndakı qız', from: 'G', lines: [] }, tiles: ['your', 'Excuse', 'sorry', "what's", 'me,', 'name', '?'], rule: exact("Excuse me, what's your name?"),
       variants: [other('Excuse me, what’s your name?', ex("Excuse me, what's your name?", 'Əvvəl Excuse me ilə diqqət çəkirsən, sonra sual verirsən — sorry burada lazım deyil.', 'Excuse me + sual.', "Excuse me, what's your name?"))],
       review: {
-        title: 'Mesajı qur', why: 'Nəzakətlə diqqət çəkib adı soruşdun.', hint: 'Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.', prompt: 'Yeni işdə bir oğlanla tanış olmaq istəyirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
-        chat: { partner: 'Yeni iş yoldaşı', from: 'B', lines: [] }, tiles: ['me,', 'name', 'Excuse', 'you', "what's", 'your', '?'], rule: exact("Excuse me, what's your name?"),
+        title: 'Mesajı qur', why: 'Nəzakətlə diqqət çəkib adı soruşdun.', hint: 'Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.', prompt: 'Küçədə sənə kömək edən oğlanın adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
+        chat: { partner: 'Kömək edən oğlan', from: 'B', lines: [] }, tiles: ['me,', 'name', 'Excuse', 'you', "what's", 'your', '?'], rule: exact("Excuse me, what's your name?"),
         variants: [other('Excuse me, what’s your name?', ex("Excuse me, what's your name?", '“your” — sənin; “you” burada uyğun deyil.', 'Excuse me + sual.', "Excuse me, what's your name?"))],
       },
     },
@@ -152,11 +152,11 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'voice', id: 'd6_c13', number: 13, title: 'Nəzakətlə soruş', why: 'Diqqət çəkib adı soruşdun.', hint: 'İki hissə: əvvəl diqqəti çək, sonra adını soruş.',
-      prompt: 'Kursda yeni yoldaşın adını bilmirsən.\nDiqqətini çək və adını soruş.', rule: politeAsk, reply: 'Nice to meet you!',
-      variants: [other('Excuse me + ad sualı.', ex("Excuse me, what's your name?", 'Tanımadığın adama əvvəl “Excuse me” deyirsən.', 'Excuse me + What’s your name?', "Excuse me, what's your name?"))],
+      prompt: 'Kafedə ofisiant sənə kömək etdi, adını bilmirsən.\nDiqqətini çək və adını soruş.', rule: politeAsk, reply: 'My name is …',
+      variants: [other('Excuse me + ad sualı.', ex("Excuse me, what's your name?", 'Tanımadığın adamı səsləyəndə əvvəl “Excuse me” deyirsən — burada diqqət çəkir.', 'Excuse me + What’s your name?', "Excuse me, what's your name?"))],
       review: {
-        title: 'Nəzakətlə soruş', why: 'Diqqət çəkib adı soruşdun.', hint: 'İki hissə: əvvəl diqqəti çək, sonra adını soruş.', prompt: 'Kitabxanada yanındakı qızın adını bilmirsən.\nDiqqətini çək və adını soruş.', rule: politeAsk, reply: 'Nice to meet you!',
-        variants: [other('Excuse me + ad sualı.', ex("Excuse me, what's your name?", 'Tanımadığın adama əvvəl “Excuse me” deyirsən.', 'Excuse me + What’s your name?', "Excuse me, what's your name?"))],
+        title: 'Nəzakətlə soruş', why: 'Diqqət çəkib adı soruşdun.', hint: 'İki hissə: əvvəl diqqəti çək, sonra adını soruş.', prompt: 'Kitabxanada sənə kömək edən işçi qızın adını bilmirsən.\nDiqqətini çək və adını soruş.', rule: politeAsk, reply: 'My name is …',
+        variants: [other('Excuse me + ad sualı.', ex("Excuse me, what's your name?", 'Tanımadığın adamı səsləyəndə əvvəl “Excuse me” deyirsən — burada diqqət çəkir.', 'Excuse me + What’s your name?', "Excuse me, what's your name?"))],
       },
     },
   ],

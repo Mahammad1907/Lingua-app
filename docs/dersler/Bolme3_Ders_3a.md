@@ -120,7 +120,7 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 **Qəbul:** məna:  — nümunə: I'm Azerbaijani. · öz məlumatı: /^(?:i'?m|i am)\s+(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|\p{L}+(?:ian|ish|ese))\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Bu dəfə from olmadan, millətinlə cavab ver.  
 **Düzgün olanda:** Millətini dedin: I'm + millət.  
-- *İzah (başqa səhvdə):* Ölkə yox, millət lazımdır. — Uyğun: I'm Azerbaijani. Səbəb: Azerbaijan ölkədir; millət üçün sonu -i olan söz lazımdır. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm from Azerbaijan. I'm Azerbaijani.  
+- *İzah (başqa səhvdə):* Ölkə yox, millət lazımdır. — Uyğun: I'm Azerbaijani. Səbəb: Azerbaijan ölkədir; millət üçün ayrıca millət sözü lazımdır (Azerbaijani, Turkish, Georgian). Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm from Azerbaijan. I'm Azerbaijani.  
 - *İzah (başqa səhvdə):* Bu, haradan olduğundur; millətini de. — Uyğun: I'm Azerbaijani. Səbəb: from ilə ölkəni deyirsən; millət from-suz deyilir. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm Turkish. — I'm Azerbaijani.  
 - *İzah (başqa səhvdə):* I'm + millət. — Uyğun: I'm Azerbaijani. Səbəb: O, millətini dedi; sən də millətini de. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm Turkish. And you? — I'm Azerbaijani.  
 
@@ -131,7 +131,7 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 **Qəbul:** məna:  — nümunə: I'm Azerbaijani. · öz məlumatı: /^(?:i'?m|i am)\s+(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|\p{L}+(?:ian|ish|ese))\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Bu dəfə from olmadan, millətinlə cavab ver.  
 **Düzgün olanda:** Millətini dedin: I'm + millət.  
-- *İzah (başqa səhvdə):* Ölkə yox, millət lazımdır. — Uyğun: I'm Azerbaijani. Səbəb: Azerbaijan ölkədir; millət üçün sonu -i olan söz lazımdır. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm from Azerbaijan. I'm Azerbaijani.  
+- *İzah (başqa səhvdə):* Ölkə yox, millət lazımdır. — Uyğun: I'm Azerbaijani. Səbəb: Azerbaijan ölkədir; millət üçün ayrıca millət sözü lazımdır (Azerbaijani, Turkish, Georgian). Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm from Azerbaijan. I'm Azerbaijani.  
 - *İzah (başqa səhvdə):* Bu, haradan olduğundur; millətini de. — Uyğun: I'm Azerbaijani. Səbəb: from ilə ölkəni deyirsən; millət from-suz deyilir. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm Turkish. — I'm Azerbaijani.  
 - *İzah (başqa səhvdə):* I'm + millət. — Uyğun: I'm Azerbaijani. Səbəb: O, millətini dedi; sən də millətini de. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm Russian. And you? — I'm Azerbaijani.  
 

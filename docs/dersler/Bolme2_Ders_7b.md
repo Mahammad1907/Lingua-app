@@ -147,7 +147,7 @@ Qeyd: “years old” birlikdə gəlir; yalnız “years” deyilmir.
 
 **Tapşırıq:** Məşqçi soruşur: “How old are you?” Yaşını de (istəsən, istənilən yaş).  
 **Səs:** How old are you?  
-**Qəbul:** məna:  — nümunə: I'm twenty-five. / I'm 25. · öz məlumatı: /^(?:i'?m|i am)\s+(?:\d{1,3}|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ]?(?:one|two|three|four|five|six|seven|eight|nine))?|(?:ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)|(?:one|two|three|four|five|six|seven|eight|nine))(?:\s+years\s+old)?\s*[.!]?(?:\s*and you\s*\??)?$/  
+**Qəbul:** məna:  — nümunə: I'm twenty-five. / I'm 25. · öz məlumatı: /^(?:(?:i'?m|i am)\s+)?(?:\d{1,3}|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ]?(?:one|two|three|four|five|six|seven|eight|nine))?|(?:ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)|(?:one|two|three|four|five|six|seven|eight|nine))(?:\s+years\s+old)?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Kartdakı kimi: “mən” + yaş, başqa söz lazım deyil.  
 **Düzgün olanda:** Yaşını dedin.  
 - *İzah (başqa səhvdə):* Yaş “var” ilə yox, I’m ilə deyilir. — Uyğun: I'm twenty-five. Səbəb: “25 yaşım var” sözbəsöz tərcümə olunmur — ingiliscə yaşı I’m ilə deyirik. Qayda: I'm twenty-five. — düzdür; “yaşım var” kimi tərcümə — olmur. Nümunə: How old are you? — I'm thirty.  
@@ -158,7 +158,7 @@ Qeyd: “years old” birlikdə gəlir; yalnız “years” deyilmir.
 
 **Tapşırıq:** Kursda yeni yoldaş yaşını deyib səndən soruşur. Yaşını de (istəsən, istənilən yaş).  
 **Səs:** I'm forty. And you?  
-**Qəbul:** məna:  — nümunə: I'm twenty-five. / I'm 25. · öz məlumatı: /^(?:i'?m|i am)\s+(?:\d{1,3}|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ]?(?:one|two|three|four|five|six|seven|eight|nine))?|(?:ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)|(?:one|two|three|four|five|six|seven|eight|nine))(?:\s+years\s+old)?\s*[.!]?(?:\s*and you\s*\??)?$/  
+**Qəbul:** məna:  — nümunə: I'm twenty-five. / I'm 25. · öz məlumatı: /^(?:(?:i'?m|i am)\s+)?(?:\d{1,3}|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ]?(?:one|two|three|four|five|six|seven|eight|nine))?|(?:ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)|(?:one|two|three|four|five|six|seven|eight|nine))(?:\s+years\s+old)?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Kartdakı kimi: “mən” + yaş.  
 **Düzgün olanda:** Yaşını dedin.  
 - *İzah (başqa səhvdə):* Yaş “var” ilə yox, I’m ilə deyilir. — Uyğun: I'm twenty-five. Səbəb: “25 yaşım var” sözbəsöz tərcümə olunmur — ingiliscə yaşı I’m ilə deyirik. Qayda: I'm twenty-five. — düzdür; “yaşım var” kimi tərcümə — olmur. Nümunə: How old are you? — I'm thirty.  

@@ -134,10 +134,10 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'voice', id: 'd3_c10', number: 10, title: 'Adını soruş', why: 'Adı düzgün soruşdun.', hint: 'Bu dərsin əvvəlində öyrəndiyin sualı xatırla.',
-      prompt: 'Yeni tanışın deyir: “Hi!”\nOnun adını soruş.', rule: askName, reply: 'Nice to meet you!',
+      prompt: 'Yeni tanışın deyir: “Hi!”\nOnun adını soruş.', rule: askName, reply: "I'm … Nice to meet you!",
       variants: [other('Adı soruşmaq üçün sual lazımdır.', ex("What's your name?", 'Adını demək yox, onun adını soruşmaq lazımdır.', 'What’s your name?', "Hi! What's your name?"))],
       review: {
-        title: 'Adını soruş', why: 'Adı düzgün soruşdun.', hint: 'Bu dərsin əvvəlində öyrəndiyin sualı xatırla.', prompt: 'Kursda yeni yoldaş var.\nOnun adını soruş.', rule: askName, reply: 'Nice to meet you!',
+        title: 'Adını soruş', why: 'Adı düzgün soruşdun.', hint: 'Bu dərsin əvvəlində öyrəndiyin sualı xatırla.', prompt: 'Kursda yeni yoldaş var.\nOnun adını soruş.', rule: askName, reply: "I'm … Nice to meet you!",
         variants: [other('Adı soruşmaq üçün sual lazımdır.', ex("What's your name?", 'Sən onun adını öyrənmək istəyirsən.', 'What’s your name?', "Hello! What's your name?"))],
       },
     },

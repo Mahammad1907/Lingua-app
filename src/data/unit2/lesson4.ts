@@ -1,6 +1,6 @@
 // Bölmə 2 · Dərs 4 — Hərf-hərf de (How do you spell it? · It's B-A-K-U. · double · Can you spell it, please?).
 // Otel resepsiyası. Personaj adları boşdur: yer adları (Ganja, London, Lankaran…), formadakı soyadlar və öyrənənin öz adı hərf-hərf deyilir.
-// Spiral: hərflər (Dərs 3), What's your name?, Hello, Sorry? Slowly, please., Is that right? / Yes, that's right. (Dərs 2).
+// Spiral: hərflər (Dərs 3), What's your name?, Hello, Sorry? More slowly, please., Is that right? / Yes, that's right. (Dərs 2).
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, goal, other, pick } from '../unit1/build';
 import { NAME_SPELLED, notices, own, resultTexts } from './shared';
@@ -30,8 +30,8 @@ export const lesson4: DesignLesson = {
       prompt: 'Otel resepsiyasındasan. Şəhərinin adını dedin.\nResepsiyaçı nə istəyir?', audio: 'Ganja? How do you spell it?',
       options: ['Hərf-hərf deməyini istəyir.', 'Şəhərin adını soruşur.', 'Yavaş danışmağını istəyir.'], answer: 'Hərf-hərf deməyini istəyir.',
       variants: [
-        pick('Şəhərin adını soruşur.', 'Adı artıq dedin — indi hərfləri istəyir.', ex('Hərf-hərf deməyini istəyir.', 'O, adı təkrar edir və “spell” deyir — hərfləri istəyir.', 'How do you spell it? — hərf-hərf; Slowly, please. — yavaş.', 'Ganja? How do you spell it?')),
-        pick('Yavaş danışmağını istəyir.', 'Səsdə “slowly” yoxdur.', ex('Hərf-hərf deməyini istəyir.', 'Səsdə “slowly” yox, “spell” var.', 'How do you spell it? — hərf-hərf; Slowly, please. — yavaş.', 'Ganja? How do you spell it?')),
+        pick('Şəhərin adını soruşur.', 'Adı artıq dedin — indi hərfləri istəyir.', ex('Hərf-hərf deməyini istəyir.', 'O, adı təkrar edir və “spell” deyir — hərfləri istəyir.', 'How do you spell it? — hərf-hərf; More slowly, please. — yavaş.', 'Ganja? How do you spell it?')),
+        pick('Yavaş danışmağını istəyir.', 'Səsdə “slowly” yoxdur.', ex('Hərf-hərf deməyini istəyir.', 'Səsdə “slowly” yox, “spell” var.', 'How do you spell it? — hərf-hərf; More slowly, please. — yavaş.', 'Ganja? How do you spell it?')),
       ],
       review: {
         title: 'Dinlə və anla', why: '“spell” — hərf-hərf demək.', hint: 'Sualın sonundakı sözlərə qulaq as.',
@@ -106,7 +106,7 @@ export const lesson4: DesignLesson = {
       options: ['double', 'two', 'again'], answer: 'double',
       variants: [
         pick('two', '“two M” — iki M; hərf-hərf deyəndə “double M” deyilir.', ex('double', 'Azərbaycancada “iki M” deyirik, ingiliscə “double M”.', 'double M — MM; two — 2.', "It's M-A-double M-A-D-O-V.")),
-        pick('again', '“again” — bir də; xahişdə işlənir.', ex('double', '“again” təkrar xahişidir; eyni iki hərf “double” ilə deyilir.', 'double M — MM; Again, please. — bir də.', "It's M-A-double M-A-D-O-V.")),
+        pick('again', '“again” — bir də; xahişdə işlənir.', ex('double', '“again” təkrar xahişidir; eyni iki hərf “double” ilə deyilir.', 'double M — MM; Say that again, please. — bir də.', "It's M-A-double M-A-D-O-V.")),
       ],
       review: {
         title: 'Sözü tamamla', why: 'LL — double L.', hint: 'Eyni hərf yan-yana gəlir — onu necə deyirsən?',
@@ -134,20 +134,20 @@ export const lesson4: DesignLesson = {
       type: 'voice', id: 'u2d4_c12', number: 12, title: 'Hərf-hərf soruş', why: 'Hərf-hərf deməyi nəzakətlə xahiş etdin.', hint: 'Bu dərsin nəzakətli xahişini xatırla.',
       prompt: 'Oteldə qonaq şəhərini deyir, sən onu tanımırsan.\nHərf-hərf deməsini nəzakətlə xahiş et.', audio: "It's Shamakhi.", reply: "It's S-H-A-M-A-K-H-I.",
       rule: askSpell,
-      variants: [other('Can you spell it, please?', ex('Can you spell it, please?', 'Adı tanımırsan — hərf-hərf deməsini xahiş edirsən.', 'Can you spell it, please? — hərf-hərf; Again, please. — bir də.', 'Shamakhi? Can you spell it, please?'))],
+      variants: [other('Can you spell it, please?', ex('Can you spell it, please?', 'Adı tanımırsan — hərf-hərf deməsini xahiş edirsən.', 'Can you spell it, please? — hərf-hərf; Say that again, please. — bir də.', 'Shamakhi? Can you spell it, please?'))],
       review: {
         title: 'Hərf-hərf soruş', why: 'Hərf-hərf deməyi nəzakətlə xahiş etdin.', hint: 'Bu dərsin nəzakətli xahişini xatırla.',
         prompt: 'Kursda yeni yoldaş soyadını deyir. Formaya yazmalısan.\nHərf-hərf deməsini nəzakətlə xahiş et.', audio: "It's Guliyeva.", reply: "It's G-U-L-I-Y-E-V-A.",
         rule: askSpell,
-        variants: [other('Can you spell it, please?', ex('Can you spell it, please?', 'Soyadı yazmaq üçün hərflər lazımdır.', 'Can you spell it, please? — hərf-hərf; Slowly, please. — yavaş.', 'Guliyeva? Can you spell it, please?'))],
+        variants: [other('Can you spell it, please?', ex('Can you spell it, please?', 'Soyadı yazmaq üçün hərflər lazımdır.', 'Can you spell it, please? — hərf-hərf; More slowly, please. — yavaş.', 'Guliyeva? Can you spell it, please?'))],
       },
     },
     {
       type: 'match', mode: 'order', id: 'u2d4_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, hərflər, xahiş və yavaş təkrar düz sıradadır.', hint: 'Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?',
       prompt: 'Otel resepsiyası.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Lankaran? How do you spell it?', from: 'B' }, { en: '2', az: "It's L-A-N-K-A-R-A-N.", from: 'G' }, { en: '3', az: 'Sorry? Slowly, please.', from: 'B' }, { en: '4', az: 'L… A… N… K… A… R… A… N.', from: 'G' }],
+      rows: [{ en: '1', az: 'Lankaran? How do you spell it?', from: 'B' }, { en: '2', az: "It's L-A-N-K-A-R-A-N.", from: 'G' }, { en: '3', az: 'Sorry? More slowly, please.', from: 'B' }, { en: '4', az: 'L… A… N… K… A… R… A… N.', from: 'G' }],
       extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("Lankaran? How do you spell it? → It's L-A-N-K-A-R-A-N. → Sorry? Slowly, please. → L… A… N…", 'Sual, hərflər, sonra yavaş təkrar xahişi.', 'How do you spell it? — sual; Slowly, please. — xahiş.', 'Lankaran? How do you spell it?'))],
+      variants: [other('Söhbətin sırası düz deyil.', ex("Lankaran? How do you spell it? → It's L-A-N-K-A-R-A-N. → Sorry? More slowly, please. → L… A… N…", 'Sual, hərflər, sonra yavaş təkrar xahişi.', 'How do you spell it? — sual; More slowly, please. — xahiş.', 'Lankaran? How do you spell it?'))],
       review: {
         title: 'Söhbəti sırala', why: 'Xahiş, hərflər, yoxlama və təsdiq düz sıradadır.', hint: 'Əvvəl xahiş gəlir; hərfləri eşidən onları yoxlayır.',
         prompt: 'Hava limanında qeydiyyat.\nBalonlara toxun, söhbəti sıraya düz.',

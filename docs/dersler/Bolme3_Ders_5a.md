@@ -32,12 +32,12 @@ Qeyd: Azərbaycancada “o” hər kəs üçündür; ingiliscə kişi üçün he
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qatarda oğlan telefonla danışır, yanında yaşlı bir qadın oturub. Oğlan kim haqqında danışır?  
-**Səs:** She is not very well.  
+**Səs:** She is not great.  
 **Seçimlər:** Özü haqqında / Bir kişi haqqında / Bir qadın haqqında — **düzgün:** Bir qadın haqqında  
 **İpucu:** Cümlənin birinci sözünə qulaq as.  
 **Düzgün olanda:** “she” — qadın haqqında.  
-- *İzah (“Özü haqqında” seçiləndə):* Özü haqqında “I” deyərdi. — Uyğun: Bir qadın haqqında. Səbəb: Səsdə “I” yox, “she” var. Qayda: She is not very well. — o (qadın); I'm not very well. — mən. Nümunə: She's from France.  
-- *İzah (“Bir kişi haqqında” seçiləndə):* Kişi üçün “he” deyilir, səsdə isə “she” var. — Uyğun: Bir qadın haqqında. Səbəb: “she” qadın haqqında deyilir. Qayda: She is not very well. — qadın; He is not very well. — kişi. Nümunə: She's from France.  
+- *İzah (“Özü haqqında” seçiləndə):* Özü haqqında “I” deyərdi. — Uyğun: Bir qadın haqqında. Səbəb: Səsdə “I” yox, “she” var. Qayda: She is not great. — o (qadın); I'm not great. — mən. Nümunə: She's from France.  
+- *İzah (“Bir kişi haqqında” seçiləndə):* Kişi üçün “he” deyilir, səsdə isə “she” var. — Uyğun: Bir qadın haqqında. Səbəb: “she” qadın haqqında deyilir. Qayda: She is not great. — qadın; He is not great. — kişi. Nümunə: She's from France.  
 
 ## Kart 4 — Yeni söz
 
@@ -52,18 +52,18 @@ Qeyd: Kişi üçün he, qadın üçün she — azərbaycancada ikisi də “o”
 ## Kart 5 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Video zəngdə qız və oğlan dostlarının halını deyir. Hər cümləyə mənasını qoş.  
-**Cütlər:** He is fine. — O (kişi) yaxşıdır.; She is OK. — O (qadın) normaldır.; I'm not very well. — Mən çox yaxşı deyiləm. · artıq: O (kişi) normaldır.  
+**Cütlər:** He is fine. — O (kişi) yaxşıdır.; She is OK. — O (qadın) normaldır.; I'm not great. — Mən çox yaxşı deyiləm. · artıq: O (kişi) normaldır.  
 **İpucu:** Hər cümlənin birinci sözünə bax: kişi, qadın, yoxsa özü?  
 **Düzgün olanda:** He və she fərqini tapdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: He is fine. — O (kişi) yaxşıdır.; She is OK. — O (qadın) normaldır.; I'm not very well. — Mən çox yaxşı deyiləm. Səbəb: He kişi, she qadın haqqındadır; fine və OK da fərqlidir. Qayda: He is fine. — kişi; She is fine. — qadın. Nümunə: She is OK. He is fine.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: He is fine. — O (kişi) yaxşıdır.; She is OK. — O (qadın) normaldır.; I'm not great. — Mən çox yaxşı deyiləm. Səbəb: He kişi, she qadın haqqındadır; fine və OK da fərqlidir. Qayda: He is fine. — kişi; She is fine. — qadın. Nümunə: She is OK. He is fine.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qatarda iki yeni tanış yol yoldaşları haqqında danışır. Hər cümləyə mənasını qoş.  
-**Cütlər:** She is fine. — O (qadın) yaxşıdır.; He is not very well. — O (kişi) çox yaxşı deyil.; He is OK. — O (kişi) normaldır. · artıq: O (qadın) çox yaxşı deyil.  
+**Cütlər:** She is fine. — O (qadın) yaxşıdır.; He is not great. — O (kişi) çox yaxşı deyil.; He is OK. — O (kişi) normaldır. · artıq: O (qadın) çox yaxşı deyil.  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** He və she fərqini tapdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: She is fine. — O (qadın) yaxşıdır.; He is not very well. — O (kişi) çox yaxşı deyil.; He is OK. — O (kişi) normaldır. Səbəb: Birinci söz kimin haqqında olduğunu deyir. Qayda: He is OK. — kişi; She is OK. — qadın. Nümunə: She is fine.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: She is fine. — O (qadın) yaxşıdır.; He is not great. — O (kişi) çox yaxşı deyil.; He is OK. — O (kişi) normaldır. Səbəb: Birinci söz kimin haqqında olduğunu deyir. Qayda: He is OK. — kişi; She is OK. — qadın. Nümunə: She is fine.  
 
 ## Kart 6 — Yeni söz
 

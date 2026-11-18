@@ -95,7 +95,7 @@ Qeyd: don't — do not-un qısasıdır.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Hostelin mətbəxində suallar. Suala toxun, sonra onun cavabını seç.  
-**Cütlər:** Do you speak French? — No, I don't.; Are you from Iran? — Yes, I am.; Where do you live? — I live in Ganja. · artıq: Slowly, please.  
+**Cütlər:** Do you speak French? — No, I don't.; Are you from Iran? — Yes, I am.; Where do you live? — I live in Ganja. · artıq: More slowly, please.  
 **Düzgün olanda:** Hər suala uyğun qısa cavabı tapdın.  
 - *İzah (başqa səhvdə):* Bir sualın cavabı yerində deyil. — Uyğun: Do you speak French? — No, I don't.; Are you from Iran? — Yes, I am.; Where do you live? — I live in Ganja. Səbəb: “Do you” sualına “do” ilə, “Are you” sualına “am” ilə cavab verilir. Qayda: Do you speak French? — No, I don't.; Are you from Iran? — Yes, I am. Nümunə: Do you speak French? — No, I don't.  
 

@@ -134,7 +134,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 ## Kart 10 — Səslə cavab: Bilet al
 
 **Tapşırıq:** Avtobus kassasındasan. Kursdan 8 nəfərsiniz, 8 bilet lazımdır. Kassirə nəzakətlə de.  
-**Qəbul:** dəqiq: Eight, please. / Excuse me, eight, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:eight|8)[,.!]?\s*please[.!]?$/  
+**Qəbul:** dəqiq: Eight, please. / Excuse me, eight, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:floor\s+)?(?:eight|8)(?:\s+(?:floor|tickets?))?[,.!]?\s*(?:please|thanks|thank you)[.!]?$/  
 **İpucu:** Neçə bilet lazımdır? Rəqəmi de, sonra xahişi nəzakətli edən sözü əlavə et.  
 **Düzgün olanda:** Bilet sayını dedin və nəzakətlə xahiş etdin.  
 - *İzah (başqa səhvdə):* Rəqəm + please. — Uyğun: Eight, please. Səbəb: Sizə 8 bilet lazımdır: rəqəmi de və “please” əlavə et. Qayda: Eight, please. — səkkiz; Nine, please. — doqquz. Nümunə: Excuse me, eight, please.  
@@ -142,7 +142,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Kafeyə 6 nəfər gəldiniz. Ofisiant neçə nəfər olduğunuzu soruşur. Nəzakətlə cavab ver.  
-**Qəbul:** dəqiq: Six, please. / Excuse me, six, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:six|6)[,.!]?\s*please[.!]?$/  
+**Qəbul:** dəqiq: Six, please. / Excuse me, six, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:floor\s+)?(?:six|6)(?:\s+(?:floor|tickets?))?[,.!]?\s*(?:please|thanks|thank you)[.!]?$/  
 **İpucu:** Neçə nəfərsiniz? Rəqəmi de, sonra xahişi nəzakətli edən sözü əlavə et.  
 **Düzgün olanda:** Nəfər sayını dedin və nəzakətlə xahiş etdin.  
 - *İzah (başqa səhvdə):* Rəqəm + please. — Uyğun: Six, please. Səbəb: Siz 6 nəfərsiniz: rəqəmi de və “please” əlavə et. Qayda: Six, please. — altı; Seven, please. — yeddi. Nümunə: Six, please.  

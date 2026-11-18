@@ -35,10 +35,10 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 
 **Tapşırıq:** Qıza su verdin. O sənə təşəkkür edir. Necə cavab verərsən?  
 **Səs:** Thank you!  
-**Seçimlər:** You're welcome. / You too! / Again, please. — **düzgün:** You're welcome.  
+**Seçimlər:** You're welcome. / You too! / Say that again, please. — **düzgün:** You're welcome.  
 **İpucu:** Dərs 5-də təşəkkürə necə cavab verilirdi?  
 **Düzgün olanda:** Thank you → You’re welcome.  
-- *İzah (başqa səhvdə):* Təşəkkürə cavab: You’re welcome. — Uyğun: You're welcome. Səbəb: “You too” tanışlığa cavabdır, “Again, please” təkrar xahişidir. Qayda: Thank you → You’re welcome. Nümunə: Thanks! — You're welcome.  
+- *İzah (başqa səhvdə):* Təşəkkürə cavab: You’re welcome. — Uyğun: You're welcome. Səbəb: “You too” tanışlığa cavabdır, “Say that again, please” təkrar xahişidir. Qayda: Thank you → You’re welcome. Nümunə: Thanks! — You're welcome.  
 
 ## Kart 4 — Sözü tamamla: Sözü tamamla
 
@@ -88,7 +88,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Hər cümləyə mənasını qoş.  
-**Cütlər:** Hello! — Salam!; I don't understand. — Başa düşmürəm.; Goodbye! — Görüşənədək! · artıq: Yavaş, zəhmət olmasa.  
+**Cütlər:** Hello! — Salam!; I don't understand. — Başa düşmürəm.; Goodbye! — Görüşənədək! · artıq: Daha yavaş, zəhmət olmasa.  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Hər cümlə öz yerində.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; I don’t understand. — Başa düşmürəm.; Goodbye! — Görüşənədək! Səbəb: Salam, kömək istəmək və sağollaşma fərqli işlərdir. Qayda: Hello! — görüşün əvvəli; Goodbye! — görüşün sonu. Nümunə: Hello! … Sorry? I don't understand. … Goodbye!  
@@ -111,21 +111,21 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 
 ## Kart 8 — Səslə cavab: Söhbət: tanışlıq
 
-**Tapşırıq:** Yeni tanışın deyir: “Nice to meet you! What’s your name?” İkisinə də cavab ver.  
-**Səs:** Nice to meet you! What's your name?  
-**Qəbul:** məna: meet + introduce — nümunə: You too! I'm …  
-**İpucu:** İki cavab: xoş sözə və ad sualına.  
-**Düzgün olanda:** Tanışlığa cavab verib adını dedin.  
-- *İzah (başqa səhvdə):* İki cavab: You too! + adın. — Uyğun: You too! I'm … Səbəb: Xoş sözə və ad sualına cavab verirsən. Qayda: You too! + I’m … Nümunə: Nice to meet you too! My name is …  
+**Tapşırıq:** Yeni tanışın deyir: “Hi! What’s your name?” Adını de və tanışlığa şad ol.  
+**Səs:** Hi! What's your name?  
+**Qəbul:** məna: meet + introduce — nümunə: I'm … Nice to meet you!  
+**İpucu:** İki hissə: əvvəl adın, sonra xoş söz.  
+**Düzgün olanda:** Adını dedin və tanışlığa şad olduğunu bildirdin.  
+- *İzah (başqa səhvdə):* İki hissə: adın + xoş söz. — Uyğun: I'm … Nice to meet you! Səbəb: Əvvəl adını deyirsən, sonra tanışlığa şad olduğunu bildirirsən. Qayda: I’m … + Nice to meet you! Nümunə: My name is … Nice to meet you!  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Yeni qonaq deyir: “Nice to meet you! What’s your name?” İkisinə də cavab ver.  
-**Səs:** Nice to meet you! What's your name?  
-**Qəbul:** məna: meet + introduce — nümunə: You too! My name is …  
-**İpucu:** İki cavab: xoş sözə və ad sualına.  
-**Düzgün olanda:** Tanışlığa cavab verib adını dedin.  
-- *İzah (başqa səhvdə):* İki cavab: You too! + adın. — Uyğun: You too! My name is … Səbəb: Xoş sözə və ad sualına cavab verirsən. Qayda: You too! + My name is … Nümunə: You too! I'm …  
+**Tapşırıq:** Yeni qonaq deyir: “Hello! What’s your name?” Adını de və tanışlığa şad ol.  
+**Səs:** Hello! What's your name?  
+**Qəbul:** məna: meet + introduce — nümunə: My name is … Nice to meet you!  
+**İpucu:** İki hissə: əvvəl adın, sonra xoş söz.  
+**Düzgün olanda:** Adını dedin və tanışlığa şad olduğunu bildirdin.  
+- *İzah (başqa səhvdə):* İki hissə: adın + xoş söz. — Uyğun: My name is … Nice to meet you! Səbəb: Əvvəl adını deyirsən, sonra tanışlığa şad olduğunu bildirirsən. Qayda: My name is … + Nice to meet you! Nümunə: I'm … Nice to meet you!  
 
 ## Kart 9 — Cavab cütü: Cavab cütü
 
@@ -167,19 +167,19 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 
 **Tapşırıq:** Qız boşluqsuz, qarışıq yazdı, nə yazdığını anlamadın. Başa düşmədiyini de və bir də yazmasını xahiş et.  
 **Yazışma (Ziyafətdə qız):** “Hiwhat'syourname?”  
-**Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Again, please.  
+**Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Say that again, please.  
 **İpucu:** Əvvəl başa düşmədiyini de, sonra təkrar xahiş et.  
 **Düzgün olanda:** Başa düşmədiyini deyib təkrar istədin.  
-- *İzah (başqa səhvdə):* İki hissə lazımdır. — Uyğun: Sorry? I don't understand. Again, please. Səbəb: Başa düşmədiyini de və xahiş et. Qayda: I don’t understand + Again, please. Nümunə: I don't understand. Again, please.  
+- *İzah (başqa səhvdə):* İki hissə lazımdır. — Uyğun: Sorry? I don't understand. Say that again, please. Səbəb: Başa düşmədiyini de və xahiş et. Qayda: I don’t understand + Say that again, please. Nümunə: I don't understand. Say that again, please.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Oğlan boşluqsuz, qarışıq yazdı, nə yazdığını anlamadın. Başa düşmədiyini de və bir də yazmasını xahiş et.  
 **Yazışma (Ziyafətdə oğlan):** “Hellohowareyou?”  
-**Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Again, please.  
+**Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Say that again, please.  
 **İpucu:** Əvvəl başa düşmədiyini de, sonra təkrar xahiş et.  
 **Düzgün olanda:** Başa düşmədiyini deyib təkrar istədin.  
-- *İzah (başqa səhvdə):* İki hissə lazımdır. — Uyğun: Sorry? I don't understand. Again, please. Səbəb: Başa düşmədiyini de və xahiş et. Qayda: I don’t understand + Again, please. Nümunə: I don't understand. Again, please.  
+- *İzah (başqa səhvdə):* İki hissə lazımdır. — Uyğun: Sorry? I don't understand. Say that again, please. Səbəb: Başa düşmədiyini de və xahiş et. Qayda: I don’t understand + Say that again, please. Nümunə: I don't understand. Say that again, please.  
 
 ## Kart 12 — Söhbəti sırala: Söhbəti sırala
 

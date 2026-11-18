@@ -30,11 +30,11 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 ## Kart 4 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** İşdə həmkarın yorğun görünür. Halını soruşdun, o cavab verir. Hansı söz çatmır?  
-**Cümlə:** I'm ___ very well.  
+**Cümlə:** I'm ___ great.  
 **Seçimlər:** not / don't / no — **düzgün:** not  
-**Düzgün olanda:** I’m not very well — not am-dan sonra gəlir.  
-- *İzah (“don't” seçiləndə):* “I’m” cümləsində don’t işlənmir. — Uyğun: not. Səbəb: Burada artıq “I’m” var, ondan sonra don’t yox, not gəlir. Qayda: I’m not very well. — burada not; I don’t understand. — burada don’t. Nümunə: How are you? — I'm not very well.  
-- *İzah (“no” seçiləndə):* “No” başqa ifadədədir. — Uyğun: not. Səbəb: “No” “No problem” ifadəsindədir, halını deyəndə not lazımdır. Qayda: I’m not very well. — not; No problem. — no. Nümunə: I'm not very well.  
+**Düzgün olanda:** I’m not great — not am-dan sonra gəlir.  
+- *İzah (“don't” seçiləndə):* “I’m” cümləsində don’t işlənmir. — Uyğun: not. Səbəb: Burada artıq “I’m” var, ondan sonra don’t yox, not gəlir. Qayda: I’m not great. — burada not; I don’t understand. — burada don’t. Nümunə: How are you? — I'm not great.  
+- *İzah (“no” seçiləndə):* “No” başqa ifadədədir. — Uyğun: not. Səbəb: “No” “No problem” ifadəsindədir, halını deyəndə not lazımdır. Qayda: I’m not great. — not; No problem. — no. Nümunə: I'm not great.  
 
 ## Kart 5 — Səslə cavab: Danış: adını soruş
 
@@ -47,9 +47,9 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 ## Kart 6 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Küçədə üç nəfər “bağışlayın” deyir, amma hərəsi başqa iş üçün. Hər cümləyə mənasını qoş.  
-**Cütlər:** Excuse me. — Bağışlayın (diqqət).; Sorry! — Bağışlayın (səhv).; Sorry? — Nə dedin? · artıq: Eybi yox.  
+**Cütlər:** Excuse me. — Bağışlayın (diqqət).; Sorry! — Bağışlayın (səhv).; Sorry? — Necə? · artıq: Eybi yox.  
 **Düzgün olanda:** Üç “bağışlayın”ı ayırdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Excuse me. — Bağışlayın (diqqət).; Sorry! — Bağışlayın (səhv).; Sorry? — Nə dedin? Səbəb: Excuse me diqqət çəkir, Sorry! üzrdür, sual kimi deyilən Sorry? isə “nə dedin?”dir. Qayda: Sorry! — üzr; Sorry? — nə dedin. Nümunə: Sorry! — No problem.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Excuse me. — Bağışlayın (diqqət).; Sorry! — Bağışlayın (səhv).; Sorry? — Necə? Səbəb: Excuse me burada diqqət çəkir, Sorry! üzrdür, sual kimi deyilən Sorry? isə “Bağışlayın? / Necə?” deməkdir. Qayda: Sorry! — üzr; Sorry? — Necə?. Nümunə: Sorry! — No problem.  
 
 ## Kart 7 — Dialoqu tamamla: Mesaj yaz
 
@@ -80,9 +80,9 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 ## Kart 10 — Səslə cavab: Danış: kömək istə
 
 **Tapşırıq:** Kafedə ofisiant sənə uzun bir şey dedi, heç nə başa düşmürsən. Başa düşmədiyini de və bir də deməsini xahiş et.  
-**Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Again, please.  
+**Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Say that again, please.  
 **Düzgün olanda:** Başa düşmədiyini dedin və təkrar istədin.  
-- *İzah (başqa səhvdə):* İki hissə: başa düşmürəm + bir də. — Uyğun: Sorry? I don't understand. Again, please. Səbəb: Əvvəl başa düşmədiyini I don’t understand ilə de, sonra bir də deməsini xahiş et. Qayda: I don’t understand. — başa düşmürəm; Again, please. — bir də. Nümunə: I don't understand. Again, please.  
+- *İzah (başqa səhvdə):* İki hissə: başa düşmürəm + bir də. — Uyğun: Sorry? I don't understand. Say that again, please. Səbəb: Əvvəl başa düşmədiyini I don’t understand ilə de, sonra bir də deməsini xahiş et. Qayda: I don’t understand. — başa düşmürəm; Say that again, please. — bir də. Nümunə: I don't understand. Say that again, please.  
 
 ## Kart 11 — Cavab cütü: Cavab cütü
 
@@ -95,10 +95,10 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 
 **Tapşırıq:** Kafedə kassir çox sürətlə danışır. Ondan yavaş danışmağı xahiş et.  
 **Səs:** Hellohowareyou!  
-**Qəbul:** məna: slow — nümunə: Slowly, please. / Sorry? Slowly, please.  
+**Qəbul:** məna: slow — nümunə: More slowly, please. / Sorry? More slowly, please.  
 **Düzgün olanda:** Yavaş danışmağı nəzakətlə xahiş etdin.  
-- *İzah (cavab “repeat” işini görəndə):* Problem sürətdədir — yavaş danışmağı xahiş et. — Uyğun: Slowly, please. Səbəb: Eşitdin, amma çox sürətli idi — yavaş danışmağı istəyirsən. Qayda: Again, please. — bir də; Slowly, please. — yavaş. Nümunə: Sorry? Slowly, please.  
-- *İzah (başqa səhvdə):* Slowly, please. — Uyğun: Slowly, please. Səbəb: O çox sürətli danışır, ona görə “Slowly” lazımdır. Qayda: Again, please. — bir də; Slowly, please. — yavaş. Nümunə: Sorry? Slowly, please.  
+- *İzah (cavab “repeat” işini görəndə):* Problem sürətdədir — yavaş danışmağı xahiş et. — Uyğun: More slowly, please. Səbəb: Eşitdin, amma çox sürətli idi — yavaş danışmağı istəyirsən. Qayda: Say that again, please. — bir də; More slowly, please. — yavaş. Nümunə: Sorry? More slowly, please.  
+- *İzah (başqa səhvdə):* More slowly, please. — Uyğun: More slowly, please. Səbəb: O çox sürətli danışır, ona görə “More slowly” lazımdır. Qayda: Say that again, please. — bir də; More slowly, please. — yavaş. Nümunə: Sorry? More slowly, please.  
 
 ## Kart 13 — İki mesaj yaz: İki mesaj yaz
 
@@ -112,9 +112,9 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıd�
 ## Kart 14 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Kafedə iki nəfər tanış olur. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Excuse me, what's your name? → 2. Sorry? Again, please. → 3. What's your name? → 4. My name is … Nice to meet you.  
-**Düzgün olanda:** Diqqət, təkrar xahişi, sual və cavab düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me, what's your name? → Sorry? Again, please. → What's your name? → My name is … Nice to meet you. Səbəb: Əvvəl diqqət çəkib soruşur, eşitməyən bir də xahiş edir, sual təkrarlanır, sonra cavab gəlir. Qayda: What’s your name? — əvvəl sual; My name is … — sonra cavab. Nümunə: Hello! What's your name? — Hi! I'm …  
+**Düzgün sıra:** 1. Hi! What's your name? → 2. Sorry? Say that again, please. → 3. What's your name? → 4. My name is … Nice to meet you.  
+**Düzgün olanda:** Salam, təkrar xahişi, sual və cavab düz sıradadır.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is … Nice to meet you. Səbəb: Əvvəl salamlaşıb soruşur, eşitməyən bir də xahiş edir, sual təkrarlanır, sonra cavab gəlir. Qayda: What’s your name? — əvvəl sual; My name is … — sonra cavab. Nümunə: Hello! What's your name? — Hi! I'm …  
 
 ## Kart 15 — Səslə cavab: Danış: üzrə cavab
 

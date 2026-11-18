@@ -135,10 +135,10 @@ Qeyd: @ işarəsi “at” deyilir, “et” yox.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Kursda e-poçt mübadiləsi. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Excuse me, what's your email? → 2. It's B-A-K-U nine at mail dot com. → 3. Sorry? Slowly, please. → 4. B… A… K… U… nine at mail dot com.  
+**Düzgün sıra:** 1. Excuse me, what's your email? → 2. It's B-A-K-U nine at mail dot com. → 3. Sorry? More slowly, please. → 4. B… A… K… U… nine at mail dot com.  
 **İpucu:** Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?  
 **Düzgün olanda:** Sual, ünvan, xahiş və yavaş təkrar düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? Slowly, please. → B… A… K… U… Səbəb: Ünvanı çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi. Qayda: Slowly, please. — sürətli idi; Again, please. — eşitmədin. Nümunə: Sorry? Slowly, please.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? More slowly, please. → B… A… K… U… Səbəb: Ünvanı çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi. Qayda: More slowly, please. — sürətli idi; Say that again, please. — eşitmədin. Nümunə: Sorry? More slowly, please.  
 
 ## Kart 11 — Səslə cavab: E-poçtunu de
 

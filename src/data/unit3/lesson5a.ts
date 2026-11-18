@@ -45,11 +45,11 @@ export const lesson5a: DesignLesson = {
       ],
       review: {
         title: 'Dinlə və seç', why: '“she” — qadın haqqında.', hint: 'Cümlənin birinci sözünə qulaq as.',
-        prompt: 'Qatarda oğlan telefonla danışır, yanında yaşlı bir qadın oturub.\nOğlan kim haqqında danışır?', audio: 'She is not very well.',
+        prompt: 'Qatarda oğlan telefonla danışır, yanında yaşlı bir qadın oturub.\nOğlan kim haqqında danışır?', audio: 'She is not great.',
         options: ['Özü haqqında', 'Bir kişi haqqında', 'Bir qadın haqqında'], answer: 'Bir qadın haqqında',
         variants: [
-          pick('Özü haqqında', 'Özü haqqında “I” deyərdi.', ex('Bir qadın haqqında', 'Səsdə “I” yox, “she” var.', "She is not very well. — o (qadın); I'm not very well. — mən.", "She's from France.")),
-          pick('Bir kişi haqqında', 'Kişi üçün “he” deyilir, səsdə isə “she” var.', ex('Bir qadın haqqında', '“she” qadın haqqında deyilir.', 'She is not very well. — qadın; He is not very well. — kişi.', "She's from France.")),
+          pick('Özü haqqında', 'Özü haqqında “I” deyərdi.', ex('Bir qadın haqqında', 'Səsdə “I” yox, “she” var.', "She is not great. — o (qadın); I'm not great. — mən.", "She's from France.")),
+          pick('Bir kişi haqqında', 'Kişi üçün “he” deyilir, səsdə isə “she” var.', ex('Bir qadın haqqında', '“she” qadın haqqında deyilir.', 'She is not great. — qadın; He is not great. — kişi.', "She's from France.")),
         ],
       },
     },
@@ -62,15 +62,15 @@ export const lesson5a: DesignLesson = {
     {
       type: 'match', id: 'u3d5a_c05', number: 5, title: 'Kim nə dedi?', why: 'He və she fərqini tapdın.', hint: 'Hər cümlənin birinci sözünə bax: kişi, qadın, yoxsa özü?',
       prompt: 'Video zəngdə qız və oğlan dostlarının halını deyir.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'He is fine.', az: 'O (kişi) yaxşıdır.', from: 'G' }, { en: 'She is OK.', az: 'O (qadın) normaldır.', from: 'B' }, { en: "I'm not very well.", az: 'Mən çox yaxşı deyiləm.', from: 'M' }],
+      rows: [{ en: 'He is fine.', az: 'O (kişi) yaxşıdır.', from: 'G' }, { en: 'She is OK.', az: 'O (qadın) normaldır.', from: 'B' }, { en: "I'm not great.", az: 'Mən çox yaxşı deyiləm.', from: 'M' }],
       extra: ['O (kişi) normaldır.'],
-      variants: [other('Bir cümlənin mənası yerində deyil.', ex('He is fine. — O (kişi) yaxşıdır.; She is OK. — O (qadın) normaldır.; I\'m not very well. — Mən çox yaxşı deyiləm.', 'He kişi, she qadın haqqındadır; fine və OK da fərqlidir.', 'He is fine. — kişi; She is fine. — qadın.', 'She is OK. He is fine.'))],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('He is fine. — O (kişi) yaxşıdır.; She is OK. — O (qadın) normaldır.; I\'m not great. — Mən çox yaxşı deyiləm.', 'He kişi, she qadın haqqındadır; fine və OK da fərqlidir.', 'He is fine. — kişi; She is fine. — qadın.', 'She is OK. He is fine.'))],
       review: {
         title: 'Kim nə dedi?', why: 'He və she fərqini tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
         prompt: 'Qatarda iki yeni tanış yol yoldaşları haqqında danışır.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'She is fine.', az: 'O (qadın) yaxşıdır.', from: 'other' }, { en: 'He is not very well.', az: 'O (kişi) çox yaxşı deyil.', from: 'other' }, { en: 'He is OK.', az: 'O (kişi) normaldır.', from: 'B' }],
+        rows: [{ en: 'She is fine.', az: 'O (qadın) yaxşıdır.', from: 'other' }, { en: 'He is not great.', az: 'O (kişi) çox yaxşı deyil.', from: 'other' }, { en: 'He is OK.', az: 'O (kişi) normaldır.', from: 'B' }],
         extra: ['O (qadın) çox yaxşı deyil.'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex('She is fine. — O (qadın) yaxşıdır.; He is not very well. — O (kişi) çox yaxşı deyil.; He is OK. — O (kişi) normaldır.', 'Birinci söz kimin haqqında olduğunu deyir.', 'He is OK. — kişi; She is OK. — qadın.', 'She is fine.'))],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex('She is fine. — O (qadın) yaxşıdır.; He is not great. — O (kişi) çox yaxşı deyil.; He is OK. — O (kişi) normaldır.', 'Birinci söz kimin haqqında olduğunu deyir.', 'He is OK. — kişi; She is OK. — qadın.', 'She is fine.'))],
       },
     },
     {

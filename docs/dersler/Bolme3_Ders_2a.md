@@ -197,7 +197,7 @@ Qeyd: Vurğu sondadır.
 
 **Tapşırıq:** Hava limanında pasport nəzarətində işçi soruşur. Hansı ölkədən olduğunu de.  
 **Səs:** What country are you from?  
-**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}\s*[.!]?(?:\s*and you\s*\??)?$/  
+**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}(?:\s*,\s*(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Ölkənin adından əvvəl “-dan” sözünü unutma.  
 **Düzgün olanda:** Hansı ölkədən olduğunu dedin.  
 - *İzah (başqa səhvdə):* Ölkədən əvvəl “from” lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-dan” şəkilçidir; ingiliscə ölkədən əvvəl ayrıca “from” gəlir. Qayda: I'm from Azerbaijan. — haradan; I'm fine. — hal. Nümunə: What country are you from? — I'm from Azerbaijan.  
@@ -208,7 +208,7 @@ Qeyd: Vurğu sondadır.
 
 **Tapşırıq:** Hostelin mətbəxində yeni tanış soruşur. Hansı ölkədən olduğunu de.  
 **Səs:** Hi! What country are you from?  
-**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}\s*[.!]?(?:\s*and you\s*\??)?$/  
+**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}(?:\s*,\s*(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Cavabı “mən” sözü ilə başla, ölkədən əvvəl “-dan” sözünü unutma.  
 **Düzgün olanda:** Hansı ölkədən olduğunu dedin.  
 - *İzah (başqa səhvdə):* Ölkədən əvvəl “from” lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-dan” şəkilçidir; ingiliscə ölkədən əvvəl ayrıca “from” gəlir. Qayda: I'm from Azerbaijan. — haradan; I'm fine. — hal. Nümunə: What country are you from? — I'm from Azerbaijan.  

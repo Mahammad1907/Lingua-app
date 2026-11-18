@@ -126,21 +126,21 @@ Qeyd: Y — “uay”, “ye” yox; Z Amerikada “zi”.
 ## Kart 10 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Elan hərfləri çox sürətlə deyir. Qız yanındakı işçidən xahiş edir. Hansı söz çatmır?  
-**Cümlə:** Sorry? ___ , please.  
-**Seçimlər:** Thanks / Slowly / Hello — **düzgün:** Slowly  
+**Cümlə:** Sorry? More ___ , please.  
+**Seçimlər:** thanks / slowly / hello — **düzgün:** slowly  
 **İpucu:** Bölmə 1, Dərs 7: çox sürətli danışanda nə xahiş edirdin?  
-**Düzgün olanda:** Slowly, please. — yavaş, zəhmət olmasa.  
-- *İzah (“Thanks” seçiləndə):* “Thanks” təşəkkürdür, xahiş deyil. — Uyğun: Slowly. Səbəb: Elan çox sürətli idi — yavaş deməyi xahiş edir. Qayda: Sorry? Slowly, please. — xahiş; Thanks! — təşəkkür. Nümunə: Sorry? Slowly, please.  
-- *İzah (“Hello” seçiləndə):* “Hello” salamdır. — Uyğun: Slowly. Səbəb: Burada salam yox, yavaş deməyi xahiş lazımdır. Qayda: Sorry? Slowly, please. — xahiş; Hello! — salam. Nümunə: Sorry? Slowly, please.  
+**Düzgün olanda:** More slowly, please. — yavaş, zəhmət olmasa.  
+- *İzah (“thanks” seçiləndə):* “Thanks” təşəkkürdür, xahiş deyil. — Uyğun: slowly. Səbəb: Elan çox sürətli idi — yavaş deməyi xahiş edir. Qayda: Sorry? More slowly, please. — xahiş; Thanks! — təşəkkür. Nümunə: Sorry? More slowly, please.  
+- *İzah (“hello” seçiləndə):* “Hello” salamdır. — Uyğun: slowly. Səbəb: Burada salam yox, yavaş deməyi xahiş lazımdır. Qayda: Sorry? More slowly, please. — xahiş; Hello! — salam. Nümunə: Sorry? More slowly, please.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qız elanda kodu eşidib təkrar edir və yoxlayır. Hansı söz çatmır?  
 **Cümlə:** H, K, G. Is that ___ ?  
-**Seçimlər:** right / well / name — **düzgün:** right  
+**Seçimlər:** right / great / name — **düzgün:** right  
 **İpucu:** Dərs 2-də nömrəni yoxlayanda hansı sual verilirdi?  
 **Düzgün olanda:** Is that right? — düzdür?  
-- *İzah (“well” seçiləndə):* “well” halı bildirir. — Uyğun: right. Səbəb: Yoxlayanda “right” deyilir. Qayda: Is that right? — düzdür?; I'm not very well. — hal. Nümunə: H, K, G. Is that right?  
+- *İzah (“great” seçiləndə):* “great” halı bildirir. — Uyğun: right. Səbəb: Yoxlayanda “right” deyilir. Qayda: Is that right? — düzdür?; I'm not great. — hal. Nümunə: H, K, G. Is that right?  
 - *İzah (“name” seçiləndə):* “name” addır. — Uyğun: right. Səbəb: Yoxlayanda “right” deyilir. Qayda: Is that right? — düzdür?; What's your name? — ad. Nümunə: H, K, G. Is that right?  
 
 ## Kart 11 — Səslə cavab: Adını hərf-hərf de

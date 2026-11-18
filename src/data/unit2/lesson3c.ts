@@ -1,5 +1,5 @@
 // Bölmə 2 · Dərs 3 · 3-cü hissə — O K (OK), H D (HD), Q R (QR), Y Z; hərfləri özün deyirsən: səsli hərflər, kod, öz adın.
-// Spiral: Sorry? Slowly, please. (Bölmə 1), Is that right? (Dərs 2). Sonda A/E cüt məşqi.
+// Spiral: Sorry? More slowly, please. (Bölmə 1), Is that right? (Dərs 2). Sonda A/E cüt məşqi.
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
 import { NAME, NAME_SPELLED, notices, own, resultTexts, said, spelled } from './shared';
@@ -128,22 +128,22 @@ export const lesson3c: DesignLesson = {
     {
       type: 'choice', id: 'u2d3c_c10', number: 10,
       title: "Sözü tamamla",
-      why: "Slowly, please. — yavaş, zəhmət olmasa.",
+      why: "More slowly, please. — yavaş, zəhmət olmasa.",
       hint: "Bölmə 1, Dərs 7: çox sürətli danışanda nə xahiş edirdin?",
       prompt: "Elan hərfləri çox sürətlə deyir. Qız yanındakı işçidən xahiş edir.\nHansı söz çatmır?",
-      gap: {"speaker": "G", "before": "Sorry?", "after": ", please."},
-      options: ["Thanks", "Slowly", "Hello"],
-      answer: "Slowly",
-      variants: [pick("Thanks", "“Thanks” təşəkkürdür, xahiş deyil.", ex("Slowly", "Elan çox sürətli idi — yavaş deməyi xahiş edir.", "Sorry? Slowly, please. — xahiş; Thanks! — təşəkkür.", "Sorry? Slowly, please.")), pick("Hello", "“Hello” salamdır.", ex("Slowly", "Burada salam yox, yavaş deməyi xahiş lazımdır.", "Sorry? Slowly, please. — xahiş; Hello! — salam.", "Sorry? Slowly, please."))],
+      gap: {"speaker": "G", "before": "Sorry? More", "after": ", please."},
+      options: ["thanks", "slowly", "hello"],
+      answer: "slowly",
+      variants: [pick("thanks", "“Thanks” təşəkkürdür, xahiş deyil.", ex("slowly", "Elan çox sürətli idi — yavaş deməyi xahiş edir.", "Sorry? More slowly, please. — xahiş; Thanks! — təşəkkür.", "Sorry? More slowly, please.")), pick("hello", "“Hello” salamdır.", ex("slowly", "Burada salam yox, yavaş deməyi xahiş lazımdır.", "Sorry? More slowly, please. — xahiş; Hello! — salam.", "Sorry? More slowly, please."))],
       review: {
         title: "Sözü tamamla",
         why: "Is that right? — düzdür?",
         hint: "Dərs 2-də nömrəni yoxlayanda hansı sual verilirdi?",
         prompt: "Qız elanda kodu eşidib təkrar edir və yoxlayır.\nHansı söz çatmır?",
         gap: {"speaker": "G", "before": "H, K, G. Is that", "after": "?"},
-        options: ["right", "well", "name"],
+        options: ["right", "great", "name"],
         answer: "right",
-        variants: [pick("well", "“well” halı bildirir.", ex("right", "Yoxlayanda “right” deyilir.", "Is that right? — düzdür?; I'm not very well. — hal.", "H, K, G. Is that right?")), pick("name", "“name” addır.", ex("right", "Yoxlayanda “right” deyilir.", "Is that right? — düzdür?; What's your name? — ad.", "H, K, G. Is that right?"))],
+        variants: [pick("great", "“great” halı bildirir.", ex("right", "Yoxlayanda “right” deyilir.", "Is that right? — düzdür?; I'm not great. — hal.", "H, K, G. Is that right?")), pick("name", "“name” addır.", ex("right", "Yoxlayanda “right” deyilir.", "Is that right? — düzdür?; What's your name? — ad.", "H, K, G. Is that right?"))],
       },
     },
     {

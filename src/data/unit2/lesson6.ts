@@ -172,9 +172,9 @@ export const lesson6: DesignLesson = {
       review: {
         title: 'Söhbəti sırala', why: 'Sual, ünvan, xahiş və yavaş təkrar düz sıradadır.', hint: 'Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?',
         prompt: 'Kursda e-poçt mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "Excuse me, what's your email?", from: 'G' }, { en: '2', az: "It's B-A-K-U nine at mail dot com.", from: 'B' }, { en: '3', az: 'Sorry? Slowly, please.', from: 'G' }, { en: '4', az: 'B… A… K… U… nine at mail dot com.', from: 'B' }],
+        rows: [{ en: '1', az: "Excuse me, what's your email?", from: 'G' }, { en: '2', az: "It's B-A-K-U nine at mail dot com.", from: 'B' }, { en: '3', az: 'Sorry? More slowly, please.', from: 'G' }, { en: '4', az: 'B… A… K… U… nine at mail dot com.', from: 'B' }],
         extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? Slowly, please. → B… A… K… U…", 'Ünvanı çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi.', 'Slowly, please. — sürətli idi; Again, please. — eşitmədin.', 'Sorry? Slowly, please.'))],
+        variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? More slowly, please. → B… A… K… U…", 'Ünvanı çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi.', 'More slowly, please. — sürətli idi; Say that again, please. — eşitmədin.', 'Sorry? More slowly, please.'))],
       },
     },
   ],

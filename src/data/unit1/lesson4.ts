@@ -1,4 +1,4 @@
-// Bölmə 1 · Dərs 4 — Necəsən? (How are you? I'm fine / OK, thanks. And you?). Recognition only: I'm not very well.
+// Bölmə 1 · Dərs 4 — Necəsən? (How are you? I'm fine / OK, thanks. And you?). Recognition only: I'm not great.
 // Spiral: Hello + name, Nice to meet you.
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, goal, insteadOf, other, pick } from './build';
@@ -56,22 +56,22 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'word', id: 'd4_c04c', number: 6, scenes: ['d4/word-not-well'],
-      word: "I'm not very well.", pronunciation: '/aɪm nɑt ˈveri wel/', reading: 'aym nat veri uel', az: 'Çox yaxşı deyiləm.',
+      word: "I'm not great.", pronunciation: '/aɪm nɑt ɡreɪt/', reading: 'aym nat greyt', az: 'Çox yaxşı deyiləm.',
       notes: ['not am-dan sonra gəlir: I am not → I’m not.'],
-      example: "How are you? — I'm not very well.", exampleAz: 'Necəsən? — Çox yaxşı deyiləm.',
+      example: "How are you? — I'm not great.", exampleAz: 'Necəsən? — Çox yaxşı deyiləm.',
     },
     {
-      type: 'choice', id: 'd4_c05', number: 5, title: 'Dinlə və anla', why: 'I’m not very well — Çox yaxşı deyiləm.',
-      prompt: 'Qızın cavabını dinlə.\nO necədir?', audio: "I'm not very well.", options: ['Yaxşıdır.', 'Çox yaxşı deyil.', 'Adını deyir.'], answer: 'Çox yaxşı deyil.',
+      type: 'choice', id: 'd4_c05', number: 5, title: 'Dinlə və anla', why: 'I’m not great — Çox yaxşı deyiləm.',
+      prompt: 'Qızın cavabını dinlə.\nO necədir?', audio: "I'm not great.", options: ['Yaxşıdır.', 'Çox yaxşı deyil.', 'Adını deyir.'], answer: 'Çox yaxşı deyil.',
       hint: 'Səsdə “not” sözü varmı, ona qulaq as.', hintAssists: true,
       variants: [
-        pick('Yaxşıdır.', 'Səsdə “fine” yox, “not very well” deyilir.', ex('Çox yaxşı deyil.', 'Səsdə I’m not very well deyilir.', 'I’m fine — Yaxşıyam; I’m not very well — Çox yaxşı deyiləm.', 'I’m fine. — Yaxşıyam. / I’m not very well. — Çox yaxşı deyiləm.')),
-        pick('Adını deyir.', 'Ad deyilmir, hal deyilir.', ex('Çox yaxşı deyil.', '“I’m”-dən sonra ad yox, “not very well” gəlir.', 'I’m + hal = necə olduğunu demək.', 'I’m fine, thanks.')),
+        pick('Yaxşıdır.', 'Səsdə “fine” yox, “not great” deyilir.', ex('Çox yaxşı deyil.', 'Səsdə I’m not great deyilir.', 'I’m fine — Yaxşıyam; I’m not great — Çox yaxşı deyiləm.', 'I’m fine. — Yaxşıyam. / I’m not great. — Çox yaxşı deyiləm.')),
+        pick('Adını deyir.', 'Ad deyilmir, hal deyilir.', ex('Çox yaxşı deyil.', '“I’m”-dən sonra ad yox, “not great” gəlir.', 'I’m + hal = necə olduğunu demək.', 'I’m fine, thanks.')),
       ],
       review: {
         title: 'Dinlə və anla', why: '“fine” — yaxşı.', prompt: 'Oğlanın cavabını dinlə.\nO necədir?', audio: "I'm fine, thanks.",
         options: ['Çox yaxşı deyil.', 'Yaxşıdır.', 'Sağollaşır.'], answer: 'Yaxşıdır.', hint: 'Səsdə “not” sözü varmı, ona qulaq as.', hintAssists: true,
-        variants: [other('Səsdə “fine” deyilir.', ex('Yaxşıdır.', '“I’m fine, thanks” — “Yaxşıyam, sağ ol” deməkdir, burada “not” yoxdur.', 'I’m fine — Yaxşıyam; I’m not very well — Çox yaxşı deyiləm.', 'I’m fine, thanks.'))],
+        variants: [other('Səsdə “fine” deyilir.', ex('Yaxşıdır.', '“I’m fine, thanks” — “Yaxşıyam, sağ ol” deməkdir, burada “not” yoxdur.', 'I’m fine — Yaxşıyam; I’m not great — Çox yaxşı deyiləm.', 'I’m fine, thanks.'))],
       },
     },
     {
@@ -91,9 +91,9 @@ export const lesson4: DesignLesson = {
       variants: [other('Söhbətin sırası düz deyil.', ex("Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'How are you? — sual; I’m fine, thanks. And you? — cavab və qayıdan sual.', "Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!"))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab və ona reaksiya düz sıradadır.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.', prompt: 'Oğlan və qız dərsdən sonra görüşür.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Hello! How are you?', from: 'B' }, { en: '2', az: "I'm not very well. And you?", from: 'G' }, { en: '3', az: "I'm fine, thanks.", from: 'B' }],
+        rows: [{ en: '1', az: 'Hello! How are you?', from: 'B' }, { en: '2', az: "I'm not great. And you?", from: 'G' }, { en: '3', az: "I'm fine, thanks.", from: 'B' }],
         extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("Hello! How are you? → I'm not very well. And you? → I'm fine, thanks.", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'How are you? — sual; I’m not very well. And you? — cavab və qayıdan sual.', "Hello! How are you? → I'm not very well. And you? → I'm fine, thanks."))],
+        variants: [other('Söhbətin sırası düz deyil.', ex("Hello! How are you? → I'm not great. And you? → I'm fine, thanks.", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'How are you? — sual; I’m not great. And you? — cavab və qayıdan sual.', "Hello! How are you? → I'm not great. And you? → I'm fine, thanks."))],
       },
     },
     {
@@ -168,7 +168,7 @@ export const lesson4: DesignLesson = {
     { word: 'How are you?', translation: 'Necəsən?', example: 'Hi! How are you?', exampleAz: 'Salam! Necəsən?', usageNote: 'Salamdan sonra soruşulur.', pronunciation: '/haʊ ɑr ju/', teachCard: 'd4_c03' },
     { word: "I'm fine", translation: 'Yaxşıyam', example: "I'm fine, thanks.", exampleAz: 'Yaxşıyam, sağ ol.', usageNote: '“I’m OK” da olar.', pronunciation: '/aɪm faɪn/', teachCard: 'd4_c04' },
     { word: 'And you?', translation: 'Bəs sən?', example: "I'm OK. And you?", exampleAz: 'Normalam. Bəs sən?', usageNote: 'Sualı geri qaytarır.', pronunciation: '/ænd ju/', teachCard: 'd4_c04' },
-    { word: "I'm not very well", translation: 'Çox yaxşı deyiləm', example: "I'm not very well.", exampleAz: 'Çox yaxşı deyiləm.', usageNote: 'Pis olanda deyilir.', pronunciation: '/aɪm nɑt ˈveri wel/', teachCard: 'd4_c04c' },
+    { word: "I'm not great", translation: 'Çox yaxşı deyiləm', example: "I'm not great.", exampleAz: 'Çox yaxşı deyiləm.', usageNote: 'Pis olanda deyilir.', pronunciation: '/aɪm nɑt ɡreɪt/', teachCard: 'd4_c04c' },
     { word: "I'm OK", translation: 'Normalam', example: "How are you? — I'm OK.", exampleAz: 'Necəsən? — Normalam.', usageNote: '“I’m fine” ilə yaxındır.', pronunciation: '/aɪm oʊˈkeɪ/', teachCard: 'd4_c04b' },
   ],
 };

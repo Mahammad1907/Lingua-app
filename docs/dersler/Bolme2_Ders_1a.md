@@ -134,7 +134,7 @@ Qeyd: five “v” ilə bitir: fayv.
 ## Kart 10 — Səslə cavab: Mərtəbəni de
 
 **Tapşırıq:** Liftdə düymələr qonşunun tərəfindədir. Sən 2-ci mərtəbəyə gedirsən. Nəzakətlə xahiş et.  
-**Qəbul:** dəqiq: Excuse me, two, please. / Two, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:two|2)[,.!]?\s*please[.!]?$/  
+**Qəbul:** dəqiq: Excuse me, two, please. / Two, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:floor\s+)?(?:two|2)(?:\s+(?:floor|tickets?))?[,.!]?\s*(?:please|thanks|thank you)[.!]?$/  
 **İpucu:** Əvvəl diqqəti çək, sonra rəqəmi de və xahişi nəzakətli et.  
 **Düzgün olanda:** Rəqəmi dedin və nəzakətlə xahiş etdin.  
 - *İzah (başqa səhvdə):* Rəqəm + please. — Uyğun: Excuse me, two, please. Səbəb: Sənə 2-ci mərtəbə lazımdır: rəqəmi de və “please” əlavə et. Qayda: Two, please. — iki; Three, please. — üç. Nümunə: Excuse me, two, please.  
@@ -142,7 +142,7 @@ Qeyd: five “v” ilə bitir: fayv.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Ofis liftində 5-ci mərtəbəyə gedirsən, düymələr yanındakı adamın tərəfindədir. Nəzakətlə xahiş et.  
-**Qəbul:** dəqiq: Excuse me, five, please. / Five, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:five|5)[,.!]?\s*please[.!]?$/  
+**Qəbul:** dəqiq: Excuse me, five, please. / Five, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:floor\s+)?(?:five|5)(?:\s+(?:floor|tickets?))?[,.!]?\s*(?:please|thanks|thank you)[.!]?$/  
 **İpucu:** Əvvəl diqqəti çək, sonra rəqəmi de və xahişi nəzakətli et.  
 **Düzgün olanda:** Rəqəmi dedin və nəzakətlə xahiş etdin.  
 - *İzah (başqa səhvdə):* Rəqəm + please. — Uyğun: Excuse me, five, please. Səbəb: Sənə 5-ci mərtəbə lazımdır: rəqəmi de və “please” əlavə et. Qayda: Five, please. — beş; Four, please. — dörd. Nümunə: Excuse me, five, please.  
@@ -150,18 +150,18 @@ Qeyd: five “v” ilə bitir: fayv.
 ## Kart 11 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Liftdə səs-küy var. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Excuse me. Four, please. → 2. Sorry? Again, please. → 3. Four, please. Thank you! → 4. You're welcome.  
+**Düzgün sıra:** 1. Excuse me. Four, please. → 2. Sorry? Say that again, please. → 3. Four, please. Thank you! → 4. You're welcome.  
 **İpucu:** Düşün: eşitməyən nə deyir və bundan sonra nə olur?  
 **Düzgün olanda:** Xahiş, təkrar, təşəkkür və cavab düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me. Four, please. → Sorry? Again, please. → Four, please. Thank you! → You're welcome. Səbəb: Oğlan eşitmədi və təkrar istədi; qız yenə dedi və təşəkkür etdi. Qayda: Sorry? Again, please. — eşitmədin; Thank you! — You're welcome. Nümunə: Sorry? Again, please.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me. Four, please. → Sorry? Say that again, please. → Four, please. Thank you! → You're welcome. Səbəb: Oğlan eşitmədi və təkrar istədi; qız yenə dedi və təşəkkür etdi. Qayda: Sorry? Say that again, please. — eşitmədin; Thank you! — You're welcome. Nümunə: Sorry? Say that again, please.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Kafedə səs-küy var. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hello! One tea, please. → 2. Sorry? Again, please. → 3. One tea, please. Thank you! → 4. You're welcome.  
+**Düzgün sıra:** 1. Hello! One tea, please. → 2. Sorry? Say that again, please. → 3. One tea, please. Thank you! → 4. You're welcome.  
 **İpucu:** Düşün: eşitməyən nə deyir və bundan sonra nə olur?  
 **Düzgün olanda:** Sifariş, təkrar, təşəkkür və cavab düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! One tea, please. → Sorry? Again, please. → One tea, please. Thank you! → You're welcome. Səbəb: Qız eşitmədi və təkrar istədi; sifariş yenə deyildi. Qayda: Sorry? Again, please. — eşitmədin; Thank you! — You're welcome. Nümunə: One tea, please.  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! One tea, please. → Sorry? Say that again, please. → One tea, please. Thank you! → You're welcome. Səbəb: Qız eşitmədi və təkrar istədi; sifariş yenə deyildi. Qayda: Sorry? Say that again, please. — eşitmədin; Thank you! — You're welcome. Nümunə: One tea, please.  
 
 ## Kart 12 — Yaz: Dinlə və yaz
 
