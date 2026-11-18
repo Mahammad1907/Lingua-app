@@ -9,7 +9,7 @@ Versiya 1 · 14 noyabr 2026 · Status: **istifadəçi təsdiqi gözlənilir** (q
 ## 0. Təsdiqlənmiş quruluş qərarları (14 noyabr 2026)
 
 1. **Xəritədə sabit 8 dərs.** Ana səhifədə "Bölmə 2 · Dərs 1–8". Material çox olanda dərs **2 hissəyə** bölünür (halqa 2 yerə bölünür, kartda "1-ci hissə · 2-ci hissə"); xəritə uzanmır. Hər hissə adi dərs ölçüsündədir (11–14 kart).
-2. **Bölmə imtahanı** — 8-ci dərsdən sonra bayraqlı ayrıca düymə, dərs sayılmır. Kömək və ipucu yoxdur; 12–15 tapşırıq, dinlə + oxu + yaz + danış, hər dərsdən ən azı biri; keçid ≥80%; keçməyəndə səhv bacarıqlar təkrara düşür, imtahan yenidən verilə bilər; nəticədə hər "edə bilirəm" ayrıca.
+2. **Bölmə imtahanı** — 8-ci dərsdən sonra bayraqlı ayrıca düymə, dərs sayılmır. Kömək və ipucu yoxdur; 12–15 tapşırıq, dinlə + oxu + yaz + danış, hər dərsdən ən azı biri; keçid ≥70%; keçməyəndə səhv bacarıqlar təkrara düşür, imtahan yenidən verilə bilər; nəticədə hər "edə bilirəm" ayrıca.
 3. **Yeni söz sayı:** A1-də bir dərsdə (hissədə) **4–6 yeni vahid**. Hazır ifadə bir vahid sayılır. Nümunə (pattern) ilə öyrədilən qrup (məs. "-teen") bir vahid sayılır.
 4. **Yeni ekranlar** lazım olanda yaradılır, əvvəlcə maket (B17).
 5. Vəd/iddia mətni yoxdur (istifadəçi qərarı).

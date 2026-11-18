@@ -637,7 +637,7 @@ function lessonLabel(lesson: Lesson) {
 }
 
 /** Exam score: only verified first answers count (Expo Go cannot check speech — those stay “Yoxlanmadı”).
- *  Pass = at least 80 % of the verified answers, and at least 60 % of the tasks verified. */
+ *  Pass = at least 70 % of the verified answers, and at least 60 % of the tasks verified. */
 export function examScore(lesson: Lesson, records: Record<string, TaskRecord>) {
   const ids = lessonTaskIds(lesson).required.concat(lessonTaskIds(lesson).optional);
   const verified = ids.filter(id => records[id]?.first);
@@ -661,7 +661,7 @@ function ExamResult({ lesson, records, finish }: { lesson: Lesson; records: Reco
     <View style={[s.examScore, { borderColor: tone }]}>
       <Icon name="flag" size={30} color={tone} />
       <Text style={[s.examPct, { color: tone }]}>{score.enough ? `${score.percent}%` : '—'}</Text>
-      <Text style={[ds.strong, { color: tone, textAlign: 'center' }]}>{!score.enough ? 'Nəticə yoxlanmadı' : score.passed ? 'İmtahandan keçdin' : 'Hələ keçmədin — 80% lazımdır'}</Text>
+      <Text style={[ds.strong, { color: tone, textAlign: 'center' }]}>{!score.enough ? 'Nəticə yoxlanmadı' : score.passed ? 'İmtahandan keçdin' : 'Hələ keçmədin — 70% lazımdır'}</Text>
       <Text style={[ds.small, { textAlign: 'center' }]}>{score.enough ? `${score.verified} yoxlanan cavabdan ${score.correct}-i düzgündür.` : 'Çox tapşırıq yoxlanmadı (səs və ya keçid). Yenidən cəhd et.'}</Text>
     </View>
     {lesson.result.goals.map(g => {

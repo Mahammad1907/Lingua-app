@@ -72,7 +72,7 @@ Bir dərsdə (hissədə) 4–6 yeni vahid. Hər yeni söz kartında söz-söz iz
 - **Məkan:** dil klubunun ziyafəti.
 
 ### Bölmə imtahanı
-Bölmə 2 §0.2 qaydası ilə (Kömək yox, 12–15 tapşırıq, keçid ≥80%).
+Bölmə 2 §0.2 qaydası ilə (Kömək yox, 12–15 tapşırıq, keçid ≥70%).
 
 ## 3. CEFR A1 təsvirləri (əsaslanır, sertifikat deyil)
 - Haradan olduğunu, harada yaşadığını soruşub demək.
