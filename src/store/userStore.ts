@@ -6,6 +6,7 @@ import { getLessonActivities } from '../data/lessonActivities';
 import { lessons } from '../data/lessons';
 import { getAllModules } from '../data/modules';
 import type { LessonProgress, PlacementResult } from '../data/types';
+import { addAttempt, bestAttempt, type ExamHistory } from '../utils/examResults';
 import { moduleHasContent, moduleTest, moduleUnlocked } from '../utils/moduleAccess';
 import { localDay, LESSON_XP, MAX_ENERGY, previousDay, type LessonAttempt, type RewardReceipt, type RewardRecord } from '../utils/rewards';
 
@@ -20,6 +21,8 @@ interface UserData {
   lessonPartial: Record<string, number>;
   /** Best result of each section exam on the new screens (lesson id → percent, passed at ≥80 %). */
   sectionExams: Record<string, { percent: number; passed: boolean; at: string }>;
+  /** Every attempt of each section exam (lesson id → attempts, last 20), best one is in sectionExams. */
+  examHistory: ExamHistory;
 }
 interface UserState extends UserData {
   hydrated: boolean; storageError: string | null;
@@ -43,7 +46,7 @@ interface UserState extends UserData {
   hasPassedPlacement: (id: string) => boolean;
 }
 const initial: UserData = { xp: 0, streak: 0, hearts: MAX_ENERGY, level: 'A1', lastPlayedDate: null,
-  completedLessons: [], lessonProgress: [], placementResults: [], rewards: {}, lastQualifiedDay: null, streakStart: null, lessonPartial: {}, sectionExams: {} };
+  completedLessons: [], lessonProgress: [], placementResults: [], rewards: {}, lastQualifiedDay: null, streakStart: null, lessonPartial: {}, sectionExams: {}, examHistory: {} };
 let writes: Promise<void> = Promise.resolve();
 let hydration: Promise<void> | undefined;
 let sequence = 0;
@@ -72,7 +75,8 @@ export const useUserStore = create<UserState>((set, get) => ({
             rewards, lastQualifiedDay: saved.lastQualifiedDay ?? null, streakStart: saved.streakStart ?? null,
             streak: saved.lastQualifiedDay ? saved.streak ?? 0 : 0, lastPlayedDate: saved.lastPlayedDate ?? null,
             lessonPartial: saved.lessonPartial && typeof saved.lessonPartial === 'object' ? saved.lessonPartial : {},
-            sectionExams: saved.sectionExams && typeof saved.sectionExams === 'object' ? saved.sectionExams : {} });
+            sectionExams: saved.sectionExams && typeof saved.sectionExams === 'object' ? saved.sectionExams : {},
+            examHistory: saved.examHistory && typeof saved.examHistory === 'object' ? saved.examHistory : {} });
         }
         set({ hydrated: true, storageError: null }); get().checkDailyStreak();
       } catch { set({ storageError: 'İrəliləyiş oxunmadı. Tətbiqi yenidən açaraq cəhd et.' }); hydration = undefined; }
@@ -82,10 +86,10 @@ export const useUserStore = create<UserState>((set, get) => ({
   saveToStorage: () => {
     if (!get().hydrated) return Promise.reject(new Error('İrəliləyiş hələ yüklənməyib.'));
     const { xp, hearts, level, streak, lastPlayedDate, completedLessons, lessonProgress, placementResults,
-      rewards, lastQualifiedDay, streakStart, lessonPartial, sectionExams } = get();
+      rewards, lastQualifiedDay, streakStart, lessonPartial, sectionExams, examHistory } = get();
     // Rewards, completion and unlocks are one atomic value; writes cannot overtake one another.
     const snapshot = JSON.stringify({ rewardVersion: 1, xp, hearts, level, streak, lastPlayedDate,
-      completedLessons, lessonProgress, placementResults, rewards, lastQualifiedDay, streakStart, lessonPartial, sectionExams });
+      completedLessons, lessonProgress, placementResults, rewards, lastQualifiedDay, streakStart, lessonPartial, sectionExams, examHistory });
     const write = writes.catch(() => {}).then(() => AsyncStorage.setItem(STORAGE_KEY, snapshot)); writes = write;
     return write.then(() => { set({ storageError: null }); }, (error: unknown) => {
       set({ storageError: 'İrəliləyiş saxlanmadı. Yenidən cəhd et.' }); throw error;
@@ -107,7 +111,7 @@ export const useUserStore = create<UserState>((set, get) => ({
   resetAll: () => { set({ ...initial, attempts: {}, receipts: {} }); void get().saveToStorage().catch(() => {}); },
   beginLesson: (lessonId, mode = 'session', recallIds = [], taskIds) => {
     const lesson = lessons.find((l) => l.id === lessonId);
-    if (!get().hydrated || !lesson || !moduleUnlocked(lesson.moduleId, get().completedLessons, get().placementResults)) return '';
+    if (!get().hydrated || !lesson || !moduleUnlocked(lesson.moduleId, get().completedLessons, get().placementResults, get().sectionExams)) return '';
     const session = mode === 'session' ? getShortSession(lessonId) : undefined;
     const activities = mode === 'practice' ? getLessonActivities(lessonId) : undefined;
     const expected = lesson.exercises.map((e) => e.id);
@@ -202,10 +206,10 @@ export const useUserStore = create<UserState>((set, get) => ({
     finishing.set(id, operation); void operation.finally(() => finishing.delete(id)).catch(() => {}); return operation;
   },
   saveSectionExam: (lessonId, percent, passed) => {
-    const prior = get().sectionExams[lessonId];
-    // Keep the best attempt: a later, weaker attempt never takes a pass away.
-    if (prior && (prior.passed && !passed || prior.percent >= percent && prior.passed === passed)) return;
-    set((s) => ({ sectionExams: { ...s.sectionExams, [lessonId]: { percent, passed, at: new Date().toISOString() } } }));
+    // Every attempt is kept in examHistory; sectionExams holds the best one (a later, weaker attempt never takes a pass away).
+    const attempt = { percent, passed, at: new Date().toISOString() };
+    set((s) => ({ examHistory: addAttempt(s.examHistory ?? {}, lessonId, attempt),
+      sectionExams: { ...s.sectionExams, [lessonId]: bestAttempt(s.sectionExams[lessonId], attempt) } }));
     void get().saveToStorage().catch(() => {});
   },
   claimReceipt: (id) => {

@@ -21,9 +21,10 @@ export default function StartingPlan() {
   const showPractice = !paged || planPage === 1;
   const completed = useUserStore(state => state.completedLessons);
   const placements = useUserStore(state => state.placementResults);
+  const sectionExams = useUserStore(state => state.sectionExams);
   const goal = goals.find(g => g.id === p.preferences.goal)!;
   const availableModule = getAllModules().find(m => m.language === p.language && m.level === p.storedLevel
-    && moduleUnlocked(m.id, completed, placements) && m.lessonIds.some(id => getLessonById(id) && !completed.includes(id)));
+    && moduleUnlocked(m.id, completed, placements, sectionExams) && m.lessonIds.some(id => getLessonById(id) && !completed.includes(id)));
   const lesson = availableModule?.lessonIds.map(getLessonById).find(l => l && !completed.includes(l.id));
   const finish = () => void p.run(async () => {
     await p.save();

@@ -25,6 +25,7 @@ export default function Home() {
   const xp = useUserStore((s) => s.xp);
   const completedLessons = useUserStore((s) => s.completedLessons);
   const placementResults = useUserStore((s) => s.placementResults);
+  const sectionExams = useUserStore((s) => s.sectionExams);
   const [selection, setSelection] = useState({ language: 'en', level: LEVELS.includes(userLevel) ? userLevel : 'A1' });
   const [pickerOpen, setPickerOpen] = useState(false);
   const [lockedId, setLockedId] = useState<string | null>(null);
@@ -46,7 +47,7 @@ export default function Home() {
     return () => { cancelled = true; };
   }, []);
   const course = useMemo(() => buildHomeCourse({ modules, ...selection, completedLessons,
-    placementResults, availableLessonIds: AVAILABLE_LESSONS }), [modules, selection, completedLessons, placementResults]);
+    placementResults, sectionExams, availableLessonIds: AVAILABLE_LESSONS }), [modules, selection, completedLessons, placementResults, sectionExams]);
   function choose(language: string, level: string) {
     userSelected.current = true;
     const next = { language, level };

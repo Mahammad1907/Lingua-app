@@ -1,3 +1,5 @@
+import { examCleared, type SectionExams } from './examResults';
+import { sectionExamId } from './moduleAccess';
 import type { Module, PlacementResult } from '../data/types';
 import { TEST_OPEN_SECTIONS } from '../config/testAccess';
 export type HomeArtworkKey = 'fox' | 'identity' | 'family' | 'backpack' | 'house' | 'clock' | 'guitar' | 'headphones';
@@ -25,6 +27,8 @@ export function boundedPercent(part: number, total: number): number {
 export function buildHomeCourse(input: {
   modules: readonly Module[]; language: string; level: string; completedLessons: readonly string[];
   availableLessonIds: ReadonlySet<string>; placementResults: readonly PlacementResult[];
+  /** Section exam results (userStore.sectionExams): a section with an exam opens the next one only after it is passed. */
+  sectionExams?: SectionExams;
 }): HomeCourse {
   const modules = input.modules.filter((m) => m.language === input.language && m.level === input.level)
     .slice().sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
@@ -36,11 +40,13 @@ export function buildHomeCourse(input: {
     const available = ids.length > 0 && validIds.length === ids.length;
     const done = available && count === ids.length;
     const exam = input.placementResults.find((p) => p.moduleId === module.id);
-    return { module, ids, count, available, done, passed: exam?.passed === true,
-      examPercent: exam && exam.totalCount > 0 ? boundedPercent(exam.correctCount, exam.totalCount) : null };
+    const examId = sectionExamId(module.order);
+    const sectionExam = examId ? input.sectionExams?.[examId] : undefined;
+    return { module, ids, count, available, done, cleared: done && examCleared(examId, input.sectionExams), passed: exam?.passed === true,
+      examPercent: exam && exam.totalCount > 0 ? boundedPercent(exam.correctCount, exam.totalCount) : sectionExam?.percent ?? null };
   });
   // TEST_OPEN_SECTIONS: temporary test access (src/config/testAccess.ts), same rule as utils/moduleAccess.ts.
-  const unlocked = records.map((r, i) => r.available && (r.passed || TEST_OPEN_SECTIONS.includes(r.module.order) || records.slice(0, i).every((p) => p.done)));
+  const unlocked = records.map((r, i) => r.available && (r.passed || TEST_OPEN_SECTIONS.includes(r.module.order) || records.slice(0, i).every((p) => p.cleared)));
   let current = records.findIndex((r, i) => unlocked[i] && !r.done && !r.passed);
   if (current < 0) current = records.findIndex((r, i) => unlocked[i] && !r.done);
   const items: HomeModuleItem[] = records.map((r, i) => ({

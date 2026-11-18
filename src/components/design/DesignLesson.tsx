@@ -9,6 +9,7 @@ import { Alert, BackHandler, Keyboard, KeyboardAvoidingView, Platform, Pressable
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { DesignLesson as Lesson, IntroCard, TwoTask, Who } from '../../data/designLessonTypes';
 import { useUserStore } from '../../store/userStore';
+import { isPass } from '../../utils/examResults';
 import { useReviewStore } from '../../store/reviewStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 import {
@@ -643,12 +644,13 @@ export function examScore(lesson: Lesson, records: Record<string, TaskRecord>) {
   const correct = verified.filter(id => records[id]?.first === 'correct').length;
   const percent = verified.length ? Math.round(correct / verified.length * 100) : 0;
   const enough = ids.length > 0 && verified.length >= Math.ceil(ids.length * .6);
-  return { percent, correct, verified: verified.length, total: ids.length, enough, passed: enough && percent >= 80 };
+  return { percent, correct, verified: verified.length, total: ids.length, enough, passed: enough && isPass(percent) };
 }
 
 function ExamResult({ lesson, records, finish }: { lesson: Lesson; records: Record<string, TaskRecord>; finish: { completed: boolean } | null }) {
   const score = examScore(lesson, records);
   const saved = useRef(false);
+  const tries = useUserStore(st => st.examHistory?.[lesson.id]) ?? [];
   useEffect(() => {
     if (!finish || saved.current || !score.enough) return;
     saved.current = true; useUserStore.getState().saveSectionExam(lesson.id, score.percent, score.passed);
@@ -669,6 +671,7 @@ function ExamResult({ lesson, records, finish }: { lesson: Lesson; records: Reco
         <View style={[s.status, { borderColor: color[st] }]}><Text style={[s.statusText, { color: color[st] }]}>{st === 'independent' ? 'Bacarırsan' : st === 'needsPractice' ? 'Məşq lazımdır' : 'Yoxlanmadı'}</Text></View>
       </View>;
     })}
+    {tries.length > 1 ? <Text style={ds.small}>{`Cəhd ${tries.length} · ən yaxşı nəticə: ${Math.max(...tries.map(t => t.percent))}%`}</Text> : null}
     <Text style={ds.body}>{score.passed ? lesson.result.closing : '“Məşq lazımdır” yazılan bacarıqların dərslərinə qayıt, sonra imtahanı yenidən ver.'}</Text>
   </View>;
 }
