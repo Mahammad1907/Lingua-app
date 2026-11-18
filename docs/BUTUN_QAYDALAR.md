@@ -124,6 +124,16 @@ Ana dilli müəllim və real istifadəçi yoxlaması yoxdur. Ona görə təbiili
 5. **İstifadəçi düzəlişi.** Tətbiqdəki “Şikayət et” (`ReportSheet`) qeyri-təbii cümlələr üçün əsas kanaldır; buraxılışdan sonra gələn şikayətlər birinci sırada baxılır.
 6. **Hesabatda dürüstlük.** Bölmə təhvil verəndə “ana dilli yoxlamasından keçməyib” qeydi yazılır; belə yoxlama olmadan “təbiidir” deyilmir.
 
+## G3. Qərarlar — 18 Nov 2026 söhbəti (yeni söhbət bunları bilməlidir)
+- **Keçid balı 70%** (`src/utils/examResults.ts`); bölmə imtahanı keçilməyincə növbəti bölmə açılmır (`TEST_OPEN_SECTIONS` test üçün hələ açıqdır).
+- **Təkrar sistemi** 1/3/7/14 gün: `src/utils/spacedReview.ts`, `reviewStore.ts`, `reviewSession.ts`, ana səhifə “Gündəlik təkrar” kartı.
+- **Sinxron (Supabase)** buraxılışdan əvvələ saxlanılıb; ilk variant: yalnız “buluda saxla / yeni cihazda bərpa et”. **Səsləndirmə** və **şəkillər** sonda; səs: hər personaj üçün ayrıca TTS səsi, fayllar buludda (Duolingo yolu). Hamısı Bölmə 4-dən SONRA.
+- **Səs tanıma:** telefonun öz tanıması (`expo-speech-recognition`) əsasdır; Azure ehtiyatı qurulmayıb və hələlik lazım deyil. İstifadəçi iPhone + Expo Go işlədir (səs tanıma orada işləmir) və evdə Android telefonu var → səs sınağı Android development build ilə (EAS, pulsuz). Apple hesabı yoxdur.
+- **Real istifadəçi və ana dilli müəllim yoxlaması mümkün deyil** → G2 qaydaları məcburidir, bölmə təhvilində “ana dilli yoxlamasından keçməyib” yazılır.
+- **Dərslik təcrübəsi (A1) — nə öyrədilir:** ad soruşmaq “What's your name?” (+ “Nice to meet you.” adlardan SONRA); “Excuse me” yalnız diqqət çəkmək üçün (“Excuse me, how do you spell that?”); anlamayanda “Sorry?”, “Can you say that again, please?”, “Can you speak more slowly, please?”, “I don't understand.”; “I'm good / I'm fine, thanks. And you?”; “I'm not great.” (“not very well” ABŞ-da xəstəlik deməkdir). CEFR A1 cümlə siyahısı vermir, bacarığı təsvir edir; təbiilik üçün nəzakətli variant əsas, “Again, please.” yalnız qısa alternativdir.
+- **Gündəlik / rəsmi:** “Hi! What's your name?” gündəlik; “Excuse me, what's your name?” nəzakətli-rəsmi tərəfə yaxın; “Say that again, please.” gündəlik; “Could you say that again?” neytral-nəzakətli.
+- **Yoxlayıcı tapıntıları (Bölmə 1–3), hələ düzəldilməyənlər:** (1) “Excuse me, what's your name?” Dərs 6/7/imtahanda ad sualı kimi; (2) “Again, please.” / “Slowly, please.” (~80 yer) → “Can you say that again, please?” / “More slowly, please.”; (3) “Nice to meet you!” adlardan əvvəl (U1 Dərs 3 və 8); (4) “He is fine” → “He's fine” (Bölmə 3 Dərs 5, “is” öyrədildiyi üçün ehtiyatla); (5) Azərbaycan izahında “Nə dedin?” → “Bağışlayın?”; (6) Mr/Ms nöqtəsi (ABŞ: Mr. Ms.), “I'm not very well”, forma etiketi “How old are you?” (“Age” hələ öyrədilməyib — taught-before-asked). Düzəldilmişlər: commit 6442128.
+
 ## H. Mağazaya çıxmazdan əvvəl (audit — hələ edilməyib)
 
 Hesab silmə; məxfilik siyasəti və link; profildəki işləməyən düymələr (Premium, Kömək, ayarlar) və “Lingua App v0.1”; “ŞƏKİL” işarələri və boş AI söhbət gizlənsin; Azure səs tanıması üçün açıq razılıq (pilot endpoint buraxılışa getməsin); icazə mətnləri ingiliscə də; yaş 13+. Ətraflı: `docs/BEYNELXALQ_AUDIT_2026-11-14.md`.
