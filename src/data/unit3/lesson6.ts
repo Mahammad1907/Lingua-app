@@ -12,7 +12,7 @@ const fromBut = (from: string, live: string) =>
   said(String.raw`^i(?:'m|’m|\s+am)\s+from\s+${from.toLowerCase()}\s*,?\s+but\s+i\s+live\s+in\s+${live.toLowerCase()}\s*[.!]?$`, `I'm from ${from}, but I live in ${live}.`);
 const andNotBut = (answer: string): Variant => ({
   match: { pattern: String.raw`\band\s+i\s+live\b` }, short: 'Burada “amma” lazımdır — but.',
-  explain: ex(answer, 'Bir yerdənsən, amma başqa yerdə yaşayırsan — iki fərqli şey: but.', 'but I live — amma yaşayıram; and I live — və yaşayıram, burada yaraşmır.', "I'm from Ganja, but I live in Baku."),
+  explain: ex(answer, 'Bir yerdənsən, amma başqa yerdə yaşayırsan — iki fərqli şey: but.', 'Burada “amma” deyirik — but I live. (“and” də düzgündür, amma bu tapşırıq “amma” fərqini öyrədir.)', "I'm from Ganja, but I live in Baku."),
 });
 const whereLive = goal(['askLive'], ['Where do you live?']);
 const whereFrom = goal(['askFrom'], ['Where are you from?']);

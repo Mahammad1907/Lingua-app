@@ -5,7 +5,7 @@ import { ex, exact, other, pick } from '../unit1/build';
 import { notices, resultTexts, said } from './shared';
 
 const floor = (word: string, digit: string, ...answers: string[]) =>
-  said(String.raw`^(?:excuse me[,.!]?\s*)?(?:${word}|${digit})[,.!]?\s*please[.!]?$`, ...answers);
+  said(String.raw`^(?:excuse me[,.!]?\s*)?(?:floor\s+)?(?:${word}|${digit})(?:\s+(?:floor|tickets?))?[,.!]?\s*(?:please|thanks|thank you)[.!]?$`, ...answers);
 
 export const lesson1a: DesignLesson = {
   id: 'a1_en_b2_d1a', order: 10, unit: 2, number: 1, part: 1, title: 'Rəqəmlər 0–5', section: 'Şəxsi məlumat',

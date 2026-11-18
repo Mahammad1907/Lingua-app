@@ -7,7 +7,7 @@ import { PHONE_MISTAKES, notices, own, PHONE, resultTexts } from './shared';
 const askPhone = goal(['askPhone'], ["What's your phone number?"]);
 const yes = goal(['confirmYes'], ["Yes, that's right."]);
 /** “Is that right?”, optionally after the number read back (digits or words). */
-const check = own(String.raw`^(?:(?:[\d\s,.-]|zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine)+[.?]?\s*)?is (?:that|it) right\s*\??$`, 'Is that right?');
+const check = own(String.raw`^(?:(?:[\d\s,.-]|zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine)+[.?]?\s*)?is (?:that|it) (?:right|correct)\s*\??$`, 'Is that right?');
 const MY = "It's zero five zero, three two one, four five, six seven.";
 
 export const lesson2: DesignLesson = {

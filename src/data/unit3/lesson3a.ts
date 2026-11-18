@@ -9,7 +9,7 @@ const myNationality = own(NATIONALITY, "I'm Azerbaijani.");
 /** Typical mistakes when the nationality is asked: a country name, or “from” + country. */
 const NATIONALITY_MISTAKES: Variant[] = [
   { match: { pattern: String.raw`^(?:i'?m|i am)\s+(?!from\b)(?:azerbaijan|turkey|russia|georgia|iran|england|germany|france)\b` }, short: 'Ölkə yox, millət lazımdır.',
-    explain: ex("I'm Azerbaijani.", 'Azerbaijan ölkədir; millət üçün sonu -i olan söz lazımdır.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm from Azerbaijan. I'm Azerbaijani.") },
+    explain: ex("I'm Azerbaijani.", 'Azerbaijan ölkədir; millət üçün ayrıca millət sözü lazımdır (Azerbaijani, Turkish, Georgian).', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm from Azerbaijan. I'm Azerbaijani.") },
   { match: { pattern: String.raw`^(?:i'?m|i am)\s+from\b` }, short: 'Bu, haradan olduğundur; millətini de.',
     explain: ex("I'm Azerbaijani.", 'from ilə ölkəni deyirsən; millət from-suz deyilir.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm Turkish. — I'm Azerbaijani.") },
 ];

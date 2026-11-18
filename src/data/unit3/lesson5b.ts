@@ -10,7 +10,7 @@ const fromCountry = (who: 'he' | 'she', country: string) =>
   said(String.raw`^${who}(?:'s|’s|\s+is)\s+from\s+${country.toLowerCase()}\s*[.!]?$`, `${who === 'he' ? 'He' : 'She'}'s from ${country}.`);
 /** “No, she isn't.” (also “No, she is not.”), optionally followed by where she is from. */
 const noShort = (who: 'he' | 'she', then?: string) =>
-  said(String.raw`^no,?\s+${who}\s+(?:isn'?t|isn’t|is\s+not)\s*[.!]?${then ? String.raw`(?:\s*${who}(?:'s|’s|\s+is)\s+from\s+${then.toLowerCase()}\s*[.!]?)?` : ''}$`, `No, ${who} isn't.`);
+  said(String.raw`^no,?\s+${who}(?:\s+(?:isn'?t|isn’t|is\s+not)|(?:'s|’s)\s+not)\s*[.!]?${then ? String.raw`(?:\s*${who}(?:'s|’s|\s+is)\s+from\s+${then.toLowerCase()}\s*[.!]?)?` : ''}$`, `No, ${who} isn't.`);
 
 /** he ↔ she: Azerbaijani has one word, “o”. */
 const wrongPerson = (answer: string, right: 'he' | 'she'): Variant => ({

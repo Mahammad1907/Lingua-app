@@ -13,7 +13,7 @@ const NOT_NATIONALITY = String.raw`(?!(?:azerbaijani|turkish|russian|georgian|en
 const END = String.raw`\s*[.!]?`;
 
 /** Own origin: “I'm from Azerbaijan.” / “I'm from Baku.”, optionally “And you?”. “I'm Azerbaijan”, “I from …” are not accepted. */
-export const FROM = String.raw`^(?:i'?m|i am)\s+from\s+${NOT_NATIONALITY}${PLACE}${END}(?:\s*and you\s*\??)?$`;
+export const FROM = String.raw`^(?:i'?m|i am)\s+from\s+${NOT_NATIONALITY}${PLACE}(?:\s*,\s*${PLACE})?${END}(?:\s*and you\s*\??)?$`;
 /** Own origin plus the return question (“I'm from Ganja. And you?”). */
 export const FROM_RETURN = String.raw`^(?:i'?m|i am)\s+from\s+${NOT_NATIONALITY}${PLACE}\s*[.!,]?\s*(?:and you|where are you from)\s*\??$`;
 /** Own nationality: “I'm Azerbaijani.” (any nationality word; “Azeri” and country names are not accepted). */
@@ -21,7 +21,7 @@ export const NATIONALITY = String.raw`^(?:i'?m|i am)\s+(?!azeri\b)(?:azerbaijani
 /** Nationality written on a form: one word. */
 export const NATIONALITY_FIELD = String.raw`^(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|\p{L}+(?:ian|ish|ese))$`;
 /** Own city: “I live in Baku.” or “I live he(re).” (“I live at …”, “I'm live …” are not accepted). “he(?:re)” keeps the word out of check-taught's phrase scan (taught in Dərs 6). */
-export const LIVE = String.raw`^i\s+live\s+(?:in\s+(?!he(?:re)\b)${PLACE}|he(?:re))${END}$`;
+export const LIVE = String.raw`^i\s+live\s+(?:in\s+(?!he(?:re)\b)${PLACE}(?:\s*,\s*${PLACE})?|he(?:re))${END}$`;
 /** Origin and city together: “I'm from Ganja, but I live in Baku.” (also without “but”, as two sentences). */
 export const FROM_LIVE = String.raw`^(?:i'?m|i am)\s+from\s+${NOT_NATIONALITY}${PLACE}\s*[.,]?\s*(?:but\s+)?i\s+live\s+(?:in\s+(?!he(?:re)\b)${PLACE}|he(?:re))${END}$`;
 /** Language words (a language is the same word as the nationality). */

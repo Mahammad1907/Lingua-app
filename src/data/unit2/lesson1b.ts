@@ -5,7 +5,7 @@ import { ex, exact, goal, insteadOf, other, pick } from '../unit1/build';
 import { notices, resultTexts, said } from './shared';
 
 const numberPlease = (word: string, digit: string, ...answers: string[]) =>
-  said(String.raw`^(?:excuse me[,.!]?\s*)?(?:${word}|${digit})[,.!]?\s*please[.!]?$`, ...answers);
+  said(String.raw`^(?:excuse me[,.!]?\s*)?(?:floor\s+)?(?:${word}|${digit})(?:\s+(?:floor|tickets?))?[,.!]?\s*(?:please|thanks|thank you)[.!]?$`, ...answers);
 const welcome = goal(['welcome'], ["You're welcome."]);
 
 export const lesson1b: DesignLesson = {

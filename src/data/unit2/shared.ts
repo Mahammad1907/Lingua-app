@@ -29,7 +29,7 @@ const SEP = String.raw`[\s,.-]*`;
 /** Own phone number: “It's 050 321 45 67”, digits or number words (7–15). “My phone is …” is not accepted. */
 export const PHONE = String.raw`^(?:it'?s\s+|it is\s+|my (?:phone )?number is\s+)?(?:${DIGIT}${SEP}){7,15}[.!]?$`;
 /** Own age: “I'm 25.”, “I'm twenty-five years old.”, optionally “And you?”. “I'm 25 years” is not accepted. */
-export const AGE = String.raw`^(?:i'?m|i am)\s+${AGE_NUMBER}(?:\s+years\s+old)?\s*[.!]?(?:\s*and you\s*\??)?$`;
+export const AGE = String.raw`^(?:(?:i'?m|i am)\s+)?${AGE_NUMBER}(?:\s+years\s+old)?\s*[.!]?(?:\s*and you\s*\??)?$`;
 /** Own age plus the return question: “I'm 25. And you?” (Dərs 8). */
 export const AGE_RETURN = String.raw`^(?:i'?m|i am)\s+${AGE_NUMBER}(?:\s+years\s+old)?\s*[.!,]?\s*(?:and you|how old are you)\s*\??$`;
 /** Age written on a form: “25” or “I'm 25”. */
