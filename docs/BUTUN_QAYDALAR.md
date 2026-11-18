@@ -115,6 +115,15 @@ node scripts/export-unit1-docs.cjs   # docs/dersler/*.md
 ```
 Yeni bölmə üçün eyni yoxlamalar yeni bölməyə də qoşulmalıdır.
 
+## G2. İngilis mətninin təbiiliyi (18 Nov 2026 qərarı — bu gündən sonra yazılan HƏR mətnə aiddir)
+Ana dilli müəllim və real istifadəçi yoxlaması yoxdur. Ona görə təbiilik üçün bu qaydalar məcburidir (A1, A2, B1, B2 — hamısı):
+1. **Sadə və yayğın forma.** Şübhə olanda ən çox işlənən dərslik formasını seç, qeyri-adi və ya "ağıllı" ifadə yazma. Hər cümlə “ana dilli bunu belə deyərdimi?” sualından keçməlidir.
+2. **İdiom və sabit ifadə yoxlanır.** Hər idiom, sabit söz birləşməsi və B1+ ifadəsi WebSearch ilə real işləndiyi yoxlanmadan dərsə girmir; tapılmırsa çıxarılır. A1-də də şübhəli birləşmə üçün eyni.
+3. **Ayrıca təbiilik yoxlayıcısı.** Hər yeni bölmə bitəndə müstəqil (dərsi yazmayan) agent yalnız ingilis təbiiliyinə və Azərbaycan izahının tonuna baxır; tapıntılar düzəldilir. Bu, adi quruluş rəyindən ayrıdır.
+4. **Real mətnə əsaslanmaq (B1–B2).** Uydurma cümlə əvəzinə real işlənən nümunələrdən çıxış et.
+5. **İstifadəçi düzəlişi.** Tətbiqdəki “Şikayət et” (`ReportSheet`) qeyri-təbii cümlələr üçün əsas kanaldır; buraxılışdan sonra gələn şikayətlər birinci sırada baxılır.
+6. **Hesabatda dürüstlük.** Bölmə təhvil verəndə “ana dilli yoxlamasından keçməyib” qeydi yazılır; belə yoxlama olmadan “təbiidir” deyilmir.
+
 ## H. Mağazaya çıxmazdan əvvəl (audit — hələ edilməyib)
 
 Hesab silmə; məxfilik siyasəti və link; profildəki işləməyən düymələr (Premium, Kömək, ayarlar) və “Lingua App v0.1”; “ŞƏKİL” işarələri və boş AI söhbət gizlənsin; Azure səs tanıması üçün açıq razılıq (pilot endpoint buraxılışa getməsin); icazə mətnləri ingiliscə də; yaş 13+. Ətraflı: `docs/BEYNELXALQ_AUDIT_2026-11-14.md`.
