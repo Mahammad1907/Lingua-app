@@ -9,6 +9,7 @@ import { Alert, BackHandler, Keyboard, KeyboardAvoidingView, Platform, Pressable
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { DesignLesson as Lesson, IntroCard, TwoTask, Who } from '../../data/designLessonTypes';
 import { useUserStore } from '../../store/userStore';
+import { useReviewStore } from '../../store/reviewStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 import {
   gradeChoice, gradeMatch, gradeText, gradeTwo, isTask, joinTiles, lessonFlow, lessonTaskIds, resolveLesson, reviewTask, statusLabels, taskStatus,
@@ -74,6 +75,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const [viewport, setViewport] = useState(0);
 
   const sequence = useRef(0); const locked = useRef(false); const tokens = useRef(0);
+  // Daily review: verdicts go to the review schedule, not to lesson progress (no attempt, XP, hearts or retry round).
+  const reviewMode = Boolean(lesson.reviewOf);
+  const verdicts = useRef<Record<string, boolean>>({});
+  const recordsRef = useRef<Record<string, TaskRecord>>({}); // for the schedule entry written when the lesson finishes
   const reviewIds = reviewing ? queue : [];
   const current: FlowCard | undefined = showResult ? undefined : reviewing ? reviewTask(lesson, reviewIds[reviewStep]) : flow[index];
   const task = isTask(current) ? current : undefined;
@@ -81,10 +86,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const listeningTask = Boolean(audio && task?.type !== 'voice');
 
   useEffect(() => {
-    if (attempt) return;
+    if (attempt || reviewMode) return;
     const id = useUserStore.getState().beginLesson(lesson.id, 'session', [], lessonTaskIds(lesson));
     setAttempt(id);
-  }, [attempt, lesson]);
+  }, [attempt, lesson, reviewMode]);
 
   const stopAudio = useCallback(() => { sequence.current += 1; setPlaying(false); void Speech.stop(); }, []);
   useFocusEffect(useCallback(() => () => stopAudio(), [stopAudio]));
@@ -152,16 +157,31 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   };
 
   const finishLesson = useCallback(async () => {
+    if (reviewMode) { setFinish({ completed: true }); return; }
     try {
       const receipt = await useUserStore.getState().finishLesson(attempt);
-      if (receipt.completed) await useVocabularyStore.getState().addLessonWords(lesson.id);
+      if (receipt.completed) {
+        await useVocabularyStore.getState().addLessonWords(lesson.id);
+        // Every task of a finished lesson enters the 1 / 3 / 7 / 14 day schedule (difficult ones tomorrow, the rest in 3 days).
+        if (!lesson.exam) {
+          const all = recordsRef.current;
+          const tasks = lessonFlow(lesson).filter(isTask).filter(t => t.type !== 'voice').map(t => ({
+            taskId: t.id,
+            difficult: (t.type === 'two' ? t.fields.map(f => f.id) : [t.id]).some(id => all[id]?.first === 'wrong' || all[id]?.assisted || all[id]?.unverified),
+          }));
+          useReviewStore.getState().registerLesson(lesson.id, tasks);
+        }
+      }
       setFinish({ completed: receipt.completed });
     } catch { setFinish({ completed: false }); }
-  }, [attempt, lesson.id]);
+  }, [attempt, lesson, reviewMode]);
 
   const next = () => {
     resetCard();
-    if (!reviewing) useUserStore.getState().setLessonPartial(lesson.id, (index + 1) / flow.length * 100);
+    // Daily review: the verdicts of the card just left are written to the schedule (a card with a wrong part counts as wrong).
+    for (const [key, ok] of Object.entries(verdicts.current)) useReviewStore.getState().recordResult(key, ok);
+    verdicts.current = {};
+    if (!reviewing && !reviewMode) useUserStore.getState().setLessonPartial(lesson.id, (index + 1) / flow.length * 100);
     if (reviewing) {
       if (reviewStep + 1 < queue.length) setReviewStep(v => v + 1);
       else { setReviewing(false); setShowResult(true); void finishLesson(); }
@@ -172,8 +192,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     setShowResult(true); void finishLesson();
   };
 
-  const update = (id: string, patch: Partial<TaskRecord>) => setRecords(all => ({ ...all, [id]: { ...all[id], ...patch } }));
-  const enqueue = (id: string) => { if (!reviewing && !lesson.exam) setQueue(q => q.includes(id) ? q : [...q, id]); };
+  const update = (id: string, patch: Partial<TaskRecord>) => setRecords(all => { const next = { ...all, [id]: { ...all[id], ...patch } }; recordsRef.current = next; return next; });
+  const enqueue = (id: string) => { if (!reviewing && !lesson.exam && !reviewMode) setQueue(q => q.includes(id) ? q : [...q, id]); };
   const meaningHint = Boolean(hintUsed && task?.hintAssists);
 
   const evidence = (spoken: boolean): TaskEvidence => ({
@@ -185,6 +205,12 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   /** Store a confirmed verdict for one task id. */
   const store = (id: string, correct: boolean, spoken: boolean) => {
+    if (reviewMode) {
+      const key = lesson.reviewOf?.[id];
+      if (key) verdicts.current[key] = (verdicts.current[key] ?? true) && correct;
+      update(id, { first: correct ? 'correct' : 'wrong', assisted: evidence(spoken).assisted });
+      return;
+    }
     const s = useUserStore.getState();
     if (reviewing) {
       if (correct) s.recordTask(attempt, id, true, `${id}:review:${++tokens.current}`, evidence(spoken));
@@ -198,7 +224,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   };
 
   const settleUnverified = (id: string, why: Partial<TaskRecord> = {}) => {
-    useUserStore.getState().settlePacketTask(attempt, id, 'unverified');
+    if (attempt) useUserStore.getState().settlePacketTask(attempt, id, 'unverified');
     if (!reviewing) update(id, { unverified: true, ...why });
   };
 
@@ -209,7 +235,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   useEffect(() => {
     if (!helpOpen || !task?.hint || hintUsed) return;
     setHintUsed(true);
-    if (task.hintAssists) useUserStore.getState().useHelp(attempt);
+    if (task.hintAssists) (attempt && useUserStore.getState().useHelp(attempt));
   }, [helpOpen, task, hintUsed, attempt]);
 
   useEffect(() => {
@@ -280,7 +306,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const skipVoice = () => {
     if (!task) return;
     const s = useUserStore.getState();
-    s.recordTask(attempt, task.id, null, `${task.id}:skip`); s.settlePacketTask(attempt, task.id, 'skipped');
+    if (attempt) { s.recordTask(attempt, task.id, null, `${task.id}:skip`); s.settlePacketTask(attempt, task.id, 'skipped'); }
     if (!reviewing) update(task.id, { unverified: true });
     next();
   };
@@ -344,7 +370,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const repeat = task.type === 'voice' ? task.repeat : undefined;
     const spotsShown = task.type === 'choice' && Boolean(task.map || task.spots && sceneImage(task.scenes));
     const say = (t: string) => speak(t.replace(/…/g, ''), 0.85);
-    const lookUp = result ? undefined : (w: string) => { setGloss(w); if (!peeked) { setPeeked(true); useUserStore.getState().useHelp(attempt); } };
+    const lookUp = result ? undefined : (w: string) => { setGloss(w); if (!peeked) { setPeeked(true); (attempt && useUserStore.getState().useHelp(attempt)); } };
     // Word tiles: punctuation is never a tile; the sentence's own end mark is added automatically.
     const tiles = task.type === 'write' && task.tiles ? task.tiles.filter(t => !/^[.,!?]+$/.test(t)) : undefined;
     const endMark = task.type === 'write' && task.tiles ? (task.rule.answers[0]?.match(/[.!?]$/)?.[0] ?? '') : '';
@@ -482,9 +508,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const help = task ? <Sheet visible={helpOpen} onClose={() => setHelpOpen(false)} title="Kömək" icon="bulb">
     {task.hint ? <Text style={ds.strong}>{task.hint}</Text> : null}
     {helpSample && !(lesson.order <= 2 && task.type === 'voice' && task.sample) && !sampleShown ? <SheetOption icon="doc" highlight label="Nümunəni göstər" note="Nümunəyə baxıb desən, nəticə “Köməklə” olacaq."
-      onPress={() => { setHelpOpen(false); setSampleShown(true); useUserStore.getState().useHelp(attempt); }} /> : null}
+      onPress={() => { setHelpOpen(false); setSampleShown(true); (attempt && useUserStore.getState().useHelp(attempt)); }} /> : null}
     {listeningTask ? <SheetOption icon="doc" label="Mətnlə davam et" note="Dinləmə yoxlanmamış qalacaq."
-      onPress={() => { setHelpOpen(false); stopAudio(); setTextShown(true); setTextVisible(true); useUserStore.getState().useHelp(attempt); }} /> : null}
+      onPress={() => { setHelpOpen(false); stopAudio(); setTextShown(true); setTextVisible(true); (attempt && useUserStore.getState().useHelp(attempt)); }} /> : null}
   </Sheet> : null;
 
   const glossInfo = gloss ? glossOf(gloss) : undefined;
@@ -603,6 +629,7 @@ export function gapPieces(before: string, answer: string, after: string) {
 
 /** Header line: “Dərs 3” (Bölmə 1), “Dərs 1 · 2-ci hissə” (map lesson with parts), “Bölmə imtahanı”. */
 function lessonLabel(lesson: Lesson) {
+  if (lesson.reviewOf) return 'Gündəlik təkrar';
   if (lesson.exam) return 'Bölmə imtahanı';
   const n = lesson.number ?? lesson.order;
   return lesson.part ? `Dərs ${n} · ${lesson.part}-${lesson.part === 3 ? 'cü' : 'ci'} hissə` : `Dərs ${n}`;

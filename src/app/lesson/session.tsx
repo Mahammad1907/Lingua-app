@@ -21,10 +21,15 @@ import { getPacketLesson } from '../../data/b1Course';
 import PacketLesson from '../../components/lesson/PacketLesson';
 import DesignLesson from '../../components/design/DesignLesson';
 import { getDesignLesson } from '../../data/designLessons';
+import { buildReviewLesson } from '../../data/reviewSession';
+import { useReviewStore } from '../../store/reviewStore';
+import { localDay } from '../../utils/rewards';
+import { dueItems, SESSION_SIZE } from '../../utils/spacedReview';
 
 export default function LessonSessionScreen() {
   const params = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
+  if (params.id === 'review') return <ReviewSession />;
   const lesson = getLessonById(params.id || '');
   const content = getShortSession(params.id || '');
   const packet = getPacketLesson(params.id || '');
@@ -34,6 +39,14 @@ export default function LessonSessionScreen() {
   if (packet) return <PacketLesson key={packet.id} packet={packet} />;
   if (!lesson || !content) return <View style={styles.errorScreen}><Text style={styles.title}>Dərs tapılmadı</Text><TouchableOpacity onPress={() => router.back()}><Text style={styles.link}>Geri qayıt</Text></TouchableOpacity></View>;
   return <ShortLesson key={lesson.id} lesson={lesson} content={content} />;
+}
+
+// Daily review: the due tasks are fixed when the screen opens, so answering does not reshuffle the session.
+function ReviewSession() {
+  const router = useRouter();
+  const [session] = useState(() => buildReviewLesson(dueItems(useReviewStore.getState().items, localDay(), SESSION_SIZE), localDay()));
+  if (session) return <DesignLesson key={session.id} source={session} />;
+  return <View style={styles.errorScreen}><Text style={styles.title}>Bu gün təkrar yoxdur</Text><TouchableOpacity onPress={() => router.replace('/(tabs)')}><Text style={styles.link}>Ana səhifə</Text></TouchableOpacity></View>;
 }
 
 function ShortLesson({ lesson, content }: { lesson: Lesson; content: ShortSession }) {

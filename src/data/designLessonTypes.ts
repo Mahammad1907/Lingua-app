@@ -111,6 +111,8 @@ export interface DesignLesson {
   number?: number;
   /** A map lesson split in two: this lesson is part 1 or 2 (docs/BOLME_2_XERITESI.md §0). */
   part?: 1 | 2 | 3;
+  /** Daily review session (src/data/reviewSession.ts): task or field id → review item key. Never set on course lessons. */
+  reviewOf?: Record<string, string>;
   /** Section exam: no Kömək or hints, no retry round, pass mark 80 % (docs/BOLME_2_XERITESI.md §0). */
   exam?: boolean;
   cards: (IntroCard | TeachCard | WordCard | TaskWithReview)[];

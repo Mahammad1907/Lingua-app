@@ -11,6 +11,7 @@ import { useUserStore } from '../../store/userStore';
 import { buildHomeCourse } from '../../utils/homeCourse';
 import { getShortSession } from '../../data/firstConversation';
 import { moduleTest } from '../../utils/moduleAccess';
+import { useReviewStore } from '../../store/reviewStore';
 
 const SELECTION_KEY = '@birtalk_home_selection_v1';
 const LEVELS = ['A1', 'A2', 'B1', 'B2'];
@@ -53,7 +54,7 @@ export default function Home() {
     void AsyncStorage.setItem(SELECTION_KEY, JSON.stringify(next)).catch(() => {});
   }
   function navigate(destination: HomeDestination) {
-    if (destination === 'review') router.push('/vocabulary/wrong-words-list');
+    if (destination === 'review') router.push(useReviewStore.getState().dueCount() > 0 ? { pathname: '/lesson/session', params: { id: 'review' } } : '/vocabulary/wrong-words-list');
     if (destination === 'vocabulary') router.navigate('/(tabs)/vocabulary');
     if (destination === 'profile') router.navigate('/(tabs)/profile');
     if (destination === 'chat') router.push('/ai-chat');

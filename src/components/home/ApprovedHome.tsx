@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { ScrollView, View } from 'react-native';
 import { getPacketLesson } from '../../data/b1Course';
 import { designLessons } from '../../data/designLessons';
@@ -7,7 +7,8 @@ import { getModuleById } from '../../data/modules';
 import { useUserStore } from '../../store/userStore';
 import type { HomeCourse } from '../../utils/homeCourse';
 import { HomeDashboard as OriginalHomeDashboard } from './HomeDashboard';
-import { hardPhrases } from '../../utils/progressInsights';
+import { useReviewStore } from '../../store/reviewStore';
+import { registerFinishedLessons } from '../../data/reviewSession';
 import { IslandHome, IslandNavigation, NAV_HEIGHT } from './IslandHome';
 export { NAV_HEIGHT };
 
@@ -57,7 +58,11 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
   };
   const shared = { streak, xp, languageLabel: `${language.toUpperCase()} · ${level}`, topInset, bottomSpace,
     onSelectLanguage: onSelect, onAnalysis: () => onNavigate?.('analysis'), onReview: () => onNavigate?.('review') };
-  const reviewCount = hardPhrases(progress.filter(p => p.completed) as Parameters<typeof hardPhrases>[0]).length;
+  // Daily review card: tasks due today in the 1 / 3 / 7 / 14 day schedule (lessons finished earlier enter it once).
+  const hydrated = useReviewStore(s => s.hydrated);
+  const reviewCount = useReviewStore(s => s.dueCount());
+  useEffect(() => { void useReviewStore.getState().load(); }, []);
+  useEffect(() => { if (hydrated) registerFinishedLessons(progress); }, [hydrated, progress]);
   const [first, ...rest] = sections;
   const after = rest.map(m => <View key={m.id} onLayout={e => {
     if (m.order !== current || scrolled.current) return;

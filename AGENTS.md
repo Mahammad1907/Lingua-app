@@ -173,3 +173,6 @@ Full hand-off for a new session (workflow, rules, code map, open work): `docs/YE
 Explanations follow `docs/IZAH_STANDARTI.md` (14 Nov 2026, from an external review the user accepted): 4 lines (Uyğun / Səbəb / Qayda / Nümunə), only the two forms on screen, no grammar terms, no “həmişə”, no untaught English in explanations or hints. `check-taught.cjs` enforces it for all eight lessons.
 
 All user rules in one place (Azerbaijani): `docs/BUTUN_QAYDALAR.md` — read it before any work.
+
+## Spaced review (18 Nov 2026)
+Finished lessons enter a 1 / 3 / 7 / 14 day schedule (then 30 days): src/utils/spacedReview.ts (engine, `node scripts/check-spaced.cjs`), src/store/reviewStore.ts (own storage key), src/data/reviewSession.ts (daily session built from each task's review variant, run by DesignLesson, route `/lesson/session?id=review`). Correct = one stage up, wrong = two stages down; skipped/technical answers change nothing. No XP or progress is written by a review. Not yet tested on a device.
