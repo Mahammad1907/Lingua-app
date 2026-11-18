@@ -61,9 +61,9 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 ## Kart 7 — Cavab cütü: Cavab cütü
 
 **Tapşırıq:** Hostelin mətbəxində suallar. Suala toxun, sonra onun cavabını seç.  
-**Cütlər:** Are you from Iran? — No, I'm not.; Are you Russian? — Yes, I am.; Do you speak French? — No, I don't. · artıq: Yes, she is.  
+**Cütlər:** Are you from Iran? — No, I'm not.; Is she Russian? — Yes, she is.; Do you speak French? — No, I don't. · artıq: Yes, he is.  
 **Düzgün olanda:** Hər suala uyğun qısa cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir sualın cavabı yerində deyil. — Uyğun: Are you from Iran? — No, I'm not.; Are you Russian? — Yes, I am.; Do you speak French? — No, I don't. Səbəb: “Are you” sualına “am”, “Do you” sualına “do” ilə cavab verilir. Qayda: Are you Russian? — Yes, I am.; Do you speak French? — No, I don't. Nümunə: Are you from Iran? — No, I'm not.  
+- *İzah (başqa səhvdə):* Bir sualın cavabı yerində deyil. — Uyğun: Are you from Iran? — No, I'm not.; Is she Russian? — Yes, she is.; Do you speak French? — No, I don't. Səbəb: Cavab sualın ilk sözünü və adamını qaytarır: you — I am, she — she is, do — I do. Qayda: Is she Russian? — Yes, she is.; Do you speak French? — No, I don't. Nümunə: Are you from Iran? — No, I'm not.  
 
 ## Kart 8 — Seç: Seç
 
@@ -85,7 +85,7 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 
 **Tapşırıq:** Dil klubunun çatında yeni üzv soruşur. Harada yaşadığını yaz (istəsən, istənilən şəhər).  
 **Yazışma (Yeni tanış):** “Hi! Where do you live?”  
-**Qəbul:** məna:  — nümunə: I live in Baku. · öz məlumatı: /^i\s+live\s+in\s+(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}\s*[.!]?$/  
+**Qəbul:** məna:  — nümunə: I live in Baku. · öz məlumatı: /^i\s+live\s+(?:in\s+(?!he(?:re)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}|he(?:re))\s*[.!]?$/  
 **Düzgün olanda:** Harada yaşadığını “I live in” ilə yazdın.  
 - *İzah (başqa səhvdə):* Şəhərdən əvvəl “in” gəlir. — Uyğun: I live in Baku. Səbəb: Şəhərdə yaşayırsan — “in”: Bakıda. Qayda: I live in Baku. — düzdür; I live at Baku. — olmur. Nümunə: Where do you live? — I live in Ganja.  
 - *İzah (başqa səhvdə):* Burada I-dan sonra birbaşa live gəlir. — Uyğun: I live in Baku. Səbəb: “yaşayıram” üçün I-dan sonra am lazım deyil: I live. Qayda: I live in Baku. — düzdür; I'm live in Baku. — olmur. Nümunə: Where do you live? — I live in Ganja.  
@@ -104,7 +104,7 @@ Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar 
 
 **Tapşırıq:** Dil mübadiləsi masasında yeni tanış soruşur. Cavab ver və hansı dillərdə danışdığını de.  
 **Səs:** Do you speak English?  
-**Qəbul:** məna:  — nümunə: Yes, I do. I speak Azerbaijani and a little English. / I speak Azerbaijani and English. · öz məlumatı: /^(?:yes,?\s*(?:i do\s*[.,]?\s*)?)?i\s+speak\s+(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese))(?:\s*(?:,|and)\s*(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese)))*(?:\s+a\s+little)?\s*[.!]?$/  
+**Qəbul:** məna:  — nümunə: Yes, I do. I speak Azerbaijani and a little English. / I speak Azerbaijani and English. · öz məlumatı: /^(?:yes,?\s*(?:i do\s*[.,]?\s*)?|no,?\s*i\s+don['’]?t\s*[.,]?\s*)?i\s+speak\s+(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese))(?:\s*(?:,|and)\s*(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese)))*(?:\s+a\s+little)?\s*[.!]?$/  
 **Düzgün olanda:** Hansı dillərdə danışdığını dedin.  
 - *İzah (başqa səhvdə):* Dil ölkə adı deyil. — Uyğun: I speak Azerbaijani. Səbəb: Dilin adı millət sözü ilə eynidir: Azerbaijani, Russian, English. Qayda: I speak Russian. — dil; I am from Russia. — ölkə. Nümunə: Do you speak English? — Yes, I do.  
 - *İzah (başqa səhvdə):* “little”dən əvvəl “a” gəlir: a little. — Uyğun: I speak a little English. Səbəb: “bir az” ingiliscə iki sözdür: a little. Qayda: I speak a little English. — düzdür; I speak little English. — başqa məna verir. Nümunə: Do you speak English? — Yes, a little.  

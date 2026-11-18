@@ -190,13 +190,13 @@ export const lesson8: DesignLesson = {
       review: {
         title: 'Mesaj yaz', why: 'Harada yaşadığını yazdın.', hint: 'Şəhərindən əvvəl kiçik bir söz lazımdır.',
         prompt: 'Klubun çatında yeni üzv hamıdan soruşur.\nHarada yaşadığını yaz (istəsən, istənilən şəhər).', placeholder: 'Cavabını yaz',
-        chat: { partner: 'Yeni üzv', from: 'other', lines: [{ from: 'other', text: "Hello! I live in Sumgait. Where do you live?" }] },
+        chat: { partner: 'Yeni üzv', from: 'other', lines: [{ from: 'other', text: "Hello! I live in Sumgayit. Where do you live?" }] },
         rule: own(LIVE, 'I live in Ganja.'),
         variants: [...LIVE_MISTAKES, other('I live in + şəhər.', ex('I live in Ganja.', 'Harada yaşadığını “I live in” ilə yazırsan.', 'I live in Ganja. — harada yaşayıram; I’m from Ganja. — haradanam.', 'Where do you live? — I live in Baku.'))],
       },
     },
     {
-      type: 'voice', id: 'u3d8_c13', number: 13, repeat: { stress: 'live', note: 'live — “liv”, qısa “i” ilə.', reading: 'aym from gəncə, bat ay liv in baku' }, title: 'Dinlə və təkrarla', why: 'Cümləni dedin: from — haradan, live in — harada.', hint: 'Əvvəl yavaş dinlə, sonra cümləni iki hissədə de.',
+      type: 'voice', id: 'u3d8_c13', number: 13, repeat: { stress: 'live', note: 'live — “liv”, qısa “i” ilə.', reading: 'aym fram gəncə, bat ay liv in baku' }, title: 'Dinlə və təkrarla', why: 'Cümləni dedin: from — haradan, live in — harada.', hint: 'Əvvəl yavaş dinlə, sonra cümləni iki hissədə de.',
       prompt: 'Ziyafətdə qız özü haqqında deyir.\nDinlə, sonra eyni cür de.', audio: "I'm from Ganja, but I live in Baku.",
       rule: exact("I'm from Ganja, but I live in Baku.", "I'm from Ganja but I live in Baku."),
       variants: [other('Bir daha dinlə və yavaş de.', ex("I'm from Ganja, but I live in Baku.", 'İki hissə “but” ilə birləşir: haradan, amma harada yaşayır.', "I'm from Ganja. — haradan; I live in Baku. — harada yaşayır.", "I'm from Ganja, but I live in Baku."))],
@@ -210,9 +210,9 @@ export const lesson8: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u3d8_c14', number: 14, title: 'Söhbəti sırala', why: 'Tanışlıq, ölkə, dil və cavab düz sıradadır.', hint: 'Əvvəl salam və sual gəlir; ölkəni eşidən dil haqqında soruşur.',
       prompt: 'Dil klubunun ziyafəti.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "Hi! I'm from Baku. Where are you from?", from: 'G' }, { en: '2', az: "I'm from France.", from: 'other' }, { en: '3', az: 'Really? Do you speak English?', from: 'G' }, { en: '4', az: 'Yes, a little.', from: 'other' }],
+      rows: [{ en: '1', az: "Hi! I'm from Baku. Where are you from?", from: 'G' }, { en: '2', az: "I'm from France.", from: 'other' }, { en: '3', az: 'Really? Do you speak Azerbaijani?', from: 'G' }, { en: '4', az: 'Yes, a little.', from: 'other' }],
       extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! I'm from Baku. Where are you from? → I'm from France. → Really? Do you speak English? → Yes, a little.", 'Əvvəl ölkə soruşulur, sonra dil.', "Where are you from? — ölkə; Do you speak English? — dil.", "Hi! I'm from Baku. Where are you from?"))],
+      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! I'm from Baku. Where are you from? → I'm from France. → Really? Do you speak Azerbaijani? → Yes, a little.", 'Əvvəl ölkə soruşulur, sonra dil.', "Where are you from? — ölkə; Do you speak English? — dil.", "Hi! I'm from Baku. Where are you from?"))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab, yoxlama və təsdiq düz sıradadır.', hint: 'Əvvəl sual gəlir; cavabı eşidən millətini yoxlayır.',
         prompt: 'Ziyafətdə iki dost başqa bir qonaq haqqında danışır.\nBalonlara toxun, söhbəti sıraya düz.',

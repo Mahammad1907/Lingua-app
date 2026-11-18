@@ -115,7 +115,7 @@ Qeyd: “a” və “little” birlikdə gəlir: bir az.
 
 **Tapşırıq:** Dil mübadiləsi masasında yeni tanış soruşur. Cavab ver və hansı dillərdə danışdığını de: “I speak …”.  
 **Səs:** Hi! Do you speak Azerbaijani?  
-**Qəbul:** məna:  — nümunə: Yes, I do. I speak Azerbaijani and a little English. / I speak Azerbaijani and Russian. · öz məlumatı: /^(?:yes,?\s*(?:i do\s*[.,]?\s*)?)?i\s+speak\s+(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese))(?:\s*(?:,|and)\s*(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese)))*(?:\s+a\s+little)?\s*[.!]?$/  
+**Qəbul:** məna:  — nümunə: Yes, I do. I speak Azerbaijani and a little English. / I speak Azerbaijani and Russian. · öz məlumatı: /^(?:yes,?\s*(?:i do\s*[.,]?\s*)?|no,?\s*i\s+don['’]?t\s*[.,]?\s*)?i\s+speak\s+(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese))(?:\s*(?:,|and)\s*(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese)))*(?:\s+a\s+little)?\s*[.!]?$/  
 **İpucu:** Əvvəl qısa cavab ver, sonra dilləri bir-bir sadala.  
 **Düzgün olanda:** Hansı dillərdə danışdığını dedin.  
 - *İzah (başqa səhvdə):* Dil ölkə adı deyil. — Uyğun: I speak Azerbaijani. Səbəb: Dilin adı millət sözü ilə eynidir: Azerbaijani, Russian, English. Qayda: I speak Russian. — dil; I am from Russia. — ölkə. Nümunə: Do you speak English? — Yes, I do.  
@@ -126,7 +126,7 @@ Qeyd: “a” və “little” birlikdə gəlir: bir az.
 
 **Tapşırıq:** Hostelin mətbəxində yanındakı gənc soruşur. Cavab ver və hansı dillərdə danışdığını de: “I speak …”.  
 **Səs:** Excuse me, do you speak Turkish?  
-**Qəbul:** məna:  — nümunə: Yes, I do. I speak Azerbaijani and a little Turkish. / I speak Azerbaijani and English. · öz məlumatı: /^(?:yes,?\s*(?:i do\s*[.,]?\s*)?)?i\s+speak\s+(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese))(?:\s*(?:,|and)\s*(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese)))*(?:\s+a\s+little)?\s*[.!]?$/  
+**Qəbul:** məna:  — nümunə: Yes, I do. I speak Azerbaijani and a little Turkish. / I speak Azerbaijani and English. · öz məlumatı: /^(?:yes,?\s*(?:i do\s*[.,]?\s*)?|no,?\s*i\s+don['’]?t\s*[.,]?\s*)?i\s+speak\s+(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese))(?:\s*(?:,|and)\s*(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese)))*(?:\s+a\s+little)?\s*[.!]?$/  
 **İpucu:** Əvvəl qısa cavab ver, sonra dilləri bir-bir sadala.  
 **Düzgün olanda:** Hansı dillərdə danışdığını dedin.  
 - *İzah (başqa səhvdə):* Dil ölkə adı deyil. — Uyğun: I speak Azerbaijani. Səbəb: Dilin adı millət sözü ilə eynidir: Azerbaijani, Russian, English. Qayda: I speak Russian. — dil; I am from Russia. — ölkə. Nümunə: Do you speak English? — Yes, I do.  
@@ -139,7 +139,7 @@ Qeyd: “a” və “little” birlikdə gəlir: bir az.
 
 Oxunuşu: lənqvic · IPA: /ˈlæŋɡwɪdʒ/
 
-Nümunə: **My language is Azerbaijani.** — Mənim dilim Azərbaycan dilidir.
+Nümunə: **What language do you speak?** — Hansı dildə danışırsan?
 
 Qeyd: Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.
 
@@ -148,7 +148,7 @@ Qeyd: Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.
 **Tapşırıq:** Dil mübadiləsi masasında yeni tanış oğlandan soruşur: “Do you speak German?” Oğlan almanca bilmir. Hansı söz çatmır?  
 **Cümlə:** No, I ___ .  
 **Seçimlər:** am / don't / not — **düzgün:** don't  
-**İpucu:** Sual hansı sözlə başlayıb? Cavabda da o işlənir.  
+**İpucu:** Sual “Are you” ilə yox, başqa sözlə başlayıb.  
 **Düzgün olanda:** “Do you …?” sualına “No, I don’t.” ilə cavab verilir.  
 - *İzah (“am” seçiləndə):* “am” ilə “Are you …?” sualına cavab verilir. — Uyğun: No, I don't. Səbəb: Sual “Do” ilə başlayıb, cavabda da “do” işlənir. Qayda: Do you speak German? — No, I don't.; Are you German? — No, I'm not. Nümunə: Do you speak German? — No, I don't.  
 - *İzah (“not” seçiləndə):* I-dan sonra tək “not” qalmır. — Uyğun: No, I don't. Səbəb: Burada “not” “do” ilə birlikdə gəlir: don’t. Qayda: No, I don't. — düzdür; No, I not. — olmur. Nümunə: Do you speak German? — No, I don't.  
@@ -158,7 +158,7 @@ Qeyd: Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.
 **Tapşırıq:** Hostelin mətbəxində qızdan soruşurlar: “Do you speak French?” Qız fransızca bilir. Hansı söz çatmır?  
 **Cümlə:** Yes, I ___ . I speak French.  
 **Seçimlər:** am / speak / do — **düzgün:** do  
-**İpucu:** Sual hansı sözlə başlayıb? Cavabda da o işlənir.  
+**İpucu:** Sual “Are you” ilə yox, başqa sözlə başlayıb.  
 **Düzgün olanda:** “Do you …?” sualına “Yes, I do.” ilə cavab verilir.  
 - *İzah (“am” seçiləndə):* “am” ilə “Are you …?” sualına cavab verilir. — Uyğun: Yes, I do. Səbəb: Sual “Do” ilə başlayıb, cavabda da “do” işlənir. Qayda: Do you speak French? — Yes, I do.; Are you French? — Yes, I am. Nümunə: Do you speak French? — Yes, I do.  
 - *İzah (“speak” seçiləndə):* Qısa cavabda “speak” təkrar olunmur. — Uyğun: Yes, I do. Səbəb: Qısa cavabda sualdakı “do” işlənir. Qayda: Yes, I do. — düzdür; Yes, I speak. — olmur. Nümunə: Do you speak French? — Yes, I do.  
@@ -167,7 +167,7 @@ Qeyd: Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.
 
 **Tapşırıq:** Yeni tanış yazır. Sən ingiliscə bir az bilirsən. Qısa cavab yaz: bəli, bir az.  
 **Yazışma (Yeni tanış):** “Hi! Do you speak English?”  
-**Qəbul:** dəqiq: Yes, a little. / Yes, I do. A little. / Yes, I do, a little. / A little. / Yes, I speak a little English. / Yes, I speak English a little.  
+**Qəbul:** dəqiq: Yes, a little. / Yes, I do. A little. / Yes, I do, a little. / A little. / Yes, I speak a little English. / Yes, I speak English a little. / Yes, a little English.  
 **İpucu:** Bəli de və nə qədər bildiyini iki sözlə əlavə et.  
 **Düzgün olanda:** “a little” — bir az.  
 - *İzah (başqa səhvdə):* “bir az” iki sözdür: a little. — Uyğun: Yes, a little. Səbəb: “little”dən əvvəl “a” gəlir: a little — bir az. Qayda: Yes, a little. — düzdür; Yes, little. — olmur. Nümunə: Do you speak English? — Yes, a little.  
@@ -177,7 +177,7 @@ Qeyd: Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.
 
 **Tapşırıq:** Hostelin qrup çatında biri yazır. Sən rusca bir az bilirsən. Qısa cavab yaz: bəli, bir az.  
 **Yazışma (Yeni tanış):** “Hello! Do you speak Russian?”  
-**Qəbul:** dəqiq: Yes, a little. / Yes, I do. A little. / Yes, I do, a little. / A little. / Yes, I speak a little Russian. / Yes, I speak Russian a little.  
+**Qəbul:** dəqiq: Yes, a little. / Yes, I do. A little. / Yes, I do, a little. / A little. / Yes, I speak a little Russian. / Yes, I speak Russian a little. / Yes, a little Russian.  
 **İpucu:** Bəli de və nə qədər bildiyini iki sözlə əlavə et.  
 **Düzgün olanda:** “a little” — bir az.  
 - *İzah (başqa səhvdə):* “bir az” iki sözdür: a little. — Uyğun: Yes, a little. Səbəb: “little”dən əvvəl “a” gəlir: a little — bir az. Qayda: Yes, a little. — düzdür; Yes, little. — olmur. Nümunə: Do you speak Russian? — Yes, a little.  
@@ -186,10 +186,10 @@ Qeyd: Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.
 ## Kart 13 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Dil mübadiləsi masası. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hello! Do you speak Azerbaijani? → 2. Yes, I do. And you? → 3. A little. My language is Turkish. → 4. Really? Nice to meet you!  
+**Düzgün sıra:** 1. Hello! Do you speak Azerbaijani? → 2. Yes, I do. And you? → 3. A little. I'm Turkish. → 4. Really? Nice to meet you!  
 **İpucu:** Əvvəl sual gəlir; cavab verən sualı geri qaytarır.  
 **Düzgün olanda:** Sual, cavab və qarşı sual, sonra dil haqqında cavab düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! Do you speak Azerbaijani? → Yes, I do. And you? → A little. My language is Turkish. → Really? Nice to meet you! Səbəb: Sual, cavab və qarşı sual, sonra o biri öz dilini deyir. Qayda: Do you speak Azerbaijani? — sual; And you? — qarşı sual. Nümunə: Yes, I do. And you?  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! Do you speak Azerbaijani? → Yes, I do. And you? → A little. I'm Turkish. → Really? Nice to meet you! Səbəb: Sual, cavab və qarşı sual, sonra o biri haradan olduğunu deyir. Qayda: Do you speak Azerbaijani? — sual; And you? — qarşı sual. Nümunə: Yes, I do. And you?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -217,4 +217,4 @@ Növbəti dərs — bölmə söhbəti: dil klubunun ziyafəti.
 | Yes, I do. | Bəli, danışıram. | Do you speak Russian? — Yes, I do. — Rusca danışırsan? — Bəli, danışıram. |
 | No, I don't. | Xeyr, danışmıram. | Do you speak French? — No, I don't. — Fransızca danışırsan? — Xeyr, danışmıram. |
 | a little | bir az | I speak a little English. — Bir az ingiliscə danışıram. |
-| language | dil | My language is Azerbaijani. — Mənim dilim Azərbaycan dilidir. |
+| language | dil | What language do you speak? — Hansı dildə danışırsan? |

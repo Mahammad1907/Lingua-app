@@ -62,9 +62,9 @@ export const exam: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'u3x_c07', number: 7, title: 'Cavab cütü', why: 'Hər suala uyğun qısa cavabı tapdın.',
       prompt: 'Hostelin mətbəxində suallar.\nSuala toxun, sonra onun cavabını seç.',
-      rows: [{ en: 'Are you from Iran?', az: "No, I'm not.", from: 'other' }, { en: 'Are you Russian?', az: 'Yes, I am.', from: 'G' }, { en: 'Do you speak French?', az: "No, I don't.", from: 'B' }],
-      extra: ['Yes, she is.'],
-      variants: [other('Bir sualın cavabı yerində deyil.', ex("Are you from Iran? — No, I'm not.; Are you Russian? — Yes, I am.; Do you speak French? — No, I don't.", '“Are you” sualına “am”, “Do you” sualına “do” ilə cavab verilir.', "Are you Russian? — Yes, I am.; Do you speak French? — No, I don't.", "Are you from Iran? — No, I'm not."))],
+      rows: [{ en: 'Are you from Iran?', az: "No, I'm not.", from: 'other' }, { en: 'Is she Russian?', az: 'Yes, she is.', from: 'G' }, { en: 'Do you speak French?', az: "No, I don't.", from: 'B' }],
+      extra: ['Yes, he is.'],
+      variants: [other('Bir sualın cavabı yerində deyil.', ex("Are you from Iran? — No, I'm not.; Is she Russian? — Yes, she is.; Do you speak French? — No, I don't.", 'Cavab sualın ilk sözünü və adamını qaytarır: you — I am, she — she is, do — I do.', "Is she Russian? — Yes, she is.; Do you speak French? — No, I don't.", "Are you from Iran? — No, I'm not."))],
     },
     {
       type: 'choice', id: 'u3x_c08', number: 8, title: 'Seç', why: 'Oğlan haqqında “he”, sonra “’s from”.',

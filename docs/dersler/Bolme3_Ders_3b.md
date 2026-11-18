@@ -157,16 +157,16 @@ Qeyd: Formalarda sahə adıdır; tək sözlə sual kimi də deyilir: Nationality
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İngilis dostunu hostelə yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “SMITH ANNA”, ölkə — England. Formanı doldur.  
+**Tapşırıq:** Amerikalı dostunu hostelə yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “SMITH ANNA”, ölkə — the USA. Formanı doldur.  
 **Forma:** Hostel qeydiyyatı — Yeni qonaq  
 **Last name:** dəqiq: Smith  
 **First name:** dəqiq: Anna  
-**Nationality:** dəqiq: English  
+**Nationality:** dəqiq: American  
 **İpucu:** Hər sətrin başlığını oxu; millət sətrinə ölkə adı yazılmır.  
 **Düzgün olanda:** Soyadı, adı və milləti öz yerinə yazdın.  
 - *İzah (“Last name” səhv olanda):* Uyğun: Smith. Səbəb: Last name — soyaddır: pasportdakı birinci söz. Qayda: Last name — Smith; First name — Anna. Nümunə: My last name is Smith.  
 - *İzah (“First name” səhv olanda):* Uyğun: Anna. Səbəb: First name — addır: pasportdakı ikinci söz. Qayda: First name — Anna; Last name — Smith. Nümunə: My first name is Anna.  
-- *İzah (“Nationality” səhv olanda):* Uyğun: English. Səbəb: England ölkədir; millət sətrinə English yazılır. Qayda: I'm English. — millət; I'm from England. — ölkə. Nümunə: Nationality: English.  
+- *İzah (“Nationality” səhv olanda):* Uyğun: American. Səbəb: the USA ölkədir; millət sətrinə American yazılır. Qayda: I'm American. — millət; I'm from the USA. — ölkə. Nümunə: Nationality: American.  
 
 ## Kart 12 — Səslə cavab: Millətini de
 

@@ -63,7 +63,7 @@ export const lesson5a: DesignLesson = {
       type: 'match', id: 'u3d5a_c05', number: 5, title: 'Kim nə dedi?', why: 'He və she fərqini tapdın.', hint: 'Hər cümlənin birinci sözünə bax: kişi, qadın, yoxsa özü?',
       prompt: 'Video zəngdə qız və oğlan dostlarının halını deyir.\nHər cümləyə mənasını qoş.',
       rows: [{ en: 'He is fine.', az: 'O (kişi) yaxşıdır.', from: 'G' }, { en: 'She is OK.', az: 'O (qadın) normaldır.', from: 'B' }, { en: "I'm not very well.", az: 'Mən çox yaxşı deyiləm.', from: 'M' }],
-      extra: ['O (qadın) yaxşıdır.'],
+      extra: ['O (kişi) normaldır.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('He is fine. — O (kişi) yaxşıdır.; She is OK. — O (qadın) normaldır.; I\'m not very well. — Mən çox yaxşı deyiləm.', 'He kişi, she qadın haqqındadır; fine və OK da fərqlidir.', 'He is fine. — kişi; She is fine. — qadın.', 'She is OK. He is fine.'))],
       review: {
         title: 'Kim nə dedi?', why: 'He və she fərqini tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
@@ -75,7 +75,7 @@ export const lesson5a: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d5a_c06', number: 6, scenes: ['mascot/globe'],
-      word: "He's from …", pronunciation: '/hiz frʌm/', reading: 'hiz from …', az: 'O (kişi) …-dandır.',
+      word: "He's from …", pronunciation: '/hiz frʌm/', reading: 'hiz fram …', az: 'O (kişi) …-dandır.',
       structure: ["He's from + ölkə / şəhər."],
       notes: ["He's — he is-in qısası, “hiz” oxunur."],
       example: "He's from Turkey.", exampleAz: 'O, Türkiyədəndir.',
@@ -100,19 +100,19 @@ export const lesson5a: DesignLesson = {
     },
     {
       type: 'voice', id: 'u3d5a_c08', number: 8, title: 'Səslə cavab', why: 'Kişi haqqında haradan olduğunu dedin.', hint: 'Kişi haqqında danışırsan; sonra ölkənin adı gəlir.',
-      prompt: 'Video zəngdə {M} ekrandakı kişini soruşur. O kişi Gürcüstandandır.\nDe: o, Gürcüstandandır.', audio: 'And he?', reply: 'Really? Nice!', speaker: 'mascot',
+      prompt: 'Video zəngdə {M} ekrandakı kişini soruşur. O kişi Gürcüstandandır.\nDe: o, Gürcüstandandır.', reply: 'Really? Nice!',
       rule: heFrom('Georgia'),
       variants: [wrongPerson('she', 'Georgia'), noIs("He's from Georgia."), other("He's from + ölkə.", ex("He's from Georgia.", 'Kişi haqqında He’s from, sonra ölkə.', "He's from Georgia. — kişi; She is from Georgia. — qadın.", "He's from Turkey."))],
       review: {
         title: 'Səslə cavab', why: 'Kişi haqqında haradan olduğunu dedin.', hint: 'Yanındakı adam kişidir; sonra ölkənin adı gəlir.',
-        prompt: 'Qatarda dostun yanındakı yaşlı kişini soruşur. Kişi Rusiyadandır.\nDe: o, Rusiyadandır.', audio: 'And he?', reply: 'Really? Thanks!',
+        prompt: 'Qatarda dostun yanındakı yaşlı kişini soruşur. Kişi Rusiyadandır.\nDe: o, Rusiyadandır.', reply: 'Really? Thanks!',
         rule: heFrom('Russia'),
         variants: [wrongPerson('she', 'Russia'), noIs("He's from Russia."), other("He's from + ölkə.", ex("He's from Russia.", 'Kişi haqqında He’s from, sonra ölkə.', "He's from Russia. — kişi; She's from Russia. — qadın.", "He's from Turkey."))],
       },
     },
     {
       type: 'word', id: 'u3d5a_c09', number: 9, scenes: ['mascot/happy'],
-      word: "She's from …", pronunciation: '/ʃiz frʌm/', reading: 'şiz from …', az: 'O (qadın) …-dandır.',
+      word: "She's from …", pronunciation: '/ʃiz frʌm/', reading: 'şiz fram …', az: 'O (qadın) …-dandır.',
       structure: ["She's from + ölkə / şəhər."],
       notes: ["She's — she is-in qısası, “şiz” oxunur."],
       example: "She's from France.", exampleAz: 'O, Fransadandır.',

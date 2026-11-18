@@ -12,7 +12,7 @@ const fromBut = (from: string, live: string) =>
   said(String.raw`^i(?:'m|’m|\s+am)\s+from\s+${from.toLowerCase()}\s*,?\s+but\s+i\s+live\s+in\s+${live.toLowerCase()}\s*[.!]?$`, `I'm from ${from}, but I live in ${live}.`);
 const andNotBut = (answer: string): Variant => ({
   match: { pattern: String.raw`\band\s+i\s+live\b` }, short: 'Burada “amma” lazımdır — but.',
-  explain: ex(answer, 'Bir yerdənsən, amma başqa yerdə yaşayırsan — iki fərqli şey: but.', `${answer} — amma; And you? — bəs sən?`, "I'm from Ganja, but I live in Baku."),
+  explain: ex(answer, 'Bir yerdənsən, amma başqa yerdə yaşayırsan — iki fərqli şey: but.', 'but I live — amma yaşayıram; and I live — və yaşayıram, burada yaraşmır.', "I'm from Ganja, but I live in Baku."),
 });
 const whereLive = goal(['askLive'], ['Where do you live?']);
 const whereFrom = goal(['askFrom'], ['Where are you from?']);
@@ -61,12 +61,12 @@ export const lesson6: DesignLesson = {
       example: 'Where do you live? — I live in Baku.', exampleAz: 'Harada yaşayırsan? — Bakıda yaşayıram.',
     },
     {
-      type: 'voice', id: 'u3d6_c05', number: 5, title: 'Səslə cavab', why: 'Harada yaşadığını dedin.', hint: 'Cavab I live ilə başlayır; şəhərdən əvvəl kiçik bir söz gəlir.',
+      type: 'voice', id: 'u3d6_c05', number: 5, title: 'Səslə cavab', why: 'Harada yaşadığını dedin.', hint: '“-da” ingiliscə şəhərdən əvvəl ayrıca gəlir.',
       prompt: 'Kafedə yeni tanış soruşur.\nHarada yaşadığını de.', audio: 'Where do you live?', reply: 'Nice!',
       rule: myCity,
       variants: [...LIVE_MISTAKES, other('I live in + şəhər.', ex('I live in …', 'Harada yaşadığını I live in ilə deyirsən.', "I live in Baku. — yaşayıram; I'm from Baku. — Bakıdanam.", 'Where do you live? — I live in Ganja.'))],
       review: {
-        title: 'Səslə cavab', why: 'Harada yaşadığını dedin.', hint: 'Cavab I live ilə başlayır; şəhərdən əvvəl kiçik bir söz gəlir.',
+        title: 'Səslə cavab', why: 'Harada yaşadığını dedin.', hint: '“-da” ingiliscə şəhərdən əvvəl ayrıca gəlir.',
         prompt: 'Şəhər turu avtobusunda bələdçi hər kəsdən soruşur.\nHarada yaşadığını de.', audio: 'And you? Where do you live?', reply: 'OK, thanks!',
         rule: myCity,
         variants: [...LIVE_MISTAKES, other('I live in + şəhər.', ex('I live in …', 'Harada yaşadığını I live in ilə deyirsən.', "I live in Ganja. — yaşayıram; I'm from Ganja. — Gəncədənəm.", 'Where do you live? — I live in Baku.'))],
@@ -117,7 +117,7 @@ export const lesson6: DesignLesson = {
       example: "I'm from Ganja, but I live here.", exampleAz: 'Gəncədənəm, amma burada yaşayıram.',
     },
     {
-      type: 'choice', id: 'u3d6_c11', number: 11, title: 'Sözü tamamla', why: '“here” — burada, yəni Bakıda.', hint: 'Avtobus Bakıdadır; qadın şəhərin adını demir.',
+      type: 'choice', id: 'u3d6_c11', number: 11, title: 'Sözü tamamla', why: '“here” — burada, yəni Bakıda.', hint: 'Avtobus hansı şəhərdədir? Bəs qadın indi haradadır?',
       prompt: 'Bakıda şəhər turu avtobusundasan. Yanındakı qadın özü haqqında danışır.\nHansı söz çatmır?', gap: { speaker: 'other', before: "I'm from Turkey, but I live", after: '.' },
       options: ['here', 'in', 'from'], answer: 'here',
       variants: [
@@ -125,7 +125,7 @@ export const lesson6: DesignLesson = {
         pick('from', '“from” haradan olduğunu deyir, yaşadığın yeri yox.', ex('here', 'live-dan sonra yer gəlir: burada — here.', "I live here. — yaşayıram; I'm from Turkey. — haradan.", "I'm from Ganja, but I live here.")),
       ],
       review: {
-        title: 'Sözü tamamla', why: '“here” — burada, yəni Gəncədə.', hint: 'Kafe Gəncədədir; kişi şəhərin adını demir.',
+        title: 'Sözü tamamla', why: '“here” — burada, yəni Gəncədə.', hint: 'Kafe hansı şəhərdədir? Bəs kişi indi haradadır?',
         prompt: 'Gəncədə kafedəsən. Yeni tanış kişi özü haqqında danışır.\nHansı söz çatmır?', gap: { speaker: 'other', before: "I'm from Germany, but I live", after: '.' },
         options: ['from', 'here', 'in'], answer: 'here',
         variants: [

@@ -137,16 +137,16 @@ export const lesson3b: DesignLesson = {
       ],
       review: {
         title: 'Formanı doldur', why: 'Soyadı, adı və milləti öz yerinə yazdın.', hint: 'Hər sətrin başlığını oxu; millət sətrinə ölkə adı yazılmır.', scenes: ['u3/hostel'],
-        prompt: 'İngilis dostunu hostelə yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “SMITH ANNA”, ölkə — England.\nFormanı doldur.', form: { title: 'Hostel qeydiyyatı', subtitle: 'Yeni qonaq' },
+        prompt: 'Amerikalı dostunu hostelə yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “SMITH ANNA”, ölkə — the USA.\nFormanı doldur.', form: { title: 'Hostel qeydiyyatı', subtitle: 'Yeni qonaq' },
         fields: [
           { id: 'u3d3b_c11b', label: 'Last name', placeholder: '…', rule: exact('Smith'), purpose: 'soyadı yazmaq', empty: 'Soyadı da yaz.' },
           { id: 'u3d3b_c11a', label: 'First name', placeholder: '…', rule: exact('Anna'), purpose: 'adı yazmaq', empty: 'Adı da yaz.' },
-          { id: 'u3d3b_c11c', label: 'Nationality', placeholder: '…', rule: exact('English'), purpose: 'milləti yazmaq', empty: 'Milləti də yaz.' },
+          { id: 'u3d3b_c11c', label: 'Nationality', placeholder: '…', rule: exact('American'), purpose: 'milləti yazmaq', empty: 'Milləti də yaz.' },
         ],
         variants: [
           { field: 'u3d3b_c11b', match: { other: true }, explain: ex('Smith', 'Last name — soyaddır: pasportdakı birinci söz.', 'Last name — Smith; First name — Anna.', 'My last name is Smith.') },
           { field: 'u3d3b_c11a', match: { other: true }, explain: ex('Anna', 'First name — addır: pasportdakı ikinci söz.', 'First name — Anna; Last name — Smith.', 'My first name is Anna.') },
-          { field: 'u3d3b_c11c', match: { other: true }, explain: ex('English', 'England ölkədir; millət sətrinə English yazılır.', "I'm English. — millət; I'm from England. — ölkə.", 'Nationality: English.') },
+          { field: 'u3d3b_c11c', match: { other: true }, explain: ex('American', 'the USA ölkədir; millət sətrinə American yazılır.', "I'm American. — millət; I'm from the USA. — ölkə.", 'Nationality: American.') },
         ],
       },
     },

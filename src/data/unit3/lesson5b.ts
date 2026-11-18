@@ -46,7 +46,7 @@ export const lesson5b: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d5b_c02', number: 2, scenes: ['mascot/ask'],
-      word: "Where's he from? · Where's she from?", pronunciation: '/wɛrz hi frʌm/ · /wɛrz ʃi frʌm/', reading: 'uerz hi from? · uerz şi from?', az: 'O (kişi / qadın) haradandır?',
+      word: "Where's he from? · Where's she from?", pronunciation: '/wɛrz hi frʌm/ · /wɛrz ʃi frʌm/', reading: 'uerz hi fram? · uerz şi fram?', az: 'O (kişi / qadın) haradandır?',
       structure: ["Where's + he / she + from?"],
       notes: ["Where's — where is-in qısası, “uerz” oxunur."],
       example: "Where's she from? — She's from Turkey.", exampleAz: 'O haradandır? — Türkiyədəndir.',
@@ -70,12 +70,12 @@ export const lesson5b: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u3d5b_c04', number: 4, title: 'Soruş', why: 'Kişinin haradan olduğunu soruşdun.', hint: 'Kişi haqqında soruşursan; sual Where’s ilə başlayır.',
+      type: 'voice', id: 'u3d5b_c04', number: 4, title: 'Soruş', why: 'Kişinin haradan olduğunu soruşdun.', hint: 'Dərs 1-dəki “haradan” sualını xatırla, amma indi kişi haqqındadır.',
       prompt: 'Video zəngdə qız ekranda yeni bir kişi dostunu göstərir.\nOnun haradan olduğunu soruş.', reply: "He's from Georgia.",
       rule: askWhere('he'),
       variants: [wrongPerson("Where's he from?", 'he'), noIsInQuestion("Where's he from?"), other("Where's he from?", ex("Where's he from?", 'Kişi haqqında soruşursan: Where’s he from?', "Where's he from? — o (kişi); Where are you from? — sən.", "Where's he from? — He's from Georgia."))],
       review: {
-        title: 'Soruş', why: 'Qadının haradan olduğunu soruşdun.', hint: 'Qadın haqqında soruşursan; sual Where’s ilə başlayır.',
+        title: 'Soruş', why: 'Qadının haradan olduğunu soruşdun.', hint: 'Dərs 1-dəki “haradan” sualını xatırla, amma indi qadın haqqındadır.',
         prompt: 'Qatarda oğlanın yanında bir qadın oturub, sən onu tanımırsan.\nOğlandan qadının haradan olduğunu soruş.', reply: "She's from Iran.",
         rule: askWhere('she'),
         variants: [wrongPerson("Where's she from?", 'she'), noIsInQuestion("Where's she from?"), other("Where's she from?", ex("Where's she from?", 'Qadın haqqında soruşursan: Where’s she from?', "Where's she from? — o (qadın); Where are you from? — sən.", "Where's she from? — She's from Iran."))],
@@ -91,7 +91,7 @@ export const lesson5b: DesignLesson = {
     {
       type: 'write', id: 'u3d5b_c06', number: 6, title: 'Mesaj yaz', why: 'Sualda Is əvvəldədir.', hint: 'Bəli/xeyr sualında hansı söz birinci gəlir?', scenes: ['u3/videocall'],
       prompt: 'Video zəngdən sonra qıza yazırsan: ekrandakı kişi Rusiyadandırmı?\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
-      tiles: ['Is', 'he', 'from', 'Russia', 'He', 'is', 'Russian', '?'], rule: exact('Is he from Russia?'),
+      tiles: ['Is', 'he', 'from', 'Russia', 'He', 'is', 'at', '?'], rule: exact('Is he from Russia?'),
       variants: [
         { match: { pattern: String.raw`^he\s+is\b` }, short: 'Sualda Is əvvələ keçir.', explain: ex('Is he from Russia?', 'Bəli/xeyr sualında Is birinci gəlir, he ondan sonra.', 'Is he from Russia? — sual; He is from Russia. — cavab.', 'Is she Turkish?') },
         other('Is he from Russia?', ex('Is he from Russia?', 'Sual Is ilə başlayır, sonra he from, sonra ölkə.', 'Is he from Russia? — ölkə; Is he Russian? — millət.', 'Is she Turkish?')),
@@ -108,10 +108,10 @@ export const lesson5b: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d5b_c07', number: 7, scenes: ['mascot/happy'],
-      word: 'Yes, he is.', pronunciation: '/jɛs hi ɪz/', reading: 'yes, hi iz', az: 'Bəli, odur.',
+      word: 'Yes, he is.', pronunciation: '/jɛs hi ɪz/', reading: 'yes, hi iz', az: 'Bəli, elədir.',
       structure: ['Yes, + he / she + is.'],
       notes: ['Qısa cavabın sonunda is qalır, qısalmır.'],
-      example: 'Is he Georgian? — Yes, he is.', exampleAz: 'O gürcüdürmü? — Bəli.',
+      example: 'Is he Georgian? — Yes, he is.', exampleAz: 'O gürcüdürmü? — Bəli, elədir.',
     },
     {
       type: 'match', mode: 'reply', id: 'u3d5b_c08', number: 8, title: 'Cavab cütü', why: 'Hər suala uyğun qısa cavabı tapdın.', hint: 'Sualdakı you, he, she sözü cavabda necə qayıdır?',
@@ -153,12 +153,12 @@ export const lesson5b: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u3d5b_c11', number: 11, title: 'Qısa cavab ver', why: 'Qadın haqqında qısa “xeyr” cavabı verdin.', hint: 'Sualda she var; “xeyr, deyil” de.',
+      type: 'voice', id: 'u3d5b_c11', number: 11, title: 'Qısa cavab ver', why: 'Qadın haqqında qısa “xeyr” cavabı verdin.', hint: 'Sual kimin haqqındadır? Cavabda da o söz qayıdır.',
       prompt: 'Video zəngdə ekranda qızın rəfiqəsi görünür. O, Fransadandır. Yeni tanış soruşur.\nQısa cavab ver.', audio: 'Is she from Germany?', reply: 'Oh, OK!',
       rule: noShort('she', 'France'),
       variants: [wrongPerson("No, she isn't.", 'she'), shortNot("No, she isn't."), aboutSelf("No, she isn't."), other("No, she isn't.", ex("No, she isn't.", 'O, Almaniyadan deyil — qısa “xeyr” cavabı.', "Is she …? — No, she isn't.; Is she …? — Yes, she is.", "Is she from Iran? — No, she isn't."))],
       review: {
-        title: 'Qısa cavab ver', why: 'Kişi haqqında qısa “xeyr” cavabı verdin.', hint: 'Sualda he var; “xeyr, deyil” de.',
+        title: 'Qısa cavab ver', why: 'Kişi haqqında qısa “xeyr” cavabı verdin.', hint: 'Sual kimin haqqındadır? Cavabda da o söz qayıdır.',
         prompt: 'Hostelin mətbəxində oğlanın otaq yoldaşı gürcüdür. Yeni tanış soruşur.\nQısa cavab ver.', audio: 'Is he Turkish?', reply: 'Oh, sorry!',
         rule: noShort('he', 'Georgia'),
         variants: [wrongPerson("No, he isn't.", 'he'), shortNot("No, he isn't."), aboutSelf("No, he isn't."), other("No, he isn't.", ex("No, he isn't.", 'O, türk deyil — qısa “xeyr” cavabı.', "Is he …? — No, he isn't.; Is he …? — Yes, he is.", "Is he Georgian? — Yes, he is."))],
@@ -187,11 +187,11 @@ export const lesson5b: DesignLesson = {
       },
     },
     {
-      type: 'match', mode: 'order', id: 'u3d5b_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, cavab, yoxlama və təsdiq düz sıradadır.', hint: 'Əvvəl haradan olduğu soruşulur; “Really?” təəccübdür.',
+      type: 'match', mode: 'order', id: 'u3d5b_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, cavab, yoxlama və təsdiq düz sıradadır.', hint: 'Əvvəl haradan olduğu soruşulur, sonra millət yoxlanır.',
       prompt: 'Hostelin mətbəxi. Yeni tanış qızdan otaq yoldaşını soruşur.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "Where's he from?", from: 'other' }, { en: '2', az: "He's from Georgia.", from: 'G' }, { en: '3', az: 'Really? Is he Georgian?', from: 'other' }, { en: '4', az: 'Yes, he is.', from: 'G' }],
+      rows: [{ en: '1', az: "Where's he from?", from: 'other' }, { en: '2', az: "He's from Georgia.", from: 'G' }, { en: '3', az: 'Is he Georgian?', from: 'other' }, { en: '4', az: 'Yes, he is.', from: 'G' }],
       extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("Where's he from? → He's from Georgia. → Really? Is he Georgian? → Yes, he is.", 'Sual, cavab, təəccüblə yoxlama, sonra qısa təsdiq.', "Is he Georgian? — sual; Yes, he is. — cavab.", "Where's he from? — He's from Georgia."))],
+      variants: [other('Söhbətin sırası düz deyil.', ex("Where's he from? → He's from Georgia. → Is he Georgian? → Yes, he is.", 'Sual, cavab, millətlə yoxlama, sonra qısa təsdiq.', "Is he Georgian? — sual; Yes, he is. — cavab.", "Where's he from? — He's from Georgia."))],
       review: {
         title: 'Söhbəti sırala', why: 'Yoxlama, “xeyr” cavabı, sual və cavab düz sıradadır.', hint: 'Əvvəl bəli/xeyr sualı gəlir; “xeyr”dən sonra nə soruşulur?',
         prompt: 'Qatar. Bələdçi oğlandan yanındakı qadını soruşur.\nBalonlara toxun, söhbəti sıraya düz.',
@@ -215,7 +215,7 @@ export const lesson5b: DesignLesson = {
   vocabulary: [
     { word: "Where's he from? · Where's she from?", translation: 'O haradandır?', example: "Where's she from? — She's from Turkey.", exampleAz: 'O haradandır? — Türkiyədəndir.', usageNote: "Kişi üçün he, qadın üçün she. Where's — where is.", pronunciation: '/wɛrz hi frʌm/ · /wɛrz ʃi frʌm/', teachCard: 'u3d5b_c02' },
     { word: 'Is she …? · Is he …?', translation: 'O …-dırmı?', example: 'Is she Turkish?', exampleAz: 'O türkdürmü?', usageNote: 'Sualda is əvvələ keçir.', pronunciation: '/ɪz ʃi/ · /ɪz hi/', teachCard: 'u3d5b_c05' },
-    { word: 'Yes, he is.', translation: 'Bəli, odur.', example: 'Is he Georgian? — Yes, he is.', exampleAz: 'O gürcüdürmü? — Bəli.', usageNote: 'Qısa cavabın sonunda is qalır.', pronunciation: '/jɛs hi ɪz/', teachCard: 'u3d5b_c07' },
+    { word: 'Yes, he is.', translation: 'Bəli, elədir.', example: 'Is he Georgian? — Yes, he is.', exampleAz: 'O gürcüdürmü? — Bəli, elədir.', usageNote: 'Qısa cavabın sonunda is qalır.', pronunciation: '/jɛs hi ɪz/', teachCard: 'u3d5b_c07' },
     { word: "No, she isn't.", translation: 'Xeyr, o deyil.', example: "Is she from Iran? — No, she isn't.", exampleAz: 'O İrandandırmı? — Xeyr.', usageNote: "isn't — is not.", pronunciation: '/noʊ ʃi ˈɪzənt/', teachCard: 'u3d5b_c09' },
   ],
 };

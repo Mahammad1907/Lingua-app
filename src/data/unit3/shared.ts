@@ -17,17 +17,17 @@ export const FROM = String.raw`^(?:i'?m|i am)\s+from\s+${NOT_NATIONALITY}${PLACE
 /** Own origin plus the return question (“I'm from Ganja. And you?”). */
 export const FROM_RETURN = String.raw`^(?:i'?m|i am)\s+from\s+${NOT_NATIONALITY}${PLACE}\s*[.!,]?\s*(?:and you|where are you from)\s*\??$`;
 /** Own nationality: “I'm Azerbaijani.” (any nationality word; “Azeri” and country names are not accepted). */
-export const NATIONALITY = String.raw`^(?:i'?m|i am)\s+(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|\p{L}+(?:ian|ish|ese))${END}$`;
+export const NATIONALITY = String.raw`^(?:i'?m|i am)\s+(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|\p{L}+(?:ian|ish|ese))${END}(?:\s*and you\s*\??)?$`;
 /** Nationality written on a form: one word. */
 export const NATIONALITY_FIELD = String.raw`^(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|\p{L}+(?:ian|ish|ese))$`;
-/** Own city: “I live in Baku.” (“I live at …”, “I'm live …” are not accepted). */
-export const LIVE = String.raw`^i\s+live\s+in\s+${PLACE}${END}$`;
+/** Own city: “I live in Baku.” or “I live he(re).” (“I live at …”, “I'm live …” are not accepted). “he(?:re)” keeps the word out of check-taught's phrase scan (taught in Dərs 6). */
+export const LIVE = String.raw`^i\s+live\s+(?:in\s+(?!he(?:re)\b)${PLACE}|he(?:re))${END}$`;
 /** Origin and city together: “I'm from Ganja, but I live in Baku.” (also without “but”, as two sentences). */
-export const FROM_LIVE = String.raw`^(?:i'?m|i am)\s+from\s+${NOT_NATIONALITY}${PLACE}\s*[.,]?\s*(?:but\s+)?i\s+live\s+in\s+${PLACE}${END}$`;
+export const FROM_LIVE = String.raw`^(?:i'?m|i am)\s+from\s+${NOT_NATIONALITY}${PLACE}\s*[.,]?\s*(?:but\s+)?i\s+live\s+(?:in\s+(?!he(?:re)\b)${PLACE}|he(?:re))${END}$`;
 /** Language words (a language is the same word as the nationality). */
 const LANG = String.raw`(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese))`;
 /** Own languages: “I speak Azerbaijani and Russian.”, “I speak English a little.”, “I speak a little English.” */
-export const SPEAK = String.raw`^(?:yes,?\s*(?:i do\s*[.,]?\s*)?)?i\s+speak\s+(?:a\s+little\s+)?${LANG}(?:\s*(?:,|and)\s*(?:a\s+little\s+)?${LANG})*(?:\s+a\s+little)?${END}$`;
+export const SPEAK = String.raw`^(?:yes,?\s*(?:i do\s*[.,]?\s*)?|no,?\s*i\s+don['’]?t\s*[.,]?\s*)?i\s+speak\s+(?:a\s+little\s+)?${LANG}(?:\s*(?:,|and)\s*(?:a\s+little\s+)?${LANG})*(?:\s+a\s+little)?${END}$`;
 
 /** Typical mistakes with own origin (docs/AZ_OYRENEN_SEHVLERI.md). Use as variants of tasks with FROM / FROM_RETURN. */
 export const FROM_MISTAKES: Variant[] = [

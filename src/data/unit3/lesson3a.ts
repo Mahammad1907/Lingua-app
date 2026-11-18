@@ -41,7 +41,7 @@ export const lesson3a: DesignLesson = {
         pick('Mən Bakıdanam.', 'Səsdə şəhər adı yoxdur.', ex('Mən azərbaycanlıyam.', 'Səsdə Baku yox, Azerbaijani deyilir.', "I'm Azerbaijani. — millət; I'm from Baku. — şəhər.", "I'm Azerbaijani.")),
       ],
       review: {
-        title: 'Dinlə və seç', why: 'Azerbaijani — azərbaycanlı (millət).', hint: 'Sözdən əvvəl kiçik bir söz var, ya yox — qulaq as.',
+        title: 'Dinlə və seç', why: 'from Azerbaijan — Azərbaycandan (ölkə).', hint: 'Sözdən əvvəl kiçik bir söz var, ya yox — qulaq as.',
         prompt: 'Hostel resepsiyasında qız özü haqqında deyir.\nEşitdiyin cümlənin tərcüməsini seç.', audio: "I'm from Azerbaijan.",
         options: ['Mən azərbaycanlıyam.', 'Mən Azərbaycandanam.', 'Adım Gəncədir.'], answer: 'Mən Azərbaycandanam.',
         variants: [
@@ -58,20 +58,20 @@ export const lesson3a: DesignLesson = {
       example: "I'm from Turkey. I'm Turkish.", exampleAz: 'Mən Türkiyədənəm. Türkəm.',
     },
     {
-      type: 'choice', id: 'u3d3a_c05', number: 5, title: 'Sözü tamamla', why: 'Turkey — ölkə, Turkish — millət.', hint: 'Cümlə I\'m ilə başlayır, from yoxdur — hansı söz yaraşır?',
+      type: 'choice', id: 'u3d3a_c05', number: 5, title: 'Sözü tamamla', why: 'Turkey — ölkə, Turkish — millət.', hint: 'Birinci cümlə ölkəni deyir, ikinci cümlə başqa şeyi.',
       prompt: 'Hostelin resepsiyasında yeni tanış özünü təqdim edir.\nHansı söz çatmır?', gap: { speaker: 'other', before: "I'm from Turkey. I'm", after: '.' },
-      options: ['Turkish', 'Turkey', 'Azerbaijani'], answer: 'Turkish',
+      options: ['Turkish', 'Turkey', 'from'], answer: 'Turkish',
       variants: [
         pick('Turkey', 'Turkey ölkədir; I\'m-dən sonra millət gəlir.', ex('Turkish', 'from-suz I\'m-dən sonra millət gəlir: Turkish.', "I'm Turkish. — millət; I'm from Turkey. — ölkə.", "I'm from Turkey. I'm Turkish.")),
-        pick('Azerbaijani', 'O, Türkiyədəndir.', ex('Turkish', 'Türkiyədən olan türkdür: Turkish.', "I'm from Turkey. I'm Turkish. — türk; I'm from Azerbaijan. I'm Azerbaijani. — azərbaycanlı.", "I'm from Turkey. I'm Turkish.")),
+        pick('from', '“from”dan sonra ölkə gəlməlidir, burada isə cümlə bitir.', ex('Turkish', 'İkinci cümlə millətdir: I’m-dən sonra Turkish.', "I'm Turkish. — millət; I'm from Turkey. — ölkə.", "I'm from Turkey. I'm Turkish.")),
       ],
       review: {
-        title: 'Sözü tamamla', why: 'Azerbaijan — ölkə, Azerbaijani — millət.', hint: 'Cümlə I\'m ilə başlayır, from yoxdur — hansı söz yaraşır?',
+        title: 'Sözü tamamla', why: 'Azerbaijan — ölkə, Azerbaijani — millət.', hint: 'Birinci cümlə ölkəni deyir, ikinci cümlə başqa şeyi.',
         prompt: 'Qatarda qonşu sərnişin özünü təqdim edir.\nHansı söz çatmır?', gap: { speaker: 'other', before: "I'm from Azerbaijan. I'm", after: '.' },
-        options: ['Azerbaijan', 'Azerbaijani', 'Russian'], answer: 'Azerbaijani',
+        options: ['Azerbaijan', 'Azerbaijani', 'from'], answer: 'Azerbaijani',
         variants: [
           pick('Azerbaijan', 'Azerbaijan ölkədir; I\'m-dən sonra millət gəlir.', ex('Azerbaijani', 'from-suz I\'m-dən sonra millət gəlir: Azerbaijani.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm from Azerbaijan. I'm Azerbaijani.")),
-          pick('Russian', 'O, Azərbaycandandır.', ex('Azerbaijani', 'Azərbaycandan olan azərbaycanlıdır: Azerbaijani.', "I'm from Azerbaijan. I'm Azerbaijani. — azərbaycanlı; I'm from Russia. I'm Russian. — rus.", "I'm from Azerbaijan. I'm Azerbaijani.")),
+          pick('from', '“from”dan sonra ölkə gəlməlidir, burada isə cümlə bitir.', ex('Azerbaijani', 'İkinci cümlə millətdir: I’m-dən sonra Azerbaijani.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm from Azerbaijan. I'm Azerbaijani.")),
         ],
       },
     },
@@ -130,14 +130,14 @@ export const lesson3a: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u3d3a_c11', number: 11, title: 'Dinlə və yaz', why: 'Georgian — gürcü.', hint: 'Səsdə G “c” kimi oxunur, amma yazıda G-dir.',
+      type: 'write', id: 'u3d3a_c11', number: 11, title: 'Dinlə və yaz', why: 'Georgian — gürcü.', hint: 'Ölkənin adını xatırla: millət sözü ondan düzəlir.',
       prompt: 'Hostel resepsiyasında qonaq millətini deyir.\nMillətini yaz.', audio: "I'm Georgian.", placeholder: 'Millət',
-      rule: exact('Georgian'),
+      rule: exact('Georgian', "I'm Georgian."),
       variants: [other('Yazılışı yoxla: Georgian.', ex('Georgian', 'Səsdə “corcən” eşidilir, yazıda Georgia + n.', "I'm Georgian. — millət; I'm from Georgia. — ölkə.", "I'm Georgian."))],
       review: {
-        title: 'Dinlə və yaz', why: 'Russian — rus.', hint: 'Səsdə “ş” eşidilir, yazıda isə iki s-dən sonra i var.',
+        title: 'Dinlə və yaz', why: 'Russian — rus.', hint: 'Ölkənin adını xatırla: millət sözü ondan düzəlir.',
         prompt: 'Pasport nəzarətində sərnişin millətini deyir.\nMillətini yaz.', audio: "I'm Russian.", placeholder: 'Millət',
-        rule: exact('Russian'),
+        rule: exact('Russian', "I'm Russian."),
         variants: [other('Yazılışı yoxla: Russian.', ex('Russian', 'Səsdə “raşən” eşidilir, yazıda Russia + n.', "I'm Russian. — millət; I'm from Russia. — ölkə.", "I'm Russian."))],
       },
     },

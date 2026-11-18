@@ -60,7 +60,7 @@ Qeyd: “Bakıdanam” ingiliscə üç hissədir: I’m from Baku.
 **Yazışma (Yeni tanış):** “Hi! Where are you from?”  
 **Sözlər:** I'm · from · Ganja · . · is · my · I  
 **Qəbul:** dəqiq: I'm from Ganja.  
-**İpucu:** Əvvəl “mən”, sonra “-dan” sözü, sonda şəhər.  
+**İpucu:** Bölmə 1-dəki “I’m” ilə başla.  
 **Düzgün olanda:** I’m from + şəhər — haradan olduğunu dedin.  
 - *İzah (başqa səhvdə):* Haradan olduğunu deyəndə “from” lazımdır. — Uyğun: I'm from Ganja. Səbəb: Azərbaycancada “-dan” şəkilçidir; ingiliscə yerin adından əvvəl ayrıca “from” gəlir. Qayda: I'm from Ganja. — haradan; I'm fine. — hal. Nümunə: Where are you from? — I'm from Ganja.  
 - *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Ganja. Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Ganja. — düzdür; I from Ganja. — olmur. Nümunə: Where are you from? — I'm from Ganja.  
@@ -72,7 +72,7 @@ Qeyd: “Bakıdanam” ingiliscə üç hissədir: I’m from Baku.
 **Yazışma (İş yoldaşı):** “Where are you from?”  
 **Sözlər:** Shamakhi · from · I'm · . · at · you · is  
 **Qəbul:** dəqiq: I'm from Shamakhi.  
-**İpucu:** Əvvəl “mən”, sonra “-dan” sözü, sonda şəhər.  
+**İpucu:** Bölmə 1-dəki “I’m” ilə başla.  
 **Düzgün olanda:** I’m from + şəhər — haradan olduğunu dedin.  
 - *İzah (başqa səhvdə):* Haradan olduğunu deyəndə “from” lazımdır. — Uyğun: I'm from Shamakhi. Səbəb: Azərbaycancada “-dan” şəkilçidir; ingiliscə yerin adından əvvəl ayrıca “from” gəlir. Qayda: I'm from Ganja. — haradan; I'm fine. — hal. Nümunə: Where are you from? — I'm from Shamakhi.  
 - *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Shamakhi. Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Ganja. — düzdür; I from Ganja. — olmur. Nümunə: Where are you from? — I'm from Shamakhi.  
@@ -156,23 +156,23 @@ Qeyd: Qarşındakı ilə eyni olanda deyilir; “You too” isə “sənə də�
 
 ## Kart 11 — Dialoqu tamamla: Dialoqu tamamla
 
-**Tapşırıq:** Klubda yeni tanış haradan olduğunu yazdı. Sən də Bakıdansan. Cavab yaz.  
+**Tapşırıq:** Klubda yeni tanış haradan olduğunu yazdı. Sən də Bakıdansan. Qısa cavab yaz.  
 **Yazışma (Yeni tanış):** “Hi! I'm from Baku.”  
-**Qəbul:** dəqiq: Me too!  
+**Qəbul:** dəqiq: Me too! / Me too. / Me too! I'm from Baku. / Me too. I'm from Baku.  
 **İpucu:** Sən də eyni şəhərdənsən — “mən də” necə deyilir?  
 **Düzgün olanda:** Me too — sən də oradansan.  
 - *İzah (başqa səhvdə):* “You too” — sənə də; burada “mən də” lazımdır. — Uyğun: Me too! Səbəb: O, Bakıdan olduğunu dedi; sən də — “mən də”. Qayda: Me too! — mən də; You too. — sənə də. Nümunə: I'm from Baku. — Me too!  
-- *İzah (başqa səhvdə):* Me too! — Uyğun: Me too! Səbəb: Sən də Bakıdansan — qısa cavab “mən də”dir. Qayda: Me too! — mən də; I'm from Baku. — uzun cavab. Nümunə: I'm from Baku. — Me too!  
+- *İzah (başqa səhvdə):* Me too! — Uyğun: Me too! Səbəb: Burada qısa cavab istənir: sən də Bakıdansan. Qayda: Me too! — qısa cavab; I'm from Baku. — tam cümlə. Nümunə: I'm from Baku. — Me too!  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İş yoldaşın haradan olduğunu yazdı. Sən də Gəncədənsən. Cavab yaz.  
+**Tapşırıq:** İş yoldaşın haradan olduğunu yazdı. Sən də Gəncədənsən. Qısa cavab yaz.  
 **Yazışma (İş yoldaşı):** “I'm from Ganja.”  
-**Qəbul:** dəqiq: Me too!  
+**Qəbul:** dəqiq: Me too! / Me too. / Me too! I'm from Ganja. / Me too. I'm from Ganja.  
 **İpucu:** Sən də eyni şəhərdənsən — “mən də” necə deyilir?  
 **Düzgün olanda:** Me too — sən də oradansan.  
 - *İzah (başqa səhvdə):* “You too” — sənə də; burada “mən də” lazımdır. — Uyğun: Me too! Səbəb: O, Gəncədən olduğunu dedi; sən də — “mən də”. Qayda: Me too! — mən də; You too. — sənə də. Nümunə: I'm from Ganja. — Me too!  
-- *İzah (başqa səhvdə):* Me too! — Uyğun: Me too! Səbəb: Sən də Gəncədənsən — qısa cavab “mən də”dir. Qayda: Me too! — mən də; I'm from Ganja. — uzun cavab. Nümunə: I'm from Ganja. — Me too!  
+- *İzah (başqa səhvdə):* Me too! — Uyğun: Me too! Səbəb: Burada qısa cavab istənir: sən də Gəncədənsən. Qayda: Me too! — qısa cavab; I'm from Ganja. — tam cümlə. Nümunə: I'm from Ganja. — Me too!  
 
 ## Kart 12 — Səslə cavab: Haradan olduğunu soruş
 
@@ -206,7 +206,7 @@ Qeyd: Qarşındakı ilə eyni olanda deyilir; “You too” isə “sənə də�
 **Düzgün sıra:** 1. Excuse me, where are you from? → 2. I'm from Shamakhi. → 3. Sorry? Again, please. → 4. Shamakhi. I'm from Shamakhi.  
 **İpucu:** Əvvəl sual gəlir; eşitməyən nə xahiş edir?  
 **Düzgün olanda:** Sual, cavab, təkrar xahişi və təkrar düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me, where are you from? → I'm from Shamakhi. → Sorry? Again, please. → Shamakhi. Səbəb: Sual, cavab, təkrar xahişi, sonra təkrar. Qayda: Again, please. — eşitmədin; Slowly, please. — sürətli idi. Nümunə: Excuse me, where are you from?  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me, where are you from? → I'm from Shamakhi. → Sorry? Again, please. → Shamakhi. Səbəb: Sual, cavab, təkrar xahişi, sonra təkrar. Qayda: Sorry? Again, please. — eşitmədin; Shamakhi. — təkrar. Nümunə: Excuse me, where are you from?  
 
 ## Nəticə
 

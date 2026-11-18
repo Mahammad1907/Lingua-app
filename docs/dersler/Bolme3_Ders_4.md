@@ -50,7 +50,7 @@ Oxunuşu: yes, ay əm · IPA: /jɛs aɪ æm/
 
 Quruluşu: Are you …? — Yes, I am.
 
-Nümunə: **Are you from Azerbaijan? — Yes, I am.** — Sən Azərbaycandansan? — Bəli.
+Nümunə: **Are you from Azerbaijan? — Yes, I am.** — Sən Azərbaycandansan? — Bəli, eləyəm.
 
 Qeyd: Qısa cavabın sonunda I am qısalmır.
 
@@ -58,7 +58,7 @@ Qeyd: Qısa cavabın sonunda I am qısalmır.
 
 **Tapşırıq:** Hostelin mətbəxində yeni tanış soruşur: “Are you from Azerbaijan?” Sən Azərbaycandansan. Hansı cavab düzdür?  
 **Seçimlər:** Yes, I am. / Yes, I'm. / Yes, you are. — **düzgün:** Yes, I am.  
-**İpucu:** Cavab I-dan sonra bitir — sonda qısa forma yaraşırmı?  
+**İpucu:** Cavabın sonuna qulaq as: sözlər ayrı deyilir, yoxsa bitişik?  
 **Düzgün olanda:** Qısa cavab I am ilə bitir: Yes, I am.  
 - *İzah (“Yes, I'm.” seçiləndə):* Qısa cavabın sonunda I'm olmur. — Uyğun: Yes, I am. Səbəb: Cavab I-la bitəndə am qısalmır, ayrıca deyilir. Qayda: Yes, I am. — düzdür; Yes, I'm. — olmur. Nümunə: Are you from Azerbaijan? — Yes, I am.  
 - *İzah (“Yes, you are.” seçiləndə):* Sual sənə verilib — özün haqqında cavab ver. — Uyğun: Yes, I am. Səbəb: Sual “sən” haqqındadır; cavabda “mən” deyirsən: I am. Qayda: Yes, I am. — mən; Yes, you are. — sən. Nümunə: Are you from Azerbaijan? — Yes, I am.  
@@ -82,7 +82,7 @@ Quruluşu: Are you …? — No, I'm not.
 
 Nümunə: **Are you from Russia? — No, I'm not.** — Sən Rusiyadansan? — Xeyr, deyiləm.
 
-Qeyd: not “deyil” mənasını verir və am-dan sonra gəlir.
+Qeyd: I’m not — burada not am-dan sonra gəlir.
 
 ## Kart 7 — Səslə cavab: Səslə cavab
 
@@ -136,7 +136,7 @@ Qeyd: Təəccüb edəndə səsin sonda yuxarı qalxır.
 
 **Tapşırıq:** Hostelin mətbəxində Bakıdan olduğunu dedin. Yeni tanış cavab yazır. Təəccübünü bildir.  
 **Yazışma (Yeni tanış):** “I'm from Baku too!”  
-**Qəbul:** dəqiq: Really? / Really? Me too!  
+**Qəbul:** dəqiq: Really?  
 **İpucu:** Təəccüb edəndə deyilən bu dərsin sözünü yaz.  
 **Düzgün olanda:** Təəccübünü bildirdin: Really?  
 - *İzah (başqa səhvdə):* Really? — Uyğun: Really? Səbəb: Gözləmədiyin bir şey eşidəndə təəccüb bildirirsən. Qayda: Really? — təəccüb; Me too. — mən də. Nümunə: I'm from Baku too! — Really?  
@@ -145,18 +145,18 @@ Qeyd: Təəccüb edəndə səsin sonda yuxarı qalxır.
 
 **Tapşırıq:** Qatarda yeni tanışa Gəncədən olduğunu dedin. O cavab yazır. Təəccübünü bildir.  
 **Yazışma (Yeni tanış):** “I'm from Ganja too!”  
-**Qəbul:** dəqiq: Really? / Really? Me too!  
+**Qəbul:** dəqiq: Really?  
 **İpucu:** Təəccüb edəndə deyilən bu dərsin sözünü yaz.  
 **Düzgün olanda:** Təəccübünü bildirdin: Really?  
 - *İzah (başqa səhvdə):* Really? — Uyğun: Really? Səbəb: Gözləmədiyin bir şey eşidəndə təəccüb bildirirsən. Qayda: Really? — təəccüb; Me too. — mən də. Nümunə: I'm from Ganja too! — Really?  
 
 ## Kart 11 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**Tapşırıq:** Hostelin söhbət qrupunda yeni tanış türk çayından yazır. Sözlərdən sual qur: o Türkiyədəndir?  
+**Tapşırıq:** Hostelin söhbət qrupunda yeni tanış türk çayından yazır. Sözlərdən sual qur: “Sən Türkiyədənsən?”  
 **Yazışma (Yeni tanış):** “Tea?”  
-**Sözlər:** Are · you · from · Turkey · ? · Do · Turkish  
+**Sözlər:** Are · you · from · Turkey · ? · Do · is  
 **Qəbul:** dəqiq: Are you from Turkey?  
-**İpucu:** Sual do ilə yox, bu dərsin sual sözü ilə başlayır.  
+**İpucu:** Sual bu dərsin ilk kartındakı kimi başlayır.  
 **Düzgün olanda:** Sual are ilə başlayır: Are you from Turkey?  
 - *İzah (başqa səhvdə):* Bu sual do ilə yox, are ilə başlayır. — Uyğun: Are you from Georgia? Səbəb: from olan sualda do yoxdur: are ilə başlayır. Qayda: Are you from Georgia? — düzdür; Do you from Georgia? — olmur. Nümunə: Are you from Turkey?  
 - *İzah (başqa səhvdə):* Sualda are önə keçir. — Uyğun: Are you from Georgia? Səbəb: Azərbaycancada sual səslə qurulur, ingiliscə are cümlənin əvvəlinə keçir. Qayda: Are you from Georgia? — sual; You're from Georgia. — cümlə. Nümunə: Are you from Turkey?  
@@ -164,11 +164,11 @@ Qeyd: Təəccüb edəndə səsin sonda yuxarı qalxır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Pasport nəzarətinin növbəsində yanındakı sərnişinin pasportu qırmızıdır. Sözlərdən sual qur: o Rusiyadandır?  
+**Tapşırıq:** Hostelin söhbət qrupunda yeni tanış Moskvanın şəklini paylaşıb. Sözlərdən sual qur: “Sən Rusiyadansan?”  
 **Yazışma (Yeni tanış):** “Hello!”  
-**Sözlər:** Russia · you · Do · Are · from · ? · Russian  
+**Sözlər:** Russia · you · Do · Are · from · ? · at  
 **Qəbul:** dəqiq: Are you from Russia?  
-**İpucu:** Sual do ilə yox, bu dərsin sual sözü ilə başlayır.  
+**İpucu:** Sual bu dərsin ilk kartındakı kimi başlayır.  
 **Düzgün olanda:** Sual are ilə başlayır: Are you from Russia?  
 - *İzah (başqa səhvdə):* Bu sual do ilə yox, are ilə başlayır. — Uyğun: Are you from Georgia? Səbəb: from olan sualda do yoxdur: are ilə başlayır. Qayda: Are you from Georgia? — düzdür; Do you from Georgia? — olmur. Nümunə: Are you from Turkey?  
 - *İzah (başqa səhvdə):* Sualda are önə keçir. — Uyğun: Are you from Georgia? Səbəb: Azərbaycancada sual səslə qurulur, ingiliscə are cümlənin əvvəlinə keçir. Qayda: Are you from Georgia? — sual; You're from Georgia. — cümlə. Nümunə: Are you from Turkey?  
@@ -178,7 +178,7 @@ Qeyd: Təəccüb edəndə səsin sonda yuxarı qalxır.
 
 **Tapşırıq:** Qatarda yanındakı sərnişinin çantasında Gürcüstan bayrağı var. Ondan Gürcüstandan olub-olmadığını soruş.  
 **Qəbul:** dəqiq: Are you from Georgia? · öz məlumatı: /^are\s+you\s+from\s+Georgia\s*\??$/  
-**İpucu:** Sual do ilə yox, bu dərsin sual sözü ilə başlayır.  
+**İpucu:** Sual bu dərsin ilk kartındakı kimi başlayır.  
 **Düzgün olanda:** Bəli/xeyr sualı verdin: Are you from Georgia?  
 - *İzah (başqa səhvdə):* Bu sual do ilə yox, are ilə başlayır. — Uyğun: Are you from Georgia? Səbəb: from olan sualda do yoxdur: are ilə başlayır. Qayda: Are you from Georgia? — düzdür; Do you from Georgia? — olmur. Nümunə: Are you from Turkey?  
 - *İzah (başqa səhvdə):* Sualda are önə keçir. — Uyğun: Are you from Georgia? Səbəb: Azərbaycancada sual səslə qurulur, ingiliscə are cümlənin əvvəlinə keçir. Qayda: Are you from Georgia? — sual; You're from Georgia. — cümlə. Nümunə: Are you from Turkey?  
@@ -188,7 +188,7 @@ Qeyd: Təəccüb edəndə səsin sonda yuxarı qalxır.
 
 **Tapşırıq:** Hostelin mətbəxində yeni tanış alman çörəyi bişirir. Ondan Almaniyadan olub-olmadığını soruş.  
 **Qəbul:** dəqiq: Are you from Germany? · öz məlumatı: /^are\s+you\s+from\s+Germany\s*\??$/  
-**İpucu:** Sual do ilə yox, bu dərsin sual sözü ilə başlayır.  
+**İpucu:** Sual bu dərsin ilk kartındakı kimi başlayır.  
 **Düzgün olanda:** Bəli/xeyr sualı verdin: Are you from Germany?  
 - *İzah (başqa səhvdə):* Bu sual do ilə yox, are ilə başlayır. — Uyğun: Are you from Georgia? Səbəb: from olan sualda do yoxdur: are ilə başlayır. Qayda: Are you from Georgia? — düzdür; Do you from Georgia? — olmur. Nümunə: Are you from Turkey?  
 - *İzah (başqa səhvdə):* Sualda are önə keçir. — Uyğun: Are you from Georgia? Səbəb: Azərbaycancada sual səslə qurulur, ingiliscə are cümlənin əvvəlinə keçir. Qayda: Are you from Georgia? — sual; You're from Georgia. — cümlə. Nümunə: Are you from Turkey?  
@@ -225,6 +225,6 @@ Növbəti dərs — başqası haqqında: he və she.
 | Söz | Tərcümə | Nümunə |
 |---|---|---|
 | Are you from …? | Sən …-dansan? | Are you from Turkey? — Sən Türkiyədənsən? |
-| Yes, I am. | Bəli, eləyəm. | Are you from Azerbaijan? — Yes, I am. — Sən Azərbaycandansan? — Bəli. |
+| Yes, I am. | Bəli, eləyəm. | Are you from Azerbaijan? — Yes, I am. — Sən Azərbaycandansan? — Bəli, eləyəm. |
 | No, I'm not. | Xeyr, deyiləm. | Are you from Russia? — No, I'm not. — Sən Rusiyadansan? — Xeyr, deyiləm. |
 | Really? | Doğrudan? | I'm from the USA. — Really? Me too! — Mən ABŞ-danam. — Doğrudan? Mən də! |

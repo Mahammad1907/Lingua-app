@@ -37,7 +37,7 @@ Qeyd: Millət sözü böyük hərflə yazılır: Azerbaijani.
 **Səs:** I'm from Azerbaijan.  
 **Seçimlər:** Mən azərbaycanlıyam. / Mən Azərbaycandanam. / Adım Gəncədir. — **düzgün:** Mən Azərbaycandanam.  
 **İpucu:** Sözdən əvvəl kiçik bir söz var, ya yox — qulaq as.  
-**Düzgün olanda:** Azerbaijani — azərbaycanlı (millət).  
+**Düzgün olanda:** from Azerbaijan — Azərbaycandan (ölkə).  
 - *İzah (“Mən azərbaycanlıyam.” seçiləndə):* Səsdə “from” var — bu, ölkədir. — Uyğun: Mən Azərbaycandanam. Səbəb: from ölkədən əvvəl gəlir: haradan olduğunu deyir. Qayda: I'm from Azerbaijan. — ölkə; I'm Azerbaijani. — millət. Nümunə: I'm from Azerbaijan.  
 - *İzah (“Adım Gəncədir.” seçiləndə):* Səsdə ad yoxdur. — Uyğun: Mən Azərbaycandanam. Səbəb: Səsdə my name is yoxdur, from var. Qayda: I'm from Azerbaijan. — ölkə; My name is … — ad. Nümunə: I'm from Azerbaijan.  
 
@@ -57,21 +57,21 @@ Qeyd: Millət sözü böyük hərflə yazılır.
 
 **Tapşırıq:** Hostelin resepsiyasında yeni tanış özünü təqdim edir. Hansı söz çatmır?  
 **Cümlə:** I'm from Turkey. I'm ___ .  
-**Seçimlər:** Turkish / Turkey / Azerbaijani — **düzgün:** Turkish  
-**İpucu:** Cümlə I'm ilə başlayır, from yoxdur — hansı söz yaraşır?  
+**Seçimlər:** Turkish / Turkey / from — **düzgün:** Turkish  
+**İpucu:** Birinci cümlə ölkəni deyir, ikinci cümlə başqa şeyi.  
 **Düzgün olanda:** Turkey — ölkə, Turkish — millət.  
 - *İzah (“Turkey” seçiləndə):* Turkey ölkədir; I'm-dən sonra millət gəlir. — Uyğun: Turkish. Səbəb: from-suz I'm-dən sonra millət gəlir: Turkish. Qayda: I'm Turkish. — millət; I'm from Turkey. — ölkə. Nümunə: I'm from Turkey. I'm Turkish.  
-- *İzah (“Azerbaijani” seçiləndə):* O, Türkiyədəndir. — Uyğun: Turkish. Səbəb: Türkiyədən olan türkdür: Turkish. Qayda: I'm from Turkey. I'm Turkish. — türk; I'm from Azerbaijan. I'm Azerbaijani. — azərbaycanlı. Nümunə: I'm from Turkey. I'm Turkish.  
+- *İzah (“from” seçiləndə):* “from”dan sonra ölkə gəlməlidir, burada isə cümlə bitir. — Uyğun: Turkish. Səbəb: İkinci cümlə millətdir: I’m-dən sonra Turkish. Qayda: I'm Turkish. — millət; I'm from Turkey. — ölkə. Nümunə: I'm from Turkey. I'm Turkish.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qatarda qonşu sərnişin özünü təqdim edir. Hansı söz çatmır?  
 **Cümlə:** I'm from Azerbaijan. I'm ___ .  
-**Seçimlər:** Azerbaijan / Azerbaijani / Russian — **düzgün:** Azerbaijani  
-**İpucu:** Cümlə I'm ilə başlayır, from yoxdur — hansı söz yaraşır?  
+**Seçimlər:** Azerbaijan / Azerbaijani / from — **düzgün:** Azerbaijani  
+**İpucu:** Birinci cümlə ölkəni deyir, ikinci cümlə başqa şeyi.  
 **Düzgün olanda:** Azerbaijan — ölkə, Azerbaijani — millət.  
 - *İzah (“Azerbaijan” seçiləndə):* Azerbaijan ölkədir; I'm-dən sonra millət gəlir. — Uyğun: Azerbaijani. Səbəb: from-suz I'm-dən sonra millət gəlir: Azerbaijani. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm from Azerbaijan. I'm Azerbaijani.  
-- *İzah (“Russian” seçiləndə):* O, Azərbaycandandır. — Uyğun: Azerbaijani. Səbəb: Azərbaycandan olan azərbaycanlıdır: Azerbaijani. Qayda: I'm from Azerbaijan. I'm Azerbaijani. — azərbaycanlı; I'm from Russia. I'm Russian. — rus. Nümunə: I'm from Azerbaijan. I'm Azerbaijani.  
+- *İzah (“from” seçiləndə):* “from”dan sonra ölkə gəlməlidir, burada isə cümlə bitir. — Uyğun: Azerbaijani. Səbəb: İkinci cümlə millətdir: I’m-dən sonra Azerbaijani. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm from Azerbaijan. I'm Azerbaijani.  
 
 ## Kart 6 — Yeni söz
 
@@ -117,7 +117,7 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 
 **Tapşırıq:** Hosteldə yeni tanış soruşur: “I'm Turkish. And you?” Millətini de.  
 **Səs:** I'm Turkish. And you?  
-**Qəbul:** məna:  — nümunə: I'm Azerbaijani. · öz məlumatı: /^(?:i'?m|i am)\s+(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|\p{L}+(?:ian|ish|ese))\s*[.!]?$/  
+**Qəbul:** məna:  — nümunə: I'm Azerbaijani. · öz məlumatı: /^(?:i'?m|i am)\s+(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|\p{L}+(?:ian|ish|ese))\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Bu dəfə from olmadan, millətinlə cavab ver.  
 **Düzgün olanda:** Millətini dedin: I'm + millət.  
 - *İzah (başqa səhvdə):* Ölkə yox, millət lazımdır. — Uyğun: I'm Azerbaijani. Səbəb: Azerbaijan ölkədir; millət üçün sonu -i olan söz lazımdır. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm from Azerbaijan. I'm Azerbaijani.  
@@ -128,7 +128,7 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 
 **Tapşırıq:** Qatarda qonşu sərnişin deyir: “I'm Russian. And you?” Millətini de.  
 **Səs:** I'm Russian. And you?  
-**Qəbul:** məna:  — nümunə: I'm Azerbaijani. · öz məlumatı: /^(?:i'?m|i am)\s+(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|\p{L}+(?:ian|ish|ese))\s*[.!]?$/  
+**Qəbul:** məna:  — nümunə: I'm Azerbaijani. · öz məlumatı: /^(?:i'?m|i am)\s+(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|\p{L}+(?:ian|ish|ese))\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Bu dəfə from olmadan, millətinlə cavab ver.  
 **Düzgün olanda:** Millətini dedin: I'm + millət.  
 - *İzah (başqa səhvdə):* Ölkə yox, millət lazımdır. — Uyğun: I'm Azerbaijani. Səbəb: Azerbaijan ölkədir; millət üçün sonu -i olan söz lazımdır. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm from Azerbaijan. I'm Azerbaijani.  
@@ -159,8 +159,8 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 
 **Tapşırıq:** Hostel resepsiyasında qonaq millətini deyir. Millətini yaz.  
 **Səs:** I'm Georgian.  
-**Qəbul:** dəqiq: Georgian  
-**İpucu:** Səsdə G “c” kimi oxunur, amma yazıda G-dir.  
+**Qəbul:** dəqiq: Georgian / I'm Georgian.  
+**İpucu:** Ölkənin adını xatırla: millət sözü ondan düzəlir.  
 **Düzgün olanda:** Georgian — gürcü.  
 - *İzah (başqa səhvdə):* Yazılışı yoxla: Georgian. — Uyğun: Georgian. Səbəb: Səsdə “corcən” eşidilir, yazıda Georgia + n. Qayda: I'm Georgian. — millət; I'm from Georgia. — ölkə. Nümunə: I'm Georgian.  
 
@@ -168,8 +168,8 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 
 **Tapşırıq:** Pasport nəzarətində sərnişin millətini deyir. Millətini yaz.  
 **Səs:** I'm Russian.  
-**Qəbul:** dəqiq: Russian  
-**İpucu:** Səsdə “ş” eşidilir, yazıda isə iki s-dən sonra i var.  
+**Qəbul:** dəqiq: Russian / I'm Russian.  
+**İpucu:** Ölkənin adını xatırla: millət sözü ondan düzəlir.  
 **Düzgün olanda:** Russian — rus.  
 - *İzah (başqa səhvdə):* Yazılışı yoxla: Russian. — Uyğun: Russian. Səbəb: Səsdə “raşən” eşidilir, yazıda Russia + n. Qayda: I'm Russian. — millət; I'm from Russia. — ölkə. Nümunə: I'm Russian.  
 

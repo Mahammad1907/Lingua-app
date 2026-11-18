@@ -86,7 +86,7 @@ export const lesson2b: DesignLesson = {
     {
       type: 'write', id: 'u3d2b_c07', number: 7, title: 'Dinlə və yaz', why: 'the USA — “the” də yazılır.', hint: '“from”dan sonra eşitdiyin hər sözü yaz.',
       prompt: 'Hava limanında sərnişin haradan olduğunu deyir.\n“from”dan sonra eşitdiyini yaz.', audio: "Hi! I'm from the USA.", placeholder: 'Ölkə',
-      rule: exact('the USA'),
+      rule: exact('the USA', "I'm from the USA."),
       variants: [
         { match: { words: ['USA'] }, short: '“the” də eşidilir.', explain: ex('the USA', 'Səsdə “from”dan sonra “the USA” var.', "I'm from the USA. — düzdür; I'm from USA. — olmur.", "I'm from the USA.") },
         other('Bir daha dinlə.', ex('the USA', 'Səsdə “the” və U, S, A hərfləri var.', "I'm from the USA. — ABŞ; I'm from the UK. — Böyük Britaniya.", "I'm from the USA.")),
@@ -94,7 +94,7 @@ export const lesson2b: DesignLesson = {
       review: {
         title: 'Dinlə və yaz', why: 'the UK — “the” də yazılır.', hint: '“from”dan sonra eşitdiyin hər sözü yaz.',
         prompt: 'Qatarda yeni tanış haradan olduğunu deyir.\n“from”dan sonra eşitdiyini yaz.', audio: "Hello! I'm from the UK.", placeholder: 'Ölkə',
-        rule: exact('the UK'),
+        rule: exact('the UK', "I'm from the UK."),
         variants: [
           { match: { words: ['UK'] }, short: '“the” də eşidilir.', explain: ex('the UK', 'Səsdə “from”dan sonra “the UK” var.', "I'm from the UK. — düzdür; I'm from UK. — olmur.", "I'm from the UK.") },
           other('Bir daha dinlə.', ex('the UK', 'Səsdə “the” və U, K hərfləri var.', "I'm from the UK. — Böyük Britaniya; I'm from the USA. — ABŞ.", "I'm from the UK.")),
@@ -126,31 +126,31 @@ export const lesson2b: DesignLesson = {
       example: "I'm from France.", exampleAz: 'Fransadanam.',
     },
     {
-      type: 'choice', map: 'world', id: 'u3d2b_c14', number: 11, title: 'Xəritədə tap', why: 'Germany — Almaniya.', hint: 'Azərbaycanca bu ölkənin adı tamam başqa səslənir.',
+      type: 'choice', map: 'world', id: 'u3d2b_c14', number: 11, title: 'Xəritədə tap', why: 'Germany — Almaniya.', hint: 'Bu ölkə Avropadadır, xəritədə Fransa ilə Rusiyanın arasında.',
       prompt: 'Hava limanında elan: təyyarə hansı ölkəyə uçur?\nDinlə və xəritədə ölkəyə toxun.', audio: 'Germany.',
       options: ['France', 'the UK', 'Germany'], answer: 'Germany',
       variants: [
-        pick('France', 'Səsdə “France” yox, “Germany” deyilir.', ex('Germany', 'Germany “cörməni” oxunur və Almaniyadır.', 'Germany — Almaniya; France — Fransa.', "I'm from Germany.")),
-        pick('the UK', 'Səsdə “the UK” yox, “Germany” deyilir.', ex('Germany', 'Germany “cörməni” oxunur və Almaniyadır.', 'Germany — Almaniya; the UK — Böyük Britaniya.', "I'm from Germany.")),
+        pick('France', 'Səsdə “France” yox, “Germany” deyilir.', ex('Germany', 'Germany “cörməni” oxunur və Almaniyadır.', "I'm from Germany. — Almaniyadanam; I'm from France. — Fransadanam.", "I'm from Germany.")),
+        pick('the UK', 'Səsdə “the UK” yox, “Germany” deyilir.', ex('Germany', 'Germany “cörməni” oxunur və Almaniyadır.', "I'm from Germany. — Almaniyadanam; I'm from the UK. — Böyük Britaniyadanam.", "I'm from Germany.")),
       ],
       review: {
-        title: 'Xəritədə tap', why: 'the USA — ABŞ.', hint: 'Bu ölkə adının qarşısında “the” var.',
+        title: 'Xəritədə tap', why: 'the USA — ABŞ.', hint: 'Bu ölkə xəritədə ən qərbdədir, okeanın o tayında.',
         prompt: 'Hosteldə yeni tanış haradan olduğunu deyir.\nDinlə və xəritədə ölkəyə toxun.', audio: "I'm from the USA.",
         options: ['the USA', 'France', 'Germany'], answer: 'the USA',
         variants: [
-          pick('France', 'Səsdə “France” yox, “the USA” deyilir.', ex('the USA', 'the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir.', 'the USA — ABŞ; France — Fransa.', "I'm from the USA.")),
-          pick('Germany', 'Səsdə “Germany” yox, “the USA” deyilir.', ex('the USA', 'the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir.', 'the USA — ABŞ; Germany — Almaniya.', "I'm from the USA.")),
+          pick('France', 'Səsdə “France” yox, “the USA” deyilir.', ex('the USA', 'the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir.', "I'm from the USA. — ABŞ-danam; I'm from France. — Fransadanam.", "I'm from the USA.")),
+          pick('Germany', 'Səsdə “Germany” yox, “the USA” deyilir.', ex('the USA', 'the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir.', "I'm from the USA. — ABŞ-danam; I'm from Germany. — Almaniyadanam.", "I'm from the USA.")),
         ],
       },
     },
     {
       type: 'write', id: 'u3d2b_c11', number: 11, letters: ['F', 'R', 'A', 'N', 'C', 'E', 'S', 'I'], title: 'Hərfləri tut', why: 'F-R-A-N-C-E — Fransa.', hint: 'Hər hərfi eşidən kimi toxun; “si” və “es” səslərini qarışdırma.',
-      prompt: 'Hava limanında qeydiyyatçı uçuşun ölkəsini hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: "It's F-R-A-N-C-E.", placeholder: 'Ölkə',
+      prompt: 'Hava limanında qeydiyyatçıdan soruşdun: “How do you spell it?” O, uçuşun ölkəsini hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: "It's F-R-A-N-C-E.", placeholder: 'Ölkə',
       rule: exact('FRANCE'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('FRANCE', 'Səsdə F, R, A, N, C, E deyilir: C “si”, E “i” oxunur.', 'C — si; S — es.', "It's F-R-A-N-C-E."))],
       review: {
         letters: ['E', 'N', 'G', 'L', 'A', 'N', 'D', 'I', 'J'], title: 'Hərfləri tut', why: 'E-N-G-L-A-N-D — İngiltərə.', hint: 'Hər hərfi eşidən kimi toxun; “ci” və “cey” səslərini qarışdırma.',
-        prompt: 'Hostelin resepsiyasında işçi qonağın ölkəsini hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: "It's E-N-G-L-A-N-D.", placeholder: 'Ölkə',
+        prompt: 'Hostelin resepsiyasında işçiyə “Sorry?” dedin. O, qonağın ölkəsini yenə hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: "It's E-N-G-L-A-N-D.", placeholder: 'Ölkə',
         rule: exact('ENGLAND'),
         variants: [other('Hərfləri bir-bir dinlə.', ex('ENGLAND', 'Səsdə E, N, G, L, A, N, D deyilir: G “ci” oxunur.', 'G — ci; J — cey.', "It's E-N-G-L-A-N-D."))],
       },

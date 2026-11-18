@@ -53,7 +53,7 @@ Qeyd: Türkiyə ingiliscə Turkey yazılır və “törki” oxunur.
 
 ## Kart 5 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Hava limanında qeydiyyatçı uçuşun ölkəsini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Hava limanında qeydiyyatçıdan soruşdun: “How do you spell it?” O, uçuşun ölkəsini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** It's T-U-R-K-E-Y.  
 **Hərflər:** T U R K E Y I A  
 **Qəbul:** dəqiq: TURKEY  
@@ -63,7 +63,7 @@ Qeyd: Türkiyə ingiliscə Turkey yazılır və “törki” oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qatarda bilet yoxlayan sərnişinin ölkəsini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Hostel resepsiyasında işçi qonağın ölkəsini hərf-hərf yoxlayır. Eşitdiyin hərflərə toxun.  
 **Səs:** It's I-R-A-N.  
 **Hərflər:** I R A N E Y M  
 **Qəbul:** dəqiq: IRAN  
@@ -75,11 +75,11 @@ Qeyd: Türkiyə ingiliscə Turkey yazılır və “törki” oxunur.
 
 **Georgia** — Gürcüstan
 
-Oxunuşu: corca · IPA: /ˈdʒɔrdʒə/
+Oxunuşu: corcə · IPA: /ˈdʒɔrdʒə/
 
 Nümunə: **I'm from Georgia.** — Gürcüstandanam.
 
-Qeyd: Gürcüstan ingiliscə Georgia yazılır və “corca” oxunur.
+Qeyd: “corcə” oxunur; ABŞ-da da Georgia adlı ştat var.
 
 ## Kart 7 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -87,8 +87,8 @@ Qeyd: Gürcüstan ingiliscə Georgia yazılır və “corca” oxunur.
 **Səs:** I'm from Georgia.  
 **Qəbul:** dəqiq: I'm from Georgia.  
 **İpucu:** Əvvəl yavaş dinlə, sonra sözləri bir-bir de.  
-**Düzgün olanda:** Cümləni dedin; Georgia — “corca”.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: I'm from Georgia. Səbəb: “Georgia” yazıldığı kimi yox, “corca” kimi oxunur. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Turkey. — Türkiyədən. Nümunə: I'm from Georgia.  
+**Düzgün olanda:** Cümləni dedin; Georgia — “corcə”.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: I'm from Georgia. Səbəb: “Georgia” yazıldığı kimi yox, “corcə” kimi oxunur. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Turkey. — Türkiyədən. Nümunə: I'm from Georgia.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -103,11 +103,11 @@ Qeyd: Gürcüstan ingiliscə Georgia yazılır və “corca” oxunur.
 
 **Russia** — Rusiya
 
-Oxunuşu: raşa · IPA: /ˈrʌʃə/
+Oxunuşu: raşə · IPA: /ˈrʌʃə/
 
 Nümunə: **I'm from Russia.** — Rusiyadanam.
 
-Qeyd: “Rusiya” yox, “raşa” oxunur.
+Qeyd: “Rusiya” yox, “raşə” oxunur.
 
 ## Kart 9 — Seç: Dinlə və seç
 
@@ -116,8 +116,8 @@ Qeyd: “Rusiya” yox, “raşa” oxunur.
 **Seçimlər:** Rusiya / Türkiyə / Gürcüstan — **düzgün:** Rusiya  
 **İpucu:** Cümlənin sonundakı ölkə adına qulaq as.  
 **Düzgün olanda:** Russia — Rusiya.  
-- *İzah (“Türkiyə” seçiləndə):* Səsdə “Turkey” yoxdur. — Uyğun: Rusiya. Səbəb: Səsdə “Russia” — “raşa” var. Qayda: I'm from Russia. — Rusiyadan; I'm from Turkey. — Türkiyədən. Nümunə: Hello! I'm from Russia.  
-- *İzah (“Gürcüstan” seçiləndə):* Səsdə “Georgia” yoxdur. — Uyğun: Rusiya. Səbəb: Səsdə “raşa” var, “corca” yox. Qayda: I'm from Russia. — Rusiyadan; I'm from Georgia. — Gürcüstandan. Nümunə: Hello! I'm from Russia.  
+- *İzah (“Türkiyə” seçiləndə):* Səsdə “Turkey” yoxdur. — Uyğun: Rusiya. Səbəb: Səsdə “Russia” — “raşə” var. Qayda: I'm from Russia. — Rusiyadan; I'm from Turkey. — Türkiyədən. Nümunə: Hello! I'm from Russia.  
+- *İzah (“Gürcüstan” seçiləndə):* Səsdə “Georgia” yoxdur. — Uyğun: Rusiya. Səbəb: Səsdə “raşə” var, “corcə” yox. Qayda: I'm from Russia. — Rusiyadan; I'm from Georgia. — Gürcüstandan. Nümunə: Hello! I'm from Russia.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -126,8 +126,8 @@ Qeyd: “Rusiya” yox, “raşa” oxunur.
 **Seçimlər:** Türkiyə / Gürcüstan / Rusiya — **düzgün:** Gürcüstan  
 **İpucu:** Cümlənin sonundakı ölkə adına qulaq as.  
 **Düzgün olanda:** Georgia — Gürcüstan.  
-- *İzah (“Türkiyə” seçiləndə):* Səsdə “Turkey” yoxdur. — Uyğun: Gürcüstan. Səbəb: Səsdə “Georgia” — “corca” var. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Turkey. — Türkiyədən. Nümunə: Hi! I'm from Georgia.  
-- *İzah (“Rusiya” seçiləndə):* Səsdə “Russia” yoxdur. — Uyğun: Gürcüstan. Səbəb: Səsdə “corca” var, “raşa” yox. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Russia. — Rusiyadan. Nümunə: Hi! I'm from Georgia.  
+- *İzah (“Türkiyə” seçiləndə):* Səsdə “Turkey” yoxdur. — Uyğun: Gürcüstan. Səbəb: Səsdə “Georgia” — “corcə” var. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Turkey. — Türkiyədən. Nümunə: Hi! I'm from Georgia.  
+- *İzah (“Rusiya” seçiləndə):* Səsdə “Russia” yoxdur. — Uyğun: Gürcüstan. Səbəb: Səsdə “corcə” var, “raşə” yox. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Russia. — Rusiyadan. Nümunə: Hi! I'm from Georgia.  
 
 ## Kart 10 — Yeni söz
 
@@ -144,20 +144,20 @@ Qeyd: Vurğu sondadır.
 **Tapşırıq:** Qatarda yeni tanış haradan olduğunu deyir. Dinlə və xəritədə ölkəyə toxun.  
 **Səs:** I'm from Georgia.  
 **Seçimlər:** Turkey / Georgia / Iran — **düzgün:** Georgia  
-**İpucu:** Ölkə adı “c” səsi ilə başlayır.  
+**İpucu:** Bu ölkə “Sən buradasan” nöqtəsinin şimal-qərbindədir, kiçikdir.  
 **Düzgün olanda:** Georgia — Gürcüstan.  
-- *İzah (“Turkey” seçiləndə):* Səsdə “Turkey” yox, “Georgia” deyilir. — Uyğun: Georgia. Səbəb: Georgia “corcə” kimi oxunur və Gürcüstandır. Qayda: Georgia — Gürcüstan; Turkey — Türkiyə. Nümunə: I'm from Georgia.  
-- *İzah (“Iran” seçiləndə):* Səsdə “Iran” yox, “Georgia” deyilir. — Uyğun: Georgia. Səbəb: Georgia “corcə” kimi oxunur və Gürcüstandır. Qayda: Georgia — Gürcüstan; Iran — İran. Nümunə: I'm from Georgia.  
+- *İzah (“Turkey” seçiləndə):* Səsdə “Turkey” yox, “Georgia” deyilir. — Uyğun: Georgia. Səbəb: Georgia “corcə” kimi oxunur və Gürcüstandır. Qayda: I'm from Georgia. — Gürcüstandanam; I'm from Turkey. — Türkiyədənəm. Nümunə: I'm from Georgia.  
+- *İzah (“Iran” seçiləndə):* Səsdə “Iran” yox, “Georgia” deyilir. — Uyğun: Georgia. Səbəb: Georgia “corcə” kimi oxunur və Gürcüstandır. Qayda: I'm from Georgia. — Gürcüstandanam; I'm from Iran. — İrandanam. Nümunə: I'm from Georgia.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Hostelin mətbəxində yeni tanış haradan olduğunu deyir. Dinlə və xəritədə ölkəyə toxun.  
 **Səs:** I'm from Russia.  
 **Seçimlər:** Iran / Georgia / Russia — **düzgün:** Russia  
-**İpucu:** Ölkə adı “r” səsi ilə başlayır.  
+**İpucu:** Xəritədə ən böyük ölkə, “Sən buradasan” nöqtəsinin şimalında.  
 **Düzgün olanda:** Russia — Rusiya.  
-- *İzah (“Iran” seçiləndə):* Səsdə “Iran” yox, “Russia” deyilir. — Uyğun: Russia. Səbəb: Russia “raşə” kimi oxunur və Rusiyadır. Qayda: Russia — Rusiya; Iran — İran. Nümunə: I'm from Russia.  
-- *İzah (“Georgia” seçiləndə):* Səsdə “Georgia” yox, “Russia” deyilir. — Uyğun: Russia. Səbəb: Russia “raşə” kimi oxunur və Rusiyadır. Qayda: Russia — Rusiya; Georgia — Gürcüstan. Nümunə: I'm from Russia.  
+- *İzah (“Iran” seçiləndə):* Səsdə “Iran” yox, “Russia” deyilir. — Uyğun: Russia. Səbəb: Russia “raşə” kimi oxunur və Rusiyadır. Qayda: I'm from Russia. — Rusiyadanam; I'm from Iran. — İrandanam. Nümunə: I'm from Russia.  
+- *İzah (“Georgia” seçiləndə):* Səsdə “Georgia” yox, “Russia” deyilir. — Uyğun: Russia. Səbəb: Russia “raşə” kimi oxunur və Rusiyadır. Qayda: I'm from Russia. — Rusiyadanam; I'm from Georgia. — Gürcüstandanam. Nümunə: I'm from Russia.  
 
 ## Kart 12 — Kim nə dedi?: Kim nə dedi?
 

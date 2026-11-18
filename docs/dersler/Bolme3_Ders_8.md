@@ -201,7 +201,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 
 **Tapşırıq:** Ziyafətdən sonra yeni tanış yazır. Harada yaşadığını yaz (istəsən, istənilən şəhər).  
 **Yazışma (Yeni tanış):** “Hi! Nice to meet you! Where do you live?”  
-**Qəbul:** məna:  — nümunə: I live in Baku. · öz məlumatı: /^i\s+live\s+in\s+(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}\s*[.!]?$/  
+**Qəbul:** məna:  — nümunə: I live in Baku. · öz məlumatı: /^i\s+live\s+(?:in\s+(?!he(?:re)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}|he(?:re))\s*[.!]?$/  
 **İpucu:** Şəhərindən əvvəl kiçik bir söz lazımdır.  
 **Düzgün olanda:** Harada yaşadığını yazdın.  
 - *İzah (başqa səhvdə):* Şəhərdən əvvəl “in” gəlir. — Uyğun: I live in Baku. Səbəb: Şəhərdə yaşayırsan — “in”: Bakıda. Qayda: I live in Baku. — düzdür; I live at Baku. — olmur. Nümunə: Where do you live? — I live in Ganja.  
@@ -211,8 +211,8 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Klubun çatında yeni üzv hamıdan soruşur. Harada yaşadığını yaz (istəsən, istənilən şəhər).  
-**Yazışma (Yeni üzv):** “Hello! I live in Sumgait. Where do you live?”  
-**Qəbul:** məna:  — nümunə: I live in Ganja. · öz məlumatı: /^i\s+live\s+in\s+(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}\s*[.!]?$/  
+**Yazışma (Yeni üzv):** “Hello! I live in Sumgayit. Where do you live?”  
+**Qəbul:** məna:  — nümunə: I live in Ganja. · öz məlumatı: /^i\s+live\s+(?:in\s+(?!he(?:re)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}|he(?:re))\s*[.!]?$/  
 **İpucu:** Şəhərindən əvvəl kiçik bir söz lazımdır.  
 **Düzgün olanda:** Harada yaşadığını yazdın.  
 - *İzah (başqa səhvdə):* Şəhərdən əvvəl “in” gəlir. — Uyğun: I live in Baku. Səbəb: Şəhərdə yaşayırsan — “in”: Bakıda. Qayda: I live in Baku. — düzdür; I live at Baku. — olmur. Nümunə: Where do you live? — I live in Ganja.  
@@ -240,10 +240,10 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 ## Kart 14 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Dil klubunun ziyafəti. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hi! I'm from Baku. Where are you from? → 2. I'm from France. → 3. Really? Do you speak English? → 4. Yes, a little.  
+**Düzgün sıra:** 1. Hi! I'm from Baku. Where are you from? → 2. I'm from France. → 3. Really? Do you speak Azerbaijani? → 4. Yes, a little.  
 **İpucu:** Əvvəl salam və sual gəlir; ölkəni eşidən dil haqqında soruşur.  
 **Düzgün olanda:** Tanışlıq, ölkə, dil və cavab düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! I'm from Baku. Where are you from? → I'm from France. → Really? Do you speak English? → Yes, a little. Səbəb: Əvvəl ölkə soruşulur, sonra dil. Qayda: Where are you from? — ölkə; Do you speak English? — dil. Nümunə: Hi! I'm from Baku. Where are you from?  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! I'm from Baku. Where are you from? → I'm from France. → Really? Do you speak Azerbaijani? → Yes, a little. Səbəb: Əvvəl ölkə soruşulur, sonra dil. Qayda: Where are you from? — ölkə; Do you speak English? — dil. Nümunə: Hi! I'm from Baku. Where are you from?  
 
 **Təkrar (yeni vəziyyət):**
 

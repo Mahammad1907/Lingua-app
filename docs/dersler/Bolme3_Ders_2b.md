@@ -85,7 +85,7 @@ Qeyd: Burada da “the” gəlir: the USA, the UK.
 
 **Tapşırıq:** Hava limanında sərnişin haradan olduğunu deyir. “from”dan sonra eşitdiyini yaz.  
 **Səs:** Hi! I'm from the USA.  
-**Qəbul:** dəqiq: the USA  
+**Qəbul:** dəqiq: the USA / I'm from the USA.  
 **İpucu:** “from”dan sonra eşitdiyin hər sözü yaz.  
 **Düzgün olanda:** the USA — “the” də yazılır.  
 - *İzah (başqa səhvdə):* “the” də eşidilir. — Uyğun: the USA. Səbəb: Səsdə “from”dan sonra “the USA” var. Qayda: I'm from the USA. — düzdür; I'm from USA. — olmur. Nümunə: I'm from the USA.  
@@ -95,7 +95,7 @@ Qeyd: Burada da “the” gəlir: the USA, the UK.
 
 **Tapşırıq:** Qatarda yeni tanış haradan olduğunu deyir. “from”dan sonra eşitdiyini yaz.  
 **Səs:** Hello! I'm from the UK.  
-**Qəbul:** dəqiq: the UK  
+**Qəbul:** dəqiq: the UK / I'm from the UK.  
 **İpucu:** “from”dan sonra eşitdiyin hər sözü yaz.  
 **Düzgün olanda:** the UK — “the” də yazılır.  
 - *İzah (başqa səhvdə):* “the” də eşidilir. — Uyğun: the UK. Səbəb: Səsdə “from”dan sonra “the UK” var. Qayda: I'm from the UK. — düzdür; I'm from UK. — olmur. Nümunə: I'm from the UK.  
@@ -144,24 +144,24 @@ Qeyd: “Fransa” yox, “frəns” oxunur.
 **Tapşırıq:** Hava limanında elan: təyyarə hansı ölkəyə uçur? Dinlə və xəritədə ölkəyə toxun.  
 **Səs:** Germany.  
 **Seçimlər:** France / the UK / Germany — **düzgün:** Germany  
-**İpucu:** Azərbaycanca bu ölkənin adı tamam başqa səslənir.  
+**İpucu:** Bu ölkə Avropadadır, xəritədə Fransa ilə Rusiyanın arasında.  
 **Düzgün olanda:** Germany — Almaniya.  
-- *İzah (“France” seçiləndə):* Səsdə “France” yox, “Germany” deyilir. — Uyğun: Germany. Səbəb: Germany “cörməni” oxunur və Almaniyadır. Qayda: Germany — Almaniya; France — Fransa. Nümunə: I'm from Germany.  
-- *İzah (“the UK” seçiləndə):* Səsdə “the UK” yox, “Germany” deyilir. — Uyğun: Germany. Səbəb: Germany “cörməni” oxunur və Almaniyadır. Qayda: Germany — Almaniya; the UK — Böyük Britaniya. Nümunə: I'm from Germany.  
+- *İzah (“France” seçiləndə):* Səsdə “France” yox, “Germany” deyilir. — Uyğun: Germany. Səbəb: Germany “cörməni” oxunur və Almaniyadır. Qayda: I'm from Germany. — Almaniyadanam; I'm from France. — Fransadanam. Nümunə: I'm from Germany.  
+- *İzah (“the UK” seçiləndə):* Səsdə “the UK” yox, “Germany” deyilir. — Uyğun: Germany. Səbəb: Germany “cörməni” oxunur və Almaniyadır. Qayda: I'm from Germany. — Almaniyadanam; I'm from the UK. — Böyük Britaniyadanam. Nümunə: I'm from Germany.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Hosteldə yeni tanış haradan olduğunu deyir. Dinlə və xəritədə ölkəyə toxun.  
 **Səs:** I'm from the USA.  
 **Seçimlər:** the USA / France / Germany — **düzgün:** the USA  
-**İpucu:** Bu ölkə adının qarşısında “the” var.  
+**İpucu:** Bu ölkə xəritədə ən qərbdədir, okeanın o tayında.  
 **Düzgün olanda:** the USA — ABŞ.  
-- *İzah (“France” seçiləndə):* Səsdə “France” yox, “the USA” deyilir. — Uyğun: the USA. Səbəb: the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir. Qayda: the USA — ABŞ; France — Fransa. Nümunə: I'm from the USA.  
-- *İzah (“Germany” seçiləndə):* Səsdə “Germany” yox, “the USA” deyilir. — Uyğun: the USA. Səbəb: the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir. Qayda: the USA — ABŞ; Germany — Almaniya. Nümunə: I'm from the USA.  
+- *İzah (“France” seçiləndə):* Səsdə “France” yox, “the USA” deyilir. — Uyğun: the USA. Səbəb: the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir. Qayda: I'm from the USA. — ABŞ-danam; I'm from France. — Fransadanam. Nümunə: I'm from the USA.  
+- *İzah (“Germany” seçiləndə):* Səsdə “Germany” yox, “the USA” deyilir. — Uyğun: the USA. Səbəb: the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir. Qayda: I'm from the USA. — ABŞ-danam; I'm from Germany. — Almaniyadanam. Nümunə: I'm from the USA.  
 
 ## Kart 12 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Hava limanında qeydiyyatçı uçuşun ölkəsini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Hava limanında qeydiyyatçıdan soruşdun: “How do you spell it?” O, uçuşun ölkəsini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** It's F-R-A-N-C-E.  
 **Hərflər:** F R A N C E S I  
 **Qəbul:** dəqiq: FRANCE  
@@ -171,7 +171,7 @@ Qeyd: “Fransa” yox, “frəns” oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Hostelin resepsiyasında işçi qonağın ölkəsini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Hostelin resepsiyasında işçiyə “Sorry?” dedin. O, qonağın ölkəsini yenə hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** It's E-N-G-L-A-N-D.  
 **Hərflər:** E N G L A N D I J  
 **Qəbul:** dəqiq: ENGLAND  

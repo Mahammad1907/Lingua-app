@@ -52,7 +52,7 @@ Qeyd: Kişi üçün he, qadın üçün she — azərbaycancada ikisi də “o”
 ## Kart 5 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Video zəngdə qız və oğlan dostlarının halını deyir. Hər cümləyə mənasını qoş.  
-**Cütlər:** He is fine. — O (kişi) yaxşıdır.; She is OK. — O (qadın) normaldır.; I'm not very well. — Mən çox yaxşı deyiləm. · artıq: O (qadın) yaxşıdır.  
+**Cütlər:** He is fine. — O (kişi) yaxşıdır.; She is OK. — O (qadın) normaldır.; I'm not very well. — Mən çox yaxşı deyiləm. · artıq: O (kişi) normaldır.  
 **İpucu:** Hər cümlənin birinci sözünə bax: kişi, qadın, yoxsa özü?  
 **Düzgün olanda:** He və she fərqini tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: He is fine. — O (kişi) yaxşıdır.; She is OK. — O (qadın) normaldır.; I'm not very well. — Mən çox yaxşı deyiləm. Səbəb: He kişi, she qadın haqqındadır; fine və OK da fərqlidir. Qayda: He is fine. — kişi; She is fine. — qadın. Nümunə: She is OK. He is fine.  
@@ -69,7 +69,7 @@ Qeyd: Kişi üçün he, qadın üçün she — azərbaycancada ikisi də “o”
 
 **He's from …** — O (kişi) …-dandır.
 
-Oxunuşu: hiz from … · IPA: /hiz frʌm/
+Oxunuşu: hiz fram … · IPA: /hiz frʌm/
 
 Quruluşu: He's from + ölkə / şəhər.
 
@@ -100,7 +100,6 @@ Qeyd: He's — he is-in qısası, “hiz” oxunur.
 ## Kart 8 — Səslə cavab: Səslə cavab
 
 **Tapşırıq:** Video zəngdə Dostun ekrandakı kişini soruşur. O kişi Gürcüstandandır. De: o, Gürcüstandandır.  
-**Səs:** And he?  
 **Qəbul:** dəqiq: He's from Georgia. · öz məlumatı: /^he(?:'s|’s|\s+is)\s+from\s+georgia\s*[.!]?$/  
 **İpucu:** Kişi haqqında danışırsan; sonra ölkənin adı gəlir.  
 **Düzgün olanda:** Kişi haqqında haradan olduğunu dedin.  
@@ -111,7 +110,6 @@ Qeyd: He's — he is-in qısası, “hiz” oxunur.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qatarda dostun yanındakı yaşlı kişini soruşur. Kişi Rusiyadandır. De: o, Rusiyadandır.  
-**Səs:** And he?  
 **Qəbul:** dəqiq: He's from Russia. · öz məlumatı: /^he(?:'s|’s|\s+is)\s+from\s+russia\s*[.!]?$/  
 **İpucu:** Yanındakı adam kişidir; sonra ölkənin adı gəlir.  
 **Düzgün olanda:** Kişi haqqında haradan olduğunu dedin.  
@@ -123,7 +121,7 @@ Qeyd: He's — he is-in qısası, “hiz” oxunur.
 
 **She's from …** — O (qadın) …-dandır.
 
-Oxunuşu: şiz from … · IPA: /ʃiz frʌm/
+Oxunuşu: şiz fram … · IPA: /ʃiz frʌm/
 
 Quruluşu: She's from + ölkə / şəhər.
 
