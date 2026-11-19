@@ -9,3 +9,6 @@ export function getSpeechEngine(): ExpoSpeechRecognitionModuleType | null {
   try { return requireOptionalNativeModule<ExpoSpeechRecognitionModuleType>('ExpoSpeechRecognition'); }
   catch { return null; }
 }
+
+// Temporary on-screen speech diagnostics (19 Nov 2026). Set to false once the Android issue is understood.
+export const SPEECH_DEBUG = true;

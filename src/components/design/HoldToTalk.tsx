@@ -4,6 +4,7 @@ import * as Speech from 'expo-speech';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useLessonSpeech } from '../../hooks/useLessonSpeech';
+import { SPEECH_DEBUG } from '../../utils/speechEngine';
 import { safelyReadRecorder, safelyStopRecorder } from '../../utils/recordedAudio';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import Icon from './Icons';
@@ -49,6 +50,7 @@ function NativeHold({ speech, disabled }: { speech: SpeechApi; disabled?: boolea
     {speech.needsNetwork && !network ? <Pressable accessibilityRole="button" onPress={() => setNetwork(true)} style={s.netBtn}>
       <Text style={s.netText}>İnternet ilə səs tanımaya icazə ver</Text>
     </Pressable> : null}
+    {SPEECH_DEBUG && speech.trace.length ? <Text selectable style={s.debug}>{speech.trace.join('\n')}</Text> : null}
   </View>;
 }
 
@@ -141,5 +143,6 @@ const s = StyleSheet.create({
   sub: { color: d.purple, fontSize: 16, ...font.bold, textAlign: 'center' },
   netBtn: { minHeight: 44, paddingHorizontal: 16, borderRadius: 999, borderWidth: 1, borderColor: d.purple, justifyContent: 'center' },
   netText: { color: d.purple, fontSize: 15, ...font.semibold },
+  debug: { color: d.ink, fontSize: 11, lineHeight: 14, alignSelf: 'stretch', paddingHorizontal: 12 },
   message: { color: d.ink, fontSize: 15, ...font.semibold, lineHeight: 20, textAlign: 'center', paddingHorizontal: 12 },
 });
