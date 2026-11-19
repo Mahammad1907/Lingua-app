@@ -25,7 +25,7 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
   const note = useCallback((text: string) => {
     if (!SPEECH_DEBUG) return;
     const ms = t0.current ? Date.now() - t0.current : 0;
-    setTrace(list => [...list.slice(-13), `${ms} ${text}`]);
+    setTrace(list => [...list.slice(-9), `${ms} ${text}`]);
   }, []);
   const alive = useRef(false), pending = useRef(false), closing = useRef(false), generation = useRef(0);
   const handlers = useRef({ onFinal, onBusyChange, suspended, autoSubmit });

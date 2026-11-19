@@ -143,6 +143,6 @@ const s = StyleSheet.create({
   sub: { color: d.purple, fontSize: 16, ...font.bold, textAlign: 'center' },
   netBtn: { minHeight: 44, paddingHorizontal: 16, borderRadius: 999, borderWidth: 1, borderColor: d.purple, justifyContent: 'center' },
   netText: { color: d.purple, fontSize: 15, ...font.semibold },
-  debug: { color: d.ink, fontSize: 11, lineHeight: 14, alignSelf: 'stretch', paddingHorizontal: 12 },
+  debug: { color: d.ink, fontSize: 10, lineHeight: 12, alignSelf: 'stretch', paddingHorizontal: 12 },
   message: { color: d.ink, fontSize: 15, ...font.semibold, lineHeight: 20, textAlign: 'center', paddingHorizontal: 12 },
 });

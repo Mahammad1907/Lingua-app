@@ -36,6 +36,8 @@ const SHEET_GAP = 650;
 
 type Result = { kind: 'single'; graded: Graded } | { kind: 'two'; graded: TwoGraded } | { kind: 'unverified'; message: string; recording?: boolean; two?: TwoGraded };
 
+const MIN_FIT = 0.78;
+
 export default function DesignLesson({ source }: { source: Lesson }) {
   const lesson = useMemo(() => resolveLesson(source), [source]);
   const flow = useMemo(() => lessonFlow(lesson), [lesson]);
@@ -74,6 +76,17 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const [menuOpen, setMenuOpen] = useState(false); const [word, setWord] = useState<string | null>(null);
   const [finish, setFinish] = useState<{ completed: boolean } | null>(null);
   const [viewport, setViewport] = useState(0);
+  // Fixed-screen fit: when a card is taller than the space between header and footer it is scaled down
+  // (never below MIN_FIT) instead of scrolling. The keyboard and extreme text sizes still scroll.
+  const [contentHeight, setContentHeight] = useState(0); const [keyboardOpen, setKeyboardOpen] = useState(false);
+  useEffect(() => {
+    const show = Keyboard.addListener(Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow', () => setKeyboardOpen(true));
+    const hide = Keyboard.addListener(Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide', () => setKeyboardOpen(false));
+    return () => { show.remove(); hide.remove(); };
+  }, []);
+  const needed = viewport > 0 && contentHeight > viewport + 1 ? viewport / contentHeight : 1;
+  const fit = keyboardOpen ? 1 : Math.max(MIN_FIT, needed);
+  const stillOverflows = keyboardOpen || needed < MIN_FIT;
 
   const sequence = useRef(0); const locked = useRef(false); const tokens = useRef(0);
   // Daily review: verdicts go to the review schedule, not to lesson progress (no attempt, XP, hearts or retry round).
@@ -526,11 +539,14 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     <Header title={lessonLabel(lesson)} progress={progress} onBack={exit} onMenu={showResult ? undefined : () => setMenuOpen(true)} />
     {/* Fits without scrolling on normal phones; scrolls only when the content is taller (large text, keyboard). */}
     <ScrollView style={{ flex: 1 }} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" bounces={false} alwaysBounceVertical={false}
-      overScrollMode="never" onLayout={e => setViewport(e.nativeEvent.layout.height)}>
+      overScrollMode="never" scrollEnabled={stillOverflows} onLayout={e => setViewport(e.nativeEvent.layout.height)}
+      onContentSizeChange={(_w, h) => setContentHeight(h)}>
+      <View style={{ flexGrow: 1, transform: [{ scale: fit }], transformOrigin: 'top center' }}>
       {/* A short slide-in marks each new card; Reanimated skips it when the system asks for reduced motion. */}
       <Animated.View key={`${showResult ? 'result' : reviewing ? `r${reviewStep}` : index}`} entering={FadeIn.duration(180)} style={{ flexGrow: 1 }}>
         {body}
       </Animated.View>
+      </View>
     </ScrollView>
     <View style={[s.footer, { paddingBottom: Math.max(14, insets.bottom + 6) }]}>{footer}</View>
 
