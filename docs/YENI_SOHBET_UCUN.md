@@ -133,3 +133,26 @@ node scripts/export-unit1-docs.cjs   # docs/dersler/Ders_N.md yenilə
 
 - **Şəkillər hələlik boş qalır.** Şəkil yaratma və ya axtarma. Yeni dərslərdə şəkil lazım olan yerə yalnız işarə qoy: kartda `scenes: ['dN/ad']`, `src/config/sceneImages.ts`-də `SCENE_NOTES`-a qısa təsvir (“8.3 · …”), `docs/SEKIL_SIYAHISI.md`-yə sətir (⏳). Tətbiqdə narıncı “ŞƏKİL” işarəsi görünəcək. Şəkillər sonra ayrıca hazırlanacaq; buraxılışdan əvvəl işarələr gizlədilməlidir (audit).
 - **Bölmə 1-də nə öyrədilib — tam siyahı:** `docs/dersler/BirTalk_Bolme1_Ders1-8.md` (8 dərsin bütün kartları, cavablar, izahlar) və hər dərs ayrıca `docs/dersler/Ders_1.md … Ders_8.md`. Öyrədilmiş ifadələr: Hello/Hi, Goodbye/Bye, I'm …, My name is …, What's your name?, Nice to meet you., You too., How are you?, I'm fine, thanks. And you?, I'm OK., I'm not very well., Thank you!/Thanks!, You're welcome., please, Excuse me, Sorry!, No problem., Sorry? I don't understand., Again, please., Slowly, please. Bölmə 2 bunların üstünə qurulur və onları spiral təkrar edir; `check-taught.cjs` əvvəlki bölmələrin sözlərini öyrədilmiş sayır.
+
+## Vəziyyət — 18–19 Nov 2026 söhbətinin yekunu (əvvəlcə bunu oxu)
+**İstifadəçi ilə iş qaydası:** Azərbaycanca yaz, qısa cavab (mobil). İşə başlamazdan əvvəl nə edəcəyini de və “başla” gözlə; sual verəndə yalnız cavab ver, heç nəyi dəyişmə. Limit qənaəti: lazımsız fayl oxuma. Kompüter: Windows 10 PowerShell, yalnız bir nəfərdir (tanış/müəllim/test edəcək adam yoxdur).
+
+**Bu söhbətdə edilənlər (hamısı push olunub, son commit 6badaab):**
+- Təkrar sistemi 1/3/7/14 gün (+30): `src/utils/spacedReview.ts`, `src/store/reviewStore.ts`, `src/data/reviewSession.ts`, `scripts/check-spaced.cjs`; ana səhifə “Gündəlik təkrar” kartı, route `/lesson/session?id=review`.
+- Vahid imtahan sistemi: `src/utils/examResults.ts`, cəhd tarixçəsi (`examHistory`), keçid balı **70%**, imtahan keçilməyincə növbəti bölmə açılmır; `scripts/check-exam.cjs`.
+- Təbiilik qaydaları (BUTUN_QAYDALAR G2) və qərarlar (G3); 3 müstəqil yoxlayıcı Bölmə 1–3-ü oxudu; düzəldildi: yalan izahlar, qəbul olunan cavablar, “Say that again, please.” / “More slowly, please.”, “Hi! What's your name?” (Excuse me yalnız yad adam/işçi), “Nice to meet you” adlardan sonra, “I'm not great.”.
+- HƏLƏ DÜZƏLDİLMƏYƏN: “He is fine” → “He's fine” (Bölmə 3 Dərs 5), Mr./Ms. nöqtəsi, forma etiketi “How old are you?”, ikiqat cümlələr (“I'm from X. I'm Y.”).
+
+**Ayrıca olan işlər:**
+- **Bölmə 4 “Ailə və insanlar”**: hələ başlanmayıb; əvvəlcə xəritə təsdiqə göstərilir; `{F}` dostdan istifadə.
+- **Supabase sinxronu**: buraxılışdan əvvələ saxlanılıb (ilk variant: yalnız buluda saxla/bərpa et). Hazırda irəliləyiş yalnız AsyncStorage-dədir.
+- **Səsləndirmə və şəkillər**: sonda (Duolingo yolu: hər personaj üçün TTS səsi, fayllar buludda).
+- **Mr/Ms, ana dilli yoxlama**: mümkün deyil → G2 qaydaları məcburi.
+
+**Telefonda sınaq vəziyyəti:**
+- İstifadəçinin kompüterində layihə `C:\Users\user\lingua-app` (git ilə `claude/lesson1-new-screens`-ə yenilənib, `.env` var). EAS hesabı `mahammad_07`, layihə `@mahammad_07/lingua-app` bağlanıb, `.env` EAS-ə `preview` mühitinə yüklənib.
+- **Android APK build** başladılıb (`eas build --platform android --profile preview`, SDK 57): nəticə expo.dev-də. Android telefon evdədir; səs tanıma yalnız belə build-də işləyir (Expo Go-da yox).
+- **iPhone:** Expo Go artıq yalnız **SDK 58** qəbul edir, layihə **SDK 57**-dədir → iPhone-da Expo Go ilə açmaq üçün SDK 58-ə yüksəltmək lazımdır. `npx expo install expo@^58.0.0 --fix` ERESOLVE xətası verdi; təklif: `$env:npm_config_legacy_peer_deps="true"` ilə yenidən, ayrıca `sdk-58` branch-ında; xəta mətnini göndərmək. Apple Developer hesabı yoxdur. Alternativ: brauzer (`npx expo start --web`) hələ yoxlanmayıb.
+- SDK/package.json dəyişikliyi yalnız istifadəçinin icazəsi ilə (AGENTS.md).
+
+**Layihənin qiymətləndirilməsi (simulyasiya olunmuş münsiflər):** texniki keyfiyyət və sistem güclüdür; real istifadəçi, səs/şəkil və gəlir modeli yoxdur. Real istifadəçini Azərbaycanca icmalardan (Telegram/Facebook/Reddit/TikTok) və Android APK paylaşaraq tapmaq planlaşdırılıb.
