@@ -28,6 +28,8 @@ import { sceneImage } from '../../config/sceneImages';
 import { glossOf } from '../../data/unit1/glossary';
 import { characterAz } from '../../config/characters';
 import { meaningOf, taughtIn } from '../../utils/lessonLookup';
+import { getRule, ruleOfTask } from '../../data/rules';
+import { useRulesStore } from '../../store/rulesStore';
 
 const mascotFull = require('../../../assets/mascot/hood_full.png');
 const mascotHead = require('../../../assets/mascot/hood_head.png');
@@ -74,7 +76,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const [technical, setTechnical] = useState(false);
   // Sheets.
   const [helpOpen, setHelpOpen] = useState(false); const [hintOpen, setHintOpen] = useState(false);
-  const [explainOpen, setExplainOpen] = useState(false); const [reportOpen, setReportOpen] = useState(false);
+  const [explainOpen, setExplainOpen] = useState(false); const [ruleOpen, setRuleOpen] = useState<string | null>(null); const [reportOpen, setReportOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); const [word, setWord] = useState<string | null>(null);
   const [finish, setFinish] = useState<{ completed: boolean } | null>(null);
   const [viewport, setViewport] = useState(0);
@@ -225,6 +227,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   /** Store a confirmed verdict for one task id. */
   const store = (id: string, correct: boolean, spoken: boolean) => {
+    // Qaydalar: the rule this task practises gets weaker or stronger (21 Nov 2026).
+    useRulesStore.getState().recordTask(id, correct);
     if (reviewMode) {
       const key = lesson.reviewOf?.[id];
       if (key) verdicts.current[key] = (verdicts.current[key] ?? true) && correct;
@@ -493,7 +497,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {!helpUnderAudio ? helpButton : null}
       {notice ? <Text accessibilityLiveRegion="polite" style={s.notice}>{notice}</Text> : null}
       {task.type === 'voice' && (!result || voiceRetry) ? <View style={{ paddingTop: 4, gap: 12, alignItems: 'center' }}>
-        <HoldToTalk onFinal={onSpoken} onRecording={onRecording} onBusyChange={setVoiceBusy} suspended={helpOpen || explainOpen || reportOpen || menuOpen} />
+        <HoldToTalk onFinal={onSpoken} onRecording={onRecording} onBusyChange={setVoiceBusy} suspended={helpOpen || explainOpen || reportOpen || menuOpen || Boolean(ruleOpen)} />
         {!result ? <Capsule label="Keç" onPress={skipVoice} disabled={voiceBusy} /> : null}
       </View> : null}
       </View>
@@ -505,7 +509,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (showResult) return finish ? <MainButton label={lesson.result.button} onPress={exit} arrow /> : null;
     if (!current) return null;
     if (current.type === 'intro') return <MainButton label={current.start} onPress={next} arrow />;
-    if (current.type === 'explain') return <MainButton label="Başa düşdüm" tone="green" onPress={next} arrow />;
+    if (current.type === 'explain') return <MainButton label="Başa düşdüm" tone="green" onPress={() => { useRulesStore.getState().markSeen(current.id); next(); }} arrow />;
     if (current.type === 'teach') return <MainButton label="Davam et" tone="green" onPress={next} arrow />;
     if (current.type === 'word') return <MainButton label="Davam et" tone="green" onPress={next} arrow />;
     if (!task) return null;
@@ -522,7 +526,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       return <ResultPanel tone="wrong" title="Bir daha baxaq" short={graded.short} answers={graded.explain?.answers}
         meaning={meaningOf(graded.explain?.answers)} repeatFrom={taughtIn(graded.explain?.answers, lesson)} collapsed={collapsed} onCollapse={() => setCollapsed(true)}
         onExplain={graded.explain ? () => setExplainOpen(true) : undefined} onReport={() => setReportOpen(true)} onContinue={next}
-        actions={task.type === 'voice' && !reviewing && !voiceRetried ? <Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { locked.current = false; setVoiceRetry(true); setVoiceRetried(true); setCollapsed(true); }} /> : undefined} />;
+        actions={<>{task.type === 'voice' && !reviewing && !voiceRetried ? <Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { locked.current = false; setVoiceRetry(true); setVoiceRetried(true); setCollapsed(true); }} /> : null}
+          {ruleOfTask(task.id) ? <Capsule small icon="layers" label="Qaydaya bax" onPress={() => setRuleOpen(ruleOfTask(task.id)!.id)} /> : null}</>} />;
     }
     const empty = task.type === 'choice' ? !choice : task.type === 'write' ? !text.trim() : task.type === 'two' ? !Object.values(two).some(v => v.trim())
       : task.type === 'match' ? task.rows.some(r => !pairs[r.en]) : true;
@@ -569,6 +574,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
     {help}
     {glossSheet}
+    {/* “Qaydaya bax” (21 Nov 2026): the rule behind a wrong answer, without leaving the lesson. */}
+    <Sheet visible={Boolean(ruleOpen)} onClose={() => setRuleOpen(null)} tall title={ruleOpen ? ruleOfTaskTitle(ruleOpen) : ''} icon="layers">
+      {ruleOpen ? <ScrollView style={{ maxHeight: 560 }}>{(() => { const c = ruleCard(ruleOpen); return c ? <TeacherView card={c} onPlay={t => speak(t, 0.85)} /> : null; })()}</ScrollView> : null}
+    </Sheet>
     <ExplainSheet onSay={t => speak(t)} visible={explainOpen} explain={result && result.kind !== 'unverified' ? result.graded.explain : undefined} onClose={() => setExplainOpen(false)} onReport={() => { setExplainOpen(false); setTimeout(() => setReportOpen(true), SHEET_GAP); }} />
     <ReportSheet visible={reportOpen} onClose={() => setReportOpen(false)} context={reportContext} />
     <MenuPopover visible={menuOpen} onClose={() => setMenuOpen(false)} top={insets.top + 58} items={[
@@ -735,3 +744,7 @@ const s = StyleSheet.create({
   status: { borderWidth: 1.5, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 },
   statusText: { fontSize: 13, ...font.bold },
 });
+
+// Qaydaya bax helpers.
+function ruleOfTaskTitle(id: string) { return getRule(id)?.title ?? ''; }
+function ruleCard(id: string) { return getRule(id)?.card; }

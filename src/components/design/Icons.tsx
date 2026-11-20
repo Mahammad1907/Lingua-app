@@ -2,7 +2,7 @@ import Svg, { Circle, Path, Rect } from 'react-native-svg';
 import { d } from './theme';
 
 export type IconName = 'back' | 'dots' | 'bulb' | 'play' | 'pause' | 'turtle' | 'mic' | 'flag' | 'close' | 'check' | 'alert'
-  | 'muted' | 'doc' | 'wave' | 'chat' | 'bye' | 'arrow' | 'tag' | 'layers' | 'speaker' | 'retry' | 'stop' | 'chart' | 'phone';
+  | 'muted' | 'doc' | 'wave' | 'chat' | 'bye' | 'arrow' | 'tag' | 'layers' | 'speaker' | 'retry' | 'stop' | 'chart' | 'phone' | 'search';
 
 export default function Icon({ name, size = 22, color = d.purple, stroke = 2 }: { name: IconName; size?: number; color?: string; stroke?: number }) {
   const p = { stroke: color, strokeWidth: stroke, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, fill: 'none' };
@@ -29,6 +29,7 @@ export default function Icon({ name, size = 22, color = d.purple, stroke = 2 }: 
     {name === 'bye' ? <><Path d="M9 13V6.5a1.5 1.5 0 013 0V12M12 11V4.5a1.5 1.5 0 013 0V11M15 11V6a1.5 1.5 0 013 0v7c0 4-2.5 7-6.5 7-3 0-4.5-2-6-4.5L4 13a1.5 1.5 0 012.6-1.5L9 14" {...p} /><Path d="M2 15c0 2 1 4 2.5 5M20.5 4.5c1 1 1.5 2.5 1.5 4" {...p} /></> : null}
     {name === 'tag' ? <><Path d="M3 12V4h8l10 10-8 8z" {...p} /><Circle cx={7.5} cy={8} r={1.4} fill={color} /></> : null}
     {name === 'layers' ? <><Path d="M12 3l9 5-9 5-9-5z" {...p} /><Path d="M3 12.5l9 5 9-5M3 16.5l9 5 9-5" {...p} /></> : null}
+    {name === 'search' ? <><Circle cx={11} cy={11} r={6.5} {...p} /><Path d="M16 16l4.5 4.5" {...p} /></> : null}
     {name === 'phone' ? <Path d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 005.5 5.5l1.5-2 4 1.5v3a2 2 0 01-2 2A15.5 15.5 0 014.5 5.5a2 2 0 012-2z" {...p} /> : null}
     {name === 'retry' ? <><Path d="M4 12a8 8 0 1 0 2.4-5.7" {...p} /><Path d="M4 4v4.5h4.5" {...p} /></> : null}
   </Svg>;

@@ -147,3 +147,9 @@ Hesab silmə; məxfilik siyasəti və link; profildəki işləməyən düymələ
 2. Bölmə imtahanı yeni dizaynda, “bölmə bitdi” anı.
 3. Bölmə 2+ (əvvəl bölmə xəritəsini istifadəçiyə təsdiqlət).
 4. Tələffüz rəyi (dev build lazımdır).
+
+## G4. Qaydalar tabı və menyu (21 Nov 2026, istifadəçi)
+- Menyu: Öyrən · Qaydalar · AI müəllim · Lüğətim · Profil. Təkrar menyudan çıxdı (xəritədə qalır). "AI söhbət" adı — "AI müəllim".
+- Hər Müəllim izahı avtomatik qaydadır (`src/data/rules.ts`). Yeni izah kartı yazanda `RULE_META`-ya qısa ad və mövzu yazılır — `node scripts/check-rules.cjs` olmayanı tutur.
+- Qayda "Başa düşdüm" basılanda (və ya dərs bitəndə) açılır. İzahdan sonrakı tapşırıqlar həmin qaydaya bağlıdır: səhvlər qaydanı zəiflədir (Zəif / Öyrənilir / Möhkəm), "Diqqət lazımdır"da görünür. Səhv panelində "Qaydaya bax".
+- Cədvəllər (Rəqəmlər, Əlifba, Qısa formalar, Nömrə və e-poçt, Ölkə və millət) dərslərin söz kartlarından qurulur; yalnız başlanmış dərslərin sətirləri açıqdır.

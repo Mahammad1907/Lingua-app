@@ -81,7 +81,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       { title: 'th necə deyilir?', text: 'Dilin ucunu dişlərin arasına qoy və yavaşca hava burax. “s” deyil, th: three.' },
       { title: 'Saymaq', build: { parts: ['One', 'two', 'three'], examples: [{ en: 'One, two, three!', az: 'Bir, iki, üç!' }] } },
     ],
-    attention: 'zero “ziro” oxunur, z səsi ilə başlayır.',
+    attention: 'zero “zirou” oxunur, z səsi ilə başlayır.',
   })],
   a1_en_b2_d1b: [E('u2d1b_c04t', 'u2d1b_c04', {
     lead: 'Bəzi rəqəmlər yazıldığı kimi oxunmur.', focus: 'oxunmur',
@@ -180,7 +180,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       lead: '-teen və -ty asan qarışır.', focus: '-teen və -ty',
       sections: [
         { title: 'Fərq', pairs: [{ en: 'fourteen', az: '14' }, { en: 'forty', az: '40' }] },
-        { title: 'Necə ayırırsan?', text: '-teen-də son hissə uzun və güclü deyilir. -ty-də isə əvvəl güclüdür: “FORti”.' },
+        { title: 'Necə ayırırsan?', text: '-teen-də son hissə uzun və güclü deyilir. -ty-də isə əvvəl güclüdür: “FORdi”.' },
       ],
       attention: 'four → forty: forty sözündə u yoxdur.',
     }),

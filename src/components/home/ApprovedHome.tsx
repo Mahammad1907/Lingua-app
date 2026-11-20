@@ -17,7 +17,7 @@ export { NAV_HEIGHT };
 export { HOME_LANGUAGES } from './HomeDashboard';
 export type HomeDestination = Destination;
 
-type Destination = 'learn' | 'review' | 'chat' | 'vocabulary' | 'profile' | 'analysis';
+type Destination = 'learn' | 'review' | 'rules' | 'chat' | 'vocabulary' | 'profile' | 'analysis';
 
 // The English A1 first section is shown as the island (docs/LAYIHE_DEFTERI.md, items 46–47).
 // Other selections keep the original real-data home instead of faking sections.

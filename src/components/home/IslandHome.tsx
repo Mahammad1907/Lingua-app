@@ -310,21 +310,22 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
 }
 
 const NAV = [
-  { id: 'learn', label: 'Öyrən' }, { id: 'review', label: 'Təkrar' }, { id: 'chat', label: 'AI söhbət' },
+  // Menu (user, 21 Nov 2026): Təkrar lives on the map now; Qaydalar is a tab; the AI tab is “AI müəllim”.
+  { id: 'learn', label: 'Öyrən' }, { id: 'rules', label: 'Qaydalar' }, { id: 'chat', label: 'AI müəllim' },
   { id: 'vocabulary', label: 'Lüğətim' }, { id: 'profile', label: 'Profil' },
 ] as const;
-const NAV_ICON = { learn: 'home', review: 'repeat', vocabulary: 'book', profile: 'person' } as const;
+const NAV_ICON = { learn: 'home', rules: 'rules', vocabulary: 'book', profile: 'person' } as const;
 export type IslandDestination = typeof NAV[number]['id'];
 
 /** Floating bottom menu drawn in code. AI söhbət is a tab of its own (empty for now). */
-export function IslandNavigation({ bottomInset, onNavigate }: { bottomInset: number; onNavigate: (id: IslandDestination) => void }) {
+export function IslandNavigation({ bottomInset, onNavigate, active = 'learn' }: { bottomInset: number; onNavigate: (id: IslandDestination) => void; active?: IslandDestination }) {
   return <View style={[s.navWrap, { paddingBottom: Math.max(bottomInset, 10) }]}>
     <View style={[s.nav, shadow]} accessibilityRole="tablist">
       {NAV.map(item => {
-        const on = item.id === 'learn';
+        const on = item.id === active;
         return <Pressable key={item.id} accessibilityRole="tab" accessibilityLabel={item.label} accessibilityState={{ selected: on }}
           onPress={() => onNavigate(item.id)} style={[s.navItem, on && s.navOn]}>
-          {item.id === 'chat' ? <Icon name="chat" size={22} color="#9A8DB5" /> : <HomeIcon name={NAV_ICON[item.id]} color={on ? d.purple : '#9A8DB5'} size={22} filled={on} />}
+          {item.id === 'chat' ? <Icon name="chat" size={22} color={on ? d.purple : '#9A8DB5'} /> : <HomeIcon name={NAV_ICON[item.id]} color={on ? d.purple : '#9A8DB5'} size={22} filled={on} />}
           <Text style={[s.navText, on && { color: d.purple }]}>{item.label}</Text>
           {item.id === 'chat' ? <Text style={s.soon}>tezliklə</Text> : null}
         </Pressable>;

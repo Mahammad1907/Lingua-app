@@ -4,14 +4,14 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from '../components/design/Icons';
 import { d, font } from '../components/design/theme';
 
-// AI söhbət is planned; the screen stays empty until it is built.
+// AI müəllim is planned; the screen stays empty until it is built.
 export default function AiChat() {
   const router = useRouter(); const insets = useSafeAreaInsets();
   return <View style={[s.screen, { paddingTop: insets.top }]}>
     <Stack.Screen options={{ headerShown: false }} />
     <View style={s.top}>
       <Pressable accessibilityRole="button" accessibilityLabel="Geri" onPress={() => router.back()} style={s.back}><Icon name="back" size={20} color={d.ink} /></Pressable>
-      <Text accessibilityRole="header" style={s.title}>AI söhbət</Text>
+      <Text accessibilityRole="header" style={s.title}>AI müəllim</Text>
     </View>
     <View style={s.center}><Icon name="chat" size={44} color={d.lavender} /><Text style={s.soon}>Tezliklə</Text></View>
   </View>;

@@ -59,6 +59,7 @@ export default function Home() {
     if (destination === 'vocabulary') router.navigate('/(tabs)/vocabulary');
     if (destination === 'profile') router.navigate('/(tabs)/profile');
     if (destination === 'chat') router.push('/ai-chat');
+    if (destination === 'rules') router.push('/rules');
     if (destination === 'analysis') router.push('/analysis');
   }
   return <View style={styles.root}>
