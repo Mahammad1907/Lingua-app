@@ -11,8 +11,8 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
   a1_en_b1_v2_d1: [E('d1_c02t', 'd1_c02', {
     lead: 'Salamın iki forması var: Hello və Hi.', focus: 'Hello və Hi',
     sections: [
-      { title: 'Hansını kimə deyirsən?', pairs: [{ en: 'Hello!', az: 'hər kəsə' }, { en: 'Hi!', az: 'dosta, tanışa' }] },
-      { title: 'Fərq nədir?', text: 'İkisi də “Salam”dır. Hello mağazada, işdə də olar. Hi daha sadədir, dosta deyilir.' },
+      { title: 'Hansını nə vaxt deyirsən?', pairs: [{ en: 'Hello!', az: 'hər kəsə' }, { en: 'Hi!', az: 'gündəlik, hər yerdə' }] },
+      { title: 'Fərq nədir?', text: 'İkisi də “Salam”dır. Hello bir az rəsmidir. Hi gündəlik danışıqda daha çox işlənir: dosta da, mağazada da.' },
     ],
     attention: 'Hello və Hi görüşün əvvəlində deyilir.',
   })],
@@ -26,7 +26,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       attention: "Adın sonuna heç nə artırılmır: I'm və ad kifayətdir.",
     }),
     E('d2_c02bt', 'd2_c02b', {
-      lead: 'My name is … da adını deyir.', focus: 'My name is',
+      lead: 'My name is … ilə də adını deyirsən.', focus: 'My name is',
       sections: [
         { title: 'Hissələr', pairs: [{ en: 'My name', az: 'mənim adım' }, { en: 'is', az: '-dır' }] },
         { title: 'Necə qurulur?', build: { parts: ['My name is', 'ad'], examples: [{ en: 'Hi! My name is …', az: 'Salam! Mənim adım …-dır.' }] } },
@@ -40,7 +40,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       { title: 'Sözlərin sırası', text: 'Biz “Adın nədir?” deyirik: “nə” sonda gəlir. İngiliscə What sualın əvvəlindədir.' },
       { title: 'Necə qurulur?', build: { parts: ["What's", 'your name?'], examples: [{ en: "Hi! What's your name?", az: 'Salam! Adın nədir?' }] } },
     ],
-    attention: 'Sualın sonunda sual işarəsi qoyulur.',
+    attention: 'your — sənin. your name — sənin adın.',
   })],
   a1_en_b1_v2_d4: [E('d4_c04t', 'd4_c04', {
     lead: 'Halını deyəndən sonra And you? ilə sən də soruş.', focus: 'And you?',
@@ -62,17 +62,17 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
     lead: 'İkisi də “Bağışlayın”dır, amma işi fərqlidir.', focus: '“Bağışlayın”',
     sections: [
       { title: 'Hansı nə üçündür?', pairs: [{ en: 'Excuse me', az: 'diqqət çəkmək' }, { en: 'Sorry!', az: 'üzr istəmək' }] },
-      { title: 'Nə vaxt deyirsən?', text: 'Kimdənsə nəsə soruşmaq istəyəndə Excuse me deyirsən. Səhv edəndə, kiminsə ayağını basanda Sorry! deyirsən.' },
+      { title: 'Nə vaxt deyirsən?', text: 'Kimdənsə nəsə soruşmaq istəyəndə Excuse me deyirsən. Səhv edəndə, kiminsə ayağına basanda Sorry! deyirsən.' },
     ],
     attention: 'Excuse me sözə başlamazdan əvvəl, Sorry! isə səhvdən sonra deyilir.',
   })],
   a1_en_b1_v2_d7: [E('d7_c03t', 'd7_c03', {
     lead: 'Sorry sözü iki cür deyilir.', focus: 'Sorry',
     sections: [
-      { title: 'Səs nə deyir?', pairs: [{ en: 'Sorry!', az: 'üzr' }, { en: 'Sorry?', az: 'nə dedin?' }] },
+      { title: 'Səs necə dəyişir?', text: 'Sorry! — səs sonda enir, üzr istəyirsən. Sorry? — səs sonda qalxır, yenə soruşursan.', pairs: [{ en: 'Sorry!', az: 'üzr' }, { en: 'Sorry?', az: 'nə dedin?' }] },
       { title: 'Başa düşmürəm', build: { parts: ["I don't", 'understand.'], examples: [{ en: "Sorry? I don't understand.", az: 'Bağışlayın? Başa düşmürəm.' }] } },
     ],
-    attention: "don't “-mır” hissəsini verir: understand — başa düşmək, I don't understand — başa düşmürəm.",
+    attention: "don't “-ma” hissəsini verir: understand — başa düşmək, I don't understand — başa düşmürəm.",
   })],
   // ── Bölmə 2 ──
   a1_en_b2_d1a: [E('u2d1a_c04t', 'u2d1a_c04', {
@@ -106,7 +106,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
         { title: 'Hərfin adı', pairs: [{ en: 'F', az: '“ef”' }, { en: 'M', az: '“em”' }] },
         { title: 'Nə vaxt lazımdır?', text: 'Adını, şəhərini hərf-hərf deyəndə hərflərin ingiliscə adını deyirsən.' },
       ],
-      attention: 'Bu hərflər asandır: adları bizimkinə oxşayır.',
+      attention: 'M bizdəki kimidir, F-də isə səslər yerini dəyişir: “fe” yox, “ef”.',
     }),
     E('u2d3a_c09t', 'u2d3a_c09', {
       lead: 'E və I ən çox qarışan cütdür.', focus: 'E və I',
@@ -137,17 +137,17 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
     lead: 'Eyni hərf iki dəfə gəlirsə, double deyirsən.', focus: 'double',
     sections: [
       { title: 'Necə deyilir?', pairs: [{ en: 'double L', az: 'LL' }, { en: 'H-E-double L-O', az: 'Hello' }] },
-      { title: 'Nə vaxt?', text: 'Hərf yan-yana iki dəfə gəlirsə, onu iki dəfə demirsən: double və hərfin adı.' },
+      { title: 'Nə vaxt?', text: 'Hərf yan-yana iki dəfə gəlirsə, double və hərfin adını deyirsən. Amerikada hərfi iki dəfə də deyirlər: L, L.' },
     ],
-    attention: 'Hərfləri tək-tək, aydın de. double-dan sonra hərfin özünü de.',
+    attention: 'İki yolu da başa düşəcəklər. double eşidəndə hərfi iki dəfə yaz.',
   })],
   a1_en_b2_d5: [E('u2d5_c08t', 'u2d5_c08', {
-    lead: 'Mr və Ms nəzakətli müraciətdir.', focus: 'Mr və Ms',
+    lead: 'Mr. və Ms. nəzakətli müraciətdir.', focus: 'Mr. və Ms.',
     sections: [
-      { title: 'Kimə?', pairs: [{ en: 'Mr', az: 'kişiyə' }, { en: 'Ms', az: 'qadına' }] },
-      { title: 'Necə qurulur?', build: { parts: ['Ms', 'soyad'], examples: [{ en: 'Hello, Ms Hasanova!', az: 'Salam, Həsənova xanım!' }] } },
+      { title: 'Kimə?', pairs: [{ en: 'Mr.', az: 'kişiyə' }, { en: 'Ms.', az: 'qadına' }] },
+      { title: 'Necə qurulur?', build: { parts: ['Ms.', 'soyad'], examples: [{ en: 'Hello, Ms. Hasanova!', az: 'Salam, Həsənova xanım!' }] } },
     ],
-    attention: 'Mr və Ms adla yox, soyadla işlənir və soyaddan əvvəl gəlir. Biz isə “xanım” sözünü sonda deyirik.',
+    attention: 'Mr. və Ms. soyaddan əvvəl gəlir, sonunda nöqtə qoyulur. Ms. “miz” oxunur.',
   })],
   a1_en_b2_d6: [E('u2d6_c08t', 'u2d6_c08', {
     lead: 'E-poçtda işarələr sözlə deyilir.', focus: 'sözlə',
@@ -170,7 +170,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       lead: '13-dən 19-a qədər sonda -teen gəlir.', focus: '-teen',
       sections: [
         { title: 'Necə qurulur?', text: 'Rəqəmin adına -teen artırılır: four + teen → fourteen.', build: { parts: ['four', 'teen'], examples: [{ en: 'Thirteen, fourteen, fifteen!', az: 'On üç, on dörd, on beş!' }] } },
-        { title: 'Vurğu harada?', text: '-teen hissəsini uzun və güclü de: “fortiin”. Sonra 40 ilə qarışdırmayacaqsan.' },
+        { title: 'Vurğu harada?', text: '-teen hissəsini uzun və güclü de: “fortiin”. Onda 40 ilə qarışmaz.' },
       ],
       attention: 'thirteen və fifteen bir az fərqli qurulur: three → thir, five → fif.',
     }),
@@ -200,15 +200,15 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       { title: 'Harada gəlir?', text: 'Biz “-dan” hissəsini sonda deyirik: Bakı-dan. İngiliscə from şəhərdən əvvəl gəlir.', build: { parts: ["I'm from", 'şəhər / ölkə'], examples: [{ en: "I'm from Baku.", az: 'Bakıdanam.' }] } },
       { title: 'Sualda', build: { parts: ['Where are you', 'from?'], examples: [{ en: 'Where are you from?', az: 'Haradansan?' }] } },
     ],
-    attention: 'Sualda from sona keçir: Where are you from?',
+    attention: 'Bakıdanam = I\'m from Baku: “-dan” və “-am” iki ayrı sözə çevrilir.',
   })],
   a1_en_b3_d2a: [E('u3d2a_c04t', 'u3d2a_c04', {
-    lead: 'Ölkə adı böyük hərflə yazılır.', focus: 'böyük hərflə',
+    lead: 'Ölkənin adı dəyişmir, from onun əvvəlinə gəlir.', focus: 'from',
     sections: [
       { title: 'Ölkələr', pairs: [{ en: 'Turkey', az: 'Türkiyə' }, { en: 'Azerbaijan', az: 'Azərbaycan' }] },
       { title: 'Necə deyilir?', build: { parts: ["I'm from", 'ölkə'], examples: [{ en: "I'm from Turkey.", az: 'Türkiyədənəm.' }] } },
     ],
-    attention: 'Ölkənin adı dəyişmir, “-dan” hissəsini from verir.',
+    attention: 'Biz “Türkiyədən” deyirik, ingiliscə from Turkey.',
   })],
   a1_en_b3_d2b: [E('u3d2b_c06t', 'u3d2b_c06', {
     lead: 'Bəzi ölkə adlarından əvvəl the gəlir.', focus: 'the',
@@ -228,7 +228,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       attention: 'Millət adı da böyük hərflə yazılır: Azerbaijani.',
     }),
     E('u3d3a_c06t', 'u3d3a_c06', {
-      lead: 'from-dan sonra ölkə, from-suz millət.', focus: 'from',
+      lead: 'from-dan sonra ölkə gəlir, millətdən əvvəl from yoxdur.', focus: 'from',
       sections: [
         { title: 'İki cümlə', pairs: [{ en: "I'm from Turkey.", az: 'ölkə' }, { en: "I'm Turkish.", az: 'millət' }] },
         { title: 'Necə qurulur?', build: { parts: ["I'm", 'millət'], examples: [{ en: "I'm from Russia. I'm Russian.", az: 'Mən Rusiyadanam. Rusam.' }] } },
@@ -254,7 +254,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       attention: 'Cavab Yes və ya No ilə başlayır, onu indi öyrənəcəksən.',
     }),
     E('u3d4_c06t', 'u3d4_c06', {
-      lead: 'Qısa cavabda Yes və No-dan sonra I am gəlir.', focus: 'I am',
+      lead: "Qısa cavab: Yes, I am. / No, I'm not.", focus: 'Yes, I am.',
       sections: [
         { title: 'Cavablar', pairs: [{ en: 'Yes, I am.', az: 'bəli' }, { en: "No, I'm not.", az: 'xeyr' }] },
         { title: 'Niyə belədir?', text: 'Sual Are you ilə başlayırsa, cavab I am ilə verilir. “Xeyr” cavabına not artırılır.' },
@@ -284,13 +284,13 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
     E('u3d6_c02t', 'u3d6_c02', {
       lead: 'Bu sualda do var.', focus: 'do',
       sections: [
-        { title: 'do nə edir?', text: 'do sualı açır, özü tərcümə olunmur. Sözlər yenə “Harada yaşayırsan?” deməkdir.' },
+        { title: 'do nə edir?', text: 'do sualı açır, özü tərcümə olunmur. Bütün sual “Harada yaşayırsan?” deməkdir.' },
         { title: 'Necə qurulur?', build: { parts: ['Where do you', 'live?'], examples: [{ en: 'Where do you live?', az: 'Harada yaşayırsan?' }] } },
       ],
       attention: 'Where are you from? sualında do yoxdur, orada are var.',
     }),
     E('u3d6_c04t', 'u3d6_c04', {
-      lead: 'Cavabda do yoxdur.', focus: 'do',
+      lead: 'Tam cavabda do yoxdur: I live in …', focus: 'I live in',
       sections: [
         { title: 'Fərq', pairs: [{ en: 'I live in', az: '…-da yaşayıram' }, { en: "I'm from", az: '…-danam' }] },
         { title: 'Necə qurulur?', build: { parts: ['I live in', 'şəhər / ölkə'], examples: [{ en: 'Where do you live? — I live in Baku.', az: 'Harada yaşayırsan? — Bakıda yaşayıram.' }] } },

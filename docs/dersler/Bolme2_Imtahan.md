@@ -83,10 +83,10 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 **Tapşırıq:** Kursun yeni müəlliminin soyadı Aliyeva. Ona salam verirsən. Hansı söz çatmır?  
 **Cümlə:** Hello, ___ Aliyeva!  
-**Seçimlər:** Mr / Ms / first — **düzgün:** Ms  
+**Seçimlər:** Mr. / Ms. / first — **düzgün:** Ms.  
 **Düzgün olanda:** -yeva ilə bitən soyad qadınındır — Ms.  
-- *İzah (“Mr” seçiləndə):* “Mr” kişiyə deyilir. — Uyğun: Ms. Səbəb: Aliyeva — qadın soyadıdır, ona “Ms” deyilir. Qayda: Mr Aliyev — kişi; Ms Aliyeva — qadın. Nümunə: Hello, Ms Aliyeva!  
-- *İzah (“first” seçiləndə):* “first” ad sözündədir: first name. — Uyğun: Ms. Səbəb: Salam verəndə soyaddan əvvəl “Ms” və ya “Mr” gəlir. Qayda: Hello, Ms Aliyeva! — müraciət; first name — ad. Nümunə: Hello, Ms Aliyeva!  
+- *İzah (“Mr.” seçiləndə):* “Mr.” kişiyə deyilir. — Uyğun: Ms. Səbəb: Aliyeva — qadın soyadıdır, ona “Ms.” deyilir. Qayda: Mr. Aliyev — kişi; Ms. Aliyeva — qadın. Nümunə: Hello, Ms. Aliyeva!  
+- *İzah (“first” seçiləndə):* “first” ad sözündədir: first name. — Uyğun: Ms. Səbəb: Salam verəndə soyaddan əvvəl “Ms.” və ya “Mr.” gəlir. Qayda: Hello, Ms. Aliyeva! — müraciət; first name — ad. Nümunə: Hello, Ms. Aliyeva!  
 
 ## Kart 11 — Dialoqu tamamla: Mesaj yaz
 
@@ -146,7 +146,7 @@ Bölmə 2 imtahanı bitdi — Rəqəmləri, hərfləri, telefon nömrəsini, e-p
 - Telefon: Öz nömrəni demək və nömrənin yoxlanmasını anlamaq
 - Hərflər: Eşitdiyin şəhər kodunu tanımaq
 - Hərf-hərf: Hərf-hərf deyiləni yazmaq və hərf-hərf soruşmaq
-- Forma: Formada ad və soyadı yerinə yazmaq, Mr və Ms-i işlətmək
+- Forma: Formada ad və soyadı yerinə yazmaq, Mr. və Ms.-i işlətmək
 - E-poçt: E-poçtunu yazmaq və eşitdiyin ünvanı yazmaq
 - Yaş: Yaşını demək
 

@@ -91,9 +91,9 @@ Eyni hərf iki dəfə gəlirsə, double deyirsən.
 - H-E-double L-O · Hello
 
 **2 · Nə vaxt?**
-Hərf yan-yana iki dəfə gəlirsə, onu iki dəfə demirsən: double və hərfin adı.
+Hərf yan-yana iki dəfə gəlirsə, double və hərfin adını deyirsən. Amerikada hərfi iki dəfə də deyirlər: L, L.
 
-Diqqət et: Hərfləri tək-tək, aydın de. double-dan sonra hərfin özünü de.
+Diqqət et: İki yolu da başa düşəcəklər. double eşidəndə hərfi iki dəfə yaz.
 
 ## Kart 8 — Sözü tamamla: Sözü tamamla
 

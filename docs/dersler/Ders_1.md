@@ -26,12 +26,12 @@ Qeyd: Hi daha qeyri-rəsmidir.
 
 Salamın iki forması var: Hello və Hi.
 
-**1 · Hansını kimə deyirsən?**
+**1 · Hansını nə vaxt deyirsən?**
 - Hello! · hər kəsə
-- Hi! · dosta, tanışa
+- Hi! · gündəlik, hər yerdə
 
 **2 · Fərq nədir?**
-İkisi də “Salam”dır. Hello mağazada, işdə də olar. Hi daha sadədir, dosta deyilir.
+İkisi də “Salam”dır. Hello bir az rəsmidir. Hi gündəlik danışıqda daha çox işlənir: dosta da, mağazada da.
 
 Diqqət et: Hello və Hi görüşün əvvəlində deyilir.
 

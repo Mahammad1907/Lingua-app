@@ -78,7 +78,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 
 ## Kart 7 — Müəllim izahı
 
-My name is … da adını deyir.
+My name is … ilə də adını deyirsən.
 
 **1 · Hissələr**
 - My name · mənim adım

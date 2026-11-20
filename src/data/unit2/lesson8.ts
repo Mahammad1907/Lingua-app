@@ -161,18 +161,18 @@ export const lesson8: DesignLesson = {
     {
       type: 'choice', id: 'u2d8_c11', number: 11, title: 'Sözü tamamla', why: '-ov ilə bitən soyad kişinindir — Mr.', hint: 'Soyadın sonuna bax: -ova, yoxsa -ov?',
       prompt: 'Ziyafətə kursun direktoru gəlir, soyadı Mammadov.\nQız ona salam verir. Hansı söz çatmır?', gap: { speaker: 'G', before: 'Hello,', after: 'Mammadov! Nice to meet you.' },
-      options: ['Ms', 'Mr', 'last'], answer: 'Mr',
+      options: ['Ms.', 'Mr.', 'last'], answer: 'Mr.',
       variants: [
-        pick('Ms', '“Ms” qadına deyilir.', ex('Mr', 'Mammadov — kişi soyadıdır, ona “Mr” deyilir.', 'Mr Mammadov — kişi; Ms Mammadova — qadın.', 'Hello, Mr Mammadov!')),
-        pick('last', '“last” soyad sözündədir: last name.', ex('Mr', 'Salam verəndə soyaddan əvvəl “Mr” və ya “Ms” gəlir.', 'Hello, Mr Mammadov! — müraciət; last name — soyad.', 'Hello, Mr Mammadov!')),
+        pick('Ms.', '“Ms.” qadına deyilir.', ex('Mr.', 'Mammadov — kişi soyadıdır, ona “Mr.” deyilir.', 'Mr. Mammadov — kişi; Ms. Mammadova — qadın.', 'Hello, Mr. Mammadov!')),
+        pick('last', '“last” soyad sözündədir: last name.', ex('Mr.', 'Salam verəndə soyaddan əvvəl “Mr.” və ya “Ms.” gəlir.', 'Hello, Mr. Mammadov! — müraciət; last name — soyad.', 'Hello, Mr. Mammadov!')),
       ],
       review: {
         title: 'Sözü tamamla', why: '-yeva ilə bitən soyad qadınındır — Ms.', hint: 'Soyadın sonuna bax: -yeva, yoxsa -yev?',
         prompt: 'Qeydiyyatçının soyadı Aliyeva.\nOğlan ona təşəkkür edir. Hansı söz çatmır?', gap: { speaker: 'B', before: 'Thank you,', after: 'Aliyeva!' },
-        options: ['Mr', 'first', 'Ms'], answer: 'Ms',
+        options: ['Mr.', 'first', 'Ms.'], answer: 'Ms.',
         variants: [
-          pick('Mr', '“Mr” kişiyə deyilir.', ex('Ms', 'Aliyeva — qadın soyadıdır, ona “Ms” deyilir.', 'Mr Aliyev — kişi; Ms Aliyeva — qadın.', 'Thank you, Ms Aliyeva!')),
-          pick('first', '“first” ad sözündədir: first name.', ex('Ms', 'Müraciətdə soyaddan əvvəl “Ms” və ya “Mr” gəlir.', 'Thank you, Ms Aliyeva! — müraciət; first name — ad.', 'Thank you, Ms Aliyeva!')),
+          pick('Mr.', '“Mr.” kişiyə deyilir.', ex('Ms.', 'Aliyeva — qadın soyadıdır, ona “Ms.” deyilir.', 'Mr. Aliyev — kişi; Ms. Aliyeva — qadın.', 'Thank you, Ms. Aliyeva!')),
+          pick('first', '“first” ad sözündədir: first name.', ex('Ms.', 'Müraciətdə soyaddan əvvəl “Ms.” və ya “Mr.” gəlir.', 'Thank you, Ms. Aliyeva! — müraciət; first name — ad.', 'Thank you, Ms. Aliyeva!')),
         ],
       },
     },

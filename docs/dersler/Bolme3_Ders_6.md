@@ -25,7 +25,7 @@ Qeyd: do — sualı qurur, How do you spell it? kimi.
 Bu sualda do var.
 
 **1 · do nə edir?**
-do sualı açır, özü tərcümə olunmur. Sözlər yenə “Harada yaşayırsan?” deməkdir.
+do sualı açır, özü tərcümə olunmur. Bütün sual “Harada yaşayırsan?” deməkdir.
 
 **2 · Necə qurulur?**
 - Where do you + live?
@@ -67,7 +67,7 @@ Qeyd: “-da, -də” şəkilçisi ingiliscə şəhərdən əvvəl gəlir: in Ba
 
 ## Kart 6 — Müəllim izahı
 
-Cavabda do yoxdur.
+Tam cavabda do yoxdur: I live in …
 
 **1 · Fərq**
 - I live in · …-da yaşayıram

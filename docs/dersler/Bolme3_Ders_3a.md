@@ -102,7 +102,7 @@ Qeyd: Sonda “n” var: Russia + n.
 
 ## Kart 8 — Müəllim izahı
 
-from-dan sonra ölkə, from-suz millət.
+from-dan sonra ölkə gəlir, millətdən əvvəl from yoxdur.
 
 **1 · İki cümlə**
 - I'm from Turkey. · ölkə

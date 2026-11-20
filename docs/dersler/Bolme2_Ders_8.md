@@ -187,21 +187,21 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 **Tapşırıq:** Ziyafətə kursun direktoru gəlir, soyadı Mammadov. Qız ona salam verir. Hansı söz çatmır?  
 **Cümlə:** Hello, ___ Mammadov! Nice to meet you.  
-**Seçimlər:** Ms / Mr / last — **düzgün:** Mr  
+**Seçimlər:** Ms. / Mr. / last — **düzgün:** Mr.  
 **İpucu:** Soyadın sonuna bax: -ova, yoxsa -ov?  
 **Düzgün olanda:** -ov ilə bitən soyad kişinindir — Mr.  
-- *İzah (“Ms” seçiləndə):* “Ms” qadına deyilir. — Uyğun: Mr. Səbəb: Mammadov — kişi soyadıdır, ona “Mr” deyilir. Qayda: Mr Mammadov — kişi; Ms Mammadova — qadın. Nümunə: Hello, Mr Mammadov!  
-- *İzah (“last” seçiləndə):* “last” soyad sözündədir: last name. — Uyğun: Mr. Səbəb: Salam verəndə soyaddan əvvəl “Mr” və ya “Ms” gəlir. Qayda: Hello, Mr Mammadov! — müraciət; last name — soyad. Nümunə: Hello, Mr Mammadov!  
+- *İzah (“Ms.” seçiləndə):* “Ms.” qadına deyilir. — Uyğun: Mr. Səbəb: Mammadov — kişi soyadıdır, ona “Mr.” deyilir. Qayda: Mr. Mammadov — kişi; Ms. Mammadova — qadın. Nümunə: Hello, Mr. Mammadov!  
+- *İzah (“last” seçiləndə):* “last” soyad sözündədir: last name. — Uyğun: Mr. Səbəb: Salam verəndə soyaddan əvvəl “Mr.” və ya “Ms.” gəlir. Qayda: Hello, Mr. Mammadov! — müraciət; last name — soyad. Nümunə: Hello, Mr. Mammadov!  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qeydiyyatçının soyadı Aliyeva. Oğlan ona təşəkkür edir. Hansı söz çatmır?  
 **Cümlə:** Thank you, ___ Aliyeva!  
-**Seçimlər:** Mr / first / Ms — **düzgün:** Ms  
+**Seçimlər:** Mr. / first / Ms. — **düzgün:** Ms.  
 **İpucu:** Soyadın sonuna bax: -yeva, yoxsa -yev?  
 **Düzgün olanda:** -yeva ilə bitən soyad qadınındır — Ms.  
-- *İzah (“Mr” seçiləndə):* “Mr” kişiyə deyilir. — Uyğun: Ms. Səbəb: Aliyeva — qadın soyadıdır, ona “Ms” deyilir. Qayda: Mr Aliyev — kişi; Ms Aliyeva — qadın. Nümunə: Thank you, Ms Aliyeva!  
-- *İzah (“first” seçiləndə):* “first” ad sözündədir: first name. — Uyğun: Ms. Səbəb: Müraciətdə soyaddan əvvəl “Ms” və ya “Mr” gəlir. Qayda: Thank you, Ms Aliyeva! — müraciət; first name — ad. Nümunə: Thank you, Ms Aliyeva!  
+- *İzah (“Mr.” seçiləndə):* “Mr.” kişiyə deyilir. — Uyğun: Ms. Səbəb: Aliyeva — qadın soyadıdır, ona “Ms.” deyilir. Qayda: Mr. Aliyev — kişi; Ms. Aliyeva — qadın. Nümunə: Thank you, Ms. Aliyeva!  
+- *İzah (“first” seçiləndə):* “first” ad sözündədir: first name. — Uyğun: Ms. Səbəb: Müraciətdə soyaddan əvvəl “Ms.” və ya “Mr.” gəlir. Qayda: Thank you, Ms. Aliyeva! — müraciət; first name — ad. Nümunə: Thank you, Ms. Aliyeva!  
 
 ## Kart 12 — Söhbəti sırala: Söhbəti sırala
 

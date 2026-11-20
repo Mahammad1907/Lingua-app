@@ -48,7 +48,7 @@ Qeyd: Bunlar asandır: Azərbaycan dilindəki oxunuşa yaxındır; X — “eks�
 **2 · Nə vaxt lazımdır?**
 Adını, şəhərini hərf-hərf deyəndə hərflərin ingiliscə adını deyirsən.
 
-Diqqət et: Bu hərflər asandır: adları bizimkinə oxşayır.
+Diqqət et: M bizdəki kimidir, F-də isə səslər yerini dəyişir: “fe” yox, “ef”.
 
 ## Kart 5 — Kim nə dedi?: Hərfi oxunuşuna qoş
 

@@ -82,10 +82,10 @@ export const exam: DesignLesson = {
     {
       type: 'choice', id: 'u2x_c10', number: 10, title: 'Sözü tamamla', why: '-yeva ilə bitən soyad qadınındır — Ms.',
       prompt: 'Kursun yeni müəlliminin soyadı Aliyeva.\nOna salam verirsən. Hansı söz çatmır?', gap: { speaker: 'B', before: 'Hello,', after: 'Aliyeva!' },
-      options: ['Mr', 'Ms', 'first'], answer: 'Ms',
+      options: ['Mr.', 'Ms.', 'first'], answer: 'Ms.',
       variants: [
-        pick('Mr', '“Mr” kişiyə deyilir.', ex('Ms', 'Aliyeva — qadın soyadıdır, ona “Ms” deyilir.', 'Mr Aliyev — kişi; Ms Aliyeva — qadın.', 'Hello, Ms Aliyeva!')),
-        pick('first', '“first” ad sözündədir: first name.', ex('Ms', 'Salam verəndə soyaddan əvvəl “Ms” və ya “Mr” gəlir.', 'Hello, Ms Aliyeva! — müraciət; first name — ad.', 'Hello, Ms Aliyeva!')),
+        pick('Mr.', '“Mr.” kişiyə deyilir.', ex('Ms.', 'Aliyeva — qadın soyadıdır, ona “Ms.” deyilir.', 'Mr. Aliyev — kişi; Ms. Aliyeva — qadın.', 'Hello, Ms. Aliyeva!')),
+        pick('first', '“first” ad sözündədir: first name.', ex('Ms.', 'Salam verəndə soyaddan əvvəl “Ms.” və ya “Mr.” gəlir.', 'Hello, Ms. Aliyeva! — müraciət; first name — ad.', 'Hello, Ms. Aliyeva!')),
       ],
     },
     {
@@ -138,7 +138,7 @@ export const exam: DesignLesson = {
       { group: 'Telefon', text: 'Öz nömrəni demək və nömrənin yoxlanmasını anlamaq', tasks: ['u2x_c03', 'u2x_c05', 'u2x_c16'] },
       { group: 'Hərflər', text: 'Eşitdiyin şəhər kodunu tanımaq', tasks: ['u2x_c06'] },
       { group: 'Hərf-hərf', text: 'Hərf-hərf deyiləni yazmaq və hərf-hərf soruşmaq', tasks: ['u2x_c07', 'u2x_c08'] },
-      { group: 'Forma', text: 'Formada ad və soyadı yerinə yazmaq, Mr və Ms-i işlətmək', tasks: ['u2x_c04', 'u2x_c10', 'u2x_c14'] },
+      { group: 'Forma', text: 'Formada ad və soyadı yerinə yazmaq, Mr. və Ms.-i işlətmək', tasks: ['u2x_c04', 'u2x_c10', 'u2x_c14'] },
       { group: 'E-poçt', text: 'E-poçtunu yazmaq və eşitdiyin ünvanı yazmaq', tasks: ['u2x_c11', 'u2x_c15'] },
       { group: 'Yaş', text: 'Yaşını demək', tasks: ['u2x_c13'] },
     ],

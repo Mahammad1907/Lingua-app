@@ -95,7 +95,7 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d6_c09', number: 9, title: 'Dinlə və yaz', why: 'abbasova@mail.com — double B, @ və nöqtə.', hint: 'Hərfləri bir-bir yaz; qoşa hərfə diqqət et, ünvanda boşluq olmur.',
-      prompt: 'İş yoldaşın müdirin (Ms Abbasova) e-poçtunu hərf-hərf deyir.\nÜnvanı yaz.', audio: "It's A-double B-A-S-O-V-A at mail dot com.", placeholder: 'E-poçt ünvanı',
+      prompt: 'İş yoldaşın müdirin (Ms. Abbasova) e-poçtunu hərf-hərf deyir.\nÜnvanı yaz.', audio: "It's A-double B-A-S-O-V-A at mail dot com.", placeholder: 'E-poçt ünvanı',
       rule: exact('abbasova@mail.com'),
       variants: [asWords('abbasova@mail.com', 'abbasova at mail dot com'), other('Ünvanı yoxla.', ex('abbasova@mail.com', '“double B” — BB, sonra @, mail, nöqtə, com.', 'double B — BB; at — @.', "It's A-double B-A-S-O-V-A at mail dot com."))],
       review: {

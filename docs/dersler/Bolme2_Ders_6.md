@@ -120,7 +120,7 @@ Diqqət et: Adı hərf-hərf de, sonra at və dot.
 
 ## Kart 10 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** İş yoldaşın müdirin (Ms Abbasova) e-poçtunu hərf-hərf deyir. Ünvanı yaz.  
+**Tapşırıq:** İş yoldaşın müdirin (Ms. Abbasova) e-poçtunu hərf-hərf deyir. Ünvanı yaz.  
 **Səs:** It's A-double B-A-S-O-V-A at mail dot com.  
 **Qəbul:** dəqiq: abbasova@mail.com  
 **İpucu:** Hərfləri bir-bir yaz; qoşa hərfə diqqət et, ünvanda boşluq olmur.  

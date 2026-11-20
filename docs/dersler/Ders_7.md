@@ -23,7 +23,8 @@ Qeyd: Sual kimi deyilən “Sorry?” — “Bağışlayın? / Necə?” deməkd
 
 Sorry sözü iki cür deyilir.
 
-**1 · Səs nə deyir?**
+**1 · Səs necə dəyişir?**
+Sorry! — səs sonda enir, üzr istəyirsən. Sorry? — səs sonda qalxır, yenə soruşursan.
 - Sorry! · üzr
 - Sorry? · nə dedin?
 
@@ -31,7 +32,7 @@ Sorry sözü iki cür deyilir.
 - I don't + understand.
 - **Sorry? I don't understand.** — Bağışlayın? Başa düşmürəm.
 
-Diqqət et: don't “-mır” hissəsini verir: understand — başa düşmək, I don't understand — başa düşmürəm.
+Diqqət et: don't “-ma” hissəsini verir: understand — başa düşmək, I don't understand — başa düşmürəm.
 
 ## Kart 4 — Seç: Dinlə və anla
 

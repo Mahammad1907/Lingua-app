@@ -102,7 +102,7 @@ Rəqəmin adına -teen artırılır: four + teen → fourteen.
 - **Thirteen, fourteen, fifteen!** — On üç, on dörd, on beş!
 
 **2 · Vurğu harada?**
--teen hissəsini uzun və güclü de: “fortiin”. Sonra 40 ilə qarışdırmayacaqsan.
+-teen hissəsini uzun və güclü de: “fortiin”. Onda 40 ilə qarışmaz.
 
 Diqqət et: thirteen və fifteen bir az fərqli qurulur: three → thir, five → fif.
 

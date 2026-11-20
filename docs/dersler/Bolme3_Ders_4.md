@@ -99,7 +99,7 @@ Qeyd: I’m not — burada not am-dan sonra gəlir.
 
 ## Kart 8 — Müəllim izahı
 
-Qısa cavabda Yes və No-dan sonra I am gəlir.
+Qısa cavab: Yes, I am. / No, I'm not.
 
 **1 · Cavablar**
 - Yes, I am. · bəli

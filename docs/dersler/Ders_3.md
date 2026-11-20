@@ -47,7 +47,7 @@ Biz “Adın nədir?” deyirik: “nə” sonda gəlir. İngiliscə What sualı
 - What's + your name?
 - **Hi! What's your name?** — Salam! Adın nədir?
 
-Diqqət et: Sualın sonunda sual işarəsi qoyulur.
+Diqqət et: your — sənin. your name — sənin adın.
 
 ## Kart 5 — Mesaj yaz (sözlərdən): Mesajı qur
 

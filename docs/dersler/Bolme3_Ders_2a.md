@@ -53,7 +53,7 @@ Qeyd: Türkiyə ingiliscə Turkey yazılır və “törki” oxunur.
 
 ## Kart 5 — Müəllim izahı
 
-Ölkə adı böyük hərflə yazılır.
+Ölkənin adı dəyişmir, from onun əvvəlinə gəlir.
 
 **1 · Ölkələr**
 - Turkey · Türkiyə
@@ -63,7 +63,7 @@ Qeyd: Türkiyə ingiliscə Turkey yazılır və “törki” oxunur.
 - I'm from + ölkə
 - **I'm from Turkey.** — Türkiyədənəm.
 
-Diqqət et: Ölkənin adı dəyişmir, “-dan” hissəsini from verir.
+Diqqət et: Biz “Türkiyədən” deyirik, ingiliscə from Turkey.
 
 ## Kart 6 — Hərfləri tut: Hərfləri tut
 

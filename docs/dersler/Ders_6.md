@@ -54,7 +54,7 @@ Qeyd: Səhv edəndə deyilir.
 - Sorry! · üzr istəmək
 
 **2 · Nə vaxt deyirsən?**
-Kimdənsə nəsə soruşmaq istəyəndə Excuse me deyirsən. Səhv edəndə, kiminsə ayağını basanda Sorry! deyirsən.
+Kimdənsə nəsə soruşmaq istəyəndə Excuse me deyirsən. Səhv edəndə, kiminsə ayağına basanda Sorry! deyirsən.
 
 Diqqət et: Excuse me sözə başlamazdan əvvəl, Sorry! isə səhvdən sonra deyilir.
 

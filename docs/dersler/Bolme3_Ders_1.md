@@ -67,7 +67,7 @@ Biz “-dan” hissəsini sonda deyirik: Bakı-dan. İngiliscə from şəhərdə
 - Where are you + from?
 - **Where are you from?** — Haradansan?
 
-Diqqət et: Sualda from sona keçir: Where are you from?
+Diqqət et: Bakıdanam = I'm from Baku: “-dan” və “-am” iki ayrı sözə çevrilir.
 
 ## Kart 6 — Mesaj yaz (sözlərdən): Mesaj yaz
 

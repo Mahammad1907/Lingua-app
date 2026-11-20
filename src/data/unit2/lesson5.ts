@@ -1,4 +1,4 @@
-// Bölmə 2 · Dərs 5 — Ad və soyad (first name · last name · What's your last name? · Mr · Ms).
+// Bölmə 2 · Dərs 5 — Ad və soyad (first name · last name · What's your last name? · Mr. · Ms.).
 // Kurs qeydiyyat masası. Soyadlar yalnız formada/siyahıda görünür, personaj adı kimi yox.
 // Spiral: hərf-hərf (Dərs 4), double, Hello, What's your name?, phone number (Dərs 2).
 import type { DesignLesson } from '../designLessonTypes';
@@ -96,26 +96,26 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d5_c08', number: 8, scenes: ['u2/word-mr-ms'],
-      word: 'Mr Guliyev · Ms Hasanova', pronunciation: '/ˈmɪstər/ · /mɪz/', reading: 'mistır quliyev · miz hasanova', az: 'cənab Quliyev · Həsənova xanım',
-      structure: ['Mr + soyad', 'Ms + soyad'],
-      notes: ['Mr — kişiyə, Ms — qadına; ardınca soyad gəlir.'],
-      example: 'Hello, Ms Hasanova!', exampleAz: 'Salam, Həsənova xanım!',
+      word: 'Mr. Guliyev · Ms. Hasanova', pronunciation: '/ˈmɪstər/ · /mɪz/', reading: 'mistır quliyev · miz hasanova', az: 'cənab Quliyev · Həsənova xanım',
+      structure: ['Mr. + soyad', 'Ms. + soyad'],
+      notes: ['Mr. — kişiyə, Ms. — qadına; ardınca soyad gəlir.'],
+      example: 'Hello, Ms. Hasanova!', exampleAz: 'Salam, Həsənova xanım!',
     },
     {
       type: 'choice', id: 'u2d5_c09', number: 9, title: 'Sözü tamamla', why: '-ova ilə bitən soyad qadınındır — Ms.', hint: 'Soyadın sonuna bax: -ova, yoxsa -ov?',
       prompt: 'Kursun yeni müəllimi gəldi, soyadı Hasanova.\nOna salam verirsən. Hansı söz çatmır?', gap: { speaker: 'B', before: 'Hello,', after: 'Hasanova!' },
-      options: ['Ms', 'Mr', 'last'], answer: 'Ms',
+      options: ['Ms.', 'Mr.', 'last'], answer: 'Ms.',
       variants: [
-        pick('Mr', '“Mr” kişiyə deyilir.', ex('Ms', 'Hasanova — qadın soyadıdır, ona “Ms” deyilir.', 'Mr Hasanov — kişi; Ms Hasanova — qadın.', 'Hello, Ms Hasanova!')),
-        pick('last', '“last” soyad sözündədir: last name.', ex('Ms', 'Salam verəndə soyaddan əvvəl “Ms” və ya “Mr” gəlir.', 'Hello, Ms Hasanova! — müraciət; last name — soyad.', 'Hello, Ms Hasanova!')),
+        pick('Mr.', '“Mr.” kişiyə deyilir.', ex('Ms.', 'Hasanova — qadın soyadıdır, ona “Ms.” deyilir.', 'Mr. Hasanov — kişi; Ms. Hasanova — qadın.', 'Hello, Ms. Hasanova!')),
+        pick('last', '“last” soyad sözündədir: last name.', ex('Ms.', 'Salam verəndə soyaddan əvvəl “Ms.” və ya “Mr.” gəlir.', 'Hello, Ms. Hasanova! — müraciət; last name — soyad.', 'Hello, Ms. Hasanova!')),
       ],
       review: {
         title: 'Sözü tamamla', why: '-ov/-yev ilə bitən soyad kişinindir — Mr.', hint: 'Soyadın sonuna bax: -yeva, yoxsa -yev?',
         prompt: 'Ofisdə yeni müdirin soyadı Guliyev.\nOna salam verirsən. Hansı söz çatmır?', gap: { speaker: 'G', before: 'Hello,', after: 'Guliyev!' },
-        options: ['Ms', 'first', 'Mr'], answer: 'Mr',
+        options: ['Ms.', 'first', 'Mr.'], answer: 'Mr.',
         variants: [
-          pick('Ms', '“Ms” qadına deyilir.', ex('Mr', 'Guliyev — kişi soyadıdır, ona “Mr” deyilir.', 'Mr Guliyev — kişi; Ms Guliyeva — qadın.', 'Hello, Mr Guliyev!')),
-          pick('first', '“first” ad sözündədir: first name.', ex('Mr', 'Salam verəndə soyaddan əvvəl “Mr” və ya “Ms” gəlir.', 'Hello, Mr Guliyev! — müraciət; first name — ad.', 'Hello, Mr Guliyev!')),
+          pick('Ms.', '“Ms.” qadına deyilir.', ex('Mr.', 'Guliyev — kişi soyadıdır, ona “Mr.” deyilir.', 'Mr. Guliyev — kişi; Ms. Guliyeva — qadın.', 'Hello, Mr. Guliyev!')),
+          pick('first', '“first” ad sözündədir: first name.', ex('Mr.', 'Salam verəndə soyaddan əvvəl “Mr.” və ya “Ms.” gəlir.', 'Hello, Mr. Guliyev! — müraciət; first name — ad.', 'Hello, Mr. Guliyev!')),
         ],
       },
     },
@@ -167,9 +167,9 @@ export const lesson5: DesignLesson = {
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
         prompt: 'Qeydiyyat masasında eşitdiklərin.\nHər birinə mənasını qoş.',
-        rows: [{ en: 'Mr', az: 'Cənab' }, { en: "What's your last name?", az: 'Soyadın nədir?' }, { en: 'Phone number', az: 'Telefon nömrəsi' }],
+        rows: [{ en: 'Mr.', az: 'Cənab' }, { en: "What's your last name?", az: 'Soyadın nədir?' }, { en: 'Phone number', az: 'Telefon nömrəsi' }],
         extra: ['Ad'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex("Mr — Cənab; What's your last name? — Soyadın nədir?; Phone number — Telefon nömrəsi", 'Mr kişiyə deyilir; last name — soyad.', "What's your last name? — soyad; What's your phone number? — nömrə.", 'Hello, Mr Guliyev!'))],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex("Mr. — Cənab; What's your last name? — Soyadın nədir?; Phone number — Telefon nömrəsi", 'Mr. kişiyə deyilir; last name — soyad.', "What's your last name? — soyad; What's your phone number? — nömrə.", 'Hello, Mr. Guliyev!'))],
       },
     },
   ],
@@ -177,7 +177,7 @@ export const lesson5: DesignLesson = {
     done: ['Dərs 5 tamamlandı', 'Artıq formada adını və soyadını yazır, soyadı soruşur və deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Formadakı sözləri və Mr, Ms-i anlamaq', tasks: ['u2d5_c03', 'u2d5_c09', 'u2d5_c13'] },
+      { group: 'Tanıma', text: 'Formadakı sözləri və Mr., Ms.-i anlamaq', tasks: ['u2d5_c03', 'u2d5_c09', 'u2d5_c13'] },
       { group: 'Yazı', text: 'Formanı doldurmaq, soyadı yazmaq və soruşmaq', tasks: ['u2d5_c05', 'u2d5_c07', 'u2d5_c11'] },
       { group: 'Danışıq', text: 'Soyadı soruşmaq və öz soyadını demək', tasks: ['u2d5_c10', 'u2d5_c12'] },
     ],
@@ -188,7 +188,7 @@ export const lesson5: DesignLesson = {
     { word: 'first name', translation: 'ad', example: 'My first name is …', exampleAz: 'Adım …-dır.', usageNote: 'Formada ad sətri.', pronunciation: '/ˈfɜrst ˌneɪm/', teachCard: 'u2d5_c02' },
     { word: 'last name', translation: 'soyad', example: 'My last name is Mammadova.', exampleAz: 'Soyadım Məmmədovadır.', usageNote: 'Formada soyad sətri.', pronunciation: '/ˈlæst ˌneɪm/', teachCard: 'u2d5_c04' },
     { word: "What's your last name?", translation: 'Soyadın nədir?', example: "Hi! What's your last name?", exampleAz: 'Salam! Soyadın nədir?', usageNote: 'Soyad soruşmaq.', pronunciation: '/wʌts jʊr ˈlæst ˌneɪm/', teachCard: 'u2d5_c06' },
-    { word: 'Mr', translation: 'cənab', example: 'Hello, Mr Guliyev!', exampleAz: 'Salam, cənab Quliyev!', usageNote: 'Kişiyə, soyaddan əvvəl.', pronunciation: '/ˈmɪstər/', teachCard: 'u2d5_c08' },
-    { word: 'Ms', translation: 'xanım', example: 'Hello, Ms Hasanova!', exampleAz: 'Salam, Həsənova xanım!', usageNote: 'Qadına, soyaddan əvvəl.', pronunciation: '/mɪz/', teachCard: 'u2d5_c08' },
+    { word: 'Mr.', translation: 'cənab', example: 'Hello, Mr. Guliyev!', exampleAz: 'Salam, cənab Quliyev!', usageNote: 'Kişiyə, soyaddan əvvəl.', pronunciation: '/ˈmɪstər/', teachCard: 'u2d5_c08' },
+    { word: 'Ms.', translation: 'xanım', example: 'Hello, Ms. Hasanova!', exampleAz: 'Salam, Həsənova xanım!', usageNote: 'Qadına, soyaddan əvvəl.', pronunciation: '/mɪz/', teachCard: 'u2d5_c08' },
   ],
 };
