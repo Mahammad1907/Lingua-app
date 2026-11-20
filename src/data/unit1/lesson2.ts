@@ -33,6 +33,13 @@ export const lesson2: DesignLesson = {
       example: "Hello! I'm …", exampleAz: 'Salam! Mən …-am.',
     },
     {
+      // Short form explained the first time it appears (20 Nov 2026, user rule: every short form is taught where it first comes).
+      type: 'teach', id: 'd2_c02s', number: 2, title: 'Qısa forma',
+      lead: 'İki söz birləşib bir söz olur. Hər ikisini dinlə:',
+      phrases: [{ en: 'I am', az: 'mən …-am' }, { en: "I'm", az: 'mən …-am (qısa)' }],
+      notes: ['Danışıqda qısa deyilir. Mənası eynidir.', 'Apostrof (\') düşən hərfin yerini göstərir: I am → I’m.'],
+    },
+    {
       type: 'word', id: 'd2_c02b', number: 3, scenes: ['d2/word-my-name'], structure: ['My name is [ad].'],
       word: 'My name is …', pronunciation: '/maɪ neɪm ɪz/', reading: 'may neym iz …', az: 'Mənim adım …-dır',
       notes: ["“I'm …” ilə eyni mənadadır."],

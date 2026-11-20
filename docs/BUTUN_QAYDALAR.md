@@ -134,6 +134,8 @@ Ana dilli müəllim və real istifadəçi yoxlaması yoxdur. Ona görə təbiili
 - **Gündəlik / rəsmi:** “Hi! What's your name?” gündəlik; “Excuse me, what's your name?” nəzakətli-rəsmi tərəfə yaxın; “Say that again, please.” gündəlik; “Could you say that again?” neytral-nəzakətli.
 - **Yoxlayıcı tapıntıları (Bölmə 1–3):** DÜZƏLDİLDİ (18 Nov): “Say that again, please.” / “More slowly, please.” (köhnə qısa formalar qəbul olunur), “Excuse me, what's your name?” yalnız yad adam/işçi situasiyasında, “Nice to meet you!” adlardan sonra, “I'm not great.”. HƏLƏ DÜZƏLDİLMƏYƏN: (4) “He is fine” → “He's fine” (Bölmə 3 Dərs 5, “is” öyrədildiyi üçün ehtiyatla); (6) Mr/Ms nöqtəsi (ABŞ: Mr. Ms.), “I'm not very well”, forma etiketi “How old are you?” (“Age” hələ öyrədilməyib — taught-before-asked). Düzəldilmişlər: commit 6442128.
 
+- **Qısa formalar (20 Nov 2026):** qısa forma (I'm, he's, she's, what's …) dərsdə ilk dəfə gələndə ondan əvvəl “Qısa forma” teach kartı olur: iki forma səsli (I am → I'm), “Danışıqda qısa deyilir. Mənası eynidir.” və apostrofun düşən hərfin yerini göstərdiyi deyilir. Termin işlənmir. Sonrakı kart əvvəlkini xatırladır. İndi var: Bölmə 1 Dərs 2 (I'm), Bölmə 3 Dərs 5 (he's / she's).
+
 ## H. Mağazaya çıxmazdan əvvəl (audit — hələ edilməyib)
 
 Hesab silmə; məxfilik siyasəti və link; profildəki işləməyən düymələr (Premium, Kömək, ayarlar) və “Lingua App v0.1”; “ŞƏKİL” işarələri və boş AI söhbət gizlənsin; Azure səs tanıması üçün açıq razılıq (pilot endpoint buraxılışa getməsin); icazə mətnləri ingiliscə də; yaş 13+. Ətraflı: `docs/BEYNELXALQ_AUDIT_2026-11-14.md`.

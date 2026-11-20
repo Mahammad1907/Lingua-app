@@ -74,6 +74,14 @@ export const lesson5a: DesignLesson = {
       },
     },
     {
+      // Short forms he's / she's explained before first use; recalls I'm from Bölmə 1 (20 Nov 2026).
+      type: 'teach', id: 'u3d5a_c05s', number: 6, title: 'Qısa forma',
+      lead: 'I am → I’m kimi, bunlar da qısa deyilir. Hər birini dinlə:',
+      phrases: [{ en: 'He is fine.', az: 'O (kişi) yaxşıdır.' }, { en: "He's fine.", az: 'O (kişi) yaxşıdır (qısa).' }],
+      structure: ['he is → he’s', 'she is → she’s'],
+      notes: ['Danışıqda qısa deyilir. Mənası eynidir.', 'Apostrof (\') düşən hərfin yerini göstərir: he is → he’s, she is → she’s.'],
+    },
+    {
       type: 'word', id: 'u3d5a_c06', number: 6, scenes: ['mascot/globe'],
       word: "He's from …", pronunciation: '/hiz frʌm/', reading: 'hiz fram …', az: 'O (kişi) …-dandır.',
       structure: ["He's from + ölkə / şəhər."],

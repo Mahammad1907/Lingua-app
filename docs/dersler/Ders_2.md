@@ -21,7 +21,17 @@ Nümunə: **Hello! I'm …** — Salam! Mən …-am.
 
 Qeyd: I — mən. Böyük hərflə yazılır.
 
-## Kart 3 — Səslə cavab: Özünü səslə təqdim et
+## Kart 3 — Öyrətmə / səhnə: Qısa forma
+
+İki söz birləşib bir söz olur. Hər ikisini dinlə:
+
+- **I am** — mən …-am
+- **I'm** — mən …-am (qısa)
+
+Danışıqda qısa deyilir. Mənası eynidir.
+Apostrof (') düşən hərfin yerini göstərir: I am → I’m.
+
+## Kart 4 — Səslə cavab: Özünü səslə təqdim et
 
 **Tapşırıq:** Yeni tanışın salam verir. Salam ver və adını de.  
 **Səs:** Hello!  
@@ -41,7 +51,7 @@ Qeyd: I — mən. Böyük hərflə yazılır.
 **Düzgün olanda:** Salam verdin və adını dedin.  
 - *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hi! My name is … Səbəb: Yoldaşın salam verdi, sən də salam verib adını deyirsən. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! I'm …  
 
-## Kart 4 — Yeni söz
+## Kart 5 — Yeni söz
 
 **My name is …** — Mənim adım …-dır
 
@@ -53,7 +63,7 @@ Nümunə: **Hi! My name is …** — Salam! Mənim adım …-dır.
 
 Qeyd: “I'm …” ilə eyni mənadadır.
 
-## Kart 5 — Sözü tamamla: Sözü tamamla
+## Kart 6 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Qız özünü təqdim edir. Cümləsində hansı söz çatmır?  
 **Cümlə:** Hi! I ___ …  
@@ -71,7 +81,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Düzgün olanda:** “I” ilə “am” gəlir.  
 - *İzah (başqa səhvdə):* “I” ilə “am” gəlir. — Uyğun: am. Səbəb: I ilə is və my demirik, I ilə am gəlir. Qayda: I + am → I'm. Nümunə: Hello! I'm …  
 
-## Kart 6 — Seç: Düzgün cümləni seç
+## Kart 7 — Seç: Düzgün cümləni seç
 
 **Tapşırıq:** Yeni tanışın adını demək istəyir. Hansı cümlə düzgündür?  
 **Seçimlər:** My name … / My name is … / I name is … — **düzgün:** My name is …  
@@ -89,7 +99,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 - *İzah (“My name …” seçiləndə):* “is” buraxılıb. — Uyğun: My name is … Səbəb: Azərbaycancada -dır şəkilçidir, ingiliscə is isə ayrıca sözdür. Qayda: My name is … — düzgün; My name … — is çatmır. Nümunə: Hi! My name is …  
 - *İzah (“I name is …” seçiləndə):* “I” yox, “My” lazımdır. — Uyğun: My name is … Səbəb: “I” — mən, “my” — mənim deməkdir, ad isə “mənim adım”dır. Qayda: My name is … — mənim adım; I’m … — mən …-am. Nümunə: Hello! My name is …  
 
-## Kart 7 — Kim nə dedi?: Kim nə dedi?
+## Kart 8 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Hər cümləyə mənasını qoş.  
 **Cütlər:** Hi! — Salam!; I'm … — Mən …-am.; Bye! — Hələlik! · artıq: Sağ ol!  
@@ -105,7 +115,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Düzgün olanda:** Salam, sağollaşma və ad — hər biri öz yerində.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; My name is … — Mənim adım …-dır.; Goodbye! — Görüşənədək! Səbəb: Hello görüşü başladır, Goodbye bitirir, My name is adını deyir. Qayda: Hello! — görüşün əvvəli; Goodbye! — görüşün sonu. Nümunə: Hello! My name is …  
 
-## Kart 8 — Dinlə və təkrarla: Dinlə və təkrarla
+## Kart 9 — Dinlə və təkrarla: Dinlə və təkrarla
 
 **Tapşırıq:** İfadəni dinlə, sonra eyni cür de.  
 **Səs:** My name is  
@@ -121,7 +131,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Düzgün olanda:** Qısa forma düzgün səsləndi.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Hello! I'm. Səbəb: Səsdə I’m qısa formadadır və bir heca kimi deyilir. Qayda: I’m — “aym”, bir heca; I am — iki heca. Nümunə: Hello! I'm …  
 
-## Kart 9 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 10 — Dialoqu tamamla: Dialoqu tamamla
 
 **Tapşırıq:** Yeni qonşun sənə yazır. Salam ver və adını de.  
 **Yazışma (Yeni qonşu):** “Hello!”  
@@ -140,7 +150,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Düzgün olanda:** Salam verdin və adını dedin.  
 - *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hi! I'm … Səbəb: Yoldaşın salam verdi, sən də salam verib adını deyirsən. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! I'm …  
 
-## Kart 10 — Səslə cavab: Nümunəsiz de
+## Kart 11 — Səslə cavab: Nümunəsiz de
 
 **Tapşırıq:** Kursda yeni müəllimlə tanış olursan. Salam ver və adını de.  
 **Qəbul:** məna: greet + introduce — nümunə: Hello! I'm … / Hi! My name is …  
@@ -156,7 +166,7 @@ Qeyd: “I'm …” ilə eyni mənadadır.
 **Düzgün olanda:** Özünü nümunəsiz təqdim etdin.  
 - *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hi! I'm … Səbəb: Tanışlıqda əvvəl salam, sonra ad gəlir. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! My name is …  
 
-## Kart 11 — Yaz: Adını yaz
+## Kart 12 — Yaz: Adını yaz
 
 **Tapşırıq:** Qeydiyyatda adını soruşurlar. Adını ingiliscə cümlə ilə yaz.  
 **Qəbul:** məna: introduce — nümunə: I'm … / My name is …  

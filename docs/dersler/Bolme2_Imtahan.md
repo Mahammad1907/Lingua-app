@@ -4,7 +4,7 @@ Bölmə 2 · Şəxsi məlumat. Bu sənəd `src/data/unit2/exam.ts`-dən yaradıl
 
 ## Giriş — Giriş
 
-Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.
+Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.
 
 - Rəqəmləri, hərfləri və şəxsi məlumatı eşidib anlayıram.
 - Nömrəmi və yaşımı deyir, hərf-hərf deməyi xahiş edirəm.

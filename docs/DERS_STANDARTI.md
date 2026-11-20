@@ -10,6 +10,7 @@ Bu sənəd hər yeni dərsin necə yazılacağını müəyyən edir. Məzmun haz
 
 - **Uzunluq:** 10–12 kart, 5–7 dəqiqə. 14 kartdan çox olmamalıdır. Mövzu böyükdürsə, iki dərsə böl.
 - **Yeni material:** bir dərsdə ən çox 2–3 yeni ifadə (və ya bir quruluş + 2 ifadə).
+- **Qısa formalar (20 Nov 2026):** qısa forma (I'm, he's, she's, what's …) dərsdə ilk dəfə gələndə ondan əvvəl “Qısa forma” teach kartı olur: iki forma səsli (I am → I'm), “Danışıqda qısa deyilir. Mənası eynidir.” və apostrofun düşən hərfin yerini göstərdiyi deyilir. Termin işlənmir. Sonrakı kart əvvəlkini xatırladır. İndi var: Bölmə 1 Dərs 2 (I'm), Bölmə 3 Dərs 5 (he's / she's).
 - **Öyrətmə kartları:** dalbadal ən çox 2 öyrətmə kartı. Üçüncüdən əvvəl ən azı bir tapşırıq olmalıdır.
 
 ## 2. Kartların ardıcıllığı

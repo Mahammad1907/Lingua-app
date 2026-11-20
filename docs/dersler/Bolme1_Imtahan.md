@@ -4,7 +4,7 @@ Bölmə 1 · İlk tanışlıq. Bu sənəd `src/data/unit1/exam.ts`-dən yaradıl
 
 ## Giriş — Giriş
 
-Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıdır.
+Kömək və ipucu yoxdur. Keçmək üçün cavabların 70 %-i düzgün olmalıdır.
 
 - Salam verib sağollaşmaq, adını demək və soruşmaq.
 - Halını demək, təşəkkür və xahiş etmək.
@@ -138,4 +138,4 @@ Bölmə 1 imtahanı bitdi — Aşağıda hər bacarığın nəticəsi ayrıca g�
 - Excuse me və Sorry: Diqqət çəkməyi üzrdən ayırıram və üzrə cavab verə bilirəm.
 - Kömək istəmək: Başa düşməyəndə bunu deyib təkrar və yavaş danışmağı istəyə bilirəm.
 
-Keçid həddi 80 %-dir. Keçməsən, səhv etdiyin bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.
+Keçid həddi 70 %-dir. Keçməsən, səhv etdiyin bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.

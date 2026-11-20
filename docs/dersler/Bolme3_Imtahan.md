@@ -4,7 +4,7 @@ Bölmə 3 · Haradansan. Bu sənəd `src/data/unit3/exam.ts`-dən yaradılıb �
 
 ## Giriş — Giriş
 
-Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.
+Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.
 
 - Ölkə, millət, dil və yaşayış yeri haqqında deyiləni anlayıram.
 - Haradan olduğumu, dillərimi deyir, başqası haqqında soruşuram.
