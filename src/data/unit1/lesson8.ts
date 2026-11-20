@@ -123,7 +123,7 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'write', id: 'd8_c09', number: 9, title: 'Kömək istə', why: 'Başa düşmədiyini deyib təkrar istədin.',
-      prompt: 'Qız boşluqsuz, qarışıq yazdı, nə yazdığını anlamadın.\nBaşa düşmədiyini de və bir də yazmasını xahiş et.', placeholder: 'Cavabını yaz',
+      prompt: 'Qız boşluqsuz, qarışıq yazdı (bu, qəsdəndir), nə yazdığını anlamadın.\nBaşa düşmədiyini de və bir də yazmasını xahiş et.', placeholder: 'Cavabını yaz',
       chat: { partner: 'Ziyafətdə qız', from: 'G', lines: [{ from: 'G', text: "Hiwhat'syourname?" }] }, rule: help,
       hint: 'Əvvəl başa düşmədiyini de, sonra təkrar xahiş et.', hintAssists: false,
       variants: [other('İki hissə lazımdır.', ex("Sorry? I don't understand. Say that again, please.", 'Başa düşmədiyini de və xahiş et.', 'I don’t understand + Say that again, please.', "I don't understand. Say that again, please."))],

@@ -165,7 +165,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 
 ## Kart 11 — Dialoqu tamamla: Kömək istə
 
-**Tapşırıq:** Qız boşluqsuz, qarışıq yazdı, nə yazdığını anlamadın. Başa düşmədiyini de və bir də yazmasını xahiş et.  
+**Tapşırıq:** Qız boşluqsuz, qarışıq yazdı (bu, qəsdəndir), nə yazdığını anlamadın. Başa düşmədiyini de və bir də yazmasını xahiş et.  
 **Yazışma (Ziyafətdə qız):** “Hiwhat'syourname?”  
 **Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Say that again, please.  
 **İpucu:** Əvvəl başa düşmədiyini de, sonra təkrar xahiş et.  
