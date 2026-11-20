@@ -1,4 +1,4 @@
-// Bölmə 1 imtahanı on the new screens (exam: true — no Kömək, no hints, no retry round, pass mark 80 %).
+// Bölmə 1 imtahanı on the new screens (exam: true — no Kömək, no hints, no retry round, pass mark 70 %).
 // Rules: docs/BOLME_2_XERITESI.md §0. 14 tasks, new adult situations (course, work, café, street), only Bölmə 1 English.
 // Every lesson is checked at least once:
 //   Dərs 1 salam/sağollaşma — c02, c13b · Dərs 2 adını demək — c03 · Dərs 3 ad sualı, Nice to meet you — c05, c09
@@ -20,7 +20,7 @@ export const unit1Exam: DesignLesson[] = [{
   },
   cards: [
     {
-      type: 'intro', id: 'u1x_c01', badge: 'Bölmə 1 imtahanı', subtitle: 'Kömək və ipucu yoxdur. Keçmək üçün cavabların 80 %-i düzgün olmalıdır.', start: 'İmtahana başla',
+      type: 'intro', id: 'u1x_c01', badge: 'Bölmə 1 imtahanı', subtitle: 'Kömək və ipucu yoxdur. Keçmək üçün cavabların 70 %-i düzgün olmalıdır.', start: 'İmtahana başla',
       goals: [
         { icon: 'wave', text: 'Salam verib sağollaşmaq, adını demək və soruşmaq.' },
         { icon: 'chat', text: 'Halını demək, təşəkkür və xahiş etmək.' },
@@ -162,7 +162,7 @@ export const unit1Exam: DesignLesson[] = [{
       { group: 'Excuse me və Sorry', text: 'Diqqət çəkməyi üzrdən ayırıram və üzrə cavab verə bilirəm.', tasks: ['u1x_c06', 'u1x_c15'] },
       { group: 'Kömək istəmək', text: 'Başa düşməyəndə bunu deyib təkrar və yavaş danışmağı istəyə bilirəm.', tasks: ['u1x_c10', 'u1x_c12', 'u1x_c06', 'u1x_c14'] },
     ],
-    closing: 'Keçid həddi 80 %-dir. Keçməsən, səhv etdiyin bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.', button: 'Ana səhifəyə qayıt',
+    closing: 'Keçid həddi 70 %-dir. Keçməsən, səhv etdiyin bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.', button: 'Ana səhifəyə qayıt',
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',
   },
   vocabulary: [],

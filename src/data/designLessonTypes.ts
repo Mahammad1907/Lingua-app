@@ -113,7 +113,7 @@ export interface DesignLesson {
   part?: 1 | 2 | 3;
   /** Daily review session (src/data/reviewSession.ts): task or field id → review item key. Never set on course lessons. */
   reviewOf?: Record<string, string>;
-  /** Section exam: no Kömək or hints, no retry round, pass mark 80 % (docs/BOLME_2_XERITESI.md §0). */
+  /** Section exam: no Kömək or hints, no retry round, pass mark 70 % (docs/BOLME_2_XERITESI.md §0). */
   exam?: boolean;
   cards: (IntroCard | TeachCard | WordCard | TaskWithReview)[];
   result: {

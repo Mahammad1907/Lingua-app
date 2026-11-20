@@ -1,4 +1,4 @@
-// Bölmə 3 imtahanı (exam: true — Kömək və ipucu yoxdur, Təkrar turu yoxdur, keçid ≥80 %).
+// Bölmə 3 imtahanı (exam: true — Kömək və ipucu yoxdur, Təkrar turu yoxdur, keçid ≥70 %).
 // Hər xəritə dərsindən (1–8) ən azı bir tapşırıq; dinlə + oxu + yaz + danış; yeni söz yoxdur.
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
@@ -10,7 +10,7 @@ export const exam: DesignLesson = {
   notices,
   cards: [
     {
-      type: 'intro', id: 'u3x_c01', badge: 'Bölmə 3 imtahanı', subtitle: 'Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.', start: 'İmtahana başla',
+      type: 'intro', id: 'u3x_c01', badge: 'Bölmə 3 imtahanı', subtitle: 'Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.', start: 'İmtahana başla',
       goals: [
         { icon: 'chat', text: 'Ölkə, millət, dil və yaşayış yeri haqqında deyiləni anlayıram.' },
         { icon: 'wave', text: 'Haradan olduğumu, dillərimi deyir, başqası haqqında soruşuram.' },

@@ -85,8 +85,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     return () => { show.remove(); hide.remove(); };
   }, []);
   const needed = viewport > 0 && contentHeight > viewport + 1 ? viewport / contentHeight : 1;
-  const fit = keyboardOpen ? 1 : Math.max(MIN_FIT, needed);
-  const stillOverflows = keyboardOpen || needed < MIN_FIT;
+  // Scaling only on Android (iPhone cards stay at full width, 20 Nov 2026).
+  const scaling = Platform.OS === 'android';
+  const fit = !scaling || keyboardOpen ? 1 : Math.max(MIN_FIT, needed);
+  const stillOverflows = !scaling || keyboardOpen || needed < MIN_FIT;
 
   const sequence = useRef(0); const locked = useRef(false); const tokens = useRef(0);
   // Daily review: verdicts go to the review schedule, not to lesson progress (no attempt, XP, hearts or retry round).
@@ -113,7 +115,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const failed = () => { if (request !== sequence.current) return; setPlaying(false); if (listening) setSoundError(true); };
     const watchdog = setTimeout(failed, Math.max(8000, value.length * 200 / rate + 5000));
     // Slow listening: a lower rate alone is barely audible on iOS, so short pauses go between words and letters (15 Nov 2026).
-    const text = rate < 0.6 ? value.replace(/-/g, ', ').replace(/\s+/g, ', ').replace(/,\s*,/g, ',') : value;
+    // Hyphens (letter spellings like M-A-double M-…) get a pause at any speed, so letters are not blurred together.
+    const spelled = value.replace(/(\S)-(?=\S)/g, '$1, ');
+    const text = rate < 0.6 ? spelled.replace(/\s+/g, ', ').replace(/,\s*,/g, ',') : spelled;
     // The lesson must be heard even with the iPhone's silent switch on (15 Nov 2026).
     void Speech.stop().then(() => setAudioModeAsync({ playsInSilentMode: true }).catch(() => {})).then(() => {
       if (request !== sequence.current) { clearTimeout(watchdog); return; }
@@ -464,6 +468,11 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         chips={tiles ? <PickedChips tiles={tiles} picked={picked} disabled={locked.current} placeholder="Sözlərə toxun…" onRemove={i => pickTiles(picked.filter(x => x !== i))} /> : undefined}>
         {tiles ? <TileTray tiles={tiles} picked={picked} disabled={locked.current} onSay={say} onPick={i => pickTiles([...picked, i])} /> : null}
       </ChatThread> : null}
+      {/* Tile task without a chat (e.g. “Mesaj yaz”): the picked words and the tray are the whole screen (20 Nov 2026). */}
+      {task.type === 'write' && tiles && !task.chat ? <View style={{ gap: 16 }}>
+        <View style={s.transcript}><PickedChips tiles={tiles} picked={picked} disabled={locked.current} placeholder="Sözlərə toxun…" onRemove={i => pickTiles(picked.filter(x => x !== i))} /></View>
+        <TileTray tiles={tiles} picked={picked} disabled={locked.current} onSay={say} onPick={i => pickTiles([...picked, i])} />
+      </View> : null}
       {task.type === 'choice' && !task.gap && !spotsShown ? <View style={s.gap}>{task.options.map(o => <ChoiceOption key={o} label={o} selected={choice === o} disabled={Boolean(result && result.kind !== 'unverified')}
         state={single && choice === o ? (single.status === 'correct' ? 'correct' : single.status === 'wrong' ? 'wrong' : undefined) : undefined}
         onPress={() => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} />)}</View> : null}

@@ -1,4 +1,4 @@
-// Bölmə 2 imtahanı (exam: true — Kömək və ipucu yoxdur, Təkrar turu yoxdur, keçid ≥80 %).
+// Bölmə 2 imtahanı (exam: true — Kömək və ipucu yoxdur, Təkrar turu yoxdur, keçid ≥70 %).
 // Hər xəritə dərsindən ən azı bir tapşırıq; dinlə + oxu + yaz + danış; yeni söz yoxdur.
 import type { DesignLesson } from '../designLessonTypes';
 import type { Variant } from '../designLessonTypes';
@@ -15,7 +15,7 @@ export const exam: DesignLesson = {
   notices,
   cards: [
     {
-      type: 'intro', id: 'u2x_c01', badge: 'Bölmə 2 imtahanı', subtitle: 'Kömək yoxdur. Keçmək üçün 80% lazımdır. Keçməsən, səhv bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.', start: 'İmtahana başla',
+      type: 'intro', id: 'u2x_c01', badge: 'Bölmə 2 imtahanı', subtitle: 'Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar təkrara düşür və imtahanı yenidən verə bilərsən.', start: 'İmtahana başla',
       goals: [
         { icon: 'chat', text: 'Rəqəmləri, hərfləri və şəxsi məlumatı eşidib anlayıram.' },
         { icon: 'wave', text: 'Nömrəmi və yaşımı deyir, hərf-hərf deməyi xahiş edirəm.' },

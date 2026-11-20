@@ -187,7 +187,7 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       <View style={[s.examIcon, exam.passed && { backgroundColor: d.greenSoft }]}><Icon name="flag" size={20} color={exam.passed ? d.greenText : d.purple} /></View>
       <View style={{ flex: 1 }}>
         <Text style={s.examTitle}>Bölmə imtahanı</Text>
-        <Text style={s.examSub}>{!examOpen ? 'Bütün dərsləri bitirəndə açılır' : exam.passed ? `Keçdin · ${exam.percent}%` : exam.percent !== null ? `Son nəticə ${exam.percent}% · keçmək üçün 80%` : 'Kömək yoxdur · keçmək üçün 80%'}</Text>
+        <Text style={s.examSub}>{!examOpen ? 'Bütün dərsləri bitirəndə açılır' : exam.passed ? `Keçdin · ${exam.percent}%` : exam.percent !== null ? `Son nəticə ${exam.percent}% · keçmək üçün 70%` : 'Kömək yoxdur · keçmək üçün 70%'}</Text>
       </View>
       {examOpen && !locked ? <Icon name="arrow" size={18} color={d.purple} /> : null}
     </Pressable> : null}

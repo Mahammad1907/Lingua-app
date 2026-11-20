@@ -19,7 +19,7 @@ interface UserData {
   rewards: Record<string, RewardRecord>; lastQualifiedDay: string | null; streakStart: string | null;
   /** How far an unfinished lesson got (0–100), for the home screen. Cleared when the lesson is completed. */
   lessonPartial: Record<string, number>;
-  /** Best result of each section exam on the new screens (lesson id → percent, passed at ≥80 %). */
+  /** Best result of each section exam on the new screens (lesson id → percent, passed at ≥70 %). */
   sectionExams: Record<string, { percent: number; passed: boolean; at: string }>;
   /** Every attempt of each section exam (lesson id → attempts, last 20), best one is in sectionExams. */
   examHistory: ExamHistory;
