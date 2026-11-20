@@ -84,16 +84,23 @@ export const lesson4: DesignLesson = {
       },
     },
     {
-      type: 'match', mode: 'order', id: 'd4_c07', number: 7, title: 'Söhbəti sırala', why: 'Söhbət salam və sualla başladı, sonra cavab və qayıdan sual gəldi.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.',
-      prompt: 'Qız və oğlan küçədə rastlaşır.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Hi! How are you?', from: 'G' }, { en: '2', az: "I'm fine, thanks. And you?", from: 'B' }, { en: '3', az: "I'm OK. Bye!", from: 'G' }],
-      extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'How are you? — sual; I’m fine, thanks. And you? — cavab və qayıdan sual.', "Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!"))],
+      // “Söhbəti tamamla” (20 Nov 2026, user): the turns are ready, only one word is missing.
+      type: 'choice', id: 'd4_c07', number: 7, title: 'Söhbəti tamamla', why: 'Qız necə olduğunu dedi və sağollaşdı.', hint: 'Oğlan “And you?” soruşdu — qız öz halını deyir.',
+      prompt: 'Qız və oğlan küçədə rastlaşır.\nSöhbətdə bir söz əskikdir. Düzgün sözü seç.',
+      dialog: [{ from: 'G', text: 'Hi! How are you?' }, { from: 'B', text: "I'm fine, thanks. And you?" }],
+      gap: { speaker: 'G', before: "I'm", after: '. Bye!' }, options: ['OK', 'you', 'name'], answer: 'OK',
+      variants: [
+        pick('you', '“And you?” sualına öz halını deyirsən.', ex('OK', 'Oğlan “Bəs sən?” soruşdu, qız necə olduğunu deyir.', "I'm OK. — normalam; I'm you — olmur.", "I'm OK. Bye!")),
+        pick('name', 'Burada ad yox, hal soruşulur.', ex('OK', '“How are you?” halı soruşur, adı yox.', "I'm OK. — hal; My name is … — ad.", "I'm OK. Bye!")),
+      ],
       review: {
-        title: 'Söhbəti sırala', why: 'Sual, cavab və ona reaksiya düz sıradadır.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.', prompt: 'Oğlan və qız dərsdən sonra görüşür.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Hello! How are you?', from: 'B' }, { en: '2', az: "I'm not great. And you?", from: 'G' }, { en: '3', az: "I'm fine, thanks.", from: 'B' }],
-        extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("Hello! How are you? → I'm not great. And you? → I'm fine, thanks.", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'How are you? — sual; I’m not great. And you? — cavab və qayıdan sual.', "Hello! How are you? → I'm not great. And you? → I'm fine, thanks."))],
+        title: 'Söhbəti tamamla', why: 'Oğlan necə olduğunu dedi.', hint: 'Qız “And you?” soruşdu — oğlan öz halını deyir.', prompt: 'Oğlan və qız dərsdən sonra görüşür.\nSöhbətdə bir söz əskikdir. Düzgün sözü seç.',
+        dialog: [{ from: 'B', text: 'Hello! How are you?' }, { from: 'G', text: "I'm not great. And you?" }],
+        gap: { speaker: 'B', before: "I'm", after: ', thanks.' }, options: ['fine', 'you', 'name'], answer: 'fine',
+        variants: [
+          pick('you', '“And you?” sualına öz halını deyirsən.', ex('fine', 'Qız “Bəs sən?” soruşdu, oğlan necə olduğunu deyir.', "I'm fine. — yaxşıyam; I'm you — olmur.", "I'm fine, thanks.")),
+          pick('name', 'Burada ad yox, hal soruşulur.', ex('fine', '“How are you?” halı soruşur, adı yox.', "I'm fine. — hal; My name is … — ad.", "I'm fine, thanks.")),
+        ],
       },
     },
     {

@@ -35,6 +35,8 @@ export interface ChoiceTask extends BaseTask {
   type: 'choice'; audio?: string; options: string[]; answer: string;
   /** “Sözü tamamla”: the options fill a gap in one spoken sentence. */
   gap?: { speaker?: Who; before: string; after: string };
+  /** “Söhbəti tamamla” (20 Nov 2026): the earlier turns, shown ready above the sentence with the gap. */
+  dialog?: ChatLine[];
   /** “Səhnədə tap”: numbered places on the scene picture, one per option (x, y in % of the picture).
    *  Until the picture file exists the options are shown as a normal list. */
   spots?: { option: string; x: number; y: number }[];

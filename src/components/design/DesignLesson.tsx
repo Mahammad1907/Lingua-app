@@ -453,6 +453,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       </Pressable> : null}
       {sampleVisible ? <View style={s.sample}><Text style={s.sampleLabel}>Nümunə</Text><View style={s.vline} /><Text style={s.sampleText}>{sampleText ? nameSlot(sampleText) : ''}</Text></View> : null}
       {repeat && audio ? <><AudioPanel playing={playing} onPlay={() => speak(audio, 0.85)} onSlow={() => speak(audio, 0.4)} /><PhraseCard text={audio} stress={repeat.stress} note={repeat.note} reading={repeat.reading} /></> : null}
+      {task.type === 'choice' && task.gap && task.dialog ? <View style={{ gap: 10 }}>{task.dialog.map((l, i) => <SayBubble key={i} who={l.from} text={l.text} onPlay={() => say(l.text)} onWord={lookUp} />)}</View> : null}
       {task.type === 'choice' && task.gap ? <GapSentence speaker={task.gap.speaker} before={task.gap.before} after={task.gap.after} options={task.options} value={choice} onSay={say}
         pieces={gapDone ? gapPieces(task.gap.before, task.answer, task.gap.after) : undefined} lit={lit?.card === task.id ? lit.index : -1}
         onReplay={gapDone ? () => playPieces(task.id, gapPieces(task.gap!.before, task.answer, task.gap!.after)) : undefined}
