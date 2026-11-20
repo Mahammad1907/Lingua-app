@@ -156,3 +156,26 @@ node scripts/export-unit1-docs.cjs   # docs/dersler/Ders_N.md yenilə
 - SDK/package.json dəyişikliyi yalnız istifadəçinin icazəsi ilə (AGENTS.md).
 
 **Layihənin qiymətləndirilməsi (simulyasiya olunmuş münsiflər):** texniki keyfiyyət və sistem güclüdür; real istifadəçi, səs/şəkil və gəlir modeli yoxdur. Real istifadəçini Azərbaycanca icmalardan (Telegram/Facebook/Reddit/TikTok) və Android APK paylaşaraq tapmaq planlaşdırılıb.
+
+## 20 Nov 2026 söhbəti — vəziyyət (yeni söhbət buradan davam edir)
+
+**Edildi (hamısı `claude/lesson1-new-screens`-də, push olunub; yoxlama skriptləri keçib; cihazda yoxlanmayıb):**
+- Boş "Mesaj yaz" (söhbətsiz söz-kartı) ekranı düzəldi; hərf-hərf (M-A-…) səsdə fasilə; keçid mətnləri 70%; ekranı kiçiltmə yalnız Androiddə.
+- Qısa formalar ilk gəldiyi yerdə öyrədilir: I'm (B1 D2 ayrıca kart), digərləri söz kartında `shortForm` bloku (What's, You're, don't, It's, that's, Where's, isn't); qayda `DERS_STANDARTI.md`-də.
+- Yeni kart tipi `explain` — "Müəllim izahı" (təsdiqlənmiş maket): ilk istifadə B3 D5 1-ci hissə (he's/she's). Komponent `TeacherView` (TaskScreens.tsx).
+- Səhv panelində "Mənası: …" və "Təkrarla: Bölmə X · Dərs Y" (`src/utils/lessonLookup.ts`); ingiliscə variantlara toxunanda səs (imtahan və dinləmədə yox).
+- "Söhbəti tamamla" (choice + `dialog` + `gap`): B1 D4, B2 D2, B3 D1. Qərar: sıralama ilə qarışıq qalır.
+- Sürətli bitişik cümlələrə "qəsdəndir" qeydi (B1 D7, D8).
+- Dərsin əvvəlindəki "Bu dərsdə" ekranı göstərilmir (imtahanlarda qalır). "Yeni söz" kartında maskot yoxdur.
+- Xəritə tapşırığı: ölkələr bayraqla, ev ölkəsi canlı konum işarəsi ilə (yazı yox).
+- Ana səhifə: cari dərsdə açılır; hər bölmənin öz rəngi; dairələr faizlə tündləşir; növbəti dərsə xətt parıldayır; dairələr kənarda, kompakt kartlar (bitmiş/cari), qalanlarda ad + "~N dəq"; imtahan adanın altında kubok.
+- `docs/A1_PLANI.md` — Bölmə 4–10 təklifi (təsdiq gözləyir).
+
+**Açıq:**
+1. `expo-asset` əlavə etmək (`npx expo install expo-asset`) — `package.json` dəyişir, istifadəçi icazəsi lazımdır; sonra yeni Android APK.
+2. Android səs tanıma: diaqnostika (`SPEECH_DEBUG = true`) şəkli gözlənilir; səbəb tapılanda `false`.
+3. `package-lock.json` (`npm dedupe` dəyişikliyi) — istifadəçinin kompüterində `git status` yoxlanmalı.
+4. A1 planının təsdiqi → `docs/BOLME_4_XERITESI.md`.
+5. Xəritədə "Dəqiqlik %" — dərs üzrə düzgün cavab faizi saxlanmır, əlavə edilməlidir.
+6. **Yeni fikir:** dərslərdə canlı "telefon zəngi" kimi AI danışıq. Təklif: əvvəl pulsuz "yarı canlı zəng" (ssenari + qollar, telefonun səs tanıması/səsləndirməsi) — "Bölmə söhbəti" (Dərs 8) zəng ekranına çevrilir; sonra həmin ekran pullu AI-ya (server) qoşulur. Yeni ekran tipidir — əvvəl maket göstərilməlidir.
+7. Köhnə: G2 təbiilik qeydləri, Supabase, səs/şəkillər (Bölmə 4-dən sonra).
