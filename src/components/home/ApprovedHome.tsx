@@ -9,6 +9,7 @@ import { useUserStore } from '../../store/userStore';
 import type { HomeCourse } from '../../utils/homeCourse';
 import { HomeDashboard as OriginalHomeDashboard } from './HomeDashboard';
 import { useReviewStore } from '../../store/reviewStore';
+import { useLastOpenedStore } from '../../store/lastOpenedStore';
 import { registerFinishedLessons } from '../../data/reviewSession';
 import { IslandHome, IslandNavigation, NAV_HEIGHT } from './IslandHome';
 export { NAV_HEIGHT };
@@ -31,7 +32,13 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
   const exams = useUserStore(s => s.sectionExams) ?? {};
   // All sections with lessons are stacked on one scrolling page; it opens at the learner's current section (15 Nov 2026).
   const sections = course.items.filter(item => item.lessonsCount > 0);
-  const current = sections.find(item => item.state === 'current')?.order ?? 1;
+  // The map opens at the section and lesson last opened (user, 21 Nov 2026); before any lesson was opened, at the
+  // first unfinished section.
+  const lastSection = useLastOpenedStore(s => s.section), lastLesson = useLastOpenedStore(s => s.lessonId);
+  const rememberOpened = useLastOpenedStore(s => s.remember);
+  useEffect(() => { void useLastOpenedStore.getState().load(); }, []);
+  const current = (lastSection && sections.some(item => item.order === lastSection) ? lastSection : null)
+    ?? sections.find(item => item.state === 'current')?.order ?? 1;
   const scrollRef = useRef<ScrollView>(null);
   // The map opens at the current lesson, also after coming back from a lesson (user, 20 Nov 2026):
   // top of the current section + the current lesson inside it, placed about a third down the screen.
@@ -68,7 +75,8 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
     const exam = examLesson ? { id: examLesson.id, percent: exams[examLesson.id]?.percent ?? null, passed: exams[examLesson.id]?.passed ?? false } : undefined;
     return { section: unit, sectionTitle: getModuleById(module.id)?.titleAz ?? module.title, lessons, completed, partial: partial ?? {},
       locked: module.state === 'locked' || module.state === 'planned', exam, allOpen: TEST_OPEN_SECTIONS.includes(unit),
-      onOpenLesson: (id: string) => onLesson ? onLesson(id) : onOpen(module.id) };
+      focusId: unit === current ? lastLesson ?? undefined : undefined,
+      onOpenLesson: (id: string) => { rememberOpened(unit, id); if (onLesson) onLesson(id); else onOpen(module.id); } };
   };
   const shared = { streak, xp, languageLabel: `${language.toUpperCase()} · ${level}`, topInset, bottomSpace,
     onSelectLanguage: onSelect, onAnalysis: () => onNavigate?.('analysis'), onReview: () => onNavigate?.('review') };

@@ -55,7 +55,7 @@ function water(w: number, h: number, level: number) {
 }
 
 export function IslandHome({ section, sectionTitle, lessons, completed, partial, locked, nextSection, streak, xp, languageLabel, topInset, bottomSpace, review,
-  onSelectLanguage, onOpenLesson, onAnalysis, onReview, onNextSection, exam, onPrevSection, allOpen = false, bare = false, after, scrollRef, onActiveY }: {
+  onSelectLanguage, onOpenLesson, onAnalysis, onReview, onNextSection, exam, onPrevSection, allOpen = false, bare = false, after, scrollRef, onActiveY, focusId }: {
   section: number; sectionTitle: string; lessons: IslandLesson[]; completed: string[]; partial: Record<string, number>; locked: boolean;
   nextSection?: { title: string; available: boolean };
   exam?: IslandExam; onPrevSection?: () => void;
@@ -65,6 +65,8 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   bare?: boolean; after?: ReactNode; scrollRef?: Ref<ScrollView>;
   /** y of the current lesson inside this island (for opening the map where the learner is). */
   onActiveY?: (y: number) => void;
+  /** Lesson (or part) last opened from the map: the page scrolls to it instead of the first unfinished one. */
+  focusId?: string;
   streak: number; xp: number; languageLabel: string; topInset: number; bottomSpace: number; review: { count: number };
   onSelectLanguage: () => void; onOpenLesson: (id: string) => void; onAnalysis: () => void; onReview: () => void; onNextSection?: () => void;
 }) {
@@ -110,6 +112,12 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   const reviewPt: Pt = { x: W * ((count + 1) % 2 ? .83 : .17), y: extraY(1) };
   const trophyPt: Pt = { x: W / 2, y: extraY(2) };
   const EXTRA = extraY(extraN - 1) - H + (exam ? 78 : 40);
+  const focused = focusId ? lessons.findIndex(l => l.id === focusId || l.parts?.some(p => p.id === focusId)) : -1;
+  const focus = focused >= 0 ? focused : active;
+  // The saved lesson loads after the first layout: report its place again when it arrives.
+  const layoutY = useRef<number | null>(null);
+  const focusY = focus >= 0 ? pts[focus].y : null;
+  useEffect(() => { if (layoutY.current !== null && focusY !== null) onActiveY?.(layoutY.current + (bare ? 28 : 0) + focusY); }, [focusY]); // eslint-disable-line react-hooks/exhaustive-deps
   const w = water(W, H, level);
   const sx = W / 350, sy = H / 800;
 
@@ -144,7 +152,7 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       <Image source={mascotHead} style={{ width: 44, height: 40 }} contentFit="contain" accessibilityLabel="Maskot" />
     </View>
 
-    <View style={{ width: W, height: H + EXTRA, alignSelf: 'center' }} onLayout={e => { if (active >= 0) onActiveY?.(e.nativeEvent.layout.y + (bare ? 28 : 0) + pts[active].y); }}>
+    <View style={{ width: W, height: H + EXTRA, alignSelf: 'center' }} onLayout={e => { layoutY.current = e.nativeEvent.layout.y; if (focus >= 0) onActiveY?.(layoutY.current + (bare ? 28 : 0) + pts[focus].y); }}>
       <Svg width={W} height={H + EXTRA} style={StyleSheet.absoluteFill}>
         {(() => {
           const chain = [last, callPt, reviewPt, ...(exam ? [trophyPt] : [])].filter(Boolean) as Pt[];
