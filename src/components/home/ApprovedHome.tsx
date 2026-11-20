@@ -49,17 +49,19 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
     return <OriginalHomeDashboard course={course} language={language} level={level} xp={xp}
       compact={compact} topInset={topInset} onSelect={onSelect} onOpen={onOpen} />;
   }
+  // “~N dəq” on the map: about half a minute per card (an estimate from the lesson's own length).
+  const minutesOf = (ids: string[]) => { const n = ids.reduce((a, id) => a + (designLessons.find(l => l.id === id)?.cards.length ?? 0), 0); return n ? Math.max(4, Math.round(n * .5)) : undefined; };
   const words = (id: string) => getPacketLesson(id)?.vocabulary.slice(0, 4).map(w => w.word).join(' · ') || undefined;
   const sectionProps = (module: typeof sections[number]) => {
     const ids = getModuleById(module.id)?.lessonIds ?? [];
     const unit = module.order;
     // A map lesson split in parts (same `number`) becomes one node with parts.
     const unitLessons = designLessons.filter(l => (l.unit ?? 1) === unit && !l.exam && ids.includes(l.id));
-    const lessons = unit === 1 ? ids.map((id, i) => ({ id, number: i + 1, title: SHORT_TITLES[id] ?? getPacketLesson(id)?.title ?? `Dərs ${i + 1}`, phrases: words(id) }))
+    const lessons = unit === 1 ? ids.map((id, i) => ({ id, number: i + 1, title: SHORT_TITLES[id] ?? getPacketLesson(id)?.title ?? `Dərs ${i + 1}`, phrases: words(id), minutes: minutesOf([id]) }))
       : [...new Set(unitLessons.map(l => l.number ?? l.order))].map(n => {
         const parts = unitLessons.filter(l => (l.number ?? l.order) === n);
         return { id: parts[0].id, number: n, title: SHORT_TITLES[`u${unit}_${n}`] ?? parts[0].title,
-          phrases: parts.map(p => words(p.id)).filter(Boolean).join(' · ') || undefined,
+          phrases: parts.map(p => words(p.id)).filter(Boolean).join(' · ') || undefined, minutes: minutesOf(parts.map(p => p.id)),
           parts: parts.length > 1 ? parts.map(p => ({ id: p.id, title: p.title })) : undefined };
       });
     const examLesson = designLessons.find(l => l.exam && (l.unit ?? 1) === unit);
