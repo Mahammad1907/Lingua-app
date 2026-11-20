@@ -39,6 +39,7 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'word', id: 'd3_c03', number: 3, scenes: ['d3/word-whats-your-name'],
+      shortForm: { full: "What is", short: "What's" },
       word: "What's your name?", pronunciation: '/wʌts jʊr neɪm/', reading: 'uats yor neym?', az: 'Adın nədir?',
       notes: ["Cavab: I'm … və ya My name is …"],
       example: "Hi! What's your name?", exampleAz: 'Salam! Adın nədir?',

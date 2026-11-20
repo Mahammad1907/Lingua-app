@@ -55,6 +55,7 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'word', id: 'd5_c05', number: 5, scenes: ['d5/word-welcome'],
+      shortForm: { full: "You are", short: "You're" },
       word: "You're welcome.", pronunciation: '/jʊr ˈwelkəm/', reading: 'yor uelkəm', az: 'Dəyməz.',
       notes: ['Təşəkkürə cavabdır.'],
       example: "Thank you! — You're welcome.", exampleAz: 'Təşəkkür edirəm! — Dəyməz.',

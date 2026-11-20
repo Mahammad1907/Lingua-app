@@ -407,6 +407,16 @@ export function WordView({ card, onPlay, onWord }: { card: WordCard; onPlay: (t:
   return <View style={{ gap: 10 }}>
     <LearnView chip="Yeni söz" phrases={card.word.split(/\s*·\s*/)} az={card.az} reading={card.reading} ipa={card.pronunciation} structure={card.structure}
       notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} onPlay={onPlay} onWord={onWord} />
+    {card.shortForm ? <View style={s.parts} accessibilityLabel="Qısa forma">
+      {/* Short forms are explained where they first appear, without grammar terms (20 Nov 2026). */}
+      <Text style={s.partNote}>Qısa forma</Text>
+      <View style={[s.partsRow, { alignItems: 'center' }]}>
+        <Pressable accessibilityRole="button" onPress={() => onPlay(card.shortForm!.full)} style={s.partChip}><Text style={s.partWord}>{card.shortForm.full}</Text></Pressable>
+        <Text style={s.partWord}>→</Text>
+        <Pressable accessibilityRole="button" onPress={() => onPlay(card.shortForm!.short)} style={[s.partChip, s.partChipNew]}><Text style={[s.partWord, { color: d.purple }]}>{card.shortForm.short}</Text></Pressable>
+      </View>
+      <Text style={s.partAz}>Danışıqda qısa deyilir. Mənası eynidir. Apostrof (') düşən hərfin yerini göstərir.</Text>
+    </View> : null}
     {parts.length ? <View style={s.parts} accessibilityLabel="Söz-söz izah">
       {/* Every new-word card explains each word of the phrase (docs/BUTUN_QAYDALAR.md rule 18): new words in the accent colour. */}
       <View style={s.partsRow}>{parts.map(p => <Pressable key={p.word} accessibilityRole="button" onPress={() => onPlay(p.word)} style={[s.partChip, p.fresh && s.partChipNew]}>

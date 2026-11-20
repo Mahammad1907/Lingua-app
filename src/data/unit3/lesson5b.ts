@@ -46,6 +46,7 @@ export const lesson5b: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d5b_c02', number: 2, scenes: ['mascot/ask'],
+      shortForm: { full: "Where is", short: "Where's" },
       word: "Where's he from? · Where's she from?", pronunciation: '/wɛrz hi frʌm/ · /wɛrz ʃi frʌm/', reading: 'uerz hi fram? · uerz şi fram?', az: 'O (kişi / qadın) haradandır?',
       structure: ["Where's + he / she + from?"],
       notes: ["Where's — where is-in qısası, “uerz” oxunur."],
@@ -129,6 +130,7 @@ export const lesson5b: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d5b_c09', number: 9, scenes: ['mascot/point'],
+      shortForm: { full: "is not", short: "isn't" },
       word: "No, she isn't.", pronunciation: '/noʊ ʃi ˈɪzənt/', reading: 'nou, şi izənt', az: 'Xeyr, o deyil.',
       structure: ["No, + she / he + isn't."],
       notes: ["isn't — is not-un qısası."],

@@ -96,6 +96,8 @@ export interface WordCard {
   word: string; pronunciation: string; az: string; example: string; exampleAz: string;
   /** One short note (only the first is shown). */
   notes?: string[]; scenes?: string[];
+  /** Short form shown with sound under the word, the first time it appears (e.g. What is → What's). */
+  shortForm?: { full: string; short: string };
   /** Reading in Azerbaijani letters (American pronunciation, no phonetic marks); **th** marks a sound Azerbaijani has no letter for. */
   reading?: string;
   /** “Quruluşu”: the pattern(s); [ad] marks the slot for a name. */

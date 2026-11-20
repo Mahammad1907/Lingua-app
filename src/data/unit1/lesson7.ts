@@ -37,6 +37,7 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'word', id: 'd7_c03', number: 3, scenes: ['d7/word-dont-understand'],
+      shortForm: { full: "do not", short: "don't" },
       word: "Sorry? I don't understand.", pronunciation: '/ˈsɑri aɪ doʊnt ˌʌndərˈstænd/', reading: 'sari? ay dount andərstənd', az: 'Bağışlayın? Başa düşmürəm.',
       notes: ['Sual kimi deyilən “Sorry?” — “Bağışlayın? / Necə?” deməkdir.'],
       example: "Sorry? I don't understand.", exampleAz: 'Bağışlayın? Başa düşmürəm.',

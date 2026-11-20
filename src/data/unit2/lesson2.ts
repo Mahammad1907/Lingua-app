@@ -61,6 +61,7 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d2_c05', number: 5, scenes: ['u2/word-its-number'],
+      shortForm: { full: "It is", short: "It's" },
       word: "It's zero five zero…", pronunciation: '/ɪts ˈzɪroʊ faɪv ˈzɪroʊ/', reading: 'its zirou fayv zirou…', az: 'Nömrəm 050…-dir.',
       structure: ["It's + nömrə"],
       notes: ['Nömrə rəqəm-rəqəm deyilir: four five, “qırx beş” kimi yox.'],
@@ -118,6 +119,7 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d2_c11', number: 11, scenes: ['u2/word-thats-right'],
+      shortForm: { full: "that is", short: "that's" },
       word: "Yes, that's right.", pronunciation: '/jes ðæts raɪt/', reading: 'yes, **th**əts rayt', az: 'Bəli, düzdür.',
       example: "Is that right? — Yes, that's right.", exampleAz: 'Düzdür? — Bəli, düzdür.',
     },
