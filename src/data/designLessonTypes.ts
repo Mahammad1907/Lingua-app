@@ -100,6 +100,8 @@ export interface ExplainCard {
   lead: string; focus?: string;
   sections: {
     title: string;
+    /** One or two short sentences in Azerbaijani (no grammar terms). */
+    text?: string;
     /** Two side-by-side chips, e.g. He's · kişi / She's · qadın. */
     pairs?: { en: string; az: string }[];
     /** Long → short form with the dropped letter crossed out, with sound. */

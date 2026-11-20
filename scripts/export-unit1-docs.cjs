@@ -48,7 +48,7 @@ for (const raw of allLessons) {
     const k = card.type === 'intro' || card.type === 'teach' || card.type === 'word' || card.type === 'explain' ? card.type : kind(card);
     out.push(`## ${card.number ? `Kart ${card.number}` : 'Giriş'} — ${SCREEN[k]}${card.title ? `: ${card.title}` : ''}`, '');
     if (card.type === 'intro') out.push(card.subtitle, '', ...card.goals.map(g => `- ${g.text}`));
-    if (card.type === 'explain') out.push(card.lead, '', ...card.sections.flatMap((x, i) => [`**${i + 1} · ${x.title}**`, ...(x.pairs || []).map(p => `- ${p.en} · ${p.az}`),
+    if (card.type === 'explain') out.push(card.lead, '', ...card.sections.flatMap((x, i) => [`**${i + 1} · ${x.title}**`, ...(x.text ? [x.text] : []), ...(x.pairs || []).map(p => `- ${p.en} · ${p.az}`),
       ...(x.short ? [`- ${x.short.full} → ${x.short.short} (düşən: ${x.short.drop}). ${x.short.note}`] : []), ...(x.build ? [`- ${x.build.parts.join(' + ')}`, ...x.build.examples.map(e => `- **${e.en}** — ${e.az}`)] : []), '']),
       ...(card.attention ? [`Diqqət et: ${card.attention}`] : []));
     if (card.type === 'teach') out.push(card.lead ?? '', '', ...card.phrases.map(p => `- **${p.en}** — ${p.az}`), '', ...card.notes, ...(card.structure ? ['', `Quruluşu: ${card.structure.join(' · ')}`] : []), ...(card.example ? ['', `Nümunə: **${card.example.en}** — ${card.example.az}`] : []));

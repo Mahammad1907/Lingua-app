@@ -21,7 +21,9 @@ for (const raw of unit1Lessons) {
   const tag = `Dərs ${lesson.order}`;
   assert.ok(!JSON.stringify(lesson).match(/\{[MGBmgb,]|\{en/), `${tag}: unresolved name token`);
   const tasks = lesson.cards.filter(L.isTask);
-  assert.ok(lesson.cards.length >= 9 && lesson.cards.length <= 14, `${tag}: 9–14 cards (${lesson.cards.length})`);
+  // Müəllim izahı cards come on top (user, 21 Nov 2026): at most 14 other cards, 16 in all.
+  assert.ok(lesson.cards.filter(c => c.type !== 'explain').length <= 14, `${tag}: at most 14 cards besides Müəllim izahı`);
+  assert.ok(lesson.cards.length >= 9 && lesson.cards.length <= 16, `${tag}: 9–16 cards (${lesson.cards.length})`);
   assert.equal(lesson.cards[0].type, 'intro', `${tag}: starts with the goals`);
   const kinds = new Set(tasks.map(kind));
   assert.ok(kinds.size >= 5, `${tag}: at least 5 kinds of task (${[...kinds]})`);

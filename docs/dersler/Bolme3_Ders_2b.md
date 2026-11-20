@@ -81,7 +81,21 @@ Nümunə: **I'm from the USA.** — ABŞ-danam.
 
 Qeyd: Burada da “the” gəlir: the USA, the UK.
 
-## Kart 7 — Yaz: Dinlə və yaz
+## Kart 7 — Müəllim izahı
+
+Bəzi ölkə adlarından əvvəl the gəlir.
+
+**1 · the ilə**
+- the UK · Böyük Britaniya
+- the USA · ABŞ
+
+**2 · Necə deyilir?**
+- I'm from + the USA
+- **I'm from the USA.** — ABŞ-danam.
+
+Diqqət et: Turkey və England adlarında the yoxdur.
+
+## Kart 8 — Yaz: Dinlə və yaz
 
 **Tapşırıq:** Hava limanında sərnişin haradan olduğunu deyir. “from”dan sonra eşitdiyini yaz.  
 **Səs:** Hi! I'm from the USA.  
@@ -101,7 +115,7 @@ Qeyd: Burada da “the” gəlir: the USA, the UK.
 - *İzah (başqa səhvdə):* “the” də eşidilir. — Uyğun: the UK. Səbəb: Səsdə “from”dan sonra “the UK” var. Qayda: I'm from the UK. — düzdür; I'm from UK. — olmur. Nümunə: I'm from the UK.  
 - *İzah (başqa səhvdə):* Bir daha dinlə. — Uyğun: the UK. Səbəb: Səsdə “the” və U, K hərfləri var. Qayda: I'm from the UK. — Böyük Britaniya; I'm from the USA. — ABŞ. Nümunə: I'm from the UK.  
 
-## Kart 8 — Yeni söz
+## Kart 9 — Yeni söz
 
 **Germany** — Almaniya
 
@@ -111,7 +125,7 @@ Nümunə: **I'm from Germany.** — Almaniyadanam.
 
 Qeyd: “Almaniya” yox: ingiliscə Germany, “cörməni” oxunur.
 
-## Kart 9 — Dinlə və təkrarla: Dinlə və təkrarla
+## Kart 10 — Dinlə və təkrarla: Dinlə və təkrarla
 
 **Tapşırıq:** Hostelin resepsiyasında qonaq Almaniyadan olduğunu deyir. Dinlə, sonra eyni cür de.  
 **Səs:** I'm from Germany.  
@@ -129,7 +143,7 @@ Qeyd: “Almaniya” yox: ingiliscə Germany, “cörməni” oxunur.
 **Düzgün olanda:** Cümləni dedin; the UK — “**th**ə yu-key”.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: I'm from the UK. Səbəb: “the” atılmır və dil dişlərin arasında deyilir. Qayda: I'm from the UK. — düzdür; I'm from UK. — olmur. Nümunə: I'm from the UK.  
 
-## Kart 10 — Yeni söz
+## Kart 11 — Yeni söz
 
 **France** — Fransa
 
@@ -139,7 +153,7 @@ Nümunə: **I'm from France.** — Fransadanam.
 
 Qeyd: “Fransa” yox, “frəns” oxunur.
 
-## Kart 11 — Xəritədə tap: Xəritədə tap
+## Kart 12 — Xəritədə tap: Xəritədə tap
 
 **Tapşırıq:** Hava limanında elan: təyyarə hansı ölkəyə uçur? Dinlə və xəritədə ölkəyə toxun.  
 **Səs:** Germany.  
@@ -159,7 +173,7 @@ Qeyd: “Fransa” yox, “frəns” oxunur.
 - *İzah (“France” seçiləndə):* Səsdə “France” yox, “the USA” deyilir. — Uyğun: the USA. Səbəb: the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir. Qayda: I'm from the USA. — ABŞ-danam; I'm from France. — Fransadanam. Nümunə: I'm from the USA.  
 - *İzah (“Germany” seçiləndə):* Səsdə “Germany” yox, “the USA” deyilir. — Uyğun: the USA. Səbəb: the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir. Qayda: I'm from the USA. — ABŞ-danam; I'm from Germany. — Almaniyadanam. Nümunə: I'm from the USA.  
 
-## Kart 12 — Hərfləri tut: Hərfləri tut
+## Kart 13 — Hərfləri tut: Hərfləri tut
 
 **Tapşırıq:** Hava limanında qeydiyyatçıdan soruşdun: “How do you spell it?” O, uçuşun ölkəsini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** It's F-R-A-N-C-E.  
@@ -179,7 +193,7 @@ Qeyd: “Fransa” yox, “frəns” oxunur.
 **Düzgün olanda:** E-N-G-L-A-N-D — İngiltərə.  
 - *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: ENGLAND. Səbəb: Səsdə E, N, G, L, A, N, D deyilir: G “ci” oxunur. Qayda: G — ci; J — cey. Nümunə: It's E-N-G-L-A-N-D.  
 
-## Kart 13 — Kim nə dedi?: Kim nə dedi?
+## Kart 14 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Hostelin mətbəxində tanışlıq. Hər cümləyə mənasını qoş.  
 **Cütlər:** I'm from Germany. — Almaniyadanam.; I'm from France. — Fransadanam.; I'm from the USA. — ABŞ-danam. · artıq: İngiltərədənəm.  
@@ -195,7 +209,7 @@ Qeyd: “Fransa” yox, “frəns” oxunur.
 **Düzgün olanda:** Hər cümlənin mənasını tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: I'm from England. — İngiltərədənəm.; I'm from the UK. — Böyük Britaniyadanam.; What country are you from? — Hansı ölkədənsən? Səbəb: England İngiltərədir, the UK isə Böyük Britaniya. Qayda: I'm from England. — İngiltərədən; I'm from the UK. — Böyük Britaniyadan. Nümunə: What country are you from?  
 
-## Kart 14 — Səslə cavab: Cavab ver və soruş
+## Kart 15 — Səslə cavab: Cavab ver və soruş
 
 **Tapşırıq:** Hostelin mətbəxində yeni tanış soruşur. Haradan olduğunu de və ondan da soruş.  
 **Səs:** Hi! Where are you from?  

@@ -366,6 +366,7 @@ export function TeacherView({ card, onPlay }: { card: ExplainCard; onPlay: (t: s
     <View style={s.tvCard}>
       {card.sections.map((sec, i) => <View key={i} style={[{ gap: 8 }, i > 0 && s.tvDivider]}>
         <Text style={ds.label}>{i + 1} · {sec.title}</Text>
+        {sec.text ? <Text style={ds.body}>{sec.text}</Text> : null}
         {sec.pairs ? <View style={{ flexDirection: 'row', gap: 8 }}>{sec.pairs.map((p, k) => <Pressable key={p.en} accessibilityRole="button" onPress={() => onPlay(p.en)}
           style={[s.tvPair, { backgroundColor: k % 2 ? d.purpleSoft : d.orangeSoft }]}><Text style={ds.strong}>{p.en} <Text style={{ color: k % 2 ? d.lavenderText : d.orangeText, ...font.regular }}>· {p.az}</Text></Text></Pressable>)}</View> : null}
         {sec.short ? <>

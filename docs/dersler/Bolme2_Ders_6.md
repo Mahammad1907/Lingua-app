@@ -104,7 +104,21 @@ Nümunə: **It's K-B at mail dot com.** — kb@mail.com
 
 Qeyd: @ işarəsi “at” deyilir, “et” yox.
 
-## Kart 9 — Yaz: Dinlə və yaz
+## Kart 9 — Müəllim izahı
+
+E-poçtda işarələr sözlə deyilir.
+
+**1 · İşarələr**
+- at · @
+- dot · .
+
+**2 · Necə deyilir?**
+- It's + e-poçt
+- **It's K-B at mail dot com.** — kb@mail.com
+
+Diqqət et: Adı hərf-hərf de, sonra at və dot.
+
+## Kart 10 — Yaz: Dinlə və yaz
 
 **Tapşırıq:** İş yoldaşın müdirin (Ms Abbasova) e-poçtunu hərf-hərf deyir. Ünvanı yaz.  
 **Səs:** It's A-double B-A-S-O-V-A at mail dot com.  
@@ -124,7 +138,7 @@ Qeyd: @ işarəsi “at” deyilir, “et” yox.
 - *İzah (başqa səhvdə):* Sözlər yox, işarələr yaz: @ və nöqtə. — Uyğun: guliyev7@mail.com. Səbəb: “at” @ ilə, “dot” nöqtə ilə yazılır. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
 - *İzah (başqa səhvdə):* Ünvanı yoxla. — Uyğun: guliyev7@mail.com. Səbəb: Hərflər G-U-L-I-Y-E-V, rəqəm 7, sonra @, mail, nöqtə, com. Qayda: at — @; dot — nöqtə. Nümunə: It's G-U-L-I-Y-E-V seven at mail dot com.  
 
-## Kart 10 — Söhbəti sırala: Söhbəti sırala
+## Kart 11 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Ofisdə e-poçt mübadiləsi. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. What's your email? → 2. It's ganja five at mail dot com. → 3. Ganja? How do you spell it? → 4. G-A-N-J-A five at mail dot com.  
@@ -140,7 +154,7 @@ Qeyd: @ işarəsi “at” deyilir, “et” yox.
 **Düzgün olanda:** Sual, ünvan, xahiş və yavaş təkrar düz sıradadır.  
 - *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? More slowly, please. → B… A… K… U… Səbəb: Ünvanı çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi. Qayda: More slowly, please. — sürətli idi; Say that again, please. — eşitmədin. Nümunə: Sorry? More slowly, please.  
 
-## Kart 11 — Səslə cavab: E-poçtunu de
+## Kart 12 — Səslə cavab: E-poçtunu de
 
 **Tapşırıq:** Yeni iş yoldaşı soruşur: “What's your email?” Öz e-poçtunu de (istəsən, uydurma).  
 **Səs:** What's your email?  
@@ -158,7 +172,7 @@ Qeyd: @ işarəsi “at” deyilir, “et” yox.
 **Düzgün olanda:** Ünvanını dedin: @ — at, nöqtə — dot.  
 - *İzah (başqa səhvdə):* It's … at … dot com. — Uyğun: It's K-B at mail dot com. Səbəb: @ “at”, nöqtə “dot” deyilir. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
 
-## Kart 12 — Sözü tamamla: Sözü tamamla
+## Kart 13 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Oğlan e-poçtunu deyir: kb@mail.com. Hansı söz çatmır?  
 **Cümlə:** It's K-B ___ mail dot com.  
@@ -178,7 +192,7 @@ Qeyd: @ işarəsi “at” deyilir, “et” yox.
 - *İzah (“nöqtə” seçiləndə):* İngiliscə ünvanda nöqtə “dot” deyilir. — Uyğun: dot. Səbəb: Nöqtə ingiliscə “dot” deyilir. Qayda: dot — nöqtə; at — @. Nümunə: It's G-A-N-J-A five at mail dot com.  
 - *İzah (“at” seçiləndə):* “at” @ işarəsidir. — Uyğun: dot. Səbəb: Bu yerdə nöqtə var, @ yox. Qayda: at — @; dot — nöqtə. Nümunə: It's G-A-N-J-A five at mail dot com.  
 
-## Kart 13 — Formanı doldur: Formanı doldur
+## Kart 14 — Formanı doldur: Formanı doldur
 
 **Tapşırıq:** Ofisdə ilk günündür. Yeni işçi vərəqini doldur (istəsən, uydurma e-poçt yaz).  
 **Forma:** Yeni işçi — Ofis qeydiyyatı  

@@ -195,3 +195,9 @@ Pedaqoji qövs eyni qalır (öyrət → tanı → qur → danış), amma hər d�
 - İpucu: termin yox, cavab yox, konkret yol (vəziyyət sualı və ya “harada öyrəndin”), 1–2 cümlə. Öyrənən kart nömrəsini görmür — “Kart 3” yazılmır.
 - Sözə toxunub mənaya baxmaq tapşırıqda “Köməklə” sayılır; cavab variantlarında məna göstərilmir.
 - Hər Yeni söz / Dinlə və təkrarla kartında Azərbaycan hərfləri ilə oxunuş (th qalın saxlanır, w → u).
+
+## Müəllim izahı hər dərsdə (21 noyabr 2026, istifadəçi)
+- Hər dərsdə (hissədə) ən azı bir “Müəllim izahı” kartı olur; Bölmə söhbəti (Dərs 8) istisnadır. Kart mövzunun Yeni söz kartından dərhal sonra gəlir.
+- Mövzu çətindirsə iki izah kartı olur, aralarında ən azı bir tapşırıq.
+- Kart limiti: izahdan başqa ən çox 14 kart, izahla birlikdə ən çox 16.
+- Mətnlər `src/data/explainCards.ts`-dədir; izahdakı ingiliscə yalnız əvvəl öyrədilmiş ifadələrdən olur.

@@ -42,7 +42,10 @@ for (const raw of all) {
   assert.ok(!JSON.stringify(lesson).match(/\{[MGBmgb,]|\{en/), `${tag}: unresolved name token`);
   assert.equal(raw.unit, 3, `${tag}: unit set`);
   const tasks = lesson.cards.filter(L.isTask);
-  const max = exam ? 16 : 14;
+  // Müəllim izahı cards come on top (user, 21 Nov 2026): at most 14 other cards, 16 in all.
+  const others = lesson.cards.filter(c => c.type !== 'explain').length;
+  assert.ok(others <= (exam ? 16 : 14), `${tag}: at most ${exam ? 16 : 14} cards besides Müəllim izahı (${others})`);
+  const max = 16;
   assert.ok(lesson.cards.length >= 9 && lesson.cards.length <= max, `${tag}: 9–${max} cards (${lesson.cards.length})`);
   assert.equal(lesson.cards[0].type, 'intro', `${tag}: starts with the goals`);
   const kinds = new Set(tasks.map(kind));

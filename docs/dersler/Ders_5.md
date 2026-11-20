@@ -95,7 +95,22 @@ Nümunə: **Tea, please.** — Çay, zəhmət olmasa.
 
 Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 
-## Kart 8 — Kim nə dedi?: Kim nə dedi?
+## Kart 8 — Müəllim izahı
+
+please xahişi nəzakətli edir.
+
+**1 · Harada gəlir?**
+please çox vaxt sonda, vergüldən sonra gəlir.
+- Tea, + please.
+- **Tea, please.** — Çay, zəhmət olmasa.
+
+**2 · Təşəkkürə cavab**
+- Thank you! · təşəkkür
+- You're welcome. · cavab
+
+Diqqət et: please təşəkkürə cavab deyil. Təşəkkürə You're welcome. deyilir.
+
+## Kart 9 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Hər cümləyə mənasını qoş.  
 **Cütlər:** Thank you! — Təşəkkür edirəm!; You're welcome. — Dəyməz.; Please. — Zəhmət olmasa. · artıq: Bağışla.  
@@ -112,7 +127,7 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 **Düzgün olanda:** Hər cümlə öz yerində.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Thanks! — Sağ ol!; How are you? — Necəsən?; You’re welcome. — Dəyməz. Səbəb: Təşəkkür, sual və cavab fərqli işlərdir. Qayda: Thanks! — təşəkkür; How are you? — hal sualı. Nümunə: Thanks! — You're welcome.  
 
-## Kart 9 — Seç: Cavabı seç
+## Kart 10 — Seç: Cavabı seç
 
 **Tapşırıq:** Qıza kömək etdin. O deyir: “Thank you!” Necə cavab verərsən?  
 **Seçimlər:** Please. / You're welcome. / Thank you! — **düzgün:** You're welcome.  
@@ -129,7 +144,7 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 **Düzgün olanda:** Təşəkkürə cavab: You’re welcome.  
 - *İzah (başqa səhvdə):* Təşəkkürə cavab “You’re welcome”dur. — Uyğun: You're welcome. Səbəb: “Please” xahişdir, “Bye” sağollaşmadır. Qayda: Thanks → You’re welcome. Nümunə: Thanks! — You're welcome.  
 
-## Kart 10 — Sözü tamamla: Sözü tamamla
+## Kart 11 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Kafedə çay istəyirsən. Hansı söz çatmır?  
 **Cümlə:** Tea, ___ .  
@@ -148,7 +163,7 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 **Düzgün olanda:** “You’re welcome” — Dəyməz.  
 - *İzah (başqa səhvdə):* Təşəkkürə cavab: You’re welcome. — Uyğun: welcome. Səbəb: “You’re welcome” birlikdə “Dəyməz” deməkdir. Qayda: Thank you → You’re welcome. Nümunə: You're welcome.  
 
-## Kart 11 — Mesaj yaz (sözlərdən): Mesajı qur
+## Kart 12 — Mesaj yaz (sözlərdən): Mesajı qur
 
 **Tapşırıq:** Qonşun halını soruşur. Sözlərdən cavab qur.  
 **Yazışma (Qonşu qız):** “Hi! How are you?”  
@@ -168,7 +183,7 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 **Düzgün olanda:** Halını dedin, təşəkkür etdin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Sıra: I’m fine, thanks. And you? — Uyğun: I'm fine, thanks. And you? Səbəb: “welcome” təşəkkürə cavabdır, burada lazım deyil. Qayda: Halın + thanks + And you? Nümunə: I'm fine, thanks. And you?  
 
-## Kart 12 — Cavab cütü: Cavab cütü
+## Kart 13 — Cavab cütü: Cavab cütü
 
 **Tapşırıq:** Hər deyilənə bir cavab var. Cümləyə toxun, sonra onun cavabını seç.  
 **Cütlər:** Thank you! — You're welcome.; How are you? — I'm fine, thanks.; Nice to meet you. — You too. · artıq: Please.  
@@ -184,7 +199,7 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 **Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin cavabı yerində deyil. — Uyğun: Thanks! — You're welcome.; What's your name? — I'm …; Hello! — Hi! Səbəb: Təşəkkürə, ad sualına və salama fərqli cavab verilir. Qayda: Thanks! → You’re welcome; What’s your name? → I’m … Nümunə: Thanks! — You're welcome.  
 
-## Kart 13 — Səslə cavab: Nümunəsiz təşəkkür et
+## Kart 14 — Səslə cavab: Nümunəsiz təşəkkür et
 
 **Tapşırıq:** Dostun sənə çətir verir. Təşəkkür et.  
 **Qəbul:** məna: thanks — nümunə: Thank you! / Thanks!  
@@ -200,7 +215,7 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 **Düzgün olanda:** Təşəkkürü özün dedin.  
 - *İzah (başqa səhvdə):* Təşəkkür ifadəsi de. — Uyğun: Thank you! / Thanks! Səbəb: Sənə kömək edəndə təşəkkür edirsən. Qayda: Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən. Nümunə: Thanks!  
 
-## Kart 14 — Dialoqu tamamla: Təşəkkür et
+## Kart 15 — Dialoqu tamamla: Təşəkkür et
 
 **Tapşırıq:** Yerə saldığın açarı qonşun sənə qaytardı. Ona təşəkkür et.  
 **Yazışma (Qonşu oğlan):** —  

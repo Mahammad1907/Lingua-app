@@ -110,7 +110,21 @@ Nümunə: **Hello, Ms Hasanova!** — Salam, Həsənova xanım!
 
 Qeyd: Mr — kişiyə, Ms — qadına; ardınca soyad gəlir.
 
-## Kart 9 — Sözü tamamla: Sözü tamamla
+## Kart 9 — Müəllim izahı
+
+Mr və Ms nəzakətli müraciətdir.
+
+**1 · Kimə?**
+- Mr · kişiyə
+- Ms · qadına
+
+**2 · Necə qurulur?**
+- Ms + soyad
+- **Hello, Ms Hasanova!** — Salam, Həsənova xanım!
+
+Diqqət et: Mr və Ms adla yox, soyadla işlənir və soyaddan əvvəl gəlir. Biz isə “xanım” sözünü sonda deyirik.
+
+## Kart 10 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Kursun yeni müəllimi gəldi, soyadı Hasanova. Ona salam verirsən. Hansı söz çatmır?  
 **Cümlə:** Hello, ___ Hasanova!  
@@ -130,7 +144,7 @@ Qeyd: Mr — kişiyə, Ms — qadına; ardınca soyad gəlir.
 - *İzah (“Ms” seçiləndə):* “Ms” qadına deyilir. — Uyğun: Mr. Səbəb: Guliyev — kişi soyadıdır, ona “Mr” deyilir. Qayda: Mr Guliyev — kişi; Ms Guliyeva — qadın. Nümunə: Hello, Mr Guliyev!  
 - *İzah (“first” seçiləndə):* “first” ad sözündədir: first name. — Uyğun: Mr. Səbəb: Salam verəndə soyaddan əvvəl “Mr” və ya “Ms” gəlir. Qayda: Hello, Mr Guliyev! — müraciət; first name — ad. Nümunə: Hello, Mr Guliyev!  
 
-## Kart 10 — Səslə cavab: Soyadı soruş
+## Kart 11 — Səslə cavab: Soyadı soruş
 
 **Tapşırıq:** Kurs qeydiyyat masasındasan. Yeni tələbə yalnız adını dedi. Ondan soyadını soruş.  
 **Qəbul:** məna: askLastName — nümunə: What's your last name?  
@@ -147,7 +161,7 @@ Qeyd: Mr — kişiyə, Ms — qadına; ardınca soyad gəlir.
 **Düzgün olanda:** Soyadı soruşdun.  
 - *İzah (başqa səhvdə):* What's your last name? — Uyğun: What's your last name? Səbəb: Ad məlumdur, soyad lazımdır. Qayda: What's your name? — ad; What's your last name? — soyad. Nümunə: What's your last name?  
 
-## Kart 11 — Yaz: Dinlə və yaz
+## Kart 12 — Yaz: Dinlə və yaz
 
 **Tapşırıq:** Qeydiyyatçı siyahıdan bir tələbənin soyadını hərf-hərf oxuyur. Soyadı yaz.  
 **Səs:** Last name: G-U-L-I-Y-E-V.  
@@ -165,7 +179,7 @@ Qeyd: Mr — kişiyə, Ms — qadına; ardınca soyad gəlir.
 **Düzgün olanda:** M-A-double M-A-D-O-V-A — Mammadova.  
 - *İzah (başqa səhvdə):* Hərfləri yoxla. — Uyğun: Mammadova. Səbəb: “double M” — iki M yan-yana: MM. Qayda: double M — MM; double L — LL. Nümunə: Last name: M-A-double M-A-D-O-V-A.  
 
-## Kart 12 — Səslə cavab: Soyadını de
+## Kart 13 — Səslə cavab: Soyadını de
 
 **Tapşırıq:** Müəllim soruşur: “What's your last name?” Soyadını de.  
 **Səs:** What's your last name?  
@@ -183,7 +197,7 @@ Qeyd: Mr — kişiyə, Ms — qadına; ardınca soyad gəlir.
 **Düzgün olanda:** Soyadını dedin.  
 - *İzah (başqa səhvdə):* My last name is … — Uyğun: My last name is … Səbəb: Soruşulan soyaddır, ad deyil. Qayda: My first name is … — ad; My last name is … — soyad. Nümunə: My last name is Hasanova.  
 
-## Kart 13 — Kim nə dedi?: Kim nə dedi?
+## Kart 14 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Qeydiyyat masasında eşitdiyin sözlər. Hər birinə mənasını qoş.  
 **Cütlər:** First name — Ad; Last name — Soyad; How do you spell it? — Hərf-hərf necə yazılır? · artıq: Cənab  

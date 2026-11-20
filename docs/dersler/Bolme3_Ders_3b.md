@@ -142,7 +142,21 @@ Nümunə: **Nationality: Azerbaijani.** — Milləti: azərbaycanlı.
 
 Qeyd: Formalarda sahə adıdır; tək sözlə sual kimi də deyilir: Nationality?
 
-## Kart 11 — Formanı doldur: Formanı doldur
+## Kart 11 — Müəllim izahı
+
+Formada Nationality sətrinə millət yazılır.
+
+**1 · Ölkə və millət**
+- Germany · ölkə
+- German · millət
+
+**2 · Formada**
+- Nationality: + millət
+- **Nationality: Azerbaijani.** — Milləti: azərbaycanlı.
+
+Diqqət et: Ölkə və millət adları oxşardır, sonları fərqlidir: France — French.
+
+## Kart 12 — Formanı doldur: Formanı doldur
 
 **Tapşırıq:** Hostelə yazılırsan. Qeydiyyat vərəqini doldur (istəsən, uydurma məlumat).  
 **Forma:** Hostel qeydiyyatı — Yeni qonaq  
@@ -168,7 +182,7 @@ Qeyd: Formalarda sahə adıdır; tək sözlə sual kimi də deyilir: Nationality
 - *İzah (“First name” səhv olanda):* Uyğun: Anna. Səbəb: First name — addır: pasportdakı ikinci söz. Qayda: First name — Anna; Last name — Smith. Nümunə: My first name is Anna.  
 - *İzah (“Nationality” səhv olanda):* Uyğun: American. Səbəb: the USA ölkədir; millət sətrinə American yazılır. Qayda: I'm American. — millət; I'm from the USA. — ölkə. Nümunə: Nationality: American.  
 
-## Kart 12 — Səslə cavab: Millətini de
+## Kart 13 — Səslə cavab: Millətini de
 
 **Tapşırıq:** Pasport nəzarətində əməkdaş pasportuna baxıb soruşur. Cavab ver.  
 **Səs:** Nationality?  
@@ -188,7 +202,7 @@ Qeyd: Formalarda sahə adıdır; tək sözlə sual kimi də deyilir: Nationality
 - *İzah (başqa səhvdə):* Ölkə yox, millət lazımdır. — Uyğun: Azerbaijani. Səbəb: Nationality soruşulanda ölkə adı yox, millət deyilir. Qayda: Nationality? — Azerbaijani. ; Where are you from? — Azerbaijan. Nümunə: Nationality? — Azerbaijani.  
 - *İzah (başqa səhvdə):* Millətini de. — Uyğun: Azerbaijani. Səbəb: Nationality — millətdir; bir sözlə də cavab vermək olar. Qayda: Nationality, please. — Azerbaijani. ; Where are you from? — I'm from Azerbaijan. Nümunə: Nationality, please. — I'm Azerbaijani.  
 
-## Kart 13 — Kim nə dedi?: Kim nə dedi?
+## Kart 14 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Dil klubunda qonaqlar özlərini təqdim edir. Hər cümləyə mənasını qoş.  
 **Cütlər:** I'm American. — Amerikalıyam.; I'm from France. — Fransadanam.; I'm German. — Almanam. · artıq: Almaniyadanam.  

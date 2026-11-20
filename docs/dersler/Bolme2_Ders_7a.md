@@ -49,7 +49,20 @@ Nümunə: **Ten, eleven, twelve!** — On, on bir, on iki!
 
 Qeyd: twelve ayrıca sözdür, “two” ilə qurulmur.
 
-## Kart 5 — Nömrəni yığ: Kodu yığ
+## Kart 5 — Müəllim izahı
+
+eleven və twelve öz adı olan rəqəmlərdir.
+
+**1 · Rəqəmlər**
+- eleven · 11
+- twelve · 12
+
+**2 · Nə fərqi var?**
+Biz “on bir”, “on iki” deyirik. İngiliscə bunlar iki hissədən qurulmur, ayrıca söz kimi yadda saxlanır.
+
+Diqqət et: eleven-də “i” səsi ilə başla: “ilevn”.
+
+## Kart 6 — Nömrəni yığ: Kodu yığ
 
 **Tapşırıq:** İdman zalında dolabın kodu var. Qəbul kodu deyir. Dinlə və yığ.  
 **Səs:** Twelve, eleven.  
@@ -67,7 +80,7 @@ Qeyd: twelve ayrıca sözdür, “two” ilə qurulmur.
 **Düzgün olanda:** fifteen, nineteen — 1519.  
 - *İzah (başqa səhvdə):* Hər sözdə iki rəqəm var. — Uyğun: 1519. Səbəb: fifteen — 15, nineteen — 19. Qayda: Fifteen, nineteen. — 1519; Nineteen, fifteen. — 1915. Nümunə: Fifteen, nineteen.  
 
-## Kart 6 — Yeni söz
+## Kart 7 — Yeni söz
 
 **thirteen · fourteen · fifteen · sixteen · seventeen · eighteen · nineteen** — 13 · 14 · 15 · 16 · 17 · 18 · 19
 
@@ -79,7 +92,21 @@ Nümunə: **Thirteen, fourteen, fifteen!** — On üç, on dörd, on beş!
 
 Qeyd: Vurğu sondadır: thir-TEEN.
 
-## Kart 7 — Dinlə və təkrarla: Dinlə və təkrarla
+## Kart 8 — Müəllim izahı
+
+13-dən 19-a qədər sonda -teen gəlir.
+
+**1 · Necə qurulur?**
+Rəqəmin adına -teen artırılır: four + teen → fourteen.
+- four + teen
+- **Thirteen, fourteen, fifteen!** — On üç, on dörd, on beş!
+
+**2 · Vurğu harada?**
+-teen hissəsini uzun və güclü de: “fortiin”. Sonra 40 ilə qarışdırmayacaqsan.
+
+Diqqət et: thirteen və fifteen bir az fərqli qurulur: three → thir, five → fif.
+
+## Kart 9 — Dinlə və təkrarla: Dinlə və təkrarla
 
 **Tapşırıq:** Məşqçi təkrarları sayır. Dinlə, sonra eyni cür de.  
 **Səs:** Thirteen, fourteen, fifteen.  
@@ -97,7 +124,7 @@ Qeyd: Vurğu sondadır: thir-TEEN.
 **Düzgün olanda:** Rəqəmləri dedin; vurğu “teen” üzərindədir.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və sonunu güclü de. — Uyğun: Sixteen, seventeen, eighteen. Səbəb: Bu sözlərdə vurğu sondakı “teen” üzərindədir. Qayda: six-TEEN — 16; eigh-TEEN — 18. Nümunə: Sixteen, seventeen, eighteen.  
 
-## Kart 8 — Yeni söz
+## Kart 10 — Yeni söz
 
 **twenty** — iyirmi
 
@@ -107,7 +134,7 @@ Nümunə: **Eighteen, nineteen, twenty!** — On səkkiz, on doqquz, iyirmi!
 
 Qeyd: Vurğu əvvəldədir: TWEN-ty.
 
-## Kart 9 — Cavab cütü: Cavab cütü
+## Kart 11 — Cavab cütü: Cavab cütü
 
 **Tapşırıq:** Zalda təkrarları birlikdə sayırsınız. Sıraya toxun, sonra onun davamını seç.  
 **Cütlər:** Eleven, twelve… — Thirteen!; Eighteen, nineteen… — Twenty!; Fourteen, fifteen… — Sixteen! · artıq: Ten!  
@@ -123,7 +150,7 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 **Düzgün olanda:** Geriyə sayımı düz davam etdirdin.  
 - *İzah (başqa səhvdə):* Bir sıranın davamı yerində deyil. — Uyğun: Twenty, nineteen… — Eighteen!; Thirteen, twelve… — Eleven!; Seventeen, sixteen… — Fifteen! Səbəb: Geriyə sayanda hər sıra bir rəqəm azalır. Qayda: Twelve… → eleven; Sixteen… → fifteen. Nümunə: Twenty, nineteen, eighteen!  
 
-## Kart 10 — Hərfləri tut: Hərfləri tut
+## Kart 12 — Hərfləri tut: Hərfləri tut
 
 **Tapşırıq:** Məşqçi zalın Wi-Fi adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** G, Y, M.  
@@ -143,7 +170,7 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 **Düzgün olanda:** P-O-O-L — hovuzun Wi-Fi adı.  
 - *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: POOL. Səbəb: Səsdə “pi, double O, el” deyilir: double O — OO. Qayda: double O — OO; double L — LL. Nümunə: P, double O, L.  
 
-## Kart 11 — Yaz: Dinlə və yaz
+## Kart 13 — Yaz: Dinlə və yaz
 
 **Tapşırıq:** Qəbulda qadın dolabının nömrəsini deyir. Eşitdiyin sözü yaz.  
 **Səs:** Fifteen.  
@@ -161,7 +188,7 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 **Düzgün olanda:** thirteen — three yox, thir-.  
 - *İzah (başqa səhvdə):* Yazılışı yoxla. — Uyğun: thirteen. Səbəb: 13-də “three” dəyişir: thir- + teen. Qayda: four → fourteen; three → thirteen. Nümunə: Thirteen, fourteen, fifteen!  
 
-## Kart 12 — Sözü tamamla: Sözü tamamla
+## Kart 14 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Qız dolabının nömrəsini deyir: 12. Hansı söz çatmır?  
 **Cümlə:** It's ___ .  
@@ -181,7 +208,7 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 - *İzah (“oneteen” seçiləndə):* Belə söz yoxdur: 11 — eleven. — Uyğun: eleven. Səbəb: “-teen” 13-dən başlayır; 11-in öz sözü var. Qayda: eleven — 11; thirteen — 13. Nümunə: It's eleven.  
 - *İzah (“seventeen” seçiləndə):* “seventeen” — 17. — Uyğun: eleven. Səbəb: “seventeen” on yeddidir, dolab isə 11-dir. Qayda: eleven — 11; seventeen — 17. Nümunə: It's eleven.  
 
-## Kart 13 — Səhnədə tap: Səhnədə tap
+## Kart 15 — Səhnədə tap: Səhnədə tap
 
 **Tapşırıq:** Zalda dolablar sıra ilə düzülüb. Qəbul sənin dolabını deyir. Şəkildə həmin dolabı tap.  
 **Səs:** Seventeen.  
@@ -201,7 +228,7 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 - *İzah (“9-cu dolab” seçiləndə):* “nine” — 9; səsdə “teen” də var. — Uyğun: 19-cu dolab. Səbəb: Sözün sonunda “teen” var — bu, 19-dur. Qayda: nine — 9; nineteen — 19. Nümunə: Nineteen.  
 - *İzah (“18-ci dolab” seçiləndə):* “eighteen” — 18; səsdə “nine” var. — Uyğun: 19-cu dolab. Səbəb: Sözün əvvəlində “nine” var, “eigh” yox. Qayda: eighteen — 18; nineteen — 19. Nümunə: Nineteen.  
 
-## Kart 14 — Səslə cavab: Dolabını de
+## Kart 16 — Səslə cavab: Dolabını de
 
 **Tapşırıq:** Qəbulda soruşurlar ki, dolabın neçədir. Sənin dolabın 18-dir. Nömrəni de.  
 **Qəbul:** dəqiq: It's eighteen. · öz məlumatı: /^(?:it'?s\s+|it is\s+)?(?:eighteen|18)[.!]?$/  

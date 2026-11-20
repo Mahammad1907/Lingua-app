@@ -37,7 +37,20 @@ Nümunə: **SMS** — SMS (es-em-es)
 
 Qeyd: Bunlar asandır: Azərbaycan dilindəki oxunuşa yaxındır; X — “eks”.
 
-## Kart 4 — Kim nə dedi?: Hərfi oxunuşuna qoş
+## Kart 4 — Müəllim izahı
+
+İngilis hərflərinin öz adları var.
+
+**1 · Hərfin adı**
+- F · “ef”
+- M · “em”
+
+**2 · Nə vaxt lazımdır?**
+Adını, şəhərini hərf-hərf deyəndə hərflərin ingiliscə adını deyirsən.
+
+Diqqət et: Bu hərflər asandır: adları bizimkinə oxşayır.
+
+## Kart 5 — Kim nə dedi?: Hərfi oxunuşuna qoş
 
 **Tapşırıq:** Telefonda SMS yazırsan. Klaviaturada hərflər var. Hər hərfə onun ingiliscə oxunuşunu qoş.  
 **Cütlər:** X — eks; L — el; S — es · artıq: xe  
@@ -53,7 +66,7 @@ Qeyd: Bunlar asandır: Azərbaycan dilindəki oxunuşa yaxındır; X — “eks�
 **Düzgün olanda:** Hər hərfin ingiliscə adını tapdın.  
 - *İzah (başqa səhvdə):* Bir hərfin oxunuşu yerində deyil. — Uyğun: M — em; F — ef; N — en. Səbəb: Hər hərfin ingiliscə oxunuşunu tap. Qayda: M — em; N — en. Nümunə: F, L, M, N, S, X.  
 
-## Kart 5 — Yeni söz
+## Kart 6 — Yeni söz
 
 **T, V** — televizor qısaltması
 
@@ -63,7 +76,7 @@ Nümunə: **TV** — TV (ti-vi)
 
 Qeyd: T — “ti”, V — “vi”: sonunda “i” səsi.
 
-## Kart 6 — Hərfləri tut: Hərfləri tut
+## Kart 7 — Hərfləri tut: Hərfləri tut
 
 **Tapşırıq:** Oteldə televizor pultundasan. Resepsiya kanalın adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** M, T, V.  
@@ -83,7 +96,7 @@ Qeyd: T — “ti”, V — “vi”: sonunda “i” səsi.
 **Düzgün olanda:** F-X — kanalın adı.  
 - *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: FX. Səbəb: Səsdə iki hərf var: ef, eks. Qayda: X — eks; S — es. Nümunə: F, X.  
 
-## Kart 7 — Yeni söz
+## Kart 8 — Yeni söz
 
 **I, D** — şəxsiyyət vəsiqəsi (qısaltma)
 
@@ -93,7 +106,7 @@ Nümunə: **ID, please.** — Vəsiqə, zəhmət olmasa.
 
 Qeyd: I — “ay” oxunur, “i” yox.
 
-## Kart 8 — Seç: Dinlə və seç
+## Kart 9 — Seç: Dinlə və seç
 
 **Tapşırıq:** Hava limanında işçi sənə nəsə deyir. Hansı qısaltmanı eşitdin?  
 **Səs:** ID, please.  
@@ -113,7 +126,7 @@ Qeyd: I — “ay” oxunur, “i” yox.
 - *İzah (“DV” seçiləndə):* D — “di”, səsdə “ti” var. — Uyğun: TV. Səbəb: Səsdə “ti-vi” deyilir. Qayda: T — ti; D — di. Nümunə: TV  
 - *İzah (“TF” seçiləndə):* F — “ef”, səsdə “vi” var. — Uyğun: TV. Səbəb: Səsdə “ti-vi” deyilir. Qayda: V — vi; F — ef. Nümunə: TV  
 
-## Kart 9 — Yeni söz
+## Kart 10 — Yeni söz
 
 **E, I** — E — “i”, I — “ay”
 
@@ -123,7 +136,20 @@ Nümunə: **E, I.** — i, ay
 
 Qeyd: Ən çox qarışan cüt: E “i” oxunur, I isə “ay”.
 
-## Kart 10 — Yaz: Dinlə və yaz
+## Kart 11 — Müəllim izahı
+
+E və I ən çox qarışan cütdür.
+
+**1 · Necə oxunur?**
+- E · “i”
+- I · “ay”
+
+**2 · Niyə qarışır?**
+Bizim “i” səsi ingiliscə E hərfinin adıdır. I hərfi isə “ay” deyilir.
+
+Diqqət et: Adını hərf-hərf deyəndə E və I-yə xüsusi diqqət et.
+
+## Kart 12 — Yaz: Dinlə və yaz
 
 **Tapşırıq:** Taksi çağırdın. Dispetçer maşının nömrəsini deyir. Nömrəni yaz.  
 **Səs:** Ten, S, E, five, one, seven.  
@@ -141,7 +167,7 @@ Qeyd: Ən çox qarışan cüt: E “i” oxunur, I isə “ay”.
 **Düzgün olanda:** 10 DI 204 — rəqəm, iki hərf, rəqəmlər.  
 - *İzah (başqa səhvdə):* Hərfləri və rəqəmləri yoxla. — Uyğun: 10 DI 204. Səbəb: Səsdə ten, D, I, two, zero, four deyilir; I “ay” oxunur. Qayda: I — ay; E — i. Nümunə: Ten, D, I, two, zero, four.  
 
-## Kart 11 — Səhnədə tap: Səhnədə tap
+## Kart 13 — Səhnədə tap: Səhnədə tap
 
 **Tapşırıq:** Ofisin parkinqində üç zona var. Mühafizəçi sənin yerini deyir. Şəkildə həmin zonanı tap.  
 **Səs:** D, five.  
@@ -161,7 +187,7 @@ Qeyd: Ən çox qarışan cüt: E “i” oxunur, I isə “ay”.
 - *İzah (“T2 zonası” seçiləndə):* T — “ti”, səsdə “vi” var. — Uyğun: V2 zonası. Səbəb: Səsdə “vi” deyilir — bu, V-dir. Qayda: V — vi; T — ti. Nümunə: V, two.  
 - *İzah (“E2 zonası” seçiləndə):* E — “i”, səsdə “vi” var. — Uyğun: V2 zonası. Səbəb: Səsdə “vi” deyilir — bu, V-dir. Qayda: V — vi; E — i. Nümunə: V, two.  
 
-## Kart 12 — Seç: Cütü ayır: E yoxsa I?
+## Kart 14 — Seç: Cütü ayır: E yoxsa I?
 
 **Tapşırıq:** Qatar biletində vaqonun hərfi var. Elan deyir. Hansı hərfdir?  
 **Səs:** E.  

@@ -75,7 +75,20 @@ Nümunə: **DJ** — DJ (di-cey)
 
 Qeyd: J — “cey”; G isə “ci”.
 
-## Kart 7 — Səhnədə tap: Səhnədə tap
+## Kart 7 — Müəllim izahı
+
+G və J bizdə başqa cür oxunur.
+
+**1 · Necə oxunur?**
+- G · “ci”
+- J · “cey”
+
+**2 · Necə ayırırsan?**
+İkisi də “c” səsi ilə başlayır. G-nin sonunda “i”, J-nin sonunda “ey” var.
+
+Diqqət et: A — “ey”, J — “cey”: sonları eynidir, diqqətlə dinlə.
+
+## Kart 8 — Səhnədə tap: Səhnədə tap
 
 **Tapşırıq:** Hava limanında üç qapı var. Elan sənin qapını deyir. Şəkildə həmin qapını tap.  
 **Səs:** J, four.  
@@ -95,7 +108,7 @@ Qeyd: J — “cey”; G isə “ci”.
 - *İzah (“J2 qapısı” seçiləndə):* J — “cey”, səsdə “ci” var. — Uyğun: G2 qapısı. Səbəb: Səsdə “ci” deyilir — bu, G-dir. Qayda: G — ci; J — cey. Nümunə: G, two.  
 - *İzah (“E2 qapısı” seçiləndə):* E — “i”, səsdə “ci” var. — Uyğun: G2 qapısı. Səbəb: Səsdə “ci” deyilir — bu, G-dir. Qayda: G — ci; E — i. Nümunə: G, two.  
 
-## Kart 8 — Yeni söz
+## Kart 9 — Yeni söz
 
 **C, D** — C — “si”
 
@@ -105,7 +118,7 @@ Nümunə: **CD** — CD (si-di)
 
 Qeyd: C — “si”, “ce” yox.
 
-## Kart 9 — Yaz: Dinlə və yaz
+## Kart 10 — Yaz: Dinlə və yaz
 
 **Tapşırıq:** Taksi çağırdın. Dispetçer maşının nömrəsini deyir. Nömrəni yaz.  
 **Səs:** Ten, C, J, three, three, one.  
@@ -123,7 +136,7 @@ Qeyd: C — “si”, “ce” yox.
 **Düzgün olanda:** 10 GA 806 — rəqəm, iki hərf, rəqəmlər.  
 - *İzah (başqa səhvdə):* Hərfləri və rəqəmləri yoxla. — Uyğun: 10 GA 806. Səbəb: Səsdə ten, G, A, eight, zero, six deyilir: G “ci”, A “ey”. Qayda: G — ci; A — ey. Nümunə: Ten, G, A, eight, zero, six.  
 
-## Kart 10 — Yeni söz
+## Kart 11 — Yeni söz
 
 **B, W** — W — “dabəlyu”
 
@@ -133,7 +146,7 @@ Nümunə: **BMW** — BMW (bi-em-dabəlyu)
 
 Qeyd: W — “dabəlyu”, “ve” yox.
 
-## Kart 11 — Seç: Dinlə və seç
+## Kart 12 — Seç: Dinlə və seç
 
 **Tapşırıq:** Ofisin parkinqində mühafizəçi maşının markasını hərf-hərf deyir. Hansıdır?  
 **Səs:** B, M, W.  
@@ -153,7 +166,7 @@ Qeyd: W — “dabəlyu”, “ve” yox.
 - *İzah (“JPS” seçiləndə):* J “cey” oxunur, səsdə “ci” var. — Uyğun: GPS. Səbəb: İlk hərf “ci”dir — G. Qayda: G — ci; J — cey. Nümunə: GPS  
 - *İzah (“GBS” seçiləndə):* B “bi” oxunur, səsdə “pi” var. — Uyğun: GPS. Səbəb: Ortadakı hərf “pi”dir — P. Qayda: P — pi; B — bi. Nümunə: GPS  
 
-## Kart 12 — Cavab cütü: Qısaltmanı tamamla
+## Kart 13 — Cavab cütü: Qısaltmanı tamamla
 
 **Tapşırıq:** Dostun qısaltmanın əvvəlini deyir. Sıraya toxun, sonra onun sonunu seç.  
 **Cütlər:** U, S… — A!; G, P… — S!; B, M… — W! · artıq: V!  
@@ -169,7 +182,7 @@ Qeyd: W — “dabəlyu”, “ve” yox.
 **Düzgün olanda:** Hər qısaltmanın son hərfini tapdın.  
 - *İzah (başqa səhvdə):* Bir qısaltmanın sonu yerində deyil. — Uyğun: C… — D!; D… — J!; S, M… — S! Səbəb: Kartlardakı qısaltmaları xatırla: CD, DJ, SMS. Qayda: DJ — di-cey; CD — si-di. Nümunə: DJ  
 
-## Kart 13 — Seç: Cütü ayır: G yoxsa J?
+## Kart 14 — Seç: Cütü ayır: G yoxsa J?
 
 **Tapşırıq:** Qatarda vaqonun hərfi elan olunur. Hansı hərfdir?  
 **Səs:** G.  

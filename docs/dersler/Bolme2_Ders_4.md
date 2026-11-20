@@ -82,7 +82,20 @@ Nümunə: **Hello — H-E-double L-O.** — Hello — H-E-qoşa L-O.
 
 Qeyd: İki eyni hərf yan-yana gələndə “double” deyilir.
 
-## Kart 7 — Sözü tamamla: Sözü tamamla
+## Kart 7 — Müəllim izahı
+
+Eyni hərf iki dəfə gəlirsə, double deyirsən.
+
+**1 · Necə deyilir?**
+- double L · LL
+- H-E-double L-O · Hello
+
+**2 · Nə vaxt?**
+Hərf yan-yana iki dəfə gəlirsə, onu iki dəfə demirsən: double və hərfin adı.
+
+Diqqət et: Hərfləri tək-tək, aydın de. double-dan sonra hərfin özünü de.
+
+## Kart 8 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Resepsiyada oğlan qonağın soyadını hərf-hərf oxuyur: Mammadov. Hansı söz çatmır?  
 **Cümlə:** It's M-A- ___ M-A-D-O-V.  
@@ -102,7 +115,7 @@ Qeyd: İki eyni hərf yan-yana gələndə “double” deyilir.
 - *İzah (“two” seçiləndə):* “two L” — iki L; hərf-hərf deyəndə “double L” deyilir. — Uyğun: double. Səbəb: Azərbaycancada “iki L” deyirik, ingiliscə “double L”. Qayda: double L — LL; two — 2. Nümunə: H-E-double L-O.  
 - *İzah (“sorry” seçiləndə):* “sorry” üzrdür. — Uyğun: double. Səbəb: Burada üzr yox, qoşa hərf lazımdır. Qayda: double L — LL; Sorry! — üzr. Nümunə: H-E-double L-O.  
 
-## Kart 8 — Yeni söz
+## Kart 9 — Yeni söz
 
 **Can you spell it, please?** — Hərf-hərf deyə bilərsən, zəhmət olmasa?
 
@@ -112,7 +125,7 @@ Nümunə: **Lankaran? Can you spell it, please?** — Lənkəran? Hərf-hərf de
 
 Qeyd: Daha nəzakətli xahişdir.
 
-## Kart 9 — Səslə cavab: Hərf-hərf soruş
+## Kart 10 — Səslə cavab: Hərf-hərf soruş
 
 **Tapşırıq:** Oteldə qonaq şəhərini deyir, sən onu tanımırsan. Hərf-hərf deməsini nəzakətlə xahiş et.  
 **Səs:** It's Shamakhi.  
@@ -130,7 +143,7 @@ Qeyd: Daha nəzakətli xahişdir.
 **Düzgün olanda:** Hərf-hərf deməyi nəzakətlə xahiş etdin.  
 - *İzah (başqa səhvdə):* Can you spell it, please? — Uyğun: Can you spell it, please? Səbəb: Soyadı yazmaq üçün hərflər lazımdır. Qayda: Can you spell it, please? — hərf-hərf; More slowly, please. — yavaş. Nümunə: Guliyeva? Can you spell it, please?  
 
-## Kart 10 — Seç: Dinlə və anla
+## Kart 11 — Seç: Dinlə və anla
 
 **Tapşırıq:** Otel resepsiyasındasan. Şəhərinin adını dedin. Resepsiyaçı nə istəyir?  
 **Səs:** Ganja? How do you spell it?  
@@ -150,7 +163,7 @@ Qeyd: Daha nəzakətli xahişdir.
 - *İzah (“Soyadını soruşur.” seçiləndə):* Soyadı artıq dedin — indi hərfləri istəyir. — Uyğun: Hərf-hərf deməyini istəyir. Səbəb: O, “spell” deyir — hərfləri istəyir. Qayda: Can you spell it, please? — hərf-hərf; Thank you! — təşəkkür. Nümunə: Sorry? Can you spell it, please?  
 - *İzah (“Təşəkkür edir.” seçiləndə):* Səsdə “thank you” yoxdur, “please” xahişdir. — Uyğun: Hərf-hərf deməyini istəyir. Səbəb: “please” xahişdir, təşəkkür deyil. Qayda: Can you spell it, please? — xahiş; Thank you! — təşəkkür. Nümunə: Sorry? Can you spell it, please?  
 
-## Kart 11 — Söhbəti sırala: Söhbəti sırala
+## Kart 12 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Otel resepsiyası. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Lankaran? How do you spell it? → 2. It's L-A-N-K-A-R-A-N. → 3. Sorry? More slowly, please. → 4. L… A… N… K… A… R… A… N.  
@@ -166,7 +179,7 @@ Qeyd: Daha nəzakətli xahişdir.
 **Düzgün olanda:** Xahiş, hərflər, yoxlama və təsdiq düz sıradadır.  
 - *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Ganja? Can you spell it, please? → It's G-A-N-J-A. → G-A-N-J-A. Is that right? → Yes, that's right. Səbəb: Xahiş, hərflər, yoxlama, sonra təsdiq. Qayda: Is that right? — yoxlama; Yes, that's right. — təsdiq. Nümunə: Ganja? Can you spell it, please?  
 
-## Kart 12 — Yaz: Dinlə və yaz
+## Kart 13 — Yaz: Dinlə və yaz
 
 **Tapşırıq:** Resepsiyada qonaq soyadını hərf-hərf deyir. Soyadı yaz.  
 **Səs:** It's H-A-S-A-N-O-V.  
@@ -184,7 +197,7 @@ Qeyd: Daha nəzakətli xahişdir.
 **Düzgün olanda:** A-double B-A-S-O-V — Abbasov.  
 - *İzah (başqa səhvdə):* Hərfləri yoxla. — Uyğun: Abbasov. Səbəb: “double B” — iki B yan-yana: BB. Qayda: double B — BB; double L — LL. Nümunə: It's A-double B-A-S-O-V.  
 
-## Kart 13 — Səslə cavab: Adını hərf-hərf de
+## Kart 14 — Səslə cavab: Adını hərf-hərf de
 
 **Tapşırıq:** Resepsiyaçı soruşur: “What's your name? How do you spell it?” Adını hərf-hərf de. Adında ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** What's your name? How do you spell it?  

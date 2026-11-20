@@ -894,3 +894,13 @@ https://learnenglish.britishcouncil.org/level/understand-your-level/a1-elementar
 
 Azərbaycan dilində izahlar, 13 kartlı quruluş, təkrar bankı və nəticə qaydaları bu məqsədlərin BirTalk üçün metodik tətbiqidir. Mənbələr proqramın işləkliyini və ya konkret tətbiq funksiyasını təsdiqləmir.
 
+
+---
+
+## Əlavə (21 noyabr 2026, istifadəçi qərarı): Müəllim izahı
+
+Hər dərsə “Müəllim izahı” kartı əlavə olundu. Dərs 1-də o, “Hello! · Hi!” Yeni söz kartından dərhal sonra gəlir (kod: `src/data/explainCards.ts`, `d1_c02t`):
+- Maskot: “Salamın iki forması var: Hello və Hi.”
+- 1 · Hansını kimə deyirsən? — Hello! · hər kəsə / Hi! · dosta, tanışa
+- 2 · Fərq nədir? — İkisi də “Salam”dır. Hello mağazada, işdə də olar. Hi daha sadədir, dosta deyilir.
+- Diqqət et: Hello və Hi görüşün əvvəlində deyilir.

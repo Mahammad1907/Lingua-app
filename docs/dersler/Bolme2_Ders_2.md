@@ -99,7 +99,22 @@ Nümunə: **It's oh five oh, three two one, four five, six seven.** — Nömrəm
 
 Qeyd: Amerikada nömrədə sıfırı çox vaxt “oh” deyirlər.
 
-## Kart 8 — Səslə cavab: Nömrəni de
+## Kart 8 — Müəllim izahı
+
+Nömrədə 0 iki cür deyilə bilər.
+
+**1 · zero və oh**
+- zero · sıfır
+- oh · nömrədə sıfır
+
+**2 · Nömrə necə deyilir?**
+Telefon nömrəsində rəqəmlər bir-bir deyilir: 050 — “oh five oh”, “əlli” yox.
+- It's + nömrə
+- **It's oh five oh, three two one, four five, six seven.** — Nömrəm 050 321 45 67-dir.
+
+Diqqət et: Rəqəmləri qrup-qrup de, qrupların arasında qısa fasilə ver.
+
+## Kart 9 — Səslə cavab: Nömrəni de
 
 **Tapşırıq:** Kurs yoldaşın soruşur: “What's your phone number?” Öz nömrəni de (istəsən, uydurma nömrə).  
 **Səs:** What's your phone number?  
@@ -119,7 +134,7 @@ Qeyd: Amerikada nömrədə sıfırı çox vaxt “oh” deyirlər.
 - *İzah (başqa səhvdə):* Nömrə “phone number”dur. — Uyğun: It's 050 321 45 67. Səbəb: Telefonun özü yox, nömrəsi deyilir: “It’s” + rəqəmlər. Qayda: It's 050 321 45 67. — düzdür; My phone is 050… — olmur. Nümunə: What's your phone number? — It's 050 321 45 67.  
 - *İzah (başqa səhvdə):* It's + nömrə. — Uyğun: It's zero five zero, three two one, four five, six seven. Səbəb: Nömrəni “It’s” ilə başla və rəqəmləri bir-bir de. Qayda: What's your phone number? — It's zero five zero… Nümunə: It's zero five zero, three two one, four five, six seven.  
 
-## Kart 9 — Yeni söz
+## Kart 10 — Yeni söz
 
 **Is that right?** — Düzdür?
 
@@ -129,7 +144,7 @@ Nümunə: **Oh five five, two eight one… Is that right?** — 055 281… Düzd
 
 Qeyd: Nömrəni təkrar edib yoxlayanda deyilir.
 
-## Kart 10 — Kim nə dedi?: Kim nə dedi?
+## Kart 11 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Kursda nömrə mübadiləsi. Hər cümləyə mənasını qoş.  
 **Cütlər:** Is that right? — Düzdür?; What's your phone number? — Telefon nömrən nədir?; Thanks! — You're welcome. — Sağ ol! — Dəyməz. · artıq: Telefonun haradadır?  
@@ -145,7 +160,7 @@ Qeyd: Nömrəni təkrar edib yoxlayanda deyilir.
 **Düzgün olanda:** Hər cümlənin mənasını tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: It's oh five oh… — Nömrəm 050…-dır.; Yes, that's right. — Bəli, düzdür.; Say that again, please. — Bunu bir daha deyin, zəhmət olmasa. Səbəb: Nömrə, təsdiq və xahiş fərqli işlərdir. Qayda: Is that right? — sual; Yes, that's right. — cavab. Nümunə: Yes, that's right.  
 
-## Kart 11 — Yeni söz
+## Kart 12 — Yeni söz
 
 **Yes, that's right.** — Bəli, düzdür.
 
@@ -154,7 +169,7 @@ Oxunuşu: yes, **th**əts rayt · IPA: /jes ðæts raɪt/
 Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, düzdür.
 
 
-## Kart 12 — Dialoqu tamamla: Cavab yaz
+## Kart 13 — Dialoqu tamamla: Cavab yaz
 
 **Tapşırıq:** Kurs yoldaşın nömrəni yazıb yoxlayır. Nömrə düzdür. Təsdiqlə.  
 **Yazışma (Kurs yoldaşı):** “Zero five zero, three two one, four five, six seven. Is that right?”  
@@ -172,7 +187,7 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 **Düzgün olanda:** Nömrənin düz olduğunu təsdiqlədin.  
 - *İzah (başqa səhvdə):* Yes, that's right. — Uyğun: Yes, that's right. Səbəb: Nömrə düzdür, ona görə razılıq bildirirsən. Qayda: Is that right? — Yes, that's right. Nümunə: Yes, that's right.  
 
-## Kart 13 — İki mesaj yaz: İki mesaj yaz
+## Kart 14 — İki mesaj yaz: İki mesaj yaz
 
 **Tapşırıq:** Kursun qrup çatına yeni üzv qoşuldu; çatda nömrələr görünmür. İki mesaj yaz: 1. Onun telefon nömrəsini soruş. 2. Nömrəni yazdın — düz olduğunu soruş.  
 **Birinci mesaj:** məna: askPhone — nümunə: What's your phone number?  
@@ -192,7 +207,7 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 - *İzah (“Birinci mesaj” səhv olanda):* Uyğun: What's your phone number? Səbəb: Bu mesajda onun nömrəsini soruşmalısan. Qayda: What's your phone number? — nömrə; What's your name? — ad. Nümunə: Excuse me, what's your phone number?  
 - *İzah (“İkinci mesaj” səhv olanda):* Uyğun: Is that right? Səbəb: Bu mesajda yazdığın nömrənin düz olduğunu soruşursan. Qayda: Is that right? — sual; Yes, that's right. — cavab. Nümunə: Is that right?  
 
-## Kart 14 — Sözü tamamla: Söhbəti tamamla
+## Kart 15 — Sözü tamamla: Söhbəti tamamla
 
 **Tapşırıq:** Kursda nömrə mübadiləsi. Söhbətdə bir söz əskikdir. Düzgün sözü seç.  
 **Cümlə:** Yes, that's ___ .  

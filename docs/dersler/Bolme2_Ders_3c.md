@@ -77,7 +77,20 @@ Nümunə: **QR** — QR (kyu-ar)
 
 Qeyd: R — “ar”, “er” yox; Q — “kyu”.
 
-## Kart 7 — Səslə cavab: Kodu de
+## Kart 7 — Müəllim izahı
+
+Q və R-in adları bizimkindən çox fərqlidir.
+
+**1 · Necə oxunur?**
+- Q · “kyu”
+- R · “ar”
+
+**2 · Harada görürsən?**
+QR kodda bu iki hərfi yan-yana görürsən: “kyu-ar”.
+
+Diqqət et: K — “key”, Q — “kyu”: ikisi də “k” səsi ilə başlayır.
+
+## Kart 8 — Səslə cavab: Kodu de
 
 **Tapşırıq:** Hava limanında dostun soruşur hansı uçuşa minirsən. Biletində “LHR” yazılıb (London). Kodu hərf-hərf de.  
 **Qəbul:** dəqiq: L, H, R. · öz məlumatı: /^(?:it'?s\s+)?l[\s,.-]*h[\s,.-]*r[.!]?$/  
@@ -93,7 +106,7 @@ Qeyd: R — “ar”, “er” yox; Q — “kyu”.
 **Düzgün olanda:** Kodu ingiliscə hərf-hərf dedin.  
 - *İzah (başqa səhvdə):* Hərf-hərf de. — Uyğun: J, F, K. Səbəb: Hər hərfi ingiliscə oxunuşla, ayrı-ayrı de. Qayda: J — cey; G — ci. Nümunə: J, F, K.  
 
-## Kart 8 — Yeni söz
+## Kart 9 — Yeni söz
 
 **Y, Z** — Y — “uay”, Z — “zi”
 
@@ -103,7 +116,7 @@ Nümunə: **Y, Z.** — uay, zi
 
 Qeyd: Y — “uay”, “ye” yox; Z Amerikada “zi”.
 
-## Kart 9 — Səhnədə tap: Səhnədə tap
+## Kart 10 — Səhnədə tap: Səhnədə tap
 
 **Tapşırıq:** Tabloda üç uçuş var. Elan birini deyir. Şəkildə həmin uçuşu tap.  
 **Səs:** G, Y, D.  
@@ -123,7 +136,7 @@ Qeyd: Y — “uay”, “ye” yox; Z Amerikada “zi”.
 - *İzah (“GVA — Cenevrə” seçiləndə):* Səsdə “ci, vi, ey” yoxdur. — Uyğun: ZAG — Zaqreb. Səbəb: Səsdə “zi, ey, ci” deyilir. Qayda: Z — zi; G — ci. Nümunə: Z, A, G.  
 - *İzah (“CDG — Paris” seçiləndə):* Səsdə “si, di, ci” yoxdur. — Uyğun: ZAG — Zaqreb. Səbəb: Səsdə “zi, ey, ci” deyilir. Qayda: Z — zi; C — si. Nümunə: Z, A, G.  
 
-## Kart 10 — Sözü tamamla: Sözü tamamla
+## Kart 11 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Elan hərfləri çox sürətlə deyir. Qız yanındakı işçidən xahiş edir. Hansı söz çatmır?  
 **Cümlə:** Sorry? More ___ , please.  
@@ -143,7 +156,7 @@ Qeyd: Y — “uay”, “ye” yox; Z Amerikada “zi”.
 - *İzah (“great” seçiləndə):* “great” halı bildirir. — Uyğun: right. Səbəb: Yoxlayanda “right” deyilir. Qayda: Is that right? — düzdür?; I'm not great. — hal. Nümunə: H, K, G. Is that right?  
 - *İzah (“name” seçiləndə):* “name” addır. — Uyğun: right. Səbəb: Yoxlayanda “right” deyilir. Qayda: Is that right? — düzdür?; What's your name? — ad. Nümunə: H, K, G. Is that right?  
 
-## Kart 11 — Səslə cavab: Adını hərf-hərf de
+## Kart 12 — Səslə cavab: Adını hərf-hərf de
 
 **Tapşırıq:** Kursda müəllim siyahıya yazır və soruşur: “What's your name?” Adını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** What's your name?  
@@ -161,7 +174,7 @@ Qeyd: Y — “uay”, “ye” yox; Z Amerikada “zi”.
 **Düzgün olanda:** Adını hərf-hərf dedin.  
 - *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: It's … Səbəb: Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: G — ci; J — cey. Nümunə: A, E, I, O, U.  
 
-## Kart 12 — Seç: Cütü ayır: A yoxsa E?
+## Kart 13 — Seç: Cütü ayır: A yoxsa E?
 
 **Tapşırıq:** Qatarda vaqonun hərfi elan olunur. Hansı hərfdir?  
 **Səs:** E.  

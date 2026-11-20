@@ -85,7 +85,20 @@ Nümunə: **Do you speak French? — No, I don't.** — Fransızca danışırsan
 
 Qeyd: don't — do not-un qısasıdır.
 
-## Kart 7 — Cavab cütü: Cavab cütü
+## Kart 7 — Müəllim izahı
+
+Do you …? sualına do ilə cavab verilir.
+
+**1 · Cavablar**
+- Yes, I do. · bəli
+- No, I don't. · xeyr
+
+**2 · Niyə belədir?**
+Sual Do ilə başlayırsa, qısa cavabda da do gəlir. “Xeyr” cavabında don't deyilir.
+
+Diqqət et: Are you …? sualına I am, Do you …? sualına I do ilə cavab verilir.
+
+## Kart 8 — Cavab cütü: Cavab cütü
 
 **Tapşırıq:** Dil mübadiləsi masasında suallar. Suala toxun, sonra onun cavabını seç.  
 **Cütlər:** Do you speak Turkish? — Yes, I do.; Are you Turkish? — No, I'm not.; Where are you from? — I'm from Georgia. · artıq: Yes, he is.  
@@ -99,7 +112,7 @@ Qeyd: don't — do not-un qısasıdır.
 **Düzgün olanda:** Hər suala uyğun qısa cavabı tapdın.  
 - *İzah (başqa səhvdə):* Bir sualın cavabı yerində deyil. — Uyğun: Do you speak French? — No, I don't.; Are you from Iran? — Yes, I am.; Where do you live? — I live in Ganja. Səbəb: “Do you” sualına “do” ilə, “Are you” sualına “am” ilə cavab verilir. Qayda: Do you speak French? — No, I don't.; Are you from Iran? — Yes, I am. Nümunə: Do you speak French? — No, I don't.  
 
-## Kart 8 — Yeni söz
+## Kart 9 — Yeni söz
 
 **a little** — bir az
 
@@ -111,7 +124,7 @@ Nümunə: **I speak a little English.** — Bir az ingiliscə danışıram.
 
 Qeyd: “a” və “little” birlikdə gəlir: bir az.
 
-## Kart 9 — Səslə cavab: Dillərini de
+## Kart 10 — Səslə cavab: Dillərini de
 
 **Tapşırıq:** Dil mübadiləsi masasında yeni tanış soruşur. Cavab ver və hansı dillərdə danışdığını de: “I speak …”.  
 **Səs:** Hi! Do you speak Azerbaijani?  
@@ -133,7 +146,7 @@ Qeyd: “a” və “little” birlikdə gəlir: bir az.
 - *İzah (başqa səhvdə):* “little”dən əvvəl “a” gəlir: a little. — Uyğun: I speak a little English. Səbəb: “bir az” ingiliscə iki sözdür: a little. Qayda: I speak a little English. — düzdür; I speak little English. — başqa məna verir. Nümunə: Do you speak English? — Yes, a little.  
 - *İzah (başqa səhvdə):* I speak + dil. — Uyğun: I speak Azerbaijani and English. Səbəb: Danışdığın dilləri “I speak” ilə de; bir neçəsini “and” birləşdirir. Qayda: I speak Turkish. — bir dil; I speak Turkish and English. — iki dil. Nümunə: I speak Azerbaijani and a little Turkish.  
 
-## Kart 10 — Yeni söz
+## Kart 11 — Yeni söz
 
 **language** — dil
 
@@ -143,7 +156,7 @@ Nümunə: **What language do you speak?** — Hansı dildə danışırsan?
 
 Qeyd: Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.
 
-## Kart 11 — Sözü tamamla: Sözü tamamla
+## Kart 12 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Dil mübadiləsi masasında yeni tanış oğlandan soruşur: “Do you speak German?” Oğlan almanca bilmir. Hansı söz çatmır?  
 **Cümlə:** No, I ___ .  
@@ -163,7 +176,7 @@ Qeyd: Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.
 - *İzah (“am” seçiləndə):* “am” ilə “Are you …?” sualına cavab verilir. — Uyğun: Yes, I do. Səbəb: Sual “Do” ilə başlayıb, cavabda da “do” işlənir. Qayda: Do you speak French? — Yes, I do.; Are you French? — Yes, I am. Nümunə: Do you speak French? — Yes, I do.  
 - *İzah (“speak” seçiləndə):* Qısa cavabda “speak” təkrar olunmur. — Uyğun: Yes, I do. Səbəb: Qısa cavabda sualdakı “do” işlənir. Qayda: Yes, I do. — düzdür; Yes, I speak. — olmur. Nümunə: Do you speak French? — Yes, I do.  
 
-## Kart 12 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 13 — Dialoqu tamamla: Dialoqu tamamla
 
 **Tapşırıq:** Yeni tanış yazır. Sən ingiliscə bir az bilirsən. Qısa cavab yaz: bəli, bir az.  
 **Yazışma (Yeni tanış):** “Hi! Do you speak English?”  
@@ -183,7 +196,7 @@ Qeyd: Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.
 - *İzah (başqa səhvdə):* “bir az” iki sözdür: a little. — Uyğun: Yes, a little. Səbəb: “little”dən əvvəl “a” gəlir: a little — bir az. Qayda: Yes, a little. — düzdür; Yes, little. — olmur. Nümunə: Do you speak Russian? — Yes, a little.  
 - *İzah (başqa səhvdə):* Yes, a little. — Uyğun: Yes, a little. Səbəb: Bəli deyirsən və “a little” ilə bir az bildiyini bildirirsən. Qayda: Yes, a little. — bir az; Yes, I do. — bilirəm. Nümunə: Do you speak Russian? — Yes, a little.  
 
-## Kart 13 — Söhbəti sırala: Söhbəti sırala
+## Kart 14 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Dil mübadiləsi masası. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Hello! Do you speak Azerbaijani? → 2. Yes, I do. And you? → 3. A little. I'm Turkish. → 4. Really? Nice to meet you!  
