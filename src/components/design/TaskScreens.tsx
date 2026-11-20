@@ -485,7 +485,8 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
       <View style={{ flex: 1 }}><TapText text={l.en} style={s.dialogEn} onWord={onWord} /><Text style={s.moreAz}>{l.az}</Text></View>
       <PlayButton onPress={() => onPlay(l.en)} size={40} label={`Dinlə: ${l.en}`} />
     </View>)}</View> : <View style={[s.banner, shadow]}>
-      <Image source={mascotFull} style={{ width: 78, height: 96 }} contentFit="contain" accessibilityLabel="Maskot" />
+      {/* No mascot on Yeni söz cards (user, 20 Nov 2026): the phrase gets the full width. */}
+      {chip === 'Yeni söz' ? null : <Image source={mascotFull} style={{ width: 78, height: 96 }} contentFit="contain" accessibilityLabel="Maskot" />}
       <View style={s.bannerBubble}>
         {phrases.map(p => <Text key={p} accessibilityRole="header" style={[s.bannerText, long && { fontSize: 24, lineHeight: 30 }]}>{nameSlot(p)}</Text>)}
         {reading ? <Reading text={reading} /> : null}
