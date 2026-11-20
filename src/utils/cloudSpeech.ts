@@ -15,7 +15,7 @@ export function speechProxyEndpoint(): string | null {
   } catch { return null; }
 }
 
-export async function recognizeRecording(recording: UnverifiedRecording, locale: 'en-US' | 'en-GB' | 'de-DE' | 'ru-RU', signal?: AbortSignal): Promise<CloudSpeechResult> {
+export async function recognizeRecording(recording: UnverifiedRecording, locale: 'en-US' | 'en-US' | 'de-DE' | 'ru-RU', signal?: AbortSignal): Promise<CloudSpeechResult> {
   const endpoint = speechProxyEndpoint();
   if (!endpoint || !supabase || recording.duration < .3 || recording.duration > 20.5) return { status: 'unverified' };
   try {

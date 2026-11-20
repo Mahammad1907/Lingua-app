@@ -4,11 +4,14 @@ const ts = require('typescript');
 require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true, resolveJsonModule: true },
 }).outputText, filename);
-const { b1Packet, b1Lessons, packetFlow, packetTaskIds } = require('../src/data/b1Course.ts');
+const course = require('../src/data/b1Course.ts');
+const { b1Lessons, packetFlow, packetTaskIds } = course;
+// Old packet cards only (kept for the section exam). Lessons that exist only on the new screens have none.
+const b1Packet = course.b1Packet.filter(l => l.cards.length);
 const { b1Exams, b1PlacementTest } = require('../src/data/b1Exam.ts');
 const { assessPacketAnswer: assess } = require('../src/utils/packetAnswer.ts');
 assert.deepEqual(b1Packet.map(l => l.cards.length), [13,18,20,20,21,19,15]);
-assert.equal(b1Lessons.length, 7);
+assert.equal(b1Lessons.length, 8);
 // Lesson 2 must be reachable from the live curriculum and preserve named roles
 // when a missed question is retried, while accepting the learner's own name.
 const { getLessonById } = require('../src/data/lessons.ts');

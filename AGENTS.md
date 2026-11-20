@@ -82,6 +82,7 @@ The user is still collecting this next batch. Record these requirements now; do 
 - Avoid consecutive farewell tasks that repeat the same learning purpose. Keep different recognition/production purposes when justified and improve their placement rather than deleting a skill.
 - Confirmed wrong answers should receive a brief, soft red border animation on the wrong answer field/choice and feedback panel. This newer explicit preference supersedes the previous no-red rule for wrong-answer borders only. Keep reduced motion, no screen shake, and no error effect for technical or unverified answers.
 - Use exactly two recurring human example characters across lesson situations: the orange-clothed boy/man is Əli in Azerbaijani prose and Ali in English; the purple-clothed girl/woman is Leyla in both languages. Keep names and visual identities consistent in prompts, dialogue, audio scripts, options, explanations and authored retries; do not introduce extra named human example characters without a user request.
+  - 18 Nov 2026 update (user request): a third recurring human exists, the foreign friend (woman from the USA, token `{F}` in `src/config/characters.ts`, name empty until chosen), used from Bölmə 4 on. One-time foreign speakers stay unnamed "Yeni tanış". Still no other named humans.
 - BirFox remains the mascot, teacher and conversation guide. Do not call a pictured human BirFox. In human situation tasks, name the pictured people instead. For the supplied farewell example: “Əli Leylagildən gedir, amma ‘Hi!’ deyir. Onun yerinə uyğun sağollaşma yaz.”
 - The two-character rule governs authored examples and fixed roles, not the learner's identity: free self-introduction still accepts the learner's own/chosen name. Fixed-role answers must preserve the stated role name. Proper names are not new vocabulary and must not be added to the dictionary or highlighted as new words.
 
@@ -148,3 +149,33 @@ The user authorizes suitable, compact visuals for audio questions. Search the ex
 ## Fixed lesson viewport — user authorization 2 November 2026
 
 The user explicitly renewed the requirement that all active lesson cards fit the screen without main-page scrolling, and asked to remove the two-person illustration from the listening wave card. This supersedes earlier instructions to preserve the scrolling PacketLesson body. Keep the existing colors, grading, evidence, recording and explicit Continue behavior. The active B1 PacketLesson and PacketExam use FixedLessonViewport; their body is measured in the space remaining between the safe-area header and footer. Artwork yields first, then the body fits the available rectangle. Long result details and explanations open in dismissible overlays. Do not silently reintroduce main-page scrolling or clip answer controls. Legacy non-packet routes have not been migrated by this batch. Do not claim physical-device validation from JS layout tests.
+
+## Redesigned lesson screens — 12 November 2026
+
+The user approved a new unified light design and authorized placing Lesson 1 (docs/BirTalk_Ders_1_Yekun.md) into it. Lesson 1 now runs on `src/components/design/DesignLesson.tsx` with content in `src/data/lesson1Design.ts`; lessons 2–7 still use PacketLesson. This supersedes the earlier "preserve the existing screens" rules for Lesson 1. Copy learner-facing text from the final lesson documents; do not invent content. Character names are empty on purpose and live only in `src/config/characters.ts` (use `{M}`, `{G}`, `{B}` tokens). User decisions newer than the document: red wrong state; hold-to-talk sends on release; "İndi dinləyə bilmirəm" skips (listening Unverified); "Mənə başa sal" closes only with X and has no Continue; teaching Continue is green; no separate review intro screen. Details: docs/LAYIHE_DEFTERI.md. Device behaviour is not verified.
+
+## Lesson standard — 13 November 2026
+
+Every new or rewritten lesson follows `docs/DERS_STANDARTI.md` (length, card order, support fading, 3-option choices, five-part explanations, name tokens, CEFR A1 mapping). Describe the course as "based on CEFR A1 descriptors", never as certified CEFR-compliant.
+
+## Bölmə 1 on the new screens — 13 November 2026
+
+All eight Bölmə 1 lessons run on `DesignLesson` (`src/data/designLessons.ts`). Lessons 2–8 live in `src/data/unit1/`; edit text there and regenerate `docs/dersler/Ders_N.md` with `node scripts/export-unit1-docs.cjs`. New task screens are in `src/components/design/TaskScreens.tsx`. Wrong options come from `docs/AZ_OYRENEN_SEHVLERI.md`. Home is the code-drawn island (`src/components/home/IslandHome.tsx`). Run `node scripts/check-unit1.cjs` after any lesson change. Not verified on a device.
+
+## Taught-before-asked rule — 13 November 2026
+
+No task may show or ask for an English word that was not taught earlier (a word only mentioned in a note is not taught). Teach it on its own Yeni söz card (word, example, structure) first — one phrase per card. Same screen type never twice in a row; lessons must not end the same way. Run `node scripts/check-taught.cjs` after any lesson change. Readings use American pronunciation in Azerbaijani letters with no phonetic marks. The approved 12 Nov 2026 design images are the base; new screen types are shown to the user as a mockup before coding.
+
+Speech uses `en-US` everywhere (13 Nov 2026): the user chose American pronunciation; this replaces the earlier UK pronunciation rule.
+
+Full hand-off for a new session (workflow, rules, code map, open work): `docs/YENI_SOHBET_UCUN.md`. Read it first.
+
+Explanations follow `docs/IZAH_STANDARTI.md` (14 Nov 2026, from an external review the user accepted): 4 lines (Uyğun / Səbəb / Qayda / Nümunə), only the two forms on screen, no grammar terms, no “həmişə”, no untaught English in explanations or hints. `check-taught.cjs` enforces it for all eight lessons.
+
+All user rules in one place (Azerbaijani): `docs/BUTUN_QAYDALAR.md` — read it before any work.
+
+## Spaced review (18 Nov 2026)
+Finished lessons enter a 1 / 3 / 7 / 14 day schedule (then 30 days): src/utils/spacedReview.ts (engine, `node scripts/check-spaced.cjs`), src/store/reviewStore.ts (own storage key), src/data/reviewSession.ts (daily session built from each task's review variant, run by DesignLesson, route `/lesson/session?id=review`). Correct = one stage up, wrong = two stages down; skipped/technical answers change nothing. No XP or progress is written by a review. Not yet tested on a device.
+
+## Section exams (18 Nov 2026)
+One reader: src/utils/examResults.ts. userStore.saveSectionExam keeps every attempt (`examHistory`, last 20) and the best one (`sectionExams`). A section that has an exam opens the next one only when its lessons are done and the exam is passed (70 %) — homeCourse.ts and moduleUnlocked(…, sectionExams). Old module tests stay in `placementResults`. TEST_OPEN_SECTIONS still opens sections for testing. Check: `node scripts/check-exam.cjs`. Not yet device-tested.

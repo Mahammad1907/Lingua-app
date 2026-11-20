@@ -43,7 +43,7 @@ export default function AudioSceneActivity({ audio, options, disabled, onAnswer,
       if (playing) { await Speech.stop(); setPlaying(false); return; }
       await Speech.stop();
       setError(''); setPlaying(true);
-      Speech.speak(audio, { language: 'en-GB', rate: 0.75,
+      Speech.speak(audio, { language: 'en-US', rate: 0.75,
         onDone: () => { if (mounted.current) { heard.current = true; setHasHeard(true); setPlaying(false); } },
         onStopped: () => { if (mounted.current) setPlaying(false); },
         onError: () => { if (mounted.current) { setPlaying(false); setError('Səs açılmadı. Telefonun səsini yoxlayıb yenidən bas.'); } },

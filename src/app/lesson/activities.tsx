@@ -50,7 +50,7 @@ function Activities({ lesson, content, attemptId, elapsed }: {
     useUserStore.getState().recordTask(attemptId, `game:${stop}`, value === currentStop.answer, value);
     setFeedback(value === currentStop.answer ? 'correct' : 'wrong');
     void Speech.stop().then(() => {
-      Speech.speak(value, { language: 'en-GB', rate: 0.75 });
+      Speech.speak(value, { language: 'en-US', rate: 0.75 });
     }).catch(() => {});
   };
 

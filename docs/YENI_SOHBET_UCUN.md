@@ -1,0 +1,158 @@
+# BirTalk — yeni söhbət üçün tam vəziyyət (yeniləndi: 15 noyabr 2026)
+
+## 0. Ən son vəziyyət (15 noyabr 2026) — əvvəlcə bunu oxu
+
+- **Bölmə 3 "Haradansan" hazırdır** (15 noyabr): `src/data/unit3/` (11 hissə: 1, 2a, 2b, 3a, 3b, 4, 5a, 5b, 6, 7, 8 + `exam.ts`), xəritə `docs/BOLME_3_XERITESI.md`, yoxlama `check-unit3.cjs`. Yeni ekran **Xəritədə tap** (`CountryMap`). Qayda 20: “Azeri” sözü qadağandır. Test girişi `[1, 2, 3]`. Növbəti: Bölmə 4 “Ailə və insanlar” — əvvəlcə xəritə.
+- **Bölmə 1 + Bölmə 2 hazırdır**, hər ikisinin imtahanı var (yeni ekranlarda). Bölmə 2: `src/data/unit2/` (12 hissə: 1a,1b,2,3a,3b,3c,4,5,6,7a,7b,8 + `exam.ts`), Bölmə 1 imtahanı `src/data/unit1/exam.ts`. Xəritə: `docs/BOLME_2_XERITESI.md`.
+- **Kurs planı (təsdiqlənib):** A1 10 bölmə, A2 14, B1 18, B2 20. Hər bölmə xəritədə sabit 8 dərs (çox material → dərs 2–3 hissə) + bölmə imtahanı (Kömək yox, keçid ≥80%). A1-də dərsdə 4–6 yeni vahid. Vəd/iddia mətni yoxdur. Bölmə 3 də yazılıb (yuxarıya bax).
+- **Mühərrik (yeni):** Nömrəni yığ / Hərfləri tut / Formanı doldur ekranları; imtahan rejimi (`DesignLesson.exam`); 2–3 hissəli dərs halqası; bölmələr ana səhifədə alt-alta sürüşür (`ApprovedHome`, `IslandHome bare/after`); səssiz rejimdə səs (`setAudioModeAsync`); yavaş dinləmə fasilələrlə; “Sözü tamamla”dan sonra cümlə hissə-hissə səslənib yaşıl yanır; çərçivəli tapşırıq kartı; öz e-poçtu düzəldilmiş göstərilir (`ownDataFix`); ümumi tipik səhvlər (`COMMON_SLIPS` — What's is, It's that right); Əlifba lövhəsi (Lüğətim); yeni söz kartında avtomatik söz-söz izah (lüğətdən, qayda 18).
+- **TEST GİRİŞİ AÇIQDIR:** `src/config/testAccess.ts` → `[1, 2, 3]` (bütün dərslər, hissələr, imtahanlar açıq). İstifadəçilərə çıxmazdan əvvəl `[]` et.
+- **Şəkillər:** hamısı boşdur (işarə ilə). Qərar: B2-yə qədər bütün bölmələr hazırlanır, şəkillər ən sonda bir dəfəyə (qayda 19). Hər yeni şəkil yerinə `SCENE_NOTES`-də təsvir yaz.
+- **İş qaydası:** istifadəçi telefonda test edib düzəlişləri siyahı ilə göndərir; “bitti” deyənə qədər yalnız siyahıya yaz. Tokeni qənaətlə xərclə. Hər bölmədən sonra mətni yazmayan müstəqil yoxlayıcı.
+- **Açıq/bilinən:** imtahanda tanınmayan danışıq “yoxlanmadı” sayılır (xala daxil deyil); “a” hərfi lüğətdə yoxdur; Bölmə 2-nin son düzəlişlərini müstəqil yoxlayıcı yenidən oxumayıb; telefonda heç nə təsdiqlənməyib.
+
+
+Bu fayl yeni söhbətdə işə davam etmək üçündür. **Bütün qaydalar bir yerdə: `docs/BUTUN_QAYDALAR.md` — onu mütləq oxu.** Əvvəlcə bunu, sonra `AGENTS.md`-ni və `docs/LAYIHE_DEFTERI.md`-nin son bölmələrini oxu.
+
+## 1. Layihə
+
+- **BirTalk**: Azərbaycan dilində danışanlara ingilis dili öyrədən mobil tətbiq (A1 səviyyəsi, CEFR A1 təsvirlərinə əsaslanır — “sertifikatlı” demə).
+- Repo: `Mahammad1907/Lingua-app`, branch **`claude/lesson1-new-screens`**, PR #5. Son commit: `95f7f2f`.
+- Stack: Expo SDK 57, React Native 0.86, expo-router, zustand (`src/store/userStore.ts`, AsyncStorage), expo-speech, expo-image, react-native-svg, reanimated, expo-haptics, Nunito şrifti.
+- **`package.json`, `package-lock.json`, SDK fayllarına toxunma.**
+
+## 2. İstifadəçi necə işləyir (vacib)
+
+- Windows + iPhone, **Expo Go** ilə yoxlayır: `git pull`, sonra `npx.cmd expo start -c --go`, kamera ilə QR. Dev build yoxdur (Apple Developer hesabı yoxdur). Expo Go-da nitq tanıma işləmir → səsli cavablar “Yoxlanmadı” olur, bu normaldır.
+- Git “Unlink of file … failed (y/n)” çıxsa: `n`, Metro-nu dayandır, yenidən `git pull`.
+- **İş qaydası:** səhvləri bir-bir göstərir. “Bitdi” (və ya “hələlik bu qədər, başla”) deyənə qədər **yalnız qeyd et, kodu dəyişmə**. Sonra hamısını birlikdə et. Tək “Tamam/Yaxşı” başlamaq göstərişi deyil. İstisna: “hələlik bunu et” desə, o bəndi dərhal et.
+- **Bir ekranda dəyişiklik edəndə bütün ekranları yoxla.** “Edildi” yazdığın hər şeyi kodda həqiqətən yoxla — keçmişdə “edildi” yazılıb edilməyən bəndlər olub və istifadəçi bundan çox narazıdır.
+- **Qənaət:** lazım olmayan faylı oxuma, şəkil render etmə, istəmədən ekran görüntüsünə baxma (limit). Cavablar qısa, Azərbaycan dilində.
+- Telefonda yoxlanmayanı “yoxlandı” demə. Cavabın sonunda istifadəçiyə **hansı ekranlara baxacağını** siyahı ilə ver.
+- Commit sonunda:
+  ```
+  Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+  Claude-Session: https://claude.ai/code/session_015orjzHXofg7AjSqio3a7pd
+  ```
+- İstifadəçinin e-poçtu şəxsidir, heç yerə yazma.
+
+## 3. Kod xəritəsi
+
+| Nə | Harada |
+|---|---|
+| Dərs axını (bütün 8 dərs) | `src/components/design/DesignLesson.tsx` |
+| Tapşırıq ekranları (SayBubble, LearnView/WordView, GapSentence, ChatThread, TileTray, MatchBoard + OrderBoard, SceneSpots, PhraseCard, ImageSlot, PlayButton, SlowButton) | `src/components/design/TaskScreens.tsx` |
+| Ümumi hissələr (Header, AudioPanel, ChoiceOption, Field, Capsule, `ds` stilləri, `nameSlot`) | `src/components/design/parts.tsx` |
+| Nəticə paneli, “Mənə başa sal”, Kömək | `src/components/design/LessonSheets.tsx` |
+| Mikrofon | `src/components/design/HoldToTalk.tsx` |
+| Rənglər | `src/components/design/theme.ts` |
+| Tiplər | `src/data/designLessonTypes.ts` |
+| Qiymətləndirmə (gradeChoice/Text/Two/Match, reviewTask, resolveLesson) | `src/utils/designLesson.ts` |
+| Dərs 1 | `src/data/lesson1Design.ts` (təsdiqlənmiş yekun sənəddən — **toxunma**, istifadəçi belə istədi) |
+| Dərs 2–8 | `src/data/unit1/lesson2.ts … lesson8.ts`, köməkçilər `build.ts`, lüğət `glossary.ts` |
+| **Kartların ardıcıllığı** | `src/data/unit1/index.ts` → `ordered(lessonN, [...])` (nömrələri özü verir) |
+| Şəkillər / işarələr | `src/config/sceneImages.ts` (`SCENE_IMAGES` boşdur, `SHOW_IMAGE_SLOTS = true`, `SCENE_NOTES`) |
+| Ana səhifə (ada xəritəsi, A5) | `src/components/home/IslandHome.tsx`, `ApprovedHome.tsx` |
+| Analiz | `src/components/analysis/AnalysisScreen.tsx`, `src/utils/progressInsights.ts` |
+| AI söhbət | `src/app/ai-chat.tsx` (boş, “Tezliklə”) |
+
+## 4. Yoxlamalar
+
+```
+node scripts/check-taught.cjs        # öyrədilmədən soruşma + ekran müxtəlifliyi (ƏN VACİB)
+node scripts/check-unit1.cjs         # dərs 2–8 quruluşu
+node scripts/check-design-lesson.cjs # dərs 1
+node scripts/export-unit1-docs.cjs   # docs/dersler/Ders_N.md yenilə
+```
+- `check-home-render`, `check-lesson-voice`, `check-onboarding-flow`, `check-progression`, `check-vocabulary-persistence` əvvəldən uğursuzdur (node_modules yoxdur) — yeni xəta deyil.
+- node_modules yoxdur. Typecheck üçün stub `tsconfig` qurmaq lazımdır (köhnə sessiyada `/home/claude/tscheck` idi: modul tapılmama xətaları TS2305/TS7006/TS7031/TS2307 və köhnə userStore/supabase/cloudSpeech xətaları süzülürdü).
+
+## 5. Qəbul olunmuş qaydalar (qısa)
+
+**Məzmun**
+- **Heç bir tapşırıq öyrədilməmiş ingilis sözü göstərmir/soruşmur.** Yalnız qeyddə keçən söz öyrədilmiş sayılmır. Söz Yeni söz kartında (word, example, structure) öyrədilir. `check-taught.cjs` yoxlayır.
+- Eyni ekran növü dalbadal gəlmir (bir söhbətin növbələri istisna), iki dərs eyni 3 ekranla bitmir. Dərslər şablon deyil.
+- **Hibrid:** 12 noyabr təsdiqlənmiş ekranları (Dinlə və seç, Dinlə və yaz, Yazı, Səslə cavab, İki mesaj, Seçim) + sonradan əlavə olunanlar (Sözü tamamla, Mesaj yaz, Dialoq, Kim nə dedi?, Səhnədə tap, Təkrarla, Söhbəti sırala, Cavab cütü). Hər dərsdə hər iki qrupdan.
+- **Yeni ekran növü əvvəlcə maket kimi göstərilir**, istifadəçi təsdiqləyir, sonra kod.
+- Oxunuşlar Azərbaycan hərfləri ilə, **Amerika tələffüzü**, iki nöqtə/fonetik işarə yoxdur (“hau ar yu?”, “uats yor neym?”, “sari”), **th** qalın narıncı. IPA da Amerika variantı (ː yoxdur). Səs hər yerdə `en-US`.
+- Ad yeri “…” ekranda **[ad]** görünür (`nameSlot`), Azərbaycanca mənalarda da.
+- Personaj adları boşdur (`src/config/characters.ts`, `{M}` `{G}` `{B}` tokenləri). Maskot = “Dostun”.
+- Hər tapşırığın ipucu var, cavabı açmır. Kömək iki addımdır: ipucu → nümunə (səsli) / mətn (dinləmə). Nümunə əvvəlcədən yalnız 1–2-ci dərsdə görünür.
+- Səhvlər dərsin sonunda başqa vəziyyətdə təkrar gəlir.
+
+**Görünüş**
+- Vəziyyət sətri tünd bənövşəyi extrabold 18, tapşırıq sətri tünd extrabold 19. **Solğun mətn yoxdur** (istifadəçi dəfələrlə şikayət edib).
+- Səs düymələri **yalnız ikon**: dairəvi play + tısbağa (yavaş). “Dinlə” yazısı yoxdur.
+- **Yeni söz kartı** (təsdiqlənmiş “İlk salam” dizaynı, sadələşdirilmiş): bir kartda bir ifadə (yalnız eyni mənalı qısa cütlər birlikdə: Hello/Hi, Goodbye/Bye, Thank you/Thanks); bənövşəyi banner + maskot + balonda ifadə, altında oxunuş, play, tısbağa; altda Mənası · Quruluşu (lazım olanda) · Nümunə · bir qısa qeyd. Sürüşmə yoxdur. Fonetik yazı kartda yoxdur.
+- Danışanın kartı (səsli cavab): avatar + cümlə + play + dalğa + tısbağa.
+- Dinləmədə Kömək səs kartının altındadır.
+- **Kim nə dedi?, Cavab cütü, Söhbəti sırala ekranlarında Kömək yoxdur.**
+- Şəkil yerləri: narıncı qırıq xətli “ŞƏKİL n · …” işarəsi. Söhbət/dinləmə/səsli/Sözü tamamla/Kim nə dedi ekranlarında şəkil yoxdur.
+- Ana səhifə: A5 — yumru dərs düymələri, faiz halqaları, nöqtəli yol, toxunanda kart açılır, yuxarı sağda maskot başı, Analiz ikonu, altda üzən menyu (AI söhbət “tezliklə”).
+
+## 5a. İzahlar
+
+`docs/IZAH_STANDARTI.md` — “Mənə başa sal” izahlarının qaydası (xarici yoxlamadan, istifadəçi qəbul etdi). `check-taught.cjs` yoxlayır.
+
+## 6. Dərslərin vəziyyəti
+
+- 8 dərs, hamısı `DesignLesson`-da. Dərs 8 = bölmə söhbəti.
+- Kart sayı 11–14. Yeni ayrıca söz kartları: d2_c02b, d3_c06b, d4_c04b, d4_c04c, d5_c05b, d6_c04b, d7_c04b.
+- Söhbəti sırala: d4_c07, d7_c09, d8_c08. Cavab cütü: d5_c13, d8_c13. Kim nə dedi?: Dərs 2–8.
+- Lazım olan şəkillər: dərslər üçün 44 (siyahı `docs/SEKIL_SIYAHISI.md` §1, §5, §6, §7), üstəlik maskot pozaları 4, ana səhifə 9, avatarlar 2. 1.1 və 1.3 köhnədir, siyahıdan çıxarılmalıdır.
+
+## 7. Açıq işlər
+
+1. Gündəlik təkrar ayrıca qısa sessiya deyil (düymə səhv sözlər siyahısını açır).
+2. Bölmə imtahanı köhnə kartlardadır, “Dinlə” (öz səsini dinlə) düymələri orada qalıb.
+3. Şəkillər hazır deyil; “Səhnədə tap” nöqtələrinin yeri təxminidir.
+4. Yeni söz kartına əsl şəkil gələndə kart sürüşə bilər → şəkli bannerin içinə (maskotun yerinə) qoymaq təklif olunub.
+5. Personaj adları seçilməyib.
+6. Bölmə 2+, yeni ekran ideyaları (Kim deyər?, Səsi tap, 2 boşluqlu dialoq), AI söhbət.
+7. Telefonda son dəyişikliklər (Yeni söz kartı, Söhbəti sırala, Cavab cütü, tünd mətnlər) hələ istifadəçi tərəfindən tam yoxlanmayıb.
+
+## 8. 14 noyabr 2026-da əlavə olunanlar
+
+- **İzah və tapşırıq standartı:** `docs/IZAH_STANDARTI.md` (xarici yoxlamadan, istifadəçi qəbul etdi). `check-taught.cjs` 8 dərsin hamısında yoxlayır: öyrədilmədən göstərmə (qəbul siyahısı, izah, ipucu daxil), ifadə öz kartından əvvəl görünmür, qadağan sözlər, Qayda sətri lüğət tərcüməsi deyil, izah/ipucunda IPA yoxdur.
+- **Üç müstəqil yoxlama** (34 → 22 → 17 bənd), hamısı düzəldi: `docs/MUSTEQIL_YOXLAMA_2026-11-14.md`, `_2_`, `_3_`. Dördüncü yoxlama aparılmadı — növbəti addım istifadəçinin telefonda yoxlamasıdır.
+- **Yeni ekranlar:** Söhbəti sırala (`match` `mode: 'order'`), Cavab cütü (`mode: 'reply'`). Bu üç toxun-yerləşdir ekranında Kömək yoxdur.
+- **Oxunaqlılıq:** `theme.ts`-də `orangeText #A84A08`, `greenText #0F6E2A`, `redText #B42318` — mətn üçün yalnız bunlar.
+- **Beynəlxalq audit:** `docs/BEYNELXALQ_AUDIT_2026-11-14.md` — mağaza bloklayıcıları: hesab silmə, placeholder-lər (ŞƏKİL, AI söhbət), işləməyən profil düymələri, məxfilik siyasəti; Azure razılığı.
+- **Funksionallıq rəyi:** `docs/FUNKSIONALLIQ_RAYI_2026-11-14.md` — ardıcıllıq təklifi: (1) gündəlik təkrar + xatırlatma/gündəlik hədəf, (2) bölmə imtahanı yeni dizaynda, (3) Bölmə 2+, (4) tələffüz (dev build).
+
+## 9. Yeni dərslər yazmaq (Bölmə 2+)
+
+1. Əvvəlcə bölmənin xəritəsini istifadəçiyə təsdiqlət (mövzular, hər dərsin məqsədi, yeni ifadələr, CEFR A1 təsvirləri). Nümunə: `docs/BOLME_1_XERITESI.md`.
+2. Dərslər `src/data/unit2/` kimi ayrıca qovluqda, `unit1/` quruluşu ilə (build.ts köməkçiləri, glossary, index.ts-də `ordered()`), `src/data/designLessons.ts`-ə əlavə.
+3. Qaydalar: `docs/DERS_STANDARTI.md`, `docs/IZAH_STANDARTI.md`, `docs/AZ_OYRENEN_SEHVLERI.md`; bir kartda bir ifadə; öyrədilmədən soruşma; hibrid ekranlar; eyni ekran dalbadal yox; Bölmə 1-in sözləri spiral təkrar olunsun.
+4. Yoxlama: `check-taught.cjs` (yeni bölməni də yükləməlidir), `check-unit1.cjs`-ə oxşar `check-unit2.cjs`, `export-unit1-docs.cjs`-ə oxşar export.
+5. Hər bölmədən sonra müstəqil yoxlayıcı agent (mətni yazmayan) — hesabatı olduğu kimi istifadəçiyə göstər.
+6. Ana səhifədə yeni bölmə: `src/data/modules.ts`, `src/data/b1Course.ts`, `IslandHome.tsx`.
+
+## 10. Şəkillər və Bölmə 1-in məzmunu (yeni dərslər üçün)
+
+- **Şəkillər hələlik boş qalır.** Şəkil yaratma və ya axtarma. Yeni dərslərdə şəkil lazım olan yerə yalnız işarə qoy: kartda `scenes: ['dN/ad']`, `src/config/sceneImages.ts`-də `SCENE_NOTES`-a qısa təsvir (“8.3 · …”), `docs/SEKIL_SIYAHISI.md`-yə sətir (⏳). Tətbiqdə narıncı “ŞƏKİL” işarəsi görünəcək. Şəkillər sonra ayrıca hazırlanacaq; buraxılışdan əvvəl işarələr gizlədilməlidir (audit).
+- **Bölmə 1-də nə öyrədilib — tam siyahı:** `docs/dersler/BirTalk_Bolme1_Ders1-8.md` (8 dərsin bütün kartları, cavablar, izahlar) və hər dərs ayrıca `docs/dersler/Ders_1.md … Ders_8.md`. Öyrədilmiş ifadələr: Hello/Hi, Goodbye/Bye, I'm …, My name is …, What's your name?, Nice to meet you., You too., How are you?, I'm fine, thanks. And you?, I'm OK., I'm not very well., Thank you!/Thanks!, You're welcome., please, Excuse me, Sorry!, No problem., Sorry? I don't understand., Again, please., Slowly, please. Bölmə 2 bunların üstünə qurulur və onları spiral təkrar edir; `check-taught.cjs` əvvəlki bölmələrin sözlərini öyrədilmiş sayır.
+
+## Vəziyyət — 18–19 Nov 2026 söhbətinin yekunu (əvvəlcə bunu oxu)
+**İstifadəçi ilə iş qaydası:** Azərbaycanca yaz, qısa cavab (mobil). İşə başlamazdan əvvəl nə edəcəyini de və “başla” gözlə; sual verəndə yalnız cavab ver, heç nəyi dəyişmə. Limit qənaəti: lazımsız fayl oxuma. Kompüter: Windows 10 PowerShell, yalnız bir nəfərdir (tanış/müəllim/test edəcək adam yoxdur).
+
+**Bu söhbətdə edilənlər (hamısı push olunub, son commit 6badaab):**
+- Təkrar sistemi 1/3/7/14 gün (+30): `src/utils/spacedReview.ts`, `src/store/reviewStore.ts`, `src/data/reviewSession.ts`, `scripts/check-spaced.cjs`; ana səhifə “Gündəlik təkrar” kartı, route `/lesson/session?id=review`.
+- Vahid imtahan sistemi: `src/utils/examResults.ts`, cəhd tarixçəsi (`examHistory`), keçid balı **70%**, imtahan keçilməyincə növbəti bölmə açılmır; `scripts/check-exam.cjs`.
+- Təbiilik qaydaları (BUTUN_QAYDALAR G2) və qərarlar (G3); 3 müstəqil yoxlayıcı Bölmə 1–3-ü oxudu; düzəldildi: yalan izahlar, qəbul olunan cavablar, “Say that again, please.” / “More slowly, please.”, “Hi! What's your name?” (Excuse me yalnız yad adam/işçi), “Nice to meet you” adlardan sonra, “I'm not great.”.
+- HƏLƏ DÜZƏLDİLMƏYƏN: “He is fine” → “He's fine” (Bölmə 3 Dərs 5), Mr./Ms. nöqtəsi, forma etiketi “How old are you?”, ikiqat cümlələr (“I'm from X. I'm Y.”).
+
+**Ayrıca olan işlər:**
+- **Bölmə 4 “Ailə və insanlar”**: hələ başlanmayıb; əvvəlcə xəritə təsdiqə göstərilir; `{F}` dostdan istifadə.
+- **Supabase sinxronu**: buraxılışdan əvvələ saxlanılıb (ilk variant: yalnız buluda saxla/bərpa et). Hazırda irəliləyiş yalnız AsyncStorage-dədir.
+- **Səsləndirmə və şəkillər**: sonda (Duolingo yolu: hər personaj üçün TTS səsi, fayllar buludda).
+- **Mr/Ms, ana dilli yoxlama**: mümkün deyil → G2 qaydaları məcburi.
+
+**Telefonda sınaq vəziyyəti:**
+- İstifadəçinin kompüterində layihə `C:\Users\user\lingua-app` (git ilə `claude/lesson1-new-screens`-ə yenilənib, `.env` var). EAS hesabı `mahammad_07`, layihə `@mahammad_07/lingua-app` bağlanıb, `.env` EAS-ə `preview` mühitinə yüklənib.
+- **Android APK build** başladılıb (`eas build --platform android --profile preview`, SDK 57): nəticə expo.dev-də. Android telefon evdədir; səs tanıma yalnız belə build-də işləyir (Expo Go-da yox).
+- **iPhone:** Expo Go artıq yalnız **SDK 58** qəbul edir, layihə **SDK 57**-dədir → iPhone-da Expo Go ilə açmaq üçün SDK 58-ə yüksəltmək lazımdır. `npx expo install expo@^58.0.0 --fix` ERESOLVE xətası verdi; təklif: `$env:npm_config_legacy_peer_deps="true"` ilə yenidən, ayrıca `sdk-58` branch-ında; xəta mətnini göndərmək. Apple Developer hesabı yoxdur. Alternativ: brauzer (`npx expo start --web`) hələ yoxlanmayıb.
+- SDK/package.json dəyişikliyi yalnız istifadəçinin icazəsi ilə (AGENTS.md).
+
+**Layihənin qiymətləndirilməsi (simulyasiya olunmuş münsiflər):** texniki keyfiyyət və sistem güclüdür; real istifadəçi, səs/şəkil və gəlir modeli yoxdur. Real istifadəçini Azərbaycanca icmalardan (Telegram/Facebook/Reddit/TikTok) və Android APK paylaşaraq tapmaq planlaşdırılıb.

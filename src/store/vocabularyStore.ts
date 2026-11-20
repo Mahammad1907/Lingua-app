@@ -60,6 +60,8 @@ interface VocabularyState {
   wrongWords: WrongWord[];
 
   addLessonWords: (lessonId: string) => Promise<void>;
+  /** Adds only the given words of a lesson the moment they are first taught; never duplicates. */
+  addTaughtWords: (lessonId: string, words: string[]) => Promise<void>;
   getPage: (pageNumber: number) => VocabPage | undefined;
   getTotalPages: () => number;
   saveTestResult: (
@@ -128,6 +130,24 @@ export const useVocabularyStore = create<VocabularyState>((set, get) => ({
     }), ...newWords];
     set({ allWords, pages: buildPages(allWords),
       completedLessons: [...new Set([...state.completedLessons, lessonId])] });
+    await get().saveToStorage();
+  },
+  addTaughtWords: async (lessonId, words) => {
+    await get().loadFromStorage();
+    const state = get(), lesson = lessons.find(l => l.id === lessonId);
+    if (!lesson) return;
+    const wanted = new Set(words.map(vocabularyKey));
+    const known = new Set(state.allWords.map(v => `${v.language}:${vocabularyKey(v.word)}`));
+    const newWords: VocabWord[] = [];
+    for (const v of lesson.vocabulary) {
+      const key = `${lesson.language}:${vocabularyKey(v.word)}`;
+      if (!wanted.has(vocabularyKey(v.word)) || known.has(key)) continue;
+      known.add(key);
+      newWords.push({ ...v, id: `${lessonId}_${v.id}`, language: lesson.language, level: lesson.level, lessonId: lesson.id, lessonTitle: lesson.titleAz });
+    }
+    if (!newWords.length) return;
+    const allWords = [...state.allWords, ...newWords];
+    set({ allWords, pages: buildPages(allWords) });
     await get().saveToStorage();
   },
   reconcileCompletedLessons: async (ids) => {

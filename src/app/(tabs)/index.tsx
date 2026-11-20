@@ -3,13 +3,15 @@ import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { HomeDashboard, HOME_LANGUAGES, HomeNavigation, type HomeDestination } from '../../components/home/ApprovedHome';
+import { HomeDashboard, HOME_LANGUAGES, HomeNavigation, NAV_HEIGHT, type HomeDestination } from '../../components/home/ApprovedHome';
 import { HomeIcon } from '../../components/home/HomeIcon';
 import { lessons } from '../../data/lessons';
 import { getAllModules } from '../../data/modules';
 import { useUserStore } from '../../store/userStore';
 import { buildHomeCourse } from '../../utils/homeCourse';
+import { getShortSession } from '../../data/firstConversation';
 import { moduleTest } from '../../utils/moduleAccess';
+import { useReviewStore } from '../../store/reviewStore';
 
 const SELECTION_KEY = '@birtalk_home_selection_v1';
 const LEVELS = ['A1', 'A2', 'B1', 'B2'];
@@ -23,6 +25,7 @@ export default function Home() {
   const xp = useUserStore((s) => s.xp);
   const completedLessons = useUserStore((s) => s.completedLessons);
   const placementResults = useUserStore((s) => s.placementResults);
+  const sectionExams = useUserStore((s) => s.sectionExams);
   const [selection, setSelection] = useState({ language: 'en', level: LEVELS.includes(userLevel) ? userLevel : 'A1' });
   const [pickerOpen, setPickerOpen] = useState(false);
   const [lockedId, setLockedId] = useState<string | null>(null);
@@ -44,7 +47,7 @@ export default function Home() {
     return () => { cancelled = true; };
   }, []);
   const course = useMemo(() => buildHomeCourse({ modules, ...selection, completedLessons,
-    placementResults, availableLessonIds: AVAILABLE_LESSONS }), [modules, selection, completedLessons, placementResults]);
+    placementResults, sectionExams, availableLessonIds: AVAILABLE_LESSONS }), [modules, selection, completedLessons, placementResults, sectionExams]);
   function choose(language: string, level: string) {
     userSelected.current = true;
     const next = { language, level };
@@ -52,16 +55,19 @@ export default function Home() {
     void AsyncStorage.setItem(SELECTION_KEY, JSON.stringify(next)).catch(() => {});
   }
   function navigate(destination: HomeDestination) {
-    if (destination === 'review') router.push('/vocabulary/wrong-words-list');
+    if (destination === 'review') router.push(useReviewStore.getState().dueCount() > 0 ? { pathname: '/lesson/session', params: { id: 'review' } } : '/vocabulary/wrong-words-list');
     if (destination === 'vocabulary') router.navigate('/(tabs)/vocabulary');
     if (destination === 'profile') router.navigate('/(tabs)/profile');
+    if (destination === 'chat') router.push('/ai-chat');
+    if (destination === 'analysis') router.push('/analysis');
   }
   return <View style={styles.root}>
     <HomeDashboard course={course} language={selection.language} level={selection.level} xp={xp}
-      compact={width < 360} topInset={insets.top} onNavigate={navigate} onSelect={() => setPickerOpen(true)}
+      compact={width < 360} topInset={insets.top} bottomSpace={NAV_HEIGHT + Math.max(insets.bottom, 10)} onNavigate={navigate} onSelect={() => setPickerOpen(true)}
+      onLesson={(id) => router.push(getShortSession(id) ? { pathname: '/lesson/session', params: { id } } : { pathname: '/lesson/vocabulary', params: { id } })}
       onOpen={(id) => {
         if (course.items.find((item) => item.id === id)?.state === 'locked') setLockedId(id);
-        else router.push({ pathname: '/module/[id]', params: { id } });
+        else router.replace('/(tabs)');
       }} />
     <HomeNavigation bottomInset={insets.bottom} onNavigate={navigate} />
     <Modal visible={lockedId !== null} transparent animationType="fade" onRequestClose={() => setLockedId(null)}>
