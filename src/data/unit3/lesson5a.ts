@@ -74,14 +74,6 @@ export const lesson5a: DesignLesson = {
       },
     },
     {
-      // Short forms he's / she's explained before first use; recalls I'm from Bölmə 1 (20 Nov 2026).
-      type: 'teach', id: 'u3d5a_c05s', number: 6, title: 'Qısa forma',
-      lead: 'I am → I’m kimi, bunlar da qısa deyilir. Hər birini dinlə:',
-      phrases: [{ en: 'He is fine.', az: 'O (kişi) yaxşıdır.' }, { en: "He's fine.", az: 'O (kişi) yaxşıdır (qısa).' }],
-      structure: ['he is → he’s', 'she is → she’s'],
-      notes: ['Danışıqda qısa deyilir. Mənası eynidir.', 'Apostrof (\') düşən hərfin yerini göstərir: he is → he’s, she is → she’s.'],
-    },
-    {
       type: 'word', id: 'u3d5a_c06', number: 6, scenes: ['mascot/globe'],
       word: "He's from …", pronunciation: '/hiz frʌm/', reading: 'hiz fram …', az: 'O (kişi) …-dandır.',
       structure: ["He's from + ölkə / şəhər."],
@@ -124,6 +116,17 @@ export const lesson5a: DesignLesson = {
       structure: ["She's from + ölkə / şəhər."],
       notes: ["She's — she is-in qısası, “şiz” oxunur."],
       example: "She's from France.", exampleAz: 'O, Fransadandır.',
+    },
+    {
+      // “Müəllim izahı” (approved mockup, 20 Nov 2026): he's / she's in detail right after both word cards.
+      type: 'explain', id: 'u3d5a_c09t', number: 10,
+      lead: "Gəl, She's from ifadəsinə yaxından baxaq.", focus: "She's from",
+      sections: [
+        { title: 'Kim haqqında danışırsan?', pairs: [{ en: "He's", az: 'kişi' }, { en: "She's", az: 'qadın' }] },
+        { title: 'Niyə qısa yazılır?', short: { full: 'She is', drop: 'i', short: "She's", note: 'I am → I’m kimi: danışıqda belə deyilir, mənası eynidir. Apostrof (’) düşən hərfin yeridir.' } },
+        { title: 'Necə qurulur?', build: { parts: ["She's from", 'ölkə / şəhər'], examples: [{ en: "She's from France.", az: 'Fransadandır.' }, { en: "He's from Baku.", az: 'Bakıdandır.' }] } },
+      ],
+      attention: 'Biz “Fransa-dan” deyirik, “-dan” sonda gəlir. İngiliscədə from ölkədən əvvəl gəlir: from France.',
     },
     {
       type: 'write', id: 'u3d5a_c10', number: 10, title: 'Mesaj yaz', why: 'Qadın haqqında — She’s from.', hint: 'Qadın haqqında yazırsan; “-dandır” hissəsi ayrıca sözdür.',

@@ -19,7 +19,7 @@ import {
 import type { TaskEvidence } from '../../utils/lessonEvidence';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import HoldToTalk from './HoldToTalk';
-import { ChatThread, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
+import { ChatThread, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TeacherView, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
 import Icon from './Icons';
 import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
 import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
@@ -376,6 +376,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (!current) return null;
     if (current.type === 'intro') return <IntroView card={current} title={lesson.title} size={imageSize} />;
     if (current.type === 'word') return <WordView card={current} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
+    if (current.type === 'explain') return <TeacherView card={current} onPlay={t => speak(t, 0.85)} />;
     if (current.type === 'teach') return <LearnView chip="Öyrən" title={current.title} lead={current.lead} phrases={current.phrases.map(p => p.en)} az={current.phrases.map(p => p.az).join(' · ')}
       dialog={current.phrases.length > 2 ? current.phrases : undefined}
       structure={current.structure} notes={current.notes} example={current.example} scenes={current.scenes} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
@@ -504,6 +505,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (showResult) return finish ? <MainButton label={lesson.result.button} onPress={exit} arrow /> : null;
     if (!current) return null;
     if (current.type === 'intro') return <MainButton label={current.start} onPress={next} arrow />;
+    if (current.type === 'explain') return <MainButton label="Başa düşdüm" tone="green" onPress={next} arrow />;
     if (current.type === 'teach') return <MainButton label="Davam et" tone="green" onPress={next} arrow />;
     if (current.type === 'word') return <MainButton label="Davam et" tone="green" onPress={next} arrow />;
     if (!task) return null;

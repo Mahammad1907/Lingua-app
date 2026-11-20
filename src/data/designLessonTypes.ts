@@ -92,6 +92,23 @@ export interface TeachCard {
   example?: { en: string; az: string };
   scenes?: string[];
 }
+/** “Müəllim izahı” (approved mockup, 20 Nov 2026): the mascot explains a rule in up to three numbered parts and a
+ *  “Diqqət et” note. Comes right after the word card when a topic needs more than the short card. */
+export interface ExplainCard {
+  type: 'explain'; id: string; number: number;
+  /** Mascot bubble; the `focus` phrase inside it is coloured. */
+  lead: string; focus?: string;
+  sections: {
+    title: string;
+    /** Two side-by-side chips, e.g. He's · kişi / She's · qadın. */
+    pairs?: { en: string; az: string }[];
+    /** Long → short form with the dropped letter crossed out, with sound. */
+    short?: { full: string; drop: string; short: string; note: string };
+    /** Pattern chips and spoken examples. */
+    build?: { parts: string[]; examples: { en: string; az: string }[] };
+  }[];
+  attention?: string;
+}
 /** “Yeni söz”: one new word or phrase, shown right before the task that first uses it. */
 export interface WordCard {
   type: 'word'; id: string; number: number;
@@ -119,7 +136,7 @@ export interface DesignLesson {
   reviewOf?: Record<string, string>;
   /** Section exam: no Kömək or hints, no retry round, pass mark 70 % (docs/BOLME_2_XERITESI.md §0). */
   exam?: boolean;
-  cards: (IntroCard | TeachCard | WordCard | TaskWithReview)[];
+  cards: (IntroCard | TeachCard | WordCard | ExplainCard | TaskWithReview)[];
   result: {
     done: string[]; incomplete: string; goals: ResultGoal[]; closing: string; button: string;
     technical: string; unverified: string;

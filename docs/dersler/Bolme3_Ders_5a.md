@@ -65,19 +65,7 @@ Qeyd: Kişi üçün he, qadın üçün she — azərbaycancada ikisi də “o”
 **Düzgün olanda:** He və she fərqini tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: She is fine. — O (qadın) yaxşıdır.; He is not great. — O (kişi) çox yaxşı deyil.; He is OK. — O (kişi) normaldır. Səbəb: Birinci söz kimin haqqında olduğunu deyir. Qayda: He is OK. — kişi; She is OK. — qadın. Nümunə: She is fine.  
 
-## Kart 6 — Öyrətmə / səhnə: Qısa forma
-
-I am → I’m kimi, bunlar da qısa deyilir. Hər birini dinlə:
-
-- **He is fine.** — O (kişi) yaxşıdır.
-- **He's fine.** — O (kişi) yaxşıdır (qısa).
-
-Danışıqda qısa deyilir. Mənası eynidir.
-Apostrof (') düşən hərfin yerini göstərir: he is → he’s, she is → she’s.
-
-Quruluşu: he is → he’s · she is → she’s
-
-## Kart 7 — Yeni söz
+## Kart 6 — Yeni söz
 
 **He's from …** — O (kişi) …-dandır.
 
@@ -89,7 +77,7 @@ Nümunə: **He's from Turkey.** — O, Türkiyədəndir.
 
 Qeyd: He's — he is-in qısası, “hiz” oxunur.
 
-## Kart 8 — Sözü tamamla: Sözü tamamla
+## Kart 7 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Qız video zəngdə ekrandakı kişi dostunu göstərir. Dost Türkiyədəndir. Hansı söz çatmır?  
 **Cümlə:**  ___ 's from Turkey.  
@@ -109,7 +97,7 @@ Qeyd: He's — he is-in qısası, “hiz” oxunur.
 - *İzah (“He” seçiləndə):* Qadın üçün she deyilir. — Uyğun: She. Səbəb: Yanındakı qadındır, ona görə She. Qayda: She's from France. — qadın; He's from France. — kişi. Nümunə: She's from France.  
 - *İzah (“I” seçiləndə):* Oğlan özü haqqında danışmır. — Uyğun: She. Səbəb: Özün haqqında I’m, qadın haqqında She’s. Qayda: I'm from Azerbaijan. — mən; She's from France. — o (qadın). Nümunə: She's from France.  
 
-## Kart 9 — Səslə cavab: Səslə cavab
+## Kart 8 — Səslə cavab: Səslə cavab
 
 **Tapşırıq:** Video zəngdə Dostun ekrandakı kişini soruşur. O kişi Gürcüstandandır. De: o, Gürcüstandandır.  
 **Qəbul:** dəqiq: He's from Georgia. · öz məlumatı: /^he(?:'s|’s|\s+is)\s+from\s+georgia\s*[.!]?$/  
@@ -129,7 +117,7 @@ Qeyd: He's — he is-in qısası, “hiz” oxunur.
 - *İzah (başqa səhvdə):* He/she-dən sonra “is” lazımdır. — Uyğun: He's from Russia. Səbəb: Azərbaycancada “-dır” şəkilçidir, ingiliscə ayrıca söz kimi gəlir: is, qısası ’s. Qayda: He's from Russia. — düzdür; He from Russia. — olmur. Nümunə: He's from Turkey.  
 - *İzah (başqa səhvdə):* He's from + ölkə. — Uyğun: He's from Russia. Səbəb: Kişi haqqında He’s from, sonra ölkə. Qayda: He's from Russia. — kişi; She's from Russia. — qadın. Nümunə: He's from Turkey.  
 
-## Kart 10 — Yeni söz
+## Kart 9 — Yeni söz
 
 **She's from …** — O (qadın) …-dandır.
 
@@ -140,6 +128,24 @@ Quruluşu: She's from + ölkə / şəhər.
 Nümunə: **She's from France.** — O, Fransadandır.
 
 Qeyd: She's — she is-in qısası, “şiz” oxunur.
+
+## Kart 10 — Müəllim izahı
+
+Gəl, She's from ifadəsinə yaxından baxaq.
+
+**1 · Kim haqqında danışırsan?**
+- He's · kişi
+- She's · qadın
+
+**2 · Niyə qısa yazılır?**
+- She is → She's (düşən: i). I am → I’m kimi: danışıqda belə deyilir, mənası eynidir. Apostrof (’) düşən hərfin yeridir.
+
+**3 · Necə qurulur?**
+- She's from + ölkə / şəhər
+- **She's from France.** — Fransadandır.
+- **He's from Baku.** — Bakıdandır.
+
+Diqqət et: Biz “Fransa-dan” deyirik, “-dan” sonda gəlir. İngiliscədə from ölkədən əvvəl gəlir: from France.
 
 ## Kart 11 — Mesaj yaz (sözlərdən): Mesaj yaz
 

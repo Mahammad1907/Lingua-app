@@ -32,6 +32,7 @@ const english = text => /[a-z]/i.test(text || '') && !/[əğıöüşçƏĞİÖÜ
 
 function teaches(card) {
   if (card.type === 'word') return [card.word, card.example, ...(card.structure || [])];
+  if (card.type === 'explain') return card.sections.flatMap(x => [...(x.pairs || []).map(p => p.en), ...(x.short ? [x.short.full, x.short.short] : []), ...(x.build ? [x.build.parts[0], ...x.build.examples.map(e => e.en)] : [])]);
   if (card.type === 'teach') return [...card.phrases.map(p => p.en), ...(card.structure || []), card.example?.en];
   return [];
 }

@@ -122,21 +122,25 @@ Qeyd: “I'm fine” ilə yaxındır.
 **Düzgün olanda:** Halını dedin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Halını de və “And you?” soruş. — Uyğun: I'm OK. And you? Səbəb: Dostun halını soruşdu — halını deyib eyni sualı ona qaytarırsan. Qayda: Halın + And you? Nümunə: I'm fine, thanks. And you?  
 
-## Kart 10 — Söhbəti sırala: Söhbəti sırala
+## Kart 10 — Sözü tamamla: Söhbəti tamamla
 
-**Tapşırıq:** Qız və oğlan küçədə rastlaşır. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hi! How are you? → 2. I'm fine, thanks. And you? → 3. I'm OK. Bye!  
-**İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
-**Düzgün olanda:** Söhbət salam və sualla başladı, sonra cavab və qayıdan sual gəldi.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye! Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: How are you? — sual; I’m fine, thanks. And you? — cavab və qayıdan sual. Nümunə: Hi! How are you? → I'm fine, thanks. And you? → I'm OK. Bye!  
+**Tapşırıq:** Qız və oğlan küçədə rastlaşır. Söhbətdə bir söz əskikdir. Düzgün sözü seç.  
+**Cümlə:** I'm ___ . Bye!  
+**Seçimlər:** OK / you / name — **düzgün:** OK  
+**İpucu:** Oğlan “And you?” soruşdu — qız öz halını deyir.  
+**Düzgün olanda:** Qız necə olduğunu dedi və sağollaşdı.  
+- *İzah (“you” seçiləndə):* “And you?” sualına öz halını deyirsən. — Uyğun: OK. Səbəb: Oğlan “Bəs sən?” soruşdu, qız necə olduğunu deyir. Qayda: I'm OK. — normalam; I'm you — olmur. Nümunə: I'm OK. Bye!  
+- *İzah (“name” seçiləndə):* Burada ad yox, hal soruşulur. — Uyğun: OK. Səbəb: “How are you?” halı soruşur, adı yox. Qayda: I'm OK. — hal; My name is … — ad. Nümunə: I'm OK. Bye!  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Oğlan və qız dərsdən sonra görüşür. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hello! How are you? → 2. I'm not great. And you? → 3. I'm fine, thanks.  
-**İpucu:** Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.  
-**Düzgün olanda:** Sual, cavab və ona reaksiya düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! How are you? → I'm not great. And you? → I'm fine, thanks. Səbəb: Əvvəl salam və ya sual gəlir, sonra ona cavab verilir. Qayda: How are you? — sual; I’m not great. And you? — cavab və qayıdan sual. Nümunə: Hello! How are you? → I'm not great. And you? → I'm fine, thanks.  
+**Tapşırıq:** Oğlan və qız dərsdən sonra görüşür. Söhbətdə bir söz əskikdir. Düzgün sözü seç.  
+**Cümlə:** I'm ___ , thanks.  
+**Seçimlər:** fine / you / name — **düzgün:** fine  
+**İpucu:** Qız “And you?” soruşdu — oğlan öz halını deyir.  
+**Düzgün olanda:** Oğlan necə olduğunu dedi.  
+- *İzah (“you” seçiləndə):* “And you?” sualına öz halını deyirsən. — Uyğun: fine. Səbəb: Qız “Bəs sən?” soruşdu, oğlan necə olduğunu deyir. Qayda: I'm fine. — yaxşıyam; I'm you — olmur. Nümunə: I'm fine, thanks.  
+- *İzah (“name” seçiləndə):* Burada ad yox, hal soruşulur. — Uyğun: fine. Səbəb: “How are you?” halı soruşur, adı yox. Qayda: I'm fine. — hal; My name is … — ad. Nümunə: I'm fine, thanks.  
 
 ## Kart 11 — Dinlə və təkrarla: Dinlə və təkrarla
 

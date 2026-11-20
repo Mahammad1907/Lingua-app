@@ -7,7 +7,7 @@ import { AccessibilityInfo, Animated, Easing, Pressable, StyleSheet, Text, View 
 import Svg, { Circle, ClipPath, Defs, G, Path, Rect } from 'react-native-svg';
 import { characterAz, hasCharacterName } from '../../config/characters';
 import { missingScenes, sceneImage } from '../../config/sceneImages';
-import type { ChatLine, MatchTask, WordCard, Who } from '../../data/designLessonTypes';
+import type { ChatLine, ExplainCard, MatchTask, WordCard, Who } from '../../data/designLessonTypes';
 import { glossOf } from '../../data/unit1/glossary';
 import Icon, { type IconName } from './Icons';
 import { ds, nameSlot, Waveform } from './parts';
@@ -350,6 +350,47 @@ function LivePin({ left, top }: { left: string; top: string }) {
   </View>;
 }
 
+/** “Müəllim izahı” (approved mockup 20 Nov 2026): mascot bubble, numbered parts, “Diqqət et”. */
+export function TeacherView({ card, onPlay }: { card: ExplainCard; onPlay: (t: string) => void }) {
+  const lead = card.focus ? card.lead.split(card.focus) : [card.lead];
+  const crossed = (full: string, drop: string) => {
+    const at = full.indexOf(` ${drop}`) + 1 || full.indexOf(drop);
+    return <Text style={s.tvBig}>{full.slice(0, at)}<Text style={{ color: d.purpleDisabledText, textDecorationLine: 'line-through' }}>{drop}</Text>{full.slice(at + drop.length)}</Text>;
+  };
+  return <View style={{ gap: 12 }}>
+    <View style={s.learnChip}><Text style={s.learnChipText}>Müəllim izahı</Text></View>
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+      <Avatar who="M" size={52} />
+      <View style={s.tvBubble}><Text style={ds.body}>{lead.map((p, i) => <Text key={i}>{p}{i < lead.length - 1 ? <Text style={{ color: d.purple, ...font.bold }}>{card.focus}</Text> : null}</Text>)}</Text></View>
+    </View>
+    <View style={s.tvCard}>
+      {card.sections.map((sec, i) => <View key={i} style={[{ gap: 8 }, i > 0 && s.tvDivider]}>
+        <Text style={ds.label}>{i + 1} · {sec.title}</Text>
+        {sec.pairs ? <View style={{ flexDirection: 'row', gap: 8 }}>{sec.pairs.map((p, k) => <Pressable key={p.en} accessibilityRole="button" onPress={() => onPlay(p.en)}
+          style={[s.tvPair, { backgroundColor: k % 2 ? d.purpleSoft : d.orangeSoft }]}><Text style={ds.strong}>{p.en} <Text style={{ color: k % 2 ? d.lavenderText : d.orangeText, ...font.regular }}>· {p.az}</Text></Text></Pressable>)}</View> : null}
+        {sec.short ? <>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            {crossed(sec.short.full, sec.short.drop)}<Text style={[s.tvBig, { color: d.purple }]}>→</Text><Text style={[s.tvBig, { color: d.purple }]}>{sec.short.short}</Text>
+            <View style={{ flex: 1 }} />
+            <Pressable accessibilityRole="button" accessibilityLabel="Dinlə" onPress={() => onPlay(`${sec.short!.full}. ${sec.short!.short}`)} style={s.tvPlay}><Icon name="play" size={20} color="#fff" /></Pressable>
+          </View>
+          <Text style={[ds.body, { color: d.lavenderText }]}>{sec.short.note}</Text>
+        </> : null}
+        {sec.build ? <>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 }}>{sec.build.parts.map((p, k) => <View key={k} style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+            {k ? <Text style={ds.strong}>+</Text> : null}<View style={[s.tvPair, { flex: 0, backgroundColor: k % 2 ? d.orangeSoft : d.purpleSoft }]}><Text style={ds.strong}>{nameSlot(p)}</Text></View></View>)}</View>
+          {sec.build.examples.map(e => <Pressable key={e.en} accessibilityRole="button" onPress={() => onPlay(e.en)} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+            <Icon name="play" size={16} color={d.purple} /><Text style={ds.strong}>{nameSlot(e.en)}</Text><Text style={[ds.body, { color: d.lavenderText }]}>{e.az}</Text></Pressable>)}
+        </> : null}
+      </View>)}
+      {card.attention ? <View style={[{ gap: 6 }, s.tvDivider]}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}><Icon name="bulb" size={16} color={d.orangeText} /><Text style={[ds.label, { color: d.orangeText }]}>Diqqət et</Text></View>
+        <Text style={ds.body}>{card.attention}</Text>
+      </View> : null}
+    </View>
+  </View>;
+}
+
 export function CountryMap({ map, options, value, onPick, mark, disabled }: {
   map: 'neighbours' | 'world'; options: string[]; value: string; onPick: (o: string) => void; mark?: Mark; disabled?: boolean;
 }) {
@@ -597,6 +638,12 @@ const s = StyleSheet.create({
   scene: { width: '100%', aspectRatio: 1.1, borderRadius: 24, overflow: 'hidden', backgroundColor: d.purpleSoft, borderWidth: 1, borderColor: d.border },
   spot: { position: 'absolute', width: 40, height: 40, marginLeft: -20, marginTop: -20, borderRadius: 20, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
   spotText: { fontSize: 18, ...font.extrabold },
+  tvBubble: { flex: 1, backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: d.purpleSoft, paddingHorizontal: 14, paddingVertical: 10 },
+  tvCard: { backgroundColor: '#fff', borderRadius: 22, borderWidth: 1.5, borderColor: d.purpleSoft, padding: 16, gap: 14 },
+  tvDivider: { borderTopWidth: 1, borderTopColor: d.purpleSoft, paddingTop: 14 },
+  tvPair: { flex: 1, borderRadius: 14, paddingHorizontal: 12, paddingVertical: 10 },
+  tvBig: { color: d.ink, fontSize: 22, ...font.extrabold },
+  tvPlay: { width: 44, height: 44, borderRadius: 22, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center' },
   mapBox: { width: '100%', aspectRatio: 1.55, borderRadius: 18, overflow: 'hidden', borderWidth: 1, borderColor: d.border, backgroundColor: '#E3EEFB' },
   phrase: { alignItems: 'center', gap: 6, padding: 18, borderRadius: radius.card, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
   phraseText: { color: d.ink, fontSize: 26, lineHeight: 34, textAlign: 'center', ...font.extrabold },

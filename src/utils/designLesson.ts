@@ -1,9 +1,9 @@
 // Pure lesson logic for the redesigned lesson screens (no React, so it can be tested in Node).
-import type { DesignLesson, DesignTask, Explanation, IntroCard, MatchTask, ReviewOf, TeachCard, TwoTask, Variant, WordCard } from '../data/designLessonTypes';
+import type { DesignLesson, DesignTask, ExplainCard, Explanation, IntroCard, MatchTask, ReviewOf, TeachCard, TwoTask, Variant, WordCard } from '../data/designLessonTypes';
 import { resolveNames } from '../config/characters';
 import { assessPacketAnswer, normalizePacketAnswer, type PacketVerdict } from './packetAnswer';
 
-export type FlowCard = IntroCard | TeachCard | WordCard | DesignTask;
+export type FlowCard = IntroCard | TeachCard | WordCard | ExplainCard | DesignTask;
 export type Verdict = 'correct' | 'wrong' | 'unknown' | 'empty';
 
 export interface Graded {

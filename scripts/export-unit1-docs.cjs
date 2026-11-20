@@ -13,7 +13,7 @@ const fileOf = l => l.exam ? `Bolme${l.unit ?? 1}_Imtahan.md` : (l.unit ?? 1) ==
 const sourceOf = l => l.exam ? `src/data/unit${l.unit ?? 1}/exam.ts` : l.order === 1 ? 'src/data/lesson1Design.ts' : (l.unit ?? 1) === 1 ? `src/data/unit1/lesson${l.order}.ts` : `src/data/unit${l.unit}/lesson${l.number}${l.part ? 'abc'[l.part - 1] : ''}.ts`;
 const headOf = l => l.exam ? `Bölmə ${l.unit ?? 1} imtahanı` : `Dərs ${l.number ?? l.order}${l.part ? ` · ${l.part}-ci hissə` : ''} — ${l.title}`;
 
-const SCREEN = { keypad: 'Nömrəni yığ', letters: 'Hərfləri tut', form: 'Formanı doldur', choice: 'Seç', gap: 'Sözü tamamla', scene: 'Səhnədə tap', map: 'Xəritədə tap', write: 'Yaz', chat: 'Dialoqu tamamla', tiles: 'Mesaj yaz (sözlərdən)', voice: 'Səslə cavab', repeat: 'Dinlə və təkrarla', match: 'Kim nə dedi?', order: 'Söhbəti sırala', reply: 'Cavab cütü', two: 'İki mesaj yaz', word: 'Yeni söz', teach: 'Öyrətmə / səhnə', intro: 'Giriş' };
+const SCREEN = { explain: 'Müəllim izahı', keypad: 'Nömrəni yığ', letters: 'Hərfləri tut', form: 'Formanı doldur', choice: 'Seç', gap: 'Sözü tamamla', scene: 'Səhnədə tap', map: 'Xəritədə tap', write: 'Yaz', chat: 'Dialoqu tamamla', tiles: 'Mesaj yaz (sözlərdən)', voice: 'Səslə cavab', repeat: 'Dinlə və təkrarla', match: 'Kim nə dedi?', order: 'Söhbəti sırala', reply: 'Cavab cütü', two: 'İki mesaj yaz', word: 'Yeni söz', teach: 'Öyrətmə / səhnə', intro: 'Giriş' };
 const kind = t => t.type === 'two' && t.form ? 'form' : t.type === 'write' ? (t.keypad ? 'keypad' : t.letters ? 'letters' : t.tiles ? 'tiles' : t.chat ? 'chat' : 'write') : t.type === 'choice' ? (t.gap ? 'gap' : t.map ? 'map' : t.spots ? 'scene' : 'choice') : t.type === 'voice' ? (t.repeat ? 'repeat' : 'voice') : t.type === 'match' ? (t.mode && t.mode !== 'meaning' ? t.mode : 'match') : t.type;
 const rule = r => r.exact ? `dəqiq: ${r.answers.join(' / ')}` : `məna: ${(r.goals || []).join(' + ')} — nümunə: ${r.answers.join(' / ')}`;
 
@@ -45,9 +45,12 @@ for (const raw of allLessons) {
   const lesson = L.resolveLesson(raw);
   const out = [`# ${headOf(lesson)}`, '', `Bölmə ${lesson.unit ?? 1} · ${lesson.section ?? ''}. Bu sənəd \`${sourceOf(lesson)}\`-dən yaradılıb — mətni orada dəyiş, sonra \`node scripts/export-unit1-docs.cjs\`.`, ''];
   for (const card of lesson.cards) {
-    const k = card.type === 'intro' || card.type === 'teach' || card.type === 'word' ? card.type : kind(card);
+    const k = card.type === 'intro' || card.type === 'teach' || card.type === 'word' || card.type === 'explain' ? card.type : kind(card);
     out.push(`## ${card.number ? `Kart ${card.number}` : 'Giriş'} — ${SCREEN[k]}${card.title ? `: ${card.title}` : ''}`, '');
     if (card.type === 'intro') out.push(card.subtitle, '', ...card.goals.map(g => `- ${g.text}`));
+    if (card.type === 'explain') out.push(card.lead, '', ...card.sections.flatMap((x, i) => [`**${i + 1} · ${x.title}**`, ...(x.pairs || []).map(p => `- ${p.en} · ${p.az}`),
+      ...(x.short ? [`- ${x.short.full} → ${x.short.short} (düşən: ${x.short.drop}). ${x.short.note}`] : []), ...(x.build ? [`- ${x.build.parts.join(' + ')}`, ...x.build.examples.map(e => `- **${e.en}** — ${e.az}`)] : []), '']),
+      ...(card.attention ? [`Diqqət et: ${card.attention}`] : []));
     if (card.type === 'teach') out.push(card.lead ?? '', '', ...card.phrases.map(p => `- **${p.en}** — ${p.az}`), '', ...card.notes, ...(card.structure ? ['', `Quruluşu: ${card.structure.join(' · ')}`] : []), ...(card.example ? ['', `Nümunə: **${card.example.en}** — ${card.example.az}`] : []));
     if (card.type === 'word') out.push(`**${card.word}** — ${card.az}`, '', `Oxunuşu: ${card.reading ?? '—'} · IPA: ${card.pronunciation}`, ...(card.structure ? ['', `Quruluşu: ${card.structure.join(' · ')}`] : []), '', `Nümunə: **${card.example}** — ${card.exampleAz}`, '', ...(card.notes ?? []).map(n => `Qeyd: ${n}`));
     if (L.isTask(card)) {
