@@ -41,7 +41,8 @@ const MIN_FIT = 0.78;
 
 export default function DesignLesson({ source }: { source: Lesson }) {
   const lesson = useMemo(() => resolveLesson(source), [source]);
-  const flow = useMemo(() => lessonFlow(lesson), [lesson]);
+  // The opening “Bu dərsdə” screen is not shown in lessons (user, 20 Nov 2026); exams keep theirs (rules, 70 %).
+  const flow = useMemo(() => lessonFlow(lesson).filter(c => lesson.exam || c.type !== 'intro'), [lesson]);
   const router = useRouter(); const insets = useSafeAreaInsets(); const { height } = useWindowDimensions();
 
   const [attempt, setAttempt] = useState('');

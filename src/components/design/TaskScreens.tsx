@@ -2,9 +2,9 @@
 // Principle: every task is a small conversation — speech bubbles, avatars, a message thread.
 // No paired two-column buttons, no 2×2 picture grids, no 3D button shadows, no gradients or emoji.
 import { Image } from 'expo-image';
-import type { ReactNode } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import Svg, { Circle, Path, Rect, Text as SvgText } from 'react-native-svg';
+import { useEffect, useRef, type ReactNode } from 'react';
+import { AccessibilityInfo, Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
+import Svg, { Circle, ClipPath, Defs, G, Path, Rect } from 'react-native-svg';
 import { characterAz, hasCharacterName } from '../../config/characters';
 import { missingScenes, sceneImage } from '../../config/sceneImages';
 import type { ChatLine, MatchTask, WordCard, Who } from '../../data/designLessonTypes';
@@ -285,6 +285,71 @@ const MAPS: Record<'neighbours' | 'world', { w: number; h: number; sea?: string;
     },
   },
 };
+/** Bounding box of a map path (M, L, Q, H, V, Z commands only). */
+function pathBox(path: string) {
+  const xs: number[] = [], ys: number[] = []; let x = 0, y = 0;
+  for (const [, cmd, args] of path.matchAll(/([MLQHVZ])([^MLQHVZ]*)/g)) {
+    const n = (args.match(/-?\d+(?:\.\d+)?/g) ?? []).map(Number);
+    if (cmd === 'H') n.forEach(v => { x = v; xs.push(x); ys.push(y); });
+    else if (cmd === 'V') n.forEach(v => { y = v; xs.push(x); ys.push(y); });
+    else for (let i = 0; i + 1 < n.length; i += 2) { x = n[i]; y = n[i + 1]; xs.push(x); ys.push(y); }
+  }
+  const x0 = Math.min(...xs) - 2, y0 = Math.min(...ys) - 2;
+  return { x: x0, y: y0, w: Math.max(...xs) - x0 + 4, h: Math.max(...ys) - y0 + 4 };
+}
+
+/** Simplified flags drawn into a country's box (user, 20 Nov 2026: the map keeps its shape, each country wears its flag). */
+function Flag({ name, b }: { name: string; b: { x: number; y: number; w: number; h: number } }) {
+  const { x, y, w, h } = b;
+  const rows = (colors: string[]) => colors.map((c, i) => <Rect key={i} x={x} y={y + i * h / colors.length} width={w} height={h / colors.length + .5} fill={c} />);
+  const cols = (colors: string[]) => colors.map((c, i) => <Rect key={i} x={x + i * w / colors.length} y={y} width={w / colors.length + .5} height={h} fill={c} />);
+  const cx = x + w / 2, cy = y + h / 2, u = Math.min(w, h);
+  const cross = (c: string, t: number) => <><Rect x={cx - t / 2} y={y} width={t} height={h} fill={c} /><Rect x={x} y={cy - t / 2} width={w} height={t} fill={c} /></>;
+  const crescent = (bg: string, r: number, dx = 0) => <><Circle cx={cx + dx} cy={cy} r={r} fill="#fff" /><Circle cx={cx + dx + r * .28} cy={cy} r={r * .8} fill={bg} /></>;
+  switch (name) {
+    case 'Russia': return <>{rows(['#FFFFFF', '#1C57A5', '#D52B1E'])}</>;
+    case 'Iran': return <>{rows(['#239F40', '#FFFFFF', '#DA0000'])}</>;
+    case 'Germany': return <>{rows(['#000000', '#DD0000', '#FFCE00'])}</>;
+    case 'France': return <>{cols(['#0055A4', '#FFFFFF', '#EF4135'])}</>;
+    case 'Azerbaijan': return <>{rows(['#0092BC', '#E4002B', '#00AF66'])}{crescent('#E4002B', u * .12)}</>;
+    case 'Turkey': return <><Rect x={x} y={y} width={w} height={h} fill="#E30A17" />{crescent('#E30A17', u * .2, -u * .06)}<Circle cx={cx + u * .2} cy={cy} r={u * .05} fill="#fff" /></>;
+    case 'England': return <><Rect x={x} y={y} width={w} height={h} fill="#fff" />{cross('#CE1124', u * .16)}</>;
+    // Georgia: the four small crosses keep it apart from England.
+    case 'Georgia': return <><Rect x={x} y={y} width={w} height={h} fill="#fff" />{cross('#E8112D', u * .14)}
+      {[[.25, .25], [.75, .25], [.25, .75], [.75, .75]].map(([px, py], i) => <G key={i}><Rect x={x + px * w - u * .03} y={y + py * h - u * .1} width={u * .06} height={u * .2} fill="#E8112D" />
+        <Rect x={x + px * w - u * .1} y={y + py * h - u * .03} width={u * .2} height={u * .06} fill="#E8112D" /></G>)}</>;
+    case 'the UK': return <><Rect x={x} y={y} width={w} height={h} fill="#012169" />
+      <Path d={`M${x} ${y} L${x + w} ${y + h} M${x + w} ${y} L${x} ${y + h}`} stroke="#fff" strokeWidth={u * .18} /><Path d={`M${x} ${y} L${x + w} ${y + h} M${x + w} ${y} L${x} ${y + h}`} stroke="#C8102E" strokeWidth={u * .06} />
+      {cross('#fff', u * .26)}{cross('#C8102E', u * .14)}</>;
+    case 'the USA': return <>{Array.from({ length: 7 }, (_, i) => <Rect key={i} x={x} y={y + i * h / 7} width={w} height={h / 7 + .5} fill={i % 2 ? '#fff' : '#B22234'} />)}
+      <Rect x={x} y={y} width={w * .42} height={h * 4 / 7} fill="#3C3B6E" /></>;
+    default: return <Rect x={x} y={y} width={w} height={h} fill="#fff" />;
+  }
+}
+
+/** “Sən buradasan” without words: a location pin with a slowly widening live ring (still under reduced motion). */
+function LivePin({ left, top }: { left: string; top: string }) {
+  const pulse = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    let loop: Animated.CompositeAnimation | undefined; let alive = true;
+    void AccessibilityInfo.isReduceMotionEnabled().then(reduce => {
+      if (!alive || reduce) return;
+      loop = Animated.loop(Animated.timing(pulse, { toValue: 1, duration: 1600, easing: Easing.out(Easing.quad), useNativeDriver: true }));
+      loop.start();
+    });
+    return () => { alive = false; loop?.stop(); };
+  }, [pulse]);
+  return <View pointerEvents="none" accessibilityLabel="Sən buradasan" style={{ position: 'absolute', left: left as `${number}%`, top: top as `${number}%`, width: 0, height: 0, alignItems: 'center', justifyContent: 'center' }}>
+    <Animated.View style={{ position: 'absolute', width: 34, height: 34, borderRadius: 17, backgroundColor: d.orange,
+      opacity: pulse.interpolate({ inputRange: [0, 1], outputRange: [.45, 0] }), transform: [{ scale: pulse.interpolate({ inputRange: [0, 1], outputRange: [.4, 1.4] }) }] }} />
+    <View style={{ position: 'absolute', width: 14, height: 14, borderRadius: 7, backgroundColor: d.orange, borderWidth: 2.5, borderColor: '#fff' }} />
+    <Svg width={24} height={30} viewBox="0 0 24 30" style={{ position: 'absolute', top: -36 }}>
+      <Path d="M12 29 C12 29 2 17.5 2 11 A10 10 0 0 1 22 11 C22 17.5 12 29 12 29 Z" fill={d.orange} stroke="#fff" strokeWidth={2} />
+      <Circle cx={12} cy={11} r={3.6} fill="#fff" />
+    </Svg>
+  </View>;
+}
+
 export function CountryMap({ map, options, value, onPick, mark, disabled }: {
   map: 'neighbours' | 'world'; options: string[]; value: string; onPick: (o: string) => void; mark?: Mark; disabled?: boolean;
 }) {
@@ -295,18 +360,19 @@ export function CountryMap({ map, options, value, onPick, mark, disabled }: {
     <Svg width="100%" height="100%" viewBox={`0 0 ${m.w} ${m.h}`}>
       <Rect x={0} y={0} width={m.w} height={m.h} rx={14} fill="#E3EEFB" />
       {m.sea ? <Path d={m.sea} fill="#C9DDF6" /> : null}
+      <Defs>{drawn.map(([name, sh]) => <ClipPath key={name} id={`${map}-${name.replace(/\W/g, '')}`}><Path d={sh.path} /></ClipPath>)}</Defs>
       {drawn.map(([name, sh]) => {
         const option = options.includes(name);
         const home = name === m.home;
         const on = option && value === name;
-        const fill = home ? d.orangeSoft : on ? markColor(mark, d.purple) + '33' : '#FFFFFF';
-        const stroke = home ? d.orange : on ? markColor(mark, d.purple) : d.borderStrong;
-        return <Path key={name} d={sh.path} fill={fill} stroke={stroke} strokeWidth={home || on ? 2.5 : 1.5}
-          onPress={option && !disabled ? () => onPick(name) : undefined} />;
+        const stroke = on ? markColor(mark, d.purple) : home ? d.orange : '#3A2E55';
+        return <G key={name} onPress={option && !disabled ? () => onPick(name) : undefined}>
+          <G clipPath={`url(#${map}-${name.replace(/\W/g, '')})`} opacity={option || home ? 1 : .35}><Flag name={name} b={pathBox(sh.path)} /></G>
+          <Path d={sh.path} fill="none" stroke={stroke} strokeOpacity={option || home ? 1 : .35} strokeWidth={on ? 3 : home ? 2.5 : 1.4} strokeLinejoin="round" />
+        </G>;
       })}
-      <SvgText x={m.label[0]} y={m.label[1]} fontSize={11} fontWeight="800" fill={d.orangeText} textAnchor="middle">Sən buradasan</SvgText>
-      {homeShape ? <Circle cx={homeShape.pin[0]} cy={homeShape.pin[1]} r={4} fill={d.orange} /> : null}
     </Svg>
+    {homeShape ? <LivePin left={`${(homeShape.pin[0] / m.w) * 100}%`} top={`${(homeShape.pin[1] / m.h) * 100}%`} /> : null}
     {options.map((o, i) => {
       const sh = m.shapes[o];
       if (!sh) return null;
