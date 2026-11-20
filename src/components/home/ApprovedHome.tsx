@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react';
-import { ScrollView, View } from 'react-native';
+import { useCallback, useEffect, useRef } from 'react';
+import { ScrollView, View, useWindowDimensions } from 'react-native';
+import { useFocusEffect } from 'expo-router';
 import { getPacketLesson } from '../../data/b1Course';
 import { designLessons } from '../../data/designLessons';
 import { TEST_OPEN_SECTIONS } from '../../config/testAccess';
@@ -32,7 +33,18 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
   const sections = course.items.filter(item => item.lessonsCount > 0);
   const current = sections.find(item => item.state === 'current')?.order ?? 1;
   const scrollRef = useRef<ScrollView>(null);
-  const scrolled = useRef(false);
+  // The map opens at the current lesson, also after coming back from a lesson (user, 20 Nov 2026):
+  // top of the current section + the current lesson inside it, placed about a third down the screen.
+  const { height: screenH } = useWindowDimensions();
+  const sectionTop = useRef<Record<number, number>>({ 1: 0 });
+  const activeY = useRef<Record<number, number>>({});
+  const scrollToCurrent = useCallback(() => {
+    const top = sectionTop.current[current], inside = activeY.current[current];
+    if (top === undefined) return;
+    const y = Math.max(0, top + (inside ?? 0) - (inside === undefined ? 0 : screenH * .35));
+    setTimeout(() => scrollRef.current?.scrollTo({ y, animated: false }), 0);
+  }, [current, screenH]);
+  useFocusEffect(useCallback(() => { scrollToCurrent(); }, [scrollToCurrent]));
   if (language !== 'en' || level !== 'A1' || !sections.length) {
     return <OriginalHomeDashboard course={course} language={language} level={level} xp={xp}
       compact={compact} topInset={topInset} onSelect={onSelect} onOpen={onOpen} />;
@@ -64,11 +76,11 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
   useEffect(() => { void useReviewStore.getState().load(); }, []);
   useEffect(() => { if (hydrated) registerFinishedLessons(progress); }, [hydrated, progress]);
   const [first, ...rest] = sections;
+  const placed = (order: number) => (y: number) => { activeY.current[order] = y; if (order === current) scrollToCurrent(); };
   const after = rest.map(m => <View key={m.id} onLayout={e => {
-    if (m.order !== current || scrolled.current) return;
-    scrolled.current = true; const y = e.nativeEvent.layout.y; setTimeout(() => scrollRef.current?.scrollTo({ y, animated: false }), 0);
-  }}><IslandHome {...shared} {...sectionProps(m)} review={{ count: reviewCount }} bare /></View>);
-  return <IslandHome {...shared} {...sectionProps(first)} review={{ count: reviewCount }} after={after} scrollRef={scrollRef} />;
+    sectionTop.current[m.order] = e.nativeEvent.layout.y; if (m.order === current) scrollToCurrent();
+  }}><IslandHome {...shared} {...sectionProps(m)} review={{ count: reviewCount }} bare onActiveY={placed(m.order)} /></View>);
+  return <IslandHome {...shared} {...sectionProps(first)} review={{ count: reviewCount }} after={after} scrollRef={scrollRef} onActiveY={placed(first.order)} />;
 }
 
 /** Short names on the island (Bölmə 1 map, docs/BOLME_1_XERITESI.md). */

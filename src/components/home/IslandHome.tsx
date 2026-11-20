@@ -5,8 +5,8 @@
 // Tapping a lesson opens its card (no card takes space on the map). The mascot sits in the top-right corner.
 import { Image } from 'expo-image';
 import { StatusBar } from 'expo-status-bar';
-import { useState, type ReactNode, type Ref } from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { useEffect, useRef, useState, type ReactNode, type Ref } from 'react';
+import { AccessibilityInfo, Animated, Easing, Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import Svg, { Circle, ClipPath, Defs, G, Path } from 'react-native-svg';
 import Icon from '../design/Icons';
 import { d, font, shadow } from '../design/theme';
@@ -24,6 +24,18 @@ const mascotHead = require('../../../assets/mascot/hood_head.png');
 const OUTLINE = 'M70 30 C110 6 150 22 176 14 C206 4 238 18 268 22 C312 28 334 70 330 110 C326 150 346 178 340 222 C334 268 312 290 320 336 C328 384 346 410 338 456 C330 500 306 520 314 566 C322 612 342 640 330 686 C318 736 280 770 228 782 C188 792 150 778 116 786 C74 796 34 770 22 728 C10 686 28 650 20 606 C12 560 -2 530 10 486 C22 442 44 420 34 374 C24 328 4 298 14 254 C24 210 48 186 40 142 C32 98 34 54 70 30 Z';
 const NODE = 56, ACTIVE = 72;
 
+// Every section has its own colour, different from the app colours (user, 20 Nov 2026).
+// Lesson circles darken with their percentage; the dotted path to the next lesson glows as it fills.
+const SECTION_COLORS = [
+  { base: '#14A3A3', dark: '#0B6E70', soft: '#D4F2F1' }, { base: '#3B7DF0', dark: '#1F4FB0', soft: '#DCE8FD' },
+  { base: '#3DA35D', dark: '#226B3A', soft: '#DDF2E3' }, { base: '#E0567A', dark: '#A12E50', soft: '#FBDDE6' },
+  { base: '#E0A21B', dark: '#9A6A07', soft: '#FBEFCF' }, { base: '#5C6BC0', dark: '#38458F', soft: '#E1E4F6' },
+  { base: '#D9623B', dark: '#963A1C', soft: '#FADFD5' }, { base: '#8E5BC9', dark: '#5E3391', soft: '#EADFF7' },
+  { base: '#1E9BD7', dark: '#11668F', soft: '#D6EEF9' }, { base: '#7A9A1F', dark: '#4F6610', soft: '#ECF2D4' },
+];
+const hex = (c: string) => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+const mix = (a: string, b: string, t: number) => '#' + hex(a).map((v, i) => Math.round(v + (hex(b)[i] - v) * Math.min(1, Math.max(0, t))).toString(16).padStart(2, '0')).join('');
+
 type Pt = { x: number; y: number };
 const lerp = (a: Pt, b: Pt, t: number) => ({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t });
 /** First part (0…t) of a cubic curve, so the coloured dots can stop part-way. */
@@ -32,11 +44,6 @@ function splitCubic(p0: Pt, p1: Pt, p2: Pt, p3: Pt, t: number) {
   return `M${p0.x} ${p0.y} C${a.x} ${a.y} ${ab.x} ${ab.y} ${e.x} ${e.y}`;
 }
 /** Link colour: pale at the start of the section, deeper towards the end. */
-function linkColor(i: number, count: number) {
-  const t = count > 2 ? i / (count - 2) : 0;
-  const mix = (a: number, b: number) => Math.round(a + (b - a) * t);
-  return `rgb(${mix(0xB9, 0x5B)},${mix(0xA2, 0x1F)},${mix(0xF0, 0xD1)})`;
-}
 function water(w: number, h: number, level: number) {
   if (level <= 0) return { body: '', edge: '' };
   if (level >= 1) return { body: `M0 0 H${w} V${h} H0 Z`, edge: '' };
@@ -47,7 +54,7 @@ function water(w: number, h: number, level: number) {
 }
 
 export function IslandHome({ section, sectionTitle, lessons, completed, partial, locked, nextSection, streak, xp, languageLabel, topInset, bottomSpace, review,
-  onSelectLanguage, onOpenLesson, onAnalysis, onReview, onNextSection, exam, onPrevSection, allOpen = false, bare = false, after, scrollRef }: {
+  onSelectLanguage, onOpenLesson, onAnalysis, onReview, onNextSection, exam, onPrevSection, allOpen = false, bare = false, after, scrollRef, onActiveY }: {
   section: number; sectionTitle: string; lessons: IslandLesson[]; completed: string[]; partial: Record<string, number>; locked: boolean;
   nextSection?: { title: string; available: boolean };
   exam?: IslandExam; onPrevSection?: () => void;
@@ -55,6 +62,8 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   allOpen?: boolean;
   /** Stacked page: `bare` = only head, map and exam; `after` = the next sections under the first one. */
   bare?: boolean; after?: ReactNode; scrollRef?: Ref<ScrollView>;
+  /** y of the current lesson inside this island (for opening the map where the learner is). */
+  onActiveY?: (y: number) => void;
   streak: number; xp: number; languageLabel: string; topInset: number; bottomSpace: number; review: { count: number };
   onSelectLanguage: () => void; onOpenLesson: (id: string) => void; onAnalysis: () => void; onReview: () => void; onNextSection?: () => void;
 }) {
@@ -70,6 +79,22 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   const examOpen = finished || allOpen;
   const percentOf = (l: IslandLesson) => l.parts ? Math.round(l.parts.reduce((a, p) => a + partPct(p.id), 0) / l.parts.length) : partPct(l.id);
   const activePart = active >= 0 ? percentOf(lessons[active]) / 100 : 0;
+  const tone = SECTION_COLORS[(section - 1 + SECTION_COLORS.length) % SECTION_COLORS.length];
+  const shade = (pct: number, isActive: boolean) => isActive ? mix(tone.base, tone.dark, pct / 100) : mix(tone.soft, tone.dark, .3 + .7 * pct / 100);
+  // Soft pulsing light on the part of the path being filled; still when the system asks for reduced motion.
+  const glow = useRef(new Animated.Value(.45)).current;
+  useEffect(() => {
+    let loop: Animated.CompositeAnimation | undefined; let alive = true;
+    void AccessibilityInfo.isReduceMotionEnabled().then(reduce => {
+      if (!alive || reduce) return;
+      loop = Animated.loop(Animated.sequence([
+        Animated.timing(glow, { toValue: 1, duration: 900, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+        Animated.timing(glow, { toValue: .3, duration: 900, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
+      ]));
+      loop.start();
+    });
+    return () => { alive = false; loop?.stop(); };
+  }, [glow]);
 
   // Size the island to the space left between the header and the review card + menu.
   const W = Math.min(width - 28, 400);
@@ -109,13 +134,13 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       <Image source={mascotHead} style={{ width: 44, height: 40 }} contentFit="contain" accessibilityLabel="Maskot" />
     </View>
 
-    <View style={{ width: W, height: H, alignSelf: 'center' }}>
+    <View style={{ width: W, height: H, alignSelf: 'center' }} onLayout={e => { if (active >= 0) onActiveY?.(e.nativeEvent.layout.y + (bare ? 28 : 0) + pts[active].y); }}>
       <Svg width={W} height={H} style={StyleSheet.absoluteFill}>
         <Defs><ClipPath id="island"><Path d={OUTLINE} transform={`scale(${sx} ${sy})`} /></ClipPath></Defs>
-        <Path d={OUTLINE} transform={`translate(0 8) scale(${sx} ${sy})`} fill="#E3D3FA" />
-        <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill={finished ? '#C9B3F7' : '#FBF8FF'} stroke={finished ? d.purple : '#D9C8F6'} strokeWidth={finished ? 3 : 2} />
+        <Path d={OUTLINE} transform={`translate(0 8) scale(${sx} ${sy})`} fill={mix(tone.soft, tone.base, .25)} />
+        <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill={finished ? tone.soft : '#FBF8FF'} stroke={finished ? tone.dark : mix(tone.soft, tone.base, .4)} strokeWidth={finished ? 3 : 2} />
         <G clipPath="url(#island)">
-          {w.body ? <Path d={w.body} fill={finished ? '#5B1FD1' : '#9C7BEE'} opacity={.5} /> : null}
+          {w.body ? <Path d={w.body} fill={finished ? tone.dark : tone.base} opacity={.45} /> : null}
           {w.edge ? <Path d={w.edge} fill="none" stroke="#fff" strokeWidth={2.5} opacity={.8} /> : null}
         </G>
         {pts.slice(0, -1).map((a, i) => {
@@ -126,11 +151,19 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
           const part = i === active && activePart > 0 ? splitCubic(a, c1, c2, b, activePart) : '';
           return <G key={i}>
             <Path d={full} fill="none" stroke="#DCCFF6" strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 13" />
-            {done ? <Path d={full} fill="none" stroke={linkColor(i, count)} strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
-            {part ? <Path d={part} fill="none" stroke={linkColor(i, count)} strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
+            {done ? <Path d={full} fill="none" stroke={tone.base} strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
+            {part ? <Path d={part} fill="none" stroke={tone.base} strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
           </G>;
         })}
       </Svg>
+      {active >= 0 && active < count - 1 && activePart > 0 ? <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, { opacity: glow }]}>
+        <Svg width={W} height={H}>{(() => {
+          const a = pts[active], b = pts[active + 1], m = (a.y + b.y) / 2;
+          const part = splitCubic(a, { x: a.x, y: m }, { x: b.x, y: m }, b, activePart);
+          return <><Path d={part} fill="none" stroke={tone.base} strokeWidth={18} strokeLinecap="round" opacity={.25} />
+            <Path d={part} fill="none" stroke="#fff" strokeWidth={4} strokeLinecap="round" strokeDasharray="0.1 13" /></>;
+        })()}</Svg>
+      </Animated.View> : null}
 
       {lessons.map((lesson, i) => {
         const p = pts[i], done = isDone(lesson), isActive = i === active;
@@ -138,32 +171,32 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
         const r = size / 2 - 3, c = 2 * Math.PI * r;
         const reachable = !locked && (done || isActive);
         const right = p.x > W / 2;
-        const pc = pct === 100 ? d.green : pct ? d.orange : '#8C7FA6';
+        const pc = pct === 100 ? d.green : pct ? tone.dark : '#8C7FA6';
         return <View key={lesson.id} pointerEvents="box-none" style={StyleSheet.absoluteFill}>
           <Pressable accessibilityRole="button" accessibilityLabel={`Dərs ${lesson.number}: ${lesson.title}, ${pct} faiz${reachable ? '' : ', kilidlidir'}`}
             onPress={() => setOpen(lesson)}
             style={({ pressed }) => [s.node, { left: p.x - size / 2, top: p.y - size / 2, width: size, height: size, borderRadius: size / 2 },
-              isActive && s.nodeActiveShadow, pressed && { transform: [{ scale: .95 }] }]}>
+              isActive && [s.nodeActiveShadow, { shadowColor: tone.base }], pressed && { transform: [{ scale: .95 }] }]}>
             <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
-              <Circle cx={size / 2} cy={size / 2} r={r} stroke={isActive ? 'rgba(242,122,18,.25)' : '#E6DAFB'} strokeWidth={4} fill="none" />
+              <Circle cx={size / 2} cy={size / 2} r={r} stroke={isActive ? mix(tone.soft, tone.base, .5) : '#E6DAFB'} strokeWidth={4} fill="none" />
               {lesson.parts ? lesson.parts.map((part, k) => {
                 // Two halves with a small gap at the top and bottom; each half fills with its own part.
                 const gap = 7, half = c / lesson.parts!.length, len = half - gap, fill = len * partPct(part.id) / 100;
                 const at = `rotate(${-90 + k * 360 / lesson.parts!.length} ${size / 2} ${size / 2})`;
                 return <G key={part.id}>
                   <Circle cx={size / 2} cy={size / 2} r={r} stroke="#fff" strokeWidth={5} fill="none" strokeDasharray={`${gap} ${c}`} strokeDashoffset={gap / 2} transform={at} />
-                  {fill > 0 && !done ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={partPct(part.id) === 100 ? d.purple : d.orange} strokeWidth={4} fill="none"
+                  {fill > 0 && !done ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={partPct(part.id) === 100 ? tone.dark : tone.base} strokeWidth={4} fill="none"
                     strokeDasharray={`${fill} ${c}`} strokeDashoffset={-gap / 2} transform={at} /> : null}
                 </G>;
-              }) : pct > 0 && pct < 100 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={d.orange} strokeWidth={4} fill="none" strokeLinecap="round"
+              }) : pct > 0 && pct < 100 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={tone.dark} strokeWidth={4} fill="none" strokeLinecap="round"
                 strokeDasharray={`${c * pct / 100} ${c}`} transform={`rotate(-90 ${size / 2} ${size / 2})`} /> : null}
             </Svg>
             <View style={[s.nodeInner, { width: size - 14, height: size - 14, borderRadius: (size - 14) / 2 },
-              done ? { backgroundColor: d.purple } : isActive ? { backgroundColor: d.orange } : s.nodeLocked]}>
-              {done ? <HomeIcon name="check" color="#fff" size={22} /> : <Text style={[s.nodeText, isActive && { color: '#fff', fontSize: 24 }]}>{lesson.number}</Text>}
+              done ? { backgroundColor: tone.dark } : isActive || (reachable && pct > 0) ? { backgroundColor: shade(pct, isActive) } : s.nodeLocked]}>
+              {done ? <HomeIcon name="check" color="#fff" size={22} /> : <Text style={[s.nodeText, (isActive || pct >= 50) && { color: '#fff' }, !isActive && pct > 0 && pct < 50 && { color: tone.dark }, isActive && { fontSize: 24 }]}>{lesson.number}</Text>}
             </View>
           </Pressable>
-          <View pointerEvents="none" style={[s.label, isActive && { borderColor: '#F7CFA6' }, right ? { right: W - (p.x - size / 2 - 8), alignItems: 'flex-end' } : { left: p.x + size / 2 + 8 },
+          <View pointerEvents="none" style={[s.label, isActive && { borderColor: tone.soft }, right ? { right: W - (p.x - size / 2 - 8), alignItems: 'flex-end' } : { left: p.x + size / 2 + 8 },
             { top: p.y - 22 }]}>
             <Text style={[s.labelTitle, !reachable && { color: '#6E6188' }]} numberOfLines={1}>{lesson.title}</Text>
             <Text style={[s.labelPct, { color: pc }]}>{pct}%</Text>
