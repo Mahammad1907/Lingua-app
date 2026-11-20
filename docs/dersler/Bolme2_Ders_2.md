@@ -192,21 +192,25 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 - *İzah (“Birinci mesaj” səhv olanda):* Uyğun: What's your phone number? Səbəb: Bu mesajda onun nömrəsini soruşmalısan. Qayda: What's your phone number? — nömrə; What's your name? — ad. Nümunə: Excuse me, what's your phone number?  
 - *İzah (“İkinci mesaj” səhv olanda):* Uyğun: Is that right? Səbəb: Bu mesajda yazdığın nömrənin düz olduğunu soruşursan. Qayda: Is that right? — sual; Yes, that's right. — cavab. Nümunə: Is that right?  
 
-## Kart 14 — Söhbəti sırala: Söhbəti sırala
+## Kart 14 — Sözü tamamla: Söhbəti tamamla
 
-**Tapşırıq:** Kursda nömrə mübadiləsi. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. What's your phone number? → 2. It's zero five one, four four two, three eight, nine six. → 3. Zero five one, four four two, three eight, nine six. Is that right? → 4. Yes, that's right.  
-**İpucu:** Əvvəl sual gəlir; nömrəni eşidən onu yoxlayır.  
-**Düzgün olanda:** Sual, nömrə, yoxlama və təsdiq düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: What's your phone number? → It's zero five one… → Zero five one… Is that right? → Yes, that's right. Səbəb: Sual, nömrə, yoxlama, sonra təsdiq. Qayda: Is that right? — yoxlama; Yes, that's right. — təsdiq. Nümunə: What's your phone number?  
+**Tapşırıq:** Kursda nömrə mübadiləsi. Söhbətdə bir söz əskikdir. Düzgün sözü seç.  
+**Cümlə:** Yes, that's ___ .  
+**Seçimlər:** right / fine / name — **düzgün:** right  
+**İpucu:** Oğlan “Is that right?” soruşdu — qız nömrənin düz olduğunu deyir.  
+**Düzgün olanda:** Nömrə yoxlandı və təsdiq olundu.  
+- *İzah (“fine” seçiləndə):* “Is that right?” sualına “right” ilə cavab verilir. — Uyğun: right. Səbəb: Oğlan nömrənin düz olub-olmadığını soruşdu. Qayda: Yes, that's right. — düzdür; I'm fine. — yaxşıyam. Nümunə: Yes, that's right.  
+- *İzah (“name” seçiləndə):* Burada ad yox, nömrənin düzlüyü soruşulur. — Uyğun: right. Səbəb: Sual nömrə haqqındadır, ad haqqında deyil. Qayda: Yes, that's right. — düzdür; My name is … — ad. Nümunə: Yes, that's right.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ofisdə nömrə mübadiləsi. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. What's your phone number? → 2. It's oh seven oh, two two one, eight eight, three oh. → 3. Sorry? More slowly, please. → 4. Oh… seven… oh… two two one…  
-**İpucu:** Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?  
-**Düzgün olanda:** Sual, nömrə, xahiş və təkrar düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: What's your phone number? → It's oh seven oh… → Sorry? More slowly, please. → Oh… seven… oh… Səbəb: Nömrəni çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi. Qayda: More slowly, please. — sürətli idi; Say that again, please. — eşitmədin. Nümunə: Sorry? More slowly, please.  
+**Tapşırıq:** Ofisdə nömrə mübadiləsi. Söhbətdə bir söz əskikdir. Düzgün sözü seç.  
+**Cümlə:** Sorry? More ___ , please.  
+**Seçimlər:** slowly / again / right — **düzgün:** slowly  
+**İpucu:** Nömrə çox sürətli deyildi — nə xahiş edirsən?  
+**Düzgün olanda:** Yavaş danışmağı xahiş etdin.  
+- *İzah (“again” seçiləndə):* “again” “Say that again” içində gəlir; burada problem sürətdədir. — Uyğun: slowly. Səbəb: Nömrə çox sürətli deyildi, ona görə “More slowly”. Qayda: More slowly, please. — yavaş; Say that again, please. — bir də. Nümunə: Sorry? More slowly, please.  
+- *İzah (“right” seçiləndə):* “right” düzlüyü yoxlayır, yavaşlığı yox. — Uyğun: slowly. Səbəb: Sürətli danışana “More slowly” deyirsən. Qayda: More slowly, please. — yavaş; Is that right? — düzdür? Nümunə: Sorry? More slowly, please.  
 
 ## Nəticə
 

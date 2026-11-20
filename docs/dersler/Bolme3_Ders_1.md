@@ -192,21 +192,25 @@ Qeyd: Qarşındakı ilə eyni olanda deyilir; “You too” isə “sənə də�
 - *İzah (cavab “askFeeling” işini görəndə):* Hal yox, haradan olduğunu soruş. — Uyğun: Where are you from? Səbəb: Hal yox, haradan olduğu lazımdır. Qayda: Where are you from? — haradan; How are you? — hal. Nümunə: Hi! Where are you from?  
 - *İzah (başqa səhvdə):* Where are you from? — Uyğun: Where are you from? Səbəb: Haradan olduğunu soruşursan: Where … from? Qayda: Where are you from? — haradan; What's your name? — ad. Nümunə: Hi! Where are you from?  
 
-## Kart 13 — Söhbəti sırala: Söhbəti sırala
+## Kart 13 — Sözü tamamla: Söhbəti tamamla
 
-**Tapşırıq:** Dil klubu. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hi! Where are you from? → 2. I'm from Baku. And you? → 3. Me too! → 4. Nice to meet you!  
-**İpucu:** Əvvəl sual gəlir; eyni şəhərdən olan nə deyir?  
-**Düzgün olanda:** Sual, cavab, “mən də” və tanışlıq düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! Where are you from? → I'm from Baku. And you? → Me too! → Nice to meet you! Səbəb: Sual, cavab, sonra “mən də”. Qayda: Where are you from? — sual; I'm from Baku. — cavab. Nümunə: Hi! Where are you from?  
+**Tapşırıq:** Dil klubu. Söhbətdə bir söz əskikdir. Düzgün sözü seç.  
+**Cümlə:** Me ___ !  
+**Seçimlər:** too / from / you — **düzgün:** too  
+**İpucu:** O da Bakıdandır — “mən də” necə deyilir?  
+**Düzgün olanda:** Eyni şəhərdən olduğunu “Me too!” ilə dedin.  
+- *İzah (“from” seçiləndə):* “from” ölkə və ya şəhərdən əvvəl gəlir. — Uyğun: too. Səbəb: “Mən də” ingiliscə “Me too” olur. Qayda: Me too! — mən də; I'm from Baku. — Bakıdanam. Nümunə: Me too!  
+- *İzah (“you” seçiləndə):* “you” sənin haqqındadır, “mən də” demir. — Uyğun: too. Səbəb: “Mən də” ingiliscə “Me too” olur. Qayda: Me too! — mən də; And you? — bəs sən? Nümunə: Me too!  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qatarda söhbət. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Excuse me, where are you from? → 2. I'm from Shamakhi. → 3. Sorry? Say that again, please. → 4. Shamakhi. I'm from Shamakhi.  
-**İpucu:** Əvvəl sual gəlir; eşitməyən nə xahiş edir?  
-**Düzgün olanda:** Sual, cavab, təkrar xahişi və təkrar düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Excuse me, where are you from? → I'm from Shamakhi. → Sorry? Say that again, please. → Shamakhi. Səbəb: Sual, cavab, təkrar xahişi, sonra təkrar. Qayda: Sorry? Say that again, please. — eşitmədin; Shamakhi. — təkrar. Nümunə: Excuse me, where are you from?  
+**Tapşırıq:** Qatarda söhbət. Söhbətdə bir söz əskikdir. Düzgün sözü seç.  
+**Cümlə:** Sorry? Say that ___ , please.  
+**Seçimlər:** again / slowly / too — **düzgün:** again  
+**İpucu:** Eşitmədin — bir də deməsini xahiş et.  
+**Düzgün olanda:** Eşitmədiyin şeyi təkrar istədin.  
+- *İzah (“slowly” seçiləndə):* “slowly” “More slowly” içində gəlir; burada eşitmədin. — Uyğun: again. Səbəb: Eşitməyəndə “Say that again” deyirsən. Qayda: Say that again, please. — bir də; More slowly, please. — yavaş. Nümunə: Sorry? Say that again, please.  
+- *İzah (“too” seçiləndə):* “too” “mən də” deməkdir, təkrar istəmir. — Uyğun: again. Səbəb: Eşitməyəndə “Say that again” deyirsən. Qayda: Say that again, please. — bir də; Me too! — mən də. Nümunə: Sorry? Say that again, please.  
 
 ## Nəticə
 
