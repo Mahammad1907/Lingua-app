@@ -27,6 +27,7 @@ import { d, shadow, font } from './theme';
 import { sceneImage } from '../../config/sceneImages';
 import { glossOf } from '../../data/unit1/glossary';
 import { characterAz } from '../../config/characters';
+import { meaningOf, taughtIn } from '../../utils/lessonLookup';
 
 const mascotFull = require('../../../assets/mascot/hood_full.png');
 const mascotHead = require('../../../assets/mascot/hood_head.png');
@@ -388,6 +389,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const repeat = task.type === 'voice' ? task.repeat : undefined;
     const spotsShown = task.type === 'choice' && Boolean(task.map || task.spots && sceneImage(task.scenes));
     const say = (t: string) => speak(t.replace(/…/g, ''), 0.85);
+    // Tapping an English option reads it aloud (20 Nov 2026) — not in exams, and not in listening tasks, where it would give the answer away.
+    const sayOption = (o: string) => !lesson.exam && !listeningTask && /[A-Za-z]/.test(o) && !/[əğıöüçşƏĞİÖÜÇŞ]/.test(o) && o.split(/[^A-Za-z'’]+/).some(w => w && glossOf(w));
     const lookUp = result ? undefined : (w: string) => { setGloss(w); if (!peeked) { setPeeked(true); (attempt && useUserStore.getState().useHelp(attempt)); } };
     // Word tiles: punctuation is never a tile; the sentence's own end mark is added automatically.
     const tiles = task.type === 'write' && task.tiles ? task.tiles.filter(t => !/^[.,!?]+$/.test(t)) : undefined;
@@ -475,7 +478,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       </View> : null}
       {task.type === 'choice' && !task.gap && !spotsShown ? <View style={s.gap}>{task.options.map(o => <ChoiceOption key={o} label={o} selected={choice === o} disabled={Boolean(result && result.kind !== 'unverified')}
         state={single && choice === o ? (single.status === 'correct' ? 'correct' : single.status === 'wrong' ? 'wrong' : undefined) : undefined}
-        onPress={() => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} />)}</View> : null}
+        onPress={() => { if (sayOption(o)) say(o); setChoice(o); if (result?.kind === 'unverified') setResult(null); }} />)}</View> : null}
       {task.type === 'write' && task.keypad ? <PhoneKeypad label={task.placeholder} value={text} disabled={locked.current} mark={single ? markOf(single.status) : undefined}
         onChange={v => { setText(v.replace(/\D/g, '')); if (result?.kind === 'unverified') setResult(null); }} /> : null}
       {task.type === 'write' && letters ? <LetterBoard letters={letters} picked={picked} length={task.rule.answers[0]?.length ?? 4} disabled={locked.current}
@@ -512,7 +515,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
       if (graded.status === 'correct') return <ResultPanel tone="correct" title="Düzgündür" short={task.why} corrections={result.kind === 'single' ? result.graded.spellingCorrections : undefined}
         assisted={!reviewing && Boolean(meaningHint || sampleShown || peeked || (task.type === 'voice' && task.sample && lesson.order <= 2))} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
-      return <ResultPanel tone="wrong" title="Bir daha baxaq" short={graded.short} answers={graded.explain?.answers} collapsed={collapsed} onCollapse={() => setCollapsed(true)}
+      return <ResultPanel tone="wrong" title="Bir daha baxaq" short={graded.short} answers={graded.explain?.answers}
+        meaning={meaningOf(graded.explain?.answers)} repeatFrom={taughtIn(graded.explain?.answers, lesson)} collapsed={collapsed} onCollapse={() => setCollapsed(true)}
         onExplain={graded.explain ? () => setExplainOpen(true) : undefined} onReport={() => setReportOpen(true)} onContinue={next}
         actions={task.type === 'voice' && !reviewing && !voiceRetried ? <Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { locked.current = false; setVoiceRetry(true); setVoiceRetried(true); setCollapsed(true); }} /> : undefined} />;
     }

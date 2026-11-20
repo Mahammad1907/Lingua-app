@@ -8,8 +8,8 @@ import { Capsule, MainButton, Sheet, ds, nameSlot } from './parts';
 import { d, radius, shadow, font } from './theme';
 
 /** Inline result panel: correct (green) / wrong (red) / neutral (not assessed). Locks until “Davam et”. */
-export function ResultPanel({ tone, title, short, answers, corrections, assisted, onExplain, onReport, onContinue, continueLabel = 'Davam et', actions, collapsed, onCollapse }: {
-  tone: 'correct' | 'wrong' | 'neutral'; title: string; short?: string; answers?: string; corrections?: Graded['spellingCorrections']; assisted?: boolean;
+export function ResultPanel({ tone, title, short, answers, meaning, repeatFrom, corrections, assisted, onExplain, onReport, onContinue, continueLabel = 'Davam et', actions, collapsed, onCollapse }: {
+  tone: 'correct' | 'wrong' | 'neutral'; title: string; short?: string; answers?: string; meaning?: string; repeatFrom?: string; corrections?: Graded['spellingCorrections']; assisted?: boolean;
   onExplain?: () => void; onReport: () => void; onContinue?: () => void; continueLabel?: string; actions?: ReactNode; collapsed: boolean; onCollapse: () => void;
 }) {
   const button = onContinue ? <MainButton label={continueLabel} tone={tone === 'correct' ? 'green' : tone === 'wrong' ? 'red' : 'purple'} onPress={onContinue} /> : null;
@@ -24,7 +24,9 @@ export function ResultPanel({ tone, title, short, answers, corrections, assisted
     {short ? <Text style={s.short}>{short}</Text> : null}
     {assisted ? <Text style={ds.small}>Köməklə qeyd olundu.</Text> : null}
     {corrections?.length ? <Text style={ds.small}>Cavab qəbul olundu. Kiçik yazı düzəlişi: {corrections.map(c => `${c.before} → ${c.after}`).join(', ')}</Text> : null}
-    {answers ? <View style={s.answerBox}><Text style={s.answerText}><Text style={{ ...font.extrabold }}>Uyğun cavab: </Text>{nameSlot(answers)}</Text></View> : null}
+    {answers ? <View style={s.answerBox}><Text style={s.answerText}><Text style={{ ...font.extrabold }}>Uyğun cavab: </Text>{nameSlot(answers)}</Text>
+      {meaning ? <Text style={[ds.small, { marginTop: 4 }]}>Mənası: {nameSlot(meaning)}</Text> : null}</View> : null}
+    {repeatFrom ? <Text style={[ds.small, { ...font.bold }]}>Təkrarla: {repeatFrom}</Text> : null}
     <View style={s.actions}>
       <Pressable accessibilityRole="button" accessibilityLabel="Xəta bildir" onPress={onReport} hitSlop={6} style={s.flag}><Icon name="flag" size={18} color={d.lavenderText} /></Pressable>
       <View style={{ flex: 1 }} />
