@@ -28,12 +28,12 @@ export const lesson4: DesignLesson = {
       prompt: 'Keçən dərsləri xatırla.\nHər cümləyə mənasını qoş.',
       rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'G' }],
       extra: ['Hələlik!'],
-      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam.', 'Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir.', 'What’s your name? — ad sualı; Nice to meet you. — xoş söz.', 'Hi! What’s your name? … Nice to meet you!'))],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam.', 'Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir.', 'What’s your name? — ad sualı; Nice to meet you. — xoş söz.', 'Hi! What’s your name? I’m [ad]. Nice to meet you!'))],
       review: {
         title: 'Kim nə dedi?', why: 'Keçən dərslərin ifadələrini xatırladın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Keçən dərsləri xatırla.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'You too!', az: 'Mən də!', from: 'B' }, { en: "I'm …", az: 'Mən …-am.', from: 'G' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
+        rows: [{ en: 'You too!', az: 'Mən də!', from: 'B' }, { en: "I'm [ad]", az: 'Mən [ad]-am.', from: 'G' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
         extra: ['Adın nədir?'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex('You too! — Mən də!; I’m … — Mən …-am.; Goodbye! — Görüşənədək!', 'Hər ifadənin öz işi var: cavab, ad, sağollaşma.', 'You too! — xoş sözə cavab; Goodbye! — sağollaşma.', 'Nice to meet you! — You too!'))],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex('You too! — Mən də!; I’m [ad] — Mən [ad]-am.; Goodbye! — Görüşənədək!', 'Hər ifadənin öz işi var: cavab, ad, sağollaşma.', 'You too! — xoş sözə cavab; Goodbye! — sağollaşma.', 'Nice to meet you! — You too!'))],
       },
     },
     {
@@ -91,7 +91,7 @@ export const lesson4: DesignLesson = {
       gap: { speaker: 'G', before: "I'm", after: '. Bye!' }, options: ['OK', 'you', 'name'], answer: 'OK',
       variants: [
         pick('you', '“And you?” sualına öz halını deyirsən.', ex('OK', 'Oğlan “Bəs sən?” soruşdu, qız necə olduğunu deyir.', "I'm OK. — normalam; I'm you — olmur.", "I'm OK. Bye!")),
-        pick('name', 'Burada ad yox, hal soruşulur.', ex('OK', '“How are you?” halı soruşur, adı yox.', "I'm OK. — hal; My name is … — ad.", "I'm OK. Bye!")),
+        pick('name', 'Burada ad yox, hal soruşulur.', ex('OK', '“How are you?” halı soruşur, adı yox.', "I'm OK. — hal; My name is [ad] — ad.", "I'm OK. Bye!")),
       ],
       review: {
         title: 'Söhbəti tamamla', why: 'Oğlan necə olduğunu dedi.', hint: 'Qız “And you?” soruşdu — oğlan öz halını deyir.', prompt: 'Oğlan və qız dərsdən sonra görüşür.\nSöhbətdə bir söz əskikdir. Düzgün sözü seç.',
@@ -99,7 +99,7 @@ export const lesson4: DesignLesson = {
         gap: { speaker: 'B', before: "I'm", after: ', thanks.' }, options: ['fine', 'you', 'name'], answer: 'fine',
         variants: [
           pick('you', '“And you?” sualına öz halını deyirsən.', ex('fine', 'Qız “Bəs sən?” soruşdu, oğlan necə olduğunu deyir.', "I'm fine. — yaxşıyam; I'm you — olmur.", "I'm fine, thanks.")),
-          pick('name', 'Burada ad yox, hal soruşulur.', ex('fine', '“How are you?” halı soruşur, adı yox.', "I'm fine. — hal; My name is … — ad.", "I'm fine, thanks.")),
+          pick('name', 'Burada ad yox, hal soruşulur.', ex('fine', '“How are you?” halı soruşur, adı yox.', "I'm fine. — hal; My name is [ad] — ad.", "I'm fine, thanks.")),
         ],
       },
     },

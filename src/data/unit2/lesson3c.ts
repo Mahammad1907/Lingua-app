@@ -154,8 +154,8 @@ export const lesson3c: DesignLesson = {
       prompt: "Kursda müəllim siyahıya yazır və soruşur: “What's your name?”\nAdını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).",
       audio: "What's your name?",
       reply: "Thank you!",
-      rule: own(NAME_SPELLED, "It's …"),
-      variants: [other("It's + hərflər.", ex("It's …", "Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.", "A — ey; E — i.", "A, E, I, O, U."))],
+      rule: own(NAME_SPELLED, "It's [ad]"),
+      variants: [other("It's + hərflər.", ex("It's [ad]", "Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.", "A — ey; E — i.", "A, E, I, O, U."))],
       review: {
         title: "Adını hərf-hərf de",
         why: "Adını hərf-hərf dedin.",
@@ -163,8 +163,8 @@ export const lesson3c: DesignLesson = {
         prompt: "Hava limanında qeydiyyatçı adını yoxlayır.\nAdını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).",
         audio: "Your name, please?",
         reply: "OK, thank you!",
-        rule: own(NAME_SPELLED, "It's …"),
-        variants: [other("It's + hərflər.", ex("It's …", "Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.", "G — ci; J — cey.", "A, E, I, O, U."))],
+        rule: own(NAME_SPELLED, "It's [ad]"),
+        variants: [other("It's + hərflər.", ex("It's [ad]", "Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.", "G — ci; J — cey.", "A, E, I, O, U."))],
       },
     },
     {

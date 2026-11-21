@@ -75,7 +75,7 @@ export const lesson5a: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d5a_c06', number: 6, scenes: ['mascot/globe'],
-      word: "He's from …", pronunciation: '/hiz frʌm/', reading: 'hiz fram …', az: 'O (kişi) …-dandır.',
+      word: "He's from [ölkə]", pronunciation: '/hiz frʌm/', reading: 'hiz fram [ölkə]', az: 'O (kişi) [ölkə]-dandır.',
       structure: ["He's from + ölkə / şəhər."],
       notes: ["He's — he is-in qısası, “hiz” oxunur."],
       example: "He's from Turkey.", exampleAz: 'O, Türkiyədəndir.',
@@ -112,7 +112,7 @@ export const lesson5a: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d5a_c09', number: 9, scenes: ['mascot/happy'],
-      word: "She's from …", pronunciation: '/ʃiz frʌm/', reading: 'şiz fram …', az: 'O (qadın) …-dandır.',
+      word: "She's from [ölkə]", pronunciation: '/ʃiz frʌm/', reading: 'şiz fram [ölkə]', az: 'O (qadın) [ölkə]-dandır.',
       structure: ["She's from + ölkə / şəhər."],
       notes: ["She's — she is-in qısası, “şiz” oxunur."],
       example: "She's from France.", exampleAz: 'O, Fransadandır.',
@@ -185,7 +185,7 @@ export const lesson5a: DesignLesson = {
   vocabulary: [
     { word: 'he', translation: 'o (kişi, oğlan)', example: 'He is fine, thanks.', exampleAz: 'O yaxşıdır, sağ ol.', usageNote: 'Kişi üçün he.', pronunciation: '/hi/', teachCard: 'u3d5a_c02' },
     { word: 'she', translation: 'o (qadın, qız)', example: 'She is OK. He is fine.', exampleAz: 'O (qadın) normaldır. O (kişi) yaxşıdır.', usageNote: 'Qadın üçün she.', pronunciation: '/ʃi/', teachCard: 'u3d5a_c04' },
-    { word: "He's from …", translation: 'O (kişi) …-dandır.', example: "He's from Turkey.", exampleAz: 'O, Türkiyədəndir.', usageNote: "He's — he is-in qısası.", pronunciation: '/hiz frʌm/', teachCard: 'u3d5a_c06' },
-    { word: "She's from …", translation: 'O (qadın) …-dandır.', example: "She's from France.", exampleAz: 'O, Fransadandır.', usageNote: "She's — she is-in qısası.", pronunciation: '/ʃiz frʌm/', teachCard: 'u3d5a_c09' },
+    { word: "He's from [ölkə]", translation: 'O (kişi) [ölkə]-dandır.', example: "He's from Turkey.", exampleAz: 'O, Türkiyədəndir.', usageNote: "He's — he is-in qısası.", pronunciation: '/hiz frʌm/', teachCard: 'u3d5a_c06' },
+    { word: "She's from [ölkə]", translation: 'O (qadın) [ölkə]-dandır.', example: "She's from France.", exampleAz: 'O, Fransadandır.', usageNote: "She's — she is-in qısası.", pronunciation: '/ʃiz frʌm/', teachCard: 'u3d5a_c09' },
   ],
 };

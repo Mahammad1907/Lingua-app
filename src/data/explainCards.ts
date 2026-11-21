@@ -21,15 +21,15 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       lead: "Gəl, I'm-ə yaxından baxaq.", focus: "I'm",
       sections: [
         { title: 'Hissə harada gəlir?', text: 'Biz “-am” hissəsini adın sonuna qoşuruq. İngiliscə o, adın əvvəlində ayrıca gəlir.' },
-        { title: 'Necə qurulur?', build: { parts: ["I'm", 'ad'], examples: [{ en: "Hello! I'm …", az: 'Salam! Mən …-am.' }] } },
+        { title: 'Necə qurulur?', build: { parts: ["I'm", 'ad'], examples: [{ en: "Hello! I'm [ad]", az: 'Salam! Mən [ad]-am.' }] } },
       ],
       attention: "Adın sonuna heç nə artırılmır: I'm və ad kifayətdir.",
     }),
     E('d2_c02bt', 'd2_c02b', {
-      lead: 'My name is … ilə də adını deyirsən.', focus: 'My name is',
+      lead: 'My name is [ad] ilə də adını deyirsən.', focus: 'My name is',
       sections: [
         { title: 'Hissələr', pairs: [{ en: 'My name', az: 'mənim adım' }, { en: 'is', az: '-dır' }] },
-        { title: 'Necə qurulur?', build: { parts: ['My name is', 'ad'], examples: [{ en: 'Hi! My name is …', az: 'Salam! Mənim adım …-dır.' }] } },
+        { title: 'Necə qurulur?', build: { parts: ['My name is', 'ad'], examples: [{ en: 'Hi! My name is [ad]', az: 'Salam! Mənim adım [ad]-dır.' }] } },
       ],
       attention: 'Biz “-dır” hissəsini sonda deyirik. İngiliscə o, ayrıca sözdür: is. Onu atma.',
     }),
@@ -266,13 +266,13 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
     E('u3d5b_c05t', 'u3d5b_c05', {
       lead: 'Sualda is əvvələ keçir.', focus: 'is',
       sections: [
-        { title: 'Sual necə qurulur?', text: "Cavabda She's / He's deyirsən. Sualda isə is əvvələ keçir: Is she …?" },
+        { title: 'Sual necə qurulur?', text: "Cavabda She's / He's deyirsən. Sualda isə is əvvələ keçir: Is she [millət]?" },
         { title: 'Nümunə', build: { parts: ['Is', 'she / he', 'millət?'], examples: [{ en: 'Is she Turkish?', az: 'O türkdürmü?' }] } },
       ],
       attention: 'Biz “-mı” hissəsini sonda deyirik. İngiliscə Is əvvəldə gəlir.',
     }),
     E('u3d5b_c09t', 'u3d5b_c09', {
-      lead: 'Is she …? sualına qısa cavab.', focus: 'qısa cavab',
+      lead: 'Is she [millət]? sualına qısa cavab.', focus: 'qısa cavab',
       sections: [
         { title: 'Cavablar', pairs: [{ en: 'Yes, he is.', az: 'bəli' }, { en: "No, she isn't.", az: 'xeyr' }] },
         { title: 'Qısa forma', short: { full: 'is not', drop: 'o', short: "isn't", note: 'Danışıqda qısa deyilir, mənası eynidir.' } },
@@ -290,21 +290,21 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       attention: 'Where are you from? sualında do yoxdur, orada are var.',
     }),
     E('u3d6_c04t', 'u3d6_c04', {
-      lead: 'Tam cavabda do yoxdur: I live in …', focus: 'I live in',
+      lead: 'Tam cavabda do yoxdur: I live in [şəhər]', focus: 'I live in',
       sections: [
-        { title: 'Fərq', pairs: [{ en: 'I live in', az: '…-da yaşayıram' }, { en: "I'm from", az: '…-danam' }] },
+        { title: 'Fərq', pairs: [{ en: 'I live in', az: '[şəhər]-da yaşayıram' }, { en: "I'm from", az: '[ölkə]-danam' }] },
         { title: 'Necə qurulur?', build: { parts: ['I live in', 'şəhər / ölkə'], examples: [{ en: 'Where do you live? — I live in Baku.', az: 'Harada yaşayırsan? — Bakıda yaşayıram.' }] } },
       ],
       attention: 'Biz “-da” hissəsini sonda deyirik. İngiliscə in şəhərdən əvvəl gəlir.',
     }),
   ],
   a1_en_b3_d7: [E('u3d7_c06t', 'u3d7_c06', {
-    lead: 'Do you …? sualına do ilə cavab verilir.', focus: 'do',
+    lead: 'Do you [dil]? sualına do ilə cavab verilir.', focus: 'do',
     sections: [
       { title: 'Cavablar', pairs: [{ en: 'Yes, I do.', az: 'bəli' }, { en: "No, I don't.", az: 'xeyr' }] },
       { title: 'Niyə belədir?', text: 'Sual Do ilə başlayırsa, qısa cavabda da do gəlir. “Xeyr” cavabında don\'t deyilir.' },
     ],
-    attention: 'Are you …? sualına I am, Do you …? sualına I do ilə cavab verilir.',
+    attention: 'Are you [millət]? sualına I am, Do you [dil]? sualına I do ilə cavab verilir.',
   })],
 };
 

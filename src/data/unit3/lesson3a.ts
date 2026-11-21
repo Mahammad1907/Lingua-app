@@ -46,7 +46,7 @@ export const lesson3a: DesignLesson = {
         options: ['Mən azərbaycanlıyam.', 'Mən Azərbaycandanam.', 'Adım Gəncədir.'], answer: 'Mən Azərbaycandanam.',
         variants: [
           pick('Mən azərbaycanlıyam.', 'Səsdə “from” var — bu, ölkədir.', ex('Mən Azərbaycandanam.', 'from ölkədən əvvəl gəlir: haradan olduğunu deyir.', "I'm from Azerbaijan. — ölkə; I'm Azerbaijani. — millət.", "I'm from Azerbaijan.")),
-          pick('Adım Gəncədir.', 'Səsdə ad yoxdur.', ex('Mən Azərbaycandanam.', 'Səsdə my name is yoxdur, from var.', "I'm from Azerbaijan. — ölkə; My name is … — ad.", "I'm from Azerbaijan.")),
+          pick('Adım Gəncədir.', 'Səsdə ad yoxdur.', ex('Mən Azərbaycandanam.', 'Səsdə my name is yoxdur, from var.', "I'm from Azerbaijan. — ölkə; My name is [ad] — ad.", "I'm from Azerbaijan.")),
         ],
       },
     },

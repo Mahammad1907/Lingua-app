@@ -84,7 +84,7 @@ export const lesson5b: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d5b_c05', number: 5, scenes: ['mascot/think'],
-      word: 'Is she …? · Is he …?', pronunciation: '/ɪz ʃi/ · /ɪz hi/', reading: 'iz şi …? · iz hi …?', az: 'O …-dırmı?',
+      word: 'Is she [millət]? · Is he [millət]?', pronunciation: '/ɪz ʃi/ · /ɪz hi/', reading: 'iz şi [millət]? · iz hi [millət]?', az: 'O [millət]-dırmı?',
       structure: ['Is + she / he + from + ölkə?', 'Is + she / he + millət?'],
       notes: ['Sualda is əvvələ keçir: She is → Is she?'],
       example: 'Is she Turkish?', exampleAz: 'O türkdürmü?',
@@ -119,13 +119,13 @@ export const lesson5b: DesignLesson = {
       prompt: 'Dil klubunda suallar və qısa cavablar.\nSuala toxun, sonra onun cavabını seç.',
       rows: [{ en: 'Is he from Turkey?', az: 'Yes, he is.', from: 'other' }, { en: 'Are you from Iran?', az: 'Yes, I am.', from: 'G' }, { en: 'Is she Russian?', az: 'Yes, she is.', from: 'B' }],
       extra: ['Yes, it is.'],
-      variants: [other('Bir cavab yerində deyil.', ex('Is he from Turkey? — Yes, he is.; Are you from Iran? — Yes, I am.; Is she Russian? — Yes, she is.', 'Sualdakı söz cavabda qayıdır: he → he, you → I, she → she.', 'Is he …? — Yes, he is.; Are you …? — Yes, I am.', 'Is he Georgian? — Yes, he is.'))],
+      variants: [other('Bir cavab yerində deyil.', ex('Is he from Turkey? — Yes, he is.; Are you from Iran? — Yes, I am.; Is she Russian? — Yes, she is.', 'Sualdakı söz cavabda qayıdır: he → he, you → I, she → she.', 'Is he [millət]? — Yes, he is.; Are you [millət]? — Yes, I am.', 'Is he Georgian? — Yes, he is.'))],
       review: {
         title: 'Cavab cütü', why: 'Hər suala uyğun qısa cavabı tapdın.', hint: 'Əvvəl sualın ilk iki sözünə bax.',
         prompt: 'Hostelin mətbəxində söhbət.\nSuala toxun, sonra onun cavabını seç.',
         rows: [{ en: 'Is she from Georgia?', az: 'Yes, she is.', from: 'other' }, { en: 'Is he German?', az: 'Yes, he is.', from: 'G' }, { en: 'Are you Turkish?', az: 'Yes, I am.', from: 'other' }],
         extra: ['Yes, it is.'],
-        variants: [other('Bir cavab yerində deyil.', ex('Is she from Georgia? — Yes, she is.; Is he German? — Yes, he is.; Are you Turkish? — Yes, I am.', 'Sualdakı söz cavabda qayıdır: she → she, he → he, you → I.', 'Is she …? — Yes, she is.; Are you …? — Yes, I am.', 'Is he Georgian? — Yes, he is.'))],
+        variants: [other('Bir cavab yerində deyil.', ex('Is she from Georgia? — Yes, she is.; Is he German? — Yes, he is.; Are you Turkish? — Yes, I am.', 'Sualdakı söz cavabda qayıdır: she → she, he → he, you → I.', 'Is she [millət]? — Yes, she is.; Are you [millət]? — Yes, I am.', 'Is he Georgian? — Yes, he is.'))],
       },
     },
     {
@@ -142,7 +142,7 @@ export const lesson5b: DesignLesson = {
       options: ['not', "isn't", "don't"], answer: "isn't",
       variants: [
         pick('not', 'Tək “not” kifayət deyil, is də lazımdır.', ex("isn't", '“deyil” üçün is və not birlikdə gəlir: isn’t.', "No, he isn't. — düzdür; No, he not. — olmur.", "Is she from Iran? — No, she isn't.")),
-        pick("don't", "don't “başa düşmürəm” kimi cümlələrdədir.", ex("isn't", 'Sual Is ilə başlayıb, cavab da is ilə gəlir.', "Is he …? — No, he isn't.; I don't understand. — başa düşmürəm.", "Is she from Iran? — No, she isn't.")),
+        pick("don't", "don't “başa düşmürəm” kimi cümlələrdədir.", ex("isn't", 'Sual Is ilə başlayıb, cavab da is ilə gəlir.', "Is he [millət]? — No, he isn't.; I don't understand. — başa düşmürəm.", "Is she from Iran? — No, she isn't.")),
       ],
       review: {
         title: 'Sözü tamamla', why: '“deyil” — isn’t.', hint: 'Qısa “xeyr” cavabının sonunda nə gəlir?',
@@ -150,7 +150,7 @@ export const lesson5b: DesignLesson = {
         options: ["isn't", "don't", 'not'], answer: "isn't",
         variants: [
           pick('not', 'Tək “not” kifayət deyil, is də lazımdır.', ex("isn't", '“deyil” üçün is və not birlikdə gəlir: isn’t.', "No, she isn't. — düzdür; No, she not. — olmur.", "Is she from Iran? — No, she isn't.")),
-          pick("don't", "don't “başa düşmürəm” kimi cümlələrdədir.", ex("isn't", 'Sual Is ilə başlayıb, cavab da is ilə gəlir.', "Is she …? — No, she isn't.; I don't understand. — başa düşmürəm.", "Is she from Iran? — No, she isn't.")),
+          pick("don't", "don't “başa düşmürəm” kimi cümlələrdədir.", ex("isn't", 'Sual Is ilə başlayıb, cavab da is ilə gəlir.', "Is she [millət]? — No, she isn't.; I don't understand. — başa düşmürəm.", "Is she from Iran? — No, she isn't.")),
         ],
       },
     },
@@ -158,12 +158,12 @@ export const lesson5b: DesignLesson = {
       type: 'voice', id: 'u3d5b_c11', number: 11, title: 'Qısa cavab ver', why: 'Qadın haqqında qısa “xeyr” cavabı verdin.', hint: 'Sual kimin haqqındadır? Cavabda da o söz qayıdır.',
       prompt: 'Video zəngdə ekranda qızın rəfiqəsi görünür. O, Fransadandır. Yeni tanış soruşur.\nQısa cavab ver.', audio: 'Is she from Germany?', reply: 'Oh, OK!',
       rule: noShort('she', 'France'),
-      variants: [wrongPerson("No, she isn't.", 'she'), shortNot("No, she isn't."), aboutSelf("No, she isn't."), other("No, she isn't.", ex("No, she isn't.", 'O, Almaniyadan deyil — qısa “xeyr” cavabı.', "Is she …? — No, she isn't.; Is she …? — Yes, she is.", "Is she from Iran? — No, she isn't."))],
+      variants: [wrongPerson("No, she isn't.", 'she'), shortNot("No, she isn't."), aboutSelf("No, she isn't."), other("No, she isn't.", ex("No, she isn't.", 'O, Almaniyadan deyil — qısa “xeyr” cavabı.', "Is she [millət]? — No, she isn't.; Is she [millət]? — Yes, she is.", "Is she from Iran? — No, she isn't."))],
       review: {
         title: 'Qısa cavab ver', why: 'Kişi haqqında qısa “xeyr” cavabı verdin.', hint: 'Sual kimin haqqındadır? Cavabda da o söz qayıdır.',
         prompt: 'Hostelin mətbəxində oğlanın otaq yoldaşı gürcüdür. Yeni tanış soruşur.\nQısa cavab ver.', audio: 'Is he Turkish?', reply: 'Oh, sorry!',
         rule: noShort('he', 'Georgia'),
-        variants: [wrongPerson("No, he isn't.", 'he'), shortNot("No, he isn't."), aboutSelf("No, he isn't."), other("No, he isn't.", ex("No, he isn't.", 'O, türk deyil — qısa “xeyr” cavabı.', "Is he …? — No, he isn't.; Is he …? — Yes, he is.", "Is he Georgian? — Yes, he is."))],
+        variants: [wrongPerson("No, he isn't.", 'he'), shortNot("No, he isn't."), aboutSelf("No, he isn't."), other("No, he isn't.", ex("No, he isn't.", 'O, türk deyil — qısa “xeyr” cavabı.', "Is he [millət]? — No, he isn't.; Is he [millət]? — Yes, he is.", "Is he Georgian? — Yes, he is."))],
       },
     },
     {
@@ -216,7 +216,7 @@ export const lesson5b: DesignLesson = {
   },
   vocabulary: [
     { word: "Where's he from? · Where's she from?", translation: 'O haradandır?', example: "Where's she from? — She's from Turkey.", exampleAz: 'O haradandır? — Türkiyədəndir.', usageNote: "Kişi üçün he, qadın üçün she. Where's — where is.", pronunciation: '/wɛrz hi frʌm/ · /wɛrz ʃi frʌm/', teachCard: 'u3d5b_c02' },
-    { word: 'Is she …? · Is he …?', translation: 'O …-dırmı?', example: 'Is she Turkish?', exampleAz: 'O türkdürmü?', usageNote: 'Sualda is əvvələ keçir.', pronunciation: '/ɪz ʃi/ · /ɪz hi/', teachCard: 'u3d5b_c05' },
+    { word: 'Is she [millət]? · Is he [millət]?', translation: 'O [millət]-dırmı?', example: 'Is she Turkish?', exampleAz: 'O türkdürmü?', usageNote: 'Sualda is əvvələ keçir.', pronunciation: '/ɪz ʃi/ · /ɪz hi/', teachCard: 'u3d5b_c05' },
     { word: 'Yes, he is.', translation: 'Bəli, elədir.', example: 'Is he Georgian? — Yes, he is.', exampleAz: 'O gürcüdürmü? — Bəli, elədir.', usageNote: 'Qısa cavabın sonunda is qalır.', pronunciation: '/jɛs hi ɪz/', teachCard: 'u3d5b_c07' },
     { word: "No, she isn't.", translation: 'Xeyr, o deyil.', example: "Is she from Iran? — No, she isn't.", exampleAz: 'O İrandandırmı? — Xeyr.', usageNote: "isn't — is not.", pronunciation: '/noʊ ʃi ˈɪzənt/', teachCard: 'u3d5b_c09' },
   ],

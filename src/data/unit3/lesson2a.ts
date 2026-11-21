@@ -29,7 +29,7 @@ export const lesson2a: DesignLesson = {
       type: 'word', id: 'u3d2a_c02', number: 2, scenes: ['mascot/globe'],
       word: 'country', pronunciation: '/ˈkʌntri/', reading: 'kantri', az: 'ölkə',
       structure: ['What country are you from?'],
-      notes: ['What country …? — hansı ölkə …?'],
+      notes: ['What country is it? — hansı ölkə?'],
       example: "What country are you from? — I'm from Azerbaijan.", exampleAz: 'Hansı ölkədənsən? — Azərbaycandanam.',
     },
     {
@@ -170,7 +170,7 @@ export const lesson2a: DesignLesson = {
       type: 'voice', id: 'u3d2a_c13', number: 13, title: 'Səslə cavab', why: 'Hansı ölkədən olduğunu dedin.', hint: 'Ölkənin adından əvvəl “-dan” sözünü unutma.',
       prompt: 'Hava limanında pasport nəzarətində işçi soruşur.\nHansı ölkədən olduğunu de.', audio: 'What country are you from?', reply: 'Thank you!',
       rule: myCountry,
-      variants: [...fromMistakes, other("I'm from + ölkə.", ex("I'm from Azerbaijan.", 'Sual ölkəni soruşur — I’m from və ölkənin adı.', "I'm from Azerbaijan. — ölkə; My name is … — ad.", "What country are you from? — I'm from Azerbaijan."))],
+      variants: [...fromMistakes, other("I'm from + ölkə.", ex("I'm from Azerbaijan.", 'Sual ölkəni soruşur — I’m from və ölkənin adı.', "I'm from Azerbaijan. — ölkə; My name is [ad] — ad.", "What country are you from? — I'm from Azerbaijan."))],
       review: {
         title: 'Səslə cavab', why: 'Hansı ölkədən olduğunu dedin.', hint: 'Cavabı “mən” sözü ilə başla, ölkədən əvvəl “-dan” sözünü unutma.',
         prompt: 'Hostelin mətbəxində yeni tanış soruşur.\nHansı ölkədən olduğunu de.', audio: 'Hi! What country are you from?', reply: "I'm from Iran.",
@@ -191,7 +191,7 @@ export const lesson2a: DesignLesson = {
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'country', translation: 'ölkə', example: "What country are you from? — I'm from Azerbaijan.", exampleAz: 'Hansı ölkədənsən? — Azərbaycandanam.', usageNote: 'What country …? — hansı ölkə …?', pronunciation: '/ˈkʌntri/', teachCard: 'u3d2a_c02' },
+    { word: 'country', translation: 'ölkə', example: "What country are you from? — I'm from Azerbaijan.", exampleAz: 'Hansı ölkədənsən? — Azərbaycandanam.', usageNote: 'What country is it? — hansı ölkə?', pronunciation: '/ˈkʌntri/', teachCard: 'u3d2a_c02' },
     { word: 'Turkey', translation: 'Türkiyə', example: "I'm from Turkey.", exampleAz: 'Türkiyədənəm.', usageNote: '“törki” oxunur.', pronunciation: '/ˈtɝki/', teachCard: 'u3d2a_c04' },
     { word: 'Georgia', translation: 'Gürcüstan', example: "I'm from Georgia.", exampleAz: 'Gürcüstandanam.', usageNote: '“corcə” oxunur.', pronunciation: '/ˈdʒɔrdʒə/', teachCard: 'u3d2a_c06' },
     { word: 'Russia', translation: 'Rusiya', example: "I'm from Russia.", exampleAz: 'Rusiyadanam.', usageNote: '“raşə” oxunur.', pronunciation: '/ˈrʌʃə/', teachCard: 'u3d2a_c08' },

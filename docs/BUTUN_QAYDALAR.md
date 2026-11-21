@@ -153,3 +153,10 @@ Hesab silmə; məxfilik siyasəti və link; profildəki işləməyən düymələ
 - Hər Müəllim izahı avtomatik qaydadır (`src/data/rules.ts`). Yeni izah kartı yazanda `RULE_META`-ya qısa ad və mövzu yazılır — `node scripts/check-rules.cjs` olmayanı tutur.
 - Qayda "Başa düşdüm" basılanda (və ya dərs bitəndə) açılır. İzahdan sonrakı tapşırıqlar həmin qaydaya bağlıdır: səhvlər qaydanı zəiflədir (Zəif / Öyrənilir / Möhkəm), "Diqqət lazımdır"da görünür. Səhv panelində "Qaydaya bax".
 - Cədvəllər (Rəqəmlər, Əlifba, Qısa formalar, Nömrə və e-poçt, Ölkə və millət) dərslərin söz kartlarından qurulur; yalnız başlanmış dərslərin sətirləri açıqdır.
+
+## G5. Dərs mətnində “…” yoxdur (21 Nov 2026, istifadəçi)
+- Öyrənənin görəcəyi heç bir mətndə yarımçıq “…” qalmır (“I'm …”, “Mən …-am”). Ad yerində `[ad]`, soyad `[soyad]`, ölkə `[ölkə]`, şəhər `[şəhər]`, millət `[millət]`, yaş `[yaş]`, dil `[dil]`, nömrə `[nömrə]` yazılır; mümkün olanda konkret nümunə (I'm from Baku.) daha yaxşıdır.
+- Boşluq doldurma tapşırığında boş yer ekranda `______` ilə çəkilir; sahə placeholder-i “Adını yaz” kimi sözlə yazılır.
+- Icazəli “…”: sözə bitişik davam/kəsilmiş sıra (`Twelve…`, `L… A… N…`, `It's oh five oh…`).
+- Səs oxunuşu `[…]` nişanlarını oxumur (TapText, DesignLesson). `node scripts/check-placeholders.cjs` boş “…” tapsa uğursuz olur.
+- Qaydalar tabında qayda adları sual formasındadır (“Salamı necə deyim?”) və hər birinin altında ingilis nümunəsi var (`RULE_META.eg`); `check-rules.cjs` “?” və nümunəni yoxlayır. Mövzular ekranda göstərilmir, qaydalar bölmələrə görə (yenisi yuxarıda) qruplanır.

@@ -57,12 +57,12 @@ export const lesson8: DesignLesson = {
       type: 'voice', id: 'u3d8_c04', number: 4, title: 'Haradan olduğunu de', why: 'Haradan olduğunu dedin və sualı qaytardın.', hint: 'Əvvəl haradan olduğunu de, sonra qısa qarşı sualı əlavə et.',
       prompt: 'Ziyafətdə yeni tanış soruşur: “Where are you from?”\nHaradan olduğunu de və ondan da soruş.', audio: 'Hi! Where are you from?', reply: "I'm from France.",
       rule: own(FROM_RETURN, "I'm from Azerbaijan. And you?", "I'm from Baku. Where are you from?"),
-      variants: [...FROM_MISTAKES, other("I'm from … And you?", ex("I'm from Azerbaijan. And you?", 'Haradan olduğunu “I’m from” ilə de, sonra “And you?” ilə soruş.', "I'm from Azerbaijan. — haradan; And you? — qarşı sual.", "I'm from Baku. And you?"))],
+      variants: [...FROM_MISTAKES, other("I'm from [ölkə]. And you?", ex("I'm from Azerbaijan. And you?", 'Haradan olduğunu “I’m from” ilə de, sonra “And you?” ilə soruş.', "I'm from Azerbaijan. — haradan; And you? — qarşı sual.", "I'm from Baku. And you?"))],
       review: {
         title: 'Haradan olduğunu de', why: 'Haradan olduğunu dedin və sualı qaytardın.', hint: 'Əvvəl haradan olduğunu de, sonra qısa qarşı sualı əlavə et.',
         prompt: 'Qatarda yanındakı sərnişin səninlə tanış olur.\nHaradan olduğunu de və ondan da soruş.', audio: 'Nice to meet you! Where are you from?', reply: "I'm from the UK.",
         rule: own(FROM_RETURN, "I'm from Azerbaijan. And you?", "I'm from Ganja. Where are you from?"),
-        variants: [...FROM_MISTAKES, other("I'm from … And you?", ex("I'm from Azerbaijan. And you?", 'Haradan olduğunu “I’m from” ilə de, sonra “And you?” ilə soruş.', "I'm from Ganja. — haradan; Where are you from? — qarşı sual.", "I'm from Ganja. And you?"))],
+        variants: [...FROM_MISTAKES, other("I'm from [ölkə]. And you?", ex("I'm from Azerbaijan. And you?", 'Haradan olduğunu “I’m from” ilə de, sonra “And you?” ilə soruş.', "I'm from Ganja. — haradan; Where are you from? — qarşı sual.", "I'm from Ganja. And you?"))],
       },
     },
     {
@@ -147,12 +147,12 @@ export const lesson8: DesignLesson = {
       type: 'voice', id: 'u3d8_c09', number: 9, title: 'Dostunu təqdim et', why: 'Oğlanı təqdim etdin: haradandır və millətidir.', hint: 'Oğlan haqqında danışırsan; iki qısa cümlə de.',
       prompt: 'Yeni tanış oğlan haqqında soruşur. Oğlan Bakıdandır, azərbaycanlıdır.\nİki cümlə ilə de: haradandır və millətidir.', audio: "Where's he from?", reply: 'Nice!',
       rule: own(heFrom, "He's from Baku. He's Azerbaijani."),
-      variants: [wrongHe, other("He's from … He's …", ex("He's from Baku. He's Azerbaijani.", 'Əvvəl haradan olduğunu, sonra millətini de.', "He's from Baku. — haradan; He's Azerbaijani. — millət.", "He's from Baku. He's Azerbaijani."))],
+      variants: [wrongHe, other("He's from [ölkə]. He's [millət]", ex("He's from Baku. He's Azerbaijani.", 'Əvvəl haradan olduğunu, sonra millətini de.', "He's from Baku. — haradan; He's Azerbaijani. — millət.", "He's from Baku. He's Azerbaijani."))],
       review: {
         title: 'Dostunu təqdim et', why: 'Qızı təqdim etdin: haradandır və millətidir.', hint: 'Qız haqqında danışırsan; iki qısa cümlə de.',
         prompt: 'Qatarda sərnişin qız haqqında soruşur. Qız Gəncədəndir, azərbaycanlıdır.\nİki cümlə ilə de: haradandır və millətidir.', audio: "Where's she from?", reply: 'Really? Nice!',
         rule: own(sheFrom, "She's from Ganja. She's Azerbaijani."),
-        variants: [wrongShe, other("She's from … She's …", ex("She's from Ganja. She's Azerbaijani.", 'Əvvəl haradan olduğunu, sonra millətini de.', "She's from Ganja. — haradan; She's Azerbaijani. — millət.", "She's from Ganja. She's Azerbaijani."))],
+        variants: [wrongShe, other("She's from [ölkə]. She's [millət]", ex("She's from Ganja. She's Azerbaijani.", 'Əvvəl haradan olduğunu, sonra millətini de.', "She's from Ganja. — haradan; She's Azerbaijani. — millət.", "She's from Ganja. She's Azerbaijani."))],
       },
     },
     {

@@ -38,8 +38,8 @@ export const exam: DesignLesson = {
       type: 'two', id: 'u2x_c04', number: 4, title: 'Formanı doldur', why: 'Ad və soyad öz yerindədir.', scenes: ['u2/form-course'],
       prompt: 'Dostunu kursa yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “HASANOVA NIGAR”.\nFormanı doldur.', form: { title: 'Kurs qeydiyyatı', subtitle: 'Yeni tələbə' },
       fields: [
-        { id: 'u2x_c04a', label: 'First name', placeholder: '…', rule: exact('Nigar'), purpose: 'adı yazmaq', empty: 'Adı da yaz.' },
-        { id: 'u2x_c04b', label: 'Last name', placeholder: '…', rule: exact('Hasanova'), purpose: 'soyadı yazmaq', empty: 'Soyadı da yaz.' },
+        { id: 'u2x_c04a', label: 'First name', placeholder: 'Adını yaz', rule: exact('Nigar'), purpose: 'adı yazmaq', empty: 'Adı da yaz.' },
+        { id: 'u2x_c04b', label: 'Last name', placeholder: 'Soyadını yaz', rule: exact('Hasanova'), purpose: 'soyadı yazmaq', empty: 'Soyadı da yaz.' },
       ],
       variants: [
         { field: 'u2x_c04a', match: { other: true }, explain: ex('Nigar', 'First name — addır: pasportdakı ikinci söz.', 'First name — Nigar; Last name — Hasanova.', 'My first name is Nigar.') },
@@ -127,7 +127,7 @@ export const exam: DesignLesson = {
       prompt: 'Qeydiyyat masasında.\nBalonlara toxun, söhbəti sıraya düz.',
       rows: [{ en: '1', az: "Hello! What's your phone number?", from: 'M' }, { en: '2', az: "It's zero five zero, two two one, four eight, three six.", from: 'B' }, { en: '3', az: 'Zero five zero, two two one, four eight, three six. Is that right?', from: 'M' }, { en: '4', az: "Yes, that's right. Thank you!", from: 'B' }],
       extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("Hello! What's your phone number? → It's zero five zero… → … Is that right? → Yes, that's right. Thank you!", 'Sual, nömrə, yoxlama, sonra təsdiq.', "Is that right? — yoxlama; Yes, that's right. — təsdiq.", "What's your phone number?"))],
+      variants: [other('Söhbətin sırası düz deyil.', ex("Hello! What's your phone number? → It's zero five zero… → Is that right? → Yes, that's right. Thank you!", 'Sual, nömrə, yoxlama, sonra təsdiq.', "Is that right? — yoxlama; Yes, that's right. — təsdiq.", "What's your phone number?"))],
     },
   ],
   result: {

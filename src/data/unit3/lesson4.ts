@@ -25,20 +25,20 @@ const QUESTION_MISTAKES: Variant[] = [
 ];
 
 export const lesson4: DesignLesson = {
-  id: 'a1_en_b3_d4', order: 28, unit: 3, number: 4, title: 'Sən …-dansan?', section: 'Haradansan',
+  id: 'a1_en_b3_d4', order: 28, unit: 3, number: 4, title: 'Sən [ölkə]-dansan?', section: 'Haradansan',
   notices,
   cards: [
     {
-      type: 'intro', id: 'u3d4_c01', badge: 'Haradansan', subtitle: 'Hostelin mətbəxində yeni tanışlarla “Sən …-dansan?” deyə soruşub qısa cavab verirsən.', start: 'Dərsə başla',
+      type: 'intro', id: 'u3d4_c01', badge: 'Haradansan', subtitle: 'Hostelin mətbəxində yeni tanışlarla “Sən [ölkə]-dansan?” deyə soruşub qısa cavab verirsən.', start: 'Dərsə başla',
       goals: [
-        { icon: 'chat', text: '“Sən …-dansan?” sualını eşidib anlaya bilirəm.' },
+        { icon: 'chat', text: '“Sən [ölkə]-dansan?” sualını eşidib anlaya bilirəm.' },
         { icon: 'wave', text: 'Bəli və xeyr ilə qısa cavab verə bilirəm.' },
         { icon: 'bye', text: 'Bir ölkədən olub-olmadığını soruşa bilirəm.' },
       ],
     },
     {
       type: 'word', id: 'u3d4_c02', number: 2, scenes: ['u3/hostel-kitchen'],
-      word: 'Are you from …?', pronunciation: '/ɑr ju frʌm/', reading: 'ar yu fram …?', az: 'Sən …-dansan?',
+      word: 'Are you from [ölkə]?', pronunciation: '/ɑr ju frʌm/', reading: 'ar yu fram [ölkə]?', az: 'Sən [ölkə]-dansan?',
       structure: ['Are you from + ölkə?'],
       notes: ['Sual are ilə başlayır.'],
       example: 'Are you from Turkey?', exampleAz: 'Sən Türkiyədənsən?',
@@ -64,7 +64,7 @@ export const lesson4: DesignLesson = {
     {
       type: 'word', id: 'u3d4_c04', number: 4, scenes: ['mascot/happy'],
       word: 'Yes, I am.', pronunciation: '/jɛs aɪ æm/', reading: 'yes, ay əm', az: 'Bəli, eləyəm.',
-      structure: ['Are you …? — Yes, I am.'],
+      structure: ['Are you [millət]? — Yes, I am.'],
       notes: ['Qısa cavabın sonunda I am qısalmır.'],
       example: 'Are you from Azerbaijan? — Yes, I am.', exampleAz: 'Sən Azərbaycandansan? — Bəli, eləyəm.',
     },
@@ -89,7 +89,7 @@ export const lesson4: DesignLesson = {
     {
       type: 'word', id: 'u3d4_c06', number: 6, scenes: ['mascot/think'],
       word: "No, I'm not.", pronunciation: '/noʊ aɪm nɑt/', reading: 'nou, aym nat', az: 'Xeyr, deyiləm.',
-      structure: ["Are you …? — No, I'm not."],
+      structure: ["Are you [millət]? — No, I'm not."],
       notes: ['I’m not — burada not am-dan sonra gəlir.'],
       example: "Are you from Russia? — No, I'm not.", exampleAz: 'Sən Rusiyadansan? — Xeyr, deyiləm.',
     },
@@ -112,17 +112,17 @@ export const lesson4: DesignLesson = {
       example: "I'm from the USA. — Really? Me too!", exampleAz: 'Mən ABŞ-danam. — Doğrudan? Mən də!',
     },
     {
-      type: 'match', mode: 'reply', id: 'u3d4_c09', number: 9, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Əvvəl sualları ayır: biri “haradan?”, biri “…-dansan?” soruşur.',
+      type: 'match', mode: 'reply', id: 'u3d4_c09', number: 9, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Əvvəl sualları ayır: biri “haradan?”, biri “[ölkə]-dansan?” soruşur.',
       prompt: 'Hostelin mətbəxində yeni tanışlar danışır.\nCümləyə toxun, sonra ona uyğun cavabı seç.',
       rows: [{ en: 'Where are you from?', az: "I'm from Ganja.", from: 'other' }, { en: "I'm from France.", az: 'Really? Me too!', from: 'other' }, { en: 'Are you from Russia?', az: "No, I'm not.", from: 'other' }],
       extra: ['Nice to meet you.'],
-      variants: [other('Bir cavab yerində deyil.', ex("Where are you from? — I'm from Ganja.; I'm from France. — Really? Me too!; Are you from Russia? — No, I'm not.", '“Haradan?” sualına yer deyilir, “…-dansan?” sualına bəli və ya xeyr.', "Where are you from? — I'm from Ganja. ; Are you from Russia? — No, I'm not.", 'Are you from Russia?'))],
+      variants: [other('Bir cavab yerində deyil.', ex("Where are you from? — I'm from Ganja.; I'm from France. — Really? Me too!; Are you from Russia? — No, I'm not.", '“Haradan?” sualına yer deyilir, “[ölkə]-dansan?” sualına bəli və ya xeyr.', "Where are you from? — I'm from Ganja. ; Are you from Russia? — No, I'm not.", 'Are you from Russia?'))],
       review: {
-        title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Əvvəl “…-dansan?” sualını tap.',
+        title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Əvvəl “[ölkə]-dansan?” sualını tap.',
         prompt: 'Qatarda sərnişinlər tanış olur.\nCümləyə toxun, sonra ona uyğun cavabı seç.',
         rows: [{ en: 'Are you from Georgia?', az: 'Yes, I am.', from: 'other' }, { en: "I'm from Iran.", az: 'Really?', from: 'other' }, { en: 'Where are you from?', az: "I'm from Baku.", from: 'other' }],
         extra: ['Thank you!'],
-        variants: [other('Bir cavab yerində deyil.', ex("Are you from Georgia? — Yes, I am.; I'm from Iran. — Really?; Where are you from? — I'm from Baku.", '“Haradan?” sualına yer deyilir, “…-dansan?” sualına bəli və ya xeyr.', "Where are you from? — I'm from Baku. ; Are you from Georgia? — Yes, I am.", 'Are you from Georgia?'))],
+        variants: [other('Bir cavab yerində deyil.', ex("Are you from Georgia? — Yes, I am.; I'm from Iran. — Really?; Where are you from? — I'm from Baku.", '“Haradan?” sualına yer deyilir, “[ölkə]-dansan?” sualına bəli və ya xeyr.', "Where are you from? — I'm from Baku. ; Are you from Georgia? — Yes, I am.", 'Are you from Georgia?'))],
       },
     },
     {
@@ -181,7 +181,7 @@ export const lesson4: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 4 tamamlandı', 'Artıq “Sən …-dansan?” deyə soruşur, bəli və xeyr ilə qısa cavab verirsən.'],
+    done: ['Dərs 4 tamamlandı', 'Artıq “Sən [ölkə]-dansan?” deyə soruşur, bəli və xeyr ilə qısa cavab verirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
       { group: 'Tanıma', text: 'Bəli/xeyr sualını və cavablarını anlamaq', tasks: ['u3d4_c03', 'u3d4_c05', 'u3d4_c09', 'u3d4_c13'] },
@@ -192,7 +192,7 @@ export const lesson4: DesignLesson = {
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'Are you from …?', translation: 'Sən …-dansan?', example: 'Are you from Turkey?', exampleAz: 'Sən Türkiyədənsən?', usageNote: 'Are you from + ölkə?', pronunciation: '/ɑr ju frʌm/', teachCard: 'u3d4_c02' },
+    { word: 'Are you from [ölkə]?', translation: 'Sən [ölkə]-dansan?', example: 'Are you from Turkey?', exampleAz: 'Sən Türkiyədənsən?', usageNote: 'Are you from + ölkə?', pronunciation: '/ɑr ju frʌm/', teachCard: 'u3d4_c02' },
     { word: 'Yes, I am.', translation: 'Bəli, eləyəm.', example: 'Are you from Azerbaijan? — Yes, I am.', exampleAz: 'Sən Azərbaycandansan? — Bəli, eləyəm.', usageNote: 'Qısa cavabda I am qısalmır.', pronunciation: '/jɛs aɪ æm/', teachCard: 'u3d4_c04' },
     { word: "No, I'm not.", translation: 'Xeyr, deyiləm.', example: "Are you from Russia? — No, I'm not.", exampleAz: 'Sən Rusiyadansan? — Xeyr, deyiləm.', usageNote: 'Qısa xeyr cavabı: No, I’m not.', pronunciation: '/noʊ aɪm nɑt/', teachCard: 'u3d4_c06' },
     { word: 'Really?', translation: 'Doğrudan?', example: "I'm from the USA. — Really? Me too!", exampleAz: 'Mən ABŞ-danam. — Doğrudan? Mən də!', usageNote: 'Təəccüb bildirir.', pronunciation: '/ˈriəli/', teachCard: 'u3d4_c08' },

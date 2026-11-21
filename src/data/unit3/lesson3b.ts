@@ -126,12 +126,12 @@ export const lesson3b: DesignLesson = {
       type: 'two', id: 'u3d3b_c11', number: 11, title: 'Formanı doldur', why: 'Adını, soyadını və millətini öz yerinə yazdın.', hint: 'Hər sətrin başlığını oxu; millət sətrinə ölkə adı yazılmır.', scenes: ['u3/hostel'],
       prompt: 'Hostelə yazılırsan.\nQeydiyyat vərəqini doldur (istəsən, uydurma məlumat).', form: { title: 'Hostel qeydiyyatı', subtitle: 'Yeni qonaq' },
       fields: [
-        { id: 'u3d3b_c11a', label: 'First name', placeholder: '…', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
-        { id: 'u3d3b_c11b', label: 'Last name', placeholder: '…', rule: own(NAME, 'Mammadova'), purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
-        { id: 'u3d3b_c11c', label: 'Nationality', placeholder: '…', rule: own(NATIONALITY_FIELD, 'Azerbaijani'), purpose: 'millətini yazmaq', empty: 'Millətini də yaz.' },
+        { id: 'u3d3b_c11a', label: 'First name', placeholder: 'Adını yaz', rule: own(NAME, '[ad]'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
+        { id: 'u3d3b_c11b', label: 'Last name', placeholder: 'Soyadını yaz', rule: own(NAME, 'Mammadova'), purpose: 'soyadını yazmaq', empty: 'Soyadını da yaz.' },
+        { id: 'u3d3b_c11c', label: 'Nationality', placeholder: 'Millətini yaz', rule: own(NATIONALITY_FIELD, 'Azerbaijani'), purpose: 'millətini yazmaq', empty: 'Millətini də yaz.' },
       ],
       variants: [
-        { field: 'u3d3b_c11a', match: { other: true }, explain: ex('…', 'Bu sətirdə yalnız adın lazımdır.', 'First name — adın; Last name — soyadın.', 'My first name is …') },
+        { field: 'u3d3b_c11a', match: { other: true }, explain: ex('[ad]', 'Bu sətirdə yalnız adın lazımdır.', 'First name — adın; Last name — soyadın.', 'My first name is [ad]') },
         { field: 'u3d3b_c11b', match: { other: true }, explain: ex('Mammadova', 'Bu sətirdə yalnız soyadın lazımdır.', 'Last name — soyadın; First name — adın.', 'My last name is Mammadova.') },
         { field: 'u3d3b_c11c', match: { other: true }, explain: ex('Azerbaijani', 'Nationality sətrinə ölkə yox, millət yazılır.', 'Nationality: Azerbaijani. ; Where are you from? — Azerbaijan.', 'Nationality: Azerbaijani.') },
       ],
@@ -139,9 +139,9 @@ export const lesson3b: DesignLesson = {
         title: 'Formanı doldur', why: 'Soyadı, adı və milləti öz yerinə yazdın.', hint: 'Hər sətrin başlığını oxu; millət sətrinə ölkə adı yazılmır.', scenes: ['u3/hostel'],
         prompt: 'Amerikalı dostunu hostelə yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “SMITH ANNA”, ölkə — the USA.\nFormanı doldur.', form: { title: 'Hostel qeydiyyatı', subtitle: 'Yeni qonaq' },
         fields: [
-          { id: 'u3d3b_c11b', label: 'Last name', placeholder: '…', rule: exact('Smith'), purpose: 'soyadı yazmaq', empty: 'Soyadı da yaz.' },
-          { id: 'u3d3b_c11a', label: 'First name', placeholder: '…', rule: exact('Anna'), purpose: 'adı yazmaq', empty: 'Adı da yaz.' },
-          { id: 'u3d3b_c11c', label: 'Nationality', placeholder: '…', rule: exact('American'), purpose: 'milləti yazmaq', empty: 'Milləti də yaz.' },
+          { id: 'u3d3b_c11b', label: 'Last name', placeholder: 'Soyadını yaz', rule: exact('Smith'), purpose: 'soyadı yazmaq', empty: 'Soyadı da yaz.' },
+          { id: 'u3d3b_c11a', label: 'First name', placeholder: 'Adını yaz', rule: exact('Anna'), purpose: 'adı yazmaq', empty: 'Adı da yaz.' },
+          { id: 'u3d3b_c11c', label: 'Nationality', placeholder: 'Millətini yaz', rule: exact('American'), purpose: 'milləti yazmaq', empty: 'Milləti də yaz.' },
         ],
         variants: [
           { field: 'u3d3b_c11b', match: { other: true }, explain: ex('Smith', 'Last name — soyaddır: pasportdakı birinci söz.', 'Last name — Smith; First name — Anna.', 'My last name is Smith.') },

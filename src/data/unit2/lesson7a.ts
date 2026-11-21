@@ -189,7 +189,7 @@ export const lesson7a: DesignLesson = {
   vocabulary: [
     { word: 'eleven', translation: 'on bir', example: 'Nine, ten, eleven!', exampleAz: 'Doqquz, on, on bir!', usageNote: 'Vurğu ortada: e-LE-ven.', pronunciation: '/ɪˈlevən/', teachCard: 'u2d7a_c02' },
     { word: 'twelve', translation: 'on iki', example: 'Ten, eleven, twelve!', exampleAz: 'On, on bir, on iki!', usageNote: 'Ayrıca söz.', pronunciation: '/twelv/', teachCard: 'u2d7a_c04' },
-    { word: 'thirteen – nineteen', translation: '13–19', example: 'Thirteen, fourteen, fifteen!', exampleAz: 'On üç, on dörd, on beş!', usageNote: 'rəqəm + teen; thir-, fif- dəyişir.', pronunciation: '/ˌθɜrˈtin/ … /ˌnaɪnˈtin/', teachCard: 'u2d7a_c06' },
+    { word: 'thirteen – nineteen', translation: '13–19', example: 'Thirteen, fourteen, fifteen!', exampleAz: 'On üç, on dörd, on beş!', usageNote: 'rəqəm + teen; thir-, fif- dəyişir.', pronunciation: '/ˌθɜrˈtin/ – /ˌnaɪnˈtin/', teachCard: 'u2d7a_c06' },
     { word: 'twenty', translation: 'iyirmi', example: 'Eighteen, nineteen, twenty!', exampleAz: 'On səkkiz, on doqquz, iyirmi!', usageNote: 'Vurğu əvvəldə.', pronunciation: '/ˈtwenti/', teachCard: 'u2d7a_c08' },
   ],
 };

@@ -35,15 +35,15 @@ export const lesson1: DesignLesson = {
       example: 'Hello! Where are you from?', exampleAz: 'Salam! Haradansan?',
     },
     {
-      type: 'choice', id: 'u3d1_c03', number: 3, title: 'Dinlə və anla', why: '“where … from” — haradan.', hint: 'Sualın əvvəlindəki və sonundakı sözə qulaq as.',
+      type: 'choice', id: 'u3d1_c03', number: 3, title: 'Dinlə və anla', why: '“where are you from” — haradan.', hint: 'Sualın əvvəlindəki və sonundakı sözə qulaq as.',
       prompt: 'Dil klubunun açılışındasan. Yeni tanış sənə yaxınlaşır.\nO nə soruşur?', audio: 'Hello! Where are you from?',
       options: ['Haradan olduğunu soruşur.', 'Adını soruşur.', 'Halını soruşur.'], answer: 'Haradan olduğunu soruşur.',
       variants: [
         pick('Adını soruşur.', 'Səsdə “name” yoxdur.', ex('Haradan olduğunu soruşur.', 'Səsdə “where” və “from” var — haradan olduğunu soruşur.', "Where are you from? — haradan; What's your name? — ad.", 'Hello! Where are you from?')),
-        pick('Halını soruşur.', 'Səsdə “how” yoxdur.', ex('Haradan olduğunu soruşur.', 'Hal “How are you?” ilə soruşulur; burada “where … from” var.', 'Where are you from? — haradan; How are you? — hal.', 'Hello! Where are you from?')),
+        pick('Halını soruşur.', 'Səsdə “how” yoxdur.', ex('Haradan olduğunu soruşur.', 'Hal “How are you?” ilə soruşulur; burada “where are you from” var.', 'Where are you from? — haradan; How are you? — hal.', 'Hello! Where are you from?')),
       ],
       review: {
-        title: 'Dinlə və anla', why: '“where … from” — haradan.', hint: 'Sualın sonundakı kiçik sözə qulaq as.',
+        title: 'Dinlə və anla', why: '“where are you from” — haradan.', hint: 'Sualın sonundakı kiçik sözə qulaq as.',
         prompt: 'Kafedə qonşu masadakı yeni tanış səninlə danışır.\nO nə soruşur?', audio: 'Excuse me, where are you from?',
         options: ['Üzr istəyir.', 'Haradan olduğunu soruşur.', 'Telefon nömrəni soruşur.'], answer: 'Haradan olduğunu soruşur.',
         variants: [
@@ -54,7 +54,7 @@ export const lesson1: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d1_c04', number: 4, scenes: ['mascot/point'],
-      word: "I'm from …", pronunciation: '/aɪm frʌm/', reading: 'aym fram …', az: 'Mən …-danam',
+      word: "I'm from [ölkə]", pronunciation: '/aɪm frʌm/', reading: 'aym fram [ölkə]', az: 'Mən [ölkə]-danam',
       structure: ["I'm from + şəhər / ölkə."],
       notes: ['“Bakıdanam” ingiliscə üç hissədir: I’m from Baku.'],
       example: "Where are you from? — I'm from Baku.", exampleAz: 'Haradansan? — Bakıdanam.',
@@ -66,7 +66,7 @@ export const lesson1: DesignLesson = {
       tiles: ["I'm", 'from', 'Ganja', '.', 'is', 'my', 'I'], rule: exact("I'm from Ganja."),
       variants: [
         ...fromMistakes("I'm from Ganja.", "Where are you from? — I'm from Ganja."),
-        other("I'm from + şəhər.", ex("I'm from Ganja.", 'Haradan olduğunu deyirsən: I’m, from, sonra şəhər.', "I'm from Ganja. — haradan; My name is … — ad.", "Where are you from? — I'm from Ganja.")),
+        other("I'm from + şəhər.", ex("I'm from Ganja.", 'Haradan olduğunu deyirsən: I’m, from, sonra şəhər.', "I'm from Ganja. — haradan; My name is [ad] — ad.", "Where are you from? — I'm from Ganja.")),
       ],
       review: {
         title: 'Mesaj yaz', why: 'I’m from + şəhər — haradan olduğunu dedin.', hint: 'Bölmə 1-dəki “I’m” ilə başla.',
@@ -75,7 +75,7 @@ export const lesson1: DesignLesson = {
         tiles: ['Shamakhi', 'from', "I'm", '.', 'at', 'you', 'is'], rule: exact("I'm from Shamakhi."),
         variants: [
           ...fromMistakes("I'm from Shamakhi.", "Where are you from? — I'm from Shamakhi."),
-          other("I'm from + şəhər.", ex("I'm from Shamakhi.", 'Haradan olduğunu deyirsən: I’m, from, sonra şəhər.', "I'm from Shamakhi. — haradan; My name is … — ad.", "Where are you from? — I'm from Shamakhi.")),
+          other("I'm from + şəhər.", ex("I'm from Shamakhi.", 'Haradan olduğunu deyirsən: I’m, from, sonra şəhər.', "I'm from Shamakhi. — haradan; My name is [ad] — ad.", "Where are you from? — I'm from Shamakhi.")),
         ],
       },
     },
@@ -91,7 +91,7 @@ export const lesson1: DesignLesson = {
       rule: myOrigin,
       variants: [
         ...fromMistakes("I'm from Azerbaijan.", "Where are you from? — I'm from Azerbaijan."),
-        other("I'm from + ölkə və ya şəhər.", ex("I'm from Azerbaijan.", 'Sual haradan olduğunu soruşur — I’m from və yerin adı.', "I'm from Azerbaijan. — haradan; My name is … — ad.", "Where are you from? — I'm from Baku.")),
+        other("I'm from + ölkə və ya şəhər.", ex("I'm from Azerbaijan.", 'Sual haradan olduğunu soruşur — I’m from və yerin adı.', "I'm from Azerbaijan. — haradan; My name is [ad] — ad.", "Where are you from? — I'm from Baku.")),
       ],
       review: {
         title: 'Səslə cavab', why: 'Haradan olduğunu dedin.', hint: 'Cavabı “mən” sözü ilə başla, yerin adından əvvəl “-dan” sözünü unutma.',
@@ -109,15 +109,15 @@ export const lesson1: DesignLesson = {
       options: ['from', 'at', 'is'], answer: 'from',
       variants: [
         pick('at', '“at” e-poçtda @ deməkdir.', ex('from', 'Haradan olduğunu deyəndə “from” gəlir.', "I'm from Baku. — haradan; at — @ (e-poçtda).", "I'm from Baku.")),
-        pick('is', 'I’m-dan sonra “is” gəlmir.', ex('from', 'I’m artıq “mən …-am” deməkdir; haradan — from.', "I'm from Baku. — düzdür; I'm is Baku. — olmur.", "I'm from Baku.")),
+        pick('is', 'I’m-dan sonra “is” gəlmir.', ex('from', 'I’m artıq “mən [ad]-am” deməkdir; haradan — from.', "I'm from Baku. — düzdür; I'm is Baku. — olmur.", "I'm from Baku.")),
       ],
       review: {
         title: 'Sözü tamamla', why: 'from — “-dan”: I’m from Ganja.', hint: 'Azərbaycancada bu, şəhərin sonuna şəkilçi kimi qoşulur.',
         prompt: 'Kafedə oğlan yeni tanışa haradan olduğunu deyir.\nHansı söz çatmır?', gap: { speaker: 'B', before: "I'm", after: 'Ganja.' },
         options: ['is', 'from', 'my'], answer: 'from',
         variants: [
-          pick('is', 'I’m-dan sonra “is” gəlmir.', ex('from', 'I’m artıq “mən …-am” deməkdir; haradan — from.', "I'm from Ganja. — düzdür; I'm is Ganja. — olmur.", "I'm from Ganja.")),
-          pick('my', '“my” — mənim; burada haradan olduğunu deyir.', ex('from', 'Haradan olduğunu deyəndə “from” gəlir.', "I'm from Ganja. — haradan; My name is … — ad.", "I'm from Ganja.")),
+          pick('is', 'I’m-dan sonra “is” gəlmir.', ex('from', 'I’m artıq “mən [ad]-am” deməkdir; haradan — from.', "I'm from Ganja. — düzdür; I'm is Ganja. — olmur.", "I'm from Ganja.")),
+          pick('my', '“my” — mənim; burada haradan olduğunu deyir.', ex('from', 'Haradan olduğunu deyəndə “from” gəlir.', "I'm from Ganja. — haradan; My name is [ad] — ad.", "I'm from Ganja.")),
         ],
       },
     },
@@ -167,7 +167,7 @@ export const lesson1: DesignLesson = {
       rule: askFrom,
       variants: [
         insteadOf('askName', 'Adını artıq bilirsən — haradan olduğunu soruş.', ex('Where are you from?', 'Ad yox, haradan olduğu lazımdır.', "Where are you from? — haradan; What's your name? — ad.", 'Hello! Where are you from?')),
-        other('Where are you from?', ex('Where are you from?', 'Haradan olduğunu soruşursan: Where … from?', 'Where are you from? — haradan; How are you? — hal.', 'Hi! Where are you from?')),
+        other('Where are you from?', ex('Where are you from?', 'Haradan olduğunu soruşursan: Where are you from?', 'Where are you from? — haradan; How are you? — hal.', 'Hi! Where are you from?')),
       ],
       review: {
         title: 'Haradan olduğunu soruş', why: 'Haradan olduğunu soruşdun.', hint: 'Bu dərsin ilk sualını xatırla.',
@@ -175,7 +175,7 @@ export const lesson1: DesignLesson = {
         rule: askFrom,
         variants: [
           insteadOf('askFeeling', 'Hal yox, haradan olduğunu soruş.', ex('Where are you from?', 'Hal yox, haradan olduğu lazımdır.', 'Where are you from? — haradan; How are you? — hal.', 'Hi! Where are you from?')),
-          other('Where are you from?', ex('Where are you from?', 'Haradan olduğunu soruşursan: Where … from?', "Where are you from? — haradan; What's your name? — ad.", 'Hi! Where are you from?')),
+          other('Where are you from?', ex('Where are you from?', 'Haradan olduğunu soruşursan: Where are you from?', "Where are you from? — haradan; What's your name? — ad.", 'Hi! Where are you from?')),
         ],
       },
     },
@@ -214,7 +214,7 @@ export const lesson1: DesignLesson = {
   },
   vocabulary: [
     { word: 'Where are you from?', translation: 'Haradansan?', example: 'Hello! Where are you from?', exampleAz: 'Salam! Haradansan?', usageNote: 'from — “-dan”, sualın sonunda gəlir.', pronunciation: '/wɛr ɑr ju frʌm/', teachCard: 'u3d1_c02' },
-    { word: "I'm from …", translation: 'Mən …-danam', example: "Where are you from? — I'm from Baku.", exampleAz: 'Haradansan? — Bakıdanam.', usageNote: "I'm from + şəhər / ölkə.", pronunciation: '/aɪm frʌm/', teachCard: 'u3d1_c04' },
+    { word: "I'm from [ölkə]", translation: 'Mən [ölkə]-danam', example: "Where are you from? — I'm from Baku.", exampleAz: 'Haradansan? — Bakıdanam.', usageNote: "I'm from + şəhər / ölkə.", pronunciation: '/aɪm frʌm/', teachCard: 'u3d1_c04' },
     { word: 'Azerbaijan', translation: 'Azərbaycan', example: "I'm from Azerbaijan.", exampleAz: 'Azərbaycandanam.', usageNote: 'Ölkə adı, böyük hərflə.', pronunciation: '/ˌæzərbaɪˈdʒɑn/', teachCard: 'u3d1_c06' },
     { word: 'Me too.', translation: 'Mən də.', example: "I'm from Baku. — Me too!", exampleAz: 'Bakıdanam. — Mən də!', usageNote: 'Eyni olanda: mən də.', pronunciation: '/mi tu/', teachCard: 'u3d1_c09' },
   ],

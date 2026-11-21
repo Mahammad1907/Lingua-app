@@ -3,7 +3,7 @@
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, goal, insteadOf, other, pick } from './build';
 
-const greetIntro = goal(['greet', 'introduce'], ["Hi! I'm …", 'Hello! My name is …']);
+const greetIntro = goal(['greet', 'introduce'], ["Hi! I'm [ad]", 'Hello! My name is [ad]']);
 const askName = goal(['askName'], ["What's your name?"]);
 const help = goal(['dontUnderstand', 'repeat'], ["Sorry? I don't understand. Say that again, please."]);
 
@@ -32,7 +32,7 @@ export const lesson8: DesignLesson = {
         { en: 'Hi! How are you?', az: 'Salam! Necəsən?' },
         { en: "I'm fine, thanks. And you?", az: 'Yaxşıyam, sağ ol. Bəs sən?' },
         { en: "I'm OK. What's your name?", az: 'Normalam. Adın nədir?' },
-        { en: "I'm … Nice to meet you!", az: 'Mən …-am. Tanış olduğuma şadam!' },
+        { en: "I'm [ad]. Nice to meet you!", az: 'Mən [ad]-am. Tanış olduğuma şadam!' },
       ],
       notes: ['Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən.'],
     },
@@ -67,7 +67,7 @@ export const lesson8: DesignLesson = {
         title: 'Kim nə dedi?', why: 'Hər cümlə öz yerində.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Hər cümləyə mənasını qoş.',
         rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "I don't understand.", az: 'Başa düşmürəm.', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
         extra: ['Daha yavaş, zəhmət olmasa.'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; I don’t understand. — Başa düşmürəm.; Goodbye! — Görüşənədək!', 'Salam, kömək istəmək və sağollaşma fərqli işlərdir.', 'Hello! — görüşün əvvəli; Goodbye! — görüşün sonu.', "Hello! … Sorry? I don't understand. … Goodbye!"))],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; I don’t understand. — Başa düşmürəm.; Goodbye! — Görüşənədək!', 'Salam, kömək istəmək və sağollaşma fərqli işlərdir.', 'Hello! — görüşün əvvəli; Goodbye! — görüşün sonu.', "Hello! Sorry? I don't understand. Goodbye!"))],
       },
     },
     {
@@ -91,8 +91,8 @@ export const lesson8: DesignLesson = {
         { id: 'd8_c07b', label: 'İkinci mesaj', placeholder: 'Onun adını soruş', rule: askName, purpose: 'adını soruşmaq', empty: 'İkinci mesajı da yaz.' },
       ],
       variants: [
-        { field: 'd8_c07a', match: { other: true }, explain: ex("Hi! I'm …", 'Bu mesajda salam və adın lazımdır.', 'Salam + I’m / My name is + adın.', 'Hello! My name is …') },
-        { field: 'd8_c07b', match: { other: true }, explain: ex("What's your name?", 'Bu mesajda onun adını soruşmalısan.', 'What’s your name?', "Hi! I'm … What's your name?") },
+        { field: 'd8_c07a', match: { other: true }, explain: ex("Hi! I'm [ad]", 'Bu mesajda salam və adın lazımdır.', 'Salam + I’m / My name is + adın.', 'Hello! My name is [ad]') },
+        { field: 'd8_c07b', match: { other: true }, explain: ex("What's your name?", 'Bu mesajda onun adını soruşmalısan.', 'What’s your name?', "Hi! I'm [ad]. What's your name?") },
       ],
       review: {
         scenes: ['d8/online-class'],
@@ -103,7 +103,7 @@ export const lesson8: DesignLesson = {
           { id: 'd8_c07b', label: 'İkinci mesaj', placeholder: 'Onun adını soruş', rule: askName, purpose: 'adını soruşmaq', empty: 'İkinci mesajı da yaz.' },
         ],
         variants: [
-          { field: 'd8_c07a', match: { other: true }, explain: ex("Hello! My name is …", 'Bu mesajda salam və adın lazımdır.', 'Salam + I’m / My name is + adın.', "Hi! I'm …") },
+          { field: 'd8_c07a', match: { other: true }, explain: ex("Hello! My name is [ad]", 'Bu mesajda salam və adın lazımdır.', 'Salam + I’m / My name is + adın.', "Hi! I'm [ad]") },
           { field: 'd8_c07b', match: { other: true }, explain: ex("What's your name?", 'Bu mesajda onun adını soruşmalısan.', 'What’s your name?', "What's your name?") },
         ],
       },
@@ -111,14 +111,14 @@ export const lesson8: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'd8_c08', number: 8, title: 'Söhbəti sırala', why: 'Salam, hal, ad və xoş söz — bütöv söhbət.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.',
       prompt: 'Ziyafətdə tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Hi! How are you?', from: 'G' }, { en: '2', az: "I'm fine, thanks. And you?", from: 'B' }, { en: '3', az: "I'm OK. What's your name?", from: 'G' }, { en: '4', az: "I'm … Nice to meet you!", from: 'B' }],
+      rows: [{ en: '1', az: 'Hi! How are you?', from: 'G' }, { en: '2', az: "I'm fine, thanks. And you?", from: 'B' }, { en: '3', az: "I'm OK. What's your name?", from: 'G' }, { en: '4', az: "I'm [ad]. Nice to meet you!", from: 'B' }],
       extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm … Nice to meet you!", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'How are you? — əvvəl sual; I’m fine, thanks. And you? — sonra cavab.', "Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm … Nice to meet you!"))],
+      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm [ad]. Nice to meet you!", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'How are you? — əvvəl sual; I’m fine, thanks. And you? — sonra cavab.', "Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm [ad]. Nice to meet you!"))],
       review: {
         title: 'Söhbəti sırala', why: 'Ad sualı, cavab və xoş sözlər düz sıradadır.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.', prompt: 'Başqa tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "Hello! What's your name?", from: 'B' }, { en: '2', az: 'My name is …', from: 'G' }, { en: '3', az: 'Nice to meet you.', from: 'B' }, { en: '4', az: 'You too.', from: 'G' }],
+        rows: [{ en: '1', az: "Hello! What's your name?", from: 'B' }, { en: '2', az: 'My name is [ad]', from: 'G' }, { en: '3', az: 'Nice to meet you.', from: 'B' }, { en: '4', az: 'You too.', from: 'G' }],
         extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("Hello! What's your name? → My name is … → Nice to meet you. → You too.", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'What’s your name? — əvvəl sual; My name is … — sonra cavab.', "Hello! What's your name? → My name is … → Nice to meet you. → You too."))],
+        variants: [other('Söhbətin sırası düz deyil.', ex("Hello! What's your name? → My name is [ad] → Nice to meet you. → You too.", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'What’s your name? — əvvəl sual; My name is [ad] — sonra cavab.', "Hello! What's your name? → My name is [ad] → Nice to meet you. → You too."))],
       },
     },
     {
@@ -148,11 +148,11 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'voice', id: 'd8_c11', number: 11, title: 'Söhbət: tanışlıq', why: 'Adını dedin və tanışlığa şad olduğunu bildirdin.', hint: 'İki hissə: əvvəl adın, sonra xoş söz.',
-      prompt: 'Yeni tanışın deyir: “Hi! What’s your name?”\nAdını de və tanışlığa şad ol.', audio: "Hi! What's your name?", rule: goal(['meet', 'introduce'], ["I'm … Nice to meet you!"]),
-      variants: [other('İki hissə: adın + xoş söz.', ex("I'm … Nice to meet you!", 'Əvvəl adını deyirsən, sonra tanışlığa şad olduğunu bildirirsən.', 'I’m … + Nice to meet you!', "My name is … Nice to meet you!"))],
+      prompt: 'Yeni tanışın deyir: “Hi! What’s your name?”\nAdını de və tanışlığa şad ol.', audio: "Hi! What's your name?", rule: goal(['meet', 'introduce'], ["I'm [ad]. Nice to meet you!"]),
+      variants: [other('İki hissə: adın + xoş söz.', ex("I'm [ad]. Nice to meet you!", 'Əvvəl adını deyirsən, sonra tanışlığa şad olduğunu bildirirsən.', 'I’m [ad] + Nice to meet you!', "My name is [ad]. Nice to meet you!"))],
       review: {
-        title: 'Söhbət: tanışlıq', why: 'Adını dedin və tanışlığa şad olduğunu bildirdin.', hint: 'İki hissə: əvvəl adın, sonra xoş söz.', prompt: 'Yeni qonaq deyir: “Hello! What’s your name?”\nAdını de və tanışlığa şad ol.', audio: "Hello! What's your name?", rule: goal(['meet', 'introduce'], ["My name is … Nice to meet you!"]),
-        variants: [other('İki hissə: adın + xoş söz.', ex("My name is … Nice to meet you!", 'Əvvəl adını deyirsən, sonra tanışlığa şad olduğunu bildirirsən.', 'My name is … + Nice to meet you!', "I'm … Nice to meet you!"))],
+        title: 'Söhbət: tanışlıq', why: 'Adını dedin və tanışlığa şad olduğunu bildirdin.', hint: 'İki hissə: əvvəl adın, sonra xoş söz.', prompt: 'Yeni qonaq deyir: “Hello! What’s your name?”\nAdını de və tanışlığa şad ol.', audio: "Hello! What's your name?", rule: goal(['meet', 'introduce'], ["My name is [ad]. Nice to meet you!"]),
+        variants: [other('İki hissə: adın + xoş söz.', ex("My name is [ad]. Nice to meet you!", 'Əvvəl adını deyirsən, sonra tanışlığa şad olduğunu bildirirsən.', 'My name is [ad] + Nice to meet you!', "I'm [ad]. Nice to meet you!"))],
       },
     },
     {
@@ -163,9 +163,9 @@ export const lesson8: DesignLesson = {
       variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Sorry! — No problem.; Thank you! — You're welcome.; Nice to meet you! — You too!", 'Üzrə, təşəkkürə və xoş sözə fərqli cavab verilir.', 'Sorry! → No problem; Thank you! → You’re welcome.', 'Sorry! — No problem.'))],
       review: {
         title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə uyğun cavabı tap, bir cavab artıqdır.', prompt: 'Başqa söhbətlər.\nCümləyə toxun, sonra onun cavabını seç.',
-        rows: [{ en: "I'm sorry!", az: 'No problem.', from: 'G' }, { en: 'How are you?', az: "I'm OK.", from: 'B' }, { en: "What's your name?", az: 'My name is …', from: 'M' }],
+        rows: [{ en: "I'm sorry!", az: 'No problem.', from: 'G' }, { en: 'How are you?', az: "I'm OK.", from: 'B' }, { en: "What's your name?", az: 'My name is [ad]', from: 'M' }],
         extra: ['Please.'],
-        variants: [other('Bir cümlənin cavabı yerində deyil.', ex("I'm sorry! — No problem.; How are you? — I'm OK.; What's your name? — My name is …", 'Üzrə, hal sualına və ad sualına fərqli cavab verilir.', 'I’m sorry! → No problem; How are you? → I’m OK.', "I'm sorry! — No problem."))],
+        variants: [other('Bir cümlənin cavabı yerində deyil.', ex("I'm sorry! — No problem.; How are you? — I'm OK.; What's your name? — My name is [ad]", 'Üzrə, hal sualına və ad sualına fərqli cavab verilir.', 'I’m sorry! → No problem; How are you? → I’m OK.', "I'm sorry! — No problem."))],
       },
     },
     {

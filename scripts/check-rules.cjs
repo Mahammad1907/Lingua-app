@@ -12,6 +12,8 @@ const explains = designLessons.filter(l => !l.exam).flatMap(l => l.cards.filter(
 for (const c of explains) {
   assert.ok(RULE_META[c.id], `${c.id}: Müəllim izahı needs a name and topic in RULE_META (src/data/rules.ts)`);
   assert.ok(topics.has(RULE_META[c.id].topic), `${c.id}: unknown topic`);
+  assert.ok(RULE_META[c.id].title.endsWith('?'), `${c.id}: the rule name must be a question`);
+  assert.ok(RULE_META[c.id].eg && !RULE_META[c.id].eg.includes('…'), `${c.id}: English example missing`);
 }
 for (const id of Object.keys(RULE_META)) assert.ok(explains.some(c => c.id === id), `RULE_META ${id}: no such explain card`);
 assert.equal(RULES.length, explains.length);

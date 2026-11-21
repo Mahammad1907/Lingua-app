@@ -17,47 +17,47 @@ export const RULE_TOPICS: { id: RuleTopic; title: string; icon: string; tint: st
 ];
 
 /** Short name and topic of every explain card. */
-export const RULE_META: Record<string, { title: string; topic: RuleTopic }> = {
-  d1_c02t: { title: 'Hello və Hi', topic: 'polite' },
-  d2_c02t: { title: "I'm və ad", topic: 'order' },
-  d2_c02bt: { title: 'My name is …', topic: 'order' },
-  d3_c03t: { title: "What's your name? sualı", topic: 'questions' },
-  d4_c04t: { title: 'And you? ilə geri soruşmaq', topic: 'polite' },
-  d5_c05bt: { title: 'please və təşəkkürə cavab', topic: 'polite' },
-  d6_c04t: { title: 'Excuse me və Sorry!', topic: 'polite' },
-  d7_c03t: { title: "Sorry? və I don't understand", topic: 'polite' },
-  u2d1a_c04t: { title: 'th səsi: three', topic: 'sound' },
-  u2d1b_c04t: { title: 'eight, nine: yazılış və oxunuş', topic: 'sound' },
-  u2d2_c07t: { title: 'Nömrədə 0: zero və oh', topic: 'numbers' },
-  u2d3a_c03t: { title: 'Hərflərin adı', topic: 'letters' },
-  u2d3a_c09t: { title: 'E və I', topic: 'letters' },
-  u2d3b_c06t: { title: 'G və J', topic: 'letters' },
-  u2d3c_c06t: { title: 'Q və R', topic: 'letters' },
-  u2d4_c06t: { title: 'double: qoşa hərf', topic: 'letters' },
-  u2d5_c08t: { title: 'Mr. və Ms.', topic: 'polite' },
-  u2d6_c08t: { title: 'E-poçt: at və dot', topic: 'letters' },
-  u2d7a_c04t: { title: 'eleven və twelve', topic: 'numbers' },
-  u2d7a_c06t: { title: '-teen: 13–19', topic: 'numbers' },
-  u2d7b_c04t: { title: '-teen və -ty', topic: 'numbers' },
-  u2d7b_c08t: { title: "Yaş: I'm twenty-five.", topic: 'order' },
-  u3d1_c04t: { title: "from: I'm from …", topic: 'order' },
-  u3d2a_c04t: { title: 'Ölkə adı və from', topic: 'country' },
-  u3d2b_c06t: { title: 'the UK, the USA', topic: 'country' },
-  u3d3a_c02t: { title: 'Ölkə və millət', topic: 'country' },
-  u3d3a_c06t: { title: "I'm from Turkey. / I'm Turkish.", topic: 'country' },
-  u3d3b_c10t: { title: 'Nationality: millət', topic: 'country' },
-  u3d4_c02t: { title: 'Are you …? sualı', topic: 'questions' },
-  u3d4_c06t: { title: "Yes, I am. / No, I'm not.", topic: 'questions' },
-  u3d5a_c09t: { title: "He's və She's", topic: 'short' },
-  u3d5b_c05t: { title: 'Sualda is əvvələ keçir', topic: 'questions' },
-  u3d5b_c09t: { title: "Yes, he is. / No, she isn't.", topic: 'short' },
-  u3d6_c02t: { title: 'Where do you live? sualında do', topic: 'questions' },
-  u3d6_c04t: { title: 'I live in …', topic: 'order' },
-  u3d7_c06t: { title: "Yes, I do. / No, I don't.", topic: 'short' },
+export const RULE_META: Record<string, { title: string; eg: string; topic: RuleTopic }> = {
+  d1_c02t: { title: 'Salamı necə deyim?', eg: "Hello! · Hi!", topic: 'polite' },
+  d2_c02t: { title: 'Özümü necə təqdim edim?', eg: "Hi! I'm [ad].", topic: 'order' },
+  d2_c02bt: { title: 'Adımı tam cümlə ilə necə deyim?', eg: "My name is [ad].", topic: 'order' },
+  d3_c03t: { title: 'Adını necə soruşum?', eg: "What's your name?", topic: 'questions' },
+  d4_c04t: { title: '“Bəs sən?” necə soruşum?', eg: "And you?", topic: 'polite' },
+  d5_c05bt: { title: 'Xahişi necə deyim, təşəkkürə necə cavab verim?', eg: "Tea, please. · You're welcome.", topic: 'polite' },
+  d6_c04t: { title: '“Bağışlayın”ı nə vaxt necə deyim?', eg: "Excuse me! · Sorry!", topic: 'polite' },
+  d7_c03t: { title: 'Başa düşməyəndə nə deyim?', eg: "Sorry? · I don't understand.", topic: 'polite' },
+  u2d1a_c04t: { title: '“th” səsini necə deyim?', eg: "three", topic: 'sound' },
+  u2d1b_c04t: { title: 'eight və nine necə oxunur?', eg: "eight · nine", topic: 'sound' },
+  u2d2_c07t: { title: 'Nömrədə 0-ı necə deyim?', eg: "zero · oh", topic: 'numbers' },
+  u2d3a_c03t: { title: 'Hərfləri necə adlandırım?', eg: "A · B · C", topic: 'letters' },
+  u2d3a_c09t: { title: 'E ilə I necə fərqlənir?', eg: "E · I", topic: 'letters' },
+  u2d3b_c06t: { title: 'G ilə J necə fərqlənir?', eg: "G · J", topic: 'letters' },
+  u2d3c_c06t: { title: 'Q ilə R necə fərqlənir?', eg: "Q · R", topic: 'letters' },
+  u2d4_c06t: { title: 'Qoşa hərfi necə deyim?', eg: "double L", topic: 'letters' },
+  u2d5_c08t: { title: 'Mr. və Ms.-i nə vaxt işlədim?', eg: "Ms. Hasanova", topic: 'polite' },
+  u2d6_c08t: { title: '@ və nöqtəni necə deyim?', eg: "at · dot", topic: 'letters' },
+  u2d7a_c04t: { title: '11 və 12 necə deyilir?', eg: "eleven · twelve", topic: 'numbers' },
+  u2d7a_c06t: { title: '13–19 necə düzəlir?', eg: "thirteen · nineteen", topic: 'numbers' },
+  u2d7b_c04t: { title: '14 ilə 40 necə fərqlənir?', eg: "fourteen · forty", topic: 'numbers' },
+  u2d7b_c08t: { title: 'Yaşımı necə deyim?', eg: "I'm twenty-five.", topic: 'order' },
+  u3d1_c04t: { title: 'Haradan olduğumu necə deyim?', eg: "I'm from Baku.", topic: 'order' },
+  u3d2a_c04t: { title: 'Ölkənin adını necə deyim?', eg: "Turkey", topic: 'country' },
+  u3d2b_c06t: { title: 'the USA-da “the” nə üçündür?', eg: "the USA", topic: 'country' },
+  u3d3a_c02t: { title: 'Ölkə ilə millət necə fərqlənir?', eg: "Turkey · Turkish", topic: 'country' },
+  u3d3a_c06t: { title: 'Millətimi necə deyim?', eg: "I'm Turkish.", topic: 'country' },
+  u3d3b_c10t: { title: 'Formada “Nationality” nə deməkdir?', eg: "Nationality", topic: 'country' },
+  u3d4_c02t: { title: 'Ölkəni necə soruşum?', eg: "Are you from Turkey?", topic: 'questions' },
+  u3d4_c06t: { title: 'Bəli/xeyr necə cavab verim?', eg: "Yes, I am. · No, I'm not.", topic: 'questions' },
+  u3d5a_c09t: { title: 'Başqası haqqında necə deyim?', eg: "She's from Turkey.", topic: 'short' },
+  u3d5b_c05t: { title: 'Başqası haqqında necə soruşum?', eg: "Is she Turkish?", topic: 'questions' },
+  u3d5b_c09t: { title: 'Başqasının bəli/xeyrini necə deyim?', eg: "Yes, he is. · No, she isn't.", topic: 'short' },
+  u3d6_c02t: { title: 'Harada yaşadığını necə soruşum?', eg: "Where do you live?", topic: 'questions' },
+  u3d6_c04t: { title: 'Harada yaşadığımı necə deyim?', eg: "I live in Baku.", topic: 'order' },
+  u3d7_c06t: { title: 'Dil sualına necə cavab verim?', eg: "Yes, I do. · No, I don't.", topic: 'short' },
 };
 
 export interface Rule {
-  id: string; title: string; topic: RuleTopic; card: ExplainCard;
+  id: string; title: string; eg: string; topic: RuleTopic; card: ExplainCard;
   lessonId: string; unit: number; lessonNumber: number; part?: number; lessonTitle: string; section: string;
   /** Task cards that practise the rule (after the explain card, up to the next one). */
   tasks: string[];
@@ -71,10 +71,10 @@ export const RULES: Rule[] = designLessons.filter(l => !l.exam).flatMap(lesson =
   const out: Rule[] = [];
   lesson.cards.forEach((card, i) => {
     if (card.type !== 'explain') return;
-    const meta = RULE_META[card.id] ?? { title: card.lead, topic: 'order' as RuleTopic };
+    const meta = RULE_META[card.id] ?? { title: card.lead, eg: '', topic: 'order' as RuleTopic };
     const tasks: string[] = [];
     for (const c of lesson.cards.slice(i + 1)) { if (c.type === 'explain') break; if (TASK_TYPES.has(c.type)) tasks.push(c.id); }
-    out.push({ id: card.id, title: meta.title, topic: meta.topic, card, lessonId: lesson.id, unit: lesson.unit ?? 1,
+    out.push({ id: card.id, title: meta.title, eg: meta.eg, topic: meta.topic, card, lessonId: lesson.id, unit: lesson.unit ?? 1,
       lessonNumber: lesson.number ?? lesson.order, part: lesson.part, lessonTitle: lesson.title, section: lesson.section, tasks });
   });
   return out;
@@ -85,7 +85,7 @@ export const ruleOfTask = (taskId: string) => { const id = BY_TASK.get(taskId); 
 export const getRule = (id: string) => RULES.find(r => r.id === id);
 
 /** Text used by the search box: name, topic, teacher's words and English examples. */
-export const ruleSearchText = (r: Rule) => [r.title, RULE_TOPICS.find(t => t.id === r.topic)?.title, r.card.lead, r.card.attention,
+export const ruleSearchText = (r: Rule) => [r.title, r.eg, r.card.lead, r.card.attention,
   ...r.card.sections.flatMap(s => [s.title, s.text, ...(s.pairs ?? []).flatMap(p => [p.en, p.az]), s.short?.full, s.short?.short,
     ...(s.build?.examples ?? []).flatMap(e => [e.en, e.az])])].filter(Boolean).join(' ').toLowerCase();
 
@@ -135,7 +135,7 @@ export const TABLES: Table[] = [
       { title: '25 kimi', rows: wordRows(['u2d7b_c06']) },
     ] },
   { id: 'letters', title: 'Əlifba', sub: '26 hərf · adı və oxunuşu', tint: '#FFE3C7', ink: '#A84A08', groups: [] },
-  { id: 'short', title: 'Qısa formalar', sub: SHORT_FORMS.slice(0, 4).map(r => r.big).join(' · ') + ' …', tint: '#DDF2E3', ink: '#0F6E2A',
+  { id: 'short', title: 'Qısa formalar', sub: SHORT_FORMS.slice(0, 4).map(r => r.big).join(' · '), tint: '#DDF2E3', ink: '#0F6E2A',
     groups: [{ title: 'Tam → qısa', rows: SHORT_FORMS }] },
   { id: 'phone', title: 'Nömrə və e-poçt', sub: '0 = oh · @ = at · . = dot', tint: '#DCE8FD', ink: '#1F4FB0',
     groups: [{ title: 'Deyiliş', rows: [
@@ -144,6 +144,6 @@ export const TABLES: Table[] = [
       { key: 'dot', big: '.', en: 'dot', reading: readingOf('u2d6_c06'), note: 'e-poçtda', say: 'dot', card: 'u2d6_c06' },
       { key: 'double', big: 'LL', en: 'double L', reading: readingOf('u2d4_c06') ? `${readingOf('u2d4_c06')} el` : undefined, note: 'qoşa hərf', say: 'double L', card: 'u2d4_c06' },
     ] }] },
-  { id: 'country', title: 'Ölkə və millət', sub: 'Azerbaijan → Azerbaijani …', tint: '#FBDDE6', ink: '#A12E50',
+  { id: 'country', title: 'Ölkə və millət', sub: 'Azerbaijan → Azerbaijani', tint: '#FBDDE6', ink: '#A12E50',
     groups: [{ title: 'Ölkə → millət', rows: COUNTRIES.map(([c, n, id]) => ({ key: n, big: c, en: n, say: `${c}. ${n}.`, card: id })) }] },
 ];

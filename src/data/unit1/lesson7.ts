@@ -109,9 +109,9 @@ export const lesson7: DesignLesson = {
       variants: [other('Söhbətin sırası düz deyil.', ex("Hellohowareyou! → Sorry? More slowly, please. → How are you? → I'm fine, thanks.", 'Sürətli danışdı, sən xahiş etdin, o yavaş təkrar etdi.', 'More slowly, please — çox sürətli idi; Say that again, please — eşitmədin.', "Hellohowareyou! → Sorry? More slowly, please. → How are you? → I'm fine, thanks."))],
       review: {
         title: 'Söhbəti sırala', why: 'Xahiş, təkrar və cavab düz sıradadır.', hint: 'Düşün: eşitməyəndə nə deyirsən və bundan sonra nə olur?', prompt: 'Səs-küydə qızın sualını eşitmədin.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "Hi! What's your name?", from: 'G' }, { en: '2', az: 'Sorry? Say that again, please.', from: 'B' }, { en: '3', az: "What's your name?", from: 'G' }, { en: '4', az: 'My name is …', from: 'B' }],
+        rows: [{ en: '1', az: "Hi! What's your name?", from: 'G' }, { en: '2', az: 'Sorry? Say that again, please.', from: 'B' }, { en: '3', az: "What's your name?", from: 'G' }, { en: '4', az: 'My name is [ad]', from: 'B' }],
         extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is …", 'Sualı eşitmədin, sən təkrar istədin, o yenidən soruşdu.', 'Say that again, please — eşitmədin; More slowly, please — çox sürətli idi.', "Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is …"))],
+        variants: [other('Söhbətin sırası düz deyil.', ex("Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is [ad]", 'Sualı eşitmədin, sən təkrar istədin, o yenidən soruşdu.', 'Say that again, please — eşitmədin; More slowly, please — çox sürətli idi.', "Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is [ad]"))],
       },
     },
     {

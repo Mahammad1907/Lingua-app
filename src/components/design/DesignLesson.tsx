@@ -120,7 +120,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const watchdog = setTimeout(failed, Math.max(8000, value.length * 200 / rate + 5000));
     // Slow listening: a lower rate alone is barely audible on iOS, so short pauses go between words and letters (15 Nov 2026).
     // Hyphens (letter spellings like M-A-double M-…) get a pause at any speed, so letters are not blurred together.
-    const spelled = value.replace(/(\S)-(?=\S)/g, '$1, ');
+    const spelled = value.replace(/\[[^\]]*\]/g, ' ').replace(/(\S)-(?=\S)/g, '$1, ');
     const text = rate < 0.6 ? spelled.replace(/\s+/g, ', ').replace(/,\s*,/g, ',') : spelled;
     // The lesson must be heard even with the iPhone's silent switch on (15 Nov 2026).
     void Speech.stop().then(() => setAudioModeAsync({ playsInSilentMode: true }).catch(() => {})).then(() => {

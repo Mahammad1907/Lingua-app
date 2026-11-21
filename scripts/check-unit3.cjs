@@ -13,7 +13,7 @@ const { designLessons } = require('../src/data/designLessons.ts');
 const { unit3Lessons, unit3Exam } = require('../src/data/unit3/index.ts');
 
 const NAME = 'Aysu';
-const filled = text => text.replace(/…/g, NAME);
+const filled = text => text.replace(/…|\[[^\]]*\]/g, NAME);
 const kind = t => t.type === 'two' && t.form ? 'form' : t.type === 'write' ? (t.keypad ? 'keypad' : t.letters ? 'letters' : t.tiles ? 'tiles' : t.chat ? 'chat' : 'write') : t.type === 'choice' ? (t.gap ? 'gap' : t.map ? 'map' : t.spots ? 'scene' : 'choice') : t.type === 'voice' ? (t.repeat ? 'repeat' : 'voice') : t.type === 'match' ? (t.mode || 'match') : t.type;
 const ids = new Set(designLessons.flatMap(l => l.cards.map(c => c.id)).filter((id, i, all) => all.indexOf(id) !== i));
 assert.equal(ids.size, 0, `duplicate card ids: ${[...ids]}`);

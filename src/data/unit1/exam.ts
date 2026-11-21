@@ -7,7 +7,7 @@
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, goal, insteadOf, other, pick } from './build';
 
-const greetIntro = goal(['greet', 'introduce'], ['Hello! My name is …', "Hi! I'm …"]);
+const greetIntro = goal(['greet', 'introduce'], ['Hello! My name is [ad]', "Hi! I'm [ad]"]);
 
 export const unit1Exam: DesignLesson[] = [{
   id: 'a1_en_b1_exam', order: 9, unit: 1, exam: true, title: 'Bölmə 1 imtahanı', section: 'İlk tanışlıq',
@@ -40,8 +40,8 @@ export const unit1Exam: DesignLesson[] = [{
       type: 'write', id: 'u1x_c03', number: 3, title: 'Özünü təqdim et', why: 'Salam verdin və adını dedin.',
       prompt: 'Kursun ilk günüdür. Qrupun söhbətinə ilk mesajını yazırsan.\nSalam ver və adını yaz.', placeholder: 'Salam + adın', rule: greetIntro,
       variants: [
-        insteadOf('farewell', 'Tanışlıq yeni başlayır.', ex('Hello! My name is …', 'Sağollaşma söhbətin sonunda olur, sən isə qrupla yeni tanış olursan.', 'Salam + I’m … / Salam + My name is …', "Hi! I'm …")),
-        other('Salam və adın lazımdır.', ex('Hello! My name is …', 'Əvvəl salam ver, sonra I’m və ya My name is ilə adını de; yazılışı yoxla.', 'I + am → I’m …; My name is …', "Hi! I'm …")),
+        insteadOf('farewell', 'Tanışlıq yeni başlayır.', ex('Hello! My name is [ad]', 'Sağollaşma söhbətin sonunda olur, sən isə qrupla yeni tanış olursan.', 'Salam + I’m [ad] / Salam + My name is [ad]', "Hi! I'm [ad]")),
+        other('Salam və adın lazımdır.', ex('Hello! My name is [ad]', 'Əvvəl salam ver, sonra I’m və ya My name is ilə adını de; yazılışı yoxla.', 'I + am → I’m [ad]; My name is [ad]', "Hi! I'm [ad]")),
       ],
     },
     {
@@ -57,8 +57,8 @@ export const unit1Exam: DesignLesson[] = [{
       type: 'voice', id: 'u1x_c05', number: 5, title: 'Danış: adını soruş', why: 'Yeni tanışın adını soruşdun.',
       prompt: 'Kafedə növbədə yanındakı qadını kursdan tanıyırsan, amma adını bilmirsən.\nOnun adını soruş.', rule: goal(['askName'], ["What's your name?"]),
       variants: [
-        insteadOf('introduce', 'Sən öz adını dedin, onunkunu soruşmadın.', ex("What's your name?", '“My name is …” sənin adındır, sual deyil.', 'My name is … — öz adın; What’s your name? — onun adı.', "Hi! What's your name?")),
-        other('Ad sualı lazımdır.', ex("What's your name?", 'Onun adını What’s your name? sualı ilə soruşursan; sözləri və sırasını yoxla.', 'What’s your name? — sual; My name is … — cavab.', "Hello! What's your name?")),
+        insteadOf('introduce', 'Sən öz adını dedin, onunkunu soruşmadın.', ex("What's your name?", '“My name is [ad]” sənin adındır, sual deyil.', 'My name is [ad] — öz adın; What’s your name? — onun adı.', "Hi! What's your name?")),
+        other('Ad sualı lazımdır.', ex("What's your name?", 'Onun adını What’s your name? sualı ilə soruşursan; sözləri və sırasını yoxla.', 'What’s your name? — sual; My name is [ad] — cavab.', "Hello! What's your name?")),
       ],
     },
     {
@@ -135,10 +135,10 @@ export const unit1Exam: DesignLesson[] = [{
         { en: '1', az: "Hi! What's your name?", from: 'G' },
         { en: '2', az: 'Sorry? Say that again, please.', from: 'B' },
         { en: '3', az: "What's your name?", from: 'G' },
-        { en: '4', az: 'My name is … Nice to meet you.', from: 'B' },
+        { en: '4', az: 'My name is [ad]. Nice to meet you.', from: 'B' },
       ],
       extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is … Nice to meet you.", 'Əvvəl salamlaşıb soruşur, eşitməyən bir də xahiş edir, sual təkrarlanır, sonra cavab gəlir.', 'What’s your name? — əvvəl sual; My name is … — sonra cavab.', "Hello! What's your name? — Hi! I'm …"))],
+      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is [ad]. Nice to meet you.", 'Əvvəl salamlaşıb soruşur, eşitməyən bir də xahiş edir, sual təkrarlanır, sonra cavab gəlir.', 'What’s your name? — əvvəl sual; My name is [ad] — sonra cavab.', "Hello! What's your name? — Hi! I'm [ad]"))],
     },
     {
       type: 'voice', id: 'u1x_c15', number: 15, title: 'Danış: üzrə cavab', why: 'Üzrü qəbul etdin.',

@@ -152,10 +152,10 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'voice', id: 'd6_c13', number: 13, title: 'Nəzakətlə soruş', why: 'Diqqət çəkib adı soruşdun.', hint: 'İki hissə: əvvəl diqqəti çək, sonra adını soruş.',
-      prompt: 'Kafedə ofisiant sənə kömək etdi, adını bilmirsən.\nDiqqətini çək və adını soruş.', rule: politeAsk, reply: 'My name is …',
+      prompt: 'Kafedə ofisiant sənə kömək etdi, adını bilmirsən.\nDiqqətini çək və adını soruş.', rule: politeAsk, reply: 'My name is [ad]',
       variants: [other('Excuse me + ad sualı.', ex("Excuse me, what's your name?", 'Tanımadığın adamı səsləyəndə əvvəl “Excuse me” deyirsən — burada diqqət çəkir.', 'Excuse me + What’s your name?', "Excuse me, what's your name?"))],
       review: {
-        title: 'Nəzakətlə soruş', why: 'Diqqət çəkib adı soruşdun.', hint: 'İki hissə: əvvəl diqqəti çək, sonra adını soruş.', prompt: 'Kitabxanada sənə kömək edən işçi qızın adını bilmirsən.\nDiqqətini çək və adını soruş.', rule: politeAsk, reply: 'My name is …',
+        title: 'Nəzakətlə soruş', why: 'Diqqət çəkib adı soruşdun.', hint: 'İki hissə: əvvəl diqqəti çək, sonra adını soruş.', prompt: 'Kitabxanada sənə kömək edən işçi qızın adını bilmirsən.\nDiqqətini çək və adını soruş.', rule: politeAsk, reply: 'My name is [ad]',
         variants: [other('Excuse me + ad sualı.', ex("Excuse me, what's your name?", 'Tanımadığın adamı səsləyəndə əvvəl “Excuse me” deyirsən — burada diqqət çəkir.', 'Excuse me + What’s your name?', "Excuse me, what's your name?"))],
       },
     },

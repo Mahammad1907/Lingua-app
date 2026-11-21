@@ -32,7 +32,7 @@ export default function TapText({
   const speak = () => {
     Speech.stop();
     setIsSpeaking(true);
-    const toSpeak = speakText || text;
+    const toSpeak = (speakText || text).replace(/\[[^\]]*\]/g, ' ').replace(/…/g, '');
     Speech.speak(toSpeak, {
       language,
       rate: 0.85,

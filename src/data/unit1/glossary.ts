@@ -7,7 +7,7 @@ export const GLOSSARY: Record<string, Gloss> = {
   goodbye: { az: 'görüşənədək', role: 'görüşü bitirir' },
   bye: { az: 'hələlik', role: 'görüşü bitirir, daha sadə' },
   i: { az: 'mən', role: 'böyük hərflə yazılır' },
-  "i'm": { az: 'mən …-am', role: 'I am-ın qısası' },
+  "i'm": { az: 'mən [ad]-am', role: 'I am-ın qısası' },
   am: { az: '-am, -əm', role: '“I” ilə işlənir' },
   my: { az: 'mənim' },
   name: { az: 'ad' },
@@ -30,7 +30,7 @@ export const GLOSSARY: Record<string, Gloss> = {
   not: { az: 'deyil', role: 'mənanı tərsinə çevirir' },
   very: { az: 'çox' },
   well: { az: 'yaxşı' },
-  "you're": { az: 'sən …-san', role: 'you are-un qısası' },
+  "you're": { az: 'sən [ad]-san', role: 'you are-un qısası' },
   welcome: { az: 'xoş gəldin; you’re welcome = dəyməz' },
   please: { az: 'zəhmət olmasa', role: 'xahişi nəzakətli edir' },
   excuse: { az: 'bağışlayın (diqqət)', role: 'excuse me birlikdə — diqqət çəkmək' },
@@ -46,7 +46,7 @@ export const GLOSSARY: Record<string, Gloss> = {
   slowly: { az: 'yavaş (danışmaq)' },
   great: { az: 'əla', role: 'not great — o qədər də yaxşı deyil' },
   tea: { az: 'çay' },
-  "that's": { az: 'bu …-dır', role: 'that is-in qısası' },
+  "that's": { az: 'bu [söz]-dır', role: 'that is-in qısası' },
   // Bölmə 2 (letter “a” is left out on purpose: as a glossary word it would make Bölmə 1's stress mark “a-GAIN” count as English text)
   zero: { az: 'sıfır' },
   oh: { az: 'sıfır', role: 'nömrədə 0 belə də deyilir' },
@@ -77,14 +77,14 @@ export const GLOSSARY: Record<string, Gloss> = {
   phone: { az: 'telefon' },
   number: { az: 'nömrə' },
   it: { az: 'o, bu', role: 'əşya və ya məlumat haqqında' },
-  "it's": { az: 'bu …-dır', role: 'it is-in qısası' },
+  "it's": { az: 'bu [söz]-dır', role: 'it is-in qısası' },
   that: { az: 'o, bu', role: 'say that again — bunu bir daha de' },
   right: { az: 'düz, doğru' },
   yes: { az: 'bəli' },
   do: { az: 'sualı qurur, ayrıca tərcümə olunmur', role: 'How do you spell it?' },
   spell: { az: 'hərf-hərf demək' },
   double: { az: 'qoşa', role: 'eyni hərf iki dəfə: double L = LL' },
-  can: { az: 'bilmək (bacarmaq)', role: 'Can you …? — nəzakətli xahiş' },
+  can: { az: 'bilmək (bacarmaq)', role: 'Can you help? — nəzakətli xahiş' },
   first: { az: 'birinci', role: 'first name — ad' },
   last: { az: 'sonuncu', role: 'last name — soyad' },
   mr: { az: 'cənab', role: 'kişiyə, soyaddan əvvəl' },
@@ -124,8 +124,8 @@ export const GLOSSARY: Record<string, Gloss> = {
   really: { az: 'doğrudan?', role: 'təəccüb bildirir' },
   he: { az: 'o (kişi, oğlan)' },
   she: { az: 'o (qadın, qız)' },
-  "he's": { az: 'o …-dır (kişi)', role: 'he is-in qısası' },
-  "she's": { az: 'o …-dır (qadın)', role: 'she is-in qısası' },
+  "he's": { az: 'o [ad]-dır (kişi)', role: 'he is-in qısası' },
+  "she's": { az: 'o [ad]-dır (qadın)', role: 'she is-in qısası' },
   "isn't": { az: 'deyil', role: 'is not-un qısası' },
   live: { az: 'yaşamaq' },
   in: { az: '-da, -də', role: 'harada: in Baku — Bakıda' },
@@ -151,5 +151,5 @@ export const GLOSSARY: Record<string, Gloss> = {
 };
 
 /** Words of an English sentence, as they appear (without punctuation). */
-export const englishWords = (text: string) => text.split(/\s+/).map(w => w.replace(/^[“"(]+|[.,!?”")…]+$/g, '')).filter(w => w && w !== '…');
+export const englishWords = (text: string) => text.split(/\s+/).map(w => w.replace(/^[“"(]+|[.,!?”")…]+$/g, '')).filter(w => w && w !== '[ad]');
 export const glossOf = (word: string): Gloss | undefined => GLOSSARY[word.toLowerCase().replace(/’/g, "'")];

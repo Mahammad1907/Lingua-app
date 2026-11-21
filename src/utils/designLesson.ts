@@ -69,9 +69,9 @@ function pickVariant(variants: Variant[], value: string, voice: boolean, field?:
  *  the explanation names the slip itself instead of a general “other” text. Only taught English is quoted. */
 const COMMON_SLIPS: Variant[] = [
   { match: { pattern: String.raw`\bwhat'?s\s+is\b` }, short: 'What’s = What is — is ikinci dəfə yazılmır.',
-    explain: { answers: "What's your phone number?", reason: 'What’s artıq “What is” deməkdir; sonra yenə is yazanda söz iki dəfə olur.', rule: "What's your … ? — düzdür; What's is your … ? — olmur.", example: "What's your name?" } },
+    explain: { answers: "What's your phone number?", reason: 'What’s artıq “What is” deməkdir; sonra yenə is yazanda söz iki dəfə olur.', rule: "What's your phone number? — düzdür; What's is your phone number? — olmur.", example: "What's your name?" } },
   { match: { pattern: String.raw`^\s*it'?s\s+that'?s?\s+right\b|^\s*its\s+thats?\s+right\b` }, short: 'Soruşanda Is ilə başla: Is that right?',
-    explain: { answers: 'Is that right?', reason: 'Düz olduğunu soruşursan — sual Is ilə başlayır, It’s ilə yox.', rule: 'Is that right? — sualdır; It’s … — cavabdır.', example: "Oh five five… Is that right?" } },
+    explain: { answers: 'Is that right?', reason: 'Düz olduğunu soruşursan — sual Is ilə başlayır, It’s ilə yox.', rule: 'Is that right? — sualdır; It’s [ad] — cavabdır.', example: "Oh five five… Is that right?" } },
 ];
 const commonSlip = (value: string) => COMMON_SLIPS.find(v => 'pattern' in v.match && new RegExp(v.match.pattern, 'iu').test(value.trim()));
 

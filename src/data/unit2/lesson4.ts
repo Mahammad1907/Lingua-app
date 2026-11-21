@@ -6,7 +6,7 @@ import { ex, exact, goal, other, pick } from '../unit1/build';
 import { NAME_SPELLED, notices, own, resultTexts } from './shared';
 
 const askSpell = goal(['askSpell'], ['Can you spell it, please?', 'How do you spell it?']);
-const myName = own(NAME_SPELLED, "It's …");
+const myName = own(NAME_SPELLED, "It's [ad]");
 
 export const lesson4: DesignLesson = {
   id: 'a1_en_b2_d4', order: 16, unit: 2, number: 4, title: 'Hərf-hərf de', section: 'Şəxsi məlumat',
@@ -92,12 +92,12 @@ export const lesson4: DesignLesson = {
       type: 'voice', id: 'u2d4_c09', number: 9, title: 'Adını hərf-hərf de', why: 'Adını hərf-hərf dedin.', hint: 'Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
       prompt: 'Resepsiyaçı soruşur: “What\'s your name? How do you spell it?”\nAdını hərf-hərf de. Adında ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).', audio: "What's your name? How do you spell it?", reply: 'Thank you!',
       rule: myName,
-      variants: [other("It's + hərflər.", ex("It's …", 'Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "How do you spell it? — It's B-A-K-U.", "It's B-A-K-U."))],
+      variants: [other("It's + hərflər.", ex("It's [ad]", 'Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "How do you spell it? — It's B-A-K-U.", "It's B-A-K-U."))],
       review: {
         title: 'Adını hərf-hərf de', why: 'Adını hərf-hərf dedin.', hint: 'Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
         prompt: 'Kursda müəllim adını siyahıya yazır və soruşur.\nAdını hərf-hərf de. Adında ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).', audio: 'Can you spell it, please?', reply: 'Thanks!',
         rule: myName,
-        variants: [other("It's + hərflər.", ex("It's …", 'Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "Can you spell it, please? — It's G-A-N-J-A.", "It's G-A-N-J-A."))],
+        variants: [other("It's + hərflər.", ex("It's [ad]", 'Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "Can you spell it, please? — It's G-A-N-J-A.", "It's G-A-N-J-A."))],
       },
     },
     {

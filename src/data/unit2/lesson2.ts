@@ -167,7 +167,7 @@ export const lesson2: DesignLesson = {
       gap: { speaker: 'G', before: "Yes, that's", after: '.' }, options: ['right', 'fine', 'name'], answer: 'right',
       variants: [
         pick('fine', '“Is that right?” sualına “right” ilə cavab verilir.', ex('right', 'Oğlan nömrənin düz olub-olmadığını soruşdu.', "Yes, that's right. — düzdür; I'm fine. — yaxşıyam.", "Yes, that's right.")),
-        pick('name', 'Burada ad yox, nömrənin düzlüyü soruşulur.', ex('right', 'Sual nömrə haqqındadır, ad haqqında deyil.', "Yes, that's right. — düzdür; My name is … — ad.", "Yes, that's right.")),
+        pick('name', 'Burada ad yox, nömrənin düzlüyü soruşulur.', ex('right', 'Sual nömrə haqqındadır, ad haqqında deyil.', "Yes, that's right. — düzdür; My name is [ad] — ad.", "Yes, that's right.")),
       ],
       review: {
         title: 'Söhbəti tamamla', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Nömrə çox sürətli deyildi — nə xahiş edirsən?',
@@ -194,7 +194,7 @@ export const lesson2: DesignLesson = {
   },
   vocabulary: [
     { word: "What's your phone number?", translation: 'Telefon nömrən nədir?', example: "Hi! What's your phone number?", exampleAz: 'Salam! Telefon nömrən nədir?', usageNote: 'Əvvəl phone, sonra number.', pronunciation: '/wʌts jʊr ˈfoʊn ˌnʌmbər/', teachCard: 'u2d2_c02' },
-    { word: "It's …", translation: 'Nömrəm …-dir', example: MY, exampleAz: 'Nömrəm 050 321 45 67-dir.', usageNote: 'Nömrə rəqəm-rəqəm deyilir.', pronunciation: '/ɪts/', teachCard: 'u2d2_c05' },
+    { word: "It's [nömrə]", translation: 'Nömrəm [nömrə]-dir', example: MY, exampleAz: 'Nömrəm 050 321 45 67-dir.', usageNote: 'Nömrə rəqəm-rəqəm deyilir.', pronunciation: '/ɪts/', teachCard: 'u2d2_c05' },
     { word: 'oh', translation: 'sıfır (nömrədə)', example: "It's oh five oh…", exampleAz: 'Nömrəm 050…-dir.', usageNote: 'Amerikada nömrədə 0.', pronunciation: '/oʊ/', teachCard: 'u2d2_c07' },
     { word: 'Is that right?', translation: 'Düzdür?', example: 'Oh five five… Is that right?', exampleAz: '055… Düzdür?', usageNote: 'Yoxlamaq üçün.', pronunciation: '/ɪz ðæt raɪt/', teachCard: 'u2d2_c09' },
     { word: "Yes, that's right.", translation: 'Bəli, düzdür.', example: "Is that right? — Yes, that's right.", exampleAz: 'Düzdür? — Bəli, düzdür.', usageNote: 'Təsdiq.', pronunciation: '/jes ðæts raɪt/', teachCard: 'u2d2_c11' },

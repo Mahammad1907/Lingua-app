@@ -42,11 +42,11 @@ export const exam: DesignLesson = {
       type: 'two', id: 'u3x_c05', number: 5, title: 'Formanı doldur', why: 'Ad və millət öz yerindədir.', scenes: ['u3/hostel'],
       prompt: 'Hostelin qeydiyyatındasan.\nVərəqi doldur (istəsən, uydurma ad).', form: { title: 'Hostel', subtitle: 'Yeni qonaq' },
       fields: [
-        { id: 'u3x_c05a', label: 'First name', placeholder: '…', rule: own(NAME, '…'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
-        { id: 'u3x_c05b', label: 'Nationality', placeholder: '…', rule: own(NATIONALITY_FIELD, 'Azerbaijani'), purpose: 'millətini yazmaq', empty: 'Millətini də yaz.' },
+        { id: 'u3x_c05a', label: 'First name', placeholder: 'Adını yaz', rule: own(NAME, '[ad]'), purpose: 'adını yazmaq', empty: 'Adını da yaz.' },
+        { id: 'u3x_c05b', label: 'Nationality', placeholder: 'Millətini yaz', rule: own(NATIONALITY_FIELD, 'Azerbaijani'), purpose: 'millətini yazmaq', empty: 'Millətini də yaz.' },
       ],
       variants: [
-        { field: 'u3x_c05a', match: { other: true }, explain: ex('…', 'Bu sətirdə yalnız adın lazımdır.', 'First name — adın; Nationality — millətin.', 'My name is …') },
+        { field: 'u3x_c05a', match: { other: true }, explain: ex('[ad]', 'Bu sətirdə yalnız adın lazımdır.', 'First name — adın; Nationality — millətin.', 'My name is [ad]') },
         { field: 'u3x_c05b', match: { other: true }, explain: ex('Azerbaijani', 'Bu sətirdə ölkə yox, millət yazılır.', "Azerbaijani — millət; Azerbaijan — ölkə.", "I'm Azerbaijani.") },
       ],
     },

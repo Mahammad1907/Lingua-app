@@ -6,8 +6,8 @@ import type { DesignLesson, Variant } from '../designLessonTypes';
 import { ex, goal, other, pick } from '../unit1/build';
 import { FROM_LIVE, FROM_MISTAKES, LIVE, LIVE_MISTAKES, notices, own, resultTexts, said } from './shared';
 
-const myCity = own(LIVE, 'I live in …');
-const fromLive = own(FROM_LIVE, "I'm from …, but I live in …");
+const myCity = own(LIVE, 'I live in [şəhər]');
+const fromLive = own(FROM_LIVE, "I'm from [ölkə], but I live in [şəhər]");
 const fromBut = (from: string, live: string) =>
   said(String.raw`^i(?:'m|’m|\s+am)\s+from\s+${from.toLowerCase()}\s*,?\s+but\s+i\s+live\s+in\s+${live.toLowerCase()}\s*[.!]?$`, `I'm from ${from}, but I live in ${live}.`);
 const andNotBut = (answer: string): Variant => ({
@@ -55,7 +55,7 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d6_c04', number: 4, scenes: ['mascot/point'],
-      word: 'I live in …', pronunciation: '/aɪ lɪv ɪn/', reading: 'ay liv in …', az: 'Mən …-da yaşayıram.',
+      word: 'I live in [şəhər]', pronunciation: '/aɪ lɪv ɪn/', reading: 'ay liv in [şəhər]', az: 'Mən [şəhər]-da yaşayıram.',
       structure: ['I live in + şəhər / ölkə.'],
       notes: ['“-da, -də” şəkilçisi ingiliscə şəhərdən əvvəl gəlir: in Baku.'],
       example: 'Where do you live? — I live in Baku.', exampleAz: 'Harada yaşayırsan? — Bakıda yaşayıram.',
@@ -64,12 +64,12 @@ export const lesson6: DesignLesson = {
       type: 'voice', id: 'u3d6_c05', number: 5, title: 'Səslə cavab', why: 'Harada yaşadığını dedin.', hint: '“-da” ingiliscə şəhərdən əvvəl ayrıca gəlir.',
       prompt: 'Kafedə yeni tanış soruşur.\nHarada yaşadığını de.', audio: 'Where do you live?', reply: 'Nice!',
       rule: myCity,
-      variants: [...LIVE_MISTAKES, other('I live in + şəhər.', ex('I live in …', 'Harada yaşadığını I live in ilə deyirsən.', "I live in Baku. — yaşayıram; I'm from Baku. — Bakıdanam.", 'Where do you live? — I live in Ganja.'))],
+      variants: [...LIVE_MISTAKES, other('I live in + şəhər.', ex('I live in [şəhər]', 'Harada yaşadığını I live in ilə deyirsən.', "I live in Baku. — yaşayıram; I'm from Baku. — Bakıdanam.", 'Where do you live? — I live in Ganja.'))],
       review: {
         title: 'Səslə cavab', why: 'Harada yaşadığını dedin.', hint: '“-da” ingiliscə şəhərdən əvvəl ayrıca gəlir.',
         prompt: 'Şəhər turu avtobusunda bələdçi hər kəsdən soruşur.\nHarada yaşadığını de.', audio: 'And you? Where do you live?', reply: 'OK, thanks!',
         rule: myCity,
-        variants: [...LIVE_MISTAKES, other('I live in + şəhər.', ex('I live in …', 'Harada yaşadığını I live in ilə deyirsən.', "I live in Ganja. — yaşayıram; I'm from Ganja. — Gəncədənəm.", 'Where do you live? — I live in Baku.'))],
+        variants: [...LIVE_MISTAKES, other('I live in + şəhər.', ex('I live in [şəhər]', 'Harada yaşadığını I live in ilə deyirsən.', "I live in Ganja. — yaşayıram; I'm from Ganja. — Gəncədənəm.", 'Where do you live? — I live in Baku.'))],
       },
     },
     {
@@ -138,12 +138,12 @@ export const lesson6: DesignLesson = {
       type: 'voice', id: 'u3d6_c12', number: 12, title: 'Özün haqqında de', why: 'Haradan olduğunu və harada yaşadığını dedin.', hint: 'İki hissə: əvvəl haradan olduğun, sonra harada yaşadığın.',
       prompt: 'Şəhər turu avtobusunda bələdçi səninlə tanış olur.\nDe: haradansan və harada yaşayırsan.', audio: 'Where are you from? And where do you live?', reply: 'Nice to meet you!',
       rule: fromLive,
-      variants: [...FROM_MISTAKES, ...LIVE_MISTAKES, other("I'm from …, but I live in …", ex("I'm from …, but I live in …", 'Əvvəl haradan olduğunu, sonra harada yaşadığını de.', "I'm from Ganja. — haradan; I live in Baku. — harada.", "I'm from Ganja, but I live in Baku."))],
+      variants: [...FROM_MISTAKES, ...LIVE_MISTAKES, other("I'm from [ölkə], but I live in [şəhər]", ex("I'm from [ölkə], but I live in [şəhər]", 'Əvvəl haradan olduğunu, sonra harada yaşadığını de.', "I'm from Ganja. — haradan; I live in Baku. — harada.", "I'm from Ganja, but I live in Baku."))],
       review: {
         title: 'Özün haqqında de', why: 'Haradan olduğunu və harada yaşadığını dedin.', hint: 'İki hissə: əvvəl haradan olduğun, sonra harada yaşadığın.',
         prompt: 'Kafedə yeni tanış qadın səndən soruşur.\nDe: haradansan və harada yaşayırsan.', audio: "I'm from England, but I live here. And you?", reply: 'Really? Nice!',
         rule: fromLive,
-        variants: [...FROM_MISTAKES, ...LIVE_MISTAKES, other("I'm from …, but I live in …", ex("I'm from …, but I live in …", 'Əvvəl haradan olduğunu, sonra harada yaşadığını de.', "I'm from Shaki. — haradan; I live in Ganja. — harada.", "I'm from Ganja, but I live in Baku."))],
+        variants: [...FROM_MISTAKES, ...LIVE_MISTAKES, other("I'm from [ölkə], but I live in [şəhər]", ex("I'm from [ölkə], but I live in [şəhər]", 'Əvvəl haradan olduğunu, sonra harada yaşadığını de.', "I'm from Shaki. — haradan; I live in Ganja. — harada.", "I'm from Ganja, but I live in Baku."))],
       },
     },
     {
@@ -184,7 +184,7 @@ export const lesson6: DesignLesson = {
   },
   vocabulary: [
     { word: 'Where do you live?', translation: 'Harada yaşayırsan?', example: 'Hi! Where do you live?', exampleAz: 'Salam! Harada yaşayırsan?', usageNote: 'do — sualı qurur.', pronunciation: '/wɛr du ju lɪv/', teachCard: 'u3d6_c02' },
-    { word: 'I live in …', translation: 'Mən …-da yaşayıram.', example: 'Where do you live? — I live in Baku.', exampleAz: 'Harada yaşayırsan? — Bakıda yaşayıram.', usageNote: 'Şəhərdən əvvəl in.', pronunciation: '/aɪ lɪv ɪn/', teachCard: 'u3d6_c04' },
+    { word: 'I live in [şəhər]', translation: 'Mən [şəhər]-da yaşayıram.', example: 'Where do you live? — I live in Baku.', exampleAz: 'Harada yaşayırsan? — Bakıda yaşayıram.', usageNote: 'Şəhərdən əvvəl in.', pronunciation: '/aɪ lɪv ɪn/', teachCard: 'u3d6_c04' },
     { word: 'city', translation: 'şəhər', example: 'What city are you from? — Ganja.', exampleAz: 'Hansı şəhərdənsən? — Gəncədən.', usageNote: 'Ölkə — country, şəhər — city.', pronunciation: '/ˈsɪti/', teachCard: 'u3d6_c06' },
     { word: 'but', translation: 'amma', example: "I'm from Ganja, but I live in Baku.", exampleAz: 'Gəncədənəm, amma Bakıda yaşayıram.', usageNote: 'İki fərqli fikri birləşdirir.', pronunciation: '/bʌt/', teachCard: 'u3d6_c08' },
     { word: 'here', translation: 'burada', example: "I'm from Ganja, but I live here.", exampleAz: 'Gəncədənəm, amma burada yaşayıram.', usageNote: 'Şəhərin adı əvəzinə.', pronunciation: '/hɪr/', teachCard: 'u3d6_c10' },
