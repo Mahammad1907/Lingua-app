@@ -60,6 +60,24 @@ export const modules: Module[] = [
     finalReviewId: 'a1_en_b3_d8',
     hasSpeakingPractice: false,
   },
+  {
+    // docs/BOLME_4_XERITESI.md — 8 map lessons; lesson 2 has two parts (9 lesson ids).
+    id: 'module_4',
+    title: 'Family and people',
+    titleAz: 'Ailə və insanlar',
+    description: '8 dərs: bu kimdir, ailə üzvləri, his/her, bu sənin …-dır?, I have, yaş, peşə və xarici dostla ailə söhbəti',
+    language: 'en',
+    level: 'A1',
+    order: 4,
+    phase: 1,
+    icon: '👨‍👩‍👧',
+    lessonIds: [
+      'a1_en_b4_d1', 'a1_en_b4_d2a', 'a1_en_b4_d2b', 'a1_en_b4_d3', 'a1_en_b4_d4',
+      'a1_en_b4_d5', 'a1_en_b4_d6', 'a1_en_b4_d7', 'a1_en_b4_d8',
+    ],
+    finalReviewId: 'a1_en_b4_d8',
+    hasSpeakingPractice: false,
+  },
 ];
 
 // ═══════════════════════════════════════

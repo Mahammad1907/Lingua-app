@@ -3,6 +3,7 @@
 // The tasks after an explain card (up to the next one) practise that rule; their mistakes weaken it.
 import { designLessons } from './designLessons';
 import type { DesignLesson, ExplainCard } from './designLessonTypes';
+import { unit4RuleMeta } from './unit4/aggregate';
 
 export type RuleTopic = 'polite' | 'order' | 'questions' | 'short' | 'sound' | 'numbers' | 'letters' | 'country';
 export const RULE_TOPICS: { id: RuleTopic; title: string; icon: string; tint: string; ink: string; bar: string }[] = [
@@ -53,6 +54,7 @@ export const RULE_META: Record<string, { title: string; eg: string; topic: RuleT
   u3d5b_c09t: { title: 'Başqasının bəli/xeyrini necə deyim?', eg: "Yes, he is. · No, she isn't.", topic: 'short' },
   u3d6_c02t: { title: 'Harada yaşadığını necə soruşum?', eg: "Where do you live?", topic: 'questions' },
   u3d6_c04t: { title: 'Harada yaşadığımı necə deyim?', eg: "I live in Baku.", topic: 'order' },
+  ...unit4RuleMeta,
   u3d7_c06t: { title: 'Dil sualına necə cavab verim?', eg: "Yes, I do. · No, I don't.", topic: 'short' },
 };
 

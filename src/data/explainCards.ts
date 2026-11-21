@@ -2,11 +2,13 @@
 // A hard topic gets two cards with at least one task between them. Section conversations (Dərs 8) have none.
 // English here uses only phrases taught on or before the card it follows (scripts/check-taught.cjs).
 import type { DesignLesson, ExplainCard } from './designLessonTypes';
+import { unit4Explains } from './unit4/aggregate';
 
 type Explain = Omit<ExplainCard, 'type' | 'id' | 'number'>;
 const E = (id: string, after: string, card: Explain) => ({ after, card: { type: 'explain' as const, id, number: 0, ...card } });
 
 const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
+  ...unit4Explains,
   // ── Bölmə 1 ──
   a1_en_b1_v2_d1: [E('d1_c02t', 'd1_c02', {
     lead: 'Salamın iki forması var: Hello və Hi.', focus: 'Hello və Hi',
