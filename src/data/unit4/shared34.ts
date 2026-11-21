@@ -43,12 +43,14 @@ export const nameOrder = (answer: string, example: string): Variant => ({
   explain: ex(answer, 'My name is [ad]. sırası kimidir: kimin, name, is, ad.', 'My name is [ad]. — sıra eynidir.', example),
 });
 
-/** Dərs 4: “No, it isn't.” (also “No, it is not.”, “No, it's not.”, “No, she isn't.” / “No, he isn't.”), optionally who it is. */
+/** Dərs 4: “No, it isn't.” (also “No, it is not.”, “No, it's not.”, “No, she isn't.” / “No, he isn't.”), optionally who it is.
+ * With `then`, “No” may also go straight to who it is: “No, she's my friend.” / “No. She's my friend.” */
 export const noIt = (who: 'he' | 'she', then?: string) => {
   const subject = String.raw`(?:it|${who})`;
   const not = String.raw`(?:\s+(?:isn'?t|isn’t|is\s+not)|(?:'s|’s)\s+not)`;
-  const tail = then ? String.raw`(?:\s*(?:${who === 'he' ? HE_IS : SHE_IS}|this\s+is)\s+my\s+${then}${END})?` : '';
-  return String.raw`^no\s*,?\s*${subject}${not}${END}${tail}$`;
+  if (!then) return String.raw`^no\s*,?\s*${subject}${not}${END}$`;
+  const tail = String.raw`(?:${who === 'he' ? HE_IS : SHE_IS}|this\s+is)\s+my\s+${then}${END}`;
+  return String.raw`^no\s*[,.!]?\s*(?:${subject}${not}${END}(?:\s*${tail})?|${tail})$`;
 };
 /** “No, it not.” / “No, isn't.” / “No, I'm not.” / “Yes”: typical mistakes with the short “no” answer about a photo. */
 export const NO_IT_MISTAKES = (answer: string): Variant[] => [

@@ -22,7 +22,7 @@ const grandMistakes: Variant[] = [
   { match: { pattern: String.raw`^my\s+grandmother\s+(?:in|from)\b` }, short: 'in-dən əvvəl is gəlir.',
     explain: ex('My grandmother is in Ganja.', 'Azərbaycancada “-dadır” şəkilçidir; ingiliscə is ayrıca söz kimi gəlir.', 'My grandmother is in Ganja. — düzdür; My grandmother in Ganja. — olmur.', 'My mother is in Baku.') },
   { match: { pattern: String.raw`^my\s+grandmother\s+are\b` }, short: 'Bir nəfər üçün is gəlir.',
-    explain: ex('My grandmother is in Ganja.', 'Nənə bir nəfərdir: My grandmother is. Ata-ana ikisidir: My parents are.', 'My grandmother is in Ganja. — bir nəfər; My parents are in Baku. — iki nəfər.', 'My mother is in Baku.') },
+    explain: ex('My grandmother is in Ganja.', 'Nənə bir nəfərdir: My grandmother is. Ata-ana iki nəfərdir: My parents are.', 'My grandmother is in Ganja. — bir nəfər; My parents are in Baku. — iki nəfər.', 'My mother is in Baku.') },
 ];
 const noMy = (word: string, example: string): Variant => ({
   match: { pattern: String.raw`^this\s+is\s+${word}\b` }, short: `${word}-dən əvvəl my lazımdır.`,
@@ -66,7 +66,7 @@ export const lesson2b: DesignLesson = {
     },
     {
       type: 'word', id: 'u4d2b_c04', number: 4, scenes: ['mascot/happy'],
-      word: 'grandmother', pronunciation: '/ˈɡrænˌmʌðər/', reading: 'qrenma**th**ər', az: 'nənə',
+      word: 'grandmother', pronunciation: '/ˈɡrænˌmʌðər/', reading: 'qrənma**th**ər', az: 'nənə',
       notes: ['İki hissədən ibarətdir: grand + mother. Bir söz kimi yazılır.'],
       example: 'This is my grandmother.', exampleAz: 'Bu mənim nənəmdir.',
     },
@@ -92,20 +92,20 @@ export const lesson2b: DesignLesson = {
     },
     {
       type: 'word', id: 'u4d2b_c06', number: 6, scenes: ['mascot/wave'],
-      word: 'grandfather', pronunciation: '/ˈɡrænˌfɑðər/', reading: 'qrenfa**th**ər', az: 'baba',
-      notes: ['grand + father: nənənin yoldaşı kimi yazılır, bir söz.'],
+      word: 'grandfather', pronunciation: '/ˈɡrænˌfɑðər/', reading: 'qrənfa**th**ər', az: 'baba',
+      notes: ['grand + father: grandmother kimi bir söz yazılır.'],
       example: 'This is my grandfather.', exampleAz: 'Bu mənim babamdır.',
     },
     {
       type: 'write', id: 'u4d2b_c07', number: 7, title: 'Mesaj yaz', why: 'My grandmother is in Ganja. — nənənin harada olduğunu dedin.', hint: 'Cümlə “My” ilə başlayır; şəhərdən əvvəl in gəlir.',
       prompt: '{F} sənin nənən haqqında soruşur. Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
-      chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Hi!' }] },
+      chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
       tiles: ['My', 'grandmother', 'is', 'in', 'Ganja', '.', 'are', 'from'], rule: exact('My grandmother is in Ganja.'),
       variants: [...grandMistakes, other('Sıra: My grandmother is in Ganja.', ex('My grandmother is in Ganja.', 'Əvvəl My grandmother, sonra is in və şəhər.', 'My grandmother is in Ganja. — nənəm Gəncədədir.', 'My mother is in Baku.'))],
       review: {
         title: 'Mesaj yaz', why: 'My grandmother is in Ganja. — nənənin harada olduğunu dedin.', hint: 'Cümlə “My” ilə başlayır; şəhərdən əvvəl in gəlir.',
-        prompt: 'İş yoldaşı mesaj yazır. Sənin nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
-        chat: { partner: 'İş yoldaşı', from: 'G', lines: [{ from: 'G', text: 'Hello!' }] },
+        prompt: 'İş yoldaşı sənin nənənin şəklini görüb soruşur. Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
+        chat: { partner: 'İş yoldaşı', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
         tiles: ['is', 'Ganja', 'My', 'in', 'grandmother', '.', 'from', 'are'], rule: exact('My grandmother is in Ganja.'),
         variants: [...grandMistakes, other('Sıra: My grandmother is in Ganja.', ex('My grandmother is in Ganja.', 'Əvvəl My grandmother, sonra is in və şəhər.', 'My grandmother is in Ganja. — nənəm Gəncədədir.', 'My mother is in Baku.'))],
       },
@@ -161,7 +161,7 @@ export const lesson2b: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'u4d2b_c13', number: 12, title: 'Sözü tamamla', why: 'She qadın üçündür: nənə qadındır.', hint: 'Şəkildəki adam qadındır — he, yoxsa she?',
+      type: 'choice', id: 'u4d2b_c13', number: 12, title: 'Sözü tamamla', why: 'She qadın üçündür: nənə qadındır.', hint: 'Cümlə She’s ilə başlayır — qadın ailə üzvünü seç.',
       prompt: '{F} albomdakı qadını göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: "She's my", after: ". She's from Ganja." },
       options: ['grandmother', 'grandfather', 'son'], answer: 'grandmother',
       variants: [
@@ -169,7 +169,7 @@ export const lesson2b: DesignLesson = {
         pick('son', 'She qadındır; son oğuldur.', ex('grandmother', 'She’s qadın haqqındadır, ona görə qadın ailə üzvü: grandmother.', "She's my grandmother. — qadın; He's my son. — kişi.", "She's my sister.")),
       ],
       review: {
-        title: 'Sözü tamamla', why: 'He kişi üçündür: baba kişidir.', hint: 'Şəkildəki adam kişidir — he, yoxsa she?',
+        title: 'Sözü tamamla', why: 'He kişi üçündür: baba kişidir.', hint: 'Cümlə He’s ilə başlayır — kişi ailə üzvünü seç.',
         prompt: 'Video zəngdə iş yoldaşın şəkildəki kişini göstərir.\nHansı söz çatmır?', gap: { speaker: 'B', before: "He's my", after: ". He's from Ganja." },
         options: ['grandmother', 'daughter', 'grandfather'], answer: 'grandfather',
         variants: [
@@ -218,7 +218,7 @@ export const explains: { after: string; card: ExplainCard }[] = [
     after: 'u4d2b_c02',
     card: {
       type: 'explain', id: 'u4d2b_c02t', number: 0,
-      lead: 'Ata-ana ikidir, ona görə My parents are deyirik.', focus: 'My parents are',
+      lead: 'Ata-ana iki nəfərdir, ona görə My parents are deyirik.', focus: 'My parents are',
       sections: [
         { title: 'Bir nəfər, iki nəfər', pairs: [{ en: 'My mother is in Baku.', az: 'bir nəfər' }, { en: 'My parents are in Baku.', az: 'iki nəfər' }] },
         { title: 'Necə qurulur?', build: { parts: ['My parents are in', 'şəhər'], examples: [{ en: 'My parents are in Baku.', az: 'Ata-anam Bakıdadır.' }] } },

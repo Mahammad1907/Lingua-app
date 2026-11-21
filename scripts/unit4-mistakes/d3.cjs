@@ -12,4 +12,6 @@ module.exports = (rejects) => {
   rejects('u4d3_c13', "Yes, she is. This is she's husband.");
   rejects('u4d3_c13', "Yes, she's. This is her husband.");
   rejects('u4d3_c13', 'Yes, she is. This is my husband.');
+  rejects('u4d3_c13', 'This is her husband.');
+  rejects('u4d3_c13', "Yes, she's my brother. This is her husband.");
 };

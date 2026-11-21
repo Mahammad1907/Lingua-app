@@ -4,7 +4,7 @@ import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
 import { notices, own, resultTexts, said } from '../unit3/shared';
 import { nameNoIs, nameOrder, noIt, NO_IT_MISTAKES, ownerNotIs, QUESTION_MISTAKES, wrongOwner } from './shared34';
-import { ASK_AGE_MISTAKES, ASK_MISTAKES, HAVE_MISTAKES, HAVE_REPLY } from './shared56';
+import { ASK_AGE_MISTAKES, ASK_MISTAKES, HAVE_MISTAKES, haveReply } from './shared56';
 import { anForConsonant, aForVowel, forField, heForShe, noArticle } from './shared78';
 
 /** “Who's this?” / “Who's she?” about a woman. “Who this?” is not accepted. */
@@ -26,7 +26,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'voice', id: 'u4x_c02', number: 2, title: 'Kim olduğunu soruş', why: 'Kim olduğunu soruşdun: Who’s this?',
-      prompt: 'Parkda {F} ilə görüşürsən. Onun yanında tanımadığın bir qadın var.\n{F}-dən qadının kim olduğunu soruş.', reply: 'This is my friend.',
+      prompt: 'Parkda {f} ilə görüşürsən. Onun yanında tanımadığın bir qadın var.\n{F:abl} qadının kim olduğunu soruş.', reply: 'This is my friend.',
       rule: said(WHO, "Who's this?", "Who's she?"),
       variants: [
         { match: { pattern: String.raw`^who\s+(?:this|she)\b` }, short: 'Sualda is lazımdır: Who’s this?',
@@ -40,7 +40,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'choice', id: 'u4x_c03', number: 3, title: 'Dinlə və seç', why: '“grandfather” — baba.',
-      prompt: '{F} albomda yaşlı bir kişinin şəklini göstərir.\nBu kişi {F:dat} kimdir?', audio: 'This is my grandfather.',
+      prompt: '{F} albomda yaşlı bir kişinin şəklini göstərir.\nBu kişi {f:dat} kimdir?', audio: 'This is my grandfather.',
       options: ['Atası', 'Babası', 'Qardaşı'], answer: 'Babası',
       variants: [
         pick('Atası', 'Səsdə “father” yox, “grandfather” var.', ex('Babası', 'grandfather — baba, father — ata: səsdə grandfather deyilir.', 'This is my grandfather. — baba; This is my father. — ata.', 'This is my grandfather.')),
@@ -49,7 +49,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'choice', id: 'u4x_c04', number: 4, title: 'Sözü tamamla', why: 'Bacının əri — her husband.',
-      prompt: 'Toy şəklində {F} bir qadını göstərir: “This is my sister.” Sonra onun yanındakı kişini göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'And this is', after: 'husband.' },
+      prompt: 'Toy şəklində {f} bir qadını göstərir: “This is my sister.” Sonra onun yanındakı kişini göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'And this is', after: 'husband.' },
       options: ['his', 'her', "she's"], answer: 'her',
       variants: [
         pick('his', 'Ər qadınındır — her.', ex('And this is her husband.', 'Azərbaycancada ikisi də “onun”dur; ər bacınındır, qadının — her.', 'her husband — qadının əri; his wife — kişinin arvadı.', 'This is my sister. And this is her husband.')),
@@ -76,7 +76,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'voice', id: 'u4x_c07', number: 7, title: 'Qısa cavab ver', why: "Qısa “xeyr” cavabı verdin: No, it isn't.",
-      prompt: 'Video zəngdə {F} sənin şəklinə baxır. Şəkildəki kişi sənin baban, atan deyil.\nQısa cavab ver.', audio: 'Is this your father?', reply: 'Oh, OK!',
+      prompt: 'Video zəngdə {f} sənin şəklinə baxır. Şəkildəki kişi sənin baban, atan deyil.\nQısa cavab ver.', audio: 'Is this your father?', reply: 'Oh, OK!',
       rule: said(noIt('he', 'grandfather'), "No, it isn't.", "No, it isn't. He's my grandfather."),
       variants: [
         ...NO_IT_MISTAKES("No, it isn't."),
@@ -85,7 +85,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'match', mode: 'reply', id: 'u4x_c08', number: 8, title: 'Cavab cütü', why: 'Hər suala uyğun qısa cavabı tapdın.',
-      prompt: 'Ailə yeməyində {F} sənə suallar verir.\nSuala toxun, sonra onun cavabını seç.',
+      prompt: 'Ailə yeməyində {f} sənə suallar verir.\nSuala toxun, sonra onun cavabını seç.',
       rows: [{ en: 'Do you have a son?', az: "No, I don't.", from: 'other' }, { en: 'Is she your wife?', az: 'Yes, she is.', from: 'other' }, { en: 'How old is he?', az: "He's ten.", from: 'other' }],
       extra: ['Yes, I am.'],
       variants: [other('Bir sualın cavabı yerində deyil.', ex("Do you have a son? — No, I don't.; Is she your wife? — Yes, she is.; How old is he? — He's ten.", 'Do ilə suala do ilə, Is she ilə suala she is ilə, yaş sualına yaşla cavab verilir.', "Do you have a son? — No, I don't.; How old is he? — He's ten.", 'Is she your wife? — Yes, she is.'))],
@@ -94,7 +94,7 @@ export const exam: DesignLesson = {
       type: 'write', id: 'u4x_c09', number: 9, title: 'Cavab yaz', why: 'Do ilə suala do ilə cavab verdin.',
       prompt: '{F} ailə çatında soruşur.\nDüzünü yaz: bacın var, yoxsa yox? (istəsən, uydurma)', placeholder: 'Cavabını yaz',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Do you have a sister?' }] },
-      rule: own(HAVE_REPLY, 'Yes, I do.', "No, I don't.", 'Yes, I do. I have a sister.'),
+      rule: own(haveReply('sister'), 'Yes, I do.', "No, I don't.", 'Yes, I do. I have a sister.'),
       variants: [
         ...HAVE_MISTAKES, ...ASK_MISTAKES,
         other("Yes, I do. / No, I don't.", ex("Yes, I do. / No, I don't.", 'Sual Do ilə başlayıb — cavabda da do gəlir.', "Yes, I do. — var; No, I don't. — yoxdur.", 'Do you have a sister? — Yes, I do.')),
@@ -102,7 +102,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'choice', id: 'u4x_c10', number: 10, title: 'Seç', why: 'Qadın haqqında she; engineer-dən əvvəl an.',
-      prompt: 'Video zəngdə {F} ananın şəklinə baxıb soruşur: “What’s her job?” Anan mühəndisdir.\nNə deyirsən?',
+      prompt: 'Video zəngdə {f} ananın şəklinə baxıb soruşur: “What’s her job?” Anan mühəndisdir.\nNə deyirsən?',
       options: ["She's a engineer.", "He's an engineer.", "She's an engineer."], answer: "She's an engineer.",
       variants: [
         pick("She's a engineer.", 'engineer-dən əvvəl a yox, an gəlir.', ex("She's an engineer.", 'engineer e səsi ilə başlayır: belə sözdən əvvəl an gəlir.', "She's an engineer. — düzdür; She's a engineer. — olmur.", "He's a doctor.")),
@@ -111,7 +111,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'two', id: 'u4x_c11', number: 11, title: 'İki mesaj yaz', why: 'Bacının adını və peşəsini yazdın.',
-      prompt: 'Ailə qrupunda {F} sənin bacın haqqında soruşur. Bacının adı Laladır, tələbədir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
+      prompt: 'Ailə qrupunda {f} sənin bacın haqqında soruşur. Bacının adı Laladır, tələbədir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
       fields: [
         { id: 'u4x_c11a', label: 'Birinci mesaj', placeholder: 'Adı', rule: exact('Her name is Lala.'), purpose: 'adını demək', empty: 'Birinci mesajı da yaz.' },
         { id: 'u4x_c11b', label: 'İkinci mesaj', placeholder: 'Peşəsi', rule: exact("She's a student.", 'She is a student.'), purpose: 'peşəsini demək', empty: 'İkinci mesajı da yaz.' },
@@ -131,7 +131,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'voice', id: 'u4x_c12', number: 12, title: 'Yaşını soruş', why: 'Kişinin yaşını soruşdun: How old is he?',
-      prompt: 'Video zəngdə {F} atasının şəklini göstərir.\nAtasının neçə yaşında olduğunu soruş.', reply: "He's sixty.",
+      prompt: 'Video zəngdə {f} atasının şəklini göstərir.\nAtasının neçə yaşında olduğunu soruş.', reply: "He's sixty.",
       rule: said(String.raw`^how\s+old\s+is\s+(?:he|your\s+father)\s*\??$`, 'How old is he?', 'How old is your father?'),
       variants: [
         ...ASK_AGE_MISTAKES,
@@ -142,7 +142,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u4x_c13', number: 13, title: 'Şəklin altına yaz', why: 'Ananı təqdim etdin: This is my mother.',
-      prompt: 'Ailə şəkillərini {F:dat} göndərirsən. Şəkildə sənin anan var.\nŞəklin altına yaz: “Bu mənim anamdır.”', placeholder: 'Yazını yaz',
+      prompt: 'Ailə şəkillərini {f:dat} göndərirsən. Şəkildə sənin anan var.\nŞəklin altına yaz: “Bu mənim anamdır.”', placeholder: 'Yazını yaz',
       rule: own(MY_MOTHER, 'This is my mother.'),
       variants: [
         { match: { pattern: String.raw`^this\s+are\b` }, short: 'This ilə are olmur: is gəlir.',

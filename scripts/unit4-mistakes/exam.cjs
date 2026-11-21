@@ -10,6 +10,7 @@ module.exports = (rejects, find, rejectsField) => {
   rejects('u4x_c09', 'Yes, I have.');
   rejects('u4x_c09', 'I have sister.');
   rejects('u4x_c09', 'Yes, I am.');
+  rejects('u4x_c09', 'I have a brother.');
   rejects('u4x_c12', 'How old he is?', true);
   rejects('u4x_c12', 'How old are he?', true);
   rejects('u4x_c12', 'How old is she?', true);

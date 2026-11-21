@@ -56,14 +56,14 @@ export const lesson2a: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d2a_c05', number: 5, title: 'Mesaj yaz', why: 'This is my mother. — ananı təqdim etdin.', hint: 'Əvvəl bu dərsin təqdim cümləsi, sonra “mənim” sözü.',
-      prompt: '{F} albomdakı şəkli göstərib yazır. Şəkildə sənin anan var.\nSözlərdən cavab qur: “Bu mənim anamdır.”', placeholder: 'Sözlərə toxun',
+      prompt: 'Sən {f:dat} telefonda ailə şəklini göstərirsən. {F} soruşur.\nSözlərdən cavab qur: “Bu mənim anamdır.”', placeholder: 'Sözlərə toxun',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
       tiles: ['This', 'is', 'my', 'mother', '.', 'are', "I'm"], rule: exact('This is my mother.'),
       variants: [noMy('mother', 'This is my mother.'), other('Sıra: This is my mother.', ex('This is my mother.', 'Əvvəl This is, sonra my mother.', 'This is my mother. — ana; This is my friend. — dost.', 'This is my mother.'))],
       review: {
         title: 'Mesaj yaz', why: 'This is my mother. — ananı təqdim etdin.', hint: 'Əvvəl bu dərsin təqdim cümləsi, sonra “mənim” sözü.',
         prompt: 'Qonşun telefonda sənin ailə şəklini görüb soruşur. Şəkildə anan var.\nSözlərdən cavab qur: “Bu mənim anamdır.”', placeholder: 'Sözlərə toxun',
-        chat: { partner: 'Qonşu', from: 'G', lines: [{ from: 'G', text: "Who's this?" }] },
+        chat: { partner: 'Qonşu', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
         tiles: ['my', 'This', 'mother', 'is', '.', 'I', 'are'], rule: exact('This is my mother.'),
         variants: [noMy('mother', 'This is my mother.'), other('Sıra: This is my mother.', ex('This is my mother.', 'Əvvəl This is, sonra my mother.', 'This is my mother. — ana; This is my friend. — dost.', 'This is my mother.'))],
       },
@@ -100,7 +100,7 @@ export const lesson2a: DesignLesson = {
       variants: [other('Bir məna yerində deyil.', ex('This is my mother. — anam; This is my father. — atam; This is my brother. — qardaşım.', 'Cümlənin sonundakı söz kimin olduğunu göstərir: mother, father, brother.', 'This is my mother. — ana; This is my father. — ata.', 'This is my brother.'))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Cümlənin sonundakı ailə sözünə fikir ver.',
-        prompt: 'Video zəngdə {F} yeni şəkillər göstərir.\nHər cümləni mənasına uyğun gətir.',
+        prompt: 'Video zəngdə {f} yeni şəkillər göstərir.\nHər cümləni mənasına uyğun gətir.',
         rows: [{ en: 'This is my brother.', az: 'Bu mənim qardaşımdır.', from: 'other' }, { en: 'This is my mother.', az: 'Bu mənim anamdır.', from: 'other' }, { en: 'This is my father.', az: 'Bu mənim atamdır.', from: 'other' }],
         extra: ['Bu mənim ailəmdir.'],
         variants: [other('Bir məna yerində deyil.', ex('This is my brother. — qardaşım; This is my mother. — anam; This is my father. — atam.', 'Cümlənin sonundakı söz kimin olduğunu göstərir: brother, mother, father.', 'This is my mother. — ana; This is my father. — ata.', 'This is my brother.'))],
@@ -114,7 +114,7 @@ export const lesson2a: DesignLesson = {
     },
     {
       type: 'choice', id: 'u4d2a_c11', number: 11, title: 'Sözü tamamla', why: 'Ailə üzvündən əvvəl “mənim” — my gəlir.', hint: '“Mənim” deyən söz Bölmə 1-də “adım” cümləsində var.',
-      prompt: '{F}-nin albomundakı şəkildə sən bacınla birgəsən.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'Hello! This is', after: 'sister.' },
+      prompt: '{F} albomundakı şəkildə öz bacısını göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'Hello! This is', after: 'sister.' },
       options: ['my', 'me', 'I'], answer: 'my',
       variants: [
         pick('me', 'me “mən” mənasındadır, “mənim” deyil.', ex('my', 'Ailə üzvündən əvvəl “mənim” mənasında my gəlir.', 'my sister — mənim bacım; Me too. — mən də.', 'This is my sister.')),

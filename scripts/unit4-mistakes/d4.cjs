@@ -16,4 +16,6 @@ module.exports = (rejects) => {
   rejects('u4d4_c11', 'This is your mother?', true);
   rejects('u4d4_c11', 'Do this is your mother?', true);
   rejects('u4d4_c11', 'Is this my mother?', true);
+  rejects('u4d4_c09', "No, she's my sister.", true);
+  rejects('u4d4_c09', 'No, she my friend.', true);
 };

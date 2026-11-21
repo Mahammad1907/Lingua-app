@@ -99,7 +99,7 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'choice', id: 'u4d6_c09', number: 9, title: 'Düz sualı seç', why: 'Qadın haqqında: How old is she?', hint: 'Şəkildə kimdir: kişi, yoxsa qadın? is harada gəlir?',
-      prompt: 'Video zəngdə {F} nənəsinin şəklini göstərir.\nNənəsinin yaşını soruşmaq istəyirsən. Hansı sual düzdür?',
+      prompt: 'Video zəngdə {f} nənəsinin şəklini göstərir.\nNənəsinin yaşını soruşmaq istəyirsən. Hansı sual düzdür?',
       options: ['How old she is?', 'How old is he?', 'How old is she?'], answer: 'How old is she?',
       variants: [
         pick('How old she is?', 'Sualda is qabağa keçir.', ex('How old is she?', 'Sualda is she sözündən əvvəl gəlir.', "How old is she? — sual; She's sixty. — cavab.", 'How old is your grandmother?')),
@@ -131,13 +131,13 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d6_c11', number: 11, title: 'Sualı qur', why: 'How old + is + kim?', hint: 'Əvvəl How old, sonra is, sonda kim haqqında soruşursan.',
-      prompt: 'Qrup çatında {F} nənəsinin ad günü şəklini göndərdi.\nNənəsinin yaşını soruş. Sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
-      tiles: ['old', 'grandmother', 'is', 'How', 'your', 'are', 'she', '?'], rule: exact('How old is your grandmother?'),
+      prompt: 'Qrup çatında {f} nənəsinin ad günü şəklini göndərdi.\nNənəsinin yaşını soruş. Sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+      tiles: ['old', 'grandmother', 'is', 'How', 'your', 'are', 'you', '?'], rule: exact('How old is your grandmother?'),
       variants: [...ASK_AGE_MISTAKES, other('How old is your grandmother?', ex('How old is your grandmother?', 'Əvvəl How old, sonra is, sonra your grandmother.', 'How old is your grandmother? — o; How old are you? — sən.', 'How old is your father?'))],
       review: {
         title: 'Sualı qur', why: 'How old + is + kim?', hint: 'Əvvəl How old, sonra is, sonda kim haqqında soruşursan.',
         prompt: 'Qonşu qadın oğlunun şəklini göstərir.\nOğlunun yaşını soruş. Sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
-        tiles: ['your', 'How', 'he', 'son', 'is', 'are', 'old', '?'], rule: exact('How old is your son?'),
+        tiles: ['your', 'How', 'you', 'son', 'is', 'are', 'old', '?'], rule: exact('How old is your son?'),
         variants: [...ASK_AGE_MISTAKES, other('How old is your son?', ex('How old is your son?', 'Əvvəl How old, sonra is, sonra your son.', 'How old is your son? — o; How old are you? — sən.', 'How old is your daughter?'))],
       },
     },

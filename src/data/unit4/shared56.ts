@@ -5,7 +5,7 @@ import type { Variant } from '../designLessonTypes';
 import { ex } from '../unit1/build';
 
 const END = String.raw`\s*[.!]?`;
-const DONT = String.raw`(?:don'?t|do\s+not)`;
+const DONT = String.raw`(?:don['’]?t|do\s+not)`;
 /** Family words of Dərs 2a–3 that go with “a” (no plural in Dərs 5). */
 const MEMBER = '(?:brother|sister|son|daughter|friend|husband|wife)';
 const HAVE_ONE = String.raw`i\s+have\s+a\s+${MEMBER}(?:\s+and\s+a\s+${MEMBER})?`;
@@ -20,6 +20,13 @@ const AND_YOU = String.raw`(?:\s*and you\s*\??)?`;
 export const MY_FAMILY = String.raw`^(?:hi\s*[,!.]?\s*)?${ONE}(?:\s*(?:[.,]|and|but)\s*(?:but\s+|and\s+)?${ONE})?${END}${AND_YOU}$`;
 /** Reply to “Do you have a …?”: “Yes, I do.” / “No, I don't.”, alone or with a full sentence. “Yes, I have.” is not accepted. */
 export const HAVE_REPLY = String.raw`^(?:${YES}|${NO}|${YES}\s*[.,!]?\s*${HAVE_ONE}|${NO}\s*[.,!]?\s*${DONT_ONE}|yes\s*,?\s*${HAVE_ONE}|no\s*,?\s*${DONT_ONE}|${ONE})(?:\s*(?:[.,]|and|but)\s*(?:but\s+|and\s+)?${ONE})?${END}${AND_YOU}$`;
+/** Reply to “Do you have a <member>?”: like HAVE_REPLY, but a full first sentence must be about the asked member
+ *  (“I have a wife.” is not an answer to “Do you have a brother?”). */
+export const haveReply = (member: string) => {
+  const has = String.raw`i\s+have\s+a\s+${member}(?:\s+and\s+a\s+${MEMBER})?`;
+  const hasNot = String.raw`i\s+${DONT}\s+have\s+a\s+${member}(?:\s+(?:and|or)\s+a\s+${MEMBER})?`;
+  return String.raw`^(?:${YES}|${NO}|${YES}\s*[.,!]?\s*${has}|${NO}\s*[.,!]?\s*${hasNot}|yes\s*,?\s*${has}|no\s*,?\s*${hasNot}|${has}|${hasNot})(?:\s*(?:[.,]|and|but)\s*(?:but\s+|and\s+)?${ONE})?${END}${AND_YOU}$`;
+};
 /** The question “Do you have a son?” (optionally after “And”). “Have you a son?” is not accepted. */
 export const askHave = (member: string) => String.raw`^(?:and\s*,?\s*)?do\s+you\s+have\s+a\s+${member}\s*\??$`;
 
@@ -39,7 +46,7 @@ export const HAVE_MISTAKES: Variant[] = [
 /** Dərs 5: the question and its short answer (used from the “Do you have a brother?” card on). */
 export const ASK_MISTAKES: Variant[] = [
   { match: { pattern: String.raw`^(?:and\s*,?\s*)?have\s+you\b` }, short: 'Sual Do ilə başlayır.',
-    explain: ex('Do you have a brother?', 'Biz sualı səs tonu ilə qururuq. İngiliscə əvvələ Do gəlir.', 'Do you have a brother? — sual; I have a brother. — cümlə.', 'Do you have a sister? — Yes, I do.') },
+    explain: ex('Do you have a brother?', 'Biz sonda -mı deyirik; ingiliscə əvvələ Do gəlir.', 'Do you have a brother? — sual; I have a brother. — cümlə.', 'Do you have a sister? — Yes, I do.') },
   { match: { pattern: String.raw`^(?:and\s*,?\s*)?are\s+you\s+have\b` }, short: 'are və have birlikdə gəlmir.',
     explain: ex('Do you have a brother?', 'Bu sualda are yox, Do gəlir.', 'Do you have a brother? — düzdür; Are you have a brother? — olmur.', 'Do you have a son? — No, I don\'t.') },
   { match: { pattern: String.raw`^yes\s*,?\s*i\s+have\s*[.!]?$|^no\s*,?\s*i\s+have\s*not\s*[.!]?$` }, short: 'Qısa cavabda do təkrar olunur.',
@@ -59,8 +66,8 @@ export const num = (word: string, digits: string) => String.raw`(?:${word.replac
 const OLD = String.raw`(?:\s+years\s+old)?`;
 const pron = (p: 'he' | 'she') => String.raw`${p}(?:'?s|\s+is)`;
 
-/** “She's sixteen.” (optionally after “Yes, it is.”). “She has sixteen”, “She's sixteen years”, “He's sixteen” are not accepted. */
-export const ageOf = (p: 'he' | 'she', n: string) => String.raw`^(?:yes\s*,?\s*(?:it\s+is\s*[.,!]?\s*)?)?${pron(p)}\s+${n}${OLD}${END}$`;
+/** “She's sixteen.” (optionally after “Yes.”, “Yes, it is.” or “Yes, she is.”). “She has sixteen”, “She's sixteen years”, “He's sixteen” are not accepted. */
+export const ageOf = (p: 'he' | 'she', n: string) => String.raw`^(?:yes\s*[.,!]?\s*(?:(?:it|${p})\s+is\s*[.,!]?\s*)?)?${pron(p)}\s+${n}${OLD}${END}$`;
 /** Age written on a form for a woman / a man: “50” or “She's 50”. */
 export const ageField = (p: 'he' | 'she') => String.raw`^(?:${pron(p)}\s+)?${AGE_NUMBER}${OLD}${END}$`;
 /** “She's my sister. She's twenty.” (her name may come in between: “Her name is Aysel.”). */
@@ -74,8 +81,8 @@ export const AGE_OF_MISTAKES: Variant[] = [
   { match: { pattern: String.raw`\b(?:has|have)\b` }, short: 'Yaş “var” ilə deyilmir.',
     explain: ex("He's thirty.", '“30 yaşı var” sözbəsöz tərcümə olunmur. Yaşı He\'s, She\'s ilə deyirik.', "He's thirty. — kişi; She's thirty. — qadın.", "How old is she? — She's twenty.") },
   { match: { pattern: String.raw`\byears?\b(?!\s+old)` }, short: 'Yaşı demək kifayətdir.',
-    explain: ex("He's thirty.", 'Ya yalnız yaşı de, ya da years old birlikdə.', "He's thirty. — düzdür; He's thirty years. — olmur.", "She's twenty-five years old.") },
-  { match: { pattern: String.raw`^(?:yes\s*,?\s*(?:it\s+is\s*[.,!]?\s*)?)?(?:he|she)\s+(?!is\b)(?:\d|${TENS}|${TEENS}|${UNITS})` }, short: 'he, she-dən sonra is lazımdır.',
+    explain: ex("He's thirty.", 'Ya yalnız yaşı de, ya da years old birlikdə.', "He's thirty. — düzdür; He's thirty years. — olmur.", "How old is she? — She's twenty-five.") },
+  { match: { pattern: String.raw`^(?:yes\s*[.,!]?\s*(?:(?:it|he|she)\s+is\s*[.,!]?\s*)?)?(?:he|she)\s+(?!is\b)(?:\d|${TENS}|${TEENS}|${UNITS})` }, short: 'he, she-dən sonra is lazımdır.',
     explain: ex("She's twenty.", 'Azərbaycancada “-dır” şəkilçidir. İngiliscə is ayrıca gəlir: She\'s.', "She's twenty. — düzdür; She twenty. — olmur.", "How old is he? — He's thirty.") },
 ];
 /** Dərs 6: the question “How old is he/she?”. */

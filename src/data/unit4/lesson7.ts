@@ -24,7 +24,7 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'word', id: 'u4d7_c02', number: 2, scenes: ['mascot/point'],
-      word: 'teacher', pronunciation: '/ˈtitʃɚ/', reading: 'tiçır', az: 'müəllim',
+      word: 'teacher', pronunciation: '/ˈtitʃɚ/', reading: 'tiçər', az: 'müəllim',
       structure: ["She's a teacher.", "He's a teacher."],
       notes: ['Vurğu birinci hecadadır: Ti-çır.'],
       example: "She's a teacher.", exampleAz: 'O müəllimdir.',
@@ -70,9 +70,9 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'word', id: 'u4d7_c06', number: 6, scenes: ['mascot/wave'],
-      word: 'doctor', pronunciation: '/ˈdɑktɚ/', reading: 'daktır', az: 'həkim',
+      word: 'doctor', pronunciation: '/ˈdɑktɚ/', reading: 'daktər', az: 'həkim',
       structure: ["He's a doctor.", "She's a doctor."],
-      notes: ['“doctor” — “dəktır” yox, “daktır”: birinci saitdə “a”.'],
+      notes: ['“doctor” — “dəktər” yox, “daktər”: birinci saitdə “a”.'],
       example: "He's a doctor.", exampleAz: 'O həkimdir.',
     },
     {
@@ -129,7 +129,7 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'voice', id: 'u4d7_c11', number: 11, title: 'Peşəsini de', why: 'Peşəsini dedin: He\'s a doctor.', hint: 'He\'s-dən sonra peşə sözünün qarşısına kiçik söz qoy.',
-      prompt: 'Video zəngdə {F} albomdakı kişini göstərir. O həkimdir.\nSualı dinlə və cavab ver.', audio: "What's his job?", reply: 'Really? Nice!',
+      prompt: 'Video zəngdə {f} albomdakı kişini göstərir. O həkimdir.\nSualı dinlə və cavab ver.', audio: "What's his job?", reply: 'Really? Nice!',
       rule: exact("He's a doctor.", 'He is a doctor.'),
       variants: [
         noArticle("He's a doctor.", "He's doctor.", "She's an engineer."),
@@ -151,7 +151,7 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d7_c12', number: 12, title: 'Cavabla', why: 'Qısa cavab verdin: Yes, she is.', hint: 'Suala sualın öz sözləri ilə qısa cavab ver.',
-      prompt: 'Video zəngdə {F} albomdakı qadını göstərir. O müəllimdir.\nSuala cavab ver.', placeholder: 'Cavabını yaz',
+      prompt: 'Video zəngdə {f} albomdakı qadını göstərir. O müəllimdir.\nSuala cavab ver.', placeholder: 'Cavabını yaz',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is she a teacher?' }] },
       rule: exact('Yes, she is.', "Yes, she's a teacher.", 'Yes, she is a teacher.'),
       variants: [
@@ -228,7 +228,7 @@ export const lesson7: DesignLesson = {
       { group: 'Yazı', text: 'Peşəni düzgün a və ya an ilə yazmaq', tasks: ['u4d7_c07', 'u4d7_c12', 'u4d7_c14'] },
       { group: 'Danışıq', text: 'Peşəni soruşanda cavab vermək və cümləni düzgün təkrarlamaq', tasks: ['u4d7_c11', 'u4d7_c13'] },
     ],
-    closing: 'Növbəti dərs — Bölmə söhbəti: {F} ilə video zəngdə ailəni təqdim edirsən.', button: resultTexts.button,
+    closing: 'Növbəti dərs — Bölmə söhbəti: {f} ilə video zəngdə ailəni təqdim edirsən.', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
