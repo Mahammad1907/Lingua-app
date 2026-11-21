@@ -100,7 +100,8 @@ const SHORT_TITLES: Record<string, string> = {
   // Bölmə 2 (docs/BOLME_2_XERITESI.md), keyed by map number.
   u2_1: 'Rəqəmlər', u2_2: 'Telefon', u2_3: 'Hərflər', u2_4: 'Hərf-hərf', u2_5: 'Ad, soyad', u2_6: 'E-poçt', u2_7: 'Yaş', u2_8: 'Qeydiyyat',
   // Bölmə 3 (docs/BOLME_3_XERITESI.md).
-  u3_1: 'Haradansan?', u3_2: 'Ölkələr', u3_3: 'Millət', u3_4: 'Sən …-dansan?', u3_5: 'O haradandır?', u3_6: 'Yaşayırsan', u3_7: 'Dillər', u3_8: 'Dil klubu',
+  u3_1: 'Haradansan?', u3_2: 'Ölkələr', u3_3: 'Millət', u3_4: 'Bəli / xeyr', u3_5: 'O haradandır?', u3_6: 'Yaşayırsan', u3_7: 'Dillər', u3_8: 'Dil klubu',
+  u4_1: 'Bu kimdir?', u4_2: 'Ailə', u4_3: 'his və her', u4_4: 'Bu sənindir?', u4_5: 'Qardaşın var?', u4_6: 'Yaş', u4_7: 'Peşə', u4_8: 'Ailə söhbəti',
 };
 
 export function HomeNavigation({ bottomInset = 0, onNavigate }: {

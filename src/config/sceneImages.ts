@@ -74,6 +74,8 @@ export const SCENE_NOTES: Record<string, string> = {
   'u3/map-class': '3.9 · Kurs sinfi: divarda sadə dünya xəritəsi, oğlan bir ölkəni göstərir',
   'u3/exchange': '3.10 · Dil mübadiləsi masası: üzərində kiçik kartlar, qız və xarici gənc',
   'u3/party': '3.11 · Dil klubunun ziyafəti: hamı ayaq üstə söhbət edir',
+  'u4/family-dinner': '4.1 · Ailə yeməyi: uzun masa ətrafında ana, ata, nənə, baba və uşaqlar',
+  'u4/videocall': '4.2 · Video zəng: qız noutbukda xarici dostla ailə şəkillərinə baxır',
 };
 
 export function sceneImage(ids?: string[]): number | undefined {

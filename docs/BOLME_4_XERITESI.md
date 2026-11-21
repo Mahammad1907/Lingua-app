@@ -39,7 +39,7 @@ Xarici dost `{F}` (ABŞ-dan qadın, Bölmə 4-dən daimi personaj) ailə şəkil
 - **Spiral:** he/she, He's/She's (Bölmə 3), ailə sözləri (Dərs 2), What's your name?
 - **Məkan:** ailə yeməyi şəkli.
 - **Səhv:** "He's name", "His is name", "Her" ↔ "his" (kişi/qadın qarışığı), "My wife's" yox. 
-- **İzah kartı (2):** his/her seçimi kimə aiddir: kişi → his, qadın → her (ona görə yox, ailə üzvünün cinsinə görə).
+- **İzah kartı (2):** his/her seçimi kimə aiddir: his/her **sahibə** görə seçilir: oğlanın / kişinin → his, qızın / qadının → her (She's my wife. His name is Tom. → ad kişinindirsə his).
 
 ### Dərs 4 — Bu sənin …-dır? (order 39)
 - **Yeni (5):** your · Is this your [mother]? · Yes, it is. · No, it isn't. · Who's he? / Who's she?

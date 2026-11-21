@@ -65,7 +65,7 @@ export const modules: Module[] = [
     id: 'module_4',
     title: 'Family and people',
     titleAz: 'Ailə və insanlar',
-    description: '8 dərs: bu kimdir, ailə üzvləri, his/her, bu sənin …-dır?, I have, yaş, peşə və xarici dostla ailə söhbəti',
+    description: '8 dərs: bu kimdir, ailə üzvləri, his/her, bu sənindir?, I have, yaş, peşə və xarici dostla ailə söhbəti',
     language: 'en',
     level: 'A1',
     order: 4,
