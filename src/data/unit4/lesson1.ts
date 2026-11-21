@@ -64,7 +64,7 @@ export const lesson1: DesignLesson = {
         pick('Adını soruşur.', 'Səsdə ad soruşan sual yoxdur.', ex('Yanındakı adamı təqdim edir.', 'Ad soruşanda “What’s your name?” deyilir; burada This is var.', "What's your name? — ad soruşur; This is Anna. — təqdim edir.", 'Hi! This is Anna.')),
       ],
       review: {
-        title: 'Dinlə və anla', why: 'This is + ad başqasını təqdim edir.', hint: 'Danışan yanındakı adamdan danışır, yoxsa özündən?',
+        title: 'Dinlə və anla', why: 'This is + ad başqasını təqdim edir.', hint: 'Hello-dan sonrakı iki sözə qulaq as: danışan kimdən danışır?',
         prompt: 'Kafedə dostun yanındakı qadını sənə göstərir.\nO nə edir?', audio: 'Hello! This is Emma.',
         options: ['Adını soruşur.', 'Özünü təqdim edir.', 'Yanındakı qadını təqdim edir.'], answer: 'Yanındakı qadını təqdim edir.',
         variants: [
@@ -89,7 +89,7 @@ export const lesson1: DesignLesson = {
         other('Eşitdiyin söz: friend.', ex('friend', 'Eşitdiyin sözü hərf-hərf yaz: f-r-i-e-n-d.', 'friend — dost.', 'Hi, friend!')),
       ],
       review: {
-        title: 'Dinlə və yaz', why: 'friend — i-dən sonra e gəlir.', hint: 'Sözün ortasında iki saitin ardıcıllığına diqqət et.',
+        title: 'Dinlə və yaz', why: 'friend — i-dən sonra e gəlir.', hint: 'Telefonda eşitdiyin sözün ortasında iki sait yan-yanadır — sırasına diqqət et.',
         prompt: 'Telefonda dostun sənə bir söz deyir.\nEşitdiyin sözü yaz.', audio: 'friend', placeholder: 'Eşitdiyin sözü yaz',
         rule: exact('friend'),
         variants: [
@@ -103,7 +103,7 @@ export const lesson1: DesignLesson = {
       type: 'word', id: 'u4d1_c06', number: 6, scenes: ['mascot/point'],
       word: 'my friend', pronunciation: '/maɪ frɛnd/', reading: 'may frend', az: 'mənim dostum',
       structure: ['my + friend'],
-      notes: ['“Dostum” bir sözdür; ingiliscə “mənim” ayrıca gəlir: my friend.'],
+      notes: ['my — mənim, friend — dost: “dostum” ingiliscə iki sözdür.'],
       example: 'This is my friend.', exampleAz: 'Bu mənim dostumdur.',
     },
     {
@@ -116,7 +116,7 @@ export const lesson1: DesignLesson = {
         other('Sıra: This is my friend.', ex('This is my friend.', 'Əvvəl This is, sonra my friend.', 'This is my friend. — dostum; This is Tom. — ad.', 'This is my friend.')),
       ],
       review: {
-        title: 'Mesaj yaz', why: 'This is my friend. — dostunu təqdim etdin.', hint: 'Təqdim cümləsi bu dərsin ilk söz kartındakı kimi başlayır.',
+        title: 'Mesaj yaz', why: 'This is my friend. — dostunu təqdim etdin.', hint: 'İş yoldaşına da dostunu bu dərsin ilk söz kartındakı kimi təqdim et.',
         prompt: 'İş yoldaşı mesaj yazır. Yanında dostun var.\nSözlərdən cavab qur: “Bu mənim dostumdur.”', placeholder: 'Sözlərə toxun',
         chat: { partner: 'İş yoldaşı', from: 'other', lines: [{ from: 'other', text: 'Hello!' }] },
         tiles: ['my', 'This', 'friend', 'is', '.', 'I', 'are'], rule: exact('This is my friend.'),
@@ -131,16 +131,16 @@ export const lesson1: DesignLesson = {
       word: "Who's this?", pronunciation: '/huz ðɪs/', reading: 'huz **th**is?', az: 'Bu kimdir?',
       shortForm: { full: 'Who is', short: "Who's" },
       structure: ["Who's this?"],
-      notes: ['Who — kim. Sual sözü cümlənin əvvəlində gəlir.'],
+      notes: ['Who’s = Who is: who — kim, ’s — “-dır”, this — bu.'],
       example: "Who's this? — This is my friend.", exampleAz: 'Bu kimdir? — Bu mənim dostumdur.',
     },
     {
-      type: 'voice', id: 'u4d1_c09', number: 9, title: 'Səslə soruş', why: 'Kim olduğunu soruşdun: Who’s this?', hint: 'Sual sözü əvvəldə gəlir, sonra is.',
+      type: 'voice', id: 'u4d1_c09', number: 9, title: 'Səslə soruş', why: 'Kim olduğunu soruşdun: Who’s this?', hint: 'Albomdakı adamı göstərib soruş — sual sözü cümlənin əvvəlində gəlir.',
       prompt: '{F:gen} ailə albomunda tanımadığın bir adam var.\n{F:abl} kim olduğunu soruş.', reply: 'This is my friend.',
       rule: said(WHOS_THIS, "Who's this?"),
       variants: [...askMistakes, other("Who's this?", ex("Who's this?", 'Kim olduğunu soruşanda Who’s this? deyilir.', "Who's this? — sual; This is my friend. — cavab.", "Who's this? — This is my friend."))],
       review: {
-        title: 'Səslə soruş', why: 'Kim olduğunu soruşdun: Who’s this?', hint: 'Sual sözü əvvəldə gəlir, sonra is.',
+        title: 'Səslə soruş', why: 'Kim olduğunu soruşdun: Who’s this?', hint: 'Şəkildəki qadını göstərib soruş — sual sözü cümlənin əvvəlində gəlir.',
         prompt: 'Video zəngdə {f} qrup şəkli göstərir. Şəkildəki qadını tanımırsan.\nKim olduğunu soruş.', reply: 'This is my friend.',
         rule: said(WHOS_THIS, "Who's this?"),
         variants: [...askMistakes, other("Who's this?", ex("Who's this?", 'Kim olduğunu soruşanda Who’s this? deyilir.', "Who's this? — sual; This is my friend. — cavab.", "Who's this? — This is my friend."))],
@@ -173,7 +173,7 @@ export const lesson1: DesignLesson = {
       rule: own(THIS_IS, 'This is Tom.', 'This is my friend.'),
       variants: [...thisMistakes('This is Tom.', "Who's this? — This is Tom."), other('This is + ad.', ex('This is Tom.', 'Başqasını təqdim edəndə This is, sonra ad və ya my friend deyirsən.', 'This is Tom. — ad; This is my friend. — dost.', "Who's this? — This is Tom."))],
       review: {
-        title: 'Dialoqu tamamla', why: 'Kim olduğunu dedin: This is + ad.', hint: 'Cavab bu dərsin ilk söz kartındakı kimi başlayır.',
+        title: 'Dialoqu tamamla', why: 'Kim olduğunu dedin: This is + ad.', hint: 'Yeni yoldaşa da dostunu bu dərsin ilk söz kartındakı kimi göstər.',
         prompt: 'Ofisdə yeni gələn yoldaş sənin yanındakı adamı göstərib soruşur.\nDostunu təqdim et.', placeholder: 'Cavabın',
         chat: { partner: 'İş yoldaşı', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
         rule: own(THIS_IS, 'This is Anna.', 'This is my friend.'),
@@ -186,7 +186,7 @@ export const lesson1: DesignLesson = {
       rule: said(WELCOME, 'Hello! Welcome!'),
       variants: [...welcomeMistakes, other('Welcome!', ex('Welcome!', 'Qonağı qarşılayanda Welcome! deyilir.', 'Welcome! — qonaq gəlir; Goodbye! — qonaq gedir.', 'Hello! Welcome!'))],
       review: {
-        title: 'Səslə cavab', why: 'Qonağı qarşıladın: Welcome!', hint: 'Qonaq gələndə deyilən yeni sözü xatırla.',
+        title: 'Səslə cavab', why: 'Qonağı qarşıladın: Welcome!', hint: 'Ofisə ilk dəfə gələn adamı qarşılayanda deyilən yeni sözü xatırla.',
         prompt: 'Yeni iş yoldaşın ilk dəfə sizin ofisə gəlir.\nOnu qarşıla.', reply: 'Hi!',
         rule: said(WELCOME, 'Hello! Welcome!'),
         variants: [...welcomeMistakes, other('Welcome!', ex('Welcome!', 'Qonağı qarşılayanda Welcome! deyilir.', 'Welcome! — qonaq gəlir; Goodbye! — qonaq gedir.', 'Hello! Welcome!'))],

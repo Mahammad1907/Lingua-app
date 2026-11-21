@@ -2,6 +2,7 @@
 
 ## 0. Ən son vəziyyət (15 noyabr 2026) — əvvəlcə bunu oxu
 
+- **Bölmə 4 "Ailə və insanlar" hazırdır** (21 noyabr): `src/data/unit4/` (9 hissə: 1, 2a, 2b, 3, 4, 5, 6, 7, 8 + `exam.ts`), xəritə `docs/BOLME_4_XERITESI.md`, yoxlama `check-unit4.cjs`. Yeni ekranlar: tree, drag, profile. Telefonda yoxlanmayıb. Qaydalar tabı (sual adlı 47 qayda, v6 dizayn) və `[ad]/[ölkə]/…` nişanları (qayda G5) hazırdır. Bölmə 5 xəritəsi: Əşyalar və rənglər, yeni ekran ideyası “Rəng/qiymət dükanı”.
 - **Bölmə 3 "Haradansan" hazırdır** (15 noyabr): `src/data/unit3/` (11 hissə: 1, 2a, 2b, 3a, 3b, 4, 5a, 5b, 6, 7, 8 + `exam.ts`), xəritə `docs/BOLME_3_XERITESI.md`, yoxlama `check-unit3.cjs`. Yeni ekran **Xəritədə tap** (`CountryMap`). Qayda 20: “Azeri” sözü qadağandır. Test girişi `[1, 2, 3]`. Növbəti: Bölmə 4 “Ailə və insanlar” — əvvəlcə xəritə.
 - **Bölmə 1 + Bölmə 2 hazırdır**, hər ikisinin imtahanı var (yeni ekranlarda). Bölmə 2: `src/data/unit2/` (12 hissə: 1a,1b,2,3a,3b,3c,4,5,6,7a,7b,8 + `exam.ts`), Bölmə 1 imtahanı `src/data/unit1/exam.ts`. Xəritə: `docs/BOLME_2_XERITESI.md`.
 - **Kurs planı (təsdiqlənib):** A1 10 bölmə, A2 14, B1 18, B2 20. Hər bölmə xəritədə sabit 8 dərs (çox material → dərs 2–3 hissə) + bölmə imtahanı (Kömək yox, keçid ≥80%). A1-də dərsdə 4–6 yeni vahid. Vəd/iddia mətni yoxdur. Bölmə 3 də yazılıb (yuxarıya bax).

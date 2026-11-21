@@ -19,7 +19,7 @@ export const lesson7: DesignLesson = {
       type: 'intro', id: 'u4d7_c01', badge: 'Ailə və insanlar', subtitle: '{F} ailə albomunun iş şəkillərini göstərir: xəstəxana, məktəb, ofis.', start: 'Dərsə başla',
       goals: [
         { icon: 'chat', text: 'Peşə sözlərini tanıya bilirəm.' },
-        { icon: 'wave', text: 'Ailə üzvünün peşəsini soruşub deyə bilirəm.' },
+        { icon: 'wave', text: 'Ailə üzvünün peşəsi soruşulanda cavab verə bilirəm.' },
       ],
     },
     {
@@ -76,7 +76,7 @@ export const lesson7: DesignLesson = {
       example: "He's a doctor.", exampleAz: 'O həkimdir.',
     },
     {
-      type: 'write', id: 'u4d7_c07', number: 7, title: 'Cümləni qur', why: 'Peşə sözündən əvvəl a gəlir: a doctor.', hint: 'Peşə sözündən əvvəl kiçik bir söz lazımdır.',
+      type: 'write', id: 'u4d7_c07', number: 7, title: 'Cümləni qur', why: 'Peşə sözündən əvvəl a gəlir: a doctor.', hint: 'Kişidən danış, peşəni bu dərsin söz kartındakı kimi qur.',
       prompt: 'Albomdakı şəkildə kişi xəstəxanadadır. O həkimdir.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
       tiles: ['doctor', "He's", 'a', "She's", 'student', '.'], rule: exact("He's a doctor.", 'He is a doctor.'),
       variants: [
@@ -85,7 +85,7 @@ export const lesson7: DesignLesson = {
         other('Sıra: He\'s a doctor.', ex("He's a doctor.", 'Əvvəl He\'s, sonra a, sonra peşə.', "He's a doctor. — kişi; She's a doctor. — qadın.", "She's a teacher.")),
       ],
       review: {
-        title: 'Cümləni qur', why: 'Peşə sözündən əvvəl a gəlir: a teacher.', hint: 'Peşə sözündən əvvəl kiçik bir söz lazımdır.',
+        title: 'Cümləni qur', why: 'Peşə sözündən əvvəl a gəlir: a teacher.', hint: 'Qadından danış, peşəni bu dərsin söz kartındakı kimi qur.',
         prompt: 'Albomun başqa səhifəsində məktəb şəkli var. Qadın orada müəllimdir.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
         tiles: ['teacher', "She's", 'a', "He's", 'student', '.'], rule: exact("She's a teacher.", 'She is a teacher.'),
         variants: [
@@ -124,11 +124,11 @@ export const lesson7: DesignLesson = {
       type: 'word', id: 'u4d7_c10', number: 10, scenes: ['mascot/ask'],
       word: "What's his job?", pronunciation: '/wʌts hɪz dʒɑb/', reading: 'uats hiz cab?', az: 'O nə işləyir? (Onun peşəsi nədir?)',
       structure: ["What's his job?", "What's her job?"],
-      notes: ['job — iş, peşə; “cab” kimi oxunur. Kişi haqqında his, qadın haqqında her.'],
+      notes: ['what’s — nədir, his — onun (kişinin), job — iş, peşə; qadın üçün her.'],
       example: "What's his job? — He's a doctor.", exampleAz: 'O nə işləyir? — O həkimdir.',
     },
     {
-      type: 'voice', id: 'u4d7_c11', number: 11, title: 'Peşəsini de', why: 'Peşəsini dedin: He\'s a doctor.', hint: 'He\'s-dən sonra peşə sözünün qarşısına kiçik söz qoy.',
+      type: 'voice', id: 'u4d7_c11', number: 11, title: 'Peşəsini de', why: 'Peşəsini dedin: He\'s a doctor.', hint: 'Sual kişi haqqındadır — peşəni söz kartındakı kimi de.',
       prompt: 'Video zəngdə {f} albomdakı kişini göstərir. O həkimdir.\nSualı dinlə və cavab ver.', audio: "What's his job?", reply: 'Really? Nice!',
       rule: exact("He's a doctor.", 'He is a doctor.'),
       variants: [
@@ -160,7 +160,7 @@ export const lesson7: DesignLesson = {
         other('Qısa cavab: Yes, she is.', ex('Yes, she is.', 'Sual Is she ilə başlayır, cavab da she is ilə qurulur.', "Is she a teacher? — Yes, she is.; Is he a doctor? — Yes, he is.", 'Is she Turkish? — Yes, she is.')),
       ],
       review: {
-        title: 'Cavabla', why: 'Qısa cavab verdin: Yes, he is.', hint: 'Suala sualın öz sözləri ilə qısa cavab ver.',
+        title: 'Cavabla', why: 'Qısa cavab verdin: Yes, he is.', hint: 'Kişi haqqındakı suala sualın öz sözləri ilə qısa cavab ver.',
         prompt: 'Ofisdəki şəkildə kişi kompüterdə işləyir. O mühəndisdir.\nSuala cavab ver.', placeholder: 'Cavabını yaz',
         chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is he an engineer?' }] },
         rule: exact('Yes, he is.', "Yes, he's an engineer.", 'Yes, he is an engineer.'),
@@ -184,7 +184,7 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'two', id: 'u4d7_c14', number: 14, title: 'İki mesaj yaz', why: 'İki peşəni düzgün a və an ilə yazdın.', hint: 'Hər mesajda əvvəl he və ya she, sonra peşənin qarşısında kiçik söz.',
+      type: 'two', id: 'u4d7_c14', number: 14, title: 'İki mesaj yaz', why: 'İki peşəni düzgün a və an ilə yazdın.', hint: 'Hər mesajda əvvəl kimdən danışdığını, sonra peşəsini söz kartındakı kimi yaz.',
       prompt: 'Albomda iki şəkil var: kişi müəllimdir, qadın mühəndisdir. {F} hər ikisinin peşəsini soruşur.\nİki mesaj yaz:\n1. Kişinin peşəsi.\n2. Qadının peşəsi.',
       fields: [
         { id: 'u4d7_c14a', label: 'Birinci mesaj', placeholder: 'Kişinin peşəsi', rule: exact("He's a teacher.", 'He is a teacher.'), purpose: 'kişinin peşəsini demək', empty: 'Birinci mesajı da yaz.' },
@@ -201,7 +201,7 @@ export const lesson7: DesignLesson = {
         forField('u4d7_c14b', other("She's an engineer.", ex("She's an engineer.", 'Qadının peşəsini yazırsan: She\'s, sonra an və peşə.', "She's an engineer. — qadın; He's a teacher. — kişi.", "She's a teacher."))),
       ],
       review: {
-        title: 'İki mesaj yaz', why: 'İki peşəni düzgün a və an ilə yazdın.', hint: 'Hər mesajda əvvəl he və ya she, sonra peşənin qarşısında kiçik söz.',
+        title: 'İki mesaj yaz', why: 'İki peşəni düzgün a və an ilə yazdın.', hint: 'Bu albomda peşələr yer dəyişib — kişini və qadını qarışdırma.',
         prompt: 'Başqa albomda da iki şəkil var: kişi mühəndisdir, qadın həkimdir. {F} hər ikisinin peşəsini soruşur.\nİki mesaj yaz:\n1. Kişinin peşəsi.\n2. Qadının peşəsi.',
         fields: [
           { id: 'u4d7_c14a', label: 'Birinci mesaj', placeholder: 'Kişinin peşəsi', rule: exact("He's an engineer.", 'He is an engineer.'), purpose: 'kişinin peşəsini demək', empty: 'Birinci mesajı da yaz.' },
@@ -221,7 +221,7 @@ export const lesson7: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 7 tamamlandı', 'Artıq ailə üzvünün peşəsini soruşur və a / an ilə deyirsən.'],
+    done: ['Dərs 7 tamamlandı', 'Artıq peşə sualını başa düşür və ailə üzvünün peşəsini a / an ilə deyirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
       { group: 'Tanıma', text: 'Peşə sözlərini və a / an-ı tanımaq', tasks: ['u4d7_c03', 'u4d7_c05', 'u4d7_c09'] },

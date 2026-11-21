@@ -55,7 +55,7 @@ export const lesson3: DesignLesson = {
       type: 'word', id: 'u4d3_c04', number: 4, scenes: ['mascot/point'],
       word: 'His name is [ad].', pronunciation: '/hɪz neɪm ɪz/', reading: 'hiz neym iz [ad]', az: 'Onun (kişinin) adı [ad]-dır.',
       structure: ['His name is + ad.'],
-      notes: ['My name is [ad]. kimi: yalnız my yerinə his.'],
+      notes: ['his — onun (kişinin), name — ad, is — “-dır”: My name is kimi.'],
       example: "He's my brother. His name is Elvin.", exampleAz: 'O, mənim qardaşımdır. Onun adı Elvindir.',
     },
     {
@@ -68,7 +68,7 @@ export const lesson3: DesignLesson = {
         other('His name is Elvin.', ex('His name is Elvin.', 'Kişinin adı: His name is, sonra ad.', 'My name is [ad]. — mənim; His name is Elvin. — onun.', "He's my brother. His name is Elvin.")),
       ],
       review: {
-        title: 'Mesaj yaz', why: 'Kişinin adı — His name is.', hint: '“Onun” sözü burada kişiyə aiddir; sıra My name is kimidir.',
+        title: 'Mesaj yaz', why: 'Kişinin adı — His name is.', hint: 'Tural kişidir — “onun” üçün kişi sözünü seç, sıra My name is kimidir.',
         prompt: '{B} kurs çatında yeni dostunun şəklini paylaşıb. Dostunun adı Turaldır.\nSözlərdən cümlə qur: “Onun adı Turaldır.”', placeholder: 'Sözlərə toxun',
         tiles: ['name', 'His', 'is', "He's", 'Tural', 'my', '.'], rule: exact('His name is Tural.'),
         variants: [
@@ -106,7 +106,7 @@ export const lesson3: DesignLesson = {
       type: 'word', id: 'u4d3_c08', number: 8, scenes: ['mascot/happy'],
       word: 'Her name is [ad].', pronunciation: '/hɝ neɪm ɪz/', reading: 'hör neym iz [ad]', az: 'Onun (qadının) adı [ad]-dır.',
       structure: ['Her name is + ad.'],
-      notes: ['Qadının adı: Her name is. She’s name demirik.'],
+      notes: ['her — onun (qadının), name — ad, is — “-dır”; She’s name olmur.'],
       example: "She's my mother. Her name is Leyla.", exampleAz: 'O, mənim anamdır. Onun adı Leyladır.',
     },
     {
@@ -120,7 +120,7 @@ export const lesson3: DesignLesson = {
         other('This is my sister. Her name is Nigar.', ex('This is my sister. Her name is Nigar.', 'Bacın qadındır: əvvəl This is my sister, sonra Her name is.', 'Her name is Nigar. — qadının; His name is Elvin. — kişinin.', "She's my mother. Her name is Leyla.")),
       ],
       review: {
-        title: 'Səslə cavab', why: 'Rəfiqəni təqdim etdin və adını dedin.', hint: 'Əvvəl kim olduğunu de, sonra qadının adını.',
+        title: 'Səslə cavab', why: 'Rəfiqəni təqdim etdin və adını dedin.', hint: 'Əvvəl Ayselin kim olduğunu de, sonra onun adını.',
         prompt: 'Ailə yeməyində yeni tanış yanındakı qızı göstərir. O, sənin rəfiqəndir, adı Ayseldir.\nDe: bu, rəfiqəmdir, onun adı Ayseldir.', audio: "Who's this?", reply: 'Nice to meet you, Aysel!',
         rule: herNameIs('friend', 'Aysel'),
         variants: [
@@ -158,7 +158,7 @@ export const lesson3: DesignLesson = {
       example: 'This is my wife. Her name is Lala.', exampleAz: 'Bu, mənim həyat yoldaşımdır. Onun adı Laladır.',
     },
     {
-      type: 'write', id: 'u4d3_c13', number: 13, title: 'Dialoqu tamamla', why: 'Bacının əri — her husband.', hint: 'Ər kimindir? Ona görə “onun” sözünü seç.',
+      type: 'write', id: 'u4d3_c13', number: 13, title: 'Dialoqu tamamla', why: 'Bacının əri — her husband.', hint: 'Əvvəl suala qısa cavab ver, sonra ərin kimin əri olduğunu düşün.',
       prompt: 'Ailə şəklində bacın və onun əri var. {F} soruşur.\nYaz: bəli, o bacımdır. Bu da onun əridir.', placeholder: 'Cavabın',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is she your sister?' }] },
       rule: yesOwner('she', 'her', 'husband'),
@@ -168,7 +168,7 @@ export const lesson3: DesignLesson = {
         other('Yes, she is. This is her husband.', ex('Yes, she is. This is her husband.', 'Əvvəl qısa “bəli”, sonra bacının əri: her husband.', 'her husband — qadının əri; his wife — kişinin həyat yoldaşı.', 'This is my sister. This is her husband.')),
       ],
       review: {
-        title: 'Dialoqu tamamla', why: 'Qardaşının həyat yoldaşı — his wife.', hint: 'Həyat yoldaşı kimindir? Ona görə “onun” sözünü seç.',
+        title: 'Dialoqu tamamla', why: 'Qardaşının həyat yoldaşı — his wife.', hint: 'Əvvəl suala qısa cavab ver, sonra həyat yoldaşının kimin həyat yoldaşı olduğunu düşün.',
         prompt: 'Video zəngdə qardaşın və onun həyat yoldaşı görünür. {F} soruşur.\nYaz: bəli, o qardaşımdır. Bu da onun həyat yoldaşıdır.', placeholder: 'Cavabın',
         chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is he your brother?' }] },
         rule: yesOwner('he', 'his', 'wife'),
@@ -180,7 +180,7 @@ export const lesson3: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'u4d3_c14', number: 14, title: 'Seçim', why: 'Qardaşının həyat yoldaşı — his wife.', hint: 'Həyat yoldaşı kimindir: qardaşının, yoxsa başqa qadının?', scenes: ['u4/family-dinner'],
+      type: 'choice', id: 'u4d3_c14', number: 14, title: 'Seçim', why: 'Qardaşının həyat yoldaşı — his wife.', hint: 'Həyat yoldaşı kimindir — kişinin, yoxsa qadının?', scenes: ['u4/family-dinner'],
       prompt: 'Ailə yeməyində qardaşın və onun həyat yoldaşı oturub. Həyat yoldaşı Türkiyədəndir.\n{F:dat} nə deyirsən?',
       options: ['Her wife is from Turkey.', 'His wife is from Turkey.', "He's wife is from Turkey."], answer: 'His wife is from Turkey.',
       variants: [
@@ -188,7 +188,7 @@ export const lesson3: DesignLesson = {
         pick("He's wife is from Turkey.", 'He’s “odur” deməkdir, “onun” yox.', ex('His wife is from Turkey.', '“Onun həyat yoldaşı” üçün his deyilir.', "He's my brother. — odur; His wife is from Turkey. — onun.", 'This is my brother. His wife is from Ganja.')),
       ],
       review: {
-        title: 'Seçim', why: 'Rəfiqənin əri — her husband.', hint: 'Ər kimindir: rəfiqənin, yoxsa başqa kişinin?',
+        title: 'Seçim', why: 'Rəfiqənin əri — her husband.', hint: 'Ər kimindir — kişinin, yoxsa qadının?',
         prompt: 'Video zəngdə rəfiqən və onun əri görünür. Əri Gürcüstandandır.\n{F:dat} nə deyirsən?',
         options: ["She's husband is from Georgia.", 'His husband is from Georgia.', 'Her husband is from Georgia.'], answer: 'Her husband is from Georgia.',
         variants: [

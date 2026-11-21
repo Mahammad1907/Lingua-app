@@ -46,7 +46,7 @@ export const lesson4: DesignLesson = {
       example: 'Is she your sister?', exampleAz: 'O, sənin bacındır?',
     },
     {
-      type: 'choice', id: 'u4d4_c03', number: 3, title: 'Sözü tamamla', why: '“sənin bacın” — your sister.', hint: '{F} kimin bacısını soruşur: öz bacısını, yoxsa sənin?',
+      type: 'choice', id: 'u4d4_c03', number: 3, title: 'Sözü tamamla', why: '“sənin bacın” — your sister.', hint: 'Bacı kimindir — şəkli kim göstərir?',
       prompt: 'Video zəngdə {f:dat} bacının şəklini göstərirsən. {F} soruşur.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'Is she', after: 'sister?' },
       options: ['you', 'your', 'my'], answer: 'your',
       variants: [
@@ -54,7 +54,7 @@ export const lesson4: DesignLesson = {
         pick('my', '{F} öz bacısını yox, sənin bacını soruşur.', ex('your', 'my — “mənim”, your — “sənin”.', 'my sister — mənim bacım; your sister — sənin bacın.', 'Is she your sister?')),
       ],
       review: {
-        title: 'Sözü tamamla', why: '“sənin atan” — your father.', hint: 'Yeni tanış kimin atasını soruşur: öz atasını, yoxsa {b:gen}?',
+        title: 'Sözü tamamla', why: '“sənin atan” — your father.', hint: 'Ata kimindir — yeni tanış kimə sual verir?',
         prompt: 'Ailə yeməyində {b:gen} yanında yaşlı bir kişi oturub. Yeni tanış {b:abl} soruşur.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'Is he', after: 'father?' },
         options: ['my', 'you', 'your'], answer: 'your',
         variants: [
@@ -67,7 +67,7 @@ export const lesson4: DesignLesson = {
       type: 'word', id: 'u4d4_c04', number: 4, scenes: ['mascot/ask'],
       word: 'Is this your mother?', pronunciation: '/ɪz ðɪs jʊr ˈmʌðər/', reading: 'iz **th**is yor ma**th**ər?', az: 'Bu sənin anandır?',
       structure: ['Is this your + ailə sözü?'],
-      notes: ['Sualda is əvvələ keçir: This is → Is this?'],
+      notes: ['Is — sualı başladır, this — bu, your — sənin, mother — ana.'],
       example: 'Is this your father?', exampleAz: 'Bu sənin atandır?',
     },
     {
@@ -76,7 +76,7 @@ export const lesson4: DesignLesson = {
       tiles: ['Is', 'this', 'your', 'father', 'you', 'This', 'is', '?'], rule: exact('Is this your father?'),
       variants: [...QUESTION_MISTAKES('Is this your father?'), other('Is this your father?', ex('Is this your father?', 'Sual Is ilə başlayır, sonra this, your və ailə sözü.', 'Is this your father? — sual; This is my father. — cümlə.', 'Is this your father?'))],
       review: {
-        title: 'Mesaj yaz', why: 'Sual Is this ilə başlayır.', hint: 'Bəli/xeyr sualında hansı söz birinci gəlir?',
+        title: 'Mesaj yaz', why: 'Sual Is this ilə başlayır.', hint: 'Bu da bəli/xeyr sualıdır — söz sırasında hansı söz qabağa keçir?',
         prompt: '{G} qrup çatında şəkil paylaşıb: yanında bir qız var.\nSözlərdən sual qur: “Bu sənin bacındır?”', placeholder: 'Sözlərə toxun',
         tiles: ['sister', 'Is', 'you', 'your', 'this', 'Do', '?'], rule: exact('Is this your sister?'),
         variants: [...QUESTION_MISTAKES('Is this your sister?'), other('Is this your sister?', ex('Is this your sister?', 'Sual Is ilə başlayır, sonra this, your və ailə sözü.', 'Is this your sister? — sual; This is my sister. — cümlə.', 'Is this your father?'))],
@@ -116,7 +116,7 @@ export const lesson4: DesignLesson = {
       rule: said(noIt('she', 'friend'), "No, it isn't."),
       variants: [...NO_IT_MISTAKES("No, it isn't."), other("No, it isn't.", ex("No, it isn't.", 'O, sənin bacın deyil — qısa “xeyr” cavabı.', "Yes, it is. — bəli; No, it isn't. — xeyr.", "Is this your mother? — No, it isn't."))],
       review: {
-        title: 'Qısa cavab ver', why: "Qısa “xeyr” cavabı verdin: No, it isn't.", hint: 'Şəkildəki kişi sənin atan deyil — “xeyr” cavabının sonunu xatırla.',
+        title: 'Qısa cavab ver', why: "Qısa “xeyr” cavabı verdin: No, it isn't.", hint: 'Masadakı kişi sənin atan deyil — “xeyr” cavabının sonunu xatırla.',
         prompt: 'Ailə yeməyində yeni tanış masadakı yaşlı kişini göstərir. O, sənin atan deyil, babandır.\nQısa cavab ver.', audio: 'Is this your father?', reply: 'Oh, sorry!',
         rule: said(noIt('he', 'grandfather'), "No, it isn't."),
         variants: [...NO_IT_MISTAKES("No, it isn't."), other("No, it isn't.", ex("No, it isn't.", 'O, sənin atan deyil — qısa “xeyr” cavabı.', "Yes, it is. — bəli; No, it isn't. — xeyr.", "Is this your mother? — No, it isn't."))],
@@ -126,16 +126,16 @@ export const lesson4: DesignLesson = {
       type: 'word', id: 'u4d4_c10', number: 10, scenes: ['mascot/point'],
       word: "Who's he? · Who's she?", pronunciation: '/huz hi/ · /huz ʃi/', reading: 'huz hi? · huz şi?', az: 'O kimdir?',
       structure: ["Who's + he / she?"],
-      notes: ['Kişi üçün he, qadın üçün she.'],
+      notes: ['Who’s — kim(dir); kişi üçün he, qadın üçün she.'],
       example: "Who's she? — She's my sister.", exampleAz: 'O kimdir? — Mənim bacımdır.',
     },
     {
-      type: 'voice', id: 'u4d4_c11', number: 11, title: 'Səslə soruş', why: 'Bəli/xeyr sualı verdin: Is this your mother?', hint: 'Sual “bu” sözü ilə yox, is ilə başlayır.',
+      type: 'voice', id: 'u4d4_c11', number: 11, title: 'Səslə soruş', why: 'Bəli/xeyr sualı verdin: Is this your mother?', hint: 'Bəli/xeyr sualı qur — söz sırasına diqqət et.',
       prompt: 'Video zəngdə {f} öz şəklini göstərir: yanında yaşlı bir qadın var.\nSoruş: bu sənin anandır?', reply: 'Yes, it is!',
       rule: said(isThisYour('mother'), 'Is this your mother?'),
       variants: [...QUESTION_MISTAKES('Is this your mother?'), other('Is this your mother?', ex('Is this your mother?', 'Sual Is ilə başlayır, sonra this, your və ailə sözü.', 'Is this your mother? — sual; This is my mother. — cümlə.', 'Is this your father?'))],
       review: {
-        title: 'Səslə soruş', why: 'Bəli/xeyr sualı verdin: Is this your brother?', hint: 'Sual “bu” sözü ilə yox, is ilə başlayır.',
+        title: 'Səslə soruş', why: 'Bəli/xeyr sualı verdin: Is this your brother?', hint: 'Yanındakı gənc haqqında bəli/xeyr sualı qur — söz sırasına diqqət et.',
         prompt: 'Ailə yeməyində {b} yanındakı gənci göstərir.\n{B:abl} soruş: bu sənin qardaşındır?', reply: "No, it isn't. He's my friend.",
         rule: said(isThisYour('brother'), 'Is this your brother?'),
         variants: [...QUESTION_MISTAKES('Is this your brother?'), other('Is this your brother?', ex('Is this your brother?', 'Sual Is ilə başlayır, sonra this, your və ailə sözü.', 'Is this your brother? — sual; This is my brother. — cümlə.', 'Is this your father?'))],
@@ -150,7 +150,7 @@ export const lesson4: DesignLesson = {
         pick('Səni', 'Səni soruşsaydı, sualda you olardı.', ex('Ananı', 'Səsdə you yox, she var.', "Who's she? — o (qadın); What's your name? — sən.", "Who's she? — She's my sister.")),
       ],
       review: {
-        title: 'Dinlə və seç', why: '“he” — kişini soruşur.', hint: 'Who’s-dan sonrakı sözə qulaq as.',
+        title: 'Dinlə və seç', why: '“he” — kişini soruşur.', hint: 'Yeni tanışın sualındakı son sözə qulaq as: kişi, yoxsa qadın?',
         prompt: 'Ailə yeməyində yeni tanış divardakı şəklə baxır. Şəkildə nənən və baban var.\nO kimi soruşur?', audio: "Who's he?",
         options: ['Səni', 'Nənəni', 'Babanı'], answer: 'Babanı',
         variants: [
@@ -160,13 +160,13 @@ export const lesson4: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u4d4_c13', number: 13, title: 'Dialoqu tamamla', why: 'Qardaşını təqdim etdin: He’s my brother.', hint: 'Sual kişi haqqındadır; “o, mənim qardaşımdır” de.',
+      type: 'write', id: 'u4d4_c13', number: 13, title: 'Dialoqu tamamla', why: 'Qardaşını təqdim etdin: He’s my brother.', hint: 'Oğlan haqqında “o” üçün uyğun sözü seç, sonra kimin qardaşı olduğunu de.',
       prompt: 'Ailə çatında {f} sənin şəklinə baxıb yazır. Şəkildəki oğlan sənin qardaşındır.\nCavab yaz.', placeholder: 'Cavabın',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's he?" }] },
       rule: myPerson('he', 'brother'),
       variants: [...PERSON_MISTAKES('he', 'brother'), other("He's my brother.", ex("He's my brother.", 'Sual kişi haqqındadır: He’s my, sonra ailə sözü.', "He's my brother. — kişi; She's my sister. — qadın.", "Who's he? — He's my brother."))],
       review: {
-        title: 'Dialoqu tamamla', why: 'Nənəni təqdim etdin: She’s my grandmother.', hint: 'Sual qadın haqqındadır; “o, mənim nənəmdir” de.',
+        title: 'Dialoqu tamamla', why: 'Nənəni təqdim etdin: She’s my grandmother.', hint: 'Nənən haqqında “o” üçün uyğun sözü seç, sonra kimin nənəsi olduğunu de.',
         prompt: 'Ailə çatında {f} köhnə bir şəklə baxıb yazır. Şəkildəki yaşlı qadın sənin nənəndir.\nCavab yaz.', placeholder: 'Cavabın',
         chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's she?" }] },
         rule: myPerson('she', 'grandmother'),

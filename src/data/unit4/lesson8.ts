@@ -51,7 +51,7 @@ export const lesson8: DesignLesson = {
         pick('Bu, atandır? Neçə yaşındadır?', 'Səsdə “What\'s his job?” var, “How old” yox.', ex('Bu, atandır? Nə işləyir?', 'What\'s his job — nə işləyir, How old — neçə yaş: səsdə job deyilir.', "What's his job? — iş; How old is he? — yaş.", "What's his job? — He's a doctor.")),
       ],
       review: {
-        title: 'Dinlə və anla', why: '“your mother” — anan; “How old is she?” — neçə yaşındadır?', hint: 'İki suala qulaq as: kim haqqında və nəyi soruşur.',
+        title: 'Dinlə və anla', why: '“your mother” — anan; “How old is she?” — neçə yaşındadır?', hint: 'Növbəti iki suala qulaq as: kim haqqında və nəyi soruşur?',
         prompt: '{F} növbəti şəklə baxıb soruşur.\nO nəyi soruşur?', audio: 'Is this your mother? How old is she?',
         options: ['Bu, anandır? Nə işləyir?', 'Bu, bacındır? Neçə yaşındadır?', 'Bu, anandır? Neçə yaşındadır?'], answer: 'Bu, anandır? Neçə yaşındadır?',
         variants: [
@@ -61,24 +61,24 @@ export const lesson8: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u4d8_c04', number: 4, title: 'Kim olduğunu de', why: 'Qardaşını təqdim etdin: my brother.', hint: 'Ailə sözündən əvvəl “mənim” sözü gəlir.',
+      type: 'voice', id: 'u4d8_c04', number: 4, title: 'Kim olduğunu de', why: 'Qardaşını təqdim etdin: my brother.', hint: 'Qardaşını Dərs 1-dəki təqdim cümləsi ilə göstər.',
       prompt: '{F} növbəti şəkildəki oğlanı göstərib soruşur. Bu, sənin qardaşındır.\nSualı dinlə və cavab ver.', audio: "Who's this?", reply: 'Nice!',
       rule: own(String.raw`^(?:this\s+is|he'?s|he\s+is)\s+my\s+brother\s*[.!]?$`, 'This is my brother.', "He's my brother."),
       variants: [noMy('This is my brother.', 'This is my friend.'), other('This is my brother.', ex('This is my brother.', 'Kimin kim olduğunu This is my ilə deyirsən.', "This is my brother. — düzdür; This is my friend. — dost.", "Who's this? — This is my friend."))],
       review: {
-        title: 'Kim olduğunu de', why: 'Bacını təqdim etdin: my sister.', hint: 'Ailə sözündən əvvəl “mənim” sözü gəlir.',
+        title: 'Kim olduğunu de', why: 'Bacını təqdim etdin: my sister.', hint: 'Bacını Dərs 1-dəki təqdim cümləsi ilə göstər.',
         prompt: '{F} növbəti şəkildəki qızı göstərib soruşur. Bu, sənin bacındır.\nSualı dinlə və cavab ver.', audio: "Who's this?", reply: 'Nice!',
         rule: own(String.raw`^(?:this\s+is|she'?s|she\s+is)\s+my\s+sister\s*[.!]?$`, 'This is my sister.', "She's my sister."),
         variants: [noMy('This is my sister.', 'This is my friend.'), other('This is my sister.', ex('This is my sister.', 'Kimin kim olduğunu This is my ilə deyirsən.', "This is my sister. — düzdür; This is my friend. — dost.", "Who's this? — This is my friend."))],
       },
     },
     {
-      type: 'write', id: 'u4d8_c05', number: 5, letters: ['M', 'A', 'R', 'K', 'E', 'N', 'S'], title: 'Hərfləri tut', why: 'M-A-R-K — Mark.', hint: 'Hər hərfi eşidən kimi toxun; “ey” və “ar” fərqinə qulaq as.',
+      type: 'write', id: 'u4d8_c05', number: 5, letters: ['M', 'A', 'R', 'K', 'E', 'N', 'S'], title: 'Hərfləri tut', why: 'M-A-R-K — Mark.', hint: 'Hər hərfi eşidən kimi toxun; çaşsan, yavaş dinlə.',
       prompt: 'Zəngdə {F:gen} qardaşı otağa girir. {F} onun adını hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'This is my brother. His name is M-A-R-K.', placeholder: 'Ad',
       rule: exact('MARK'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('MARK', 'Səsdə M, A, R, K deyilir: A “ey”, R “ar” oxunur.', 'A — ey; R — ar.', 'His name is M-A-R-K.'))],
       review: {
-        letters: ['A', 'N', 'N', 'A', 'E', 'M', 'Y'], title: 'Hərfləri tut', why: 'A-N-N-A — Anna.', hint: 'Hər hərfi eşidən kimi toxun; “ey” və “en” fərqinə qulaq as.',
+        letters: ['A', 'N', 'N', 'A', 'E', 'M', 'Y'], title: 'Hərfləri tut', why: 'A-N-N-A — Anna.', hint: 'Tısbağa düyməsi ilə yavaş dinlə və hər hərfə ayrıca toxun.',
         prompt: 'Zəngdə {F:gen} bacısı otağa girir. {F} onun adını hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'This is my sister. Her name is A-N-N-A.', placeholder: 'Ad',
         rule: exact('ANNA'),
         variants: [other('Hərfləri bir-bir dinlə.', ex('ANNA', 'Səsdə A, N, N, A deyilir: A “ey”, N “en” oxunur.', 'A — ey; N — en.', 'Her name is A-N-N-A.'))],
@@ -117,7 +117,7 @@ export const lesson8: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u4d8_c08', number: 8, title: 'Yaşını de', why: 'Yaşı dedin: She\'s fifty.', hint: 'Yaşı deyəndə She\'s-dən sonra birbaşa rəqəm gəlir.',
+      type: 'voice', id: 'u4d8_c08', number: 8, title: 'Yaşını de', why: 'Yaşı dedin: She\'s fifty.', hint: 'Anan haqqında de — rəqəmdən sonra ayrıca “yaş” sözü lazım deyil.',
       prompt: '{F} şəkildəki ananı göstərib soruşur. Anan əlli yaşındadır.\nSualı dinlə və cavab ver.', audio: 'How old is she?', reply: 'Really? Nice!',
       rule: said(ageOf('she', num('fifty', '50')), "She's fifty."),
       variants: [
@@ -127,7 +127,7 @@ export const lesson8: DesignLesson = {
         other("She's fifty.", ex("She's fifty.", 'Qadının yaşını She\'s və rəqəmlə deyirsən.', "How old is she? — She's fifty.; How old is he? — He's forty.", "How old are you? — I'm thirty.")),
       ],
       review: {
-        title: 'Yaşını de', why: 'Yaşı dedin: He\'s forty.', hint: 'Yaşı deyəndə He\'s-dən sonra birbaşa rəqəm gəlir.',
+        title: 'Yaşını de', why: 'Yaşı dedin: He\'s forty.', hint: 'Qardaşın haqqında de — rəqəmdən sonra ayrıca “yaş” sözü lazım deyil.',
         prompt: '{F} şəkildəki kişini göstərib soruşur. Bu, sənin qardaşındır, qırx yaşındadır.\nSualı dinlə və cavab ver.', audio: 'How old is he?', reply: 'Really? Nice!',
         rule: said(ageOf('he', num('forty', '40')), "He's forty."),
         variants: [
@@ -140,13 +140,13 @@ export const lesson8: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u4d8_c09', number: 9, title: 'Cavab yaz', why: 'Oğlunun olub-olmadığını yazdın.', hint: 'Sual Do ilə başlayır: qısa cavab da do ilə.',
+      type: 'write', id: 'u4d8_c09', number: 9, title: 'Cavab yaz', why: 'Oğlunun olub-olmadığını yazdın.', hint: 'Oğlun haqqında qısa cavab ver — Dərs 5-dəki qısa cavabları xatırla.',
       prompt: 'Zəngin çatında {f} sənin ailən haqqında soruşur.\nÖz cavabını yaz (bəli də olar, xeyr də).', placeholder: 'Cavabını yaz',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Do you have a son?' }] },
       rule: own(haveReply('son'), 'Yes, I do.', "No, I don't."),
       variants: [...HAVE_MISTAKES, ...ASK_MISTAKES, haveOther('Do you have a son?')],
       review: {
-        title: 'Cavab yaz', why: 'Qızının olub-olmadığını yazdın.', hint: 'Sual Do ilə başlayır: qısa cavab da do ilə.',
+        title: 'Cavab yaz', why: 'Qızının olub-olmadığını yazdın.', hint: 'Bu dəfə qızın haqqında — Dərs 5-dəki qısa cavabları xatırla.',
         prompt: 'Zəngin çatında {f} yenə sənin ailən haqqında soruşur.\nÖz cavabını yaz (bəli də olar, xeyr də).', placeholder: 'Cavabını yaz',
         chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Do you have a daughter?' }] },
         rule: own(haveReply('daughter'), 'Yes, I do.', "No, I don't."),
@@ -159,7 +159,7 @@ export const lesson8: DesignLesson = {
       rule: exact('65'),
       variants: [other('Rəqəmləri bir-bir yoxla.', ex('65', 'sixty — 60, five — 5: birlikdə 65.', 'sixty — 60; five — 5.', "He's sixty-five."))],
       review: {
-        keypad: true, title: 'Yaşı yığ', why: 'Yaşı rəqəmlə yığdın.', hint: 'Əvvəl onluğu, sonra təkliyi eşit.',
+        keypad: true, title: 'Yaşı yığ', why: 'Yaşı rəqəmlə yığdın.', hint: 'Bacının yaşında da əvvəl onluğu, sonra təkliyi eşit.',
         prompt: '{F} şəkildəki bacının yaşını təxmin edir.\nDinlə və eşitdiyin yaşı yığ.', audio: 'Is she thirty-six?', placeholder: 'Yaş',
         rule: exact('36'),
         variants: [other('Rəqəmləri bir-bir yoxla.', ex('36', 'thirty — 30, six — 6: birlikdə 36.', 'thirty — 30; six — 6.', "She's thirty-six."))],
@@ -194,7 +194,7 @@ export const lesson8: DesignLesson = {
       },
     },
     {
-      type: 'two', id: 'u4d8_c13', number: 13, title: 'İki mesaj yaz', why: 'Atanın adını və peşəsini yazdın.', hint: 'Hər mesaj kişi haqqındadır: adı üçün “onun”, peşə üçün kiçik söz.',
+      type: 'two', id: 'u4d8_c13', number: 13, title: 'İki mesaj yaz', why: 'Atanın adını və peşəsini yazdın.', hint: 'Atan kişidir — adını Dərs 3-dəki, peşəsini Dərs 7-dəki kimi yaz.',
       prompt: 'Zəngin çatında {f} sənin atan haqqında soruşur. Atanın adı Anardır, həkimdir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
       fields: [
         { id: 'u4d8_c13a', label: 'Birinci mesaj', placeholder: 'Adı', rule: exact('His name is Anar.'), purpose: 'adını demək', empty: 'Birinci mesajı da yaz.' },
@@ -210,7 +210,7 @@ export const lesson8: DesignLesson = {
         forField('u4d8_c13b', other("He's a doctor.", ex("He's a doctor.", 'Peşəni He\'s, a və peşə sözü ilə yazırsan.', "He's a doctor. — kişi; She's an engineer. — qadın.", "What's his job? — He's a teacher."))),
       ],
       review: {
-        title: 'İki mesaj yaz', why: 'Ananın adını və peşəsini yazdın.', hint: 'Hər mesaj qadın haqqındadır: adı üçün “onun”, peşə üçün kiçik söz.',
+        title: 'İki mesaj yaz', why: 'Ananın adını və peşəsini yazdın.', hint: 'Anan qadındır — adını Dərs 3-dəki, peşəsini Dərs 7-dəki kimi yaz.',
         prompt: 'Zəngin çatında {f} sənin anan haqqında soruşur. Ananın adı Aysudur, mühəndisdir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
         fields: [
           { id: 'u4d8_c13a', label: 'Birinci mesaj', placeholder: 'Adı', rule: exact('Her name is Aysu.'), purpose: 'adını demək', empty: 'Birinci mesajı da yaz.' },
@@ -228,7 +228,7 @@ export const lesson8: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u4d8_c14', number: 14, title: 'Bacını təqdim et', why: 'Bacını təqdim etdin: kimdir və peşəsi.', hint: 'Əvvəl kim olduğunu, sonra peşəsini de; hər ikisində kiçik sözləri unutma.',
+      type: 'voice', id: 'u4d8_c14', number: 14, title: 'Bacını təqdim et', why: 'Bacını təqdim etdin: kimdir və peşəsi.', hint: 'Əvvəl bacını təqdim et, sonra peşəsini de.',
       prompt: '{F} son şəkildəki qızı göstərib soruşur. O sənin bacındır, həkimdir.\nİki cümlə ilə təqdim et: kimdir və peşəsi.', audio: "Who's this?", reply: 'Oh, nice!',
       rule: own(String.raw`^(?:this\s+is|she(?:'s|\s+is))\s+my\s+sister\s*[.,!]?\s*(?:she'?s|she\s+is)\s+a\s+doctor\s*[.!]?$`, "This is my sister. She's a doctor.", "She's my sister. She's a doctor."),
       variants: [
@@ -238,7 +238,7 @@ export const lesson8: DesignLesson = {
         other("This is my sister. She's a doctor.", ex("This is my sister. She's a doctor.", 'Əvvəl kim olduğunu, sonra peşəsini de.', "This is my sister. — kim; She's a doctor. — peşə.", "This is my friend.")),
       ],
       review: {
-        title: 'Qardaşını təqdim et', why: 'Qardaşını təqdim etdin: kimdir və peşəsi.', hint: 'Əvvəl kim olduğunu, sonra peşəsini de; hər ikisində kiçik sözləri unutma.',
+        title: 'Qardaşını təqdim et', why: 'Qardaşını təqdim etdin: kimdir və peşəsi.', hint: 'Əvvəl qardaşını təqdim et, sonra peşəsini de — engineer-in ilk səsinə diqqət et.',
         prompt: '{F} son şəkildəki oğlanı göstərib soruşur. O sənin qardaşındır, mühəndisdir.\nİki cümlə ilə təqdim et: kimdir və peşəsi.', audio: "Who's this?", reply: 'Oh, nice!',
         rule: own(String.raw`^(?:this\s+is|he(?:'s|\s+is))\s+my\s+brother\s*[.,!]?\s*(?:he'?s|he\s+is)\s+an\s+engineer\s*[.!]?$`, "This is my brother. He's an engineer.", "He's my brother. He's an engineer."),
         variants: [
