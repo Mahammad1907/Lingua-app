@@ -113,7 +113,27 @@ export const lesson2a: DesignLesson = {
       example: 'This is my sister.', exampleAz: 'Bu mənim bacımdır.',
     },
     {
-      type: 'choice', id: 'u4d2a_c11', number: 11, title: 'Sözü tamamla', why: 'Ailə üzvündən əvvəl “mənim” — my gəlir.', hint: '“Mənim” deyən söz Bölmə 1-də “adım” cümləsində var.',
+      type: 'tree', id: 'u4d2a_tree', number: 11, title: 'Ailə ağacı', why: 'sister — bacı: ata-ananın qızıdır, səninlə eyni sıradadır.', hint: 'Yuxarı sırada ata-ana var; aşağı sırada səninlə yanaşı kim dayanır?',
+      prompt: '{F} sənin ailə ağacını çəkir. “?” olan yerdə bir qız var.\nO kimdir? İngiliscə sözü seç.',
+      nodes: [{ id: 'mom', label: 'mother', x: 25, y: 0 }, { id: 'dad', label: 'father', x: 75, y: 0 }, { id: 'me', label: 'sən', x: 30, y: 100 }, { id: 'sis', x: 70, y: 100 }],
+      links: [['mom', 'dad'], ['mom', 'me'], ['mom', 'sis']], target: 'sis', options: ['brother', 'sister', 'mother'], answer: 'sister',
+      variants: [
+        pick('brother', 'brother qardaşdır; “?” olan isə qızdır.', ex('sister', 'Səninlə eyni sırada olan qız bacındır.', 'sister — bacı; brother — qardaş.', 'This is my sister.')),
+        pick('mother', 'Ana yuxarı sıradadır; “?” səninlə eyni sıradadır.', ex('sister', 'mother artıq yuxarıdadır; aşağı sıradakı qız bacındır.', 'sister — bacı; mother — ana.', 'This is my sister.')),
+      ],
+      review: {
+        title: 'Ailə ağacı', why: 'father — ata: yuxarı sırada, ananın yanındakı kişi.', hint: 'Yuxarı sıra ata-anadır; “?” orada kişidir.',
+        prompt: 'Qonşunun uşağı sənin ailə ağacına baxır. “?” olan yerdə bir kişi var.\nO kimdir? İngiliscə sözü seç.',
+        nodes: [{ id: 'mom', label: 'mother', x: 25, y: 0 }, { id: 'dad', x: 75, y: 0 }, { id: 'me', label: 'sən', x: 30, y: 100 }, { id: 'bro', label: 'brother', x: 70, y: 100 }],
+        links: [['mom', 'dad'], ['dad', 'me'], ['dad', 'bro']], target: 'dad', options: ['father', 'brother', 'sister'], answer: 'father',
+        variants: [
+          pick('brother', 'Qardaş aşağı sırada, səninlə yanaşı olur.', ex('father', 'Yuxarı sırada ananın yanındakı kişi atandır.', 'father — ata; brother — qardaş.', 'This is my father.')),
+          pick('sister', 'sister bacıdır; “?” olan isə kişidir.', ex('father', 'Yuxarı sıradakı kişi atandır.', 'father — ata; sister — bacı.', 'This is my father.')),
+        ],
+      },
+    },
+    {
+      type: 'choice', id: 'u4d2a_c11', number: 12, title: 'Sözü tamamla', why: 'Ailə üzvündən əvvəl “mənim” — my gəlir.', hint: '“Mənim” deyən söz Bölmə 1-də “adım” cümləsində var.',
       prompt: '{F} albomundakı şəkildə öz bacısını göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'Hello! This is', after: 'sister.' },
       options: ['my', 'me', 'I'], answer: 'my',
       variants: [
@@ -131,7 +151,7 @@ export const lesson2a: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u4d2a_c12', number: 12, title: 'Səslə cavab', why: 'Bacını təqdim etdin: This is my sister.', hint: 'Bacını Dərs 1-dəki təqdim cümləsi ilə göstər, sonda ailə sözünü de.',
+      type: 'voice', id: 'u4d2a_c12', number: 13, title: 'Səslə cavab', why: 'Bacını təqdim etdin: This is my sister.', hint: 'Bacını Dərs 1-dəki təqdim cümləsi ilə göstər, sonda ailə sözünü de.',
       prompt: '{F} şəkildəki qızı göstərib soruşur. Bu qız sənin bacındır.\nCavab ver.', audio: "Who's this?", reply: 'Nice!',
       rule: sayMy('sister', 'she'),
       variants: [noMy('sister', 'This is my sister.'), otherMember('sister')],
@@ -143,7 +163,7 @@ export const lesson2a: DesignLesson = {
       },
     },
     {
-      type: 'match', mode: 'order', id: 'u4d2a_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, cavab, ikinci sual və ikinci cavab düz sıradadır.', hint: 'Hər sualın cavabı onun dərhal ardınca gəlir.',
+      type: 'match', mode: 'order', id: 'u4d2a_c13', number: 14, title: 'Söhbəti sırala', why: 'Sual, cavab, ikinci sual və ikinci cavab düz sıradadır.', hint: 'Hər sualın cavabı onun dərhal ardınca gəlir.',
       prompt: 'Albomun səhifəsi.\nBalonlara toxun, söhbəti sıraya düz.',
       rows: [{ en: '1', az: "Hi! Who's this?", from: 'other' }, { en: '2', az: 'This is my mother.', from: 'G' }, { en: '3', az: "And who's this?", from: 'other' }, { en: '4', az: 'This is my sister.', from: 'G' }],
       extra: [],
@@ -161,7 +181,7 @@ export const lesson2a: DesignLesson = {
     done: ['Dərs 2 · 1-ci hissə tamamlandı', 'Artıq ailə üzvlərini adlandırır və şəkildəkinin kim olduğunu deyirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Ailə üzvlərini eşidib tanımaq və söhbəti sıralamaq', tasks: ['u4d2a_c03', 'u4d2a_c09', 'u4d2a_c13'] },
+      { group: 'Tanıma', text: 'Ailə üzvlərini eşidib tanımaq, ailə ağacında tapmaq və söhbəti sıralamaq', tasks: ['u4d2a_c03', 'u4d2a_c09', 'u4d2a_tree', 'u4d2a_c13'] },
       { group: 'Yazı', text: 'Ailə üzvünü təqdim edən cümlə qurmaq', tasks: ['u4d2a_c05', 'u4d2a_c11'] },
       { group: 'Danışıq', text: 'Ailə üzvünü təqdim etmək', tasks: ['u4d2a_c07', 'u4d2a_c12'] },
     ],

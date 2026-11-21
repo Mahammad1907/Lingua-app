@@ -6,11 +6,6 @@ import { ex, exact, other, pick } from '../unit1/build';
 import { notices, resultTexts } from '../unit3/shared';
 import { aForVowel, anForConsonant, forField, heForShe, noArticle, sheForHe } from './shared78';
 
-const yesShe = { match: { pattern: String.raw`^yes,?\s+she'?s\s*[.!]?$` }, short: 'Qısa cavabın sonunda is tam deyilir.',
-  explain: ex('Yes, she is.', 'Sual Is she ilə başlayırsa, qısa cavab she is ilə bitir.', "Yes, she is. — düzdür; Yes, she's. — olmur.", 'Is she Turkish? — Yes, she is.') };
-const yesHe = { match: { pattern: String.raw`^yes,?\s+he'?s\s*[.!]?$` }, short: 'Qısa cavabın sonunda is tam deyilir.',
-  explain: ex('Yes, he is.', 'Sual Is he ilə başlayırsa, qısa cavab he is ilə bitir.', "Yes, he is. — düzdür; Yes, he's. — olmur.", 'Is he Turkish? — Yes, he is.') };
-
 export const lesson7: DesignLesson = {
   id: 'a1_en_b4_d7', order: 42, unit: 4, number: 7, title: 'Peşə', section: 'Ailə və insanlar',
   notices,
@@ -150,24 +145,30 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u4d7_c12', number: 12, title: 'Cavabla', why: 'Qısa cavab verdin: Yes, she is.', hint: 'Suala sualın öz sözləri ilə qısa cavab ver.',
-      prompt: 'Video zəngdə {f} albomdakı qadını göstərir. O müəllimdir.\nSuala cavab ver.', placeholder: 'Cavabını yaz',
-      chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is she a teacher?' }] },
-      rule: exact('Yes, she is.', "Yes, she's a teacher.", 'Yes, she is a teacher.'),
+      type: 'profile', id: 'u4d7_profile', number: 12, title: 'Profil kartı', why: "mother — ana; fifty — 50; a teacher — müəllim.", hint: 'Üç cümləni ayrıca tut: kim, neçə yaşında, nə işləyir.',
+      prompt: 'Video zəngdə {f} albomdakı bir qadını göstərir.\nDinlə və kartı doldur.', audio: "{F}: This is my mother. She's fifty. She's a teacher.",
+      rows: [{ id: 'who', label: 'Kim', options: ['sister', 'mother', 'grandmother'], answer: 'mother' }, { id: 'age', label: 'Yaş', number: true, answer: '50' },
+        { id: 'job', label: 'Peşə', options: ['doctor', 'engineer', 'teacher'], answer: 'teacher' }],
       variants: [
-        yesShe,
-        { match: { pattern: String.raw`^no\b` }, short: 'Şəkildə o müəllimdir: cavab “bəli”dir.', explain: ex('Yes, she is.', 'Qadın müəllimdir, ona görə cavab Yes olur.', "Yes, she is. — bəli; No, she isn't. — xeyr.", 'Is she Turkish? — Yes, she is.') },
-        other('Qısa cavab: Yes, she is.', ex('Yes, she is.', 'Sual Is she ilə başlayır, cavab da she is ilə qurulur.', "Is she a teacher? — Yes, she is.; Is he a doctor? — Yes, he is.", 'Is she Turkish? — Yes, she is.')),
+        { field: 'who', ...pick('sister', 'Səsdə sister yox, mother deyilir.', ex('mother', 'Birinci cümlə This is my mother ilə bitir — ana.', 'mother — ana; sister — bacı.', 'This is my mother.')) },
+        { field: 'who', ...pick('grandmother', 'Səsdə grand hissəsi yoxdur: yalnız mother.', ex('mother', 'grandmother uzun sözdür; səsdə qısa mother deyilir.', 'mother — ana; grandmother — nənə.', 'This is my mother.')) },
+        { field: 'age', ...other('FIF-ty — 50: vurğu əvvəldədir.', ex('50', 'Vurğu əvvəldədir: FIF-ty — 50.', 'FIF-ty — 50; fif-TEEN — 15.', "She's fifty.")) },
+        { field: 'job', ...pick('doctor', 'Səsdə doctor yox, teacher deyilir.', ex('teacher', "Son cümlə She's a teacher-dir — müəllim.", "She's a teacher. — müəllim; She's a doctor. — həkim.", "She's a teacher.")) },
+        { field: 'job', ...pick('engineer', 'Səsdə an engineer yox, a teacher deyilir.', ex('teacher', "Son cümlədə a teacher eşidilir; engineer olsaydı, an gələrdi.", "She's a teacher. — müəllim; She's an engineer. — mühəndis.", "She's a teacher.")) },
+        other('Kartı səslə yenidən yoxla.', ex('Kim — mother; Yaş — 50; Peşə — teacher', 'Hər cümlə kartın bir sətridir: kim, yaş, peşə.', "She's fifty. — yaş; She's a teacher. — peşə.", "What's her job? — She's a teacher.")),
       ],
       review: {
-        title: 'Cavabla', why: 'Qısa cavab verdin: Yes, he is.', hint: 'Kişi haqqındakı suala sualın öz sözləri ilə qısa cavab ver.',
-        prompt: 'Ofisdəki şəkildə kişi kompüterdə işləyir. O mühəndisdir.\nSuala cavab ver.', placeholder: 'Cavabını yaz',
-        chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is he an engineer?' }] },
-        rule: exact('Yes, he is.', "Yes, he's an engineer.", 'Yes, he is an engineer.'),
+        title: 'Profil kartı', why: "brother — qardaş; twenty-five — 25; a student — tələbə.", hint: 'Üç cümləni ayrıca tut: kim, neçə yaşında, nə işləyir.',
+        prompt: 'Kafedə yeni tanış telefonda bir şəkil göstərir.\nDinlə və kartı doldur.', audio: "This is my brother. He's twenty-five. He's a student.",
+        rows: [{ id: 'who', label: 'Kim', options: ['son', 'father', 'brother'], answer: 'brother' }, { id: 'age', label: 'Yaş', number: true, answer: '25' },
+          { id: 'job', label: 'Peşə', options: ['student', 'teacher', 'engineer'], answer: 'student' }],
         variants: [
-          yesHe,
-          { match: { pattern: String.raw`^no\b` }, short: 'Şəkildə o mühəndisdir: cavab “bəli”dir.', explain: ex('Yes, he is.', 'Kişi mühəndisdir, ona görə cavab Yes olur.', "Yes, he is. — bəli; No, he isn't. — xeyr.", 'Is he Turkish? — Yes, he is.') },
-          other('Qısa cavab: Yes, he is.', ex('Yes, he is.', 'Sual Is he ilə başlayır, cavab da he is ilə qurulur.', "Is he an engineer? — Yes, he is.; Is she a teacher? — Yes, she is.", 'Is he Turkish? — Yes, he is.')),
+          { field: 'who', ...pick('son', 'Səsdə son yox, brother deyilir.', ex('brother', 'Birinci cümlə This is my brother ilə bitir — qardaş.', 'brother — qardaş; son — oğul.', 'This is my brother.')) },
+          { field: 'who', ...pick('father', 'Səsdə father yox, brother deyilir.', ex('brother', 'Birinci cümlə This is my brother ilə bitir — qardaş.', 'brother — qardaş; father — ata.', 'This is my brother.')) },
+          { field: 'age', ...other('twenty-five — 25: əvvəl 20, sonra 5.', ex('25', 'Əvvəl onluq gəlir: twenty — 20, sonra five — 5.', 'twenty-five — 25; fifty-two — 52.', "He's twenty-five.")) },
+          { field: 'job', ...pick('teacher', 'Səsdə teacher yox, student deyilir.', ex('student', "Son cümlə He's a student-dir — tələbə.", "He's a student. — tələbə; He's a teacher. — müəllim.", "He's a student.")) },
+          { field: 'job', ...pick('engineer', 'Səsdə an engineer yox, a student deyilir.', ex('student', 'Son cümlədə a student eşidilir; engineer olsaydı, an gələrdi.', "He's a student. — tələbə; He's an engineer. — mühəndis.", "He's a student.")) },
+          other('Kartı səslə yenidən yoxla.', ex('Kim — brother; Yaş — 25; Peşə — student', 'Hər cümlə kartın bir sətridir: kim, yaş, peşə.', "He's twenty-five. — yaş; He's a student. — peşə.", "What's his job? — He's a student.")),
         ],
       },
     },
@@ -224,8 +225,8 @@ export const lesson7: DesignLesson = {
     done: ['Dərs 7 tamamlandı', 'Artıq peşə sualını başa düşür və ailə üzvünün peşəsini a / an ilə deyirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Peşə sözlərini və a / an-ı tanımaq', tasks: ['u4d7_c03', 'u4d7_c05', 'u4d7_c09'] },
-      { group: 'Yazı', text: 'Peşəni düzgün a və ya an ilə yazmaq', tasks: ['u4d7_c07', 'u4d7_c12', 'u4d7_c14'] },
+      { group: 'Tanıma', text: 'Peşə sözlərini və a / an-ı tanımaq, eşidib profil kartını doldurmaq', tasks: ['u4d7_c03', 'u4d7_c05', 'u4d7_c09', 'u4d7_profile'] },
+      { group: 'Yazı', text: 'Peşəni düzgün a və ya an ilə yazmaq', tasks: ['u4d7_c07', 'u4d7_c14'] },
       { group: 'Danışıq', text: 'Peşəni soruşanda cavab vermək və cümləni düzgün təkrarlamaq', tasks: ['u4d7_c11', 'u4d7_c13'] },
     ],
     closing: 'Növbəti dərs — Bölmə söhbəti: {f} ilə video zəngdə ailəni təqdim edirsən.', button: resultTexts.button,

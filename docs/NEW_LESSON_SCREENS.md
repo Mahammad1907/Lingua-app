@@ -51,3 +51,13 @@ Submitted nonempty written answers that do not match the accepted answer/goal ru
 ## Complete screen follow-up
 
 See `LESSON_SCREEN_UPDATE_20261021.md` for the subsequent dedicated introduction, microphone input, exit confirmation, Expo Go recording/replay fallback and current validation. This supersedes the earlier full-lint failure note: active project lint now exits successfully with one pre-existing profile warning.
+
+## Üç yeni tapşırıq ekranı — 21 noyabr 2026
+
+Təsdiqlənmiş maketlər üzrə. Kod: `src/components/design/NewTaskScreens.tsx` (FamilyTree, DragBoard, ProfileCard, PersonDot), növlər `src/data/designLessonTypes.ts`, qiymətləndirmə `src/utils/designLesson.ts` (`gradeTree`, `gradeDrag`, `gradeProfile`; `TASK_TYPES`/`isTask`). Rənglər yalnız `theme.ts` `d`; ikonlar kodla çəkilir; azaldılmış hərəkətdə titrəmə/geri sürüşmə yoxdur. Hər kart bir tapşırıq id-sidir (nəticə məqsədləri `tasks: [id]` ilə istinad edir); `hint`, `why`, `variants`, `review` digər tapşırıqlar kimi məcburidir.
+
+- **`tree` — “Ailə ağacı”**: `nodes [{ id, label?, x, y }]` (0–100 %), `links [[id, id]]`, `target` (narıncı halqa + “?”), `options` (3), `answer`. Qiymət `choice` kimi (`{ option }` variantları).
+- **`drag` — “Söz sürüklə”**: `people [{ id, label? }]` (2–4), `chips`, `answers { personId: chip }`, istəyə görə `audio` (`{F}: …`; dinləmə tapşırığı kimi işləyir). Çip sürüklənir və ya toxunub seçilir, sonra boş yerə toxunulur (ekran oxuyucu üçün). Hamısı düz = düzgün; səhv yer qırmızı olur, bir dəfə titrəyir, çip geri qayıdır. Variant: `{ option: səhv çip }`, istəyə görə `field: personId`.
+- **`profile` — “Profil kartı”**: `audio`, `rows [{ id, label, options? | number: true, answer }]` (Kim / Yaş / Peşə). Rəqəm sətri mövcud `PhoneKeypad` ilə doldurulur (yalnız rəqəmlər müqayisə olunur). Hər sətir ayrıca qiymətlənir (`rows`, `notes` — səhv sətrin altında qısa səbəb); kart yalnız bütün sətirlər düz olanda düzgündür. Variant `field: rowId` ilə sətrə bağlanır.
+
+Yoxlama: `node scripts/check-new-screens.cjs` (nümunə kartlar + Bölmə 4 fayllarının tip yoxlaması, isTask/resolveLesson/reviewTask, düz/səhv/boş cavablar). `check-taught.cjs` seçimləri, çipləri, etiketləri və səsi yoxlayır; `check-unit3/4.cjs` model cavabı və səhv izahını yoxlayır. Cihazda yoxlanmayıb.

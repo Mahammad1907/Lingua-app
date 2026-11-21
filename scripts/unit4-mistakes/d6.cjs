@@ -16,4 +16,8 @@ module.exports = (rejects, find, rejectsField) => {
   rejectsField('u4d6_c12', 'u4d6_c12a', '50 years');
   rejectsField('u4d6_c12', 'u4d6_c12b', 'He has 55.');
   rejectsField('u4d6_c12', 'u4d6_c12b', 'fifty-five years');
+  // Yeni ekranlar (21 Nov 2026): düz cavab qəbul olunur, tipik səhv qəbul olunmur və izah olunur.
+  const ok = (g, id) => assert.equal(g.status, 'correct', `${id}: model answer accepted`);
+  const no = (g, id, v) => { assert.equal(g.status, 'wrong', `${id}: “${v}” must not be accepted`); assert.ok(g.explain && g.explain.reason, `${id}: “${v}” explained`); };
+  { const t = find('u4d6_profile'); const right = { who: 'father', age: '55' }; ok(L.gradeProfile(t, right), 'u4d6_profile'); { const g = L.gradeProfile(t, { ...right, age: '15' }); no(g, 'u4d6_profile', '15'); assert.ok(g.notes.age, 'u4d6_profile: row age note'); } { const g = L.gradeProfile(t, { ...right, age: '50' }); no(g, 'u4d6_profile', '50'); assert.ok(g.notes.age, 'u4d6_profile: row age note'); } { const g = L.gradeProfile(t, { ...right, who: 'grandfather' }); no(g, 'u4d6_profile', 'grandfather'); assert.ok(g.notes.who, 'u4d6_profile: row who note'); } { const g = L.gradeProfile(t, { ...right, who: 'brother' }); no(g, 'u4d6_profile', 'brother'); assert.ok(g.notes.who, 'u4d6_profile: row who note'); } }
 };

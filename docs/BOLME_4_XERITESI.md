@@ -83,3 +83,14 @@ Xarici dost `{F}` (ABŞ-dan qadın, Bölmə 4-dən daimi personaj) ailə şəkil
 
 ## 3. Yoxlama
 `node scripts/check-unit4.cjs`, `check-taught.cjs`, `check-rules.cjs`, `check-placeholders.cjs`, `check-unit1/2/3.cjs`. Bölmə 4 səhv skriptləri `scripts/unit4-mistakes/<hissə>.cjs`.
+
+## 4. Yeni ekranların yeri (21 noyabr 2026)
+Ailə ağacı (`tree`), Söz sürüklə (`drag`), Profil kartı (`profile`) — docs/NEW_LESSON_SCREENS.md. Limitlər saxlanılıb (≤14 kart izahsız, ≥5 növ, dalbadal eyni növ yox, sonluqlar fərqli).
+- Dərs 2a: `u4d2a_tree` (bacı; təkrarı — ata), sister kartından sonra. Əlavə olunub (13 → 14 kart).
+- Dərs 2b: `u4d2b_drag` (grandfather / son; təkrarı — grandmother / daughter) `u4d2b_c09` (Kim nə dedi?) əvəzinə; `u4d2b_tree` (nənə; təkrarı — oğul) `u4d2b_c13` (Sözü tamamla) əvəzinə.
+- Dərs 3: `u4d3_tree` (bacının əri; təkrarı — qardaşın həyat yoldaşı) `u4d3_c11` (Kim nə dedi?) əvəzinə; `u4d3_drag` (Elvin — brother, Lala — wife, his/her + ad; təkrarı — Nigar / Rauf) `u4d3_c14` (Seçim) əvəzinə.
+- Dərs 6: `u4d6_profile` (Kim + Yaş: father, 55; təkrarı — daughter, 15), c10-dan sonra. Əlavə olunub (13 → 14).
+- Dərs 7: `u4d7_profile` (Kim + Yaş + Peşə: mother, 50, teacher; təkrarı — brother, 25, student) `u4d7_c12` (Cavabla, Yes, she is.) əvəzinə.
+- Dərs 8: drag qoyulmayıb — tək video zəng söhbəti 14 kartla tamdır, əvəz etmək söhbəti pozardı.
+- İmtahan: `u4x_tree` (baba) `u4x_c03` əvəzinə; `u4x_profile` (brother, 34, doctor) əlavə (15 tapşırıq).
+Səhv yoxlamaları: `scripts/unit4-mistakes/d2a, d2b, d3, d6, d7, exam.cjs` (`gradeTree` / `gradeDrag` / `gradeProfile`). Cihazda yoxlanmayıb.

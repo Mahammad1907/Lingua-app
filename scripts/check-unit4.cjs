@@ -89,6 +89,29 @@ for (const raw of all) {
           assert.equal(L.gradeText(t, L.joinTiles(words), false).status, 'correct', `${where}: tiles build the answer`);
         }
       }
+      // New screens (21 Nov 2026): model answer accepted, a wrong answer explained.
+      if (t.type === 'tree') {
+        assert.equal(t.options.length, 3, `${where}: three options`);
+        assert.ok(t.nodes.some(n => n.id === t.target), `${where}: target node exists`);
+        assert.equal(L.gradeTree(t, t.answer).status, 'correct', where);
+        for (const o of t.options.filter(o => o !== t.answer)) assert.ok(L.gradeTree(t, o).explain?.reason, `${where}: ${o} has an explanation`);
+      }
+      if (t.type === 'drag') {
+        for (const p of t.people) assert.ok(t.chips.includes(t.answers[p.id]), `${where}: chip for ${p.id}`);
+        assert.equal(L.gradeDrag(t, t.answers).status, 'correct', where);
+        const [a, b] = t.people;
+        const g = L.gradeDrag(t, { ...t.answers, [a.id]: t.answers[b.id], [b.id]: t.answers[a.id] });
+        assert.ok(g.status === 'wrong' && g.explain?.reason, `${where}: swapped chips explained`);
+      }
+      if (t.type === 'profile') {
+        const right = Object.fromEntries(t.rows.map(r => [r.id, r.answer]));
+        for (const r of t.rows) assert.ok(r.number ? /^\d+$/.test(r.answer) : (r.options || []).includes(r.answer), `${where}: row ${r.id} answer offered`);
+        assert.equal(L.gradeProfile(t, right).status, 'correct', where);
+        for (const r of t.rows.filter(r => !r.number)) {
+          const g = L.gradeProfile(t, { ...right, [r.id]: r.options.find(o => o !== r.answer) });
+          assert.ok(g.status === 'wrong' && g.notes[r.id], `${where}: row ${r.id} wrong answer explained`);
+        }
+      }
       if (t.type === 'match') {
         const right = Object.fromEntries(t.rows.map(r => [r.en, r.az]));
         assert.equal(L.gradeMatch(t, right).status, 'correct', where);

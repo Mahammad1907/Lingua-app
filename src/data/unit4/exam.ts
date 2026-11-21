@@ -39,12 +39,13 @@ export const exam: DesignLesson = {
       ],
     },
     {
-      type: 'choice', id: 'u4x_c03', number: 3, title: 'Dinlə və seç', why: '“grandfather” — baba.',
-      prompt: '{F} albomda yaşlı bir kişinin şəklini göstərir.\nBu kişi {f:dat} kimdir?', audio: 'This is my grandfather.',
-      options: ['Atası', 'Babası', 'Qardaşı'], answer: 'Babası',
+      type: 'tree', id: 'u4x_tree', number: 3, title: 'Ailə ağacı', why: 'grandfather — baba: atanın atası, ən yuxarı sırada.',
+      prompt: '{F} sənin ailə ağacına baxır. “?” olan yerdə yaşlı bir kişi var.\nO kimdir? İngiliscə sözü seç.',
+      nodes: [{ id: 'gm', label: 'grandmother', x: 25, y: 0 }, { id: 'gf', x: 75, y: 0 }, { id: 'dad', label: 'father', x: 50, y: 50 }, { id: 'me', label: 'sən', x: 50, y: 100 }],
+      links: [['gm', 'gf'], ['gf', 'dad'], ['dad', 'me']], target: 'gf', options: ['father', 'grandfather', 'brother'], answer: 'grandfather',
       variants: [
-        pick('Atası', 'Səsdə “father” yox, “grandfather” var.', ex('Babası', 'grandfather — baba, father — ata: səsdə grandfather deyilir.', 'This is my grandfather. — baba; This is my father. — ata.', 'This is my grandfather.')),
-        pick('Qardaşı', 'Səsdə “brother” yoxdur.', ex('Babası', 'brother — qardaş; səsdə grandfather deyilir.', 'This is my grandfather. — baba; This is my brother. — qardaş.', 'This is my grandfather.')),
+        pick('father', 'father ortadadır; “?” onun da yuxarısındadır.', ex('grandfather', 'Atanın üstündəki kişi babandır: grand + father.', 'grandfather — baba; father — ata.', 'This is my grandfather.')),
+        pick('brother', 'Qardaş səninlə eyni sırada olur; “?” ən yuxarıdadır.', ex('grandfather', 'Ən yuxarı sırada, nənənin yanındakı kişi babandır.', 'grandfather — baba; brother — qardaş.', 'This is my grandfather.')),
       ],
     },
     {
@@ -141,7 +142,21 @@ export const exam: DesignLesson = {
       ],
     },
     {
-      type: 'write', id: 'u4x_c13', number: 13, title: 'Şəklin altına yaz', why: 'Ananı təqdim etdin: This is my mother.',
+      type: 'profile', id: 'u4x_profile', number: 13, title: 'Profil kartı', why: "brother — qardaş; thirty-four — 34; a doctor — həkim.",
+      prompt: 'Video zəngdə {f} albomdakı bir kişini göstərir.\nDinlə və kartı doldur.', audio: "{F}: This is my brother. He's thirty-four. He's a doctor.",
+      rows: [{ id: 'who', label: 'Kim', options: ['father', 'son', 'brother'], answer: 'brother' }, { id: 'age', label: 'Yaş', number: true, answer: '34' },
+        { id: 'job', label: 'Peşə', options: ['doctor', 'student', 'engineer'], answer: 'doctor' }],
+      variants: [
+        { field: 'who', ...pick('father', 'Səsdə father yox, brother deyilir.', ex('brother', 'Birinci cümlə This is my brother ilə bitir — qardaş.', 'brother — qardaş; father — ata.', 'This is my brother.')) },
+        { field: 'who', ...pick('son', 'Səsdə son yox, brother deyilir.', ex('brother', 'Birinci cümlə This is my brother ilə bitir — qardaş.', 'brother — qardaş; son — oğul.', 'This is my brother.')) },
+        { field: 'age', ...other('thirty-four — 34: əvvəl 30, sonra 4.', ex('34', 'Əvvəl onluq gəlir: thirty — 30, sonra four — 4.', 'thirty-four — 34; forty-three — 43.', "He's thirty-four.")) },
+        { field: 'job', ...pick('student', 'Səsdə student yox, doctor deyilir.', ex('doctor', "Son cümlə He's a doctor-dur — həkim.", "He's a doctor. — həkim; He's a student. — tələbə.", "He's a doctor.")) },
+        { field: 'job', ...pick('engineer', 'Səsdə an engineer yox, a doctor deyilir.', ex('doctor', 'Son cümlədə a doctor eşidilir; engineer olsaydı, an gələrdi.', "He's a doctor. — həkim; He's an engineer. — mühəndis.", "He's a doctor.")) },
+        other('Kartı səslə yenidən yoxla.', ex('Kim — brother; Yaş — 34; Peşə — doctor', 'Hər cümlə kartın bir sətridir: kim, yaş, peşə.', "He's thirty-four. — yaş; He's a doctor. — peşə.", "What's his job? — He's a doctor.")),
+      ],
+    },
+    {
+      type: 'write', id: 'u4x_c13', number: 14, title: 'Şəklin altına yaz', why: 'Ananı təqdim etdin: This is my mother.',
       prompt: 'Ailə şəkillərini {f:dat} göndərirsən. Şəkildə sənin anan var.\nŞəklin altına yaz: “Bu mənim anamdır.”', placeholder: 'Yazını yaz',
       rule: own(MY_MOTHER, 'This is my mother.'),
       variants: [
@@ -155,14 +170,14 @@ export const exam: DesignLesson = {
       ],
     },
     {
-      type: 'match', id: 'u4x_c14', number: 14, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.',
+      type: 'match', id: 'u4x_c14', number: 15, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.',
       prompt: '{F} ailə albomundakı yazıları oxuyur.\nHər cümləyə mənasını qoş.',
       rows: [{ en: 'My parents are in Ganja.', az: 'Valideynlərim Gəncədədir.', from: 'other' }, { en: 'This is my son.', az: 'Bu mənim oğlumdur.', from: 'other' }, { en: "I don't have a brother.", az: 'Mənim qardaşım yoxdur.', from: 'other' }],
       extra: ['Bu mənim qızımdır.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex("My parents are in Ganja. — Valideynlərim Gəncədədir.; This is my son. — Bu mənim oğlumdur.; I don't have a brother. — Mənim qardaşım yoxdur.", 'parents — valideynlər, son — oğul, I don’t have — yoxdur.', "This is my son. — oğul; This is my daughter. — qız.", 'I have a sister.'))],
     },
     {
-      type: 'match', mode: 'order', id: 'u4x_c15', number: 15, title: 'Söhbəti sırala', why: 'Qarşılama, sual, təqdim və cavab düz sıradadır.',
+      type: 'match', mode: 'order', id: 'u4x_c15', number: 16, title: 'Söhbəti sırala', why: 'Qarşılama, sual, təqdim və cavab düz sıradadır.',
       prompt: '{F} evinin qapısını açır, yanında kiçik oğlan var.\nBalonlara toxun, söhbəti sıraya düz.',
       rows: [{ en: '1', az: 'Hello! Welcome!', from: 'other' }, { en: '2', az: "Thank you! Who's this?", from: 'B' }, { en: '3', az: "This is my son. He's ten.", from: 'other' }, { en: '4', az: 'Hi! Nice to meet you!', from: 'B' }],
       extra: [],
@@ -174,11 +189,11 @@ export const exam: DesignLesson = {
     incomplete: resultTexts.incomplete,
     goals: [
       { group: 'Bu kimdir?', text: 'Kim olduğunu soruşmaq və tanışlıq söhbətini anlamaq', tasks: ['u4x_c02', 'u4x_c15'] },
-      { group: 'Ailə', text: 'Ailə sözlərini eşidib anlamaq və ailə üzvünü yazmaq', tasks: ['u4x_c03', 'u4x_c13', 'u4x_c14'] },
+      { group: 'Ailə', text: 'Ailə sözlərini eşidib anlamaq və ailə üzvünü yazmaq', tasks: ['u4x_tree', 'u4x_c13', 'u4x_c14'] },
       { group: 'His / her', text: '“Onun” sözünü kişiyə və qadına görə seçmək', tasks: ['u4x_c04', 'u4x_c11a'] },
       { group: 'Your', text: 'Bəli/xeyr sualı qurmaq və qısa cavab vermək', tasks: ['u4x_c06', 'u4x_c07'] },
       { group: 'Var / yoxdur', text: 'Do sualına cavab vermək və qısa cavabları uyğunlaşdırmaq', tasks: ['u4x_c08', 'u4x_c09'] },
-      { group: 'Yaş', text: 'Eşitdiyin yaşı yığmaq və yaşı soruşmaq', tasks: ['u4x_c05', 'u4x_c12'] },
+      { group: 'Yaş', text: 'Eşitdiyin yaşı yığmaq və yaşı soruşmaq', tasks: ['u4x_c05', 'u4x_c12', 'u4x_profile'] },
       { group: 'Peşə', text: 'Peşəni a və an ilə demək', tasks: ['u4x_c10', 'u4x_c11b'] },
     ],
     closing: 'Təbriklər! Bölmə 4-ün bacarıqlarını yoxladın.', button: resultTexts.button,

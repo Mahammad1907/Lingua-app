@@ -130,7 +130,29 @@ export const lesson6: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u4d6_c11', number: 11, title: 'Sualı qur', why: 'How old + is + kim?', hint: 'Bu dərsin yaş sualını xatırla, sonda kimin nənəsi olduğunu qoy.',
+      type: 'profile', id: 'u4d6_profile', number: 11, title: 'Profil kartı', why: "This is my father. — ata; He's fifty-five. — 55 yaşındadır.", hint: 'İki cümləni ayrıca tut: birincisi kim olduğunu, ikincisi yaşını deyir.',
+      prompt: '{F} ad günü şəklində bir kişini göstərir.\nDinlə və kartı doldur.', audio: "{F}: This is my father. He's fifty-five.",
+      rows: [{ id: 'who', label: 'Kim', options: ['brother', 'father', 'grandfather'], answer: 'father' }, { id: 'age', label: 'Yaş', number: true, answer: '55' }],
+      variants: [
+        { field: 'who', ...pick('brother', 'Səsdə brother yox, father deyilir.', ex('father', 'Birinci cümlə This is my father ilə bitir — ata.', 'father — ata; brother — qardaş.', 'This is my father.')) },
+        { field: 'who', ...pick('grandfather', 'Səsdə grand hissəsi yoxdur: yalnız father.', ex('father', 'grandfather uzun sözdür; səsdə qısa father deyilir.', 'father — ata; grandfather — baba.', 'This is my father.')) },
+        { field: 'age', ...other('Səsdə fifty-five deyilir: 50 + 5.', ex('55', 'Əvvəl onluq gəlir: fifty — 50, sonra five — 5.', 'fifty-five — 55; fifteen — 15.', "He's fifty-five.")) },
+        other('Kartı səslə yenidən yoxla.', ex('Kim — father; Yaş — 55', 'Birinci cümlə kim olduğunu, ikinci cümlə yaşını deyir.', "This is my father. — kim; He's fifty-five. — yaş.", "How old is he? — He's forty.")),
+      ],
+      review: {
+        title: 'Profil kartı', why: "This is my daughter. — qızı; She's fifteen. — 15 yaşındadır.", hint: 'Birinci cümlədə ailə sözünü, ikincisində rəqəmin vurğusunu tut.',
+        prompt: 'Kursda yoldaşın telefonda bir şəkil göstərir.\nDinlə və kartı doldur.', audio: "This is my daughter. She's fifteen.",
+        rows: [{ id: 'who', label: 'Kim', options: ['sister', 'mother', 'daughter'], answer: 'daughter' }, { id: 'age', label: 'Yaş', number: true, answer: '15' }],
+        variants: [
+          { field: 'who', ...pick('sister', 'Səsdə sister yox, daughter deyilir.', ex('daughter', 'Birinci cümlə This is my daughter ilə bitir — qızı.', 'daughter — qız (övlad); sister — bacı.', 'This is my daughter.')) },
+          { field: 'who', ...pick('mother', 'Səsdə mother yox, daughter deyilir.', ex('daughter', 'Birinci cümlə This is my daughter ilə bitir — qızı.', 'daughter — qız (övlad); mother — ana.', 'This is my daughter.')) },
+          { field: 'age', ...other('fif-TEEN — 15, FIF-ty — 50.', ex('15', 'Vurğu sondadır: fif-TEEN — 15.', 'fif-TEEN — 15; FIF-ty — 50.', "She's fifteen.")) },
+          other('Kartı səslə yenidən yoxla.', ex('Kim — daughter; Yaş — 15', 'Birinci cümlə kim olduğunu, ikinci cümlə yaşını deyir.', "This is my daughter. — kim; She's fifteen. — yaş.", "How old is she? — She's twenty.")),
+        ],
+      },
+    },
+    {
+      type: 'write', id: 'u4d6_c11', number: 12, title: 'Sualı qur', why: 'How old + is + kim?', hint: 'Bu dərsin yaş sualını xatırla, sonda kimin nənəsi olduğunu qoy.',
       prompt: 'Qrup çatında {f} nənəsinin ad günü şəklini göndərdi.\nNənəsinin yaşını soruş. Sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
       tiles: ['old', 'grandmother', 'is', 'How', 'your', 'are', 'you', '?'], rule: exact('How old is your grandmother?'),
       variants: [...ASK_AGE_MISTAKES, other('How old is your grandmother?', ex('How old is your grandmother?', 'Əvvəl How old, sonra is, sonra your grandmother.', 'How old is your grandmother? — o; How old are you? — sən.', 'How old is your father?'))],
@@ -142,7 +164,7 @@ export const lesson6: DesignLesson = {
       },
     },
     {
-      type: 'two', id: 'u4d6_c12', number: 12, title: 'Vərəqi doldur', why: 'Ananın və atanın yaşını yazdın.', hint: 'Hər sətrin başlığını oxu; yaşı rəqəmlə yaza bilərsən.',
+      type: 'two', id: 'u4d6_c12', number: 13, title: 'Vərəqi doldur', why: 'Ananın və atanın yaşını yazdın.', hint: 'Hər sətrin başlığını oxu; yaşı rəqəmlə yaza bilərsən.',
       prompt: 'Ad günü qonaqlarının siyahısını doldurursan.\nAnanın və atanın yaşını yaz (istəsən, uydurma).', form: { title: 'Ad günü', subtitle: 'Qonaqlar' },
       fields: [
         { id: 'u4d6_c12a', label: 'Mother', placeholder: 'Ananın yaşı', rule: own(ageField('she'), '50'), purpose: 'ananın yaşını yazmaq', empty: 'Ananın yaşını da yaz.' },
@@ -166,7 +188,7 @@ export const lesson6: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u4d6_c13', number: 13, title: 'Mesaj yaz', why: 'Kim olduğunu və yaşını dedin.', hint: 'İki cümlə yaz: əvvəl bacının kim olduğunu, sonra yaşını.', scenes: ['u3/videocall'],
+      type: 'write', id: 'u4d6_c13', number: 14, title: 'Mesaj yaz', why: 'Kim olduğunu və yaşını dedin.', hint: 'İki cümlə yaz: əvvəl bacının kim olduğunu, sonra yaşını.', scenes: ['u3/videocall'],
       prompt: '{F} sənin ailə şəklinə baxır və bacını göstərir.\nCavab yaz: o, sənin bacındır; yaşını da de (istəsən, uydurma).', placeholder: 'Cavabını yaz',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's she? How old is she?" }] },
       rule: own(whoAge('she', 'sister'), "She's my sister. She's twenty."),
@@ -184,7 +206,7 @@ export const lesson6: DesignLesson = {
     done: ['Dərs 6 tamamlandı', 'Artıq ailə üzvünün yaşını soruşur və deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Yaş sualını və rəqəmi eşidib anlamaq', tasks: ['u4d6_c03', 'u4d6_c05', 'u4d6_c07', 'u4d6_c09'] },
+      { group: 'Tanıma', text: 'Yaş sualını və rəqəmi eşidib anlamaq', tasks: ['u4d6_c03', 'u4d6_c05', 'u4d6_c07', 'u4d6_c09', 'u4d6_profile'] },
       { group: 'Yazı', text: 'How old is…? sualını qurmaq və yaşı yazmaq', tasks: ['u4d6_c11', 'u4d6_c12', 'u4d6_c13'] },
       { group: 'Danışıq', text: 'He\'s / She\'s ilə yaşı demək', tasks: ['u4d6_c10'] },
     ],

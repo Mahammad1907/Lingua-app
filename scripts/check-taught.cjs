@@ -45,6 +45,10 @@ function asks(t) {
   if (t.type === 'two' && t.form) { add('form', t.form.title); add('form', t.form.subtitle); t.fields.forEach(f => add('form', f.label)); }
   if (t.type === 'two') t.fields.forEach(f => f.rule.answers.forEach(a => add('qəbul', a)));
   if (t.type === 'voice') { add('sample', t.sample); t.rule.answers.forEach(a => add('qəbul', a)); add('reply', t.reply); }
+  // Ailə ağacı / Söz sürüklə / Profil kartı (21 Nov 2026): options, node and person labels, chips, row chips.
+  if (t.type === 'tree') { t.options.forEach(o => add('option', o)); t.nodes.forEach(n => add('node', n.label)); }
+  if (t.type === 'drag') { t.chips.forEach(c => add('chip', c)); t.people.forEach(x => add('person', x.label)); }
+  if (t.type === 'profile') t.rows.forEach(r => { (r.options || []).forEach(o => add('row', o)); add('row', r.answer); });
   if (t.type === 'match') {
     if (t.mode !== 'order') t.rows.forEach(r => add('row', r.en));
     if (t.mode === 'reply' || t.mode === 'order') { t.rows.forEach(r => add(t.mode === 'order' ? 'turn' : 'reply', r.az)); t.extra.forEach(x => add('extra', x)); }

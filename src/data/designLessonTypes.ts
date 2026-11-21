@@ -81,7 +81,22 @@ export interface MatchTask extends BaseTask {
   /** Extra meanings that fit no sentence. */
   extra: string[];
 }
-export type DesignTask = ChoiceTask | WriteTask | TwoTask | VoiceTask | MatchTask;
+/** “Ailə ağacı” (21 Nov 2026): a code-drawn family tree; the `target` node shows “?” and the learner picks its English word.
+ *  Graded like `choice` (variants with `{ option }`). x, y are 0–100 (% of the tree area); links join node ids. */
+export interface TreeTask extends BaseTask {
+  type: 'tree'; nodes: { id: string; label?: string; x: number; y: number }[]; links: [string, string][];
+  target: string; options: string[]; answer: string;
+}
+/** “Söz sürüklə” (21 Nov 2026): word chips are dragged (or tapped, then a slot tapped) into the slot under each person.
+ *  `answers` = person id → chip. Extra chips are distractors. Variants: `{ option: wrong chip }`, `field` = person id (optional). */
+export interface DragTask extends BaseTask {
+  type: 'drag'; audio?: string; people: { id: string; label?: string }[]; chips: string[]; answers: Record<string, string>;
+}
+/** “Profil kartı” (21 Nov 2026): after the audio line, every row of the card is filled (chips, or digits on the keypad).
+ *  Whole card correct only when every row is; variants with `field` = row id explain each row. */
+export interface ProfileRow { id: string; label: string; options?: string[]; number?: boolean; answer: string }
+export interface ProfileTask extends BaseTask { type: 'profile'; audio?: string; rows: ProfileRow[] }
+export type DesignTask = ChoiceTask | WriteTask | TwoTask | VoiceTask | MatchTask | TreeTask | DragTask | ProfileTask;
 export type ReviewOf<T extends DesignTask> = T extends DesignTask ? Omit<T, 'id' | 'number' | 'type'> : never;
 
 export interface IntroCard { type: 'intro'; id: string; badge: string; subtitle: string; goals: { icon: 'wave' | 'chat' | 'bye'; text: string }[]; start: string }
