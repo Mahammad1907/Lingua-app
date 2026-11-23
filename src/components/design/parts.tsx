@@ -2,27 +2,27 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Animated, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View, type StyleProp, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { resolveNames } from '../../config/characters';
 import Icon, { type IconName } from './Icons';
 import { d, radius, shadow, font } from './theme';
 
 /** “…” standing alone in an English line is the name slot: it is shown as [ad] (earlier item 10). “Slowly…” keeps its dots. */
 export const nameSlot = (text: string) => text.replace(/(^|[\s,(“"])…/g, '$1[ad]');
 
-export function Header({ title, progress, onBack, onMenu }: { title: string; progress: number; onBack: () => void; onMenu?: () => void }) {
+export function Header({ progress, onBack, onMenu }: { title?: string; progress: number; onBack: () => void; onMenu?: () => void }) {
   const reduced = useReducedMotion();
   const width = useRef(new Animated.Value(progress)).current;
   useEffect(() => {
     if (reduced) width.setValue(progress);
     else Animated.timing(width, { toValue: progress, duration: 450, useNativeDriver: false }).start();
   }, [progress, reduced, width]);
+  // New style (23 Nov 2026): round white back button, full-width purple progress bar, no counter; the lesson label moved above the title.
   return <View style={s.header}>
     <Pressable accessibilityRole="button" accessibilityLabel="Geri" onPress={onBack} hitSlop={8} style={s.round}><Icon name="back" size={20} color={d.ink} /></Pressable>
-    <Text style={s.headerTitle}>{title}</Text>
-    <View style={s.divider} />
     <View accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: 100, now: Math.round(progress * 100) }} style={s.track}>
       <Animated.View style={[s.fill, { width: width.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} />
     </View>
-    {onMenu ? <Pressable accessibilityRole="button" accessibilityLabel="Menyu" onPress={onMenu} hitSlop={10} style={s.dots}><Icon name="dots" size={22} color={d.ink} /></Pressable> : <View style={s.dots} />}
+    {onMenu ? <Pressable accessibilityRole="button" accessibilityLabel="Menyu" onPress={onMenu} hitSlop={10} style={s.dots}><Icon name="dots" size={22} color={d.inkSoft} /></Pressable> : <View style={s.dots} />}
   </View>;
 }
 
@@ -30,11 +30,11 @@ export function Chip({ label }: { label: string }) {
   return <View style={s.chip}><Text style={s.chipText}>{label}</Text></View>;
 }
 
-export function Capsule({ label, icon, onPress, tone = 'soft', disabled, small, accessibilityLabel, align = 'center' }: { label: string; icon?: IconName; onPress: () => void; tone?: 'soft' | 'outline' | 'orange'; disabled?: boolean; small?: boolean; accessibilityLabel?: string; align?: 'center' | 'flex-start' | 'flex-end' }) {
+export function Capsule({ label, icon, onPress, tone = 'soft', disabled, small, accessibilityLabel, align = 'center' }: { label: string; icon?: IconName; onPress: () => void; tone?: 'soft' | 'ghost' | 'outline' | 'orange'; disabled?: boolean; small?: boolean; accessibilityLabel?: string; align?: 'center' | 'flex-start' | 'flex-end' }) {
   return <Pressable accessibilityRole="button" accessibilityLabel={accessibilityLabel ?? label} accessibilityState={{ disabled }} disabled={disabled} onPress={onPress} hitSlop={6}
-    style={({ pressed }) => [s.capsule, { alignSelf: align }, tone === 'outline' && s.capsuleOutline, tone === 'orange' && s.capsuleOrange, small && s.capsuleSmall, pressed && { opacity: .75 }, disabled && { opacity: .5 }]}>
-    {icon ? <View style={tone === 'soft' ? s.capsuleIcon : undefined}><Icon name={icon} size={small ? 17 : 19} color={d.purple} /></View> : null}
-    <Text style={[s.capsuleText, small && { fontSize: 14 }]}>{label}</Text>
+    style={({ pressed }) => [s.capsule, { alignSelf: align }, tone === 'outline' && s.capsuleOutline, tone === 'ghost' && s.capsuleGhost, tone === 'orange' && s.capsuleOrange, small && s.capsuleSmall, pressed && { opacity: .75 }, disabled && { opacity: .5 }]}>
+    {icon ? <View style={tone === 'soft' ? s.capsuleIcon : undefined}><Icon name={icon} size={small ? 17 : 19} color={tone === 'ghost' ? d.inkSoft : d.purple} /></View> : null}
+    <Text style={[s.capsuleText, small && { fontSize: 14 }, tone === 'ghost' && { color: d.inkSoft }]}>{label}</Text>
   </Pressable>;
 }
 
@@ -76,7 +76,7 @@ export function SheetOption({ label, icon, note, onPress, highlight }: { label: 
 }
 
 const BARS = [8, 14, 22, 12, 26, 18, 30, 22, 38, 28, 44, 32, 26, 40, 20, 30, 16, 24, 12, 18, 10, 14, 8];
-export function Waveform({ active, height = 44 }: { active?: boolean; height?: number }) {
+export function Waveform({ active, height = 44, progress }: { active?: boolean; height?: number; progress?: number }) {
   const reduced = useReducedMotion();
   const pulse = useRef(new Animated.Value(1)).current;
   // Only as many bars as fit, so the wave never runs under the buttons next to it.
@@ -93,23 +93,39 @@ export function Waveform({ active, height = 44 }: { active?: boolean; height?: n
   const mid = (bars.length - 1) / 2;
   return <View onLayout={e => setWidth(e.nativeEvent.layout.width)} style={[s.wave, { height, overflow: 'hidden' }]}>{bars.map((h, i) => {
     const center = Math.abs(i - mid) < Math.max(2, bars.length / 4.5);
-    return <Animated.View key={i} style={{ width: 3.5, borderRadius: 2, height: h * height / 46, backgroundColor: center ? d.orange : d.lavender, opacity: center ? 1 : .8, transform: [{ scaleY: active && i % 2 ? pulse : 1 }] }} />;
+    return <Animated.View key={i} style={{ width: 3.5, borderRadius: 2, height: h * height / 46, backgroundColor: progress === undefined ? (center ? d.orange : d.lavender) : (i / Math.max(1, bars.length) < progress ? d.purple : d.border), opacity: center ? 1 : .8, transform: [{ scaleY: active && i % 2 ? pulse : 1 }] }} />;
   })}</View>;
 }
 
-/** Counterpart audio: play, waveform and the turtle (slow) next to it. */
-export function AudioPanel({ playing, onPlay, onSlow, avatar }: { playing: boolean; onPlay: () => void; onSlow: () => void; avatar?: ReactNode }) {
+/** “Səsli mesaj” card (23 Nov 2026): who + label + length on top; round play, wave (played part purple) and the 0.75x pill below. */
+export function AudioPanel({ playing, onPlay, onSlow, avatar, name, seconds }: { playing: boolean; onPlay: () => void; onSlow: () => void; avatar?: ReactNode; name?: string; seconds?: number }) {
+  const total = Math.max(2, seconds ?? 2);
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    if (!playing) { setProgress(0); return; }
+    const t0 = Date.now();
+    const id = setInterval(() => setProgress(Math.min(1, (Date.now() - t0) / (total * 1000))), 120);
+    return () => clearInterval(id);
+  }, [playing, total]);
+  const mm = `0:${String(Math.round(total)).padStart(2, '0')}`;
   return <View style={[s.audio, shadow]}>
-    {avatar ? <><View style={s.avatar}>{avatar}</View><View style={s.vline} /></> : null}
-    <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Səsi dinlə'} onPress={onPlay} style={({ pressed }) => [s.play, pressed && { opacity: .85 }]}>
-      <Icon name="play" size={30} color="#fff" />
-    </Pressable>
-    <View style={{ flex: 1 }}><Waveform active={playing} /></View>
-    <View style={s.vline} />
-    {/* Slow listening: the turtle alone (user, 13 Nov 2026) — the screen reader still says “Yavaş dinlə”. */}
-    <Pressable accessibilityRole="button" accessibilityLabel="Yavaş dinlə" onPress={onSlow} hitSlop={6} style={({ pressed }) => [s.slowIcon, pressed && { opacity: .8 }]}>
-      <Icon name="turtle" size={30} color={d.purple} />
-    </Pressable>
+    <View style={s.audioTop}>
+      {avatar ? <View style={s.avatar}>{avatar}</View> : null}
+      <View style={{ flex: 1 }}>
+        <Text style={s.audioName}>{name ? resolveNames(name) : 'Səsli mesaj'}</Text>
+        <Text style={s.audioSub}>Səsli mesaj</Text>
+      </View>
+      <Text accessibilityLabel={`Uzunluq ${Math.round(total)} saniyə`} style={s.audioTime}>{mm}</Text>
+    </View>
+    <View style={s.audioBottom}>
+      <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Səsi dinlə'} onPress={onPlay} style={({ pressed }) => [s.play, pressed && { opacity: .85 }]}>
+        <Icon name="play" size={26} color="#fff" />
+      </Pressable>
+      <View style={{ flex: 1 }}><Waveform active={playing} progress={progress} height={40} /></View>
+      <Pressable accessibilityRole="button" accessibilityLabel="Yavaş dinlə, 0.75 sürət" onPress={onSlow} hitSlop={6} style={({ pressed }) => [s.slowPill, pressed && { opacity: .8 }]}>
+        <Text style={s.slowPillText}>0.75x</Text>
+      </Pressable>
+    </View>
   </View>;
 }
 
@@ -123,9 +139,10 @@ export function ChoiceOption({ label, selected, state, onPress, disabled }: { la
 }
 
 export function Field({ value, onChange, placeholder, state, editable = true, label, onSubmit }: { value: string; onChange: (v: string) => void; placeholder: string; state?: 'correct' | 'wrong'; editable?: boolean; label?: string; onSubmit?: () => void }) {
-  return <TextInput accessibilityLabel={label ?? placeholder} value={value} onChangeText={onChange} placeholder={placeholder} placeholderTextColor="#9C8BB8"
+  const [focused, setFocused] = useState(false);
+  return <TextInput accessibilityLabel={label ?? placeholder} value={value} onChangeText={onChange} placeholder={placeholder} placeholderTextColor="#9A9FB2" onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
     editable={editable} autoCapitalize="none" autoCorrect={false} spellCheck={false} maxLength={200} returnKeyType="done" onSubmitEditing={onSubmit} submitBehavior="blurAndSubmit"
-    style={[s.field, state === 'wrong' && { borderColor: d.red }, state === 'correct' && { borderColor: d.green }]} />;
+    style={[s.field, focused && s.fieldFocus, state === 'wrong' && { borderColor: d.red }, state === 'correct' && { borderColor: d.green }]} />;
 }
 
 export function Card({ children, style }: { children: ReactNode; style?: StyleProp<ViewStyle> }) {
@@ -146,15 +163,14 @@ export const ds = StyleSheet.create({
 
 const s = StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, paddingTop: 6, paddingBottom: 10 },
-  round: { width: 44, height: 44, borderRadius: 22, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center', ...shadow },
-  headerTitle: { color: d.ink, fontSize: 19, ...font.bold },
-  divider: { width: 1.5, height: 26, backgroundColor: d.lavender },
-  track: { flex: 1, height: 10, borderRadius: 5, backgroundColor: '#D9CBF4', overflow: 'hidden' },
+  round: { width: 44, height: 44, borderRadius: 22, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: d.border, alignItems: 'center', justifyContent: 'center', ...shadow },
+  track: { flex: 1, height: 10, borderRadius: 5, backgroundColor: d.border, overflow: 'hidden' },
   fill: { height: '100%', borderRadius: 5, backgroundColor: d.purple },
   dots: { width: 28, alignItems: 'center', justifyContent: 'center', minHeight: 44 },
   chip: { alignSelf: 'flex-start', backgroundColor: d.purpleSoft, borderRadius: radius.pill, paddingHorizontal: 16, paddingVertical: 6 },
   chipText: { color: d.purple, fontSize: 15, ...font.bold },
-  capsule: { flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'center', minHeight: 44, paddingHorizontal: 18, borderRadius: radius.pill, borderWidth: 1, borderColor: d.borderStrong, backgroundColor: '#EFE5FD', ...shadow },
+  capsule: { flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'center', minHeight: 44, paddingHorizontal: 18, borderRadius: radius.pill, borderWidth: 1, borderColor: d.border, backgroundColor: d.purpleSoft, ...shadow },
+  capsuleGhost: { backgroundColor: 'transparent', borderWidth: 0, shadowOpacity: 0, elevation: 0 },
   capsuleOutline: { backgroundColor: 'transparent', borderColor: d.purple, shadowOpacity: 0, elevation: 0 },
   capsuleOrange: { backgroundColor: d.orangeSoft, borderColor: d.orange },
   capsuleSmall: { minHeight: 38, paddingHorizontal: 14 },
@@ -176,15 +192,23 @@ const s = StyleSheet.create({
   optionText: { color: d.ink, fontSize: 19, ...font.bold },
   optionNote: { color: d.purple, fontSize: 13, ...font.regular, textAlign: 'center', marginTop: 4 },
   wave: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 3 },
-  audio: { flexDirection: 'row', alignItems: 'center', gap: 10, padding: 14, borderRadius: radius.card, borderWidth: 1, borderColor: d.border, backgroundColor: d.surface },
-  avatar: { width: 64, height: 64, alignItems: 'center', justifyContent: 'center' },
+  audio: { gap: 14, padding: 16, borderRadius: radius.card, borderWidth: 1, borderColor: d.border, backgroundColor: '#FFFFFF' },
+  audioTop: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  audioBottom: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  audioName: { color: d.ink, fontSize: 18, lineHeight: 24, ...font.extrabold },
+  audioSub: { color: d.inkSoft, fontSize: 14, lineHeight: 19, ...font.regular },
+  audioTime: { color: '#8A8FA3', fontSize: 15, ...font.semibold, alignSelf: 'flex-start' },
+  slowPill: { minHeight: 40, minWidth: 64, paddingHorizontal: 14, borderRadius: radius.pill, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
+  slowPillText: { color: d.purple, fontSize: 16, ...font.bold },
+  avatar: { width: 52, height: 52, alignItems: 'center', justifyContent: 'center' },
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
-  play: { width: 64, height: 64, borderRadius: 32, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', paddingLeft: 3, ...shadow },
+  play: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', paddingLeft: 3, ...shadow },
   slowIcon: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   choice: { flexDirection: 'row', alignItems: 'center', gap: 16, minHeight: 64, paddingHorizontal: 20, borderRadius: radius.field, borderWidth: 1, backgroundColor: d.surface },
   radio: { width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: d.borderStrong, alignItems: 'center', justifyContent: 'center' },
   radioDot: { width: 14, height: 14, borderRadius: 7 },
   choiceText: { color: d.ink, fontSize: 19, ...font.bold, flex: 1 },
-  field: { minHeight: 58, borderRadius: radius.field, borderWidth: 1.5, borderColor: d.borderStrong, backgroundColor: d.surface, paddingHorizontal: 18, fontSize: 19, color: d.ink, ...font.semibold },
+  fieldFocus: { borderColor: d.purple, shadowColor: d.purple, shadowOpacity: 0.18, shadowRadius: 8, shadowOffset: { width: 0, height: 0 }, elevation: 2 },
+  field: { minHeight: 58, borderRadius: radius.field, borderWidth: 1, borderColor: d.border, backgroundColor: '#FFFFFF', paddingHorizontal: 18, fontSize: 19, color: d.ink, ...font.semibold },
   card: { borderRadius: radius.card, borderWidth: 1, borderColor: d.border, backgroundColor: d.surface, padding: 16 },
 });

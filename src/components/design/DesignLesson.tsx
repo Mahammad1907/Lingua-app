@@ -19,7 +19,7 @@ import {
 import type { TaskEvidence } from '../../utils/lessonEvidence';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import HoldToTalk from './HoldToTalk';
-import { ChatThread, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TeacherView, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
+import { Avatar, ChatThread, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TeacherView, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
 import Icon from './Icons';
 import { DragBoard, FamilyTree, ProfileCard } from './NewTaskScreens';
 import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
@@ -433,7 +433,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const scene = sceneImage(task.scenes);
     // No Kömək on the tap-to-place screens (Kim nə dedi?, Cavab cütü, Söhbəti sırala) — user, 13 Nov 2026.
     // Section exams measure without help: no Kömək at all.
-    const helpButton = !lesson.exam && !repeat && !result && task.type !== 'match' ? <Capsule tone="outline" small align="flex-end" icon="bulb" label="Kömək" onPress={() => setHelpOpen(true)} /> : null;
+    const helpButton = !lesson.exam && !repeat && !result && task.type !== 'match' ? <Capsule tone="soft" small align="flex-end" icon="bulb" label="Kömək" onPress={() => setHelpOpen(true)} /> : null;
     const helpUnderAudio = Boolean(audio && !voiceBubble && !repeat);
     // The model answer: the task's own sample, or (opened through Kömək) the first accepted answer.
     // Bug fixed 13 Nov: tasks without a written sample offered “Nümunəni göstər” but showed nothing.
@@ -441,8 +441,12 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const sampleVisible = Boolean(sampleText) && ((lesson.order <= 2 && task.type === 'voice' && Boolean(task.sample)) || sampleShown);
     return <View style={[s.gap, { flex: 1 }]}>
       {reviewing ? <View style={{ gap: 6 }}><Chip label="Təkrar" />{reviewStep === 0 ? <Text style={ds.small}>{lesson.notices.review}</Text> : null}</View> : null}
-      <Text accessibilityRole="header" style={ds.title}>{task.title}</Text>
+      <View style={{ gap: 4 }}>
+        <Text style={s.eyebrow}>{lessonLabel(lesson).replace(/i/g, 'İ').toUpperCase()}</Text>
+        <Text accessibilityRole="header" style={ds.title}>{task.title}</Text>
+      </View>
       {mascotTalks ? <SayBubble who="M" text={instruction} />
+        : listeningTask && !voiceBubble ? <Text style={s.listenSub}>{clean.join(' ')}</Text>
         : <View style={s.taskCard}>{/* The task text sits in a framed card so the eye lands on it first (15 Nov 2026). */}
           {context ? <Text style={ds.subtitle}>{context}</Text> : null}
           {context ? <View style={s.taskRule} /> : null}
@@ -452,7 +456,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       <View style={s.work}>
       {scene && !spotsShown ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
       {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.4)} /> : null}
-      {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.4, listeningTask)} /> : null}
+      {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.64, listeningTask)}
+        avatar={<Avatar who={quoteWho} size={52} />} name={quoteWho === 'M' ? '{M}' : quoteWho === 'G' ? '{G}' : quoteWho === 'B' ? '{B}' : '{F}'}
+        seconds={Math.round(audio.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.8)} /> : null}
       {/* Approved design: on listening tasks Kömək sits right under the audio card; elsewhere under the answers. */}
       {helpUnderAudio ? helpButton : null}
       {soundError && !textShown ? <Card style={{ gap: 10 }}><Text style={ds.body}>{lesson.notices.soundFailed}</Text>
@@ -499,7 +505,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         onChange={v => { setText(v.replace(/\D/g, '')); if (result?.kind === 'unverified') setResult(null); }} /> : null}
       {task.type === 'write' && letters ? <LetterBoard letters={letters} picked={picked} length={task.rule.answers[0]?.length ?? 4} disabled={locked.current}
         mark={single ? markOf(single.status) : undefined} onPick={i => pickLetters([...picked, i])} onRemove={i => pickLetters(picked.filter(x => x !== i))} /> : null}
-      {task.type === 'write' && !task.tiles && !task.keypad && !letters ? <Field onSubmit={() => { if (text.trim() && !(listeningTask && !heard && !textShown && !technical)) check(); }} value={text} onChange={v => { setText(v); if (result?.kind === 'unverified') setResult(null); }} placeholder={task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
+      {task.type === 'write' && !task.tiles && !task.keypad && !letters ? <Field onSubmit={() => { if (text.trim() && !(listeningTask && !heard && !textShown && !technical)) check(); }} value={text} onChange={v => { setText(v); if (result?.kind === 'unverified') setResult(null); }} placeholder={listeningTask && !task.tiles ? 'Sözü bura yaz...' : task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
       {task.type === 'two' ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
         graded={result?.kind === 'two' ? result.graded : undefined} keep={reviewing ? keepFields[task.id]?.fields : undefined} /> : null}
       {/* Help sits under the answers, on the right: read the task, try, then ask for help. */}
@@ -543,7 +549,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       : task.type === 'match' ? task.rows.some(r => !pairs[r.en]) : true;
     const needsAudio = listeningTask && !heard && !textShown && !technical;
     return <View style={{ gap: 12 }}>
-      {listeningTask ? <Capsule icon="muted" label="İndi dinləyə bilmirəm" onPress={cannotListen} /> : null}
+      {listeningTask ? <Capsule tone="ghost" icon="muted" label="İndi dinləyə bilmirəm" onPress={cannotListen} /> : null}
       {task.type === 'voice' ? null : <MainButton label="Yoxla" disabled={empty || needsAudio} onPress={check} />}
       {needsAudio && !empty ? <Text style={[ds.small, { textAlign: 'center' }]}>Əvvəlcə səsi dinlə.</Text> : null}
     </View>;
@@ -729,6 +735,8 @@ function ExamResult({ lesson, records, finish }: { lesson: Lesson; records: Reco
 }
 
 const s = StyleSheet.create({
+  eyebrow: { color: '#8A8FA3', fontSize: 13, lineHeight: 18, letterSpacing: 1, ...font.bold },
+  listenSub: { color: d.inkSoft, fontSize: 18, lineHeight: 25, ...font.regular },
   taskCard: { backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: d.borderStrong, borderLeftWidth: 6, borderLeftColor: d.purple, paddingHorizontal: 16, paddingVertical: 12, gap: 8, ...shadow },
   taskRule: { height: 1, backgroundColor: '#EDE4FB' },
   examScore: { alignItems: 'center', gap: 6, padding: 18, borderRadius: 24, borderWidth: 2, backgroundColor: '#fff' },
