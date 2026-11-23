@@ -11,6 +11,7 @@ import type { ChatLine, ExplainCard, MatchTask, WordCard, Who } from '../../data
 import { glossOf } from '../../data/unit1/glossary';
 import Icon, { type IconName } from './Icons';
 import { ds, nameSlot, Waveform } from './parts';
+import { useArtFit } from './fit';
 import { d, font, radius, shadow } from './theme';
 
 const mascotHead = require('../../../assets/mascot/hood_head.png');
@@ -53,9 +54,10 @@ export function TapText({ text: raw, style, onWord }: { text: string; style: any
 /** Temporary dashed frame where a picture will go (docs/SEKIL_SIYAHISI.md). */
 export function ImageSlot({ scenes, height = 150 }: { scenes?: string[]; height?: number }) {
   const notes = missingScenes(scenes);
+  const art = useArtFit();
   if (!notes.length) return null;
   // Temporary, deliberately loud marker so the user sees every place that waits for a picture.
-  return <View style={[s.imageSlot, { minHeight: height }]} accessibilityLabel="Burada şəkil olacaq">
+  return <View style={[s.imageSlot, { minHeight: Math.round(height * art) }]} accessibilityLabel="Burada şəkil olacaq">
     {notes.map(n => <Text key={n} style={s.slotNote}>ŞƏKİL {n}</Text>)}
   </View>;
 }
@@ -242,8 +244,9 @@ export function SceneSpots({ scenes, spots, value, onPick, mark, disabled }: {
   scenes?: string[]; spots: { option: string; x: number; y: number }[]; value: string; onPick: (o: string) => void; mark?: Mark; disabled?: boolean;
 }) {
   const image = sceneImage(scenes);
+  const art = useArtFit();
   if (!image) return null;
-  return <View style={s.scene}>
+  return <View style={[s.scene, art < 1 && { width: `${Math.round(art * 100)}%`, alignSelf: 'center' }]}>
     <Image source={image} style={StyleSheet.absoluteFill} contentFit="cover" accessibilityIgnoresInvertColors />
     {spots.map((sp, i) => {
       const on = value === sp.option;
@@ -397,8 +400,9 @@ export function CountryMap({ map, options, value, onPick, mark, disabled }: {
 }) {
   const m = MAPS[map];
   const homeShape = m.shapes[m.home];
+  const art = useArtFit();
   const drawn = Object.entries(m.shapes).filter(([name]) => !(name === 'England' && !options.includes('England')) && !(name === 'the UK' && options.includes('England')));
-  return <View style={s.mapBox} accessibilityLabel="Xəritə: nömrəli ölkəyə toxun">
+  return <View style={[s.mapBox, art < 1 && { width: `${Math.round(art * 100)}%`, alignSelf: 'center' }]} accessibilityLabel="Xəritə: nömrəli ölkəyə toxun">
     <Svg width="100%" height="100%" viewBox={`0 0 ${m.w} ${m.h}`}>
       <Rect x={0} y={0} width={m.w} height={m.h} rx={14} fill="#E3EEFB" />
       {m.sea ? <Path d={m.sea} fill="#C9DDF6" /> : null}
@@ -477,6 +481,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   const long = phrases.join(' ').length > 16;
   // Yeni söz cards must fit the screen without scrolling (user, 21 Nov 2026): no picture slot, tighter rows.
   const word = chip === 'Yeni söz';
+  const art = useArtFit();
   void ipa;
   return <View style={{ gap: 10 }}>
     <View style={{ gap: 4 }}>
@@ -484,7 +489,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
       {title ? <Text accessibilityRole="header" style={ds.title}>{title}</Text> : null}
       {lead ? <Text style={ds.subtitle}>{lead}</Text> : null}
     </View>
-    {word ? null : image ? <Image source={image} style={s.wordImage} contentFit="cover" accessibilityIgnoresInvertColors /> : <ImageSlot scenes={scenes} height={44} />}
+    {word ? null : image ? <Image source={image} style={[s.wordImage, { height: Math.round(170 * art) }]} contentFit="cover" accessibilityIgnoresInvertColors /> : <ImageSlot scenes={scenes} height={44} />}
     {dialog ? <View style={[s.info, shadow, { paddingVertical: 10, gap: 10 }]}>{dialog.map((l, i) => <View key={l.en} style={s.moreRow}>
       <Avatar who={i % 2 ? 'B' : 'G'} size={40} />
       <View style={{ flex: 1 }}><TapText text={l.en} style={s.dialogEn} onWord={onWord} /><Text style={s.moreAz}>{l.az}</Text></View>

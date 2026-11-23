@@ -10,6 +10,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { DesignLesson as Lesson, IntroCard, TwoTask, Who } from '../../data/designLessonTypes';
 import { useUserStore } from '../../store/userStore';
 import { isPass } from '../../utils/examResults';
+import { ART_MIN, ArtFit } from './fit';
 import { useReviewStore } from '../../store/reviewStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 import {
@@ -41,6 +42,8 @@ const SHEET_GAP = 650;
 type Result = { kind: 'single'; graded: Graded } | { kind: 'two'; graded: TwoGraded } | { kind: 'unverified'; message: string; recording?: boolean; two?: TwoGraded };
 
 const MIN_FIT = 0.78;
+/** Vertical padding of the scroll content (s.content: 6 top + 16 bottom), which is not scaled. */
+const CONTENT_PAD = 22;
 
 export default function DesignLesson({ source }: { source: Lesson }) {
   const lesson = useMemo(() => resolveLesson(source), [source]);
@@ -84,20 +87,18 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const [explainOpen, setExplainOpen] = useState(false); const [ruleOpen, setRuleOpen] = useState<string | null>(null); const [reportOpen, setReportOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); const [word, setWord] = useState<string | null>(null);
   const [finish, setFinish] = useState<{ completed: boolean } | null>(null);
-  const [viewport, setViewport] = useState(0);
-  // Fixed-screen fit: when a card is taller than the space between header and footer it is scaled down
-  // (never below MIN_FIT) instead of scrolling. The keyboard and extreme text sizes still scroll.
+  // Fixed lesson screens, the same on iPhone and Android (user, 23 Nov 2026): the card never scrolls. When it is
+  // taller than the space between header and footer, the pictures shrink first (ArtFit), then the whole card is
+  // scaled down (never below MIN_FIT) while keeping its full width. Only the open keyboard (or extreme system text
+  // sizes, below MIN_FIT) may scroll.
+  const [viewport, setViewport] = useState({ w: 0, h: 0 });
   const [contentHeight, setContentHeight] = useState(0); const [keyboardOpen, setKeyboardOpen] = useState(false);
+  const [art, setArt] = useState(1); const [fitState, setFit] = useState(1);
   useEffect(() => {
     const show = Keyboard.addListener(Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow', () => setKeyboardOpen(true));
     const hide = Keyboard.addListener(Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide', () => setKeyboardOpen(false));
     return () => { show.remove(); hide.remove(); };
   }, []);
-  const needed = viewport > 0 && contentHeight > viewport + 1 ? viewport / contentHeight : 1;
-  // Scaling only on Android (iPhone cards stay at full width, 20 Nov 2026).
-  const scaling = Platform.OS === 'android';
-  const fit = !scaling || keyboardOpen ? 1 : Math.max(MIN_FIT, needed);
-  const stillOverflows = !scaling || keyboardOpen || needed < MIN_FIT;
 
   const sequence = useRef(0); const locked = useRef(false); const tokens = useRef(0);
   // Daily review: verdicts go to the review schedule, not to lesson progress (no attempt, XP, hearts or retry round).
@@ -109,6 +110,20 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const task = isTask(current) ? current : undefined;
   const audio = task && (task.type === 'choice' || task.type === 'write' || task.type === 'voice' || task.type === 'drag' || task.type === 'profile') ? task.audio : undefined;
   const listeningTask = Boolean(audio && task?.type !== 'voice');
+
+  // Each new card starts at full size and only shrinks as far as it must (no back-and-forth).
+  const cardKey = `${showResult ? 'result' : reviewing ? `r${reviewStep}` : index}`;
+  useEffect(() => { setArt(1); setFit(1); }, [cardKey]);
+  const shownHeight = (fitValue: number) => (contentHeight - CONTENT_PAD) * fitValue + CONTENT_PAD;
+  useEffect(() => {
+    if (keyboardOpen || !viewport.h || !contentHeight || shownHeight(fitState) <= viewport.h + 1) return;
+    if (art > ART_MIN) { setArt(a => Math.max(ART_MIN, Math.round((a - .15) * 100) / 100)); return; }
+    setFit(f => Math.max(MIN_FIT, Math.min(f, (viewport.h - CONTENT_PAD) / (contentHeight - CONTENT_PAD))));
+  }, [contentHeight, viewport.h, keyboardOpen, art, fitState]); // eslint-disable-line react-hooks/exhaustive-deps
+  const fit = keyboardOpen ? 1 : fitState;
+  const stillOverflows = keyboardOpen || (viewport.h > 0 && shownHeight(fit) > viewport.h + 1 && fit <= MIN_FIT && art <= ART_MIN);
+  // The scaled card keeps the full width: it is laid out wider by 1/fit and centred, so it does not look narrow.
+  const innerW = Math.max(0, viewport.w - 40), wideW = innerW / fit;
 
   useEffect(() => {
     if (attempt || reviewMode) return;
@@ -459,7 +474,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         </View>}
       {mascotTalks && context ? <Text style={ds.subtitle}>{context}</Text> : null}
       <View style={s.work}>
-      {scene && !spotsShown ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
+      {scene && !spotsShown ? <Image source={scene} style={[s.scene, art < 1 && !keyboardOpen && { aspectRatio: 16 / 9 / art }]} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
       {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.4)} /> : null}
       {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85 * rate, listeningTask)} rate={rate} onRate={nextRate}
         avatar={<Avatar who={quoteWho} size={48} />}
@@ -582,13 +597,17 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     <Header title={lessonLabel(lesson)} progress={progress} streak={streak} onBack={exit} onMenu={showResult ? undefined : () => setMenuOpen(true)} />
     {/* Fits without scrolling on normal phones; scrolls only when the content is taller (large text, keyboard). */}
     <ScrollView style={{ flex: 1 }} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" bounces={false} alwaysBounceVertical={false}
-      overScrollMode="never" scrollEnabled={stillOverflows} onLayout={e => setViewport(e.nativeEvent.layout.height)}
+      overScrollMode="never" scrollEnabled={stillOverflows} showsVerticalScrollIndicator={stillOverflows}
+      onLayout={e => setViewport({ w: e.nativeEvent.layout.width, h: e.nativeEvent.layout.height })}
       onContentSizeChange={(_w, h) => setContentHeight(h)}>
-      <View style={{ flexGrow: 1, transform: [{ scale: fit }], transformOrigin: 'top center' }}>
+      <View style={[{ flexGrow: 1, transform: [{ scale: fit }], transformOrigin: 'top center' },
+        fit < 1 && innerW > 0 && { width: wideW, marginLeft: (innerW - wideW) / 2 }]}>
+      <ArtFit.Provider value={keyboardOpen ? 1 : art}>
       {/* A short slide-in marks each new card; Reanimated skips it when the system asks for reduced motion. */}
-      <Animated.View key={`${showResult ? 'result' : reviewing ? `r${reviewStep}` : index}`} entering={FadeIn.duration(180)} style={{ flexGrow: 1 }}>
+      <Animated.View key={cardKey} entering={FadeIn.duration(180)} style={{ flexGrow: 1 }}>
         {body}
       </Animated.View>
+      </ArtFit.Provider>
       </View>
     </ScrollView>
     <View style={[s.footer, { paddingBottom: Math.max(14, insets.bottom + 6) }]}>{footer}</View>
