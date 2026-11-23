@@ -457,7 +457,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {scene && !spotsShown ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
       {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.4)} /> : null}
       {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.64, listeningTask)}
-        avatar={<Avatar who={quoteWho} size={52} />} name={quoteWho === 'M' ? '{M}' : quoteWho === 'G' ? '{G}' : quoteWho === 'B' ? '{B}' : '{F}'}
+        avatar={<Avatar who={quoteWho} size={52} />}
         seconds={Math.round(audio.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.8)} /> : null}
       {/* Approved design: on listening tasks Kömək sits right under the audio card; elsewhere under the answers. */}
       {helpUnderAudio ? helpButton : null}

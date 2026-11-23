@@ -112,8 +112,8 @@ export function AudioPanel({ playing, onPlay, onSlow, avatar, name, seconds }: {
     <View style={s.audioTop}>
       {avatar ? <View style={s.avatar}>{avatar}</View> : null}
       <View style={{ flex: 1 }}>
-        <Text style={s.audioName}>{name ? resolveNames(name) : 'Səsli mesaj'}</Text>
-        <Text style={s.audioSub}>Səsli mesaj</Text>
+        {name ? <Text style={s.audioName}>{resolveNames(name)}</Text> : null}
+        <Text style={name ? s.audioSub : s.audioName}>Səsli mesaj</Text>
       </View>
       <Text accessibilityLabel={`Uzunluq ${Math.round(total)} saniyə`} style={s.audioTime}>{mm}</Text>
     </View>
