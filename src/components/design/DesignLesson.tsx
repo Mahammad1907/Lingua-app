@@ -457,7 +457,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {scene && !spotsShown ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
       {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.4)} /> : null}
       {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.64, listeningTask)}
-        avatar={<Avatar who={quoteWho} size={52} />}
+        avatar={<Avatar who={quoteWho} size={48} />}
         seconds={Math.round(audio.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.8)} /> : null}
       {/* Approved design: on listening tasks Kömək sits right under the audio card; elsewhere under the answers. */}
       {helpUnderAudio ? helpButton : null}
@@ -735,8 +735,8 @@ function ExamResult({ lesson, records, finish }: { lesson: Lesson; records: Reco
 }
 
 const s = StyleSheet.create({
-  eyebrow: { color: '#8A8FA3', fontSize: 13, lineHeight: 18, letterSpacing: 1, ...font.bold },
-  listenSub: { color: d.inkSoft, fontSize: 18, lineHeight: 25, ...font.regular },
+  eyebrow: { color: '#8A8FA3', fontSize: 15, lineHeight: 20, letterSpacing: 1, ...font.bold },
+  listenSub: { color: d.inkSoft, fontSize: 19, lineHeight: 26, ...font.regular, marginTop: -4 },
   taskCard: { backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: d.borderStrong, borderLeftWidth: 6, borderLeftColor: d.purple, paddingHorizontal: 16, paddingVertical: 12, gap: 8, ...shadow },
   taskRule: { height: 1, backgroundColor: '#EDE4FB' },
   examScore: { alignItems: 'center', gap: 6, padding: 18, borderRadius: 24, borderWidth: 2, backgroundColor: '#fff' },

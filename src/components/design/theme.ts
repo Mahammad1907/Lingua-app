@@ -6,8 +6,8 @@ export const d = {
   surfaceStrong: '#FFFFFF',
   border: '#E2E4EC',
   borderStrong: '#CBCFDC',
-  ink: '#2A1240',
-  inkSoft: '#4B3566',
+  ink: '#1C1A2E',               // near-black navy, as in the approved mockup
+  inkSoft: '#6B6F82',           // cool grey for subtitles and ghost buttons (≥5:1 on white)
   lavender: '#8E63E8',          // decorative only (waveform, borders)
   lavenderText: '#6B45C8',      // readable text on the light background (≥5:1)
   purple: '#5B21B6',

@@ -42,7 +42,7 @@ export type ButtonTone = 'purple' | 'green' | 'red';
 export function MainButton({ label, onPress, disabled, tone = 'purple', arrow }: { label: string; onPress: () => void; disabled?: boolean; tone?: ButtonTone; arrow?: boolean }) {
   const bg = disabled ? d.purpleDisabled : tone === 'green' ? d.green : tone === 'red' ? d.red : d.action;
   return <Pressable accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled }} disabled={disabled} onPress={onPress}
-    style={({ pressed }) => [s.main, { backgroundColor: bg }, !disabled && shadow, pressed && { opacity: .88, transform: [{ scale: .98 }] }]}>
+    style={({ pressed }) => [s.main, { backgroundColor: bg }, !disabled && { ...shadow, shadowColor: bg, shadowOpacity: .28, shadowRadius: 14, shadowOffset: { width: 0, height: 6 } }, pressed && { opacity: .88, transform: [{ scale: .98 }] }]}>
     <Text style={[s.mainText, disabled && { color: d.purpleDisabledText }]}>{label}</Text>
     {arrow && !disabled ? <Icon name="arrow" size={24} color="#fff" /> : null}
   </Pressable>;
@@ -150,7 +150,7 @@ export function Card({ children, style }: { children: ReactNode; style?: StylePr
 }
 
 export const ds = StyleSheet.create({
-  title: { color: d.ink, fontSize: 26, lineHeight: 32, ...font.extrabold, letterSpacing: -.3 },
+  title: { color: d.ink, fontSize: 32, lineHeight: 38, ...font.extrabold, letterSpacing: -.5 },
   titleLarge: { color: d.ink, fontSize: 30, lineHeight: 36, ...font.extrabold, letterSpacing: -.5 },
   // Situation + task lines must read clearly (user, repeated): strong purple and dark ink, extra bold, larger.
   instruction: { color: d.ink, fontSize: 19, lineHeight: 26, ...font.extrabold },
@@ -163,7 +163,7 @@ export const ds = StyleSheet.create({
 
 const s = StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, paddingTop: 6, paddingBottom: 10 },
-  round: { width: 44, height: 44, borderRadius: 22, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: d.border, alignItems: 'center', justifyContent: 'center', ...shadow },
+  round: { width: 52, height: 52, borderRadius: 26, backgroundColor: '#FFFFFF', borderWidth: 0, alignItems: 'center', justifyContent: 'center', ...shadow },
   track: { flex: 1, height: 10, borderRadius: 5, backgroundColor: d.border, overflow: 'hidden' },
   fill: { height: '100%', borderRadius: 5, backgroundColor: d.action },
   dots: { width: 28, alignItems: 'center', justifyContent: 'center', minHeight: 44 },
@@ -176,7 +176,7 @@ const s = StyleSheet.create({
   capsuleSmall: { minHeight: 38, paddingHorizontal: 14 },
   capsuleIcon: { width: 28, height: 28, borderRadius: 14, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   capsuleText: { color: d.purple, fontSize: 16, ...font.semibold },
-  main: { minHeight: 56, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', gap: 10, paddingHorizontal: 20 },
+  main: { minHeight: 60, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', gap: 10, paddingHorizontal: 20 },
   mainText: { color: '#fff', fontSize: 20, ...font.bold },
   backdrop: { flex: 1, backgroundColor: 'rgba(42,18,64,.35)' },
   sheet: { position: 'absolute', left: 0, right: 0, bottom: 0, backgroundColor: '#F4EEFD', borderTopLeftRadius: 30, borderTopRightRadius: 30, paddingHorizontal: 20, paddingTop: 10, gap: 10, maxHeight: '75%', ...shadow },
@@ -192,23 +192,23 @@ const s = StyleSheet.create({
   optionText: { color: d.ink, fontSize: 19, ...font.bold },
   optionNote: { color: d.purple, fontSize: 13, ...font.regular, textAlign: 'center', marginTop: 4 },
   wave: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 3 },
-  audio: { gap: 14, padding: 16, borderRadius: radius.card, borderWidth: 1, borderColor: d.border, backgroundColor: '#FFFFFF' },
+  audio: { gap: 18, padding: 18, borderRadius: 24, borderWidth: 1, borderColor: d.border, backgroundColor: '#FFFFFF' },
   audioTop: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   audioBottom: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  audioName: { color: d.ink, fontSize: 18, lineHeight: 24, ...font.extrabold },
-  audioSub: { color: d.inkSoft, fontSize: 14, lineHeight: 19, ...font.regular },
-  audioTime: { color: '#8A8FA3', fontSize: 15, ...font.semibold, alignSelf: 'flex-start' },
-  slowPill: { minHeight: 40, minWidth: 64, paddingHorizontal: 14, borderRadius: radius.pill, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
-  slowPillText: { color: d.purple, fontSize: 16, ...font.bold },
-  avatar: { width: 52, height: 52, alignItems: 'center', justifyContent: 'center' },
+  audioName: { color: d.ink, fontSize: 20, lineHeight: 26, ...font.extrabold },
+  audioSub: { color: d.inkSoft, fontSize: 15, lineHeight: 20, ...font.regular },
+  audioTime: { color: '#9A9FB2', fontSize: 16, ...font.semibold, alignSelf: 'flex-start' },
+  slowPill: { minHeight: 46, minWidth: 76, paddingHorizontal: 16, borderRadius: radius.pill, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
+  slowPillText: { color: d.purple, fontSize: 18, ...font.extrabold },
+  avatar: { width: 56, height: 56, borderRadius: 28, backgroundColor: '#F1F2F6', alignItems: 'center', justifyContent: 'center' },
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
-  play: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.action, alignItems: 'center', justifyContent: 'center', paddingLeft: 3, ...shadow },
+  play: { width: 60, height: 60, borderRadius: 30, backgroundColor: d.action, alignItems: 'center', justifyContent: 'center', paddingLeft: 3, ...shadow },
   slowIcon: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   choice: { flexDirection: 'row', alignItems: 'center', gap: 16, minHeight: 64, paddingHorizontal: 20, borderRadius: radius.field, borderWidth: 1, backgroundColor: d.surface },
   radio: { width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: d.borderStrong, alignItems: 'center', justifyContent: 'center' },
   radioDot: { width: 14, height: 14, borderRadius: 7 },
   choiceText: { color: d.ink, fontSize: 19, ...font.bold, flex: 1 },
-  fieldFocus: { borderColor: d.purple, shadowColor: d.purple, shadowOpacity: 0.18, shadowRadius: 8, shadowOffset: { width: 0, height: 0 }, elevation: 2 },
-  field: { minHeight: 58, borderRadius: radius.field, borderWidth: 1, borderColor: d.border, backgroundColor: '#FFFFFF', paddingHorizontal: 18, fontSize: 19, color: d.ink, ...font.semibold },
+  fieldFocus: { borderWidth: 1.5, borderColor: d.purple, shadowColor: d.purple, shadowOpacity: 0.18, shadowRadius: 8, shadowOffset: { width: 0, height: 0 }, elevation: 2 },
+  field: { minHeight: 64, borderRadius: 20, borderWidth: 1, borderColor: d.border, backgroundColor: '#FFFFFF', paddingHorizontal: 20, fontSize: 20, color: d.ink, ...font.semibold },
   card: { borderRadius: radius.card, borderWidth: 1, borderColor: d.border, backgroundColor: d.surface, padding: 16 },
 });
