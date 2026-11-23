@@ -2,8 +2,10 @@
 // The whole section fits on one screen. Lessons run top → bottom as round nodes with a progress ring and
 // a name + % label. The island fills with water from the top as lessons are completed and turns deep purple
 // when the section is done. The path between lessons is dotted and coloured as far as you have got.
-// Every lesson has a small name + % card beside its circle. After the last lesson the dotted path continues down to
-// AI zəng, Təkrar and the section-exam trophy (user, 20 Nov 2026). The mascot sits in the top-right corner.
+// Every lesson has a small name + % card beside its circle. The mascot sits in the top-right corner.
+// 23 Nov 2026 (user): the dark “Gündəlik təkrar” card sits under the first section title; the AI zəng card sits
+// inside the map, on the path in the middle of the section (after lesson 4 of 8); after the last lesson the path
+// goes straight to the section-exam trophy, which stands between this map and the next one.
 import { Image } from 'expo-image';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState, type ReactNode, type Ref } from 'react';
@@ -99,19 +101,20 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
     return () => { alive = false; loop?.stop(); };
   }, [glow]);
 
-  // Size the island to the space left under the header; AI zəng, Təkrar and the trophy continue below it.
+  // Size the island to the space left under the header (and the daily-review card); the trophy continues below it.
   const W = Math.min(width - 28, 400);
-  const H = Math.max(420, height - topInset - 132 - bottomSpace - 16 - 216);
+  // The AI zəng card sits on the path after the middle lesson (lesson 4 of 8); that gap is a little taller.
+  const aiAt = count >= 2 ? Math.ceil(count / 2) - 1 : -1;
+  const AI_GAP = aiAt >= 0 ? 76 : 0;
+  const H = Math.max(420, height - topInset - 132 - bottomSpace - 16 - 150 - (bare ? 0 : REVIEW_H)) + AI_GAP;
+  const step = (H - 68 - AI_GAP) / Math.max(count - 1, 1);
   // Circles near the left / right edge, so the labels have the middle to themselves (user, 20 Nov 2026).
-  const pts: Pt[] = lessons.map((_, i) => ({ x: W * (i % 2 ? .83 : .17), y: 34 + i * (H - 68) / Math.max(count - 1, 1) }));
+  const pts: Pt[] = lessons.map((_, i) => ({ x: W * (i % 2 ? .83 : .17), y: 34 + i * step + (aiAt >= 0 && i > aiAt ? AI_GAP : 0) }));
   const last = pts[count - 1];
-  // Under the island: AI zəng, Təkrar, then the exam trophy in the middle, all on the same dotted path.
-  const extraN = exam ? 3 : 2;
-  const extraY = (k: number) => H + 52 + k * 86;
-  const callPt: Pt = { x: W * (count % 2 ? .83 : .17), y: extraY(0) };
-  const reviewPt: Pt = { x: W * ((count + 1) % 2 ? .83 : .17), y: extraY(1) };
-  const trophyPt: Pt = { x: W / 2, y: extraY(2) };
-  const EXTRA = extraY(extraN - 1) - H + (exam ? 78 : 40);
+  // The path from the middle lesson to the next one passes through the centre at half height: the AI card sits there.
+  const aiPt: Pt | null = aiAt >= 0 ? { x: (pts[aiAt].x + pts[aiAt + 1].x) / 2, y: (pts[aiAt].y + pts[aiAt + 1].y) / 2 } : null;
+  const trophyPt: Pt = { x: W / 2, y: H + 60 };
+  const EXTRA = exam ? 60 + 78 : 20;
   const focused = focusId ? lessons.findIndex(l => l.id === focusId || l.parts?.some(p => p.id === focusId)) : -1;
   const focus = focused >= 0 ? focused : active;
   // The saved lesson loads after the first layout: report its place again when it arrives.
@@ -152,10 +155,21 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       <Image source={mascotHead} style={{ width: 44, height: 40 }} contentFit="contain" accessibilityLabel="Maskot" />
     </View>
 
+    {/* Daily review: once, under the first section title (user, 23 Nov 2026). */}
+    {bare ? null : <View style={s.review}>
+      <View style={s.reviewIcon}><HomeIcon name="repeat" color={d.orange} size={22} /></View>
+      <View style={{ flex: 1 }}>
+        <Text style={s.reviewTitle}>Gündəlik təkrar</Text>
+        <Text style={s.reviewSub} numberOfLines={1}>{review.count ? `Bu gün ${review.count} ifadə` : 'Səhvlərin burada toplanacaq'}</Text>
+      </View>
+      <Pressable accessibilityRole="button" accessibilityLabel="Gündəlik təkrara başla" onPress={onReview}
+        style={({ pressed }) => [s.reviewBtn, pressed && { opacity: .9 }]}><Text style={s.reviewBtnText}>Başla</Text></Pressable>
+    </View>}
+
     <View style={{ width: W, height: H + EXTRA, alignSelf: 'center' }} onLayout={e => { layoutY.current = e.nativeEvent.layout.y; if (focus >= 0) onActiveY?.(layoutY.current + (bare ? 28 : 0) + pts[focus].y); }}>
       <Svg width={W} height={H + EXTRA} style={StyleSheet.absoluteFill}>
         {(() => {
-          const chain = [last, callPt, reviewPt, ...(exam ? [trophyPt] : [])].filter(Boolean) as Pt[];
+          const chain = [last, ...(exam ? [trophyPt] : [])].filter(Boolean) as Pt[];
           return chain.slice(0, -1).map((a, i) => {
             const b = chain[i + 1], m = (a.y + b.y) / 2;
             const trophyLeg = exam && i === chain.length - 2;
@@ -233,23 +247,19 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
           })()}
         </View>;
       })}
-      {([
-        { key: 'call', pt: callPt, title: 'AI zəng', sub: 'tezliklə · gündə 1 · 3 dəq', icon: <Icon name="phone" size={26} color={d.purple} />, off: true, press: undefined as (() => void) | undefined },
-        { key: 'review', pt: reviewPt, title: 'Təkrar', sub: review.count ? `${review.count} ifadə` : 'Hələ yoxdur', icon: <HomeIcon name="repeat" color={d.orange} size={26} />, off: false, press: onReview },
-      ]).map(item => {
-        const right = item.pt.x > W / 2, avail = Math.min(176, right ? item.pt.x - NODE / 2 - 14 : W - item.pt.x - NODE / 2 - 14);
-        const side = right ? { right: W - (item.pt.x - NODE / 2 - 8), alignItems: 'flex-end' as const } : { left: item.pt.x + NODE / 2 + 8 };
-        return <View key={item.key} pointerEvents="box-none" style={StyleSheet.absoluteFill}>
-          <Pressable accessibilityRole="button" accessibilityState={{ disabled: item.off }} accessibilityLabel={`${item.title}, ${item.sub}`} disabled={item.off} onPress={item.press}
-            style={({ pressed }) => [s.node, { left: item.pt.x - NODE / 2, top: item.pt.y - NODE / 2, width: NODE, height: NODE, borderRadius: NODE / 2, borderWidth: 3, borderColor: '#E6DAFB' }, item.off && { opacity: .75 }, pressed && { transform: [{ scale: .95 }] }]}>
-            {item.icon}
-          </Pressable>
-          <View pointerEvents="none" style={[s.card, side, { width: avail, top: item.pt.y - 22 }]}>
-            <Text style={[s.cardTitle, right && { textAlign: 'right' }]} numberOfLines={1}>{item.title}</Text>
-            <Text style={[s.cardPct, { color: '#6E6188' }, right && { textAlign: 'right' }]} numberOfLines={1}>{item.sub}</Text>
+      {/* AI zəng card on the path inside the map (user, 23 Nov 2026). Not working yet: shown as “tezliklə”. */}
+      {aiPt ? (() => {
+        const cw = Math.min(W * .66, 240);
+        return <View accessible accessibilityLabel="AI zəng, tezliklə, gündə 1 zəng, 3 dəqiqə" accessibilityState={{ disabled: true }}
+          style={[s.ai, { left: aiPt.x - cw / 2, top: aiPt.y - AI_CARD_H / 2, width: cw }]}>
+          <View style={s.aiIcon}><Icon name="phone" size={20} color="#fff" /></View>
+          <View style={{ flex: 1 }}>
+            <Text style={s.aiTitle} numberOfLines={1}>AI zəng</Text>
+            <Text style={s.aiSub} numberOfLines={1}>gündə 1 · 3 dəq</Text>
           </View>
+          <Text style={s.aiSoon}>tezliklə</Text>
         </View>;
-      })}
+      })() : null}
       {exam ? <View pointerEvents="box-none" style={StyleSheet.absoluteFill}>
         <Pressable accessibilityRole="button" disabled={!examOpen || locked} onPress={() => onOpenLesson(exam.id)}
           accessibilityLabel={`Bölmə ${section} imtahanı${examOpen ? '' : ', bütün dərsləri bitirəndə açılır'}`}
@@ -336,7 +346,22 @@ export function IslandNavigation({ bottomInset, onNavigate, active = 'learn' }: 
 /** Height the floating menu takes above the safe area. */
 export const NAV_HEIGHT = 74;
 
+/** Height of the daily-review card plus its margins (taken from the island's height so the map still fits). */
+const REVIEW_H = 76;
+const AI_CARD_H = 52;
+
 const s = StyleSheet.create({
+  review: { flexDirection: 'row', alignItems: 'center', gap: 10, height: 64, marginHorizontal: 16, marginBottom: 12, paddingHorizontal: 12, borderRadius: 20, backgroundColor: '#2B1E4D' },
+  reviewIcon: { width: 40, height: 40, borderRadius: 12, backgroundColor: 'rgba(255,255,255,.1)', alignItems: 'center', justifyContent: 'center' },
+  reviewTitle: { color: '#fff', fontSize: 16, ...font.extrabold },
+  reviewSub: { color: '#C9BEE6', fontSize: 12, ...font.bold },
+  reviewBtn: { height: 36, paddingHorizontal: 16, borderRadius: 18, backgroundColor: d.orange, justifyContent: 'center' },
+  reviewBtnText: { color: '#fff', fontSize: 15, ...font.extrabold },
+  ai: { position: 'absolute', height: AI_CARD_H, flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 8, borderRadius: 16, backgroundColor: '#F1ECFF', borderWidth: 1.5, borderColor: '#9C86F0', borderStyle: 'dashed' },
+  aiIcon: { width: 36, height: 36, borderRadius: 11, backgroundColor: '#6A4BE0', alignItems: 'center', justifyContent: 'center' },
+  aiTitle: { color: '#3A2A8C', fontSize: 14, ...font.extrabold },
+  aiSub: { color: '#6E62A8', fontSize: 12, ...font.bold },
+  aiSoon: { fontSize: 11, color: '#A84A08', backgroundColor: '#FFE3C7', borderRadius: 6, paddingHorizontal: 5, paddingVertical: 1, overflow: 'hidden', ...font.extrabold },
   screen: { flex: 1, backgroundColor: '#F3ECFC' },
   topBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 16, height: 46 },
   brandRow: { flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 44 },
