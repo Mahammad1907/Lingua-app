@@ -40,7 +40,7 @@ export function Capsule({ label, icon, onPress, tone = 'soft', disabled, small, 
 
 export type ButtonTone = 'purple' | 'green' | 'red';
 export function MainButton({ label, onPress, disabled, tone = 'purple', arrow }: { label: string; onPress: () => void; disabled?: boolean; tone?: ButtonTone; arrow?: boolean }) {
-  const bg = disabled ? d.purpleDisabled : tone === 'green' ? d.green : tone === 'red' ? d.red : d.purple;
+  const bg = disabled ? d.purpleDisabled : tone === 'green' ? d.green : tone === 'red' ? d.red : d.action;
   return <Pressable accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled }} disabled={disabled} onPress={onPress}
     style={({ pressed }) => [s.main, { backgroundColor: bg }, !disabled && shadow, pressed && { opacity: .88, transform: [{ scale: .98 }] }]}>
     <Text style={[s.mainText, disabled && { color: d.purpleDisabledText }]}>{label}</Text>
@@ -165,7 +165,7 @@ const s = StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, paddingTop: 6, paddingBottom: 10 },
   round: { width: 44, height: 44, borderRadius: 22, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: d.border, alignItems: 'center', justifyContent: 'center', ...shadow },
   track: { flex: 1, height: 10, borderRadius: 5, backgroundColor: d.border, overflow: 'hidden' },
-  fill: { height: '100%', borderRadius: 5, backgroundColor: d.purple },
+  fill: { height: '100%', borderRadius: 5, backgroundColor: d.action },
   dots: { width: 28, alignItems: 'center', justifyContent: 'center', minHeight: 44 },
   chip: { alignSelf: 'flex-start', backgroundColor: d.purpleSoft, borderRadius: radius.pill, paddingHorizontal: 16, paddingVertical: 6 },
   chipText: { color: d.purple, fontSize: 15, ...font.bold },
@@ -202,7 +202,7 @@ const s = StyleSheet.create({
   slowPillText: { color: d.purple, fontSize: 16, ...font.bold },
   avatar: { width: 52, height: 52, alignItems: 'center', justifyContent: 'center' },
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
-  play: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', paddingLeft: 3, ...shadow },
+  play: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.action, alignItems: 'center', justifyContent: 'center', paddingLeft: 3, ...shadow },
   slowIcon: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   choice: { flexDirection: 'row', alignItems: 'center', gap: 16, minHeight: 64, paddingHorizontal: 20, borderRadius: radius.field, borderWidth: 1, backgroundColor: d.surface },
   radio: { width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: d.borderStrong, alignItems: 'center', justifyContent: 'center' },
