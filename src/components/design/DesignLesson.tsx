@@ -42,6 +42,8 @@ const SHEET_GAP = 650;
 type Result = { kind: 'single'; graded: Graded } | { kind: 'two'; graded: TwoGraded } | { kind: 'unverified'; message: string; recording?: boolean; two?: TwoGraded };
 
 const MIN_FIT = 0.78;
+/** Pill label → real change of the speech rate (wider than the label so the difference is heard). */
+const SPEED_FACTOR: Record<number, number> = { 1: 1, .75: .7, .5: .47, 1.25: 1.24 };
 /** Vertical padding of the scroll content (s.content: 6 top + 16 bottom), which is not scaled. */
 const CONTENT_PAD = 22;
 
@@ -55,7 +57,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const [index, setIndex] = useState(0);
   // Audio speed: tapping the pill cycles 1x → 0.75x → 0.5x → 1.25x; kept for the whole lesson (23 Nov 2026).
   const [rate, setRate] = useState(1);
-  const nextRate = () => setRate(r => r === 1 ? .75 : r === .75 ? .5 : r === .5 ? 1.25 : 1);
+  // The chosen speed applies to every play button of the lesson (user, 23 Nov 2026). The real speech rates are
+  // spread wider than the labels, because a small change (0.85 → 0.64) is hardly heard, above all on iPhone.
+  const rateRef = useRef(1); rateRef.current = rate;
+  const nextOf = (r: number) => r === 1 ? .75 : r === .75 ? .5 : r === .5 ? 1.25 : 1;
   const [streak, setStreak] = useState(0);
   const [queue, setQueue] = useState<string[]>([]);
   const [reviewing, setReviewing] = useState(false);
@@ -136,12 +141,14 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   const speak = useCallback((value: string, rate = 0.85, listening = false) => {
     const request = ++sequence.current; setSoundError(false);
+    // Normal-speed buttons follow the speed pill; buttons that are slow on purpose (“Yavaş”) keep their own rate.
+    if (rate >= 0.8) rate = rate * (SPEED_FACTOR[rateRef.current] ?? 1);
     const failed = () => { if (request !== sequence.current) return; setPlaying(false); if (listening) setSoundError(true); };
     const watchdog = setTimeout(failed, Math.max(8000, value.length * 200 / rate + 5000));
     // Slow listening: a lower rate alone is barely audible on iOS, so short pauses go between words and letters (15 Nov 2026).
     // Hyphens (letter spellings like M-A-double M-…) get a pause at any speed, so letters are not blurred together.
     const spelled = value.replace(/\[[^\]]*\]/g, ' ').replace(/(\S)-(?=\S)/g, '$1, ');
-    const text = rate < 0.6 ? spelled.replace(/\s+/g, ', ').replace(/,\s*,/g, ',') : spelled;
+    const text = rate < 0.5 ? spelled.replace(/\s+/g, ', ').replace(/,\s*,/g, ',') : spelled;
     // The lesson must be heard even with the iPhone's silent switch on (15 Nov 2026).
     void Speech.stop().then(() => setAudioModeAsync({ playsInSilentMode: true }).catch(() => {})).then(() => {
       if (request !== sequence.current) { clearTimeout(watchdog); return; }
@@ -166,7 +173,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       setLit({ card, index: i }); setPlaying(true);
       const spoken = pieces[i].replace(/[-.,!?]+$/, '').replace(/…/g, '');
       if (!spoken) { step(i + 1); return; }
-      Speech.speak(spoken, { language: 'en-US', rate: 0.85, onDone: () => setTimeout(() => step(i + 1), 120), onStopped: () => setLit(null), onError: () => step(i + 1) });
+      Speech.speak(spoken, { language: 'en-US', rate: 0.85 * (SPEED_FACTOR[rateRef.current] ?? 1), onDone: () => setTimeout(() => step(i + 1), 120), onStopped: () => setLit(null), onError: () => step(i + 1) });
     };
     void Speech.stop().then(() => setAudioModeAsync({ playsInSilentMode: true }).catch(() => {})).then(() => step(0));
   }, []);
@@ -476,7 +483,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       <View style={s.work}>
       {scene && !spotsShown ? <Image source={scene} style={[s.scene, art < 1 && !keyboardOpen && { aspectRatio: 16 / 9 / art }]} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
       {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.4)} /> : null}
-      {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85 * rate, listeningTask)} rate={rate} onRate={nextRate}
+      {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} rate={rate} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(audio, 0.85, listeningTask); }}
         avatar={<Avatar who={quoteWho} size={48} />}
         seconds={Math.round(audio.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.8)} /> : null}
       {/* Approved design: on listening tasks Kömək sits right under the audio card; elsewhere under the answers. */}
@@ -488,7 +495,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         <Text style={ds.small}>Audio mətnini görürsən. Bu hissədə dinləmə yoxlanmadı.</Text>
       </Pressable> : null}
       {sampleVisible ? <View style={s.sample}><Text style={s.sampleLabel}>Nümunə</Text><View style={s.vline} /><Text style={s.sampleText}>{sampleText ? nameSlot(sampleText) : ''}</Text></View> : null}
-      {repeat && audio ? <><AudioPanel playing={playing} onPlay={() => speak(audio, 0.85 * rate)} rate={rate} onRate={nextRate} /><PhraseCard text={audio} stress={repeat.stress} note={repeat.note} reading={repeat.reading} /></> : null}
+      {repeat && audio ? <><AudioPanel playing={playing} onPlay={() => speak(audio, 0.85)} rate={rate} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(audio, 0.85); }} /><PhraseCard text={audio} stress={repeat.stress} note={repeat.note} reading={repeat.reading} /></> : null}
       {task.type === 'choice' && task.gap && task.dialog ? <View style={{ gap: 10 }}>{task.dialog.map((l, i) => <SayBubble key={i} who={l.from} text={l.text} onPlay={() => say(l.text)} onWord={lookUp} />)}</View> : null}
       {task.type === 'choice' && task.gap ? <GapSentence speaker={task.gap.speaker} before={task.gap.before} after={task.gap.after} options={task.options} value={choice} onSay={say}
         pieces={gapDone ? gapPieces(task.gap.before, task.answer, task.gap.after) : undefined} lit={lit?.card === task.id ? lit.index : -1}
