@@ -50,6 +50,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   const [attempt, setAttempt] = useState('');
   const [index, setIndex] = useState(0);
+  // Audio speed: tapping the pill cycles 1x → 0.75x → 0.5x → 1.25x; kept for the whole lesson (23 Nov 2026).
+  const [rate, setRate] = useState(1);
+  const nextRate = () => setRate(r => r === 1 ? .75 : r === .75 ? .5 : r === .5 ? 1.25 : 1);
+  const [streak, setStreak] = useState(0);
   const [queue, setQueue] = useState<string[]>([]);
   const [reviewing, setReviewing] = useState(false);
   const [reviewStep, setReviewStep] = useState(0);
@@ -228,6 +232,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   /** Store a confirmed verdict for one task id. */
   const store = (id: string, correct: boolean, spoken: boolean) => {
+    setStreak(c => correct ? c + 1 : 0);
     // Qaydalar: the rule this task practises gets weaker or stronger (21 Nov 2026).
     useRulesStore.getState().recordTask(id, correct);
     if (reviewMode) {
@@ -456,7 +461,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       <View style={s.work}>
       {scene && !spotsShown ? <Image source={scene} style={s.scene} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
       {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.4)} /> : null}
-      {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} onSlow={() => speak(audio, 0.64, listeningTask)}
+      {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85 * rate, listeningTask)} rate={rate} onRate={nextRate}
         avatar={<Avatar who={quoteWho} size={48} />}
         seconds={Math.round(audio.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.8)} /> : null}
       {/* Approved design: on listening tasks Kömək sits right under the audio card; elsewhere under the answers. */}
@@ -468,7 +473,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         <Text style={ds.small}>Audio mətnini görürsən. Bu hissədə dinləmə yoxlanmadı.</Text>
       </Pressable> : null}
       {sampleVisible ? <View style={s.sample}><Text style={s.sampleLabel}>Nümunə</Text><View style={s.vline} /><Text style={s.sampleText}>{sampleText ? nameSlot(sampleText) : ''}</Text></View> : null}
-      {repeat && audio ? <><AudioPanel playing={playing} onPlay={() => speak(audio, 0.85)} onSlow={() => speak(audio, 0.4)} /><PhraseCard text={audio} stress={repeat.stress} note={repeat.note} reading={repeat.reading} /></> : null}
+      {repeat && audio ? <><AudioPanel playing={playing} onPlay={() => speak(audio, 0.85 * rate)} rate={rate} onRate={nextRate} /><PhraseCard text={audio} stress={repeat.stress} note={repeat.note} reading={repeat.reading} /></> : null}
       {task.type === 'choice' && task.gap && task.dialog ? <View style={{ gap: 10 }}>{task.dialog.map((l, i) => <SayBubble key={i} who={l.from} text={l.text} onPlay={() => say(l.text)} onWord={lookUp} />)}</View> : null}
       {task.type === 'choice' && task.gap ? <GapSentence speaker={task.gap.speaker} before={task.gap.before} after={task.gap.after} options={task.options} value={choice} onSay={say}
         pieces={gapDone ? gapPieces(task.gap.before, task.answer, task.gap.after) : undefined} lit={lit?.card === task.id ? lit.index : -1}
@@ -574,7 +579,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   return <KeyboardAvoidingView style={[s.screen, { paddingTop: insets.top }]} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
     <Stack.Screen options={{ headerShown: false, gestureEnabled: false }} />
-    <Header title={lessonLabel(lesson)} progress={progress} onBack={exit} onMenu={showResult ? undefined : () => setMenuOpen(true)} />
+    <Header title={lessonLabel(lesson)} progress={progress} streak={streak} onBack={exit} onMenu={showResult ? undefined : () => setMenuOpen(true)} />
     {/* Fits without scrolling on normal phones; scrolls only when the content is taller (large text, keyboard). */}
     <ScrollView style={{ flex: 1 }} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" bounces={false} alwaysBounceVertical={false}
       overScrollMode="never" scrollEnabled={stillOverflows} onLayout={e => setViewport(e.nativeEvent.layout.height)}

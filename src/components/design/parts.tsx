@@ -9,19 +9,38 @@ import { d, radius, shadow, font } from './theme';
 /** “…” standing alone in an English line is the name slot: it is shown as [ad] (earlier item 10). “Slowly…” keeps its dots. */
 export const nameSlot = (text: string) => text.replace(/(^|[\s,(“"])…/g, '$1[ad]');
 
-export function Header({ progress, onBack, onMenu }: { title?: string; progress: number; onBack: () => void; onMenu?: () => void }) {
+export function Header({ progress, onBack, onMenu, streak = 0 }: { title?: string; progress: number; onBack: () => void; onMenu?: () => void; streak?: number }) {
   const reduced = useReducedMotion();
   const width = useRef(new Animated.Value(progress)).current;
+  const bump = useRef(new Animated.Value(1)).current;
+  const shine = useRef(new Animated.Value(0)).current;
+  const last = useRef(progress);
   useEffect(() => {
-    if (reduced) width.setValue(progress);
-    else Animated.timing(width, { toValue: progress, duration: 450, useNativeDriver: false }).start();
-  }, [progress, reduced, width]);
-  // New style (23 Nov 2026): round white back button, full-width purple progress bar, no counter; the lesson label moved above the title.
+    const grew = progress > last.current; last.current = progress;
+    if (reduced) { width.setValue(progress); return; }
+    Animated.timing(width, { toValue: progress, duration: 450, useNativeDriver: false }).start();
+    if (!grew) return;
+    // Filling feels alive (23 Nov 2026): a short bounce of the bar and a glint at its tip.
+    Animated.sequence([
+      Animated.timing(bump, { toValue: 1.35, duration: 140, useNativeDriver: false }),
+      Animated.spring(bump, { toValue: 1, friction: 4, useNativeDriver: false }),
+    ]).start();
+    shine.setValue(0);
+    Animated.sequence([
+      Animated.delay(250),
+      Animated.timing(shine, { toValue: 1, duration: 180, useNativeDriver: false }),
+      Animated.timing(shine, { toValue: 0, duration: 420, useNativeDriver: false }),
+    ]).start();
+  }, [progress, reduced, width, bump, shine]);
+  // 3+ correct answers in a row: the bar turns bright mascot orange.
+  const hot = streak >= 3;
   return <View style={s.header}>
     <Pressable accessibilityRole="button" accessibilityLabel="Geri" onPress={onBack} hitSlop={8} style={s.round}><Icon name="back" size={20} color={d.ink} /></Pressable>
-    <View accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: 100, now: Math.round(progress * 100) }} style={s.track}>
-      <Animated.View style={[s.fill, { width: width.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]} />
-    </View>
+    <Animated.View accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: 100, now: Math.round(progress * 100) }} style={[s.track, { transform: [{ scaleY: bump }] }]}>
+      <Animated.View style={[s.fill, hot && { backgroundColor: d.actionHot }, { width: width.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}>
+        <Animated.View pointerEvents="none" style={[s.glint, { opacity: shine }]} />
+      </Animated.View>
+    </Animated.View>
     {onMenu ? <Pressable accessibilityRole="button" accessibilityLabel="Menyu" onPress={onMenu} hitSlop={10} style={s.dots}><Icon name="dots" size={22} color={d.inkSoft} /></Pressable> : <View style={s.dots} />}
   </View>;
 }
@@ -98,8 +117,8 @@ export function Waveform({ active, height = 44, progress }: { active?: boolean; 
 }
 
 /** “Səsli mesaj” card (23 Nov 2026): who + label + length on top; round play, wave (played part purple) and the 0.75x pill below. */
-export function AudioPanel({ playing, onPlay, onSlow, avatar, name, seconds }: { playing: boolean; onPlay: () => void; onSlow: () => void; avatar?: ReactNode; name?: string; seconds?: number }) {
-  const total = Math.max(2, seconds ?? 2);
+export function AudioPanel({ playing, onPlay, avatar, name, seconds, rate = 1, onRate }: { playing: boolean; onPlay: () => void; avatar?: ReactNode; name?: string; seconds?: number; rate?: number; onRate: () => void }) {
+  const total = Math.max(2, (seconds ?? 2) / rate);
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     if (!playing) { setProgress(0); return; }
@@ -122,8 +141,8 @@ export function AudioPanel({ playing, onPlay, onSlow, avatar, name, seconds }: {
         <Icon name="play" size={26} color="#fff" />
       </Pressable>
       <View style={{ flex: 1 }}><Waveform active={playing} progress={progress} height={40} /></View>
-      <Pressable accessibilityRole="button" accessibilityLabel="Yavaş dinlə, 0.75 sürət" onPress={onSlow} hitSlop={6} style={({ pressed }) => [s.slowPill, pressed && { opacity: .8 }]}>
-        <Text style={s.slowPillText}>0.75x</Text>
+      <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={onRate} hitSlop={6} style={({ pressed }) => [s.slowPill, pressed && { opacity: .8 }]}>
+        <Text style={s.slowPillText}>{rate}x</Text>
       </Pressable>
     </View>
   </View>;
@@ -165,7 +184,8 @@ const s = StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, paddingTop: 6, paddingBottom: 10 },
   round: { width: 52, height: 52, borderRadius: 26, backgroundColor: '#FFFFFF', borderWidth: 0, alignItems: 'center', justifyContent: 'center', ...shadow },
   track: { flex: 1, height: 10, borderRadius: 5, backgroundColor: d.border, overflow: 'hidden' },
-  fill: { height: '100%', borderRadius: 5, backgroundColor: d.action },
+  fill: { height: '100%', borderRadius: 5, backgroundColor: d.action, overflow: 'hidden' },
+  glint: { position: 'absolute', right: 0, top: 0, bottom: 0, width: 22, borderRadius: 5, backgroundColor: 'rgba(255,255,255,.75)' },
   dots: { width: 28, alignItems: 'center', justifyContent: 'center', minHeight: 44 },
   chip: { alignSelf: 'flex-start', backgroundColor: d.purpleSoft, borderRadius: radius.pill, paddingHorizontal: 16, paddingVertical: 6 },
   chipText: { color: d.purple, fontSize: 15, ...font.bold },

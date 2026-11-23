@@ -11,7 +11,8 @@ export const d = {
   lavender: '#8E63E8',          // decorative only (waveform, borders)
   lavenderText: '#6B45C8',      // readable text on the light background (≥5:1)
   purple: '#5B21B6',
-  action: '#E06A00',             // mascot orange, darker so white text reads (≥3:1): progress, main Play, active main button
+  action: '#E06A00',
+  actionHot: '#FF8A1F',          // progress bar during a streak of 3+ correct answers             // mascot orange, darker so white text reads (≥3:1): progress, main Play, active main button
   purpleSoft: '#EFE9FB',
   purpleDisabled: '#E3E0EE',
   purpleDisabledText: '#9A94B3',
