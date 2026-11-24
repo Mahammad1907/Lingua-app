@@ -155,13 +155,13 @@ Qısa geribildirim: “Hi təşəkkür deyil, salamdır. Bu səsdə BirFox salam
 
 ## Kart 4 — Salamı özün yaz
 
-Ekran növü: **Mesaj yaz** — yazışma görünüşü (başlıqda “Tanışın”), cavab mesaj balonunda görünür. Təkrarda (T2) da eyni görünüş.
+Ekran növü: **Mesaj yaz** — yazışma görünüşü (başlıqda “Yeni tanış”, o əvvəlcə 👋 göndərir), cavab mesaj balonunda görünür; şəkil yoxdur. Təkrarda (T2) da eyni görünüş (“Tanışın”, 👋).
 
 ### Öyrənənin görəcəyi mətn
 
-Tanışınla qarşılaşdın.
+Yeni tanışınla ilk dəfə mesajlaşırsan.
 
-Ona ingiliscə qısa salam yaz.
+Ona ingiliscə salam yaz.
 
 **Sahə:** Cavabını yaz  
 **Düymə:** Yoxla  
@@ -187,7 +187,7 @@ Qısa geribildirim: “Bu ifadə sağollaşmaq üçündür. Burada salam vermək
 **İzah 2 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki yazılmış cavab}”.
 - **Uyğun cavablar:** Hello! / Hi!
-- **Səbəb:** Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan.
+- **Səbəb:** Yazdığın söz sağollaşmadır, sən isə tanışınla söhbətə yeni başlayırsan.
 - **Qısa qayda:** Görüşü salamla başlat.
 - **Yeni nümunə:** Tanışını məktəbin qarşısında görürsən: “Hi!”
 
@@ -709,7 +709,7 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 
 ### T2 — Kart 4 üçün yazılı salam
 
-- Sual: “Həyətdə tanışınla qarşılaşdın. Ona ingiliscə salam yaz.”
+- Sual: “Tanışın sənə mesajda əl yellədi. Ona ingiliscə salam yaz.”
 - Uyğun cavablar: Hello! / Hi!
 - Bacarıq: yazılı salamı özü qurmaq.
 - İzah: faktiki səhvə uyğun Kart 4A və ya 4B; yeni nümunə “Hello!” ilə salamlaşmaqdır.

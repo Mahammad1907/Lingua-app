@@ -10,7 +10,7 @@ import { missingScenes, sceneImage } from '../../config/sceneImages';
 import type { ChatLine, ExplainCard, MatchTask, WordCard, Who } from '../../data/designLessonTypes';
 import { glossOf } from '../../data/unit1/glossary';
 import Icon, { type IconName } from './Icons';
-import { ds, nameSlot, Waveform } from './parts';
+import { ds, KindChip, nameSlot, Waveform } from './parts';
 import { useArtFit } from './fit';
 import { d, font, radius, shadow } from './theme';
 
@@ -101,18 +101,43 @@ function Bubble({ line, onWord }: { line: ChatLine; onWord?: (w: string) => void
   </View>;
 }
 
-/** Chat thread for “Dialoqu tamamla” and “Mesaj yaz”. The learner's bubble is the last one. */
-export function ChatThread({ partner, lines, mine, placeholder, mark, chips, onSay, onWord, children }: {
-  partner: string; from: Who; lines: ChatLine[]; mine: string; placeholder: string; mark?: Mark; chips?: ReactNode; onSay?: (t: string) => void; onWord?: (w: string) => void; children?: ReactNode;
+/** Chat thread for “Dialoqu tamamla” and “Mesaj yaz” (messenger design of 24 Nov 2026): a header with the partner's
+ *  avatar, name, “Onlayn” and Kömək; “Bu gün”; their messages on the left with the time; the learner's bubble on the
+ *  right. The learner's bubble appears once something is typed (the answer is typed in the field under the chat, one
+ *  place only) and gets the time and ✓ only after Yoxla — before that it is not “sent”. */
+export function ChatThread({ partner, from, lines, mine, placeholder, mark, chips, onSay, onWord, help, sent, children }: {
+  partner: string; from: Who; lines: ChatLine[]; mine: string; placeholder: string; mark?: Mark; chips?: ReactNode; onSay?: (t: string) => void; onWord?: (w: string) => void;
+  /** Kömək button, shown in the chat header. */ help?: ReactNode;
+  /** The answer was checked: the learner's message counts as sent. */ sent?: boolean; children?: ReactNode;
 }) {
-  return <View style={s.thread}>
-    <View style={s.threadHead}><Text style={s.threadName}>{partner}</Text></View>
-    <View style={s.threadBody}>
-      {lines.map((l, i) => <Pressable key={i} disabled={!onSay} onPress={() => onSay?.(l.text)} accessibilityHint={onSay ? 'Dinləmək üçün toxun' : undefined}><Bubble line={l} onWord={onWord} /></Pressable>)}
-      <View accessibilityLabel={mine ? `Sənin cavabın: ${mine}` : placeholder}
-        style={[s.outBubble, !mine && !chips && s.outEmpty, mark && { backgroundColor: markColor(mark, d.purple), borderColor: markColor(mark, d.purple) }, chips ? s.outChips : null]}>
-        {chips ?? <Text style={[s.bubbleText, mine ? { color: '#fff' } : { color: d.lavenderText }]}>{mine ? nameSlot(mine) : placeholder}</Text>}
+  const now = new Date(), clock = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  const showMine = Boolean(mine || chips);
+  return <View style={[s.thread, shadow]}>
+    <View style={s.threadHead}>
+      <View><Avatar who={from} size={44} /><View style={s.online} /></View>
+      <View style={{ flex: 1 }}>
+        <Text style={s.threadName} numberOfLines={1}>{nameSlot(partner)}</Text>
+        <Text style={s.threadSub}>Onlayn</Text>
       </View>
+      {help}
+    </View>
+    <View style={s.threadBody}>
+      <View style={s.today}><Text style={s.todayText}>Bu gün</Text></View>
+      {lines.map((l, i) => {
+        // A message without words (👋) is not read aloud.
+        const speakable = /[A-Za-z]/.test(l.text) && Boolean(onSay);
+        return <View key={i} style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8 }}>
+          <Pressable disabled={!speakable} onPress={() => onSay?.(l.text)} accessibilityHint={speakable ? 'Dinləmək üçün toxun' : undefined} style={{ flexShrink: 1 }}><Bubble line={l} onWord={onWord} /></Pressable>
+          <Text style={s.msgTime}>{clock}</Text>
+        </View>;
+      })}
+      {showMine ? <View style={{ alignItems: 'flex-end', gap: 4 }}>
+        <View accessibilityLabel={mine ? `Sənin cavabın: ${mine}` : placeholder}
+          style={[s.outBubble, mark && { backgroundColor: markColor(mark, d.purple), borderColor: markColor(mark, d.purple) }, chips ? s.outChips : null]}>
+          {chips ?? <Text style={[s.bubbleText, { color: '#fff' }]}>{nameSlot(mine)}</Text>}
+        </View>
+        {sent ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}><Text style={s.msgTime}>{clock}</Text><Icon name="check" size={16} color={d.purple} /></View> : null}
+      </View> : null}
     </View>
     {children}
   </View>;
@@ -369,7 +394,7 @@ function marked(text: string, forms: string[], style: object) {
 
 /** “Müəllim izahı” (design of 24 Nov 2026): caption + big title, mascot bubble, form cards side by side with the
  *  same sound button, an optional Səmimi … Rəsmi scale, the explanation in a white card and the “Diqqət” box. */
-export function TeacherView({ card, onPlay, caption }: { card: ExplainCard; onPlay: (t: string) => void; caption?: string }) {
+export function TeacherView({ card, onPlay }: { card: ExplainCard; onPlay: (t: string) => void }) {
   const forms = [...new Set(card.sections.flatMap(sec => [
     ...(sec.pairs ?? []).map(p => p.en.replace(/[!?.,]+$/, '')), ...(sec.scale?.marks ?? []).map(m => m.en)]))].filter(f => /[A-Za-z]/.test(f));
   const heading = card.heading ?? card.sections[0]?.title;
@@ -383,10 +408,7 @@ export function TeacherView({ card, onPlay, caption }: { card: ExplainCard; onPl
   const tucked = Boolean(lastSec && (lastSec.text || lastSec.scale || lastSec.short || lastSec.build));
   return <View style={{ gap: 12 }}>
     <View style={{ gap: 2 }}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-        {caption ? <Text style={s.tvCaption}>{caption.toLocaleUpperCase('az')} ·</Text> : null}
-        <View style={s.tvKind}><Icon name="bulb" size={15} color={d.purple} /><Text style={s.tvKindText}>MÜƏLLİM İZAHI</Text></View>
-      </View>
+      <KindChip kind="Müəllim izahı" icon="bulb" />
       {heading ? <Text accessibilityRole="header" style={s.tvHeading}>{heading}</Text> : null}
     </View>
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
@@ -534,7 +556,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   void ipa;
   return <View style={{ gap: 10 }}>
     <View style={{ gap: 4 }}>
-      <View style={s.learnChip}><Text style={s.learnChipText}>{chip}</Text></View>
+      <KindChip kind={chip} icon={chip === 'Yeni söz' ? 'tag' : 'layers'} />
       {title ? <Text accessibilityRole="header" style={ds.title}>{title}</Text> : null}
       {lead ? <Text style={ds.subtitle}>{lead}</Text> : null}
     </View>
@@ -633,8 +655,6 @@ const s = StyleSheet.create({
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
   playRound: { backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center' },
   slowRound: { backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
-  learnChip: { alignSelf: 'flex-start', backgroundColor: d.purpleSoft, borderRadius: 999, paddingHorizontal: 16, paddingVertical: 6, marginBottom: 4 },
-  learnChipText: { color: d.purple, fontSize: 15, ...font.bold },
   banner: { flexDirection: 'row', alignItems: 'center', gap: 8, borderRadius: 24, backgroundColor: '#5B2BC9', padding: 12 },
   bannerBubble: { flex: 1, alignItems: 'center', gap: 6, backgroundColor: '#fff', borderRadius: 22, paddingVertical: 12, paddingHorizontal: 10 },
   bannerText: { color: d.ink, fontSize: 30, lineHeight: 36, textAlign: 'center', ...font.extrabold },
@@ -665,10 +685,15 @@ const s = StyleSheet.create({
   inRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 8 },
   inBubble: { maxWidth: '78%', paddingHorizontal: 16, paddingVertical: 11, borderRadius: 20, borderBottomLeftRadius: 6, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
   bubbleText: { color: d.ink, fontSize: 17, lineHeight: 23, ...font.bold },
-  thread: { borderRadius: 24, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border, overflow: 'hidden' },
-  threadHead: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14, paddingVertical: 10, backgroundColor: '#fff', borderBottomWidth: 1, borderBottomColor: d.purpleSoft },
-  threadName: { color: d.ink, fontSize: 15, ...font.extrabold },
-  threadBody: { gap: 10, padding: 14, minHeight: 150, justifyContent: 'flex-end' },
+  thread: { borderRadius: 24, backgroundColor: '#F1EEFB', borderWidth: 1, borderColor: d.border },
+  threadSub: { color: d.inkSoft, fontSize: 13, ...font.semibold },
+  online: { position: 'absolute', right: 0, bottom: 0, width: 12, height: 12, borderRadius: 6, backgroundColor: '#2FB35A', borderWidth: 2, borderColor: '#fff' },
+  today: { alignSelf: 'center', backgroundColor: '#E2E0EA', borderRadius: 999, paddingHorizontal: 12, paddingVertical: 3 },
+  todayText: { color: d.inkSoft, fontSize: 12, ...font.semibold },
+  msgTime: { color: d.inkSoft, fontSize: 12, ...font.regular },
+  threadHead: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14, paddingVertical: 10, backgroundColor: '#fff', borderTopLeftRadius: 24, borderTopRightRadius: 24, borderBottomWidth: 1, borderBottomColor: d.purpleSoft },
+  threadName: { color: d.ink, fontSize: 17, ...font.extrabold },
+  threadBody: { gap: 10, padding: 14, minHeight: 120, justifyContent: 'flex-end' },
   outBubble: { alignSelf: 'flex-end', maxWidth: '82%', minWidth: 90, paddingHorizontal: 16, paddingVertical: 11, borderRadius: 20, borderBottomRightRadius: 6, backgroundColor: d.purple, borderWidth: 2, borderColor: d.purple },
   outEmpty: { backgroundColor: 'transparent', borderStyle: 'dashed', borderColor: d.lavender },
   tray: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, padding: 12, backgroundColor: '#fff', borderTopWidth: 1, borderTopColor: d.purpleSoft },
@@ -704,9 +729,6 @@ const s = StyleSheet.create({
   scene: { width: '100%', aspectRatio: 1.1, borderRadius: 24, overflow: 'hidden', backgroundColor: d.purpleSoft, borderWidth: 1, borderColor: d.border },
   spot: { position: 'absolute', width: 40, height: 40, marginLeft: -20, marginTop: -20, borderRadius: 20, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
   spotText: { fontSize: 18, ...font.extrabold },
-  tvCaption: { color: d.inkSoft, fontSize: 13, letterSpacing: .6, ...font.extrabold },
-  tvKind: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: d.purpleSoft, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 },
-  tvKindText: { color: d.purple, fontSize: 13, letterSpacing: .6, ...font.extrabold },
   tvTail: { position: 'absolute', left: -7, top: '50%', marginTop: -7, width: 14, height: 14, backgroundColor: '#fff', borderLeftWidth: 1.5, borderBottomWidth: 1.5, borderColor: d.purpleSoft, transform: [{ rotate: '45deg' }] },
   tvScaleSpan: { position: 'absolute', height: 8, borderRadius: 4, backgroundColor: '#B3A9D6' },
   tvHeading: { color: d.ink, fontSize: 30, lineHeight: 36, ...font.extrabold },

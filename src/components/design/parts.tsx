@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { Animated, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View, type StyleProp, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
@@ -45,6 +45,17 @@ export function Header({ progress, onBack, onMenu, streak = 0 }: { title?: strin
   </View>;
 }
 
+/** The lesson's own label (“Dərs 1”, “Bölmə imtahanı” …), given once by the lesson screen to every card. */
+export const LessonCaption = createContext('');
+const upAz = (v: string) => v.replace(/i/g, 'İ').toUpperCase();
+/** THE screen-type label, the same on every lesson screen (rule G7, 24 Nov 2026): icon + “DƏRS 1 · NÖV”. */
+export function KindChip({ kind, icon }: { kind: string; icon: IconName }) {
+  const caption = useContext(LessonCaption);
+  return <View style={s.kind} accessibilityLabel={caption ? `${caption}, ${kind}` : kind}>
+    <Icon name={icon} size={16} color={d.purple} />
+    <Text style={s.kindText} numberOfLines={1}>{caption ? `${upAz(caption)} · ` : ''}{upAz(kind)}</Text>
+  </View>;
+}
 export function Chip({ label }: { label: string }) {
   return <View style={s.chip}><Text style={s.chipText}>{label}</Text></View>;
 }
@@ -181,6 +192,8 @@ export const ds = StyleSheet.create({
 });
 
 const s = StyleSheet.create({
+  kind: { alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: d.purpleSoft, borderRadius: 999, paddingHorizontal: 12, paddingVertical: 5 },
+  kindText: { flexShrink: 1, color: d.purple, fontSize: 14, letterSpacing: .6, ...font.extrabold },
   header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, paddingTop: 6, paddingBottom: 10 },
   round: { width: 52, height: 52, borderRadius: 26, backgroundColor: '#FFFFFF', borderWidth: 0, alignItems: 'center', justifyContent: 'center', ...shadow },
   track: { flex: 1, height: 10, borderRadius: 5, backgroundColor: d.border, overflow: 'hidden' },

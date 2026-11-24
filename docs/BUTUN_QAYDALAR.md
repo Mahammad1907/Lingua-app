@@ -167,3 +167,18 @@ Hesab silmə; məxfilik siyasəti və link; profildəki işləməyən düymələ
 - Bütün dərs ekranlarında **irəli aparan düymələr** (“Davam et”, “Başa düşdüm”, “Yoxla”) və **yuxarıdakı irəliləyiş barı** maskotun standart rəngindədir: narıncı `d.action` (#E06A00, ağ yazı oxunsun deyə maskot narıncısının bir az tünd tonu).
 - **İstisna — cavab yoxlanandan sonrakı düymə:** cavab düzdürsə **yaşıl**, səhvdirsə **qırmızı** (`ResultPanel`, `LessonSheets.tsx`). Bu, əvvəldən belə idi və belə qalır.
 - **Dinləmə ikonu bütün səhifələrdə eynidir: ▶ (play)**, bənövşəyi dairəvi düymədə. Bir ortaq komponent: `SoundButton` / `SoundIcon` (`src/components/design/TaskScreens.tsx`); səsli mesaj kartının düyməsi də eyni rəngdədir. Dinamik, dalğa və s. kimi başqa səs ikonları işlənmir.
+
+## G7. VACİB QAYDA — bütün ekranlarda eyni olanlar (24 Nov 2026, istifadəçi)
+Bir ekranda dəyişən ortaq element **bütün ekranlarda eyni** dəyişir. Hər dəyişiklikdən sonra bütün ekran növləri bu siyahı ilə yoxlanır:
+1. Yuxarı hissə: geri düyməsi, narıncı irəliləyiş barı, menyu (`Header`).
+2. Ekran nişanı: ikon + “DƏRS 1 · NÖV” — bir komponent `KindChip` (`parts.tsx`): YENİ SÖZ, ÖYRƏN, MÜƏLLİM İZAHI, DİNLƏMƏ, YAZI, DANIŞIQ, SEÇİM, UYĞUNLAŞDIR, YERLƏŞDİR, ANKET.
+3. Başlıq və tapşırıq cümləsi: eyni ölçü və rəng.
+4. Kartlar: ağ fon, yumşaq kölgə (`shadow`), eyni künc.
+5. Səs düyməsi: ▶ bənövşəyi dairə (`SoundButton`, G6).
+6. Kömək düyməsi: eyni forma; mesajlaşma ekranında söhbətin başlığında.
+7. Cavab variantları və yazı sahəsi: eyni görünüş (`ChoiceOption`, `Field`).
+8. Köməkçi yazılar (“İndi dinləyə bilmirəm” və s.): eyni üslub (`Capsule`).
+9. Əsas düymə narıncı; cavabdan sonra yaşıl/qırmızı (G6).
+
+## G8. VACİB QAYDA — vəziyyət ekrana uyğun olmalıdır (24 Nov 2026, istifadəçi)
+Tapşırığın vəziyyəti öyrənənin ekranda etdiyi işə uyğun olmalıdır: **üz-üzə görüş, göstərmək, zəng → danışmaq**; **mesaj, çat, e-poçt → yazmaq**. Mesajlaşma ekranı (`ChatThread`) olan tapşırığın mətni yazışma olduğunu deyir (“yazır”, “mesaj”, “çat”), şəkli də görüş şəkli olmur. Cavab o vəziyyətdə real həyatda deyiləcək/yazılacaq şey olmalıdır; təlimat düz cavablardan birini kənarda qoymamalıdır (“qısa salam” → Hello da düzdür). Yoxlama: `node scripts/check-situation.cjs` (tapdığı hər yeri insan oxuyub qərar verir).

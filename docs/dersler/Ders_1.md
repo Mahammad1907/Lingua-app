@@ -57,22 +57,22 @@ Diqqət et: Hello və Hi görüşün əvvəlində deyilir.
 
 ## Kart 5 — Dialoqu tamamla: Salamı özün yaz
 
-**Tapşırıq:** Tanışınla qarşılaşdın. Ona ingiliscə qısa salam yaz.  
+**Tapşırıq:** Yeni tanışınla ilk dəfə mesajlaşırsan. Ona ingiliscə salam yaz.  
 **Yazışma (Tanışın):** —  
 **Qəbul:** məna: greet — nümunə: Hello! / Hi!  
 **İpucu:** Dərsin əvvəlindəki salam sözlərindən birini yaz.  
 **Düzgün olanda:** Hello və Hi görüşü başladır.  
-- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan. Qayda: Görüşü salamla başlat. Nümunə: Tanışını məktəbin qarşısında görürsən: “Hi!”  
+- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz sağollaşmadır, sən isə tanışınla söhbətə yeni başlayırsan. Qayda: Görüşü salamla başlat. Nümunə: Tanışını məktəbin qarşısında görürsən: “Hi!”  
 - *İzah (başqa səhvdə):* Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz salam deyil. Qayda: Cavab qarşı tərəfə salam verməlidir. Nümunə: Qonşunla qarşılaşırsan: “Hello!”  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Həyətdə tanışınla qarşılaşdın. Ona ingiliscə salam yaz.  
+**Tapşırıq:** Tanışın sənə mesajda əl yellədi. Ona ingiliscə salam yaz.  
 **Yazışma (Tanışın):** —  
 **Qəbul:** məna: greet — nümunə: Hello! / Hi!  
 **İpucu:** Dərsin əvvəlindəki salam sözlərindən birini yaz.  
 **Düzgün olanda:** Hello və Hi görüşü başladır.  
-- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan. Qayda: Görüşü salamla başlat. Nümunə: “Hello!” ilə salamlaş.  
+- *İzah (cavab “farewell” işini görəndə):* Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz sağollaşmadır, sən isə tanışınla söhbətə yeni başlayırsan. Qayda: Görüşü salamla başlat. Nümunə: “Hello!” ilə salamlaş.  
 - *İzah (başqa səhvdə):* Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır. — Uyğun: Hello! / Hi! Səbəb: Yazdığın söz salam deyil. Qayda: Cavab qarşı tərəfə salam verməlidir. Nümunə: “Hello!” ilə salamlaş.  
 
 ## Kart 6 — Səslə cavab: Salama səslə cavab ver

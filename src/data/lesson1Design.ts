@@ -64,22 +64,22 @@ export const lesson1Design: DesignLesson = {
       },
     },
     {
-      type: 'write', chat: { partner: 'Tanışın', from: 'G', lines: [] }, id: 'd1_c04', why: 'Hello və Hi görüşü başladır.', scenes: ['d1/meet-street'], number: 4, title: 'Salamı özün yaz', prompt: 'Tanışınla qarşılaşdın.\nOna ingiliscə qısa salam yaz.',
+      type: 'write', chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: '👋' }] }, id: 'd1_c04', why: 'Hello və Hi görüşü başladır.', number: 4, title: 'Salamı özün yaz', prompt: 'Yeni tanışınla ilk dəfə mesajlaşırsan.\nOna ingiliscə salam yaz.',
       placeholder: 'Cavabını yaz', rule: greet, hint: 'Dərsin əvvəlindəki salam sözlərindən birini yaz.',
       variants: [
         { match: { goal: 'farewell' }, short: 'Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır.', explain: {
-          answers: 'Hello! / Hi!', reason: 'Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan.',
+          answers: 'Hello! / Hi!', reason: 'Yazdığın söz sağollaşmadır, sən isə tanışınla söhbətə yeni başlayırsan.',
           rule: 'Görüşü salamla başlat.', example: 'Tanışını məktəbin qarşısında görürsən: “Hi!”' } },
         { match: { other: true }, short: 'Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır.', explain: {
           answers: 'Hello! / Hi!', reason: 'Yazdığın söz salam deyil.',
           rule: 'Cavab qarşı tərəfə salam verməlidir.', example: 'Qonşunla qarşılaşırsan: “Hello!”' } },
       ],
-      review: { chat: { partner: 'Tanışın', from: 'B', lines: [] },
-        scenes: ['d1/meet-yard'], title: 'Salamı özün yaz', prompt: 'Həyətdə tanışınla qarşılaşdın. Ona ingiliscə salam yaz.', placeholder: 'Cavabını yaz', rule: greet,
+      review: { chat: { partner: 'Tanışın', from: 'B', lines: [{ from: 'B', text: '👋' }] },
+        title: 'Salamı özün yaz', prompt: 'Tanışın sənə mesajda əl yellədi. Ona ingiliscə salam yaz.', placeholder: 'Cavabını yaz', rule: greet,
         hint: 'Dərsin əvvəlindəki salam sözlərindən birini yaz.',
         variants: [
           { match: { goal: 'farewell' }, short: 'Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır.', explain: {
-            answers: 'Hello! / Hi!', reason: 'Yazdığın söz sağollaşmadır, sən isə tanışınla yeni qarşılaşmısan.',
+            answers: 'Hello! / Hi!', reason: 'Yazdığın söz sağollaşmadır, sən isə tanışınla söhbətə yeni başlayırsan.',
             rule: 'Görüşü salamla başlat.', example: '“Hello!” ilə salamlaş.' } },
           { match: { other: true }, short: 'Burada qarşı tərəfə ingiliscə salam yazmaq lazımdır.', explain: {
             answers: 'Hello! / Hi!', reason: 'Yazdığın söz salam deyil.',

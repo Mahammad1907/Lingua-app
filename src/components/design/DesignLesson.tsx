@@ -21,10 +21,10 @@ import type { TaskEvidence } from '../../utils/lessonEvidence';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import HoldToTalk from './HoldToTalk';
 import { Avatar, ChatThread, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TeacherView, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
-import Icon from './Icons';
+import Icon, { type IconName } from './Icons';
 import { DragBoard, FamilyTree, ProfileCard } from './NewTaskScreens';
 import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
-import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
+import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, KindChip, LessonCaption, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
 import { d, shadow, font } from './theme';
 import { sceneImage } from '../../config/sceneImages';
 import { glossOf } from '../../data/unit1/glossary';
@@ -411,7 +411,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (!current) return null;
     if (current.type === 'intro') return <IntroView card={current} title={lesson.title} size={imageSize} />;
     if (current.type === 'word') return <WordView card={current} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
-    if (current.type === 'explain') return <TeacherView card={current} caption={lessonLabel(lesson)} onPlay={t => speak(t, 0.85)} />;
+    if (current.type === 'explain') return <TeacherView card={current} onPlay={t => speak(t, 0.85)} />;
     if (current.type === 'teach') return <LearnView chip="Öyrən" title={current.title} lead={current.lead} phrases={current.phrases.map(p => p.en)} az={current.phrases.map(p => p.az).join(' · ')}
       dialog={current.phrases.length > 2 ? current.phrases : undefined}
       structure={current.structure} notes={current.notes} example={current.example} scenes={current.scenes} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
@@ -469,7 +469,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     return <View style={[s.gap, { flex: 1 }]}>
       {reviewing ? <View style={{ gap: 6 }}><Chip label="Təkrar" />{reviewStep === 0 ? <Text style={ds.small}>{lesson.notices.review}</Text> : null}</View> : null}
       <View style={{ gap: 4 }}>
-        <Text style={s.eyebrow}>{lessonLabel(lesson).replace(/i/g, 'İ').toUpperCase()}</Text>
+        <KindChip kind={kindOf(task, listeningTask).kind} icon={kindOf(task, listeningTask).icon} />
         <Text accessibilityRole="header" style={ds.title}>{task.title}</Text>
       </View>
       {mascotTalks ? <SayBubble who="M" text={instruction} />
@@ -511,7 +511,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         onPlace={az => { const target = activeRow && !pairs[activeRow] ? activeRow : task.rows.find(r => !pairs[r.en])?.en; if (!target) return;
           setPairs(p => ({ ...p, [target]: az })); setNotice(''); setActiveRow(task.rows.find(r => r.en !== target && !pairs[r.en])?.en ?? ''); }} /> : null}
       {task.type === 'write' && task.chat ? <ChatThread partner={task.chat.partner} from={task.chat.from} lines={task.chat.lines} onSay={say} onWord={lookUp} placeholder={tiles ? 'Sözlərə toxun…' : 'Sənin cavabın…'}
-        mine={text} mark={single ? markOf(single.status) : undefined}
+        mine={text} mark={single ? markOf(single.status) : undefined} help={helpButton} sent={Boolean(result && result.kind !== 'unverified')}
         chips={tiles ? <PickedChips tiles={tiles} picked={picked} disabled={locked.current} placeholder="Sözlərə toxun…" onRemove={i => pickTiles(picked.filter(x => x !== i))} /> : undefined}>
         {tiles ? <TileTray tiles={tiles} picked={picked} disabled={locked.current} onSay={say} onPick={i => pickTiles([...picked, i])} /> : null}
       </ChatThread> : null}
@@ -536,7 +536,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {task.type === 'two' ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
         graded={result?.kind === 'two' ? result.graded : undefined} keep={reviewing ? keepFields[task.id]?.fields : undefined} /> : null}
       {/* Help sits under the answers, on the right: read the task, try, then ask for help. */}
-      {!helpUnderAudio ? helpButton : null}
+      {!helpUnderAudio && !(task.type === 'write' && task.chat) ? helpButton : null}
       {notice ? <Text accessibilityLiveRegion="polite" style={s.notice}>{notice}</Text> : null}
       {task.type === 'voice' && (!result || voiceRetry) ? <View style={{ paddingTop: 4, gap: 12, alignItems: 'center' }}>
         <HoldToTalk onFinal={onSpoken} onRecording={onRecording} onBusyChange={setVoiceBusy} suspended={helpOpen || explainOpen || reportOpen || menuOpen || Boolean(ruleOpen)} />
@@ -609,12 +609,12 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       onContentSizeChange={(_w, h) => setContentHeight(h)}>
       <View style={[{ flexGrow: 1, transform: [{ scale: fit }], transformOrigin: 'top center' },
         fit < 1 && innerW > 0 && { width: wideW, marginLeft: (innerW - wideW) / 2 }]}>
-      <ArtFit.Provider value={keyboardOpen ? 1 : art}>
+      <ArtFit.Provider value={keyboardOpen ? 1 : art}><LessonCaption.Provider value={lessonLabel(lesson)}>
       {/* A short slide-in marks each new card; Reanimated skips it when the system asks for reduced motion. */}
       <Animated.View key={cardKey} entering={FadeIn.duration(180)} style={{ flexGrow: 1 }}>
         {body}
       </Animated.View>
-      </ArtFit.Provider>
+      </LessonCaption.Provider></ArtFit.Provider>
       </View>
     </ScrollView>
     <View style={[s.footer, { paddingBottom: Math.max(14, insets.bottom + 6) }]}>{footer}</View>
@@ -623,7 +623,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     {glossSheet}
     {/* “Qaydaya bax” (21 Nov 2026): the rule behind a wrong answer, without leaving the lesson. */}
     <Sheet visible={Boolean(ruleOpen)} onClose={() => setRuleOpen(null)} tall title={ruleOpen ? ruleOfTaskTitle(ruleOpen) : ''} icon="layers">
-      {ruleOpen ? <ScrollView style={{ maxHeight: 560 }}>{(() => { const c = ruleCard(ruleOpen); return c ? <TeacherView card={c} caption={lessonLabel(lesson)} onPlay={t => speak(t, 0.85)} /> : null; })()}</ScrollView> : null}
+      {ruleOpen ? <ScrollView style={{ maxHeight: 560 }}>{(() => { const c = ruleCard(ruleOpen); return c ? <TeacherView card={c} onPlay={t => speak(t, 0.85)} /> : null; })()}</ScrollView> : null}
     </Sheet>
     <ExplainSheet onSay={t => speak(t)} visible={explainOpen} explain={result && result.kind !== 'unverified' ? result.graded.explain : undefined} onClose={() => setExplainOpen(false)} onReport={() => { setExplainOpen(false); setTimeout(() => setReportOpen(true), SHEET_GAP); }} />
     <ReportSheet visible={reportOpen} onClose={() => setReportOpen(false)} context={reportContext} />
@@ -718,6 +718,19 @@ export function gapPieces(before: string, answer: string, after: string) {
 }
 
 /** Header line: “Dərs 3” (Bölmə 1), “Dərs 1 · 2-ci hissə” (map lesson with parts), “Bölmə imtahanı”. */
+/** What the learner does on a task, for the shared “DƏRS 1 · NÖV” chip (rule G7, 24 Nov 2026). */
+function kindOf(task: { type: string; chat?: unknown }, listening: boolean): { kind: string; icon: IconName } {
+  if (listening) return { kind: 'Dinləmə', icon: 'play' };
+  switch (task.type) {
+    case 'write': case 'two': return { kind: 'Yazı', icon: task.chat ? 'chat' : 'doc' };
+    case 'voice': return { kind: 'Danışıq', icon: 'mic' };
+    case 'match': return { kind: 'Uyğunlaşdır', icon: 'layers' };
+    case 'drag': return { kind: 'Yerləşdir', icon: 'layers' };
+    case 'profile': return { kind: 'Anket', icon: 'doc' };
+    default: return { kind: 'Seçim', icon: 'check' };
+  }
+}
+
 function lessonLabel(lesson: Lesson) {
   if (lesson.reviewOf) return 'Gündəlik təkrar';
   if (lesson.exam) return 'Bölmə imtahanı';
@@ -766,7 +779,6 @@ function ExamResult({ lesson, records, finish }: { lesson: Lesson; records: Reco
 }
 
 const s = StyleSheet.create({
-  eyebrow: { color: '#8A8FA3', fontSize: 15, lineHeight: 20, letterSpacing: 1, ...font.bold },
   listenSub: { color: d.inkSoft, fontSize: 19, lineHeight: 26, ...font.regular, marginTop: -4 },
   taskCard: { backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: d.borderStrong, borderLeftWidth: 6, borderLeftColor: d.purple, paddingHorizontal: 16, paddingVertical: 12, gap: 8, ...shadow },
   taskRule: { height: 1, backgroundColor: '#EDE4FB' },
