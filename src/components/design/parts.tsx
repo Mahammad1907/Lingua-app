@@ -138,7 +138,7 @@ export function AudioPanel({ playing, onPlay, avatar, name, seconds, rate = 1, o
     </View>
     <View style={s.audioBottom}>
       <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Səsi dinlə'} onPress={onPlay} style={({ pressed }) => [s.play, pressed && { opacity: .85 }]}>
-        <Icon name="speaker" size={28} color="#fff" stroke={2.2} />
+        <Icon name="play" size={26} color="#fff" />
       </Pressable>
       <View style={{ flex: 1 }}><Waveform active={playing} progress={progress} height={40} /></View>
       <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={onRate} hitSlop={6} style={({ pressed }) => [s.slowPill, pressed && { opacity: .8 }]}>
@@ -222,7 +222,7 @@ const s = StyleSheet.create({
   slowPillText: { color: d.purple, fontSize: 18, ...font.extrabold },
   avatar: { width: 56, height: 56, borderRadius: 28, backgroundColor: '#F1F2F6', alignItems: 'center', justifyContent: 'center' },
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
-  play: { width: 60, height: 60, borderRadius: 30, backgroundColor: d.action, alignItems: 'center', justifyContent: 'center', paddingLeft: 3, ...shadow },
+  play: { width: 60, height: 60, borderRadius: 30, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', paddingLeft: 3, ...shadow },
   slowIcon: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   choice: { flexDirection: 'row', alignItems: 'center', gap: 16, minHeight: 64, paddingHorizontal: 20, borderRadius: radius.field, borderWidth: 1, backgroundColor: d.surface },
   radio: { width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: d.borderStrong, alignItems: 'center', justifyContent: 'center' },

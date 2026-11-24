@@ -26,8 +26,8 @@ Qeyd: Hi daha qeyri-rəsmidir.
 
 Salamın iki forması var: Hello və Hi.
 
-**1 · Hansını nə vaxt deyirsən?**
-- Hello! · hər kəsə
+- Hello! · Rəsmi · Hər kəsə uyğundur
+- Hi! · Gündəlik · Dostlara və hər yerdə
 - Hi! · gündəlik, hər yerdə
 
 **2 · Fərq nədir?**

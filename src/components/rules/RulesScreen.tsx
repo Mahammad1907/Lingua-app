@@ -87,7 +87,7 @@ export function RulesScreen({ topInset, bottomSpace, onOpenLesson }: { topInset:
       <View style={[s.tileIcon, { backgroundColor: tp.tint, width: 44, height: 44, borderRadius: 14 }]}><Icon name={TOPIC_ICON[rule.topic]} size={24} color={tp.ink} /></View>
       <Text accessibilityRole="header" style={s.ruleTitle}>{rule.title}</Text>
       <Pressable accessibilityRole="button" accessibilityLabel={`Dinlə: ${rule.eg}`} onPress={() => say(spoken(rule.eg))} style={s.egStrip}>
-        <View style={s.play}><Icon name="speaker" size={16} color={d.purple} /></View>
+        <View style={s.play}><Icon name="play" size={14} color={d.purple} /></View>
         <Text style={s.egText}>{rule.eg}</Text>
       </Pressable>
       <Text style={[s.status, { color: strength(rule) === 'strong' ? d.greenText : strength(rule) === 'new' ? d.lavenderText : d.orangeText }]}>
@@ -119,7 +119,7 @@ export function RulesScreen({ topInset, bottomSpace, onOpenLesson }: { topInset:
               {open && r.note ? <Text style={s.tNote}>{r.note}</Text> : null}
               {!open && lesson ? <Text style={s.tNote}>Bölmə {lesson.unit ?? 1} · Dərs {lesson.number ?? lesson.order}-də açılacaq</Text> : null}
             </View>
-            {open ? <View style={s.play}><Icon name="speaker" size={16} color={d.purple} /></View> : null}
+            {open ? <View style={s.play}><Icon name="play" size={14} color={d.purple} /></View> : null}
           </Pressable>;
         })}
       </View>

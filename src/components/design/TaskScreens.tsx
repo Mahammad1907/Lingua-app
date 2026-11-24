@@ -63,16 +63,16 @@ export function ImageSlot({ scenes, height = 150 }: { scenes?: string[]; height?
 }
 
 /** Round sound buttons used everywhere, icons only (user, 13 Nov 2026): purple play and the turtle (slow). */
-/** THE listening button (rule G6, 24 Nov 2026): every “listen” control uses this same round button and speaker icon. */
+/** THE listening button (rule G6, 24 Nov 2026): every “listen” control uses this same round button and the ▶ icon. */
 export function SoundButton({ onPress, size = 48, playing, label = 'Dinlə' }: { onPress: () => void; size?: number; playing?: boolean; label?: string }) {
   return <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : label} onPress={onPress} hitSlop={4}
     style={({ pressed }) => [s.playRound, { width: size, height: size, borderRadius: size / 2 }, pressed && { opacity: .85 }]}>
-    <SoundIcon size={size * .5} />
+    <View style={{ marginLeft: size * .06 }}><SoundIcon size={size * .46} /></View>
   </Pressable>;
 }
 /** The listening icon itself, for places that draw their own round (rule G6). */
 export function SoundIcon({ size = 22, color = '#fff' }: { size?: number; color?: string }) {
-  return <Icon name="speaker" size={size} color={color} stroke={2.2} />;
+  return <Icon name="play" size={size} color={color} />;
 }
 export const PlayButton = SoundButton;
 export function SlowButton({ onPress, size = 48 }: { onPress: () => void; size?: number }) {
@@ -378,14 +378,20 @@ export function TeacherView({ card, onPlay, caption }: { card: ExplainCard; onPl
     return <Text style={s.tvBig}>{full.slice(0, at)}<Text style={{ color: d.purpleDisabledText, textDecorationLine: 'line-through' }}>{drop}</Text>{full.slice(at + drop.length)}</Text>;
   };
   const bold = { color: d.ink, ...font.extrabold };
+  // The “Diqqət” box slides under the white card above it (design 24 Nov 2026) when the last section has one.
+  const lastSec = card.sections[card.sections.length - 1];
+  const tucked = Boolean(lastSec && (lastSec.text || lastSec.scale || lastSec.short || lastSec.build));
   return <View style={{ gap: 12 }}>
     <View style={{ gap: 2 }}>
-      <Text style={s.tvCaption}>{caption ? `${caption.toLocaleUpperCase('az')} · ` : ''}MÜƏLLİM İZAHI</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+        {caption ? <Text style={s.tvCaption}>{caption.toLocaleUpperCase('az')} ·</Text> : null}
+        <View style={s.tvKind}><Icon name="bulb" size={15} color={d.purple} /><Text style={s.tvKindText}>MÜƏLLİM İZAHI</Text></View>
+      </View>
       {heading ? <Text accessibilityRole="header" style={s.tvHeading}>{heading}</Text> : null}
     </View>
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
       <Avatar who="M" size={52} />
-      <View style={s.tvBubble}><Text style={ds.body}>{forms.length ? marked(card.lead, forms, { color: d.purple, ...font.extrabold })
+      <View style={s.tvBubble}><View style={s.tvTail} /><Text style={ds.body}>{forms.length ? marked(card.lead, forms, { color: d.purple, ...font.extrabold })
         : (card.focus ? card.lead.split(card.focus) : [card.lead]).map((p, i, all) => <Text key={i}>{p}{i < all.length - 1 ? <Text style={{ color: d.purple, ...font.bold }}>{card.focus}</Text> : null}</Text>)}</Text></View>
     </View>
     {card.sections.map((sec, i) => {
@@ -404,6 +410,10 @@ export function TeacherView({ card, onPlay, caption }: { card: ExplainCard; onPl
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}><Text style={s.tvScaleEnd}>{sec.scale.left}</Text><Text style={s.tvScaleEnd}>{sec.scale.right}</Text></View>
           <View style={s.tvScale}>
             <View style={s.tvScaleLine} />
+            {sec.scale.marks.length > 1 ? (() => {
+              const at = sec.scale!.marks.map(m => m.at), lo = Math.min(...at), hi = Math.max(...at);
+              return <View style={[s.tvScaleSpan, { left: `${Math.round(lo * 100)}%`, width: `${Math.round((hi - lo) * 100)}%` }]} />;
+            })() : null}
             {sec.scale.marks.map((m, k) => <View key={m.en} style={[s.tvMarkAt, { left: `${Math.round(m.at * 100)}%` }]}>
               <View style={[s.tvMark, { backgroundColor: k % 2 ? d.ink : d.purple }]}><Text style={s.tvMarkText}>{m.en}</Text></View></View>)}
           </View>
@@ -425,9 +435,9 @@ export function TeacherView({ card, onPlay, caption }: { card: ExplainCard; onPl
             <View style={{ flex: 1 }}><Text style={ds.strong}>{nameSlot(e.en)}</Text><Text style={[ds.body, { color: d.lavenderText }]}>{e.az}</Text></View></View>)}
         </> : null}
       </View> : null;
-      return <View key={i} style={{ gap: 8 }}>{pairs && label && !inner ? label : null}{pairs}{inner}</View>;
+      return <View key={i} style={[{ gap: 8 }, inner ? { zIndex: 1 } : null]}>{pairs && label && !inner ? label : null}{pairs}{inner}</View>;
     })}
-    {card.attention ? <View style={s.tvAttention}>
+    {card.attention ? <View style={[s.tvAttention, tucked && s.tvAttentionTucked]}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}><Icon name="bulb" size={18} color={d.purple} /><Text style={s.tvAttentionTitle}>Diqqət:</Text></View>
       <Text style={ds.body}>{marked(card.attention, forms, bold)}</Text>
     </View> : null}
@@ -695,23 +705,28 @@ const s = StyleSheet.create({
   spot: { position: 'absolute', width: 40, height: 40, marginLeft: -20, marginTop: -20, borderRadius: 20, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
   spotText: { fontSize: 18, ...font.extrabold },
   tvCaption: { color: d.inkSoft, fontSize: 13, letterSpacing: .6, ...font.extrabold },
+  tvKind: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: d.purpleSoft, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 },
+  tvKindText: { color: d.purple, fontSize: 13, letterSpacing: .6, ...font.extrabold },
+  tvTail: { position: 'absolute', left: -7, top: '50%', marginTop: -7, width: 14, height: 14, backgroundColor: '#fff', borderLeftWidth: 1.5, borderBottomWidth: 1.5, borderColor: d.purpleSoft, transform: [{ rotate: '45deg' }] },
+  tvScaleSpan: { position: 'absolute', height: 8, borderRadius: 4, backgroundColor: '#B3A9D6' },
   tvHeading: { color: d.ink, fontSize: 30, lineHeight: 36, ...font.extrabold },
-  tvForm: { flex: 1, gap: 4, backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: d.border, padding: 12 },
+  tvForm: { flex: 1, gap: 4, backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: d.border, padding: 12, ...shadow },
   tvFormOn: { backgroundColor: '#F4EFFF', borderColor: '#B9A4F2' },
   tvTag: { flexShrink: 1, backgroundColor: '#EEF0F5', borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 },
   tvTagText: { color: d.inkSoft, fontSize: 12, letterSpacing: .4, ...font.extrabold },
   tvFormEn: { color: d.ink, fontSize: 28, ...font.extrabold },
-  tvFormAz: { color: d.inkSoft, fontSize: 15, lineHeight: 20, ...font.semibold },
+  tvFormAz: { color: d.inkSoft, fontSize: 17, lineHeight: 22, ...font.semibold },
   tvScaleEnd: { color: d.inkSoft, fontSize: 14, ...font.semibold },
   tvScale: { height: 36, justifyContent: 'center' },
   tvScaleLine: { height: 8, borderRadius: 4, backgroundColor: '#E3E0EC' },
-  tvMarkAt: { position: 'absolute', top: 0, bottom: 0, width: 0, alignItems: 'center', justifyContent: 'center' },
-  tvMark: { borderRadius: 10, paddingHorizontal: 10, paddingVertical: 4 },
+  tvMarkAt: { position: 'absolute', top: 0, bottom: 0, width: 120, marginLeft: -60, alignItems: 'center', justifyContent: 'center' },
+  tvMark: { borderRadius: 10, paddingHorizontal: 12, paddingVertical: 5, ...shadow },
   tvMarkText: { color: '#fff', fontSize: 15, ...font.extrabold },
   tvAttention: { gap: 6, backgroundColor: '#F4EFFF', borderRadius: 20, borderWidth: 1, borderColor: '#DCD0FA', padding: 14 },
+  tvAttentionTucked: { marginTop: -34, paddingTop: 34 + 14, borderTopLeftRadius: 0, borderTopRightRadius: 0, borderTopWidth: 0 },
   tvAttentionTitle: { color: d.purple, fontSize: 16, ...font.extrabold },
-  tvBubble: { flex: 1, backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: d.purpleSoft, paddingHorizontal: 14, paddingVertical: 10 },
-  tvCard: { backgroundColor: '#fff', borderRadius: 22, borderWidth: 1.5, borderColor: d.purpleSoft, padding: 16, gap: 14 },
+  tvBubble: { flex: 1, backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: d.purpleSoft, paddingHorizontal: 14, paddingVertical: 10, ...shadow },
+  tvCard: { backgroundColor: '#fff', borderRadius: 22, borderWidth: 1.5, borderColor: d.purpleSoft, padding: 16, gap: 14, ...shadow },
   tvDivider: { borderTopWidth: 1, borderTopColor: d.purpleSoft, paddingTop: 14 },
   tvPair: { flex: 1, borderRadius: 14, paddingHorizontal: 12, paddingVertical: 10 },
   tvBig: { color: d.ink, fontSize: 22, ...font.extrabold },

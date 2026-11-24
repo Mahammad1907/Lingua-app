@@ -12,7 +12,7 @@ export function ResultPanel({ tone, title, short, answers, meaning, repeatFrom, 
   tone: 'correct' | 'wrong' | 'neutral'; title: string; short?: string; answers?: string; meaning?: string; repeatFrom?: string; corrections?: Graded['spellingCorrections']; assisted?: boolean;
   onExplain?: () => void; onReport: () => void; onContinue?: () => void; continueLabel?: string; actions?: ReactNode; collapsed: boolean; onCollapse: () => void;
 }) {
-  const button = onContinue ? <MainButton label={continueLabel} onPress={onContinue} /> : null;
+  const button = onContinue ? <MainButton label={continueLabel} tone={tone === 'correct' ? 'green' : tone === 'wrong' ? 'red' : 'purple'} onPress={onContinue} /> : null;
   if (collapsed) return <View style={{ gap: 10 }}>{button}</View>;
   return <View style={[s.panel, shadow]}>
     <View style={s.handle} />
