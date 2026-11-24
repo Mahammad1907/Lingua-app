@@ -12,9 +12,10 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
   // ── Bölmə 1 ──
   a1_en_b1_v2_d1: [E('d1_c02t', 'd1_c02', {
     lead: 'Salamın iki forması var: Hello və Hi.', focus: 'Hello və Hi',
+    heading: 'Salamlaşma',
     sections: [
-      { title: 'Hansını nə vaxt deyirsən?', pairs: [{ en: 'Hello!', az: 'hər kəsə' }, { en: 'Hi!', az: 'gündəlik, hər yerdə' }] },
-      { title: 'Fərq nədir?', text: 'İkisi də “Salam”dır. Hello bir az rəsmidir. Hi gündəlik danışıqda daha çox işlənir: dosta da, mağazada da.' },
+      { title: 'Hansını nə vaxt deyirsən?', pairs: [{ en: 'Hello!', az: 'hər kəsə', tag: 'Rəsmi' }, { en: 'Hi!', az: 'gündəlik, hər yerdə', tag: 'Gündəlik' }] },
+      { title: 'Fərq nədir?', scale: { left: 'Səmimi', right: 'Rəsmi', marks: [{ en: 'Hi', at: .3 }, { en: 'Hello', at: .72 }] }, text: 'İkisi də “Salam”dır. Hello bir az rəsmidir. Hi gündəlik danışıqda daha çox işlənir: dosta da, mağazada da.' },
     ],
     attention: 'Hello və Hi görüşün əvvəlində deyilir.',
   })],

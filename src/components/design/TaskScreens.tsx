@@ -63,12 +63,18 @@ export function ImageSlot({ scenes, height = 150 }: { scenes?: string[]; height?
 }
 
 /** Round sound buttons used everywhere, icons only (user, 13 Nov 2026): purple play and the turtle (slow). */
-export function PlayButton({ onPress, size = 48, playing, label = 'Dinlə' }: { onPress: () => void; size?: number; playing?: boolean; label?: string }) {
+/** THE listening button (rule G6, 24 Nov 2026): every “listen” control uses this same round button and speaker icon. */
+export function SoundButton({ onPress, size = 48, playing, label = 'Dinlə' }: { onPress: () => void; size?: number; playing?: boolean; label?: string }) {
   return <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : label} onPress={onPress} hitSlop={4}
     style={({ pressed }) => [s.playRound, { width: size, height: size, borderRadius: size / 2 }, pressed && { opacity: .85 }]}>
-    <Icon name="play" size={size * .42} color="#fff" />
+    <SoundIcon size={size * .5} />
   </Pressable>;
 }
+/** The listening icon itself, for places that draw their own round (rule G6). */
+export function SoundIcon({ size = 22, color = '#fff' }: { size?: number; color?: string }) {
+  return <Icon name="speaker" size={size} color={color} stroke={2.2} />;
+}
+export const PlayButton = SoundButton;
 export function SlowButton({ onPress, size = 48 }: { onPress: () => void; size?: number }) {
   return <Pressable accessibilityRole="button" accessibilityLabel="Yavaş dinlə" onPress={onPress} hitSlop={4}
     style={({ pressed }) => [s.slowRound, { width: size, height: size, borderRadius: size / 2 }, pressed && { opacity: .85 }]}>
@@ -149,7 +155,7 @@ export function GapSentence({ speaker, before, after, options, value, onPick, on
     <View style={s.sayRow}>
       {speaker ? <Avatar who={speaker} size={56} /> : null}
       <View style={[s.sayBubble, shadow, !speaker && { borderTopLeftRadius: 22 }]}>{sentence}
-        {onReplay ? <Pressable accessibilityRole="button" accessibilityLabel="Yenidən dinlə" onPress={onReplay} hitSlop={8} style={{ alignSelf: 'flex-end', marginTop: 6 }}><Icon name="play" size={22} color={d.purple} /></Pressable> : null}</View>
+        {onReplay ? <Pressable accessibilityRole="button" accessibilityLabel="Yenidən dinlə" onPress={onReplay} hitSlop={8} style={{ alignSelf: 'flex-end', marginTop: 6 }}><SoundIcon size={22} color={d.purple} /></Pressable> : null}</View>
     </View>
     <View style={s.pills}>
       {options.map(o => {
@@ -232,7 +238,7 @@ function OrderBoard({ task, pairs, active, onActive, onPlace, onSay, marks, disa
         onPress={() => { onSay?.(t); onPlace(t); }} style={({ pressed }) => [s.orderChip, pressed && { transform: [{ scale: .97 }] }]}>
         {speaker.get(t) ? <Avatar who={speaker.get(t)!} size={26} /> : null}
         <Text style={[s.turnText, { flex: 1 }]}>{nameSlot(t)}</Text>
-        <View style={s.chipPlay}><Icon name="play" size={12} color="#fff" /></View>
+        <View style={s.chipPlay}><SoundIcon size={13} /></View>
       </Pressable>)}
       {used.size === tray.length ? <Text style={[ds.small, { textAlign: 'center' }]}>Hamısı yerindədir. Yoxla.</Text> : null}
     </View>
@@ -354,44 +360,77 @@ function LivePin({ left, top }: { left: string; top: string }) {
 }
 
 /** “Müəllim izahı” (approved mockup 20 Nov 2026): mascot bubble, numbered parts, “Diqqət et”. */
-export function TeacherView({ card, onPlay }: { card: ExplainCard; onPlay: (t: string) => void }) {
-  const lead = card.focus ? card.lead.split(card.focus) : [card.lead];
+/** Colours the English forms (Hello, Hi …) inside an Azerbaijani sentence. */
+function marked(text: string, forms: string[], style: object) {
+  if (!forms.length) return text;
+  const set = new Set(forms);
+  return text.split(/([A-Za-z']+)/).map((part, i) => set.has(part) ? <Text key={i} style={style}>{part}</Text> : part);
+}
+
+/** “Müəllim izahı” (design of 24 Nov 2026): caption + big title, mascot bubble, form cards side by side with the
+ *  same sound button, an optional Səmimi … Rəsmi scale, the explanation in a white card and the “Diqqət” box. */
+export function TeacherView({ card, onPlay, caption }: { card: ExplainCard; onPlay: (t: string) => void; caption?: string }) {
+  const forms = [...new Set(card.sections.flatMap(sec => [
+    ...(sec.pairs ?? []).map(p => p.en.replace(/[!?.,]+$/, '')), ...(sec.scale?.marks ?? []).map(m => m.en)]))].filter(f => /[A-Za-z]/.test(f));
+  const heading = card.heading ?? card.sections[0]?.title;
   const crossed = (full: string, drop: string) => {
     const at = full.indexOf(` ${drop}`) + 1 || full.indexOf(drop);
     return <Text style={s.tvBig}>{full.slice(0, at)}<Text style={{ color: d.purpleDisabledText, textDecorationLine: 'line-through' }}>{drop}</Text>{full.slice(at + drop.length)}</Text>;
   };
+  const bold = { color: d.ink, ...font.extrabold };
   return <View style={{ gap: 12 }}>
-    <View style={s.learnChip}><Text style={s.learnChipText}>Müəllim izahı</Text></View>
+    <View style={{ gap: 2 }}>
+      <Text style={s.tvCaption}>{caption ? `${caption.toLocaleUpperCase('az')} · ` : ''}MÜƏLLİM İZAHI</Text>
+      {heading ? <Text accessibilityRole="header" style={s.tvHeading}>{heading}</Text> : null}
+    </View>
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
       <Avatar who="M" size={52} />
-      <View style={s.tvBubble}><Text style={ds.body}>{lead.map((p, i) => <Text key={i}>{p}{i < lead.length - 1 ? <Text style={{ color: d.purple, ...font.bold }}>{card.focus}</Text> : null}</Text>)}</Text></View>
+      <View style={s.tvBubble}><Text style={ds.body}>{forms.length ? marked(card.lead, forms, { color: d.purple, ...font.extrabold })
+        : (card.focus ? card.lead.split(card.focus) : [card.lead]).map((p, i, all) => <Text key={i}>{p}{i < all.length - 1 ? <Text style={{ color: d.purple, ...font.bold }}>{card.focus}</Text> : null}</Text>)}</Text></View>
     </View>
-    <View style={s.tvCard}>
-      {card.sections.map((sec, i) => <View key={i} style={[{ gap: 8 }, i > 0 && s.tvDivider]}>
-        <Text style={ds.label}>{i + 1} · {sec.title}</Text>
-        {sec.text ? <Text style={ds.body}>{sec.text}</Text> : null}
-        {sec.pairs ? <View style={{ flexDirection: 'row', gap: 8 }}>{sec.pairs.map((p, k) => <Pressable key={p.en} accessibilityRole="button" onPress={() => onPlay(p.en)}
-          style={[s.tvPair, { backgroundColor: k % 2 ? d.purpleSoft : d.orangeSoft }]}><Text style={ds.strong}>{p.en} <Text style={{ color: k % 2 ? d.lavenderText : d.orangeText, ...font.regular }}>· {p.az}</Text></Text></Pressable>)}</View> : null}
+    {card.sections.map((sec, i) => {
+      const label = !card.heading && i > 0 ? <Text style={ds.label}>{sec.title}</Text> : null;
+      const pairs = sec.pairs ? <View style={{ flexDirection: 'row', gap: 10 }}>{sec.pairs.map((p, k) => <View key={p.en} style={[s.tvForm, k % 2 ? s.tvFormOn : null]}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
+          {p.tag ? <View style={[s.tvTag, k % 2 ? { backgroundColor: d.purpleSoft } : null]}><Text style={[s.tvTagText, k % 2 ? { color: d.purple } : null]} numberOfLines={1}>{p.tag.toLocaleUpperCase('az')}</Text></View> : <View />}
+          <SoundButton size={40} label={`Dinlə: ${p.en}`} onPress={() => onPlay(p.en)} />
+        </View>
+        <Text style={s.tvFormEn} numberOfLines={1} adjustsFontSizeToFit>{nameSlot(p.en)}</Text>
+        <Text style={s.tvFormAz}>{p.az}</Text>
+      </View>)}</View> : null;
+      const inner = sec.text || sec.scale || sec.short || sec.build ? <View style={s.tvCard}>
+        {label}
+        {sec.scale ? <View style={{ gap: 6 }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}><Text style={s.tvScaleEnd}>{sec.scale.left}</Text><Text style={s.tvScaleEnd}>{sec.scale.right}</Text></View>
+          <View style={s.tvScale}>
+            <View style={s.tvScaleLine} />
+            {sec.scale.marks.map((m, k) => <View key={m.en} style={[s.tvMarkAt, { left: `${Math.round(m.at * 100)}%` }]}>
+              <View style={[s.tvMark, { backgroundColor: k % 2 ? d.ink : d.purple }]}><Text style={s.tvMarkText}>{m.en}</Text></View></View>)}
+          </View>
+        </View> : null}
+        {sec.text ? <Text style={ds.body}>{marked(sec.text, forms, bold)}</Text> : null}
         {sec.short ? <>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
             {crossed(sec.short.full, sec.short.drop)}<Text style={[s.tvBig, { color: d.purple }]}>→</Text><Text style={[s.tvBig, { color: d.purple }]}>{sec.short.short}</Text>
             <View style={{ flex: 1 }} />
-            <Pressable accessibilityRole="button" accessibilityLabel="Dinlə" onPress={() => onPlay(`${sec.short!.full}. ${sec.short!.short}`)} style={s.tvPlay}><Icon name="play" size={20} color="#fff" /></Pressable>
+            <SoundButton size={44} onPress={() => onPlay(`${sec.short!.full}. ${sec.short!.short}`)} />
           </View>
           <Text style={[ds.body, { color: d.lavenderText }]}>{sec.short.note}</Text>
         </> : null}
         {sec.build ? <>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 }}>{sec.build.parts.map((p, k) => <View key={k} style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
             {k ? <Text style={ds.strong}>+</Text> : null}<View style={[s.tvPair, { flex: 0, backgroundColor: k % 2 ? d.orangeSoft : d.purpleSoft }]}><Text style={ds.strong}>{nameSlot(p)}</Text></View></View>)}</View>
-          {sec.build.examples.map(e => <Pressable key={e.en} accessibilityRole="button" onPress={() => onPlay(e.en)} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-            <Icon name="play" size={16} color={d.purple} /><Text style={ds.strong}>{nameSlot(e.en)}</Text><Text style={[ds.body, { color: d.lavenderText }]}>{e.az}</Text></Pressable>)}
+          {sec.build.examples.map(e => <View key={e.en} style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+            <SoundButton size={36} label={`Dinlə: ${e.en}`} onPress={() => onPlay(e.en)} />
+            <View style={{ flex: 1 }}><Text style={ds.strong}>{nameSlot(e.en)}</Text><Text style={[ds.body, { color: d.lavenderText }]}>{e.az}</Text></View></View>)}
         </> : null}
-      </View>)}
-      {card.attention ? <View style={[{ gap: 6 }, s.tvDivider]}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}><Icon name="bulb" size={16} color={d.orangeText} /><Text style={[ds.label, { color: d.orangeText }]}>Diqqət et</Text></View>
-        <Text style={ds.body}>{card.attention}</Text>
-      </View> : null}
-    </View>
+      </View> : null;
+      return <View key={i} style={{ gap: 8 }}>{pairs && label && !inner ? label : null}{pairs}{inner}</View>;
+    })}
+    {card.attention ? <View style={s.tvAttention}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}><Icon name="bulb" size={18} color={d.purple} /><Text style={s.tvAttentionTitle}>Diqqət:</Text></View>
+      <Text style={ds.body}>{marked(card.attention, forms, bold)}</Text>
+    </View> : null}
   </View>;
 }
 
@@ -582,7 +621,7 @@ const s = StyleSheet.create({
   sayRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
   sayCard: { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 14, borderRadius: radius.card, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
-  playRound: { backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', paddingLeft: 3 },
+  playRound: { backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center' },
   slowRound: { backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   learnChip: { alignSelf: 'flex-start', backgroundColor: d.purpleSoft, borderRadius: 999, paddingHorizontal: 16, paddingVertical: 6, marginBottom: 4 },
   learnChipText: { color: d.purple, fontSize: 15, ...font.bold },
@@ -655,6 +694,22 @@ const s = StyleSheet.create({
   scene: { width: '100%', aspectRatio: 1.1, borderRadius: 24, overflow: 'hidden', backgroundColor: d.purpleSoft, borderWidth: 1, borderColor: d.border },
   spot: { position: 'absolute', width: 40, height: 40, marginLeft: -20, marginTop: -20, borderRadius: 20, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
   spotText: { fontSize: 18, ...font.extrabold },
+  tvCaption: { color: d.inkSoft, fontSize: 13, letterSpacing: .6, ...font.extrabold },
+  tvHeading: { color: d.ink, fontSize: 30, lineHeight: 36, ...font.extrabold },
+  tvForm: { flex: 1, gap: 4, backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: d.border, padding: 12 },
+  tvFormOn: { backgroundColor: '#F4EFFF', borderColor: '#B9A4F2' },
+  tvTag: { flexShrink: 1, backgroundColor: '#EEF0F5', borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 },
+  tvTagText: { color: d.inkSoft, fontSize: 12, letterSpacing: .4, ...font.extrabold },
+  tvFormEn: { color: d.ink, fontSize: 28, ...font.extrabold },
+  tvFormAz: { color: d.inkSoft, fontSize: 15, lineHeight: 20, ...font.semibold },
+  tvScaleEnd: { color: d.inkSoft, fontSize: 14, ...font.semibold },
+  tvScale: { height: 36, justifyContent: 'center' },
+  tvScaleLine: { height: 8, borderRadius: 4, backgroundColor: '#E3E0EC' },
+  tvMarkAt: { position: 'absolute', top: 0, bottom: 0, width: 0, alignItems: 'center', justifyContent: 'center' },
+  tvMark: { borderRadius: 10, paddingHorizontal: 10, paddingVertical: 4 },
+  tvMarkText: { color: '#fff', fontSize: 15, ...font.extrabold },
+  tvAttention: { gap: 6, backgroundColor: '#F4EFFF', borderRadius: 20, borderWidth: 1, borderColor: '#DCD0FA', padding: 14 },
+  tvAttentionTitle: { color: d.purple, fontSize: 16, ...font.extrabold },
   tvBubble: { flex: 1, backgroundColor: '#fff', borderRadius: 18, borderWidth: 1.5, borderColor: d.purpleSoft, paddingHorizontal: 14, paddingVertical: 10 },
   tvCard: { backgroundColor: '#fff', borderRadius: 22, borderWidth: 1.5, borderColor: d.purpleSoft, padding: 16, gap: 14 },
   tvDivider: { borderTopWidth: 1, borderTopColor: d.purpleSoft, paddingTop: 14 },

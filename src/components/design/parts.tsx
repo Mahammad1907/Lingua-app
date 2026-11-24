@@ -138,7 +138,7 @@ export function AudioPanel({ playing, onPlay, avatar, name, seconds, rate = 1, o
     </View>
     <View style={s.audioBottom}>
       <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Səsi dinlə'} onPress={onPlay} style={({ pressed }) => [s.play, pressed && { opacity: .85 }]}>
-        <Icon name="play" size={26} color="#fff" />
+        <Icon name="speaker" size={28} color="#fff" stroke={2.2} />
       </Pressable>
       <View style={{ flex: 1 }}><Waveform active={playing} progress={progress} height={40} /></View>
       <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={onRate} hitSlop={6} style={({ pressed }) => [s.slowPill, pressed && { opacity: .8 }]}>

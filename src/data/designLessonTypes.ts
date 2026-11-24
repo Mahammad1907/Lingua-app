@@ -113,12 +113,16 @@ export interface ExplainCard {
   type: 'explain'; id: string; number: number;
   /** Mascot bubble; the `focus` phrase inside it is coloured. */
   lead: string; focus?: string;
+  /** Big title of the explanation (24 Nov 2026 design). Without it the first section's title is used. */
+  heading?: string;
   sections: {
     title: string;
     /** One or two short sentences in Azerbaijani (no grammar terms). */
     text?: string;
     /** Two side-by-side chips, e.g. He's · kişi / She's · qadın. */
-    pairs?: { en: string; az: string }[];
+    pairs?: { en: string; az: string; /** Small label on the card, e.g. Rəsmi / Gündəlik. */ tag?: string }[];
+    /** A line from one end to the other with the forms placed on it (e.g. Səmimi … Rəsmi). `at` is 0…1. */
+    scale?: { left: string; right: string; marks: { en: string; at: number }[] };
     /** Long → short form with the dropped letter crossed out, with sound. */
     short?: { full: string; drop: string; short: string; note: string };
     /** Pattern chips and spoken examples. */

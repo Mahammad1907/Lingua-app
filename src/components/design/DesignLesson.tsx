@@ -411,7 +411,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (!current) return null;
     if (current.type === 'intro') return <IntroView card={current} title={lesson.title} size={imageSize} />;
     if (current.type === 'word') return <WordView card={current} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
-    if (current.type === 'explain') return <TeacherView card={current} onPlay={t => speak(t, 0.85)} />;
+    if (current.type === 'explain') return <TeacherView card={current} caption={lessonLabel(lesson)} onPlay={t => speak(t, 0.85)} />;
     if (current.type === 'teach') return <LearnView chip="Öyrən" title={current.title} lead={current.lead} phrases={current.phrases.map(p => p.en)} az={current.phrases.map(p => p.az).join(' · ')}
       dialog={current.phrases.length > 2 ? current.phrases : undefined}
       structure={current.structure} notes={current.notes} example={current.example} scenes={current.scenes} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
@@ -551,9 +551,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (showResult) return finish ? <MainButton label={lesson.result.button} onPress={exit} arrow /> : null;
     if (!current) return null;
     if (current.type === 'intro') return <MainButton label={current.start} onPress={next} arrow />;
-    if (current.type === 'explain') return <MainButton label="Başa düşdüm" tone="green" onPress={() => { useRulesStore.getState().markSeen(current.id); next(); }} arrow />;
-    if (current.type === 'teach') return <MainButton label="Davam et" tone="green" onPress={next} arrow />;
-    if (current.type === 'word') return <MainButton label="Davam et" tone="green" onPress={next} arrow />;
+    if (current.type === 'explain') return <MainButton label="Başa düşdüm" onPress={() => { useRulesStore.getState().markSeen(current.id); next(); }} arrow />;
+    if (current.type === 'teach') return <MainButton label="Davam et" onPress={next} arrow />;
+    if (current.type === 'word') return <MainButton label="Davam et" onPress={next} arrow />;
     if (!task) return null;
     if (result?.kind === 'unverified') return <ResultPanel tone="neutral" title="Yoxlanmadı" short={result.message} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)}
       actions={<>{task.type === 'voice' && !result.recording ? <Capsule small label="Keç" onPress={skipVoice} /> : null}<Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { setResult(null); setCollapsed(false); }} /></>}
@@ -623,7 +623,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     {glossSheet}
     {/* “Qaydaya bax” (21 Nov 2026): the rule behind a wrong answer, without leaving the lesson. */}
     <Sheet visible={Boolean(ruleOpen)} onClose={() => setRuleOpen(null)} tall title={ruleOpen ? ruleOfTaskTitle(ruleOpen) : ''} icon="layers">
-      {ruleOpen ? <ScrollView style={{ maxHeight: 560 }}>{(() => { const c = ruleCard(ruleOpen); return c ? <TeacherView card={c} onPlay={t => speak(t, 0.85)} /> : null; })()}</ScrollView> : null}
+      {ruleOpen ? <ScrollView style={{ maxHeight: 560 }}>{(() => { const c = ruleCard(ruleOpen); return c ? <TeacherView card={c} caption={lessonLabel(lesson)} onPlay={t => speak(t, 0.85)} /> : null; })()}</ScrollView> : null}
     </Sheet>
     <ExplainSheet onSay={t => speak(t)} visible={explainOpen} explain={result && result.kind !== 'unverified' ? result.graded.explain : undefined} onClose={() => setExplainOpen(false)} onReport={() => { setExplainOpen(false); setTimeout(() => setReportOpen(true), SHEET_GAP); }} />
     <ReportSheet visible={reportOpen} onClose={() => setReportOpen(false)} context={reportContext} />

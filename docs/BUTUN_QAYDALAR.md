@@ -164,5 +164,5 @@ Hesab silmə; məxfilik siyasəti və link; profildəki işləməyən düymələ
 - Qaydalar tabında qayda adları sual formasındadır (“Salamı necə deyim?”) və hər birinin altında ingilis nümunəsi var (`RULE_META.eg`); `check-rules.cjs` “?” və nümunəni yoxlayır. Mövzular ekranda göstərilmir, qaydalar bölmələrə görə (yenisi yuxarıda) qruplanır.
 
 ## G6. VACİB QAYDA — rənglər və dinləmə ikonu (24 Nov 2026, istifadəçi)
-- Bütün dərs ekranlarında **“Davam et” / “Başa düşdüm”** kimi irəli aparan düymə və **yuxarıdakı irəliləyiş barı** maskotun standart rəngindədir: narıncı `d.orange` (#F27A12). Başqa rəng (yaşıl, bənövşəyi) işlənmir. Bu, əvvəlki “öyrətmə kartında Davam yaşıldır” qaydasını əvəz edir.
-- **Dinləmə ikonu bütün səhifələrdə eynidir**: hər səs düyməsi eyni ikon və eyni formada çəkilir (bir ortaq komponent). Ekrandan ekrana fərqli səs ikonları (dinamik, dalğa və s.) işlənmir.
+- Bütün dərs ekranlarında **“Davam et” / “Başa düşdüm”** kimi irəli aparan düymə və **yuxarıdakı irəliləyiş barı** maskotun standart rəngindədir: narıncı `d.action` (#E06A00, ağ yazı oxunsun deyə maskot narıncısının bir az tünd tonu). Başqa rəng (yaşıl, bənövşəyi) işlənmir. Bu, əvvəlki “öyrətmə kartında Davam yaşıldır” qaydasını əvəz edir.
+- **Dinləmə ikonu bütün səhifələrdə eynidir**: hər səs düyməsi eyni ikon və eyni formada çəkilir (bir ortaq komponent: `SoundButton` / `SoundIcon`, dinamik ikonu 🔊, `src/components/design/TaskScreens.tsx`). Ekrandan ekrana fərqli səs ikonları (dinamik, dalğa və s.) işlənmir.
