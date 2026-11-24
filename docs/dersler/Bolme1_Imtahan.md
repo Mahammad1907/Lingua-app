@@ -22,10 +22,10 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 70 %-i düzgün olmalıd�
 ## Kart 3 — Yaz: Özünü təqdim et
 
 **Tapşırıq:** Kursun ilk günüdür. Qrupun söhbətinə ilk mesajını yazırsan. Salam ver və adını yaz.  
-**Qəbul:** məna: greet + introduce — nümunə: Hello! My name is … / Hi! I'm …  
+**Qəbul:** məna: greet + introduce — nümunə: Hello! My name is [ad] / Hi! I'm [ad]  
 **Düzgün olanda:** Salam verdin və adını dedin.  
-- *İzah (cavab “farewell” işini görəndə):* Tanışlıq yeni başlayır. — Uyğun: Hello! My name is … Səbəb: Sağollaşma söhbətin sonunda olur, sən isə qrupla yeni tanış olursan. Qayda: Salam + I’m … / Salam + My name is … Nümunə: Hi! I'm …  
-- *İzah (başqa səhvdə):* Salam və adın lazımdır. — Uyğun: Hello! My name is … Səbəb: Əvvəl salam ver, sonra I’m və ya My name is ilə adını de; yazılışı yoxla. Qayda: I + am → I’m …; My name is … Nümunə: Hi! I'm …  
+- *İzah (cavab “farewell” işini görəndə):* Tanışlıq yeni başlayır. — Uyğun: Hello! My name is [ad]. Səbəb: Sağollaşma söhbətin sonunda olur, sən isə qrupla yeni tanış olursan. Qayda: Salam + I’m [ad] / Salam + My name is [ad] Nümunə: Hi! I'm [ad]  
+- *İzah (başqa səhvdə):* Salam və adın lazımdır. — Uyğun: Hello! My name is [ad]. Səbəb: Əvvəl salam ver, sonra I’m və ya My name is ilə adını de; yazılışı yoxla. Qayda: I + am → I’m [ad]; My name is [ad] Nümunə: Hi! I'm [ad]  
 
 ## Kart 4 — Sözü tamamla: Sözü tamamla
 
@@ -41,8 +41,8 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 70 %-i düzgün olmalıd�
 **Tapşırıq:** Kafedə növbədə yanındakı qadını kursdan tanıyırsan, amma adını bilmirsən. Onun adını soruş.  
 **Qəbul:** məna: askName — nümunə: What's your name?  
 **Düzgün olanda:** Yeni tanışın adını soruşdun.  
-- *İzah (cavab “introduce” işini görəndə):* Sən öz adını dedin, onunkunu soruşmadın. — Uyğun: What's your name? Səbəb: “My name is …” sənin adındır, sual deyil. Qayda: My name is … — öz adın; What’s your name? — onun adı. Nümunə: Hi! What's your name?  
-- *İzah (başqa səhvdə):* Ad sualı lazımdır. — Uyğun: What's your name? Səbəb: Onun adını What’s your name? sualı ilə soruşursan; sözləri və sırasını yoxla. Qayda: What’s your name? — sual; My name is … — cavab. Nümunə: Hello! What's your name?  
+- *İzah (cavab “introduce” işini görəndə):* Sən öz adını dedin, onunkunu soruşmadın. — Uyğun: What's your name? Səbəb: “My name is [ad]” sənin adındır, sual deyil. Qayda: My name is [ad] — öz adın; What’s your name? — onun adı. Nümunə: Hi! What's your name?  
+- *İzah (başqa səhvdə):* Ad sualı lazımdır. — Uyğun: What's your name? Səbəb: Onun adını What’s your name? sualı ilə soruşursan; sözləri və sırasını yoxla. Qayda: What’s your name? — sual; My name is [ad] — cavab. Nümunə: Hello! What's your name?  
 
 ## Kart 6 — Kim nə dedi?: Kim nə dedi?
 
@@ -70,7 +70,7 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 70 %-i düzgün olmalıd�
 
 ## Kart 9 — Mesaj yaz (sözlərdən): Cümləni qur
 
-**Tapşırıq:** İşdə yeni həmkarla tanış oldun. Sözlərdən “Tanış olduğuma şadam” cümləsini qur.  
+**Tapşırıq:** İşdə yeni həmkar sənə ilk dəfə mesaj yazır. Sözlərdən “Tanış olduğuma şadam” cümləsini qur.  
 **Yazışma (Yeni həmkar):** “Hello!”  
 **Sözlər:** meet · you · Nice · your · to · too · .  
 **Qəbul:** dəqiq: Nice to meet you.  
@@ -112,9 +112,9 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 70 %-i düzgün olmalıd�
 ## Kart 14 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Kafedə iki nəfər tanış olur. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hi! What's your name? → 2. Sorry? Say that again, please. → 3. What's your name? → 4. My name is … Nice to meet you.  
+**Düzgün sıra:** 1. Hi! What's your name? → 2. Sorry? Say that again, please. → 3. What's your name? → 4. My name is [ad]. Nice to meet you.  
 **Düzgün olanda:** Salam, təkrar xahişi, sual və cavab düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is … Nice to meet you. Səbəb: Əvvəl salamlaşıb soruşur, eşitməyən bir də xahiş edir, sual təkrarlanır, sonra cavab gəlir. Qayda: What’s your name? — əvvəl sual; My name is … — sonra cavab. Nümunə: Hello! What's your name? — Hi! I'm …  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is [ad]. Nice to meet you. Səbəb: Əvvəl salamlaşıb soruşur, eşitməyən bir də xahiş edir, sual təkrarlanır, sonra cavab gəlir. Qayda: What’s your name? — əvvəl sual; My name is [ad] — sonra cavab. Nümunə: Hello! What's your name? — Hi! I'm [ad]  
 
 ## Kart 15 — Səslə cavab: Danış: üzrə cavab
 

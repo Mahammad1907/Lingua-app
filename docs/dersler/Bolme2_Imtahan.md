@@ -136,7 +136,7 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 **Tapşırıq:** Qeydiyyat masasında. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Hello! What's your phone number? → 2. It's zero five zero, two two one, four eight, three six. → 3. Zero five zero, two two one, four eight, three six. Is that right? → 4. Yes, that's right. Thank you!  
 **Düzgün olanda:** Qeydiyyat söhbəti düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! What's your phone number? → It's zero five zero… → … Is that right? → Yes, that's right. Thank you! Səbəb: Sual, nömrə, yoxlama, sonra təsdiq. Qayda: Is that right? — yoxlama; Yes, that's right. — təsdiq. Nümunə: What's your phone number?  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! What's your phone number? → It's zero five zero… → Is that right? → Yes, that's right. Thank you! Səbəb: Sual, nömrə, yoxlama, sonra təsdiq. Qayda: Is that right? — yoxlama; Yes, that's right. — təsdiq. Nümunə: What's your phone number?  
 
 ## Nəticə
 

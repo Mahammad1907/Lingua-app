@@ -159,13 +159,13 @@ export const lesson7b: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d7b_c13', number: 13, title: 'Sualı qur', why: 'Yaşı soruşdun: How old are you?', hint: 'Kartdakı sualı xatırla — yaş haqqında.',
-      prompt: 'İdman zalında yeni tanışla danışırsan.\nSözlərdən onun yaşını soruşan sual qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'İdman zalındakı yeni tanışla yazışırsan.\nSözlərdən onun yaşını soruşan sual qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni tanış', from: 'G', lines: [{ from: 'G', text: 'Hello! Nice to meet you.' }] },
       tiles: ['old', 'How', 'you', 'are', 'is', 'your', '?'], rule: exact('How old are you?'),
       variants: [other('How old are you?', ex('How old are you?', 'Yaş “How old” ilə soruşulur, sonra “are you”.', 'How are you? — hal; How old are you? — yaş.', 'Hi! How old are you?'))],
       review: {
         title: 'Sualı qur', why: 'Yaşı soruşdun: How old are you?', hint: 'Kartdakı sualı xatırla — yaş haqqında.',
-        prompt: 'Kursda yeni yoldaşın yaşını formaya yazmalısan.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Yeni yoldaşının yaşını kurs formasına yazmalısan. Ona mesajla soruş.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Kurs yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Hello!' }] },
         tiles: ['are', 'old', 'How', 'is', 'you', 'name', '?'], rule: exact('How old are you?'),
         variants: [other('How old are you?', ex('How old are you?', 'Yaş “How old” ilə soruşulur, sonra “are you”.', 'How are you? — hal; How old are you? — yaş.', 'How old are you?'))],

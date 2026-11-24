@@ -89,7 +89,7 @@ export const unit1Exam: DesignLesson[] = [{
     },
     {
       type: 'write', id: 'u1x_c09', number: 9, title: 'Cümləni qur', why: 'Nice to meet you — “to” da yerindədir.',
-      prompt: 'İşdə yeni həmkarla tanış oldun.\nSözlərdən “Tanış olduğuma şadam” cümləsini qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'İşdə yeni həmkar sənə ilk dəfə mesaj yazır.\nSözlərdən “Tanış olduğuma şadam” cümləsini qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni həmkar', from: 'B', lines: [{ from: 'B', text: 'Hello!' }] },
       tiles: ['meet', 'you', 'Nice', 'your', 'to', 'too', '.'], rule: exact('Nice to meet you.'),
       variants: [other('Söz sırası və ya bir söz düz deyil.', ex('Nice to meet you.', 'Dörd söz bu sırada gəlir: Nice, to, meet, you.', 'Nice to meet you. — xoş söz; You too. — ona cavab.', 'Nice to meet you! — You too!'))],

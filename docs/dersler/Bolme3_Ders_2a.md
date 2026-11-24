@@ -19,7 +19,7 @@ Quruluşu: What country are you from?
 
 Nümunə: **What country are you from? — I'm from Azerbaijan.** — Hansı ölkədənsən? — Azərbaycandanam.
 
-Qeyd: What country …? — hansı ölkə …?
+Qeyd: What country is it? — hansı ölkə?
 
 ## Kart 3 — Seç: Dinlə və anla
 
@@ -216,7 +216,7 @@ Qeyd: Vurğu sondadır.
 **Düzgün olanda:** Hansı ölkədən olduğunu dedin.  
 - *İzah (başqa səhvdə):* Ölkədən əvvəl “from” lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-dan” şəkilçidir; ingiliscə ölkədən əvvəl ayrıca “from” gəlir. Qayda: I'm from Azerbaijan. — haradan; I'm fine. — hal. Nümunə: What country are you from? — I'm from Azerbaijan.  
 - *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Azerbaijan. — düzdür; I from Azerbaijan. — olmur. Nümunə: What country are you from? — I'm from Azerbaijan.  
-- *İzah (başqa səhvdə):* I'm from + ölkə. — Uyğun: I'm from Azerbaijan. Səbəb: Sual ölkəni soruşur — I’m from və ölkənin adı. Qayda: I'm from Azerbaijan. — ölkə; My name is … — ad. Nümunə: What country are you from? — I'm from Azerbaijan.  
+- *İzah (başqa səhvdə):* I'm from + ölkə. — Uyğun: I'm from Azerbaijan. Səbəb: Sual ölkəni soruşur — I’m from və ölkənin adı. Qayda: I'm from Azerbaijan. — ölkə; My name is [ad] — ad. Nümunə: What country are you from? — I'm from Azerbaijan.  
 
 **Təkrar (yeni vəziyyət):**
 

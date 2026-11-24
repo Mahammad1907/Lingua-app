@@ -180,7 +180,7 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İdman zalının qəbulu nömrəni oxuyub yoxlayır. Nömrə düzdür. Təsdiqlə.  
+**Tapşırıq:** İdman zalının qəbulu nömrəni mesajla yoxlayır. Nömrə düzdür. Təsdiqlə.  
 **Yazışma (İdman zalının qəbulu):** “Oh five five, two one nine, oh three, eight eight. Is that right?”  
 **Qəbul:** məna: confirmYes — nümunə: Yes, that's right.  
 **İpucu:** Nömrə düzdür — onun sualına razılıqla cavab ver.  
@@ -215,7 +215,7 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 **İpucu:** Oğlan “Is that right?” soruşdu — qız nömrənin düz olduğunu deyir.  
 **Düzgün olanda:** Nömrə yoxlandı və təsdiq olundu.  
 - *İzah (“fine” seçiləndə):* “Is that right?” sualına “right” ilə cavab verilir. — Uyğun: right. Səbəb: Oğlan nömrənin düz olub-olmadığını soruşdu. Qayda: Yes, that's right. — düzdür; I'm fine. — yaxşıyam. Nümunə: Yes, that's right.  
-- *İzah (“name” seçiləndə):* Burada ad yox, nömrənin düzlüyü soruşulur. — Uyğun: right. Səbəb: Sual nömrə haqqındadır, ad haqqında deyil. Qayda: Yes, that's right. — düzdür; My name is … — ad. Nümunə: Yes, that's right.  
+- *İzah (“name” seçiləndə):* Burada ad yox, nömrənin düzlüyü soruşulur. — Uyğun: right. Səbəb: Sual nömrə haqqındadır, ad haqqında deyil. Qayda: Yes, that's right. — düzdür; My name is [ad] — ad. Nümunə: Yes, that's right.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -242,7 +242,7 @@ Növbəti dərs — hərflər: hava limanında kodları tanıyırsan.
 | Söz | Tərcümə | Nümunə |
 |---|---|---|
 | What's your phone number? | Telefon nömrən nədir? | Hi! What's your phone number? — Salam! Telefon nömrən nədir? |
-| It's … | Nömrəm …-dir | It's zero five zero, three two one, four five, six seven. — Nömrəm 050 321 45 67-dir. |
+| It's [nömrə] | Nömrəm [nömrə]-dir | It's zero five zero, three two one, four five, six seven. — Nömrəm 050 321 45 67-dir. |
 | oh | sıfır (nömrədə) | It's oh five oh… — Nömrəm 050…-dir. |
 | Is that right? | Düzdür? | Oh five five… Is that right? — 055… Düzdür? |
 | Yes, that's right. | Bəli, düzdür. | Is that right? — Yes, that's right. — Düzdür? — Bəli, düzdür. |

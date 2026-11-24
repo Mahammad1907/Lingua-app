@@ -67,9 +67,9 @@ Qeyd: Kişi üçün he, qadın üçün she — azərbaycancada ikisi də “o”
 
 ## Kart 6 — Yeni söz
 
-**He's from …** — O (kişi) …-dandır.
+**He's from [ölkə]** — O (kişi) [ölkə]-dandır.
 
-Oxunuşu: hiz fram … · IPA: /hiz frʌm/
+Oxunuşu: hiz fram [ölkə] · IPA: /hiz frʌm/
 
 Quruluşu: He's from + ölkə / şəhər.
 
@@ -119,9 +119,9 @@ Qeyd: He's — he is-in qısası, “hiz” oxunur.
 
 ## Kart 9 — Yeni söz
 
-**She's from …** — O (qadın) …-dandır.
+**She's from [ölkə]** — O (qadın) [ölkə]-dandır.
 
-Oxunuşu: şiz fram … · IPA: /ʃiz frʌm/
+Oxunuşu: şiz fram [ölkə] · IPA: /ʃiz frʌm/
 
 Quruluşu: She's from + ölkə / şəhər.
 
@@ -221,5 +221,5 @@ Növbəti hissə — o haradandır? Soruşmaq və qısa cavab.
 |---|---|---|
 | he | o (kişi, oğlan) | He is fine, thanks. — O yaxşıdır, sağ ol. |
 | she | o (qadın, qız) | She is OK. He is fine. — O (qadın) normaldır. O (kişi) yaxşıdır. |
-| He's from … | O (kişi) …-dandır. | He's from Turkey. — O, Türkiyədəndir. |
-| She's from … | O (qadın) …-dandır. | She's from France. — O, Fransadandır. |
+| He's from [ölkə] | O (kişi) [ölkə]-dandır. | He's from Turkey. — O, Türkiyədəndir. |
+| She's from [ölkə] | O (qadın) [ölkə]-dandır. | She's from France. — O, Fransadandır. |

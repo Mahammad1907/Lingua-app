@@ -113,7 +113,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 **Cütlər:** What's your email? — It's K-B at mail dot com.; Thank you! — You're welcome.; What's your phone number? — It's oh five oh… · artıq: I'm fine, thanks.  
 **İpucu:** Hər suala uyğun cavabı tap, bir cavab artıqdır.  
 **Düzgün olanda:** Hər suala uyğun cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir sualın cavabı yerində deyil. — Uyğun: What's your email? — It's K-B at mail dot com.; Thank you! — You're welcome.; What's your phone number? — It's oh five oh… Səbəb: E-poçt, təşəkkür və nömrə fərqli cavab istəyir. Qayda: Thank you! → You're welcome; What's your email? → It's … at mail dot com. Nümunə: What's your email? — It's K-B at mail dot com.  
+- *İzah (başqa səhvdə):* Bir sualın cavabı yerində deyil. — Uyğun: What's your email? — It's K-B at mail dot com.; Thank you! — You're welcome.; What's your phone number? — It's oh five oh… Səbəb: E-poçt, təşəkkür və nömrə fərqli cavab istəyir. Qayda: Thank you! → You're welcome; What's your email? → It's [ad] at mail dot com. Nümunə: What's your email? — It's K-B at mail dot com.  
 
 ## Kart 8 — Yaz: Dinlə və yaz
 
@@ -139,31 +139,31 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 **Tapşırıq:** Qeydiyyatçı soruşur: “What's your last name? How do you spell it?” Soyadını hərf-hərf de. Ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** What's your last name? How do you spell it?  
-**Qəbul:** məna:  — nümunə: My last name is … · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
+**Qəbul:** məna:  — nümunə: My last name is [soyad] · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Soyadının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
 **Düzgün olanda:** Soyadını hərf-hərf dedin.  
-- *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: My last name is … Səbəb: Soyadını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: How do you spell it? — It's M-A-double M-A-D-O-V-A. Nümunə: It's H-A-S-A-N-O-V-A.  
+- *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: My last name is [soyad]. Səbəb: Soyadını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: How do you spell it? — It's M-A-double M-A-D-O-V-A. Nümunə: It's H-A-S-A-N-O-V-A.  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Ziyafətdə yeni tanış adını kartına yazmaq istəyir. Adını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** What's your first name? Can you spell it, please?  
-**Qəbul:** məna:  — nümunə: It's … · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
+**Qəbul:** məna:  — nümunə: It's [ad] · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
 **Düzgün olanda:** Adını hərf-hərf dedin.  
-- *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: It's … Səbəb: Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: Can you spell it, please? — It's G-A-N-J-A. Nümunə: It's B-A-K-U.  
+- *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: It's [ad]. Səbəb: Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: Can you spell it, please? — It's G-A-N-J-A. Nümunə: It's B-A-K-U.  
 
 ## Kart 10 — Formanı doldur: Formanı doldur
 
 **Tapşırıq:** Kursun qeydiyyat masasındasan. Vərəqi doldur (istəsən, uydurma məlumat).  
 **Forma:** Kurs qeydiyyatı — Yeni tələbə  
-**First name:** məna:  — nümunə: …  
+**First name:** məna:  — nümunə: [ad]  
 **Last name:** məna:  — nümunə: Mammadova  
 **Phone number:** məna:  — nümunə: 050 321 45 67  
 **How old are you?:** məna:  — nümunə: 25  
 **İpucu:** Hər sətrin başlığını oxu və öz məlumatını yaz.  
 **Düzgün olanda:** Qeydiyyat vərəqini tam doldurdun.  
-- *İzah (“First name” səhv olanda):* Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Last name — soyadın. Nümunə: My first name is …  
+- *İzah (“First name” səhv olanda):* Uyğun: [ad]. Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Last name — soyadın. Nümunə: My first name is [ad]  
 - *İzah (“Last name” səhv olanda):* Uyğun: Mammadova. Səbəb: Bu sətirdə yalnız soyadın lazımdır. Qayda: First name — adın; Last name — soyadın. Nümunə: My last name is Mammadova.  
 - *İzah (“Phone number” səhv olanda):* Uyğun: 050 321 45 67. Səbəb: Bu sətirdə rəqəmlər lazımdır. Qayda: Phone number — nömrən; How old are you? — yaşın. Nümunə: It's zero five zero, three two one, four five, six seven.  
 - *İzah (“How old are you?” səhv olanda):* Uyğun: 25. Səbəb: Bu sətirdə yaşın lazımdır: rəqəmlə və ya “I’m” ilə. Qayda: 25 — rəqəmlə; I'm twenty-five. — cümlə ilə. Nümunə: I'm twenty-five.  
@@ -173,13 +173,13 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 **Tapşırıq:** İdman zalına yazılırsan. Vərəqi doldur (istəsən, uydurma məlumat).  
 **Forma:** İdman zalı — Yeni üzv  
 **Last name:** məna:  — nümunə: Mammadova  
-**First name:** məna:  — nümunə: …  
+**First name:** məna:  — nümunə: [ad]  
 **How old are you?:** məna:  — nümunə: 25  
 **Email:** məna:  — nümunə: ganja5@mail.com  
 **İpucu:** Hər sətrin başlığını oxu; sıra fərqli ola bilər.  
 **Düzgün olanda:** Vərəqi tam doldurdun.  
 - *İzah (“Last name” səhv olanda):* Uyğun: Mammadova. Səbəb: Bu sətirdə yalnız soyadın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My last name is Mammadova.  
-- *İzah (“First name” səhv olanda):* Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My first name is …  
+- *İzah (“First name” səhv olanda):* Uyğun: [ad]. Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My first name is [ad]  
 - *İzah (“How old are you?” səhv olanda):* Uyğun: 25. Səbəb: Bu sətirdə yaşın lazımdır. Qayda: 25 — rəqəmlə; I'm twenty-five. — cümlə ilə. Nümunə: I'm twenty-five.  
 - *İzah (“Email” səhv olanda):* Uyğun: ganja5@mail.com. Səbəb: Ünvanda @ və nöqtə olur, söz yox. Qayda: at — @; dot — nöqtə. Nümunə: It's G-A-N-J-A five at mail dot com.  
 
@@ -246,7 +246,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 **Düzgün olanda:** Yaşını dedin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Yaş “var” ilə yox, I’m ilə deyilir. — Uyğun: I'm twenty-five. Səbəb: “25 yaşım var” sözbəsöz tərcümə olunmur — ingiliscə yaşı I’m ilə deyirik. Qayda: I'm twenty-five. — düzdür; “yaşım var” kimi tərcümə — olmur. Nümunə: How old are you? — I'm thirty.  
 - *İzah (başqa səhvdə):* Yaşı demək kifayətdir. — Uyğun: I'm twenty-five. Səbəb: Ya yalnız yaşı de, ya da “years old” birlikdə. Qayda: I'm twenty-five. — düzdür; I'm twenty-five years. — olmur. Nümunə: I'm twenty-five years old.  
-- *İzah (başqa səhvdə):* I'm … And you? — Uyğun: I'm twenty-five. And you? Səbəb: Yaşından sonra “And you?” ilə sualı qaytarırsan. Qayda: I'm twenty-five. — yaş; And you? — qarşı sual. Nümunə: I'm thirty. And you?  
+- *İzah (başqa səhvdə):* I'm [yaş]. And you? — Uyğun: I'm twenty-five. And you? Səbəb: Yaşından sonra “And you?” ilə sualı qaytarırsan. Qayda: I'm twenty-five. — yaş; And you? — qarşı sual. Nümunə: I'm thirty. And you?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -257,7 +257,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 **Düzgün olanda:** Yaşını dedin və sualı qaytardın.  
 - *İzah (başqa səhvdə):* Yaş “var” ilə yox, I’m ilə deyilir. — Uyğun: I'm twenty-five. Səbəb: “25 yaşım var” sözbəsöz tərcümə olunmur — ingiliscə yaşı I’m ilə deyirik. Qayda: I'm twenty-five. — düzdür; “yaşım var” kimi tərcümə — olmur. Nümunə: How old are you? — I'm thirty.  
 - *İzah (başqa səhvdə):* Yaşı demək kifayətdir. — Uyğun: I'm twenty-five. Səbəb: Ya yalnız yaşı de, ya da “years old” birlikdə. Qayda: I'm twenty-five. — düzdür; I'm twenty-five years. — olmur. Nümunə: I'm twenty-five years old.  
-- *İzah (başqa səhvdə):* I'm … And you? — Uyğun: I'm twenty-five. And you? Səbəb: Yaşından sonra “And you?” ilə sualı qaytarırsan. Qayda: I'm twenty-five. — yaş; And you? — qarşı sual. Nümunə: I'm thirty. And you?  
+- *İzah (başqa səhvdə):* I'm [yaş]. And you? — Uyğun: I'm twenty-five. And you? Səbəb: Yaşından sonra “And you?” ilə sualı qaytarırsan. Qayda: I'm twenty-five. — yaş; And you? — qarşı sual. Nümunə: I'm thirty. And you?  
 
 ## Nəticə
 

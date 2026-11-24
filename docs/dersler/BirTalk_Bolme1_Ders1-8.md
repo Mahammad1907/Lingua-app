@@ -527,7 +527,7 @@ Qeyd: Cavab: I'm … və ya My name is …
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Kursda yeni qızla tanış olursan. Sözlərdən sual qur.  
+**Tapşırıq:** Kursdakı yeni qız sənə ilk dəfə mesaj yazır. Sözlərdən sual qur.  
 **Yazışma (Kurs yoldaşı):** “Hi!”  
 **Sözlər:** name · What's · my · your · is · ?  
 **Qəbul:** dəqiq: What's your name?  
@@ -643,7 +643,7 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 
 ## Kart 12 — Yaz: Adını yaz
 
-**Tapşırıq:** Qız adını deyib soruşur: “Hi! I’m … What’s your name?” Adını yaz.  
+**Tapşırıq:** Qız mesajda adını yazıb soruşur: “Hi! I’m … What’s your name?” Adını yaz.  
 **Qəbul:** məna: introduce — nümunə: I'm … / My name is …  
 **İpucu:** Dərs 2-də adını necə deyirdin, onu xatırla.  
 **Düzgün olanda:** Sualı başa düşdün və adını dedin.  
@@ -652,7 +652,7 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Oğlan idman zalında soruşur: “Hello! What’s your name?” Adını yaz.  
+**Tapşırıq:** İdman zalından tanış oğlan mesajda soruşur: “Hello! What’s your name?” Adını yaz.  
 **Qəbul:** məna: introduce — nümunə: I'm … / My name is …  
 **İpucu:** Dərs 2-də adını necə deyirdin, onu xatırla.  
 **Düzgün olanda:** Sualı başa düşdün və adını dedin.  
@@ -678,7 +678,7 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 
 ## Kart 14 — Dialoqu tamamla: Söhbəti bitir
 
-**Tapşırıq:** Tanışlıq bitdi, gedirsən. Sağollaş.  
+**Tapşırıq:** Yazışma bitir, sən çıxırsan. Mesajla sağollaş.  
 **Yazışma (Qonşu qız):** “Nice to meet you!”  
 **Qəbul:** məna: farewell — nümunə: Bye! / Goodbye!  
 **İpucu:** Dərs 1-in sağollaşma sözlərini xatırla.  
@@ -688,7 +688,7 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Məşq bitdi, evə gedirsən. Zal yoldaşınla sağollaş.  
+**Tapşırıq:** Zal yoldaşınla yazışma bitir. Mesajla sağollaş.  
 **Yazışma (Zal yoldaşı):** “Bye!”  
 **Qəbul:** məna: farewell — nümunə: Bye! / Goodbye!  
 **İpucu:** Dərs 1-in sağollaşma sözlərini xatırla.  
@@ -1151,7 +1151,7 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 
 ## Kart 14 — Dialoqu tamamla: Təşəkkür et
 
-**Tapşırıq:** Yerə saldığın açarı qonşun sənə qaytardı. Ona təşəkkür et.  
+**Tapşırıq:** Qonşun yazır ki, yerə saldığın açarı tapıb. Ona mesajla təşəkkür et.  
 **Yazışma (Qonşu oğlan):** —  
 **Qəbul:** məna: thanks — nümunə: Thank you! / Thanks!  
 **İpucu:** Sənə kömək edəndə nə deyirsən?  
@@ -1161,7 +1161,7 @@ Qeyd: Xahiş edəndə deyilir, təşəkkürə cavab deyil.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Yoldaşın sənə qələm verdi. Ona təşəkkür et.  
+**Tapşırıq:** Yoldaşın dərs qeydlərini sənə mesajla göndərdi. Ona təşəkkür et.  
 **Yazışma (Yoldaş):** —  
 **Qəbul:** məna: thanks — nümunə: Thank you! / Thanks!  
 **İpucu:** Sənə nəsə verəndə nə deyirsən?  
@@ -1373,7 +1373,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 ## Kart 13 — Yaz: Cavabını yaz
 
-**Tapşırıq:** Oğlan səhvən çantanı yerə saldı və deyir: “Sorry!” Üzrünü qəbul et.  
+**Tapşırıq:** Oğlan səhvən sənə başqa mesaj göndərdi və yazır: “Sorry!” Üzrünü qəbul et.  
 **Qəbul:** məna: noProblem — nümunə: No problem.  
 **İpucu:** Oğlan üzr istədi — üzrü necə qəbul edirsən?  
 **Düzgün olanda:** Üzrü qəbul etdin.  
@@ -1382,7 +1382,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qız növbədə sənin qabağına keçdi və deyir: “I’m sorry!” Üzrünü qəbul et.  
+**Tapşırıq:** Qız mesajına gec cavab verdi və yazır: “I’m sorry!” Üzrünü qəbul et.  
 **Qəbul:** məna: noProblem — nümunə: No problem.  
 **İpucu:** Qız üzr istədi — üzrü necə qəbul edirsən?  
 **Düzgün olanda:** Üzrü qəbul etdin.  

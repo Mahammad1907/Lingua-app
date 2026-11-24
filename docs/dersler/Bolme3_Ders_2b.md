@@ -219,7 +219,7 @@ Qeyd: “Fransa” yox, “frəns” oxunur.
 - *İzah (başqa səhvdə):* Ölkədən əvvəl “from” lazımdır. — Uyğun: I'm from Azerbaijan. And you? Səbəb: Azərbaycancada “-dan” şəkilçidir; ingiliscə ölkədən əvvəl ayrıca “from” gəlir. Qayda: I'm from Azerbaijan. — haradan; I'm fine. — hal. Nümunə: Where are you from? — I'm from Azerbaijan. And you?  
 - *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Azerbaijan. And you? Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Azerbaijan. — düzdür; I from Azerbaijan. — olmur. Nümunə: Where are you from? — I'm from Azerbaijan. And you?  
 - *İzah (başqa səhvdə):* Ondan da soruşmağı unutma. — Uyğun: I'm from Azerbaijan. And you? Səbəb: Haradan olduğunu dedin, amma ondan soruşmadın. Qayda: I'm from Azerbaijan. And you? — cavab və sual; I'm from Azerbaijan. — yalnız cavab. Nümunə: I'm from Baku. And you?  
-- *İzah (başqa səhvdə):* I'm from … And you? — Uyğun: I'm from Azerbaijan. And you? Səbəb: Əvvəl haradan olduğunu deyirsən, sonra qısa sualla ondan soruşursan. Qayda: I'm from Azerbaijan. And you? — cavab və sual; Me too! — mən də. Nümunə: I'm from Baku. And you?  
+- *İzah (başqa səhvdə):* I'm from [ölkə]. And you? — Uyğun: I'm from Azerbaijan. And you? Səbəb: Əvvəl haradan olduğunu deyirsən, sonra qısa sualla ondan soruşursan. Qayda: I'm from Azerbaijan. And you? — cavab və sual; Me too! — mən də. Nümunə: I'm from Baku. And you?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -231,7 +231,7 @@ Qeyd: “Fransa” yox, “frəns” oxunur.
 - *İzah (başqa səhvdə):* Ölkədən əvvəl “from” lazımdır. — Uyğun: I'm from Azerbaijan. And you? Səbəb: Azərbaycancada “-dan” şəkilçidir; ingiliscə ölkədən əvvəl ayrıca “from” gəlir. Qayda: I'm from Azerbaijan. — haradan; I'm fine. — hal. Nümunə: Where are you from? — I'm from Azerbaijan. And you?  
 - *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Azerbaijan. And you? Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Azerbaijan. — düzdür; I from Azerbaijan. — olmur. Nümunə: Where are you from? — I'm from Azerbaijan. And you?  
 - *İzah (başqa səhvdə):* Ondan da soruşmağı unutma. — Uyğun: I'm from Azerbaijan. And you? Səbəb: Haradan olduğunu dedin, amma ondan soruşmadın. Qayda: I'm from Azerbaijan. And you? — cavab və sual; I'm from Azerbaijan. — yalnız cavab. Nümunə: I'm from Baku. And you?  
-- *İzah (başqa səhvdə):* I'm from … And you? — Uyğun: I'm from Azerbaijan. And you? Səbəb: Əvvəl haradan olduğunu deyirsən, sonra qısa sualla ondan soruşursan. Qayda: I'm from Azerbaijan. And you? — cavab və sual; Me too! — mən də. Nümunə: I'm from Ganja. And you?  
+- *İzah (başqa səhvdə):* I'm from [ölkə]. And you? — Uyğun: I'm from Azerbaijan. And you? Səbəb: Əvvəl haradan olduğunu deyirsən, sonra qısa sualla ondan soruşursan. Qayda: I'm from Azerbaijan. And you? — cavab və sual; Me too! — mən də. Nümunə: I'm from Ganja. And you?  
 
 ## Nəticə
 

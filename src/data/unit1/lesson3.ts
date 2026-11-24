@@ -52,7 +52,7 @@ export const lesson3: DesignLesson = {
       hint: 'Sual “nə” mənasındakı sözlə başlayır.', hintAssists: false,
       variants: [other('Sıra: What’s + your + name?', ex("What's your name?", '“my” — mənim, “your” — sənin; sən onun adını soruşursan.', 'What’s + your + name?', "Hello! What's your name?"))],
       review: {
-        title: 'Mesajı qur', why: 'Sual düzgün sırada qurulub.', prompt: 'Kursda yeni qızla tanış olursan.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        title: 'Mesajı qur', why: 'Sual düzgün sırada qurulub.', prompt: 'Kursdakı yeni qız sənə ilk dəfə mesaj yazır.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Kurs yoldaşı', from: 'G', lines: [{ from: 'G', text: 'Hi!' }] },
         tiles: ['name', "What's", 'my', 'your', 'is', '?'], rule: exact("What's your name?"),
         hint: 'Sual “nə” mənasındakı sözlə başlayır.', hintAssists: false,
@@ -110,13 +110,13 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'write', id: 'd3_c09', number: 9, title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Dərs 2-də adını necə deyirdin, onu xatırla.',
-      prompt: 'Qız adını deyib soruşur: “Hi! I’m [ad]. What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
+      prompt: 'Qız mesajda adını yazıb soruşur: “Hi! I’m [ad]. What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
       variants: [
         insteadOf('askName', 'O artıq soruşdu — sən cavab verirsən.', ex("I'm [ad] / My name is [ad]", 'Qız artıq soruşdu, sən isə adını deyirsən.', 'What’s your name? → I’m [ad]', "My name is [ad]")),
         other('Adını I’m və ya My name is ilə de.', ex("I'm [ad] / My name is [ad]", '“What’s your name?” sualına cavab adındır.', 'What’s your name? → I’m [ad]', "I'm [ad]")),
       ],
       review: {
-        title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Dərs 2-də adını necə deyirdin, onu xatırla.', prompt: 'Oğlan idman zalında soruşur: “Hello! What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
+        title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Dərs 2-də adını necə deyirdin, onu xatırla.', prompt: 'İdman zalından tanış oğlan mesajda soruşur: “Hello! What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
         variants: [other('Adını I’m və ya My name is ilə de.', ex("I'm [ad] / My name is [ad]", '“What’s your name?” sualına cavab adındır.', 'What’s your name? → My name is [ad]', "I'm [ad]"))],
       },
     },
@@ -152,15 +152,15 @@ export const lesson3: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd3_c12', number: 12, title: 'Söhbəti bitir', why: 'Görüşü sağollaşma ilə bitirdin.', hint: 'Dərs 1-in sağollaşma sözlərini xatırla.',
-      prompt: 'Tanışlıq bitdi, gedirsən.\nSağollaş.', placeholder: 'Cavabını yaz',
+      type: 'write', id: 'd3_c12', number: 12, title: 'Söhbəti bitir', why: 'Yazışmanı sağollaşma ilə bitirdin.', hint: 'Dərs 1-in sağollaşma sözlərini xatırla.',
+      prompt: 'Yazışma bitir, sən çıxırsan.\nMesajla sağollaş.', placeholder: 'Cavabını yaz',
       chat: { partner: 'Qonşu qız', from: 'G', lines: [{ from: 'G', text: 'Nice to meet you!' }] }, rule: bye,
       variants: [
         insteadOf('greet', 'Gedirsən — salam yox, sağollaşma.', ex('Bye! / Goodbye!', 'Hello və Hi görüşü başladır, sən isə gedirsən.', 'Ayrılarkən: Bye! / Goodbye!', 'Bye!')),
         other('Sağollaşma ifadəsi yaz.', ex('Bye! / Goodbye!', 'Görüş bitir, sağollaşırsan.', 'Ayrılarkən: Bye! / Goodbye!', 'Goodbye!')),
       ],
       review: {
-        title: 'Söhbəti bitir', why: 'Görüşü sağollaşma ilə bitirdin.', hint: 'Dərs 1-in sağollaşma sözlərini xatırla.', prompt: 'Məşq bitdi, evə gedirsən.\nZal yoldaşınla sağollaş.', placeholder: 'Cavabını yaz',
+        title: 'Söhbəti bitir', why: 'Yazışmanı sağollaşma ilə bitirdin.', hint: 'Dərs 1-in sağollaşma sözlərini xatırla.', prompt: 'Zal yoldaşınla yazışma bitir.\nMesajla sağollaş.', placeholder: 'Cavabını yaz',
         chat: { partner: 'Zal yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Bye!' }] }, rule: bye,
         variants: [other('Sağollaşma ifadəsi yaz.', ex('Bye! / Goodbye!', 'Görüş bitir, sağollaşırsan.', 'Ayrılarkən: Bye! / Goodbye!', 'Bye!'))],
       },

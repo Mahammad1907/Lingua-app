@@ -51,7 +51,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 - *İzah (başqa səhvdə):* Ölkədən əvvəl “from” lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Haradan olduğunu deyəndə “from” gəlir: Azərbaycandan. Qayda: I'm from Azerbaijan. — haradan; I'm Azerbaijani. — millət. Nümunə: Where are you from? — I'm from Baku.  
 - *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Baku. — düzdür; I from Baku. — olmur. Nümunə: Where are you from? — I'm from Ganja.  
 - *İzah (başqa səhvdə):* “from”dan sonra ölkə gəlir, millət yox. — Uyğun: I'm from Azerbaijan. Səbəb: Azerbaijani millətdir; “from”dan sonra ölkə və ya şəhər gəlir. Qayda: I'm from Azerbaijan. — ölkə; I'm Azerbaijani. — millət. Nümunə: I'm from Azerbaijan. I'm Azerbaijani.  
-- *İzah (başqa səhvdə):* I'm from … And you? — Uyğun: I'm from Azerbaijan. And you? Səbəb: Haradan olduğunu “I’m from” ilə de, sonra “And you?” ilə soruş. Qayda: I'm from Azerbaijan. — haradan; And you? — qarşı sual. Nümunə: I'm from Baku. And you?  
+- *İzah (başqa səhvdə):* I'm from [ölkə]. And you? — Uyğun: I'm from Azerbaijan. And you? Səbəb: Haradan olduğunu “I’m from” ilə de, sonra “And you?” ilə soruş. Qayda: I'm from Azerbaijan. — haradan; And you? — qarşı sual. Nümunə: I'm from Baku. And you?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -63,7 +63,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 - *İzah (başqa səhvdə):* Ölkədən əvvəl “from” lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Haradan olduğunu deyəndə “from” gəlir: Azərbaycandan. Qayda: I'm from Azerbaijan. — haradan; I'm Azerbaijani. — millət. Nümunə: Where are you from? — I'm from Baku.  
 - *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Baku. — düzdür; I from Baku. — olmur. Nümunə: Where are you from? — I'm from Ganja.  
 - *İzah (başqa səhvdə):* “from”dan sonra ölkə gəlir, millət yox. — Uyğun: I'm from Azerbaijan. Səbəb: Azerbaijani millətdir; “from”dan sonra ölkə və ya şəhər gəlir. Qayda: I'm from Azerbaijan. — ölkə; I'm Azerbaijani. — millət. Nümunə: I'm from Azerbaijan. I'm Azerbaijani.  
-- *İzah (başqa səhvdə):* I'm from … And you? — Uyğun: I'm from Azerbaijan. And you? Səbəb: Haradan olduğunu “I’m from” ilə de, sonra “And you?” ilə soruş. Qayda: I'm from Ganja. — haradan; Where are you from? — qarşı sual. Nümunə: I'm from Ganja. And you?  
+- *İzah (başqa səhvdə):* I'm from [ölkə]. And you? — Uyğun: I'm from Azerbaijan. And you? Səbəb: Haradan olduğunu “I’m from” ilə de, sonra “And you?” ilə soruş. Qayda: I'm from Ganja. — haradan; Where are you from? — qarşı sual. Nümunə: I'm from Ganja. And you?  
 
 ## Kart 5 — Hərfləri tut: Hərfləri tut
 
@@ -153,7 +153,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 **İpucu:** Oğlan haqqında danışırsan; iki qısa cümlə de.  
 **Düzgün olanda:** Oğlanı təqdim etdin: haradandır və millətidir.  
 - *İzah (başqa səhvdə):* Oğlan haqqında “he” deyilir. — Uyğun: He's from Baku. He's Azerbaijani. Səbəb: Azərbaycancada ikisi də “o”dur, ingiliscə oğlan üçün “he” gəlir. Qayda: He's from Baku. — oğlan; She's from Baku. — qız. Nümunə: He's from Baku. He's Azerbaijani.  
-- *İzah (başqa səhvdə):* He's from … He's … — Uyğun: He's from Baku. He's Azerbaijani. Səbəb: Əvvəl haradan olduğunu, sonra millətini de. Qayda: He's from Baku. — haradan; He's Azerbaijani. — millət. Nümunə: He's from Baku. He's Azerbaijani.  
+- *İzah (başqa səhvdə):* He's from [ölkə]. He's [millət] — Uyğun: He's from Baku. He's Azerbaijani. Səbəb: Əvvəl haradan olduğunu, sonra millətini de. Qayda: He's from Baku. — haradan; He's Azerbaijani. — millət. Nümunə: He's from Baku. He's Azerbaijani.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -163,7 +163,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 **İpucu:** Qız haqqında danışırsan; iki qısa cümlə de.  
 **Düzgün olanda:** Qızı təqdim etdin: haradandır və millətidir.  
 - *İzah (başqa səhvdə):* Qız haqqında “she” deyilir. — Uyğun: She's from Ganja. She's Azerbaijani. Səbəb: Azərbaycancada ikisi də “o”dur, ingiliscə qız üçün “she” gəlir. Qayda: She's from Ganja. — qız; He's from Ganja. — oğlan. Nümunə: She's from Ganja. She's Azerbaijani.  
-- *İzah (başqa səhvdə):* She's from … She's … — Uyğun: She's from Ganja. She's Azerbaijani. Səbəb: Əvvəl haradan olduğunu, sonra millətini de. Qayda: She's from Ganja. — haradan; She's Azerbaijani. — millət. Nümunə: She's from Ganja. She's Azerbaijani.  
+- *İzah (başqa səhvdə):* She's from [ölkə]. She's [millət] — Uyğun: She's from Ganja. She's Azerbaijani. Səbəb: Əvvəl haradan olduğunu, sonra millətini de. Qayda: She's from Ganja. — haradan; She's Azerbaijani. — millət. Nümunə: She's from Ganja. She's Azerbaijani.  
 
 ## Kart 10 — Nömrəni yığ: Nömrəni yığ
 

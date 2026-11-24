@@ -70,13 +70,13 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d4_c07', number: 7, title: 'Sualı qur', why: 'How-dan sonra “do” gəlir.', hint: 'Azərbaycancada olmayan kiçik bir söz ingiliscə sualda lazımdır.',
-      prompt: 'Sən oteldə resepsiyada işləyirsən. Qonaq şəhərini dedi.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
+      prompt: 'Sən oteldə resepsiyada işləyirsən. Qonaq otelin çatında şəhərini yazdı.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Qonaq', from: 'G', lines: [{ from: 'G', text: 'Lankaran.' }] },
       tiles: ['How', 'you', 'spell', 'it', 'do', 'is', 'your', '?'], rule: exact('How do you spell it?'),
       variants: [other('Sıra: How do you spell it?', ex('How do you spell it?', 'How-dan sonra “do” gəlir, sonra you spell it.', 'How do you spell it? — hərf-hərf; What\'s your name? — ad.', 'Ganja? How do you spell it?'))],
       review: {
         title: 'Sualı qur', why: 'How-dan sonra “do” gəlir.', hint: 'Azərbaycancada olmayan kiçik bir söz ingiliscə sualda lazımdır.',
-        prompt: 'Kafedə yeni tanış şəhərini dedi.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
+        prompt: 'Kafedə tanış olduğun adam mesajda şəhərini yazdı.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Yeni tanış', from: 'B', lines: [{ from: 'B', text: 'Shamakhi.' }] },
         tiles: ['spell', 'How', 'it', 'you', 'do', 'name', 'is', '?'], rule: exact('How do you spell it?'),
         variants: [other('Sıra: How do you spell it?', ex('How do you spell it?', 'How-dan sonra “do” gəlir, sonra you spell it.', 'How do you spell it? — hərf-hərf; What\'s your name? — ad.', 'Shamakhi? How do you spell it?'))],

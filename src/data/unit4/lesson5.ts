@@ -82,12 +82,12 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d5_c07', number: 7, title: 'Cümlə qur', why: '“Bacım yoxdur” — I don\'t have a sister.', hint: '“yoxdur” üçün have-dən əvvəl hansı söz gəlir?',
-      prompt: '{F} soruşur, bacın varmı. Sənin bacın yoxdur.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+      prompt: '{F} mesajda soruşur, bacın varmı. Sənin bacın yoxdur.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
       tiles: ['have', 'I', 'sister', "don't", 'a', 'not', 'am', '.'], rule: exact("I don't have a sister."),
       variants: [...HAVE_MISTAKES, familyOther("I don't have a sister.")],
       review: {
         title: 'Cümlə qur', why: '“Qardaşım yoxdur” — I don\'t have a brother.', hint: 'Qardaşın yoxdur — “yoxdur” üçün have-dən əvvəl nə lazımdır?',
-        prompt: 'Kurs yoldaşın soruşur, qardaşın varmı. Sənin qardaşın yoxdur.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Kurs yoldaşın mesajda soruşur, qardaşın varmı. Sənin qardaşın yoxdur.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
         tiles: ['brother', "don't", 'I', 'am', 'have', 'a', 'not', '.'], rule: exact("I don't have a brother."),
         variants: [...HAVE_MISTAKES, familyOther("I don't have a brother.")],
       },

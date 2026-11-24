@@ -26,9 +26,9 @@ Qeyd: Hi daha qeyri-rəsmidir.
 
 Salamın iki forması var: Hello və Hi.
 
-- Hello! · Rəsmi · Hər kəsə uyğundur
-- Hi! · Gündəlik · Dostlara və hər yerdə
-- Hi! · gündəlik, hər yerdə
+**1 · Hansını nə vaxt deyirsən?**
+- Hello! · Hər kəsə uyğundur
+- Hi! · Dostlara və hər yerdə
 
 **2 · Fərq nədir?**
 İkisi də “Salam”dır. Hello bir az rəsmidir. Hi gündəlik danışıqda daha çox işlənir: dosta da, mağazada da.
@@ -58,7 +58,7 @@ Diqqət et: Hello və Hi görüşün əvvəlində deyilir.
 ## Kart 5 — Dialoqu tamamla: Salamı özün yaz
 
 **Tapşırıq:** Yeni tanışınla ilk dəfə mesajlaşırsan. Ona ingiliscə salam yaz.  
-**Yazışma (Tanışın):** —  
+**Yazışma (Yeni tanış):** “👋”  
 **Qəbul:** məna: greet — nümunə: Hello! / Hi!  
 **İpucu:** Dərsin əvvəlindəki salam sözlərindən birini yaz.  
 **Düzgün olanda:** Hello və Hi görüşü başladır.  
@@ -68,7 +68,7 @@ Diqqət et: Hello və Hi görüşün əvvəlində deyilir.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Tanışın sənə mesajda əl yellədi. Ona ingiliscə salam yaz.  
-**Yazışma (Tanışın):** —  
+**Yazışma (Tanışın):** “👋”  
 **Qəbul:** məna: greet — nümunə: Hello! / Hi!  
 **İpucu:** Dərsin əvvəlindəki salam sözlərindən birini yaz.  
 **Düzgün olanda:** Hello və Hi görüşü başladır.  
@@ -171,7 +171,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 
 ## Kart 11 — Yaz: Dostuna kömək et
 
-**Tapşırıq:** Dostun görüşü bitirib gedir, amma “Hello!” deyir. Onun yerinə uyğun sağollaşma yaz.  
+**Tapşırıq:** Dostun yazışmanı bitirir, amma “Hello!” yazır. Onun yerinə uyğun sağollaşma yaz.  
 **Qəbul:** məna: farewell — nümunə: Goodbye! / Bye!  
 **İpucu:** Gedən adam salam verir, yoxsa sağollaşır?  
 **Düzgün olanda:** Dostun gedir — ona Bye və ya Goodbye yaraşır.  
@@ -180,7 +180,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Dostun qonaqlıqdan gedir, amma “Hi!” deyir. Uyğun sağollaşma yaz.  
+**Tapşırıq:** Dostun qonaqlıq çatından çıxır, amma “Hi!” yazır. Uyğun sağollaşma yaz.  
 **Qəbul:** məna: farewell — nümunə: Goodbye! / Bye!  
 **İpucu:** Gedən adam salam verir, yoxsa sağollaşır?  
 **Düzgün olanda:** Dostun gedir — ona Bye və ya Goodbye yaraşır.  

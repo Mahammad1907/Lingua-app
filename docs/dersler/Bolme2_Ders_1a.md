@@ -58,7 +58,7 @@ Dilin ucunu dişlərin arasına qoy və yavaşca hava burax. “s” deyil, th: 
 - One + two + three
 - **One, two, three!** — Bir, iki, üç!
 
-Diqqət et: zero “ziro” oxunur, z səsi ilə başlayır.
+Diqqət et: zero “zirou” oxunur, z səsi ilə başlayır.
 
 ## Kart 6 — Seç: Dinlə və seç
 

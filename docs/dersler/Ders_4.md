@@ -25,15 +25,15 @@ Qeyd: Salamdan sonra soruşulur.
 **Cütlər:** Hello! — Salam!; What's your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam. · artıq: Hələlik!  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Keçən dərslərin ifadələrini xatırladın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam. Səbəb: Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir. Qayda: What’s your name? — ad sualı; Nice to meet you. — xoş söz. Nümunə: Hi! What’s your name? … Nice to meet you!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam. Səbəb: Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir. Qayda: What’s your name? — ad sualı; Nice to meet you. — xoş söz. Nümunə: Hi! What’s your name? I’m [ad]. Nice to meet you!  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Keçən dərsləri xatırla. Hər cümləyə mənasını qoş.  
-**Cütlər:** You too! — Mən də!; I'm … — Mən …-am.; Goodbye! — Görüşənədək! · artıq: Adın nədir?  
+**Cütlər:** You too! — Mən də!; I'm [ad] — Mən [ad]-am.; Goodbye! — Görüşənədək! · artıq: Adın nədir?  
 **İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
 **Düzgün olanda:** Keçən dərslərin ifadələrini xatırladın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: You too! — Mən də!; I’m … — Mən …-am.; Goodbye! — Görüşənədək! Səbəb: Hər ifadənin öz işi var: cavab, ad, sağollaşma. Qayda: You too! — xoş sözə cavab; Goodbye! — sağollaşma. Nümunə: Nice to meet you! — You too!  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: You too! — Mən də!; I’m [ad] — Mən [ad]-am.; Goodbye! — Görüşənədək! Səbəb: Hər ifadənin öz işi var: cavab, ad, sağollaşma. Qayda: You too! — xoş sözə cavab; Goodbye! — sağollaşma. Nümunə: Nice to meet you! — You too!  
 
 ## Kart 4 — Yeni söz
 
@@ -143,7 +143,7 @@ Qeyd: “I'm fine” ilə yaxındır.
 **İpucu:** Oğlan “And you?” soruşdu — qız öz halını deyir.  
 **Düzgün olanda:** Qız necə olduğunu dedi və sağollaşdı.  
 - *İzah (“you” seçiləndə):* “And you?” sualına öz halını deyirsən. — Uyğun: OK. Səbəb: Oğlan “Bəs sən?” soruşdu, qız necə olduğunu deyir. Qayda: I'm OK. — normalam; I'm you — olmur. Nümunə: I'm OK. Bye!  
-- *İzah (“name” seçiləndə):* Burada ad yox, hal soruşulur. — Uyğun: OK. Səbəb: “How are you?” halı soruşur, adı yox. Qayda: I'm OK. — hal; My name is … — ad. Nümunə: I'm OK. Bye!  
+- *İzah (“name” seçiləndə):* Burada ad yox, hal soruşulur. — Uyğun: OK. Səbəb: “How are you?” halı soruşur, adı yox. Qayda: I'm OK. — hal; My name is [ad] — ad. Nümunə: I'm OK. Bye!  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -153,7 +153,7 @@ Qeyd: “I'm fine” ilə yaxındır.
 **İpucu:** Qız “And you?” soruşdu — oğlan öz halını deyir.  
 **Düzgün olanda:** Oğlan necə olduğunu dedi.  
 - *İzah (“you” seçiləndə):* “And you?” sualına öz halını deyirsən. — Uyğun: fine. Səbəb: Qız “Bəs sən?” soruşdu, oğlan necə olduğunu deyir. Qayda: I'm fine. — yaxşıyam; I'm you — olmur. Nümunə: I'm fine, thanks.  
-- *İzah (“name” seçiləndə):* Burada ad yox, hal soruşulur. — Uyğun: fine. Səbəb: “How are you?” halı soruşur, adı yox. Qayda: I'm fine. — hal; My name is … — ad. Nümunə: I'm fine, thanks.  
+- *İzah (“name” seçiləndə):* Burada ad yox, hal soruşulur. — Uyğun: fine. Səbəb: “How are you?” halı soruşur, adı yox. Qayda: I'm fine. — hal; My name is [ad] — ad. Nümunə: I'm fine, thanks.  
 
 ## Kart 12 — Dinlə və təkrarla: Dinlə və təkrarla
 

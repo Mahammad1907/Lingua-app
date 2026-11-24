@@ -60,7 +60,7 @@ Nümunə: **Hi! What's your email?** — Salam! E-poçtun nədir?
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Kurs yoldaşın evə gedir. Onun e-poçtunu soruş. Sözlərdən sual qur.  
+**Tapşırıq:** Kurs yoldaşın yazışmanı bitirir. Onun e-poçtunu soruş. Sözlərdən sual qur.  
 **Yazışma (Kurs yoldaşı):** “OK, bye!”  
 **Sözlər:** email · What's · number · your · name · ?  
 **Qəbul:** dəqiq: What's your email?  
@@ -161,7 +161,7 @@ Diqqət et: Adı hərf-hərf de, sonra at və dot.
 **Qəbul:** məna:  — nümunə: It's K-B at mail dot com. · öz məlumatı: /^(?:(?:it'?s|it is|my email is)\s+)?[\p{L}\d ._-]+?(?:\s*@\s*|\s+at\s+)[\p{L}\d_-]+(?:\s*\.\s*|\s+dot\s+)\p{L}{2,}[.!]?$/  
 **İpucu:** Ünvanı hərf-hərf de; işarələri ingiliscə de.  
 **Düzgün olanda:** Ünvanını dedin: @ — at, nöqtə — dot.  
-- *İzah (başqa səhvdə):* It's … at … dot com. — Uyğun: It's K-B at mail dot com. Səbəb: @ “at”, nöqtə “dot” deyilir, “et” və “nöqtə” yox. Qayda: at — @; dot — nöqtə. Nümunə: It's G-A-N-J-A five at mail dot com.  
+- *İzah (başqa səhvdə):* It's [ad] at mail dot com. — Uyğun: It's K-B at mail dot com. Səbəb: @ “at”, nöqtə “dot” deyilir, “et” və “nöqtə” yox. Qayda: at — @; dot — nöqtə. Nümunə: It's G-A-N-J-A five at mail dot com.  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -170,7 +170,7 @@ Diqqət et: Adı hərf-hərf de, sonra at və dot.
 **Qəbul:** məna:  — nümunə: It's K-B at mail dot com. · öz məlumatı: /^(?:(?:it'?s|it is|my email is)\s+)?[\p{L}\d ._-]+?(?:\s*@\s*|\s+at\s+)[\p{L}\d_-]+(?:\s*\.\s*|\s+dot\s+)\p{L}{2,}[.!]?$/  
 **İpucu:** Ünvanı hərf-hərf de; işarələri ingiliscə de.  
 **Düzgün olanda:** Ünvanını dedin: @ — at, nöqtə — dot.  
-- *İzah (başqa səhvdə):* It's … at … dot com. — Uyğun: It's K-B at mail dot com. Səbəb: @ “at”, nöqtə “dot” deyilir. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
+- *İzah (başqa səhvdə):* It's [ad] at mail dot com. — Uyğun: It's K-B at mail dot com. Səbəb: @ “at”, nöqtə “dot” deyilir. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
 
 ## Kart 13 — Sözü tamamla: Sözü tamamla
 
@@ -196,12 +196,12 @@ Diqqət et: Adı hərf-hərf de, sonra at və dot.
 
 **Tapşırıq:** Ofisdə ilk günündür. Yeni işçi vərəqini doldur (istəsən, uydurma e-poçt yaz).  
 **Forma:** Yeni işçi — Ofis qeydiyyatı  
-**First name:** məna:  — nümunə: …  
+**First name:** məna:  — nümunə: [ad]  
 **Last name:** məna:  — nümunə: Mammadova  
 **Email:** məna:  — nümunə: ganja5@mail.com  
 **İpucu:** Hər sətrin başlığını oxu; e-poçtda @ və nöqtə olmalıdır.  
 **Düzgün olanda:** Adını, soyadını və e-poçtunu yazdın.  
-- *İzah (“First name” səhv olanda):* Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Last name — soyadın. Nümunə: My first name is …  
+- *İzah (“First name” səhv olanda):* Uyğun: [ad]. Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Last name — soyadın. Nümunə: My first name is [ad]  
 - *İzah (“Last name” səhv olanda):* Uyğun: Mammadova. Səbəb: Bu sətirdə yalnız soyadın lazımdır. Qayda: First name — adın; Last name — soyadın. Nümunə: My last name is Mammadova.  
 - *İzah (“Email” səhv olanda):* Uyğun: ganja5@mail.com. Səbəb: Ünvanda @ və nöqtə olur, söz yox. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
 
@@ -211,12 +211,12 @@ Diqqət et: Adı hərf-hərf de, sonra at və dot.
 **Forma:** Kitabxana — Yeni oxucu  
 **Email:** məna:  — nümunə: ganja5@mail.com  
 **Last name:** məna:  — nümunə: Mammadova  
-**First name:** məna:  — nümunə: …  
+**First name:** məna:  — nümunə: [ad]  
 **İpucu:** Hər sətrin başlığını oxu; sıra fərqli ola bilər.  
 **Düzgün olanda:** Adını, soyadını və e-poçtunu yazdın.  
 - *İzah (“Email” səhv olanda):* Uyğun: ganja5@mail.com. Səbəb: Ünvanda @ və nöqtə olur, söz yox. Qayda: at — @; dot — nöqtə. Nümunə: It's K-B at mail dot com.  
 - *İzah (“Last name” səhv olanda):* Uyğun: Mammadova. Səbəb: Bu sətirdə yalnız soyadın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My last name is Mammadova.  
-- *İzah (“First name” səhv olanda):* Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My first name is …  
+- *İzah (“First name” səhv olanda):* Uyğun: [ad]. Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My first name is [ad]  
 
 ## Nəticə
 

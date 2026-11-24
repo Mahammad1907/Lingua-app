@@ -61,7 +61,7 @@ export const lesson6: DesignLesson = {
       variants: [other("What's your email?", ex("What's your email?", 'Burada e-poçt soruşulur, telefon yox.', "What's your email? — e-poçt; What's your phone number? — nömrə.", "Hi! What's your email?"))],
       review: {
         title: 'Sualı qur', why: 'E-poçtunu soruşdun.', hint: 'Telefon yox, e-poçt soruşursan.',
-        prompt: 'Kurs yoldaşın evə gedir. Onun e-poçtunu soruş.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Kurs yoldaşın yazışmanı bitirir. Onun e-poçtunu soruş.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Kurs yoldaşı', from: 'G', lines: [{ from: 'G', text: 'OK, bye!' }] },
         tiles: ['email', "What's", 'number', 'your', 'name', '?'], rule: exact("What's your email?"),
         variants: [other("What's your email?", ex("What's your email?", 'Burada e-poçt soruşulur.', "What's your email? — e-poçt; What's your name? — ad.", "What's your email?"))],

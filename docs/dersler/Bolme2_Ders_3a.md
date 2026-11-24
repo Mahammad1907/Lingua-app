@@ -13,19 +13,19 @@ Adını ingiliscə hərflərlə yazmaqdan başlayırıq, sonra hərfləri qulaql
 
 **Tapşırıq:** Kursun siyahısı ingiliscə yazılır. Müəllim yazır. Adını latın hərfləri ilə yaz.  
 **Yazışma (Kurs müəllimi):** “Hello! What's your name?”  
-**Qəbul:** məna:  — nümunə: … · öz məlumatı: /^\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}$/  
+**Qəbul:** məna:  — nümunə: [ad] · öz məlumatı: /^\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}$/  
 **İpucu:** Adında ə, ş, ç varsa, pasportdakı kimi yaz (Ş → SH, Ə → A).  
 **Düzgün olanda:** Adını latın hərfləri ilə yazdın.  
-- *İzah (başqa səhvdə):* Yalnız adını yaz. — Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır, latın hərfləri ilə. Qayda: My name is … — cümlə; … — yalnız ad. Nümunə: My name is …  
+- *İzah (başqa səhvdə):* Yalnız adını yaz. — Uyğun: [ad]. Səbəb: Bu sətirdə yalnız adın lazımdır, latın hərfləri ilə. Qayda: My name is [ad] — cümlə; [ad] — yalnız ad. Nümunə: My name is [ad]  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Otel resepsiyası mesajla adını soruşur. Adını latın hərfləri ilə yaz.  
 **Yazışma (Otel resepsiyası):** “Hi! What's your name, please?”  
-**Qəbul:** məna:  — nümunə: … · öz məlumatı: /^\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}$/  
+**Qəbul:** məna:  — nümunə: [ad] · öz məlumatı: /^\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}$/  
 **İpucu:** Adında ə, ş, ç varsa, pasportdakı kimi yaz (Ş → SH, Ə → A).  
 **Düzgün olanda:** Adını latın hərfləri ilə yazdın.  
-- *İzah (başqa səhvdə):* Yalnız adını yaz. — Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır, latın hərfləri ilə. Qayda: My name is … — cümlə; … — yalnız ad. Nümunə: My name is …  
+- *İzah (başqa səhvdə):* Yalnız adını yaz. — Uyğun: [ad]. Səbəb: Bu sətirdə yalnız adın lazımdır, latın hərfləri ilə. Qayda: My name is [ad] — cümlə; [ad] — yalnız ad. Nümunə: My name is [ad]  
 
 ## Kart 3 — Yeni söz
 

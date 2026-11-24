@@ -18,7 +18,7 @@ Yeni yoxlayıcı, əvvəlki hesabatı görməyib. Hesabat olduğu kimi verilir.
 14. **Dərs 4 · Giriş:** “Halımı deyib “And you?” ilə qaytarıram” cümləsində tamamlıq çatmır. Düzəliş: “Halımı deyib sualı “And you?” ilə qaytarıram.”
 15. **Dərs 5 · Giriş:** “Xahiş edəndə “please” deyirəm.” Öyrənən please-i heç yerdə deyib-yazmır, yalnız Kart 10-da seçir. Düzəliş: “Xahiş edəndə “please” sözünü seçə bilirəm.”
 16. **Dərs 1 · Kart 8 (və Təkrar), “başqa səhv” izahı:** “Bu cavab görüşü bitirən qarşılıq vermir” cümləsi qrammatik cəhətdən pozuqdur. Düzəliş: “Bu cavab sağollaşmaya sağollaşma ilə qarşılıq vermir.”
-17. **Dərs 3 · Kart 14 Təkrar:** “Dərs bitdi” yazılıb, yazışmadakı adam isə “Zal yoldaşı”dır. Düzəliş: “Məşq bitdi, evə gedirsən. Zal yoldaşınla sağollaş.”
+17. **Dərs 3 · Kart 14 Təkrar:** “Dərs bitdi” yazılıb, yazışmadakı adam isə “Zal yoldaşı”dır. Düzəliş: “Zal yoldaşınla yazışma bitir. Mesajla sağollaş.”
 18. **Dərs 2 · Kart 6 Təkrar (şübhəli):** “İndi qısa formanı seç.” Vəziyyət yoxdur, hədəf də dəyişib (My name is → I'm). Düzəliş: “Qonşun adını demək istəyir. Hansı cümlə düzgündür?” Variantlar əsas kartdakı kimi qalsın, sırası dəyişsin.
 19. **Dərs 7 · Kart 11 Təkrar:** Səbəb əsas tapşırıqdan köçürülüb: “Mənasını bilmirsən”. Vəziyyət isə “uzun cümlə, heç nə anlamadın”dır. Düzəliş: “Heç nə anlamadın, ona görə “Başa düşmürəm” deyirsən.”
 20. **Dərs 8 · Kart 11 və Təkrar (şübhəli):** “çox sürətli yazdı” yazışmada məntiqsizdir, mətnin sürəti olmur. Düzəliş: “boşluqsuz, qarışıq yazdı, nə yazdığını anlamadın.”

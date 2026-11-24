@@ -43,10 +43,10 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 **Tapşırıq:** Hostelin qeydiyyatındasan. Vərəqi doldur (istəsən, uydurma ad).  
 **Forma:** Hostel — Yeni qonaq  
-**First name:** məna:  — nümunə: …  
+**First name:** məna:  — nümunə: [ad]  
 **Nationality:** məna:  — nümunə: Azerbaijani  
 **Düzgün olanda:** Ad və millət öz yerindədir.  
-- *İzah (“First name” səhv olanda):* Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Nationality — millətin. Nümunə: My name is …  
+- *İzah (“First name” səhv olanda):* Uyğun: [ad]. Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Nationality — millətin. Nümunə: My name is [ad]  
 - *İzah (“Nationality” səhv olanda):* Uyğun: Azerbaijani. Səbəb: Bu sətirdə ölkə yox, millət yazılır. Qayda: Azerbaijani — millət; Azerbaijan — ölkə. Nümunə: I'm Azerbaijani.  
 
 ## Kart 6 — Sözü tamamla: Sözü tamamla

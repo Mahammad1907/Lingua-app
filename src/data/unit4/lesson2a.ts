@@ -56,13 +56,13 @@ export const lesson2a: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d2a_c05', number: 5, title: 'Mesaj yaz', why: 'This is my mother. — ananı təqdim etdin.', hint: 'Dərs 1-dəki təqdim cümləsi kimi qur, ailə sözü sonda gəlir.',
-      prompt: 'Sən {f:dat} telefonda ailə şəklini göstərirsən. {F} soruşur.\nSözlərdən cavab qur: “Bu mənim anamdır.”', placeholder: 'Sözlərə toxun',
+      prompt: 'Sən {f:dat} çatda ailə şəklini göndərdin. {F} soruşur.\nSözlərdən cavab qur: “Bu mənim anamdır.”', placeholder: 'Sözlərə toxun',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
       tiles: ['This', 'is', 'my', 'mother', '.', 'are', "I'm"], rule: exact('This is my mother.'),
       variants: [noMy('mother', 'This is my mother.'), other('Sıra: This is my mother.', ex('This is my mother.', 'Əvvəl This is, sonra my mother.', 'This is my mother. — ana; This is my friend. — dost.', 'This is my mother.'))],
       review: {
         title: 'Mesaj yaz', why: 'This is my mother. — ananı təqdim etdin.', hint: 'Qonşuya ananı Dərs 1-dəki təqdim cümləsi kimi göstər, ailə sözü sonda gəlir.',
-        prompt: 'Qonşun telefonda sənin ailə şəklini görüb soruşur. Şəkildə anan var.\nSözlərdən cavab qur: “Bu mənim anamdır.”', placeholder: 'Sözlərə toxun',
+        prompt: 'Qonşun çatda sənin ailə şəklini görüb soruşur. Şəkildə anan var.\nSözlərdən cavab qur: “Bu mənim anamdır.”', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Qonşu', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
         tiles: ['my', 'This', 'mother', 'is', '.', 'I', 'are'], rule: exact('This is my mother.'),
         variants: [noMy('mother', 'This is my mother.'), other('Sıra: This is my mother.', ex('This is my mother.', 'Əvvəl This is, sonra my mother.', 'This is my mother. — ana; This is my friend. — dost.', 'This is my mother.'))],

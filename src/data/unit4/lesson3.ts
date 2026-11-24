@@ -165,7 +165,7 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d3_c13', number: 13, title: 'Dialoqu tamamla', why: 'Bacının əri — her husband.', hint: 'Əvvəl suala qısa cavab ver, sonra ərin kimin əri olduğunu düşün.',
-      prompt: 'Ailə şəklində bacın və onun əri var. {F} soruşur.\nYaz: bəli, o bacımdır. Bu da onun əridir.', placeholder: 'Cavabın',
+      prompt: 'Çatda göndərdiyin ailə şəklində bacın və onun əri var. {F} yazır.\nYaz: bəli, o bacımdır. Bu da onun əridir.', placeholder: 'Cavabın',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is she your sister?' }] },
       rule: yesOwner('she', 'her', 'husband'),
       variants: [
@@ -175,7 +175,7 @@ export const lesson3: DesignLesson = {
       ],
       review: {
         title: 'Dialoqu tamamla', why: 'Qardaşının həyat yoldaşı — his wife.', hint: 'Əvvəl suala qısa cavab ver, sonra həyat yoldaşının kimin həyat yoldaşı olduğunu düşün.',
-        prompt: 'Video zəngdə qardaşın və onun həyat yoldaşı görünür. {F} soruşur.\nYaz: bəli, o qardaşımdır. Bu da onun həyat yoldaşıdır.', placeholder: 'Cavabın',
+        prompt: 'Çatda göndərdiyin şəkildə qardaşın və onun həyat yoldaşı var. {F} yazır.\nYaz: bəli, o qardaşımdır. Bu da onun həyat yoldaşıdır.', placeholder: 'Cavabın',
         chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is he your brother?' }] },
         rule: yesOwner('he', 'his', 'wife'),
         variants: [

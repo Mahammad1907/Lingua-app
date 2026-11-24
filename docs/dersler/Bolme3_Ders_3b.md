@@ -160,12 +160,12 @@ Diqqət et: Ölkə və millət adları oxşardır, sonları fərqlidir: France �
 
 **Tapşırıq:** Hostelə yazılırsan. Qeydiyyat vərəqini doldur (istəsən, uydurma məlumat).  
 **Forma:** Hostel qeydiyyatı — Yeni qonaq  
-**First name:** məna:  — nümunə: …  
+**First name:** məna:  — nümunə: [ad]  
 **Last name:** məna:  — nümunə: Mammadova  
 **Nationality:** məna:  — nümunə: Azerbaijani  
 **İpucu:** Hər sətrin başlığını oxu; millət sətrinə ölkə adı yazılmır.  
 **Düzgün olanda:** Adını, soyadını və millətini öz yerinə yazdın.  
-- *İzah (“First name” səhv olanda):* Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Last name — soyadın. Nümunə: My first name is …  
+- *İzah (“First name” səhv olanda):* Uyğun: [ad]. Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Last name — soyadın. Nümunə: My first name is [ad]  
 - *İzah (“Last name” səhv olanda):* Uyğun: Mammadova. Səbəb: Bu sətirdə yalnız soyadın lazımdır. Qayda: Last name — soyadın; First name — adın. Nümunə: My last name is Mammadova.  
 - *İzah (“Nationality” səhv olanda):* Uyğun: Azerbaijani. Səbəb: Nationality sətrinə ölkə yox, millət yazılır. Qayda: Nationality: Azerbaijani. ; Where are you from? — Azerbaijan. Nümunə: Nationality: Azerbaijani.  
 

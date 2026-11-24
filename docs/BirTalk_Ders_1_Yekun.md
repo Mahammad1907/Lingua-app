@@ -417,7 +417,7 @@ Qısa geribildirim: “Bu ifadə salamlaşmaq üçündür. BirFox isə səninlə
 
 ### Öyrənənin görəcəyi mətn
 
-BirFox görüşü bitirib gedir, amma “Hello!” deyir.
+BirFox yazışmanı bitirir, amma “Hello!” yazır.
 
 Onun yerinə uyğun sağollaşma yaz.
 
@@ -754,7 +754,7 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 
 ### T7 — Kart 9 üçün uyğunsuz ifadəni düzəltmək
 
-- Sual: “BirFox qonaqlıqdan gedir, amma ‘Hi!’ deyir. Uyğun sağollaşma yaz.”
+- Sual: “BirFox qonaqlıq çatından çıxır, amma ‘Hi!’ yazır. Uyğun sağollaşma yaz.”
 - Uyğun cavablar: Goodbye! / Bye!
 - Bacarıq: uyğunsuz salamı yazılı sağollaşma ilə əvəz etmək.
 - İzah: Kart 9-dakı uyğun beş hissə; verilmiş səhv nümunə Hi olur, istifadəçinin cavabı ayrıca göstərilir.

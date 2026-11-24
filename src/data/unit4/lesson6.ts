@@ -189,13 +189,13 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d6_c13', number: 14, title: 'Mesaj yaz', why: 'Kim olduğunu və yaşını dedin.', hint: 'İki cümlə yaz: əvvəl bacının kim olduğunu, sonra yaşını.', scenes: ['u3/videocall'],
-      prompt: '{F} sənin ailə şəklinə baxır və bacını göstərir.\nCavab yaz: o, sənin bacındır; yaşını da de (istəsən, uydurma).', placeholder: 'Cavabını yaz',
+      prompt: '{F} çatda sənin ailə şəklinə baxıb bacın haqqında yazır.\nCavab yaz: o, sənin bacındır; yaşını da de (istəsən, uydurma).', placeholder: 'Cavabını yaz',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's she? How old is she?" }] },
       rule: own(whoAge('she', 'sister'), "She's my sister. She's twenty."),
       variants: [...AGE_OF_MISTAKES, heShe('she', "She's my sister. She's twenty."), other("She's my sister. She's [yaş].", ex("She's my sister. She's twenty.", 'Əvvəl kim olduğunu, sonra yaşını de.', "She's my sister. — kim; She's twenty. — yaş.", "He's my brother. He's thirty."))],
       review: {
         title: 'Mesaj yaz', why: 'Kim olduğunu və yaşını dedin.', hint: 'İki cümlə yaz: əvvəl qardaşının kim olduğunu, sonra yaşını.',
-        prompt: 'Kurs yoldaşın sənin ailə şəklinə baxır və qardaşını göstərir.\nCavab yaz: o, sənin qardaşındır; yaşını da de (istəsən, uydurma).', placeholder: 'Cavabını yaz',
+        prompt: 'Kurs yoldaşın çatda sənin ailə şəklinə baxıb qardaşın haqqında yazır.\nCavab yaz: o, sənin qardaşındır; yaşını da de (istəsən, uydurma).', placeholder: 'Cavabını yaz',
         chat: { partner: 'Kurs yoldaşı', from: 'other', lines: [{ from: 'other', text: "Who's he? How old is he?" }] },
         rule: own(whoAge('he', 'brother'), "He's my brother. He's thirty."),
         variants: [...AGE_OF_MISTAKES, heShe('he', "He's my brother. He's thirty."), other("He's my brother. He's [yaş].", ex("He's my brother. He's thirty.", 'Əvvəl kim olduğunu, sonra yaşını de.', "He's my brother. — kim; He's thirty. — yaş.", "She's my sister. She's twenty."))],

@@ -82,13 +82,13 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d5_c07', number: 7, title: 'Sualı qur', why: 'Soyadı soruşdun: last name.', hint: 'Ad yox, soyad soruşursan — kartdakı sözü xatırla.',
-      prompt: 'Qeydiyyat masasında işləyirsən. Yeni tələbə gəldi.\nSözlərdən onun soyadını soruşan sual qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Onlayn qeydiyyatda işləyirsən. Yeni tələbə çata yazdı.\nSözlərdən onun soyadını soruşan sual qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni tələbə', from: 'G', lines: [{ from: 'G', text: 'Hello! Nice to meet you!' }] },
       tiles: ["What's", 'last', 'your', 'name', 'first', 'is', '?'], rule: exact("What's your last name?"),
       variants: [other("What's your last name?", ex("What's your last name?", 'Soyad “last name”dir, “first name” addır.', "What's your first name? — ad; What's your last name? — soyad.", "Hi! What's your last name?"))],
       review: {
         title: 'Sualı qur', why: 'Soyadı soruşdun: last name.', hint: 'Ad yox, soyad soruşursan — kartdakı sözü xatırla.',
-        prompt: 'İdman zalında qeydiyyat masasında işləyirsən. Yeni üzv gəldi.\nSözlərdən onun soyadını soruşan sual qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'İdman zalının onlayn qeydiyyatında işləyirsən. Yeni üzv çata yazdı.\nSözlərdən onun soyadını soruşan sual qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Yeni üzv', from: 'B', lines: [{ from: 'B', text: 'Hi!' }] },
         tiles: ['name', "What's", 'your', 'last', 'my', 'first', '?'], rule: exact("What's your last name?"),
         variants: [other("What's your last name?", ex("What's your last name?", 'Soyad “last name”dir, “first name” addır.', "What's your first name? — ad; What's your last name? — soyad.", "What's your last name?"))],

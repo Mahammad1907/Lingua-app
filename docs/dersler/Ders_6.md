@@ -175,7 +175,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 ## Kart 13 — Mesaj yaz (sözlərdən): Mesajı qur
 
-**Tapşırıq:** Resepşndakı qız sənə kömək etdi, amma adını bilmirsən. Sözlərdən nəzakətli sual qur.  
+**Tapşırıq:** Otelin çatında bir qız sənə kömək etdi, amma adını bilmirsən. Sözlərdən nəzakətli sual qur.  
 **Yazışma (Resepşndakı qız):** —  
 **Sözlər:** your · Excuse · sorry · what's · me, · name · ?  
 **Qəbul:** dəqiq: Excuse me, what's your name?  
@@ -185,7 +185,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Küçədə sənə kömək edən oğlanın adını bilmirsən. Sözlərdən nəzakətli sual qur.  
+**Tapşırıq:** Qrup çatında sənə kömək edən oğlanın adını bilmirsən. Sözlərdən nəzakətli sual qur.  
 **Yazışma (Kömək edən oğlan):** —  
 **Sözlər:** me, · name · Excuse · you · what's · your · ?  
 **Qəbul:** dəqiq: Excuse me, what's your name?  
@@ -195,7 +195,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 ## Kart 14 — Yaz: Cavabını yaz
 
-**Tapşırıq:** Oğlan səhvən çantanı yerə saldı və deyir: “Sorry!” Üzrünü qəbul et.  
+**Tapşırıq:** Oğlan səhvən sənə başqa mesaj göndərdi və yazır: “Sorry!” Üzrünü qəbul et.  
 **Qəbul:** məna: noProblem — nümunə: No problem.  
 **İpucu:** Oğlan üzr istədi — üzrü necə qəbul edirsən?  
 **Düzgün olanda:** Üzrü qəbul etdin.  
@@ -204,7 +204,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qız növbədə sənin qabağına keçdi və deyir: “I’m sorry!” Üzrünü qəbul et.  
+**Tapşırıq:** Qız mesajına gec cavab verdi və yazır: “I’m sorry!” Üzrünü qəbul et.  
 **Qəbul:** məna: noProblem — nümunə: No problem.  
 **İpucu:** Qız üzr istədi — üzrü necə qəbul edirsən?  
 **Düzgün olanda:** Üzrü qəbul etdin.  

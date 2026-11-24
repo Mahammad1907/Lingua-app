@@ -127,13 +127,13 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d4_c10', number: 10, title: 'Dialoqu tamamla', why: 'Təəccübünü bildirdin: Really?', hint: 'Təəccüb edəndə deyilən bu dərsin sözünü yaz.',
-      prompt: 'Hostelin mətbəxində Bakıdan olduğunu dedin. Yeni tanış cavab yazır.\nTəəccübünü bildir.', placeholder: 'Cavabın',
+      prompt: 'Hostelin çatında Bakıdan olduğunu yazdın. Yeni tanış cavab yazır.\nTəəccübünü bildir.', placeholder: 'Cavabın',
       chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: "I'm from Baku too!" }] },
       rule: exact('Really?'),
       variants: [other('Really?', ex('Really?', 'Gözləmədiyin bir şey eşidəndə təəccüb bildirirsən.', 'Really? — təəccüb; Me too. — mən də.', "I'm from Baku too! — Really?"))],
       review: {
         title: 'Dialoqu tamamla', why: 'Təəccübünü bildirdin: Really?', hint: 'Təəccüb edəndə deyilən bu dərsin sözünü yaz.',
-        prompt: 'Qatarda yeni tanışa Gəncədən olduğunu dedin. O cavab yazır.\nTəəccübünü bildir.', placeholder: 'Cavabın',
+        prompt: 'Qatarda tanış olduğun adama mesajda Gəncədən olduğunu yazdın. O cavab yazır.\nTəəccübünü bildir.', placeholder: 'Cavabın',
         chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: "I'm from Ganja too!" }] },
         rule: exact('Really?'),
         variants: [other('Really?', ex('Really?', 'Gözləmədiyin bir şey eşidəndə təəccüb bildirirsən.', 'Really? — təəccüb; Me too. — mən də.', "I'm from Ganja too! — Really?"))],

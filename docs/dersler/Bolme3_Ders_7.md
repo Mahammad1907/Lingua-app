@@ -28,8 +28,8 @@ Qeyd: Do sualı başladır, ayrıca tərcümə olunmur.
 **Seçimlər:** İngiliscə danışıb-danışmadığını soruşur. / İngilis olub-olmadığını soruşur. / İngiltərədən olub-olmadığını soruşur. — **düzgün:** İngiliscə danışıb-danışmadığını soruşur.  
 **İpucu:** Sualın ortasındakı yeni sözə qulaq as.  
 **Düzgün olanda:** “speak” — danışmaq; dil haqqında sualdır.  
-- *İzah (“İngilis olub-olmadığını soruşur.” seçiləndə):* Səsdə “speak” var — dil haqqındadır. — Uyğun: İngiliscə danışıb-danışmadığını soruşur. Səbəb: Millət “Are you …?” ilə soruşulur, burada “Do you speak” var. Qayda: Do you speak English? — dil; Are you English? — millət. Nümunə: Hi! Do you speak English?  
-- *İzah (“İngiltərədən olub-olmadığını soruşur.” seçiləndə):* Səsdə “from” və ölkə yoxdur. — Uyğun: İngiliscə danışıb-danışmadığını soruşur. Səbəb: Ölkə “Are you from …?” ilə soruşulur. Qayda: Do you speak English? — dil; Are you from England? — ölkə. Nümunə: Hi! Do you speak English?  
+- *İzah (“İngilis olub-olmadığını soruşur.” seçiləndə):* Səsdə “speak” var — dil haqqındadır. — Uyğun: İngiliscə danışıb-danışmadığını soruşur. Səbəb: Millət “Are you [millət]?” ilə soruşulur, burada “Do you speak” var. Qayda: Do you speak English? — dil; Are you English? — millət. Nümunə: Hi! Do you speak English?  
+- *İzah (“İngiltərədən olub-olmadığını soruşur.” seçiləndə):* Səsdə “from” və ölkə yoxdur. — Uyğun: İngiliscə danışıb-danışmadığını soruşur. Səbəb: Ölkə “Are you from [ölkə]?” ilə soruşulur. Qayda: Do you speak English? — dil; Are you from England? — ölkə. Nümunə: Hi! Do you speak English?  
 
 **Təkrar (yeni vəziyyət):**
 
@@ -38,8 +38,8 @@ Qeyd: Do sualı başladır, ayrıca tərcümə olunmur.
 **Seçimlər:** Rus olub-olmadığını soruşur. / Rusca danışıb-danışmadığını soruşur. / Rusiyadan olub-olmadığını soruşur. — **düzgün:** Rusca danışıb-danışmadığını soruşur.  
 **İpucu:** Sualın ortasındakı sözə qulaq as.  
 **Düzgün olanda:** “speak” — danışmaq; dil haqqında sualdır.  
-- *İzah (“Rus olub-olmadığını soruşur.” seçiləndə):* Səsdə “speak” var — dil haqqındadır. — Uyğun: Rusca danışıb-danışmadığını soruşur. Səbəb: Millət “Are you …?” ilə soruşulur, burada “Do you speak” var. Qayda: Do you speak Russian? — dil; Are you Russian? — millət. Nümunə: Excuse me, do you speak Russian?  
-- *İzah (“Rusiyadan olub-olmadığını soruşur.” seçiləndə):* Səsdə “from” və ölkə yoxdur. — Uyğun: Rusca danışıb-danışmadığını soruşur. Səbəb: Ölkə “Are you from …?” ilə soruşulur. Qayda: Do you speak Russian? — dil; Are you from Russia? — ölkə. Nümunə: Excuse me, do you speak Russian?  
+- *İzah (“Rus olub-olmadığını soruşur.” seçiləndə):* Səsdə “speak” var — dil haqqındadır. — Uyğun: Rusca danışıb-danışmadığını soruşur. Səbəb: Millət “Are you [millət]?” ilə soruşulur, burada “Do you speak” var. Qayda: Do you speak Russian? — dil; Are you Russian? — millət. Nümunə: Excuse me, do you speak Russian?  
+- *İzah (“Rusiyadan olub-olmadığını soruşur.” seçiləndə):* Səsdə “from” və ölkə yoxdur. — Uyğun: Rusca danışıb-danışmadığını soruşur. Səbəb: Ölkə “Are you from [ölkə]?” ilə soruşulur. Qayda: Do you speak Russian? — dil; Are you from Russia? — ölkə. Nümunə: Excuse me, do you speak Russian?  
 
 ## Kart 4 — Yeni söz
 
@@ -47,7 +47,7 @@ Qeyd: Do sualı başladır, ayrıca tərcümə olunmur.
 
 Oxunuşu: yes, ay du · IPA: /jɛs aɪ du/
 
-Quruluşu: Do you …? — Yes, I do.
+Quruluşu: Do you [dil]? — Yes, I do.
 
 Nümunə: **Do you speak Russian? — Yes, I do.** — Rusca danışırsan? — Bəli, danışıram.
 
@@ -79,7 +79,7 @@ Qeyd: Qısa cavabda sualdakı “do” təkrar olunur.
 
 Oxunuşu: nou, ay dont · IPA: /noʊ aɪ doʊnt/
 
-Quruluşu: Do you …? — No, I don't.
+Quruluşu: Do you [dil]? — No, I don't.
 
 Nümunə: **Do you speak French? — No, I don't.** — Fransızca danışırsan? — Xeyr, danışmıram.
 
@@ -87,7 +87,7 @@ Qeyd: don't — do not-un qısasıdır.
 
 ## Kart 7 — Müəllim izahı
 
-Do you …? sualına do ilə cavab verilir.
+Do you [dil]? sualına do ilə cavab verilir.
 
 **1 · Cavablar**
 - Yes, I do. · bəli
@@ -96,7 +96,7 @@ Do you …? sualına do ilə cavab verilir.
 **2 · Niyə belədir?**
 Sual Do ilə başlayırsa, qısa cavabda da do gəlir. “Xeyr” cavabında don't deyilir.
 
-Diqqət et: Are you …? sualına I am, Do you …? sualına I do ilə cavab verilir.
+Diqqət et: Are you [millət]? sualına I am, Do you [dil]? sualına I do ilə cavab verilir.
 
 ## Kart 8 — Cavab cütü: Cavab cütü
 
@@ -126,7 +126,7 @@ Qeyd: “a” və “little” birlikdə gəlir: bir az.
 
 ## Kart 10 — Səslə cavab: Dillərini de
 
-**Tapşırıq:** Dil mübadiləsi masasında yeni tanış soruşur. Cavab ver və hansı dillərdə danışdığını de: “I speak …”.  
+**Tapşırıq:** Dil mübadiləsi masasında yeni tanış soruşur. Cavab ver və hansı dillərdə danışdığını de: “I speak [dil]”.  
 **Səs:** Hi! Do you speak Azerbaijani?  
 **Qəbul:** məna:  — nümunə: Yes, I do. I speak Azerbaijani and a little English. / I speak Azerbaijani and Russian. · öz məlumatı: /^(?:yes,?\s*(?:i do\s*[.,]?\s*)?|no,?\s*i\s+don['’]?t\s*[.,]?\s*)?i\s+speak\s+(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese))(?:\s*(?:,|and)\s*(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese)))*(?:\s+a\s+little)?\s*[.!]?$/  
 **İpucu:** Əvvəl qısa cavab ver, sonra dilləri bir-bir sadala.  
@@ -137,7 +137,7 @@ Qeyd: “a” və “little” birlikdə gəlir: bir az.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Hostelin mətbəxində yanındakı gənc soruşur. Cavab ver və hansı dillərdə danışdığını de: “I speak …”.  
+**Tapşırıq:** Hostelin mətbəxində yanındakı gənc soruşur. Cavab ver və hansı dillərdə danışdığını de: “I speak [dil]”.  
 **Səs:** Excuse me, do you speak Turkish?  
 **Qəbul:** məna:  — nümunə: Yes, I do. I speak Azerbaijani and a little Turkish. / I speak Azerbaijani and English. · öz məlumatı: /^(?:yes,?\s*(?:i do\s*[.,]?\s*)?|no,?\s*i\s+don['’]?t\s*[.,]?\s*)?i\s+speak\s+(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese))(?:\s*(?:,|and)\s*(?:a\s+little\s+)?(?!azeri\b)(?:azerbaijani|turkish|russian|georgian|english|german|french|\p{L}+(?:ian|ish|ese)))*(?:\s+a\s+little)?\s*[.!]?$/  
 **İpucu:** Əvvəl qısa cavab ver, sonra dilləri bir-bir sadala.  
@@ -162,8 +162,8 @@ Qeyd: Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.
 **Cümlə:** No, I ___ .  
 **Seçimlər:** am / don't / not — **düzgün:** don't  
 **İpucu:** Sual “Are you” ilə yox, başqa sözlə başlayıb.  
-**Düzgün olanda:** “Do you …?” sualına “No, I don’t.” ilə cavab verilir.  
-- *İzah (“am” seçiləndə):* “am” ilə “Are you …?” sualına cavab verilir. — Uyğun: No, I don't. Səbəb: Sual “Do” ilə başlayıb, cavabda da “do” işlənir. Qayda: Do you speak German? — No, I don't.; Are you German? — No, I'm not. Nümunə: Do you speak German? — No, I don't.  
+**Düzgün olanda:** “Do you [dil]?” sualına “No, I don’t.” ilə cavab verilir.  
+- *İzah (“am” seçiləndə):* “am” ilə “Are you [millət]?” sualına cavab verilir. — Uyğun: No, I don't. Səbəb: Sual “Do” ilə başlayıb, cavabda da “do” işlənir. Qayda: Do you speak German? — No, I don't.; Are you German? — No, I'm not. Nümunə: Do you speak German? — No, I don't.  
 - *İzah (“not” seçiləndə):* I-dan sonra tək “not” qalmır. — Uyğun: No, I don't. Səbəb: Burada “not” “do” ilə birlikdə gəlir: don’t. Qayda: No, I don't. — düzdür; No, I not. — olmur. Nümunə: Do you speak German? — No, I don't.  
 
 **Təkrar (yeni vəziyyət):**
@@ -172,8 +172,8 @@ Qeyd: Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.
 **Cümlə:** Yes, I ___ . I speak French.  
 **Seçimlər:** am / speak / do — **düzgün:** do  
 **İpucu:** Sual “Are you” ilə yox, başqa sözlə başlayıb.  
-**Düzgün olanda:** “Do you …?” sualına “Yes, I do.” ilə cavab verilir.  
-- *İzah (“am” seçiləndə):* “am” ilə “Are you …?” sualına cavab verilir. — Uyğun: Yes, I do. Səbəb: Sual “Do” ilə başlayıb, cavabda da “do” işlənir. Qayda: Do you speak French? — Yes, I do.; Are you French? — Yes, I am. Nümunə: Do you speak French? — Yes, I do.  
+**Düzgün olanda:** “Do you [dil]?” sualına “Yes, I do.” ilə cavab verilir.  
+- *İzah (“am” seçiləndə):* “am” ilə “Are you [millət]?” sualına cavab verilir. — Uyğun: Yes, I do. Səbəb: Sual “Do” ilə başlayıb, cavabda da “do” işlənir. Qayda: Do you speak French? — Yes, I do.; Are you French? — Yes, I am. Nümunə: Do you speak French? — Yes, I do.  
 - *İzah (“speak” seçiləndə):* Qısa cavabda “speak” təkrar olunmur. — Uyğun: Yes, I do. Səbəb: Qısa cavabda sualdakı “do” işlənir. Qayda: Yes, I do. — düzdür; Yes, I speak. — olmur. Nümunə: Do you speak French? — Yes, I do.  
 
 ## Kart 13 — Dialoqu tamamla: Dialoqu tamamla

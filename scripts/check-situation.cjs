@@ -12,7 +12,7 @@ const { designLessons } = require('../src/data/designLessons.ts');
 // A chat screen must say that it is a chat (someone writes, a message, a group chat …).
 const WRITTEN = /yaz(ır|dı|ıb|ırsan|ışır)|mesaj|çat|qrup|onlayn|e-poçt/i;
 // Things that only happen face to face (or by voice): pointing at someone, handing over, speaking, a call.
-const FACE = /qarşılaş|rastlaş|tanış ol(ur|du)|göstər(ir|ib)|yanındakı|yanında dost|qaytardı|sənə .{0,12}verdi|kömək et(di|ən)|dedin|dedi\b|deyir\b|danışırsan|gəldi\b|evə gedir|gedirsən|video zəng|telefonda .{0,20}göstər/i;
+const FACE = /qarşılaş|rastlaş|tanış ol(ur|du)(?!ğ)|göstər(ir|ib)|yanındakı|yanında dost|qaytardı|sənə .{0,12}verdi|dedin|dedi\b|deyir\b|danışırsan|gəldi\b|evə gedir|gedirsən|video zəng|telefonda .{0,20}göstər/i;
 const SPOKEN_QUESTION = /soruşur|deyib|deyir\b|dedi\b|danışmağı/i;
 const NOT_A_REPLY = /dinlə və yaz|eşitdiyin|toxun|yığ|yerinə uyğun|siyahı|forma|qeydiyyat/i;
 

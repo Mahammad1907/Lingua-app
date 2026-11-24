@@ -130,7 +130,7 @@ export const lesson2: DesignLesson = {
       variants: [other("Yes, that's right.", ex("Yes, that's right.", 'Nömrə düzdür, ona görə razılıq bildirirsən.', "Is that right? — Yes, that's right.", "Oh five five… Is that right? — Yes, that's right."))],
       review: {
         title: 'Cavab yaz', why: 'Nömrənin düz olduğunu təsdiqlədin.', hint: 'Nömrə düzdür — onun sualına razılıqla cavab ver.',
-        prompt: 'İdman zalının qəbulu nömrəni oxuyub yoxlayır. Nömrə düzdür.\nTəsdiqlə.', placeholder: 'Cavabını yaz',
+        prompt: 'İdman zalının qəbulu nömrəni mesajla yoxlayır. Nömrə düzdür.\nTəsdiqlə.', placeholder: 'Cavabını yaz',
         chat: { partner: 'İdman zalının qəbulu', from: 'B', lines: [{ from: 'B', text: 'Oh five five, two one nine, oh three, eight eight. Is that right?' }] }, rule: yes,
         variants: [other("Yes, that's right.", ex("Yes, that's right.", 'Nömrə düzdür, ona görə razılıq bildirirsən.', "Is that right? — Yes, that's right.", "Yes, that's right."))],
       },

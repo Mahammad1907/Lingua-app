@@ -127,7 +127,7 @@ export const lesson1b: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d1b_c11', number: 11, title: 'Rəqəmi yaz', why: 'eight — gh yazılır, amma oxunmur.', hint: 'Yeni söz kartındakı yazılışı xatırla: səsdə olmayan hərflər də var.',
-      prompt: 'Dayanacaqdakı lövhədə “8” yazılıb.\nDostun soruşur ki, ingiliscə necədir. Sözlə yaz.', placeholder: 'Rəqəmi sözlə yaz',
+      prompt: 'Dayanacaqdakı lövhədə “8” yazılıb.\nDostun mesajda soruşur ki, ingiliscə necədir. Sözlə yaz.', placeholder: 'Rəqəmi sözlə yaz',
       rule: exact('eight'),
       variants: [other('Yazılışı yoxla.', ex('eight', '“eyt” deyilir, amma yazıda gh var.', 'eight — yazıda; eyt — səsdə.', 'Seven, eight, nine!'))],
       review: {

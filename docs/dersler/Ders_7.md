@@ -138,10 +138,10 @@ Qeyd: Çox sürətli danışanda deyilir.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Səs-küydə qızın sualını eşitmədin. Balonlara toxun, söhbəti sıraya düz.  
-**Düzgün sıra:** 1. Hi! What's your name? → 2. Sorry? Say that again, please. → 3. What's your name? → 4. My name is …  
+**Düzgün sıra:** 1. Hi! What's your name? → 2. Sorry? Say that again, please. → 3. What's your name? → 4. My name is [ad]  
 **İpucu:** Düşün: eşitməyəndə nə deyirsən və bundan sonra nə olur?  
 **Düzgün olanda:** Xahiş, təkrar və cavab düz sıradadır.  
-- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is … Səbəb: Sualı eşitmədin, sən təkrar istədin, o yenidən soruşdu. Qayda: Say that again, please — eşitmədin; More slowly, please — çox sürətli idi. Nümunə: Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is …  
+- *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is [ad]. Səbəb: Sualı eşitmədin, sən təkrar istədin, o yenidən soruşdu. Qayda: Say that again, please — eşitmədin; More slowly, please — çox sürətli idi. Nümunə: Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is [ad]  
 
 ## Kart 11 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -196,7 +196,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 
 ## Kart 14 — Yaz: Cavabını yaz
 
-**Tapşırıq:** Oğlan çox sürətli deyir (sözlər qəsdən bitişik yazılıb): “Hellohowareyounicetomeetyou!” Ondan yavaş danışmağı xahiş et.  
+**Tapşırıq:** Oğlan sənə çox sürətli səsli mesaj göndərdi (sözlər qəsdən bitişik yazılıb): “Hellohowareyounicetomeetyou!” Ondan yavaş danışmağı xahiş et.  
 **Qəbul:** məna: slow — nümunə: More slowly, please. / Slowly, please.  
 **İpucu:** Problem sürətdədir — ondan nə xahiş edirsən?  
 **Düzgün olanda:** Yavaş danışmağı xahiş etdin.  
@@ -205,7 +205,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qız çox sürətli soruşur (sözlər qəsdən bitişik yazılıb): “Hiwhat’syourname?” Ondan yavaş danışmağı xahiş et.  
+**Tapşırıq:** Qız çox sürətli səsli mesajda soruşur (sözlər qəsdən bitişik yazılıb): “Hiwhat’syourname?” Ondan yavaş danışmağı xahiş et.  
 **Qəbul:** məna: slow — nümunə: More slowly, please. / Slowly, please.  
 **İpucu:** Problem sürətdədir — ondan nə xahiş edirsən?  
 **Düzgün olanda:** Yavaş danışmağı xahiş etdin.  

@@ -21,7 +21,7 @@ Qeyd: Hərfi mənası “nə qədər yaşlısan?” — ingiliscə yaş belə so
 
 ## Kart 3 — Mesaj yaz (sözlərdən): Sualı qur
 
-**Tapşırıq:** İdman zalında yeni tanışla danışırsan. Sözlərdən onun yaşını soruşan sual qur.  
+**Tapşırıq:** İdman zalındakı yeni tanışla yazışırsan. Sözlərdən onun yaşını soruşan sual qur.  
 **Yazışma (Yeni tanış):** “Hello! Nice to meet you.”  
 **Sözlər:** old · How · you · are · is · your · ?  
 **Qəbul:** dəqiq: How old are you?  
@@ -31,7 +31,7 @@ Qeyd: Hərfi mənası “nə qədər yaşlısan?” — ingiliscə yaş belə so
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Kursda yeni yoldaşın yaşını formaya yazmalısan. Sözlərdən sual qur.  
+**Tapşırıq:** Yeni yoldaşının yaşını kurs formasına yazmalısan. Ona mesajla soruş. Sözlərdən sual qur.  
 **Yazışma (Kurs yoldaşı):** “Hello!”  
 **Sözlər:** are · old · How · is · you · name · ?  
 **Qəbul:** dəqiq: How old are you?  
@@ -60,7 +60,7 @@ Qeyd: Vurğu əvvəldədir: THIR-ty; thirteen-də isə sondadır.
 - forty · 40
 
 **2 · Necə ayırırsan?**
--teen-də son hissə uzun və güclü deyilir. -ty-də isə əvvəl güclüdür: “FORti”.
+-teen-də son hissə uzun və güclü deyilir. -ty-də isə əvvəl güclüdür: “FORdi”.
 
 Diqqət et: four → forty: forty sözündə u yoxdur.
 
@@ -231,12 +231,12 @@ Qeyd: “years old” birlikdə gəlir; yalnız “years” deyilmir.
 
 **Tapşırıq:** İdman zalında qeydiyyat. Vərəqi doldur (istəsən, uydurma məlumat).  
 **Forma:** İdman zalı — Qeydiyyat  
-**First name:** məna:  — nümunə: …  
+**First name:** məna:  — nümunə: [ad]  
 **Phone number:** məna:  — nümunə: 050 321 45 67  
 **How old are you?:** məna:  — nümunə: 25  
 **İpucu:** Hər sətrin başlığını oxu; yaşı rəqəmlə yaza bilərsən.  
 **Düzgün olanda:** Adını, nömrəni və yaşını yazdın.  
-- *İzah (“First name” səhv olanda):* Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Phone number — nömrən. Nümunə: My first name is …  
+- *İzah (“First name” səhv olanda):* Uyğun: [ad]. Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Phone number — nömrən. Nümunə: My first name is [ad]  
 - *İzah (“Phone number” səhv olanda):* Uyğun: 050 321 45 67. Səbəb: Bu sətirdə rəqəmlər lazımdır. Qayda: Phone number — nömrən; How old are you? — yaşın. Nümunə: It's zero five zero, three two one, four five, six seven.  
 - *İzah (“How old are you?” səhv olanda):* Uyğun: 25. Səbəb: Bu sətirdə yaşın lazımdır: rəqəmlə və ya “I’m” ilə. Qayda: 25 — rəqəmlə; I'm twenty-five. — cümlə ilə. Nümunə: I'm twenty-five.  
 
@@ -245,12 +245,12 @@ Qeyd: “years old” birlikdə gəlir; yalnız “years” deyilmir.
 **Tapşırıq:** Hovuza yazılırsan. Vərəqi doldur (istəsən, uydurma məlumat).  
 **Forma:** Hovuz — Yeni üzv  
 **How old are you?:** məna:  — nümunə: 25  
-**First name:** məna:  — nümunə: …  
+**First name:** məna:  — nümunə: [ad]  
 **Phone number:** məna:  — nümunə: 050 321 45 67  
 **İpucu:** Hər sətrin başlığını oxu; sıra fərqli ola bilər.  
 **Düzgün olanda:** Yaşını, adını və nömrəni yazdın.  
 - *İzah (“How old are you?” səhv olanda):* Uyğun: 25. Səbəb: Bu sətirdə yaşın lazımdır: rəqəmlə və ya “I’m” ilə. Qayda: 25 — rəqəmlə; I'm twenty-five. — cümlə ilə. Nümunə: I'm twenty-five.  
-- *İzah (“First name” səhv olanda):* Uyğun: … Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Phone number — nömrən. Nümunə: My first name is …  
+- *İzah (“First name” səhv olanda):* Uyğun: [ad]. Səbəb: Bu sətirdə yalnız adın lazımdır. Qayda: First name — adın; Phone number — nömrən. Nümunə: My first name is [ad]  
 - *İzah (“Phone number” səhv olanda):* Uyğun: 050 321 45 67. Səbəb: Bu sətirdə rəqəmlər lazımdır. Qayda: Phone number — nömrən; How old are you? — yaşın. Nümunə: It's zero five zero, three two one, four five, six seven.  
 
 ## Nəticə

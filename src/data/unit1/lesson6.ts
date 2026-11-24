@@ -108,24 +108,24 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'write', id: 'd6_c09', number: 9, title: 'Mesajı qur', why: 'Nəzakətlə diqqət çəkib adı soruşdun.', hint: 'Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.',
-      prompt: 'Resepşndakı qız sənə kömək etdi, amma adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Otelin çatında bir qız sənə kömək etdi, amma adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Resepşndakı qız', from: 'G', lines: [] }, tiles: ['your', 'Excuse', 'sorry', "what's", 'me,', 'name', '?'], rule: exact("Excuse me, what's your name?"),
       variants: [other('Excuse me, what’s your name?', ex("Excuse me, what's your name?", 'Əvvəl Excuse me ilə diqqət çəkirsən, sonra sual verirsən — sorry burada lazım deyil.', 'Excuse me + sual.', "Excuse me, what's your name?"))],
       review: {
-        title: 'Mesajı qur', why: 'Nəzakətlə diqqət çəkib adı soruşdun.', hint: 'Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.', prompt: 'Küçədə sənə kömək edən oğlanın adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
+        title: 'Mesajı qur', why: 'Nəzakətlə diqqət çəkib adı soruşdun.', hint: 'Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.', prompt: 'Qrup çatında sənə kömək edən oğlanın adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Kömək edən oğlan', from: 'B', lines: [] }, tiles: ['me,', 'name', 'Excuse', 'you', "what's", 'your', '?'], rule: exact("Excuse me, what's your name?"),
         variants: [other('Excuse me, what’s your name?', ex("Excuse me, what's your name?", '“your” — sənin; “you” burada uyğun deyil.', 'Excuse me + sual.', "Excuse me, what's your name?"))],
       },
     },
     {
       type: 'write', id: 'd6_c10', number: 10, title: 'Cavabını yaz', why: 'Üzrü qəbul etdin.', hint: 'Oğlan üzr istədi — üzrü necə qəbul edirsən?',
-      prompt: 'Oğlan səhvən çantanı yerə saldı və deyir: “Sorry!”\nÜzrünü qəbul et.', placeholder: 'Cavabını yaz', rule: noProblem,
+      prompt: 'Oğlan səhvən sənə başqa mesaj göndərdi və yazır: “Sorry!”\nÜzrünü qəbul et.', placeholder: 'Cavabını yaz', rule: noProblem,
       variants: [
         insteadOf('sorry', 'Səhv onundur — sən üzrü qəbul edirsən.', ex('No problem.', 'Üzrə “Sorry” ilə yox, “No problem” ilə cavab verilir.', 'Sorry → No problem.', 'Sorry! — No problem.')),
         other('Üzrə cavab: No problem.', ex('No problem.', 'O üzr istədi, sən isə “Eybi yox” deyirsən.', 'Sorry → No problem.', 'No problem.')),
       ],
       review: {
-        title: 'Cavabını yaz', why: 'Üzrü qəbul etdin.', hint: 'Qız üzr istədi — üzrü necə qəbul edirsən?', prompt: 'Qız növbədə sənin qabağına keçdi və deyir: “I’m sorry!”\nÜzrünü qəbul et.', placeholder: 'Cavabını yaz', rule: noProblem,
+        title: 'Cavabını yaz', why: 'Üzrü qəbul etdin.', hint: 'Qız üzr istədi — üzrü necə qəbul edirsən?', prompt: 'Qız mesajına gec cavab verdi və yazır: “I’m sorry!”\nÜzrünü qəbul et.', placeholder: 'Cavabını yaz', rule: noProblem,
         variants: [other('Üzrə cavab: No problem.', ex('No problem.', 'O üzr istədi, sən isə “Eybi yox” deyirsən.', 'Sorry → No problem.', 'No problem.'))],
       },
     },

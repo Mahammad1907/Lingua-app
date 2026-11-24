@@ -162,7 +162,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 
 ## Kart 12 — Yaz: Rəqəmi yaz
 
-**Tapşırıq:** Dayanacaqdakı lövhədə “8” yazılıb. Dostun soruşur ki, ingiliscə necədir. Sözlə yaz.  
+**Tapşırıq:** Dayanacaqdakı lövhədə “8” yazılıb. Dostun mesajda soruşur ki, ingiliscə necədir. Sözlə yaz.  
 **Qəbul:** dəqiq: eight  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla: səsdə olmayan hərflər də var.  
 **Düzgün olanda:** eight — gh yazılır, amma oxunmur.  

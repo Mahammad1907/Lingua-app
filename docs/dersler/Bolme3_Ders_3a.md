@@ -54,7 +54,7 @@ Diqqət et: Millət adı da böyük hərflə yazılır: Azerbaijani.
 **İpucu:** Sözdən əvvəl kiçik bir söz var, ya yox — qulaq as.  
 **Düzgün olanda:** from Azerbaijan — Azərbaycandan (ölkə).  
 - *İzah (“Mən azərbaycanlıyam.” seçiləndə):* Səsdə “from” var — bu, ölkədir. — Uyğun: Mən Azərbaycandanam. Səbəb: from ölkədən əvvəl gəlir: haradan olduğunu deyir. Qayda: I'm from Azerbaijan. — ölkə; I'm Azerbaijani. — millət. Nümunə: I'm from Azerbaijan.  
-- *İzah (“Adım Gəncədir.” seçiləndə):* Səsdə ad yoxdur. — Uyğun: Mən Azərbaycandanam. Səbəb: Səsdə my name is yoxdur, from var. Qayda: I'm from Azerbaijan. — ölkə; My name is … — ad. Nümunə: I'm from Azerbaijan.  
+- *İzah (“Adım Gəncədir.” seçiləndə):* Səsdə ad yoxdur. — Uyğun: Mən Azərbaycandanam. Səbəb: Səsdə my name is yoxdur, from var. Qayda: I'm from Azerbaijan. — ölkə; My name is [ad] — ad. Nümunə: I'm from Azerbaijan.  
 
 ## Kart 5 — Yeni söz
 

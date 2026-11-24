@@ -1,20 +1,20 @@
-# Dərs 4 — Sən …-dansan?
+# Dərs 4 — Sən [ölkə]-dansan?
 
 Bölmə 3 · Haradansan. Bu sənəd `src/data/unit3/lesson4.ts`-dən yaradılıb — mətni orada dəyiş, sonra `node scripts/export-unit1-docs.cjs`.
 
 ## Giriş — Giriş
 
-Hostelin mətbəxində yeni tanışlarla “Sən …-dansan?” deyə soruşub qısa cavab verirsən.
+Hostelin mətbəxində yeni tanışlarla “Sən [ölkə]-dansan?” deyə soruşub qısa cavab verirsən.
 
-- “Sən …-dansan?” sualını eşidib anlaya bilirəm.
+- “Sən [ölkə]-dansan?” sualını eşidib anlaya bilirəm.
 - Bəli və xeyr ilə qısa cavab verə bilirəm.
 - Bir ölkədən olub-olmadığını soruşa bilirəm.
 
 ## Kart 2 — Yeni söz
 
-**Are you from …?** — Sən …-dansan?
+**Are you from [ölkə]?** — Sən [ölkə]-dansan?
 
-Oxunuşu: ar yu fram …? · IPA: /ɑr ju frʌm/
+Oxunuşu: ar yu fram [ölkə]? · IPA: /ɑr ju frʌm/
 
 Quruluşu: Are you from + ölkə?
 
@@ -61,7 +61,7 @@ Diqqət et: Cavab Yes və ya No ilə başlayır, onu indi öyrənəcəksən.
 
 Oxunuşu: yes, ay əm · IPA: /jɛs aɪ æm/
 
-Quruluşu: Are you …? — Yes, I am.
+Quruluşu: Are you [millət]? — Yes, I am.
 
 Nümunə: **Are you from Azerbaijan? — Yes, I am.** — Sən Azərbaycandansan? — Bəli, eləyəm.
 
@@ -91,7 +91,7 @@ Qeyd: Qısa cavabın sonunda I am qısalmır.
 
 Oxunuşu: nou, aym nat · IPA: /noʊ aɪm nɑt/
 
-Quruluşu: Are you …? — No, I'm not.
+Quruluşu: Are you [millət]? — No, I'm not.
 
 Nümunə: **Are you from Russia? — No, I'm not.** — Sən Rusiyadansan? — Xeyr, deyiləm.
 
@@ -146,21 +146,21 @@ Qeyd: Təəccüb edəndə səsin sonda yuxarı qalxır.
 
 **Tapşırıq:** Hostelin mətbəxində yeni tanışlar danışır. Cümləyə toxun, sonra ona uyğun cavabı seç.  
 **Cütlər:** Where are you from? — I'm from Ganja.; I'm from France. — Really? Me too!; Are you from Russia? — No, I'm not. · artıq: Nice to meet you.  
-**İpucu:** Əvvəl sualları ayır: biri “haradan?”, biri “…-dansan?” soruşur.  
+**İpucu:** Əvvəl sualları ayır: biri “haradan?”, biri “[ölkə]-dansan?” soruşur.  
 **Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Where are you from? — I'm from Ganja.; I'm from France. — Really? Me too!; Are you from Russia? — No, I'm not. Səbəb: “Haradan?” sualına yer deyilir, “…-dansan?” sualına bəli və ya xeyr. Qayda: Where are you from? — I'm from Ganja. ; Are you from Russia? — No, I'm not. Nümunə: Are you from Russia?  
+- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Where are you from? — I'm from Ganja.; I'm from France. — Really? Me too!; Are you from Russia? — No, I'm not. Səbəb: “Haradan?” sualına yer deyilir, “[ölkə]-dansan?” sualına bəli və ya xeyr. Qayda: Where are you from? — I'm from Ganja. ; Are you from Russia? — No, I'm not. Nümunə: Are you from Russia?  
 
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Qatarda sərnişinlər tanış olur. Cümləyə toxun, sonra ona uyğun cavabı seç.  
 **Cütlər:** Are you from Georgia? — Yes, I am.; I'm from Iran. — Really?; Where are you from? — I'm from Baku. · artıq: Thank you!  
-**İpucu:** Əvvəl “…-dansan?” sualını tap.  
+**İpucu:** Əvvəl “[ölkə]-dansan?” sualını tap.  
 **Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Are you from Georgia? — Yes, I am.; I'm from Iran. — Really?; Where are you from? — I'm from Baku. Səbəb: “Haradan?” sualına yer deyilir, “…-dansan?” sualına bəli və ya xeyr. Qayda: Where are you from? — I'm from Baku. ; Are you from Georgia? — Yes, I am. Nümunə: Are you from Georgia?  
+- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Are you from Georgia? — Yes, I am.; I'm from Iran. — Really?; Where are you from? — I'm from Baku. Səbəb: “Haradan?” sualına yer deyilir, “[ölkə]-dansan?” sualına bəli və ya xeyr. Qayda: Where are you from? — I'm from Baku. ; Are you from Georgia? — Yes, I am. Nümunə: Are you from Georgia?  
 
 ## Kart 12 — Dialoqu tamamla: Dialoqu tamamla
 
-**Tapşırıq:** Hostelin mətbəxində Bakıdan olduğunu dedin. Yeni tanış cavab yazır. Təəccübünü bildir.  
+**Tapşırıq:** Hostelin çatında Bakıdan olduğunu yazdın. Yeni tanış cavab yazır. Təəccübünü bildir.  
 **Yazışma (Yeni tanış):** “I'm from Baku too!”  
 **Qəbul:** dəqiq: Really?  
 **İpucu:** Təəccüb edəndə deyilən bu dərsin sözünü yaz.  
@@ -169,7 +169,7 @@ Qeyd: Təəccüb edəndə səsin sonda yuxarı qalxır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qatarda yeni tanışa Gəncədən olduğunu dedin. O cavab yazır. Təəccübünü bildir.  
+**Tapşırıq:** Qatarda tanış olduğun adama mesajda Gəncədən olduğunu yazdın. O cavab yazır. Təəccübünü bildir.  
 **Yazışma (Yeni tanış):** “I'm from Ganja too!”  
 **Qəbul:** dəqiq: Really?  
 **İpucu:** Təəccüb edəndə deyilən bu dərsin sözünü yaz.  
@@ -238,7 +238,7 @@ Qeyd: Təəccüb edəndə səsin sonda yuxarı qalxır.
 
 ## Nəticə
 
-Dərs 4 tamamlandı — Artıq “Sən …-dansan?” deyə soruşur, bəli və xeyr ilə qısa cavab verirsən.
+Dərs 4 tamamlandı — Artıq “Sən [ölkə]-dansan?” deyə soruşur, bəli və xeyr ilə qısa cavab verirsən.
 
 - Tanıma: Bəli/xeyr sualını və cavablarını anlamaq
 - Yazı: Bəli/xeyr sualı qurmaq və təəccüb bildirmək
@@ -250,7 +250,7 @@ Növbəti dərs — başqası haqqında: he və she.
 
 | Söz | Tərcümə | Nümunə |
 |---|---|---|
-| Are you from …? | Sən …-dansan? | Are you from Turkey? — Sən Türkiyədənsən? |
+| Are you from [ölkə]? | Sən [ölkə]-dansan? | Are you from Turkey? — Sən Türkiyədənsən? |
 | Yes, I am. | Bəli, eləyəm. | Are you from Azerbaijan? — Yes, I am. — Sən Azərbaycandansan? — Bəli, eləyəm. |
 | No, I'm not. | Xeyr, deyiləm. | Are you from Russia? — No, I'm not. — Sən Rusiyadansan? — Xeyr, deyiləm. |
 | Really? | Doğrudan? | I'm from the USA. — Really? Me too! — Mən ABŞ-danam. — Doğrudan? Mən də! |
