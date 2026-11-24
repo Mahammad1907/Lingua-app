@@ -214,7 +214,7 @@ Qeyd: “Nice to meet you”ya qısa cavabdır.
 
 **Tapşırıq:** Yazışma bitir, sən çıxırsan. Mesajla sağollaş.  
 **Yazışma (Qonşu qız):** “Nice to meet you!”  
-**Qəbul:** məna: farewell — nümunə: Bye! / Goodbye!  
+**Qəbul:** məna: farewell — nümunə: Bye! / Goodbye! / You too! Bye! / You too! Goodbye!  
 **İpucu:** Dərs 1-in sağollaşma sözlərini xatırla.  
 **Düzgün olanda:** Yazışmanı sağollaşma ilə bitirdin.  
 - *İzah (cavab “greet” işini görəndə):* Gedirsən — salam yox, sağollaşma. — Uyğun: Bye! / Goodbye! Səbəb: Hello və Hi görüşü başladır, sən isə gedirsən. Qayda: Ayrılarkən: Bye! / Goodbye! Nümunə: Bye!  

@@ -171,7 +171,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 
 ## Kart 11 — Yaz: Dostuna kömək et
 
-**Tapşırıq:** Dostun yazışmanı bitirir, amma “Hello!” yazır. Onun yerinə uyğun sağollaşma yaz.  
+**Tapşırıq:** Dostun görüşü bitirib gedir, amma “Hello!” deyir. Onun yerinə uyğun sağollaşma yaz.  
 **Qəbul:** məna: farewell — nümunə: Goodbye! / Bye!  
 **İpucu:** Gedən adam salam verir, yoxsa sağollaşır?  
 **Düzgün olanda:** Dostun gedir — ona Bye və ya Goodbye yaraşır.  
@@ -180,7 +180,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Dostun qonaqlıq çatından çıxır, amma “Hi!” yazır. Uyğun sağollaşma yaz.  
+**Tapşırıq:** Dostun qonaqlıqdan gedir, amma “Hi!” deyir. Onun yerinə uyğun sağollaşma yaz.  
 **Qəbul:** məna: farewell — nümunə: Goodbye! / Bye!  
 **İpucu:** Gedən adam salam verir, yoxsa sağollaşır?  
 **Düzgün olanda:** Dostun gedir — ona Bye və ya Goodbye yaraşır.  
@@ -189,26 +189,26 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 
 ## Kart 12 — İki mesaj yaz: İki mesajı özün yaz
 
-**Tapşırıq:** Bir tanışınla qısa görüşün var. İki qısa mesaj yaz: 1. Görüşə başlayarkən deyəcəyin salam. 2. Ayrılarkən deyəcəyin sağollaşma.  
-**Görüşün əvvəlində:** məna: greet — nümunə: Hello! / Hi!  
-**Görüşün sonunda:** məna: farewell — nümunə: Goodbye! / Bye!  
+**Tapşırıq:** Bu gün bir tanışınla görüşəcəksən. Ona iki qısa mesaj yaz: 1. Görüşdən əvvəl salam. 2. Görüşdən sonra sağollaşma.  
+**Görüşdən əvvəl:** məna: greet — nümunə: Hello! / Hi!  
+**Görüşdən sonra:** məna: farewell — nümunə: Goodbye! / Bye!  
 **İpucu:** Birinci sahədə görüş başlayır, ikincidə bitir.  
 **Düzgün olanda:** Əvvəldə salam, sonda sağollaşma.  
 - *İzah (iki mesajın yeri dəyişəndə):* Uyğun: Əvvəl Hello! / Hi!; sonda Goodbye! / Bye! Səbəb: Sağollaşmanı başlanğıcda, salamı isə sonda yazmısan. Qayda: Salam görüşü başladır; sağollaşma bitirir. Nümunə: Başlanğıc: “Hi!” Son: “Bye!”  
-- *İzah (“Görüşün əvvəlində” sahəsində cavab “farewell” işini görəndə):* Uyğun: Hello! / Hi! Səbəb: Bu sahə görüşün başlanğıcı üçündür; yazdığın sağollaşma görüşü bitirir. Qayda: Əvvəl salam ver, ayrılarkən sağollaş. Nümunə: Görüş başlayır: “Hello!” Görüş bitir: “Bye!”  
-- *İzah (“Görüşün sonunda” sahəsində cavab “greet” işini görəndə):* Birinci mesaj uyğundur. İkinci mesajda görüşü bitirən ifadə lazımdır. — Uyğun: Goodbye! / Bye! Səbəb: İkinci sahədə ayrılırsan, Hello və Hi isə görüşü başladır. Qayda: Görüşün sonunda sağollaşma yaz. Nümunə: Söhbət bitir: “Goodbye!”  
+- *İzah (“Görüşdən əvvəl” sahəsində cavab “farewell” işini görəndə):* Uyğun: Hello! / Hi! Səbəb: Bu sahə görüşün başlanğıcı üçündür; yazdığın sağollaşma görüşü bitirir. Qayda: Əvvəl salam ver, ayrılarkən sağollaş. Nümunə: Görüş başlayır: “Hello!” Görüş bitir: “Bye!”  
+- *İzah (“Görüşdən sonra” sahəsində cavab “greet” işini görəndə):* Birinci mesaj uyğundur. İkinci mesajda görüşü bitirən ifadə lazımdır. — Uyğun: Goodbye! / Bye! Səbəb: İkinci sahədə ayrılırsan, Hello və Hi isə görüşü başladır. Qayda: Görüşün sonunda sağollaşma yaz. Nümunə: Söhbət bitir: “Goodbye!”  
 - *İzah (başqa səhvdə):* Uyğun: Başlanğıc üçün Hello! / Hi!; son üçün Goodbye! / Bye! Səbəb: Bu mesaj görüşün bu anına uyğun deyil. Qayda: Hər mesajı görüşün həmin anına uyğun yaz. Nümunə: Əvvəl “Hello!”, ayrılarkən “Goodbye!”  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qısa video görüşün var. Görüşün əvvəlində salam, sonunda sağollaşma mesajı yaz.  
-**Görüşün əvvəlində:** məna: greet — nümunə: Hello! / Hi!  
-**Görüşün sonunda:** məna: farewell — nümunə: Goodbye! / Bye!  
+**Tapşırıq:** Qısa video zəngin var. Zəngdən əvvəl çatda salam, zəngdən sonra sağollaşma mesajı yaz.  
+**Görüşdən əvvəl:** məna: greet — nümunə: Hello! / Hi!  
+**Görüşdən sonra:** məna: farewell — nümunə: Goodbye! / Bye!  
 **İpucu:** Birinci sahədə görüş başlayır, ikincidə bitir.  
 **Düzgün olanda:** Əvvəldə salam, sonda sağollaşma.  
 - *İzah (iki mesajın yeri dəyişəndə):* Uyğun: Əvvəl Hello! / Hi!; sonda Goodbye! / Bye! Səbəb: Sağollaşmanı başlanğıcda, salamı isə sonda yazmısan. Qayda: Salam görüşü başladır; sağollaşma bitirir. Nümunə: Başlanğıc: “Hi!” Son: “Bye!”  
-- *İzah (“Görüşün əvvəlində” sahəsində cavab “farewell” işini görəndə):* Uyğun: Hello! / Hi! Səbəb: Bu sahə görüşün başlanğıcı üçündür; yazdığın sağollaşma görüşü bitirir. Qayda: Əvvəl salam ver, ayrılarkən sağollaş. Nümunə: Görüş başlayır: “Hello!” Görüş bitir: “Bye!”  
-- *İzah (“Görüşün sonunda” sahəsində cavab “greet” işini görəndə):* Birinci mesaj uyğundur. İkinci mesajda görüşü bitirən ifadə lazımdır. — Uyğun: Goodbye! / Bye! Səbəb: İkinci sahədə ayrılırsan, Hello və Hi isə görüşü başladır. Qayda: Görüşün sonunda sağollaşma yaz. Nümunə: Söhbət bitir: “Goodbye!”  
+- *İzah (“Görüşdən əvvəl” sahəsində cavab “farewell” işini görəndə):* Uyğun: Hello! / Hi! Səbəb: Bu sahə görüşün başlanğıcı üçündür; yazdığın sağollaşma görüşü bitirir. Qayda: Əvvəl salam ver, ayrılarkən sağollaş. Nümunə: Görüş başlayır: “Hello!” Görüş bitir: “Bye!”  
+- *İzah (“Görüşdən sonra” sahəsində cavab “greet” işini görəndə):* Birinci mesaj uyğundur. İkinci mesajda görüşü bitirən ifadə lazımdır. — Uyğun: Goodbye! / Bye! Səbəb: İkinci sahədə ayrılırsan, Hello və Hi isə görüşü başladır. Qayda: Görüşün sonunda sağollaşma yaz. Nümunə: Söhbət bitir: “Goodbye!”  
 - *İzah (başqa səhvdə):* Uyğun: Başlanğıc üçün Hello! / Hi!; son üçün Goodbye! / Bye! Səbəb: Bu mesaj görüşün bu anına uyğun deyil. Qayda: Hər mesajı görüşün həmin anına uyğun yaz. Nümunə: Əvvəl “Hello!”, ayrılarkən “Goodbye!”  
 
 ## Kart 13 — Səslə cavab: Salamı sən başlat

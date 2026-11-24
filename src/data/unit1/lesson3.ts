@@ -6,6 +6,8 @@ const intro = goal(['introduce'], ["I'm [ad]", 'My name is [ad]']);
 const askName = goal(['askName'], ["What's your name?"]);
 const meet = goal(['meet'], ['You too!', 'Nice to meet you too!']);
 const bye = goal(['farewell'], ['Bye!', 'Goodbye!']);
+// After “Nice to meet you!” people often write “You too! Bye!” (24 Nov 2026 review).
+const byeAfterMeet = goal(['farewell'], ['Bye!', 'Goodbye!', 'You too! Bye!', 'You too! Goodbye!']);
 
 export const lesson3: DesignLesson = {
   id: 'a1_en_b1_v2_d3', order: 3, title: 'Adını soruş', section: 'İlk tanışlıq',
@@ -154,7 +156,7 @@ export const lesson3: DesignLesson = {
     {
       type: 'write', id: 'd3_c12', number: 12, title: 'Söhbəti bitir', why: 'Yazışmanı sağollaşma ilə bitirdin.', hint: 'Dərs 1-in sağollaşma sözlərini xatırla.',
       prompt: 'Yazışma bitir, sən çıxırsan.\nMesajla sağollaş.', placeholder: 'Cavabını yaz',
-      chat: { partner: 'Qonşu qız', from: 'G', lines: [{ from: 'G', text: 'Nice to meet you!' }] }, rule: bye,
+      chat: { partner: 'Qonşu qız', from: 'G', lines: [{ from: 'G', text: 'Nice to meet you!' }] }, rule: byeAfterMeet,
       variants: [
         insteadOf('greet', 'Gedirsən — salam yox, sağollaşma.', ex('Bye! / Goodbye!', 'Hello və Hi görüşü başladır, sən isə gedirsən.', 'Ayrılarkən: Bye! / Goodbye!', 'Bye!')),
         other('Sağollaşma ifadəsi yaz.', ex('Bye! / Goodbye!', 'Görüş bitir, sağollaşırsan.', 'Ayrılarkən: Bye! / Goodbye!', 'Goodbye!')),

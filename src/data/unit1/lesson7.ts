@@ -116,13 +116,13 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'write', id: 'd7_c10', number: 10, title: 'Cavabını yaz', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir — ondan nə xahiş edirsən?',
-      prompt: 'Oğlan sənə çox sürətli səsli mesaj göndərdi (sözlər qəsdən bitişik yazılıb): “Hellohowareyounicetomeetyou!”\nOndan yavaş danışmağı xahiş et.', placeholder: 'Cavabını yaz', rule: slow,
+      prompt: 'Oğlan sənə çox sürətli səsli mesaj göndərdi. Sən onu belə eşitdin: “Hellohowareyounicetomeetyou!”\nOndan mesajla yavaş danışmasını xahiş et.', placeholder: 'Cavabını yaz', rule: slow,
       variants: [
         insteadOf('repeat', 'Problem sürətdədir — yavaş danışmağı xahiş et.', ex('More slowly, please.', 'Problem sürətdədir, ona görə “More slowly” lazımdır.', 'Say that again, please — bir də; More slowly, please — yavaş.', 'More slowly, please.')),
         other('Yavaş danışmağı xahiş et.', ex('More slowly, please.', 'O çox sürətli danışır, ona görə “More slowly” lazımdır.', 'Say that again, please — bir də; More slowly, please — yavaş.', 'Sorry? More slowly, please.')),
       ],
       review: {
-        title: 'Cavabını yaz', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir — ondan nə xahiş edirsən?', prompt: 'Qız çox sürətli səsli mesajda soruşur (sözlər qəsdən bitişik yazılıb): “Hiwhat’syourname?”\nOndan yavaş danışmağı xahiş et.', placeholder: 'Cavabını yaz', rule: slow,
+        title: 'Cavabını yaz', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir — ondan nə xahiş edirsən?', prompt: 'Qız sənə çox sürətli səsli mesaj göndərdi. Sən onu belə eşitdin: “Hiwhat’syourname?”\nOndan mesajla yavaş danışmasını xahiş et.', placeholder: 'Cavabını yaz', rule: slow,
         variants: [other('Yavaş danışmağı xahiş et.', ex('More slowly, please.', 'O çox sürətli danışır, ona görə “More slowly” lazımdır.', 'Say that again, please — bir də; More slowly, please — yavaş.', 'More slowly, please.'))],
       },
     },

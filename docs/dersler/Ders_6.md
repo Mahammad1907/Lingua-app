@@ -176,7 +176,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 ## Kart 13 — Mesaj yaz (sözlərdən): Mesajı qur
 
 **Tapşırıq:** Otelin çatında bir qız sənə kömək etdi, amma adını bilmirsən. Sözlərdən nəzakətli sual qur.  
-**Yazışma (Resepşndakı qız):** —  
+**Yazışma (Otelin resepsiyası):** —  
 **Sözlər:** your · Excuse · sorry · what's · me, · name · ?  
 **Qəbul:** dəqiq: Excuse me, what's your name?  
 **İpucu:** Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.  

@@ -195,7 +195,7 @@ Diqqət et: Biz “-dır” hissəsini sonda deyirik. İngiliscə o, ayrıca sö
 
 ## Kart 14 — Yaz: Adını yaz
 
-**Tapşırıq:** Qeydiyyatda adını soruşurlar. Adını ingiliscə cümlə ilə yaz.  
+**Tapşırıq:** Kursun qeydiyyat çatında adını soruşurlar. Adını ingiliscə cümlə ilə yaz.  
 **Qəbul:** məna: introduce — nümunə: I'm [ad] / My name is [ad]  
 **İpucu:** Bu dərsin iki formasından birini işlət, sonuna öz adını yaz.  
 **Düzgün olanda:** Qısa və düzgün təqdimat.  
@@ -203,7 +203,7 @@ Diqqət et: Biz “-dır” hissəsini sonda deyirik. İngiliscə o, ayrıca sö
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Yeni oyunda profil yaradırsan. Adını ingiliscə cümlə ilə yaz.  
+**Tapşırıq:** Oyunda profilinin “Haqqımda” hissəsini yazırsan. Özünü ingiliscə bir cümlə ilə təqdim et.  
 **Qəbul:** məna: introduce — nümunə: I'm [ad] / My name is [ad]  
 **İpucu:** Bu dərsin iki formasından birini işlət, sonuna öz adını yaz.  
 **Düzgün olanda:** Qısa və düzgün təqdimat.  

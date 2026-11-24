@@ -12,7 +12,7 @@ const { designLessons } = require('../src/data/designLessons.ts');
 // A chat screen must say that it is a chat (someone writes, a message, a group chat …).
 const WRITTEN = /yaz(ır|dı|ıb|ırsan|ışır)|mesaj|çat|qrup|onlayn|e-poçt/i;
 // Things that only happen face to face (or by voice): pointing at someone, handing over, speaking, a call.
-const FACE = /qarşılaş|rastlaş|tanış ol(ur|du)(?!ğ)|göstər(ir|ib)|yanındakı|yanında dost|qaytardı|sənə .{0,12}verdi|dedin|dedi\b|deyir\b|danışırsan|gəldi\b|evə gedir|gedirsən|video zəng|telefonda .{0,20}göstər/i;
+const FACE = /qarşılaş|rastlaş|tanış ol(ur|du)(?!ğ)|göstər(ir|ib)|yanındakı|yanında dost|qaytardı|sənə .{0,12}verdi|dedin|dedi\b|deyir\b|danışırsan|gəldi\b|evə gedir|gedirsən|tanış olursan|görüşün var|görüşə başlayarkən|video zəng|telefonda .{0,20}göstər/i;
 const SPOKEN_QUESTION = /soruşur|deyib|deyir\b|dedi\b|danışmağı/i;
 const NOT_A_REPLY = /dinlə və yaz|eşitdiyin|toxun|yığ|yerinə uyğun|siyahı|forma|qeydiyyat/i;
 
@@ -25,6 +25,10 @@ const look = (lesson, task, where) => {
     if (!WRITTEN.test(text)) hits.push(`${id}: mesajlaşma ekranı, amma mətndə yazışma yoxdur — “${text}”`);
     else if (FACE.test(text)) hits.push(`${id}: mesajlaşma ekranı, amma vəziyyət üz-üzədir — “${text}”`);
     if (/meet|street|yard/.test(scenes)) hits.push(`${id}: mesajlaşma ekranında görüş şəkli (${scenes})`);
+  } else if (task.type === 'two' && FACE.test(text) && !/görüşəcəksən|görüşdən (əvvəl|sonra)|zəngdən|getdi\b|sonra mesaj/i.test(text)) {
+    hits.push(`${id}: üz-üzə vəziyyət, amma mesaj yazmaq tapşırığı — “${text}”`);
+  } else if (task.type === 'write' && task.audio && /cavab ver/i.test(text) && !WRITTEN.test(text)) {
+    hits.push(`${id}: səslə deyilənə yazılı cavab — “${text}”`);
   } else if (task.type === 'write' && SPOKEN_QUESTION.test(text) && !WRITTEN.test(text.replace(/yaz\.?$/, '')) && !NOT_A_REPLY.test(text)) {
     hits.push(`${id}: danışıqla verilən suala yazılı cavab — “${text}”`);
   }

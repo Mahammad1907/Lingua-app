@@ -145,7 +145,7 @@ Bu söhbətdə ilk dörd dərsin hamısı var. Sən də belə danışa bilirsən
 
 ## Kart 10 — İki mesaj yaz: İki mesaj yaz
 
-**Tapşırıq:** Ziyafətdə yeni biri ilə tanış olursan. İki mesaj yaz: 1. Salam ver və adını de. 2. Onun adını soruş.  
+**Tapşırıq:** Ziyafətdə gördüyün yeni adama sonra mesaj yazırsan. İki mesaj yaz: 1. Salam ver və adını de. 2. Onun adını soruş.  
 **Birinci mesaj:** məna: greet + introduce — nümunə: Hi! I'm [ad] / Hello! My name is [ad]  
 **İkinci mesaj:** məna: askName — nümunə: What's your name?  
 **İpucu:** Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.  

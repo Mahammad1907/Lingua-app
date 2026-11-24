@@ -126,7 +126,7 @@ export const lesson1Design: DesignLesson = {
       { match: { other: true }, explain: {
         answers: 'Goodbye!', reason: 'Hello salamlaşmaq üçündür, burada isə görüş bitir.',
         rule: 'Ayrılarkən sağollaşma ifadəsi seç.', example: 'Söhbətin sonunda tanışından ayrılırsan: “Bye!”' } }],
-      review: { why: 'Bye yazışmanı bitirir.',
+      review: { why: 'Bye yazışmanı bitirir.', scenes: [],
         title: 'Oxu və seç', prompt: 'Yazışmanız bitir. Hansı mesaj uyğundur?', options: ['Hi!', 'Bye!', 'Hello!'], answer: 'Bye!',
         hint: 'Yazışma bitir — hansı mesaj sağollaşmadır?', hintAssists: true,
         variants: [{ match: { option: 'Hello!' }, explain: {
@@ -189,7 +189,7 @@ export const lesson1Design: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd1_c09', why: '{M} gedir — ona Bye və ya Goodbye yaraşır.', scenes: ['d1/mascot-leaving'], speaker: 'mascot', number: 10, title: '{M:dat} kömək et', prompt: '{M} yazışmanı bitirir, amma “Hello!” yazır.\nOnun yerinə uyğun sağollaşma yaz.',
+      type: 'write', id: 'd1_c09', why: '{M} gedir — ona Bye və ya Goodbye yaraşır.', scenes: ['d1/mascot-leaving'], speaker: 'mascot', number: 10, title: '{M:dat} kömək et', prompt: '{M} görüşü bitirib gedir, amma “Hello!” deyir.\nOnun yerinə uyğun sağollaşma yaz.',
       placeholder: 'Uyğun ifadəni yaz', rule: farewell, hint: 'Gedən adam salam verir, yoxsa sağollaşır?',
       variants: [
         { match: { goal: 'greet' }, short: 'Bu ifadə salamlaşmaq üçündür. Burada görüş bitir və sağollaşmaq lazımdır.', explain: {
@@ -200,7 +200,7 @@ export const lesson1Design: DesignLesson = {
           rule: 'İfadəni vəziyyətin başlanmasına və ya bitməsinə uyğun seç.', example: '{M} qapıdan çıxarkən “Goodbye!” deyir.' } },
       ],
       review: {
-        speaker: 'mascot', scenes: ['d1/mascot-party-leaving'], title: '{M:dat} kömək et', prompt: '{M} qonaqlıq çatından çıxır, amma “Hi!” yazır. Uyğun sağollaşma yaz.', placeholder: 'Uyğun ifadəni yaz', rule: farewell,
+        speaker: 'mascot', scenes: ['d1/mascot-party-leaving'], title: '{M:dat} kömək et', prompt: '{M} qonaqlıqdan gedir, amma “Hi!” deyir. Onun yerinə uyğun sağollaşma yaz.', placeholder: 'Uyğun ifadəni yaz', rule: farewell,
         hint: 'Gedən adam salam verir, yoxsa sağollaşır?',
         variants: [
           { match: { goal: 'greet' }, short: 'Bu ifadə salamlaşmaq üçündür. Burada görüş bitir və sağollaşmaq lazımdır.', explain: {
@@ -213,20 +213,20 @@ export const lesson1Design: DesignLesson = {
       },
     },
     {
-      type: 'two', id: 'd1_c10', why: 'Əvvəldə salam, sonda sağollaşma.', scenes: ['d1/visit-start', 'd1/visit-end'], number: 11, title: 'İki mesajı özün yaz',
-      prompt: 'Bir tanışınla qısa görüşün var.\nİki qısa mesaj yaz:\n1. Görüşə başlayarkən deyəcəyin salam.\n2. Ayrılarkən deyəcəyin sağollaşma.',
+      type: 'two', id: 'd1_c10', why: 'Əvvəldə salam, sonda sağollaşma.', number: 11, title: 'İki mesajı özün yaz',
+      prompt: 'Bu gün bir tanışınla görüşəcəksən.\nOna iki qısa mesaj yaz:\n1. Görüşdən əvvəl salam.\n2. Görüşdən sonra sağollaşma.',
       hint: 'Birinci sahədə görüş başlayır, ikincidə bitir.',
       fields: [
-        { id: 'd1_c10a', label: 'Görüşün əvvəlində', placeholder: 'Salamını yaz', rule: greet, purpose: 'salam vermək', empty: 'Birinci mesajı da yaz.' },
-        { id: 'd1_c10b', label: 'Görüşün sonunda', placeholder: 'Sağollaşmanı yaz', rule: farewell, purpose: 'sağollaşmaq', empty: 'İkinci mesajı da yaz.' },
+        { id: 'd1_c10a', label: 'Görüşdən əvvəl', placeholder: 'Salamını yaz', rule: greet, purpose: 'salam vermək', empty: 'Birinci mesajı da yaz.' },
+        { id: 'd1_c10b', label: 'Görüşdən sonra', placeholder: 'Sağollaşmanı yaz', rule: farewell, purpose: 'sağollaşmaq', empty: 'İkinci mesajı da yaz.' },
       ],
       variants: twoVariants,
       review: {
-        scenes: ['d1/video-start', 'd1/video-end'], title: 'İki mesajı özün yaz', prompt: 'Qısa video görüşün var. Görüşün əvvəlində salam, sonunda sağollaşma mesajı yaz.',
+        scenes: ['d1/video-start', 'd1/video-end'], title: 'İki mesajı özün yaz', prompt: 'Qısa video zəngin var. Zəngdən əvvəl çatda salam, zəngdən sonra sağollaşma mesajı yaz.',
         hint: 'Birinci sahədə görüş başlayır, ikincidə bitir.',
         fields: [
-          { id: 'd1_c10a', label: 'Görüşün əvvəlində', placeholder: 'Salamını yaz', rule: greet, purpose: 'salam vermək', empty: 'Birinci mesajı da yaz.' },
-          { id: 'd1_c10b', label: 'Görüşün sonunda', placeholder: 'Sağollaşmanı yaz', rule: farewell, purpose: 'sağollaşmaq', empty: 'İkinci mesajı da yaz.' },
+          { id: 'd1_c10a', label: 'Görüşdən əvvəl', placeholder: 'Salamını yaz', rule: greet, purpose: 'salam vermək', empty: 'Birinci mesajı da yaz.' },
+          { id: 'd1_c10b', label: 'Görüşdən sonra', placeholder: 'Sağollaşmanı yaz', rule: farewell, purpose: 'sağollaşmaq', empty: 'İkinci mesajı da yaz.' },
         ],
         variants: twoVariants, // T8 uses the same explanations as card 10
       },

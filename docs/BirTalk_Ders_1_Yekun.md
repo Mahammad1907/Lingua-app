@@ -417,7 +417,7 @@ Qısa geribildirim: “Bu ifadə salamlaşmaq üçündür. BirFox isə səninlə
 
 ### Öyrənənin görəcəyi mətn
 
-BirFox yazışmanı bitirir, amma “Hello!” yazır.
+BirFox görüşü bitirib gedir, amma “Hello!” deyir.
 
 Onun yerinə uyğun sağollaşma yaz.
 
@@ -460,14 +460,14 @@ Qısa geribildirim: “Bu ifadə salamlaşmaq üçündür. Burada görüş bitir
 
 ### Öyrənənin görəcəyi mətn
 
-Bir tanışınla qısa görüşün var.
+Bu gün bir tanışınla görüşəcəksən.
 
-İki qısa mesaj yaz:
+Ona iki qısa mesaj yaz:
 
-1. Görüşə başlayarkən deyəcəyin salam.
-2. Ayrılarkən deyəcəyin sağollaşma.
+1. Görüşdən əvvəl salam.
+2. Görüşdən sonra sağollaşma.
 
-**Sahələr:** Görüşün əvvəlində · Görüşün sonunda  
+**Sahələr:** Görüşdən əvvəl · Görüşdən sonra  
 **Düymə:** Yoxla  
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
@@ -754,14 +754,14 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 
 ### T7 — Kart 9 üçün uyğunsuz ifadəni düzəltmək
 
-- Sual: “BirFox qonaqlıq çatından çıxır, amma ‘Hi!’ yazır. Uyğun sağollaşma yaz.”
+- Sual: “BirFox qonaqlıqdan gedir, amma ‘Hi!’ deyir. Onun yerinə uyğun sağollaşma yaz.”
 - Uyğun cavablar: Goodbye! / Bye!
 - Bacarıq: uyğunsuz salamı yazılı sağollaşma ilə əvəz etmək.
 - İzah: Kart 9-dakı uyğun beş hissə; verilmiş səhv nümunə Hi olur, istifadəçinin cavabı ayrıca göstərilir.
 
 ### T8 — Kart 10 üçün iki məqsədli yazı
 
-- Sual: “Qısa video görüşün var. Görüşün əvvəlində salam, sonunda sağollaşma mesajı yaz.”
+- Sual: “Qısa video zəngin var. Zəngdən əvvəl çatda salam, zəngdən sonra sağollaşma mesajı yaz.”
 - Uyğun cavablar: əvvəl Hello! / Hi!; sonda Goodbye! / Bye!
 - Bacarıq: başlanğıc və son mesajını fərqləndirib yazmaq.
 - Əvvəl düzgün yazılmış sahə qorunur; yalnız çətinlik olan sahə yenidən doldurulur. Hər iki məqsədin konteksti görünür.

@@ -196,7 +196,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 
 ## Kart 14 — Yaz: Cavabını yaz
 
-**Tapşırıq:** Oğlan sənə çox sürətli səsli mesaj göndərdi (sözlər qəsdən bitişik yazılıb): “Hellohowareyounicetomeetyou!” Ondan yavaş danışmağı xahiş et.  
+**Tapşırıq:** Oğlan sənə çox sürətli səsli mesaj göndərdi. Sən onu belə eşitdin: “Hellohowareyounicetomeetyou!” Ondan mesajla yavaş danışmasını xahiş et.  
 **Qəbul:** məna: slow — nümunə: More slowly, please. / Slowly, please.  
 **İpucu:** Problem sürətdədir — ondan nə xahiş edirsən?  
 **Düzgün olanda:** Yavaş danışmağı xahiş etdin.  
@@ -205,7 +205,7 @@ Qeyd: Çox sürətli danışanda deyilir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qız çox sürətli səsli mesajda soruşur (sözlər qəsdən bitişik yazılıb): “Hiwhat’syourname?” Ondan yavaş danışmağı xahiş et.  
+**Tapşırıq:** Qız sənə çox sürətli səsli mesaj göndərdi. Sən onu belə eşitdin: “Hiwhat’syourname?” Ondan mesajla yavaş danışmasını xahiş et.  
 **Qəbul:** məna: slow — nümunə: More slowly, please. / Slowly, please.  
 **İpucu:** Problem sürətdədir — ondan nə xahiş edirsən?  
 **Düzgün olanda:** Yavaş danışmağı xahiş etdin.  

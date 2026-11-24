@@ -122,14 +122,14 @@ export const lesson5: DesignLesson = {
     {
       type: 'write', id: 'd5_c10', number: 10, title: 'Təşəkkür et', why: 'Kömək üçün təşəkkür etdin.', hint: 'Sənə kömək edəndə nə deyirsən?',
       prompt: 'Qonşun yazır ki, yerə saldığın açarı tapıb.\nOna mesajla təşəkkür et.', placeholder: 'Cavabını yaz',
-      chat: { partner: 'Qonşu oğlan', from: 'B', lines: [] }, rule: thanks,
+      chat: { partner: 'Qonşu oğlan', from: 'B', lines: [{ from: 'B', text: '🔑' }] }, rule: thanks,
       variants: [
         insteadOf('welcome', 'Kömək sənə edildi — sən təşəkkür edirsən.', ex('Thank you! / Thanks!', '“You’re welcome” təşəkkürə cavabdır.', 'Kömək alanda: Thank you!', 'Thanks!')),
         other('Təşəkkür ifadəsi yaz.', ex('Thank you! / Thanks!', 'Kimsə sənə kömək edəndə təşəkkür edirsən.', 'Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən.', 'Thank you!')),
       ],
       review: {
         title: 'Təşəkkür et', why: 'Kömək üçün təşəkkür etdin.', hint: 'Sənə kömək edəndə nə deyirsən?', prompt: 'Yoldaşın dərs qeydlərini sənə mesajla göndərdi.\nOna təşəkkür et.', placeholder: 'Cavabını yaz',
-        chat: { partner: 'Yoldaş', from: 'G', lines: [] }, rule: thanks,
+        chat: { partner: 'Yoldaş', from: 'G', lines: [{ from: 'G', text: '📄' }] }, rule: thanks,
         variants: [other('Təşəkkür ifadəsi yaz.', ex('Thank you! / Thanks!', 'Kimsə sənə nəsə verəndə təşəkkür edirsən.', 'Kimsə sənə kömək edəndə və ya nəsə verəndə təşəkkür edirsən.', 'Thanks!'))],
       },
     },

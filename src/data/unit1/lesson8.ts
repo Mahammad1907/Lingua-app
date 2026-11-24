@@ -85,7 +85,7 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'two', id: 'd8_c07', number: 7, scenes: ['d8/party-meet'], title: 'İki mesaj yaz', why: 'Özünü təqdim etdin və onun adını soruşdun.', hint: 'Birinci mesajda özünü təqdim et, ikincidə onun adını soruş.',
-      prompt: 'Ziyafətdə yeni biri ilə tanış olursan.\nİki mesaj yaz:\n1. Salam ver və adını de.\n2. Onun adını soruş.',
+      prompt: 'Ziyafətdə gördüyün yeni adama sonra mesaj yazırsan.\nİki mesaj yaz:\n1. Salam ver və adını de.\n2. Onun adını soruş.',
       fields: [
         { id: 'd8_c07a', label: 'Birinci mesaj', placeholder: 'Salam + adın', rule: greetIntro, purpose: 'salam verib adını demək', empty: 'Birinci mesajı da yaz.' },
         { id: 'd8_c07b', label: 'İkinci mesaj', placeholder: 'Onun adını soruş', rule: askName, purpose: 'adını soruşmaq', empty: 'İkinci mesajı da yaz.' },

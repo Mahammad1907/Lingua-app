@@ -118,7 +118,7 @@ export const unit1Exam: DesignLesson[] = [{
     },
     {
       type: 'two', id: 'u1x_c13', number: 13, title: 'İki mesaj yaz', why: 'Təşəkkür etdin və sağollaşdın.',
-      prompt: 'İşdə həmkarın sənə kömək etdi, indi evə gedir.\nİki mesaj yaz:\n1. Təşəkkür et.\n2. Sağollaş.',
+      prompt: 'İşdə həmkarın sənə kömək etdi və evə getdi.\nOna iki mesaj yaz:\n1. Təşəkkür et.\n2. Sağollaş.',
       fields: [
         { id: 'u1x_c13a', label: 'Birinci mesaj', placeholder: 'Təşəkkür et', rule: goal(['thanks'], ['Thank you!', 'Thanks!']), purpose: 'təşəkkür etmək', empty: 'Birinci mesajı da yaz.' },
         { id: 'u1x_c13b', label: 'İkinci mesaj', placeholder: 'Sağollaş', rule: goal(['farewell'], ['Goodbye!', 'Bye!']), purpose: 'sağollaşmaq', empty: 'İkinci mesajı da yaz.' },

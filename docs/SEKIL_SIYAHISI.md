@@ -28,8 +28,8 @@ Bu siyahı hazırlanmalı bütün şəkilləri bir yerdə saxlayır. Şəkil haz
 | 1.2 | Kart 4 · Salamı özün yaz | Həyətdə/küçədə tanışlar rastlaşır, biri digərinə tərəf dönür (hələ danışmır) | qız, oğlan | `assets/lessons/d1/meet-street.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq mesajlaşmaya keçdi) |
 | 1.3 | Kart 6 · Sağollaşmanı öyrən | Qapı ağzında ayrılırlar, biri çıxır, ikisi də əl yelləyir | qız, oğlan | `assets/lessons/d1/farewell-door.webp` | ⏳ |
 | 1.4 | Kart 9 · Dostuna kömək et | Maskot qapıdan çıxıb gedir, başı üstündə **boş** nitq balonu | maskot | `assets/lessons/d1/mascot-leaving.webp` | ⏳ |
-| 1.5 | Kart 10 · İki mesaj (1) | Görüşün əvvəli: qız qapını açır, oğlan qapıda dayanıb | qız, oğlan | `assets/lessons/d1/visit-start.webp` | ⏳ (dizayn maketində var — istifadəçidən fayl istənilir) |
-| 1.6 | Kart 10 · İki mesaj (2) | Görüşün sonu: oğlan darvazadan çıxır, əl yelləyir | qız, oğlan | `assets/lessons/d1/visit-end.webp` | ⏳ (dizayn maketində var — istifadəçidən fayl istənilir) |
+| 1.5 | Kart 10 · İki mesaj (1) | Görüşün əvvəli: qız qapını açır, oğlan qapıda dayanıb | qız, oğlan | `assets/lessons/d1/visit-start.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq görüşdən əvvəl/sonra mesaja keçdi) |
+| 1.6 | Kart 10 · İki mesaj (2) | Görüşün sonu: oğlan darvazadan çıxır, əl yelləyir | qız, oğlan | `assets/lessons/d1/visit-end.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq görüşdən əvvəl/sonra mesaja keçdi) |
 | 1.7 | T2 · Təkrar | Həyətdə səhər rastlaşma (1.2-dən fərqli məkan: oyun meydançası və ya skamya) | qız, oğlan | `assets/lessons/d1/meet-yard.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq mesajlaşmaya keçdi) |
 | 1.8 | T7 · Təkrar | Maskot qonaqlıqdan çıxır (masa, şar), başı üstündə boş nitq balonu | maskot | `assets/lessons/d1/mascot-party-leaving.webp` | ⏳ |
 | 1.9 | T8 · Təkrar (1) | Video zəngin əvvəli: telefon ekranında qız, oğlan telefona baxır | qız, oğlan | `assets/lessons/d1/video-start.webp` | ⏳ |

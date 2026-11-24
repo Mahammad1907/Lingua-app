@@ -218,7 +218,7 @@ Diqqət et: please təşəkkürə cavab deyil. Təşəkkürə You're welcome. de
 ## Kart 15 — Dialoqu tamamla: Təşəkkür et
 
 **Tapşırıq:** Qonşun yazır ki, yerə saldığın açarı tapıb. Ona mesajla təşəkkür et.  
-**Yazışma (Qonşu oğlan):** —  
+**Yazışma (Qonşu oğlan):** “🔑”  
 **Qəbul:** məna: thanks — nümunə: Thank you! / Thanks!  
 **İpucu:** Sənə kömək edəndə nə deyirsən?  
 **Düzgün olanda:** Kömək üçün təşəkkür etdin.  
@@ -228,7 +228,7 @@ Diqqət et: please təşəkkürə cavab deyil. Təşəkkürə You're welcome. de
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Yoldaşın dərs qeydlərini sənə mesajla göndərdi. Ona təşəkkür et.  
-**Yazışma (Yoldaş):** —  
+**Yazışma (Yoldaş):** “📄”  
 **Qəbul:** məna: thanks — nümunə: Thank you! / Thanks!  
 **İpucu:** Sənə kömək edəndə nə deyirsən?  
 **Düzgün olanda:** Kömək üçün təşəkkür etdin.  

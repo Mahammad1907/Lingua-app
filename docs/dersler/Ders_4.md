@@ -190,7 +190,7 @@ Qeyd: “I'm fine” ilə yaxındır.
 
 ## Kart 14 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Qonşunu dinlə. Cavab ver və sualı geri qaytar.  
+**Tapşırıq:** Qonşun sənə səsli mesaj göndərdi. Dinlə, mesajla cavab ver və sualı geri qaytar.  
 **Səs:** Hello! How are you?  
 **Qəbul:** məna: feeling + askFeeling — nümunə: I'm fine, thanks. And you? / I'm OK. And you?  
 **İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  
@@ -200,7 +200,7 @@ Qeyd: “I'm fine” ilə yaxındır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Kurs yoldaşını dinlə. Cavab ver və sualı geri qaytar.  
+**Tapşırıq:** Kurs yoldaşın sənə səsli mesaj göndərdi. Dinlə, mesajla cavab ver və sualı geri qaytar.  
 **Səs:** Hi! How are you?  
 **Qəbul:** məna: feeling + askFeeling — nümunə: I'm fine, thanks. And you? / I'm OK. And you?  
 **İpucu:** İki hissə: öz halını de, sonra eyni sualı ona qaytar.  

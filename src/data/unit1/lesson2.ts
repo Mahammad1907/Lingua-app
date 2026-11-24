@@ -136,11 +136,11 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'write', id: 'd2_c10', number: 10, scenes: ['d2/registration'], title: 'Adını yaz', why: 'Qısa və düzgün təqdimat.', hint: 'Bu dərsin iki formasından birini işlət, sonuna öz adını yaz.',
-      prompt: 'Qeydiyyatda adını soruşurlar.\nAdını ingiliscə cümlə ilə yaz.', placeholder: "I'm [ad]", rule: intro,
+      prompt: 'Kursun qeydiyyat çatında adını soruşurlar.\nAdını ingiliscə cümlə ilə yaz.', placeholder: "I'm [ad]", rule: intro,
       variants: [other('I’m və ya My name is ilə yaz.', ex("I'm [ad] / My name is [ad]", 'Tapşırıq cümlə istəyir, tək ad isə cümlə deyil.', 'I’m + adın və ya My name is + adın.', "I'm [ad]"))],
       review: {
         scenes: ['d2/game-profile'],
-        title: 'Adını yaz', why: 'Qısa və düzgün təqdimat.', hint: 'Bu dərsin iki formasından birini işlət, sonuna öz adını yaz.', prompt: 'Yeni oyunda profil yaradırsan.\nAdını ingiliscə cümlə ilə yaz.', placeholder: 'My name is [ad]', rule: intro,
+        title: 'Adını yaz', why: 'Qısa və düzgün təqdimat.', hint: 'Bu dərsin iki formasından birini işlət, sonuna öz adını yaz.', prompt: 'Oyunda profilinin “Haqqımda” hissəsini yazırsan.\nÖzünü ingiliscə bir cümlə ilə təqdim et.', placeholder: 'My name is [ad]', rule: intro,
         variants: [other('I’m və ya My name is ilə yaz.', ex("I'm [ad] / My name is [ad]", 'Tapşırıq cümlə istəyir, tək ad isə cümlə deyil.', 'I’m + adın və ya My name is + adın.', 'My name is [ad]'))],
       },
     },

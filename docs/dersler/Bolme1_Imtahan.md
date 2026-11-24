@@ -102,7 +102,7 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 70 %-i düzgün olmalıd�
 
 ## Kart 13 — İki mesaj yaz: İki mesaj yaz
 
-**Tapşırıq:** İşdə həmkarın sənə kömək etdi, indi evə gedir. İki mesaj yaz: 1. Təşəkkür et. 2. Sağollaş.  
+**Tapşırıq:** İşdə həmkarın sənə kömək etdi və evə getdi. Ona iki mesaj yaz: 1. Təşəkkür et. 2. Sağollaş.  
 **Birinci mesaj:** məna: thanks — nümunə: Thank you! / Thanks!  
 **İkinci mesaj:** məna: farewell — nümunə: Goodbye! / Bye!  
 **Düzgün olanda:** Təşəkkür etdin və sağollaşdın.  
