@@ -170,14 +170,14 @@ export const lesson1: DesignLesson = {
       type: 'write', id: 'u4d1_c12', number: 13, title: 'Dialoqu tamamla', why: 'Kim olduğunu dedin: This is + ad.', hint: 'Cavab bu dərsin ilk söz kartındakı kimi başlayır.',
       prompt: '{F} çatda şəkildəki adamı soruşur. O, dostundur, adı: {N:B}.\nOnu təqdim et.', placeholder: 'Cavabın',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
-      rule: own(THIS_IS, 'This is Tom.', 'This is my friend.'),
-      variants: [...thisMistakes('This is Tom.', "Who's this? — This is Tom."), other('This is + ad.', ex('This is Tom.', 'Başqasını təqdim edəndə This is, sonra ad və ya my friend deyirsən.', 'This is Tom. — ad; This is my friend. — dost.', "Who's this? — This is Tom."))],
+      rule: own(THIS_IS, 'This is {NE:B}.', 'This is my friend.'),
+      variants: [...thisMistakes('This is {NE:B}.', "Who's this? — This is {NE:B}."), other('This is + ad.', ex('This is {NE:B}.', 'Başqasını təqdim edəndə This is, sonra ad və ya my friend deyirsən.', 'This is {NE:B}. — ad; This is my friend. — dost.', "Who's this? — This is {NE:B}."))],
       review: {
         title: 'Dialoqu tamamla', why: 'Kim olduğunu dedin: This is + ad.', hint: 'Yeni yoldaşa da dostunu bu dərsin ilk söz kartındakı kimi göstər.',
         prompt: 'İş yoldaşı çatda şəkildəki adamı soruşur. O, dostundur, adı: {N:G}.\nOnu təqdim et.', placeholder: 'Cavabın',
         chat: { partner: 'İş yoldaşı', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
-        rule: own(THIS_IS, 'This is Anna.', 'This is my friend.'),
-        variants: [...thisMistakes('This is Anna.', "Who's this? — This is Anna."), other('This is + ad.', ex('This is Anna.', 'Başqasını təqdim edəndə This is, sonra ad və ya my friend deyirsən.', 'This is Anna. — ad; This is my friend. — dost.', "Who's this? — This is Anna."))],
+        rule: own(THIS_IS, 'This is {NE:G}.', 'This is my friend.'),
+        variants: [...thisMistakes('This is {NE:G}.', "Who's this? — This is {NE:G}."), other('This is + ad.', ex('This is {NE:G}.', 'Başqasını təqdim edəndə This is, sonra ad və ya my friend deyirsən.', 'This is {NE:G}. — ad; This is my friend. — dost.', "Who's this? — This is {NE:G}."))],
       },
     },
     {

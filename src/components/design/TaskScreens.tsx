@@ -336,21 +336,22 @@ function GapBoard({ task, pairs, active, onActive, onPlace, onSay, marks, disabl
   const tray = trayOrder([...task.rows.map(r => r.az), ...task.extra]);
   const target = active && !pairs[active] ? active : task.rows.find(r => !pairs[r.en])?.en;
   const left = (w: string) => tray.filter(x => x === w).length - used.filter(x => x === w).length;
-  return <View style={{ gap: 10 }}>
+  // Bigger bubbles and chips (user, 25 Nov 2026: “the screen is empty, the cards are small”); the fit still shrinks long talks.
+  return <View style={{ gap: 14 }}>
     {task.rows.map(r => {
       const value = pairs[r.en], mark = marks?.[r.en], right = r.from === 'B', on = target === r.en && !disabled && !value;
       const color = mark === 'correct' ? d.greenText : mark === 'wrong' ? d.redText : d.purple;
       const [before, after] = (r.line ?? '___').split('___');
       return <View key={r.en} style={[s.turn, right && { flexDirection: 'row-reverse' }]}>
-        {r.from ? <Avatar who={r.from} size={34} /> : null}
+        {r.from ? <Avatar who={r.from} size={42} /> : null}
         <View style={[s.gapBubble, right && { borderBottomRightRadius: 6, borderBottomLeftRadius: 18 }]}>
-          <Text style={s.turnText}>{nameSlot(before)}
+          <Text style={[s.turnText, s.gapLine]}>{nameSlot(before)}
             <Text accessibilityRole="button" onPress={disabled ? undefined : () => { tapHaptic(); onActive(r.en); }}
               accessibilityLabel={value ? `${value}. Geri qaytarmaq üçün toxun` : 'Boşluq'}
               style={[s.gapWord, value ? { color, textDecorationLine: 'none' } : on ? s.gapOn : s.gapEmpty]}>{value ? ` ${value} ` : ' ______ '}</Text>
             {nameSlot(after)}</Text>
         </View>
-        {onSay && value ? <SoundButton soft size={32} label="Dinlə" onPress={() => onSay(`${before}${value}${after}`)} /> : null}
+        {onSay && value ? <SoundButton soft size={38} label="Dinlə" onPress={() => onSay(`${before}${value}${after}`)} /> : null}
       </View>;
     })}
     <View style={s.gapTray}>
@@ -358,7 +359,7 @@ function GapBoard({ task, pairs, active, onActive, onPlace, onSay, marks, disabl
         const gone = left(w) <= 0;
         return <Pressable key={w} accessibilityRole="button" accessibilityState={{ disabled: disabled || gone }} disabled={disabled || gone}
           onPress={() => { tapHaptic(); onPlace(w); }} style={({ pressed }) => [s.gapChip, gone ? s.mChipUsed : shadow, pressed && { transform: [{ scale: .96 }] }]}>
-          <Text style={[s.mChipText, gone && { color: d.purpleDisabledText }]}>{w}</Text>
+          <Text style={[s.mChipText, { fontSize: 18 }, gone && { color: d.purpleDisabledText }]}>{w}</Text>
         </Pressable>;
       })}
     </View>
@@ -916,12 +917,13 @@ const s = StyleSheet.create({
   mTop: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   mAvatar: { width: 40, height: 40, borderRadius: 20, overflow: 'hidden', backgroundColor: d.purpleSoft },
   mEn: { flex: 1, color: d.ink, fontSize: 17, ...font.extrabold },
-  gapBubble: { flex: 1, paddingHorizontal: 14, paddingVertical: 10, borderRadius: 18, borderBottomLeftRadius: 6, backgroundColor: '#fff', ...shadow, shadowOpacity: .06 },
+  gapLine: { fontSize: 19, lineHeight: 27 },
+  gapBubble: { flex: 1, paddingHorizontal: 18, paddingVertical: 16, borderRadius: 18, borderBottomLeftRadius: 6, backgroundColor: '#fff', ...shadow, shadowOpacity: .06 },
   gapWord: { ...font.extrabold, borderRadius: 6 },
   gapOn: { color: d.violet, backgroundColor: '#EDE9FE' },
   gapEmpty: { color: '#B8BCCB', backgroundColor: '#F3F4F8' },
-  gapTray: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, justifyContent: 'center', paddingTop: 6 },
-  gapChip: { minHeight: 46, minWidth: 80, paddingHorizontal: 18, borderRadius: 14, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
+  gapTray: { flexDirection: 'row', flexWrap: 'wrap', gap: 12, justifyContent: 'center', paddingTop: 12 },
+  gapChip: { minHeight: 54, minWidth: 92, paddingHorizontal: 20, borderRadius: 14, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
   mSlot: { minHeight: 46, borderRadius: 12, paddingHorizontal: 14, justifyContent: 'center' },
   mSlotFilled: { borderWidth: 1.5, borderColor: 'transparent', backgroundColor: d.purpleSoft }, // same border width as the empty slot: no shift
   mSlotActive: { borderWidth: 1.5, borderStyle: 'dashed', borderColor: d.violet, backgroundColor: '#F5F3FF' },

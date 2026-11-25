@@ -163,6 +163,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 25 Noy | 4 bölmənin tam məntiq yoxlaması (~780 tapşırıq), `check-situation` L1–L21, `check-quality` Q1–Q6, `check-all`; qeydlər bu fayla yığıldı |
 | 25 Noy | Tapşırıq mətnləri qısaldıldı (~140 yer): “Sözlərdən … qur” ekranlarında ən çoxu bir vacib fakt + əmr, uzun mətnlər ən çoxu 2 qısa cümlə. Müvəqqəti personaj adları (`temp`: Leyla, Kənan, Emily) — `{N:G}/{N:B}/{N:F}` əsl adı, yoxdursa müvəqqətini yazır; u4d1_c12 “Dostunu təqdim et” ad verir |
 | 25 Noy | Yeni söz kartında təkrar yoxdur: ifadəni sadəcə təkrarlayan Quruluşu və yalnız söz-söz tərcümə olan qeyd gizlənir; sətirlər boş hündürlüyü bölür — altda boş yer qalmır. GlowLine `offset` xəbərdarlıqları düzəldi |
+| 25 Noy | Düzəliş paneli tapşırıqdakı adı göstərir (`{NE:B}` — indi müvəqqəti Kənan, sonra personajın adı), Tom yox. Söhbəti tamamla: balon, avatar və söz düymələri böyüdü. Xəritə: dairələr 66/80, ortaya yaxın; su yuxarıdan aşağı, düz kənarla dolur; yolun rəngli zolağı çıxdı, yalnız qırıq xətlər yüngül parıldayır |
 
 Ətraflı tarixçə: `docs/LAYIHE_DEFTERI.md`, `docs/YENI_SOHBET_UCUN.md`, `docs/BUTUN_QAYDALAR.md` (köçürülmədən əvvəlki mətnlər).
 

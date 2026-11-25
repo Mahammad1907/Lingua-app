@@ -28,15 +28,12 @@ const mascotHead = require('../../../assets/mascot/hood_head.png');
 
 // The user's wavy, cloud-like island outline, drawn for a 350 × 800 box.
 const OUTLINE = 'M70 30 C110 6 150 22 176 14 C206 4 238 18 268 22 C312 28 334 70 330 110 C326 150 346 178 340 222 C334 268 312 290 320 336 C328 384 346 410 338 456 C330 500 306 520 314 566 C322 612 342 640 330 686 C318 736 280 770 228 782 C188 792 150 778 116 786 C74 796 34 770 22 728 C10 686 28 650 20 606 C12 560 -2 530 10 486 C22 442 44 420 34 374 C24 328 4 298 14 254 C24 210 48 186 40 142 C32 98 34 54 70 30 Z';
-const NODE = 56, HOT = 70, TROPHY = 72;
+// Bigger circles, set a little closer to the middle; the map keeps its height (user, 25 Nov 2026).
+const NODE = 66, HOT = 80, TROPHY = 72;
 // Percentage ring around a circle: one teal-green on every section (mockup), not the section colour.
 const RING = '#2BA68C', RING_TEXT = '#2F8F7B';
-/** Water body under a gently waving surface at `top`. */
-const waterPath = (w: number, top: number, bottom: number, phase: number) => {
-  const n = 6, seg = w / n; let dd = `M0 ${bottom} L0 ${top}`;
-  for (let i = 0; i < n; i++) dd += ` Q${seg * i + seg / 2} ${top + (i % 2 === phase % 2 ? -7 : 7)} ${seg * (i + 1)} ${top}`;
-  return dd + ` L${w} ${bottom} Z`;
-};
+/** Water from the top of the island down to a flat edge at `bottom` (no waves — user, 25 Nov 2026). */
+const waterPath = (w: number, bottom: number) => `M-4 -4 L${w + 4} -4 L${w + 4} ${bottom} L-4 ${bottom} Z`;
 
 // Every section has its own colour, different from the app colours (user, 20 Nov 2026; restored 25 Nov 2026).
 // Lesson circles darken with their percentage, the dotted path deepens towards the end, a finished island turns dark.
@@ -113,7 +110,7 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   // Neighbours sit on opposite sides, so the circles may be closer than their size.
   const H = Math.max(470, height - Math.max(topInset, insets.top) - 4 - 114 - REVIEW_H - bottomSpace - 12);
   const step = (H - 76 - AI_GAP) / Math.max(count - 1, 1);
-  const pts: Pt[] = lessons.map((_, i) => ({ x: W * (i % 2 ? .82 : .18), y: 40 + i * step + (aiAt >= 0 && i > aiAt ? AI_GAP : 0) }));
+  const pts: Pt[] = lessons.map((_, i) => ({ x: W * (i % 2 ? .8 : .2), y: 40 + i * step + (aiAt >= 0 && i > aiAt ? AI_GAP : 0) }));
   const aiPt: Pt | null = aiAt >= 0 ? { x: (pts[aiAt].x + pts[aiAt + 1].x) / 2, y: (pts[aiAt].y + pts[aiAt + 1].y) / 2 } : null;
   // No bridge (user, 25 Nov 2026): the islands stand apart and only the trophy sits in the gap between them.
   const EXTRA = exam ? 130 : 20;
@@ -121,7 +118,8 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   const tone = toneOf(section);
   // Section progress = how high the water stands; the deeper it is, the darker the colour.
   const level = count ? lessons.reduce((a, l) => a + percentOf(l), 0) / (count * 100) : 0;
-  const waterTop = H * (1 - level) - (level >= 1 ? 30 : 0);
+  // The water fills from the first lesson downwards as the section advances (user, 25 Nov 2026).
+  const waterEdge = H * level + (level >= 1 ? 40 : 0);
   const water = mix(mix(tone.soft, tone.base, .35), tone.dark, level);
   const shade = (pct: number) => pct >= 100 ? tone.dark : mix(mix('#FFFFFF', tone.soft, .7), tone.dark, Math.pow(pct / 100, .8) * .85);
   const focused = focusId ? lessons.findIndex(l => l.id === focusId || l.parts?.some(p => p.id === focusId)) : -1;
@@ -160,13 +158,13 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       <Path d={OUTLINE} transform={`translate(0 7) scale(${sx} ${sy})`} fill="rgba(91,75,154,.07)" />
       <Path d={OUTLINE} transform={`translate(0 3) scale(${sx} ${sy})`} fill="rgba(91,75,154,.05)" />
       <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill={mix('#FFFFFF', tone.soft, .45)} />
-      {/* Water (user, 25 Nov 2026): the island fills from the bottom with the section's progress; light at first,
-          much darker as it rises, the full dark colour when the section is done. Gentle waves on the surface. */}
+      {/* Water (user, 25 Nov 2026): the island fills from the top down with the section's progress; light at first,
+          much darker as it grows, the full dark colour when the section is done. Flat edge, no waves. */}
       {level > 0 ? <>
         <Defs><ClipPath id={`isl${section}`}><Path d={OUTLINE} transform={`scale(${sx} ${sy})`} /></ClipPath></Defs>
         <G clipPath={`url(#isl${section})`}>
-          <Path d={waterPath(W, waterTop, H + 4, 0)} fill={mix(tone.soft, tone.base, .6)} opacity={.55} />
-          <Path d={waterPath(W, waterTop + 6, H + 4, 1)} fill={water} />
+          <Path d={waterPath(W, waterEdge)} fill={mix(tone.soft, tone.base, .6)} opacity={.55} />
+          <Path d={waterPath(W, Math.max(0, waterEdge - 6))} fill={water} />
         </G>
       </> : null}
       {/* Path: colourless dashes; the part a lesson has covered glows towards the next circle (user, 25 Nov 2026). */}
@@ -177,7 +175,6 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
         return <G key={i}>
           <Path d={full} fill="none" stroke="#D9D6E6" strokeWidth={7} strokeLinecap="round" strokeDasharray="4 11" />
           {lit ? <>
-            <Path d={lit} fill="none" stroke={tone.base} strokeWidth={15} strokeLinecap="round" opacity={.18} />
             <Path d={lit} fill="none" stroke="#FFFFFF" strokeWidth={7} strokeLinecap="round" strokeDasharray="4 11" />
             <Path d={lit} fill="none" stroke={mix(tone.base, '#FFFFFF', .35)} strokeWidth={5} strokeLinecap="round" strokeDasharray="4 11" />
           </> : null}
@@ -188,7 +185,8 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       <Svg width={W} height={H}>{(() => {
         const e = edge(active);
         const part = splitCubic(e.p0, e.c1, e.c2, e.p3, activePart);
-        return <Path d={part} fill="none" stroke={tone.base} strokeWidth={18} strokeLinecap="round" opacity={.22} />;
+        // Only the dashes themselves glow softly — no coloured band around the path (user, 25 Nov 2026).
+        return <Path d={part} fill="none" stroke={mix(tone.base, '#FFFFFF', .2)} strokeWidth={7} strokeLinecap="round" strokeDasharray="4 11" />;
       })()}</Svg>
     </Animated.View> : null}
 
@@ -226,8 +224,8 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
         </Pop>
         {/* Name + % beside the circle, no card (25 Nov 2026); parts: “17% · 2 hissə”. */}
         <View pointerEvents="none" style={[s.label, side, { width: avail, top: p.y - 18 }]}>
-          <Text style={[s.labelTitle, right && { textAlign: 'right' }, !reachable && { color: '#8E93A6' }, p.y > waterTop + 10 && level > .45 && s.onWater]} numberOfLines={1}>{lesson.title}</Text>
-          <Text style={[s.labelPct, right && { textAlign: 'right' }, { color: RING_TEXT }, p.y > waterTop + 10 && level > .45 && s.onWater]}>{pct}%{lesson.parts ? ` · ${lesson.parts.length} hissə` : ''}</Text>
+          <Text style={[s.labelTitle, right && { textAlign: 'right' }, !reachable && { color: '#8E93A6' }, p.y < waterEdge - 10 && level > .45 && s.onWater]} numberOfLines={1}>{lesson.title}</Text>
+          <Text style={[s.labelPct, right && { textAlign: 'right' }, { color: RING_TEXT }, p.y < waterEdge - 10 && level > .45 && s.onWater]}>{pct}%{lesson.parts ? ` · ${lesson.parts.length} hissə` : ''}</Text>
         </View>
       </View>;
     })}
@@ -451,9 +449,9 @@ const s = StyleSheet.create({
   nodeHot: { shadowColor: '#F97316', shadowOpacity: .45, shadowRadius: 16 },
   nodeInner: { alignItems: 'center', justifyContent: 'center' },
   label: { position: 'absolute', gap: 1 },
-  labelTitle: { color: d.title, fontSize: 15, lineHeight: 18, ...font.extrabold },
+  labelTitle: { color: d.title, fontSize: 17, lineHeight: 21, ...font.extrabold },
   onWater: { color: '#FFFFFF', textShadowColor: 'rgba(0,0,0,.25)', textShadowRadius: 3 },
-  labelPct: { color: d.inkSoft, fontSize: 12, lineHeight: 15, ...font.bold },
+  labelPct: { color: d.inkSoft, fontSize: 13, lineHeight: 16, ...font.bold },
   trophy: { position: 'absolute', width: TROPHY, height: TROPHY, borderRadius: TROPHY / 2, backgroundColor: '#FFFBF2', borderWidth: 1, borderColor: '#E9C98B', alignItems: 'center', justifyContent: 'center',
     shadowColor: '#E0A21B', shadowOpacity: .35, shadowRadius: 12, shadowOffset: { width: 0, height: 2 }, elevation: 4 },
   backdrop: { flex: 1, backgroundColor: 'rgba(15,23,42,.25)' },

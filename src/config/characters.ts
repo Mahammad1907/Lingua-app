@@ -77,9 +77,12 @@ const roles: Record<string, CharacterRole> = { m: 'mascot', g: 'girl', b: 'boy',
  * - `{en:M}`: English name, `{en,G}`: English name with a leading comma, or nothing while empty.
  * - `{N:G}` / `{N:B}` / `{N:F}`: the character's real name, or its temporary name (`temp`) while none is chosen —
  *   for tasks that must tell the learner a name (“Dostunun adı: {N:B}.”).
+ * - `{NE:G}` / `{NE:B}` / `{NE:F}`: the same in English text (English name, else Azerbaijani, else temporary) —
+ *   model answers and corrections then use the name the task gave (user, 25 Nov 2026).
  */
 export function withNames(text: string, config = CHARACTERS): string {
   return text
+    .replace(/\{NE:([MGBF])\}/g, (_all, letter: string) => { const c = config[roles[letter.toLowerCase()]]; return (c.en || c.az || c.temp || '').trim(); })
     .replace(/\{N:([MGBF])\}/g, (_all, letter: string) => { const c = config[roles[letter.toLowerCase()]]; return (c.az || c.temp || '').trim(); })
     .replace(/\{en(,)?:?([MGBF])\}/g, (_all, comma: string, letter: string) => {
       const name = characterEn(roles[letter.toLowerCase()], config);
