@@ -1,6 +1,6 @@
 # Məntiq yoxlaması — hər tapşırıq real həyata uyğun olmalıdır
 
-İstifadəçi qaydası (24–25 noyabr 2026): tapşırığın vəziyyəti, ekranı, şəkli, cavabı və təlimatı bir-birinə və real həyata uyğun olmalıdır. Bölmə 1 və 2 tam oxunanda tapılan **bütün səhv növləri** aşağıdakı L1–L13 qaydalarıdır. Hamısı bir əmrlə tapılır:
+İstifadəçi qaydası (24–25 noyabr 2026): tapşırığın vəziyyəti, ekranı, şəkli, cavabı və təlimatı bir-birinə və real həyata uyğun olmalıdır. Bölmə 1 və 2 tam oxunanda tapılan **bütün səhv növləri** aşağıdakı L1–L13 qaydalarıdır. Hamısı bir əmrlə tapılır (keyfiyyət yoxlamaları Q1–Q6 isə aşağıda, ayrıca əmrlədir):
 
 ```
 node scripts/check-situation.cjs
@@ -27,6 +27,31 @@ Skript söz siyahıları ilə işləyir — tapdığı hər yeri insan oxuyub q�
 | L11 | “Hərf-hərf de” tapşırığının nümunə cavabı hərflərlə göstərilir | ✓ “It's [ad]” | ✓ “It's A-L-I.” |
 | L12 | Telefon / e-poçt ümumi qrup çatında soruşulmur | “Kursun qrup çatına yeni üzv qoşuldu… nömrəsini soruş” | şəxsi mesajda soruşulur |
 | L13 | Yazdığın nömrəni yoxlayanda nömrənin özü də mesajda olur | ikinci mesaj: “Is that right?” | “050 321 45 67? Is that right?” |
+
+## Keyfiyyət yoxlamaları (check-quality.cjs)
+
+```
+node scripts/check-quality.cjs
+```
+
+Skript sonda nəyi neçə dəfə yoxladığını da yazır (“0 problem” “0 yoxlanıb” demək olmasın). Hər qayda süni səhvlə sınanıb.
+
+| # | Qayda | Necə yoxlanır |
+|---|---|---|
+| Q1 | Düz cavabın başqa normal yazılışı da düz sayılır | Hər yazı/danışıq tapşırığının (və “iki mesaj” sahələrinin) hər nümunə cavabı kiçik hərflə, nöqtəsiz, durğu işarəsiz, I'm ↔ I am, What's ↔ What is, It's ↔ It is, ’ apostrofla yoxlayıcıya verilir; “səhv” çıxsa — xəta. Nümunə cavabın özü düz sayılmırsa — xəta. (E-poçtda nöqtə qalır; öz məlumatı olan cavablar öz qəlibi ilə yoxlanır.) |
+| Q2 | Seçim tapşırığında “səhv” variant eyni dərəcədə düz deyil | Düz variant və səhv variant eyni məna qrupundadırsa (Hi/Hello/Hey, Bye/Goodbye, Thanks/Thank you, Fine/Good/Great/OK, Sorry/I'm sorry) — xəta. |
+| Q3 | İpucu cavabı açıb deməz | İpucunda düz cavab (2+ söz və ya 6+ hərf) tam görünürsə — xəta. |
+| Q4 | Səsdə deyilən ilə düz variant uyğundur, səhv variant uyğun deyil | Səsdəki rəqəm/hərf sözləri (sixty-five → 65, double L → LL, oh → 0) kodlaşdırılır; düz variantın rəqəm/hərf kodu səsdə yoxdursa və ya səhv variantın kodu səsə tam uyğundursa — xəta. “Dinlə və yığ” tapşırıqlarında səsdəki rəqəmlər cavabla eyni olmalıdır. |
+| Q5 | Hər dərs şəkli `docs/SEKIL_SIYAHISI.md`-də var | Dərsdə işlənən şəkil siyahıda yoxdursa, və ya siyahıdakı şəkil heç yerdə işlənmir və “lazım deyil” yazılmayıbsa — xəta. |
+| Q6 | Ekranlar ortaq hissələrdən istifadə edir (G6/G7) | Kodda dinamik ikonu, SoundButton/SoundIcon-dan kənar ▶, nəticə panelindən kənar yaşıl düymə, KindChip əvəzinə əl ilə yazılmış dərs adı — xəta. |
+
+## Skriptlə yoxlanmayanlar (insan / cihaz)
+
+| # | Nə | Necə |
+|---|---|---|
+| H1 | Uyğunlaşdırma cütlərinin tərcüməsi düzdür | `dump-tasks.cjs` + uyğunlaşdırma sətirləri oxunur |
+| H2 | İngiliscənin təbiiliyi (G2) | Claude oxuyur; doğma danışan yoxlaması əvəz olunmur |
+| H3 | Ekran telefonda sürüşmür, hər şey sığır | yalnız iPhone/Android-də baxılır — kodla yoxlanmış hesab edilmir |
 
 ## İnsan yoxlaması (skript tutmur — hər bölmədə oxunur)
 
