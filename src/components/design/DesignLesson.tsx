@@ -498,7 +498,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         <Text accessibilityRole="header" style={ds.title}>{accentTitle(task.title)}</Text>
       </View>
       {/* Task line (25 Nov 2026): one crisp slate subtitle under the title on every task screen — no framed box. */}
-      {mascotTalks ? <SayBubble who="M" text={instruction} /> : <Text style={s.taskSub}>{clean.join(' ')}</Text>}
+      {/* Matching screens show only the instruction (user, 25 Nov 2026): the situation line adds nothing there. */}
+      {mascotTalks ? <SayBubble who="M" text={instruction} /> : <Text style={s.taskSub}>{task.type === 'match' && task.mode !== 'order'
+        ? (task.mode === 'reply' ? 'Cümləyə toxun, sonra cavabını seç.' : 'İfadəyə toxun, sonra mənasını seç.') : clean.join(' ')}</Text>}
       {mascotTalks && context ? <Text style={s.taskSub}>{context}</Text> : null}
       <View style={s.work}>
       {noArt ? null : scene && !spotsShown ? <Image source={scene} style={[s.scene, art < 1 && !keyboardOpen && { aspectRatio: 16 / 9 / art }]} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}

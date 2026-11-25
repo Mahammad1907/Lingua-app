@@ -41,7 +41,7 @@ export const lesson1: DesignLesson = {
   notices,
   cards: [
     {
-      type: 'intro', id: 'u4d1_c01', badge: 'Ailə və insanlar', subtitle: '{F} sənə evinin qapısını açır və ailə albomunu göstərir. Dostunu təqdim edir, kim olduğunu soruşursan.', start: 'Dərsə başla',
+      type: 'intro', id: 'u4d1_c01', badge: 'Ailə və insanlar', subtitle: '{F} sənə evinin qapısını açır və ailə albomunu göstərir. Bir tanışını təqdim edir, kim olduğunu soruşursan.', start: 'Dərsə başla',
       goals: [
         { icon: 'wave', text: 'Başqasını təqdim edə bilirəm.' },
         { icon: 'chat', text: 'Şəkildəki adamın kim olduğunu soruşa bilirəm.' },
@@ -108,7 +108,7 @@ export const lesson1: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d1_c07', number: 7, title: 'Mesaj yaz', why: 'This is my friend. — dostunu təqdim etdin.', hint: 'Təqdim cümləsi bu dərsin ilk söz kartındakı kimi başlayır.',
-      prompt: '{F} söhbət qrupunda yazır. Qrupa dostunu da əlavə etdin.\nSözlərdən cavab qur: “Bu mənim dostumdur.”', placeholder: 'Sözlərə toxun',
+      prompt: '{F} söhbət qrupunda yazır. Qrupa öz dostunu da əlavə etdin.\nSözlərdən cavab qur: “Bu mənim dostumdur.”', placeholder: 'Sözlərə toxun',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Hi!' }] },
       tiles: ['This', 'is', 'my', 'friend', '.', 'are', "I'm"], rule: exact('This is my friend.'),
       variants: [
@@ -168,7 +168,7 @@ export const lesson1: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d1_c12', number: 13, title: 'Dialoqu tamamla', why: 'Kim olduğunu dedin: This is + ad.', hint: 'Cavab bu dərsin ilk söz kartındakı kimi başlayır.',
-      prompt: '{F} çatda sənin şəklindəki adamı görüb soruşur.\nDostunu təqdim et.', placeholder: 'Cavabın',
+      prompt: '{F} çatda sənin şəklindəki adamı görüb soruşur.\nŞəkildəki dostunu təqdim et.', placeholder: 'Cavabın',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
       rule: own(THIS_IS, 'This is Tom.', 'This is my friend.'),
       variants: [...thisMistakes('This is Tom.', "Who's this? — This is Tom."), other('This is + ad.', ex('This is Tom.', 'Başqasını təqdim edəndə This is, sonra ad və ya my friend deyirsən.', 'This is Tom. — ad; This is my friend. — dost.', "Who's this? — This is Tom."))],

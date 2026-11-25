@@ -3,7 +3,7 @@
 // No paired two-column buttons, no 2×2 picture grids, no 3D button shadows, no gradients or emoji.
 import { Image } from 'expo-image';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import Reanimated, { FadeIn, FadeInDown, FadeOut, ZoomIn, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withSpring, withTiming } from 'react-native-reanimated';
+import Reanimated, { FadeIn, FadeInDown, FadeOut, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withSpring, withTiming } from 'react-native-reanimated';
 import { AccessibilityInfo, Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, ClipPath, Defs, G, Path, Rect } from 'react-native-svg';
 import { characterAz, hasCharacterName } from '../../config/characters';
@@ -258,7 +258,8 @@ export function MatchBoard({ task, pairs, active, onActive, onPlace, onSay, mark
             onPress={() => { tapHaptic(); onActive(r.en); }}
             style={[s.mSlot, slotStyle,
               mark === 'correct' && { backgroundColor: d.greenSoft, borderColor: d.green, borderWidth: 1.5 }, mark === 'wrong' && { backgroundColor: d.redSoft, borderColor: d.red, borderWidth: 1.5 }]}>
-            {value ? <Reanimated.View key={value} entering={ZoomIn.springify().damping(14).stiffness(260)} style={s.mFilledRow}>
+            {/* Plain fade (25 Nov 2026): the spring zoom made the answer jump inside the slot. */}
+            {value ? <Reanimated.View key={value} entering={FadeIn.duration(180)} style={s.mFilledRow}>
               <Text numberOfLines={2} style={[s.mFilledText, mark && { color: markColor(mark, d.purple) }]}>{nameSlot(value)}</Text>
               {!disabled ? <Icon name="close" size={16} color={d.lavenderText} /> : null}
             </Reanimated.View>
@@ -270,7 +271,7 @@ export function MatchBoard({ task, pairs, active, onActive, onPlace, onSay, mark
     <View style={s.mGrid}>
       {meanings.map(m => {
         const gone = used.has(m);
-        return <Reanimated.View key={`${m}|${gone}`} entering={gone ? undefined : ZoomIn.springify().damping(14).stiffness(260)} style={s.mCell}>
+        return <Reanimated.View key={`${m}|${gone}`} entering={gone ? undefined : FadeIn.duration(180)} style={s.mCell}>
           <Pressable accessibilityRole="button" accessibilityState={{ disabled: disabled || gone }} disabled={disabled || gone}
             onPress={() => { tapHaptic(); if (reply) onSay?.(m); onPlace(m); }}
             style={({ pressed }) => [s.mChip, gone ? s.mChipUsed : shadow, pressed && { transform: [{ scale: .96 }] }]}>
@@ -866,7 +867,7 @@ const s = StyleSheet.create({
   mAvatar: { width: 40, height: 40, borderRadius: 20, overflow: 'hidden', backgroundColor: d.purpleSoft },
   mEn: { flex: 1, color: d.ink, fontSize: 17, ...font.extrabold },
   mSlot: { minHeight: 46, borderRadius: 12, paddingHorizontal: 14, justifyContent: 'center' },
-  mSlotFilled: { backgroundColor: d.purpleSoft },
+  mSlotFilled: { borderWidth: 1.5, borderColor: 'transparent', backgroundColor: d.purpleSoft }, // same border width as the empty slot: no shift
   mSlotActive: { borderWidth: 1.5, borderStyle: 'dashed', borderColor: d.violet, backgroundColor: '#F5F3FF' },
   mSlotWaiting: { borderWidth: 1.5, borderStyle: 'dashed', borderColor: '#E2E8F0', backgroundColor: '#FAFAFC' },
   mFilledRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },

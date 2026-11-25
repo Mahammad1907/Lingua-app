@@ -82,7 +82,7 @@ export const lesson3c: DesignLesson = {
       title: "Kodu de",
       why: "Kodu ingiliscə hərf-hərf dedin.",
       hint: "Hər hərfi ayrıca de; son hərf “er” deyil.",
-      prompt: "Hava limanında xarici dostun soruşur hansı uçuşa minirsən. Biletində “LHR” yazılıb (London).\nKodu hərf-hərf de.",
+      prompt: "Hava limanında dostun soruşur hansı uçuşa minirsən. Biletində “LHR” yazılıb (London).\nKodu hərf-hərf de.",
       rule: said(spelled('LHR'), 'L, H, R.'),
       variants: [other("Hərf-hərf de.", ex("L, H, R.", "Hər hərfi ingiliscə oxunuşla, ayrı-ayrı de.", "H — eyç; R — ar.", "L, H, R."))],
       review: {

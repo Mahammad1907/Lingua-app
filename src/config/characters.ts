@@ -27,7 +27,7 @@ export const CHARACTERS: Record<CharacterRole, CharacterConfig> = {
   boy: { az: '', en: '', hyphen: false, fallback: { nom: 'oğlan', gen: 'oğlanın', dat: 'oğlana', acc: 'oğlanı', abl: 'oğlandan', loc: 'oğlanda' } },
   // Third recurring human (18 Nov 2026, user): the foreign friend — a woman from the USA who speaks English.
   // Used from Bölmə 4 on, where the learner already knows her. One-time foreign speakers stay unnamed (“Yeni tanış”).
-  friend: { az: '', en: '', hyphen: false, fallback: { nom: 'xarici dost', gen: 'xarici dostun', dat: 'xarici dosta', acc: 'xarici dostu', abl: 'xarici dostdan', loc: 'xarici dostda' } },
+  friend: { az: '', en: '', hyphen: false, fallback: { nom: 'dostun', gen: 'dostunun', dat: 'dostuna', acc: 'dostunu', abl: 'dostundan', loc: 'dostunda' } }, // no “xarici” (user, 25 Nov 2026)
 };
 
 const VOWELS = 'aıoueəiöü';
