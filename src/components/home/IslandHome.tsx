@@ -12,7 +12,7 @@ import { useEffect, useRef, useState, type ReactNode, type Ref } from 'react';
 import { AccessibilityInfo, Animated, Easing, Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import Reanimated, { Easing as REasing, FadeIn, SlideInDown, useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Svg, { Circle, G, Path, Text as SvgText } from 'react-native-svg';
+import Svg, { Circle, ClipPath, Defs, G, Path, Text as SvgText } from 'react-native-svg';
 import Icon from '../design/Icons';
 import { Pop, tapHaptic } from '../design/parts';
 import { d, font, shadow } from '../design/theme';
@@ -29,6 +29,14 @@ const mascotHead = require('../../../assets/mascot/hood_head.png');
 // The user's wavy, cloud-like island outline, drawn for a 350 × 800 box.
 const OUTLINE = 'M70 30 C110 6 150 22 176 14 C206 4 238 18 268 22 C312 28 334 70 330 110 C326 150 346 178 340 222 C334 268 312 290 320 336 C328 384 346 410 338 456 C330 500 306 520 314 566 C322 612 342 640 330 686 C318 736 280 770 228 782 C188 792 150 778 116 786 C74 796 34 770 22 728 C10 686 28 650 20 606 C12 560 -2 530 10 486 C22 442 44 420 34 374 C24 328 4 298 14 254 C24 210 48 186 40 142 C32 98 34 54 70 30 Z';
 const NODE = 56, HOT = 70, TROPHY = 72;
+// Percentage ring around a circle: one teal-green on every section (mockup), not the section colour.
+const RING = '#2BA68C', RING_TEXT = '#2F8F7B';
+/** Water body under a gently waving surface at `top`. */
+const waterPath = (w: number, top: number, bottom: number, phase: number) => {
+  const n = 6, seg = w / n; let dd = `M0 ${bottom} L0 ${top}`;
+  for (let i = 0; i < n; i++) dd += ` Q${seg * i + seg / 2} ${top + (i % 2 === phase % 2 ? -7 : 7)} ${seg * (i + 1)} ${top}`;
+  return dd + ` L${w} ${bottom} Z`;
+};
 
 // Every section has its own colour, different from the app colours (user, 20 Nov 2026; restored 25 Nov 2026).
 // Lesson circles darken with their percentage, the dotted path deepens towards the end, a finished island turns dark.
@@ -111,6 +119,11 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   const EXTRA = exam ? 130 : 20;
   const trophyPt: Pt = { x: W / 2, y: H + 62 };
   const tone = toneOf(section);
+  // Section progress = how high the water stands; the deeper it is, the darker the colour.
+  const level = count ? lessons.reduce((a, l) => a + percentOf(l), 0) / (count * 100) : 0;
+  const waterTop = H * (1 - level) - (level >= 1 ? 30 : 0);
+  const water = mix(mix(tone.soft, tone.base, .35), tone.dark, level);
+  const shade = (pct: number) => pct >= 100 ? tone.dark : mix(mix('#FFFFFF', tone.soft, .7), tone.dark, Math.pow(pct / 100, .8) * .85);
   const focused = focusId ? lessons.findIndex(l => l.id === focusId || l.parts?.some(p => p.id === focusId)) : -1;
   const focus = focused >= 0 ? focused : active;
   // The orange “current lesson” node: the lesson last opened, else the first unfinished one.
@@ -124,8 +137,9 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   const sizeOf = (i: number) => i === hot ? HOT : NODE;
   const edge = (i: number) => {
     const a = pts[i], b = pts[i + 1], dir = b.x > a.x ? 1 : -1, ra = sizeOf(i) / 2, rb = sizeOf(i + 1) / 2;
-    const p0 = { x: a.x + dir * ra * .7, y: a.y + ra * .72 }, p3 = { x: b.x - dir * rb * .7, y: b.y - rb * .72 }, m = (p0.y + p3.y) / 2;
-    return { p0, c1: { x: p0.x + dir * 34, y: m }, c2: { x: p3.x - dir * 34, y: m }, p3 };
+    // Soft swoop (mockup): it dips out of the lower side, runs level, and curves up into the next circle.
+    const p0 = { x: a.x + dir * ra * .78, y: a.y + ra * .62 }, p3 = { x: b.x - dir * rb * .78, y: b.y - rb * .62 };
+    return { p0, c1: { x: p0.x + dir * 26, y: p0.y + 20 }, c2: { x: p3.x - dir * 26, y: p3.y - 20 }, p3 };
   };
   const pathOf = (e: ReturnType<typeof edge>) => `M${e.p0.x} ${e.p0.y} C${e.c1.x} ${e.c1.y} ${e.c2.x} ${e.c2.y} ${e.p3.x} ${e.p3.y}`;
 
@@ -145,16 +159,28 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       {/* Whisper-soft shadow, then the island in a faint tint of the section colour (dark once the section is done). */}
       <Path d={OUTLINE} transform={`translate(0 7) scale(${sx} ${sy})`} fill="rgba(91,75,154,.07)" />
       <Path d={OUTLINE} transform={`translate(0 3) scale(${sx} ${sy})`} fill="rgba(91,75,154,.05)" />
-      <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill={finished ? mix(tone.soft, tone.base, .5) : mix('#FFFFFF', tone.soft, .35)} />
+      <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill={mix('#FFFFFF', tone.soft, .45)} />
+      {/* Water (user, 25 Nov 2026): the island fills from the bottom with the section's progress; light at first,
+          much darker as it rises, the full dark colour when the section is done. Gentle waves on the surface. */}
+      {level > 0 ? <>
+        <Defs><ClipPath id={`isl${section}`}><Path d={OUTLINE} transform={`scale(${sx} ${sy})`} /></ClipPath></Defs>
+        <G clipPath={`url(#isl${section})`}>
+          <Path d={waterPath(W, waterTop, H + 4, 0)} fill={mix(tone.soft, tone.base, .6)} opacity={.55} />
+          <Path d={waterPath(W, waterTop + 6, H + 4, 1)} fill={water} />
+        </G>
+      </> : null}
+      {/* Path: colourless dashes; the part a lesson has covered glows towards the next circle (user, 25 Nov 2026). */}
       {pts.slice(0, -1).map((_, i) => {
         const e = edge(i), full = pathOf(e);
-        const done = active < 0 ? (finished || i < doneCount - 1) : i < active;
-        const part = i === active && activePart > 0 ? splitCubic(e.p0, e.c1, e.c2, e.p3, activePart) : '';
-        const deep = mix(tone.base, tone.dark, i / Math.max(1, count - 2)); // deeper towards the end of the section
+        const k = Math.min(1, percentOf(lessons[i]) / 100);
+        const lit = k >= 1 ? full : k > 0 ? splitCubic(e.p0, e.c1, e.c2, e.p3, k) : '';
         return <G key={i}>
-          <Path d={full} fill="none" stroke={mix(tone.soft, tone.base, .25)} strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" />
-          {done ? <Path d={full} fill="none" stroke={deep} strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
-          {part ? <Path d={part} fill="none" stroke={deep} strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
+          <Path d={full} fill="none" stroke="#D9D6E6" strokeWidth={7} strokeLinecap="round" strokeDasharray="4 11" />
+          {lit ? <>
+            <Path d={lit} fill="none" stroke={tone.base} strokeWidth={15} strokeLinecap="round" opacity={.18} />
+            <Path d={lit} fill="none" stroke="#FFFFFF" strokeWidth={7} strokeLinecap="round" strokeDasharray="4 11" />
+            <Path d={lit} fill="none" stroke={mix(tone.base, '#FFFFFF', .35)} strokeWidth={5} strokeLinecap="round" strokeDasharray="4 11" />
+          </> : null}
         </G>;
       })}
     </Svg>
@@ -162,7 +188,7 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       <Svg width={W} height={H}>{(() => {
         const e = edge(active);
         const part = splitCubic(e.p0, e.c1, e.c2, e.p3, activePart);
-        return <Path d={part} fill="none" stroke={tone.base} strokeWidth={16} strokeLinecap="round" opacity={.25} />;
+        return <Path d={part} fill="none" stroke={tone.base} strokeWidth={18} strokeLinecap="round" opacity={.22} />;
       })()}</Svg>
     </Animated.View> : null}
 
@@ -175,7 +201,8 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       const avail = Math.min(190, right ? p.x - size / 2 - 14 : W - p.x - size / 2 - 14);
       const side = right ? { right: W - (p.x - size / 2 - 10), alignItems: 'flex-end' as const } : { left: p.x + size / 2 + 10 };
       return <View key={lesson.id} pointerEvents="box-none" style={StyleSheet.absoluteFill}>
-        {isHot ? <Breath x={p.x} y={p.y} size={size} /> : null}
+        {isHot ? <Breath x={p.x} y={p.y} size={size} /> : pct > 0 ? <View pointerEvents="none" style={{ position: 'absolute', left: p.x - size / 2 - 3, top: p.y - size / 2 - 3, width: size + 6, height: size + 6, borderRadius: size / 2 + 3,
+          backgroundColor: 'rgba(43,166,140,.10)', shadowColor: RING, shadowOpacity: .15 + .45 * pct / 100, shadowRadius: 4 + 8 * pct / 100, shadowOffset: { width: 0, height: 0 } }} /> : null}
         <Pop to={.93} accessibilityRole="button" accessibilityLabel={`Dərs ${lesson.number}: ${lesson.title}, ${pct} faiz${reachable ? '' : ', kilidlidir'}`}
           onPress={() => { tapHaptic(); setOpen(lesson); }}
           style={[s.node, { left: p.x - size / 2, top: p.y - size / 2, width: size, height: size, borderRadius: size / 2 }, isHot && s.nodeHot]}>
@@ -185,22 +212,22 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
               const gap = 7, half = c / lesson.parts!.length, len = half - gap, fill = len * partPct(part.id) / 100;
               const at = `rotate(${-90 + k * 360 / lesson.parts!.length} ${size / 2} ${size / 2})`;
               return <G key={part.id}>
-                <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? 'rgba(255,255,255,.35)' : tone.soft} strokeWidth={4} fill="none" strokeDasharray={`${len} ${c}`} strokeDashoffset={-gap / 2} transform={at} />
-                {fill > 0 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? '#fff' : tone.base} strokeWidth={4} fill="none" strokeLinecap="round"
+                <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? 'rgba(255,255,255,.35)' : 'rgba(255,255,255,0)'} strokeWidth={4} fill="none" strokeDasharray={`${len} ${c}`} strokeDashoffset={-gap / 2} transform={at} />
+                {fill > 0 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? '#fff' : RING} strokeWidth={4} fill="none" strokeLinecap="round"
                   strokeDasharray={`${fill} ${c}`} strokeDashoffset={-gap / 2} transform={at} /> : null}
               </G>;
-            }) : pct > 0 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? '#fff' : tone.base} strokeWidth={4} fill="none" strokeLinecap="round"
+            }) : pct > 0 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? '#fff' : RING} strokeWidth={4} fill="none" strokeLinecap="round"
               strokeDasharray={`${c * pct / 100} ${c}`} transform={`rotate(-90 ${size / 2} ${size / 2})`} /> : null}
           </Svg>
-          {/* The circle darkens with its % (0% soft … 100% the section's dark colour, white icon). */}
-          <View style={[s.nodeInner, { width: size - 14, height: size - 14, borderRadius: (size - 14) / 2 }, isHot ? null : { backgroundColor: done ? tone.dark : mix(tone.soft, tone.base, pct / 100) }, !reachable && !isHot && { opacity: .55 }]}>
-            <LessonIcon name={lesson.icon ?? 'chats'} size={isHot ? 38 : 30} white={isHot || done || pct >= 60} color={tone.dark} bg={isHot ? '#EA580C' : done ? tone.dark : mix(tone.soft, tone.base, pct / 100)} />
+          {/* The circle darkens strongly with its % (0% very light … 100% the section's dark colour, white icon). */}
+          <View style={[s.nodeInner, { width: size - 14, height: size - 14, borderRadius: (size - 14) / 2 }, isHot ? null : { backgroundColor: shade(pct) }, !reachable && !isHot && { opacity: .55 }]}>
+            <LessonIcon name={lesson.icon ?? 'chats'} size={isHot ? 38 : 32} white={isHot || pct >= 50} color={tone.dark} bg={isHot ? '#EA580C' : shade(pct)} />
           </View>
         </Pop>
         {/* Name + % beside the circle, no card (25 Nov 2026); parts: “17% · 2 hissə”. */}
         <View pointerEvents="none" style={[s.label, side, { width: avail, top: p.y - 18 }]}>
-          <Text style={[s.labelTitle, right && { textAlign: 'right' }, !reachable && { color: '#8E93A6' }]} numberOfLines={1}>{lesson.title}</Text>
-          <Text style={[s.labelPct, right && { textAlign: 'right' }, (isHot || done) && { color: tone.dark }]}>{pct}%{lesson.parts ? ` · ${lesson.parts.length} hissə` : ''}</Text>
+          <Text style={[s.labelTitle, right && { textAlign: 'right' }, !reachable && { color: '#8E93A6' }, p.y > waterTop + 10 && level > .45 && s.onWater]} numberOfLines={1}>{lesson.title}</Text>
+          <Text style={[s.labelPct, right && { textAlign: 'right' }, { color: RING_TEXT }, p.y > waterTop + 10 && level > .45 && s.onWater]}>{pct}%{lesson.parts ? ` · ${lesson.parts.length} hissə` : ''}</Text>
         </View>
       </View>;
     })}
@@ -425,6 +452,7 @@ const s = StyleSheet.create({
   nodeInner: { alignItems: 'center', justifyContent: 'center' },
   label: { position: 'absolute', gap: 1 },
   labelTitle: { color: d.title, fontSize: 15, lineHeight: 18, ...font.extrabold },
+  onWater: { color: '#FFFFFF', textShadowColor: 'rgba(0,0,0,.25)', textShadowRadius: 3 },
   labelPct: { color: d.inkSoft, fontSize: 12, lineHeight: 15, ...font.bold },
   trophy: { position: 'absolute', width: TROPHY, height: TROPHY, borderRadius: TROPHY / 2, backgroundColor: '#FFFBF2', borderWidth: 1, borderColor: '#E9C98B', alignItems: 'center', justifyContent: 'center',
     shadowColor: '#E0A21B', shadowOpacity: .35, shadowRadius: 12, shadowOffset: { width: 0, height: 2 }, elevation: 4 },
