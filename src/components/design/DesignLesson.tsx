@@ -261,10 +261,12 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         // Every task of a finished lesson enters the 1 / 3 / 7 / 14 day schedule (difficult ones tomorrow, the rest in 3 days).
         if (!lesson.exam) {
           const all = recordsRef.current;
-          const tasks = lessonFlow(lesson).filter(isTask).filter(t => t.type !== 'voice').map(t => ({
+          const tasks: { taskId: string; difficult: boolean; fresh?: boolean }[] = lessonFlow(lesson).filter(isTask).filter(t => t.type !== 'voice').map(t => ({
             taskId: t.id,
             difficult: (t.type === 'two' ? t.fields.map(f => f.id) : [t.id]).some(id => all[id]?.first === 'wrong' || all[id]?.assisted || all[id]?.unverified),
           }));
+          // Practice kept out of the lesson (lesson.pool) comes in the review from tomorrow (26 Nov 2026).
+          for (const t of lesson.pool ?? []) if (t.type !== 'voice') tasks.push({ taskId: t.id, difficult: false, fresh: true });
           useReviewStore.getState().registerLesson(lesson.id, tasks);
         }
       }

@@ -143,10 +143,12 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
 
   // Sticky unit header (first island only): follows the section on screen.
   const [shown, setShown] = useState(sticky?.[0]?.section ?? section);
+  // The header follows the section that fills the upper part of the screen, not the one whose last pixels are still
+  // under it (26 Nov 2026: “Bölmə 3” stayed while the Ailə island was on screen).
   const onScroll = (y: number) => {
     if (!sticky || !sectionTops) return;
     let at = sticky[0].section;
-    for (const it of sticky) { const t0 = sectionTops.current[it.section]; if (t0 !== undefined && it.section !== sticky[0].section && t0 <= y + 40) at = it.section; }
+    for (const it of sticky) { const t0 = sectionTops.current[it.section]; if (t0 !== undefined && it.section !== sticky[0].section && t0 <= y + height * .4) at = it.section; }
     if (at !== shown) setShown(at);
   };
   const head = sticky?.find(x => x.section === shown) ?? { section, title: sectionTitle, done: doneCount, count };

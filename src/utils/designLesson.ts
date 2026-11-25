@@ -39,7 +39,7 @@ export function lessonFlow(lesson: DesignLesson): FlowCard[] {
 
 /** Retry version of a task: same id, type and modality; new situation from the review bank. */
 export function reviewTask(lesson: DesignLesson, id: string): DesignTask | undefined {
-  const card = lesson.cards.find(c => c.id === id) as (DesignTask & { review?: ReviewOf<DesignTask> }) | undefined;
+  const card = [...lesson.cards, ...(lesson.pool ?? [])].find(c => c.id === id) as (DesignTask & { review?: ReviewOf<DesignTask> }) | undefined;
   if (!card || !isTask(card)) return undefined;
   return card.review ? { ...card, ...card.review, id: card.id, number: card.number, type: card.type } as DesignTask : card;
 }

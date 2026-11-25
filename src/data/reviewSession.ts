@@ -20,7 +20,7 @@ export function buildReviewLesson(items: ReviewItem[], today: string): DesignLes
   let base: DesignLesson | undefined;
   for (const item of items) {
     const lesson = getDesignLesson(item.lessonId);
-    const source = lesson?.cards.find(c => c.id === item.taskId);
+    const source = lesson ? [...lesson.cards, ...(lesson.pool ?? [])].find(c => c.id === item.taskId) : undefined;
     if (!lesson || lesson.exam || !source || !reviewable(source)) continue;
     const task = reviewTask(lesson, item.taskId) as TaskWithReview | undefined;
     if (!task) continue;
@@ -54,7 +54,8 @@ export function registerFinishedLessons(progress: readonly LessonProgress[]) {
     const lesson = designLessons.find(l => l.id === p.lessonId);
     if (!lesson || lesson.exam || Object.values(store.items).some(i => i.lessonId === lesson.id)) continue;
     const needs = new Set((p as LessonProgress & { practiceNeeds?: string[] }).practiceNeeds ?? []);
-    const tasks = lesson.cards.filter(reviewable).map(t => ({ taskId: t.id, difficult: fieldIds(t).some(id => needs.has(id)) }));
+    const tasks = [...lesson.cards.filter(reviewable).map(t => ({ taskId: t.id, difficult: fieldIds(t).some(id => needs.has(id)) })),
+      ...(lesson.pool ?? []).filter(reviewable).map(t => ({ taskId: t.id, difficult: false, fresh: true }))];
     if (tasks.length) store.registerLesson(lesson.id, tasks);
   }
 }

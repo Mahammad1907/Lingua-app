@@ -165,6 +165,9 @@ export interface DesignLesson {
   /** Section exam: no Kömək or hints, no retry round, pass mark 70 % (docs/BOLME_2_XERITESI.md §0). */
   exam?: boolean;
   cards: (IntroCard | TeachCard | WordCard | ExplainCard | TaskWithReview)[];
+  /** Practice taken out of the lesson to keep it 10–12 screens (26 Nov 2026, user). Never shown in the lesson; when the
+   *  lesson is finished these tasks enter the daily review (due tomorrow), like the lesson's own tasks. */
+  pool?: TaskWithReview[];
   result: {
     done: string[]; incomplete: string; goals: ResultGoal[]; closing: string; button: string;
     technical: string; unverified: string;

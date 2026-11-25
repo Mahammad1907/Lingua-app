@@ -25,10 +25,11 @@ export const addDays = (day: string, days: number): string => {
 export const intervalFor = (stage: number): number => stage >= MAX_STAGE ? STEADY_DAYS : INTERVALS[Math.max(0, stage)];
 
 /** A task of a finished lesson enters the schedule. Answered correctly on its own → starts at 3 days; otherwise tomorrow. */
-export function registerItem(items: Record<string, ReviewItem>, lessonId: string, taskId: string, today: string, difficult: boolean): Record<string, ReviewItem> {
+/** `fresh`: practice the lesson did not show (lesson.pool) — first seen in the review, so tomorrow, without a lapse. */
+export function registerItem(items: Record<string, ReviewItem>, lessonId: string, taskId: string, today: string, difficult: boolean, fresh = false): Record<string, ReviewItem> {
   const key = `${lessonId}:${taskId}`;
   if (items[key]) return items;
-  const stage = difficult ? 0 : 1;
+  const stage = difficult || fresh ? 0 : 1;
   return { ...items, [key]: { key, lessonId, taskId, stage, dueDay: addDays(today, intervalFor(stage)), lapses: difficult ? 1 : 0, lastDay: today } };
 }
 
@@ -40,9 +41,9 @@ export function gradeItem(item: ReviewItem, correct: boolean, today: string): Re
 
 export const isDue = (item: ReviewItem, today: string) => item.dueDay <= today;
 
-/** Due items, most overdue and most difficult first. */
+/** Due items: the ones answered wrong most often first (user, 26 Nov 2026), then the most overdue, then the lowest stage. */
 export function dueItems(items: Record<string, ReviewItem>, today: string, limit = Infinity): ReviewItem[] {
   return Object.values(items).filter(i => isDue(i, today))
-    .sort((a, b) => a.dueDay.localeCompare(b.dueDay) || a.stage - b.stage || b.lapses - a.lapses || a.key.localeCompare(b.key))
+    .sort((a, b) => b.lapses - a.lapses || a.dueDay.localeCompare(b.dueDay) || a.stage - b.stage || a.key.localeCompare(b.key))
     .slice(0, limit);
 }

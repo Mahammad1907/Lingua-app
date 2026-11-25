@@ -32,5 +32,11 @@ for (const [k, due, stage, lapses] of [['a', '2026-11-20', 2, 0], ['b', '2026-11
   set[k] = { key: k, lessonId: 'L', taskId: k, stage, dueDay: due, lapses, lastDay: '2026-11-10' };
 assert.deepEqual(E.dueItems(set, '2026-11-20').map(i => i.key), ['e', 'c', 'b', 'a']);
 assert.equal(E.dueItems(set, '2026-11-20', 2).length, 2);
+// Mistakes first (26 Nov 2026): a later-due item with more lapses comes before older ones.
+set.f = { key: 'f', lessonId: 'L', taskId: 'f', stage: 2, dueDay: '2026-11-20', lapses: 3, lastDay: '2026-11-10' };
+assert.deepEqual(E.dueItems(set, '2026-11-20').map(i => i.key), ['f', 'e', 'c', 'b', 'a']);
+// Pool practice (lesson.pool): tomorrow, no lapse.
+const fr = E.registerItem({}, 'L', 'p', '2026-11-20', false, true)['L:p'];
+assert.equal(fr.stage, 0); assert.equal(fr.lapses, 0); assert.equal(fr.dueDay, '2026-11-21');
 assert.equal(E.dueItems(set, '2026-11-17').length, 0, 'nothing due yet');
 console.log('PASS: spaced review — 1/3/7/14 days, steady 30, shortening after a mistake, due order.');

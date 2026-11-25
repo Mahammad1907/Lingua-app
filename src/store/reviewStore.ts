@@ -9,7 +9,7 @@ interface ReviewState {
   items: Record<string, ReviewItem>; hydrated: boolean;
   load: () => Promise<void>;
   /** After a lesson is finished: every task enters the schedule (difficult ones tomorrow, the rest in 3 days). */
-  registerLesson: (lessonId: string, tasks: { taskId: string; difficult: boolean }[]) => void;
+  registerLesson: (lessonId: string, tasks: { taskId: string; difficult: boolean; fresh?: boolean }[]) => void;
   /** A confirmed verdict in a review session. */
   recordResult: (key: string, correct: boolean) => void;
   dueCount: (day?: string) => number;
@@ -36,7 +36,7 @@ export const useReviewStore = create<ReviewState>((set, get) => {
     })(),
     registerLesson: (lessonId, tasks) => {
       const today = localDay();
-      set(s => ({ items: tasks.reduce((all, t) => registerItem(all, lessonId, t.taskId, today, t.difficult), s.items) }));
+      set(s => ({ items: tasks.reduce((all, t) => registerItem(all, lessonId, t.taskId, today, t.difficult, t.fresh), s.items) }));
       save();
     },
     recordResult: (key, correct) => {

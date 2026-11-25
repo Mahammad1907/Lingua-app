@@ -32,8 +32,8 @@ assert.deepEqual(numbers, ['1', '21', '22', '3', '4', '5', '6', '7', '8'], `map 
 // Rule 20 (user, 15 Nov 2026): “Azeri” is never shown, taught or accepted. Answer patterns are not shown; everything else is checked.
 const shown = (v, k = '') => typeof v === 'string' ? (k === 'pattern' ? [] : [v]) : Array.isArray(v) ? v.flatMap(x => shown(x)) : v && typeof v === 'object' ? Object.entries(v).flatMap(([kk, x]) => shown(x, kk)) : [];
 for (const l of all) for (const t of shown(l)) assert.ok(!/\bazeri\b/i.test(t), `${l.id}: “Azeri” must not appear: “${t}”`);
-// New words per part (map): 4–6 Yeni söz cards in every lesson part except the section talk (8) and the exam.
-for (const l of all) if (!l.exam && l.number !== 8) { const n = l.cards.filter(c => c.type === 'word').length; assert.ok(n >= 4 && n <= 6, `${l.id}: 4–6 new units (${n})`); }
+// New words per part (26 Nov 2026, user: shorter lessons): 2–3 Yeni söz cards (pairs “A · B” allowed) except the talk (8) and the exam.
+for (const l of all) if (!l.exam && l.number !== 8) { const n = l.cards.filter(c => c.type === 'word').length; assert.ok(n >= 2 && n <= 3, `${l.id}: 2–3 new units (${n})`); }
 
 for (const raw of all) {
   const lesson = L.resolveLesson(raw);
