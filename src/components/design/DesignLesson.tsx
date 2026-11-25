@@ -143,6 +143,13 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   // Each new card starts at full size and only shrinks as far as it must (no back-and-forth).
   const cardKey = `${showResult ? 'result' : reviewing ? `r${reviewStep}` : index}`;
   useEffect(() => { setArt(1); setFit(1); setDense(false); }, [cardKey]);
+  // When the screen grows back (keyboard closed), measure again from full size — otherwise a card shrunk while the
+  // keyboard was closing stayed small (German card, user, 25 Nov 2026).
+  const lastViewH = useRef(0);
+  useEffect(() => {
+    if (viewport.h > lastViewH.current + 2 && lastViewH.current > 0) { setArt(1); setFit(1); setDense(false); }
+    lastViewH.current = viewport.h;
+  }, [viewport.h]);
   const shownHeight = (fitValue: number) => (contentHeight - CONTENT_PAD) * fitValue + CONTENT_PAD;
   useEffect(() => {
     if (keyboardOpen || !viewport.h || !contentHeight || shownHeight(fitState) <= viewport.h + 1) return;
