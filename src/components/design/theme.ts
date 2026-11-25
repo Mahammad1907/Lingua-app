@@ -22,7 +22,7 @@ export const d = {
   lavenderMist: '#C4B5FD',
   slate: '#475569',              // task subtitle (≥7:1 on the canvas)
   title: '#0F172A',
-  purpleDisabled: '#E3E0EE',
+  purpleDisabled: '#E5E4F0',
   purpleDisabledText: '#9A94B3',
   orange: '#F27A12',
   orangeSoft: '#FFE3C7',

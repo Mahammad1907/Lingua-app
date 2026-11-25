@@ -81,7 +81,9 @@ export interface MatchTask extends BaseTask {
    *  reply — “Cavab cütü” (sentence → its English reply);
    *  order — “Söhbəti sırala” (rows are the turns in the right order: en = turn number, az = the line). */
   mode?: 'meaning' | 'reply' | 'order';
-  rows: { en: string; az: string; from?: Who }[];
+  /** avatar (25 Nov 2026): the character's picture for this sentence, e.g. require('../../../assets/characters/nene.png').
+   *  Optional — until the picture exists, the speaker's circle (from) or a neutral placeholder is shown. */
+  rows: { en: string; az: string; from?: Who; avatar?: number | { uri: string } }[];
   /** Extra meanings that fit no sentence. */
   extra: string[];
 }

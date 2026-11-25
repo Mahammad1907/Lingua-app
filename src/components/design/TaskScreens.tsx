@@ -3,7 +3,7 @@
 // No paired two-column buttons, no 2×2 picture grids, no 3D button shadows, no gradients or emoji.
 import { Image } from 'expo-image';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import Reanimated, { FadeIn, FadeInDown, FadeOut, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withSpring, withTiming } from 'react-native-reanimated';
+import Reanimated, { FadeIn, FadeInDown, FadeOut, ZoomIn, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withSpring, withTiming } from 'react-native-reanimated';
 import { AccessibilityInfo, Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, ClipPath, Defs, G, Path, Rect } from 'react-native-svg';
 import { characterAz, hasCharacterName } from '../../config/characters';
@@ -65,10 +65,11 @@ export function ImageSlot({ scenes, height = 150 }: { scenes?: string[]; height?
 
 /** Round sound buttons used everywhere, icons only (user, 13 Nov 2026): purple play and the turtle (slow). */
 /** THE listening button (rule G6, 24 Nov 2026): every “listen” control uses this same round button and the ▶ icon. */
-export function SoundButton({ onPress, size = 48, playing, label = 'Dinlə' }: { onPress: () => void; size?: number; playing?: boolean; label?: string }) {
+export function SoundButton({ onPress, size = 48, playing, label = 'Dinlə', soft }: { onPress: () => void; size?: number; playing?: boolean; label?: string; soft?: boolean }) {
+  // soft (25 Nov 2026): lavender round with a purple ▶ — used inside white cards (Uyğunlaşdır). Same ▶ icon everywhere.
   return <Pop accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : label} onPress={() => { tapHaptic(); onPress(); }} hitSlop={4}
-    style={[s.playRound, { width: size, height: size, borderRadius: size / 2 }]}>
-    <View style={{ marginLeft: size * .06 }}><SoundIcon size={size * .46} /></View>
+    style={[s.playRound, soft && { backgroundColor: d.purpleSoft }, { width: size, height: size, borderRadius: size / 2 }]}>
+    <View style={{ marginLeft: size * .06 }}><SoundIcon size={size * .46} color={soft ? d.purple : '#fff'} /></View>
   </Pop>;
 }
 /** The listening icon itself, for places that draw their own round (rule G6). */
@@ -237,27 +238,46 @@ export function MatchBoard({ task, pairs, active, onActive, onPlace, onSay, mark
   const reply = task.mode === 'reply';
   const used = new Set(Object.values(pairs));
   const meanings = [...task.rows.map(r => r.az), ...task.extra].sort((a, b) => a.localeCompare(b, reply ? 'en' : 'az'));
+  // The highlighted slot: the one the learner picked, otherwise the first empty one (where the next answer goes).
+  const target = active && !pairs[active] ? active : task.rows.find(r => !pairs[r.en])?.en;
+  // Redesign (25 Nov 2026): one white card per sentence (avatar · sentence · ▶, full-width slot under it),
+  // then the answers as a borderless 2×2 grid. Green/red only after Yoxla.
   return <View style={{ gap: 14 }}>
-    <View style={{ gap: 12 }}>
+    <View style={{ gap: 10 }}>
       {task.rows.map(r => {
-        const value = pairs[r.en], mark = marks?.[r.en], on = active === r.en && !disabled;
-        return <View key={r.en} style={s.matchRow}>
-          {r.from ? <Avatar who={r.from} size={30} /> : null}
-          <Pressable accessibilityRole="button" accessibilityHint="Dinləmək üçün toxun" onPress={() => onSay?.(r.en)} style={s.matchBubble}><Text style={s.matchEn}>{nameSlot(r.en)}</Text></Pressable>
-          {reply ? <Icon name="arrow" size={16} color={d.lavender} /> : null}
-          <Pressable accessibilityRole="button" accessibilityLabel={value ? `${r.en}: ${value}. Dəyişmək üçün toxun` : `${r.en}: ${reply ? 'cavabı' : 'mənası'} boşdur`} disabled={disabled}
-            onPress={() => onActive(r.en)} style={[s.slot, reply && { width: 132 }, value ? s.slotFilled : s.slotEmpty, on && s.slotActive,
-              mark === 'correct' && { backgroundColor: d.greenSoft, borderColor: d.green }, mark === 'wrong' && { backgroundColor: d.redSoft, borderColor: d.red }]}>
-            <Text numberOfLines={2} style={[s.slotText, mark && { color: markColor(mark, d.purple) }]}>{value ? nameSlot(value) : on ? '?' : ''}</Text>
+        const value = pairs[r.en], mark = marks?.[r.en], on = target === r.en && !disabled && !value;
+        const slotStyle = value ? s.mSlotFilled : on ? s.mSlotActive : s.mSlotWaiting;
+        return <View key={r.en} style={s.mCard}>
+          <View style={s.mTop}>
+            {r.avatar ? <View style={s.mAvatar}><Image source={r.avatar} style={{ width: 40, height: 40 }} contentFit="cover" /></View> : <Avatar who={r.from ?? 'other'} size={40} />}
+            <Text style={s.mEn} numberOfLines={2}>{nameSlot(r.en)}</Text>
+            {onSay ? <SoundButton soft size={38} label={`Dinlə: ${r.en}`} onPress={() => onSay(r.en)} /> : null}
+          </View>
+          <Pressable accessibilityRole="button" disabled={disabled}
+            accessibilityLabel={value ? `${r.en}: ${value}. Silmək üçün toxun` : `${r.en}: ${reply ? 'cavabı' : 'mənası'} boşdur${on ? ', seçilib' : ''}`}
+            onPress={() => { tapHaptic(); onActive(r.en); }}
+            style={[s.mSlot, slotStyle,
+              mark === 'correct' && { backgroundColor: d.greenSoft, borderColor: d.green, borderWidth: 1.5 }, mark === 'wrong' && { backgroundColor: d.redSoft, borderColor: d.red, borderWidth: 1.5 }]}>
+            {value ? <Reanimated.View key={value} entering={ZoomIn.springify().damping(14).stiffness(260)} style={s.mFilledRow}>
+              <Text numberOfLines={2} style={[s.mFilledText, mark && { color: markColor(mark, d.purple) }]}>{nameSlot(value)}</Text>
+              {!disabled ? <Icon name="close" size={16} color={d.lavenderText} /> : null}
+            </Reanimated.View>
+              : <Text style={[s.mPrompt, !on && { opacity: 0 }]}>{reply ? 'Cavabı seç...' : 'Mənasını seç...'}</Text>}
           </Pressable>
         </View>;
       })}
     </View>
-    <View style={s.meanings}>
-      {meanings.map(m => <Pressable key={m} accessibilityRole="button" accessibilityState={{ disabled: disabled || used.has(m) }} disabled={disabled || used.has(m)}
-        onPress={() => { if (reply) onSay?.(m); onPlace(m); }} style={[s.meaning, used.has(m) && { opacity: .35 }]}>
-        <Text style={s.meaningText}>{nameSlot(m)}</Text>
-      </Pressable>)}
+    <View style={s.mGrid}>
+      {meanings.map(m => {
+        const gone = used.has(m);
+        return <Reanimated.View key={`${m}|${gone}`} entering={gone ? undefined : ZoomIn.springify().damping(14).stiffness(260)} style={s.mCell}>
+          <Pressable accessibilityRole="button" accessibilityState={{ disabled: disabled || gone }} disabled={disabled || gone}
+            onPress={() => { tapHaptic(); if (reply) onSay?.(m); onPlace(m); }}
+            style={({ pressed }) => [s.mChip, gone ? s.mChipUsed : shadow, pressed && { transform: [{ scale: .96 }] }]}>
+            <Text numberOfLines={2} style={[s.mChipText, gone && { color: d.purpleDisabledText }]}>{nameSlot(m)}</Text>
+          </Pressable>
+        </Reanimated.View>;
+      })}
     </View>
   </View>;
 }
@@ -838,6 +858,22 @@ const s = StyleSheet.create({
   pillOn: { borderWidth: 2, borderColor: d.purple, backgroundColor: d.purpleSoft },
   pillText: { color: d.ink, fontSize: 21, ...font.extrabold },
   matchRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  mCard: { backgroundColor: '#fff', borderRadius: 20, padding: 12, gap: 10, ...shadow, shadowOpacity: .07, shadowRadius: 14, shadowOffset: { width: 0, height: 4 } },
+  mTop: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  mAvatar: { width: 40, height: 40, borderRadius: 20, overflow: 'hidden', backgroundColor: d.purpleSoft },
+  mEn: { flex: 1, color: d.ink, fontSize: 17, ...font.extrabold },
+  mSlot: { minHeight: 46, borderRadius: 12, paddingHorizontal: 14, justifyContent: 'center' },
+  mSlotFilled: { backgroundColor: d.purpleSoft },
+  mSlotActive: { borderWidth: 1.5, borderStyle: 'dashed', borderColor: d.violet, backgroundColor: '#F5F3FF' },
+  mSlotWaiting: { borderWidth: 1.5, borderStyle: 'dashed', borderColor: '#E2E8F0', backgroundColor: '#FAFAFC' },
+  mFilledRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  mFilledText: { flex: 1, color: d.purple, fontSize: 16, ...font.extrabold },
+  mPrompt: { color: d.lavenderText, fontSize: 16, ...font.semibold },
+  mGrid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 10 },
+  mCell: { width: '48.5%' },
+  mChip: { minHeight: 50, borderRadius: 14, borderWidth: 1, borderColor: '#DDD6FE', backgroundColor: '#fff', paddingHorizontal: 10, alignItems: 'center', justifyContent: 'center' },
+  mChipUsed: { backgroundColor: '#EEF0F5', borderColor: '#EEF0F5' },
+  mChipText: { color: d.ink, fontSize: 15, textAlign: 'center', ...font.extrabold },
   matchBubble: { flex: 1, paddingHorizontal: 14, paddingVertical: 10, borderRadius: 16, borderBottomLeftRadius: 6, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
   matchEn: { color: d.ink, fontSize: 17, ...font.extrabold },
   slot: { width: 120, minHeight: 46, borderRadius: 12, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 6 },
