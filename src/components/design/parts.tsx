@@ -1,12 +1,28 @@
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useRef, useState, type ComponentProps, type ReactNode } from 'react';
 import { Animated, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View, type StyleProp, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import GlowLine from './GlowLine';
+import * as Haptics from 'expo-haptics';
+import Reanimated, { useAnimatedStyle, useSharedValue, withSequence, withSpring, withTiming } from 'react-native-reanimated';
+
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { resolveNames } from '../../config/characters';
 import Icon, { type IconName } from './Icons';
 import { d, radius, shadow, font } from './theme';
+
+/** Light tap feedback (25 Nov 2026): selections, ▶, speed, Kömək, ↑ send. Never throws. */
+export const tapHaptic = () => { void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {}); };
+
+const APressable = Reanimated.createAnimatedComponent(Pressable);
+/** A pressable that springs to `to` (0.94 by default) while pressed — used by every ▶ button. */
+export function Pop({ to = .94, style, children, onPressIn, onPressOut, ...rest }: Omit<ComponentProps<typeof Pressable>, 'style'> & { to?: number; style?: StyleProp<ViewStyle> }) {
+  const k = useSharedValue(1);
+  const a = useAnimatedStyle(() => ({ transform: [{ scale: k.value }] }));
+  return <APressable {...rest} style={[style, a]}
+    onPressIn={e => { k.value = withSpring(to, { damping: 15, stiffness: 400 }); onPressIn?.(e); }}
+    onPressOut={e => { k.value = withSpring(1, { damping: 12, stiffness: 300 }); onPressOut?.(e); }}>{children as ReactNode}</APressable>;
+}
 
 /** “…” standing alone in an English line is the name slot: it is shown as [ad] (earlier item 10). “Slowly…” keeps its dots. */
 export const nameSlot = (text: string) => text.replace(/(^|[\s,(“"])…/g, '$1[ad]');
@@ -20,7 +36,7 @@ export function Header({ progress, onBack, onMenu, streak = 0 }: { title?: strin
   useEffect(() => {
     const grew = progress > last.current; last.current = progress;
     if (reduced) { width.setValue(progress); return; }
-    Animated.timing(width, { toValue: progress, duration: 450, useNativeDriver: false }).start();
+    Animated.spring(width, { toValue: progress, friction: 9, tension: 60, useNativeDriver: false }).start();
     if (!grew) return;
     // Filling feels alive (23 Nov 2026): a short bounce of the bar and a glint at its tip.
     Animated.sequence([
@@ -64,7 +80,7 @@ export function Chip({ label }: { label: string }) {
 }
 
 export function Capsule({ label, icon, onPress, tone = 'soft', disabled, small, accessibilityLabel, align = 'center' }: { label: string; icon?: IconName; onPress: () => void; tone?: 'soft' | 'ghost' | 'outline' | 'orange'; disabled?: boolean; small?: boolean; accessibilityLabel?: string; align?: 'center' | 'flex-start' | 'flex-end' }) {
-  return <Pressable accessibilityRole="button" accessibilityLabel={accessibilityLabel ?? label} accessibilityState={{ disabled }} disabled={disabled} onPress={onPress} hitSlop={6}
+  return <Pressable accessibilityRole="button" accessibilityLabel={accessibilityLabel ?? label} accessibilityState={{ disabled }} disabled={disabled} onPress={() => { tapHaptic(); onPress(); }} hitSlop={6}
     style={({ pressed }) => [s.capsule, { alignSelf: align }, tone === 'outline' && s.capsuleOutline, tone === 'ghost' && s.capsuleGhost, tone === 'orange' && s.capsuleOrange, small && s.capsuleSmall, pressed && { opacity: .75 }, disabled && { opacity: .5 }]}>
     {icon ? <View style={tone === 'soft' ? s.capsuleIcon : undefined}><Icon name={icon} size={small ? 17 : 19} color={tone === 'ghost' ? d.inkSoft : d.purple} /></View> : null}
     <Text style={[s.capsuleText, small && { fontSize: 14 }, tone === 'ghost' && { color: d.inkSoft }]}>{label}</Text>
@@ -132,11 +148,11 @@ export function AudioPanel({ playing, onPlay, avatar, name, title, sub, seconds,
       <Text accessibilityLabel={`Uzunluq ${total} saniyə`} style={s.audioTime}>{mm}</Text>
     </View>
     <View style={s.audioBottom}>
-      <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Səsi dinlə'} onPress={onPlay} style={({ pressed }) => [s.play, !playing && { paddingLeft: 3 }, pressed && { opacity: .85, transform: [{ scale: .96 }] }]}>
+      <Pop accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Səsi dinlə'} onPress={() => { tapHaptic(); onPlay(); }} style={[s.play, !playing && { paddingLeft: 3 }]}>
         <Icon name={playing ? 'pause' : 'play'} size={26} color="#fff" />
-      </Pressable>
+      </Pop>
       <View style={{ flex: 1 }}><GlowLine active={playing} rate={rate} height={44} /></View>
-      <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={onRate} hitSlop={6} style={({ pressed }) => [s.slowPill, pressed && { opacity: .8 }]}>
+      <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={() => { tapHaptic(); onRate(); }} hitSlop={6} style={({ pressed }) => [s.slowPill, pressed && { opacity: .8 }]}>
         <Text style={s.slowPillText}>{rate}x</Text>
       </Pressable>
     </View>
@@ -145,18 +161,34 @@ export function AudioPanel({ playing, onPlay, avatar, name, title, sub, seconds,
 
 export function ChoiceOption({ label, selected, state, onPress, disabled }: { label: string; selected: boolean; state?: 'correct' | 'wrong'; onPress: () => void; disabled?: boolean }) {
   const border = state === 'wrong' ? d.red : state === 'correct' ? d.green : selected ? d.purple : d.borderStrong;
-  return <Pressable accessibilityRole="radio" accessibilityState={{ selected, disabled }} accessibilityLabel={label} disabled={disabled} onPress={onPress}
-    style={[s.choice, { borderColor: border }, selected && !state && { backgroundColor: d.purpleTint, borderWidth: 2 }, state && { borderWidth: 2 }]}>
+  // Selecting springs the card 0.98 → 1 and fades the purple border/tint in (25 Nov 2026).
+  const k = useSharedValue(1), tint = useSharedValue(selected ? 1 : 0);
+  useEffect(() => {
+    tint.value = withTiming(selected ? 1 : 0, { duration: 180 });
+    if (selected) k.value = withSequence(withTiming(.98, { duration: 70 }), withSpring(1, { damping: 10, stiffness: 260 }));
+  }, [selected, k, tint]);
+  const a = useAnimatedStyle(() => ({ transform: [{ scale: k.value }] }));
+  const glow = useAnimatedStyle(() => ({ opacity: tint.value }));
+  return <APressable accessibilityRole="radio" accessibilityState={{ selected, disabled }} accessibilityLabel={label} disabled={disabled} onPress={() => { tapHaptic(); onPress(); }}
+    style={[s.choice, { borderColor: border }, state && { borderWidth: 2 }, selected && !state && { borderWidth: 2 }, a]}>
+    {!state ? <Reanimated.View pointerEvents="none" style={[s.choiceTint, glow]} /> : null}
     <View style={[s.radio, selected && { borderColor: border }]}>{selected ? <View style={[s.radioDot, { backgroundColor: border }]} /> : null}</View>
     <Text style={s.choiceText}>{nameSlot(label)}</Text>
-  </Pressable>;
+  </APressable>;
 }
 
-export function Field({ value, onChange, placeholder, state, editable = true, label, onSubmit }: { value: string; onChange: (v: string) => void; placeholder: string; state?: 'correct' | 'wrong'; editable?: boolean; label?: string; onSubmit?: () => void }) {
+export function Field({ value, onChange, placeholder, state, editable = true, label, onSubmit, onSend, sendDisabled }: { value: string; onChange: (v: string) => void; placeholder: string; state?: 'correct' | 'wrong'; editable?: boolean; label?: string; onSubmit?: () => void;
+  /** Chat screens: a round purple ↑ inside the right edge sends the message. */ onSend?: () => void; sendDisabled?: boolean }) {
   const [focused, setFocused] = useState(false);
-  return <TextInput accessibilityLabel={label ?? placeholder} value={value} onChangeText={onChange} placeholder={placeholder} placeholderTextColor="#9A9FB2" onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-    editable={editable} autoCapitalize="none" autoCorrect={false} spellCheck={false} maxLength={200} returnKeyType="done" onSubmitEditing={onSubmit} submitBehavior="blurAndSubmit"
-    style={[s.field, focused && s.fieldFocus, state === 'wrong' && { borderColor: d.red }, state === 'correct' && { borderColor: d.green }]} />;
+  const input = <TextInput accessibilityLabel={label ?? placeholder} value={value} onChangeText={onChange} placeholder={placeholder} placeholderTextColor="#9A9FB2" onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+    editable={editable} autoCapitalize="none" autoCorrect={false} spellCheck={false} maxLength={200} returnKeyType={onSend ? 'send' : 'done'} onSubmitEditing={onSend ?? onSubmit} submitBehavior={onSend ? 'submit' : 'blurAndSubmit'}
+    style={[s.field, onSend && { paddingRight: 64 }, focused && s.fieldFocus, state === 'wrong' && { borderColor: d.red }, state === 'correct' && { borderColor: d.green }]} />;
+  if (!onSend) return input;
+  const off = sendDisabled || !editable || !value.trim();
+  return <View>{input}
+    <Pop accessibilityRole="button" accessibilityLabel="Göndər" accessibilityState={{ disabled: off }} disabled={off} onPress={() => { tapHaptic(); onSend(); }} hitSlop={6}
+      style={[s.send, off && { backgroundColor: d.purpleDisabled }]}><Icon name="up" size={22} color={off ? d.purpleDisabledText : '#fff'} stroke={2.4} /></Pop>
+  </View>;
 }
 
 export function Card({ children, style }: { children: ReactNode; style?: StyleProp<ViewStyle> }) {
@@ -228,7 +260,9 @@ const s = StyleSheet.create({
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
   play: { width: 60, height: 60, borderRadius: 30, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', ...shadow, shadowColor: d.purple, shadowOpacity: .25 },
   slowIcon: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
-  choice: { flexDirection: 'row', alignItems: 'center', gap: 16, minHeight: 64, paddingHorizontal: 20, borderRadius: radius.field, borderWidth: 1, backgroundColor: d.surface },
+  choiceTint: { position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, borderRadius: radius.field - 1, backgroundColor: d.purpleTint },
+  send: { position: 'absolute', right: 8, top: 8, bottom: 8, aspectRatio: 1, borderRadius: 999, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center' },
+  choice: { flexDirection: 'row', alignItems: 'center', gap: 16, minHeight: 64, paddingHorizontal: 20, borderRadius: radius.field, borderWidth: 1, backgroundColor: d.surface, overflow: 'hidden' },
   radio: { width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: d.borderStrong, alignItems: 'center', justifyContent: 'center' },
   radioDot: { width: 14, height: 14, borderRadius: 7 },
   choiceText: { color: d.ink, fontSize: 19, ...font.bold, flex: 1 },

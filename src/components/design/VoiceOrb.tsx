@@ -11,7 +11,8 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { d } from './theme';
 
 export const ORB = 112;          // the button itself
-const BOX = 200;                 // room for the aura and halo rings
+export const ORB_BOX = 200;      // room for the aura and halo rings
+const BOX = ORB_BOX;
 
 /** A soft round blob: a colour that fades to transparent at its edge (no blur filter needed). */
 function Blob({ size, color, opacity = 1 }: { size: number; color: string; opacity?: number }) {
@@ -55,7 +56,7 @@ export default function VoiceOrb({ active, disabled }: { active: boolean; disabl
 
   return <View pointerEvents="none" style={[s.box, disabled && { opacity: .5 }]}>
     {/* Radiant aura while listening */}
-    <Animated.View style={[s.center, aura]}>
+    <Animated.View style={[s.layer(BOX), aura]}>
       <Svg width={BOX} height={BOX}>
         <Defs><RadialGradient id="orbAura" cx="50%" cy="50%" r="50%">
           <Stop offset=".45" stopColor={d.violetLight} stopOpacity={.32} />
@@ -66,23 +67,19 @@ export default function VoiceOrb({ active, disabled }: { active: boolean; disabl
       </Svg>
     </Animated.View>
     {/* Idle halo rings */}
-    <Animated.View style={[s.center, rings]}>
-      <View style={[s.ring, { width: ORB + 56, height: ORB + 56, borderRadius: (ORB + 56) / 2, backgroundColor: 'rgba(196,181,253,.16)' }]} />
-    </Animated.View>
-    <Animated.View style={[s.center, rings]}>
-      <View style={[s.ring, { width: ORB + 26, height: ORB + 26, borderRadius: (ORB + 26) / 2, backgroundColor: 'rgba(196,181,253,.28)' }]} />
-    </Animated.View>
+    <Animated.View style={[s.layer(ORB + 56), { borderRadius: (ORB + 56) / 2, backgroundColor: 'rgba(196,181,253,.16)' }, rings]} />
+    <Animated.View style={[s.layer(ORB + 26), { borderRadius: (ORB + 26) / 2, backgroundColor: 'rgba(196,181,253,.28)' }, rings]} />
     {/* Idle: purple gradient circle */}
-    <Animated.View style={[s.center, idle]}>
+    <Animated.View style={[s.layer(ORB), idle]}>
       <LinearGradient colors={[d.violetLight, d.purple]} start={{ x: .2, y: 0 }} end={{ x: .8, y: 1 }} style={s.circle} />
     </Animated.View>
     {/* Recording: the AI Voice Orb */}
-    <Animated.View style={[s.center, body]}>
+    <Animated.View style={[s.layer(ORB), body]}>
       <View style={[s.circle, s.orbClip]}>
-        <Animated.View style={[StyleSheet.absoluteFill, turnA]}><View style={{ position: 'absolute', left: -14, top: -8 }}><Blob size={ORB} color={d.violet} /></View></Animated.View>
-        <Animated.View style={[StyleSheet.absoluteFill, turnB]}><View style={{ position: 'absolute', left: ORB * .42, top: -ORB * .06 }}><Blob size={ORB * .68} color={d.actionLight} opacity={.9} /></View></Animated.View>
-        <Animated.View style={[StyleSheet.absoluteFill, turnC]}><View style={{ position: 'absolute', left: ORB * .05, top: ORB * .42 }}><Blob size={ORB * .8} color={d.lavenderMist} opacity={.95} /></View></Animated.View>
-        <Animated.View style={[StyleSheet.absoluteFill, turnB]}><View style={{ position: 'absolute', left: ORB * .3, top: ORB * .3 }}><Blob size={ORB * .55} color={d.purple} opacity={.8} /></View></Animated.View>
+        <Animated.View style={[s.spin, turnA]}><View style={{ position: 'absolute', left: -14, top: -8 }}><Blob size={ORB} color={d.violet} /></View></Animated.View>
+        <Animated.View style={[s.spin, turnB]}><View style={{ position: 'absolute', left: ORB * .42, top: -ORB * .06 }}><Blob size={ORB * .68} color={d.actionLight} opacity={.9} /></View></Animated.View>
+        <Animated.View style={[s.spin, turnC]}><View style={{ position: 'absolute', left: ORB * .05, top: ORB * .42 }}><Blob size={ORB * .8} color={d.lavenderMist} opacity={.95} /></View></Animated.View>
+        <Animated.View style={[s.spin, turnB]}><View style={{ position: 'absolute', left: ORB * .3, top: ORB * .3 }}><Blob size={ORB * .55} color={d.purple} opacity={.8} /></View></Animated.View>
         {/* Glassy highlight */}
         <View style={{ position: 'absolute', left: ORB * .12, top: ORB * .06 }}><Blob size={ORB * .5} color="#FFFFFF" opacity={.35} /></View>
       </View>
@@ -90,10 +87,14 @@ export default function VoiceOrb({ active, disabled }: { active: boolean; disabl
   </View>;
 }
 
-const s = StyleSheet.create({
-  box: { width: BOX, height: BOX, alignItems: 'center', justifyContent: 'center' },
-  center: { ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center' },
-  ring: {},
-  circle: { width: ORB, height: ORB, borderRadius: ORB / 2 },
-  orbClip: { overflow: 'hidden', backgroundColor: '#8B5CF6' },
-});
+const at = (size: number) => ({ position: 'absolute' as const, width: size, height: size, left: (BOX - size) / 2, top: (BOX - size) / 2 });
+const s = {
+  ...StyleSheet.create({
+    box: { width: BOX, height: BOX, position: 'relative' },
+    circle: { width: ORB, height: ORB, borderRadius: ORB / 2 },
+    orbClip: { overflow: 'hidden', backgroundColor: '#8B5CF6' },
+    spin: { position: 'absolute', left: 0, top: 0, width: ORB, height: ORB },
+  }),
+  /** Every layer gets its own exact square, centred in the box — no absoluteFill/alignment (layers drifted on device). */
+  layer: at,
+};

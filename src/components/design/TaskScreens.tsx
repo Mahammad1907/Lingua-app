@@ -2,7 +2,8 @@
 // Principle: every task is a small conversation — speech bubbles, avatars, a message thread.
 // No paired two-column buttons, no 2×2 picture grids, no 3D button shadows, no gradients or emoji.
 import { Image } from 'expo-image';
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
+import Reanimated, { FadeIn, FadeInDown, FadeOut, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withSpring, withTiming } from 'react-native-reanimated';
 import { AccessibilityInfo, Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, ClipPath, Defs, G, Path, Rect } from 'react-native-svg';
 import { characterAz, hasCharacterName } from '../../config/characters';
@@ -10,7 +11,7 @@ import { missingScenes, sceneImage } from '../../config/sceneImages';
 import type { ChatLine, ExplainCard, MatchTask, WordCard, Who } from '../../data/designLessonTypes';
 import { glossOf } from '../../data/unit1/glossary';
 import Icon, { type IconName } from './Icons';
-import { ds, KindChip, nameSlot, Waveform } from './parts';
+import { ds, KindChip, nameSlot, Pop, tapHaptic, Waveform } from './parts';
 import { useArtFit } from './fit';
 import { d, font, radius, shadow } from './theme';
 
@@ -65,10 +66,10 @@ export function ImageSlot({ scenes, height = 150 }: { scenes?: string[]; height?
 /** Round sound buttons used everywhere, icons only (user, 13 Nov 2026): purple play and the turtle (slow). */
 /** THE listening button (rule G6, 24 Nov 2026): every “listen” control uses this same round button and the ▶ icon. */
 export function SoundButton({ onPress, size = 48, playing, label = 'Dinlə' }: { onPress: () => void; size?: number; playing?: boolean; label?: string }) {
-  return <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : label} onPress={onPress} hitSlop={4}
-    style={({ pressed }) => [s.playRound, { width: size, height: size, borderRadius: size / 2 }, pressed && { opacity: .85 }]}>
+  return <Pop accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : label} onPress={() => { tapHaptic(); onPress(); }} hitSlop={4}
+    style={[s.playRound, { width: size, height: size, borderRadius: size / 2 }]}>
     <View style={{ marginLeft: size * .06 }}><SoundIcon size={size * .46} /></View>
-  </Pressable>;
+  </Pop>;
 }
 /** The listening icon itself, for places that draw their own round (rule G6). */
 export function SoundIcon({ size = 22, color = '#fff' }: { size?: number; color?: string }) {
@@ -105,16 +106,18 @@ function Bubble({ line, onWord }: { line: ChatLine; onWord?: (w: string) => void
  *  avatar, name, “Onlayn” and Kömək; “Bu gün”; their messages on the left with the time; the learner's bubble on the
  *  right. The learner's bubble appears once something is typed (the answer is typed in the field under the chat, one
  *  place only) and gets the time and ✓ only after Yoxla — before that it is not “sent”. */
-export function ChatThread({ partner, from, lines, mine, placeholder, mark, chips, onSay, onWord, help, sent, children }: {
+export function ChatThread({ partner, from, lines, mine, placeholder, mark, chips, onSay, onWord, help, sent, posted, reply, children }: {
   partner: string; from: Who; lines: ChatLine[]; mine: string; placeholder: string; mark?: Mark; chips?: ReactNode; onSay?: (t: string) => void; onWord?: (w: string) => void;
   /** Kömək button, shown in the chat header. */ help?: ReactNode;
   /** The answer was checked: the learner's message counts as sent. */ sent?: boolean; children?: ReactNode;
+  /** ↑ was tapped (before Yoxla): the bubble pops into place and the partner “types…” for a moment. */ posted?: boolean;
+  /** The partner's reaction, shown only after a correct check (Dərs 1: emoji only; later: taught words). */ reply?: string;
 }) {
   const now = new Date(), clock = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
   const showMine = Boolean(mine || chips);
   return <View style={[s.thread, shadow]}>
     <View style={s.threadHead}>
-      <View><Avatar who={from} size={44} /><View style={s.online} /></View>
+      <Avatar who={from} size={44} />
       <View style={{ flex: 1 }}>
         <Text style={s.threadName} numberOfLines={1}>{nameSlot(partner)}</Text>
         <Text style={s.threadSub}>Onlayn</Text>
@@ -132,15 +135,46 @@ export function ChatThread({ partner, from, lines, mine, placeholder, mark, chip
         </View>;
       })}
       {showMine ? <View style={{ alignItems: 'flex-end', gap: 4 }}>
-        <View accessibilityLabel={mine ? `Sənin cavabın: ${mine}` : placeholder}
+        <Pops on={Boolean(posted || sent)}><View accessibilityLabel={mine ? `Sənin cavabın: ${mine}` : placeholder}
           style={[s.outBubble, mark && { backgroundColor: markColor(mark, d.purple), borderColor: markColor(mark, d.purple) }, chips ? s.outChips : null]}>
           {chips ?? <Text style={[s.bubbleText, { color: '#fff' }]}>{nameSlot(mine)}</Text>}
-        </View>
-        {sent ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}><Text style={s.msgTime}>{clock}</Text><Icon name="check" size={16} color={d.purple} /></View> : null}
+        </View></Pops>
+        {sent ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+          {/* After the check: hear what you wrote. */}
+          {onSay && /[A-Za-z]/.test(mine) ? <SoundButton size={28} label={`Dinlə: ${mine}`} onPress={() => onSay(mine)} /> : null}
+          <Text style={s.msgTime}>{clock}</Text><Icon name="check" size={16} color={d.purple} /></View> : null}
       </View> : null}
+      {posted && !sent ? <TypingDots key={mine} /> : null}
+      {sent && mark === 'correct' && reply ? <Reanimated.View entering={FadeInDown.springify().damping(14)} style={s.inRow}>
+        <Avatar who={from} /><View style={s.inBubble}><Text style={s.bubbleText}>{reply}</Text></View></Reanimated.View> : null}
     </View>
     {children}
   </View>;
+}
+
+/** Springs a just-sent bubble into place (scale 0.85 → 1). */
+export function Pops({ on, children }: { on: boolean; children: ReactNode }) {
+  const k = useSharedValue(1);
+  useEffect(() => { if (on) { k.value = .85; k.value = withSpring(1, { damping: 11, stiffness: 240 }); } }, [on, k]);
+  const a = useAnimatedStyle(() => ({ transform: [{ scale: k.value }] }));
+  return <Reanimated.View style={a}>{children}</Reanimated.View>;
+}
+
+/** The partner “is typing…”: three dots for half a second after the learner sends (25 Nov 2026). */
+export function TypingDots({ ms = 500, onDone }: { ms?: number; onDone?: () => void }) {
+  const [shown, setShown] = useState(true);
+  const t = useSharedValue(0);
+  useEffect(() => {
+    t.value = withRepeat(withTiming(1, { duration: 420 }), -1, true);
+    const id = setTimeout(() => { setShown(false); onDone?.(); }, ms);
+    return () => clearTimeout(id);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  const a0 = useAnimatedStyle(() => ({ opacity: .35 + .65 * t.value }));
+  const a1 = useAnimatedStyle(() => ({ opacity: 1 - .65 * t.value }));
+  if (!shown) return null;
+  return <Reanimated.View entering={FadeIn.duration(120)} exiting={FadeOut.duration(120)} accessibilityLabel="Yazır" style={[s.inBubble, { flexDirection: 'row', gap: 5, alignSelf: 'flex-start', paddingVertical: 14 }]}>
+    <Reanimated.View style={[s.dot, a0]} /><Reanimated.View style={[s.dot, a1]} /><Reanimated.View style={[s.dot, a0]} />
+  </Reanimated.View>;
 }
 
 /** The reply being built: each picked word is a chip inside the learner's bubble; tapping it sends it back to its place. */
@@ -394,6 +428,35 @@ function marked(text: string, forms: string[], style: object) {
 
 /** “Müəllim izahı” (design of 24 Nov 2026): caption + big title, mascot bubble, form cards side by side with the
  *  same sound button, an optional Səmimi … Rəsmi scale, the explanation in a white card and the “Diqqət” box. */
+/** Müəllim izahı phrase card (25 Nov 2026): tapping it (or its ▶) plays the phrase, pops the card, glows its border
+ *  lavender and shows a small Glow Line for a moment. */
+function FormCard({ on, onPlay, label, children }: { on: boolean; onPlay: () => void; label: string; children: (play: () => void) => ReactNode }) {
+  const [lit, setLit] = useState(false);
+  const k = useSharedValue(1);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
+  const play = () => {
+    tapHaptic(); onPlay(); setLit(true);
+    k.value = withSequence(withTiming(1.04, { duration: 110 }), withSpring(1, { damping: 10, stiffness: 220 }));
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = setTimeout(() => setLit(false), 1500);
+  };
+  const a = useAnimatedStyle(() => ({ transform: [{ scale: k.value }] }));
+  return <Reanimated.View style={[s.tvForm, on ? s.tvFormOn : null, lit && s.tvFormLit, a]}>
+    <Pressable accessibilityRole="button" accessibilityLabel={label} onPress={play} style={{ gap: 4 }}>
+      {children(play)}
+      <View style={{ height: 16, marginTop: 2 }}>{lit ? <Waveform active height={16} /> : null}</View>
+    </Pressable>
+  </Reanimated.View>;
+}
+
+/** A formality marker that glides from the middle to its place when the card opens. */
+function ScaleMark({ at, children }: { at: number; children: ReactNode }) {
+  const x = useRef(new Animated.Value(.5)).current;
+  useEffect(() => { Animated.spring(x, { toValue: at, friction: 8, tension: 50, useNativeDriver: false }).start(); }, [at, x]);
+  return <Animated.View style={[s.tvMarkAt, { left: x.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}>{children}</Animated.View>;
+}
+
 export function TeacherView({ card, onPlay }: { card: ExplainCard; onPlay: (t: string) => void }) {
   const forms = [...new Set(card.sections.flatMap(sec => [
     ...(sec.pairs ?? []).map(p => p.en.replace(/[!?.,]+$/, '')), ...(sec.scale?.marks ?? []).map(m => m.en)]))].filter(f => /[A-Za-z]/.test(f));
@@ -418,14 +481,16 @@ export function TeacherView({ card, onPlay }: { card: ExplainCard; onPlay: (t: s
     </View>
     {card.sections.map((sec, i) => {
       const label = !card.heading && i > 0 ? <Text style={ds.label}>{sec.title}</Text> : null;
-      const pairs = sec.pairs ? <View style={{ flexDirection: 'row', gap: 10 }}>{sec.pairs.map((p, k) => <View key={p.en} style={[s.tvForm, k % 2 ? s.tvFormOn : null]}>
+      const pairs = sec.pairs ? <View style={{ flexDirection: 'row', gap: 10 }}>{sec.pairs.map((p, k) => <FormCard key={p.en} on={k % 2 === 1} onPlay={() => onPlay(p.en)} label={`Dinlə: ${p.en}`}>
+        {lit => <>
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
           {p.tag ? <View style={[s.tvTag, k % 2 ? { backgroundColor: d.purpleSoft } : null]}><Text style={[s.tvTagText, k % 2 ? { color: d.purple } : null]} numberOfLines={1}>{p.tag.toLocaleUpperCase('az')}</Text></View> : <View />}
-          <SoundButton size={40} label={`Dinlə: ${p.en}`} onPress={() => onPlay(p.en)} />
+          <SoundButton size={40} label={`Dinlə: ${p.en}`} onPress={lit} />
         </View>
         <Text style={s.tvFormEn} numberOfLines={1} adjustsFontSizeToFit>{nameSlot(p.en)}</Text>
         <Text style={s.tvFormAz}>{p.az}</Text>
-      </View>)}</View> : null;
+        </>}
+      </FormCard>)}</View> : null;
       const inner = sec.text || sec.scale || sec.short || sec.build ? <View style={s.tvCard}>
         {label}
         {sec.scale ? <View style={{ gap: 6 }}>
@@ -436,8 +501,8 @@ export function TeacherView({ card, onPlay }: { card: ExplainCard; onPlay: (t: s
               const at = sec.scale!.marks.map(m => m.at), lo = Math.min(...at), hi = Math.max(...at);
               return <View style={[s.tvScaleSpan, { left: `${Math.round(lo * 100)}%`, width: `${Math.round((hi - lo) * 100)}%` }]} />;
             })() : null}
-            {sec.scale.marks.map((m, k) => <View key={m.en} style={[s.tvMarkAt, { left: `${Math.round(m.at * 100)}%` }]}>
-              <View style={[s.tvMark, { backgroundColor: k % 2 ? d.ink : d.purple }]}><Text style={s.tvMarkText}>{m.en}</Text></View></View>)}
+            {sec.scale.marks.map((m, k) => <ScaleMark key={m.en} at={m.at}>
+              <View style={[s.tvMark, { backgroundColor: k % 2 ? d.ink : d.purple }]}><Text style={s.tvMarkText}>{m.en}</Text></View></ScaleMark>)}
           </View>
         </View> : null}
         {sec.text ? <Text style={ds.body}>{marked(sec.text, forms, bold)}</Text> : null}
@@ -687,7 +752,7 @@ const s = StyleSheet.create({
   bubbleText: { color: d.ink, fontSize: 17, lineHeight: 23, ...font.bold },
   thread: { borderRadius: 24, backgroundColor: '#F7F6FC', borderWidth: 1, borderColor: '#EEF0F5' },
   threadSub: { color: d.inkSoft, fontSize: 13, ...font.semibold },
-  online: { position: 'absolute', right: 0, bottom: 0, width: 12, height: 12, borderRadius: 6, backgroundColor: '#2FB35A', borderWidth: 2, borderColor: '#fff' },
+  dot: { width: 7, height: 7, borderRadius: 4, backgroundColor: d.inkSoft },
   today: { alignSelf: 'center', backgroundColor: '#ECEAF4', borderRadius: 999, paddingHorizontal: 12, paddingVertical: 3 },
   todayText: { color: d.inkSoft, fontSize: 12, ...font.semibold },
   msgTime: { color: d.inkSoft, fontSize: 12, ...font.regular },
@@ -734,6 +799,7 @@ const s = StyleSheet.create({
   tvHeading: { color: d.ink, fontSize: 30, lineHeight: 36, ...font.extrabold },
   tvForm: { flex: 1, gap: 4, backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: d.border, padding: 12, ...shadow },
   tvFormOn: { backgroundColor: '#F4EFFF', borderColor: '#B9A4F2' },
+  tvFormLit: { borderColor: d.lavenderMist, borderWidth: 2, shadowColor: d.violetLight, shadowOpacity: .28, shadowRadius: 12 },
   tvTag: { flexShrink: 1, backgroundColor: '#EEF0F5', borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 },
   tvTagText: { color: d.inkSoft, fontSize: 12, letterSpacing: .4, ...font.extrabold },
   tvFormEn: { color: d.ink, fontSize: 28, ...font.extrabold },

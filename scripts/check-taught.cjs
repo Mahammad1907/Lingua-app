@@ -41,9 +41,11 @@ function asks(t) {
   const add = (label, text) => { if (text && english(text)) out.push([label, text]); };
   if (t.audio) add('audio', t.audio);
   if (t.type === 'choice') { t.options.forEach(o => add('option', o)); if (t.gap) { add('gap', t.gap.before); add('gap', t.gap.after); } }
-  if (t.type === 'write') { t.rule.answers.forEach(a => add('qəbul', a)); t.chat?.lines.forEach(l => add('chat', l.text)); t.tiles?.forEach(x => add('tile', x)); }
+  if (t.type === 'write') { t.rule.answers.forEach(a => add('qəbul', a)); t.chat?.lines.forEach(l => add('chat', l.text)); add('reply', t.chat?.reply); t.tiles?.forEach(x => add('tile', x)); }
   if (t.type === 'two' && t.form) { add('form', t.form.title); add('form', t.form.subtitle); t.fields.forEach(f => add('form', f.label)); }
   if (t.type === 'two') t.fields.forEach(f => f.rule.answers.forEach(a => add('qəbul', a)));
+  // Chat timeline (25 Nov 2026): the partner's lines and reactions must use taught words only.
+  if (t.type === 'two' && t.thread) { t.thread.lines.forEach(l => add('chat', l.text)); (t.thread.replies ?? []).forEach(r => add('reply', r)); }
   if (t.type === 'voice') { add('sample', t.sample); t.rule.answers.forEach(a => add('qəbul', a)); add('reply', t.reply); }
   // Ailə ağacı / Söz sürüklə / Profil kartı (21 Nov 2026): options, node and person labels, chips, row chips.
   if (t.type === 'tree') { t.options.forEach(o => add('option', o)); t.nodes.forEach(n => add('node', n.label)); }

@@ -51,13 +51,17 @@ export interface WriteTask extends BaseTask {
   /** “Hərfləri tut” (Bölmə 2): the answer is built from these letter tiles (capital letters, joined without spaces). Extra tiles are distractors. */
   letters?: string[];
   /** “Dialoqu tamamla” / “Mesaj yaz”: the task is shown as a short chat; the learner's reply is the last bubble. */
-  chat?: { partner: string; from: Who; lines: ChatLine[] };
+  chat?: { partner: string; from: Who; lines: ChatLine[];
+    /** The partner's reaction after a correct check. Dərs 1: emoji only; later lessons: taught words only (check-taught). */ reply?: string };
   /** “Mesaj yaz”: the reply is built from these word tiles instead of typed. Extra tiles are distractors. */
   tiles?: string[];
 }
 export interface TwoField { id: string; label: string; placeholder: string; rule: PacketRule; purpose: string; empty: string }
 /** `form` = “Formanı doldur” (Bölmə 2): the fields are shown as a printed registration form with this heading. */
-export interface TwoTask extends BaseTask { type: 'two'; fields: TwoField[]; form?: { title: string; subtitle?: string } }
+export interface TwoTask extends BaseTask { type: 'two'; fields: TwoField[]; form?: { title: string; subtitle?: string };
+  /** “İki mesajı özün yaz” as a chat timeline (25 Nov 2026): one time pill per field, the partner's opening lines, and
+   *  optional reactions per field shown after a correct check (Dərs 1: emoji; later: taught words). */
+  thread?: { partner: string; from: Who; lines: ChatLine[]; pills: string[]; replies?: string[] } }
 export interface VoiceTask extends BaseTask {
   type: 'voice';
   /** What the counterpart says before the learner answers. Absent = the learner speaks first. */

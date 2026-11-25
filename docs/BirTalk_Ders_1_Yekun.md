@@ -460,19 +460,14 @@ Qısa geribildirim: “Bu ifadə salamlaşmaq üçündür. Burada görüş bitir
 
 ### Öyrənənin görəcəyi mətn
 
-Bu gün bir tanışınla görüşəcəksən.
+Bu gün tanışınla görüşəcəksən. İki qısa mesaj yaz.
 
-Ona iki qısa mesaj yaz:
-
-1. Görüşdən əvvəl salam.
-2. Görüşdən sonra sağollaşma.
-
-**Sahələr:** Görüşdən əvvəl · Görüşdən sonra  
-**Düymə:** Yoxla  
+**Ekran (25 Nov 2026):** çat xətti — “14:00 · Görüşdən əvvəl” → 👋 + sənin mesajın; “☕ Görüş bitdi · 16:30” → ikinci mesaj. Hər mesaj ↑ ilə göndərilir (✎ ilə düzəlir); Yoxla-dan sonra düz cavaba tanışın emoji reaksiyası (😊 / 👋).  
+**Düymə:** Yoxla (hər iki mesaj göndəriləndə açılır)  
 **Sonra:** Davam et  
 **İstəyə bağlı:** İpucu · səhvdən sonra Mənə başa sal
 
-**İpucu:** Birinci sahədə görüş başlayır, ikincidə bitir.
+**İpucu:** Birinci mesajda görüş başlayır, ikincidə bitir.
 
 ### Cavab açarı
 

@@ -64,7 +64,7 @@ export const lesson1Design: DesignLesson = {
       },
     },
     {
-      type: 'write', chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: '👋' }] }, id: 'd1_c04', why: 'Hello və Hi görüşü başladır.', number: 4, title: 'Salamı özün yaz', prompt: 'Yeni tanışınla ilk dəfə mesajlaşırsan.\nOna ingiliscə salam yaz.',
+      type: 'write', chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: '👋' }], reply: '😊' }, id: 'd1_c04', why: 'Hello və Hi görüşü başladır.', number: 4, title: 'Salamı özün yaz', prompt: 'Yeni tanışınla ilk dəfə mesajlaşırsan.\nOna ingiliscə salam yaz.',
       placeholder: 'Cavabını yaz', rule: greet, hint: 'Dərsin əvvəlindəki salam sözlərindən birini yaz.',
       variants: [
         { match: { goal: 'farewell' }, short: 'Bu ifadə sağollaşmaq üçündür. Burada salam vermək lazımdır.', explain: {
@@ -214,8 +214,9 @@ export const lesson1Design: DesignLesson = {
     },
     {
       type: 'two', id: 'd1_c10', why: 'Əvvəldə salam, sonda sağollaşma.', number: 11, title: 'İki mesajı özün yaz',
-      prompt: 'Bu gün bir tanışınla görüşəcəksən.\nOna iki qısa mesaj yaz:\n1. Görüşdən əvvəl salam.\n2. Görüşdən sonra sağollaşma.',
-      hint: 'Birinci sahədə görüş başlayır, ikincidə bitir.',
+      prompt: 'Bu gün tanışınla görüşəcəksən.\nİki qısa mesaj yaz.',
+      hint: 'Birinci mesajda görüş başlayır, ikincidə bitir.',
+      thread: { partner: 'Tanışın', from: 'B', lines: [{ from: 'B', text: '👋' }], pills: ['14:00 · Görüşdən əvvəl', '☕ Görüş bitdi · 16:30'], replies: ['😊', '👋'] },
       fields: [
         { id: 'd1_c10a', label: 'Görüşdən əvvəl', placeholder: 'Salamını yaz', rule: greet, purpose: 'salam vermək', empty: 'Birinci mesajı da yaz.' },
         { id: 'd1_c10b', label: 'Görüşdən sonra', placeholder: 'Sağollaşmanı yaz', rule: farewell, purpose: 'sağollaşmaq', empty: 'İkinci mesajı da yaz.' },
@@ -223,7 +224,8 @@ export const lesson1Design: DesignLesson = {
       variants: twoVariants,
       review: {
         scenes: ['d1/video-start', 'd1/video-end'], title: 'İki mesajı özün yaz', prompt: 'Qısa video zəngin var. Zəngdən əvvəl çatda salam, zəngdən sonra sağollaşma mesajı yaz.',
-        hint: 'Birinci sahədə görüş başlayır, ikincidə bitir.',
+        hint: 'Birinci mesajda zəng başlayır, ikincidə bitir.',
+        thread: { partner: 'Tanışın', from: 'B', lines: [{ from: 'B', text: '👋' }], pills: ['19:00 · Zəngdən əvvəl', '📹 Zəng bitdi · 19:20'], replies: ['😊', '👋'] },
         fields: [
           { id: 'd1_c10a', label: 'Görüşdən əvvəl', placeholder: 'Salamını yaz', rule: greet, purpose: 'salam vermək', empty: 'Birinci mesajı da yaz.' },
           { id: 'd1_c10b', label: 'Görüşdən sonra', placeholder: 'Sağollaşmanı yaz', rule: farewell, purpose: 'sağollaşmaq', empty: 'İkinci mesajı da yaz.' },

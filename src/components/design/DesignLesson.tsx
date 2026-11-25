@@ -1,6 +1,9 @@
 import { Image } from 'expo-image';
 import * as Haptics from 'expo-haptics';
-import Animated, { FadeIn } from 'react-native-reanimated';
+import Animated, { Keyframe } from 'react-native-reanimated';
+
+// New step (25 Nov 2026): a short fade + 8px slide-up. Reanimated skips layout animations under Reduce Motion.
+const StepIn = new Keyframe({ 0: { opacity: 0, transform: [{ translateY: 8 }] }, 100: { opacity: 1, transform: [{ translateY: 0 }] } }).duration(280);
 import { Stack, useFocusEffect, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import { setAudioModeAsync } from 'expo-audio';
@@ -20,6 +23,7 @@ import {
 import type { TaskEvidence } from '../../utils/lessonEvidence';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import HoldToTalk from './HoldToTalk';
+import { ChatTimeline } from './ChatTimeline';
 import { Avatar, ChatThread, TapText, SoundIcon, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TeacherView, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
 import Icon, { type IconName } from './Icons';
 import { DragBoard, FamilyTree, ProfileCard } from './NewTaskScreens';
@@ -72,6 +76,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   // Current answer state.
   const [choice, setChoice] = useState(''); const [text, setText] = useState('');
   const [two, setTwo] = useState<Record<string, string>>({});
+  // Chat screens (25 Nov 2026): ↑ “sends” a message before Yoxla. twoSent = sent messages of a two-message chat, twoEdit = the one being typed.
+  const [twoSent, setTwoSent] = useState<Record<string, boolean>>({}); const [twoEdit, setTwoEdit] = useState(0); const [chatPosted, setChatPosted] = useState(false);
   const [picked, setPicked] = useState<number[]>([]);
   const [pairs, setPairs] = useState<Record<string, string>>({}); const [activeRow, setActiveRow] = useState('');
   const [result, setResult] = useState<Result | null>(null);
@@ -203,12 +209,13 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   useEffect(() => {
     const kept = reviewKey ? keepFields[reviewKey] : undefined;
     if (!kept) return;
-    setTwo(Object.fromEntries(Object.entries(kept.values).filter(([id]) => kept.fields[id]?.status === 'correct')));
+    const ok = Object.entries(kept.values).filter(([id]) => kept.fields[id]?.status === 'correct');
+    setTwo(Object.fromEntries(ok)); setTwoSent(Object.fromEntries(ok.map(([id]) => [id, true])));
   }, [reviewKey, keepFields]);
 
   const resetCard = () => {
     stopAudio(); Keyboard.dismiss(); locked.current = false;
-    setChoice(''); setText(''); setTwo({}); setPicked([]); setPairs({}); setActiveRow(''); setResult(null); setNotice(''); setCollapsed(false); setHintUsed(false); setVoiceRetry(false); setVoiceRetried(false);
+    setChoice(''); setText(''); setTwo({}); setTwoSent({}); setTwoEdit(0); setChatPosted(false); setPicked([]); setPairs({}); setActiveRow(''); setResult(null); setNotice(''); setCollapsed(false); setHintUsed(false); setVoiceRetry(false); setVoiceRetried(false);
     setHeard(false); setSoundError(false); setTextShown(false); setTextVisible(false); setTechnical(false);
     setHelpOpen(false); setHintOpen(false); setExplainOpen(false); setSampleShown(false); setGloss(''); setPeeked(false);
   };
@@ -526,7 +533,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         onPlace={az => { const target = activeRow && !pairs[activeRow] ? activeRow : task.rows.find(r => !pairs[r.en])?.en; if (!target) return;
           setPairs(p => ({ ...p, [target]: az })); setNotice(''); setActiveRow(task.rows.find(r => r.en !== target && !pairs[r.en])?.en ?? ''); }} /> : null}
       {task.type === 'write' && task.chat ? <ChatThread partner={task.chat.partner} from={task.chat.from} lines={task.chat.lines} onSay={say} onWord={lookUp} placeholder={tiles ? 'Sözlərə toxun…' : 'Sənin cavabın…'}
-        mine={text} mark={single ? markOf(single.status) : undefined} help={helpButton} sent={Boolean(result && result.kind !== 'unverified')}
+        mine={text} mark={single ? markOf(single.status) : undefined} help={helpButton} sent={Boolean(result && result.kind !== 'unverified')} posted={chatPosted} reply={task.chat.reply}
         chips={tiles ? <PickedChips tiles={tiles} picked={picked} disabled={locked.current} placeholder="Sözlərə toxun…" onRemove={i => pickTiles(picked.filter(x => x !== i))} /> : undefined}>
         {tiles ? <TileTray tiles={tiles} picked={picked} disabled={locked.current} onSay={say} onPick={i => pickTiles([...picked, i])} /> : null}
       </ChatThread> : null}
@@ -547,11 +554,33 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         onChange={v => { setText(v.replace(/\D/g, '')); if (result?.kind === 'unverified') setResult(null); }} /> : null}
       {task.type === 'write' && letters ? <LetterBoard letters={letters} picked={picked} length={task.rule.answers[0]?.length ?? 4} disabled={locked.current}
         mark={single ? markOf(single.status) : undefined} onPick={i => pickLetters([...picked, i])} onRemove={i => pickLetters(picked.filter(x => x !== i))} /> : null}
-      {task.type === 'write' && !task.tiles && !task.keypad && !letters ? <Field onSubmit={() => { if (text.trim() && !(listeningTask && !heard && !textShown && !technical)) check(); }} value={text} onChange={v => { setText(v); if (result?.kind === 'unverified') setResult(null); }} placeholder={listeningTask && !task.tiles ? 'Sözü bura yaz...' : task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
-      {task.type === 'two' ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
+      {task.type === 'write' && !task.tiles && !task.keypad && !letters ? <Field onSubmit={() => { if (text.trim() && !(listeningTask && !heard && !textShown && !technical)) check(); }} value={text} onChange={v => { setText(v); setChatPosted(false); if (result?.kind === 'unverified') setResult(null); }}
+        onSend={task.chat ? () => { if (text.trim()) setChatPosted(true); } : undefined} placeholder={listeningTask && !task.tiles ? 'Sözü bura yaz...' : task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
+      {task.type === 'two' && task.thread ? (() => {
+        // “İki mesajı özün yaz” as a chat timeline (25 Nov 2026).
+        const th = task.thread, fields = task.fields, at = Math.min(twoEdit, fields.length);
+        const graded = result?.kind === 'two' ? result.graded : undefined;
+        const steps = fields.map((f, i) => ({ id: f.id, pill: th.pills[i] ?? '', placeholder: f.placeholder, mine: two[f.id] ?? '', sent: Boolean(twoSent[f.id]),
+          mark: markOf(graded?.fields[f.id]?.status ?? ''), reply: th.replies?.[i] }));
+        const cur = fields[at];
+        const send = () => {
+          if (!cur || !(two[cur.id] ?? '').trim()) return;
+          const sent = { ...twoSent, [cur.id]: true }; setTwoSent(sent);
+          const nextAt = fields.findIndex(f => !sent[f.id]); setTwoEdit(nextAt < 0 ? fields.length : nextAt);
+          if (nextAt < 0) Keyboard.dismiss();
+          setNotice(''); if (result?.kind === 'unverified') setResult(null);
+        };
+        return <View style={{ gap: 12 }}>
+          <ChatTimeline partner={th.partner} from={th.from} lines={th.lines} steps={steps} editing={cur ? at : -1} checked={Boolean(graded)} help={helpButton}
+            onSay={say} onWord={lookUp} onEdit={i => { if (locked.current) return; setTwoSent(s0 => { const { [fields[i].id]: _x, ...rest } = s0; return rest; }); setTwoEdit(i); }} />
+          <Field value={cur ? two[cur.id] ?? '' : ''} placeholder={cur ? cur.placeholder : 'Mesajlar hazırdır'} label={cur?.label} editable={Boolean(cur) && !locked.current}
+            onChange={v => { if (!cur) return; setTwo(all => ({ ...all, [cur.id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }} onSend={send} />
+        </View>;
+      })() : null}
+      {task.type === 'two' && !task.thread ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
         graded={result?.kind === 'two' ? result.graded : undefined} keep={reviewing ? keepFields[task.id]?.fields : undefined} /> : null}
       {/* Help sits under the answers, on the right: read the task, try, then ask for help. */}
-      {!helpUnderAudio && !voiceRow && !(task.type === 'write' && task.chat) ? helpButton : null}
+      {!helpUnderAudio && !voiceRow && !(task.type === 'write' && task.chat) && !(task.type === 'two' && task.thread) ? helpButton : null}
       {notice ? <Text accessibilityLiveRegion="polite" style={s.notice}>{notice}</Text> : null}
       {task.type === 'voice' && (!result || voiceRetry) ? <View style={s.micArea}>
         <HoldToTalk onFinal={onSpoken} onRecording={onRecording} onBusyChange={setVoiceBusy} suspended={helpOpen || explainOpen || reportOpen || menuOpen || Boolean(ruleOpen)} />
@@ -586,7 +615,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
           {ruleOfTask(task.id) ? <Capsule small icon="layers" label="Qaydaya bax" onPress={() => setRuleOpen(ruleOfTask(task.id)!.id)} /> : null}</>} />;
     }
     const empty = task.type === 'choice' || task.type === 'tree' ? !choice : task.type === 'drag' ? task.people.some(p => !pairs[p.id])
-      : task.type === 'profile' ? task.rows.some(r => !(pairs[r.id] ?? '').trim()) : task.type === 'write' ? !text.trim() : task.type === 'two' ? !Object.values(two).some(v => v.trim())
+      : task.type === 'profile' ? task.rows.some(r => !(pairs[r.id] ?? '').trim()) : task.type === 'write' ? !text.trim() : task.type === 'two' ? (task.thread ? task.fields.some(f => !twoSent[f.id]) : !Object.values(two).some(v => v.trim()))
       : task.type === 'match' ? task.rows.some(r => !pairs[r.en]) : true;
     const needsAudio = listeningTask && !heard && !textShown && !technical;
     return <View style={{ gap: 12 }}>
@@ -626,7 +655,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         fit < 1 && innerW > 0 && { width: wideW, marginLeft: (innerW - wideW) / 2 }]}>
       <ArtFit.Provider value={keyboardOpen ? 1 : art}><LessonCaption.Provider value={lessonLabel(lesson)}>
       {/* A short slide-in marks each new card; Reanimated skips it when the system asks for reduced motion. */}
-      <Animated.View key={cardKey} entering={FadeIn.duration(180)} style={{ flexGrow: 1 }}>
+      <Animated.View key={cardKey} entering={StepIn} style={{ flexGrow: 1 }}>
         {body}
       </Animated.View>
       </LessonCaption.Provider></ArtFit.Provider>

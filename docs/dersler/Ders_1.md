@@ -189,10 +189,10 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 
 ## Kart 12 — İki mesaj yaz: İki mesajı özün yaz
 
-**Tapşırıq:** Bu gün bir tanışınla görüşəcəksən. Ona iki qısa mesaj yaz: 1. Görüşdən əvvəl salam. 2. Görüşdən sonra sağollaşma.  
+**Tapşırıq:** Bu gün tanışınla görüşəcəksən. İki qısa mesaj yaz.  
 **Görüşdən əvvəl:** məna: greet — nümunə: Hello! / Hi!  
 **Görüşdən sonra:** məna: farewell — nümunə: Goodbye! / Bye!  
-**İpucu:** Birinci sahədə görüş başlayır, ikincidə bitir.  
+**İpucu:** Birinci mesajda görüş başlayır, ikincidə bitir.  
 **Düzgün olanda:** Əvvəldə salam, sonda sağollaşma.  
 - *İzah (iki mesajın yeri dəyişəndə):* Uyğun: Əvvəl Hello! / Hi!; sonda Goodbye! / Bye! Səbəb: Sağollaşmanı başlanğıcda, salamı isə sonda yazmısan. Qayda: Salam görüşü başladır; sağollaşma bitirir. Nümunə: Başlanğıc: “Hi!” Son: “Bye!”  
 - *İzah (“Görüşdən əvvəl” sahəsində cavab “farewell” işini görəndə):* Uyğun: Hello! / Hi! Səbəb: Bu sahə görüşün başlanğıcı üçündür; yazdığın sağollaşma görüşü bitirir. Qayda: Əvvəl salam ver, ayrılarkən sağollaş. Nümunə: Görüş başlayır: “Hello!” Görüş bitir: “Bye!”  
@@ -204,7 +204,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 **Tapşırıq:** Qısa video zəngin var. Zəngdən əvvəl çatda salam, zəngdən sonra sağollaşma mesajı yaz.  
 **Görüşdən əvvəl:** məna: greet — nümunə: Hello! / Hi!  
 **Görüşdən sonra:** məna: farewell — nümunə: Goodbye! / Bye!  
-**İpucu:** Birinci sahədə görüş başlayır, ikincidə bitir.  
+**İpucu:** Birinci mesajda zəng başlayır, ikincidə bitir.  
 **Düzgün olanda:** Əvvəldə salam, sonda sağollaşma.  
 - *İzah (iki mesajın yeri dəyişəndə):* Uyğun: Əvvəl Hello! / Hi!; sonda Goodbye! / Bye! Səbəb: Sağollaşmanı başlanğıcda, salamı isə sonda yazmısan. Qayda: Salam görüşü başladır; sağollaşma bitirir. Nümunə: Başlanğıc: “Hi!” Son: “Bye!”  
 - *İzah (“Görüşdən əvvəl” sahəsində cavab “farewell” işini görəndə):* Uyğun: Hello! / Hi! Səbəb: Bu sahə görüşün başlanğıcı üçündür; yazdığın sağollaşma görüşü bitirir. Qayda: Əvvəl salam ver, ayrılarkən sağollaş. Nümunə: Görüş başlayır: “Hello!” Görüş bitir: “Bye!”  
