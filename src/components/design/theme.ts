@@ -1,19 +1,27 @@
 // Light lesson design (user's new style, 23 noyabr 2026): neutral light background (#F8F8FA), pure white cards and fields
 // with thin cool-grey borders, brand purple (#5B21B6) only for focus and main actions, soft shadows.
 export const d = {
-  bg: '#F8F8FA',
+  bg: '#F6F7FB',                 // cool off-white canvas (25 Nov 2026 design system)
   surface: '#FFFFFF',
   surfaceStrong: '#FFFFFF',
   border: '#E2E4EC',
+  track: '#E5E7EB',
   borderStrong: '#CBCFDC',
   ink: '#1C1A2E',               // near-black navy, as in the approved mockup
   inkSoft: '#6B6F82',           // cool grey for subtitles and ghost buttons (≥5:1 on white)
   lavender: '#8E63E8',          // decorative only (waveform, borders)
   lavenderText: '#6B45C8',      // readable text on the light background (≥5:1)
   purple: '#5B21B6',
-  action: '#E06A00',
+  action: '#EA580C',             // warm orange (25 Nov 2026): progress bar + forward buttons, everywhere
+  actionLight: '#F97316',        // top of the orange gradient
   actionHot: '#FF8A1F',          // progress bar during a streak of 3+ correct answers             // mascot orange, darker so white text reads (≥3:1): progress, main Play, active main button
-  purpleSoft: '#EFE9FB',
+  purpleSoft: '#EDE9FE',
+  purpleTint: '#F5F3FF',         // selected option background
+  violet: '#6D28D9',
+  violetLight: '#7C3AED',
+  lavenderMist: '#C4B5FD',
+  slate: '#475569',              // task subtitle (≥7:1 on the canvas)
+  title: '#0F172A',
   purpleDisabled: '#E3E0EE',
   purpleDisabledText: '#9A94B3',
   orange: '#F27A12',

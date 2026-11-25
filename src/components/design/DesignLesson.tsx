@@ -20,11 +20,11 @@ import {
 import type { TaskEvidence } from '../../utils/lessonEvidence';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import HoldToTalk from './HoldToTalk';
-import { Avatar, ChatThread, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TeacherView, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
+import { Avatar, ChatThread, TapText, SoundIcon, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TeacherView, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
 import Icon, { type IconName } from './Icons';
 import { DragBoard, FamilyTree, ProfileCard } from './NewTaskScreens';
 import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
-import { AudioPanel, Capsule, Card, Chip, ChoiceOption, Field, Header, KindChip, LessonCaption, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
+import { AudioPanel, Capsule, accentTitle, Card, Chip, ChoiceOption, Field, Header, KindChip, LessonCaption, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
 import { d, shadow, font } from './theme';
 import { sceneImage } from '../../config/sceneImages';
 import { glossOf } from '../../data/unit1/glossary';
@@ -462,6 +462,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     // Section exams measure without help: no Kömək at all.
     const helpButton = !lesson.exam && !repeat && !result && task.type !== 'match' ? <Capsule tone="soft" small align="flex-end" icon="bulb" label="Kömək" onPress={() => setHelpOpen(true)} /> : null;
     const helpUnderAudio = Boolean(audio && !voiceBubble && !repeat);
+    // Speaking screens (25 Nov 2026): a utility row under the audio card — sample pill (Dərs 1–2) left, Kömək right.
+    const voiceRow = task.type === 'voice' && !repeat;
+    // Chat, speaking and listening screens carry no picture (BIRTALK §5.3).
+    const noArt = (task.type === 'write' && Boolean(task.chat)) || task.type === 'voice' || listeningTask;
     // The model answer: the task's own sample, or (opened through Kömək) the first accepted answer.
     // Bug fixed 13 Nov: tasks without a written sample offered “Nümunəni göstər” but showed nothing.
     const sampleText = task.type === 'voice' && !task.repeat ? task.sample ?? (sampleShown ? task.rule.answers[0] : undefined) : undefined;
@@ -470,19 +474,17 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {reviewing ? <View style={{ gap: 6 }}><Chip label="Təkrar" />{reviewStep === 0 ? <Text style={ds.small}>{lesson.notices.review}</Text> : null}</View> : null}
       <View style={{ gap: 4 }}>
         <KindChip kind={kindOf(task, listeningTask).kind} icon={kindOf(task, listeningTask).icon} />
-        <Text accessibilityRole="header" style={ds.title}>{task.title}</Text>
+        <Text accessibilityRole="header" style={ds.title}>{accentTitle(task.title)}</Text>
       </View>
-      {mascotTalks ? <SayBubble who="M" text={instruction} />
-        : listeningTask && !voiceBubble ? <Text style={s.listenSub}>{clean.join(' ')}</Text>
-        : <View style={s.taskCard}>{/* The task text sits in a framed card so the eye lands on it first (15 Nov 2026). */}
-          {context ? <Text style={ds.subtitle}>{context}</Text> : null}
-          {context ? <View style={s.taskRule} /> : null}
-          <View style={{ flexDirection: 'row', gap: 8, alignItems: 'flex-start' }}><View style={{ paddingTop: 5 }}><Icon name="arrow" size={18} color={d.purple} /></View><Text style={[ds.instruction, { flex: 1 }]}>{instruction}</Text></View>
-        </View>}
-      {mascotTalks && context ? <Text style={ds.subtitle}>{context}</Text> : null}
+      {/* Task line (25 Nov 2026): one crisp slate subtitle under the title on every task screen — no framed box. */}
+      {mascotTalks ? <SayBubble who="M" text={instruction} /> : <Text style={s.taskSub}>{clean.join(' ')}</Text>}
+      {mascotTalks && context ? <Text style={s.taskSub}>{context}</Text> : null}
       <View style={s.work}>
-      {scene && !spotsShown ? <Image source={scene} style={[s.scene, art < 1 && !keyboardOpen && { aspectRatio: 16 / 9 / art }]} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
-      {bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} onSlow={() => speak(bubbleText, 0.4)} /> : null}
+      {noArt ? null : scene && !spotsShown ? <Image source={scene} style={[s.scene, art < 1 && !keyboardOpen && { aspectRatio: 16 / 9 / art }]} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
+      {voiceBubble ? <AudioPanel playing={playing} onPlay={() => speak(audio!, 0.85)} rate={rate} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(audio!, 0.85); }}
+        avatar={<Avatar who={bubbleWho} size={48} />} title={<TapText text={audio!} style={s.audioLine} onWord={lookUp} />}
+        sub={bubbleWho === 'other' ? 'Danışan' : `{${bubbleWho}}`} seconds={Math.round(audio!.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.6)} />
+        : bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} /> : null}
       {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} rate={rate} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(audio, 0.85, listeningTask); }}
         avatar={<Avatar who={quoteWho} size={48} />} name={quoteWho === 'other' ? 'Dostun' : `{${quoteWho}}`}
         seconds={Math.round(audio.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.8)} /> : null}
@@ -494,7 +496,12 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         <Text style={s.transcriptText}>{nameSlot(audio)}</Text>
         <Text style={ds.small}>Audio mətnini görürsən. Bu hissədə dinləmə yoxlanmadı.</Text>
       </Pressable> : null}
-      {sampleVisible ? <View style={s.sample}><Text style={s.sampleLabel}>Nümunə</Text><View style={s.vline} /><Text style={s.sampleText}>{sampleText ? nameSlot(sampleText) : ''}</Text></View> : null}
+      {voiceRow && (sampleVisible || helpButton) ? <View style={s.utilRow}>
+        {sampleVisible && sampleText ? <Pressable accessibilityRole="button" accessibilityLabel={`Nümunə: ${nameSlot(sampleText)}. Dinlə`} onPress={() => say(sampleText)} style={({ pressed }) => [s.samplePill, pressed && { opacity: .8 }]}>
+          <Text style={s.sampleLabel}>Nümunə:</Text><Text style={s.sampleText} numberOfLines={1}>{nameSlot(sampleText)}</Text><SoundIcon size={16} color={d.purple} />
+        </Pressable> : <View />}
+        {helpButton}
+      </View> : null}
       {repeat && audio ? <><AudioPanel playing={playing} onPlay={() => speak(audio, 0.85)} rate={rate} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(audio, 0.85); }} /><PhraseCard text={audio} stress={repeat.stress} note={repeat.note} reading={repeat.reading} /></> : null}
       {task.type === 'choice' && task.gap && task.dialog ? <View style={{ gap: 10 }}>{task.dialog.map((l, i) => <SayBubble key={i} who={l.from} text={l.text} onPlay={() => say(l.text)} onWord={lookUp} />)}</View> : null}
       {task.type === 'choice' && task.gap ? <GapSentence speaker={task.gap.speaker} before={task.gap.before} after={task.gap.after} options={task.options} value={choice} onSay={say}
@@ -536,11 +543,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {task.type === 'two' ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
         graded={result?.kind === 'two' ? result.graded : undefined} keep={reviewing ? keepFields[task.id]?.fields : undefined} /> : null}
       {/* Help sits under the answers, on the right: read the task, try, then ask for help. */}
-      {!helpUnderAudio && !(task.type === 'write' && task.chat) ? helpButton : null}
+      {!helpUnderAudio && !voiceRow && !(task.type === 'write' && task.chat) ? helpButton : null}
       {notice ? <Text accessibilityLiveRegion="polite" style={s.notice}>{notice}</Text> : null}
-      {task.type === 'voice' && (!result || voiceRetry) ? <View style={{ paddingTop: 4, gap: 12, alignItems: 'center' }}>
+      {task.type === 'voice' && (!result || voiceRetry) ? <View style={s.micArea}>
         <HoldToTalk onFinal={onSpoken} onRecording={onRecording} onBusyChange={setVoiceBusy} suspended={helpOpen || explainOpen || reportOpen || menuOpen || Boolean(ruleOpen)} />
-        {!result ? <Capsule label="Keç" onPress={skipVoice} disabled={voiceBusy} /> : null}
       </View> : null}
       </View>
     </View>;
@@ -577,7 +583,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const needsAudio = listeningTask && !heard && !textShown && !technical;
     return <View style={{ gap: 12 }}>
       {listeningTask ? <Capsule tone="ghost" icon="muted" label="İndi dinləyə bilmirəm" onPress={cannotListen} /> : null}
-      {task.type === 'voice' ? null : <MainButton label="Yoxla" disabled={empty || needsAudio} onPress={check} />}
+      {/* Speaking: no main button — a quiet “can't speak now” link sits at the bottom instead (replaces the “Keç” pill). */}
+      {task.type === 'voice' ? <Capsule tone="ghost" icon="micOff" label="İndi danışa bilmirəm" onPress={skipVoice} disabled={voiceBusy} /> : <MainButton label="Yoxla" disabled={empty || needsAudio} onPress={check} />}
       {needsAudio && !empty ? <Text style={[ds.small, { textAlign: 'center' }]}>Əvvəlcə səsi dinlə.</Text> : null}
     </View>;
   })();
@@ -779,9 +786,11 @@ function ExamResult({ lesson, records, finish }: { lesson: Lesson; records: Reco
 }
 
 const s = StyleSheet.create({
-  listenSub: { color: d.inkSoft, fontSize: 19, lineHeight: 26, ...font.regular, marginTop: -4 },
-  taskCard: { backgroundColor: '#fff', borderRadius: 20, borderWidth: 1.5, borderColor: d.borderStrong, borderLeftWidth: 6, borderLeftColor: d.purple, paddingHorizontal: 16, paddingVertical: 12, gap: 8, ...shadow },
-  taskRule: { height: 1, backgroundColor: '#EDE4FB' },
+  taskSub: { color: d.slate, fontSize: 18, lineHeight: 25, ...font.semibold, marginTop: -2 },
+  audioLine: { color: d.title, fontSize: 22, lineHeight: 28, ...font.extrabold },
+  utilRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
+  samplePill: { flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 44, paddingHorizontal: 16, borderRadius: 999, backgroundColor: '#fff', borderWidth: 1, borderColor: '#DDD6FE', flexShrink: 1 },
+  micArea: { flexGrow: 1, alignItems: 'center', justifyContent: 'center', paddingTop: 4 },
   examScore: { alignItems: 'center', gap: 6, padding: 18, borderRadius: 24, borderWidth: 2, backgroundColor: '#fff' },
   examPct: { fontSize: 46, lineHeight: 52, ...font.extrabold },
   screen: { flex: 1, backgroundColor: d.bg },
@@ -797,9 +806,8 @@ const s = StyleSheet.create({
   transcript: { borderRadius: 16, backgroundColor: d.purpleSoft, padding: 12, gap: 4 },
   transcriptText: { color: d.purple, fontSize: 20, ...font.extrabold },
   scene: { width: '100%', aspectRatio: 16 / 9, borderRadius: 22, backgroundColor: d.purpleSoft },
-  sample: { flexDirection: 'row', alignItems: 'center', gap: 14, borderRadius: 18, backgroundColor: '#E8DDFB', paddingHorizontal: 18, minHeight: 56 },
-  sampleLabel: { color: d.purple, fontSize: 17, ...font.bold },
-  sampleText: { flex: 1, flexShrink: 1, color: d.purple, fontSize: 22, lineHeight: 28, paddingVertical: 10, ...font.extrabold },
+  sampleLabel: { color: d.inkSoft, fontSize: 16, ...font.semibold },
+  sampleText: { flexShrink: 1, color: d.purple, fontSize: 20, lineHeight: 26, ...font.extrabold },
   notice: { color: d.purple, fontSize: 15, ...font.bold },
   resultRow: { flexDirection: 'row', alignItems: 'center', gap: 10, flexWrap: 'wrap', paddingVertical: 4 },
   status: { borderWidth: 1.5, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 },

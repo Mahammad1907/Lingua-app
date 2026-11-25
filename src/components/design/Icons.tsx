@@ -2,7 +2,7 @@ import Svg, { Circle, Path, Rect } from 'react-native-svg';
 import { d } from './theme';
 
 export type IconName = 'back' | 'dots' | 'bulb' | 'play' | 'pause' | 'turtle' | 'mic' | 'flag' | 'close' | 'check' | 'alert'
-  | 'muted' | 'doc' | 'wave' | 'chat' | 'bye' | 'arrow' | 'tag' | 'layers' | 'speaker' | 'retry' | 'stop' | 'chart' | 'phone' | 'search';
+  | 'muted' | 'doc' | 'wave' | 'chat' | 'bye' | 'arrow' | 'tag' | 'layers' | 'speaker' | 'retry' | 'stop' | 'chart' | 'phone' | 'search' | 'micOff';
 
 export default function Icon({ name, size = 22, color = d.purple, stroke = 2 }: { name: IconName; size?: number; color?: string; stroke?: number }) {
   const p = { stroke: color, strokeWidth: stroke, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, fill: 'none' };
@@ -15,6 +15,7 @@ export default function Icon({ name, size = 22, color = d.purple, stroke = 2 }: 
     {name === 'pause' ? <><Rect x={7} y={5} width={3.5} height={14} rx={1} fill={color} /><Rect x={13.5} y={5} width={3.5} height={14} rx={1} fill={color} /></> : null}
     {name === 'turtle' ? <><Path d="M4 14c0-4 3.6-7 8-7s8 3 8 7H4z" {...p} /><Path d="M8 9.5l2 4.5M16 9.5l-2 4.5M12 7v7" {...p} /><Path d="M20 13.5c1.2 0 2-.8 2-2s-1-1.8-2-1.5" {...p} /><Path d="M6.5 14v2.5M17.5 14v2.5" {...p} /></> : null}
     {name === 'mic' ? <><Rect x={9} y={3} width={6} height={11} rx={3} {...p} /><Path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21M8.5 21h7" {...p} /></> : null}
+    {name === 'micOff' ? <><Path d="M15 9.5V6a3 3 0 00-5.6-1.5M9 9v2a3 3 0 004.6 2.5M5.5 11a6.5 6.5 0 0010.6 5M18.5 11c0 .8-.1 1.5-.4 2.2M12 17.5V21M8.5 21h7M4 4l16 16" {...p} /></> : null}
     {name === 'flag' ? <Path d="M5 21V4M5 4h11l-2 4 2 4H5" {...p} /> : null}
     {name === 'chart' ? <Path d="M4 20V10M10 20V4M16 20v-7M22 20H2" {...p} /> : null}
     {name === 'stop' ? <Rect x={6.5} y={6.5} width={11} height={11} rx={2.5} fill={color} /> : null}

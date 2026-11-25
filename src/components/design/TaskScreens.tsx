@@ -47,7 +47,7 @@ export function TapText({ text: raw, style, onWord }: { text: string; style: any
   const parts = text.split(/(\s+)/);
   return <Text style={style}>{parts.map((p, i) => {
     const word = p.replace(/^[“"(]+|[.,!?”")…]+$/g, '');
-    return word && glossOf(word) ? <Text key={i} onPress={() => onWord(word)} suppressHighlighting={false} style={{ textDecorationLine: 'underline', textDecorationStyle: 'dotted', textDecorationColor: d.borderStrong }}>{p}</Text> : p;
+    return word && glossOf(word) ? <Text key={i} onPress={() => onWord(word)} suppressHighlighting={false} style={{ textDecorationLine: 'underline', textDecorationStyle: 'dotted', textDecorationColor: d.lavenderMist }}>{p}</Text> : p;
   })}</Text>;
 }
 
@@ -683,12 +683,12 @@ const s = StyleSheet.create({
   chipText: { color: '#fff', fontSize: 17, ...font.extrabold },
   reading: { color: d.purple, fontSize: 17, textAlign: 'center', ...font.extrabold },
   inRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 8 },
-  inBubble: { maxWidth: '78%', paddingHorizontal: 16, paddingVertical: 11, borderRadius: 20, borderBottomLeftRadius: 6, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
+  inBubble: { maxWidth: '78%', paddingHorizontal: 16, paddingVertical: 11, borderRadius: 20, borderBottomLeftRadius: 6, backgroundColor: '#fff', ...shadow, shadowOpacity: .06 },
   bubbleText: { color: d.ink, fontSize: 17, lineHeight: 23, ...font.bold },
-  thread: { borderRadius: 24, backgroundColor: '#F1EEFB', borderWidth: 1, borderColor: d.border },
+  thread: { borderRadius: 24, backgroundColor: '#F7F6FC', borderWidth: 1, borderColor: '#EEF0F5' },
   threadSub: { color: d.inkSoft, fontSize: 13, ...font.semibold },
   online: { position: 'absolute', right: 0, bottom: 0, width: 12, height: 12, borderRadius: 6, backgroundColor: '#2FB35A', borderWidth: 2, borderColor: '#fff' },
-  today: { alignSelf: 'center', backgroundColor: '#E2E0EA', borderRadius: 999, paddingHorizontal: 12, paddingVertical: 3 },
+  today: { alignSelf: 'center', backgroundColor: '#ECEAF4', borderRadius: 999, paddingHorizontal: 12, paddingVertical: 3 },
   todayText: { color: d.inkSoft, fontSize: 12, ...font.semibold },
   msgTime: { color: d.inkSoft, fontSize: 12, ...font.regular },
   threadHead: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14, paddingVertical: 10, backgroundColor: '#fff', borderTopLeftRadius: 24, borderTopRightRadius: 24, borderBottomWidth: 1, borderBottomColor: d.purpleSoft },

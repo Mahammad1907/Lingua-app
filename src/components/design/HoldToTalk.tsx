@@ -8,8 +8,8 @@ import { SPEECH_DEBUG } from '../../utils/speechEngine';
 import { safelyReadRecorder, safelyStopRecorder } from '../../utils/recordedAudio';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import Icon from './Icons';
-import { Waveform } from './parts';
-import { d, shadow, font } from './theme';
+import VoiceOrb, { ORB } from './VoiceOrb';
+import { d, font } from './theme';
 
 /**
  * Press and hold to talk; releasing sends the answer once. A short tap starts, a second tap finishes.
@@ -37,7 +37,7 @@ function NativeHold({ speech, disabled }: { speech: SpeechApi; disabled?: boolea
   const pending = speech.phase === 'preparing' || speech.phase === 'processing';
   // Released before the microphone actually opened: stop as soon as it does.
   useEffect(() => { if (listening && !held.current) speech.stop(); }, [listening, speech]);
-  const status = listening ? 'Səsin yazılır… Buraxanda göndəriləcək.' : speech.phase === 'processing' ? 'Yoxlanılır…' : speech.phase === 'preparing' ? 'Hazırlanır…' : '';
+  const status = listening ? '' : speech.phase === 'processing' ? 'Yoxlanılır…' : speech.phase === 'preparing' ? 'Hazırlanır…' : '';
   return <View style={{ gap: 8, alignItems: 'center' }}>
     <MicView active={listening} level={listening ? speech.level : 0} disabled={disabled || speech.phase === 'processing'} status={status} message={pending ? '' : speech.message}
       onIn={() => {
@@ -93,7 +93,7 @@ function RecorderHold({ onRecording, onBusyChange, disabled, suspended }: { onRe
     const app = AppState.addEventListener('change', state => { if (state !== 'active') void stop(false); });
     return () => { mounted.current = false; app.remove(); safelyStopRecorder(recorder); void setAudioModeAsync({ allowsRecording: false }).catch(() => {}); busyChange.current(false); };
   }, [recorder, stop]);
-  return <MicView active={recording} level={0} disabled={disabled} status={recording ? 'Səsin yazılır… Buraxanda göndəriləcək.' : busy ? 'Hazırlanır…' : ''} message={message}
+  return <MicView active={recording} level={0} disabled={disabled} status={recording ? '' : busy ? 'Hazırlanır…' : ''} message={message}
     onIn={() => { held.current = true; void start(); }} onOut={() => { held.current = false; void stop(true); }} />;
 }
 
@@ -117,30 +117,27 @@ function MicView({ active, level, disabled, status, message, onIn, onOut }: { ac
     if (Date.now() - pressedAt.current < 350) { tapMode.current = true; setTapping(true); return; }
     onOut();
   };
-  const sub = tapping ? 'Bitirəndə yenidən toxun.' : status || 'Buraxanda cavabın göndəriləcək.';
+  const sub = tapping && active ? 'Bitirəndə yenidən toxun.' : status || 'Buraxanda cavabın göndəriləcək.';
   return <View style={s.wrap}>
-    <View style={[s.halo, active && s.haloActive]}>
+    <View style={s.orbBox}>
+      <VoiceOrb active={active} disabled={disabled} />
       <Pressable accessibilityRole="button" accessibilityLabel="Mikrofon. Basılı saxla və danış, buraxanda cavabın göndəriləcək. Və ya bir dəfə toxun, danış, sonra yenidən toxun." accessibilityState={{ disabled, busy: active }}
-        disabled={disabled} onPressIn={pressIn} onPressOut={pressOut} style={[s.mic, active && s.micActive, disabled && { opacity: .5 }]}>
-        <Icon name={tapping && active ? 'stop' : 'mic'} size={38} color="#fff" stroke={2.2} />
+        disabled={disabled} onPressIn={pressIn} onPressOut={pressOut} style={s.mic}>
+        <Icon name={tapping && active ? 'stop' : 'mic'} size={40} color="#fff" stroke={2.2} />
       </Pressable>
     </View>
-    <Text style={s.title}>{tapping ? 'Danış' : 'Basılı saxla və danış'}</Text>
+    <Text style={[s.title, active && { color: d.purple }]}>{active ? 'Dinləyirəm...' : 'Basılı saxla və danış'}</Text>
     <Text accessibilityLiveRegion="polite" style={s.sub}>{sub}</Text>
-    {/* The wave appears only while the microphone is really open. */}
-    <View style={{ height: 26, width: 180 }}>{active ? <Waveform active={level > .04 || active} height={24} /> : null}</View>
     {message ? <Text accessibilityLiveRegion="polite" style={s.message}>{message}</Text> : null}
   </View>;
 }
 
 const s = StyleSheet.create({
-  wrap: { alignItems: 'center', gap: 4 },
-  halo: { width: 124, height: 124, borderRadius: 62, backgroundColor: 'rgba(142,99,232,.12)', alignItems: 'center', justifyContent: 'center' },
-  haloActive: { backgroundColor: 'rgba(242,122,18,.18)' },
-  mic: { width: 92, height: 92, borderRadius: 46, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', ...shadow, shadowOpacity: .3 },
-  micActive: { backgroundColor: '#7B2FE0', transform: [{ scale: 1.04 }] },
-  title: { color: d.ink, fontSize: 19, ...font.extrabold, marginTop: 4 },
-  sub: { color: d.purple, fontSize: 16, ...font.bold, textAlign: 'center' },
+  wrap: { alignItems: 'center', gap: 2 },
+  orbBox: { alignItems: 'center', justifyContent: 'center', marginVertical: -30 },
+  mic: { position: 'absolute', width: ORB, height: ORB, borderRadius: ORB / 2, alignItems: 'center', justifyContent: 'center' },
+  title: { color: d.title, fontSize: 20, ...font.extrabold, marginTop: 4 },
+  sub: { color: d.inkSoft, fontSize: 16, ...font.semibold, textAlign: 'center' },
   netBtn: { minHeight: 44, paddingHorizontal: 16, borderRadius: 999, borderWidth: 1, borderColor: d.purple, justifyContent: 'center' },
   netText: { color: d.purple, fontSize: 15, ...font.semibold },
   debug: { color: d.ink, fontSize: 10, lineHeight: 12, alignSelf: 'stretch', paddingHorizontal: 12 },

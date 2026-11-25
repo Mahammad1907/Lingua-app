@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { Animated, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View, type StyleProp, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
+import GlowLine from './GlowLine';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { resolveNames } from '../../config/characters';
 import Icon, { type IconName } from './Icons';
@@ -37,7 +39,8 @@ export function Header({ progress, onBack, onMenu, streak = 0 }: { title?: strin
   return <View style={s.header}>
     <Pressable accessibilityRole="button" accessibilityLabel="Geri" onPress={onBack} hitSlop={8} style={s.round}><Icon name="back" size={20} color={d.ink} /></Pressable>
     <Animated.View accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: 100, now: Math.round(progress * 100) }} style={[s.track, { transform: [{ scaleY: bump }] }]}>
-      <Animated.View style={[s.fill, hot && { backgroundColor: d.actionHot }, { width: width.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}>
+      <Animated.View style={[s.fill, { width: width.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}>
+        <LinearGradient colors={hot ? [d.actionHot, d.actionLight] : [d.actionLight, d.action]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={StyleSheet.absoluteFill} />
         <Animated.View pointerEvents="none" style={[s.glint, { opacity: shine }]} />
       </Animated.View>
     </Animated.View>
@@ -73,6 +76,8 @@ export function MainButton({ label, onPress, disabled, tone = 'purple', arrow }:
   const bg = disabled ? d.purpleDisabled : tone === 'green' ? d.green : tone === 'red' ? d.red : d.action;
   return <Pressable accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled }} disabled={disabled} onPress={onPress}
     style={({ pressed }) => [s.main, { backgroundColor: bg }, !disabled && { ...shadow, shadowColor: bg, shadowOpacity: .28, shadowRadius: 14, shadowOffset: { width: 0, height: 6 } }, pressed && { opacity: .88, transform: [{ scale: .98 }] }]}>
+    {/* Forward buttons: subtle warm-orange gradient (25 Nov 2026). Green/red after a check stay flat. */}
+    {!disabled && tone === 'purple' ? <LinearGradient colors={[d.actionLight, d.action]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[StyleSheet.absoluteFill, { borderRadius: radius.pill }]} /> : null}
     <Text style={[s.mainText, disabled && { color: d.purpleDisabledText }]}>{label}</Text>
     {arrow && !disabled ? <Icon name="arrow" size={24} color="#fff" /> : null}
   </Pressable>;
@@ -105,53 +110,32 @@ export function SheetOption({ label, icon, note, onPress, highlight }: { label: 
   </View>;
 }
 
-const BARS = [8, 14, 22, 12, 26, 18, 30, 22, 38, 28, 44, 32, 26, 40, 20, 30, 16, 24, 12, 18, 10, 14, 8];
-export function Waveform({ active, height = 44, progress }: { active?: boolean; height?: number; progress?: number }) {
-  const reduced = useReducedMotion();
-  const pulse = useRef(new Animated.Value(1)).current;
-  // Only as many bars as fit, so the wave never runs under the buttons next to it.
-  const [width, setWidth] = useState(0);
-  const bars = width ? BARS.slice(0, Math.max(5, Math.min(BARS.length, Math.floor((width + 3) / 6.5)))) : [];
-  useEffect(() => {
-    if (!active || reduced) { pulse.setValue(1); return; }
-    const loop = Animated.loop(Animated.sequence([
-      Animated.timing(pulse, { toValue: .55, duration: 260, useNativeDriver: true }),
-      Animated.timing(pulse, { toValue: 1, duration: 260, useNativeDriver: true }),
-    ]));
-    loop.start(); return () => loop.stop();
-  }, [active, reduced, pulse]);
-  const mid = (bars.length - 1) / 2;
-  return <View onLayout={e => setWidth(e.nativeEvent.layout.width)} style={[s.wave, { height, overflow: 'hidden' }]}>{bars.map((h, i) => {
-    const center = Math.abs(i - mid) < Math.max(2, bars.length / 4.5);
-    return <Animated.View key={i} style={{ width: 3.5, borderRadius: 2, height: h * height / 46, backgroundColor: progress === undefined ? (center ? d.orange : d.lavender) : (i / Math.max(1, bars.length) < progress ? d.purple : d.border), opacity: center ? 1 : .8, transform: [{ scaleY: active && i % 2 ? pulse : 1 }] }} />;
-  })}</View>;
+/** THE sound visualizer (25 Nov 2026): the Glow Line, everywhere a wave is shown. It never fills left to right. */
+export function Waveform({ active, height = 44, rate = 1 }: { active?: boolean; height?: number; progress?: number; rate?: number }) {
+  return <GlowLine active={active} height={height} rate={rate} />;
 }
 
-/** “Səsli mesaj” card (23 Nov 2026): who + label + length on top; round play, wave (played part purple) and the 0.75x pill below. */
-export function AudioPanel({ playing, onPlay, avatar, name, seconds, rate = 1, onRate }: { playing: boolean; onPlay: () => void; avatar?: ReactNode; name?: string; seconds?: number; rate?: number; onRate: () => void }) {
-  const total = Math.max(2, (seconds ?? 2) / rate);
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    if (!playing) { setProgress(0); return; }
-    const t0 = Date.now();
-    const id = setInterval(() => setProgress(Math.min(1, (Date.now() - t0) / (total * 1000))), 120);
-    return () => clearInterval(id);
-  }, [playing, total]);
-  const mm = `0:${String(Math.round(total)).padStart(2, '0')}`;
+/** THE audio card (25 Nov 2026 design system), shared by every listening / speaking screen: avatar badge, bold title +
+ *  muted subtitle, length on the right; purple ▶/⏸, the Glow Line and the speed pill (1x → 0.75x → 0.5x → 1.25x) below. */
+export function AudioPanel({ playing, onPlay, avatar, name, title, sub, seconds, rate = 1, onRate }: { playing: boolean; onPlay: () => void; avatar?: ReactNode; name?: string;
+  /** Replaces the name line, e.g. the spoken sentence with tappable words. */ title?: ReactNode; sub?: string; seconds?: number; rate?: number; onRate: () => void }) {
+  const total = Math.max(1, Math.round((seconds ?? 2) / rate));
+  const mm = `0:${String(total).padStart(2, '0')}`;
+  const subtitle = sub ?? 'Səsli mesaj';
   return <View style={[s.audio, shadow]}>
     <View style={s.audioTop}>
       {avatar ? <View style={s.avatar}>{avatar}</View> : null}
-      <View style={{ flex: 1 }}>
-        {name ? <Text style={s.audioName}>{resolveNames(name)}</Text> : null}
-        <Text style={name ? s.audioSub : s.audioName}>Səsli mesaj</Text>
+      <View style={{ flex: 1, gap: 2 }}>
+        {title ?? (name ? <Text style={s.audioName}>{resolveNames(name)}</Text> : null)}
+        <Text style={title || name ? s.audioSub : s.audioName}>{resolveNames(subtitle)}</Text>
       </View>
-      <Text accessibilityLabel={`Uzunluq ${Math.round(total)} saniyə`} style={s.audioTime}>{mm}</Text>
+      <Text accessibilityLabel={`Uzunluq ${total} saniyə`} style={s.audioTime}>{mm}</Text>
     </View>
     <View style={s.audioBottom}>
-      <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Səsi dinlə'} onPress={onPlay} style={({ pressed }) => [s.play, pressed && { opacity: .85 }]}>
-        <Icon name="play" size={26} color="#fff" />
+      <Pressable accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Səsi dinlə'} onPress={onPlay} style={({ pressed }) => [s.play, !playing && { paddingLeft: 3 }, pressed && { opacity: .85, transform: [{ scale: .96 }] }]}>
+        <Icon name={playing ? 'pause' : 'play'} size={26} color="#fff" />
       </Pressable>
-      <View style={{ flex: 1 }}><Waveform active={playing} progress={progress} height={40} /></View>
+      <View style={{ flex: 1 }}><GlowLine active={playing} rate={rate} height={44} /></View>
       <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={onRate} hitSlop={6} style={({ pressed }) => [s.slowPill, pressed && { opacity: .8 }]}>
         <Text style={s.slowPillText}>{rate}x</Text>
       </Pressable>
@@ -162,7 +146,7 @@ export function AudioPanel({ playing, onPlay, avatar, name, seconds, rate = 1, o
 export function ChoiceOption({ label, selected, state, onPress, disabled }: { label: string; selected: boolean; state?: 'correct' | 'wrong'; onPress: () => void; disabled?: boolean }) {
   const border = state === 'wrong' ? d.red : state === 'correct' ? d.green : selected ? d.purple : d.borderStrong;
   return <Pressable accessibilityRole="radio" accessibilityState={{ selected, disabled }} accessibilityLabel={label} disabled={disabled} onPress={onPress}
-    style={[s.choice, { borderColor: border }, selected && !state && { backgroundColor: d.purpleSoft, borderWidth: 2 }, state && { borderWidth: 2 }]}>
+    style={[s.choice, { borderColor: border }, selected && !state && { backgroundColor: d.purpleTint, borderWidth: 2 }, state && { borderWidth: 2 }]}>
     <View style={[s.radio, selected && { borderColor: border }]}>{selected ? <View style={[s.radioDot, { backgroundColor: border }]} /> : null}</View>
     <Text style={s.choiceText}>{nameSlot(label)}</Text>
   </Pressable>;
@@ -179,8 +163,15 @@ export function Card({ children, style }: { children: ReactNode; style?: StylePr
   return <View style={[s.card, shadow, style]}>{children}</View>;
 }
 
+/** Task title (25 Nov 2026): the first word in ink, the action words after it in royal purple — no underline. */
+export function accentTitle(title: string): ReactNode {
+  const i = title.indexOf(' ');
+  if (i < 0) return title;
+  return <>{title.slice(0, i + 1)}<Text style={{ color: d.purple }}>{title.slice(i + 1)}</Text></>;
+}
+
 export const ds = StyleSheet.create({
-  title: { color: d.ink, fontSize: 32, lineHeight: 38, ...font.extrabold, letterSpacing: -.5 },
+  title: { color: d.title, fontSize: 32, lineHeight: 38, ...font.extrabold, letterSpacing: -.5 },
   titleLarge: { color: d.ink, fontSize: 30, lineHeight: 36, ...font.extrabold, letterSpacing: -.5 },
   // Situation + task lines must read clearly (user, repeated): strong purple and dark ink, extra bold, larger.
   instruction: { color: d.ink, fontSize: 19, lineHeight: 26, ...font.extrabold },
@@ -196,7 +187,7 @@ const s = StyleSheet.create({
   kindText: { flexShrink: 1, color: d.purple, fontSize: 14, letterSpacing: .6, ...font.extrabold },
   header: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 18, paddingTop: 6, paddingBottom: 10 },
   round: { width: 52, height: 52, borderRadius: 26, backgroundColor: '#FFFFFF', borderWidth: 0, alignItems: 'center', justifyContent: 'center', ...shadow },
-  track: { flex: 1, height: 10, borderRadius: 5, backgroundColor: d.border, overflow: 'hidden' },
+  track: { flex: 1, height: 10, borderRadius: 5, backgroundColor: d.track, overflow: 'hidden' },
   fill: { height: '100%', borderRadius: 5, backgroundColor: d.action, overflow: 'hidden' },
   glint: { position: 'absolute', right: 0, top: 0, bottom: 0, width: 22, borderRadius: 5, backgroundColor: 'rgba(255,255,255,.75)' },
   dots: { width: 28, alignItems: 'center', justifyContent: 'center', minHeight: 44 },
@@ -225,23 +216,23 @@ const s = StyleSheet.create({
   optionText: { color: d.ink, fontSize: 19, ...font.bold },
   optionNote: { color: d.purple, fontSize: 13, ...font.regular, textAlign: 'center', marginTop: 4 },
   wave: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 3 },
-  audio: { gap: 18, padding: 18, borderRadius: 24, borderWidth: 1, borderColor: d.border, backgroundColor: '#FFFFFF' },
+  audio: { gap: 14, padding: 18, borderRadius: 24, borderWidth: 1, borderColor: '#EEF0F5', backgroundColor: '#FFFFFF' },
   audioTop: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   audioBottom: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   audioName: { color: d.ink, fontSize: 20, lineHeight: 26, ...font.extrabold },
   audioSub: { color: d.inkSoft, fontSize: 15, lineHeight: 20, ...font.regular },
-  audioTime: { color: '#9A9FB2', fontSize: 16, ...font.semibold, alignSelf: 'flex-start' },
+  audioTime: { color: d.inkSoft, fontSize: 16, ...font.semibold, alignSelf: 'flex-start' },
   slowPill: { minHeight: 46, minWidth: 76, paddingHorizontal: 16, borderRadius: radius.pill, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   slowPillText: { color: d.purple, fontSize: 18, ...font.extrabold },
-  avatar: { width: 56, height: 56, borderRadius: 28, backgroundColor: '#F1F2F6', alignItems: 'center', justifyContent: 'center' },
+  avatar: { width: 56, height: 56, borderRadius: 28, backgroundColor: '#F3F0FB', alignItems: 'center', justifyContent: 'center' },
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
-  play: { width: 60, height: 60, borderRadius: 30, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', paddingLeft: 3, ...shadow },
+  play: { width: 60, height: 60, borderRadius: 30, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', ...shadow, shadowColor: d.purple, shadowOpacity: .25 },
   slowIcon: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   choice: { flexDirection: 'row', alignItems: 'center', gap: 16, minHeight: 64, paddingHorizontal: 20, borderRadius: radius.field, borderWidth: 1, backgroundColor: d.surface },
   radio: { width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: d.borderStrong, alignItems: 'center', justifyContent: 'center' },
   radioDot: { width: 14, height: 14, borderRadius: 7 },
   choiceText: { color: d.ink, fontSize: 19, ...font.bold, flex: 1 },
-  fieldFocus: { borderWidth: 1.5, borderColor: d.purple, shadowColor: d.purple, shadowOpacity: 0.18, shadowRadius: 8, shadowOffset: { width: 0, height: 0 }, elevation: 2 },
-  field: { minHeight: 64, borderRadius: 20, borderWidth: 1, borderColor: d.border, backgroundColor: '#FFFFFF', paddingHorizontal: 20, fontSize: 20, color: d.ink, ...font.semibold },
+  fieldFocus: { borderWidth: 2, borderColor: d.purple, shadowColor: d.violetLight, shadowOpacity: 0.22, shadowRadius: 10, shadowOffset: { width: 0, height: 0 }, elevation: 2 },
+  field: { minHeight: 60, borderRadius: 18, borderWidth: 1, borderColor: d.border, backgroundColor: '#FFFFFF', paddingHorizontal: 20, fontSize: 20, color: d.ink, ...font.semibold },
   card: { borderRadius: radius.card, borderWidth: 1, borderColor: d.border, backgroundColor: d.surface, padding: 16 },
 });

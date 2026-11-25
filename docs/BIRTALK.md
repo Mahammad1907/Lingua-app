@@ -74,17 +74,19 @@ Ayrıca standart sənədləri (burada təkrarlanmır, linklə keçərlidir):
 ## 4. Ekran dizaynı
 
 **4.1 Vacib qaydalar (G6–G7)**
-1. **İrəli aparan düymələr** (“Davam et”, “Başa düşdüm”, “Yoxla”) və **yuxarıdakı irəliləyiş barı** — maskot narıncısı `d.action` (#E06A00). **Cavab yoxlanandan sonrakı düymə:** düz — yaşıl, səhv — qırmızı.
+1. **İrəli aparan düymələr** (“Davam et”, “Başa düşdüm”, “Yoxla”) və **yuxarıdakı irəliləyiş barı** — isti narıncı qradiyent `d.actionLight → d.action` (#F97316 → #EA580C, 25 Nov), bütün ekranlarda. **Cavab yoxlanandan sonrakı düymə:** düz — yaşıl, səhv — qırmızı.
 2. **Dinləmə ikonu hər yerdə ▶**, bənövşəyi dairə: `SoundButton` / `SoundIcon` (`TaskScreens.tsx`); səsli mesaj kartının ▶-i də eyni rəngdə.
 3. **Bir ekranda dəyişən ortaq element bütün ekranlarda dəyişir.** Ortaqlar: Header; ekran nişanı `KindChip` (“DƏRS 1 · YAZI / DİNLƏMƏ / DANIŞIQ / SEÇİM / YENİ SÖZ / MÜƏLLİM İZAHI …”); başlıq və tapşırıq cümləsi; kartlar (ağ, yumşaq `shadow`); səs düyməsi; Kömək; `ChoiceOption`, `Field`; köməkçi yazılar (`Capsule`); əsas düymə.
 4. **Dərs ekranı sürüşmür** — iPhone və Android-də eyni: sığmayanda əvvəl şəkillər kiçilir (`fit.ts`, ArtFit), sonra kart tam enində kiçildilir (ən az 0.78). Sürüşmə yalnız klaviatura açıq olanda və çox böyük sistem şriftində. Hər yeni kart tam ölçüdən başlayır.
 
 **4.2 Ümumi görünüş**
-5. Açıq lavanda fon, bənövşəyi/narıncı vurğu, Nunito. **Solğun mətn yoxdur:** mətn rəngləri ≥4.5:1 (`orangeText #A84A08`, `greenText #0F6E2A`, `redText #B42318`); narıncı/yaşıl dolğu yalnız fon və böyük düymə üçün.
+5. **Dizayn sistemi (25 Nov):** fon `#F6F7FB`; rol rəngləri — narıncı: bar + irəli düymələr; bənövşəyi (`#5B21B6`/`#6D28D9`): seçim, ▶, sürət, Kömək, fokus, mikrofon, başlıqdakı vurğu sözləri (başlığın birinci sözü tünd, qalanı bənövşəyi — `accentTitle`); yaşıl/qırmızı yalnız yoxlamadan sonra. Tapşırıq cümləsi çərçivəsiz, boz-göy (`d.slate`) alt başlıqdır (köhnə bənövşəyi sol xətli qutu yoxdur). Nunito. **Solğun mətn yoxdur:** mətn rəngləri ≥4.5:1 (`orangeText #A84A08`, `greenText #0F6E2A`, `redText #B42318`); narıncı/yaşıl dolğu yalnız fon və böyük düymə üçün.
 6. Səs düymələrində yazı yoxdur, yalnız ikon.
 7. **Yeni söz kartı:** bənövşəyi banner + balonda ifadə (maskot yoxdur — 20 Nov), oxunuş, ▶, altda Mənası · Quruluşu · Nümunə · qısa qeyd; sürüşmür.
 8. **Müəllim izahı ekranı** (24 Nov dizaynı): `KindChip` “MÜƏLLİM İZAHI” + böyük başlıq; maskot balonu (ingilis formaları bənövşəyi); formalar yan-yana kartlarda (etiket, ▶, izah); istəyə görə Səmimi…Rəsmi şkalası; ağ izah kartı; altına girən “Diqqət:” qutusu; narıncı “Başa düşdüm →”.
 9. **Mesajlaşma ekranı** (`ChatThread`, 24 Nov): başlıqda avatar + yaşıl nöqtə, ad, “Onlayn”, Kömək; “Bu gün”; qarşı tərəfin mesajları saatla (sözsüz mesaj — 👋 🔑 📄 🎤 📷 — səslənmir); sənin balonun yalnız yazanda görünür, cavab bir yerdə (altdakı sahə); saat və ✓ yalnız Yoxla-dan sonra.
+10a. **Səs kartı** (`AudioPanel`, 25 Nov, dinləmə və danışıq ekranlarında eyni): avatar, başlıq + alt yazı, müddət; ▶/⏸, **Glow Line** (`GlowLine.tsx` — soldan sağa dolmur; dayanıqda nazik xətt, oxuyanda ortası bənövşəyi→narıncı parıltı ilə dalğalanır, dalğa sürətə uyğun yavaşlayır), sürət pill-i. Tısbağa və ayırıcı xətt yoxdur. Danışıq ekranında qarşı tərəfin cümləsi bu kartın başlığıdır (toxunulan sözlər nöqtəli xətlə).
+10b. **Danışıq ekranı** (25 Nov): səs kartının altında sıra — solda ağ “Nümunə: Hi! ▶” pill-i (yalnız Dərs 1–2 və ya Kömək ilə), sağda Kömək; ortada basılı saxlanan mikrofon: dayanıqda bənövşəyi dairə + halqalar, basanda **AI Voice Orb** (`VoiceOrb.tsx`) və “Dinləyirəm...”; altda “İndi danışa bilmirəm” (köhnə “Keç” yerinə). Çat, danışıq, dinləmə ekranlarında şəkil/ŞƏKİL işarəsi göstərilmir (§5.3).
 10. **Dinlə və anla:** “DƏRS 1 · DİNLƏMƏ”, başlıq, tapşırıq; səsli mesaj kartı (avatar, danışanın adı, “Səsli mesaj”, müddət, ▶, dalğa, sürət); sağda Kömək; dairəvi seçimlər; “İndi dinləyə bilmirəm”; narıncı Yoxla.
 11. Səhv cavab: qırmızı (bir dəfə vurğu, sonra sabit) — texniki/qeyri-müəyyən cavaba səhv effekti yoxdur; düz — yaşıl. “Mənə başa sal” overlay-də açılır, əsas ekranı uzatmır, yalnız X ilə bağlanır. Xəta bildirmə — bayraq ikonu (yalnız telefonda saxlanır).
 12. Sözə toxunanda mənası çıxır və səslənir; yerləşdirilmiş sözə toxunanda geri qayıdır. Sözlər ilk öyrədildiyi kartda “Lüğətim”ə təkrarsız düşür.
@@ -144,6 +146,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 21 Noy | Bölmə 4; Qaydalar tabı və menyu; “…” qadağası |
 | 23 Noy | Ana səhifə: Gündəlik təkrar yuxarıda, AI zəng xəritənin içində, imtahan bölmələr arasında; ekranlar iki platformada eyni və sabit; sürət düyməsi |
 | 24 Noy | G6 (narıncı düymə və bar, ▶, cavabdan sonra yaşıl/qırmızı); yeni izah ekranı; G7 (ortaq elementlər, KindChip); G8 (vəziyyət ↔ ekran); mesajlaşma ekranı |
+| 25 Noy | Vahid dizayn sistemi: fon #F6F7FB, narıncı qradiyent #F97316→#EA580C (hər yerdə), başlıqda bənövşəyi vurğu, çərçivəsiz tapşırıq cümləsi, Glow Line, AI Voice Orb, “İndi danışa bilmirəm”; sürət dövrü qalır (1x→0.75x→0.5x→1.25x) |
 | 25 Noy | 4 bölmənin tam məntiq yoxlaması (~780 tapşırıq), `check-situation` L1–L21, `check-quality` Q1–Q6, `check-all`; qeydlər bu fayla yığıldı |
 
 Ətraflı tarixçə: `docs/LAYIHE_DEFTERI.md`, `docs/YENI_SOHBET_UCUN.md`, `docs/BUTUN_QAYDALAR.md` (köçürülmədən əvvəlki mətnlər).
@@ -156,6 +159,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | Retro 2D personaj üslubu (3 Noy) | 3D oyuncaq dünyası (11 Noy) |
 | Səs `en-GB` (11 Noy) | `en-US` (13 Noy) |
 | Öyrətmə kartında “Davam et” yaşıl (12 Noy), izahda yaşıl “Başa düşdüm” (20 Noy) | Narıncı (24 Noy, G6); yaşıl yalnız düz cavabdan sonra |
+| Narıncı #E06A00, tapşırıq cümləsi bənövşəyi sol xətli qutuda, sütunlu dalğa (soldan dolan), danışıqda “Keç” pill-i | 25 Noy dizayn sistemi (§4.5, §4.10a–b) |
 | Səs düyməsi “play + tısbağa” (13 Noy), dinamik ikonu (24 Noy, qısa müddət) | ▶ (24 Noy, G6); yavaşlatma — sürət düyməsi |
 | Keçid balı 80% | 70% (18 Noy) |
 | Mövcud sürüşən ekranları qoru (26 Okt) | Ekran sabitdir (2 Noy, 23 Noy) |
@@ -184,7 +188,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 10. Mağaza auditi: hesab silmə, məxfilik siyasəti, işləməyən profil düymələri, “ŞƏKİL” işarələri və boş AI söhbət gizlənsin, test girişi `[]`, icazə mətnləri, yaş 13+ (`docs/BEYNELXALQ_AUDIT_2026-11-14.md`).
 
 **Açıq texniki işlər**
-11. Telefonda yoxlanmalı (23–25 Noy dəyişiklikləri): ana səhifə, sabit ekranlar, sürət düyməsi, Müəllim izahı, mesajlaşma, Dinlə və anla, KindChip, məntiq düzəlişləri.
+11. Telefonda yoxlanmalı (23–25 Noy dəyişiklikləri; 25 Noy dizayn sistemi — Glow Line və Orb animasiyası, qradiyentlər): ana səhifə, sabit ekranlar, sürət düyməsi, Müəllim izahı, mesajlaşma, Dinlə və anla, KindChip, məntiq düzəlişləri.
 12. Android səs tanıma diaqnostikası (`SPEECH_DEBUG`).
 13. Xəritədə “Dəqiqlik %” saxlanmır.
 14. Təbiilik qeydi: “He is fine” → “He's fine” (Bölmə 3 Dərs 5).
