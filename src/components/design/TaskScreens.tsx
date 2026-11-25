@@ -717,8 +717,8 @@ function Segments({ items, active, onPick }: { items: { word: string; az: string
 /** “Yeni söz” card on the approved teaching layout. */
 export function WordView({ card, onPlay, onWord, rate, onRate, playing }: { card: WordCard; onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void; rate?: number; onRate?: () => void; playing?: boolean }) {
   const parts = wordParts(card);
-  // Cards sit in the middle of the free space, not bunched at the top (user, 25 Nov 2026).
-  return <View style={{ gap: 14, flexGrow: 1, justifyContent: 'center' }}>
+  // Cards start at the top at full size (centering them made the auto-fit shrink the text — user, 25 Nov 2026).
+  return <View style={{ gap: 10 }}>
     <LearnView chip="Yeni söz" phrases={card.word.split(/\s*·\s*/)} az={card.az} reading={card.reading} ipa={card.pronunciation} structure={card.structure}
       notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} shortForm={card.shortForm} onPlay={onPlay} onWord={onWord} rate={rate} onRate={onRate} playing={playing} />
     {parts.length ? <WordParts parts={parts} onPlay={onPlay} thNote={!card.notes?.some(n => /\bth\b/i.test(n))} /> : null}
@@ -747,7 +747,9 @@ function wordParts(card: WordCard) {
   }
   if (words.length < 2 || words.every(w => w.length === 1)) return [];
   const first = firstTaught();
-  return words.map(w => { const g = glossOf(w); return g ? { word: w, az: g.az, fresh: first.get(w) === card.id } : undefined; })
+  // Show each word as written in the phrase (“I'm”, “OK”), not in the glossary's lower case.
+  const asWritten = (w: string) => card.word.match(new RegExp(`(?:^|[^A-Za-z'’])(${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})(?![A-Za-z])`, 'i'))?.[1] ?? w;
+  return words.map(w => { const g = glossOf(w); return g ? { word: asWritten(w), az: g.az, fresh: first.get(w) === card.id } : undefined; })
     .filter((x): x is { word: string; az: string; fresh: boolean } => Boolean(x));
 }
 

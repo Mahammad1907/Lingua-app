@@ -1,10 +1,10 @@
 // Home as an island (user's concept; layout A5 approved 13 Nov 2026; redesigned 25 Nov 2026).
 // 25 Nov 2026 design: canvas #F6F7FB; top brand bar; a sticky unit header that follows the section on screen; the
-// dark gradient “Gündəlik təkrar” card; pure white wavy islands with a whisper-soft shadow; lessons are duotone icon
-// circles on a dotted S-path with the name + % beside them (no cards, no numbers); the current lesson is a larger
-// orange node with a breathing halo; the AI zəng card sits on the path in the middle; a white hourglass bridge joins
-// each island to the next with the section-exam trophy in its waist (no dots, no text there); tapping a lesson opens
-// a bottom sheet with its parts.
+// dark gradient “Gündəlik təkrar” card; wavy islands in a faint tint of the section's own colour (dark when done);
+// lessons are solid icon circles in the section colour that darken with their %, on a dotted path that leaves each
+// circle below and enters the next one above, so the name + % labels stay clear; the current lesson is a larger
+// orange node with a breathing halo; the AI zəng card sits on the path in the middle; between two islands only the
+// section-exam trophy (no bridge, no text); tapping a lesson opens a bottom sheet with its parts.
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
@@ -28,7 +28,20 @@ const mascotHead = require('../../../assets/mascot/hood_head.png');
 
 // The user's wavy, cloud-like island outline, drawn for a 350 × 800 box.
 const OUTLINE = 'M70 30 C110 6 150 22 176 14 C206 4 238 18 268 22 C312 28 334 70 330 110 C326 150 346 178 340 222 C334 268 312 290 320 336 C328 384 346 410 338 456 C330 500 306 520 314 566 C322 612 342 640 330 686 C318 736 280 770 228 782 C188 792 150 778 116 786 C74 796 34 770 22 728 C10 686 28 650 20 606 C12 560 -2 530 10 486 C22 442 44 420 34 374 C24 328 4 298 14 254 C24 210 48 186 40 142 C32 98 34 54 70 30 Z';
-const NODE = 56, HOT = 70, TROPHY = 56;
+const NODE = 56, HOT = 70, TROPHY = 72;
+
+// Every section has its own colour, different from the app colours (user, 20 Nov 2026; restored 25 Nov 2026).
+// Lesson circles darken with their percentage, the dotted path deepens towards the end, a finished island turns dark.
+const SECTION_COLORS = [
+  { base: '#14A3A3', dark: '#0B6E70', soft: '#D4F2F1' }, { base: '#3B7DF0', dark: '#1F4FB0', soft: '#DCE8FD' },
+  { base: '#3DA35D', dark: '#226B3A', soft: '#DDF2E3' }, { base: '#E0567A', dark: '#A12E50', soft: '#FBDDE6' },
+  { base: '#E0A21B', dark: '#9A6A07', soft: '#FBEFCF' }, { base: '#5C6BC0', dark: '#38458F', soft: '#E1E4F6' },
+  { base: '#D9623B', dark: '#963A1C', soft: '#FADFD5' }, { base: '#8E5BC9', dark: '#5E3391', soft: '#EADFF7' },
+  { base: '#1E9BD7', dark: '#11668F', soft: '#D6EEF9' }, { base: '#7A9A1F', dark: '#4F6610', soft: '#ECF2D4' },
+];
+const toneOf = (section: number) => SECTION_COLORS[(section - 1 + SECTION_COLORS.length) % SECTION_COLORS.length];
+const hex = (c: string) => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+const mix = (a: string, b: string, t: number) => '#' + hex(a).map((v, i) => Math.round(v + (hex(b)[i] - v) * Math.min(1, Math.max(0, t))).toString(16).padStart(2, '0')).join('');
 
 type Pt = { x: number; y: number };
 const lerp = (a: Pt, b: Pt, t: number) => ({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t });
@@ -38,7 +51,7 @@ function splitCubic(p0: Pt, p1: Pt, p2: Pt, p3: Pt, t: number) {
   return `M${p0.x} ${p0.y} C${a.x} ${a.y} ${ab.x} ${ab.y} ${e.x} ${e.y}`;
 }
 export function IslandHome({ section, sectionTitle, lessons, completed, partial, locked, streak, xp, languageLabel, topInset, bottomSpace, review,
-  onSelectLanguage, onOpenLesson, onAnalysis, onReview, exam, allOpen = false, bare = false, after, scrollRef, onActiveY, focusId, hasNext = false, sticky, sectionTops }: {
+  onSelectLanguage, onOpenLesson, onAnalysis, onReview, exam, allOpen = false, bare = false, after, scrollRef, onActiveY, focusId, sticky, sectionTops }: {
   section: number; sectionTitle: string; lessons: IslandLesson[]; completed: string[]; partial: Record<string, number>; locked: boolean;
   nextSection?: { title: string; available: boolean };
   exam?: IslandExam; onPrevSection?: () => void;
@@ -50,7 +63,7 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   onActiveY?: (y: number) => void;
   /** Lesson (or part) last opened from the map: the page scrolls to it and it is drawn as the orange “current” node. */
   focusId?: string;
-  /** A next section follows: the island ends in the white bridge neck that joins it (trophy in the waist). */
+  /** A next section follows (kept for callers; the bridge was removed 25 Nov 2026). */
   hasNext?: boolean;
   /** Sticky header data for every section (first island only) and where each section starts on the page. */
   sticky?: { section: number; title: string; done: number; count: number }[]; sectionTops?: { current: Record<number, number> };
@@ -94,23 +107,27 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   const step = (H - 76 - AI_GAP) / Math.max(count - 1, 1);
   const pts: Pt[] = lessons.map((_, i) => ({ x: W * (i % 2 ? .82 : .18), y: 40 + i * step + (aiAt >= 0 && i > aiAt ? AI_GAP : 0) }));
   const aiPt: Pt | null = aiAt >= 0 ? { x: (pts[aiAt].x + pts[aiAt + 1].x) / 2, y: (pts[aiAt].y + pts[aiAt + 1].y) / 2 } : null;
-  // Bridge (25 Nov 2026): a white hourglass neck under the island; the trophy sits in its waist. No dots, no text.
-  const EXTRA = exam ? (hasNext ? 190 : 120) : 20;
-  const waistY = H + (hasNext ? EXTRA / 2 - 6 : 54);
-  const trophyPt: Pt = { x: W / 2, y: waistY };
+  // No bridge (user, 25 Nov 2026): the islands stand apart and only the trophy sits in the gap between them.
+  const EXTRA = exam ? 130 : 20;
+  const trophyPt: Pt = { x: W / 2, y: H + 62 };
+  const tone = toneOf(section);
   const focused = focusId ? lessons.findIndex(l => l.id === focusId || l.parts?.some(p => p.id === focusId)) : -1;
   const focus = focused >= 0 ? focused : active;
   // The orange “current lesson” node: the lesson last opened, else the first unfinished one.
   const hot = locked ? -1 : focus;
   const layoutY = useRef<number | null>(null);
   const focusY = focus >= 0 ? pts[focus].y : null;
-  useEffect(() => { if (layoutY.current !== null && focusY !== null) onActiveY?.(layoutY.current + (bare ? -40 : 0) + focusY); }, [focusY]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (layoutY.current !== null && focusY !== null) onActiveY?.(layoutY.current + focusY); }, [focusY]); // eslint-disable-line react-hooks/exhaustive-deps
   const sx = W / 350, sy = H / 800;
-  const cx = W / 2, top = H - 60, hwT = W * .26, hwW = Math.max(40, W * .12), y1 = H + EXTRA;
-  const neck = hasNext
-    ? `M${cx - hwT} ${top} C${cx - hwT} ${top + 60} ${cx - hwW} ${waistY - 46} ${cx - hwW} ${waistY} C${cx - hwW} ${waistY + 46} ${cx - hwT} ${y1 - 50} ${cx - hwT} ${y1}`
-      + ` L${cx + hwT} ${y1} C${cx + hwT} ${y1 - 50} ${cx + hwW} ${waistY + 46} ${cx + hwW} ${waistY} C${cx + hwW} ${waistY - 46} ${cx + hwT} ${top + 60} ${cx + hwT} ${top} Z`
-    : `M${cx - hwT} ${top} C${cx - hwT} ${top + 50} ${cx - hwW} ${waistY - 40} ${cx - hwW} ${waistY} A${hwW} ${hwW} 0 0 0 ${cx + hwW} ${waistY} C${cx + hwW} ${waistY - 40} ${cx + hwT} ${top + 50} ${cx + hwT} ${top} Z`;
+  // Path between two lessons (user, 25 Nov 2026, like the mockup): leaves the circle at its lower side, runs almost
+  // level between the two rows and enters the next circle from its upper side — the name + % labels stay clear.
+  const sizeOf = (i: number) => i === hot ? HOT : NODE;
+  const edge = (i: number) => {
+    const a = pts[i], b = pts[i + 1], dir = b.x > a.x ? 1 : -1, ra = sizeOf(i) / 2, rb = sizeOf(i + 1) / 2;
+    const p0 = { x: a.x + dir * ra * .7, y: a.y + ra * .72 }, p3 = { x: b.x - dir * rb * .7, y: b.y - rb * .72 }, m = (p0.y + p3.y) / 2;
+    return { p0, c1: { x: p0.x + dir * 34, y: m }, c2: { x: p3.x - dir * 34, y: m }, p3 };
+  };
+  const pathOf = (e: ReturnType<typeof edge>) => `M${e.p0.x} ${e.p0.y} C${e.c1.x} ${e.c1.y} ${e.c2.x} ${e.c2.y} ${e.p3.x} ${e.p3.y}`;
 
   // Sticky unit header (first island only): follows the section on screen.
   const [shown, setShown] = useState(sticky?.[0]?.section ?? section);
@@ -123,32 +140,29 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   const head = sticky?.find(x => x.section === shown) ?? { section, title: sectionTitle, done: doneCount, count };
   const headLevel = head.count ? head.done / head.count : 0;
 
-  const map = <View style={{ width: W, height: H + EXTRA, alignSelf: 'center' }} onLayout={e => { layoutY.current = e.nativeEvent.layout.y; if (focus >= 0) onActiveY?.(layoutY.current + (bare ? -40 : 0) + pts[focus].y); }}>
+  const map = <View style={{ width: W, height: H + EXTRA, alignSelf: 'center' }} onLayout={e => { layoutY.current = e.nativeEvent.layout.y; if (focus >= 0) onActiveY?.(layoutY.current + pts[focus].y); }}>
     <Svg width={W} height={H + EXTRA} style={StyleSheet.absoluteFill}>
-      {/* Whisper-soft shadow, then the white bridge neck, then the white island over it. */}
-      {exam ? <Path d={neck} transform="translate(0 6)" fill="rgba(91,75,154,.07)" /> : null}
+      {/* Whisper-soft shadow, then the island in a faint tint of the section colour (dark once the section is done). */}
       <Path d={OUTLINE} transform={`translate(0 7) scale(${sx} ${sy})`} fill="rgba(91,75,154,.07)" />
       <Path d={OUTLINE} transform={`translate(0 3) scale(${sx} ${sy})`} fill="rgba(91,75,154,.05)" />
-      {exam ? <Path d={neck} fill="#FFFFFF" /> : null}
-      <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill="#FFFFFF" />
-      {pts.slice(0, -1).map((a, i) => {
-        const b = pts[i + 1], m = (a.y + b.y) / 2;
-        const c1 = { x: a.x, y: m }, c2 = { x: b.x, y: m };
-        const full = `M${a.x} ${a.y} C${c1.x} ${c1.y} ${c2.x} ${c2.y} ${b.x} ${b.y}`;
+      <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill={finished ? mix(tone.soft, tone.base, .5) : mix('#FFFFFF', tone.soft, .35)} />
+      {pts.slice(0, -1).map((_, i) => {
+        const e = edge(i), full = pathOf(e);
         const done = active < 0 ? (finished || i < doneCount - 1) : i < active;
-        const part = i === active && activePart > 0 ? splitCubic(a, c1, c2, b, activePart) : '';
+        const part = i === active && activePart > 0 ? splitCubic(e.p0, e.c1, e.c2, e.p3, activePart) : '';
+        const deep = mix(tone.base, tone.dark, i / Math.max(1, count - 2)); // deeper towards the end of the section
         return <G key={i}>
-          <Path d={full} fill="none" stroke="#DDD6FE" strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" />
-          {done ? <Path d={full} fill="none" stroke="#A78BFA" strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
-          {part ? <Path d={part} fill="none" stroke="#A78BFA" strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
+          <Path d={full} fill="none" stroke={mix(tone.soft, tone.base, .25)} strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" />
+          {done ? <Path d={full} fill="none" stroke={deep} strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
+          {part ? <Path d={part} fill="none" stroke={deep} strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
         </G>;
       })}
     </Svg>
     {active >= 0 && active < count - 1 && activePart > 0 ? <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, { opacity: glow }]}>
       <Svg width={W} height={H}>{(() => {
-        const a = pts[active], b = pts[active + 1], m = (a.y + b.y) / 2;
-        const part = splitCubic(a, { x: a.x, y: m }, { x: b.x, y: m }, b, activePart);
-        return <Path d={part} fill="none" stroke="#C4B5FD" strokeWidth={16} strokeLinecap="round" opacity={.35} />;
+        const e = edge(active);
+        const part = splitCubic(e.p0, e.c1, e.c2, e.p3, activePart);
+        return <Path d={part} fill="none" stroke={tone.base} strokeWidth={16} strokeLinecap="round" opacity={.25} />;
       })()}</Svg>
     </Animated.View> : null}
 
@@ -171,21 +185,22 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
               const gap = 7, half = c / lesson.parts!.length, len = half - gap, fill = len * partPct(part.id) / 100;
               const at = `rotate(${-90 + k * 360 / lesson.parts!.length} ${size / 2} ${size / 2})`;
               return <G key={part.id}>
-                <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? 'rgba(255,255,255,.35)' : '#EDE9FE'} strokeWidth={4} fill="none" strokeDasharray={`${len} ${c}`} strokeDashoffset={-gap / 2} transform={at} />
-                {fill > 0 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? '#fff' : d.purple} strokeWidth={4} fill="none" strokeLinecap="round"
+                <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? 'rgba(255,255,255,.35)' : tone.soft} strokeWidth={4} fill="none" strokeDasharray={`${len} ${c}`} strokeDashoffset={-gap / 2} transform={at} />
+                {fill > 0 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? '#fff' : tone.base} strokeWidth={4} fill="none" strokeLinecap="round"
                   strokeDasharray={`${fill} ${c}`} strokeDashoffset={-gap / 2} transform={at} /> : null}
               </G>;
-            }) : pct > 0 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? '#fff' : d.purple} strokeWidth={4} fill="none" strokeLinecap="round"
+            }) : pct > 0 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? '#fff' : tone.base} strokeWidth={4} fill="none" strokeLinecap="round"
               strokeDasharray={`${c * pct / 100} ${c}`} transform={`rotate(-90 ${size / 2} ${size / 2})`} /> : null}
           </Svg>
-          <View style={[s.nodeInner, { width: size - 14, height: size - 14, borderRadius: (size - 14) / 2 }, isHot ? null : { backgroundColor: done ? '#DDD6FE' : '#EDE9FE' }, !reachable && !isHot && { opacity: .55 }]}>
-            <LessonIcon name={lesson.icon ?? 'chats'} size={isHot ? 38 : 30} white={isHot} />
+          {/* The circle darkens with its % (0% soft … 100% the section's dark colour, white icon). */}
+          <View style={[s.nodeInner, { width: size - 14, height: size - 14, borderRadius: (size - 14) / 2 }, isHot ? null : { backgroundColor: done ? tone.dark : mix(tone.soft, tone.base, pct / 100) }, !reachable && !isHot && { opacity: .55 }]}>
+            <LessonIcon name={lesson.icon ?? 'chats'} size={isHot ? 38 : 30} white={isHot || done || pct >= 60} color={tone.dark} bg={isHot ? '#EA580C' : done ? tone.dark : mix(tone.soft, tone.base, pct / 100)} />
           </View>
         </Pop>
         {/* Name + % beside the circle, no card (25 Nov 2026); parts: “17% · 2 hissə”. */}
-        <View pointerEvents="none" style={[s.label, side, { width: avail, top: p.y - 21 }]}>
+        <View pointerEvents="none" style={[s.label, side, { width: avail, top: p.y - 18 }]}>
           <Text style={[s.labelTitle, right && { textAlign: 'right' }, !reachable && { color: '#8E93A6' }]} numberOfLines={1}>{lesson.title}</Text>
-          <Text style={[s.labelPct, right && { textAlign: 'right' }, (isHot || done) && { color: d.purple }]}>{pct}%{lesson.parts ? ` · ${lesson.parts.length} hissə` : ''}</Text>
+          <Text style={[s.labelPct, right && { textAlign: 'right' }, (isHot || done) && { color: tone.dark }]}>{pct}%{lesson.parts ? ` · ${lesson.parts.length} hissə` : ''}</Text>
         </View>
       </View>;
     })}
@@ -204,7 +219,7 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
     {exam ? <Pop to={.93} accessibilityRole="button" disabled={!examOpen || locked} onPress={() => { tapHaptic(); onOpenLesson(exam.id); }}
       accessibilityLabel={`Bölmə ${section} imtahanı${exam.passed ? `, keçdin ${exam.percent} faiz` : ''}${examOpen ? ', keçid 70 faiz' : ', bütün dərsləri bitirəndə açılır'}`}
       style={[s.trophy, { left: trophyPt.x - TROPHY / 2, top: trophyPt.y - TROPHY / 2 }, (!examOpen || locked) && { opacity: .6 }]}>
-      <Svg width={30} height={30} viewBox="0 0 24 24">
+      <Svg width={38} height={38} viewBox="0 0 24 24">
         <Path d="M7 4h10v5a5 5 0 0 1-10 0z" fill={exam.passed ? '#E9B949' : 'none'} stroke="#C99A3E" strokeWidth={1.7} strokeLinejoin="round" />
         <Path d="M7 6H4.5a2.5 2.5 0 0 0 3 3.4M17 6h2.5a2.5 2.5 0 0 1-3 3.4M12 14v3.5M8.5 20.5h7l-.8-3h-5.4z" fill="none" stroke="#C99A3E" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" />
       </Svg>
@@ -214,8 +229,8 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   const sheet = <LessonSheet open={open} onClose={() => setOpen(null)} lessons={lessons} active={active} locked={locked} allOpen={allOpen}
     completed={completed} partPct={partPct} percentOf={percentOf} isDone={isDone} onOpenLesson={id => { setOpen(null); onOpenLesson(id); }} />;
 
-  // Following sections: only the island (it overlaps the previous bridge neck a little so they join seamlessly).
-  if (bare) return <View style={{ marginTop: -40 }}>{map}{sheet}</View>;
+  // Following sections: only the island (the trophy of the previous section sits in the gap above it).
+  if (bare) return <View>{map}{sheet}</View>;
   return <View style={s.screen}>
     <StatusBar style="dark" />
     <View style={{ paddingTop: Math.max(topInset, insets.top) + 4 }}>
@@ -232,12 +247,12 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       </View>
       <View style={s.head}>
         <View style={{ flex: 1 }}>
-          <Text style={s.sectionNo}>BÖLMƏ {head.section}</Text>
+          <Text style={[s.sectionNo, { color: toneOf(head.section).dark }]}>BÖLMƏ {head.section}</Text>
           <Text accessibilityRole="header" style={s.sectionTitle} numberOfLines={1}>{head.title}</Text>
         </View>
         <View style={s.progress} accessibilityLabel={`${head.done} dərs bitib, ${Math.round(headLevel * 100)} faiz`}>
-          <Svg width={30} height={30}><Circle cx={15} cy={15} r={12} stroke="#EDE9FE" strokeWidth={4} fill="none" />
-            {headLevel > 0 ? <Circle cx={15} cy={15} r={12} stroke={d.purple} strokeWidth={4} fill="none" strokeLinecap="round" strokeDasharray={`${2 * Math.PI * 12 * headLevel} 80`} transform="rotate(-90 15 15)" /> : null}</Svg>
+          <Svg width={30} height={30}><Circle cx={15} cy={15} r={12} stroke={toneOf(head.section).soft} strokeWidth={4} fill="none" />
+            {headLevel > 0 ? <Circle cx={15} cy={15} r={12} stroke={toneOf(head.section).base} strokeWidth={4} fill="none" strokeLinecap="round" strokeDasharray={`${2 * Math.PI * 12 * headLevel} 80`} transform="rotate(-90 15 15)" /> : null}</Svg>
           <View><Text style={s.progressPct}>{Math.round(headLevel * 100)}%</Text><Text style={s.progressSub}>{head.done}/{head.count} dərs</Text></View>
         </View>
         <Image source={mascotHead} style={{ width: 44, height: 40 }} contentFit="contain" accessibilityLabel="Maskot" />
@@ -409,8 +424,8 @@ const s = StyleSheet.create({
   nodeHot: { shadowColor: '#F97316', shadowOpacity: .45, shadowRadius: 16 },
   nodeInner: { alignItems: 'center', justifyContent: 'center' },
   label: { position: 'absolute', gap: 1 },
-  labelTitle: { color: d.title, fontSize: 16, lineHeight: 20, ...font.extrabold },
-  labelPct: { color: d.inkSoft, fontSize: 13, ...font.bold },
+  labelTitle: { color: d.title, fontSize: 15, lineHeight: 18, ...font.extrabold },
+  labelPct: { color: d.inkSoft, fontSize: 12, lineHeight: 15, ...font.bold },
   trophy: { position: 'absolute', width: TROPHY, height: TROPHY, borderRadius: TROPHY / 2, backgroundColor: '#FFFBF2', borderWidth: 1, borderColor: '#E9C98B', alignItems: 'center', justifyContent: 'center',
     shadowColor: '#E0A21B', shadowOpacity: .35, shadowRadius: 12, shadowOffset: { width: 0, height: 2 }, elevation: 4 },
   backdrop: { flex: 1, backgroundColor: 'rgba(15,23,42,.25)' },

@@ -6,18 +6,27 @@ import { d } from '../design/theme';
 
 export type LessonIconName = 'wave' | 'idcard' | 'ask' | 'heart' | 'thanks' | 'sorry' | 'headphones' | 'chats' | 'digits' | 'phone'
   | 'letters' | 'spell' | 'mail' | 'cake' | 'form' | 'globe' | 'flag' | 'passport' | 'yesno' | 'pin' | 'home' | 'lang' | 'who'
-  | 'family' | 'pair' | 'tag' | 'briefcase';
+  | 'family' | 'pair' | 'tag' | 'briefcase' | 'nametag' | 'askname' | 'smile' | 'sad' | 'confused' | 'age' | 'siblings';
 
-export default function LessonIcon({ name, size = 32, white }: { name: LessonIconName; size?: number; white?: boolean }) {
-  const F = white ? '#FFFFFF' : d.purple;            // solid glyph
-  const D = white ? '#EA580C' : '#FFFFFF';           // details drawn on the glyph
-  const S = white ? 'rgba(255,255,255,.6)' : '#A78BFA'; // second, lighter glyph
+/** `color` = the section's colour (map, 25 Nov 2026); `white` = white glyph on a dark/orange circle whose colour is `bg`. */
+export default function LessonIcon({ name, size = 32, white, color = d.purple, bg = '#EA580C' }: { name: LessonIconName; size?: number; white?: boolean; color?: string; bg?: string }) {
+  const F = white ? '#FFFFFF' : color;               // solid glyph
+  const D = white ? bg : '#FFFFFF';                  // details drawn on the glyph
+  const S = white ? 'rgba(255,255,255,.6)' : color + '88'; // second, lighter glyph
   const O = white ? '#FFFFFF' : '#F97316';           // accent
   const line = (c: string, w = 1.8) => ({ stroke: c, strokeWidth: w, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, fill: 'none' });
   const bubble = 'M3.5 6.5A3.5 3.5 0 0 1 7 3h10a3.5 3.5 0 0 1 3.5 3.5v6.5A3.5 3.5 0 0 1 17 16.5h-6L6 20.5v-4A3.5 3.5 0 0 1 3.5 13z';
   const g = (() => {
     switch (name) {
-      case 'wave': return <><Path d="M7.5 12.5V6.2a1.6 1.6 0 0 1 3.2 0v4.6V4.6a1.6 1.6 0 0 1 3.2 0v6.2V6a1.6 1.6 0 0 1 3.2 0v7.5c0 4.4-2.7 7.5-7 7.5-3 0-4.6-1.8-6.2-4.6L2.7 13a1.7 1.7 0 0 1 2.8-1.8z" fill={F} /><Path d="M19.4 3.2c1.2.9 1.9 2.3 1.9 3.8" {...line(O, 2)} /></>;
+      // A hand tilted in a wave with two motion arcs (not a flat “stop” palm).
+      case 'wave': return <><Path d="M9 20.5c-2.6-.6-4.4-2.6-5.4-5.2l-1.3-3.4a1.5 1.5 0 0 1 2.7-1.2l1.6 2.6L4.9 6.6a1.5 1.5 0 0 1 2.9-.8l1.5 5L8.6 4.4a1.5 1.5 0 0 1 3-.4l.9 6.3.4-5.5a1.5 1.5 0 0 1 3 .2l-.2 6.8 1.4-3a1.5 1.5 0 0 1 2.7 1.3l-2 5.6c-1.2 3.4-4.4 5.5-7.8 4.8z" fill={F} /><Path d="M17.6 2.8c1.5.6 2.6 1.7 3.2 3.2M19.2 1.2c1.9.8 3.3 2.3 4 4.2" {...line(O, 1.6)} /><Path d="M2 4.5c.4-1 1-1.8 1.8-2.4" {...line(O, 1.6)} /></>;
+      case 'nametag': return <><Rect x={2.5} y={5} width={19} height={14.5} rx={3} fill={F} /><Rect x={2.5} y={5} width={19} height={5} rx={2.5} fill={O} /><Path d="M6.5 15h11" {...line(D, 2)} /><Path d="M6.5 17.6h6" {...line(D, 1.4)} /></>;
+      case 'askname': return <><Rect x={1.5} y={7} width={14} height={11} rx={2.5} fill={F} /><Circle cx={6} cy={11.5} r={1.7} fill={D} /><Path d="M3.8 15.8c.4-1 1.2-1.6 2.2-1.6s1.8.6 2.2 1.6M10 10.8h3.5M10 13.5h2.5" {...line(D, 1.4)} /><Circle cx={18.5} cy={7.5} r={4.5} fill={O} /><Path d="M17.2 6.4a1.4 1.4 0 1 1 1.9 1.3c-.4.2-.6.5-.6.9" {...line('#fff', 1.4)} /><Circle cx={18.5} cy={10} r={.6} fill="#fff" /></>;
+      case 'smile': return <><Path d={bubble} fill={F} /><Circle cx={9.3} cy={8.6} r={1.1} fill={D} /><Circle cx={14.7} cy={8.6} r={1.1} fill={D} /><Path d="M8.8 11.4c1.6 1.8 4.8 1.8 6.4 0" {...line(D, 1.8)} /><Circle cx={19} cy={4} r={1.6} fill={O} /></>;
+      case 'sad': return <><Path d={bubble} fill={F} /><Circle cx={9.3} cy={8.6} r={1.1} fill={D} /><Circle cx={14.7} cy={8.6} r={1.1} fill={D} /><Path d="M8.8 13c1.6-1.8 4.8-1.8 6.4 0" {...line(D, 1.8)} /><Path d="M16.6 10.4c.6.9.6 1.6 0 2.1-.6-.5-.6-1.2 0-2.1z" fill={O} /></>;
+      case 'confused': return <><Circle cx={10} cy={11.5} r={5.2} fill={F} /><Path d="M3 21.5c.8-3.2 3.6-5 7-5s6.2 1.8 7 5z" fill={F} /><Circle cx={18.3} cy={5.5} r={4.3} fill={O} /><Path d="M17 4.4a1.4 1.4 0 1 1 1.9 1.3c-.4.2-.6.5-.6.9" {...line('#fff', 1.4)} /><Circle cx={18.3} cy={8} r={.6} fill="#fff" /></>;
+      case 'age': return <><Circle cx={12} cy={12} r={9} fill={F} /><SvgText x={12} y={15.6} fontSize={10} fontWeight="900" fill={D} textAnchor="middle">18</SvgText><Circle cx={19.2} cy={4.8} r={1.8} fill={O} /></>;
+      case 'siblings': return <><Circle cx={8} cy={6.5} r={3.2} fill={F} /><Path d="M2.5 20.5c.4-4.3 2.4-7 5.5-7s5.1 2.7 5.5 7z" fill={F} /><Circle cx={16.8} cy={10} r={2.5} fill={O} /><Path d="M12.8 20.5c.3-3.3 1.8-5.3 4-5.3s3.7 2 4 5.3z" fill={O} /></>;
       case 'idcard': return <><Rect x={2.5} y={5.5} width={19} height={14} rx={3} fill={F} /><Circle cx={8.3} cy={11.3} r={2.1} fill={D} /><Path d="M5.6 16.3c.6-1.4 1.6-2.1 2.7-2.1s2.1.7 2.7 2.1M13.5 10.5h4.6M13.5 14h3.2" {...line(D)} /><Rect x={10} y={3} width={4} height={4} rx={1.2} fill={O} /></>;
       case 'ask': return <><Path d={bubble} fill={F} /><Path d="M10 7.8a2.1 2.1 0 1 1 3 1.9c-.6.3-1 .8-1 1.4v.4" {...line(D, 2)} /><Circle cx={12} cy={13.6} r={1.1} fill={O} /></>;
       case 'heart': return <><Path d={bubble} fill={F} /><Path d="M12 13.4s-3.4-2-3.4-4.1A1.8 1.8 0 0 1 12 8.4a1.8 1.8 0 0 1 3.4.9c0 2.1-3.4 4.1-3.4 4.1z" fill={O} /></>;

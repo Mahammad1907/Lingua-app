@@ -115,11 +115,11 @@ const SHORT_TITLES: Record<string, string> = {
 
 /** Map icons (25 Nov 2026), keyed like SHORT_TITLES. */
 const ICONS: Record<string, LessonIconName> = {
-  a1_en_b1_v2_d1: 'wave', a1_en_b1_v2_d2: 'idcard', a1_en_b1_v2_d3: 'ask', a1_en_b1_v2_d4: 'heart',
-  a1_en_b1_v2_d5: 'thanks', a1_en_b1_v2_d6: 'sorry', a1_en_b1_v2_d7: 'headphones', a1_en_b1_v2_d8: 'chats',
-  u2_1: 'digits', u2_2: 'phone', u2_3: 'letters', u2_4: 'spell', u2_5: 'idcard', u2_6: 'mail', u2_7: 'cake', u2_8: 'form',
+  a1_en_b1_v2_d1: 'wave', a1_en_b1_v2_d2: 'nametag', a1_en_b1_v2_d3: 'askname', a1_en_b1_v2_d4: 'smile',
+  a1_en_b1_v2_d5: 'thanks', a1_en_b1_v2_d6: 'sad', a1_en_b1_v2_d7: 'confused', a1_en_b1_v2_d8: 'chats',
+  u2_1: 'digits', u2_2: 'phone', u2_3: 'letters', u2_4: 'spell', u2_5: 'idcard', u2_6: 'mail', u2_7: 'age', u2_8: 'form',
   u3_1: 'globe', u3_2: 'flag', u3_3: 'passport', u3_4: 'yesno', u3_5: 'pin', u3_6: 'home', u3_7: 'lang', u3_8: 'chats',
-  u4_1: 'who', u4_2: 'family', u4_3: 'pair', u4_4: 'tag', u4_5: 'family', u4_6: 'cake', u4_7: 'briefcase', u4_8: 'chats',
+  u4_1: 'who', u4_2: 'family', u4_3: 'pair', u4_4: 'tag', u4_5: 'siblings', u4_6: 'age', u4_7: 'briefcase', u4_8: 'chats',
 };
 
 export function HomeNavigation({ bottomInset = 0, onNavigate }: {
