@@ -11,7 +11,8 @@ const b1Packet = course.b1Packet.filter(l => l.cards.length);
 const { b1Exams, b1PlacementTest } = require('../src/data/b1Exam.ts');
 const { assessPacketAnswer: assess } = require('../src/utils/packetAnswer.ts');
 assert.deepEqual(b1Packet.map(l => l.cards.length), [13,18,20,20,21,19,15]);
-assert.equal(b1Lessons.length, 8);
+// b1Lessons now holds every section (Bölmə 1–4, 25 Nov 2026); Bölmə 1 still has 8 lessons + exam.
+assert.equal(b1Lessons.filter(l => /^a1_en_b1_v2_d/.test(l.id)).length, 8);
 // Lesson 2 must be reachable from the live curriculum and preserve named roles
 // when a missed question is retried, while accepting the learner's own name.
 const { getLessonById } = require('../src/data/lessons.ts');
@@ -36,7 +37,8 @@ for (const name of ['Mahammad', 'Aysel', 'Əli', 'Sara']) {
   assert.equal(assess(`I am ${name}.`, secondCard(12).turns[0].rule).status, 'correct');
 }
 assert.notEqual(assess('Hi!', secondCard(15).rule).status, 'correct', 'independent introduction needs a name as well as a greeting');
-assert.ok(b1Lessons.every(l => l.id.startsWith('a1_en_b1_v2_')), 'new curriculum never inherits old completions');
+// The list now also holds Bölmə 2–4 (a1_en_b2_…); none of them reuses an old Bölmə 1 id (a1_en_b1_d…).
+assert.ok(b1Lessons.every(l => !/^a1_en_b1_d\d/.test(l.id)), 'new curriculum never inherits old completions');
 let checked = 0;
 for (const lesson of b1Packet) {
   const flow = packetFlow(lesson); const ids = flow.map(c => c.id);

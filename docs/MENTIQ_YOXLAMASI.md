@@ -8,6 +8,14 @@ node scripts/check-situation.cjs
 
 Skript söz siyahıları ilə işləyir — tapdığı hər yeri insan oxuyub qərar verir. Skriptin tuta bilmədiyi hallar üçün aşağıdakı “İnsan yoxlaması” siyahısı da hər bölmədə keçilir.
 
+## Bütün yoxlamalar bir əmrlə
+
+```
+node scripts/check-all.cjs
+```
+
+Bütün `check-*.cjs` faylları işlədilir və qısa nəticə çıxır: neçəsi keçdi, hansında səhv var, hansı üçün paket yoxdur (`react-test-renderer`, `zustand` — `npm install` olan kompüterdə işləyir). Artıq göstərilməyən köhnə ekranların yoxlamaları (`check-chapter-journey`, `check-lesson-voice`) işlədilmir; `--old` ilə işlədilir. 25 Nov 2026: `check-b1-packet` (Bölmə 2–4 əlavə olunandan sonra köhnəlmiş say) və `check-home-reference` (.ts yükləmə, müvəqqəti test girişi, 18 Nov bölmə imtahanı qaydası) yeniləndi.
+
 ## Avtomatik qaydalar (check-situation.cjs)
 
 | # | Qayda | Səhv nümunə | Düzgün |
