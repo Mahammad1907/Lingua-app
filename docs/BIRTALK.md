@@ -65,7 +65,7 @@ Ayrıca standart sənədləri (burada təkrarlanmır, linklə keçərlidir):
 
 ## 3. Tələffüz və səs
 
-1. Səs hər yerdə **en-US**. Oxunuş Azərbaycan hərfləri ilə, Amerika tələffüzü, fonetik işarə yoxdur (“hau ar yu?”, “sari”); /æ/ = “ə”; **th** qalın narıncı. IPA yalnız `pronunciation` sahəsində (söz pəncərəsi, Lüğətim).
+1. Səs hər yerdə **en-US**. Oxunuş Azərbaycan hərfləri ilə, Amerika tələffüzü, fonetik işarə yoxdur (“hau ar yu?”, “sari”); /æ/ = “ə”; **th** qalın bənövşəyi (25 Nov; əvvəl narıncı). IPA yalnız `pronunciation` sahəsində (söz pəncərəsi, Lüğətim).
 2. **Sürət düyməsi** (1x → 0.75x → 0.5x → 1.25x) dərsin bütün normal səs düymələrinə aiddir; basanda dərhal yeni sürətlə yenidən oxuyur; 0.5x-də sözlər arası fasilə. Qəsdən yavaş düymələr öz sürətindədir.
 3. **Səs tanıma:** telefonun öz tanıması (`expo-speech-recognition`) əsasdır. Expo Go-da işləmir → səsli cavablar “Yoxlanmadı” — normaldır. Sınaq Android development build ilə. Azure qurulmayıb, hələlik lazım deyil; pullu bulud variantı sonra.
 4. Mikrofon: basılı saxla və danış (bir toxunuşla da işləyir), buraxanda bir dəfə göndərilir; texniki problem/səssizlik cəza deyil.
@@ -82,7 +82,7 @@ Ayrıca standart sənədləri (burada təkrarlanmır, linklə keçərlidir):
 **4.2 Ümumi görünüş**
 5. **Dizayn sistemi (25 Nov):** fon `#F6F7FB`; rol rəngləri — narıncı: bar + irəli düymələr; bənövşəyi (`#5B21B6`/`#6D28D9`): seçim, ▶, sürət, Kömək, fokus, mikrofon, başlıqdakı vurğu sözləri (başlığın birinci sözü tünd, qalanı bənövşəyi — `accentTitle`); yaşıl/qırmızı yalnız yoxlamadan sonra. Tapşırıq cümləsi çərçivəsiz, boz-göy (`d.slate`) alt başlıqdır (köhnə bənövşəyi sol xətli qutu yoxdur). Nunito. **Solğun mətn yoxdur:** mətn rəngləri ≥4.5:1 (`orangeText #A84A08`, `greenText #0F6E2A`, `redText #B42318`); narıncı/yaşıl dolğu yalnız fon və böyük düymə üçün.
 6. Səs düymələrində yazı yoxdur, yalnız ikon.
-7. **Yeni söz kartı:** bənövşəyi banner + balonda ifadə (maskot yoxdur — 20 Nov), oxunuş, ▶, altda Mənası · Quruluşu · Nümunə · qısa qeyd; sürüşmür.
+7. **Yeni söz kartı** (25 Nov dizaynı): çərçivəsiz ağ ifadə kartı — `[ad]` kimi yerlər lavanda pill-də, oxunuş boz-göy (**th bənövşəyi**, narıncı yox), ▶/⏸ | sürət kapsulu (Öyrən kartında da eyni; tısbağa yoxdur); 4 sətirli kart — kvadrat ikonlar, boz böyük hərfli etiketlər, nazik ayırıcılar, lampa qeydi alt zolaqda; söz-söz — iOS seqment düyməsi (hər seqmentdə söz + mənası görünür, ağ pill toxunulan sözə sürüşür və səslənir; 4-dən çox söz → ikinci sıra), altında th qeydi; sürüşmür.
 8. **Müəllim izahı ekranı** (24 Nov dizaynı): `KindChip` “MÜƏLLİM İZAHI” + böyük başlıq; maskot balonu (ingilis formaları bənövşəyi); formalar yan-yana kartlarda (etiket, ▶, izah); istəyə görə Səmimi…Rəsmi şkalası; ağ izah kartı; altına girən “Diqqət:” qutusu; narıncı “Başa düşdüm →”.
 9. **Mesajlaşma ekranı** (`ChatThread`, 24 Nov; 25 Nov: yaşıl onlayn nöqtəsi yoxdur; sahədə bənövşəyi ↑ — balon yerinə “oturur”, tanış “...” yazır; tanışın reaksiyası **yalnız Yoxla-dan sonra, düz cavabda** — Dərs 1-də yalnız emoji, sonrakı dərslərdə yalnız öyrədilmiş sözlər (`chat.reply`, `check-taught` yoxlayır); Yoxla-dan sonra öz balonunun yanında ▶). **“İki mesajı özün yaz” çat xətti** (`ChatTimeline.tsx`, `thread` sahəsi): hər mesaja vaxt pill-i, qırıq xətli gözləmə balonu, ↑ ilə göndər, ✎ ilə düzəlt, hamısı göndəriləndə Yoxla açılır. Köhnə: başlıqda avatar + yaşıl nöqtə, ad, “Onlayn”, Kömək; “Bu gün”; qarşı tərəfin mesajları saatla (sözsüz mesaj — 👋 🔑 📄 🎤 📷 — səslənmir); sənin balonun yalnız yazanda görünür, cavab bir yerdə (altdakı sahə); saat və ✓ yalnız Yoxla-dan sonra.
 10a. **Səs kartı** (`AudioPanel`, 25 Nov, dinləmə və danışıq ekranlarında eyni): avatar, başlıq + alt yazı, müddət; ▶/⏸, **Glow Line** (`GlowLine.tsx` — soldan sağa dolmur; dayanıqda nazik xətt, oxuyanda ortası bənövşəyi→narıncı parıltı ilə dalğalanır, dalğa sürətə uyğun yavaşlayır), sürət pill-i. Tısbağa və ayırıcı xətt yoxdur. Danışıq ekranında qarşı tərəfin cümləsi bu kartın başlığıdır (toxunulan sözlər nöqtəli xətlə).
@@ -149,6 +149,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 24 Noy | G6 (narıncı düymə və bar, ▶, cavabdan sonra yaşıl/qırmızı); yeni izah ekranı; G7 (ortaq elementlər, KindChip); G8 (vəziyyət ↔ ekran); mesajlaşma ekranı |
 | 25 Noy | Vahid dizayn sistemi: fon #F6F7FB, narıncı qradiyent #F97316→#EA580C (hər yerdə), başlıqda bənövşəyi vurğu, çərçivəsiz tapşırıq cümləsi, Glow Line, AI Voice Orb, “İndi danışa bilmirəm”; sürət dövrü qalır (1x→0.75x→0.5x→1.25x) |
 | 25 Noy | Orb: yalnız orb, susanda avto-göndər, öz səsləri; çatda ↑ + “...” + reaksiya yalnız düz cavabda (Dərs 1 emoji, sonra öyrədilmiş sözlər); “İki mesajı özün yaz” çat xətti; titrəmə və mikro-hərəkətlər hər ekranda |
+| 25 Noy | Yeni söz kartının yeni dizaynı (ağ kart, slot pill-ləri, ▶|sürət kapsulu, seqment söz-söz); th rəngi bənövşəyi |
 | 25 Noy | Yeni nəticə paneli (ağ alt panel, ✓/✕ sətirləri, TƏLƏFFÜZÜ DİNLƏ, “Əla!”); “Daha çox soruş · tezliklə” yer tutucusu |
 | 25 Noy | 4 bölmənin tam məntiq yoxlaması (~780 tapşırıq), `check-situation` L1–L21, `check-quality` Q1–Q6, `check-all`; qeydlər bu fayla yığıldı |
 

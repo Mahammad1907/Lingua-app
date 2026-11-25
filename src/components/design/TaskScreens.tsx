@@ -583,15 +583,34 @@ export function PhraseCard({ text, stress, note, reading }: { text: string; stre
 export function Reading({ text, left }: { text: string; left?: boolean }) {
   const parts = text.split(/(\*\*[^*]+\*\*)/);
   return <Text style={[s.reading, left && { textAlign: 'left' }]} accessibilityLabel={`Oxunuşu: ${text.replace(/\*/g, '')}`}>
-    {parts.map((p, i) => p.startsWith('**') ? <Text key={i} style={{ ...font.extrabold, color: d.orangeText }}>{p.slice(2, -2)}</Text> : p)}
+    {/* th in royal purple (25 Nov 2026 design system: orange only for the bar and forward buttons). */}
+    {parts.map((p, i) => p.startsWith('**') ? <Text key={i} style={{ ...font.extrabold, color: d.purple }}>{p.slice(2, -2)}</Text> : p)}
   </Text>;
 }
 
 function InfoRow({ icon, label, children, first, tight }: { icon: IconName; label: string; children: ReactNode; first?: boolean; tight?: boolean }) {
   return <View style={[s.infoRow, !first && s.infoLine, tight && { paddingVertical: 6 }]}>
-    <View style={s.infoIcon}><Icon name={icon} size={22} color={d.purple} /></View>
-    <View style={{ flex: 1, gap: tight ? 2 : 4 }}><Text style={ds.label}>{label}</Text>{children}</View>
+    <View style={s.infoIcon}><Icon name={icon} size={18} color={d.purple} /></View>
+    <View style={{ flex: 1, gap: tight ? 2 : 4 }}><Text style={s.rowLabel}>{label.toLocaleUpperCase('az')}</Text>{children}</View>
   </View>;
+}
+
+/** ▶/⏸ | speed in one lavender capsule (25 Nov 2026) — replaces ▶ + turtle on Yeni söz and Öyrən cards. */
+function AudioCapsule({ onPlay, rate = 1, onRate, playing }: { onPlay: () => void; rate?: number; onRate?: () => void; playing?: boolean }) {
+  return <View style={s.capsule}>
+    <Pop accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Dinlə'} onPress={() => { tapHaptic(); onPlay(); }} style={s.capPlay}>
+      {playing ? <Icon name="pause" size={22} color="#fff" /> : <View style={{ marginLeft: 3 }}><SoundIcon size={22} /></View>}
+    </Pop>
+    {onRate ? <><View style={s.capLine} />
+    <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={() => { tapHaptic(); onRate(); }} hitSlop={8} style={s.capRate}>
+      <Text style={s.capRateText}>{rate}x</Text>
+    </Pressable></> : null}
+  </View>;
+}
+
+/** Text with “[ad]”-style slots shown as a soft lavender inline pill (25 Nov 2026). */
+export function Slotted({ text, style }: { text: string; style: any }) {
+  return <Text style={style}>{nameSlot(text).split(/(\[[^\]]+\])/).map((p, i) => p.startsWith('[') ? <Text key={i} style={s.slot}>{` ${p} `}</Text> : p)}</Text>;
 }
 
 /** “[ad]” inside a pattern is the name slot, shown in lavender. */
@@ -601,7 +620,7 @@ function Pattern({ text, small }: { text: string; small?: boolean }) {
 
 /** Teaching card (approved “İlk salam” design): purple banner with the mascot and the phrase in a bubble,
  *  then Mənası · Oxunuşu · Quruluşu · other phrases · Qeyd · Nümunə rows. Used for Yeni söz and Öyrən cards. */
-export function LearnView({ chip, title, lead, phrases, az, reading, ipa, structure, notes, example, scenes, dialog, shortForm, onPlay, onWord }: {
+export function LearnView({ chip, title, lead, phrases, az, reading, ipa, structure, notes, example, scenes, dialog, shortForm, onPlay, onWord, rate = 1, onRate, playing }: {
   chip: string; title?: string; lead?: string; phrases: string[]; az: string; reading?: string; ipa?: string; structure?: string[];
   notes?: string[]; example?: { en: string; az: string }; scenes?: string[];
   /** A short conversation (girl and boy take turns) instead of one phrase in the banner. */
@@ -609,6 +628,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   /** Yeni söz: “Where is → Where's” shown as one compact row inside the card. */
   shortForm?: { full: string; short: string };
   onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void;
+  /** Lesson speed (1x → 0.75x → 0.5x → 1.25x), shared with every normal sound button. */ rate?: number; onRate?: () => void; playing?: boolean;
 }) {
   // Approved simple card (user, 13 Nov 2026): one phrase, its reading in the bubble, then Mənası · (Quruluşu) · Nümunə · one short note.
   // No scrolling, no phonetic line (that stays in the word pop-up and Lüğətim).
@@ -630,23 +650,28 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
       <Avatar who={i % 2 ? 'B' : 'G'} size={40} />
       <View style={{ flex: 1 }}><TapText text={l.en} style={s.dialogEn} onWord={onWord} /><Text style={s.moreAz}>{l.az}</Text></View>
       <PlayButton onPress={() => onPlay(l.en)} size={40} label={`Dinlə: ${l.en}`} />
-    </View>)}</View> : <View style={[s.banner, shadow]}>
+    </View>)}</View> : word ? <View style={[s.hero, s.softShadow]}>
+      {/* Yeni söz hero (25 Nov 2026): borderless white card, phrase with slot pills, slate reading, one audio capsule. */}
+      {phrases.map(p => <Slotted key={p} text={p} style={[s.heroText, long && { fontSize: 28, lineHeight: 34 }, phrases.length > 1 && { fontSize: 24, lineHeight: 30 }]} />)}
+      {reading ? <Reading text={reading} /> : null}
+      <AudioCapsule onPlay={() => onPlay(spoken)} rate={rate} onRate={onRate} playing={playing} />
+    </View> : <View style={[s.banner, shadow]}>
       {/* No mascot on Yeni söz cards (user, 20 Nov 2026): the phrase gets the full width. */}
       {chip === 'Yeni söz' ? null : <Image source={mascotFull} style={{ width: 78, height: 96 }} contentFit="contain" accessibilityLabel="Maskot" />}
       <View style={[s.bannerBubble, word && { paddingVertical: 8, gap: 4 }]}>
         {phrases.map(p => <Text key={p} accessibilityRole="header" style={[s.bannerText, long && { fontSize: 24, lineHeight: 30 }, word && phrases.length > 1 && { fontSize: 22, lineHeight: 27 }]}>{nameSlot(p)}</Text>)}
         {reading ? <Reading text={reading} /> : null}
-        <View style={s.bannerAudio}><PlayButton onPress={() => onPlay(spoken)} size={44} /><SlowButton onPress={() => onPlay(spoken, .45)} size={44} /></View>
+        <AudioCapsule onPlay={() => onPlay(spoken)} rate={rate} onRate={onRate} playing={playing} />
       </View>
     </View>}
-    <View style={[s.info, shadow, word && s.infoTight]}>
-      {dialog ? null : <InfoRow first icon="tag" label="Mənası" tight={word}><Text style={[s.infoStrong, word && { fontSize: 18, lineHeight: 23 }]}>{az}</Text></InfoRow>}
+    <View style={[s.info, word ? s.softShadow : shadow, word && s.infoTight]}>
+      {dialog ? null : <InfoRow first icon="tag" label="Mənası" tight={word}><Slotted text={az} style={[s.infoStrong, word && { fontSize: 18, lineHeight: 23 }]} /></InfoRow>}
       {shortForm ? <View style={[s.infoRow, s.infoLine, { alignItems: 'center', paddingVertical: 6 }]} accessibilityLabel="Qısa forma">
         {/* Short forms are explained where they first appear, without grammar terms (20 Nov 2026). */}
         <View style={s.infoIcon}><Icon name="layers" size={20} color={d.purple} /></View>
         <View style={{ flex: 1, gap: 3 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
-            <Text style={ds.label}>Qısa forma</Text>
+            <Text style={s.rowLabel}>QISA FORMA</Text>
             <Pressable accessibilityRole="button" accessibilityLabel={`Dinlə: ${shortForm.full}`} onPress={() => onPlay(shortForm.full)} style={s.sfChip}><Text style={s.sfWord}>{shortForm.full}</Text></Pressable>
             <Text style={s.sfWord}>→</Text>
             <Pressable accessibilityRole="button" accessibilityLabel={`Dinlə: ${shortForm.short}`} onPress={() => onPlay(shortForm.short)} style={[s.sfChip, s.partChipNew]}><Text style={[s.sfWord, { color: d.purple }]}>{shortForm.short}</Text></Pressable>
@@ -657,10 +682,10 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
       {structure?.length ? <InfoRow icon="layers" label="Quruluşu" tight={word}><View style={[s.patterns, word && { gap: 6 }]}>{structure.map(p => <Pattern key={p} text={p} small={word} />)}</View></InfoRow> : null}
       {example ? <View style={[s.infoRow, !dialog && s.infoLine, { alignItems: 'center' }, word && { paddingVertical: 6 }]}>
         <View style={s.infoIcon}><Icon name="chat" size={20} color={d.purple} /></View>
-        <View style={{ flex: 1, gap: 1 }}><Text style={ds.label}>Nümunə</Text><TapText text={example.en} style={[s.exampleEn, word && { fontSize: 16 }]} onWord={onWord} /><Text style={s.moreAz}>{nameSlot(example.az)}</Text></View>
+        <View style={{ flex: 1, gap: 1 }}><Text style={s.rowLabel}>NÜMUNƏ</Text><TapText text={example.en} style={[s.exampleEn, word && { fontSize: 17 }]} onWord={onWord} /><Text style={[s.moreAz, word && { color: d.slate }]}>{nameSlot(example.az)}</Text></View>
         <PlayButton onPress={() => onPlay(example.en)} size={40} label="Nümunəni dinlə" />
       </View> : null}
-      {notes?.length ? <View style={[s.infoRow, (example || !dialog) && s.infoLine, { alignItems: 'center' }, word && { paddingVertical: 6 }]}>
+      {notes?.length ? <View style={[s.infoRow, (example || !dialog) && s.infoLine, { alignItems: 'center' }, word && s.tipStrip]}>
         <View style={s.infoIcon}><Icon name="bulb" size={20} color={d.purple} /></View>
         <Text style={[s.noteText, { flex: 1 }, word && { fontSize: 14, lineHeight: 19 }]}>{notes[0]}</Text>
       </View> : null}
@@ -668,20 +693,46 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   </View>;
 }
 
+/** Söz-söz (25 Nov 2026): an iOS-style segmented control. Every segment keeps its word AND meaning visible (rule:
+ *  each new word explained separately); the white pill springs to the tapped word, which is spoken. Up to 4 words per
+ *  row — longer phrases wrap into a second row. Under it: the active word's note (th sound). */
+function WordParts({ parts, onPlay, thNote }: { parts: { word: string; az: string; fresh?: boolean }[]; onPlay: (t: string) => void; thNote: boolean }) {
+  const [active, setActive] = useState(0);
+  const rows: typeof parts[] = [];
+  for (let i = 0; i < parts.length; i += 4) rows.push(parts.slice(i, i + 4));
+  const note = thNote && /th/i.test(parts[active]?.word ?? '') ? 'th — dilin ucu dişlərin arasında, Thank you-dakı kimi.'
+    : thNote && parts.some(p => p.fresh && /th/i.test(p.word)) ? 'th — dilin ucu dişlərin arasında, Thank you-dakı kimi.' : '';
+  return <View style={[s.parts, s.softShadow]} accessibilityLabel="Söz-söz izah">
+    {rows.map((row, r) => <Segments key={r} items={row} active={active - r * 4} onPick={k => { tapHaptic(); setActive(r * 4 + k); onPlay(row[k].word); }} />)}
+    {note ? <Text style={s.partNote}><Text style={{ color: d.purple, ...font.extrabold }}>th</Text>{note.slice(2)}</Text> : null}
+  </View>;
+}
+function Segments({ items, active, onPick }: { items: { word: string; az: string; fresh?: boolean }[]; active: number; onPick: (k: number) => void }) {
+  const [w, setW] = useState(0);
+  const seg = w / Math.max(1, items.length);
+  const x = useSharedValue(0), shown = useSharedValue(active >= 0 && active < items.length ? 1 : 0);
+  useEffect(() => {
+    const on = active >= 0 && active < items.length;
+    shown.value = withTiming(on ? 1 : 0, { duration: 160 });
+    if (on) x.value = withSpring(active * seg, { damping: 18, stiffness: 220 });
+  }, [active, seg, x, shown, items.length]);
+  const pill = useAnimatedStyle(() => ({ opacity: shown.value, transform: [{ translateX: x.value }] }));
+  return <View style={s.segTrack} onLayout={e => setW(e.nativeEvent.layout.width - 8)}>
+    {w > 0 ? <Reanimated.View pointerEvents="none" style={[s.segPill, { width: seg }, pill]} /> : null}
+    {items.map((p, k) => <Pressable key={p.word} accessibilityRole="tab" accessibilityState={{ selected: k === active }} accessibilityLabel={`${p.word}, ${p.az}. Dinlə`} onPress={() => onPick(k)} style={s.seg}>
+      <Text style={[s.segWord, p.fresh && { color: d.purple }]} numberOfLines={1} adjustsFontSizeToFit>{p.word}</Text>
+      <Text style={s.segAz} numberOfLines={1} adjustsFontSizeToFit>{p.az}</Text>
+    </Pressable>)}
+  </View>;
+}
+
 /** “Yeni söz” card on the approved teaching layout. */
-export function WordView({ card, onPlay, onWord }: { card: WordCard; onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void }) {
+export function WordView({ card, onPlay, onWord, rate, onRate, playing }: { card: WordCard; onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void; rate?: number; onRate?: () => void; playing?: boolean }) {
   const parts = wordParts(card);
   return <View style={{ gap: 10 }}>
     <LearnView chip="Yeni söz" phrases={card.word.split(/\s*·\s*/)} az={card.az} reading={card.reading} ipa={card.pronunciation} structure={card.structure}
-      notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} shortForm={card.shortForm} onPlay={onPlay} onWord={onWord} />
-    {parts.length ? <View style={[s.parts, { padding: 8, gap: 4 }]} accessibilityLabel="Söz-söz izah">
-      {/* Every new-word card explains each word of the phrase (docs/BUTUN_QAYDALAR.md rule 18): new words in the accent colour. */}
-      <View style={s.partsRow}>{parts.map(p => <Pressable key={p.word} accessibilityRole="button" onPress={() => onPlay(p.word)} style={[s.partChip, { paddingVertical: 3, paddingHorizontal: 8 }, p.fresh && s.partChipNew]}>
-        <Text style={[s.partWord, { fontSize: 15 }, p.fresh && { color: d.purple }]}>{p.word}</Text>
-        <Text style={[s.partAz, { fontSize: 12 }]} numberOfLines={2}>{p.az}</Text>
-      </Pressable>)}</View>
-      {parts.some(p => p.fresh && /th/i.test(p.word)) && !card.notes?.some(n => /\bth\b/i.test(n)) ? <Text style={s.partNote}>th — dilin ucu dişlərin arasında, Thank you-dakı kimi.</Text> : null}
-    </View> : null}
+      notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} shortForm={card.shortForm} onPlay={onPlay} onWord={onWord} rate={rate} onRate={onRate} playing={playing} />
+    {parts.length ? <WordParts parts={parts} onPlay={onPlay} thNote={!card.notes?.some(n => /\bth\b/i.test(n))} /> : null}
   </View>;
 }
 
@@ -706,13 +757,29 @@ function wordParts(card: WordCard) {
 }
 
 const s = StyleSheet.create({
-  parts: { gap: 6, padding: 12, borderRadius: 18, backgroundColor: '#fff', borderWidth: 1, borderColor: d.border },
+  parts: { gap: 8, padding: 10, borderRadius: 24, backgroundColor: '#fff' },
+  segTrack: { flexDirection: 'row', backgroundColor: '#F1F0F7', borderRadius: 16, padding: 4 },
+  segPill: { position: 'absolute', left: 4, top: 4, bottom: 4, borderRadius: 12, backgroundColor: '#fff', shadowColor: '#0F172A', shadowOpacity: .1, shadowRadius: 6, shadowOffset: { width: 0, height: 2 }, elevation: 2 },
+  seg: { flex: 1, alignItems: 'center', paddingVertical: 6, paddingHorizontal: 4 },
+  segWord: { color: d.title, fontSize: 18, ...font.extrabold },
+  segAz: { color: d.inkSoft, fontSize: 13, ...font.semibold },
+  slot: { color: d.purple, backgroundColor: '#F3F0FF', ...font.extrabold },
+  softShadow: { shadowColor: '#5B4B9A', shadowOpacity: .08, shadowRadius: 16, shadowOffset: { width: 0, height: 6 }, elevation: 3 },
+  hero: { alignItems: 'center', gap: 6, backgroundColor: '#fff', borderRadius: 24, paddingVertical: 16, paddingHorizontal: 14 },
+  heroText: { color: d.title, fontSize: 32, lineHeight: 38, textAlign: 'center', ...font.extrabold },
+  capsule: { flexDirection: 'row', alignItems: 'center', gap: 10, alignSelf: 'center', backgroundColor: '#F5F3FF', borderRadius: 999, padding: 5, paddingRight: 16, marginTop: 4 },
+  capPlay: { width: 48, height: 48, borderRadius: 24, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center' },
+  capLine: { width: 1, height: 24, backgroundColor: '#DDD6FE' },
+  capRate: { minWidth: 48, alignItems: 'center' },
+  capRateText: { color: d.purple, fontSize: 17, ...font.extrabold },
+  rowLabel: { color: '#64748B', fontSize: 12, letterSpacing: 1, ...font.extrabold },
+  tipStrip: { backgroundColor: '#F8F7FC', marginHorizontal: -14, paddingHorizontal: 14, paddingVertical: 8, borderBottomLeftRadius: 24, borderBottomRightRadius: 24 },
   partsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   partChip: { minWidth: 64, maxWidth: 150, paddingHorizontal: 10, paddingVertical: 6, borderRadius: 14, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
   partChipNew: { borderColor: d.purple, backgroundColor: d.purpleSoft },
   partWord: { color: d.ink, fontSize: 17, ...font.extrabold },
   partAz: { color: d.inkSoft, fontSize: 13, ...font.bold },
-  partNote: { color: d.lavenderText, fontSize: 14, ...font.bold },
+  partNote: { color: d.ink, fontSize: 14, lineHeight: 20, ...font.semibold, paddingHorizontal: 4 },
   imageSlot: { alignItems: 'center', justifyContent: 'center', gap: 4, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 16, borderWidth: 2, borderStyle: 'dashed', borderColor: d.orange, backgroundColor: d.orangeSoft },
   slotNote: { color: '#B4530A', fontSize: 14, textAlign: 'center', ...font.extrabold },
   sayRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
@@ -725,13 +792,14 @@ const s = StyleSheet.create({
   bannerText: { color: d.ink, fontSize: 30, lineHeight: 36, textAlign: 'center', ...font.extrabold },
   bannerAudio: { flexDirection: 'row', gap: 12 },
   info: { borderRadius: radius.card, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border, paddingHorizontal: 14, paddingVertical: 4 },
+  // Yeni söz breakdown card: borderless, soft shadow, hairline rows (25 Nov 2026).
   infoRow: { flexDirection: 'row', gap: 12, paddingVertical: 9 },
   noteText: { color: d.ink, fontSize: 15, lineHeight: 21, ...font.semibold },
-  infoLine: { borderTopWidth: 1, borderTopColor: d.border },
-  infoTight: { paddingVertical: 2 },
+  infoLine: { borderTopWidth: 1, borderTopColor: '#F1F5F9' },
+  infoTight: { paddingTop: 2, paddingBottom: 0, borderWidth: 0, borderRadius: 24 },
   sfChip: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
   sfWord: { color: d.ink, fontSize: 15, ...font.extrabold },
-  infoIcon: { width: 36, height: 36, borderRadius: 18, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
+  infoIcon: { width: 32, height: 32, borderRadius: 10, backgroundColor: '#F5F3FF', alignItems: 'center', justifyContent: 'center' },
   infoStrong: { color: d.ink, fontSize: 20, lineHeight: 26, ...font.extrabold },
   patterns: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   pattern: { paddingHorizontal: 14, paddingVertical: 6, borderRadius: 999, backgroundColor: d.purpleSoft },
@@ -746,7 +814,7 @@ const s = StyleSheet.create({
   chipsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'flex-end' },
   chip: { minHeight: 40, paddingHorizontal: 14, borderRadius: 14, backgroundColor: d.purple, justifyContent: 'center' },
   chipText: { color: '#fff', fontSize: 17, ...font.extrabold },
-  reading: { color: d.purple, fontSize: 17, textAlign: 'center', ...font.extrabold },
+  reading: { color: '#64748B', fontSize: 17, textAlign: 'center', ...font.bold },
   inRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 8 },
   inBubble: { maxWidth: '78%', paddingHorizontal: 16, paddingVertical: 11, borderRadius: 20, borderBottomLeftRadius: 6, backgroundColor: '#fff', ...shadow, shadowOpacity: .06 },
   bubbleText: { color: d.ink, fontSize: 17, lineHeight: 23, ...font.bold },

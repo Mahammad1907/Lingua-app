@@ -426,11 +426,13 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (showResult) return lesson.exam ? <ExamResult lesson={lesson} records={records} finish={finish} /> : <ResultView lesson={lesson} records={records} finish={finish} />;
     if (!current) return null;
     if (current.type === 'intro') return <IntroView card={current} title={lesson.title} size={imageSize} />;
-    if (current.type === 'word') return <WordView card={current} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
+    if (current.type === 'word') return <WordView card={current} onPlay={(t, r) => speak(t, r ?? 0.85)} onWord={setGloss} rate={rate} playing={playing}
+      onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(current.word.split(/\s*·\s*/).join('. '), 0.85); }} />;
     if (current.type === 'explain') return <TeacherView card={current} onPlay={t => speak(t, 0.85)} />;
     if (current.type === 'teach') return <LearnView chip="Öyrən" title={current.title} lead={current.lead} phrases={current.phrases.map(p => p.en)} az={current.phrases.map(p => p.az).join(' · ')}
       dialog={current.phrases.length > 2 ? current.phrases : undefined}
-      structure={current.structure} notes={current.notes} example={current.example} scenes={current.scenes} onPlay={(t, rate) => speak(t, rate ?? 0.85)} onWord={setGloss} />;
+      structure={current.structure} notes={current.notes} example={current.example} scenes={current.scenes} onPlay={(t, r) => speak(t, r ?? 0.85)} onWord={setGloss}
+      rate={rate} playing={playing} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(current.phrases.map(p => p.en).join('. '), 0.85); }} />;
     return taskView();
   })();
 
