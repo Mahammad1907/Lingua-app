@@ -52,15 +52,15 @@ export default function GlowLine({ active, height = 40, rate = 1 }: { active?: b
       <Defs>
         <LinearGradient id={`g${id}`} x1="0" y1="0" x2="1" y2="0">
           <Stop offset="0" stopColor={d.lavenderMist} stopOpacity={.6} />
-          <Stop offset=".34" stopColor={d.violet} />
-          <Stop offset=".5" stopColor="#A855F7" />
-          <Stop offset=".62" stopColor={d.actionLight} />
-          <Stop offset=".8" stopColor={d.violetLight} />
+          <Stop offset="0.34" stopColor={d.violet} />
+          <Stop offset="0.5" stopColor="#A855F7" />
+          <Stop offset="0.62" stopColor={d.actionLight} />
+          <Stop offset="0.8" stopColor={d.violetLight} />
           <Stop offset="1" stopColor={d.lavenderMist} stopOpacity={.6} />
         </LinearGradient>
         <LinearGradient id={`c${id}`} x1="0" y1="0" x2="1" y2="0">
           <Stop offset="0" stopColor="#fff" stopOpacity={0} />
-          <Stop offset=".5" stopColor="#fff" stopOpacity={.95} />
+          <Stop offset="0.5" stopColor="#fff" stopOpacity={.95} />
           <Stop offset="1" stopColor="#fff" stopOpacity={0} />
         </LinearGradient>
       </Defs>

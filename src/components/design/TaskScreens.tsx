@@ -649,8 +649,8 @@ export function Reading({ text, left }: { text: string; left?: boolean }) {
   </Text>;
 }
 
-function InfoRow({ icon, label, children, first, tight }: { icon: IconName; label: string; children: ReactNode; first?: boolean; tight?: boolean }) {
-  return <View style={[s.infoRow, !first && s.infoLine, tight && { paddingVertical: 6 }]}>
+function InfoRow({ icon, label, children, first, tight, grow }: { icon: IconName; label: string; children: ReactNode; first?: boolean; tight?: boolean; grow?: boolean }) {
+  return <View style={[s.infoRow, !first && s.infoLine, tight && { paddingVertical: 6 }, grow && s.rowGrow]}>
     <View style={s.infoIcon}><Icon name={icon} size={18} color={d.purple} /></View>
     <View style={{ flex: 1, gap: tight ? 2 : 4 }}><Text style={s.rowLabel}>{label.toLocaleUpperCase('az')}</Text>{children}</View>
   </View>;
@@ -668,7 +668,7 @@ function Pattern({ text, small }: { text: string; small?: boolean }) {
 
 /** Teaching card (approved “İlk salam” design): purple banner with the mascot and the phrase in a bubble,
  *  then Mənası · Oxunuşu · Quruluşu · other phrases · Qeyd · Nümunə rows. Used for Yeni söz and Öyrən cards. */
-export function LearnView({ chip, title, lead, phrases, az, reading, ipa, structure, notes, example, scenes, dialog, shortForm, onPlay, onWord, rate = 1, onRate, playing, dense }: {
+export function LearnView({ chip, title, lead, phrases, az, reading, ipa, structure, notes, example, scenes, dialog, shortForm, onPlay, onWord, rate = 1, onRate, playing, dense, glossParts }: {
   chip: string; title?: string; lead?: string; phrases: string[]; az: string; reading?: string; ipa?: string; structure?: string[];
   notes?: string[]; example?: { en: string; az: string }; scenes?: string[];
   /** A short conversation (girl and boy take turns) instead of one phrase in the banner. */
@@ -678,6 +678,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void;
   /** Lesson speed (1x → 0.75x → 0.5x → 1.25x), shared with every normal sound button. */ rate?: number; onRate?: () => void; playing?: boolean;
   /** Compact rows — only when the card does not fit at normal size (decided by the lesson screen). */ dense?: boolean;
+  /** The word-by-word strip is shown under the card, so a word-by-word note would only repeat it. */ glossParts?: boolean;
 }) {
   // Approved simple card (user, 13 Nov 2026): one phrase, its reading in the bubble, then Mənası · (Quruluşu) · Nümunə · one short note.
   // No scrolling, no phonetic line (that stays in the word pop-up and Lüğətim).
@@ -691,7 +692,15 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   const tight = Boolean(dense);
   const art = useArtFit();
   void ipa;
-  return <View style={{ gap: 10 }}>
+  // No repeats on Yeni söz (user, 25 Nov 2026): a Quruluşu that only restates the phrase and a note that only glosses
+  // the words (the strip below already does) are hidden; the rows share the free height so no gap is left at the bottom.
+  const bare = (x: string) => x.toLowerCase().replace(/[^a-z' ]/g, '').replace(/\s+/g, ' ').trim();
+  const showStructure = Boolean(structure?.length) && !(word && structure!.every(p => phrases.some(ph => bare(ph) === bare(p))));
+  // A pure gloss: only “word — meaning” pairs (after an optional “Who’s = Who is:” lead). Notes with any other hint stay.
+  const pureGloss = (n: string) => { const pieces = n.replace(/^[^:=]+=[^:]+:\s*/, '').replace(/\.$/, '').split(/[,;]\s*/);
+    return pieces.length >= 2 && pieces.every(piece => /^[A-Za-z’'.]+ — [^:“”.]+$/.test(piece.trim())); };
+  const note = notes?.[0] && !(glossParts && pureGloss(notes[0])) ? notes[0] : '';
+  return <View style={{ gap: 10, flexGrow: word ? 1 : 0 }}>
     <View style={{ gap: 4 }}>
       <KindChip kind={chip} icon={chip === 'Yeni söz' ? 'tag' : 'layers'} />
       {title ? <Text accessibilityRole="header" style={ds.title}>{title}</Text> : null}
@@ -716,9 +725,9 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
         </View>
       </View>
     </View>}
-    <View style={[s.info, word ? s.softShadow : shadow, word && s.infoTight]}>
-      {dialog ? null : <InfoRow first icon="tag" label="Mənası" tight={tight}><Slotted text={az} style={[s.infoStrong, tight && { fontSize: 18, lineHeight: 23 }]} /></InfoRow>}
-      {shortForm ? <View style={[s.infoRow, s.infoLine, { alignItems: 'center', paddingVertical: 6 }]} accessibilityLabel="Qısa forma">
+    <View style={[s.info, word ? s.softShadow : shadow, word && s.infoTight, word && { flexGrow: 1 }]}>
+      {dialog ? null : <InfoRow first icon="tag" label="Mənası" tight={tight} grow={word}><Slotted text={az} style={[s.infoStrong, tight && { fontSize: 18, lineHeight: 23 }]} /></InfoRow>}
+      {shortForm ? <View style={[s.infoRow, s.infoLine, { alignItems: 'center', paddingVertical: 6 }, word && s.rowGrow]} accessibilityLabel="Qısa forma">
         {/* Short forms are explained where they first appear, without grammar terms (20 Nov 2026). */}
         <View style={s.infoIcon}><Icon name="layers" size={20} color={d.purple} /></View>
         <View style={{ flex: 1, gap: 3 }}>
@@ -731,15 +740,15 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
           <Text style={s.partAz}>Danışıqda qısa deyilir, mənası eynidir. (') düşən hərfin yerini göstərir.</Text>
         </View>
       </View> : null}
-      {structure?.length ? <InfoRow icon="layers" label="Quruluşu" tight={tight}><View style={[s.patterns, tight && { gap: 6 }]}>{structure.map(p => <Pattern key={p} text={p} small={tight} />)}</View></InfoRow> : null}
-      {example ? <View style={[s.infoRow, !dialog && s.infoLine, { alignItems: 'center' }, tight && { paddingVertical: 6 }]}>
+      {showStructure ? <InfoRow icon="layers" label="Quruluşu" tight={tight} grow={word}><View style={[s.patterns, tight && { gap: 6 }]}>{structure.map(p => <Pattern key={p} text={p} small={tight} />)}</View></InfoRow> : null}
+      {example ? <View style={[s.infoRow, !dialog && s.infoLine, { alignItems: 'center' }, tight && { paddingVertical: 6 }, word && s.rowGrow]}>
         <View style={s.infoIcon}><Icon name="chat" size={20} color={d.purple} /></View>
         <View style={{ flex: 1, gap: 1 }}><Text style={s.rowLabel}>NÜMUNƏ</Text><TapText text={example.en} style={[s.exampleEn, tight && { fontSize: 17 }]} onWord={onWord} /><Text style={[s.moreAz, word && { color: d.slate }]}>{nameSlot(example.az)}</Text></View>
         <PlayButton onPress={() => onPlay(example.en)} size={40} label="Nümunəni dinlə" />
       </View> : null}
-      {notes?.length ? <View style={[s.infoRow, (example || !dialog) && s.infoLine, { alignItems: 'center' }, word && s.tipStrip]}>
+      {note ? <View style={[s.infoRow, (example || !dialog) && s.infoLine, { alignItems: 'center' }, word && s.tipStrip]}>
         <View style={s.infoIcon}><Icon name="bulb" size={20} color={d.purple} /></View>
-        <Text style={[s.noteText, { flex: 1 }, tight && { fontSize: 14, lineHeight: 19 }]}>{notes[0]}</Text>
+        <Text style={[s.noteText, { flex: 1 }, tight && { fontSize: 14, lineHeight: 19 }]}>{note}</Text>
       </View> : null}
     </View>
   </View>;
@@ -782,9 +791,9 @@ function Segments({ items, active, onPick }: { items: { word: string; az: string
 export function WordView({ card, onPlay, onWord, rate, onRate, playing, dense }: { card: WordCard; onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void; rate?: number; onRate?: () => void; playing?: boolean; dense?: boolean }) {
   const parts = wordParts(card);
   // Cards start at the top at full size (centering them made the auto-fit shrink the text — user, 25 Nov 2026).
-  return <View style={{ gap: 10 }}>
+  return <View style={{ gap: 10, flexGrow: 1 }}>
     <LearnView chip="Yeni söz" phrases={card.word.split(/\s*·\s*/)} az={card.az} reading={card.reading} ipa={card.pronunciation} structure={card.structure}
-      notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} shortForm={card.shortForm} onPlay={onPlay} onWord={onWord} rate={rate} onRate={onRate} playing={playing} dense={dense} />
+      notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} shortForm={card.shortForm} onPlay={onPlay} onWord={onWord} rate={rate} onRate={onRate} playing={playing} dense={dense} glossParts={parts.length > 0} />
     {parts.length ? <WordParts parts={parts} onPlay={onPlay} thNote={!card.notes?.some(n => /\bth\b/i.test(n))} /> : null}
   </View>;
 }
@@ -856,6 +865,7 @@ const s = StyleSheet.create({
   info: { borderRadius: radius.card, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border, paddingHorizontal: 14, paddingVertical: 4 },
   // Yeni söz breakdown card: borderless, soft shadow, hairline rows (25 Nov 2026).
   infoRow: { flexDirection: 'row', gap: 12, paddingVertical: 12 },
+  rowGrow: { flexGrow: 1, alignItems: 'center' },
   noteText: { color: d.ink, fontSize: 15, lineHeight: 21, ...font.semibold },
   infoLine: { borderTopWidth: 1, borderTopColor: '#F1F5F9' },
   infoTight: { paddingTop: 2, paddingBottom: 0, borderWidth: 0, borderRadius: 24 },
