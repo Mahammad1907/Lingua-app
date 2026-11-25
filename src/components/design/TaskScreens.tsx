@@ -234,6 +234,7 @@ export function MatchBoard({ task, pairs, active, onActive, onPlace, onSay, mark
   task: MatchTask; pairs: Record<string, string>; active: string; onActive: (en: string) => void; onPlace: (az: string) => void; onSay?: (t: string) => void;
   marks?: Record<string, 'correct' | 'wrong'>; disabled?: boolean;
 }) {
+  if (task.mode === 'order' && task.gaps) return <GapBoard task={task} pairs={pairs} active={active} onActive={onActive} onPlace={onPlace} onSay={onSay} marks={marks} disabled={disabled} />;
   if (task.mode === 'order') return <OrderBoard task={task} pairs={pairs} active={active} onActive={onActive} onPlace={onPlace} onSay={onSay} marks={marks} disabled={disabled} />;
   const reply = task.mode === 'reply';
   const used = new Set(Object.values(pairs));
@@ -321,6 +322,45 @@ function OrderBoard({ task, pairs, active, onActive, onPlace, onSay, marks, disa
         <View style={s.chipPlay}><SoundIcon size={13} /></View>
       </Pressable>)}
       {used.size === tray.length ? <Text style={[ds.small, { textAlign: 'center' }]}>Hamısı yerindədir. Yoxla.</Text> : null}
+    </View>
+  </View>;
+}
+
+/** “Söhbəti tamamla” (25 Nov 2026): the conversation stands in order, each line misses one taught word.
+ *  Tap a gap (or just pick — the next empty gap fills), choose the word below; tap a filled gap to take it back. */
+function GapBoard({ task, pairs, active, onActive, onPlace, onSay, marks, disabled }: {
+  task: MatchTask; pairs: Record<string, string>; active: string; onActive: (en: string) => void; onPlace: (az: string) => void; onSay?: (t: string) => void;
+  marks?: Record<string, 'correct' | 'wrong'>; disabled?: boolean;
+}) {
+  const used = Object.values(pairs);
+  const tray = trayOrder([...task.rows.map(r => r.az), ...task.extra]);
+  const target = active && !pairs[active] ? active : task.rows.find(r => !pairs[r.en])?.en;
+  const left = (w: string) => tray.filter(x => x === w).length - used.filter(x => x === w).length;
+  return <View style={{ gap: 10 }}>
+    {task.rows.map(r => {
+      const value = pairs[r.en], mark = marks?.[r.en], right = r.from === 'B', on = target === r.en && !disabled && !value;
+      const color = mark === 'correct' ? d.greenText : mark === 'wrong' ? d.redText : d.purple;
+      const [before, after] = (r.line ?? '___').split('___');
+      return <View key={r.en} style={[s.turn, right && { flexDirection: 'row-reverse' }]}>
+        {r.from ? <Avatar who={r.from} size={34} /> : null}
+        <View style={[s.gapBubble, right && { borderBottomRightRadius: 6, borderBottomLeftRadius: 18 }]}>
+          <Text style={s.turnText}>{nameSlot(before)}
+            <Text accessibilityRole="button" onPress={disabled ? undefined : () => { tapHaptic(); onActive(r.en); }}
+              accessibilityLabel={value ? `${value}. Geri qaytarmaq üçün toxun` : 'Boşluq'}
+              style={[s.gapWord, value ? { color, textDecorationLine: 'none' } : on ? s.gapOn : s.gapEmpty]}>{value ? ` ${value} ` : ' ______ '}</Text>
+            {nameSlot(after)}</Text>
+        </View>
+        {onSay && value ? <SoundButton soft size={32} label="Dinlə" onPress={() => onSay(`${before}${value}${after}`)} /> : null}
+      </View>;
+    })}
+    <View style={s.gapTray}>
+      {[...new Set(tray)].map(w => {
+        const gone = left(w) <= 0;
+        return <Pressable key={w} accessibilityRole="button" accessibilityState={{ disabled: disabled || gone }} disabled={disabled || gone}
+          onPress={() => { tapHaptic(); onPlace(w); }} style={({ pressed }) => [s.gapChip, gone ? s.mChipUsed : shadow, pressed && { transform: [{ scale: .96 }] }]}>
+          <Text style={[s.mChipText, gone && { color: d.purpleDisabledText }]}>{w}</Text>
+        </Pressable>;
+      })}
     </View>
   </View>;
 }
@@ -866,6 +906,12 @@ const s = StyleSheet.create({
   mTop: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   mAvatar: { width: 40, height: 40, borderRadius: 20, overflow: 'hidden', backgroundColor: d.purpleSoft },
   mEn: { flex: 1, color: d.ink, fontSize: 17, ...font.extrabold },
+  gapBubble: { flex: 1, paddingHorizontal: 14, paddingVertical: 10, borderRadius: 18, borderBottomLeftRadius: 6, backgroundColor: '#fff', ...shadow, shadowOpacity: .06 },
+  gapWord: { ...font.extrabold, borderRadius: 6 },
+  gapOn: { color: d.violet, backgroundColor: '#EDE9FE' },
+  gapEmpty: { color: '#B8BCCB', backgroundColor: '#F3F4F8' },
+  gapTray: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, justifyContent: 'center', paddingTop: 6 },
+  gapChip: { minHeight: 46, minWidth: 80, paddingHorizontal: 18, borderRadius: 14, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
   mSlot: { minHeight: 46, borderRadius: 12, paddingHorizontal: 14, justifyContent: 'center' },
   mSlotFilled: { borderWidth: 1.5, borderColor: 'transparent', backgroundColor: d.purpleSoft }, // same border width as the empty slot: no shift
   mSlotActive: { borderWidth: 1.5, borderStyle: 'dashed', borderColor: d.violet, backgroundColor: '#F5F3FF' },

@@ -24,6 +24,7 @@ import {
 import type { TaskEvidence } from '../../utils/lessonEvidence';
 import type { SpokenAnswer, UnverifiedRecording } from '../../utils/speechTurn';
 import HoldToTalk from './HoldToTalk';
+import { gapVersion } from '../../utils/orderGaps';
 import { ChatTimeline } from './ChatTimeline';
 import { Avatar, ChatThread, TapText, SoundIcon, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TeacherView, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
 import Icon, { type IconName } from './Icons';
@@ -129,7 +130,13 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const recordsRef = useRef<Record<string, TaskRecord>>({}); // for the schedule entry written when the lesson finishes
   const reviewIds = reviewing ? queue : [];
   const current: FlowCard | undefined = showResult ? undefined : reviewing ? reviewTask(lesson, reviewIds[reviewStep]) : flow[index];
-  const task = isTask(current) ? current : undefined;
+  // “Söhbəti sırala” alternates with its word version “Söhbəti tamamla” across the course (user, 25 Nov 2026).
+  const gapIds = useMemo(() => new Set(flow.filter(c => c.type === 'match' && c.mode === 'order').map(c => c.id)
+    .filter((_, k) => (lesson.order + k) % 2 === 1)), [flow, lesson.order]);
+  const task = useMemo(() => {
+    const t0 = isTask(current) ? current : undefined;
+    return t0 && t0.type === 'match' && t0.mode === 'order' && gapIds.has(t0.id) ? gapVersion(t0) ?? t0 : t0;
+  }, [current, gapIds]);
   const audio = task && (task.type === 'choice' || task.type === 'write' || task.type === 'voice' || task.type === 'drag' || task.type === 'profile') ? task.audio : undefined;
   const listeningTask = Boolean(audio && task?.type !== 'voice');
 
@@ -335,7 +342,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     }
     if (task.type === 'match') {
       const graded = gradeMatch(task, pairs);
-      if (graded.status === 'empty') { setNotice(task.mode === 'order' ? 'Bütün balonları yerləşdir.' : task.mode === 'reply' ? 'Hər cümləyə bir cavab qoy.' : 'Hər cümləyə bir məna qoy.'); return; }
+      if (graded.status === 'empty') { setNotice(task.mode === 'order' ? (task.gaps ? 'Bütün boşluqları doldur.' : 'Bütün balonları yerləşdir.') : task.mode === 'reply' ? 'Hər cümləyə bir cavab qoy.' : 'Hər cümləyə bir məna qoy.'); return; }
       setNotice(''); locked.current = true; store(task.id, graded.status === 'correct', false);
       setResult({ kind: 'single', graded });
       return;
@@ -499,8 +506,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       </View>
       {/* Task line (25 Nov 2026): one crisp slate subtitle under the title on every task screen — no framed box. */}
       {/* Matching screens show only the instruction (user, 25 Nov 2026): the situation line adds nothing there. */}
-      {mascotTalks ? <SayBubble who="M" text={instruction} /> : <Text style={s.taskSub}>{task.type === 'match' && task.mode !== 'order'
-        ? (task.mode === 'reply' ? 'Cümləyə toxun, sonra cavabını seç.' : 'İfadəyə toxun, sonra mənasını seç.') : clean.join(' ')}</Text>}
+      {mascotTalks ? <SayBubble who="M" text={instruction} /> : <Text style={s.taskSub}>{task.type === 'match'
+        ? (task.mode === 'order' ? (task.gaps ? 'Boşluğa toxun, sonra sözü seç.' : 'Balonlara toxun, söhbəti sıraya düz.')
+          : task.mode === 'reply' ? 'Cümləyə toxun, sonra cavabını seç.' : 'İfadəyə toxun, sonra mənasını seç.') : clean.join(' ')}</Text>}
       {mascotTalks && context ? <Text style={s.taskSub}>{context}</Text> : null}
       <View style={s.work}>
       {noArt ? null : scene && !spotsShown ? <Image source={scene} style={[s.scene, art < 1 && !keyboardOpen && { aspectRatio: 16 / 9 / art }]} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}

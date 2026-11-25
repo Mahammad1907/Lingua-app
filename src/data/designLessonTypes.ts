@@ -83,7 +83,10 @@ export interface MatchTask extends BaseTask {
   mode?: 'meaning' | 'reply' | 'order';
   /** avatar (25 Nov 2026): the character's picture for this sentence, e.g. require('../../../assets/characters/nene.png').
    *  Optional — until the picture exists, the speaker's circle (from) or a neutral placeholder is shown. */
-  rows: { en: string; az: string; from?: Who; avatar?: number | { uri: string } }[];
+  rows: { en: string; az: string; from?: Who; avatar?: number | { uri: string };
+    /** Word mode of “Söhbəti sırala” (set by utils/orderGaps): the whole line with “___” where `az` (the missing word) goes. */ line?: string }[];
+  /** Word mode of an order task (“Söhbəti tamamla”, 25 Nov 2026) — set at run time, never in lesson data. */
+  gaps?: boolean;
   /** Extra meanings that fit no sentence. */
   extra: string[];
 }

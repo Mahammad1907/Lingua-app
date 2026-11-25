@@ -150,6 +150,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 24 Noy | G6 (narıncı düymə və bar, ▶, cavabdan sonra yaşıl/qırmızı); yeni izah ekranı; G7 (ortaq elementlər, KindChip); G8 (vəziyyət ↔ ekran); mesajlaşma ekranı |
 | 25 Noy | Vahid dizayn sistemi: fon #F6F7FB, narıncı qradiyent #F97316→#EA580C (hər yerdə), başlıqda bənövşəyi vurğu, çərçivəsiz tapşırıq cümləsi, Glow Line, AI Voice Orb, “İndi danışa bilmirəm”; sürət dövrü qalır (1x→0.75x→0.5x→1.25x) |
 | 25 Noy | Orb: yalnız orb, susanda avto-göndər, öz səsləri; çatda ↑ + “...” + reaksiya yalnız düz cavabda (Dərs 1 emoji, sonra öyrədilmiş sözlər); “İki mesajı özün yaz” çat xətti; titrəmə və mikro-hərəkətlər hər ekranda |
+| 25 Noy | “Söhbəti sırala” hibrid: hər söhbət ya cümlə rejimində (balonları sırala), ya söz rejimində (“Söhbəti tamamla” — sətirlər yerində, hər birində bir öyrədilmiş söz boş + 1–2 yanlış söz); kursda növbə ilə (`utils/orderGaps.ts`, dərsin sırası + tapşırığın sırası); vəziyyət yazısı yoxdur |
 | 25 Noy | “xarici dost” sözü çıxarıldı: adsız xarici dost hər yerdə “dostun” kimi yazılır (ad seçiləndə adı); Uyğunlaşdır ekranlarında yalnız “Cümləyə toxun, sonra cavabını seç.” / “İfadəyə toxun, sonra mənasını seç.”; cavab xanası sıçramır (yaysız fade) |
 | 25 Noy | Yeni söz/Öyrən: adi ölçüdə geniş, yığcam yalnız sığmayanda; lüğət: who's = kimdir |
 | 25 Noy | Xəritə: maket görünüşü + su kimi dolan ada, faizlə tündləşən dairələr, eyni firuzəyi halqa (parıltılı), rəngsiz yol irəlilədikcə işıqlanır |
