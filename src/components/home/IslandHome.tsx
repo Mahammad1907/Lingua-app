@@ -1,23 +1,26 @@
-// Home as an island (user's concept; layout A5 approved 13 noyabr 2026).
-// The whole section fits on one screen. Lessons run top → bottom as round nodes with a progress ring and
-// a name + % label. The island fills with water from the top as lessons are completed and turns deep purple
-// when the section is done. The path between lessons is dotted and coloured as far as you have got.
-// Every lesson has a small name + % card beside its circle. The mascot sits in the top-right corner.
-// 23 Nov 2026 (user): the dark “Gündəlik təkrar” card sits under the first section title; the AI zəng card sits
-// inside the map, on the path in the middle of the section (after lesson 4 of 8); after the last lesson the path
-// goes straight to the section-exam trophy, which stands between this map and the next one.
+// Home as an island (user's concept; layout A5 approved 13 Nov 2026; redesigned 25 Nov 2026).
+// 25 Nov 2026 design: canvas #F6F7FB; top brand bar; a sticky unit header that follows the section on screen; the
+// dark gradient “Gündəlik təkrar” card; pure white wavy islands with a whisper-soft shadow; lessons are duotone icon
+// circles on a dotted S-path with the name + % beside them (no cards, no numbers); the current lesson is a larger
+// orange node with a breathing halo; the AI zəng card sits on the path in the middle; a white hourglass bridge joins
+// each island to the next with the section-exam trophy in its waist (no dots, no text there); tapping a lesson opens
+// a bottom sheet with its parts.
 import { Image } from 'expo-image';
+import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState, type ReactNode, type Ref } from 'react';
 import { AccessibilityInfo, Animated, Easing, Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import Svg, { Circle, ClipPath, Defs, G, Path, Rect } from 'react-native-svg';
+import Reanimated, { Easing as REasing, FadeIn, SlideInDown, useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Circle, G, Path, Text as SvgText } from 'react-native-svg';
 import Icon from '../design/Icons';
+import { Pop, tapHaptic } from '../design/parts';
 import { d, font, shadow } from '../design/theme';
 import { HomeIcon } from './HomeIcon';
+import LessonIcon, { type LessonIconName } from './LessonIcon';
+import { APP_NAME } from '../../utils/onboarding';
 
-/** A map lesson. With `parts` (Bölmə 2: lessons 1, 3, 7) the node stands for both parts: the ring is split in two
- *  and the card lets you open each part; the node is done when both parts are done. */
-export interface IslandLesson { id: string; number: number; title: string; phrases?: string; parts?: { id: string; title: string }[]; minutes?: number }
+export interface IslandLesson { id: string; number: number; title: string; phrases?: string; parts?: { id: string; title: string }[]; minutes?: number; icon?: LessonIconName }
 /** Section exam button under the map (flag). Opens when every lesson of the section is done. */
 export interface IslandExam { id: string; percent: number | null; passed: boolean }
 
@@ -25,19 +28,7 @@ const mascotHead = require('../../../assets/mascot/hood_head.png');
 
 // The user's wavy, cloud-like island outline, drawn for a 350 × 800 box.
 const OUTLINE = 'M70 30 C110 6 150 22 176 14 C206 4 238 18 268 22 C312 28 334 70 330 110 C326 150 346 178 340 222 C334 268 312 290 320 336 C328 384 346 410 338 456 C330 500 306 520 314 566 C322 612 342 640 330 686 C318 736 280 770 228 782 C188 792 150 778 116 786 C74 796 34 770 22 728 C10 686 28 650 20 606 C12 560 -2 530 10 486 C22 442 44 420 34 374 C24 328 4 298 14 254 C24 210 48 186 40 142 C32 98 34 54 70 30 Z';
-const NODE = 56, ACTIVE = 72;
-
-// Every section has its own colour, different from the app colours (user, 20 Nov 2026).
-// Lesson circles darken with their percentage; the dotted path to the next lesson glows as it fills.
-const SECTION_COLORS = [
-  { base: '#14A3A3', dark: '#0B6E70', soft: '#D4F2F1' }, { base: '#3B7DF0', dark: '#1F4FB0', soft: '#DCE8FD' },
-  { base: '#3DA35D', dark: '#226B3A', soft: '#DDF2E3' }, { base: '#E0567A', dark: '#A12E50', soft: '#FBDDE6' },
-  { base: '#E0A21B', dark: '#9A6A07', soft: '#FBEFCF' }, { base: '#5C6BC0', dark: '#38458F', soft: '#E1E4F6' },
-  { base: '#D9623B', dark: '#963A1C', soft: '#FADFD5' }, { base: '#8E5BC9', dark: '#5E3391', soft: '#EADFF7' },
-  { base: '#1E9BD7', dark: '#11668F', soft: '#D6EEF9' }, { base: '#7A9A1F', dark: '#4F6610', soft: '#ECF2D4' },
-];
-const hex = (c: string) => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
-const mix = (a: string, b: string, t: number) => '#' + hex(a).map((v, i) => Math.round(v + (hex(b)[i] - v) * Math.min(1, Math.max(0, t))).toString(16).padStart(2, '0')).join('');
+const NODE = 62, HOT = 76, TROPHY = 58;
 
 type Pt = { x: number; y: number };
 const lerp = (a: Pt, b: Pt, t: number) => ({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t });
@@ -46,33 +37,28 @@ function splitCubic(p0: Pt, p1: Pt, p2: Pt, p3: Pt, t: number) {
   const a = lerp(p0, p1, t), b = lerp(p1, p2, t), c = lerp(p2, p3, t), ab = lerp(a, b, t), bc = lerp(b, c, t), e = lerp(ab, bc, t);
   return `M${p0.x} ${p0.y} C${a.x} ${a.y} ${ab.x} ${ab.y} ${e.x} ${e.y}`;
 }
-/** Link colour: pale at the start of the section, deeper towards the end. */
-function water(w: number, h: number, level: number) {
-  if (level <= 0) return { body: '', edge: '' };
-  if (level >= 1) return { body: `M0 0 H${w} V${h} H0 Z`, edge: '' };
-  const y = 10 + level * (h - 20);
-  const pts: string[] = [];
-  for (let x = w; x >= 0; x -= 10) pts.push(`${x} ${(y + Math.sin(x / 26) * 5).toFixed(1)}`);
-  return { body: `M0 0 L${w} 0 L${pts.join(' L')} Z`, edge: `M${pts.join(' L')}` };
-}
-
-export function IslandHome({ section, sectionTitle, lessons, completed, partial, locked, nextSection, streak, xp, languageLabel, topInset, bottomSpace, review,
-  onSelectLanguage, onOpenLesson, onAnalysis, onReview, onNextSection, exam, onPrevSection, allOpen = false, bare = false, after, scrollRef, onActiveY, focusId }: {
+export function IslandHome({ section, sectionTitle, lessons, completed, partial, locked, streak, xp, languageLabel, topInset, bottomSpace, review,
+  onSelectLanguage, onOpenLesson, onAnalysis, onReview, exam, allOpen = false, bare = false, after, scrollRef, onActiveY, focusId, hasNext = false, sticky, sectionTops }: {
   section: number; sectionTitle: string; lessons: IslandLesson[]; completed: string[]; partial: Record<string, number>; locked: boolean;
   nextSection?: { title: string; available: boolean };
   exam?: IslandExam; onPrevSection?: () => void;
   /** Temporary test access: every lesson, part and the exam open in any order (src/config/testAccess.ts). */
   allOpen?: boolean;
-  /** Stacked page: `bare` = only head, map and exam; `after` = the next sections under the first one. */
+  /** Stacked page: `bare` = only the island; `after` = the next sections under the first one. */
   bare?: boolean; after?: ReactNode; scrollRef?: Ref<ScrollView>;
   /** y of the current lesson inside this island (for opening the map where the learner is). */
   onActiveY?: (y: number) => void;
-  /** Lesson (or part) last opened from the map: the page scrolls to it instead of the first unfinished one. */
+  /** Lesson (or part) last opened from the map: the page scrolls to it and it is drawn as the orange “current” node. */
   focusId?: string;
+  /** A next section follows: the island ends in the white bridge neck that joins it (trophy in the waist). */
+  hasNext?: boolean;
+  /** Sticky header data for every section (first island only) and where each section starts on the page. */
+  sticky?: { section: number; title: string; done: number; count: number }[]; sectionTops?: { current: Record<number, number> };
   streak: number; xp: number; languageLabel: string; topInset: number; bottomSpace: number; review: { count: number };
   onSelectLanguage: () => void; onOpenLesson: (id: string) => void; onAnalysis: () => void; onReview: () => void; onNextSection?: () => void;
 }) {
   const { width, height } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
   const [open, setOpen] = useState<IslandLesson | null>(null);
   const count = lessons.length;
   const partPct = (id: string) => completed.includes(id) ? 100 : partial[id] ?? 0;
@@ -80,12 +66,9 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   const doneCount = lessons.filter(isDone).length;
   const active = locked ? -1 : lessons.findIndex(l => !isDone(l));
   const finished = count > 0 && doneCount === count;
-  const level = count ? doneCount / count : 0;
   const examOpen = finished || allOpen;
   const percentOf = (l: IslandLesson) => l.parts ? Math.round(l.parts.reduce((a, p) => a + partPct(p.id), 0) / l.parts.length) : partPct(l.id);
   const activePart = active >= 0 ? percentOf(lessons[active]) / 100 : 0;
-  const tone = SECTION_COLORS[(section - 1 + SECTION_COLORS.length) % SECTION_COLORS.length];
-  const shade = (pct: number, isActive: boolean) => isActive ? mix(tone.base, tone.dark, pct / 100) : mix(tone.soft, tone.dark, .3 + .7 * pct / 100);
   // Soft pulsing light on the part of the path being filled; still when the system asks for reduced motion.
   const glow = useRef(new Animated.Value(.45)).current;
   useEffect(() => {
@@ -101,222 +84,256 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
     return () => { alive = false; loop?.stop(); };
   }, [glow]);
 
-  // Size the island to the space left under the header (and the daily-review card); the trophy continues below it.
   const W = Math.min(width - 28, 400);
   // The AI zəng card sits on the path after the middle lesson (lesson 4 of 8); that gap is a little taller.
   const aiAt = count >= 2 ? Math.ceil(count / 2) - 1 : -1;
   const AI_GAP = aiAt >= 0 ? 76 : 0;
-  const H = Math.max(420, height - topInset - 132 - bottomSpace - 16 - 150 - (bare ? 0 : REVIEW_H)) + AI_GAP;
-  const step = (H - 68 - AI_GAP) / Math.max(count - 1, 1);
-  // Circles near the left / right edge, so the labels have the middle to themselves (user, 20 Nov 2026).
-  const pts: Pt[] = lessons.map((_, i) => ({ x: W * (i % 2 ? .83 : .17), y: 34 + i * step + (aiAt >= 0 && i > aiAt ? AI_GAP : 0) }));
-  const last = pts[count - 1];
-  // The path from the middle lesson to the next one passes through the centre at half height: the AI card sits there.
+  const H = Math.max(560, height - topInset - 132 - bottomSpace - 16 - 60) + AI_GAP;
+  const step = (H - 90 - AI_GAP) / Math.max(count - 1, 1);
+  const pts: Pt[] = lessons.map((_, i) => ({ x: W * (i % 2 ? .82 : .18), y: 46 + i * step + (aiAt >= 0 && i > aiAt ? AI_GAP : 0) }));
   const aiPt: Pt | null = aiAt >= 0 ? { x: (pts[aiAt].x + pts[aiAt + 1].x) / 2, y: (pts[aiAt].y + pts[aiAt + 1].y) / 2 } : null;
-  const trophyPt: Pt = { x: W / 2, y: H + 60 };
-  const EXTRA = exam ? 60 + 78 : 20;
+  // Bridge (25 Nov 2026): a white hourglass neck under the island; the trophy sits in its waist. No dots, no text.
+  const EXTRA = exam ? (hasNext ? 190 : 120) : 20;
+  const waistY = H + (hasNext ? EXTRA / 2 - 6 : 54);
+  const trophyPt: Pt = { x: W / 2, y: waistY };
   const focused = focusId ? lessons.findIndex(l => l.id === focusId || l.parts?.some(p => p.id === focusId)) : -1;
   const focus = focused >= 0 ? focused : active;
-  // The saved lesson loads after the first layout: report its place again when it arrives.
+  // The orange “current lesson” node: the lesson last opened, else the first unfinished one.
+  const hot = locked ? -1 : focus;
   const layoutY = useRef<number | null>(null);
   const focusY = focus >= 0 ? pts[focus].y : null;
-  useEffect(() => { if (layoutY.current !== null && focusY !== null) onActiveY?.(layoutY.current + (bare ? 28 : 0) + focusY); }, [focusY]); // eslint-disable-line react-hooks/exhaustive-deps
-  const w = water(W, H, level);
+  useEffect(() => { if (layoutY.current !== null && focusY !== null) onActiveY?.(layoutY.current + (bare ? -40 : 0) + focusY); }, [focusY]); // eslint-disable-line react-hooks/exhaustive-deps
   const sx = W / 350, sy = H / 800;
+  const cx = W / 2, top = H - 60, hwT = W * .26, hwW = Math.max(40, W * .12), y1 = H + EXTRA;
+  const neck = hasNext
+    ? `M${cx - hwT} ${top} C${cx - hwT} ${top + 60} ${cx - hwW} ${waistY - 46} ${cx - hwW} ${waistY} C${cx - hwW} ${waistY + 46} ${cx - hwT} ${y1 - 50} ${cx - hwT} ${y1}`
+      + ` L${cx + hwT} ${y1} C${cx + hwT} ${y1 - 50} ${cx + hwW} ${waistY + 46} ${cx + hwW} ${waistY} C${cx + hwW} ${waistY - 46} ${cx + hwT} ${top + 60} ${cx + hwT} ${top} Z`
+    : `M${cx - hwT} ${top} C${cx - hwT} ${top + 50} ${cx - hwW} ${waistY - 40} ${cx - hwW} ${waistY} A${hwW} ${hwW} 0 0 0 ${cx + hwW} ${waistY} C${cx + hwW} ${waistY - 40} ${cx + hwT} ${top + 50} ${cx + hwT} ${top} Z`;
 
-  const body = <>
-    {bare ? null : <StatusBar style="dark" />}
-    {bare ? null : <View style={s.topBar}>
-      <Pressable accessibilityRole="button" accessibilityLabel={`Dil və səviyyə: ${languageLabel}`} onPress={onSelectLanguage} style={s.brandRow}>
-        <Text style={s.brand}>BirTalk</Text>
-        <View style={s.langChip}><Text style={s.langText}>{languageLabel}</Text><HomeIcon name="down" color={d.purple} size={13} /></View>
-      </Pressable>
-      <View style={{ flexDirection: 'row', gap: 6 }}>
-        <Pressable accessibilityRole="button" accessibilityLabel="Analiz" onPress={onAnalysis} style={s.iconChip}><Icon name="chart" size={18} color={d.purple} /></Pressable>
-        <View style={s.stat} accessibilityLabel={`${streak} gün ardıcıl`}><HomeIcon name="bolt" color={d.orange} size={15} /><Text style={s.statText}>{streak}</Text></View>
-        <View style={s.stat} accessibilityLabel={`${xp} xal`}><Text style={[s.statText, { color: '#C99A00' }]}>★</Text><Text style={s.statText}>{xp}</Text></View>
-      </View>
-    </View>}
+  // Sticky unit header (first island only): follows the section on screen.
+  const [shown, setShown] = useState(sticky?.[0]?.section ?? section);
+  const onScroll = (y: number) => {
+    if (!sticky || !sectionTops) return;
+    let at = sticky[0].section;
+    for (const it of sticky) { const t0 = sectionTops.current[it.section]; if (t0 !== undefined && it.section !== sticky[0].section && t0 <= y + 40) at = it.section; }
+    if (at !== shown) setShown(at);
+  };
+  const head = sticky?.find(x => x.section === shown) ?? { section, title: sectionTitle, done: doneCount, count };
+  const headLevel = head.count ? head.done / head.count : 0;
 
-    <View style={s.head}>
-      <View style={{ flex: 1 }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-          {onPrevSection ? <Pressable accessibilityRole="button" accessibilityLabel={`Bölmə ${section - 1}-ə qayıt`} onPress={onPrevSection} hitSlop={8} style={s.prev}>
-            <Icon name="back" size={13} color={d.purple} /><Text style={s.prevText}>Bölmə {section - 1}</Text></Pressable> : null}
-          <Text style={s.sectionNo}>BÖLMƏ {section}</Text>
-        </View>
-        <Text accessibilityRole="header" style={s.sectionTitle}>{sectionTitle}</Text>
-      </View>
-      <View style={s.progress} accessibilityLabel={`${doneCount} dərs bitib, ${Math.round(level * 100)} faiz`}>
-        <Svg width={30} height={30}><Circle cx={15} cy={15} r={12} stroke="#E6DAFB" strokeWidth={4} fill="none" />
-          <Circle cx={15} cy={15} r={12} stroke={d.purple} strokeWidth={4} fill="none" strokeLinecap="round" strokeDasharray={`${2 * Math.PI * 12 * level} 80`} transform="rotate(-90 15 15)" /></Svg>
-        <View><Text style={s.progressPct}>{Math.round(level * 100)}%</Text><Text style={s.progressSub}>{doneCount}/{count} dərs</Text></View>
-      </View>
-      <Image source={mascotHead} style={{ width: 44, height: 40 }} contentFit="contain" accessibilityLabel="Maskot" />
-    </View>
-
-    {/* Daily review: once, under the first section title (user, 23 Nov 2026). */}
-    {bare ? null : <View style={s.review}>
-      <View style={s.reviewIcon}><HomeIcon name="repeat" color={d.orange} size={22} /></View>
-      <View style={{ flex: 1 }}>
-        <Text style={s.reviewTitle}>Gündəlik təkrar</Text>
-        <Text style={s.reviewSub} numberOfLines={1}>{review.count ? `Bu gün ${review.count} ifadə` : 'Səhvlərin burada toplanacaq'}</Text>
-      </View>
-      <Pressable accessibilityRole="button" accessibilityLabel="Gündəlik təkrara başla" onPress={onReview}
-        style={({ pressed }) => [s.reviewBtn, pressed && { opacity: .9 }]}><Text style={s.reviewBtnText}>Başla</Text></Pressable>
-    </View>}
-
-    <View style={{ width: W, height: H + EXTRA, alignSelf: 'center' }} onLayout={e => { layoutY.current = e.nativeEvent.layout.y; if (focus >= 0) onActiveY?.(layoutY.current + (bare ? 28 : 0) + pts[focus].y); }}>
-      <Svg width={W} height={H + EXTRA} style={StyleSheet.absoluteFill}>
-        {(() => {
-          const chain = [last, ...(exam ? [trophyPt] : [])].filter(Boolean) as Pt[];
-          return chain.slice(0, -1).map((a, i) => {
-            const b = chain[i + 1], m = (a.y + b.y) / 2;
-            const trophyLeg = exam && i === chain.length - 2;
-            return <Path key={i} d={`M${a.x} ${a.y} C${a.x} ${m} ${b.x} ${m} ${b.x} ${b.y}`} fill="none"
-              stroke={trophyLeg && finished ? tone.base : '#DCCFF6'} strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 13" />;
-          });
-        })()}
-        <Defs><ClipPath id="island"><Path d={OUTLINE} transform={`scale(${sx} ${sy})`} /></ClipPath></Defs>
-        <Path d={OUTLINE} transform={`translate(0 8) scale(${sx} ${sy})`} fill={mix(tone.soft, tone.base, .25)} />
-        <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill={finished ? tone.soft : '#FBF8FF'} stroke={finished ? tone.dark : mix(tone.soft, tone.base, .4)} strokeWidth={finished ? 3 : 2} />
-        <G clipPath="url(#island)">
-          {w.body ? <Path d={w.body} fill={finished ? tone.dark : tone.base} opacity={.45} /> : null}
-          {w.edge ? <Path d={w.edge} fill="none" stroke="#fff" strokeWidth={2.5} opacity={.8} /> : null}
-        </G>
-        {pts.slice(0, -1).map((a, i) => {
-          const b = pts[i + 1], m = (a.y + b.y) / 2;
-          const c1 = { x: a.x, y: m }, c2 = { x: b.x, y: m };
-          const full = `M${a.x} ${a.y} C${c1.x} ${c1.y} ${c2.x} ${c2.y} ${b.x} ${b.y}`;
-          const done = active < 0 ? (finished || i < doneCount - 1) : i < active;
-          const part = i === active && activePart > 0 ? splitCubic(a, c1, c2, b, activePart) : '';
-          return <G key={i}>
-            <Path d={full} fill="none" stroke="#DCCFF6" strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 13" />
-            {done ? <Path d={full} fill="none" stroke={tone.base} strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
-            {part ? <Path d={part} fill="none" stroke={tone.base} strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
-          </G>;
-        })}
-      </Svg>
-      {active >= 0 && active < count - 1 && activePart > 0 ? <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, { opacity: glow }]}>
-        <Svg width={W} height={H}>{(() => {
-          const a = pts[active], b = pts[active + 1], m = (a.y + b.y) / 2;
-          const part = splitCubic(a, { x: a.x, y: m }, { x: b.x, y: m }, b, activePart);
-          return <><Path d={part} fill="none" stroke={tone.base} strokeWidth={18} strokeLinecap="round" opacity={.25} />
-            <Path d={part} fill="none" stroke="#fff" strokeWidth={4} strokeLinecap="round" strokeDasharray="0.1 13" /></>;
-        })()}</Svg>
-      </Animated.View> : null}
-
-      {lessons.map((lesson, i) => {
-        const p = pts[i], done = isDone(lesson), isActive = i === active;
-        const size = isActive ? ACTIVE : NODE, pct = percentOf(lesson);
-        const r = size / 2 - 3, c = 2 * Math.PI * r;
-        const reachable = !locked && (done || isActive);
-        const right = p.x > W / 2;
-        return <View key={lesson.id} pointerEvents="box-none" style={StyleSheet.absoluteFill}>
-          <Pressable accessibilityRole="button" accessibilityLabel={`Dərs ${lesson.number}: ${lesson.title}, ${pct} faiz${reachable ? '' : ', kilidlidir'}`}
-            onPress={() => setOpen(lesson)}
-            style={({ pressed }) => [s.node, { left: p.x - size / 2, top: p.y - size / 2, width: size, height: size, borderRadius: size / 2 },
-              isActive && [s.nodeActiveShadow, { shadowColor: tone.base }], pressed && { transform: [{ scale: .95 }] }]}>
-            <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
-              <Circle cx={size / 2} cy={size / 2} r={r} stroke={isActive ? mix(tone.soft, tone.base, .5) : '#E6DAFB'} strokeWidth={4} fill="none" />
-              {lesson.parts ? lesson.parts.map((part, k) => {
-                // Two halves with a small gap at the top and bottom; each half fills with its own part.
-                const gap = 7, half = c / lesson.parts!.length, len = half - gap, fill = len * partPct(part.id) / 100;
-                const at = `rotate(${-90 + k * 360 / lesson.parts!.length} ${size / 2} ${size / 2})`;
-                return <G key={part.id}>
-                  <Circle cx={size / 2} cy={size / 2} r={r} stroke="#fff" strokeWidth={5} fill="none" strokeDasharray={`${gap} ${c}`} strokeDashoffset={gap / 2} transform={at} />
-                  {fill > 0 && !done ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={partPct(part.id) === 100 ? tone.dark : tone.base} strokeWidth={4} fill="none"
-                    strokeDasharray={`${fill} ${c}`} strokeDashoffset={-gap / 2} transform={at} /> : null}
-                </G>;
-              }) : pct > 0 && pct < 100 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={tone.dark} strokeWidth={4} fill="none" strokeLinecap="round"
-                strokeDasharray={`${c * pct / 100} ${c}`} transform={`rotate(-90 ${size / 2} ${size / 2})`} /> : null}
-            </Svg>
-            <View style={[s.nodeInner, { width: size - 14, height: size - 14, borderRadius: (size - 14) / 2 },
-              done ? { backgroundColor: tone.dark } : isActive || (reachable && pct > 0) ? { backgroundColor: shade(pct, isActive) } : s.nodeLocked]}>
-              {done ? <HomeIcon name="check" color="#fff" size={22} /> : <Text style={[s.nodeText, (isActive || pct >= 50) && { color: '#fff' }, !isActive && pct > 0 && pct < 50 && { color: tone.dark }, isActive && { fontSize: 24 }]}>{lesson.number}</Text>}
-            </View>
-          </Pressable>
-          {/* Every lesson: a small card with the name and % beside its circle (user, 20 Nov 2026). */}
-          {(() => {
-            const avail = Math.min(176, right ? p.x - size / 2 - 14 : W - p.x - size / 2 - 14);
-            const side = right ? { right: W - (p.x - size / 2 - 8), alignItems: 'flex-end' as const } : { left: p.x + size / 2 + 8 };
-            return <View pointerEvents="none" style={[s.card, side, { width: avail, top: p.y - 22 }, isActive && { borderColor: tone.base, borderWidth: 1.5 }]}>
-              <Text style={[s.cardTitle, right && { textAlign: 'right' }]} numberOfLines={1}>{lesson.title}</Text>
-              <Text style={[s.cardPct, { color: done ? d.greenText : tone.dark }, right && { textAlign: 'right' }]}>{pct}%</Text>
-            </View>;
-          })()}
-        </View>;
+  const map = <View style={{ width: W, height: H + EXTRA, alignSelf: 'center' }} onLayout={e => { layoutY.current = e.nativeEvent.layout.y; if (focus >= 0) onActiveY?.(layoutY.current + (bare ? -40 : 0) + pts[focus].y); }}>
+    <Svg width={W} height={H + EXTRA} style={StyleSheet.absoluteFill}>
+      {/* Whisper-soft shadow, then the white bridge neck, then the white island over it. */}
+      {exam ? <Path d={neck} transform="translate(0 6)" fill="rgba(91,75,154,.07)" /> : null}
+      <Path d={OUTLINE} transform={`translate(0 7) scale(${sx} ${sy})`} fill="rgba(91,75,154,.07)" />
+      <Path d={OUTLINE} transform={`translate(0 3) scale(${sx} ${sy})`} fill="rgba(91,75,154,.05)" />
+      {exam ? <Path d={neck} fill="#FFFFFF" /> : null}
+      <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill="#FFFFFF" />
+      {pts.slice(0, -1).map((a, i) => {
+        const b = pts[i + 1], m = (a.y + b.y) / 2;
+        const c1 = { x: a.x, y: m }, c2 = { x: b.x, y: m };
+        const full = `M${a.x} ${a.y} C${c1.x} ${c1.y} ${c2.x} ${c2.y} ${b.x} ${b.y}`;
+        const done = active < 0 ? (finished || i < doneCount - 1) : i < active;
+        const part = i === active && activePart > 0 ? splitCubic(a, c1, c2, b, activePart) : '';
+        return <G key={i}>
+          <Path d={full} fill="none" stroke="#DDD6FE" strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" />
+          {done ? <Path d={full} fill="none" stroke="#A78BFA" strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
+          {part ? <Path d={part} fill="none" stroke="#A78BFA" strokeWidth={7} strokeLinecap="round" strokeDasharray="0.1 13" /> : null}
+        </G>;
       })}
-      {/* AI zəng card on the path inside the map (user, 23 Nov 2026). Not working yet: shown as “tezliklə”. */}
-      {aiPt ? (() => {
-        const cw = Math.min(W * .66, 240);
-        return <View accessible accessibilityLabel="AI zəng, tezliklə, gündə 1 zəng, 3 dəqiqə" accessibilityState={{ disabled: true }}
-          style={[s.ai, { left: aiPt.x - cw / 2, top: aiPt.y - AI_CARD_H / 2, width: cw }]}>
-          <View style={s.aiIcon}><Icon name="phone" size={20} color="#fff" /></View>
-          <View style={{ flex: 1 }}>
-            <Text style={s.aiTitle} numberOfLines={1}>AI zəng</Text>
-            <Text style={s.aiSub} numberOfLines={1}>gündə 1 · 3 dəq</Text>
-          </View>
-          <Text style={s.aiSoon}>tezliklə</Text>
-        </View>;
-      })() : null}
-      {exam ? <View pointerEvents="box-none" style={StyleSheet.absoluteFill}>
-        <Pressable accessibilityRole="button" disabled={!examOpen || locked} onPress={() => onOpenLesson(exam.id)}
-          accessibilityLabel={`Bölmə ${section} imtahanı${examOpen ? '' : ', bütün dərsləri bitirəndə açılır'}`}
-          style={({ pressed }) => [s.trophy, { left: trophyPt.x - 32, top: trophyPt.y - 32 }, exam.passed && { backgroundColor: '#FFE7A3' }, (!examOpen || locked) && { opacity: .65 }, pressed && { transform: [{ scale: .95 }] }]}>
-          <Svg width={34} height={34} viewBox="0 0 34 34">
-            <Path d="M9 5 h16 v8 a8 8 0 0 1 -16 0 z" fill="#E0A21B" />
-            <Path d="M9 7 h-4 a4 4 0 0 0 4 6 M25 7 h4 a4 4 0 0 1 -4 6" fill="none" stroke="#E0A21B" strokeWidth={2.2} />
-            <Rect x={15} y={21} width={4} height={5} fill="#E0A21B" /><Rect x={10} y={26} width={14} height={4} rx={1.5} fill="#9A6A07" />
+    </Svg>
+    {active >= 0 && active < count - 1 && activePart > 0 ? <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, { opacity: glow }]}>
+      <Svg width={W} height={H}>{(() => {
+        const a = pts[active], b = pts[active + 1], m = (a.y + b.y) / 2;
+        const part = splitCubic(a, { x: a.x, y: m }, { x: b.x, y: m }, b, activePart);
+        return <Path d={part} fill="none" stroke="#C4B5FD" strokeWidth={16} strokeLinecap="round" opacity={.35} />;
+      })()}</Svg>
+    </Animated.View> : null}
+
+    {lessons.map((lesson, i) => {
+      const p = pts[i], done = isDone(lesson), isHot = i === hot;
+      const size = isHot ? HOT : NODE, pct = percentOf(lesson);
+      const r = size / 2 - 3, c = 2 * Math.PI * r;
+      const reachable = !locked && (done || i === active || allOpen);
+      const right = p.x > W / 2;
+      const avail = Math.min(190, right ? p.x - size / 2 - 14 : W - p.x - size / 2 - 14);
+      const side = right ? { right: W - (p.x - size / 2 - 10), alignItems: 'flex-end' as const } : { left: p.x + size / 2 + 10 };
+      return <View key={lesson.id} pointerEvents="box-none" style={StyleSheet.absoluteFill}>
+        {isHot ? <Breath x={p.x} y={p.y} size={size} /> : null}
+        <Pop to={.93} accessibilityRole="button" accessibilityLabel={`Dərs ${lesson.number}: ${lesson.title}, ${pct} faiz${reachable ? '' : ', kilidlidir'}`}
+          onPress={() => { tapHaptic(); setOpen(lesson); }}
+          style={[s.node, { left: p.x - size / 2, top: p.y - size / 2, width: size, height: size, borderRadius: size / 2 }, isHot && s.nodeHot]}>
+          {isHot ? <LinearGradient colors={['#F97316', '#EA580C']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[StyleSheet.absoluteFill, { borderRadius: size / 2 }]} /> : null}
+          <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
+            {lesson.parts ? lesson.parts.map((part, k) => {
+              const gap = 7, half = c / lesson.parts!.length, len = half - gap, fill = len * partPct(part.id) / 100;
+              const at = `rotate(${-90 + k * 360 / lesson.parts!.length} ${size / 2} ${size / 2})`;
+              return <G key={part.id}>
+                <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? 'rgba(255,255,255,.35)' : '#EDE9FE'} strokeWidth={4} fill="none" strokeDasharray={`${len} ${c}`} strokeDashoffset={-gap / 2} transform={at} />
+                {fill > 0 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? '#fff' : d.purple} strokeWidth={4} fill="none" strokeLinecap="round"
+                  strokeDasharray={`${fill} ${c}`} strokeDashoffset={-gap / 2} transform={at} /> : null}
+              </G>;
+            }) : pct > 0 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? '#fff' : d.purple} strokeWidth={4} fill="none" strokeLinecap="round"
+              strokeDasharray={`${c * pct / 100} ${c}`} transform={`rotate(-90 ${size / 2} ${size / 2})`} /> : null}
           </Svg>
-        </Pressable>
-        <View pointerEvents="none" style={[s.plain, { left: trophyPt.x - 110, width: 220, top: trophyPt.y + 38, alignItems: 'center' }]}>
-          <Text style={[s.cardTitle, { flex: 0, textAlign: 'center' }]} numberOfLines={1}>{exam.passed ? `Keçdin · ${exam.percent}%` : 'Bölmə imtahanı'}</Text>
-          <Text style={[s.plainSub, { textAlign: 'center' }]} numberOfLines={2}>{!examOpen ? 'Dərslərdən sonra açılır · keçid 70%' : exam.percent !== null && !exam.passed ? `Son nəticə ${exam.percent}% · keçid 70%` : 'Kömək yoxdur · keçid 70%'}</Text>
+          <View style={[s.nodeInner, { width: size - 14, height: size - 14, borderRadius: (size - 14) / 2 }, isHot ? null : { backgroundColor: done ? '#DDD6FE' : '#EDE9FE' }, !reachable && !isHot && { opacity: .55 }]}>
+            <LessonIcon name={lesson.icon ?? 'chats'} size={isHot ? 34 : 28} white={isHot} />
+          </View>
+        </Pop>
+        {/* Name + % beside the circle, no card (25 Nov 2026); parts: “17% · 2 hissə”. */}
+        <View pointerEvents="none" style={[s.label, side, { width: avail, top: p.y - 21 }]}>
+          <Text style={[s.labelTitle, right && { textAlign: 'right' }, !reachable && { color: '#8E93A6' }]} numberOfLines={1}>{lesson.title}</Text>
+          <Text style={[s.labelPct, right && { textAlign: 'right' }, (isHot || done) && { color: d.purple }]}>{pct}%{lesson.parts ? ` · ${lesson.parts.length} hissə` : ''}</Text>
         </View>
-      </View> : null}
-    </View>
+      </View>;
+    })}
+    {aiPt ? (() => {
+      const cw = Math.min(W * .66, 240);
+      return <View accessible accessibilityLabel="AI zəng, tezliklə, gündə 1 zəng, 3 dəqiqə" accessibilityState={{ disabled: true }}
+        style={[s.ai, { left: aiPt.x - cw / 2, top: aiPt.y - AI_CARD_H / 2, width: cw }]}>
+        <View style={s.aiIcon}><Icon name="phone" size={18} color="#fff" /></View>
+        <View style={{ flex: 1 }}>
+          <Text style={s.aiTitle} numberOfLines={1}>AI zəng</Text>
+          <Text style={s.aiSub} numberOfLines={1}>gündə 1 · 3 dəq</Text>
+        </View>
+        <Text style={s.aiSoon}>tezliklə</Text>
+      </View>;
+    })() : null}
+    {exam ? <Pop to={.93} accessibilityRole="button" disabled={!examOpen || locked} onPress={() => { tapHaptic(); onOpenLesson(exam.id); }}
+      accessibilityLabel={`Bölmə ${section} imtahanı${exam.passed ? `, keçdin ${exam.percent} faiz` : ''}${examOpen ? ', keçid 70 faiz' : ', bütün dərsləri bitirəndə açılır'}`}
+      style={[s.trophy, { left: trophyPt.x - TROPHY / 2, top: trophyPt.y - TROPHY / 2 }, (!examOpen || locked) && { opacity: .6 }]}>
+      <Svg width={30} height={30} viewBox="0 0 24 24">
+        <Path d="M7 4h10v5a5 5 0 0 1-10 0z" fill={exam.passed ? '#E9B949' : 'none'} stroke="#C99A3E" strokeWidth={1.7} strokeLinejoin="round" />
+        <Path d="M7 6H4.5a2.5 2.5 0 0 0 3 3.4M17 6h2.5a2.5 2.5 0 0 1-3 3.4M12 14v3.5M8.5 20.5h7l-.8-3h-5.4z" fill="none" stroke="#C99A3E" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" />
+      </Svg>
+    </Pop> : null}
+  </View>;
 
-    {!after && nextSection && (finished || nextSection.available) ? <Pressable accessibilityRole="button" disabled={!nextSection.available} onPress={onNextSection} style={s.next}>
-      <Text style={s.nextText}>Bölmə {section + 1} · {nextSection.title}</Text>
-    </Pressable> : null}
+  const sheet = <LessonSheet open={open} onClose={() => setOpen(null)} lessons={lessons} active={active} locked={locked} allOpen={allOpen}
+    completed={completed} partPct={partPct} percentOf={percentOf} isDone={isDone} onOpenLesson={id => { setOpen(null); onOpenLesson(id); }} />;
 
-    <Modal visible={Boolean(open)} transparent animationType="fade" onRequestClose={() => setOpen(null)}>
-      <Pressable accessibilityLabel="Bağla" style={s.backdrop} onPress={() => setOpen(null)}>
-        {open ? (() => {
-          const pct = percentOf(open), done = isDone(open), isActive = lessons[active]?.id === open.id;
-          const reachable = !locked && (done || isActive || allOpen);
-          const go = (id: string) => { setOpen(null); onOpenLesson(id); };
-          return <Pressable style={[s.sheet, shadow]} onPress={() => {}}>
-            <View style={s.sheetHead}><Text style={s.sheetTitle}>Dərs {open.number} · {open.title}</Text><Text style={[s.sheetPct, { color: pct === 100 ? d.green : d.orange }]}>{pct}%</Text></View>
-            {open.phrases ? <Text style={s.sheetPhrases}>{open.phrases}</Text> : null}
-            <View style={s.sheetTrack}><View style={[s.sheetFill, { width: `${pct}%`, backgroundColor: pct === 100 ? d.green : d.orange }]} /></View>
-            {reachable && open.parts ? open.parts.map((part, k) => {
-              const pp = partPct(part.id), partDone = pp === 100, partOpen = allOpen || k === 0 || completed.includes(open.parts![k - 1].id);
-              return <View key={part.id} style={s.partRow}>
-                <View style={{ flex: 1 }}><Text style={s.partTitle}>{k + 1}-{k === 2 ? 'cü' : 'ci'} hissə · {part.title}</Text><Text style={[s.partPct, { color: partDone ? d.greenText : pp ? d.orangeText : d.inkSoft }]}>{pp}%</Text></View>
-                {partOpen ? <Pressable accessibilityRole="button" accessibilityLabel={`${k + 1}-${k === 2 ? 'cü' : 'ci'} hissə: ${partDone ? 'yenidən keç' : pp ? 'davam et' : 'başla'}`} onPress={() => go(part.id)}
-                  style={({ pressed }) => [s.partBtn, partDone && { backgroundColor: d.purple }, pressed && { opacity: .9 }]}>
-                  <Text style={s.partBtnText}>{partDone ? 'Yenidən' : pp ? 'Davam' : 'Başla'}</Text></Pressable>
-                  : <Text style={s.partLocked}>{k}-ci hissədən sonra</Text>}
-              </View>;
-            }) : reachable ? <Pressable accessibilityRole="button" onPress={() => go(open.id)} style={({ pressed }) => [s.sheetBtn, done && { backgroundColor: d.purple }, pressed && { opacity: .9 }]}>
-              <Text style={s.sheetBtnText}>{done ? 'Yenidən keç' : pct ? 'Davam et' : 'Başla'}</Text><Icon name="arrow" size={16} color="#fff" />
-            </Pressable> : <Text style={s.sheetLocked}>Bu dərs əvvəlki dərsi bitirəndə açılacaq.</Text>}
-          </Pressable>;
-        })() : null}
-      </Pressable>
-    </Modal>
-  </>;
-  // Sections are stacked on one scrolling page (15 Nov 2026): the first section renders the whole page and the
-  // following sections are passed in `after` as bare islands (head + map + exam).
-  if (bare) return <View style={{ marginTop: 28 }}>{body}</View>;
+  // Following sections: only the island (it overlaps the previous bridge neck a little so they join seamlessly).
+  if (bare) return <View style={{ marginTop: -40 }}>{map}{sheet}</View>;
   return <View style={s.screen}>
-    <ScrollView ref={scrollRef} contentContainerStyle={{ paddingTop: topInset + 6, paddingBottom: bottomSpace + 8 }} showsVerticalScrollIndicator={false}>
-      {body}
+    <StatusBar style="dark" />
+    <View style={{ paddingTop: Math.max(topInset, insets.top) + 4 }}>
+      <View style={s.topBar}>
+        <Pressable accessibilityRole="button" accessibilityLabel={`Dil və səviyyə: ${languageLabel}`} onPress={onSelectLanguage} style={s.brandRow}>
+          <Text style={s.brand}>{APP_NAME}</Text>
+          <View style={s.langChip}><Text style={s.langText}>{languageLabel}</Text><HomeIcon name="down" color={d.purple} size={13} /></View>
+        </Pressable>
+        <View style={{ flexDirection: 'row', gap: 6 }}>
+          <Pressable accessibilityRole="button" accessibilityLabel="Analiz" onPress={onAnalysis} style={s.pill}><Icon name="chart" size={17} color={d.purple} /></Pressable>
+          <View style={s.pill} accessibilityLabel={`${streak} gün ardıcıl`}><HomeIcon name="bolt" color="#F97316" size={15} /><Text style={s.pillText}>{streak}</Text></View>
+          <View style={s.pill} accessibilityLabel={`${xp} xal`}><Text style={[s.pillText, { color: '#E0A21B' }]}>★</Text><Text style={s.pillText}>{xp}</Text></View>
+        </View>
+      </View>
+      <View style={s.head}>
+        <View style={{ flex: 1 }}>
+          <Text style={s.sectionNo}>BÖLMƏ {head.section}</Text>
+          <Text accessibilityRole="header" style={s.sectionTitle} numberOfLines={1}>{head.title}</Text>
+        </View>
+        <View style={s.progress} accessibilityLabel={`${head.done} dərs bitib, ${Math.round(headLevel * 100)} faiz`}>
+          <Svg width={30} height={30}><Circle cx={15} cy={15} r={12} stroke="#EDE9FE" strokeWidth={4} fill="none" />
+            {headLevel > 0 ? <Circle cx={15} cy={15} r={12} stroke={d.purple} strokeWidth={4} fill="none" strokeLinecap="round" strokeDasharray={`${2 * Math.PI * 12 * headLevel} 80`} transform="rotate(-90 15 15)" /> : null}</Svg>
+          <View><Text style={s.progressPct}>{Math.round(headLevel * 100)}%</Text><Text style={s.progressSub}>{head.done}/{head.count} dərs</Text></View>
+        </View>
+        <Image source={mascotHead} style={{ width: 44, height: 40 }} contentFit="contain" accessibilityLabel="Maskot" />
+      </View>
+    </View>
+    <ScrollView ref={scrollRef} contentContainerStyle={{ paddingTop: 4, paddingBottom: bottomSpace + 8 }} showsVerticalScrollIndicator={false}
+      onScroll={e => onScroll(e.nativeEvent.contentOffset.y)} scrollEventThrottle={48}>
+      {/* Daily review: dark gradient hero (25 Nov 2026). */}
+      <View style={s.reviewWrap}>
+        <LinearGradient colors={['#1E1B4B', '#3B1E7A']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={s.review}>
+          <View style={s.reviewIcon}><HomeIcon name="repeat" color="#F97316" size={22} /></View>
+          <View style={{ flex: 1 }}>
+            <Text style={s.reviewTitle}>Gündəlik təkrar</Text>
+            <Text style={s.reviewSub} numberOfLines={1}>{review.count ? `Bu gün ${review.count} ifadə` : 'Səhvlərin burada toplanacaq'}</Text>
+          </View>
+          <Pop accessibilityRole="button" accessibilityLabel="Gündəlik təkrara başla" onPress={() => { tapHaptic(); onReview(); }} style={s.reviewBtn}>
+            <LinearGradient colors={['#F97316', '#EA580C']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[StyleSheet.absoluteFill, { borderRadius: 18 }]} />
+            <Text style={s.reviewBtnText}>Başla</Text>
+          </Pop>
+        </LinearGradient>
+      </View>
+      {map}
       {after}
     </ScrollView>
+    {sheet}
   </View>;
+}
+
+/** Breathing halo behind the current lesson node (still under Reduce Motion). */
+function Breath({ x, y, size }: { x: number; y: number; size: number }) {
+  const k = useSharedValue(0);
+  useEffect(() => {
+    let alive = true;
+    void AccessibilityInfo.isReduceMotionEnabled().then(reduce => { if (alive && !reduce) k.value = withRepeat(withTiming(1, { duration: 1600, easing: REasing.inOut(REasing.sin) }), -1, true); });
+    return () => { alive = false; };
+  }, [k]);
+  const a = useAnimatedStyle(() => ({ opacity: .32 - .2 * k.value, transform: [{ scale: 1.08 + .2 * k.value }] }));
+  return <Reanimated.View pointerEvents="none" style={[{ position: 'absolute', left: x - size / 2, top: y - size / 2, width: size, height: size, borderRadius: size / 2, backgroundColor: '#F97316' }, a]} />;
+}
+
+/** Lesson bottom sheet (25 Nov 2026): rises from the bottom over a dimmed page, covers the tab bar. Header with the
+ *  lesson icon, “DƏRS n · k HİSSƏ”, title, ✕; an orange progress bar; then one card per part — the current part white
+ *  with an orange focus border and an orange “Davam →”, the others soft grey with a lavender “Başla”. No word list. */
+function LessonSheet({ open, onClose, lessons, active, locked, allOpen, completed, partPct, percentOf, isDone, onOpenLesson }: {
+  open: IslandLesson | null; onClose: () => void; lessons: IslandLesson[]; active: number; locked: boolean; allOpen: boolean; completed: string[];
+  partPct: (id: string) => number; percentOf: (l: IslandLesson) => number; isDone: (l: IslandLesson) => boolean; onOpenLesson: (id: string) => void;
+}) {
+  const insets = useSafeAreaInsets();
+  if (!open) return null;
+  const pct = percentOf(open), done = isDone(open), isActive = lessons[active]?.id === open.id;
+  const reachable = !locked && (done || isActive || allOpen);
+  const parts = open.parts ?? [{ id: open.id, title: open.title }];
+  const multi = parts.length > 1;
+  const current = parts.findIndex(p => !completed.includes(p.id));
+  const go = (id: string) => { tapHaptic(); onOpenLesson(id); };
+  return <Modal visible transparent animationType="none" onRequestClose={onClose} statusBarTranslucent>
+    <Reanimated.View entering={FadeIn.duration(180)} style={StyleSheet.absoluteFill}><Pressable accessibilityLabel="Bağla" style={s.backdrop} onPress={onClose} /></Reanimated.View>
+    <Reanimated.View entering={SlideInDown.springify().damping(18).stiffness(170)} style={[s.sheet, { paddingBottom: Math.max(20, insets.bottom + 10) }]}>
+      <View style={s.handle} />
+      <View style={s.sheetHead}>
+        <View style={s.sheetIcon}><LessonIcon name={open.icon ?? 'chats'} size={28} /></View>
+        <View style={{ flex: 1, gap: 4 }}>
+          <View style={s.sheetChip}><Text style={s.sheetChipText}>DƏRS {open.number}{multi ? ` · ${parts.length} HİSSƏ` : ''}</Text></View>
+          <Text style={s.sheetTitle} numberOfLines={2}>{open.title}</Text>
+        </View>
+        <Pressable accessibilityRole="button" accessibilityLabel="Bağla" onPress={onClose} hitSlop={10} style={s.close}><Icon name="close" size={16} color={d.inkSoft} /></Pressable>
+      </View>
+      <View style={{ gap: 6 }}>
+        <Text style={s.sheetPct}>{pct}%</Text>
+        <View style={s.track}><LinearGradient colors={['#F97316', '#EA580C']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={{ width: `${Math.max(pct, pct ? 4 : 0)}%`, height: '100%', borderRadius: 4 }} /></View>
+      </View>
+      {!reachable ? <Text style={s.sheetLocked}>Bu dərs əvvəlki dərsi bitirəndə açılacaq.</Text> : parts.map((part, k) => {
+        const pp = partPct(part.id), partDone = pp === 100;
+        const partOpen = allOpen || k === 0 || completed.includes(parts[k - 1].id);
+        const now = k === (current < 0 ? -1 : current) && partOpen;
+        const label = partDone ? 'Yenidən' : pp ? 'Davam' : 'Başla';
+        const r = 20, c = 2 * Math.PI * r;
+        const nth = `${k + 1}-${k === 2 ? 'cü' : 'ci'} hissə`;
+        return <View key={part.id} style={[s.partCard, now ? s.partNow : s.partNext]}>
+          <Svg width={48} height={48}>
+            <Circle cx={24} cy={24} r={r} stroke={now ? '#FED7AA' : '#E5E7EB'} strokeWidth={4} fill="none" />
+            {pp > 0 ? <Circle cx={24} cy={24} r={r} stroke={now ? '#EA580C' : d.purple} strokeWidth={4} fill="none" strokeLinecap="round" strokeDasharray={`${c * pp / 100} ${c}`} transform="rotate(-90 24 24)" /> : null}
+            <SvgText x={24} y={30} fontSize={17} fontWeight="800" fill={now ? '#C2410C' : '#9CA3AF'} textAnchor="middle">{k + 1}</SvgText>
+          </Svg>
+          <View style={{ flex: 1 }}>
+            <Text style={s.partTitle} numberOfLines={2}>{part.title}</Text>
+            <Text style={[s.partSub, now && { color: '#C2410C' }]}>{multi ? `${nth} · ` : ''}{pp}%</Text>
+          </View>
+          {!partOpen ? <Text style={s.partLocked}>{k}-ci hissədən sonra</Text>
+            : now ? <Pop accessibilityRole="button" accessibilityLabel={`${multi ? nth + ': ' : ''}${label}`} onPress={() => go(part.id)} style={s.goHot}>
+              <LinearGradient colors={['#F97316', '#EA580C']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[StyleSheet.absoluteFill, { borderRadius: 22 }]} />
+              <Text style={s.goHotText}>{label}</Text><Icon name="arrow" size={16} color="#fff" />
+            </Pop>
+            : <Pop accessibilityRole="button" accessibilityLabel={`${multi ? nth + ': ' : ''}${label}`} onPress={() => go(part.id)} style={s.goSoft}><Text style={s.goSoftText}>{label}</Text></Pop>}
+        </View>;
+      })}
+    </Reanimated.View>
+  </Modal>;
 }
 
 const NAV = [
@@ -351,68 +368,70 @@ const REVIEW_H = 76;
 const AI_CARD_H = 52;
 
 const s = StyleSheet.create({
-  review: { flexDirection: 'row', alignItems: 'center', gap: 10, height: 64, marginHorizontal: 16, marginBottom: 12, paddingHorizontal: 12, borderRadius: 20, backgroundColor: '#2B1E4D' },
-  reviewIcon: { width: 40, height: 40, borderRadius: 12, backgroundColor: 'rgba(255,255,255,.1)', alignItems: 'center', justifyContent: 'center' },
-  reviewTitle: { color: '#fff', fontSize: 16, ...font.extrabold },
-  reviewSub: { color: '#C9BEE6', fontSize: 12, ...font.bold },
-  reviewBtn: { height: 36, paddingHorizontal: 16, borderRadius: 18, backgroundColor: d.orange, justifyContent: 'center' },
-  reviewBtnText: { color: '#fff', fontSize: 15, ...font.extrabold },
-  ai: { position: 'absolute', height: AI_CARD_H, flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 8, borderRadius: 16, backgroundColor: '#F1ECFF', borderWidth: 1.5, borderColor: '#9C86F0', borderStyle: 'dashed' },
-  aiIcon: { width: 36, height: 36, borderRadius: 11, backgroundColor: '#6A4BE0', alignItems: 'center', justifyContent: 'center' },
-  aiTitle: { color: '#3A2A8C', fontSize: 14, ...font.extrabold },
-  aiSub: { color: '#6E62A8', fontSize: 12, ...font.bold },
-  aiSoon: { fontSize: 11, color: '#A84A08', backgroundColor: '#FFE3C7', borderRadius: 6, paddingHorizontal: 5, paddingVertical: 1, overflow: 'hidden', ...font.extrabold },
-  screen: { flex: 1, backgroundColor: '#F3ECFC' },
-  topBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 16, height: 46 },
+  screen: { flex: 1, backgroundColor: '#F6F7FB' },
+  topBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 16, height: 48 },
   brandRow: { flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 44 },
-  brand: { color: d.purple, fontSize: 22, ...font.extrabold },
-  langChip: { flexDirection: 'row', alignItems: 'center', gap: 3, height: 26, paddingHorizontal: 8, borderRadius: 13, backgroundColor: d.purpleSoft },
+  brand: { color: d.purple, fontSize: 24, letterSpacing: -.3, ...font.extrabold },
+  langChip: { flexDirection: 'row', alignItems: 'center', gap: 3, height: 28, paddingHorizontal: 10, borderRadius: 14, backgroundColor: '#EDE9FE' },
   langText: { color: d.purple, fontSize: 12, ...font.extrabold },
-  iconChip: { width: 38, height: 32, borderRadius: 16, backgroundColor: '#fff', borderWidth: 1, borderColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
-  stat: { flexDirection: 'row', alignItems: 'center', gap: 4, height: 32, paddingHorizontal: 10, borderRadius: 16, backgroundColor: '#fff', borderWidth: 1, borderColor: d.purpleSoft },
-  statText: { color: d.inkSoft, fontSize: 14, ...font.extrabold },
-  head: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 16, height: 70 },
-  sectionNo: { color: d.lavenderText, fontSize: 12, letterSpacing: .4, ...font.extrabold },
-  sectionTitle: { color: d.ink, fontSize: 20, ...font.extrabold },
-  progress: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingLeft: 6, paddingRight: 12, paddingVertical: 6, borderRadius: 999, backgroundColor: '#fff', borderWidth: 1, borderColor: d.purpleSoft },
-  progressPct: { color: d.ink, fontSize: 13, lineHeight: 15, ...font.extrabold },
+  pill: { flexDirection: 'row', alignItems: 'center', gap: 4, height: 34, minWidth: 38, justifyContent: 'center', paddingHorizontal: 11, borderRadius: 17, backgroundColor: '#fff',
+    shadowColor: '#5B4B9A', shadowOpacity: .1, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
+  pillText: { color: d.title, fontSize: 14, ...font.extrabold },
+  head: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 16, height: 66 },
+  sectionNo: { color: d.purple, fontSize: 12, letterSpacing: .8, ...font.extrabold },
+  sectionTitle: { color: d.title, fontSize: 22, ...font.extrabold },
+  progress: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingLeft: 6, paddingRight: 12, paddingVertical: 6, borderRadius: 999, backgroundColor: '#fff',
+    shadowColor: '#5B4B9A', shadowOpacity: .08, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
+  progressPct: { color: d.title, fontSize: 13, lineHeight: 15, ...font.extrabold },
   progressSub: { color: d.inkSoft, fontSize: 12, lineHeight: 15, ...font.bold },
-  node: { position: 'absolute', alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff', ...shadow },
-  nodeActiveShadow: { shadowColor: d.orange, shadowOpacity: .35, shadowRadius: 14 },
+  reviewWrap: { marginHorizontal: 16, marginBottom: 14, borderRadius: 24, shadowColor: '#1E1B4B', shadowOpacity: .25, shadowRadius: 14, shadowOffset: { width: 0, height: 6 }, elevation: 5 },
+  review: { flexDirection: 'row', alignItems: 'center', gap: 12, height: 70, paddingHorizontal: 14, borderRadius: 24 },
+  reviewIcon: { width: 42, height: 42, borderRadius: 13, backgroundColor: 'rgba(255,255,255,.12)', borderWidth: 1, borderColor: 'rgba(255,255,255,.18)', alignItems: 'center', justifyContent: 'center' },
+  reviewTitle: { color: '#fff', fontSize: 17, ...font.extrabold },
+  reviewSub: { color: '#C7C2E8', fontSize: 13, ...font.bold },
+  reviewBtn: { height: 38, paddingHorizontal: 18, borderRadius: 19, justifyContent: 'center', overflow: 'hidden' },
+  reviewBtnText: { color: '#fff', fontSize: 15, ...font.extrabold },
+  ai: { position: 'absolute', height: AI_CARD_H, flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 8, borderRadius: 16, backgroundColor: '#F5F3FF', borderWidth: 1.5, borderColor: '#C4B5FD', borderStyle: 'dashed' },
+  aiIcon: { width: 36, height: 36, borderRadius: 11, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center' },
+  aiTitle: { color: d.title, fontSize: 14, ...font.extrabold },
+  aiSub: { color: d.inkSoft, fontSize: 12, ...font.bold },
+  aiSoon: { fontSize: 11, color: '#A84A08', backgroundColor: '#FFE3C7', borderRadius: 6, paddingHorizontal: 5, paddingVertical: 1, overflow: 'hidden', ...font.extrabold },
+  node: { position: 'absolute', alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff',
+    shadowColor: '#5B4B9A', shadowOpacity: .14, shadowRadius: 10, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
+  nodeHot: { shadowColor: '#F97316', shadowOpacity: .45, shadowRadius: 16 },
   nodeInner: { alignItems: 'center', justifyContent: 'center' },
-  nodeLocked: { backgroundColor: '#fff', borderWidth: 1.5, borderColor: '#E6DAFB' },
-  nodeText: { color: '#8C7FA6', fontSize: 18, ...font.extrabold },
-  plain: { position: 'absolute', gap: 1 },
-  plainSub: { color: '#9A8DB5', fontSize: 12, lineHeight: 15, ...font.bold },
-  card: { position: 'absolute', gap: 1, paddingHorizontal: 12, paddingVertical: 5, borderRadius: 18, backgroundColor: '#fff', borderWidth: 1, borderColor: '#E6DAFB' },
-  cardTitle: { color: d.ink, fontSize: 14, lineHeight: 18, ...font.extrabold },
-  cardPct: { fontSize: 12, ...font.extrabold },
-  trophy: { position: 'absolute', width: 64, height: 64, borderRadius: 32, backgroundColor: '#FFF6DD', borderWidth: 3, borderColor: '#E0A21B', alignItems: 'center', justifyContent: 'center', ...shadow },
-  prev: { flexDirection: 'row', alignItems: 'center', gap: 2, height: 22, paddingHorizontal: 8, borderRadius: 11, backgroundColor: d.purpleSoft },
-  prevText: { color: d.purple, fontSize: 11, ...font.extrabold },
-  partRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 6, borderTopWidth: 1, borderTopColor: '#F0E8FC' },
-  partTitle: { color: d.ink, fontSize: 15, ...font.extrabold },
-  partPct: { fontSize: 13, ...font.extrabold },
-  partBtn: { height: 40, paddingHorizontal: 16, borderRadius: 20, backgroundColor: d.orange, justifyContent: 'center' },
-  partBtnText: { color: '#fff', fontSize: 15, ...font.extrabold },
-  partLocked: { color: d.inkSoft, fontSize: 13, ...font.bold },
-  next: { alignSelf: 'center', marginTop: 8, paddingHorizontal: 16, paddingVertical: 10, borderRadius: 20, backgroundColor: '#fff', borderWidth: 1, borderColor: d.borderStrong },
-  nextText: { color: d.ink, fontSize: 15, ...font.extrabold },
-  backdrop: { flex: 1, backgroundColor: 'rgba(42,18,64,.32)', justifyContent: 'center', padding: 24 },
-  sheet: { gap: 12, padding: 18, borderRadius: 24, backgroundColor: '#fff' },
-  sheetHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', gap: 8 },
-  sheetTitle: { flex: 1, color: d.ink, fontSize: 18, ...font.extrabold },
-  sheetPct: { fontSize: 16, ...font.extrabold },
-  sheetPhrases: { color: d.inkSoft, fontSize: 14, lineHeight: 20, ...font.semibold },
-  sheetTrack: { height: 8, borderRadius: 4, backgroundColor: '#F3ECFC', overflow: 'hidden' },
-  sheetFill: { height: '100%', borderRadius: 4 },
-  sheetBtn: { flexDirection: 'row', gap: 8, height: 50, borderRadius: 25, backgroundColor: d.orange, alignItems: 'center', justifyContent: 'center' },
-  sheetBtnText: { color: '#fff', fontSize: 17, ...font.extrabold },
-  sheetLocked: { color: d.inkSoft, fontSize: 14, ...font.bold },
+  label: { position: 'absolute', gap: 1 },
+  labelTitle: { color: d.title, fontSize: 16, lineHeight: 20, ...font.extrabold },
+  labelPct: { color: d.inkSoft, fontSize: 13, ...font.bold },
+  trophy: { position: 'absolute', width: TROPHY, height: TROPHY, borderRadius: TROPHY / 2, backgroundColor: '#FFFBF2', borderWidth: 1, borderColor: '#E9C98B', alignItems: 'center', justifyContent: 'center',
+    shadowColor: '#E0A21B', shadowOpacity: .35, shadowRadius: 12, shadowOffset: { width: 0, height: 2 }, elevation: 4 },
+  backdrop: { flex: 1, backgroundColor: 'rgba(15,23,42,.25)' },
+  sheet: { position: 'absolute', left: 0, right: 0, bottom: 0, gap: 14, paddingHorizontal: 20, paddingTop: 8, backgroundColor: '#fff', borderTopLeftRadius: 28, borderTopRightRadius: 28,
+    shadowColor: '#0F172A', shadowOpacity: .12, shadowRadius: 18, shadowOffset: { width: 0, height: -4 }, elevation: 12 },
+  handle: { alignSelf: 'center', width: 40, height: 5, borderRadius: 3, backgroundColor: '#D9DCE5' },
+  sheetHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  sheetIcon: { width: 44, height: 44, borderRadius: 14, backgroundColor: '#F3F0FF', alignItems: 'center', justifyContent: 'center' },
+  sheetChip: { alignSelf: 'flex-start', backgroundColor: '#EDE9FE', borderRadius: 999, paddingHorizontal: 10, paddingVertical: 3 },
+  sheetChipText: { color: d.purple, fontSize: 12, letterSpacing: .6, ...font.extrabold },
+  sheetTitle: { color: d.title, fontSize: 24, lineHeight: 29, ...font.extrabold },
+  close: { width: 32, height: 32, borderRadius: 16, backgroundColor: '#F1F2F6', alignItems: 'center', justifyContent: 'center', alignSelf: 'flex-start' },
+  sheetPct: { alignSelf: 'flex-end', color: d.inkSoft, fontSize: 13, ...font.bold },
+  track: { height: 8, borderRadius: 4, backgroundColor: '#EEF0F4', overflow: 'hidden' },
+  sheetLocked: { color: d.inkSoft, fontSize: 15, ...font.bold, paddingVertical: 8 },
+  partCard: { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 12, borderRadius: 20 },
+  partNow: { backgroundColor: '#fff', borderWidth: 1.5, borderColor: '#FDBA74', ...shadow },
+  partNext: { backgroundColor: '#F6F7FB' },
+  partTitle: { color: d.title, fontSize: 17, ...font.extrabold },
+  partSub: { color: d.inkSoft, fontSize: 13, ...font.bold },
+  partLocked: { color: d.inkSoft, fontSize: 12, ...font.bold, maxWidth: 96, textAlign: 'right' },
+  goHot: { flexDirection: 'row', alignItems: 'center', gap: 6, height: 44, paddingHorizontal: 18, borderRadius: 22, overflow: 'hidden' },
+  goHotText: { color: '#fff', fontSize: 16, ...font.extrabold },
+  goSoft: { height: 44, paddingHorizontal: 18, borderRadius: 22, backgroundColor: '#EDE9FE', justifyContent: 'center' },
+  goSoftText: { color: d.purple, fontSize: 16, ...font.extrabold },
   navWrap: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingHorizontal: 12 },
-  nav: { flexDirection: 'row', gap: 2, padding: 5, borderRadius: 22, backgroundColor: '#fff' },
+  nav: { flexDirection: 'row', gap: 2, padding: 5, borderRadius: 24, backgroundColor: 'rgba(255,255,255,.96)', borderWidth: 1, borderColor: '#EEF0F5' },
   navItem: { flex: 1, alignItems: 'center', gap: 2, paddingVertical: 6, borderRadius: 16 },
-  navOn: { backgroundColor: '#EFE6FB' },
+  navOn: { backgroundColor: '#EDE9FE' },
   navText: { color: '#5E5275', fontSize: 12, ...font.bold },
-  soon: { position: 'absolute', top: -6, right: 0, fontSize: 11, color: '#A84A08', backgroundColor: '#FFE3C7', borderRadius: 5, paddingHorizontal: 3, overflow: 'hidden', ...font.extrabold },
+  soon: { position: 'absolute', top: -9, alignSelf: 'center', fontSize: 10, color: '#A84A08', backgroundColor: '#FFE3C7', borderRadius: 5, paddingHorizontal: 3, overflow: 'hidden', ...font.extrabold },
 });
