@@ -1,7 +1,7 @@
 // Situation ↔ screen check (user, 24 Nov 2026). A task's situation must fit what the learner does on the screen:
 // meeting someone face to face → speak; a chat / message → write. Example of the bug this catches: Dərs 1
 // “Tanışınla qarşılaşdın … salam yaz” shown in a messenger window. Reviews (task.review) are checked too.
-// The words lists are a first filter; every hit is then read by a person.
+// The words lists are a first filter; every hit is then read by a person. Rules L1–L12: docs/MENTIQ_YOXLAMASI.md.
 const fs = require('node:fs');
 const ts = require('typescript');
 require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
@@ -32,6 +32,32 @@ const look = (lesson, task, where) => {
   } else if (task.type === 'write' && SPOKEN_QUESTION.test(text) && !WRITTEN.test(text.replace(/yaz\.?$/, '')) && !NOT_A_REPLY.test(text)) {
     hits.push(`${id}: danışıqla verilən suala yazılı cavab — “${text}”`);
   }
+  // ── Realism checks added 24–25 Nov 2026 (full review of Bölmə 1–2, see docs/MENTIQ_YOXLAMASI.md) ──
+  const chatText = task.chat ? task.chat.lines.map(l => l.text).join(' ') : '';
+  // Text the learner hears or reads inside the task (audio, chat, match/order rows).
+  const heard = `${task.audio || ''} ${chatText} ${(task.rows || []).map(r => [r.text, r.en, r.az, r.left].filter(Boolean).join(' ')).join(' ')}`;
+  const NUMBER_WORD = /^(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|[a-z]+teen|[a-z]+ty)\.?$/i;
+  const answers = (task.rule && task.rule.answers) || [];
+  // L4: a written message never spells numbers out (“Zero five…”, “oh three”) — people type digits.
+  if (task.chat && /\b(zero|oh)\b[ ,]+(one|two|three|four|five|six|seven|eight|nine|zero|oh)\b/i.test(chatText)) hits.push(`${id}: yazılı mesajda nömrə sözlə yazılıb (rəqəmlə olmalıdır) — “${chatText}”`);
+  // L5: asking how to spell a word that the other person has just written.
+  if (task.chat && answers.some(a => /spell/i.test(a)) && /[A-Za-z]{3,}/.test(chatText.replace(/🎤/g, ''))) hits.push(`${id}: söz söhbətdə yazılıb, amma “hərf-hərf necə yazılır?” soruşulur — “${chatText}”`);
+  // L6: writing a heard number as a word needs a reason (someone asks how it is written).
+  if (task.type === 'write' && (/sözlə yaz/i.test(text) || NUMBER_WORD.test((task.audio || '').trim())) && !/necə yazılır|necədir|soruşur/i.test(text)) hits.push(`${id}: rəqəmi sözlə yazmağın səbəbi yoxdur — “${text}”`);
+  // L7: forms take data, not sentences.
+  if (/formada|formaya|vərəqdə|anketdə/i.test(text) && /tam cümlə|cümlə ilə/i.test(text) && !/mesaj/i.test(text)) hits.push(`${id}: formaya tam cümlə yazılmır — “${text}”`);
+  // L8: strangers in a queue / street / lift do not ask personal data.
+  if (/növbədə|növbəsində|yanındakı adam|küçədə|liftdə/i.test(text) && /(how old|phone number|email|last name)/i.test(heard)) hits.push(`${id}: yad adam şəxsi məlumat soruşur — “${text}”`);
+  // L9: an answer to a question does not start with “Excuse me”.
+  if (/cavab ver|soruşur/i.test(text) && answers.some(a => /^excuse me/i.test(a))) hits.push(`${id}: suala cavabda “Excuse me” — ${answers.join(' / ')}`);
+  // L10: “qonşu” means a neighbour at home, not the person next to you in a hotel/office lift.
+  if (/\bqonşu/i.test(text) && /otel|ofis|lift/i.test(text)) hits.push(`${id}: “qonşu” otel/ofis/liftdə “yanındakı adam” olmalıdır — “${text}”`);
+  // L11: “say it letter by letter” → the model answer shows the letters.
+  if (task.type === 'voice' && /hərf-hərf de([.,\s]|$)/i.test(text) && answers.length && !answers.some(a => /[A-Z][-,] ?[A-Z]/.test(a))) hits.push(`${id}: “hərf-hərf de” deyilir, nümunə cavab hərflərlə deyil — ${answers.join(' / ')}`);
+  // L12: personal data is asked privately, not in a group chat.
+  if (/qrup(un)? çat/i.test(text) && answers.concat(task.fields ? task.fields.flatMap(f => (f.rule && f.rule.answers) || []) : []).some(a => /phone number|email/i.test(a))) hits.push(`${id}: şəxsi məlumat ümumi qrup çatında soruşulur — “${text}”`);
+  // L13: checking a number you wrote down repeats the number (“050…? Is that right?”).
+  if (task.fields && task.fields.some(f => ((f.rule && f.rule.answers) || []).some(a => /^is that right\?$/i.test(a.trim())))) hits.push(`${id}: “Is that right?” nömrəsiz yazılıb — yoxlanan nömrə də mesajda olmalıdır`);
   if (task.type === 'voice' && /mesaj|çat|yazır\b|yazdı/i.test(text) && !/siyahıya yazır|adını .{0,20}yazır/i.test(text)) hits.push(`${id}: yazışma vəziyyəti, amma danışıq tapşırığı — “${text}”`);
 };
 for (const lesson of designLessons) {
