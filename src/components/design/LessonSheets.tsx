@@ -6,7 +6,6 @@ import { englishWords, glossOf } from '../../data/unit1/glossary';
 import Icon from './Icons';
 import { Capsule, MainButton, Sheet, ds, nameSlot, tapHaptic } from './parts';
 import Reanimated, { SlideInDown } from 'react-native-reanimated';
-import { glossOf } from '../../data/unit1/glossary';
 import { SoundIcon } from './TaskScreens';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { d, radius, shadow, font } from './theme';

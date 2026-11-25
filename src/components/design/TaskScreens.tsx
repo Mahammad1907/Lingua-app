@@ -597,7 +597,7 @@ function InfoRow({ icon, label, children, first, tight }: { icon: IconName; labe
 
 /** Text with “[ad]”-style slots shown as a soft lavender inline pill (25 Nov 2026). */
 export function Slotted({ text, style }: { text: string; style: any }) {
-  return <Text style={style}>{nameSlot(text).split(/(\[[^\]]+\])/).map((p, i) => p.startsWith('[') ? <Text key={i} style={s.slot}>{` ${p} `}</Text> : p)}</Text>;
+  return <Text style={style}>{nameSlot(text).split(/(\[[^\]]+\])/).map((p, i) => p.startsWith('[') ? <Text key={i} style={s.slotPill}>{` ${p} `}</Text> : p)}</Text>;
 }
 
 /** “[ad]” inside a pattern is the name slot, shown in lavender. */
@@ -620,11 +620,11 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   // Approved simple card (user, 13 Nov 2026): one phrase, its reading in the bubble, then Mənası · (Quruluşu) · Nümunə · one short note.
   // No scrolling, no phonetic line (that stays in the word pop-up and Lüğətim).
   const image = sceneImage(scenes);
-  const oneLine = word && phrases.length > 1 && phrases.join(' · ').length <= 18;
   const spoken = phrases.join('. ');
   const long = phrases.join(' ').length > 16;
   // Yeni söz cards must fit the screen without scrolling (user, 21 Nov 2026): no picture slot, tighter rows.
   const word = chip === 'Yeni söz';
+  const oneLine = word && phrases.length > 1 && phrases.join(' · ').length <= 18;
   const art = useArtFit();
   void ipa;
   return <View style={{ gap: 10 }}>
@@ -758,7 +758,7 @@ const s = StyleSheet.create({
   seg: { flex: 1, alignItems: 'center', paddingVertical: 6, paddingHorizontal: 4 },
   segWord: { color: d.title, fontSize: 18, ...font.extrabold },
   segAz: { color: d.inkSoft, fontSize: 13, ...font.semibold },
-  slot: { color: d.purple, backgroundColor: '#F3F0FF', ...font.extrabold },
+  slotPill: { color: d.purple, backgroundColor: '#F3F0FF', ...font.extrabold },
   softShadow: { shadowColor: '#5B4B9A', shadowOpacity: .08, shadowRadius: 16, shadowOffset: { width: 0, height: 6 }, elevation: 3 },
   hero: { alignItems: 'center', gap: 6, backgroundColor: '#fff', borderRadius: 24, paddingVertical: 16, paddingHorizontal: 14 },
   heroText: { color: d.title, fontSize: 32, lineHeight: 38, textAlign: 'center', ...font.extrabold },
