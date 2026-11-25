@@ -8,7 +8,7 @@ const sorry = goal(['sorry'], ['Sorry!', "I'm sorry."]);
 const politeAsk = goal(['attention', 'askName'], ["Excuse me, what's your name?"]);
 
 export const lesson6: DesignLesson = {
-  id: 'a1_en_b1_v2_d6', order: 6, title: 'Bağışlayın, üzr', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_v2_d6', order: 6, unit: 1, number: 6, title: 'Bağışlayın, üzr', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinlə və ya mətnlə davam et.',
     unknown: 'Cavabı yoxlaya bilmədim. Bir az fərqli yaz və ya yenidən cəhd et.',

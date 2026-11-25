@@ -10,6 +10,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useRef, useState, type ReactNode, type Ref } from 'react';
 import { AccessibilityInfo, Animated, Easing, Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { ordinal } from '../../utils/ordinal';
 import Reanimated, { Easing as REasing, FadeIn, SlideInDown, useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, ClipPath, Defs, G, Path, Text as SvgText } from 'react-native-svg';
@@ -363,7 +364,7 @@ function LessonSheet({ open, onClose, lessons, active, locked, allOpen, complete
         const now = k === (current < 0 ? -1 : current) && partOpen;
         const label = partDone ? 'Yenidən' : pp ? 'Davam' : 'Başla';
         const r = 20, c = 2 * Math.PI * r;
-        const nth = `${k + 1}-${k === 2 ? 'cü' : 'ci'} hissə`;
+        const nth = `${ordinal(k + 1)} hissə`;
         return <View key={part.id} style={[s.partCard, now ? s.partNow : s.partNext]}>
           <Svg width={48} height={48}>
             <Circle cx={24} cy={24} r={r} stroke={now ? '#FED7AA' : '#E5E7EB'} strokeWidth={4} fill="none" />
@@ -374,7 +375,7 @@ function LessonSheet({ open, onClose, lessons, active, locked, allOpen, complete
             <Text style={s.partTitle} numberOfLines={2}>{part.title}</Text>
             <Text style={[s.partSub, now && { color: '#C2410C' }]}>{multi ? `${nth} · ` : ''}{pp}%</Text>
           </View>
-          {!partOpen ? <Text style={s.partLocked}>{k}-ci hissədən sonra</Text>
+          {!partOpen ? <Text style={s.partLocked}>{ordinal(k)} hissədən sonra</Text>
             : now ? <Pop accessibilityRole="button" accessibilityLabel={`${multi ? nth + ': ' : ''}${label}`} onPress={() => go(part.id)} style={s.goHot}>
               <LinearGradient colors={['#F97316', '#EA580C']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[StyleSheet.absoluteFill, { borderRadius: 22 }]} />
               <Text style={s.goHotText}>{label}</Text><Icon name="arrow" size={16} color="#fff" />

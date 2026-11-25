@@ -7,7 +7,7 @@ const answerBack = goal(['feeling', 'askFeeling'], ["I'm fine, thanks. And you?"
 const askHow = goal(['askFeeling'], ['How are you?']);
 
 export const lesson4: DesignLesson = {
-  id: 'a1_en_b1_v2_d4', order: 4, title: 'Necəsən?', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_v2_d4', order: 4, unit: 1, number: 4, title: 'Necəsən?', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinlə və ya mətnlə davam et.',
     unknown: 'Cavabı yoxlaya bilmədim. Bir az fərqli yaz və ya yenidən cəhd et.',

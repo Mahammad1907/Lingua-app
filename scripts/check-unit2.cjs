@@ -44,7 +44,9 @@ for (const raw of all) {
   assert.ok(lesson.cards.length >= 9 && lesson.cards.length <= max, `${tag}: 9–${max} cards (${lesson.cards.length})`);
   assert.equal(lesson.cards[0].type, 'intro', `${tag}: starts with the goals`);
   const kinds = new Set(tasks.map(kind));
-  assert.ok(kinds.size >= 5, `${tag}: at least 5 kinds of task (${[...kinds]})`);
+  // A lesson split into parts (26 Nov 2026) has fewer tasks per part: 4 kinds are enough there.
+  const minKinds = raw.part && !exam ? 4 : 5;
+  assert.ok(kinds.size >= minKinds, `${tag}: at least ${minKinds} kinds of task (${[...kinds]})`);
   if (exam) {
     assert.ok(tasks.length >= 12 && tasks.length <= 15, `${tag}: exam has 12–15 tasks (${tasks.length})`);
     assert.ok(!lesson.cards.some(c => c.type === 'word' || c.type === 'teach'), `${tag}: an exam teaches nothing new`);

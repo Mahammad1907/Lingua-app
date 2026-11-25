@@ -7,7 +7,7 @@ const thanks = goal(['thanks'], ['Thank you!', 'Thanks!']);
 const welcome = goal(['welcome'], ["You're welcome."]);
 
 export const lesson5: DesignLesson = {
-  id: 'a1_en_b1_v2_d5', order: 5, title: 'Təşəkkür və xahiş', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_v2_d5', order: 5, unit: 1, number: 5, title: 'Təşəkkür və xahiş', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinlə və ya mətnlə davam et.',
     unknown: 'Cavabı yoxlaya bilmədim. Bir az fərqli yaz və ya yenidən cəhd et.',

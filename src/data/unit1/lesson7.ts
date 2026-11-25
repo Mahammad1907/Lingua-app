@@ -8,7 +8,7 @@ const again = goal(['repeat'], ['Say that again, please.', 'Sorry? Say that agai
 const dont = goal(['dontUnderstand'], ["I don't understand."]);
 
 export const lesson7: DesignLesson = {
-  id: 'a1_en_b1_v2_d7', order: 7, title: 'Başa düşmürəm', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_v2_d7', order: 7, unit: 1, number: 7, title: 'Başa düşmürəm', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinlə və ya mətnlə davam et.',
     unknown: 'Cavabı yoxlaya bilmədim. Bir az fərqli yaz və ya yenidən cəhd et.',

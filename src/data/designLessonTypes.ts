@@ -159,7 +159,7 @@ export interface DesignLesson {
   /** Lesson number on the section map (1–8) when it differs from `order`. */
   number?: number;
   /** A map lesson split in two: this lesson is part 1 or 2 (docs/BOLME_2_XERITESI.md §0). */
-  part?: 1 | 2 | 3;
+  part?: number;
   /** Daily review session (src/data/reviewSession.ts): task or field id → review item key. Never set on course lessons. */
   reviewOf?: Record<string, string>;
   /** Section exam: no Kömək or hints, no retry round, pass mark 70 % (docs/BOLME_2_XERITESI.md §0). */

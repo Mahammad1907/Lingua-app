@@ -30,6 +30,7 @@ import { Avatar, ChatThread, TapText, SoundIcon, CountryMap, FormSheet, GapSente
 import Icon, { type IconName } from './Icons';
 import { DragBoard, ProfileCard } from './NewTaskScreens';
 import { PhotoCard } from './PhotoCard';
+import { ordinal } from '../../utils/ordinal';
 import { isEnglish, ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
 import { AudioPanel, Capsule, accentTitle, Card, Chip, ChoiceOption, Field, Header, KindChip, LessonCaption, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
 import { d, shadow, font } from './theme';
@@ -127,6 +128,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const sequence = useRef(0); const locked = useRef(false); const tokens = useRef(0);
   // Daily review: verdicts go to the review schedule, not to lesson progress (no attempt, XP, hearts or retry round).
   const reviewMode = Boolean(lesson.reviewOf);
+  // The first two map lessons of Bölmə 1 show the spoken sample openly (by map number, so parts do not shift it).
+  const early = (lesson.unit ?? 1) === 1 && (lesson.number ?? lesson.order) <= 2;
   const verdicts = useRef<Record<string, boolean>>({});
   const recordsRef = useRef<Record<string, TaskRecord>>({}); // for the schedule entry written when the lesson finishes
   const reviewIds = reviewing ? queue : [];
@@ -296,7 +299,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   const evidence = (spoken: boolean): TaskEvidence => ({
     input: spoken ? 'spoken' : 'written',
-    assisted: Boolean(reviewing || meaningHint || sampleShown || peeked || (task?.type === 'voice' && task.sample && lesson.order <= 2)),
+    assisted: Boolean(reviewing || meaningHint || sampleShown || peeked || (task?.type === 'voice' && task.sample && early)),
     listening: Boolean(listeningTask && heard && !textShown && !technical),
     technicalText: Boolean(listeningTask && technical), transcriptShown: Boolean(listeningTask && textShown && !technical),
   });
@@ -520,7 +523,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     // The model answer: the task's own sample, or (opened through Kömək) the first accepted answer.
     // Bug fixed 13 Nov: tasks without a written sample offered “Nümunəni göstər” but showed nothing.
     const sampleText = task.type === 'voice' && !task.repeat ? task.sample ?? (sampleShown ? task.rule.answers[0] : undefined) : undefined;
-    const sampleVisible = Boolean(sampleText) && ((lesson.order <= 2 && task.type === 'voice' && Boolean(task.sample)) || sampleShown);
+    const sampleVisible = Boolean(sampleText) && ((early && task.type === 'voice' && Boolean(task.sample)) || sampleShown);
     return <View style={[s.gap, { flex: 1 }]}>
       {reviewing ? <View style={{ gap: 6 }}><Chip label="Təkrar" />{reviewStep === 0 ? <Text style={ds.small}>{lesson.notices.review}</Text> : null}</View> : null}
       <View style={{ gap: 4 }}>
@@ -657,7 +660,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         : task.type === 'voice' ? [task.rule.answers[0]].filter(english)
         // Listening: hear the recording again (not the Azerbaijani option you picked).
         : listeningTask && audio ? [audio].filter(english) : [mineText ?? ''].filter(english);
-      const assistedNow = !reviewing && Boolean(meaningHint || sampleShown || peeked || (task.type === 'voice' && task.sample && lesson.order <= 2));
+      const assistedNow = !reviewing && Boolean(meaningHint || sampleShown || peeked || (task.type === 'voice' && task.sample && early));
       if (graded.status === 'correct') return <ResultPanel tone="correct" title={assistedNow ? 'Düzgündür' : 'Əla!'} short={task.why} listen={listen} onSay={t => speak(t.replace(/…/g, ''), 0.85)} corrections={result.kind === 'single' ? result.graded.spellingCorrections : undefined}
         assisted={assistedNow} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
       return <ResultPanel tone="wrong" title="Bir daha baxaq" short={graded.short} answers={graded.explain?.answers} parts={parts} mine={mineText} onSay={t => speak(t.replace(/…/g, ''), 0.85)}
@@ -682,7 +685,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const helpSample = task?.type === 'voice' && !task.repeat ? task.sample ?? task.rule.answers[0] : undefined;
   const help = task ? <Sheet visible={helpOpen} onClose={() => setHelpOpen(false)} title="Kömək" icon="bulb">
     {task.hint ? <Text style={ds.strong}>{task.hint}</Text> : null}
-    {helpSample && !(lesson.order <= 2 && task.type === 'voice' && task.sample) && !sampleShown ? <SheetOption icon="doc" highlight label="Nümunəni göstər" note="Nümunəyə baxıb desən, nəticə “Köməklə” olacaq."
+    {helpSample && !(early && task.type === 'voice' && task.sample) && !sampleShown ? <SheetOption icon="doc" highlight label="Nümunəni göstər" note="Nümunəyə baxıb desən, nəticə “Köməklə” olacaq."
       onPress={() => { setHelpOpen(false); setSampleShown(true); (attempt && useUserStore.getState().useHelp(attempt)); }} /> : null}
     {listeningTask ? <SheetOption icon="doc" label="Mətnlə davam et" note="Dinləmə yoxlanmamış qalacaq."
       onPress={() => { setHelpOpen(false); stopAudio(); setTextShown(true); setTextVisible(true); (attempt && useUserStore.getState().useHelp(attempt)); }} /> : null}
@@ -833,7 +836,7 @@ function lessonLabel(lesson: Lesson) {
   if (lesson.reviewOf) return 'Gündəlik təkrar';
   if (lesson.exam) return 'Bölmə imtahanı';
   const n = lesson.number ?? lesson.order;
-  return lesson.part ? `Dərs ${n} · ${lesson.part}-${lesson.part === 3 ? 'cü' : 'ci'} hissə` : `Dərs ${n}`;
+  return lesson.part ? `Dərs ${n} · ${ordinal(lesson.part)} hissə` : `Dərs ${n}`;
 }
 
 /** Exam score: only verified first answers count (Expo Go cannot check speech — those stay “Yoxlanmadı”).

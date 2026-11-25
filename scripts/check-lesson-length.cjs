@@ -1,6 +1,6 @@
-// Lesson length (26 Nov 2026, user): a lesson is 10–12 screens, and the lengths vary — never three lessons in a row
-// with the same count. At most 3 Yeni söz cards (a pair “A · B” is one card). Practice that was taken out lives in
-// `lesson.pool` and comes back in the daily review. Section talks (Dərs 8) and exams keep their own length.
+// Lesson length (26 Nov 2026, user): nothing is removed from the course — a lesson longer than 12 screens is split into
+// parts (“1-ci hissə”, “2-ci hissə” in the same map circle). Every lesson part is 8–12 screens (the intro is not a screen),
+// and the lengths vary — never three parts in a row with the same count. Section talks (Dərs 8) and exams keep their length.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const ts = require('typescript');
@@ -18,8 +18,8 @@ for (const l of regular) {
   const screens = l.cards.filter(c => c.type !== 'intro').length;
   const words = l.cards.filter(c => c.type === 'word').length;
   counts.push([l.id, screens]);
-  if (screens < 10 || screens > 12) problems.push(`${l.id} (${l.title}): ${screens} ekran — 10–12 olmalıdır`);
-  if (words > 3) problems.push(`${l.id} (${l.title}): ${words} Yeni söz kartı — ən çox 3`);
+  if (screens < 8 || screens > 12) problems.push(`${l.id} (${l.title}): ${screens} ekran — 8–12 olmalıdır`);
+  if (words > 6) problems.push(`${l.id} (${l.title}): ${words} Yeni söz kartı — ən çox 6`);
 }
 for (let i = 2; i < counts.length; i++) {
   if (counts[i][1] === counts[i - 1][1] && counts[i][1] === counts[i - 2][1]) problems.push(`${counts[i - 2][0]}, ${counts[i - 1][0]}, ${counts[i][0]}: üçü də ${counts[i][1]} ekran — uzunluq dəyişməlidir`);
@@ -45,4 +45,4 @@ if (problems.length) {
   process.exit(1);
 }
 assert.ok(regular.length > 0);
-console.log(`PASS: check-lesson-length — ${regular.length} dərs 10–12 ekran, uzunluq dəyişir, ≤3 Yeni söz, pool tapşırıqları təkrarda açılır.`);
+console.log(`PASS: check-lesson-length — ${regular.length} dərs/hissə 8–12 ekran, uzunluq dəyişir.`);

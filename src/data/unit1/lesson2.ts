@@ -10,7 +10,7 @@ const greetIntro = goal(['greet', 'introduce'], ["Hello! I'm [ad]", 'Hi! My name
 const greetIntroEarly = goal(['greet', 'introduce'], ["Hello! I'm [ad]", "Hi! I'm [ad]"]);
 
 export const lesson2: DesignLesson = {
-  id: 'a1_en_b1_v2_d2', order: 2, title: 'Adını de', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_v2_d2', order: 2, unit: 1, number: 2, title: 'Adını de', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinlə və ya mətnlə davam et.',
     unknown: 'Cavabı yoxlaya bilmədim. Bir az fərqli yaz və ya yenidən cəhd et.',

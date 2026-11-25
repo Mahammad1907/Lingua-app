@@ -22,7 +22,7 @@ const twoVariants: Variant[] = [
       ];
 
 export const lesson1Design: DesignLesson = {
-  id: 'a1_en_b1_v2_d1', order: 1, title: 'Salamlaşma və sağollaşma', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_v2_d1', order: 1, unit: 1, number: 1, title: 'Salamlaşma və sağollaşma', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinləməyə cəhd et və ya mətnlə davam et. Bu texniki problem dil səhvi sayılmayacaq.',
     unknown: 'Cavabını dəqiq qiymətləndirə bilmədim. Yenidən cəhd edə və ya yoxlanmamış kimi davam edə bilərsən.',

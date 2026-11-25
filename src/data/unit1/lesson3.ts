@@ -10,7 +10,7 @@ const bye = goal(['farewell'], ['Bye!', 'Goodbye!']);
 const byeAfterMeet = goal(['farewell'], ['Bye!', 'Goodbye!', 'You too! Bye!', 'You too! Goodbye!']);
 
 export const lesson3: DesignLesson = {
-  id: 'a1_en_b1_v2_d3', order: 3, title: 'Adını soruş', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_v2_d3', order: 3, unit: 1, number: 3, title: 'Adını soruş', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinlə və ya mətnlə davam et.',
     unknown: 'Cavabı yoxlaya bilmədim. Bir az fərqli yaz və ya yenidən cəhd et.',

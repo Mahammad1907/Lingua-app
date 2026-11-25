@@ -2,6 +2,7 @@
 // (same skill, new situation), run by the same DesignLesson screens. No XP, no hearts, no end-of-lesson retry round.
 import { isTask, reviewTask } from '../utils/designLesson';
 import { addDays, type ReviewItem } from '../utils/spacedReview';
+import { ordinal } from '../utils/ordinal';
 import { useReviewStore } from '../store/reviewStore';
 import { designLessons, getDesignLesson } from './designLessons';
 import type { DesignLesson, TaskWithReview } from './designLessonTypes';
@@ -11,7 +12,7 @@ import type { LessonProgress } from './types';
 const reviewable = (card: DesignLesson['cards'][number]): card is TaskWithReview => isTask(card as never) && card.type !== 'voice';
 const fieldIds = (t: TaskWithReview) => t.type === 'two' ? t.fields.map(f => f.id) : [t.id];
 
-const label = (l: DesignLesson) => `Bölmə ${l.unit ?? 1} · Dərs ${l.number ?? l.order}${l.part ? ` · ${l.part}-${l.part === 3 ? 'cü' : 'ci'} hissə` : ''}`;
+const label = (l: DesignLesson) => `Bölmə ${l.unit ?? 1} · Dərs ${l.number ?? l.order}${l.part ? ` · ${ordinal(l.part)} hissə` : ''}`;
 
 export function buildReviewLesson(items: ReviewItem[], today: string): DesignLesson | undefined {
   const cards: DesignLesson['cards'] = [];
