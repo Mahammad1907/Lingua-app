@@ -29,6 +29,7 @@ import { ChatTimeline } from './ChatTimeline';
 import { Avatar, ChatThread, TapText, SoundIcon, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TeacherView, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
 import Icon, { type IconName } from './Icons';
 import { DragBoard, ProfileCard } from './NewTaskScreens';
+import { PhotoCard } from './PhotoCard';
 import { isEnglish, ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
 import { AudioPanel, Capsule, accentTitle, Card, Chip, ChoiceOption, Field, Header, KindChip, LessonCaption, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
 import { d, shadow, font } from './theme';
@@ -513,7 +514,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     // Speaking screens (25 Nov 2026): a utility row under the audio card — sample pill (Dərs 1–2) left, Kömək right.
     const voiceRow = task.type === 'voice' && !repeat;
     // Chat, speaking and listening screens carry no picture (BIRTALK §5.3).
-    const noArt = (task.type === 'write' && Boolean(task.chat)) || task.type === 'voice' || listeningTask;
+    const noArt = (task.type === 'write' && (Boolean(task.chat) || Boolean(task.photo))) || task.type === 'voice' || listeningTask;
     // The model answer: the task's own sample, or (opened through Kömək) the first accepted answer.
     // Bug fixed 13 Nov: tasks without a written sample offered “Nümunəni göstər” but showed nothing.
     const sampleText = task.type === 'voice' && !task.repeat ? task.sample ?? (sampleShown ? task.rule.answers[0] : undefined) : undefined;
@@ -575,6 +576,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         {tiles ? <TileTray tiles={tiles} picked={picked} disabled={locked.current} onSay={say} onPick={i => pickTiles([...picked, i])} /> : null}
       </ChatThread> : null}
       {/* Tile task without a chat (e.g. “Mesaj yaz”): the picked words and the tray are the whole screen (20 Nov 2026). */}
+      {task.type === 'write' && task.photo ? <PhotoCard photo={task.photo} /> : null}
       {task.type === 'write' && tiles && !task.chat ? <View style={{ gap: 16 }}>
         <View style={s.transcript}><PickedChips tiles={tiles} picked={picked} disabled={locked.current} placeholder="Sözlərə toxun…" onRemove={i => pickTiles(picked.filter(x => x !== i))} /></View>
         <TileTray tiles={tiles} picked={picked} disabled={locked.current} onSay={say} onPick={i => pickTiles([...picked, i])} />

@@ -55,7 +55,12 @@ export interface WriteTask extends BaseTask {
     /** The partner's reaction after a correct check. Dərs 1: emoji only; later lessons: taught words only (check-taught). */ reply?: string };
   /** “Mesaj yaz”: the reply is built from these word tiles instead of typed. Extra tiles are distractors. */
   tiles?: string[];
+  /** A code-drawn photo the partner sent (26 Nov 2026): shown instead of describing it in the task line. */
+  photo?: PhotoSpec;
 }
+export type PhotoLook = 'man' | 'woman' | 'oldMan' | 'oldWoman' | 'girl' | 'boy' | 'friend';
+/** `from`: who sent it (name slots allowed). `ask`: the person the question is about (orange “?”). */
+export interface PhotoSpec { from: string; who?: Who; people: { look: PhotoLook; ask?: boolean }[] }
 export interface TwoField { id: string; label: string; placeholder: string; rule: PacketRule; purpose: string; empty: string }
 /** `form` = “Formanı doldur” (Bölmə 2): the fields are shown as a printed registration form with this heading. */
 export interface TwoTask extends BaseTask { type: 'two'; fields: TwoField[]; form?: { title: string; subtitle?: string };
