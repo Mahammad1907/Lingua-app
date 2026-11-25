@@ -34,7 +34,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u3x_c04', number: 4, letters: ['F', 'R', 'A', 'N', 'C', 'E', 'I', 'S'], title: 'Hərfləri tut', why: 'F-R-A-N-C-E — France.',
-      prompt: 'Uçuş tablosunun yanında işçi ölkəni hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: "It's F-R-A-N-C-E.", placeholder: 'Ölkə',
+      prompt: 'Səyahət agentliyində işçi turun ölkəsini hərf-hərf deyir, sən formaya yazırsan.\nEşitdiyin hərflərə toxun.', audio: "It's F-R-A-N-C-E.", placeholder: 'Ölkə',
       rule: exact('FRANCE'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('FRANCE', 'Səsdə F, R, A, N, C, E deyilir: E “i”, C “si”.', 'E — i; I — ay.', "It's F-R-A-N-C-E."))],
     },
@@ -108,7 +108,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u3x_c13', number: 13, title: 'Sualı qur', why: 'Danışmaq haqqında sual “Do” ilə başlayır.',
-      prompt: 'Hostelin mətbəxində yanındakı gəncin türkcə bilib-bilmədiyini öyrənmək istəyirsən.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Hostelin çatında yeni tanışa mesaj yazırsan. Onun türkcə bilib-bilmədiyini öyrənmək istəyirsən.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
       tiles: ['Turkish', 'speak', 'Are', 'you', 'Do', 'Turkey', '?'], rule: exact('Do you speak Turkish?'),
       variants: [
         { match: { pattern: String.raw`^are\s+you\s+speak` }, short: 'Bu sualda “are” yox, “do” gəlir.', explain: ex('Do you speak Turkish?', 'Danışmaq haqqında sualı “Do” başladır.', 'Do you speak Turkish? — dil; Are you Turkish? — millət.', 'Excuse me, do you speak Turkish?') },

@@ -1,6 +1,6 @@
 # Məntiq yoxlaması — hər tapşırıq real həyata uyğun olmalıdır
 
-İstifadəçi qaydası (24–25 noyabr 2026): tapşırığın vəziyyəti, ekranı, şəkli, cavabı və təlimatı bir-birinə və real həyata uyğun olmalıdır. Bölmə 1 və 2 tam oxunanda tapılan **bütün səhv növləri** aşağıdakı L1–L13 qaydalarıdır. Hamısı bir əmrlə tapılır (keyfiyyət yoxlamaları Q1–Q6 isə aşağıda, ayrıca əmrlədir):
+İstifadəçi qaydası (24–25 noyabr 2026): tapşırığın vəziyyəti, ekranı, şəkli, cavabı və təlimatı bir-birinə və real həyata uyğun olmalıdır. Bölmə 1–3 tam oxunanda tapılan **bütün səhv növləri** aşağıdakı L1–L17 qaydalarıdır. Hamısı bir əmrlə tapılır (keyfiyyət yoxlamaları Q1–Q6 isə aşağıda, ayrıca əmrlədir):
 
 ```
 node scripts/check-situation.cjs
@@ -27,6 +27,10 @@ Skript söz siyahıları ilə işləyir — tapdığı hər yeri insan oxuyub q�
 | L11 | “Hərf-hərf de” tapşırığının nümunə cavabı hərflərlə göstərilir | ✓ “It's [ad]” | ✓ “It's A-L-I.” |
 | L12 | Telefon / e-poçt ümumi qrup çatında soruşulmur | “Kursun qrup çatına yeni üzv qoşuldu… nömrəsini soruş” | şəxsi mesajda soruşulur |
 | L13 | Yazdığın nömrəni yoxlayanda nömrənin özü də mesajda olur | ikinci mesaj: “Is that right?” | “050 321 45 67? Is that right?” |
+| L14 | Qarşındakı adama yazmırsan (söhbət/mesaj deyilmirsə) | “Dil mübadiləsi masasındasan… sual qur” (yazı) | “Dil mübadiləsi qrupunda yeni tanışa mesaj yazırsan” |
+| L15 | Şəkil vəziyyətin yerini göstərir | hostel söhbəti + video zəng şəkli | hostel şəkli / şəkilsiz |
+| L16 | Eşitdiyini yazmağın səbəbi var (orada işləyirsən, forma, kimsə soruşur) | “Qonaq millətini deyir. Millətini yaz.” | “Sən resepsiyada işləyirsən… vərəqə yazırsan” |
+| L17 | İşçi (bələdçi, resepsiyaçı) səndən yanındakı yad adamlar haqqında soruşmur | “Bələdçi soruşur: Where's he from?” | yol yoldaşın tanışların haqqında soruşur |
 
 ## Keyfiyyət yoxlamaları (check-quality.cjs)
 
@@ -71,5 +75,5 @@ Skript sonda nəyi neçə dəfə yoxladığını da yazır (“0 problem” “0
 |---|---|---|
 | 1 | 24 Nov 2026 | 179 tapşırıq oxundu, 11 düzəliş edildi |
 | 2 | 25 Nov 2026 | 223 tapşırıq + 32 uyğunlaşdırma oxundu, 12 düzəliş edildi (13-cü — “Last name, please?” qısa cavabı — artıq düz sayılırdı, nümunəyə əlavə edildi); 15 şəkil siyahıya yazıldı |
-| 3 | — | yoxlanmayıb |
+| 3 | 25 Nov 2026 | 199 tapşırıq + 38 uyğunlaşdırma oxundu, 8 qrup düzəliş (+1 şəkil u3d6_c09 təkrarında); yeni qaydalar L14–L17 |
 | 4 | — | yoxlanmayıb |

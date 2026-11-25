@@ -131,12 +131,12 @@ export const lesson3a: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d3a_c11', number: 11, title: 'Dinlə və yaz', why: 'Georgian — gürcü.', hint: 'Ölkənin adını xatırla: millət sözü ondan düzəlir.',
-      prompt: 'Hostel resepsiyasında qonaq millətini deyir.\nMillətini yaz.', audio: "I'm Georgian.", placeholder: 'Millət',
+      prompt: 'Sən hostelin resepsiyasında işləyirsən. Qonaq millətini deyir, sən vərəqə yazırsan.\nMillətini yaz.', audio: "I'm Georgian.", placeholder: 'Millət',
       rule: exact('Georgian', "I'm Georgian."),
       variants: [other('Yazılışı yoxla: Georgian.', ex('Georgian', 'Səsdə “corcən” eşidilir, yazıda Georgia + n.', "I'm Georgian. — millət; I'm from Georgia. — ölkə.", "I'm Georgian."))],
       review: {
         title: 'Dinlə və yaz', why: 'Russian — rus.', hint: 'Ölkənin adını xatırla: millət sözü ondan düzəlir.',
-        prompt: 'Pasport nəzarətində sərnişin millətini deyir.\nMillətini yaz.', audio: "I'm Russian.", placeholder: 'Millət',
+        prompt: 'Sən pasport nəzarətində işləyirsən. Sərnişin millətini deyir, sən formaya yazırsan.\nMillətini yaz.', audio: "I'm Russian.", placeholder: 'Millət',
         rule: exact('Russian', "I'm Russian."),
         variants: [other('Yazılışı yoxla: Russian.', ex('Russian', 'Səsdə “raşən” eşidilir, yazıda Russia + n.', "I'm Russian. — millət; I'm from Russia. — ölkə.", "I'm Russian."))],
       },

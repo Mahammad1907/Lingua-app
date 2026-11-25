@@ -55,12 +55,12 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d7_c05', number: 5, title: 'Sualı qur', why: 'Danışmaq haqqında sual “Do” ilə başlayır.', hint: 'Bu dərsin sualı hansı kiçik sözlə başlayır?',
-      prompt: 'Dil mübadiləsi masasındasan. Yeni tanışın rusca bilib-bilmədiyini öyrənmək istəyirsən.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Dil mübadiləsi qrupunda yeni tanışa mesaj yazırsan. Onun rusca bilib-bilmədiyini öyrənmək istəyirsən.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
       tiles: ['speak', 'Do', 'Russian', 'you', 'Are', 'Russia', '?'], rule: exact('Do you speak Russian?'),
       variants: [areYouSpeak, other('Sıra: Do you speak Russian?', ex('Do you speak Russian?', 'Do, sonra you speak, sonda dilin adı.', 'Do you speak Russian? — dil; Are you from Russia? — ölkə.', 'Excuse me, do you speak Russian?'))],
       review: {
         title: 'Sualı qur', why: 'Danışmaq haqqında sual “Do” ilə başlayır.', hint: 'Bu dərsin sualı hansı kiçik sözlə başlayır?',
-        prompt: 'Hostelin resepsiyasında qonaq fransızca bilib-bilmədiyini öyrənmək istəyirsən.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Hostelin çatında yeni qonağa mesaj yazırsan. Onun fransızca bilib-bilmədiyini öyrənmək istəyirsən.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
         tiles: ['you', 'French', 'Do', 'speak', 'Are', 'France', '?'], rule: exact('Do you speak French?'),
         variants: [{ ...areYouSpeak, explain: ex('Do you speak French?', 'Danışmaq haqqında sualı “Do” başladır.', 'Do you speak French? — dil; Are you French? — millət.', 'Excuse me, do you speak French?') },
           other('Sıra: Do you speak French?', ex('Do you speak French?', 'Do, sonra you speak, sonda dilin adı.', 'Do you speak French? — dil; Are you from France? — ölkə.', 'Excuse me, do you speak French?'))],

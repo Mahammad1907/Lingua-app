@@ -58,7 +58,7 @@ export const lesson2a: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d2a_c05', number: 5, letters: ['T', 'U', 'R', 'K', 'E', 'Y', 'I', 'A'], title: 'Hərfləri tut', why: 'T-U-R-K-E-Y — Türkiyə.', hint: 'Hər hərfi eşidən kimi toxun; “i” və “ay” səslərini qarışdırma.',
-      prompt: 'Hava limanında qeydiyyatçıdan soruşdun: “How do you spell it?” O, uçuşun ölkəsini hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: "It's T-U-R-K-E-Y.", placeholder: 'Ölkə',
+      prompt: 'Səyahət agentliyində işçi turun ölkəsini hərf-hərf deyir, sən formaya yazırsan.\nEşitdiyin hərflərə toxun.', audio: "It's T-U-R-K-E-Y.", placeholder: 'Ölkə',
       rule: exact('TURKEY'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('TURKEY', 'Səsdə T, U, R, K, E, Y deyilir: E “i” oxunur, Y “uay”.', 'E — i; I — ay.', "It's T-U-R-K-E-Y."))],
       review: {
@@ -150,15 +150,15 @@ export const lesson2a: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d2a_c12', number: 12, title: 'Yaz', why: 'İstanbul Türkiyədədir — Turkey.', hint: 'İstanbul hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.', scenes: ['u3/airport'],
-      prompt: 'Hava limanında uçuş tablosunda “Istanbul” yazılıb.\nBu şəhər hansı ölkədədir? Ölkənin adını ingiliscə yaz.', placeholder: 'Ölkə',
+      prompt: 'Hava limanında uçuş tablosunda “Istanbul” yazılıb. Dostun mesajda soruşur: bu şəhər hansı ölkədədir?\nÖlkənin adını ingiliscə yaz.', placeholder: 'Ölkə',
       rule: exact('Turkey'),
       variants: [
         { match: { words: ['Turkiye', 'Türkiye', 'Turkiya', 'Turkia'] }, short: 'İngiliscə bu ölkənin adı başqa cür yazılır.', explain: ex('Turkey', 'Türkiyə ingiliscə Turkey yazılır.', "I'm from Turkey. — Türkiyədən; I'm from Russia. — Rusiyadan.", "I'm from Turkey.") },
         other('Ölkənin ingiliscə adını yaz.', ex('Turkey', 'İstanbul Türkiyədədir; ingiliscə Turkey.', "I'm from Turkey. — Türkiyədən; I'm from Iran. — İrandan.", "I'm from Turkey.")),
       ],
-      review: {
+      review: { scenes: ['u3/train'],
         title: 'Yaz', why: 'Tbilisi Gürcüstandadır — Georgia.', hint: 'Tbilisi hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.', scenes: ['u3/airport'],
-        prompt: 'Qatar stansiyasında tabloda “Tbilisi” yazılıb.\nBu şəhər hansı ölkədədir? Ölkənin adını ingiliscə yaz.', placeholder: 'Ölkə',
+        prompt: 'Qatar stansiyasında tabloda “Tbilisi” yazılıb. Dostun mesajda soruşur: bu şəhər hansı ölkədədir?\nÖlkənin adını ingiliscə yaz.', placeholder: 'Ölkə',
         rule: exact('Georgia'),
         variants: [
           { match: { words: ['Gruziya', 'Gruzia', 'Gurcustan', 'Gürcüstan'] }, short: 'İngiliscə bu ölkənin adı başqa cür yazılır.', explain: ex('Georgia', 'Gürcüstan ingiliscə Georgia yazılır.', "I'm from Georgia. — Gürcüstandan; I'm from Russia. — Rusiyadan.", "I'm from Georgia.") },

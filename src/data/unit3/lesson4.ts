@@ -148,7 +148,7 @@ export const lesson4: DesignLesson = {
       review: {
         title: 'Mesaj yaz', why: 'Sual are ilə başlayır: Are you from Russia?', hint: 'Sual bu dərsin ilk kartındakı kimi başlayır.',
         prompt: 'Hostelin söhbət qrupunda yeni tanış Moskvanın şəklini paylaşıb.\nSözlərdən sual qur: “Sən Rusiyadansan?”', placeholder: 'Sözlərə toxun',
-        chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: 'Hello!' }] },
+        chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: '📷' }, { from: 'other', text: 'Hello!' }] },
         tiles: ['Russia', 'you', 'Do', 'Are', 'from', '?', 'at'], rule: exact('Are you from Russia?'),
         variants: [...QUESTION_MISTAKES, other('Sıra: Are you from Russia?', ex('Are you from Russia?', 'Sual are ilə başlayır, sonra you, from və ölkə.', 'Are you from Russia? — sual; Where are you from? — haradan?', 'Are you from Russia?'))],
       },

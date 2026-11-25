@@ -62,7 +62,7 @@ export const lesson5b: DesignLesson = {
       ],
       review: {
         title: 'Dinlə və seç', why: '“he” — kişi haqqında soruşur.', hint: 'Where’s-dən sonrakı sözə qulaq as.',
-        prompt: 'Qatarda yanında bir kişi və bir qadın oturub. Bələdçi sənə yaxınlaşıb soruşur.\nNəyi soruşur?', audio: "Where's he from?",
+        prompt: 'Qatarda tanışların — bir kişi və bir qadın — yanında oturub. Yol yoldaşın səndən soruşur.\nNəyi soruşur?', audio: "Where's he from?",
         options: ['Sənin haradan olduğunu', 'Qadının haradan olduğunu', 'Kişinin haradan olduğunu'], answer: 'Kişinin haradan olduğunu',
         variants: [
           pick('Sənin haradan olduğunu', 'Səndən soruşsaydı, “you” deyərdi.', ex('Kişinin haradan olduğunu', 'Səsdə “you” yox, “he” var.', "Where's he from? — o (kişi); Where are you from? — sən.", "Where's he from? — He's from Russia.")),
@@ -97,7 +97,7 @@ export const lesson5b: DesignLesson = {
         { match: { pattern: String.raw`^he\s+is\b` }, short: 'Sualda Is əvvələ keçir.', explain: ex('Is he from Russia?', 'Bəli/xeyr sualında Is birinci gəlir, he ondan sonra.', 'Is he from Russia? — sual; He is from Russia. — cavab.', 'Is she Turkish?') },
         other('Is he from Russia?', ex('Is he from Russia?', 'Sual Is ilə başlayır, sonra he from, sonra ölkə.', 'Is he from Russia? — ölkə; Is he Russian? — millət.', 'Is she Turkish?')),
       ],
-      review: {
+      review: { scenes: ['u3/hostel-kitchen'],
         title: 'Mesaj yaz', why: 'Sualda Is əvvəldədir.', hint: 'Bəli/xeyr sualında hansı söz birinci gəlir?',
         prompt: 'Hosteldə oğlana yazırsan: mətbəxdəki qadın fransızdırmı?\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
         tiles: ['French', 'Is', 'she', 'is', 'She', 'France', '?'], rule: exact('Is she French?'),
@@ -146,7 +146,7 @@ export const lesson5b: DesignLesson = {
       ],
       review: {
         title: 'Sözü tamamla', why: '“deyil” — isn’t.', hint: 'Qısa “xeyr” cavabının sonunda nə gəlir?',
-        prompt: 'Qatarda bələdçi soruşur: “Is she Turkish?” Oğlan bilir ki, yanındakı qadın türk deyil.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'No, she', after: '.' },
+        prompt: 'Qatarda yol yoldaşı soruşur: “Is she Turkish?” Oğlan bilir ki, tanışı olan qadın türk deyil.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'No, she', after: '.' },
         options: ["isn't", "don't", 'not'], answer: "isn't",
         variants: [
           pick('not', 'Tək “not” kifayət deyil, is də lazımdır.', ex("isn't", '“deyil” üçün is və not birlikdə gəlir: isn’t.', "No, she isn't. — düzdür; No, she not. — olmur.", "Is she from Iran? — No, she isn't.")),
@@ -196,7 +196,7 @@ export const lesson5b: DesignLesson = {
       variants: [other('Söhbətin sırası düz deyil.', ex("Where's he from? → He's from Georgia. → Is he Georgian? → Yes, he is.", 'Sual, cavab, millətlə yoxlama, sonra qısa təsdiq.', "Is he Georgian? — sual; Yes, he is. — cavab.", "Where's he from? — He's from Georgia."))],
       review: {
         title: 'Söhbəti sırala', why: 'Yoxlama, “xeyr” cavabı, sual və cavab düz sıradadır.', hint: 'Əvvəl bəli/xeyr sualı gəlir; “xeyr”dən sonra nə soruşulur?',
-        prompt: 'Qatar. Bələdçi oğlandan yanındakı qadını soruşur.\nBalonlara toxun, söhbəti sıraya düz.',
+        prompt: 'Qatar. Yol yoldaşı oğlandan onun tanışı olan qadını soruşur.\nBalonlara toxun, söhbəti sıraya düz.',
         rows: [{ en: '1', az: 'Is she from Russia?', from: 'other' }, { en: '2', az: "No, she isn't.", from: 'B' }, { en: '3', az: "Where's she from?", from: 'other' }, { en: '4', az: "She's from Georgia.", from: 'B' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Is she from Russia? → No, she isn't. → Where's she from? → She's from Georgia.", '“Xeyr” cavabından sonra haradan olduğu soruşulur.', "Is she from Russia? — bəli/xeyr sualı; Where's she from? — haradan.", "Is she from Iran? — No, she isn't."))],

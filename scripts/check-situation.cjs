@@ -58,6 +58,19 @@ const look = (lesson, task, where) => {
   if (/qrup(un)? çat/i.test(text) && answers.concat(task.fields ? task.fields.flatMap(f => (f.rule && f.rule.answers) || []) : []).some(a => /phone number|email/i.test(a))) hits.push(`${id}: şəxsi məlumat ümumi qrup çatında soruşulur — “${text}”`);
   // L13: checking a number you wrote down repeats the number (“050…? Is that right?”).
   if (task.fields && task.fields.some(f => ((f.rule && f.rule.answers) || []).some(a => /^is that right\?$/i.test(a.trim())))) hits.push(`${id}: “Is that right?” nömrəsiz yazılıb — yoxlanan nömrə də mesajda olmalıdır`);
+  // ── Added 25 Nov 2026 (Bölmə 3 review) ──
+  // L14: writing a question/sentence to someone who is right there (no chat, no message).
+  if ((task.type === 'write' || task.type === 'two') && !task.chat && !task.audio && /masasındasan|mətbəxində|resepsiyasında|yanındakı|qarşında/i.test(text) && /qur|yaz/i.test(text) && !WRITTEN.test(text) && !/işləyirsən|formaya|vərəqə|vərəqini|vərəqi/i.test(text)) hits.push(`${id}: adam qarşındadır, amma yazırsan — “${text}”`);
+  // L15: the picture shows the place of the situation.
+  const PLACE = { videocall: /video/i, train: /qatar|stansiya/i, airport: /hava liman|uçuş|tablo/i, hostel: /hostel/i, 'hostel-kitchen': /mətbəx|hostel/i, cafe: /kafe/i, club: /klub/i, party: /ziyafət/i, passport: /pasport/i };
+  for (const s of task.scenes || []) {
+    const place = s.split('/')[1];
+    if (PLACE[place] && !PLACE[place].test(text)) hits.push(`${id}: şəkil “${s}”, amma vəziyyət başqa yerdədir — “${text}”`);
+  }
+  // L16: writing down what you hear needs a reason (you work there, a form, someone asks).
+  if (task.type === 'write' && task.audio && /eşitdiyini yaz|millətini yaz/i.test(text) && !/işləyirsən|formaya|vərəqə|soruşur|mesaj|qeyd/i.test(text)) hits.push(`${id}: diktənin səbəbi yoxdur (kim, niyə yazır?) — “${text}”`);
+  // L17: staff do not ask you about strangers next to you.
+  if (/bələdçi|işçi|resepsiyaçı/i.test(text) && /(where's|where is|is) (he|she)\b/i.test(heard) && /yanında/i.test(text)) hits.push(`${id}: işçi səndən yad adamlar haqqında soruşur — “${text}”`);
   if (task.type === 'voice' && /mesaj|çat|yazır\b|yazdı/i.test(text) && !/siyahıya yazır|adını .{0,20}yazır/i.test(text)) hits.push(`${id}: yazışma vəziyyəti, amma danışıq tapşırığı — “${text}”`);
 };
 for (const lesson of designLessons) {

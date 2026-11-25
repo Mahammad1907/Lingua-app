@@ -103,7 +103,7 @@ export const lesson6: DesignLesson = {
       prompt: 'Kafedə tanış olduğun qıza mesaj yazırsan: Şəkidənsən, amma Bakıda yaşayırsan.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
       tiles: ["I'm", 'from', 'Shaki,', 'but', 'I', 'live', 'in', 'Baku', 'at', 'and', '.'], rule: fromBut('Shaki', 'Baku'),
       variants: [andNotBut("I'm from Shaki, but I live in Baku."), ...LIVE_MISTAKES, other("I'm from Shaki, but I live in Baku.", ex("I'm from Shaki, but I live in Baku.", 'Əvvəl from + şəhər, sonra but, sonra I live in + şəhər.', "I'm from Shaki. — haradan; I live in Baku. — harada.", "I'm from Ganja, but I live in Baku."))],
-      review: {
+      review: { scenes: [],
         title: 'Mesaj yaz', why: 'Haradan olduğunu və harada yaşadığını but ilə birləşdirdin.', hint: 'Əvvəl haradan olduğun, sonra “amma”, sonra harada yaşadığın.',
         prompt: 'Şəhər turunun qrup çatına özün haqqında yazırsan: Lənkərandansan, amma Gəncədə yaşayırsan.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
         tiles: ['live', "I'm", 'Lankaran,', 'from', 'but', 'in', 'I', 'Ganja', 'and', 'at', '.'], rule: fromBut('Lankaran', 'Ganja'),
