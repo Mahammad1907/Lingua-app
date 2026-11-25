@@ -79,9 +79,9 @@ export function Chip({ label }: { label: string }) {
   return <View style={s.chip}><Text style={s.chipText}>{label}</Text></View>;
 }
 
-export function Capsule({ label, icon, onPress, tone = 'soft', disabled, small, accessibilityLabel, align = 'center' }: { label: string; icon?: IconName; onPress: () => void; tone?: 'soft' | 'ghost' | 'outline' | 'orange'; disabled?: boolean; small?: boolean; accessibilityLabel?: string; align?: 'center' | 'flex-start' | 'flex-end' }) {
+export function Capsule({ label, icon, onPress, tone = 'soft', disabled, small, accessibilityLabel, align = 'center' }: { label: string; icon?: IconName; onPress: () => void; tone?: 'soft' | 'ghost' | 'outline' | 'orange' | 'neutral'; disabled?: boolean; small?: boolean; accessibilityLabel?: string; align?: 'center' | 'flex-start' | 'flex-end' | 'stretch' }) {
   return <Pressable accessibilityRole="button" accessibilityLabel={accessibilityLabel ?? label} accessibilityState={{ disabled }} disabled={disabled} onPress={() => { tapHaptic(); onPress(); }} hitSlop={6}
-    style={({ pressed }) => [s.capsule, { alignSelf: align }, tone === 'outline' && s.capsuleOutline, tone === 'ghost' && s.capsuleGhost, tone === 'orange' && s.capsuleOrange, small && s.capsuleSmall, pressed && { opacity: .75 }, disabled && { opacity: .5 }]}>
+    style={({ pressed }) => [s.capsule, { alignSelf: align }, tone === 'outline' && s.capsuleOutline, tone === 'ghost' && s.capsuleGhost, tone === 'orange' && s.capsuleOrange, tone === 'neutral' && s.capsuleNeutral, small && s.capsuleSmall, pressed && { opacity: .75 }, disabled && { opacity: .5 }]}>
     {icon ? <View style={tone === 'soft' ? s.capsuleIcon : undefined}><Icon name={icon} size={small ? 17 : 19} color={tone === 'ghost' ? d.inkSoft : d.purple} /></View> : null}
     <Text style={[s.capsuleText, small && { fontSize: 14 }, tone === 'ghost' && { color: d.inkSoft }]}>{label}</Text>
   </Pressable>;
@@ -92,8 +92,8 @@ export function MainButton({ label, onPress, disabled, tone = 'purple', arrow }:
   const bg = disabled ? d.purpleDisabled : tone === 'green' ? d.green : tone === 'red' ? d.red : d.action;
   return <Pressable accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled }} disabled={disabled} onPress={onPress}
     style={({ pressed }) => [s.main, { backgroundColor: bg }, !disabled && { ...shadow, shadowColor: bg, shadowOpacity: .28, shadowRadius: 14, shadowOffset: { width: 0, height: 6 } }, pressed && { opacity: .88, transform: [{ scale: .98 }] }]}>
-    {/* Forward buttons: subtle warm-orange gradient (25 Nov 2026). Green/red after a check stay flat. */}
-    {!disabled && tone === 'purple' ? <LinearGradient colors={[d.actionLight, d.action]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[StyleSheet.absoluteFill, { borderRadius: radius.pill }]} /> : null}
+    {/* Gradients (25 Nov 2026): warm orange forward; after a check green (#16A34A→#15803D, darker than #22C55E so white text reads) / red. */}
+    {!disabled ? <LinearGradient colors={tone === 'green' ? ['#16A34A', '#15803D'] : tone === 'red' ? ['#EF4444', '#DC2626'] : [d.actionLight, d.action]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[StyleSheet.absoluteFill, { borderRadius: radius.pill }]} /> : null}
     <Text style={[s.mainText, disabled && { color: d.purpleDisabledText }]}>{label}</Text>
     {arrow && !disabled ? <Icon name="arrow" size={24} color="#fff" /> : null}
   </Pressable>;
@@ -227,6 +227,7 @@ const s = StyleSheet.create({
   chipText: { color: d.purple, fontSize: 15, ...font.bold },
   capsule: { flexDirection: 'row', alignItems: 'center', gap: 8, alignSelf: 'center', minHeight: 44, paddingHorizontal: 18, borderRadius: radius.pill, borderWidth: 1, borderColor: d.border, backgroundColor: d.purpleSoft, ...shadow },
   capsuleGhost: { backgroundColor: 'transparent', borderWidth: 0, shadowOpacity: 0, elevation: 0 },
+  capsuleNeutral: { backgroundColor: '#F8F7FC', borderColor: '#E6E3F0', shadowOpacity: 0, elevation: 0 },
   capsuleOutline: { backgroundColor: 'transparent', borderColor: d.purple, shadowOpacity: 0, elevation: 0 },
   capsuleOrange: { backgroundColor: d.orangeSoft, borderColor: d.orange },
   capsuleSmall: { minHeight: 38, paddingHorizontal: 14 },

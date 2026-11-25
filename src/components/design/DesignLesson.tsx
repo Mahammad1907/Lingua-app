@@ -3,6 +3,7 @@ import * as Haptics from 'expo-haptics';
 import Animated, { Keyframe } from 'react-native-reanimated';
 
 // New step (25 Nov 2026): a short fade + 8px slide-up. Reanimated skips layout animations under Reduce Motion.
+const DimIn = new Keyframe({ 0: { opacity: 0 }, 100: { opacity: 1 } }).duration(220);
 const StepIn = new Keyframe({ 0: { opacity: 0, transform: [{ translateY: 8 }] }, 100: { opacity: 1, transform: [{ translateY: 0 }] } }).duration(280);
 import { Stack, useFocusEffect, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
@@ -589,6 +590,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     </View>;
   }
 
+  // The post-check sheet replaces the padded footer (edge to edge, own safe-area padding).
+  const sheetUp = Boolean(!showResult && task && result);
   // ---------- Footer ----------
   const footer = (() => {
     if (showResult) return finish ? <MainButton label={lesson.result.button} onPress={exit} arrow /> : null;
@@ -606,13 +609,21 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       const textHelp = textHelpActive && result.kind === 'single';
       if (textHelp) return <ResultPanel tone="neutral" title={graded.status === 'correct' ? 'Cavab uyğundur' : 'Mətnlə məşq etdin'} short={technical ? lesson.result.technical : 'Audio mətnini gördün. Dinləmə yoxlanmadı.'}
         collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
-      if (graded.status === 'correct') return <ResultPanel tone="correct" title="Düzgündür" short={task.why} corrections={result.kind === 'single' ? result.graded.spellingCorrections : undefined}
-        assisted={!reviewing && Boolean(meaningHint || sampleShown || peeked || (task.type === 'voice' && task.sample && lesson.order <= 2))} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
-      return <ResultPanel tone="wrong" title="Bir daha baxaq" short={graded.short} answers={graded.explain?.answers}
+      // Sheet content (25 Nov 2026): diff rows for two-part answers, phrases to hear again after a correct answer.
+      const english = (x?: string) => Boolean(x && /[A-Za-z]/.test(x) && !/[əğıöüşçƏĞİÖÜŞÇ]/.test(x));
+      const parts = result.kind === 'two' && task.type === 'two' ? task.fields.map(f => ({ label: f.label, ok: result.graded.fields[f.id]?.status === 'correct', mine: (two[f.id] ?? '').trim() || undefined,
+        answer: f.rule.answers.slice(0, 2).join(' / ') })) : undefined;
+      const mineText = task.type === 'write' ? text.trim() : task.type === 'choice' ? choice : undefined;
+      const listen = parts ? parts.map(p => p.mine ?? '').filter(english)
+        : task.type === 'voice' ? [task.rule.answers[0]].filter(english) : [mineText ?? ''].filter(english);
+      const assistedNow = !reviewing && Boolean(meaningHint || sampleShown || peeked || (task.type === 'voice' && task.sample && lesson.order <= 2));
+      if (graded.status === 'correct') return <ResultPanel tone="correct" title={assistedNow ? 'Düzgündür' : 'Əla!'} short={task.why} listen={listen} onSay={t => speak(t.replace(/…/g, ''), 0.85)} corrections={result.kind === 'single' ? result.graded.spellingCorrections : undefined}
+        assisted={assistedNow} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
+      return <ResultPanel tone="wrong" title="Bir daha baxaq" short={graded.short} answers={graded.explain?.answers} parts={parts} mine={mineText} onSay={t => speak(t.replace(/…/g, ''), 0.85)}
+        onRule={ruleOfTask(task.id) ? () => setRuleOpen(ruleOfTask(task.id)!.id) : undefined}
         meaning={meaningOf(graded.explain?.answers)} repeatFrom={taughtIn(graded.explain?.answers, lesson)} collapsed={collapsed} onCollapse={() => setCollapsed(true)}
         onExplain={graded.explain ? () => setExplainOpen(true) : undefined} onReport={() => setReportOpen(true)} onContinue={next}
-        actions={<>{task.type === 'voice' && !reviewing && !voiceRetried ? <Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { locked.current = false; setVoiceRetry(true); setVoiceRetried(true); setCollapsed(true); }} /> : null}
-          {ruleOfTask(task.id) ? <Capsule small icon="layers" label="Qaydaya bax" onPress={() => setRuleOpen(ruleOfTask(task.id)!.id)} /> : null}</>} />;
+        actions={task.type === 'voice' && !reviewing && !voiceRetried ? <Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { locked.current = false; setVoiceRetry(true); setVoiceRetried(true); setCollapsed(true); }} /> : undefined} />;
     }
     const empty = task.type === 'choice' || task.type === 'tree' ? !choice : task.type === 'drag' ? task.people.some(p => !pairs[p.id])
       : task.type === 'profile' ? task.rows.some(r => !(pairs[r.id] ?? '').trim()) : task.type === 'write' ? !text.trim() : task.type === 'two' ? (task.thread ? task.fields.some(f => !twoSent[f.id]) : !Object.values(two).some(v => v.trim()))
@@ -661,7 +672,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       </LessonCaption.Provider></ArtFit.Provider>
       </View>
     </ScrollView>
-    <View style={[s.footer, { paddingBottom: Math.max(14, insets.bottom + 6) }]}>{footer}</View>
+    {/* The result sheet dims the lesson behind it (taps still reach the ▶ beside sent bubbles). */}
+    {sheetUp && !collapsed ? <Animated.View pointerEvents="none" entering={DimIn} style={s.dim} /> : null}
+    <View style={sheetUp ? null : [s.footer, { paddingBottom: Math.max(14, insets.bottom + 6) }]}>{footer}</View>
 
     {help}
     {glossSheet}
@@ -831,6 +844,7 @@ const s = StyleSheet.create({
   examScore: { alignItems: 'center', gap: 6, padding: 18, borderRadius: 24, borderWidth: 2, backgroundColor: '#fff' },
   examPct: { fontSize: 46, lineHeight: 52, ...font.extrabold },
   screen: { flex: 1, backgroundColor: d.bg },
+  dim: { position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, backgroundColor: 'rgba(15,23,42,.25)' },
   content: { paddingHorizontal: 20, paddingTop: 6, paddingBottom: 16, flexGrow: 1 },
   footer: { paddingHorizontal: 20, paddingTop: 8, gap: 10 },
   gap: { gap: 14 },

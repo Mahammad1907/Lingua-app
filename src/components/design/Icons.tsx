@@ -2,7 +2,7 @@ import Svg, { Circle, Path, Rect } from 'react-native-svg';
 import { d } from './theme';
 
 export type IconName = 'back' | 'dots' | 'bulb' | 'play' | 'pause' | 'turtle' | 'mic' | 'flag' | 'close' | 'check' | 'alert'
-  | 'muted' | 'doc' | 'wave' | 'chat' | 'bye' | 'arrow' | 'tag' | 'layers' | 'speaker' | 'retry' | 'stop' | 'chart' | 'phone' | 'search' | 'micOff' | 'up' | 'edit';
+  | 'muted' | 'doc' | 'wave' | 'chat' | 'bye' | 'arrow' | 'tag' | 'layers' | 'speaker' | 'retry' | 'stop' | 'chart' | 'phone' | 'search' | 'micOff' | 'up' | 'edit' | 'sparkle' | 'bang';
 
 export default function Icon({ name, size = 22, color = d.purple, stroke = 2 }: { name: IconName; size?: number; color?: string; stroke?: number }) {
   const p = { stroke: color, strokeWidth: stroke, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, fill: 'none' };
@@ -18,6 +18,8 @@ export default function Icon({ name, size = 22, color = d.purple, stroke = 2 }: 
     {name === 'micOff' ? <><Path d="M15 9.5V6a3 3 0 00-5.6-1.5M9 9v2a3 3 0 004.6 2.5M5.5 11a6.5 6.5 0 0010.6 5M18.5 11c0 .8-.1 1.5-.4 2.2M12 17.5V21M8.5 21h7M4 4l16 16" {...p} /></> : null}
     {name === 'up' ? <Path d="M12 19V5M6 11l6-6 6 6" {...p} /> : null}
     {name === 'edit' ? <Path d="M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4" {...p} /> : null}
+    {name === 'sparkle' ? <><Path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z" {...p} /><Path d="M18.5 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z" {...p} /></> : null}
+    {name === 'bang' ? <><Path d="M12 6v8" {...p} /><Circle cx={12} cy={18} r={1.4} fill={color} /></> : null}
     {name === 'flag' ? <Path d="M5 21V4M5 4h11l-2 4 2 4H5" {...p} /> : null}
     {name === 'chart' ? <Path d="M4 20V10M10 20V4M16 20v-7M22 20H2" {...p} /> : null}
     {name === 'stop' ? <Rect x={6.5} y={6.5} width={11} height={11} rx={2.5} fill={color} /> : null}
