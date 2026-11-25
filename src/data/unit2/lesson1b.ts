@@ -121,7 +121,7 @@ export const lesson1b: DesignLesson = {
       review: {
         title: 'Neçə nəfərsiniz?', why: 'Nəfər sayını dedin və nəzakətlə xahiş etdin.', hint: 'Neçə nəfərsiniz? Rəqəmi de, sonra xahişi nəzakətli edən sözü əlavə et.',
         prompt: 'Kafeyə 6 nəfər gəldiniz. Ofisiant neçə nəfər olduğunuzu soruşur.\nNəzakətlə cavab ver.', reply: 'Six. OK!',
-        rule: numberPlease('six', '6', 'Six, please.', 'Excuse me, six, please.'),
+        rule: numberPlease('six', '6', 'Six, please.'),
         variants: [other('Rəqəm + please.', ex('Six, please.', 'Siz 6 nəfərsiniz: rəqəmi de və “please” əlavə et.', 'Six, please. — altı; Seven, please. — yeddi.', 'Six, please.'))],
       },
     },
@@ -132,7 +132,7 @@ export const lesson1b: DesignLesson = {
       variants: [other('Yazılışı yoxla.', ex('eight', '“eyt” deyilir, amma yazıda gh var.', 'eight — yazıda; eyt — səsdə.', 'Seven, eight, nine!'))],
       review: {
         title: 'Rəqəmi yaz', why: 'nine — sonunda “e” var.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
-        prompt: 'Biletində “9” yazılıb.\nSözlə yaz.', placeholder: 'Rəqəmi sözlə yaz',
+        prompt: 'Biletində “9” yazılıb. Dostun mesajda soruşur ki, ingiliscə necə yazılır.\nSözlə yaz.', placeholder: 'Rəqəmi sözlə yaz',
         rule: exact('nine'),
         variants: [other('Yazılışı yoxla.', ex('nine', '“nayn” deyilir, yazıda sonda “e” var.', 'nine — yazıda; nayn — səsdə.', 'Eight, nine, ten!'))],
       },

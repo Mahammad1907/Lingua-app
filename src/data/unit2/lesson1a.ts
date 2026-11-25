@@ -31,7 +31,7 @@ export const lesson1a: DesignLesson = {
       variants: [other('Bir daha dinlə və yavaş de.', ex('One tea, please.', '“one” yazıldığı kimi yox, “uan” kimi oxunur.', 'One tea, please. — bir çay; Tea, please. — çay.', 'One tea, please.'))],
       review: {
         title: 'Dinlə və təkrarla', why: 'Cümləni dedin; three — dil dişlərin arasında.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
-        prompt: 'Liftdəsən, düymə qonşunun tərəfindədir.\nDinlə, sonra eyni cür de.', audio: 'Three, please.', repeat: { stress: 'Three', note: 'three — dil dişlərin arasına gəlir.', reading: '**th**ri, pliz' },
+        prompt: 'Liftdəsən, düymə yanındakı adamın tərəfindədir.\nDinlə, sonra eyni cür de.', audio: 'Three, please.', repeat: { stress: 'Three', note: 'three — dil dişlərin arasına gəlir.', reading: '**th**ri, pliz' },
         rule: exact('Three, please.', '3 please'),
         variants: [other('Bir daha dinlə və yavaş de.', ex('Three, please.', '“three”də dil dişlərin arasına gəlir, “t” kimi deyilmir.', 'Three, please. — üç; Two, please. — iki.', 'Excuse me, three, please.'))],
       },
@@ -44,7 +44,7 @@ export const lesson1a: DesignLesson = {
     },
     {
       type: 'choice', id: 'u2d1a_c05', number: 5, title: 'Dinlə və seç', why: '“three” — üç.', hint: 'Rəqəmin ilk səsinə qulaq as.',
-      prompt: 'Otel liftindəsən, düymələrin yanında durursan.\nQonşu nəsə deyir. Hansı düyməni basırsan?', audio: 'Excuse me, three, please.',
+      prompt: 'Otel liftindəsən, düymələrin yanında durursan.\nYanındakı adam nəsə deyir. Hansı düyməni basırsan?', audio: 'Excuse me, three, please.',
       options: ['3', '2', '1'], answer: '3',
       variants: [
         pick('2', '“two” — iki, səsdə isə başqa rəqəm var.', ex('3', 'Səsdə “three” deyilir, “two” yox.', 'Two, please. — iki; Three, please. — üç.', 'Excuse me, three, please.')),
@@ -112,7 +112,7 @@ export const lesson1a: DesignLesson = {
     },
     {
       type: 'voice', id: 'u2d1a_c10', number: 10, title: 'Mərtəbəni de', why: 'Rəqəmi dedin və nəzakətlə xahiş etdin.', hint: 'Əvvəl diqqəti çək, sonra rəqəmi de və xahişi nəzakətli et.',
-      prompt: 'Liftdə düymələr qonşunun tərəfindədir. Sən 2-ci mərtəbəyə gedirsən.\nNəzakətlə xahiş et.', reply: 'Two. OK!',
+      prompt: 'Liftdə düymələr yanındakı adamın tərəfindədir. Sən 2-ci mərtəbəyə gedirsən.\nNəzakətlə xahiş et.', reply: 'Two. OK!',
       rule: floor('two', '2', 'Excuse me, two, please.', 'Two, please.'),
       variants: [other('Rəqəm + please.', ex('Excuse me, two, please.', 'Sənə 2-ci mərtəbə lazımdır: rəqəmi de və “please” əlavə et.', 'Two, please. — iki; Three, please. — üç.', 'Excuse me, two, please.'))],
       review: {
@@ -124,12 +124,12 @@ export const lesson1a: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d1a_c11', number: 11, title: 'Dinlə və yaz', why: 'three — th ilə yazılır.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
-      prompt: 'Liftdə oğlan mərtəbəni deyir.\nEşitdiyin rəqəmi sözlə yaz.', audio: 'Three, please.', placeholder: 'Rəqəmi sözlə yaz',
+      prompt: 'Liftdə oğlan mərtəbəni deyir. Dostun mesajda soruşur ki, bu rəqəm ingiliscə necə yazılır.\nEşitdiyin rəqəmi sözlə yaz.', audio: 'Three, please.', placeholder: 'Rəqəmi sözlə yaz',
       rule: exact('three'),
       variants: [other('Yazılışı yoxla.', ex('three', 'Bu söz “th” ilə başlayır.', 'Three, please. — üç; Two, please. — iki.', 'One, two, three!'))],
       review: {
         title: 'Dinlə və yaz', why: 'five — “v” ilə bitir.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
-        prompt: 'Otel resepsiyasında qadın otağın mərtəbəsini deyir.\nEşitdiyin rəqəmi sözlə yaz.', audio: 'Five.', placeholder: 'Rəqəmi sözlə yaz',
+        prompt: 'Otel resepsiyasında qadın otağın mərtəbəsini deyir. Dostun soruşur ki, bu rəqəm ingiliscə necə yazılır.\nEşitdiyin rəqəmi sözlə yaz.', audio: 'Five.', placeholder: 'Rəqəmi sözlə yaz',
         rule: exact('five'),
         variants: [other('Yazılışı yoxla.', ex('five', 'Bu söz “v” səsi ilə bitir, sonunda “e” yazılır.', 'Five. — beş; Four. — dörd.', 'Five, four, three, two, one, zero!'))],
       },

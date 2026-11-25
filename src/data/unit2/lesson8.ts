@@ -117,12 +117,12 @@ export const lesson8: DesignLesson = {
     {
       type: 'voice', id: 'u2d8_c09', number: 9, title: 'Soyadını hərf-hərf de', why: 'Soyadını hərf-hərf dedin.', hint: 'Soyadının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
       prompt: 'Qeydiyyatçı soruşur: “What\'s your last name? How do you spell it?”\nSoyadını hərf-hərf de. Ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).', audio: "What's your last name? How do you spell it?", reply: 'Thank you!',
-      rule: own(NAME_SPELLED, 'My last name is [soyad]'),
+      rule: own(NAME_SPELLED, 'My last name is A-L-I-Y-E-V.'),
       variants: [other("It's + hərflər.", ex('My last name is [soyad]', 'Soyadını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "How do you spell it? — It's M-A-double M-A-D-O-V-A.", "It's H-A-S-A-N-O-V-A."))],
       review: {
         title: 'Adını hərf-hərf de', why: 'Adını hərf-hərf dedin.', hint: 'Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
         prompt: 'Ziyafətdə yeni tanış adını kartına yazmaq istəyir.\nAdını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).', audio: "What's your first name? Can you spell it, please?", reply: 'Thanks!',
-        rule: own(NAME_SPELLED, "It's [ad]"),
+        rule: own(NAME_SPELLED, "It's A-L-I."),
         variants: [other("It's + hərflər.", ex("It's [ad]", 'Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "Can you spell it, please? — It's G-A-N-J-A.", "It's B-A-K-U."))],
       },
     },
@@ -195,7 +195,7 @@ export const lesson8: DesignLesson = {
       variants: [...AGE_MISTAKES, other("I'm [yaş]. And you?", ex("I'm twenty-five. And you?", 'Yaşından sonra “And you?” ilə sualı qaytarırsan.', "I'm twenty-five. — yaş; And you? — qarşı sual.", "I'm thirty. And you?"))],
       review: {
         title: 'Yaşını de və soruş', why: 'Yaşını dedin və sualı qaytardın.', hint: 'Əvvəl yaşını de, sonra qısa qarşı sualı əlavə et.',
-        prompt: 'Qeydiyyat növbəsində yanındakı adam soruşur.\nYaşını de və ondan da soruş (istəsən, istənilən yaş).', audio: 'Hi! How old are you?', reply: 'Nice!',
+        prompt: 'Kurs yoldaşın formanı doldurur və soruşur.\nYaşını de və ondan da soruş (istəsən, istənilən yaş).', audio: 'Hi! How old are you?', reply: 'Nice!',
         rule: own(AGE_RETURN, "I'm twenty-five. And you?"),
         variants: [...AGE_MISTAKES, other("I'm [yaş]. And you?", ex("I'm twenty-five. And you?", 'Yaşından sonra “And you?” ilə sualı qaytarırsan.', "I'm twenty-five. — yaş; And you? — qarşı sual.", "I'm thirty. And you?"))],
       },
@@ -208,7 +208,7 @@ export const lesson8: DesignLesson = {
       variants: [other('Söhbətin sırası düz deyil.', ex("What's your phone number? → It's oh five five… → Sorry? Oh? I don't understand. → Oh — zero. Zero five five…", 'Qız “oh” sözünü başa düşmədi, oğlan onun sıfır olduğunu izah etdi.', "oh five five — 055; zero five five — 055.", "Sorry? I don't understand."))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab, qarşı sual və xoş söz düz sıradadır.', hint: 'Əvvəl sual gəlir; cavab verən sualı geri qaytarır.',
-        prompt: 'Qeydiyyat növbəsində tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
+        prompt: 'Kursda yeni yoldaşla tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
         rows: [{ en: '1', az: 'Hi! How old are you?', from: 'G' }, { en: '2', az: "I'm thirty-five. And you?", from: 'B' }, { en: '3', az: "I'm thirty.", from: 'G' }, { en: '4', az: 'Nice to meet you!', from: 'B' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Hi! How old are you? → I'm thirty-five. And you? → I'm thirty. → Nice to meet you!", 'Sual, cavab və qarşı sual, sonra ikinci cavab.', "How old are you? — sual; And you? — qarşı sual.", "I'm thirty-five. And you?"))],

@@ -6,7 +6,7 @@ import { ex, exact, goal, other, pick } from '../unit1/build';
 import { NAME_SPELLED, notices, own, resultTexts } from './shared';
 
 const askSpell = goal(['askSpell'], ['Can you spell it, please?', 'How do you spell it?']);
-const myName = own(NAME_SPELLED, "It's [ad]");
+const myName = own(NAME_SPELLED, "It's A-L-I.");
 
 export const lesson4: DesignLesson = {
   id: 'a1_en_b2_d4', order: 16, unit: 2, number: 4, title: 'Hərf-hərf de', section: 'Şəxsi məlumat',
@@ -70,14 +70,14 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d4_c07', number: 7, title: 'Sualı qur', why: 'How-dan sonra “do” gəlir.', hint: 'Azərbaycancada olmayan kiçik bir söz ingiliscə sualda lazımdır.',
-      prompt: 'Sən oteldə resepsiyada işləyirsən. Qonaq otelin çatında şəhərini yazdı.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
-      chat: { partner: 'Qonaq', from: 'G', lines: [{ from: 'G', text: 'Lankaran.' }] },
+      prompt: 'Sən oteldə resepsiyada işləyirsən. Qonaq otelin çatına şəhərinin adı ilə səsli mesaj göndərdi. Sən o şəhəri tanımırsan.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
+      chat: { partner: 'Qonaq', from: 'G', lines: [{ from: 'G', text: '🎤' }] },
       tiles: ['How', 'you', 'spell', 'it', 'do', 'is', 'your', '?'], rule: exact('How do you spell it?'),
       variants: [other('Sıra: How do you spell it?', ex('How do you spell it?', 'How-dan sonra “do” gəlir, sonra you spell it.', 'How do you spell it? — hərf-hərf; What\'s your name? — ad.', 'Ganja? How do you spell it?'))],
       review: {
         title: 'Sualı qur', why: 'How-dan sonra “do” gəlir.', hint: 'Azərbaycancada olmayan kiçik bir söz ingiliscə sualda lazımdır.',
-        prompt: 'Kafedə tanış olduğun adam mesajda şəhərini yazdı.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
-        chat: { partner: 'Yeni tanış', from: 'B', lines: [{ from: 'B', text: 'Shamakhi.' }] },
+        prompt: 'Kafedə tanış olduğun adam şəhərinin adı ilə səsli mesaj göndərdi. Sən o şəhəri tanımırsan.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
+        chat: { partner: 'Yeni tanış', from: 'B', lines: [{ from: 'B', text: '🎤' }] },
         tiles: ['spell', 'How', 'it', 'you', 'do', 'name', 'is', '?'], rule: exact('How do you spell it?'),
         variants: [other('Sıra: How do you spell it?', ex('How do you spell it?', 'How-dan sonra “do” gəlir, sonra you spell it.', 'How do you spell it? — hərf-hərf; What\'s your name? — ad.', 'Shamakhi? How do you spell it?'))],
       },

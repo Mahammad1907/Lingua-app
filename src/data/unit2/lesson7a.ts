@@ -114,12 +114,12 @@ export const lesson7a: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d7a_c10', number: 10, title: 'Dinlə və yaz', why: 'fifteen — five yox, fif-.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
-      prompt: 'Qəbulda qadın dolabının nömrəsini deyir.\nEşitdiyin sözü yaz.', audio: 'Fifteen.', placeholder: 'Rəqəmi sözlə yaz',
+      prompt: 'Qəbulda qadın dolabının nömrəsini deyir. Dostun mesajda soruşur ki, bu rəqəm ingiliscə necə yazılır.\nEşitdiyin sözü yaz.', audio: 'Fifteen.', placeholder: 'Rəqəmi sözlə yaz',
       rule: exact('fifteen'),
       variants: [other('Yazılışı yoxla.', ex('fifteen', '15-də “five” dəyişir: fif- + teen.', 'four → fourteen; five → fifteen.', 'Thirteen, fourteen, fifteen!'))],
       review: {
         title: 'Dinlə və yaz', why: 'thirteen — three yox, thir-.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
-        prompt: 'Məşqçi neçə dəfə təkrar edəcəyini deyir.\nEşitdiyin sözü yaz.', audio: 'Thirteen.', placeholder: 'Rəqəmi sözlə yaz',
+        prompt: 'Məşqçi neçə dəfə təkrar edəcəyini deyir. Dostun soruşur ki, bu rəqəm ingiliscə necə yazılır.\nEşitdiyin sözü yaz.', audio: 'Thirteen.', placeholder: 'Rəqəmi sözlə yaz',
         rule: exact('thirteen'),
         variants: [other('Yazılışı yoxla.', ex('thirteen', '13-də “three” dəyişir: thir- + teen.', 'four → fourteen; three → thirteen.', 'Thirteen, fourteen, fifteen!'))],
       },

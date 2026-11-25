@@ -41,11 +41,11 @@ for (const { task, id } of tasks) {
   if ((task.type === 'write' || task.type === 'voice') && task.rule && !task.tiles && !task.letters && !task.keypad) rules.push({ rule: task.rule, voice: task.type === 'voice', grade: v => gradeText(task, v, task.type === 'voice') });
   if (task.type === 'two' && task.fields) for (const f of task.fields) if (f.rule) rules.push({ rule: f.rule, grade: v => gradeTwo(task, { ...Object.fromEntries(task.fields.map(x => [x.id, fill((x.rule.answers || [''])[0])])), [f.id]: v }).fields?.[f.id] ?? { status: 'unknown' } });
   for (const { rule, grade } of rules) {
-    if (rule.pattern) continue; // learner's own data: checked by its pattern
     for (const answer of (rule.answers || []).map(fill)) {
       let base;
       try { base = grade(answer); } catch (e) { continue; }
-      if (base.status !== 'correct') { hits.Q1.push(`${id}: nümunə cavabın özü düz sayılmır — “${answer}” → ${base.status}`); continue; }
+      if (base.status !== 'correct' && !(rule.pattern && base.status === 'unknown')) { hits.Q1.push(`${id}: nümunə cavabın özü düz sayılmır — “${answer}” → ${base.status}`); continue; }
+      if (rule.pattern) continue; // learner's own data: only the model itself is checked against its pattern
       for (const v of waysOf(answer)) {
         seen.Q1++;
         const g = grade(v);
@@ -126,8 +126,9 @@ for (const { task, id } of tasks) for (const s of task.scenes || []) {
   if (!list.includes(s)) hits.Q5.push(`${id}: şəkil “${s}” SEKIL_SIYAHISI.md-də yoxdur`);
 }
 for (const line of list.split('\n')) {
-  const m = line.match(/`((?:d\d|u\d)\/[a-z0-9-]+)`/);
-  if (m && !used.has(m[1]) && !/lazım deyil/.test(line) && !designLessons.some(l => JSON.stringify(l).includes(`"${m[1]}"`))) hits.Q5.push(`siyahıda “${m[1]}” var, heç bir dərsdə işlənmir və “lazım deyil” qeyd olunmayıb`);
+  // ids appear as `d1/x`, as a bare “| u3/x |” cell, or inside an assets path
+  const m = line.match(/(?:^|[\s|`/])((?:d\d|u\d)\/[a-z0-9-]+)(?=[\s|`.]|$)/);
+  if (m && !used.has(m[1]) && !/lazım deyil|istifadə olunmur/.test(line) && !designLessons.some(l => JSON.stringify(l).includes(`"${m[1]}"`))) hits.Q5.push(`siyahıda “${m[1]}” var, heç bir dərsdə işlənmir və “lazım deyil” qeyd olunmayıb`);
 }
 
 // ── Q6: shared parts on the screens ──

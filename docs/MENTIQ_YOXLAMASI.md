@@ -70,6 +70,6 @@ Skript sonda nəyi neçə dəfə yoxladığını da yazır (“0 problem” “0
 | Bölmə | Tarix | Nəticə |
 |---|---|---|
 | 1 | 24 Nov 2026 | 179 tapşırıq oxundu, 11 düzəliş edildi |
-| 2 | 25 Nov 2026 | 223 tapşırıq + 32 uyğunlaşdırma oxundu, 13 düzəliş tapıldı (istifadəçinin təsdiqini gözləyir) |
+| 2 | 25 Nov 2026 | 223 tapşırıq + 32 uyğunlaşdırma oxundu, 12 düzəliş edildi (13-cü — “Last name, please?” qısa cavabı — artıq düz sayılırdı, nümunəyə əlavə edildi); 15 şəkil siyahıya yazıldı |
 | 3 | — | yoxlanmayıb |
 | 4 | — | yoxlanmayıb |

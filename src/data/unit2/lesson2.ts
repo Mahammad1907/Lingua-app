@@ -7,7 +7,7 @@ import { PHONE_MISTAKES, notices, own, PHONE, resultTexts } from './shared';
 const askPhone = goal(['askPhone'], ["What's your phone number?"]);
 const yes = goal(['confirmYes'], ["Yes, that's right."]);
 /** “Is that right?”, optionally after the number read back (digits or words). */
-const check = own(String.raw`^(?:(?:[\d\s,.-]|zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine)+[.?]?\s*)?is (?:that|it) (?:right|correct)\s*\??$`, 'Is that right?');
+const check = own(String.raw`^(?:(?:[\d\s,.-]|zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine)+[.?]?\s*)?is (?:that|it) (?:right|correct)\s*\??$`, '050 321 45 67? Is that right?');
 const MY = "It's zero five zero, three two one, four five, six seven.";
 
 export const lesson2: DesignLesson = {
@@ -47,14 +47,14 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d2_c04', number: 4, title: 'Sualı qur', why: 'Sual düzgün sıradadır: phone number.', hint: 'Azərbaycancada “telefon nömrəsi” necə sıralanır? İngiliscə də elədir.',
-      prompt: 'Kursun qrup çatına yeni üzv qoşuldu; çatda nömrələr görünmür.\nSözlərdən onun nömrəsini soruşan sual qur.', placeholder: 'Sözlərə toxun',
-      chat: { partner: 'Kursun qrup çatı', from: 'G', lines: [{ from: 'G', text: 'Hi! Nice to meet you!' }] },
+      prompt: 'Kursa yeni üzv qoşuldu. Ona şəxsi mesaj yazırsan.\nSözlərdən onun nömrəsini soruşan sual qur.', placeholder: 'Sözlərə toxun',
+      chat: { partner: 'Yeni kurs yoldaşı', from: 'G', lines: [{ from: 'G', text: 'Hi! Nice to meet you!' }] },
       tiles: ["What's", 'number', 'your', 'phone', 'name', 'my', '?'], rule: exact("What's your phone number?"),
       variants: [other("Sıra: What's your phone number?", ex("What's your phone number?", 'Əvvəl “phone”, sonra “number” gəlir.', "What's your phone number? — nömrə; What's your name? — ad.", "Hi! What's your phone number?"))],
       review: {
         title: 'Sualı qur', why: 'Sual düzgün sıradadır: phone number.', hint: 'Azərbaycancada “telefon nömrəsi” necə sıralanır? İngiliscə də elədir.',
-        prompt: 'Ofisin qrup çatına yeni iş yoldaşı qoşuldu; çatda nömrələr görünmür.\nSözlərdən onun nömrəsini soruşan sual qur.', placeholder: 'Sözlərə toxun',
-        chat: { partner: 'Ofisin qrup çatı', from: 'B', lines: [{ from: 'B', text: 'Hello! How are you?' }] },
+        prompt: 'Ofisə yeni iş yoldaşı qoşuldu. Ona şəxsi mesaj yazırsan.\nSözlərdən onun nömrəsini soruşan sual qur.', placeholder: 'Sözlərə toxun',
+        chat: { partner: 'Yeni iş yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Hello! How are you?' }] },
         tiles: ['phone', "What's", 'your', 'number', 'is', 'name', '?'], rule: exact("What's your phone number?"),
         variants: [other("Sıra: What's your phone number?", ex("What's your phone number?", 'Əvvəl “phone”, sonra “number” gəlir.', "What's your phone number? — nömrə; What's your name? — ad.", "Excuse me, what's your phone number?"))],
       },
@@ -126,18 +126,18 @@ export const lesson2: DesignLesson = {
     {
       type: 'write', id: 'u2d2_c12', number: 12, title: 'Cavab yaz', why: 'Nömrənin düz olduğunu təsdiqlədin.', hint: 'Nömrə düzdür — onun sualına razılıqla cavab ver.',
       prompt: 'Kurs yoldaşın nömrəni yazıb yoxlayır. Nömrə düzdür.\nTəsdiqlə.', placeholder: 'Cavabını yaz',
-      chat: { partner: 'Kurs yoldaşı', from: 'G', lines: [{ from: 'G', text: 'Zero five zero, three two one, four five, six seven. Is that right?' }] }, rule: yes,
+      chat: { partner: 'Kurs yoldaşı', from: 'G', lines: [{ from: 'G', text: '050 321 45 67? Is that right?' }] }, rule: yes,
       variants: [other("Yes, that's right.", ex("Yes, that's right.", 'Nömrə düzdür, ona görə razılıq bildirirsən.', "Is that right? — Yes, that's right.", "Oh five five… Is that right? — Yes, that's right."))],
       review: {
         title: 'Cavab yaz', why: 'Nömrənin düz olduğunu təsdiqlədin.', hint: 'Nömrə düzdür — onun sualına razılıqla cavab ver.',
         prompt: 'İdman zalının qəbulu nömrəni mesajla yoxlayır. Nömrə düzdür.\nTəsdiqlə.', placeholder: 'Cavabını yaz',
-        chat: { partner: 'İdman zalının qəbulu', from: 'B', lines: [{ from: 'B', text: 'Oh five five, two one nine, oh three, eight eight. Is that right?' }] }, rule: yes,
+        chat: { partner: 'İdman zalının qəbulu', from: 'B', lines: [{ from: 'B', text: '055 219 03 88? Is that right?' }] }, rule: yes,
         variants: [other("Yes, that's right.", ex("Yes, that's right.", 'Nömrə düzdür, ona görə razılıq bildirirsən.', "Is that right? — Yes, that's right.", "Yes, that's right."))],
       },
     },
     {
       type: 'two', id: 'u2d2_c13', number: 13, title: 'İki mesaj yaz', why: 'Nömrəni soruşdun və yazdığını yoxladın.', hint: 'Birinci mesajda sual ver, ikincidə yazdığını yoxla.',
-      prompt: 'Kursun qrup çatına yeni üzv qoşuldu; çatda nömrələr görünmür.\nİki mesaj yaz:\n1. Onun telefon nömrəsini soruş.\n2. Nömrəni yazdın — düz olduğunu soruş.',
+      prompt: 'Kursa yeni üzv qoşuldu. Ona şəxsi mesajla yazırsan.\nİki mesaj yaz:\n1. Onun telefon nömrəsini soruş.\n2. Nömrəni yazdın — düz olduğunu soruş.',
       fields: [
         { id: 'u2d2_c13a', label: 'Birinci mesaj', placeholder: 'Nömrəsini soruş', rule: askPhone, purpose: 'nömrəsini soruşmaq', empty: 'Birinci mesajı da yaz.' },
         { id: 'u2d2_c13b', label: 'İkinci mesaj', placeholder: 'Düz olduğunu soruş', rule: check, purpose: 'düz olduğunu soruşmaq', empty: 'İkinci mesajı da yaz.' },
@@ -148,7 +148,7 @@ export const lesson2: DesignLesson = {
       ],
       review: {
         title: 'İki mesaj yaz', why: 'Nömrəni soruşdun və yazdığını yoxladın.', hint: 'Birinci mesajda sual ver, ikincidə yazdığını yoxla.',
-        prompt: 'İdman zalının qrup çatına yeni üzv qoşuldu; nömrələr görünmür.\nİki mesaj yaz:\n1. Onun telefon nömrəsini soruş.\n2. Nömrəni yazdın — düz olduğunu soruş.',
+        prompt: 'İdman zalına yeni üzv qoşuldu. Ona şəxsi mesajla yazırsan.\nİki mesaj yaz:\n1. Onun telefon nömrəsini soruş.\n2. Nömrəni yazdın — düz olduğunu soruş.',
         fields: [
           { id: 'u2d2_c13a', label: 'Birinci mesaj', placeholder: 'Nömrəsini soruş', rule: askPhone, purpose: 'nömrəsini soruşmaq', empty: 'Birinci mesajı da yaz.' },
           { id: 'u2d2_c13b', label: 'İkinci mesaj', placeholder: 'Düz olduğunu soruş', rule: check, purpose: 'düz olduğunu soruşmaq', empty: 'İkinci mesajı da yaz.' },

@@ -149,7 +149,7 @@ export const lesson7b: DesignLesson = {
       ],
       review: {
         title: 'Sözü tamamla', why: "I'm forty-two years old.", hint: 'Yaşdan sonra hansı ifadə gəlir — kartı xatırla.',
-        prompt: 'Qız formada yaşını tam cümlə ilə yazır.\nHansı söz çatmır?', gap: { speaker: 'G', before: "I'm forty-two", after: '.' },
+        prompt: 'Qız mesajda yaşını tam cümlə ilə yazır.\nHansı söz çatmır?', gap: { speaker: 'G', before: "I'm forty-two", after: '.' },
         options: ['old years', 'years old', 'years'], answer: 'years old',
         variants: [
           pick('years', '“I’m forty-two years” deyilmir.', ex('years old', 'Ya “I’m forty-two”, ya “I’m forty-two years old” deyilir.', "I'm forty-two. — düzdür; I'm forty-two years old. — düzdür.", "I'm forty-two years old.")),

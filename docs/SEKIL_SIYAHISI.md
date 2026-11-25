@@ -24,9 +24,9 @@ Bu siyahı hazırlanmalı bütün şəkilləri bir yerdə saxlayır. Şəkil haz
 
 | # | Kart | Səhnə | Personajlar | Fayl | Status |
 |---|---|---|---|---|---|
-| 1.1 | Kart 2 · Salamlaşmanı öyrən | Bina girişində iki nəfər qarşılaşır, ikisi də gülümsəyib əl yelləyir | qız, oğlan | `assets/lessons/d1/greet-entrance.webp` | ⏳ |
+| 1.1 | Kart 2 · Salamlaşmanı öyrən | Bina girişində iki nəfər qarşılaşır, ikisi də gülümsəyib əl yelləyir | qız, oğlan | `assets/lessons/d1/greet-entrance.webp` | ⏳ (hələ istifadə olunmur — 25 Nov 2026 yoxlaması) |
 | 1.2 | Kart 4 · Salamı özün yaz | Həyətdə/küçədə tanışlar rastlaşır, biri digərinə tərəf dönür (hələ danışmır) | qız, oğlan | `assets/lessons/d1/meet-street.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq mesajlaşmaya keçdi) |
-| 1.3 | Kart 6 · Sağollaşmanı öyrən | Qapı ağzında ayrılırlar, biri çıxır, ikisi də əl yelləyir | qız, oğlan | `assets/lessons/d1/farewell-door.webp` | ⏳ |
+| 1.3 | Kart 6 · Sağollaşmanı öyrən | Qapı ağzında ayrılırlar, biri çıxır, ikisi də əl yelləyir | qız, oğlan | `assets/lessons/d1/farewell-door.webp` | ⏳ (hələ istifadə olunmur — 25 Nov 2026 yoxlaması) |
 | 1.4 | Kart 9 · Dostuna kömək et | Maskot qapıdan çıxıb gedir, başı üstündə **boş** nitq balonu | maskot | `assets/lessons/d1/mascot-leaving.webp` | ⏳ |
 | 1.5 | Kart 10 · İki mesaj (1) | Görüşün əvvəli: qız qapını açır, oğlan qapıda dayanıb | qız, oğlan | `assets/lessons/d1/visit-start.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq görüşdən əvvəl/sonra mesaja keçdi) |
 | 1.6 | Kart 10 · İki mesaj (2) | Görüşün sonu: oğlan darvazadan çıxır, əl yelləyir | qız, oğlan | `assets/lessons/d1/visit-end.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq görüşdən əvvəl/sonra mesaja keçdi) |
@@ -138,9 +138,9 @@ Bölmə 3-də hər söz üçün ayrıca şəkil yoxdur: yeni söz kartları mask
 | M.4 | mascot/globe | Maskot kiçik qlobus tutub | ⏳ |
 | M.5 | mascot/ask | Maskot soruşur, əlini açıb | ⏳ |
 | M.6 | mascot/happy | Maskot sevinir, baş barmaq | ⏳ |
-| 3.1 | u3/club | Dil klubu: qız, oğlan və xarici gənclər masa ətrafında | ⏳ |
+| 3.1 | u3/club | Dil klubu: qız, oğlan və xarici gənclər masa ətrafında | ⏳ (hələ istifadə olunmur — 25 Nov 2026 yoxlaması) |
 | 3.2 | u3/airport | Hava limanı: uçuş tablosu qarşısında qız və oğlan | ⏳ |
-| 3.3 | u3/passport | Pasport nəzarəti: oğlan pasportunu uzadır | ⏳ |
+| 3.3 | u3/passport | Pasport nəzarəti: oğlan pasportunu uzadır | ⏳ (hələ istifadə olunmur — 25 Nov 2026 yoxlaması) |
 | 3.4 | u3/hostel | Hostel resepsiyası: qız qeydiyyat vərəqi doldurur | ⏳ |
 | 3.5 | u3/hostel-kitchen | Hostelin mətbəxi: oğlan xarici gənclə çay içir | ⏳ |
 | 3.6 | u3/videocall | Video zəng: qız noutbukda dostlarını göstərir | ⏳ |
@@ -151,3 +151,34 @@ Bölmə 3-də hər söz üçün ayrıca şəkil yoxdur: yeni söz kartları mask
 | 3.11 | u3/party | Dil klubunun ziyafəti | ⏳ |
 
 “Xəritədə tap” ekranının xəritəsi kodla çəkilir — şəkil lazım deyil.
+
+## 9. Bölmə 2 — rəqəmlər, hərflər, formalar (25 noyabr 2026, siyahıya sonradan əlavə edildi)
+
+Bu şəkillərdə **seçim variantları şəkildə görünür** (öyrənən səsi eşidib şəkildə tapır) — yazılar və rəqəmlər aydın, böyük olmalıdır. Formalarda sahə başlıqları ingiliscədir.
+
+| # | Şəkil | Nə göstərir | Status |
+|---|---|---|---|
+| 9.1 | u2/bus-stop | Dayanacaq: yan-yana 5, 6, 7 nömrəli üç avtobus | ⏳ |
+| 9.2 | u2/bus-stop-2 | Başqa dayanacaq: 5, 8, 9 nömrəli üç avtobus | ⏳ |
+| 9.3 | u2/parking-zones | Ofis parkinqi: T5, D5, V5 zona lövhələri | ⏳ |
+| 9.4 | u2/parking-zones-2 | Ticarət mərkəzinin parkinqi: V2, T2, E2 zona lövhələri | ⏳ |
+| 9.5 | u2/airport-gates | Hava limanı: G4, J4, A4 qapı lövhələri | ⏳ |
+| 9.6 | u2/airport-gates-2 | Başqa terminal: J2, E2, G2 qapı lövhələri | ⏳ |
+| 9.7 | u2/airport-board | Uçuş tablosu: JFK — New York, GYD — Baku, IST — Istanbul | ⏳ |
+| 9.8 | u2/airport-board-2 | Uçuş tablosu: ZAG — Zagreb, GVA — Geneva, CDG — Paris | ⏳ |
+| 9.9 | u2/form-course | Kursun boş qeydiyyat vərəqi (ingiliscə sahə başlıqları; sahələr tapşırığa görə dəyişir) | ⏳ |
+| 9.10 | u2/form-gym | İdman zalının boş qeydiyyat forması (sahələr tapşırığa görə dəyişir) | ⏳ |
+| 9.11 | u2/form-office | Ofisdə yeni işçinin boş vərəqi | ⏳ |
+| 9.12 | u2/form-library | Kitabxananın boş qeydiyyat vərəqi | ⏳ |
+| 9.13 | u2/form-pool | Hovuzun boş qeydiyyat forması | ⏳ |
+| 9.14 | u2/gym-lockers | İdman zalında sıra ilə dolablar: 7, 16, 17 görünür | ⏳ |
+| 9.15 | u2/gym-lockers-2 | Hovuzun soyunma otağında dolablar: 9, 18, 19 görünür | ⏳ |
+
+Formaların sahələri ekranda kodla yazılır — şəkildə yalnız boş vərəq / masa görünür.
+
+## 10. Bölmə 4 — ailə (25 noyabr 2026)
+
+| # | Şəkil | Nə göstərir | Status |
+|---|---|---|---|
+| 10.1 | u4/videocall | Telefonda video zəng: ekranda xarici dost, arxa planda ailə üzvləri | ⏳ |
+
