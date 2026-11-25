@@ -545,6 +545,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {task.type === 'choice' && task.gap ? <GapSentence speaker={task.gap.speaker} before={task.gap.before} after={task.gap.after} options={task.options} value={choice} onSay={say}
         pieces={gapDone ? gapPieces(task.gap.before, task.answer, task.gap.after) : undefined} lit={lit?.card === task.id ? lit.index : -1}
         onReplay={gapDone ? () => playPieces(task.id, gapPieces(task.gap!.before, task.answer, task.gap!.after)) : undefined}
+        onHelp={helpButton && !helpUnderAudio ? () => setHelpOpen(true) : undefined}
         disabled={Boolean(result && result.kind !== 'unverified')} mark={single ? markOf(single.status) : undefined}
         onPick={o => { setChoice(o); if (result?.kind === 'unverified') setResult(null); }} /> : null}
       {task.type === 'choice' && task.map ? <CountryMap map={task.map} options={task.options} value={choice} disabled={Boolean(result && result.kind !== 'unverified')}
@@ -603,7 +604,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {task.type === 'two' && !task.thread ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
         graded={result?.kind === 'two' ? result.graded : undefined} keep={reviewing ? keepFields[task.id]?.fields : undefined} /> : null}
       {/* Help sits under the answers, on the right: read the task, try, then ask for help. */}
-      {!helpUnderAudio && !voiceRow && !(task.type === 'write' && task.chat) && !(task.type === 'two' && task.thread) ? helpButton : null}
+      {!helpUnderAudio && !voiceRow && !(task.type === 'write' && task.chat) && !(task.type === 'two' && task.thread) && !(task.type === 'choice' && task.gap) ? helpButton : null}
       {notice ? <Text accessibilityLiveRegion="polite" style={s.notice}>{notice}</Text> : null}
       {task.type === 'voice' && (!result || voiceRetry) ? <View style={s.micArea}>
         <HoldToTalk onFinal={onSpoken} onRecording={onRecording} onBusyChange={setVoiceBusy} suspended={helpOpen || explainOpen || reportOpen || menuOpen || Boolean(ruleOpen)} />

@@ -202,26 +202,40 @@ export function TileTray({ tiles, picked, onPick, onSay, disabled }: { tiles: st
 }
 
 /** “Sözü tamamla”: the speaker says one sentence with a gap; the options sit under it, centred. */
-export function GapSentence({ speaker, before, after, options, value, onPick, onSay, mark, disabled, pieces, lit = -1, onReplay }: {
+export function GapSentence({ before, after, options, value, onPick, onSay, mark, disabled, pieces, lit = -1, onReplay, onHelp }: {
   speaker?: Who; before: string; after: string; options: string[]; value: string; onPick: (o: string) => void; onSay?: (t: string) => void; mark?: Mark; disabled?: boolean;
   /** After the answer: the full correct sentence in pieces; `lit` is the piece being read (green). */
-  pieces?: string[]; lit?: number; onReplay?: () => void;
+  pieces?: string[]; lit?: number; onReplay?: () => void; onHelp?: () => void;
 }) {
+  // Approved picture (25 Nov 2026): the sentence large in the middle, the gap a framed capsule, Dinlə · Kömək under it,
+  // the choices as large white capsules at the bottom. Dinlə works only after the check (before, it would give the answer).
   const color = mark === 'correct' ? d.greenText : mark === 'wrong' ? d.redText : d.purple;
-  const read = pieces ? <Text style={s.gapText}>{pieces.map((p, i) => <Text key={i} style={i === lit ? { color: d.greenText, backgroundColor: d.greenSoft } : null}>{nameSlot(p)}{p.endsWith('-') || i === pieces.length - 1 ? '' : ' '}</Text>)}</Text> : null;
-  const sentence = read ?? <Text style={s.gapText}>{nameSlot(before)}{before ? ' ' : ''}<Text style={[s.gapSlot, value ? { color, backgroundColor: mark === 'correct' ? d.greenSoft : mark === 'wrong' ? d.redSoft : d.purpleSoft } : null]}>
-    {value ? ` ${value} ` : ' ______ '}</Text>{/^[.,!?]/.test(after) ? '' : ' '}{nameSlot(after)}</Text>;
-  return <View style={{ gap: 18 }}>
-    <View style={s.sayRow}>
-      {speaker ? <Avatar who={speaker} size={56} /> : null}
-      <View style={[s.sayBubble, shadow, !speaker && { borderTopLeftRadius: 22 }]}>{sentence}
-        {onReplay ? <Pressable accessibilityRole="button" accessibilityLabel="Yenidən dinlə" onPress={onReplay} hitSlop={8} style={{ alignSelf: 'flex-end', marginTop: 6 }}><SoundIcon size={22} color={d.purple} /></Pressable> : null}</View>
+  const words = (x: string) => nameSlot(x).split(/\s+/).filter(Boolean);
+  const sentence = pieces
+    ? <Text style={[s.gapText, s.gapCenter]}>{pieces.map((p, i) => <Text key={i} style={i === lit ? { color: d.greenText, backgroundColor: d.greenSoft } : null}>{nameSlot(p)}{p.endsWith('-') || i === pieces.length - 1 ? '' : ' '}</Text>)}</Text>
+    : <View style={s.gapFlow}>
+      {words(before).map((w, i) => <Text key={`b${i}`} style={s.gapText}>{w}</Text>)}
+      <View style={[s.gapCap, value ? { borderColor: color, backgroundColor: mark === 'correct' ? d.greenSoft : mark === 'wrong' ? d.redSoft : d.purpleSoft } : null]}>
+        <Text style={[s.gapText, { color: value ? color : '#B8BCCB' }]}>{value ? nameSlot(value) : '      '}</Text></View>
+      {words(after).map((w, i) => <Text key={`a${i}`} style={[s.gapText, i === 0 && /^[.,!?]/.test(w) && { marginLeft: -8 }]}>{w}</Text>)}
+    </View>;
+  return <View style={{ flex: 1, justifyContent: 'space-between', gap: 18 }}>
+    <View style={{ flex: 1, justifyContent: 'center', gap: 22 }}>
+      {sentence}
+      <View style={s.gapTools}>
+        <Pressable accessibilityRole="button" accessibilityState={{ disabled: !onReplay }} disabled={!onReplay} accessibilityLabel="Dinlə" onPress={() => { tapHaptic(); onReplay?.(); }}
+          style={({ pressed }) => [s.gapTool, !onReplay && { opacity: .45 }, pressed && { opacity: .8 }]}>
+          <SoundIcon size={18} color={d.purple} /><Text style={s.gapToolText}>Dinlə</Text></Pressable>
+        {onHelp ? <Pressable accessibilityRole="button" accessibilityLabel="Kömək" onPress={() => { tapHaptic(); onHelp(); }}
+          style={({ pressed }) => [s.gapTool, s.gapToolLine, pressed && { opacity: .8 }]}>
+          <Icon name="bulb" size={18} color={d.purple} /><Text style={s.gapToolText}>Kömək</Text></Pressable> : null}
+      </View>
     </View>
     <View style={s.pills}>
       {options.map(o => {
         const on = value === o;
-        return <Pressable key={o} accessibilityRole="radio" accessibilityState={{ selected: on, disabled }} disabled={disabled} onPress={() => { onSay?.(o); onPick(o); }}
-          style={({ pressed }) => [s.pill, on && s.pillOn, on && mark && { borderColor: color, backgroundColor: mark === 'correct' ? d.greenSoft : d.redSoft }, pressed && { transform: [{ scale: .96 }] }]}>
+        return <Pressable key={o} accessibilityRole="radio" accessibilityState={{ selected: on, disabled }} disabled={disabled} onPress={() => { tapHaptic(); onSay?.(o); onPick(o); }}
+          style={({ pressed }) => [s.pill, s.softShadow, on && s.pillOn, on && mark && { borderColor: color, backgroundColor: mark === 'correct' ? d.greenSoft : d.redSoft }, pressed && { transform: [{ scale: .96 }] }]}>
           <Text style={[s.pillText, on && { color }]}>{nameSlot(o)}</Text>
         </Pressable>;
       })}
@@ -911,10 +925,17 @@ const s = StyleSheet.create({
   tile: { minHeight: 44, minWidth: 44, paddingHorizontal: 16, borderRadius: 22, borderWidth: 1, borderColor: '#C5ADF2', backgroundColor: '#F4EEFD', alignItems: 'center', justifyContent: 'center' },
   tileUsed: { backgroundColor: '#F7F3FC', borderStyle: 'dashed', borderColor: '#DCD0F0' },
   tileText: { color: d.ink, fontSize: 17, ...font.bold },
-  gapText: { color: d.ink, fontSize: 28, lineHeight: 40, ...font.extrabold },
+  gapText: { color: d.ink, fontSize: 32, lineHeight: 44, ...font.extrabold },
+  gapCenter: { textAlign: 'center' },
+  gapFlow: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', columnGap: 9, rowGap: 6 },
+  gapCap: { minWidth: 96, minHeight: 52, paddingHorizontal: 14, borderRadius: 999, borderWidth: 2, borderColor: d.purple, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' },
+  gapTools: { flexDirection: 'row', justifyContent: 'center', gap: 12 },
+  gapTool: { flexDirection: 'row', alignItems: 'center', gap: 8, height: 40, paddingHorizontal: 18, borderRadius: 999, backgroundColor: d.purpleSoft },
+  gapToolLine: { borderWidth: 1, borderColor: '#DDD6FE' },
+  gapToolText: { color: d.purple, fontSize: 15, ...font.extrabold },
   gapSlot: { color: d.purple, backgroundColor: d.purpleSoft },
   pills: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, justifyContent: 'center' },
-  pill: { minHeight: 56, minWidth: 92, alignItems: 'center', paddingHorizontal: 24, borderRadius: 28, borderWidth: 1, borderColor: '#C5ADF2', backgroundColor: '#fff', justifyContent: 'center' },
+  pill: { minHeight: 60, minWidth: 100, alignItems: 'center', paddingHorizontal: 24, borderRadius: 30, borderWidth: 2, borderColor: 'transparent', backgroundColor: '#fff', justifyContent: 'center' },
   pillOn: { borderWidth: 2, borderColor: d.purple, backgroundColor: d.purpleSoft },
   pillText: { color: d.ink, fontSize: 21, ...font.extrabold },
   matchRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },

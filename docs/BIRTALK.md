@@ -165,6 +165,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 25 Noy | Yeni söz kartında təkrar yoxdur: ifadəni sadəcə təkrarlayan Quruluşu və yalnız söz-söz tərcümə olan qeyd gizlənir; sətirlər boş hündürlüyü bölür — altda boş yer qalmır. GlowLine `offset` xəbərdarlıqları düzəldi |
 | 25 Noy | Düzəliş paneli tapşırıqdakı adı göstərir (`{NE:B}` — indi müvəqqəti Kənan, sonra personajın adı), Tom yox. Söhbəti tamamla: balon, avatar və söz düymələri böyüdü. Xəritə: dairələr 66/80, ortaya yaxın; su yuxarıdan aşağı, düz kənarla dolur; yolun rəngli zolağı çıxdı, yalnız qırıq xətlər yüngül parıldayır |
 | 25 Noy | Yeni söz təsdiqlənmiş şəkilə qaytarıldı: ağ söz kartı, `▶ | sürət` bir kapsulda, sətirlər təbii ölçüdə (dartılma ləğv). Ekran böyüyəndə (klaviatura bağlananda) kart yenidən tam ölçüdən ölçülür |
+| 25 Noy | “Hansı söz çatmır?” (choice + gap) yeni dizayn: cümlə ortada iri, boşluq bənövşəyi çərçivəli kapsul, altında Dinlə (yalnız yoxlamadan sonra) · Kömək, seçimlər aşağıda iri ağ kapsullar; avatar/balon yoxdur |
 
 Ətraflı tarixçə: `docs/LAYIHE_DEFTERI.md`, `docs/YENI_SOHBET_UCUN.md`, `docs/BUTUN_QAYDALAR.md` (köçürülmədən əvvəlki mətnlər).
 
