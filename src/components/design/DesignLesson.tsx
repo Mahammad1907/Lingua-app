@@ -98,6 +98,14 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   // sizes, below MIN_FIT) may scroll.
   const [viewport, setViewport] = useState({ w: 0, h: 0 });
   const [contentHeight, setContentHeight] = useState(0); const [keyboardOpen, setKeyboardOpen] = useState(false);
+  // Keyboard open (25 Nov 2026): nothing shrinks (full size, easy to read); the page scrolls so the answer field sits
+  // right above the main button and stays there while the message grows.
+  const scrollRef = useRef<ScrollView>(null);
+  useEffect(() => {
+    if (!keyboardOpen) { scrollRef.current?.scrollTo({ y: 0, animated: true }); return; }
+    const id = setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 260);
+    return () => clearTimeout(id);
+  }, [keyboardOpen, contentHeight, viewport.h]);
   const [art, setArt] = useState(1); const [fitState, setFit] = useState(1);
   useEffect(() => {
     const show = Keyboard.addListener(Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow', () => setKeyboardOpen(true));
@@ -610,7 +618,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     <Stack.Screen options={{ headerShown: false, gestureEnabled: false }} />
     <Header title={lessonLabel(lesson)} progress={progress} streak={streak} onBack={exit} onMenu={showResult ? undefined : () => setMenuOpen(true)} />
     {/* Fits without scrolling on normal phones; scrolls only when the content is taller (large text, keyboard). */}
-    <ScrollView style={{ flex: 1 }} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" bounces={false} alwaysBounceVertical={false}
+    <ScrollView ref={scrollRef} style={{ flex: 1 }} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" bounces={false} alwaysBounceVertical={false}
       overScrollMode="never" scrollEnabled={stillOverflows} showsVerticalScrollIndicator={stillOverflows}
       onLayout={e => setViewport({ w: e.nativeEvent.layout.width, h: e.nativeEvent.layout.height })}
       onContentSizeChange={(_w, h) => setContentHeight(h)}>
