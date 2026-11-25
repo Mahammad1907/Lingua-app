@@ -150,6 +150,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 24 Noy | G6 (narıncı düymə və bar, ▶, cavabdan sonra yaşıl/qırmızı); yeni izah ekranı; G7 (ortaq elementlər, KindChip); G8 (vəziyyət ↔ ekran); mesajlaşma ekranı |
 | 25 Noy | Vahid dizayn sistemi: fon #F6F7FB, narıncı qradiyent #F97316→#EA580C (hər yerdə), başlıqda bənövşəyi vurğu, çərçivəsiz tapşırıq cümləsi, Glow Line, AI Voice Orb, “İndi danışa bilmirəm”; sürət dövrü qalır (1x→0.75x→0.5x→1.25x) |
 | 25 Noy | Orb: yalnız orb, susanda avto-göndər, öz səsləri; çatda ↑ + “...” + reaksiya yalnız düz cavabda (Dərs 1 emoji, sonra öyrədilmiş sözlər); “İki mesajı özün yaz” çat xətti; titrəmə və mikro-hərəkətlər hər ekranda |
+| 25 Noy | `check-compile` əlavə olundu (check-all-un içində): təkrar import, elan olunmadan istifadə, təkrar sahə, sintaksis — tətbiq açılmazdan əvvəl tutulur; unit3 lesson2a təkrarında qatar səhnəsi saxlandı |
 | 25 Noy | Düzəlişlər: xəritə bir ekrana, dolu ikonlar, yaysız panellər, hissəsiz dərsdə tək düymə, Yeni söz kartı köhnə çərçivəyə qayıtdı (th narıncı), söz-söz hər ifadəyə, orb böyüyür/yayılır/səsə cavab verir, “Salam verir.” artıq səslənmir |
 | 25 Noy | Ana səhifə yeni dizaynı: yapışqan bölmə başlığı, ağ adalar, ikonlu düyünlər, narıncı cari dərs, ağ körpü + kubok, dərs alt paneli |
 | 25 Noy | Yeni söz kartının yeni dizaynı (ağ kart, slot pill-ləri, ▶|sürət kapsulu, seqment söz-söz); th rəngi bənövşəyi |
