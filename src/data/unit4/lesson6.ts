@@ -48,9 +48,9 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'word', id: 'u4d6_c04', number: 4, scenes: ['mascot/ask'],
-      word: 'How old is he? · How old is she?', pronunciation: '/haʊ oʊld ɪz hi/ · /haʊ oʊld ɪz ʃi/', reading: 'hau ould iz hi? · hau ould iz şi?', az: 'O neçə yaşındadır? (kişi · qadın)',
-      structure: ['How old are you? — sən', 'How old is he? — o (kişi)', 'How old is she? — o (qadın)'],
-      notes: ['you ilə are, he və she ilə is gəlir. Kişi, oğlan haqqında he; qadın, qız haqqında she.'],
+      word: 'How old is he?', pronunciation: '/haʊ oʊld ɪz hi/', reading: 'hau ould iz hi?', az: 'O neçə yaşındadır? (kişi)',
+      structure: ['How old are you? — sən', 'How old is he? — o (kişi)'],
+      notes: ['you ilə are, he ilə is gəlir.'],
       example: 'Is this your brother? How old is he?', exampleAz: 'Bu, sənin qardaşındır? O neçə yaşındadır?',
     },
     {
@@ -91,7 +91,32 @@ export const lesson6: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u4d6_c10', number: 8, title: 'Yaşını de', why: "She's + yaş: She's sixteen.", hint: 'Bacın haqqında de — “yaşındadır” üçün ayrıca söz lazım deyil.',
+      type: 'word', id: 'u4d6_c08', number: 8, scenes: ['mascot/globe'],
+      word: 'How old is she?', pronunciation: '/haʊ oʊld ɪz ʃi/', reading: 'hau ould iz şi?', az: 'O neçə yaşındadır? (qadın)',
+      structure: ['How old is he? — kişi', 'How old is she? — qadın'],
+      notes: ['Qadın, qız haqqında she.'],
+      example: "Is this your sister? How old is she? — She's twenty.", exampleAz: 'Bu, sənin bacındır? O neçə yaşındadır? — 20 yaşındadır.',
+    },
+    {
+      type: 'choice', id: 'u4d6_c09', number: 9, title: 'Düz sualı seç', why: 'Qadın haqqında: How old is she?', hint: 'Şəkildə kim var — və is sualda harada durur?',
+      prompt: 'Video zəngdə {f} nənəsinin şəklini göstərir.\nNənəsinin yaşını soruşmaq istəyirsən. Hansı sual düzdür?',
+      options: ['How old she is?', 'How old is he?', 'How old is she?'], answer: 'How old is she?',
+      variants: [
+        pick('How old she is?', 'Sualda is qabağa keçir.', ex('How old is she?', 'Sualda is she sözündən əvvəl gəlir.', "How old is she? — sual; She's sixty. — cavab.", 'How old is your grandmother?')),
+        pick('How old is he?', 'Nənə qadındır — she.', ex('How old is she?', 'he kişi, she qadın haqqındadır.', 'How old is he? — kişi; How old is she? — qadın.', 'Is this your grandmother? How old is she?')),
+      ],
+      review: {
+        title: 'Düz sualı seç', why: 'Kişi haqqında: How old is he?', hint: 'Babanın yaşını soruşursan — kişi üçün hansı söz, is harada durur?',
+        prompt: 'Kursda yoldaşın babasının şəklini göstərir.\nBabasının yaşını soruşmaq istəyirsən. Hansı sual düzdür?',
+        options: ['How old is he?', 'How old is she?', 'How old he is?'], answer: 'How old is he?',
+        variants: [
+          pick('How old he is?', 'Sualda is qabağa keçir.', ex('How old is he?', 'Sualda is he sözündən əvvəl gəlir.', "How old is he? — sual; He's sixty. — cavab.", 'How old is your grandfather?')),
+          pick('How old is she?', 'Baba kişidir — he.', ex('How old is he?', 'he kişi, she qadın haqqındadır.', 'How old is he? — kişi; How old is she? — qadın.', 'Is this your grandfather? How old is he?')),
+        ],
+      },
+    },
+    {
+      type: 'voice', id: 'u4d6_c10', number: 10, title: 'Yaşını de', why: "She's + yaş: She's sixteen.", hint: 'Bacın haqqında de — “yaşındadır” üçün ayrıca söz lazım deyil.',
       prompt: '{F} sənin ailə şəklinə baxır və bacını soruşur.\nDe: o, 16 yaşındadır.', audio: 'Is this your sister? How old is she?', reply: 'Oh, nice!',
       rule: said(ageOf('she', num('sixteen', '16')), "She's sixteen."),
       variants: [...AGE_OF_MISTAKES, heShe('she', "She's sixteen."),
@@ -105,7 +130,7 @@ export const lesson6: DesignLesson = {
       },
     },
     {
-      type: 'profile', id: 'u4d6_profile', number: 9, title: 'Profil kartı', why: "This is my father. — ata; He's fifty-five. — 55 yaşındadır.", hint: 'İki cümləni ayrıca tut: birincisi kim olduğunu, ikincisi yaşını deyir.',
+      type: 'profile', id: 'u4d6_profile', number: 11, title: 'Profil kartı', why: "This is my father. — ata; He's fifty-five. — 55 yaşındadır.", hint: 'İki cümləni ayrıca tut: birincisi kim olduğunu, ikincisi yaşını deyir.',
       prompt: '{F} ad günü şəklində bir kişini göstərir.\nDinlə və kartı doldur.', audio: "This is my father. He's fifty-five.",
       rows: [{ id: 'who', label: 'Kim', options: ['brother', 'father', 'grandfather'], answer: 'father' }, { id: 'age', label: 'Yaş', number: true, answer: '55' }],
       variants: [
@@ -127,7 +152,7 @@ export const lesson6: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u4d6_c11', number: 10, title: 'Sualı qur', why: 'How old + is + kim?', hint: 'Bu dərsin yaş sualını xatırla, sonda kimin nənəsi olduğunu qoy.',
+      type: 'write', id: 'u4d6_c11', number: 12, title: 'Sualı qur', why: 'How old + is + kim?', hint: 'Bu dərsin yaş sualını xatırla, sonda kimin nənəsi olduğunu qoy.',
       prompt: 'Şəkildə {f:gen} nənəsidir.\nYaşını soruş. Sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
       photo: { from: '{F} şəkil göndərdi', shows: 'dostunun nənəsi' },
       tiles: ['old', 'grandmother', 'is', 'How', 'your', 'are', 'you', '?'], rule: exact('How old is your grandmother?'),
@@ -138,26 +163,6 @@ export const lesson6: DesignLesson = {
         photo: { from: 'Qonşu şəkil göndərdi', shows: 'qonşunun oğlu' },
         tiles: ['your', 'How', 'you', 'son', 'is', 'are', 'old', '?'], rule: exact('How old is your son?'),
         variants: [...ASK_AGE_MISTAKES, other('How old is your son?', ex('How old is your son?', 'Əvvəl How old, sonra is, sonra your son.', 'How old is your son? — o; How old are you? — sən.', 'How old is your daughter?'))],
-      },
-    },
-  ],
-  pool: [
-    {
-      type: 'choice', id: 'u4d6_c09', number: 9, title: 'Düz sualı seç', why: 'Qadın haqqında: How old is she?', hint: 'Şəkildə kim var — və is sualda harada durur?',
-      prompt: 'Video zəngdə {f} nənəsinin şəklini göstərir.\nNənəsinin yaşını soruşmaq istəyirsən. Hansı sual düzdür?',
-      options: ['How old she is?', 'How old is he?', 'How old is she?'], answer: 'How old is she?',
-      variants: [
-        pick('How old she is?', 'Sualda is qabağa keçir.', ex('How old is she?', 'Sualda is she sözündən əvvəl gəlir.', "How old is she? — sual; She's sixty. — cavab.", 'How old is your grandmother?')),
-        pick('How old is he?', 'Nənə qadındır — she.', ex('How old is she?', 'he kişi, she qadın haqqındadır.', 'How old is he? — kişi; How old is she? — qadın.', 'Is this your grandmother? How old is she?')),
-      ],
-      review: {
-        title: 'Düz sualı seç', why: 'Kişi haqqında: How old is he?', hint: 'Babanın yaşını soruşursan — kişi üçün hansı söz, is harada durur?',
-        prompt: 'Kursda yoldaşın babasının şəklini göstərir.\nBabasının yaşını soruşmaq istəyirsən. Hansı sual düzdür?',
-        options: ['How old is he?', 'How old is she?', 'How old he is?'], answer: 'How old is he?',
-        variants: [
-          pick('How old he is?', 'Sualda is qabağa keçir.', ex('How old is he?', 'Sualda is he sözündən əvvəl gəlir.', "How old is he? — sual; He's sixty. — cavab.", 'How old is your grandfather?')),
-          pick('How old is she?', 'Baba kişidir — he.', ex('How old is he?', 'he kişi, she qadın haqqındadır.', 'How old is he? — kişi; How old is she? — qadın.', 'Is this your grandfather? How old is he?')),
-        ],
       },
     },
     {
@@ -203,8 +208,8 @@ export const lesson6: DesignLesson = {
     done: ['Dərs 6 tamamlandı', 'Artıq ailə üzvünün yaşını soruşur və deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Yaş sualını və rəqəmi eşidib anlamaq', tasks: ['u4d6_c03', 'u4d6_c05', 'u4d6_c07', 'u4d6_profile'] },
-      { group: 'Yazı', text: 'How old is…? sualını qurmaq', tasks: ['u4d6_c11'] },
+      { group: 'Tanıma', text: 'Yaş sualını və rəqəmi eşidib anlamaq', tasks: ['u4d6_c03', 'u4d6_c05', 'u4d6_c07', 'u4d6_c09', 'u4d6_profile'] },
+      { group: 'Yazı', text: 'How old is…? sualını qurmaq və yaşı yazmaq', tasks: ['u4d6_c11', 'u4d6_c12', 'u4d6_c13'] },
       { group: 'Danışıq', text: 'He\'s / She\'s ilə yaşı demək', tasks: ['u4d6_c10'] },
     ],
     closing: 'Növbəti dərs — ailəndə kim nə işləyir?', button: resultTexts.button,
@@ -214,12 +219,12 @@ export const lesson6: DesignLesson = {
     { word: 'old', translation: 'yaşlı', example: 'My grandfather is old.', exampleAz: 'Babam yaşlıdır.', usageNote: 'How old — neçə yaş.', pronunciation: '/oʊld/', teachCard: 'u4d6_c02' },
     { word: 'How old is he?', translation: 'O neçə yaşındadır? (kişi)', example: 'Is this your brother? How old is he?', exampleAz: 'Bu, sənin qardaşındır? O neçə yaşındadır?', usageNote: 'he ilə is.', pronunciation: '/haʊ oʊld ɪz hi/', teachCard: 'u4d6_c04' },
     { word: "He's [yaş]. · She's [yaş].", translation: 'O, [yaş] yaşındadır.', example: "How old is he? — He's thirty.", exampleAz: 'O neçə yaşındadır? — 30 yaşındadır.', usageNote: '“yaşı var” tərcümə olunmur.', pronunciation: '/hiz/ · /ʃiz/', teachCard: 'u4d6_c06' },
-    { word: 'How old is she?', translation: 'O neçə yaşındadır? (qadın)', example: "Is this your sister? How old is she? — She's twenty.", exampleAz: 'Bu, sənin bacındır? O neçə yaşındadır? — 20 yaşındadır.', usageNote: 'Qadın haqqında she.', pronunciation: '/haʊ oʊld ɪz ʃi/', teachCard: 'u4d6_c04' },
+    { word: 'How old is she?', translation: 'O neçə yaşındadır? (qadın)', example: "Is this your sister? How old is she? — She's twenty.", exampleAz: 'Bu, sənin bacındır? O neçə yaşındadır? — 20 yaşındadır.', usageNote: 'Qadın haqqında she.', pronunciation: '/haʊ oʊld ɪz ʃi/', teachCard: 'u4d6_c08' },
   ],
 };
 
 export const explains: { after: string; card: ExplainCard }[] = [
-  { after: 'u4d6_c06', card: { type: 'explain', id: 'u4d6_c08t', number: 0,
+  { after: 'u4d6_c08', card: { type: 'explain', id: 'u4d6_c08t', number: 0,
     lead: 'Başqasının yaşını soruşanda is gəlir.', focus: 'How old is',
     sections: [
       { title: 'Kim haqqında?', pairs: [{ en: 'How old is he?', az: 'kişi, oğlan' }, { en: 'How old is she?', az: 'qadın, qız' }] },

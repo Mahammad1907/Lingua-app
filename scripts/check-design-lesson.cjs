@@ -34,13 +34,11 @@ const text = JSON.stringify(lesson);
 assert.ok(!/\{[MGBmgb](:\w+)?\}|\{en|\{,/.test(text), 'all name tokens resolved');
 assert.ok(!/BirFox/.test(text), 'no hard-coded mascot name');
 const flow = L.lessonFlow(lesson);
-assert.deepEqual(flow.map(c => c.id), ['d1_c01', 'd1_c02', 'd1_c03', 'd1_c04', 'd1_c05', 'd1_c06', 'd1_c07a', 'd1_c07b', 'd1_c08', 'd1_c10']);
-// d1_c09, d1_c11a, d1_c11b moved to lesson.pool (26 Nov 2026, lessons 10–12 screens): daily review after the lesson.
-assert.deepEqual((lesson.pool ?? []).map(c => c.id), ['d1_c09', 'd1_c11a', 'd1_c11b']);
+assert.deepEqual(flow.map(c => c.id), ['d1_c01', 'd1_c02', 'd1_c03', 'd1_c04', 'd1_c05', 'd1_c06', 'd1_c07a', 'd1_c07b', 'd1_c08', 'd1_c09', 'd1_c10', 'd1_c11a', 'd1_c11b']);
 const ids = L.lessonTaskIds(lesson);
-assert.deepEqual(ids.required, ['d1_c03', 'd1_c04', 'd1_c07a', 'd1_c07b', 'd1_c10a', 'd1_c10b']);
-assert.deepEqual(ids.optional, ['d1_c05', 'd1_c08']);
-const card = id => flow.find(c => c.id === id) ?? (lesson.pool ?? []).find(c => c.id === id);
+assert.deepEqual(ids.required, ['d1_c03', 'd1_c04', 'd1_c07a', 'd1_c07b', 'd1_c09', 'd1_c10a', 'd1_c10b']);
+assert.deepEqual(ids.optional, ['d1_c05', 'd1_c08', 'd1_c11a', 'd1_c11b']);
+const card = id => flow.find(c => c.id === id);
 const doc = fs.readFileSync(require.resolve('../docs/BirTalk_Ders_1_Yekun.md'), 'utf8');
 // Every learner-facing explanation sentence exists in the final document (names written as BirFox there).
 const docText = doc.replace(/BirFox(-[a-zəüöı]+)?/g, 'X');

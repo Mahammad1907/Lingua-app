@@ -60,7 +60,27 @@ Dilin ucunu dişlərin arasına qoy və yavaşca hava burax. “s” deyil, th: 
 
 Diqqət et: zero “zirou” oxunur, z səsi ilə başlayır.
 
-## Kart 6 — Yeni söz
+## Kart 6 — Seç: Dinlə və seç
+
+**Tapşırıq:** Otel liftindəsən, düymələrin yanında durursan. Yanındakı adam nəsə deyir. Hansı düyməni basırsan?  
+**Səs:** Excuse me, three, please.  
+**Seçimlər:** 3 / 2 / 1 — **düzgün:** 3  
+**İpucu:** Rəqəmin ilk səsinə qulaq as.  
+**Düzgün olanda:** “three” — üç.  
+- *İzah (“2” seçiləndə):* “two” — iki, səsdə isə başqa rəqəm var. — Uyğun: 3. Səbəb: Səsdə “three” deyilir, “two” yox. Qayda: Two, please. — iki; Three, please. — üç. Nümunə: Excuse me, three, please.  
+- *İzah (“1” seçiləndə):* “one” — bir, səsdə isə başqa rəqəm var. — Uyğun: 3. Səbəb: Səsdə “three” deyilir, “one” yox. Qayda: One, please. — bir; Three, please. — üç. Nümunə: Excuse me, three, please.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Ofis binasının liftindəsən. İş yoldaşı nəsə deyir. Hansı düyməni basırsan?  
+**Səs:** Excuse me, two, please.  
+**Seçimlər:** 3 / 1 / 2 — **düzgün:** 2  
+**İpucu:** Rəqəmin ilk səsinə qulaq as.  
+**Düzgün olanda:** “two” — iki.  
+- *İzah (“3” seçiləndə):* “three” — üç, səsdə isə başqa rəqəm var. — Uyğun: 2. Səbəb: Səsdə “two” deyilir, “three” yox. Qayda: Two, please. — iki; Three, please. — üç. Nümunə: Excuse me, two, please.  
+- *İzah (“1” seçiləndə):* “one” — bir, səsdə isə başqa rəqəm var. — Uyğun: 2. Səbəb: Səsdə “two” deyilir, “one” yox. Qayda: One, please. — bir; Two, please. — iki. Nümunə: Excuse me, two, please.  
+
+## Kart 7 — Yeni söz
 
 **four · five** — dörd · beş
 
@@ -70,9 +90,9 @@ Nümunə: **Five, four, three, two, one, zero!** — Beş, dörd, üç, iki, bir
 
 Qeyd: five “v” ilə bitir: fayv.
 
-## Kart 7 — Nömrəni yığ: Nömrəni yığ
+## Kart 8 — Nömrəni yığ: Nömrəni yığ
 
-**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
+**Tapşırıq:** Oteldə otaq telefonundasan. Resepsiya restoranın daxili nömrəsini deyir. Dinlə və yığ.  
 **Səs:** Four, zero, one.  
 **Qəbul:** dəqiq: 401  
 **İpucu:** Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.  
@@ -81,14 +101,30 @@ Qeyd: five “v” ilə bitir: fayv.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
+**Tapşırıq:** Ofisdəsən. İş yoldaşı daxili nömrəsini deyir. Dinlə və yığ.  
 **Səs:** Two, five, three.  
 **Qəbul:** dəqiq: 253  
 **İpucu:** Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.  
 **Düzgün olanda:** two, five, three — 253.  
 - *İzah (başqa səhvdə):* Rəqəmləri bir-bir dinlə. — Uyğun: 253. Səbəb: Səsdə üç rəqəm var: two, five, three. Qayda: Two, five, three. — 253; Three, five, two. — 352. Nümunə: Two, five, three.  
 
-## Kart 8 — Sözü tamamla: Sözü tamamla
+## Kart 9 — Kim nə dedi?: Kim nə dedi?
+
+**Tapşırıq:** Liftdə hər kəs öz mərtəbəsini deyir. Hər cümləyə mənasını qoş.  
+**Cütlər:** Three, please. — Üç, zəhmət olmasa.; Excuse me, five, please. — Bağışlayın, beş, zəhmət olmasa.; Zero, please. — Sıfır, zəhmət olmasa. · artıq: Dörd, zəhmət olmasa.  
+**İpucu:** Hər cümlədə rəqəmi tap, qalan sözlər eynidir.  
+**Düzgün olanda:** Hər rəqəmi tanıdın.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Three, please. — Üç, zəhmət olmasa.; Excuse me, five, please. — Bağışlayın, beş, zəhmət olmasa.; Zero, please. — Sıfır, zəhmət olmasa. Səbəb: Cümlələr oxşardır, yalnız rəqəm dəyişir. Qayda: Three, please. — üç; Five, please. — beş. Nümunə: Excuse me, four, please.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Kafedə və liftdə. Hər cümləyə mənasını qoş.  
+**Cütlər:** Four, please. — Dörd, zəhmət olmasa.; One tea, please. — Bir çay, zəhmət olmasa.; Two, please. Thank you! — İki, zəhmət olmasa. Təşəkkür edirəm! · artıq: Beş, zəhmət olmasa.  
+**İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
+**Düzgün olanda:** Hər rəqəmi tanıdın.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Four, please. — Dörd, zəhmət olmasa.; One tea, please. — Bir çay, zəhmət olmasa.; Two, please. Thank you! — İki, zəhmət olmasa. Təşəkkür edirəm! Səbəb: Hər cümlədə başqa rəqəm var. Qayda: Four, please. — dörd; Two, please. — iki. Nümunə: One tea, please.  
+
+## Kart 10 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Qız 4-cü mərtəbəyə gedir. Hansı söz çatmır?  
 **Cümlə:** Excuse me, ___ , please.  
@@ -108,7 +144,7 @@ Qeyd: five “v” ilə bitir: fayv.
 - *İzah (“tea” seçiləndə):* “tea” — çay, rəqəm deyil. — Uyğun: three. Səbəb: “tea” çaydır; “three”də dil dişlərin arasına gəlir. Qayda: One tea, please. — bir çay; Three, please. — üç. Nümunə: Excuse me, three, please.  
 - *İzah (“two” seçiləndə):* “two” — iki. — Uyğun: three. Səbəb: “two” ikidir, oğlan isə 3-cü mərtəbəyə gedir. Qayda: Two, please. — iki; Three, please. — üç. Nümunə: Excuse me, three, please.  
 
-## Kart 9 — Səslə cavab: Mərtəbəni de
+## Kart 11 — Səslə cavab: Mərtəbəni de
 
 **Tapşırıq:** Liftdə düymələr yanındakı adamın tərəfindədir. Sən 2-ci mərtəbəyə gedirsən. Nəzakətlə xahiş et.  
 **Qəbul:** dəqiq: Excuse me, two, please. / Two, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:floor\s+)?(?:two|2)(?:\s+(?:floor|tickets?))?[,.!]?\s*(?:please|thanks|thank you)[.!]?$/  
@@ -124,7 +160,7 @@ Qeyd: five “v” ilə bitir: fayv.
 **Düzgün olanda:** Rəqəmi dedin və nəzakətlə xahiş etdin.  
 - *İzah (başqa səhvdə):* Rəqəm + please. — Uyğun: Excuse me, five, please. Səbəb: Sənə 5-ci mərtəbə lazımdır: rəqəmi de və “please” əlavə et. Qayda: Five, please. — beş; Four, please. — dörd. Nümunə: Excuse me, five, please.  
 
-## Kart 10 — Söhbəti sırala: Söhbəti sırala
+## Kart 12 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Liftdə səs-küy var. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Excuse me. Four, please. → 2. Sorry? Say that again, please. → 3. Four, please. Thank you! → 4. You're welcome.  
@@ -140,9 +176,9 @@ Qeyd: five “v” ilə bitir: fayv.
 **Düzgün olanda:** Sifariş, təkrar, təşəkkür və cavab düz sıradadır.  
 - *İzah (başqa səhvdə):* Söhbətin sırası düz deyil. — Uyğun: Hello! One tea, please. → Sorry? Say that again, please. → One tea, please. Thank you! → You're welcome. Səbəb: Qız eşitmədi və təkrar istədi; sifariş yenə deyildi. Qayda: Sorry? Say that again, please. — eşitmədin; Thank you! — You're welcome. Nümunə: One tea, please.  
 
-## Kart 11 — Yaz: Dinlə və yaz
+## Kart 13 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Rəqəmi sözlə yaz.  
+**Tapşırıq:** Liftdə oğlan mərtəbəni deyir. Dostun mesajda soruşur ki, bu rəqəm ingiliscə necə yazılır. Eşitdiyin rəqəmi sözlə yaz.  
 **Səs:** Three, please.  
 **Qəbul:** dəqiq: three  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla.  
@@ -151,7 +187,7 @@ Qeyd: five “v” ilə bitir: fayv.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Rəqəmi sözlə yaz.  
+**Tapşırıq:** Otel resepsiyasında qadın otağın mərtəbəsini deyir. Dostun soruşur ki, bu rəqəm ingiliscə necə yazılır. Eşitdiyin rəqəmi sözlə yaz.  
 **Səs:** Five.  
 **Qəbul:** dəqiq: five  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla.  

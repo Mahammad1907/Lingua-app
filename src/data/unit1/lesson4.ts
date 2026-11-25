@@ -44,10 +44,15 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'word', id: 'd4_c04', number: 4, scenes: ['d4/word-im-fine'],
-      // I'm OK. joined this card (26 Nov 2026, at most 3 Yeni söz cards); it was card d4_c04b.
-      word: "I'm fine, thanks. And you? · I'm OK.", pronunciation: '/aɪm faɪn θæŋks ænd ju/ · /aɪm oʊˈkeɪ/', reading: 'aym fayn, **th**ənks. ənd yu? · aym oukey', az: 'Yaxşıyam, sağ ol. Bəs sən? · Normalam.',
-      notes: ['th — dilin ucu dişlərin arasında.', "I'm OK “I'm fine” ilə yaxındır."],
+      word: "I'm fine, thanks. And you?", pronunciation: '/aɪm faɪn θæŋks ænd ju/', reading: 'aym fayn, **th**ənks. ənd yu?', az: 'Yaxşıyam, sağ ol. Bəs sən?',
+      notes: ['th — dilin ucu dişlərin arasında.'],
       example: "How are you? — I'm fine, thanks. And you?", exampleAz: 'Necəsən? — Yaxşıyam, sağ ol. Bəs sən?',
+    },
+    {
+      type: 'word', id: 'd4_c04b', number: 5, scenes: ['d4/word-im-ok'],
+      word: "I'm OK.", pronunciation: '/aɪm oʊˈkeɪ/', reading: 'aym oukey', az: 'Normalam.',
+      notes: ["“I'm fine” ilə yaxındır."],
+      example: "How are you? — I'm OK.", exampleAz: 'Necəsən? — Normalam.',
     },
     {
       type: 'word', id: 'd4_c04c', number: 6, scenes: ['d4/word-not-well'],
@@ -99,6 +104,17 @@ export const lesson4: DesignLesson = {
       },
     },
     {
+      type: 'voice', id: 'd4_c08', number: 8, title: 'Dinlə və təkrarla', why: 'Cavab axıcı səsləndi.',
+      prompt: 'Cavabı dinlə, sonra eyni cür de.', audio: "I'm fine, thanks.", repeat: { stress: 'fine', note: '“thanks” sözündə dilin ucu dişlərin arasındadır.', reading: 'aym fayn, **th**ənks' },
+      rule: exact("I'm fine thanks"),
+      variants: [other('Bir daha dinlə və yavaş de.', ex("I'm fine, thanks.", '“thanks” “tenks” kimi yox, dil dişlərin arasında deyilir.', 'th — dilin ucu dişlərin arasında: “tenks” yox, thanks.', "I'm fine, thanks."))],
+      review: {
+        title: 'Dinlə və təkrarla', why: 'Sual axıcı səsləndi.', prompt: 'Sualı dinlə, sonra eyni cür de.', audio: 'How are you?', repeat: { stress: 'are', note: 'Üç söz bir nəfəsdə deyilir.', reading: 'hau ar yu?' },
+        rule: exact('How are you'),
+        variants: [other('Bir daha dinlə və yavaş de.', ex('How are you?', 'Sözləri ayırmadan, bir nəfəsdə de.', 'How ARE you?', 'How are you?'))],
+      },
+    },
+    {
       type: 'write', id: 'd4_c09', number: 9, title: 'Dinlə və yaz', why: 'Halını dedin və sualı qaytardın.',
       prompt: 'Dinlə, mesajla cavab ver və sualı geri qaytar.', audio: 'Hello! How are you?', placeholder: 'Cavabını yaz', rule: answerBack,
       hint: 'İki hissə: öz halını de, sonra eyni sualı ona qaytar.', hintAssists: false,
@@ -144,20 +160,6 @@ export const lesson4: DesignLesson = {
       },
     },
   ],
-  // Practice moved out of the lesson (26 Nov 2026, lessons 10–12 screens): it comes back in the daily review.
-  pool: [
-    {
-      type: 'voice', id: 'd4_c08', number: 8, title: 'Dinlə və təkrarla', why: 'Cavab axıcı səsləndi.',
-      prompt: 'Cavabı dinlə, sonra eyni cür de.', audio: "I'm fine, thanks.", repeat: { stress: 'fine', note: '“thanks” sözündə dilin ucu dişlərin arasındadır.', reading: 'aym fayn, **th**ənks' },
-      rule: exact("I'm fine thanks"),
-      variants: [other('Bir daha dinlə və yavaş de.', ex("I'm fine, thanks.", '“thanks” “tenks” kimi yox, dil dişlərin arasında deyilir.', 'th — dilin ucu dişlərin arasında: “tenks” yox, thanks.', "I'm fine, thanks."))],
-      review: {
-        title: 'Dinlə və təkrarla', why: 'Sual axıcı səsləndi.', prompt: 'Sualı dinlə, sonra eyni cür de.', audio: 'How are you?', repeat: { stress: 'are', note: 'Üç söz bir nəfəsdə deyilir.', reading: 'hau ar yu?' },
-        rule: exact('How are you'),
-        variants: [other('Bir daha dinlə və yavaş de.', ex('How are you?', 'Sözləri ayırmadan, bir nəfəsdə de.', 'How ARE you?', 'How are you?'))],
-      },
-    },
-  ],
   result: {
     done: ['Dərs 4 tamamlandı', 'Artıq hal soruşub cavab verə bilirsən.'],
     incomplete: 'Dərs tam bitmədi. Yoxlanmayan tapşırıqlara sonra qayıda bilərsən.',
@@ -174,6 +176,6 @@ export const lesson4: DesignLesson = {
     { word: "I'm fine", translation: 'Yaxşıyam', example: "I'm fine, thanks.", exampleAz: 'Yaxşıyam, sağ ol.', usageNote: '“I’m OK” da olar.', pronunciation: '/aɪm faɪn/', teachCard: 'd4_c04' },
     { word: 'And you?', translation: 'Bəs sən?', example: "I'm OK. And you?", exampleAz: 'Normalam. Bəs sən?', usageNote: 'Sualı geri qaytarır.', pronunciation: '/ænd ju/', teachCard: 'd4_c04' },
     { word: "I'm not great", translation: 'Çox yaxşı deyiləm', example: "I'm not great.", exampleAz: 'Çox yaxşı deyiləm.', usageNote: 'Pis olanda deyilir.', pronunciation: '/aɪm nɑt ɡreɪt/', teachCard: 'd4_c04c' },
-    { word: "I'm OK", translation: 'Normalam', example: "How are you? — I'm OK.", exampleAz: 'Necəsən? — Normalam.', usageNote: '“I’m fine” ilə yaxındır.', pronunciation: '/aɪm oʊˈkeɪ/', teachCard: 'd4_c04' },
+    { word: "I'm OK", translation: 'Normalam', example: "How are you? — I'm OK.", exampleAz: 'Necəsən? — Normalam.', usageNote: '“I’m fine” ilə yaxındır.', pronunciation: '/aɪm oʊˈkeɪ/', teachCard: 'd4_c04b' },
   ],
 };

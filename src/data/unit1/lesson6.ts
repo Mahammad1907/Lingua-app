@@ -87,6 +87,26 @@ export const lesson6: DesignLesson = {
       },
     },
     {
+      type: 'voice', id: 'd6_c07', number: 7, title: 'Dinlə və təkrarla', why: 'Vurğu düzgün yerdə idi.',
+      prompt: 'Dinlə, sonra eyni cür de.', audio: 'Excuse me.', repeat: { stress: 'Excuse', note: 'Vurğu ikinci hecadadır: ex-CUSE me. Sonda deyil.', reading: 'ikskyuz mi' },
+      rule: exact('Excuse me'),
+      variants: [other('Bir daha dinlə və yavaş de.', ex('Excuse me.', 'Azərbaycan dilində vurğu çox vaxt sondadır, burada isə ortada.', 'ex-CUSE me.', 'Excuse me.'))],
+      review: {
+        title: 'Dinlə və təkrarla', why: 'Vurğu düzgün yerdə idi.', prompt: 'Dinlə, sonra eyni cür de.', audio: 'Sorry!', repeat: { stress: 'Sorry', note: 'Vurğu əvvəldədir: SO-rry.', reading: 'sari' },
+        rule: exact('Sorry'),
+        variants: [other('Bir daha dinlə və yavaş de.', ex('Sorry!', 'Birinci heca güclü deyilir.', 'SO-rry.', 'Sorry!'))],
+      },
+    },
+    {
+      type: 'choice', id: 'd6_c08', number: 8, title: 'Sözü tamamla', why: 'Excuse me + sual.', hint: 'Dərs 3-ün ad sualını xatırla.',
+      prompt: 'Qız ona kömək edən işçini səsləyir və adını soruşur.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'Excuse me,', after: 'your name?' }, options: ['how', "what's", 'sorry'], answer: "what's",
+      variants: [other('Ad sualı “What’s” ilə başlayır.', ex("what's", 'Ad sualı What’s ilə başlayır, “Excuse me” isə ondan əvvəl gəlir.', 'Excuse me, what’s your name?', "Excuse me, what's your name?"))],
+      review: {
+        title: 'Sözü tamamla', why: 'No problem — Eybi yox.', hint: 'Üzrə cavab ifadəsinin ikinci sözü hansıdır?', prompt: 'Oğlan üzr istədi. Qız cavab verir.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'No', after: '.' }, options: ['sorry', 'problem', 'please'], answer: 'problem',
+        variants: [other('Üzrə cavab: No problem.', ex('problem', '“No problem” — “Eybi yox”.', 'Sorry → No problem.', 'Sorry! — No problem.'))],
+      },
+    },
+    {
       type: 'write', id: 'd6_c09', number: 9, title: 'Mesajı qur', why: 'Nəzakətlə diqqət çəkib adı soruşdun.', hint: 'Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.',
       prompt: 'Sənə kömək edən qızın adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Otelin resepsiyası', from: 'G', lines: [] }, tiles: ['your', 'Excuse', 'sorry', "what's", 'me,', 'name', '?'], rule: exact("Excuse me, what's your name?"),
@@ -107,6 +127,15 @@ export const lesson6: DesignLesson = {
       review: {
         title: 'Cavabını yaz', why: 'Üzrü qəbul etdin.', hint: 'Qız üzr istədi — üzrü necə qəbul edirsən?', prompt: 'Qız mesajına gec cavab verdi və yazır: “I’m sorry!”\nÜzrünü qəbul et.', placeholder: 'Cavabını yaz', rule: noProblem,
         variants: [other('Üzrə cavab: No problem.', ex('No problem.', 'O üzr istədi, sən isə “Eybi yox” deyirsən.', 'Sorry → No problem.', 'No problem.'))],
+      },
+    },
+    {
+      type: 'voice', id: 'd6_c11', number: 11, speaker: 'mascot', title: 'Üzrü qəbul et', why: 'Üzrü qəbul etdin.', hint: '{M} üzr istədi — üzrü necə qəbul edirsən?',
+      prompt: '{M} deyir: “Sorry!”\nÜzrünü qəbul et.', audio: 'Sorry!', sample: 'No problem.', rule: noProblem,
+      variants: [other('Üzrə cavab: No problem.', ex('No problem.', '{M} üzr istədi, sən isə “Eybi yox” deyirsən.', 'Sorry → No problem.', 'No problem.'))],
+      review: {
+        speaker: 'mascot', title: 'Üzrü qəbul et', why: 'Üzrü qəbul etdin.', hint: '{M} üzr istədi — üzrü necə qəbul edirsən?', prompt: '{M} gecikdi və deyir: “I’m sorry!”\nÜzrünü qəbul et.', audio: "I'm sorry!", rule: noProblem,
+        variants: [other('Üzrə cavab: No problem.', ex('No problem.', 'Üzrə “Eybi yox” deyirsən.', 'Sorry → No problem.', 'Sorry! — No problem.'))],
       },
     },
     {
@@ -131,45 +160,13 @@ export const lesson6: DesignLesson = {
       },
     },
   ],
-  // Practice moved out of the lesson (26 Nov 2026, lessons 10–12 screens): it comes back in the daily review.
-  pool: [
-    {
-      type: 'voice', id: 'd6_c07', number: 7, title: 'Dinlə və təkrarla', why: 'Vurğu düzgün yerdə idi.',
-      prompt: 'Dinlə, sonra eyni cür de.', audio: 'Excuse me.', repeat: { stress: 'Excuse', note: 'Vurğu ikinci hecadadır: ex-CUSE me. Sonda deyil.', reading: 'ikskyuz mi' },
-      rule: exact('Excuse me'),
-      variants: [other('Bir daha dinlə və yavaş de.', ex('Excuse me.', 'Azərbaycan dilində vurğu çox vaxt sondadır, burada isə ortada.', 'ex-CUSE me.', 'Excuse me.'))],
-      review: {
-        title: 'Dinlə və təkrarla', why: 'Vurğu düzgün yerdə idi.', prompt: 'Dinlə, sonra eyni cür de.', audio: 'Sorry!', repeat: { stress: 'Sorry', note: 'Vurğu əvvəldədir: SO-rry.', reading: 'sari' },
-        rule: exact('Sorry'),
-        variants: [other('Bir daha dinlə və yavaş de.', ex('Sorry!', 'Birinci heca güclü deyilir.', 'SO-rry.', 'Sorry!'))],
-      },
-    },
-    {
-      type: 'choice', id: 'd6_c08', number: 8, title: 'Sözü tamamla', why: 'Excuse me + sual.', hint: 'Dərs 3-ün ad sualını xatırla.',
-      prompt: 'Qız ona kömək edən işçini səsləyir və adını soruşur.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'Excuse me,', after: 'your name?' }, options: ['how', "what's", 'sorry'], answer: "what's",
-      variants: [other('Ad sualı “What’s” ilə başlayır.', ex("what's", 'Ad sualı What’s ilə başlayır, “Excuse me” isə ondan əvvəl gəlir.', 'Excuse me, what’s your name?', "Excuse me, what's your name?"))],
-      review: {
-        title: 'Sözü tamamla', why: 'No problem — Eybi yox.', hint: 'Üzrə cavab ifadəsinin ikinci sözü hansıdır?', prompt: 'Oğlan üzr istədi. Qız cavab verir.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'No', after: '.' }, options: ['sorry', 'problem', 'please'], answer: 'problem',
-        variants: [other('Üzrə cavab: No problem.', ex('problem', '“No problem” — “Eybi yox”.', 'Sorry → No problem.', 'Sorry! — No problem.'))],
-      },
-    },
-    {
-      type: 'voice', id: 'd6_c11', number: 11, speaker: 'mascot', title: 'Üzrü qəbul et', why: 'Üzrü qəbul etdin.', hint: '{M} üzr istədi — üzrü necə qəbul edirsən?',
-      prompt: '{M} deyir: “Sorry!”\nÜzrünü qəbul et.', audio: 'Sorry!', sample: 'No problem.', rule: noProblem,
-      variants: [other('Üzrə cavab: No problem.', ex('No problem.', '{M} üzr istədi, sən isə “Eybi yox” deyirsən.', 'Sorry → No problem.', 'No problem.'))],
-      review: {
-        speaker: 'mascot', title: 'Üzrü qəbul et', why: 'Üzrü qəbul etdin.', hint: '{M} üzr istədi — üzrü necə qəbul edirsən?', prompt: '{M} gecikdi və deyir: “I’m sorry!”\nÜzrünü qəbul et.', audio: "I'm sorry!", rule: noProblem,
-        variants: [other('Üzrə cavab: No problem.', ex('No problem.', 'Üzrə “Eybi yox” deyirsən.', 'Sorry → No problem.', 'Sorry! — No problem.'))],
-      },
-    },
-  ],
   result: {
     done: ['Dərs 6 tamamlandı', 'Artıq “Excuse me” və “Sorry”ni ayırırsan.'],
     incomplete: 'Dərs tam bitmədi. Yoxlanmayan tapşırıqlara sonra qayıda bilərsən.',
     goals: [
-      { group: 'Tanıma', text: 'Excuse me və Sorry fərqi', tasks: ['d6_c02', 'd6_c05', 'd6_c06'] },
+      { group: 'Tanıma', text: 'Excuse me və Sorry fərqi', tasks: ['d6_c02', 'd6_c05', 'd6_c06', 'd6_c08'] },
       { group: 'Yazı', text: 'Nəzakətli sual və üzrə cavab', tasks: ['d6_c09', 'd6_c10'] },
-      { group: 'Danışıq', text: 'Üzr istəmək və diqqət çəkmək', tasks: ['d6_c12', 'd6_c13'] },
+      { group: 'Danışıq', text: 'Üzr istəmək, qəbul etmək, diqqət çəkmək', tasks: ['d6_c11', 'd6_c12', 'd6_c13'] },
     ],
     closing: 'Növbəti dərsdə başa düşmədiyini deməyi öyrənəcəksən.', button: 'Ana səhifəyə qayıt',
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',

@@ -19,9 +19,9 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'word', id: 'u4d7_c02', number: 2, scenes: ['mascot/point'],
-      word: 'teacher · student', pronunciation: '/ˈtitʃɚ/ · /ˈstudənt/', reading: 'tiçər · studənt', az: 'müəllim · tələbə',
-      structure: ["She's a teacher.", "He's a student."],
-      notes: ['Hər ikisində vurğu birinci hecadadır: Tİ-çər, STU-dənt.'],
+      word: 'teacher', pronunciation: '/ˈtitʃɚ/', reading: 'tiçər', az: 'müəllim',
+      structure: ["She's a teacher.", "He's a teacher."],
+      notes: ['Vurğu birinci hecadadır: Ti-çır.'],
       example: "She's a teacher.", exampleAz: 'O müəllimdir.',
     },
     {
@@ -43,7 +43,14 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'match', id: 'u4d7_c05', number: 4, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.',
+      type: 'word', id: 'u4d7_c04', number: 4, scenes: ['mascot/happy'],
+      word: 'student', pronunciation: '/ˈstudənt/', reading: 'studənt', az: 'tələbə',
+      structure: ["He's a student.", "She's a student."],
+      notes: ['Vurğu birinci hecadadır: STU-dənt.'],
+      example: "He's a student.", exampleAz: 'O tələbədir.',
+    },
+    {
+      type: 'match', id: 'u4d7_c05', number: 5, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.',
       prompt: '{F} albomdakı şəkillərin altına yazılar qoyub.\nHər cümləyə mənasını qoş.',
       rows: [{ en: "She's a teacher.", az: 'O müəllimdir.', from: 'other' }, { en: "He's a student.", az: 'O tələbədir.', from: 'other' }, { en: "He's from Baku.", az: 'O Bakıdandır.', from: 'other' }],
       extra: ['O Gəncədəndir.'],
@@ -57,14 +64,14 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u4d7_c06', number: 5, scenes: ['mascot/wave'],
-      word: 'doctor · engineer', pronunciation: '/ˈdɑktɚ/ · /ˌɛndʒəˈnɪr/', reading: 'daktər · encinir', az: 'həkim · mühəndis',
-      structure: ["He's a doctor.", "She's an engineer."],
-      notes: ['“doctor” — “dəktər” yox, “daktər”. engineer — vurğu sonuncu hecadadır: en-ci-NİR.'],
+      type: 'word', id: 'u4d7_c06', number: 6, scenes: ['mascot/wave'],
+      word: 'doctor', pronunciation: '/ˈdɑktɚ/', reading: 'daktər', az: 'həkim',
+      structure: ["He's a doctor.", "She's a doctor."],
+      notes: ['“doctor” — “dəktər” yox, “daktər”: birinci saitdə “a”.'],
       example: "He's a doctor.", exampleAz: 'O həkimdir.',
     },
     {
-      type: 'write', id: 'u4d7_c07', number: 6, title: 'Cümləni qur', why: 'Peşə sözündən əvvəl a gəlir: a doctor.', hint: 'Kişidən danış, peşəni bu dərsin söz kartındakı kimi qur.',
+      type: 'write', id: 'u4d7_c07', number: 7, title: 'Cümləni qur', why: 'Peşə sözündən əvvəl a gəlir: a doctor.', hint: 'Kişidən danış, peşəni bu dərsin söz kartındakı kimi qur.',
       prompt: 'Şəkildəki kişi həkimdir.\nŞəklin altına yaz. Sözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
       photo: { from: 'Sənin albomun', shows: 'ağ xalatlı kişi həkim' },
       tiles: ['doctor', "He's", 'a', "She's", 'student', '.'], rule: exact("He's a doctor.", 'He is a doctor.'),
@@ -86,7 +93,14 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'u4d7_c09', number: 7, title: 'Sözü tamamla', why: 'engineer e səsi ilə başlayır: an engineer.', hint: 'engineer sözünün ilk səsinə qulaq as.',
+      type: 'word', id: 'u4d7_c08', number: 8, scenes: ['mascot/think'],
+      word: 'engineer', pronunciation: '/ˌɛndʒəˈnɪr/', reading: 'encinir', az: 'mühəndis',
+      structure: ["She's an engineer.", "He's an engineer."],
+      notes: ['Vurğu sonuncu hecadadır: en-ci-NİR.'],
+      example: "She's an engineer.", exampleAz: 'O mühəndisdir.',
+    },
+    {
+      type: 'choice', id: 'u4d7_c09', number: 9, title: 'Sözü tamamla', why: 'engineer e səsi ilə başlayır: an engineer.', hint: 'engineer sözünün ilk səsinə qulaq as.',
       prompt: 'Albomdakı başqa şəkildə qadın ofisdə işləyir. O mühəndisdir.\nHansı söz çatmır?', gap: { speaker: 'other', before: "She's", after: 'engineer.' },
       options: ['a', 'an', 'is'], answer: 'an',
       variants: [
@@ -104,14 +118,14 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u4d7_c10', number: 8, scenes: ['mascot/ask'],
+      type: 'word', id: 'u4d7_c10', number: 10, scenes: ['mascot/ask'],
       word: "What's his job?", pronunciation: '/wʌts hɪz dʒɑb/', reading: 'uats hiz cab?', az: 'O nə işləyir? (Onun peşəsi nədir?)',
       structure: ["What's his job?", "What's her job?"],
       notes: ['what’s — nədir, his — onun (kişinin), job — iş, peşə; qadın üçün her.'],
       example: "What's his job? — He's a doctor.", exampleAz: 'O nə işləyir? — O həkimdir.',
     },
     {
-      type: 'voice', id: 'u4d7_c11', number: 9, title: 'Peşəsini de', why: 'Peşəsini dedin: He\'s a doctor.', hint: 'Sual kişi haqqındadır — peşəni söz kartındakı kimi de.',
+      type: 'voice', id: 'u4d7_c11', number: 11, title: 'Peşəsini de', why: 'Peşəsini dedin: He\'s a doctor.', hint: 'Sual kişi haqqındadır — peşəni söz kartındakı kimi de.',
       prompt: 'Albomdakı kişi həkimdir.\nSualı dinlə və cavab ver.', audio: "What's his job?", reply: 'Really? Nice!',
       rule: exact("He's a doctor.", 'He is a doctor.'),
       variants: [
@@ -133,7 +147,7 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'profile', id: 'u4d7_profile', number: 10, title: 'Profil kartı', why: "mother — ana; fifty — 50; a teacher — müəllim.", hint: 'Üç cümləni ayrıca tut: kim, neçə yaşında, nə işləyir.',
+      type: 'profile', id: 'u4d7_profile', number: 12, title: 'Profil kartı', why: "mother — ana; fifty — 50; a teacher — müəllim.", hint: 'Üç cümləni ayrıca tut: kim, neçə yaşında, nə işləyir.',
       prompt: 'Video zəngdə {f} albomdakı bir qadını göstərir.\nDinlə və kartı doldur.', audio: "This is my mother. She's fifty. She's a teacher.",
       rows: [{ id: 'who', label: 'Kim', options: ['sister', 'mother', 'grandmother'], answer: 'mother' }, { id: 'age', label: 'Yaş', number: true, answer: '50' },
         { id: 'job', label: 'Peşə', options: ['doctor', 'engineer', 'teacher'], answer: 'teacher' }],
@@ -161,7 +175,19 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'two', id: 'u4d7_c14', number: 11, title: 'İki mesaj yaz', why: 'İki peşəni düzgün a və an ilə yazdın.', hint: 'Hər mesajda əvvəl kimdən danışdığını, sonra peşəsini söz kartındakı kimi yaz.',
+      type: 'voice', id: 'u4d7_c13', number: 13, title: 'Dinlə və təkrarla', why: 'Cümləni dedin; an engineer bir nəfəsdə deyilir.', hint: 'Əvvəl yavaş dinlə, sonra an-ı engineer ilə birlikdə de.',
+      prompt: '{F} albomdakı qadını təqdim edir.\nDinlə, sonra eyni cür de.', audio: "She's an engineer.", repeat: { stress: 'an', note: 'an engineer — an sözü engineer ilə qoşa deyilir: ənencinir.', reading: 'şiz ən encinir' },
+      rule: exact("She's an engineer.", 'She is an engineer.'),
+      variants: [other('Bir daha dinlə və yavaş de.', ex("She's an engineer.", 'an engineer ayrı-ayrı yox, bir nəfəsdə deyilir.', "She's an engineer. — düzdür; She's a engineer. — olmur.", "He's a doctor."))],
+      review: {
+        title: 'Dinlə və təkrarla', why: 'Cümləni dedin; student — “studənt”.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
+        prompt: 'Kafedə yeni tanış kursdakı yoldaşını təqdim edir.\nDinlə, sonra eyni cür de.', audio: "He's a student.", repeat: { stress: 'stu', note: 'student — vurğu birinci hecadadır: STU-dənt.', reading: 'hiz ə studənt' },
+        rule: exact("He's a student.", 'He is a student.'),
+        variants: [other('Bir daha dinlə və yavaş de.', ex("He's a student.", 'student — “studənt”: vurğu birinci hecadadır.', "He's a student. — düzdür; He's student. — olmur.", "She's a teacher."))],
+      },
+    },
+    {
+      type: 'two', id: 'u4d7_c14', number: 14, title: 'İki mesaj yaz', why: 'İki peşəni düzgün a və an ilə yazdın.', hint: 'Hər mesajda əvvəl kimdən danışdığını, sonra peşəsini söz kartındakı kimi yaz.',
       prompt: 'Kişi müəllimdir, qadın mühəndisdir.\nİki mesaj yaz:\n1. Kişinin peşəsi.\n2. Qadının peşəsi.',
       fields: [
         { id: 'u4d7_c14a', label: 'Birinci mesaj', placeholder: 'Kişinin peşəsi', rule: exact("He's a teacher.", 'He is a teacher.'), purpose: 'kişinin peşəsini demək', empty: 'Birinci mesajı da yaz.' },
@@ -197,36 +223,22 @@ export const lesson7: DesignLesson = {
       },
     },
   ],
-  pool: [
-    {
-      type: 'voice', id: 'u4d7_c13', number: 13, title: 'Dinlə və təkrarla', why: 'Cümləni dedin; an engineer bir nəfəsdə deyilir.', hint: 'Əvvəl yavaş dinlə, sonra an-ı engineer ilə birlikdə de.',
-      prompt: '{F} albomdakı qadını təqdim edir.\nDinlə, sonra eyni cür de.', audio: "She's an engineer.", repeat: { stress: 'an', note: 'an engineer — an sözü engineer ilə qoşa deyilir: ənencinir.', reading: 'şiz ən encinir' },
-      rule: exact("She's an engineer.", 'She is an engineer.'),
-      variants: [other('Bir daha dinlə və yavaş de.', ex("She's an engineer.", 'an engineer ayrı-ayrı yox, bir nəfəsdə deyilir.', "She's an engineer. — düzdür; She's a engineer. — olmur.", "He's a doctor."))],
-      review: {
-        title: 'Dinlə və təkrarla', why: 'Cümləni dedin; student — “studənt”.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
-        prompt: 'Kafedə yeni tanış kursdakı yoldaşını təqdim edir.\nDinlə, sonra eyni cür de.', audio: "He's a student.", repeat: { stress: 'stu', note: 'student — vurğu birinci hecadadır: STU-dənt.', reading: 'hiz ə studənt' },
-        rule: exact("He's a student.", 'He is a student.'),
-        variants: [other('Bir daha dinlə və yavaş de.', ex("He's a student.", 'student — “studənt”: vurğu birinci hecadadır.', "He's a student. — düzdür; He's student. — olmur.", "She's a teacher."))],
-      },
-    },
-  ],
   result: {
     done: ['Dərs 7 tamamlandı', 'Artıq peşə sualını başa düşür və ailə üzvünün peşəsini a / an ilə deyirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
       { group: 'Tanıma', text: 'Peşə sözlərini və a / an-ı tanımaq, eşidib profil kartını doldurmaq', tasks: ['u4d7_c03', 'u4d7_c05', 'u4d7_c09', 'u4d7_profile'] },
       { group: 'Yazı', text: 'Peşəni düzgün a və ya an ilə yazmaq', tasks: ['u4d7_c07', 'u4d7_c14'] },
-      { group: 'Danışıq', text: 'Peşəni soruşanda cavab vermək', tasks: ['u4d7_c11'] },
+      { group: 'Danışıq', text: 'Peşəni soruşanda cavab vermək və cümləni düzgün təkrarlamaq', tasks: ['u4d7_c11', 'u4d7_c13'] },
     ],
     closing: 'Növbəti dərs — Bölmə söhbəti: {f} ilə video zəngdə ailəni təqdim edirsən.', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
     { word: 'teacher', translation: 'müəllim', example: "She's a teacher.", exampleAz: 'O müəllimdir.', usageNote: 'Peşə sözündən əvvəl a gəlir: a teacher.', pronunciation: '/ˈtitʃɚ/', teachCard: 'u4d7_c02' },
-    { word: 'student', translation: 'tələbə', example: "He's a student.", exampleAz: 'O tələbədir.', usageNote: 'a student.', pronunciation: '/ˈstudənt/', teachCard: 'u4d7_c02' },
+    { word: 'student', translation: 'tələbə', example: "He's a student.", exampleAz: 'O tələbədir.', usageNote: 'a student.', pronunciation: '/ˈstudənt/', teachCard: 'u4d7_c04' },
     { word: 'doctor', translation: 'həkim', example: "He's a doctor.", exampleAz: 'O həkimdir.', usageNote: 'd səsi ilə başlayır: a doctor.', pronunciation: '/ˈdɑktɚ/', teachCard: 'u4d7_c06' },
-    { word: 'engineer', translation: 'mühəndis', example: "She's an engineer.", exampleAz: 'O mühəndisdir.', usageNote: 'e səsi ilə başlayır: an engineer.', pronunciation: '/ˌɛndʒəˈnɪr/', teachCard: 'u4d7_c06' },
+    { word: 'engineer', translation: 'mühəndis', example: "She's an engineer.", exampleAz: 'O mühəndisdir.', usageNote: 'e səsi ilə başlayır: an engineer.', pronunciation: '/ˌɛndʒəˈnɪr/', teachCard: 'u4d7_c08' },
     { word: "What's his job?", translation: 'O nə işləyir?', example: "What's his job? — He's a doctor.", exampleAz: 'O nə işləyir? — O həkimdir.', usageNote: 'Qadın haqqında: What\'s her job?', pronunciation: '/wʌts hɪz dʒɑb/', teachCard: 'u4d7_c10' },
   ],
 };
@@ -241,7 +253,7 @@ export const explains: { after: string; card: ExplainCard }[] = [
     ],
     attention: '“He\'s doctor.” olmur: a atılmır.',
   } },
-  { after: 'u4d7_c07', card: {
+  { after: 'u4d7_c08', card: {
     type: 'explain', id: 'u4d7_c08t', number: 0,
     lead: 'a və an: sözün ilk səsinə bax.', focus: 'an',
     sections: [

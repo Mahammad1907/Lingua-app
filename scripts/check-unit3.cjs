@@ -125,8 +125,7 @@ for (const raw of all) {
 }
 
 // Typical learner mistakes are not accepted (filled in with the lessons).
-// Pool tasks (26 Nov 2026) are still graded in the daily review, so their typical mistakes stay checked.
-const find = id => { for (const l of all) { const r = L.resolveLesson(l); const c = r.cards.find(c => c.id === id) ?? (l.pool ?? []).find(c => c.id === id); if (c) return c; } };
+const find = id => { for (const l of all) { const r = L.resolveLesson(l); const c = r.cards.find(c => c.id === id); if (c) return c; } };
 const rejects = (id, value, voice = false) => assert.notEqual(L.gradeText(find(id), value, voice).status, 'correct', `${id}: “${value}” must not be accepted`);
 module.exports = { rejects };
 // One file per lesson part: scripts/unit3-mistakes/*.cjs, each `module.exports = (rejects, find, rejectsField) => { … }`.

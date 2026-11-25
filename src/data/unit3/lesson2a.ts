@@ -52,8 +52,8 @@ export const lesson2a: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d2a_c04', number: 4, scenes: ['mascot/point'],
-      word: 'Turkey · Georgia', pronunciation: '/ˈtɝki/ · /ˈdʒɔrdʒə/', reading: 'törki · corcə', az: 'Türkiyə · Gürcüstan',
-      notes: ['Türkiyə ingiliscə Turkey yazılır və “törki” oxunur.', 'Georgia “corcə” oxunur; ABŞ-da da Georgia adlı ştat var.'],
+      word: 'Turkey', pronunciation: '/ˈtɝki/', reading: 'törki', az: 'Türkiyə',
+      notes: ['Türkiyə ingiliscə Turkey yazılır və “törki” oxunur.'],
       example: "I'm from Turkey.", exampleAz: 'Türkiyədənəm.',
     },
     {
@@ -69,7 +69,13 @@ export const lesson2a: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u3d2a_c07', number: 6, title: 'Dinlə və təkrarla', why: 'Cümləni dedin; Georgia — “corcə”.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
+      type: 'word', id: 'u3d2a_c06', number: 6, scenes: ['mascot/think'],
+      word: 'Georgia', pronunciation: '/ˈdʒɔrdʒə/', reading: 'corcə', az: 'Gürcüstan',
+      notes: ['“corcə” oxunur; ABŞ-da da Georgia adlı ştat var.'],
+      example: "I'm from Georgia.", exampleAz: 'Gürcüstandanam.',
+    },
+    {
+      type: 'voice', id: 'u3d2a_c07', number: 7, title: 'Dinlə və təkrarla', why: 'Cümləni dedin; Georgia — “corcə”.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
       prompt: 'Qatarda yeni tanış Gürcüstandan olduğunu deyir.\nDinlə, sonra eyni cür de.', audio: "I'm from Georgia.", repeat: { stress: 'Geor', note: 'Georgia — “corcə”: iki “c” səsi var.', reading: 'aym fram corcə' },
       rule: exact("I'm from Georgia."),
       variants: [other('Bir daha dinlə və yavaş de.', ex("I'm from Georgia.", '“Georgia” yazıldığı kimi yox, “corcə” kimi oxunur.', "I'm from Georgia. — Gürcüstandan; I'm from Turkey. — Türkiyədən.", "I'm from Georgia."))],
@@ -81,76 +87,11 @@ export const lesson2a: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d2a_c08', number: 7, scenes: ['mascot/wave'],
-      word: 'Russia · Iran', pronunciation: '/ˈrʌʃə/ · /ɪˈrɑn/', reading: 'raşə · iran', az: 'Rusiya · İran',
-      notes: ['“Rusiya” yox, “raşə” oxunur.', 'Iran-da vurğu sondadır.'],
+      type: 'word', id: 'u3d2a_c08', number: 8, scenes: ['mascot/wave'],
+      word: 'Russia', pronunciation: '/ˈrʌʃə/', reading: 'raşə', az: 'Rusiya',
+      notes: ['“Rusiya” yox, “raşə” oxunur.'],
       example: "I'm from Russia.", exampleAz: 'Rusiyadanam.',
     },
-    {
-      type: 'choice', map: 'neighbours', id: 'u3d2a_c14', number: 8, title: 'Xəritədə tap', why: 'Georgia — Gürcüstan.', hint: 'Bu ölkə “Sən buradasan” nöqtəsinin şimal-qərbindədir, kiçikdir.',
-      prompt: 'Qatarda yeni tanış haradan olduğunu deyir.\nDinlə və xəritədə ölkəyə toxun.', audio: "I'm from Georgia.",
-      options: ['Turkey', 'Georgia', 'Iran'], answer: 'Georgia',
-      variants: [
-        pick('Turkey', 'Səsdə “Turkey” yox, “Georgia” deyilir.', ex('Georgia', 'Georgia “corcə” kimi oxunur və Gürcüstandır.', "I'm from Georgia. — Gürcüstandanam; I'm from Turkey. — Türkiyədənəm.", "I'm from Georgia.")),
-        pick('Iran', 'Səsdə “Iran” yox, “Georgia” deyilir.', ex('Georgia', 'Georgia “corcə” kimi oxunur və Gürcüstandır.', "I'm from Georgia. — Gürcüstandanam; I'm from Iran. — İrandanam.", "I'm from Georgia.")),
-      ],
-      review: {
-        title: 'Xəritədə tap', why: 'Russia — Rusiya.', hint: 'Xəritədə ən böyük ölkə, “Sən buradasan” nöqtəsinin şimalında.',
-        prompt: 'Hostelin mətbəxində yeni tanış haradan olduğunu deyir.\nDinlə və xəritədə ölkəyə toxun.', audio: "I'm from Russia.",
-        options: ['Iran', 'Georgia', 'Russia'], answer: 'Russia',
-        variants: [
-          pick('Iran', 'Səsdə “Iran” yox, “Russia” deyilir.', ex('Russia', 'Russia “raşə” kimi oxunur və Rusiyadır.', "I'm from Russia. — Rusiyadanam; I'm from Iran. — İrandanam.", "I'm from Russia.")),
-          pick('Georgia', 'Səsdə “Georgia” yox, “Russia” deyilir.', ex('Russia', 'Russia “raşə” kimi oxunur və Rusiyadır.', "I'm from Russia. — Rusiyadanam; I'm from Georgia. — Gürcüstandanam.", "I'm from Russia.")),
-        ],
-      },
-    },
-    {
-      type: 'match', id: 'u3d2a_c11', number: 9, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
-      prompt: 'Kurs sinfində dünya xəritəsinin qarşısında söhbət.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: "I'm from Iran.", az: 'İrandanam.', from: 'other' }, { en: "I'm from Georgia.", az: 'Gürcüstandanam.', from: 'G' }, { en: 'What country are you from?', az: 'Hansı ölkədənsən?', from: 'B' }],
-      extra: ['Rusiyadanam.'],
-      variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm from Iran. — İrandanam.; I'm from Georgia. — Gürcüstandanam.; What country are you from? — Hansı ölkədənsən?", 'Ölkə adları fərqlidir; sual “country” ilə soruşur.', "I'm from Iran. — İrandan; I'm from Georgia. — Gürcüstandan.", 'What country are you from?'))],
-      review: {
-        title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
-        prompt: 'Hava limanında gözləmə zalında söhbət.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: "I'm from Russia.", az: 'Rusiyadanam.', from: 'other' }, { en: "I'm from Turkey.", az: 'Türkiyədənəm.', from: 'B' }, { en: 'Where are you from?', az: 'Haradansan?', from: 'G' }],
-        extra: ['İrandanam.'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm from Russia. — Rusiyadanam.; I'm from Turkey. — Türkiyədənəm.; Where are you from? — Haradansan?", 'Ölkə adları fərqlidir; sual “where” ilə başlayır.', "I'm from Russia. — Rusiyadan; I'm from Turkey. — Türkiyədən.", 'Where are you from?'))],
-      },
-    },
-    {
-      type: 'write', id: 'u3d2a_c12', number: 10, title: 'Yaz', why: 'İstanbul Türkiyədədir — Turkey.', hint: 'İstanbul hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.', scenes: ['u3/airport'],
-      prompt: 'Hava limanında tabloda “Istanbul” var, dostun çatda soruşur.\nÖlkəsini ingiliscə yaz.', placeholder: 'Ölkə',
-      rule: exact('Turkey'),
-      variants: [
-        { match: { words: ['Turkiye', 'Türkiye', 'Turkiya', 'Turkia'] }, short: 'İngiliscə bu ölkənin adı başqa cür yazılır.', explain: ex('Turkey', 'Türkiyə ingiliscə Turkey yazılır.', "I'm from Turkey. — Türkiyədən; I'm from Russia. — Rusiyadan.", "I'm from Turkey.") },
-        other('Ölkənin ingiliscə adını yaz.', ex('Turkey', 'İstanbul Türkiyədədir; ingiliscə Turkey.', "I'm from Turkey. — Türkiyədən; I'm from Iran. — İrandan.", "I'm from Turkey.")),
-      ],
-      review: { scenes: ['u3/train'],
-        title: 'Yaz', why: 'Tbilisi Gürcüstandadır — Georgia.', hint: 'Tbilisi hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.',
-        prompt: 'Qatar tablosunda “Tbilisi” var, dostun çatda soruşur.\nÖlkəsini ingiliscə yaz.', placeholder: 'Ölkə',
-        rule: exact('Georgia'),
-        variants: [
-          { match: { words: ['Gruziya', 'Gruzia', 'Gurcustan', 'Gürcüstan'] }, short: 'İngiliscə bu ölkənin adı başqa cür yazılır.', explain: ex('Georgia', 'Gürcüstan ingiliscə Georgia yazılır.', "I'm from Georgia. — Gürcüstandan; I'm from Russia. — Rusiyadan.", "I'm from Georgia.") },
-          other('Ölkənin ingiliscə adını yaz.', ex('Georgia', 'Tbilisi Gürcüstandadır; ingiliscə Georgia.', "I'm from Georgia. — Gürcüstandan; I'm from Turkey. — Türkiyədən.", "I'm from Georgia.")),
-        ],
-      },
-    },
-    {
-      type: 'voice', id: 'u3d2a_c13', number: 11, title: 'Səslə cavab', why: 'Hansı ölkədən olduğunu dedin.', hint: 'Ölkənin adından əvvəl “-dan” sözünü unutma.',
-      prompt: 'Hava limanında pasport nəzarətində işçi soruşur.\nHansı ölkədən olduğunu de.', audio: 'What country are you from?', reply: 'Thank you!',
-      rule: myCountry,
-      variants: [...fromMistakes, other("I'm from + ölkə.", ex("I'm from Azerbaijan.", 'Sual ölkəni soruşur — I’m from və ölkənin adı.', "I'm from Azerbaijan. — ölkə; My name is [ad] — ad.", "What country are you from? — I'm from Azerbaijan."))],
-      review: {
-        title: 'Səslə cavab', why: 'Hansı ölkədən olduğunu dedin.', hint: 'Cavabı “mən” sözü ilə başla, ölkədən əvvəl “-dan” sözünü unutma.',
-        prompt: 'Hostelin mətbəxində yeni tanış soruşur.\nHansı ölkədən olduğunu de.', audio: 'Hi! What country are you from?', reply: "I'm from Iran.",
-        rule: myCountry,
-        variants: [...fromMistakes, other("I'm from + ölkə.", ex("I'm from Azerbaijan.", 'Sual ölkəni soruşur — I’m from və ölkənin adı.', "I'm from Azerbaijan. — ölkə; I'm fine. — hal.", "What country are you from? — I'm from Azerbaijan."))],
-      },
-    },
-  ],
-  // Pool (26 Nov 2026): taken out of the lesson to keep it short; comes back in the daily review.
-  pool: [
     {
       type: 'choice', id: 'u3d2a_c09', number: 9, title: 'Dinlə və seç', why: 'Russia — Rusiya.', hint: 'Cümlənin sonundakı ölkə adına qulaq as.',
       prompt: 'Hostelin resepsiyasında yeni gələn qonaq danışır.\nO hansı ölkədəndir?', audio: "Hello! I'm from Russia.",
@@ -169,12 +110,80 @@ export const lesson2a: DesignLesson = {
         ],
       },
     },
+    {
+      type: 'word', id: 'u3d2a_c10', number: 10, scenes: ['mascot/point'],
+      word: 'Iran', pronunciation: '/ɪˈrɑn/', reading: 'iran', az: 'İran',
+      notes: ['Vurğu sondadır.'],
+      example: "I'm from Iran.", exampleAz: 'İrandanam.',
+    },
+    {
+      type: 'choice', map: 'neighbours', id: 'u3d2a_c14', number: 11, title: 'Xəritədə tap', why: 'Georgia — Gürcüstan.', hint: 'Bu ölkə “Sən buradasan” nöqtəsinin şimal-qərbindədir, kiçikdir.',
+      prompt: 'Qatarda yeni tanış haradan olduğunu deyir.\nDinlə və xəritədə ölkəyə toxun.', audio: "I'm from Georgia.",
+      options: ['Turkey', 'Georgia', 'Iran'], answer: 'Georgia',
+      variants: [
+        pick('Turkey', 'Səsdə “Turkey” yox, “Georgia” deyilir.', ex('Georgia', 'Georgia “corcə” kimi oxunur və Gürcüstandır.', "I'm from Georgia. — Gürcüstandanam; I'm from Turkey. — Türkiyədənəm.", "I'm from Georgia.")),
+        pick('Iran', 'Səsdə “Iran” yox, “Georgia” deyilir.', ex('Georgia', 'Georgia “corcə” kimi oxunur və Gürcüstandır.', "I'm from Georgia. — Gürcüstandanam; I'm from Iran. — İrandanam.", "I'm from Georgia.")),
+      ],
+      review: {
+        title: 'Xəritədə tap', why: 'Russia — Rusiya.', hint: 'Xəritədə ən böyük ölkə, “Sən buradasan” nöqtəsinin şimalında.',
+        prompt: 'Hostelin mətbəxində yeni tanış haradan olduğunu deyir.\nDinlə və xəritədə ölkəyə toxun.', audio: "I'm from Russia.",
+        options: ['Iran', 'Georgia', 'Russia'], answer: 'Russia',
+        variants: [
+          pick('Iran', 'Səsdə “Iran” yox, “Russia” deyilir.', ex('Russia', 'Russia “raşə” kimi oxunur və Rusiyadır.', "I'm from Russia. — Rusiyadanam; I'm from Iran. — İrandanam.", "I'm from Russia.")),
+          pick('Georgia', 'Səsdə “Georgia” yox, “Russia” deyilir.', ex('Russia', 'Russia “raşə” kimi oxunur və Rusiyadır.', "I'm from Russia. — Rusiyadanam; I'm from Georgia. — Gürcüstandanam.", "I'm from Russia.")),
+        ],
+      },
+    },
+    {
+      type: 'match', id: 'u3d2a_c11', number: 11, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
+      prompt: 'Kurs sinfində dünya xəritəsinin qarşısında söhbət.\nHər cümləyə mənasını qoş.',
+      rows: [{ en: "I'm from Iran.", az: 'İrandanam.', from: 'other' }, { en: "I'm from Georgia.", az: 'Gürcüstandanam.', from: 'G' }, { en: 'What country are you from?', az: 'Hansı ölkədənsən?', from: 'B' }],
+      extra: ['Rusiyadanam.'],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm from Iran. — İrandanam.; I'm from Georgia. — Gürcüstandanam.; What country are you from? — Hansı ölkədənsən?", 'Ölkə adları fərqlidir; sual “country” ilə soruşur.', "I'm from Iran. — İrandan; I'm from Georgia. — Gürcüstandan.", 'What country are you from?'))],
+      review: {
+        title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
+        prompt: 'Hava limanında gözləmə zalında söhbət.\nHər cümləyə mənasını qoş.',
+        rows: [{ en: "I'm from Russia.", az: 'Rusiyadanam.', from: 'other' }, { en: "I'm from Turkey.", az: 'Türkiyədənəm.', from: 'B' }, { en: 'Where are you from?', az: 'Haradansan?', from: 'G' }],
+        extra: ['İrandanam.'],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm from Russia. — Rusiyadanam.; I'm from Turkey. — Türkiyədənəm.; Where are you from? — Haradansan?", 'Ölkə adları fərqlidir; sual “where” ilə başlayır.', "I'm from Russia. — Rusiyadan; I'm from Turkey. — Türkiyədən.", 'Where are you from?'))],
+      },
+    },
+    {
+      type: 'write', id: 'u3d2a_c12', number: 12, title: 'Yaz', why: 'İstanbul Türkiyədədir — Turkey.', hint: 'İstanbul hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.', scenes: ['u3/airport'],
+      prompt: 'Hava limanında tabloda “Istanbul” var, dostun çatda soruşur.\nÖlkəsini ingiliscə yaz.', placeholder: 'Ölkə',
+      rule: exact('Turkey'),
+      variants: [
+        { match: { words: ['Turkiye', 'Türkiye', 'Turkiya', 'Turkia'] }, short: 'İngiliscə bu ölkənin adı başqa cür yazılır.', explain: ex('Turkey', 'Türkiyə ingiliscə Turkey yazılır.', "I'm from Turkey. — Türkiyədən; I'm from Russia. — Rusiyadan.", "I'm from Turkey.") },
+        other('Ölkənin ingiliscə adını yaz.', ex('Turkey', 'İstanbul Türkiyədədir; ingiliscə Turkey.', "I'm from Turkey. — Türkiyədən; I'm from Iran. — İrandan.", "I'm from Turkey.")),
+      ],
+      review: { scenes: ['u3/train'],
+        title: 'Yaz', why: 'Tbilisi Gürcüstandadır — Georgia.', hint: 'Tbilisi hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.',
+        prompt: 'Qatar tablosunda “Tbilisi” var, dostun çatda soruşur.\nÖlkəsini ingiliscə yaz.', placeholder: 'Ölkə',
+        rule: exact('Georgia'),
+        variants: [
+          { match: { words: ['Gruziya', 'Gruzia', 'Gurcustan', 'Gürcüstan'] }, short: 'İngiliscə bu ölkənin adı başqa cür yazılır.', explain: ex('Georgia', 'Gürcüstan ingiliscə Georgia yazılır.', "I'm from Georgia. — Gürcüstandan; I'm from Russia. — Rusiyadan.", "I'm from Georgia.") },
+          other('Ölkənin ingiliscə adını yaz.', ex('Georgia', 'Tbilisi Gürcüstandadır; ingiliscə Georgia.', "I'm from Georgia. — Gürcüstandan; I'm from Turkey. — Türkiyədən.", "I'm from Georgia.")),
+        ],
+      },
+    },
+    {
+      type: 'voice', id: 'u3d2a_c13', number: 13, title: 'Səslə cavab', why: 'Hansı ölkədən olduğunu dedin.', hint: 'Ölkənin adından əvvəl “-dan” sözünü unutma.',
+      prompt: 'Hava limanında pasport nəzarətində işçi soruşur.\nHansı ölkədən olduğunu de.', audio: 'What country are you from?', reply: 'Thank you!',
+      rule: myCountry,
+      variants: [...fromMistakes, other("I'm from + ölkə.", ex("I'm from Azerbaijan.", 'Sual ölkəni soruşur — I’m from və ölkənin adı.', "I'm from Azerbaijan. — ölkə; My name is [ad] — ad.", "What country are you from? — I'm from Azerbaijan."))],
+      review: {
+        title: 'Səslə cavab', why: 'Hansı ölkədən olduğunu dedin.', hint: 'Cavabı “mən” sözü ilə başla, ölkədən əvvəl “-dan” sözünü unutma.',
+        prompt: 'Hostelin mətbəxində yeni tanış soruşur.\nHansı ölkədən olduğunu de.', audio: 'Hi! What country are you from?', reply: "I'm from Iran.",
+        rule: myCountry,
+        variants: [...fromMistakes, other("I'm from + ölkə.", ex("I'm from Azerbaijan.", 'Sual ölkəni soruşur — I’m from və ölkənin adı.', "I'm from Azerbaijan. — ölkə; I'm fine. — hal.", "What country are you from? — I'm from Azerbaijan."))],
+      },
+    },
   ],
   result: {
     done: ['Dərs 2 · 1-ci hissə tamamlandı', 'Artıq qonşu ölkələrin ingiliscə adını tanıyır və hansı ölkədən olduğunu deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Ölkə adlarını eşidib tanımaq', tasks: ['u3d2a_c03', 'u3d2a_c05', 'u3d2a_c14', 'u3d2a_c11'] },
+      { group: 'Tanıma', text: 'Ölkə adlarını eşidib tanımaq', tasks: ['u3d2a_c03', 'u3d2a_c05', 'u3d2a_c09', 'u3d2a_c14', 'u3d2a_c11'] },
       { group: 'Yazı', text: 'Ölkənin ingiliscə adını yazmaq', tasks: ['u3d2a_c12'] },
       { group: 'Danışıq', text: 'Ölkə adını demək və hansı ölkədən olduğunu demək', tasks: ['u3d2a_c07', 'u3d2a_c13'] },
     ],
@@ -184,8 +193,8 @@ export const lesson2a: DesignLesson = {
   vocabulary: [
     { word: 'country', translation: 'ölkə', example: "What country are you from? — I'm from Azerbaijan.", exampleAz: 'Hansı ölkədənsən? — Azərbaycandanam.', usageNote: 'What country is it? — hansı ölkə?', pronunciation: '/ˈkʌntri/', teachCard: 'u3d2a_c02' },
     { word: 'Turkey', translation: 'Türkiyə', example: "I'm from Turkey.", exampleAz: 'Türkiyədənəm.', usageNote: '“törki” oxunur.', pronunciation: '/ˈtɝki/', teachCard: 'u3d2a_c04' },
-    { word: 'Georgia', translation: 'Gürcüstan', example: "I'm from Georgia.", exampleAz: 'Gürcüstandanam.', usageNote: '“corcə” oxunur.', pronunciation: '/ˈdʒɔrdʒə/', teachCard: 'u3d2a_c04' },
+    { word: 'Georgia', translation: 'Gürcüstan', example: "I'm from Georgia.", exampleAz: 'Gürcüstandanam.', usageNote: '“corcə” oxunur.', pronunciation: '/ˈdʒɔrdʒə/', teachCard: 'u3d2a_c06' },
     { word: 'Russia', translation: 'Rusiya', example: "I'm from Russia.", exampleAz: 'Rusiyadanam.', usageNote: '“raşə” oxunur.', pronunciation: '/ˈrʌʃə/', teachCard: 'u3d2a_c08' },
-    { word: 'Iran', translation: 'İran', example: "I'm from Iran.", exampleAz: 'İrandanam.', usageNote: 'Vurğu sondadır.', pronunciation: '/ɪˈrɑn/', teachCard: 'u3d2a_c08' },
+    { word: 'Iran', translation: 'İran', example: "I'm from Iran.", exampleAz: 'İrandanam.', usageNote: 'Vurğu sondadır.', pronunciation: '/ɪˈrɑn/', teachCard: 'u3d2a_c10' },
   ],
 };

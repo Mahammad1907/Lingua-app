@@ -34,7 +34,7 @@ Qeyd: Where's — where is-in qısası, “uerz” oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Yol yoldaşın tanışların haqqında soruşur. Nəyi soruşur?  
+**Tapşırıq:** Qatarda tanışların — bir kişi və bir qadın — yanında oturub. Yol yoldaşın səndən soruşur. Nəyi soruşur?  
 **Səs:** Where's he from?  
 **Seçimlər:** Sənin haradan olduğunu / Qadının haradan olduğunu / Kişinin haradan olduğunu — **düzgün:** Kişinin haradan olduğunu  
 **İpucu:** Where’s-dən sonrakı sözə qulaq as.  
@@ -89,7 +89,7 @@ Diqqət et: Biz “-mı” hissəsini sonda deyirik. İngiliscə Is əvvəldə g
 
 ## Kart 7 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**Tapşırıq:** Video zəngdən sonra qıza yaz: ekrandakı kişi Rusiyadandırmı? Sözlərdən sual qur.  
+**Tapşırıq:** Video zəngdən sonra qıza yazırsan: ekrandakı kişi Rusiyadandırmı? Sözlərdən sual qur.  
 **Sözlər:** Is · he · from · Russia · He · is · at · ?  
 **Qəbul:** dəqiq: Is he from Russia?  
 **İpucu:** Bəli/xeyr sualında hansı söz birinci gəlir?  
@@ -99,7 +99,7 @@ Diqqət et: Biz “-mı” hissəsini sonda deyirik. İngiliscə Is əvvəldə g
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Mətbəxdəki qadın fransızdırmı? Sözlərdən sual qur.  
+**Tapşırıq:** Hosteldə oğlana yazırsan: mətbəxdəki qadın fransızdırmı? Sözlərdən sual qur.  
 **Sözlər:** French · Is · she · is · She · France · ?  
 **Qəbul:** dəqiq: Is she French?  
 **İpucu:** Bəli/xeyr sualında hansı söz birinci gəlir?  
@@ -109,31 +109,17 @@ Diqqət et: Biz “-mı” hissəsini sonda deyirik. İngiliscə Is əvvəldə g
 
 ## Kart 8 — Yeni söz
 
-**Yes, he is. · No, she isn't.** — Bəli, elədir. · Xeyr, o deyil.
+**Yes, he is.** — Bəli, elədir.
 
-Oxunuşu: yes, hi iz · nou, şi izənt · IPA: /jɛs hi ɪz/ · /noʊ ʃi ˈɪzənt/
+Oxunuşu: yes, hi iz · IPA: /jɛs hi ɪz/
 
-Quruluşu: Yes, + he / she + is. · No, + she / he + isn't.
+Quruluşu: Yes, + he / she + is.
 
 Nümunə: **Is he Georgian? — Yes, he is.** — O gürcüdürmü? — Bəli, elədir.
 
 Qeyd: Qısa cavabın sonunda is qalır, qısalmır.
-Qeyd: isn't — is not-un qısası.
 
-## Kart 9 — Müəllim izahı
-
-Is she [millət]? sualına qısa cavab.
-
-**1 · Cavablar**
-- Yes, he is. · bəli
-- No, she isn't. · xeyr
-
-**2 · Qısa forma**
-- is not → isn't (düşən: o). Danışıqda qısa deyilir, mənası eynidir.
-
-Diqqət et: “Yes, he's.” olmur: sonda is tam deyilir.
-
-## Kart 10 — Cavab cütü: Cavab cütü
+## Kart 9 — Cavab cütü: Cavab cütü
 
 **Tapşırıq:** Dil klubunda suallar və qısa cavablar. Suala toxun, sonra onun cavabını seç.  
 **Cütlər:** Is he from Turkey? — Yes, he is.; Are you from Iran? — Yes, I am.; Is she Russian? — Yes, she is. · artıq: Yes, it is.  
@@ -149,7 +135,76 @@ Diqqət et: “Yes, he's.” olmur: sonda is tam deyilir.
 **Düzgün olanda:** Hər suala uyğun qısa cavabı tapdın.  
 - *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Is she from Georgia? — Yes, she is.; Is he German? — Yes, he is.; Are you Turkish? — Yes, I am. Səbəb: Sualdakı söz cavabda qayıdır: she → she, he → he, you → I. Qayda: Is she [millət]? — Yes, she is.; Are you [millət]? — Yes, I am. Nümunə: Is he Georgian? — Yes, he is.  
 
-## Kart 11 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 10 — Yeni söz
+
+**No, she isn't.** — Xeyr, o deyil.
+
+Oxunuşu: nou, şi izənt · IPA: /noʊ ʃi ˈɪzənt/
+
+Quruluşu: No, + she / he + isn't.
+
+Nümunə: **Is she from Iran? — No, she isn't.** — O İrandandırmı? — Xeyr.
+
+Qeyd: isn't — is not-un qısası.
+
+## Kart 11 — Müəllim izahı
+
+Is she [millət]? sualına qısa cavab.
+
+**1 · Cavablar**
+- Yes, he is. · bəli
+- No, she isn't. · xeyr
+
+**2 · Qısa forma**
+- is not → isn't (düşən: o). Danışıqda qısa deyilir, mənası eynidir.
+
+Diqqət et: “Yes, he's.” olmur: sonda is tam deyilir.
+
+## Kart 12 — Sözü tamamla: Sözü tamamla
+
+**Tapşırıq:** Hosteldə yeni tanış soruşur: “Is he from Georgia?” Qız bilir ki, oğlan Gürcüstandan deyil. Hansı söz çatmır?  
+**Cümlə:** No, he ___ .  
+**Seçimlər:** not / isn't / don't — **düzgün:** isn't  
+**İpucu:** Qısa “xeyr” cavabının sonunda nə gəlir?  
+**Düzgün olanda:** “deyil” — isn’t.  
+- *İzah (“not” seçiləndə):* Tək “not” kifayət deyil, is də lazımdır. — Uyğun: isn't. Səbəb: “deyil” üçün is və not birlikdə gəlir: isn’t. Qayda: No, he isn't. — düzdür; No, he not. — olmur. Nümunə: Is she from Iran? — No, she isn't.  
+- *İzah (“don't” seçiləndə):* don't “başa düşmürəm” kimi cümlələrdədir. — Uyğun: isn't. Səbəb: Sual Is ilə başlayıb, cavab da is ilə gəlir. Qayda: Is he [millət]? — No, he isn't.; I don't understand. — başa düşmürəm. Nümunə: Is she from Iran? — No, she isn't.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Qatarda yol yoldaşı soruşur: “Is she Turkish?” Oğlan bilir ki, tanışı olan qadın türk deyil. Hansı söz çatmır?  
+**Cümlə:** No, she ___ .  
+**Seçimlər:** isn't / don't / not — **düzgün:** isn't  
+**İpucu:** Qısa “xeyr” cavabının sonunda nə gəlir?  
+**Düzgün olanda:** “deyil” — isn’t.  
+- *İzah (“not” seçiləndə):* Tək “not” kifayət deyil, is də lazımdır. — Uyğun: isn't. Səbəb: “deyil” üçün is və not birlikdə gəlir: isn’t. Qayda: No, she isn't. — düzdür; No, she not. — olmur. Nümunə: Is she from Iran? — No, she isn't.  
+- *İzah (“don't” seçiləndə):* don't “başa düşmürəm” kimi cümlələrdədir. — Uyğun: isn't. Səbəb: Sual Is ilə başlayıb, cavab da is ilə gəlir. Qayda: Is she [millət]? — No, she isn't.; I don't understand. — başa düşmürəm. Nümunə: Is she from Iran? — No, she isn't.  
+
+## Kart 13 — Səslə cavab: Qısa cavab ver
+
+**Tapşırıq:** Video zəngdə ekranda qızın rəfiqəsi görünür. O, Fransadandır. Yeni tanış soruşur. Qısa cavab ver.  
+**Səs:** Is she from Germany?  
+**Qəbul:** dəqiq: No, she isn't. · öz məlumatı: /^no,?\s+she(?:\s+(?:isn'?t|isn’t|is\s+not)|(?:'s|’s)\s+not)\s*[.!]?(?:\s*she(?:'s|’s|\s+is)\s+from\s+france\s*[.!]?)?$/  
+**İpucu:** Sual kimin haqqındadır? Cavabda da o söz qayıdır.  
+**Düzgün olanda:** Qadın haqqında qısa “xeyr” cavabı verdin.  
+- *İzah (başqa səhvdə):* Qadın haqqında danışırsan — she. — Uyğun: No, she isn't. Səbəb: Azərbaycancada ikisi də “o”dur; ingiliscə qadın üçün she. Qayda: Where's she from? — qadın; Where's he from? — kişi. Nümunə: No, she isn't.  
+- *İzah (başqa səhvdə):* Qısa cavabda isn’t deyilir. — Uyğun: No, she isn't. Səbəb: “deyil” üçün is və not birlikdə gəlir: isn’t. Qayda: No, she isn't. — düzdür; No, she not. — olmur. Nümunə: Is she from Iran? — No, she isn't.  
+- *İzah (başqa səhvdə):* Sənin haqqında yox, başqası haqqında soruşur. — Uyğun: No, she isn't. Səbəb: Sualda he və ya she var — cavabda da eyni söz gəlir. Qayda: No, she isn't. — o; No, I'm not. — mən. Nümunə: Is she from Iran? — No, she isn't.  
+- *İzah (başqa səhvdə):* No, she isn't. — Uyğun: No, she isn't. Səbəb: O, Almaniyadan deyil — qısa “xeyr” cavabı. Qayda: Is she [millət]? — No, she isn't.; Is she [millət]? — Yes, she is. Nümunə: Is she from Iran? — No, she isn't.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Hostelin mətbəxində oğlanın otaq yoldaşı gürcüdür. Yeni tanış soruşur. Qısa cavab ver.  
+**Səs:** Is he Turkish?  
+**Qəbul:** dəqiq: No, he isn't. · öz məlumatı: /^no,?\s+he(?:\s+(?:isn'?t|isn’t|is\s+not)|(?:'s|’s)\s+not)\s*[.!]?(?:\s*he(?:'s|’s|\s+is)\s+from\s+georgia\s*[.!]?)?$/  
+**İpucu:** Sual kimin haqqındadır? Cavabda da o söz qayıdır.  
+**Düzgün olanda:** Kişi haqqında qısa “xeyr” cavabı verdin.  
+- *İzah (başqa səhvdə):* Kişi haqqında danışırsan — he. — Uyğun: No, he isn't. Səbəb: Azərbaycancada ikisi də “o”dur; ingiliscə kişi üçün he. Qayda: Where's he from? — kişi; Where's she from? — qadın. Nümunə: No, he isn't.  
+- *İzah (başqa səhvdə):* Qısa cavabda isn’t deyilir. — Uyğun: No, he isn't. Səbəb: “deyil” üçün is və not birlikdə gəlir: isn’t. Qayda: No, he isn't. — düzdür; No, he not. — olmur. Nümunə: Is she from Iran? — No, she isn't.  
+- *İzah (başqa səhvdə):* Sənin haqqında yox, başqası haqqında soruşur. — Uyğun: No, he isn't. Səbəb: Sualda he və ya she var — cavabda da eyni söz gəlir. Qayda: No, he isn't. — o; No, I'm not. — mən. Nümunə: Is she from Iran? — No, she isn't.  
+- *İzah (başqa səhvdə):* No, he isn't. — Uyğun: No, he isn't. Səbəb: O, türk deyil — qısa “xeyr” cavabı. Qayda: Is he [millət]? — No, he isn't.; Is he [millət]? — Yes, he is. Nümunə: Is he Georgian? — Yes, he is.  
+
+## Kart 14 — Dialoqu tamamla: Dialoqu tamamla
 
 **Tapşırıq:** Hostelin çatında yeni tanış oğlanın şəklini görüb yazır. Oğlan Azərbaycandandır. Cavab yaz.  
 **Yazışma (Yeni tanış):** “Where's he from?”  
@@ -171,7 +226,7 @@ Diqqət et: “Yes, he's.” olmur: sonda is tam deyilir.
 - *İzah (başqa səhvdə):* She-dən sonra ’s (is) lazımdır. — Uyğun: She's from Azerbaijan. Səbəb: “-dandır” hissəsi ingiliscə ayrıca gəlir: ’s. Qayda: She's from Azerbaijan. — düzdür; She from Azerbaijan. — olmur. Nümunə: Where's she from? — She's from Turkey.  
 - *İzah (başqa səhvdə):* She's from Azerbaijan. — Uyğun: She's from Azerbaijan. Səbəb: Sual qız haqqındadır: She’s from, sonra ölkə. Qayda: She's from Azerbaijan. — ölkə; She's Azerbaijani. — millət. Nümunə: Where's she from? — She's from Turkey.  
 
-## Kart 12 — Söhbəti sırala: Söhbəti sırala
+## Kart 15 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Hostelin mətbəxi. Yeni tanış qızdan otaq yoldaşını soruşur. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Where's he from? → 2. He's from Georgia. → 3. Is he Georgian? → 4. Yes, he is.  
@@ -193,7 +248,7 @@ Dərs 5 · 2-ci hissə tamamlandı — Artıq başqasının haradan olduğunu so
 
 - Tanıma: Başqası haqqında sualı anlamaq və qısa cavabı seçmək
 - Yazı: Sual qurmaq və başqasının haradan olduğunu yazmaq
-- Danışıq: Başqasının haradan olduğunu soruşmaq
+- Danışıq: Haradan olduğunu soruşmaq və qısa cavab vermək
 
 Növbəti dərs — harada yaşayırsan?
 

@@ -125,7 +125,7 @@ const SHORT_FORMS: TableRow[] = (() => {
 })();
 
 const COUNTRIES: [string, string, string][] = [['Azerbaijan', 'Azerbaijani', 'u3d3a_c02'], ['Turkey', 'Turkish', 'u3d3a_c04'], ['Russia', 'Russian', 'u3d3a_c06'],
-  ['Georgia', 'Georgian', 'u3d3a_c06'], ['England', 'English', 'u3d3b_c02'], ['the USA', 'American', 'u3d3b_c02'], ['Germany', 'German', 'u3d3b_c06'], ['France', 'French', 'u3d3b_c06']];
+  ['Georgia', 'Georgian', 'u3d3a_c08'], ['England', 'English', 'u3d3b_c02'], ['the USA', 'American', 'u3d3b_c04'], ['Germany', 'German', 'u3d3b_c06'], ['France', 'French', 'u3d3b_c08']];
 const readingOf = (id: string) => { const c = cardIndex.get(id)?.card; return c && c.type === 'word' ? c.reading : undefined; };
 
 export const TABLES: Table[] = [

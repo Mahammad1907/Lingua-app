@@ -11,15 +11,43 @@ Kursa yazılırsan: qeydiyyat masasında ad və soyad.
 
 ## Kart 2 — Yeni söz
 
-**first name · last name** — ad · soyad
+**first name** — ad
 
-Oxunuşu: fırst neym · ləst neym · IPA: /ˈfɜrst ˌneɪm/ · /ˈlæst ˌneɪm/
+Oxunuşu: fırst neym · IPA: /ˈfɜrst ˌneɪm/
 
 Nümunə: **My first name is [ad]** — Adım [ad]-dır.
 
-Qeyd: Formada “First name” — sənin adın, “Last name” — soyadın; ikisi ayrı sətirdir.
+Qeyd: Formada “First name” — sənin adın.
 
-## Kart 3 — Formanı doldur: Formanı doldur
+## Kart 3 — Seç: Oxu və seç
+
+**Tapşırıq:** Kurs qeydiyyat vərəqində “First name” sətri var. Bura nə yazırsan?  
+**Seçimlər:** Adını / Soyadını / Telefon nömrəni — **düzgün:** Adını  
+**İpucu:** Sözün mənasını kartdan xatırla.  
+**Düzgün olanda:** “First name” — ad.  
+- *İzah (“Soyadını” seçiləndə):* “First name” soyad deyil. — Uyğun: Adını. Səbəb: “First name” addır; soyad üçün ayrıca sətir olur. Qayda: First name — ad; Phone number — telefon nömrəsi. Nümunə: My first name is [ad]  
+- *İzah (“Telefon nömrəni” seçiləndə):* Nömrə üçün “Phone number” yazılır. — Uyğun: Adını. Səbəb: “name” — ad; nömrə “number”dir. Qayda: First name — ad; Phone number — telefon nömrəsi. Nümunə: My first name is [ad]  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** İdman zalının formasında “Last name” sətri var. Bura nə yazırsan?  
+**Seçimlər:** Adını / Soyadını / Telefon nömrəni — **düzgün:** Soyadını  
+**İpucu:** Sözün mənasını kartdan xatırla.  
+**Düzgün olanda:** “Last name” — soyad.  
+- *İzah (“Adını” seçiləndə):* “Last name” ad deyil. — Uyğun: Soyadını. Səbəb: “Last name” soyaddır, ad “First name” sətrinə yazılır. Qayda: First name — ad; Last name — soyad. Nümunə: My last name is Mammadova.  
+- *İzah (“Telefon nömrəni” seçiləndə):* Nömrə üçün “Phone number” yazılır. — Uyğun: Soyadını. Səbəb: “name” — ad, soyad; nömrə “number”dir. Qayda: Last name — soyad; Phone number — telefon nömrəsi. Nümunə: My last name is Mammadova.  
+
+## Kart 4 — Yeni söz
+
+**last name** — soyad
+
+Oxunuşu: ləst neym · IPA: /ˈlæst ˌneɪm/
+
+Nümunə: **My last name is Mammadova.** — Soyadım Məmmədovadır.
+
+Qeyd: Azərbaycanda soyad çox vaxt əvvəl deyilir; formada isə ayrıca sətirdir.
+
+## Kart 5 — Formanı doldur: Formanı doldur
 
 **Tapşırıq:** Kursa yazılırsan. Qeydiyyat vərəqində adını və soyadını yaz.  
 **Forma:** Kurs qeydiyyatı — İngilis dili kursu  
@@ -41,7 +69,7 @@ Qeyd: Formada “First name” — sənin adın, “Last name” — soyadın; i
 - *İzah (“Last name” səhv olanda):* Uyğun: Aliyev. Səbəb: Last name — soyaddır: pasportdakı birinci söz. Qayda: Last name — Aliyev; First name — Kamran. Nümunə: My last name is Aliyev.  
 - *İzah (“First name” səhv olanda):* Uyğun: Kamran. Səbəb: First name — addır: pasportdakı ikinci söz. Qayda: First name — Kamran; Last name — Aliyev. Nümunə: My first name is Kamran.  
 
-## Kart 4 — Yeni söz
+## Kart 6 — Yeni söz
 
 **What's your last name?** — Soyadın nədir?
 
@@ -50,9 +78,9 @@ Oxunuşu: uats yor ləst neym? · IPA: /wʌts jʊr ˈlæst ˌneɪm/
 Nümunə: **Hi! What's your last name?** — Salam! Soyadın nədir?
 
 
-## Kart 5 — Mesaj yaz (sözlərdən): Sualı qur
+## Kart 7 — Mesaj yaz (sözlərdən): Sualı qur
 
-**Tapşırıq:** Yeni tələbə qeydiyyata yazdı. Sözlərdən soyadını soruşan sual qur.  
+**Tapşırıq:** Onlayn qeydiyyatda işləyirsən. Yeni tələbə çata yazdı. Sözlərdən onun soyadını soruşan sual qur.  
 **Yazışma (Yeni tələbə):** “Hello! Nice to meet you!”  
 **Sözlər:** What's · last · your · name · first · is · ?  
 **Qəbul:** dəqiq: What's your last name?  
@@ -62,7 +90,7 @@ Nümunə: **Hi! What's your last name?** — Salam! Soyadın nədir?
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Yeni üzv qeydiyyata yazdı. Sözlərdən soyadını soruşan sual qur.  
+**Tapşırıq:** İdman zalının onlayn qeydiyyatında işləyirsən. Yeni üzv çata yazdı. Sözlərdən onun soyadını soruşan sual qur.  
 **Yazışma (Yeni üzv):** “Hi!”  
 **Sözlər:** name · What's · your · last · my · first · ?  
 **Qəbul:** dəqiq: What's your last name?  
@@ -70,7 +98,7 @@ Nümunə: **Hi! What's your last name?** — Salam! Soyadın nədir?
 **Düzgün olanda:** Soyadı soruşdun: last name.  
 - *İzah (başqa səhvdə):* What's your last name? — Uyğun: What's your last name? Səbəb: Soyad “last name”dir, “first name” addır. Qayda: What's your first name? — ad; What's your last name? — soyad. Nümunə: What's your last name?  
 
-## Kart 6 — Yeni söz
+## Kart 8 — Yeni söz
 
 **Mr. Guliyev · Ms. Hasanova** — cənab Quliyev · Həsənova xanım
 
@@ -82,7 +110,7 @@ Nümunə: **Hello, Ms. Hasanova!** — Salam, Həsənova xanım!
 
 Qeyd: Mr. — kişiyə, Ms. — qadına; ardınca soyad gəlir.
 
-## Kart 7 — Müəllim izahı
+## Kart 9 — Müəllim izahı
 
 Mr. və Ms. nəzakətli müraciətdir.
 
@@ -95,41 +123,6 @@ Mr. və Ms. nəzakətli müraciətdir.
 - **Hello, Ms. Hasanova!** — Salam, Həsənova xanım!
 
 Diqqət et: Mr. və Ms. soyaddan əvvəl gəlir, sonunda nöqtə qoyulur. Ms. “miz” oxunur.
-
-## Kart 8 — Yaz: Dinlə və yaz
-
-**Tapşırıq:** Soyadı yaz.  
-**Səs:** Last name: G-U-L-I-Y-E-V.  
-**Qəbul:** dəqiq: Guliyev  
-**İpucu:** Hər hərfi eşidən kimi yaz; “ay” və “i” səslərini qarışdırma.  
-**Düzgün olanda:** G-U-L-I-Y-E-V — Guliyev.  
-- *İzah (başqa səhvdə):* Hərfləri yoxla. — Uyğun: Guliyev. Səbəb: Səsdə G, U, L, I, Y, E, V deyilir; I “ay”, E “i” oxunur. Qayda: I — ay; E — i. Nümunə: Last name: G-U-L-I-Y-E-V.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Soyadı yaz.  
-**Səs:** Last name: M-A-double M-A-D-O-V-A.  
-**Qəbul:** dəqiq: Mammadova  
-**İpucu:** Hər hərfi eşidən kimi yaz; qoşa hərfə diqqət et.  
-**Düzgün olanda:** M-A-double M-A-D-O-V-A — Mammadova.  
-- *İzah (başqa səhvdə):* Hərfləri yoxla. — Uyğun: Mammadova. Səbəb: “double M” — iki M yan-yana: MM. Qayda: double M — MM; double L — LL. Nümunə: Last name: M-A-double M-A-D-O-V-A.  
-
-## Kart 9 — Səslə cavab: Soyadı soruş
-
-**Tapşırıq:** Kurs qeydiyyat masasındasan. Yeni tələbə yalnız adını dedi. Ondan soyadını soruş.  
-**Qəbul:** məna: askLastName — nümunə: What's your last name?  
-**İpucu:** Ad yox, soyad soruşulur — kartdakı sualı xatırla.  
-**Düzgün olanda:** Soyadı soruşdun.  
-- *İzah (cavab “askName” işini görəndə):* Adını artıq dedi — soyadını soruş. — Uyğun: What's your last name? Səbəb: Ad məlumdur, soyad lazımdır. Qayda: What's your name? — ad; What's your last name? — soyad. Nümunə: Hi! What's your last name?  
-- *İzah (başqa səhvdə):* What's your last name? — Uyğun: What's your last name? Səbəb: Soyadı “last name” ilə soruşursan. Qayda: What's your first name? — ad; What's your last name? — soyad. Nümunə: What's your last name?  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** İdman zalında yeni üzv adını dedi. Formaya soyadı da lazımdır. Ondan soyadını soruş.  
-**Qəbul:** məna: askLastName — nümunə: What's your last name?  
-**İpucu:** Ad yox, soyad soruşulur — kartdakı sualı xatırla.  
-**Düzgün olanda:** Soyadı soruşdun.  
-- *İzah (başqa səhvdə):* What's your last name? — Uyğun: What's your last name? Səbəb: Ad məlumdur, soyad lazımdır. Qayda: What's your name? — ad; What's your last name? — soyad. Nümunə: What's your last name?  
 
 ## Kart 10 — Sözü tamamla: Sözü tamamla
 
@@ -151,7 +144,42 @@ Diqqət et: Mr. və Ms. soyaddan əvvəl gəlir, sonunda nöqtə qoyulur. Ms. �
 - *İzah (“Ms.” seçiləndə):* “Ms.” qadına deyilir. — Uyğun: Mr. Səbəb: Guliyev — kişi soyadıdır, ona “Mr.” deyilir. Qayda: Mr. Guliyev — kişi; Ms. Guliyeva — qadın. Nümunə: Hello, Mr. Guliyev!  
 - *İzah (“first” seçiləndə):* “first” ad sözündədir: first name. — Uyğun: Mr. Səbəb: Salam verəndə soyaddan əvvəl “Mr.” və ya “Ms.” gəlir. Qayda: Hello, Mr. Guliyev! — müraciət; first name — ad. Nümunə: Hello, Mr. Guliyev!  
 
-## Kart 11 — Səslə cavab: Soyadını de
+## Kart 11 — Səslə cavab: Soyadı soruş
+
+**Tapşırıq:** Kurs qeydiyyat masasındasan. Yeni tələbə yalnız adını dedi. Ondan soyadını soruş.  
+**Qəbul:** məna: askLastName — nümunə: What's your last name?  
+**İpucu:** Ad yox, soyad soruşulur — kartdakı sualı xatırla.  
+**Düzgün olanda:** Soyadı soruşdun.  
+- *İzah (cavab “askName” işini görəndə):* Adını artıq dedi — soyadını soruş. — Uyğun: What's your last name? Səbəb: Ad məlumdur, soyad lazımdır. Qayda: What's your name? — ad; What's your last name? — soyad. Nümunə: Hi! What's your last name?  
+- *İzah (başqa səhvdə):* What's your last name? — Uyğun: What's your last name? Səbəb: Soyadı “last name” ilə soruşursan. Qayda: What's your first name? — ad; What's your last name? — soyad. Nümunə: What's your last name?  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** İdman zalında yeni üzv adını dedi. Formaya soyadı da lazımdır. Ondan soyadını soruş.  
+**Qəbul:** məna: askLastName — nümunə: What's your last name?  
+**İpucu:** Ad yox, soyad soruşulur — kartdakı sualı xatırla.  
+**Düzgün olanda:** Soyadı soruşdun.  
+- *İzah (başqa səhvdə):* What's your last name? — Uyğun: What's your last name? Səbəb: Ad məlumdur, soyad lazımdır. Qayda: What's your name? — ad; What's your last name? — soyad. Nümunə: What's your last name?  
+
+## Kart 12 — Yaz: Dinlə və yaz
+
+**Tapşırıq:** Qeydiyyatçı siyahıdan bir tələbənin soyadını hərf-hərf oxuyur. Soyadı yaz.  
+**Səs:** Last name: G-U-L-I-Y-E-V.  
+**Qəbul:** dəqiq: Guliyev  
+**İpucu:** Hər hərfi eşidən kimi yaz; “ay” və “i” səslərini qarışdırma.  
+**Düzgün olanda:** G-U-L-I-Y-E-V — Guliyev.  
+- *İzah (başqa səhvdə):* Hərfləri yoxla. — Uyğun: Guliyev. Səbəb: Səsdə G, U, L, I, Y, E, V deyilir; I “ay”, E “i” oxunur. Qayda: I — ay; E — i. Nümunə: Last name: G-U-L-I-Y-E-V.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** İdman zalında qeydiyyatçı yeni üzvün soyadını hərf-hərf oxuyur. Soyadı yaz.  
+**Səs:** Last name: M-A-double M-A-D-O-V-A.  
+**Qəbul:** dəqiq: Mammadova  
+**İpucu:** Hər hərfi eşidən kimi yaz; qoşa hərfə diqqət et.  
+**Düzgün olanda:** M-A-double M-A-D-O-V-A — Mammadova.  
+- *İzah (başqa səhvdə):* Hərfləri yoxla. — Uyğun: Mammadova. Səbəb: “double M” — iki M yan-yana: MM. Qayda: double M — MM; double L — LL. Nümunə: Last name: M-A-double M-A-D-O-V-A.  
+
+## Kart 13 — Səslə cavab: Soyadını de
 
 **Tapşırıq:** Müəllim soruşur: “What's your last name?” Soyadını de.  
 **Səs:** What's your last name?  
@@ -168,6 +196,22 @@ Diqqət et: Mr. və Ms. soyaddan əvvəl gəlir, sonunda nöqtə qoyulur. Ms. �
 **İpucu:** Sual soyad haqqındadır — kartdakı cavabın qurulmasını xatırla.  
 **Düzgün olanda:** Soyadını dedin.  
 - *İzah (başqa səhvdə):* My last name is [soyad] — Uyğun: My last name is [soyad]. Səbəb: Soruşulan soyaddır, ad deyil. Qayda: My first name is [ad] — ad; My last name is [soyad] — soyad. Nümunə: My last name is Hasanova.  
+
+## Kart 14 — Kim nə dedi?: Kim nə dedi?
+
+**Tapşırıq:** Qeydiyyat masasında eşitdiyin sözlər. Hər birinə mənasını qoş.  
+**Cütlər:** First name — Ad; Last name — Soyad; How do you spell it? — Hərf-hərf necə yazılır? · artıq: Cənab  
+**İpucu:** Əvvəl ən əmin olduğun sözü yerinə qoy.  
+**Düzgün olanda:** Formadakı sözlərin mənasını tapdın.  
+- *İzah (başqa səhvdə):* Bir sözün mənası yerində deyil. — Uyğun: First name — Ad; Last name — Soyad; How do you spell it? — Hərf-hərf necə yazılır? Səbəb: first — ad, last — soyad; spell — hərf-hərf demək. Qayda: First name — ad; Last name — soyad. Nümunə: Mammadova? How do you spell it?  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Qeydiyyat masasında eşitdiklərin. Hər birinə mənasını qoş.  
+**Cütlər:** Mr. — Cənab; What's your last name? — Soyadın nədir?; Phone number — Telefon nömrəsi · artıq: Ad  
+**İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
+**Düzgün olanda:** Hər cümlənin mənasını tapdın.  
+- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Mr. — Cənab; What's your last name? — Soyadın nədir?; Phone number — Telefon nömrəsi. Səbəb: Mr. kişiyə deyilir; last name — soyad. Qayda: What's your last name? — soyad; What's your phone number? — nömrə. Nümunə: Hello, Mr. Guliyev!  
 
 ## Nəticə
 

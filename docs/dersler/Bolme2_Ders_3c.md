@@ -11,13 +11,13 @@ Son hərflər: O K, H, Q R, Y Z. İndi hərfləri özün deyirsən — adın da 
 
 ## Kart 2 — Yeni söz
 
-**O, K · H, D** — O — “ou”, K — “key” · H — “eyç”
+**O, K** — O — “ou”, K — “key”
 
-Oxunuşu: ou, key · eyç, di · IPA: /oʊ/ · /keɪ/ · /eɪtʃ/ · /di/
+Oxunuşu: ou, key · IPA: /oʊ/ · /keɪ/
 
-Nümunə: **OK, HD.** — OK (ou-key), HD (eyç-di)
+Nümunə: **OK** — OK (ou-key)
 
-Qeyd: OK iki hərfdir: O və K. H — “eyç”, “aş” yox.
+Qeyd: OK iki hərfdir: O və K.
 
 ## Kart 3 — Dinlə və təkrarla: Dinlə və təkrarla
 
@@ -37,9 +37,19 @@ Qeyd: OK iki hərfdir: O və K. H — “eyç”, “aş” yox.
 **Düzgün olanda:** Hərfləri dedin: G — ci, J — cey.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: G, J, R. Səbəb: Hər hərfi ingiliscə oxunuşla de. Qayda: G — ci; J — cey. Nümunə: G, J, R.  
 
-## Kart 4 — Hərfləri tut: Hərfləri tut
+## Kart 4 — Yeni söz
 
-**Tapşırıq:** Eşitdiyin hərflərə toxun.  
+**H, D** — H — “eyç”
+
+Oxunuşu: eyç, di · IPA: /eɪtʃ/ · /di/
+
+Nümunə: **HD** — HD (eyç-di)
+
+Qeyd: H — “eyç”, “aş” yox.
+
+## Kart 5 — Hərfləri tut: Hərfləri tut
+
+**Tapşırıq:** Hava limanında Honkonq uçuşu elan olunur. Eşitdiyin hərflərə toxun.  
 **Səs:** H, K, G.  
 **Hərflər:** H K G J A E  
 **Qəbul:** dəqiq: HKG  
@@ -49,7 +59,7 @@ Qeyd: OK iki hərfdir: O və K. H — “eyç”, “aş” yox.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Tabloda Doha uçuşu var. Elan şəhər kodunu deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** D, O, H.  
 **Hərflər:** D O H A U E  
 **Qəbul:** dəqiq: DOH  
@@ -57,7 +67,7 @@ Qeyd: OK iki hərfdir: O və K. H — “eyç”, “aş” yox.
 **Düzgün olanda:** D-O-H — Doha hava limanının kodu.  
 - *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: DOH. Səbəb: Səsdə üç hərf var: di, ou, eyç. Qayda: O — ou; H — eyç. Nümunə: D, O, H.  
 
-## Kart 5 — Yeni söz
+## Kart 6 — Yeni söz
 
 **Q, R** — QR kod
 
@@ -67,7 +77,7 @@ Nümunə: **QR** — QR (kyu-ar)
 
 Qeyd: R — “ar”, “er” yox; Q — “kyu”.
 
-## Kart 6 — Müəllim izahı
+## Kart 7 — Müəllim izahı
 
 Q və R-in adları bizimkindən çox fərqlidir.
 
@@ -80,9 +90,9 @@ QR kodda bu iki hərfi yan-yana görürsən: “kyu-ar”.
 
 Diqqət et: K — “key”, Q — “kyu”: ikisi də “k” səsi ilə başlayır.
 
-## Kart 7 — Səslə cavab: Kodu de
+## Kart 8 — Səslə cavab: Kodu de
 
-**Tapşırıq:** Hava limanında dostun soruşur hansı uçuşa minirsən. Biletində “LHR” yazılıb (London). Kodu hərf-hərf de.  
+**Tapşırıq:** Hava limanında xarici dostun soruşur hansı uçuşa minirsən. Biletində “LHR” yazılıb (London). Kodu hərf-hərf de.  
 **Qəbul:** dəqiq: L, H, R. · öz məlumatı: /^(?:it'?s\s+)?l[\s,.-]*h[\s,.-]*r[.!]?$/  
 **İpucu:** Hər hərfi ayrıca de; son hərf “er” deyil.  
 **Düzgün olanda:** Kodu ingiliscə hərf-hərf dedin.  
@@ -96,7 +106,7 @@ Diqqət et: K — “key”, Q — “kyu”: ikisi də “k” səsi ilə başl
 **Düzgün olanda:** Kodu ingiliscə hərf-hərf dedin.  
 - *İzah (başqa səhvdə):* Hərf-hərf de. — Uyğun: J, F, K. Səbəb: Hər hərfi ingiliscə oxunuşla, ayrı-ayrı de. Qayda: J — cey; G — ci. Nümunə: J, F, K.  
 
-## Kart 8 — Yeni söz
+## Kart 9 — Yeni söz
 
 **Y, Z** — Y — “uay”, Z — “zi”
 
@@ -106,7 +116,7 @@ Nümunə: **Y, Z.** — uay, zi
 
 Qeyd: Y — “uay”, “ye” yox; Z Amerikada “zi”.
 
-## Kart 9 — Səhnədə tap: Səhnədə tap
+## Kart 10 — Səhnədə tap: Səhnədə tap
 
 **Tapşırıq:** Tabloda üç uçuş var. Elan birini deyir. Şəkildə həmin uçuşu tap.  
 **Səs:** G, Y, D.  
@@ -126,7 +136,7 @@ Qeyd: Y — “uay”, “ye” yox; Z Amerikada “zi”.
 - *İzah (“GVA — Cenevrə” seçiləndə):* Səsdə “ci, vi, ey” yoxdur. — Uyğun: ZAG — Zaqreb. Səbəb: Səsdə “zi, ey, ci” deyilir. Qayda: Z — zi; G — ci. Nümunə: Z, A, G.  
 - *İzah (“CDG — Paris” seçiləndə):* Səsdə “si, di, ci” yoxdur. — Uyğun: ZAG — Zaqreb. Səbəb: Səsdə “zi, ey, ci” deyilir. Qayda: Z — zi; C — si. Nümunə: Z, A, G.  
 
-## Kart 10 — Sözü tamamla: Sözü tamamla
+## Kart 11 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Elan hərfləri çox sürətlə deyir. Qız yanındakı işçidən xahiş edir. Hansı söz çatmır?  
 **Cümlə:** Sorry? More ___ , please.  
@@ -146,9 +156,9 @@ Qeyd: Y — “uay”, “ye” yox; Z Amerikada “zi”.
 - *İzah (“great” seçiləndə):* “great” halı bildirir. — Uyğun: right. Səbəb: Yoxlayanda “right” deyilir. Qayda: Is that right? — düzdür?; I'm not great. — hal. Nümunə: H, K, G. Is that right?  
 - *İzah (“name” seçiləndə):* “name” addır. — Uyğun: right. Səbəb: Yoxlayanda “right” deyilir. Qayda: Is that right? — düzdür?; What's your name? — ad. Nümunə: H, K, G. Is that right?  
 
-## Kart 11 — Səslə cavab: Adını hərf-hərf de
+## Kart 12 — Səslə cavab: Adını hərf-hərf de
 
-**Tapşırıq:** Müəllim adını soruşur. Adını hərf-hərf de (Ş → SH, Ə → A).  
+**Tapşırıq:** Kursda müəllim siyahıya yazır və soruşur: “What's your name?” Adını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** What's your name?  
 **Qəbul:** məna:  — nümunə: It's A-L-I. · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
@@ -157,14 +167,14 @@ Qeyd: Y — “uay”, “ye” yox; Z Amerikada “zi”.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qeydiyyatçı adını yoxlayır. Adını hərf-hərf de (Ş → SH, Ə → A).  
+**Tapşırıq:** Hava limanında qeydiyyatçı adını yoxlayır. Adını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** Your name, please?  
 **Qəbul:** məna:  — nümunə: It's A-L-I. · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
 **Düzgün olanda:** Adını hərf-hərf dedin.  
 - *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: It's [ad]. Səbəb: Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: G — ci; J — cey. Nümunə: A, E, I, O, U.  
 
-## Kart 12 — Seç: Cütü ayır: A yoxsa E?
+## Kart 13 — Seç: Cütü ayır: A yoxsa E?
 
 **Tapşırıq:** Qatarda vaqonun hərfi elan olunur. Hansı hərfdir?  
 **Səs:** E.  

@@ -23,10 +23,8 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d2_c02', number: 2, scenes: ['u2/word-phone-number'],
-      shortForm: { full: "It is", short: "It's" },
-      word: "What's your phone number? · It's zero five zero…", pronunciation: '/wʌts jʊr ˈfoʊn ˌnʌmbər/ · /ɪts ˈzɪroʊ faɪv ˈzɪroʊ/', reading: 'uats yor foun nambər? · its zirou fayv zirou…', az: 'Telefon nömrən nədir? · Nömrəm 050…-dir.',
-      structure: ["It's + nömrə"],
-      notes: ['Sıra azərbaycancadakı kimidir: əvvəl phone, sonra number.', 'Nömrə rəqəm-rəqəm deyilir: four five, “qırx beş” kimi yox.'],
+      word: "What's your phone number?", pronunciation: '/wʌts jʊr ˈfoʊn ˌnʌmbər/', reading: 'uats yor foun nambər?', az: 'Telefon nömrən nədir?',
+      notes: ['Sıra azərbaycancadakı kimidir: əvvəl phone, sonra number.'],
       example: "Hi! What's your phone number?", exampleAz: 'Salam! Telefon nömrən nədir?',
     },
     {
@@ -62,6 +60,14 @@ export const lesson2: DesignLesson = {
       },
     },
     {
+      type: 'word', id: 'u2d2_c05', number: 5, scenes: ['u2/word-its-number'],
+      shortForm: { full: "It is", short: "It's" },
+      word: "It's zero five zero…", pronunciation: '/ɪts ˈzɪroʊ faɪv ˈzɪroʊ/', reading: 'its zirou fayv zirou…', az: 'Nömrəm 050…-dir.',
+      structure: ["It's + nömrə"],
+      notes: ['Nömrə rəqəm-rəqəm deyilir: four five, “qırx beş” kimi yox.'],
+      example: MY, exampleAz: 'Nömrəm 050 321 45 67-dir.',
+    },
+    {
       type: 'voice', id: 'u2d2_c06', number: 6, title: 'Nömrəni de', why: 'Nömrəni rəqəm-rəqəm dedin.', hint: 'Kartdakı kimi başla və rəqəmləri bir-bir de.',
       prompt: 'Kurs yoldaşın soruşur: “What\'s your phone number?”\nÖz nömrəni de (istəsən, uydurma nömrə).', audio: "What's your phone number?", reply: 'Thanks!',
       rule: own(PHONE, MY),
@@ -93,10 +99,9 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d2_c09', number: 9, scenes: ['u2/word-is-that-right'],
-      shortForm: { full: "that is", short: "that's" },
-      word: "Is that right? · Yes, that's right.", pronunciation: '/ɪz ðæt raɪt/ · /jes ðæts raɪt/', reading: 'iz **th**ət rayt? · yes, **th**əts rayt', az: 'Düzdür? · Bəli, düzdür.',
+      word: 'Is that right?', pronunciation: '/ɪz ðæt raɪt/', reading: 'iz **th**ət rayt?', az: 'Düzdür?',
       notes: ['Nömrəni təkrar edib yoxlayanda deyilir.'],
-      example: "Is that right? — Yes, that's right.", exampleAz: 'Düzdür? — Bəli, düzdür.',
+      example: 'Oh five five, two eight one… Is that right?', exampleAz: '055 281… Düzdür?',
     },
     {
       type: 'match', id: 'u2d2_c10', number: 10, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
@@ -111,6 +116,12 @@ export const lesson2: DesignLesson = {
         extra: ['Telefon nömrən nədir?'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex("It's oh five oh… — Nömrəm 050…-dır.; Yes, that's right. — Bəli, düzdür.; Say that again, please. — Bunu bir daha deyin, zəhmət olmasa.", 'Nömrə, təsdiq və xahiş fərqli işlərdir.', "Is that right? — sual; Yes, that's right. — cavab.", "Yes, that's right."))],
       },
+    },
+    {
+      type: 'word', id: 'u2d2_c11', number: 11, scenes: ['u2/word-thats-right'],
+      shortForm: { full: "that is", short: "that's" },
+      word: "Yes, that's right.", pronunciation: '/jes ðæts raɪt/', reading: 'yes, **th**əts rayt', az: 'Bəli, düzdür.',
+      example: "Is that right? — Yes, that's right.", exampleAz: 'Düzdür? — Bəli, düzdür.',
     },
     {
       type: 'write', id: 'u2d2_c12', number: 12, title: 'Cavab yaz', why: 'Nömrənin düz olduğunu təsdiqlədin.', hint: 'Nömrə düzdür — onun sualına razılıqla cavab ver.',
@@ -183,9 +194,9 @@ export const lesson2: DesignLesson = {
   },
   vocabulary: [
     { word: "What's your phone number?", translation: 'Telefon nömrən nədir?', example: "Hi! What's your phone number?", exampleAz: 'Salam! Telefon nömrən nədir?', usageNote: 'Əvvəl phone, sonra number.', pronunciation: '/wʌts jʊr ˈfoʊn ˌnʌmbər/', teachCard: 'u2d2_c02' },
-    { word: "It's [nömrə]", translation: 'Nömrəm [nömrə]-dir', example: MY, exampleAz: 'Nömrəm 050 321 45 67-dir.', usageNote: 'Nömrə rəqəm-rəqəm deyilir.', pronunciation: '/ɪts/', teachCard: 'u2d2_c02' },
+    { word: "It's [nömrə]", translation: 'Nömrəm [nömrə]-dir', example: MY, exampleAz: 'Nömrəm 050 321 45 67-dir.', usageNote: 'Nömrə rəqəm-rəqəm deyilir.', pronunciation: '/ɪts/', teachCard: 'u2d2_c05' },
     { word: 'oh', translation: 'sıfır (nömrədə)', example: "It's oh five oh…", exampleAz: 'Nömrəm 050…-dir.', usageNote: 'Amerikada nömrədə 0.', pronunciation: '/oʊ/', teachCard: 'u2d2_c07' },
     { word: 'Is that right?', translation: 'Düzdür?', example: 'Oh five five… Is that right?', exampleAz: '055… Düzdür?', usageNote: 'Yoxlamaq üçün.', pronunciation: '/ɪz ðæt raɪt/', teachCard: 'u2d2_c09' },
-    { word: "Yes, that's right.", translation: 'Bəli, düzdür.', example: "Is that right? — Yes, that's right.", exampleAz: 'Düzdür? — Bəli, düzdür.', usageNote: 'Təsdiq.', pronunciation: '/jes ðæts raɪt/', teachCard: 'u2d2_c09' },
+    { word: "Yes, that's right.", translation: 'Bəli, düzdür.', example: "Is that right? — Yes, that's right.", exampleAz: 'Düzdür? — Bəli, düzdür.', usageNote: 'Təsdiq.', pronunciation: '/jes ðæts raɪt/', teachCard: 'u2d2_c11' },
   ],
 };

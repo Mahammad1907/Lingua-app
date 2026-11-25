@@ -43,14 +43,13 @@ Qeyd: What country is it? — hansı ölkə?
 
 ## Kart 4 — Yeni söz
 
-**Turkey · Georgia** — Türkiyə · Gürcüstan
+**Turkey** — Türkiyə
 
-Oxunuşu: törki · corcə · IPA: /ˈtɝki/ · /ˈdʒɔrdʒə/
+Oxunuşu: törki · IPA: /ˈtɝki/
 
 Nümunə: **I'm from Turkey.** — Türkiyədənəm.
 
 Qeyd: Türkiyə ingiliscə Turkey yazılır və “törki” oxunur.
-Qeyd: Georgia “corcə” oxunur; ABŞ-da da Georgia adlı ştat var.
 
 ## Kart 5 — Müəllim izahı
 
@@ -68,7 +67,7 @@ Diqqət et: Biz “Türkiyədən” deyirik, ingiliscə from Turkey.
 
 ## Kart 6 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Səyahət agentliyində işçi turun ölkəsini hərf-hərf deyir, sən formaya yazırsan. Eşitdiyin hərflərə toxun.  
 **Səs:** It's T-U-R-K-E-Y.  
 **Hərflər:** T U R K E Y I A  
 **Qəbul:** dəqiq: TURKEY  
@@ -78,7 +77,7 @@ Diqqət et: Biz “Türkiyədən” deyirik, ingiliscə from Turkey.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Hostel resepsiyasında işçi qonağın ölkəsini hərf-hərf yoxlayır. Eşitdiyin hərflərə toxun.  
 **Səs:** It's I-R-A-N.  
 **Hərflər:** I R A N E Y M  
 **Qəbul:** dəqiq: IRAN  
@@ -86,7 +85,17 @@ Diqqət et: Biz “Türkiyədən” deyirik, ingiliscə from Turkey.
 **Düzgün olanda:** I-R-A-N — İran.  
 - *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: IRAN. Səbəb: Səsdə I, R, A, N deyilir: I “ay”, A “ey” oxunur. Qayda: I — ay; A — ey. Nümunə: It's I-R-A-N.  
 
-## Kart 7 — Dinlə və təkrarla: Dinlə və təkrarla
+## Kart 7 — Yeni söz
+
+**Georgia** — Gürcüstan
+
+Oxunuşu: corcə · IPA: /ˈdʒɔrdʒə/
+
+Nümunə: **I'm from Georgia.** — Gürcüstandanam.
+
+Qeyd: “corcə” oxunur; ABŞ-da da Georgia adlı ştat var.
+
+## Kart 8 — Dinlə və təkrarla: Dinlə və təkrarla
 
 **Tapşırıq:** Qatarda yeni tanış Gürcüstandan olduğunu deyir. Dinlə, sonra eyni cür de.  
 **Səs:** I'm from Georgia.  
@@ -104,18 +113,47 @@ Diqqət et: Biz “Türkiyədən” deyirik, ingiliscə from Turkey.
 **Düzgün olanda:** Cümləni dedin; Turkey — “törki”.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: I'm from Turkey. Səbəb: “Turkey” “törki” kimi oxunur. Qayda: I'm from Turkey. — Türkiyədən; I'm from Georgia. — Gürcüstandan. Nümunə: I'm from Turkey.  
 
-## Kart 8 — Yeni söz
+## Kart 9 — Yeni söz
 
-**Russia · Iran** — Rusiya · İran
+**Russia** — Rusiya
 
-Oxunuşu: raşə · iran · IPA: /ˈrʌʃə/ · /ɪˈrɑn/
+Oxunuşu: raşə · IPA: /ˈrʌʃə/
 
 Nümunə: **I'm from Russia.** — Rusiyadanam.
 
 Qeyd: “Rusiya” yox, “raşə” oxunur.
-Qeyd: Iran-da vurğu sondadır.
 
-## Kart 9 — Xəritədə tap: Xəritədə tap
+## Kart 10 — Seç: Dinlə və seç
+
+**Tapşırıq:** Hostelin resepsiyasında yeni gələn qonaq danışır. O hansı ölkədəndir?  
+**Səs:** Hello! I'm from Russia.  
+**Seçimlər:** Rusiya / Türkiyə / Gürcüstan — **düzgün:** Rusiya  
+**İpucu:** Cümlənin sonundakı ölkə adına qulaq as.  
+**Düzgün olanda:** Russia — Rusiya.  
+- *İzah (“Türkiyə” seçiləndə):* Səsdə “Turkey” yoxdur. — Uyğun: Rusiya. Səbəb: Səsdə “Russia” — “raşə” var. Qayda: I'm from Russia. — Rusiyadan; I'm from Turkey. — Türkiyədən. Nümunə: Hello! I'm from Russia.  
+- *İzah (“Gürcüstan” seçiləndə):* Səsdə “Georgia” yoxdur. — Uyğun: Rusiya. Səbəb: Səsdə “raşə” var, “corcə” yox. Qayda: I'm from Russia. — Rusiyadan; I'm from Georgia. — Gürcüstandan. Nümunə: Hello! I'm from Russia.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Kafedə yeni tanış haradan olduğunu deyir. O hansı ölkədəndir?  
+**Səs:** Hi! I'm from Georgia.  
+**Seçimlər:** Türkiyə / Gürcüstan / Rusiya — **düzgün:** Gürcüstan  
+**İpucu:** Cümlənin sonundakı ölkə adına qulaq as.  
+**Düzgün olanda:** Georgia — Gürcüstan.  
+- *İzah (“Türkiyə” seçiləndə):* Səsdə “Turkey” yoxdur. — Uyğun: Gürcüstan. Səbəb: Səsdə “Georgia” — “corcə” var. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Turkey. — Türkiyədən. Nümunə: Hi! I'm from Georgia.  
+- *İzah (“Rusiya” seçiləndə):* Səsdə “Russia” yoxdur. — Uyğun: Gürcüstan. Səbəb: Səsdə “corcə” var, “raşə” yox. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Russia. — Rusiyadan. Nümunə: Hi! I'm from Georgia.  
+
+## Kart 11 — Yeni söz
+
+**Iran** — İran
+
+Oxunuşu: iran · IPA: /ɪˈrɑn/
+
+Nümunə: **I'm from Iran.** — İrandanam.
+
+Qeyd: Vurğu sondadır.
+
+## Kart 12 — Xəritədə tap: Xəritədə tap
 
 **Tapşırıq:** Qatarda yeni tanış haradan olduğunu deyir. Dinlə və xəritədə ölkəyə toxun.  
 **Səs:** I'm from Georgia.  
@@ -135,7 +173,7 @@ Qeyd: Iran-da vurğu sondadır.
 - *İzah (“Iran” seçiləndə):* Səsdə “Iran” yox, “Russia” deyilir. — Uyğun: Russia. Səbəb: Russia “raşə” kimi oxunur və Rusiyadır. Qayda: I'm from Russia. — Rusiyadanam; I'm from Iran. — İrandanam. Nümunə: I'm from Russia.  
 - *İzah (“Georgia” seçiləndə):* Səsdə “Georgia” yox, “Russia” deyilir. — Uyğun: Russia. Səbəb: Russia “raşə” kimi oxunur və Rusiyadır. Qayda: I'm from Russia. — Rusiyadanam; I'm from Georgia. — Gürcüstandanam. Nümunə: I'm from Russia.  
 
-## Kart 10 — Kim nə dedi?: Kim nə dedi?
+## Kart 13 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Kurs sinfində dünya xəritəsinin qarşısında söhbət. Hər cümləyə mənasını qoş.  
 **Cütlər:** I'm from Iran. — İrandanam.; I'm from Georgia. — Gürcüstandanam.; What country are you from? — Hansı ölkədənsən? · artıq: Rusiyadanam.  
@@ -151,9 +189,9 @@ Qeyd: Iran-da vurğu sondadır.
 **Düzgün olanda:** Hər cümlənin mənasını tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: I'm from Russia. — Rusiyadanam.; I'm from Turkey. — Türkiyədənəm.; Where are you from? — Haradansan? Səbəb: Ölkə adları fərqlidir; sual “where” ilə başlayır. Qayda: I'm from Russia. — Rusiyadan; I'm from Turkey. — Türkiyədən. Nümunə: Where are you from?  
 
-## Kart 11 — Yaz: Yaz
+## Kart 14 — Yaz: Yaz
 
-**Tapşırıq:** Hava limanında tabloda “Istanbul” var, dostun çatda soruşur. Ölkəsini ingiliscə yaz.  
+**Tapşırıq:** Hava limanında uçuş tablosunda “Istanbul” yazılıb. Dostun mesajda soruşur: bu şəhər hansı ölkədədir? Ölkənin adını ingiliscə yaz.  
 **Qəbul:** dəqiq: Turkey  
 **İpucu:** İstanbul hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.  
 **Düzgün olanda:** İstanbul Türkiyədədir — Turkey.  
@@ -162,14 +200,14 @@ Qeyd: Iran-da vurğu sondadır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qatar tablosunda “Tbilisi” var, dostun çatda soruşur. Ölkəsini ingiliscə yaz.  
+**Tapşırıq:** Qatar stansiyasında tabloda “Tbilisi” yazılıb. Dostun mesajda soruşur: bu şəhər hansı ölkədədir? Ölkənin adını ingiliscə yaz.  
 **Qəbul:** dəqiq: Georgia  
 **İpucu:** Tbilisi hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.  
 **Düzgün olanda:** Tbilisi Gürcüstandadır — Georgia.  
 - *İzah (başqa səhvdə):* İngiliscə bu ölkənin adı başqa cür yazılır. — Uyğun: Georgia. Səbəb: Gürcüstan ingiliscə Georgia yazılır. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Russia. — Rusiyadan. Nümunə: I'm from Georgia.  
 - *İzah (başqa səhvdə):* Ölkənin ingiliscə adını yaz. — Uyğun: Georgia. Səbəb: Tbilisi Gürcüstandadır; ingiliscə Georgia. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Turkey. — Türkiyədən. Nümunə: I'm from Georgia.  
 
-## Kart 12 — Səslə cavab: Səslə cavab
+## Kart 15 — Səslə cavab: Səslə cavab
 
 **Tapşırıq:** Hava limanında pasport nəzarətində işçi soruşur. Hansı ölkədən olduğunu de.  
 **Səs:** What country are you from?  

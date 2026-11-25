@@ -102,7 +102,61 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 **Düzgün olanda:** Sual verməzdən əvvəl: Excuse me.  
 - *İzah (başqa səhvdə):* Diqqəti sual verən çəkir. — Uyğun: Yol soruşmaq istəyən qız. Səbəb: O, birindən soruşmaq istəyir — əvvəl “Excuse me” deyir. Qayda: Diqqət → Excuse me. Nümunə: Excuse me!  
 
-## Kart 9 — Səslə cavab: Üzr istə
+## Kart 9 — Səslə cavab: Üzrü qəbul et
+
+**Tapşırıq:** Dostun deyir: “Sorry!” Üzrünü qəbul et.  
+**Səs:** Sorry!  
+**Qəbul:** məna: noProblem — nümunə: No problem.  
+**Nümunə göstərilir:** No problem.  
+**İpucu:** Dostun üzr istədi — üzrü necə qəbul edirsən?  
+**Düzgün olanda:** Üzrü qəbul etdin.  
+- *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: Dostun üzr istədi, sən isə “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: No problem.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Dostun gecikdi və deyir: “I’m sorry!” Üzrünü qəbul et.  
+**Səs:** I'm sorry!  
+**Qəbul:** məna: noProblem — nümunə: No problem.  
+**Nümunə göstərilir:** No problem.  
+**İpucu:** Dostun üzr istədi — üzrü necə qəbul edirsən?  
+**Düzgün olanda:** Üzrü qəbul etdin.  
+- *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: Üzrə “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: Sorry! — No problem.  
+
+## Kart 10 — Dinlə və təkrarla: Dinlə və təkrarla
+
+**Tapşırıq:** Dinlə, sonra eyni cür de.  
+**Səs:** Excuse me.  
+**Qəbul:** dəqiq: Excuse me  
+**Düzgün olanda:** Vurğu düzgün yerdə idi.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Excuse me. Səbəb: Azərbaycan dilində vurğu çox vaxt sondadır, burada isə ortada. Qayda: ex-CUSE me. Nümunə: Excuse me.  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Dinlə, sonra eyni cür de.  
+**Səs:** Sorry!  
+**Qəbul:** dəqiq: Sorry  
+**Düzgün olanda:** Vurğu düzgün yerdə idi.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Sorry! Səbəb: Birinci heca güclü deyilir. Qayda: SO-rry. Nümunə: Sorry!  
+
+## Kart 11 — Sözü tamamla: Sözü tamamla
+
+**Tapşırıq:** Qız ona kömək edən işçini səsləyir və adını soruşur. Hansı söz çatmır?  
+**Cümlə:** Excuse me, ___ your name?  
+**Seçimlər:** how / what's / sorry — **düzgün:** what's  
+**İpucu:** Dərs 3-ün ad sualını xatırla.  
+**Düzgün olanda:** Excuse me + sual.  
+- *İzah (başqa səhvdə):* Ad sualı “What’s” ilə başlayır. — Uyğun: what's. Səbəb: Ad sualı What’s ilə başlayır, “Excuse me” isə ondan əvvəl gəlir. Qayda: Excuse me, what’s your name? Nümunə: Excuse me, what's your name?  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** Oğlan üzr istədi. Qız cavab verir. Hansı söz çatmır?  
+**Cümlə:** No ___ .  
+**Seçimlər:** sorry / problem / please — **düzgün:** problem  
+**İpucu:** Üzrə cavab ifadəsinin ikinci sözü hansıdır?  
+**Düzgün olanda:** No problem — Eybi yox.  
+- *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: problem. Səbəb: “No problem” — “Eybi yox”. Qayda: Sorry → No problem. Nümunə: Sorry! — No problem.  
+
+## Kart 12 — Səslə cavab: Üzr istə
 
 **Tapşırıq:** Dostunun ayağına təsadüfən basdın. Üzr istə.  
 **Qəbul:** məna: sorry — nümunə: Sorry! / I'm sorry.  
@@ -119,9 +173,9 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 **Düzgün olanda:** Səhvə görə üzr istədin.  
 - *İzah (başqa səhvdə):* Üzr ifadəsi de. — Uyğun: Sorry! Səbəb: Səhv sənindir, üzr istəyirsən. Qayda: Səhv → Sorry. Nümunə: Sorry!  
 
-## Kart 10 — Mesaj yaz (sözlərdən): Mesajı qur
+## Kart 13 — Mesaj yaz (sözlərdən): Mesajı qur
 
-**Tapşırıq:** Sənə kömək edən qızın adını bilmirsən. Sözlərdən nəzakətli sual qur.  
+**Tapşırıq:** Otelin çatında bir qız sənə kömək etdi, amma adını bilmirsən. Sözlərdən nəzakətli sual qur.  
 **Yazışma (Otelin resepsiyası):** —  
 **Sözlər:** your · Excuse · sorry · what's · me, · name · ?  
 **Qəbul:** dəqiq: Excuse me, what's your name?  
@@ -131,7 +185,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Sənə kömək edən oğlanın adını bilmirsən. Sözlərdən nəzakətli sual qur.  
+**Tapşırıq:** Qrup çatında sənə kömək edən oğlanın adını bilmirsən. Sözlərdən nəzakətli sual qur.  
 **Yazışma (Kömək edən oğlan):** —  
 **Sözlər:** me, · name · Excuse · you · what's · your · ?  
 **Qəbul:** dəqiq: Excuse me, what's your name?  
@@ -139,7 +193,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 **Düzgün olanda:** Nəzakətlə diqqət çəkib adı soruşdun.  
 - *İzah (başqa səhvdə):* Excuse me, what’s your name? — Uyğun: Excuse me, what's your name? Səbəb: “your” — sənin; “you” burada uyğun deyil. Qayda: Excuse me + sual. Nümunə: Excuse me, what's your name?  
 
-## Kart 11 — Yaz: Cavabını yaz
+## Kart 14 — Yaz: Cavabını yaz
 
 **Tapşırıq:** Oğlan səhvən sənə başqa mesaj göndərdi və yazır: “Sorry!” Üzrünü qəbul et.  
 **Qəbul:** məna: noProblem — nümunə: No problem.  
@@ -156,7 +210,7 @@ Qeyd: Üzrü qəbul edəndə deyilir.
 **Düzgün olanda:** Üzrü qəbul etdin.  
 - *İzah (başqa səhvdə):* Üzrə cavab: No problem. — Uyğun: No problem. Səbəb: O üzr istədi, sən isə “Eybi yox” deyirsən. Qayda: Sorry → No problem. Nümunə: No problem.  
 
-## Kart 12 — Səslə cavab: Nəzakətlə soruş
+## Kart 15 — Səslə cavab: Nəzakətlə soruş
 
 **Tapşırıq:** Kafedə ofisiant sənə kömək etdi, adını bilmirsən. Diqqətini çək və adını soruş.  
 **Qəbul:** məna: attention + askName — nümunə: Excuse me, what's your name?  
@@ -178,7 +232,7 @@ Dərs 6 tamamlandı — Artıq “Excuse me” və “Sorry”ni ayırırsan.
 
 - Tanıma: Excuse me və Sorry fərqi
 - Yazı: Nəzakətli sual və üzrə cavab
-- Danışıq: Üzr istəmək və diqqət çəkmək
+- Danışıq: Üzr istəmək, qəbul etmək, diqqət çəkmək
 
 Növbəti dərsdə başa düşmədiyini deməyi öyrənəcəksən.
 

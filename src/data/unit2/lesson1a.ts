@@ -43,6 +43,24 @@ export const lesson1a: DesignLesson = {
       example: 'One, two, three!', exampleAz: 'Bir, iki, üç!',
     },
     {
+      type: 'choice', id: 'u2d1a_c05', number: 5, title: 'Dinlə və seç', why: '“three” — üç.', hint: 'Rəqəmin ilk səsinə qulaq as.',
+      prompt: 'Otel liftindəsən, düymələrin yanında durursan.\nYanındakı adam nəsə deyir. Hansı düyməni basırsan?', audio: 'Excuse me, three, please.',
+      options: ['3', '2', '1'], answer: '3',
+      variants: [
+        pick('2', '“two” — iki, səsdə isə başqa rəqəm var.', ex('3', 'Səsdə “three” deyilir, “two” yox.', 'Two, please. — iki; Three, please. — üç.', 'Excuse me, three, please.')),
+        pick('1', '“one” — bir, səsdə isə başqa rəqəm var.', ex('3', 'Səsdə “three” deyilir, “one” yox.', 'One, please. — bir; Three, please. — üç.', 'Excuse me, three, please.')),
+      ],
+      review: {
+        title: 'Dinlə və seç', why: '“two” — iki.', hint: 'Rəqəmin ilk səsinə qulaq as.',
+        prompt: 'Ofis binasının liftindəsən.\nİş yoldaşı nəsə deyir. Hansı düyməni basırsan?', audio: 'Excuse me, two, please.',
+        options: ['3', '1', '2'], answer: '2',
+        variants: [
+          pick('3', '“three” — üç, səsdə isə başqa rəqəm var.', ex('2', 'Səsdə “two” deyilir, “three” yox.', 'Two, please. — iki; Three, please. — üç.', 'Excuse me, two, please.')),
+          pick('1', '“one” — bir, səsdə isə başqa rəqəm var.', ex('2', 'Səsdə “two” deyilir, “one” yox.', 'One, please. — bir; Two, please. — iki.', 'Excuse me, two, please.')),
+        ],
+      },
+    },
+    {
       type: 'word', id: 'u2d1a_c06', number: 6, scenes: ['u2/word-four-five'],
       word: 'four · five', pronunciation: '/fɔr/ · /faɪv/', reading: 'for · fayv', az: 'dörd · beş',
       notes: ['five “v” ilə bitir: fayv.'],
@@ -58,6 +76,20 @@ export const lesson1a: DesignLesson = {
         prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Two, five, three.', placeholder: 'Daxili nömrə',
         rule: exact('253'),
         variants: [other('Rəqəmləri bir-bir dinlə.', ex('253', 'Səsdə üç rəqəm var: two, five, three.', 'Two, five, three. — 253; Three, five, two. — 352.', 'Two, five, three.'))],
+      },
+    },
+    {
+      type: 'match', id: 'u2d1a_c08', number: 8, title: 'Kim nə dedi?', why: 'Hər rəqəmi tanıdın.', hint: 'Hər cümlədə rəqəmi tap, qalan sözlər eynidir.',
+      prompt: 'Liftdə hər kəs öz mərtəbəsini deyir.\nHər cümləyə mənasını qoş.',
+      rows: [{ en: 'Three, please.', az: 'Üç, zəhmət olmasa.', from: 'G' }, { en: 'Excuse me, five, please.', az: 'Bağışlayın, beş, zəhmət olmasa.', from: 'B' }, { en: 'Zero, please.', az: 'Sıfır, zəhmət olmasa.', from: 'M' }],
+      extra: ['Dörd, zəhmət olmasa.'],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Three, please. — Üç, zəhmət olmasa.; Excuse me, five, please. — Bağışlayın, beş, zəhmət olmasa.; Zero, please. — Sıfır, zəhmət olmasa.', 'Cümlələr oxşardır, yalnız rəqəm dəyişir.', 'Three, please. — üç; Five, please. — beş.', 'Excuse me, four, please.'))],
+      review: {
+        title: 'Kim nə dedi?', why: 'Hər rəqəmi tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
+        prompt: 'Kafedə və liftdə.\nHər cümləyə mənasını qoş.',
+        rows: [{ en: 'Four, please.', az: 'Dörd, zəhmət olmasa.', from: 'B' }, { en: 'One tea, please.', az: 'Bir çay, zəhmət olmasa.', from: 'G' }, { en: 'Two, please. Thank you!', az: 'İki, zəhmət olmasa. Təşəkkür edirəm!', from: 'M' }],
+        extra: ['Beş, zəhmət olmasa.'],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Four, please. — Dörd, zəhmət olmasa.; One tea, please. — Bir çay, zəhmət olmasa.; Two, please. Thank you! — İki, zəhmət olmasa. Təşəkkür edirəm!', 'Hər cümlədə başqa rəqəm var.', 'Four, please. — dörd; Two, please. — iki.', 'One tea, please.'))],
       },
     },
     {
@@ -117,46 +149,11 @@ export const lesson1a: DesignLesson = {
       },
     },
   ],
-  // Taken out of the lesson (26 Nov 2026, shorter lessons) — comes back in the daily review.
-  pool: [
-    {
-      type: 'choice', id: 'u2d1a_c05', number: 5, title: 'Dinlə və seç', why: '“three” — üç.', hint: 'Rəqəmin ilk səsinə qulaq as.',
-      prompt: 'Otel liftindəsən, düymələrin yanında durursan.\nYanındakı adam nəsə deyir. Hansı düyməni basırsan?', audio: 'Excuse me, three, please.',
-      options: ['3', '2', '1'], answer: '3',
-      variants: [
-        pick('2', '“two” — iki, səsdə isə başqa rəqəm var.', ex('3', 'Səsdə “three” deyilir, “two” yox.', 'Two, please. — iki; Three, please. — üç.', 'Excuse me, three, please.')),
-        pick('1', '“one” — bir, səsdə isə başqa rəqəm var.', ex('3', 'Səsdə “three” deyilir, “one” yox.', 'One, please. — bir; Three, please. — üç.', 'Excuse me, three, please.')),
-      ],
-      review: {
-        title: 'Dinlə və seç', why: '“two” — iki.', hint: 'Rəqəmin ilk səsinə qulaq as.',
-        prompt: 'Ofis binasının liftindəsən.\nİş yoldaşı nəsə deyir. Hansı düyməni basırsan?', audio: 'Excuse me, two, please.',
-        options: ['3', '1', '2'], answer: '2',
-        variants: [
-          pick('3', '“three” — üç, səsdə isə başqa rəqəm var.', ex('2', 'Səsdə “two” deyilir, “three” yox.', 'Two, please. — iki; Three, please. — üç.', 'Excuse me, two, please.')),
-          pick('1', '“one” — bir, səsdə isə başqa rəqəm var.', ex('2', 'Səsdə “two” deyilir, “one” yox.', 'One, please. — bir; Two, please. — iki.', 'Excuse me, two, please.')),
-        ],
-      },
-    },
-    {
-      type: 'match', id: 'u2d1a_c08', number: 8, title: 'Kim nə dedi?', why: 'Hər rəqəmi tanıdın.', hint: 'Hər cümlədə rəqəmi tap, qalan sözlər eynidir.',
-      prompt: 'Liftdə hər kəs öz mərtəbəsini deyir.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'Three, please.', az: 'Üç, zəhmət olmasa.', from: 'G' }, { en: 'Excuse me, five, please.', az: 'Bağışlayın, beş, zəhmət olmasa.', from: 'B' }, { en: 'Zero, please.', az: 'Sıfır, zəhmət olmasa.', from: 'M' }],
-      extra: ['Dörd, zəhmət olmasa.'],
-      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Three, please. — Üç, zəhmət olmasa.; Excuse me, five, please. — Bağışlayın, beş, zəhmət olmasa.; Zero, please. — Sıfır, zəhmət olmasa.', 'Cümlələr oxşardır, yalnız rəqəm dəyişir.', 'Three, please. — üç; Five, please. — beş.', 'Excuse me, four, please.'))],
-      review: {
-        title: 'Kim nə dedi?', why: 'Hər rəqəmi tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
-        prompt: 'Kafedə və liftdə.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'Four, please.', az: 'Dörd, zəhmət olmasa.', from: 'B' }, { en: 'One tea, please.', az: 'Bir çay, zəhmət olmasa.', from: 'G' }, { en: 'Two, please. Thank you!', az: 'İki, zəhmət olmasa. Təşəkkür edirəm!', from: 'M' }],
-        extra: ['Beş, zəhmət olmasa.'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Four, please. — Dörd, zəhmət olmasa.; One tea, please. — Bir çay, zəhmət olmasa.; Two, please. Thank you! — İki, zəhmət olmasa. Təşəkkür edirəm!', 'Hər cümlədə başqa rəqəm var.', 'Four, please. — dörd; Two, please. — iki.', 'One tea, please.'))],
-      },
-    },
-  ],
   result: {
     done: ['Dərs 1 · 1-ci hissə tamamlandı', 'Artıq 0–5 rəqəmlərini eşidib tanıyırsan və liftdə mərtəbəni deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: '0–5 rəqəmlərini eşidib tanımaq', tasks: ['u2d1a_c07', 'u2d1a_c09', 'u2d1a_c12'] },
+      { group: 'Tanıma', text: '0–5 rəqəmlərini eşidib tanımaq', tasks: ['u2d1a_c05', 'u2d1a_c07', 'u2d1a_c08', 'u2d1a_c09', 'u2d1a_c12'] },
       { group: 'Yazı', text: 'Eşitdiyin rəqəmi sözlə yazmaq', tasks: ['u2d1a_c11'] },
       { group: 'Danışıq', text: 'Rəqəmi deyib nəzakətlə xahiş etmək', tasks: ['u2d1a_c03', 'u2d1a_c10'] },
     ],

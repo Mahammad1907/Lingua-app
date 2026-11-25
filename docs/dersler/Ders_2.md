@@ -142,7 +142,23 @@ Diqqət et: Biz “-dır” hissəsini sonda deyirik. İngiliscə o, ayrıca sö
 **Düzgün olanda:** Salam, sağollaşma və ad — hər biri öz yerində.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: Hello! — Salam!; My name is [ad] — Mənim adım [ad]-dır.; Goodbye! — Görüşənədək! Səbəb: Hello görüşü başladır, Goodbye bitirir, My name is adını deyir. Qayda: Hello! — görüşün əvvəli; Goodbye! — görüşün sonu. Nümunə: Hello! My name is [ad]  
 
-## Kart 11 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 11 — Dinlə və təkrarla: Dinlə və təkrarla
+
+**Tapşırıq:** İfadəni dinlə, sonra eyni cür de.  
+**Səs:** My name is  
+**Qəbul:** dəqiq: My name is  
+**Düzgün olanda:** Ayrı-ayrı sözlər birlikdə səsləndi.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: My name is. Səbəb: Üç söz birlikdə, axıcı deyilir. Qayda: Vurğu “name” sözünə düşür. Nümunə: My NAME is [ad]  
+
+**Təkrar (yeni vəziyyət):**
+
+**Tapşırıq:** İfadəni dinlə, sonra eyni cür de.  
+**Səs:** Hello! I'm  
+**Qəbul:** dəqiq: Hello! I'm  
+**Düzgün olanda:** Qısa forma düzgün səsləndi.  
+- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: Hello! I'm. Səbəb: Səsdə I’m qısa formadadır və bir heca kimi deyilir. Qayda: I’m — “aym”, bir heca; I am — iki heca. Nümunə: Hello! I'm [ad]  
+
+## Kart 12 — Dialoqu tamamla: Dialoqu tamamla
 
 **Tapşırıq:** Yeni qonşun sənə yazır. Salam ver və adını de.  
 **Yazışma (Yeni qonşu):** “Hello!”  
@@ -161,7 +177,7 @@ Diqqət et: Biz “-dır” hissəsini sonda deyirik. İngiliscə o, ayrıca sö
 **Düzgün olanda:** Salam verdin və adını dedin.  
 - *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hi! I'm [ad]. Səbəb: Yoldaşın salam verdi, sən də salam verib adını deyirsən. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! I'm [ad]  
 
-## Kart 12 — Səslə cavab: Nümunəsiz de
+## Kart 13 — Səslə cavab: Nümunəsiz de
 
 **Tapşırıq:** Kursda yeni müəllimlə tanış olursan. Salam ver və adını de.  
 **Qəbul:** məna: greet + introduce — nümunə: Hello! I'm [ad] / Hi! My name is [ad]  
@@ -177,7 +193,7 @@ Diqqət et: Biz “-dır” hissəsini sonda deyirik. İngiliscə o, ayrıca sö
 **Düzgün olanda:** Özünü nümunəsiz təqdim etdin.  
 - *İzah (başqa səhvdə):* Salam və adın ikisi də lazımdır. — Uyğun: Hi! I'm [ad]. Səbəb: Tanışlıqda əvvəl salam, sonra ad gəlir. Qayda: Salam + I’m / My name is + adın. Nümunə: Hello! My name is [ad]  
 
-## Kart 13 — Yaz: Adını yaz
+## Kart 14 — Yaz: Adını yaz
 
 **Tapşırıq:** Kursun qeydiyyat çatında adını soruşurlar. Adını ingiliscə cümlə ilə yaz.  
 **Qəbul:** məna: introduce — nümunə: I'm [ad] / My name is [ad]  

@@ -161,7 +161,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
     attention: 'Adı hərf-hərf de, sonra at və dot.',
   })],
   a1_en_b2_d7a: [
-    E('u2d7a_c04t', 'u2d7a_c02', {
+    E('u2d7a_c04t', 'u2d7a_c04', {
       lead: 'eleven və twelve öz adı olan rəqəmlərdir.', focus: 'eleven və twelve',
       sections: [
         { title: 'Rəqəmlər', pairs: [{ en: 'eleven', az: '11' }, { en: 'twelve', az: '12' }] },
@@ -197,7 +197,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
     }),
   ],
   // ── Bölmə 3 ──
-  a1_en_b3_d1: [E('u3d1_c04t', 'u3d1_c02', {
+  a1_en_b3_d1: [E('u3d1_c04t', 'u3d1_c04', {
     lead: 'from bizim “-dan” hissəmizdir.', focus: 'from',
     sections: [
       { title: 'Harada gəlir?', text: 'Biz “-dan” hissəsini sonda deyirik: Bakı-dan. İngiliscə from şəhərdən əvvəl gəlir.', build: { parts: ["I'm from", 'şəhər / ölkə'], examples: [{ en: "I'm from Baku.", az: 'Bakıdanam.' }] } },
@@ -213,13 +213,13 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
     ],
     attention: 'Biz “Türkiyədən” deyirik, ingiliscə from Turkey.',
   })],
-  a1_en_b3_d2b: [E('u3d2b_c06t', 'u3d2b_c02', {
+  a1_en_b3_d2b: [E('u3d2b_c06t', 'u3d2b_c06', {
     lead: 'Bəzi ölkə adlarından əvvəl the gəlir.', focus: 'the',
     sections: [
       { title: 'the ilə', pairs: [{ en: 'the UK', az: 'Böyük Britaniya' }, { en: 'the USA', az: 'ABŞ' }] },
       { title: 'Necə deyilir?', build: { parts: ["I'm from", 'the USA'], examples: [{ en: "I'm from the USA.", az: 'ABŞ-danam.' }] } },
     ],
-    attention: 'Turkey və Russia adlarında the yoxdur.',
+    attention: 'Turkey və England adlarında the yoxdur.',
   })],
   a1_en_b3_d3a: [
     E('u3d3a_c02t', 'u3d3a_c02', {
@@ -256,7 +256,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       ],
       attention: 'Cavab Yes və ya No ilə başlayır, onu indi öyrənəcəksən.',
     }),
-    E('u3d4_c06t', 'u3d4_c04', {
+    E('u3d4_c06t', 'u3d4_c06', {
       lead: "Qısa cavab: Yes, I am. / No, I'm not.", focus: 'Yes, I am.',
       sections: [
         { title: 'Cavablar', pairs: [{ en: 'Yes, I am.', az: 'bəli' }, { en: "No, I'm not.", az: 'xeyr' }] },
@@ -274,7 +274,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       ],
       attention: 'Biz “-mı” hissəsini sonda deyirik. İngiliscə Is əvvəldə gəlir.',
     }),
-    E('u3d5b_c09t', 'u3d5b_c07', {
+    E('u3d5b_c09t', 'u3d5b_c09', {
       lead: 'Is she [millət]? sualına qısa cavab.', focus: 'qısa cavab',
       sections: [
         { title: 'Cavablar', pairs: [{ en: 'Yes, he is.', az: 'bəli' }, { en: "No, she isn't.", az: 'xeyr' }] },
@@ -292,7 +292,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       ],
       attention: 'Where are you from? sualında do yoxdur, orada are var.',
     }),
-    E('u3d6_c04t', 'u3d6_c03', {
+    E('u3d6_c04t', 'u3d6_c04', {
       lead: 'Tam cavabda do yoxdur: I live in [şəhər]', focus: 'I live in',
       sections: [
         { title: 'Fərq', pairs: [{ en: 'I live in', az: '[şəhər]-da yaşayıram' }, { en: "I'm from", az: '[ölkə]-danam' }] },
@@ -301,7 +301,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       attention: 'Biz “-da” hissəsini sonda deyirik. İngiliscə in şəhərdən əvvəl gəlir.',
     }),
   ],
-  a1_en_b3_d7: [E('u3d7_c06t', 'u3d7_c04', {
+  a1_en_b3_d7: [E('u3d7_c06t', 'u3d7_c06', {
     lead: 'Do you [dil]? sualına do ilə cavab verilir.', focus: 'do',
     sections: [
       { title: 'Cavablar', pairs: [{ en: 'Yes, I do.', az: 'bəli' }, { en: "No, I don't.", az: 'xeyr' }] },

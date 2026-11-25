@@ -77,9 +77,9 @@ export const lesson3a: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d3a_c06', number: 6, scenes: ['mascot/wave'],
-      word: 'Russian · Georgian', pronunciation: '/ˈrʌʃən/ · /ˈdʒɔrdʒən/', reading: 'raşən · corcən', az: 'rus · gürcü',
-      structure: ['Russia — ölkə; Russian — millət.', 'Georgia — ölkə; Georgian — millət.'],
-      notes: ['Sonda “n” var: Russia + n, Georgia + n.', 'Georgian-da hər iki G “c” kimi oxunur.'],
+      word: 'Russian', pronunciation: '/ˈrʌʃən/', reading: 'raşən', az: 'rus',
+      structure: ['Russia — ölkə; Russian — millət.'],
+      notes: ['Sonda “n” var: Russia + n.'],
       example: "I'm from Russia. I'm Russian.", exampleAz: 'Mən Rusiyadanam. Rusam.',
     },
     {
@@ -97,7 +97,14 @@ export const lesson3a: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u3d3a_c09', number: 8, title: 'Millətini de', why: 'Millətini dedin: I\'m + millət.', hint: 'Bu dəfə from olmadan, millətinlə cavab ver.',
+      type: 'word', id: 'u3d3a_c08', number: 8, scenes: ['mascot/think'],
+      word: 'Georgian', pronunciation: '/ˈdʒɔrdʒən/', reading: 'corcən', az: 'gürcü',
+      structure: ['Georgia — ölkə; Georgian — millət.'],
+      notes: ['Hər iki G burada “c” kimi oxunur.'],
+      example: "I'm from Georgia. I'm Georgian.", exampleAz: 'Mən Gürcüstandanam. Gürcüyəm.',
+    },
+    {
+      type: 'voice', id: 'u3d3a_c09', number: 9, title: 'Millətini de', why: 'Millətini dedin: I\'m + millət.', hint: 'Bu dəfə from olmadan, millətinlə cavab ver.',
       prompt: 'Hosteldə yeni tanış soruşur: “I\'m Turkish. And you?”\nMillətini de.', audio: "I'm Turkish. And you?", reply: 'Nice to meet you!',
       rule: myNationality,
       variants: [...NATIONALITY_MISTAKES, other("I'm + millət.", ex("I'm Azerbaijani.", 'O, millətini dedi; sən də millətini de.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm Turkish. And you? — I'm Azerbaijani."))],
@@ -109,7 +116,7 @@ export const lesson3a: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u3d3a_c10', number: 9, title: 'Mesaj yaz', why: 'I\'m + millət: I\'m Azerbaijani.', hint: 'Ölkə adı ilə millət sözünü qarışdırma.',
+      type: 'write', id: 'u3d3a_c10', number: 10, title: 'Mesaj yaz', why: 'I\'m + millət: I\'m Azerbaijani.', hint: 'Ölkə adı ilə millət sözünü qarışdırma.',
       prompt: 'Azərbaycanlı olduğunu de.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: "I'm Georgian. And you?" }] },
       tiles: ["I'm", 'Azerbaijan', 'Azerbaijani', 'from', '.'], rule: exact("I'm Azerbaijani."),
@@ -123,7 +130,7 @@ export const lesson3a: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u3d3a_c11', number: 10, title: 'Dinlə və yaz', why: 'Georgian — gürcü.', hint: 'Ölkənin adını xatırla: millət sözü ondan düzəlir.',
+      type: 'write', id: 'u3d3a_c11', number: 11, title: 'Dinlə və yaz', why: 'Georgian — gürcü.', hint: 'Ölkənin adını xatırla: millət sözü ondan düzəlir.',
       prompt: 'Millətini yaz.', audio: "I'm Georgian.", placeholder: 'Millət',
       rule: exact('Georgian', "I'm Georgian."),
       variants: [other('Yazılışı yoxla: Georgian.', ex('Georgian', 'Səsdə “corcən” eşidilir, yazıda Georgia + n.', "I'm Georgian. — millət; I'm from Georgia. — ölkə.", "I'm Georgian."))],
@@ -135,7 +142,7 @@ export const lesson3a: DesignLesson = {
       },
     },
     {
-      type: 'match', mode: 'order', id: 'u3d3a_c12', number: 11, title: 'Söhbəti sırala', why: 'Sual, cavab və tanışlıq düz sıradadır.', hint: 'Əvvəl sual gəlir; sonda tanışlığa sevinirlər.',
+      type: 'match', mode: 'order', id: 'u3d3a_c12', number: 12, title: 'Söhbəti sırala', why: 'Sual, cavab və tanışlıq düz sıradadır.', hint: 'Əvvəl sual gəlir; sonda tanışlığa sevinirlər.',
       prompt: 'Hostelin resepsiyası.\nBalonlara toxun, söhbəti sıraya düz.',
       rows: [{ en: '1', az: 'Hi! Where are you from?', from: 'G' }, { en: '2', az: "I'm from Georgia. I'm Georgian. And you?", from: 'other' }, { en: '3', az: "I'm from Azerbaijan. I'm Azerbaijani.", from: 'G' }, { en: '4', az: 'Nice to meet you!', from: 'other' }],
       extra: [],
@@ -164,6 +171,6 @@ export const lesson3a: DesignLesson = {
     { word: "I'm Azerbaijani.", translation: 'Mən azərbaycanlıyam.', example: "I'm from Azerbaijan. I'm Azerbaijani.", exampleAz: 'Mən Azərbaycandanam. Azərbaycanlıyam.', usageNote: "I'm + millət; I'm from + ölkə.", pronunciation: '/aɪm ˌæzərbaɪˈdʒɑni/', teachCard: 'u3d3a_c02' },
     { word: 'Turkish', translation: 'türk', example: "I'm from Turkey. I'm Turkish.", exampleAz: 'Mən Türkiyədənəm. Türkəm.', usageNote: 'Turkey — ölkə, Turkish — millət.', pronunciation: '/ˈtɝkɪʃ/', teachCard: 'u3d3a_c04' },
     { word: 'Russian', translation: 'rus', example: "I'm from Russia. I'm Russian.", exampleAz: 'Mən Rusiyadanam. Rusam.', usageNote: 'Russia — ölkə, Russian — millət.', pronunciation: '/ˈrʌʃən/', teachCard: 'u3d3a_c06' },
-    { word: 'Georgian', translation: 'gürcü', example: "I'm from Georgia. I'm Georgian.", exampleAz: 'Mən Gürcüstandanam. Gürcüyəm.', usageNote: 'Georgia — ölkə, Georgian — millət.', pronunciation: '/ˈdʒɔrdʒən/', teachCard: 'u3d3a_c06' },
+    { word: 'Georgian', translation: 'gürcü', example: "I'm from Georgia. I'm Georgian.", exampleAz: 'Mən Gürcüstandanam. Gürcüyəm.', usageNote: 'Georgia — ölkə, Georgian — millət.', pronunciation: '/ˈdʒɔrdʒən/', teachCard: 'u3d3a_c08' },
   ],
 };

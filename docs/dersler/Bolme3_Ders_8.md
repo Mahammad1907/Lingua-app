@@ -67,7 +67,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 
 ## Kart 5 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Gürcüstandan olan yeni tanış şəhərini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** It's T-B-I-L-I-S-I.  
 **Hərflər:** T B I L I S I E Y  
 **Qəbul:** dəqiq: TBILISI  
@@ -77,7 +77,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Hostelin mətbəxində Türkiyədən olan gənc şəhərini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** It's I-Z-M-I-R.  
 **Hərflər:** I Z M I R E S A  
 **Qəbul:** dəqiq: IZMIR  
@@ -103,7 +103,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 
 ## Kart 7 — İki mesaj yaz: İki mesaj yaz
 
-**Tapşırıq:** Qız Gəncədəndir, azərbaycanlıdır. İki mesaj yaz: 1. Haradan olduğunu. 2. Millətini.  
+**Tapşırıq:** Klubun çatında yeni üzv qız haqqında soruşur. Qız Gəncədəndir, azərbaycanlıdır. İki mesaj yaz: 1. Haradan olduğunu. 2. Millətini.  
 **Birinci mesaj:** dəqiq: She's from Ganja. / She is from Ganja.  
 **İkinci mesaj:** dəqiq: She's Azerbaijani. / She is Azerbaijani.  
 **İpucu:** Qız haqqında yazırsan — hər iki mesajı eyni sözlə başla.  
@@ -115,7 +115,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Oğlan Bakıdandır, azərbaycanlıdır. İki mesaj yaz: 1. Haradan olduğunu. 2. Millətini.  
+**Tapşırıq:** Hostelin çatında biri oğlan haqqında soruşur. Oğlan Bakıdandır, azərbaycanlıdır. İki mesaj yaz: 1. Haradan olduğunu. 2. Millətini.  
 **Birinci mesaj:** dəqiq: He's from Baku. / He is from Baku.  
 **İkinci mesaj:** dəqiq: He's Azerbaijani. / He is Azerbaijani.  
 **İpucu:** Oğlan haqqında yazırsan — hər iki mesajı eyni sözlə başla.  
@@ -167,7 +167,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 
 ## Kart 10 — Nömrəni yığ: Nömrəni yığ
 
-**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
+**Tapşırıq:** Ziyafətin sonunda yeni tanış nömrəsini deyir. Dinlə və yığ.  
 **Səs:** It's oh five five, four one eight, two two, seven three.  
 **Qəbul:** dəqiq: 0554182273  
 **İpucu:** Hər rəqəmi eşidən kimi bas; “ou” səsini də unutma.  
@@ -176,7 +176,7 @@ Bu sualların hamısını Bölmə 3-də öyrəndin. İndi özün danışırsan.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
+**Tapşırıq:** Hostelin resepsiyası klubun nömrəsini deyir. Dinlə və yığ.  
 **Səs:** It's zero one two, five six oh, nine nine, one four.  
 **Qəbul:** dəqiq: 0125609914  
 **İpucu:** Hər rəqəmi eşidən kimi bas; “ou” səsini də unutma.  

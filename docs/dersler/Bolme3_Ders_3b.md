@@ -12,16 +12,15 @@ Hosteldə qeydiyyat vərəqini doldurur, pasport nəzarətində millətini deyir
 
 ## Kart 2 — Yeni söz
 
-**English · American** — ingilis · amerikalı
+**English** — ingilis
 
-Oxunuşu: inqliş · əmerikən · IPA: /ˈɪŋɡlɪʃ/ · /əˈmɛrɪkən/
+Oxunuşu: inqliş · IPA: /ˈɪŋɡlɪʃ/
 
-Quruluşu: England — ölkə; English — millət. · the USA — ölkə; American — millət.
+Quruluşu: England — ölkə; English — millət.
 
 Nümunə: **I'm from England. I'm English.** — Mən İngiltərədənəm. İngilisəm.
 
-Qeyd: Böyük hərflə yazılır: English, American.
-Qeyd: American-da vurğu ikinci hecadadır: a-ME-rican.
+Qeyd: Böyük hərflə yazılır: English.
 
 ## Kart 3 — Seç: Düz yazını seç
 
@@ -41,7 +40,19 @@ Qeyd: American-da vurğu ikinci hecadadır: a-ME-rican.
 - *İzah (“russian” seçiləndə):* Millət sözü böyük hərflə yazılır. — Uyğun: Russian. Səbəb: Azərbaycancada “rus” kiçik hərflə yazılır, ingiliscə isə böyük hərflə. Qayda: I'm Russian. — düzdür; I'm russian. — olmur. Nümunə: I'm from Russia. I'm Russian.  
 - *İzah (“Russia” seçiləndə):* Russia ölkədir, millət deyil. — Uyğun: Russian. Səbəb: Millət sahəsinə ölkə adı yox, millət yazılır. Qayda: I'm Russian. — millət; I'm from Russia. — ölkə. Nümunə: I'm from Russia. I'm Russian.  
 
-## Kart 4 — Cavab cütü: Cavab cütü
+## Kart 4 — Yeni söz
+
+**American** — amerikalı
+
+Oxunuşu: əmerikən · IPA: /əˈmɛrɪkən/
+
+Quruluşu: the USA — ölkə; American — millət.
+
+Nümunə: **I'm from the USA. I'm American.** — Mən ABŞ-danam. Amerikalıyam.
+
+Qeyd: Vurğu ikinci hecadadır: a-ME-rican.
+
+## Kart 5 — Cavab cütü: Cavab cütü
 
 **Tapşırıq:** Dil klubunda hər kəs əvvəl ölkəsini deyir. Cümləyə toxun, sonra onun davamını seç.  
 **Cütlər:** I'm from England. — I'm English.; I'm from the USA. — I'm American.; I'm from Turkey. — I'm Turkish. · artıq: I'm Russian.  
@@ -57,20 +68,19 @@ Qeyd: American-da vurğu ikinci hecadadır: a-ME-rican.
 **Düzgün olanda:** Hər ölkəyə öz millətini qoşdun.  
 - *İzah (başqa səhvdə):* Bir cümlənin davamı yerində deyil. — Uyğun: I'm from Russia. — I'm Russian.; I'm from Georgia. — I'm Georgian.; I'm from England. — I'm English. Səbəb: Hər ölkədən öz milləti gəlir. Qayda: I'm from England. — ölkə; I'm English. — millət. Nümunə: I'm from Georgia. I'm Georgian.  
 
-## Kart 5 — Yeni söz
+## Kart 6 — Yeni söz
 
-**German · French** — alman · fransız
+**German** — alman
 
-Oxunuşu: cörmən · frenç · IPA: /ˈdʒɝmən/ · /frɛntʃ/
+Oxunuşu: cörmən · IPA: /ˈdʒɝmən/
 
-Quruluşu: Germany — ölkə; German — millət. · France — ölkə; French — millət.
+Quruluşu: Germany — ölkə; German — millət.
 
 Nümunə: **I'm from Germany. I'm German.** — Mən Almaniyadanam. Almanam.
 
 Qeyd: “Almaniya” ingiliscə Germany-dir; G “c” kimi oxunur.
-Qeyd: French-in sonunda “ç” səsi var.
 
-## Kart 6 — Dinlə və təkrarla: Dinlə və təkrarla
+## Kart 7 — Dinlə və təkrarla: Dinlə və təkrarla
 
 **Tapşırıq:** Hostelin resepsiyasında alman qonaq özünü təqdim edir. Dinlə, sonra eyni cür de.  
 **Səs:** I'm German.  
@@ -88,7 +98,19 @@ Qeyd: French-in sonunda “ç” səsi var.
 **Düzgün olanda:** Cümləni dedin; American-da vurğu ikinci hecadadır.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: I'm American. Səbəb: Vurğu ikinci hecadadır: ə-ME-rikən. Qayda: I'm American. — millət; I'm from the USA. — ölkə. Nümunə: I'm American.  
 
-## Kart 7 — Sözü tamamla: Sözü tamamla
+## Kart 8 — Yeni söz
+
+**French** — fransız
+
+Oxunuşu: frenç · IPA: /frɛntʃ/
+
+Quruluşu: France — ölkə; French — millət.
+
+Nümunə: **I'm from France. I'm French.** — Mən Fransadanam. Fransızam.
+
+Qeyd: Sonda “ç” səsi var.
+
+## Kart 9 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Hostelin mətbəxində yeni tanış özünü təqdim edir. Hansı söz çatmır?  
 **Cümlə:** I'm from France. I'm ___ .  
@@ -108,7 +130,7 @@ Qeyd: French-in sonunda “ç” səsi var.
 - *İzah (“Germany” seçiləndə):* Germany ölkədir; I'm-dən sonra millət gəlir. — Uyğun: German. Səbəb: from-suz I'm-dən sonra millət gəlir: German. Qayda: I'm German. — millət; I'm from Germany. — ölkə. Nümunə: I'm from Germany. I'm German.  
 - *İzah (“French” seçiləndə):* O, Almaniyadandır. — Uyğun: German. Səbəb: Almaniyadan olan almandır: German. Qayda: I'm from Germany. I'm German. — alman; I'm from France. I'm French. — fransız. Nümunə: I'm from Germany. I'm German.  
 
-## Kart 8 — Yeni söz
+## Kart 10 — Yeni söz
 
 **nationality** — millət, vətəndaşlıq
 
@@ -120,7 +142,7 @@ Nümunə: **Nationality: Azerbaijani.** — Milləti: azərbaycanlı.
 
 Qeyd: Formalarda sahə adıdır; tək sözlə sual kimi də deyilir: Nationality?
 
-## Kart 9 — Müəllim izahı
+## Kart 11 — Müəllim izahı
 
 Formada Nationality sətrinə millət yazılır.
 
@@ -134,7 +156,7 @@ Formada Nationality sətrinə millət yazılır.
 
 Diqqət et: Ölkə və millət adları oxşardır, sonları fərqlidir: France — French.
 
-## Kart 10 — Formanı doldur: Formanı doldur
+## Kart 12 — Formanı doldur: Formanı doldur
 
 **Tapşırıq:** Hostelə yazılırsan. Qeydiyyat vərəqini doldur (istəsən, uydurma məlumat).  
 **Forma:** Hostel qeydiyyatı — Yeni qonaq  
@@ -149,7 +171,7 @@ Diqqət et: Ölkə və millət adları oxşardır, sonları fərqlidir: France �
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Hosteldə dostunu yazırsan. Pasportda: “SMITH ANNA”, the USA. Formanı doldur.  
+**Tapşırıq:** Amerikalı dostunu hostelə yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “SMITH ANNA”, ölkə — the USA. Formanı doldur.  
 **Forma:** Hostel qeydiyyatı — Yeni qonaq  
 **Last name:** dəqiq: Smith  
 **First name:** dəqiq: Anna  
@@ -160,7 +182,7 @@ Diqqət et: Ölkə və millət adları oxşardır, sonları fərqlidir: France �
 - *İzah (“First name” səhv olanda):* Uyğun: Anna. Səbəb: First name — addır: pasportdakı ikinci söz. Qayda: First name — Anna; Last name — Smith. Nümunə: My first name is Anna.  
 - *İzah (“Nationality” səhv olanda):* Uyğun: American. Səbəb: the USA ölkədir; millət sətrinə American yazılır. Qayda: I'm American. — millət; I'm from the USA. — ölkə. Nümunə: Nationality: American.  
 
-## Kart 11 — Səslə cavab: Millətini de
+## Kart 13 — Səslə cavab: Millətini de
 
 **Tapşırıq:** Pasport nəzarətində əməkdaş pasportuna baxıb soruşur. Cavab ver.  
 **Səs:** Nationality?  
@@ -180,7 +202,7 @@ Diqqət et: Ölkə və millət adları oxşardır, sonları fərqlidir: France �
 - *İzah (başqa səhvdə):* Ölkə yox, millət lazımdır. — Uyğun: Azerbaijani. Səbəb: Nationality soruşulanda ölkə adı yox, millət deyilir. Qayda: Nationality? — Azerbaijani. ; Where are you from? — Azerbaijan. Nümunə: Nationality? — Azerbaijani.  
 - *İzah (başqa səhvdə):* Millətini de. — Uyğun: Azerbaijani. Səbəb: Nationality — millətdir; bir sözlə də cavab vermək olar. Qayda: Nationality, please. — Azerbaijani. ; Where are you from? — I'm from Azerbaijan. Nümunə: Nationality, please. — I'm Azerbaijani.  
 
-## Kart 12 — Kim nə dedi?: Kim nə dedi?
+## Kart 14 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Dil klubunda qonaqlar özlərini təqdim edir. Hər cümləyə mənasını qoş.  
 **Cütlər:** I'm American. — Amerikalıyam.; I'm from France. — Fransadanam.; I'm German. — Almanam. · artıq: Almaniyadanam.  

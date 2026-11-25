@@ -29,10 +29,10 @@ export const lesson1: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d1_c02', number: 2, scenes: ['mascot/ask'],
-      word: "Where are you from? · I'm from [ölkə]", pronunciation: '/wɛr ɑr ju frʌm/ · /aɪm frʌm/', reading: 'uer ar yu fram? · aym fram [ölkə]', az: 'Haradansan? · Mən [ölkə]-danam',
-      structure: ['Where are you from?', "I'm from + şəhər / ölkə."],
-      notes: ['Azərbaycancadakı “-dan” ingiliscə sualın sonunda ayrıca söz kimi gəlir: from.', '“Bakıdanam” ingiliscə üç hissədir: I’m from Baku.'],
-      example: "Where are you from? — I'm from Baku.", exampleAz: 'Haradansan? — Bakıdanam.',
+      word: 'Where are you from?', pronunciation: '/wɛr ɑr ju frʌm/', reading: 'uer ar yu fram?', az: 'Haradansan?',
+      structure: ['Where are you from?'],
+      notes: ['Azərbaycancadakı “-dan” ingiliscə sualın sonunda ayrıca söz kimi gəlir: from.'],
+      example: 'Hello! Where are you from?', exampleAz: 'Salam! Haradansan?',
     },
     {
       type: 'choice', id: 'u3d1_c03', number: 3, title: 'Dinlə və anla', why: '“where are you from” — haradan.', hint: 'Sualın əvvəlindəki və sonundakı sözə qulaq as.',
@@ -53,7 +53,14 @@ export const lesson1: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u3d1_c05', number: 4, title: 'Mesaj yaz', why: 'I’m from + şəhər — haradan olduğunu dedin.', hint: 'Bölmə 1-dəki “I’m” ilə başla.',
+      type: 'word', id: 'u3d1_c04', number: 4, scenes: ['mascot/point'],
+      word: "I'm from [ölkə]", pronunciation: '/aɪm frʌm/', reading: 'aym fram [ölkə]', az: 'Mən [ölkə]-danam',
+      structure: ["I'm from + şəhər / ölkə."],
+      notes: ['“Bakıdanam” ingiliscə üç hissədir: I’m from Baku.'],
+      example: "Where are you from? — I'm from Baku.", exampleAz: 'Haradansan? — Bakıdanam.',
+    },
+    {
+      type: 'write', id: 'u3d1_c05', number: 5, title: 'Mesaj yaz', why: 'I’m from + şəhər — haradan olduğunu dedin.', hint: 'Bölmə 1-dəki “I’m” ilə başla.',
       prompt: 'Sən Gəncədənsən.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: 'Hi! Where are you from?' }] },
       tiles: ["I'm", 'from', 'Ganja', '.', 'is', 'my', 'I'], rule: exact("I'm from Ganja."),
@@ -73,13 +80,13 @@ export const lesson1: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d1_c06', number: 5, scenes: ['mascot/globe'],
+      type: 'word', id: 'u3d1_c06', number: 6, scenes: ['mascot/globe'],
       word: 'Azerbaijan', pronunciation: '/ˌæzərbaɪˈdʒɑn/', reading: 'əzərbaycan', az: 'Azərbaycan',
       notes: ['Ölkənin adı böyük hərflə yazılır; vurğu sondadır.'],
       example: "I'm from Azerbaijan.", exampleAz: 'Azərbaycandanam.',
     },
     {
-      type: 'voice', id: 'u3d1_c07', number: 6, title: 'Səslə cavab', why: 'Haradan olduğunu dedin.', hint: 'Azərbaycancadakı “-dan” ingiliscə yerin adından əvvəl ayrıca gəlir.',
+      type: 'voice', id: 'u3d1_c07', number: 7, title: 'Səslə cavab', why: 'Haradan olduğunu dedin.', hint: 'Azərbaycancadakı “-dan” ingiliscə yerin adından əvvəl ayrıca gəlir.',
       prompt: 'Klubun qeydiyyat masasında işçi soruşur.\nHaradan olduğunu de.', audio: 'Hello! Where are you from?', reply: 'Thank you!',
       rule: myOrigin,
       variants: [
@@ -96,74 +103,6 @@ export const lesson1: DesignLesson = {
         ],
       },
     },
-    {
-      type: 'word', id: 'u3d1_c09', number: 7, scenes: ['mascot/happy'],
-      word: 'Me too.', pronunciation: '/mi tu/', reading: 'mi tu', az: 'Mən də.',
-      notes: ['Qarşındakı ilə eyni olanda deyilir; “You too” isə “sənə də”dir.'],
-      example: "I'm from Baku. — Me too!", exampleAz: 'Bakıdanam. — Mən də!',
-    },
-    {
-      type: 'write', id: 'u3d1_c11', number: 8, title: 'Dialoqu tamamla', why: 'Me too — sən də oradansan.', hint: 'Sən də eyni şəhərdənsən — “mən də” necə deyilir?',
-      prompt: 'Klubda yeni tanış haradan olduğunu yazdı. Sən də Bakıdansan.\nQısa cavab yaz.', placeholder: 'Cavabın',
-      chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: "Hi! I'm from Baku." }] },
-      rule: exact('Me too!', 'Me too.', "Me too! I'm from Baku.", "Me too. I'm from Baku."),
-      variants: [
-        { match: { words: ['You too'] }, short: '“You too” — sənə də; burada “mən də” lazımdır.', explain: ex('Me too!', 'O, Bakıdan olduğunu dedi; sən də — “mən də”.', 'Me too! — mən də; You too. — sənə də.', "I'm from Baku. — Me too!") },
-        other('Me too!', ex('Me too!', 'Burada qısa cavab istənir: sən də Bakıdansan.', "Me too! — qısa cavab; I'm from Baku. — tam cümlə.", "I'm from Baku. — Me too!")),
-      ],
-      review: {
-        title: 'Dialoqu tamamla', why: 'Me too — sən də oradansan.', hint: 'Sən də eyni şəhərdənsən — “mən də” necə deyilir?',
-        prompt: 'İş yoldaşın haradan olduğunu yazdı. Sən də Gəncədənsən.\nQısa cavab yaz.', placeholder: 'Cavabın',
-        chat: { partner: 'İş yoldaşı', from: 'G', lines: [{ from: 'G', text: "I'm from Ganja." }] },
-        rule: exact('Me too!', 'Me too.', "Me too! I'm from Ganja.", "Me too. I'm from Ganja."),
-        variants: [
-          { match: { words: ['You too'] }, short: '“You too” — sənə də; burada “mən də” lazımdır.', explain: ex('Me too!', 'O, Gəncədən olduğunu dedi; sən də — “mən də”.', 'Me too! — mən də; You too. — sənə də.', "I'm from Ganja. — Me too!") },
-          other('Me too!', ex('Me too!', 'Burada qısa cavab istənir: sən də Gəncədənsən.', "Me too! — qısa cavab; I'm from Ganja. — tam cümlə.", "I'm from Ganja. — Me too!")),
-        ],
-      },
-    },
-    {
-      type: 'voice', id: 'u3d1_c12', number: 9, title: 'Haradan olduğunu soruş', why: 'Haradan olduğunu soruşdun.', hint: 'Bu dərsin ilk sualını xatırla.',
-      prompt: 'Klubda yeni tanışla salamlaşdın, adını da bilirsən.\nHaradan olduğunu soruş.', reply: "I'm from Lankaran.",
-      rule: askFrom,
-      variants: [
-        insteadOf('askName', 'Adını artıq bilirsən — haradan olduğunu soruş.', ex('Where are you from?', 'Ad yox, haradan olduğu lazımdır.', "Where are you from? — haradan; What's your name? — ad.", 'Hello! Where are you from?')),
-        other('Where are you from?', ex('Where are you from?', 'Haradan olduğunu soruşursan: Where are you from?', 'Where are you from? — haradan; How are you? — hal.', 'Hi! Where are you from?')),
-      ],
-      review: {
-        title: 'Haradan olduğunu soruş', why: 'Haradan olduğunu soruşdun.', hint: 'Bu dərsin ilk sualını xatırla.',
-        prompt: 'Hostelin mətbəxində yeni tanışla çay içirsən.\nHaradan olduğunu soruş.', reply: "I'm from Ganja.",
-        rule: askFrom,
-        variants: [
-          insteadOf('askFeeling', 'Hal yox, haradan olduğunu soruş.', ex('Where are you from?', 'Hal yox, haradan olduğu lazımdır.', 'Where are you from? — haradan; How are you? — hal.', 'Hi! Where are you from?')),
-          other('Where are you from?', ex('Where are you from?', 'Haradan olduğunu soruşursan: Where are you from?', "Where are you from? — haradan; What's your name? — ad.", 'Hi! Where are you from?')),
-        ],
-      },
-    },
-    {
-      // “Söhbəti tamamla” (20 Nov 2026): turns are ready, one word is missing. Each section keeps both kinds.
-      type: 'choice', id: 'u3d1_c13', number: 10, title: 'Söhbəti tamamla', why: 'Eyni şəhərdən olduğunu “Me too!” ilə dedin.', hint: 'O da Bakıdandır — “mən də” necə deyilir?',
-      prompt: 'Dil klubu.\nSöhbətdə bir söz əskikdir. Düzgün sözü seç.',
-      dialog: [{ from: 'other', text: 'Hi! Where are you from?' }, { from: 'G', text: "I'm from Baku. And you?" }],
-      gap: { speaker: 'other', before: 'Me', after: '!' }, options: ['too', 'from', 'you'], answer: 'too',
-      variants: [
-        pick('from', '“from” ölkə və ya şəhərdən əvvəl gəlir.', ex('too', '“Mən də” ingiliscə “Me too” olur.', "Me too! — mən də; I'm from Baku. — Bakıdanam.", 'Me too!')),
-        pick('you', '“you” sənin haqqındadır, “mən də” demir.', ex('too', '“Mən də” ingiliscə “Me too” olur.', 'Me too! — mən də; And you? — bəs sən?', 'Me too!')),
-      ],
-      review: {
-        title: 'Söhbəti tamamla', why: 'Eşitmədiyin şeyi təkrar istədin.', hint: 'Eşitmədin — bir də deməsini xahiş et.',
-        prompt: 'Qatarda söhbət.\nSöhbətdə bir söz əskikdir. Düzgün sözü seç.',
-        dialog: [{ from: 'other', text: 'Excuse me, where are you from?' }, { from: 'B', text: "I'm from Shamakhi." }],
-        gap: { speaker: 'other', before: 'Sorry? Say that', after: ', please.' }, options: ['again', 'slowly', 'too'], answer: 'again',
-        variants: [
-          pick('slowly', '“slowly” “More slowly” içində gəlir; burada eşitmədin.', ex('again', 'Eşitməyəndə “Say that again” deyirsən.', 'Say that again, please. — bir də; More slowly, please. — yavaş.', 'Sorry? Say that again, please.')),
-          pick('too', '“too” “mən də” deməkdir, təkrar istəmir.', ex('again', 'Eşitməyəndə “Say that again” deyirsən.', 'Say that again, please. — bir də; Me too! — mən də.', 'Sorry? Say that again, please.')),
-        ],
-      },
-    },
-  ],
-  // Pool (26 Nov 2026): taken out of the lesson to keep it short; comes back in the daily review.
-  pool: [
     {
       type: 'choice', id: 'u3d1_c08', number: 8, title: 'Sözü tamamla', why: 'from — “-dan”: I’m from Baku.', hint: 'Azərbaycancada bu, şəhərin sonuna şəkilçi kimi qoşulur.',
       prompt: 'Klubda qız yeni tanışa haradan olduğunu deyir.\nHansı söz çatmır?', gap: { speaker: 'G', before: "I'm", after: 'Baku.' },
@@ -183,6 +122,12 @@ export const lesson1: DesignLesson = {
       },
     },
     {
+      type: 'word', id: 'u3d1_c09', number: 9, scenes: ['mascot/happy'],
+      word: 'Me too.', pronunciation: '/mi tu/', reading: 'mi tu', az: 'Mən də.',
+      notes: ['Qarşındakı ilə eyni olanda deyilir; “You too” isə “sənə də”dir.'],
+      example: "I'm from Baku. — Me too!", exampleAz: 'Bakıdanam. — Mən də!',
+    },
+    {
       type: 'match', mode: 'reply', id: 'u3d1_c10', number: 10, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.',
       prompt: 'Dil klubunda söhbət.\nHər cümləyə uyğun cavabı qoş.',
       rows: [{ en: 'Where are you from?', az: "I'm from Ganja.", from: 'other' }, { en: "I'm from Baku.", az: 'Me too!', from: 'G' }, { en: 'Nice to meet you.', az: 'You too.', from: 'B' }],
@@ -196,12 +141,71 @@ export const lesson1: DesignLesson = {
         variants: [other('Bir cavab yerində deyil.', ex("Hi! I'm from Azerbaijan. → Me too!; How are you? → I'm fine, thanks.; Where are you from? → I'm from Lankaran.", 'Eyni yer, hal və sual fərqli cavab istəyir.', "Me too! — mən də; I'm fine, thanks. — hal.", "I'm from Azerbaijan. — Me too!"))],
       },
     },
+    {
+      type: 'write', id: 'u3d1_c11', number: 11, title: 'Dialoqu tamamla', why: 'Me too — sən də oradansan.', hint: 'Sən də eyni şəhərdənsən — “mən də” necə deyilir?',
+      prompt: 'Klubda yeni tanış haradan olduğunu yazdı. Sən də Bakıdansan.\nQısa cavab yaz.', placeholder: 'Cavabın',
+      chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: "Hi! I'm from Baku." }] },
+      rule: exact('Me too!', 'Me too.', "Me too! I'm from Baku.", "Me too. I'm from Baku."),
+      variants: [
+        { match: { words: ['You too'] }, short: '“You too” — sənə də; burada “mən də” lazımdır.', explain: ex('Me too!', 'O, Bakıdan olduğunu dedi; sən də — “mən də”.', 'Me too! — mən də; You too. — sənə də.', "I'm from Baku. — Me too!") },
+        other('Me too!', ex('Me too!', 'Burada qısa cavab istənir: sən də Bakıdansan.', "Me too! — qısa cavab; I'm from Baku. — tam cümlə.", "I'm from Baku. — Me too!")),
+      ],
+      review: {
+        title: 'Dialoqu tamamla', why: 'Me too — sən də oradansan.', hint: 'Sən də eyni şəhərdənsən — “mən də” necə deyilir?',
+        prompt: 'İş yoldaşın haradan olduğunu yazdı. Sən də Gəncədənsən.\nQısa cavab yaz.', placeholder: 'Cavabın',
+        chat: { partner: 'İş yoldaşı', from: 'G', lines: [{ from: 'G', text: "I'm from Ganja." }] },
+        rule: exact('Me too!', 'Me too.', "Me too! I'm from Ganja.", "Me too. I'm from Ganja."),
+        variants: [
+          { match: { words: ['You too'] }, short: '“You too” — sənə də; burada “mən də” lazımdır.', explain: ex('Me too!', 'O, Gəncədən olduğunu dedi; sən də — “mən də”.', 'Me too! — mən də; You too. — sənə də.', "I'm from Ganja. — Me too!") },
+          other('Me too!', ex('Me too!', 'Burada qısa cavab istənir: sən də Gəncədənsən.', "Me too! — qısa cavab; I'm from Ganja. — tam cümlə.", "I'm from Ganja. — Me too!")),
+        ],
+      },
+    },
+    {
+      type: 'voice', id: 'u3d1_c12', number: 12, title: 'Haradan olduğunu soruş', why: 'Haradan olduğunu soruşdun.', hint: 'Bu dərsin ilk sualını xatırla.',
+      prompt: 'Klubda yeni tanışla salamlaşdın, adını da bilirsən.\nHaradan olduğunu soruş.', reply: "I'm from Lankaran.",
+      rule: askFrom,
+      variants: [
+        insteadOf('askName', 'Adını artıq bilirsən — haradan olduğunu soruş.', ex('Where are you from?', 'Ad yox, haradan olduğu lazımdır.', "Where are you from? — haradan; What's your name? — ad.", 'Hello! Where are you from?')),
+        other('Where are you from?', ex('Where are you from?', 'Haradan olduğunu soruşursan: Where are you from?', 'Where are you from? — haradan; How are you? — hal.', 'Hi! Where are you from?')),
+      ],
+      review: {
+        title: 'Haradan olduğunu soruş', why: 'Haradan olduğunu soruşdun.', hint: 'Bu dərsin ilk sualını xatırla.',
+        prompt: 'Hostelin mətbəxində yeni tanışla çay içirsən.\nHaradan olduğunu soruş.', reply: "I'm from Ganja.",
+        rule: askFrom,
+        variants: [
+          insteadOf('askFeeling', 'Hal yox, haradan olduğunu soruş.', ex('Where are you from?', 'Hal yox, haradan olduğu lazımdır.', 'Where are you from? — haradan; How are you? — hal.', 'Hi! Where are you from?')),
+          other('Where are you from?', ex('Where are you from?', 'Haradan olduğunu soruşursan: Where are you from?', "Where are you from? — haradan; What's your name? — ad.", 'Hi! Where are you from?')),
+        ],
+      },
+    },
+    {
+      // “Söhbəti tamamla” (20 Nov 2026): turns are ready, one word is missing. Each section keeps both kinds.
+      type: 'choice', id: 'u3d1_c13', number: 13, title: 'Söhbəti tamamla', why: 'Eyni şəhərdən olduğunu “Me too!” ilə dedin.', hint: 'O da Bakıdandır — “mən də” necə deyilir?',
+      prompt: 'Dil klubu.\nSöhbətdə bir söz əskikdir. Düzgün sözü seç.',
+      dialog: [{ from: 'other', text: 'Hi! Where are you from?' }, { from: 'G', text: "I'm from Baku. And you?" }],
+      gap: { speaker: 'other', before: 'Me', after: '!' }, options: ['too', 'from', 'you'], answer: 'too',
+      variants: [
+        pick('from', '“from” ölkə və ya şəhərdən əvvəl gəlir.', ex('too', '“Mən də” ingiliscə “Me too” olur.', "Me too! — mən də; I'm from Baku. — Bakıdanam.", 'Me too!')),
+        pick('you', '“you” sənin haqqındadır, “mən də” demir.', ex('too', '“Mən də” ingiliscə “Me too” olur.', 'Me too! — mən də; And you? — bəs sən?', 'Me too!')),
+      ],
+      review: {
+        title: 'Söhbəti tamamla', why: 'Eşitmədiyin şeyi təkrar istədin.', hint: 'Eşitmədin — bir də deməsini xahiş et.',
+        prompt: 'Qatarda söhbət.\nSöhbətdə bir söz əskikdir. Düzgün sözü seç.',
+        dialog: [{ from: 'other', text: 'Excuse me, where are you from?' }, { from: 'B', text: "I'm from Shamakhi." }],
+        gap: { speaker: 'other', before: 'Sorry? Say that', after: ', please.' }, options: ['again', 'slowly', 'too'], answer: 'again',
+        variants: [
+          pick('slowly', '“slowly” “More slowly” içində gəlir; burada eşitmədin.', ex('again', 'Eşitməyəndə “Say that again” deyirsən.', 'Say that again, please. — bir də; More slowly, please. — yavaş.', 'Sorry? Say that again, please.')),
+          pick('too', '“too” “mən də” deməkdir, təkrar istəmir.', ex('again', 'Eşitməyəndə “Say that again” deyirsən.', 'Say that again, please. — bir də; Me too! — mən də.', 'Sorry? Say that again, please.')),
+        ],
+      },
+    },
   ],
   result: {
     done: ['Dərs 1 tamamlandı', 'Artıq haradan olduğunu deyir, soruşur və “mən də” deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Haradan olduğunu soruşanda başa düşmək', tasks: ['u3d1_c03', 'u3d1_c13'] },
+      { group: 'Tanıma', text: 'Haradan olduğunu soruşanda başa düşmək', tasks: ['u3d1_c03', 'u3d1_c08', 'u3d1_c10', 'u3d1_c13'] },
       { group: 'Yazı', text: 'Haradan olduğunu və “mən də” yazmaq', tasks: ['u3d1_c05', 'u3d1_c11'] },
       { group: 'Danışıq', text: 'Haradan olduğunu demək və soruşmaq', tasks: ['u3d1_c07', 'u3d1_c12'] },
     ],
@@ -210,7 +214,7 @@ export const lesson1: DesignLesson = {
   },
   vocabulary: [
     { word: 'Where are you from?', translation: 'Haradansan?', example: 'Hello! Where are you from?', exampleAz: 'Salam! Haradansan?', usageNote: 'from — “-dan”, sualın sonunda gəlir.', pronunciation: '/wɛr ɑr ju frʌm/', teachCard: 'u3d1_c02' },
-    { word: "I'm from [ölkə]", translation: 'Mən [ölkə]-danam', example: "Where are you from? — I'm from Baku.", exampleAz: 'Haradansan? — Bakıdanam.', usageNote: "I'm from + şəhər / ölkə.", pronunciation: '/aɪm frʌm/', teachCard: 'u3d1_c02' },
+    { word: "I'm from [ölkə]", translation: 'Mən [ölkə]-danam', example: "Where are you from? — I'm from Baku.", exampleAz: 'Haradansan? — Bakıdanam.', usageNote: "I'm from + şəhər / ölkə.", pronunciation: '/aɪm frʌm/', teachCard: 'u3d1_c04' },
     { word: 'Azerbaijan', translation: 'Azərbaycan', example: "I'm from Azerbaijan.", exampleAz: 'Azərbaycandanam.', usageNote: 'Ölkə adı, böyük hərflə.', pronunciation: '/ˌæzərbaɪˈdʒɑn/', teachCard: 'u3d1_c06' },
     { word: 'Me too.', translation: 'Mən də.', example: "I'm from Baku. — Me too!", exampleAz: 'Bakıdanam. — Mən də!', usageNote: 'Eyni olanda: mən də.', pronunciation: '/mi tu/', teachCard: 'u3d1_c09' },
   ],
