@@ -124,7 +124,9 @@ function RecorderHold({ onRecording, onBusyChange, disabled, suspended }: { onRe
     const app = AppState.addEventListener('change', state => { if (state !== 'active') void stop(false); });
     return () => { mounted.current = false; app.remove(); safelyStopRecorder(recorder); void setAudioModeAsync({ allowsRecording: false }).catch(() => {}); busyChange.current(false); };
   }, [recorder, stop]);
-  return <MicView active={recording} level={0} disabled={disabled} status={recording ? '' : busy ? 'Hazırlanır…' : ''} message={message}
+  // Voice level for the orb: metering is dBFS (about -60 quiet … 0 loud).
+  const meterLevel = recording ? Math.max(0, Math.min(1, ((live.metering ?? -160) + 55) / 40)) : 0;
+  return <MicView active={recording} level={meterLevel} disabled={disabled} status={recording ? '' : busy ? 'Hazırlanır…' : ''} message={message}
     onIn={() => { held.current = true; void start(); }} onOut={() => { held.current = false; void stop(true); }} />;
 }
 
@@ -154,7 +156,7 @@ function MicView({ active, level, disabled, status, message, onIn, onOut }: { ac
   const hide = active ? { opacity: 0 } : null;
   return <View style={s.wrap}>
     <View style={s.orbBox}>
-      <VoiceOrb active={active} disabled={disabled} />
+      <VoiceOrb active={active} disabled={disabled} level={level} />
       <Pressable accessibilityRole="button" accessibilityLabel={active ? 'Dinləyirəm. Susanda cavabın göndəriləcək.' : 'Mikrofon. Basılı saxla və danış, və ya bir dəfə toxun və danış. Susanda cavabın göndəriləcək.'} accessibilityState={{ disabled, busy: active }}
         disabled={disabled} onPressIn={pressIn} onPressOut={pressOut} style={s.mic}>
         {active ? null : <Icon name="mic" size={40} color="#fff" stroke={2.2} />}
@@ -168,7 +170,7 @@ function MicView({ active, level, disabled, status, message, onIn, onOut }: { ac
 
 const s = StyleSheet.create({
   wrap: { alignItems: 'center', gap: 2 },
-  orbBox: { width: ORB_BOX, height: ORB_BOX, marginVertical: -30 },
+  orbBox: { width: ORB_BOX, height: ORB_BOX, marginVertical: -45 },
   mic: { position: 'absolute', left: (ORB_BOX - ORB) / 2, top: (ORB_BOX - ORB) / 2, width: ORB, height: ORB, borderRadius: ORB / 2, alignItems: 'center', justifyContent: 'center' },
   title: { color: d.title, fontSize: 20, ...font.extrabold, marginTop: 4 },
   sub: { color: d.inkSoft, fontSize: 16, ...font.semibold, textAlign: 'center' },

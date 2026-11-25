@@ -28,7 +28,7 @@ import { ChatTimeline } from './ChatTimeline';
 import { Avatar, ChatThread, TapText, SoundIcon, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TeacherView, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
 import Icon, { type IconName } from './Icons';
 import { DragBoard, FamilyTree, ProfileCard } from './NewTaskScreens';
-import { ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
+import { isEnglish, ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
 import { AudioPanel, Capsule, accentTitle, Card, Chip, ChoiceOption, Field, Header, KindChip, LessonCaption, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
 import { d, shadow, font } from './theme';
 import { sceneImage } from '../../config/sceneImages';
@@ -612,12 +612,14 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       if (textHelp) return <ResultPanel tone="neutral" title={graded.status === 'correct' ? 'Cavab uyğundur' : 'Mətnlə məşq etdin'} short={technical ? lesson.result.technical : 'Audio mətnini gördün. Dinləmə yoxlanmadı.'}
         collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
       // Sheet content (25 Nov 2026): diff rows for two-part answers, phrases to hear again after a correct answer.
-      const english = (x?: string) => Boolean(x && /[A-Za-z]/.test(x) && !/[əğıöüşçƏĞİÖÜŞÇ]/.test(x));
+      const english = (x?: string) => Boolean(x && isEnglish(x));
       const parts = result.kind === 'two' && task.type === 'two' ? task.fields.map(f => ({ label: f.label, ok: result.graded.fields[f.id]?.status === 'correct', mine: (two[f.id] ?? '').trim() || undefined,
         answer: f.rule.answers.slice(0, 2).join(' / ') })) : undefined;
       const mineText = task.type === 'write' ? text.trim() : task.type === 'choice' ? choice : undefined;
       const listen = parts ? parts.map(p => p.mine ?? '').filter(english)
-        : task.type === 'voice' ? [task.rule.answers[0]].filter(english) : [mineText ?? ''].filter(english);
+        : task.type === 'voice' ? [task.rule.answers[0]].filter(english)
+        // Listening: hear the recording again (not the Azerbaijani option you picked).
+        : listeningTask && audio ? [audio].filter(english) : [mineText ?? ''].filter(english);
       const assistedNow = !reviewing && Boolean(meaningHint || sampleShown || peeked || (task.type === 'voice' && task.sample && lesson.order <= 2));
       if (graded.status === 'correct') return <ResultPanel tone="correct" title={assistedNow ? 'Düzgündür' : 'Əla!'} short={task.why} listen={listen} onSay={t => speak(t.replace(/…/g, ''), 0.85)} corrections={result.kind === 'single' ? result.graded.spellingCorrections : undefined}
         assisted={assistedNow} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;

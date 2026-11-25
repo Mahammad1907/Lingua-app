@@ -583,8 +583,8 @@ export function PhraseCard({ text, stress, note, reading }: { text: string; stre
 export function Reading({ text, left }: { text: string; left?: boolean }) {
   const parts = text.split(/(\*\*[^*]+\*\*)/);
   return <Text style={[s.reading, left && { textAlign: 'left' }]} accessibilityLabel={`Oxunuşu: ${text.replace(/\*/g, '')}`}>
-    {/* th in royal purple (25 Nov 2026 design system: orange only for the bar and forward buttons). */}
-    {parts.map((p, i) => p.startsWith('**') ? <Text key={i} style={{ ...font.extrabold, color: d.purple }}>{p.slice(2, -2)}</Text> : p)}
+    {/* th in orange on the purple reading line — the approved card look the user asked back (25 Nov 2026). */}
+    {parts.map((p, i) => p.startsWith('**') ? <Text key={i} style={{ ...font.extrabold, color: d.orangeText }}>{p.slice(2, -2)}</Text> : p)}
   </Text>;
 }
 
@@ -592,19 +592,6 @@ function InfoRow({ icon, label, children, first, tight }: { icon: IconName; labe
   return <View style={[s.infoRow, !first && s.infoLine, tight && { paddingVertical: 6 }]}>
     <View style={s.infoIcon}><Icon name={icon} size={18} color={d.purple} /></View>
     <View style={{ flex: 1, gap: tight ? 2 : 4 }}><Text style={s.rowLabel}>{label.toLocaleUpperCase('az')}</Text>{children}</View>
-  </View>;
-}
-
-/** ▶/⏸ | speed in one lavender capsule (25 Nov 2026) — replaces ▶ + turtle on Yeni söz and Öyrən cards. */
-function AudioCapsule({ onPlay, rate = 1, onRate, playing }: { onPlay: () => void; rate?: number; onRate?: () => void; playing?: boolean }) {
-  return <View style={s.capsule}>
-    <Pop accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Dinlə'} onPress={() => { tapHaptic(); onPlay(); }} style={s.capPlay}>
-      {playing ? <Icon name="pause" size={22} color="#fff" /> : <View style={{ marginLeft: 3 }}><SoundIcon size={22} /></View>}
-    </Pop>
-    {onRate ? <><View style={s.capLine} />
-    <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={() => { tapHaptic(); onRate(); }} hitSlop={8} style={s.capRate}>
-      <Text style={s.capRateText}>{rate}x</Text>
-    </Pressable></> : null}
   </View>;
 }
 
@@ -633,6 +620,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   // Approved simple card (user, 13 Nov 2026): one phrase, its reading in the bubble, then Mənası · (Quruluşu) · Nümunə · one short note.
   // No scrolling, no phonetic line (that stays in the word pop-up and Lüğətim).
   const image = sceneImage(scenes);
+  const oneLine = word && phrases.length > 1 && phrases.join(' · ').length <= 18;
   const spoken = phrases.join('. ');
   const long = phrases.join(' ').length > 16;
   // Yeni söz cards must fit the screen without scrolling (user, 21 Nov 2026): no picture slot, tighter rows.
@@ -650,18 +638,18 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
       <Avatar who={i % 2 ? 'B' : 'G'} size={40} />
       <View style={{ flex: 1 }}><TapText text={l.en} style={s.dialogEn} onWord={onWord} /><Text style={s.moreAz}>{l.az}</Text></View>
       <PlayButton onPress={() => onPlay(l.en)} size={40} label={`Dinlə: ${l.en}`} />
-    </View>)}</View> : word ? <View style={[s.hero, s.softShadow]}>
-      {/* Yeni söz hero (25 Nov 2026): borderless white card, phrase with slot pills, slate reading, one audio capsule. */}
-      {phrases.map(p => <Slotted key={p} text={p} style={[s.heroText, long && { fontSize: 28, lineHeight: 34 }, phrases.length > 1 && { fontSize: 24, lineHeight: 30 }]} />)}
-      {reading ? <Reading text={reading} /> : null}
-      <AudioCapsule onPlay={() => onPlay(spoken)} rate={rate} onRate={onRate} playing={playing} />
-    </View> : <View style={[s.banner, shadow]}>
+    </View>)}</View> : <View style={[s.banner, shadow]}>
       {/* No mascot on Yeni söz cards (user, 20 Nov 2026): the phrase gets the full width. */}
       {chip === 'Yeni söz' ? null : <Image source={mascotFull} style={{ width: 78, height: 96 }} contentFit="contain" accessibilityLabel="Maskot" />}
       <View style={[s.bannerBubble, word && { paddingVertical: 8, gap: 4 }]}>
-        {phrases.map(p => <Text key={p} accessibilityRole="header" style={[s.bannerText, long && { fontSize: 24, lineHeight: 30 }, word && phrases.length > 1 && { fontSize: 22, lineHeight: 27 }]}>{nameSlot(p)}</Text>)}
+        {/* Short phrase pairs on one line: “Hello! · Hi!” (user, 25 Nov 2026). */}
+        {(oneLine ? [phrases.join(' · ')] : phrases).map(p => <Text key={p} accessibilityRole="header" style={[s.bannerText, long && { fontSize: 24, lineHeight: 30 }, word && phrases.length > 1 && !oneLine && { fontSize: 22, lineHeight: 27 }]}>{nameSlot(p)}</Text>)}
         {reading ? <Reading text={reading} /> : null}
-        <AudioCapsule onPlay={() => onPlay(spoken)} rate={rate} onRate={onRate} playing={playing} />
+        {/* The approved purple-framed card is back (user, 25 Nov 2026); ▶ + the lesson speed button in place of the turtle. */}
+        <View style={s.bannerAudio}><PlayButton onPress={() => onPlay(spoken)} size={44} label={playing ? 'Dinləmə gedir' : 'Dinlə'} />
+          {onRate ? <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={() => { tapHaptic(); onRate(); }} style={({ pressed }) => [s.speedRound, pressed && { opacity: .8 }]}>
+            <Text style={s.capRateText}>{rate}x</Text></Pressable> : null}
+        </View>
       </View>
     </View>}
     <View style={[s.info, word ? s.softShadow : shadow, word && s.infoTight]}>
@@ -729,7 +717,8 @@ function Segments({ items, active, onPick }: { items: { word: string; az: string
 /** “Yeni söz” card on the approved teaching layout. */
 export function WordView({ card, onPlay, onWord, rate, onRate, playing }: { card: WordCard; onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void; rate?: number; onRate?: () => void; playing?: boolean }) {
   const parts = wordParts(card);
-  return <View style={{ gap: 10 }}>
+  // Cards sit in the middle of the free space, not bunched at the top (user, 25 Nov 2026).
+  return <View style={{ gap: 14, flexGrow: 1, justifyContent: 'center' }}>
     <LearnView chip="Yeni söz" phrases={card.word.split(/\s*·\s*/)} az={card.az} reading={card.reading} ipa={card.pronunciation} structure={card.structure}
       notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} shortForm={card.shortForm} onPlay={onPlay} onWord={onWord} rate={rate} onRate={onRate} playing={playing} />
     {parts.length ? <WordParts parts={parts} onPlay={onPlay} thNote={!card.notes?.some(n => /\bth\b/i.test(n))} /> : null}
@@ -750,7 +739,13 @@ function firstTaught() {
 function wordParts(card: WordCard) {
   const words = [...new Set(tokens(card.word))];
   // Single words, letter groups and number groups need no breakdown: the meaning line already says it.
-  if (words.length < 2 || words.every(w => w.length === 1) || card.word.includes(' · ')) return [];
+  // Two or three phrases on one card (“Hello! · Hi!”): one segment per phrase with its own meaning (user, 25 Nov 2026).
+  if (card.word.includes(' · ')) {
+    const phrases = card.word.split(/\s*·\s*/), az = card.az.split(/\s*·\s*/);
+    return phrases.length >= 2 && phrases.length <= 4 && az.length === phrases.length && !phrases.every(p => p.replace(/[^A-Za-z]/g, '').length <= 1)
+      ? phrases.map((p, i) => ({ word: p, az: az[i], fresh: true })) : [];
+  }
+  if (words.length < 2 || words.every(w => w.length === 1)) return [];
   const first = firstTaught();
   return words.map(w => { const g = glossOf(w); return g ? { word: w, az: g.az, fresh: first.get(w) === card.id } : undefined; })
     .filter((x): x is { word: string; az: string; fresh: boolean } => Boolean(x));
@@ -791,6 +786,7 @@ const s = StyleSheet.create({
   bannerBubble: { flex: 1, alignItems: 'center', gap: 6, backgroundColor: '#fff', borderRadius: 22, paddingVertical: 12, paddingHorizontal: 10 },
   bannerText: { color: d.ink, fontSize: 30, lineHeight: 36, textAlign: 'center', ...font.extrabold },
   bannerAudio: { flexDirection: 'row', gap: 12 },
+  speedRound: { minWidth: 44, height: 44, borderRadius: 22, paddingHorizontal: 8, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   info: { borderRadius: radius.card, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border, paddingHorizontal: 14, paddingVertical: 4 },
   // Yeni söz breakdown card: borderless, soft shadow, hairline rows (25 Nov 2026).
   infoRow: { flexDirection: 'row', gap: 12, paddingVertical: 9 },
@@ -814,7 +810,7 @@ const s = StyleSheet.create({
   chipsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'flex-end' },
   chip: { minHeight: 40, paddingHorizontal: 14, borderRadius: 14, backgroundColor: d.purple, justifyContent: 'center' },
   chipText: { color: '#fff', fontSize: 17, ...font.extrabold },
-  reading: { color: '#64748B', fontSize: 17, textAlign: 'center', ...font.bold },
+  reading: { color: d.purple, fontSize: 17, textAlign: 'center', ...font.extrabold },
   inRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 8 },
   inBubble: { maxWidth: '78%', paddingHorizontal: 16, paddingVertical: 11, borderRadius: 20, borderBottomLeftRadius: 6, backgroundColor: '#fff', ...shadow, shadowOpacity: .06 },
   bubbleText: { color: d.ink, fontSize: 17, lineHeight: 23, ...font.bold },

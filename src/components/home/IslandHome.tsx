@@ -28,7 +28,7 @@ const mascotHead = require('../../../assets/mascot/hood_head.png');
 
 // The user's wavy, cloud-like island outline, drawn for a 350 × 800 box.
 const OUTLINE = 'M70 30 C110 6 150 22 176 14 C206 4 238 18 268 22 C312 28 334 70 330 110 C326 150 346 178 340 222 C334 268 312 290 320 336 C328 384 346 410 338 456 C330 500 306 520 314 566 C322 612 342 640 330 686 C318 736 280 770 228 782 C188 792 150 778 116 786 C74 796 34 770 22 728 C10 686 28 650 20 606 C12 560 -2 530 10 486 C22 442 44 420 34 374 C24 328 4 298 14 254 C24 210 48 186 40 142 C32 98 34 54 70 30 Z';
-const NODE = 62, HOT = 76, TROPHY = 58;
+const NODE = 56, HOT = 70, TROPHY = 56;
 
 type Pt = { x: number; y: number };
 const lerp = (a: Pt, b: Pt, t: number) => ({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t });
@@ -87,10 +87,12 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   const W = Math.min(width - 28, 400);
   // The AI zəng card sits on the path after the middle lesson (lesson 4 of 8); that gap is a little taller.
   const aiAt = count >= 2 ? Math.ceil(count / 2) - 1 : -1;
-  const AI_GAP = aiAt >= 0 ? 76 : 0;
-  const H = Math.max(560, height - topInset - 132 - bottomSpace - 16 - 60) + AI_GAP;
-  const step = (H - 90 - AI_GAP) / Math.max(count - 1, 1);
-  const pts: Pt[] = lessons.map((_, i) => ({ x: W * (i % 2 ? .82 : .18), y: 46 + i * step + (aiAt >= 0 && i > aiAt ? AI_GAP : 0) }));
+  const AI_GAP = aiAt >= 0 ? 64 : 0;
+  // The whole section fits on one screen under the sticky header and the daily-review card (user, 25 Nov 2026).
+  // Neighbours sit on opposite sides, so the circles may be closer than their size.
+  const H = Math.max(470, height - Math.max(topInset, insets.top) - 4 - 114 - REVIEW_H - bottomSpace - 12);
+  const step = (H - 76 - AI_GAP) / Math.max(count - 1, 1);
+  const pts: Pt[] = lessons.map((_, i) => ({ x: W * (i % 2 ? .82 : .18), y: 40 + i * step + (aiAt >= 0 && i > aiAt ? AI_GAP : 0) }));
   const aiPt: Pt | null = aiAt >= 0 ? { x: (pts[aiAt].x + pts[aiAt + 1].x) / 2, y: (pts[aiAt].y + pts[aiAt + 1].y) / 2 } : null;
   // Bridge (25 Nov 2026): a white hourglass neck under the island; the trophy sits in its waist. No dots, no text.
   const EXTRA = exam ? (hasNext ? 190 : 120) : 20;
@@ -177,7 +179,7 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
               strokeDasharray={`${c * pct / 100} ${c}`} transform={`rotate(-90 ${size / 2} ${size / 2})`} /> : null}
           </Svg>
           <View style={[s.nodeInner, { width: size - 14, height: size - 14, borderRadius: (size - 14) / 2 }, isHot ? null : { backgroundColor: done ? '#DDD6FE' : '#EDE9FE' }, !reachable && !isHot && { opacity: .55 }]}>
-            <LessonIcon name={lesson.icon ?? 'chats'} size={isHot ? 34 : 28} white={isHot} />
+            <LessonIcon name={lesson.icon ?? 'chats'} size={isHot ? 38 : 30} white={isHot} />
           </View>
         </Pop>
         {/* Name + % beside the circle, no card (25 Nov 2026); parts: “17% · 2 hissə”. */}
@@ -293,7 +295,7 @@ function LessonSheet({ open, onClose, lessons, active, locked, allOpen, complete
   const go = (id: string) => { tapHaptic(); onOpenLesson(id); };
   return <Modal visible transparent animationType="none" onRequestClose={onClose} statusBarTranslucent>
     <Reanimated.View entering={FadeIn.duration(180)} style={StyleSheet.absoluteFill}><Pressable accessibilityLabel="Bağla" style={s.backdrop} onPress={onClose} /></Reanimated.View>
-    <Reanimated.View entering={SlideInDown.springify().damping(18).stiffness(170)} style={[s.sheet, { paddingBottom: Math.max(20, insets.bottom + 10) }]}>
+    <Reanimated.View entering={SlideInDown.duration(260)} style={[s.sheet, { paddingBottom: Math.max(20, insets.bottom + 10) }]}>
       <View style={s.handle} />
       <View style={s.sheetHead}>
         <View style={s.sheetIcon}><LessonIcon name={open.icon ?? 'chats'} size={28} /></View>
@@ -307,7 +309,13 @@ function LessonSheet({ open, onClose, lessons, active, locked, allOpen, complete
         <Text style={s.sheetPct}>{pct}%</Text>
         <View style={s.track}><LinearGradient colors={['#F97316', '#EA580C']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={{ width: `${Math.max(pct, pct ? 4 : 0)}%`, height: '100%', borderRadius: 4 }} /></View>
       </View>
-      {!reachable ? <Text style={s.sheetLocked}>Bu dərs əvvəlki dərsi bitirəndə açılacaq.</Text> : parts.map((part, k) => {
+      {!reachable ? <Text style={s.sheetLocked}>Bu dərs əvvəlki dərsi bitirəndə açılacaq.</Text>
+        // One-part lesson (user, 25 Nov 2026): no part card repeating the title — one orange button.
+        : !multi ? <Pop accessibilityRole="button" accessibilityLabel={done ? 'Yenidən keç' : pct ? 'Davam et' : 'Başla'} onPress={() => go(open.id)} style={s.goWide}>
+          <LinearGradient colors={['#F97316', '#EA580C']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={[StyleSheet.absoluteFill, { borderRadius: 28 }]} />
+          <Text style={s.goWideText}>{done ? 'Yenidən keç' : pct ? 'Davam et' : 'Başla'}</Text><Icon name="arrow" size={18} color="#fff" />
+        </Pop>
+        : parts.map((part, k) => {
         const pp = partPct(part.id), partDone = pp === 100;
         const partOpen = allOpen || k === 0 || completed.includes(parts[k - 1].id);
         const now = k === (current < 0 ? -1 : current) && partOpen;
@@ -364,7 +372,7 @@ export function IslandNavigation({ bottomInset, onNavigate, active = 'learn' }: 
 export const NAV_HEIGHT = 74;
 
 /** Height of the daily-review card plus its margins (taken from the island's height so the map still fits). */
-const REVIEW_H = 76;
+const REVIEW_H = 84;
 const AI_CARD_H = 52;
 
 const s = StyleSheet.create({
@@ -426,6 +434,8 @@ const s = StyleSheet.create({
   partLocked: { color: d.inkSoft, fontSize: 12, ...font.bold, maxWidth: 96, textAlign: 'right' },
   goHot: { flexDirection: 'row', alignItems: 'center', gap: 6, height: 44, paddingHorizontal: 18, borderRadius: 22, overflow: 'hidden' },
   goHotText: { color: '#fff', fontSize: 16, ...font.extrabold },
+  goWide: { flexDirection: 'row', gap: 8, height: 56, borderRadius: 28, alignItems: 'center', justifyContent: 'center', overflow: 'hidden' },
+  goWideText: { color: '#fff', fontSize: 18, ...font.extrabold },
   goSoft: { height: 44, paddingHorizontal: 18, borderRadius: 22, backgroundColor: '#EDE9FE', justifyContent: 'center' },
   goSoftText: { color: d.purple, fontSize: 16, ...font.extrabold },
   navWrap: { position: 'absolute', left: 0, right: 0, bottom: 0, paddingHorizontal: 12 },

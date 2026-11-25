@@ -6,12 +6,15 @@ import { englishWords, glossOf } from '../../data/unit1/glossary';
 import Icon from './Icons';
 import { Capsule, MainButton, Sheet, ds, nameSlot, tapHaptic } from './parts';
 import Reanimated, { SlideInDown } from 'react-native-reanimated';
+import { glossOf } from '../../data/unit1/glossary';
 import { SoundIcon } from './TaskScreens';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { d, radius, shadow, font } from './theme';
 
 /** English phrase we can play (Latin letters, no Azerbaijani letters). */
-const isEnglish = (x: string) => /[A-Za-z]/.test(x) && !/[əğıöüşçƏĞİÖÜŞÇ]/.test(x);
+// English = Latin letters, no Azerbaijani letters AND at least one glossary word (“Salam verir.” is not English).
+export const isEnglish = (x: string) => /[A-Za-z]/.test(x) && !/[əğıöüşçƏĞİÖÜŞÇ]/.test(x)
+  && x.split(/[^A-Za-z'’]+/).some(w => w && glossOf(w));
 const splitAnswers = (x: string) => x.split(/\s+\/\s+|;\s*/).map(v => v.trim()).filter(Boolean);
 
 /** One part of a multi-part answer (e.g. the two messages): label, verdict, what the learner wrote, the right answer. */
@@ -43,7 +46,7 @@ export function ResultPanel({ tone, title, short, answers, parts, mine, listen, 
   if (collapsed) return <View style={{ gap: 10, paddingHorizontal: 20, paddingBottom: Math.max(14, insets.bottom + 6) }}>{button}</View>;
   const say = listen?.filter(isEnglish) ?? [];
   const pills = [onRule ? <Capsule key="r" small align="stretch" tone="neutral" icon="layers" label="Qaydaya bax" onPress={onRule} /> : null, onExplain ? <Capsule key="e" small align="stretch" tone="soft" icon="sparkle" label="Mənə başa sal" onPress={onExplain} /> : null].filter(Boolean);
-  return <Reanimated.View entering={SlideInDown.springify().damping(18).stiffness(180)} style={[s.panel, { paddingBottom: Math.max(18, insets.bottom + 8) }]}>
+  return <Reanimated.View entering={SlideInDown.duration(260)} style={[s.panel, { paddingBottom: Math.max(18, insets.bottom + 8) }]}>
     <Pressable accessibilityRole="button" accessibilityLabel="Paneli kiçilt" onPress={onCollapse} hitSlop={12} style={s.grab}><View style={s.handle} /></Pressable>
     <View accessibilityLiveRegion="polite" style={s.titleRow}>
       <View style={[s.badge, { backgroundColor: tone === 'correct' ? '#22C55E' : tone === 'wrong' ? '#EF4444' : d.purpleDisabledText }]}>
@@ -53,8 +56,8 @@ export function ResultPanel({ tone, title, short, answers, parts, mine, listen, 
       <Pressable accessibilityRole="button" accessibilityLabel="Xəta bildir" onPress={onReport} hitSlop={10} style={s.flag}><Icon name="flag" size={20} color="#A3A8B8" /></Pressable>
     </View>
     {short ? <Text style={s.short}>{short}</Text> : null}
-    {assisted ? <Text style={s.note}>Köməklə qeyd olundu.</Text> : null}
-    {corrections?.length ? <Text style={s.note}>Kiçik yazı düzəlişi: {corrections.map(c => `${c.before} → ${c.after}`).join(', ')}</Text> : null}
+    {assisted ? <Text style={s.smallNote}>Köməklə qeyd olundu.</Text> : null}
+    {corrections?.length ? <Text style={s.smallNote}>Kiçik yazı düzəlişi: {corrections.map(c => `${c.before} → ${c.after}`).join(', ')}</Text> : null}
 
     {tone === 'wrong' && parts?.length ? <View style={s.diff}>{parts.map((p, i) => <View key={p.label} style={[s.diffRow, i > 0 && s.hair]}>
       <Icon name={p.ok ? 'check' : 'close'} size={16} color={p.ok ? '#10B981' : '#EF4444'} stroke={2.8} />
@@ -67,9 +70,12 @@ export function ResultPanel({ tone, title, short, answers, parts, mine, listen, 
     </View>)}</View>
     : tone === 'wrong' && answers ? <View style={s.diff}>
       <Text style={s.cardLabel}>UYĞUN CAVAB</Text>
-      {mine && isEnglish(mine) ? <View style={s.diffBody}><Icon name="close" size={16} color="#EF4444" stroke={2.8} /><Text style={s.struck} numberOfLines={1}>{nameSlot(mine)}</Text><Text style={s.arrow}>→</Text></View> : null}
-      <View style={s.chips}>{splitAnswers(answers).slice(0, 4).map(x => <SayChip key={x} text={x} onSay={onSay} tone="lavender" />)}</View>
-      {meaning ? <Text style={s.note}>Mənası: {nameSlot(meaning)}</Text> : null}
+      {/* One line (25 Nov 2026): ✕ your answer (struck) → ▶ the right answer(s). */}
+      <View style={s.oneRow}>
+        {mine ? <><Icon name="close" size={16} color="#EF4444" stroke={2.8} /><Text style={s.struck} numberOfLines={1}>{nameSlot(mine)}</Text><Text style={s.arrow}>→</Text></> : null}
+        {splitAnswers(answers).slice(0, 4).map(x => <SayChip key={x} text={x} onSay={onSay} tone="lavender" />)}
+      </View>
+      {meaning ? <Text style={s.smallNote}>Mənası: {nameSlot(meaning)}</Text> : null}
     </View> : null}
 
     {tone === 'correct' && say.length ? <View style={s.mint}>
@@ -77,7 +83,7 @@ export function ResultPanel({ tone, title, short, answers, parts, mine, listen, 
       <View style={s.chips}>{say.slice(0, 4).map(x => <SayChip key={x} text={x} onSay={onSay} />)}</View>
     </View> : null}
 
-    {repeatFrom ? <Text style={[s.note, { ...font.bold }]}>Təkrarla: {repeatFrom}</Text> : null}
+    {repeatFrom ? <Text style={[s.smallNote, { ...font.bold }]}>Təkrarla: {repeatFrom}</Text> : null}
     {pills.length ? <View style={s.pillRow}>{pills.map((p, i) => <View key={i} style={{ flex: 1 }}>{p}</View>)}</View> : null}
     {actions ? <View style={s.actions}>{actions}</View> : null}
     {button}
@@ -183,7 +189,8 @@ const s = StyleSheet.create({
     shadowColor: '#0F172A', shadowOpacity: .12, shadowRadius: 18, shadowOffset: { width: 0, height: -4 }, elevation: 12 },
   grab: { alignSelf: 'center', paddingVertical: 6, paddingHorizontal: 20 },
   handle: { width: 40, height: 5, borderRadius: 3, backgroundColor: '#D9DCE5' },
-  note: { color: d.slate, fontSize: 14, lineHeight: 20, ...font.semibold },
+  smallNote: { color: d.slate, fontSize: 14, lineHeight: 20, ...font.semibold },
+  oneRow: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
   diff: { gap: 10, backgroundColor: '#FFF9F9', borderWidth: 1, borderColor: '#FDE2E4', borderRadius: 18, padding: 14 },
   diffRow: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
   hair: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: '#F5C9CE', paddingTop: 10 },
