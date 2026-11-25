@@ -627,7 +627,7 @@ function Pattern({ text, small }: { text: string; small?: boolean }) {
 
 /** Teaching card (approved “İlk salam” design): purple banner with the mascot and the phrase in a bubble,
  *  then Mənası · Oxunuşu · Quruluşu · other phrases · Qeyd · Nümunə rows. Used for Yeni söz and Öyrən cards. */
-export function LearnView({ chip, title, lead, phrases, az, reading, ipa, structure, notes, example, scenes, dialog, shortForm, onPlay, onWord, rate = 1, onRate, playing }: {
+export function LearnView({ chip, title, lead, phrases, az, reading, ipa, structure, notes, example, scenes, dialog, shortForm, onPlay, onWord, rate = 1, onRate, playing, dense }: {
   chip: string; title?: string; lead?: string; phrases: string[]; az: string; reading?: string; ipa?: string; structure?: string[];
   notes?: string[]; example?: { en: string; az: string }; scenes?: string[];
   /** A short conversation (girl and boy take turns) instead of one phrase in the banner. */
@@ -636,6 +636,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   shortForm?: { full: string; short: string };
   onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void;
   /** Lesson speed (1x → 0.75x → 0.5x → 1.25x), shared with every normal sound button. */ rate?: number; onRate?: () => void; playing?: boolean;
+  /** Compact rows — only when the card does not fit at normal size (decided by the lesson screen). */ dense?: boolean;
 }) {
   // Approved simple card (user, 13 Nov 2026): one phrase, its reading in the bubble, then Mənası · (Quruluşu) · Nümunə · one short note.
   // No scrolling, no phonetic line (that stays in the word pop-up and Lüğətim).
@@ -645,6 +646,8 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   // Yeni söz cards must fit the screen without scrolling (user, 21 Nov 2026): no picture slot, tighter rows.
   const word = chip === 'Yeni söz';
   const oneLine = word && phrases.length > 1 && phrases.join(' · ').length <= 18;
+  // Roomy by default; compact only on cards that would not fit (user, 25 Nov 2026: “why is it squeezed”).
+  const tight = Boolean(dense);
   const art = useArtFit();
   void ipa;
   return <View style={{ gap: 10 }}>
@@ -661,9 +664,9 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
     </View>)}</View> : <View style={[s.banner, shadow]}>
       {/* No mascot on Yeni söz cards (user, 20 Nov 2026): the phrase gets the full width. */}
       {chip === 'Yeni söz' ? null : <Image source={mascotFull} style={{ width: 78, height: 96 }} contentFit="contain" accessibilityLabel="Maskot" />}
-      <View style={[s.bannerBubble, word && { paddingVertical: 8, gap: 4 }]}>
+      <View style={[s.bannerBubble, tight && { paddingVertical: 8, gap: 4 }]}>
         {/* Short phrase pairs on one line: “Hello! · Hi!” (user, 25 Nov 2026). */}
-        {(oneLine ? [phrases.join(' · ')] : phrases).map(p => <Text key={p} accessibilityRole="header" style={[s.bannerText, long && { fontSize: 24, lineHeight: 30 }, word && phrases.length > 1 && !oneLine && { fontSize: 22, lineHeight: 27 }]}>{nameSlot(p)}</Text>)}
+        {(oneLine ? [phrases.join(' · ')] : phrases).map(p => <Text key={p} accessibilityRole="header" style={[s.bannerText, long && { fontSize: 24, lineHeight: 30 }, tight && phrases.length > 1 && !oneLine && { fontSize: 22, lineHeight: 27 }]}>{nameSlot(p)}</Text>)}
         {reading ? <Reading text={reading} /> : null}
         {/* The approved purple-framed card is back (user, 25 Nov 2026); ▶ + the lesson speed button in place of the turtle. */}
         <View style={s.bannerAudio}><PlayButton onPress={() => onPlay(spoken)} size={44} label={playing ? 'Dinləmə gedir' : 'Dinlə'} />
@@ -673,7 +676,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
       </View>
     </View>}
     <View style={[s.info, word ? s.softShadow : shadow, word && s.infoTight]}>
-      {dialog ? null : <InfoRow first icon="tag" label="Mənası" tight={word}><Slotted text={az} style={[s.infoStrong, word && { fontSize: 18, lineHeight: 23 }]} /></InfoRow>}
+      {dialog ? null : <InfoRow first icon="tag" label="Mənası" tight={tight}><Slotted text={az} style={[s.infoStrong, tight && { fontSize: 18, lineHeight: 23 }]} /></InfoRow>}
       {shortForm ? <View style={[s.infoRow, s.infoLine, { alignItems: 'center', paddingVertical: 6 }]} accessibilityLabel="Qısa forma">
         {/* Short forms are explained where they first appear, without grammar terms (20 Nov 2026). */}
         <View style={s.infoIcon}><Icon name="layers" size={20} color={d.purple} /></View>
@@ -687,15 +690,15 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
           <Text style={s.partAz}>Danışıqda qısa deyilir, mənası eynidir. (') düşən hərfin yerini göstərir.</Text>
         </View>
       </View> : null}
-      {structure?.length ? <InfoRow icon="layers" label="Quruluşu" tight={word}><View style={[s.patterns, word && { gap: 6 }]}>{structure.map(p => <Pattern key={p} text={p} small={word} />)}</View></InfoRow> : null}
-      {example ? <View style={[s.infoRow, !dialog && s.infoLine, { alignItems: 'center' }, word && { paddingVertical: 6 }]}>
+      {structure?.length ? <InfoRow icon="layers" label="Quruluşu" tight={tight}><View style={[s.patterns, tight && { gap: 6 }]}>{structure.map(p => <Pattern key={p} text={p} small={tight} />)}</View></InfoRow> : null}
+      {example ? <View style={[s.infoRow, !dialog && s.infoLine, { alignItems: 'center' }, tight && { paddingVertical: 6 }]}>
         <View style={s.infoIcon}><Icon name="chat" size={20} color={d.purple} /></View>
-        <View style={{ flex: 1, gap: 1 }}><Text style={s.rowLabel}>NÜMUNƏ</Text><TapText text={example.en} style={[s.exampleEn, word && { fontSize: 17 }]} onWord={onWord} /><Text style={[s.moreAz, word && { color: d.slate }]}>{nameSlot(example.az)}</Text></View>
+        <View style={{ flex: 1, gap: 1 }}><Text style={s.rowLabel}>NÜMUNƏ</Text><TapText text={example.en} style={[s.exampleEn, tight && { fontSize: 17 }]} onWord={onWord} /><Text style={[s.moreAz, word && { color: d.slate }]}>{nameSlot(example.az)}</Text></View>
         <PlayButton onPress={() => onPlay(example.en)} size={40} label="Nümunəni dinlə" />
       </View> : null}
       {notes?.length ? <View style={[s.infoRow, (example || !dialog) && s.infoLine, { alignItems: 'center' }, word && s.tipStrip]}>
         <View style={s.infoIcon}><Icon name="bulb" size={20} color={d.purple} /></View>
-        <Text style={[s.noteText, { flex: 1 }, word && { fontSize: 14, lineHeight: 19 }]}>{notes[0]}</Text>
+        <Text style={[s.noteText, { flex: 1 }, tight && { fontSize: 14, lineHeight: 19 }]}>{notes[0]}</Text>
       </View> : null}
     </View>
   </View>;
@@ -735,12 +738,12 @@ function Segments({ items, active, onPick }: { items: { word: string; az: string
 }
 
 /** “Yeni söz” card on the approved teaching layout. */
-export function WordView({ card, onPlay, onWord, rate, onRate, playing }: { card: WordCard; onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void; rate?: number; onRate?: () => void; playing?: boolean }) {
+export function WordView({ card, onPlay, onWord, rate, onRate, playing, dense }: { card: WordCard; onPlay: (t: string, rate?: number) => void; onWord?: (w: string) => void; rate?: number; onRate?: () => void; playing?: boolean; dense?: boolean }) {
   const parts = wordParts(card);
   // Cards start at the top at full size (centering them made the auto-fit shrink the text — user, 25 Nov 2026).
   return <View style={{ gap: 10 }}>
     <LearnView chip="Yeni söz" phrases={card.word.split(/\s*·\s*/)} az={card.az} reading={card.reading} ipa={card.pronunciation} structure={card.structure}
-      notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} shortForm={card.shortForm} onPlay={onPlay} onWord={onWord} rate={rate} onRate={onRate} playing={playing} />
+      notes={card.notes} example={{ en: card.example, az: card.exampleAz }} scenes={card.scenes} shortForm={card.shortForm} onPlay={onPlay} onWord={onWord} rate={rate} onRate={onRate} playing={playing} dense={dense} />
     {parts.length ? <WordParts parts={parts} onPlay={onPlay} thNote={!card.notes?.some(n => /\bth\b/i.test(n))} /> : null}
   </View>;
 }
@@ -789,7 +792,7 @@ const s = StyleSheet.create({
   capLine: { width: 1, height: 24, backgroundColor: '#DDD6FE' },
   capRate: { minWidth: 48, alignItems: 'center' },
   capRateText: { color: d.purple, fontSize: 17, ...font.extrabold },
-  rowLabel: { color: '#64748B', fontSize: 12, letterSpacing: 1, ...font.extrabold },
+  rowLabel: { color: '#64748B', fontSize: 13, letterSpacing: 1, ...font.extrabold },
   tipStrip: { backgroundColor: '#F8F7FC', marginHorizontal: -14, paddingHorizontal: 14, paddingVertical: 8, borderBottomLeftRadius: 24, borderBottomRightRadius: 24 },
   partsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   partChip: { minWidth: 64, maxWidth: 150, paddingHorizontal: 10, paddingVertical: 6, borderRadius: 14, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
@@ -811,13 +814,13 @@ const s = StyleSheet.create({
   speedRound: { minWidth: 44, height: 44, borderRadius: 22, paddingHorizontal: 8, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   info: { borderRadius: radius.card, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border, paddingHorizontal: 14, paddingVertical: 4 },
   // Yeni söz breakdown card: borderless, soft shadow, hairline rows (25 Nov 2026).
-  infoRow: { flexDirection: 'row', gap: 12, paddingVertical: 9 },
+  infoRow: { flexDirection: 'row', gap: 12, paddingVertical: 12 },
   noteText: { color: d.ink, fontSize: 15, lineHeight: 21, ...font.semibold },
   infoLine: { borderTopWidth: 1, borderTopColor: '#F1F5F9' },
   infoTight: { paddingTop: 2, paddingBottom: 0, borderWidth: 0, borderRadius: 24 },
   sfChip: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
   sfWord: { color: d.ink, fontSize: 15, ...font.extrabold },
-  infoIcon: { width: 32, height: 32, borderRadius: 10, backgroundColor: '#F5F3FF', alignItems: 'center', justifyContent: 'center' },
+  infoIcon: { width: 38, height: 38, borderRadius: 12, backgroundColor: '#F5F3FF', alignItems: 'center', justifyContent: 'center' },
   infoStrong: { color: d.ink, fontSize: 20, lineHeight: 26, ...font.extrabold },
   patterns: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   pattern: { paddingHorizontal: 14, paddingVertical: 6, borderRadius: 999, backgroundColor: d.purpleSoft },

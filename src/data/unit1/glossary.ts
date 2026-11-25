@@ -150,7 +150,7 @@ export const GLOSSARY: Record<string, Gloss> = {
   hd: { az: 'HD, yüksək keyfiyyət' }, qr: { az: 'QR kod' },
   this: { az: 'bu', role: 'yaxındakı adamı və ya əşyanı göstərir' },
   who: { az: 'kim', role: 'adam haqqında sual sözü' },
-  "who's": { az: 'kim', role: 'who is-in qısası' },
+  "who's": { az: 'kimdir', role: 'who is-in qısası' },
   friend: { az: 'dost', role: 'yaxın tanış' },
   family: { az: 'ailə', role: 'ata, ana, qardaş-bacı birlikdə' },
   mother: { az: 'ana' },

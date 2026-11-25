@@ -114,6 +114,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     return () => clearTimeout(id);
   }, [keyboardOpen, contentHeight, viewport.h]);
   const [art, setArt] = useState(1); const [fitState, setFit] = useState(1);
+  // Teaching cards start roomy; only if one does not fit do they switch to compact rows, then shrink (25 Nov 2026).
+  const [dense, setDense] = useState(false);
   useEffect(() => {
     const show = Keyboard.addListener(Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow', () => setKeyboardOpen(true));
     const hide = Keyboard.addListener(Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide', () => setKeyboardOpen(false));
@@ -133,13 +135,14 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   // Each new card starts at full size and only shrinks as far as it must (no back-and-forth).
   const cardKey = `${showResult ? 'result' : reviewing ? `r${reviewStep}` : index}`;
-  useEffect(() => { setArt(1); setFit(1); }, [cardKey]);
+  useEffect(() => { setArt(1); setFit(1); setDense(false); }, [cardKey]);
   const shownHeight = (fitValue: number) => (contentHeight - CONTENT_PAD) * fitValue + CONTENT_PAD;
   useEffect(() => {
     if (keyboardOpen || !viewport.h || !contentHeight || shownHeight(fitState) <= viewport.h + 1) return;
     if (art > ART_MIN) { setArt(a => Math.max(ART_MIN, Math.round((a - .15) * 100) / 100)); return; }
+    if (!dense && (current?.type === 'word' || current?.type === 'teach')) { setDense(true); return; }
     setFit(f => Math.max(MIN_FIT, Math.min(f, (viewport.h - CONTENT_PAD) / (contentHeight - CONTENT_PAD))));
-  }, [contentHeight, viewport.h, keyboardOpen, art, fitState]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [contentHeight, viewport.h, keyboardOpen, art, fitState, dense]); // eslint-disable-line react-hooks/exhaustive-deps
   const fit = keyboardOpen ? 1 : fitState;
   const stillOverflows = keyboardOpen || (viewport.h > 0 && shownHeight(fit) > viewport.h + 1 && fit <= MIN_FIT && art <= ART_MIN);
   // The scaled card keeps the full width: it is laid out wider by 1/fit and centred, so it does not look narrow.
@@ -426,13 +429,13 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (showResult) return lesson.exam ? <ExamResult lesson={lesson} records={records} finish={finish} /> : <ResultView lesson={lesson} records={records} finish={finish} />;
     if (!current) return null;
     if (current.type === 'intro') return <IntroView card={current} title={lesson.title} size={imageSize} />;
-    if (current.type === 'word') return <WordView card={current} onPlay={(t, r) => speak(t, r ?? 0.85)} onWord={setGloss} rate={rate} playing={playing}
+    if (current.type === 'word') return <WordView card={current} onPlay={(t, r) => speak(t, r ?? 0.85)} onWord={setGloss} rate={rate} playing={playing} dense={dense}
       onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(current.word.split(/\s*·\s*/).join('. '), 0.85); }} />;
     if (current.type === 'explain') return <TeacherView card={current} onPlay={t => speak(t, 0.85)} />;
     if (current.type === 'teach') return <LearnView chip="Öyrən" title={current.title} lead={current.lead} phrases={current.phrases.map(p => p.en)} az={current.phrases.map(p => p.az).join(' · ')}
       dialog={current.phrases.length > 2 ? current.phrases : undefined}
       structure={current.structure} notes={current.notes} example={current.example} scenes={current.scenes} onPlay={(t, r) => speak(t, r ?? 0.85)} onWord={setGloss}
-      rate={rate} playing={playing} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(current.phrases.map(p => p.en).join('. '), 0.85); }} />;
+      rate={rate} playing={playing} dense={dense} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(current.phrases.map(p => p.en).join('. '), 0.85); }} />;
     return taskView();
   })();
 
