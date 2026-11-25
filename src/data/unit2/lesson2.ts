@@ -87,12 +87,12 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d2_c08', number: 8, keypad: true, title: 'Nömrəni yığ', why: 'Nömrəni rəqəm-rəqəm yığdın.', hint: 'Hər rəqəmi eşidən kimi bas; ilk rəqəmi də unutma.',
-      prompt: 'Kurs yoldaşın nömrəsini deyir.\nDinlə və telefonuna yığ.', audio: "It's zero five five, two eight one, four zero, nine six.", placeholder: 'Telefon nömrəsi',
+      prompt: 'Eşitdiyin nömrəni yığ.', audio: "It's zero five five, two eight one, four zero, nine six.", placeholder: 'Telefon nömrəsi',
       rule: exact('0552814096'),
       variants: [other('Rəqəmləri bir-bir yoxla.', ex('0552814096', 'Nömrə rəqəm-rəqəm deyilir və elə də yığılır.', "It's zero five five… — 055; It's five five… — 55.", "It's zero five five, two eight one, four zero, nine six."))],
       review: {
         keypad: true, title: 'Nömrəni yığ', why: 'Nömrəni rəqəm-rəqəm yığdın.', hint: 'Hər rəqəmi eşidən kimi bas; “ou” səsini unutma.',
-        prompt: 'Ofisdə iş yoldaşın nömrəsini deyir.\nDinlə və yığ.', audio: "It's zero seven oh, three three nine, one oh, two five.", placeholder: 'Telefon nömrəsi',
+        prompt: 'Eşitdiyin rəqəmləri yığ.', audio: "It's zero seven oh, three three nine, one oh, two five.", placeholder: 'Telefon nömrəsi',
         rule: exact('0703391025'),
         variants: [other('Rəqəmləri bir-bir yoxla.', ex('0703391025', 'Nömrədə həm “zero”, həm “oh” var — ikisi də sıfırdır.', "It's zero seven oh… — 070; It's seven… — 7.", "It's zero seven oh, three three nine, one oh, two five."))],
       },

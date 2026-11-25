@@ -54,12 +54,12 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d8_c04', number: 4, letters: ['S', 'H', 'E', 'K', 'I', 'A', 'Y', 'G'], title: 'Hərfləri tut', why: 'S-H-E-K-I — Şəki.', hint: 'Hər hərfi eşidən kimi toxun; “i” və “ay” fərqinə qulaq as.',
-      prompt: 'Qeydiyyatçı bir tələbənin şəhərini hərf-hərf yoxlayır.\nEşitdiyin hərflərə toxun.', audio: "It's S-H-E-K-I.", placeholder: 'Şəhər',
+      prompt: 'Eşitdiyin hərflərə toxun.', audio: "It's S-H-E-K-I.", placeholder: 'Şəhər',
       rule: exact('SHEKI'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('SHEKI', 'Səsdə S, H, E, K, I deyilir: E “i”, I “ay”.', 'E — i; I — ay.', "It's S-H-E-K-I."))],
       review: {
         letters: ['Q', 'U', 'B', 'A', 'G', 'K', 'O', 'W'], title: 'Hərfləri tut', why: 'Q-U-B-A — Quba.', hint: 'Hər hərfi eşidən kimi toxun; “kyu” və “key” fərqinə qulaq as.',
-        prompt: 'Otel resepsiyasında qonaq şəhərini hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: "It's Q-U-B-A.", placeholder: 'Şəhər',
+        prompt: 'Eşitdiyin hərflərə toxun.', audio: "It's Q-U-B-A.", placeholder: 'Şəhər',
         rule: exact('QUBA'),
         variants: [other('Hərfləri bir-bir dinlə.', ex('QUBA', 'Səsdə Q, U, B, A deyilir: Q “kyu”.', 'Q — kyu; K — key.', "It's Q-U-B-A."))],
       },
@@ -78,12 +78,12 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d8_c06', number: 6, keypad: true, title: 'Nömrəni yığ', why: 'Nömrəni rəqəm-rəqəm yığdın: oh — sıfır.', hint: 'Hər rəqəmi eşidən kimi bas; “ou” səsini də unutma.',
-      prompt: 'Ziyafətdə yeni tanış nömrəsini deyir.\nDinlə və yığ.', audio: "It's oh five oh, seven seven one, two nine, four four.", placeholder: 'Telefon nömrəsi',
+      prompt: 'Eşitdiyin rəqəmləri yığ.', audio: "It's oh five oh, seven seven one, two nine, four four.", placeholder: 'Telefon nömrəsi',
       rule: exact('0507712944'),
       variants: [other('Rəqəmləri bir-bir yoxla.', ex('0507712944', '“oh” sıfırdır; “seven seven” — iki yeddi.', 'oh — 0; seven seven — 77.', "It's oh five oh, seven seven one, two nine, four four."))],
       review: {
         keypad: true, title: 'Nömrəni yığ', why: 'Nömrəni rəqəm-rəqəm yığdın.', hint: 'Hər rəqəmi eşidən kimi bas; “ou” səsini də unutma.',
-        prompt: 'Qeydiyyatçı kursun nömrəsini deyir.\nDinlə və yığ.', audio: "It's zero one two, four nine eight, oh six, three three.", placeholder: 'Telefon nömrəsi',
+        prompt: 'Eşitdiyin rəqəmləri yığ.', audio: "It's zero one two, four nine eight, oh six, three three.", placeholder: 'Telefon nömrəsi',
         rule: exact('0124980633'),
         variants: [other('Rəqəmləri bir-bir yoxla.', ex('0124980633', '“zero” və “oh” ikisi də sıfırdır.', 'zero — 0; oh — 0.', "It's zero one two, four nine eight, oh six, three three."))],
       },
@@ -104,12 +104,12 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d8_c08', number: 8, title: 'Dinlə və yaz', why: 'mammadova@mail.com — double M, @ və nöqtə.', hint: 'Hərfləri bir-bir yaz; qoşa hərfə və işarələrə diqqət et.',
-      prompt: 'Qeydiyyatçı kurs müəlliminin e-poçtunu deyir.\nÜnvanı yaz.', audio: "It's M-A-double M-A-D-O-V-A at mail dot com.", placeholder: 'E-poçt ünvanı',
+      prompt: 'E-poçt ünvanını yaz.', audio: "It's M-A-double M-A-D-O-V-A at mail dot com.", placeholder: 'E-poçt ünvanı',
       rule: exact('mammadova@mail.com'),
       variants: [asWords('mammadova@mail.com', 'mammadova at mail dot com'), other('Ünvanı yoxla.', ex('mammadova@mail.com', '“double M” — MM; “at” — @; “dot” — nöqtə.', 'double M — MM; at — @.', "It's M-A-double M-A-D-O-V-A at mail dot com."))],
       review: {
         title: 'Dinlə və yaz', why: 'abbasov3@mail.com — double B, @ və nöqtə.', hint: 'Hərfləri bir-bir yaz; qoşa hərfə və işarələrə diqqət et.',
-        prompt: 'Ofisdə iş yoldaşın müdirin e-poçtunu deyir.\nÜnvanı yaz.', audio: "It's A-double B-A-S-O-V three at mail dot com.", placeholder: 'E-poçt ünvanı',
+        prompt: 'E-poçt ünvanını yaz.', audio: "It's A-double B-A-S-O-V three at mail dot com.", placeholder: 'E-poçt ünvanı',
         rule: exact('abbasov3@mail.com'),
         variants: [asWords('abbasov3@mail.com', 'abbasov3 at mail dot com'), other('Ünvanı yoxla.', ex('abbasov3@mail.com', '“double B” — BB; “at” — @; “dot” — nöqtə.', 'double B — BB; dot — nöqtə.', "It's A-double B-A-S-O-V three at mail dot com."))],
       },

@@ -28,6 +28,5 @@ module.exports = (rejects, find, rejectsField) => {
   // Yeni ekranlar (21 Nov 2026): düz cavab qəbul olunur, tipik səhv qəbul olunmur və izah olunur.
   const ok = (g, id) => assert.equal(g.status, 'correct', `${id}: model answer accepted`);
   const no = (g, id, v) => { assert.equal(g.status, 'wrong', `${id}: “${v}” must not be accepted`); assert.ok(g.explain && g.explain.reason, `${id}: “${v}” explained`); };
-  { const t = find('u4x_tree'); ok(L.gradeTree(t, 'grandfather'), 'u4x_tree'); no(L.gradeTree(t, 'father'), 'u4x_tree', 'father'); no(L.gradeTree(t, 'brother'), 'u4x_tree', 'brother'); }
   { const t = find('u4x_profile'); const right = { who: 'brother', age: '34', job: 'doctor' }; ok(L.gradeProfile(t, right), 'u4x_profile'); { const g = L.gradeProfile(t, { ...right, age: '43' }); no(g, 'u4x_profile', '43'); assert.ok(g.notes.age, 'u4x_profile: row age note'); } { const g = L.gradeProfile(t, { ...right, job: 'engineer' }); no(g, 'u4x_profile', 'engineer'); assert.ok(g.notes.job, 'u4x_profile: row job note'); } { const g = L.gradeProfile(t, { ...right, who: 'son' }); no(g, 'u4x_profile', 'son'); assert.ok(g.notes.who, 'u4x_profile: row who note'); } }
 };

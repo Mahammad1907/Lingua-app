@@ -136,7 +136,7 @@ export const lesson1Design: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd1_c07b', why: 'Səsdə Bye deyildi.', number: 8, title: 'Eşitdiyini yaz', prompt: 'Dostun səsli mesajda bir söz deyib, ingiliscə necə yazıldığını soruşur.\nEşitdiyin sözü yaz.',
+      type: 'write', id: 'd1_c07b', why: 'Səsdə Bye deyildi.', number: 8, title: 'Eşitdiyini yaz', prompt: 'Eşitdiyin sözü yaz.',
       audio: 'Bye!', placeholder: 'Eşitdiyin sözü yaz', rule: { answers: ['Bye'], exact: true },
       hint: 'Yavaş dinlə və eşitdiyin sözü olduğu kimi yaz.',
       variants: [
@@ -151,7 +151,7 @@ export const lesson1Design: DesignLesson = {
           rule: 'Səslənən sözü yaz.', example: '“Hi!” eşidəndə “Hi” yazılır.' } },
       ],
       review: { why: 'Səsdə Goodbye deyildi.',
-        title: 'Eşitdiyini yaz', prompt: 'Dostun səsli mesajda bir söz deyib, ingiliscə necə yazıldığını soruşur.\nEşitdiyin sözü yaz.', audio: 'Goodbye!', placeholder: 'Eşitdiyin sözü yaz',
+        title: 'Eşitdiyini yaz', prompt: 'Eşitdiyin sözü yaz.', audio: 'Goodbye!', placeholder: 'Eşitdiyin sözü yaz',
         rule: { answers: ['Goodbye'], exact: true }, hint: 'Yavaş dinlə və eşitdiyin sözü olduğu kimi yaz.',
         variants: [
           { match: { words: ['bye'] }, short: 'Bye də sağollaşmadır, amma səsdə Goodbye deyilir.', explain: {

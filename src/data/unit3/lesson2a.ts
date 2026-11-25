@@ -58,12 +58,12 @@ export const lesson2a: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d2a_c05', number: 5, letters: ['T', 'U', 'R', 'K', 'E', 'Y', 'I', 'A'], title: 'Hərfləri tut', why: 'T-U-R-K-E-Y — Türkiyə.', hint: 'Hər hərfi eşidən kimi toxun; “i” və “ay” səslərini qarışdırma.',
-      prompt: 'Səyahət agentliyində işçi turun ölkəsini hərf-hərf deyir, sən formaya yazırsan.\nEşitdiyin hərflərə toxun.', audio: "It's T-U-R-K-E-Y.", placeholder: 'Ölkə',
+      prompt: 'Eşitdiyin hərflərə toxun.', audio: "It's T-U-R-K-E-Y.", placeholder: 'Ölkə',
       rule: exact('TURKEY'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('TURKEY', 'Səsdə T, U, R, K, E, Y deyilir: E “i” oxunur, Y “uay”.', 'E — i; I — ay.', "It's T-U-R-K-E-Y."))],
       review: {
         letters: ['I', 'R', 'A', 'N', 'E', 'Y', 'M'], title: 'Hərfləri tut', why: 'I-R-A-N — İran.', hint: 'Hər hərfi eşidən kimi toxun; “ay” və “ey” səslərini qarışdırma.',
-        prompt: 'Hostel resepsiyasında işçi qonağın ölkəsini hərf-hərf yoxlayır.\nEşitdiyin hərflərə toxun.', audio: "It's I-R-A-N.", placeholder: 'Ölkə',
+        prompt: 'Eşitdiyin hərflərə toxun.', audio: "It's I-R-A-N.", placeholder: 'Ölkə',
         rule: exact('IRAN'),
         variants: [other('Hərfləri bir-bir dinlə.', ex('IRAN', 'Səsdə I, R, A, N deyilir: I “ay”, A “ey” oxunur.', 'I — ay; A — ey.', "It's I-R-A-N."))],
       },

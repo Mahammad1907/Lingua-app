@@ -94,3 +94,5 @@ Ailə ağacı (`tree`), Söz sürüklə (`drag`), Profil kartı (`profile`) — 
 - Dərs 8: drag qoyulmayıb — tək video zəng söhbəti 14 kartla tamdır, əvəz etmək söhbəti pozardı.
 - İmtahan: `u4x_tree` (baba) `u4x_c03` əvəzinə; `u4x_profile` (brother, 34, doctor) əlavə (15 tapşırıq).
 Səhv yoxlamaları: `scripts/unit4-mistakes/d2a, d2b, d3, d6, d7, exam.cjs` (`gradeTree` / `gradeDrag` / `gradeProfile`). Cihazda yoxlanmayıb.
+
+> 25 Noy 2026: bütün “Ailə ağacı” (`*_tree`) tapşırıqları istifadəçinin istəyi ilə çıxarıldı.

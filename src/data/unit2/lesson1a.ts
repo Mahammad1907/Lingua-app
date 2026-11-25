@@ -68,12 +68,12 @@ export const lesson1a: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d1a_c07', number: 7, keypad: true, title: 'Nömrəni yığ', why: 'four, zero, one — 401.', hint: 'Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.',
-      prompt: 'Oteldə otaq telefonundasan.\nResepsiya restoranın daxili nömrəsini deyir. Dinlə və yığ.', audio: 'Four, zero, one.', placeholder: 'Daxili nömrə',
+      prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Four, zero, one.', placeholder: 'Daxili nömrə',
       rule: exact('401'),
       variants: [other('Rəqəmləri bir-bir dinlə.', ex('401', 'Səsdə üç rəqəm var: four, zero, one.', 'Four, zero, one. — 401; Four, one, zero. — 410.', 'Four, zero, one.'))],
       review: {
         keypad: true, title: 'Nömrəni yığ', why: 'two, five, three — 253.', hint: 'Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.',
-        prompt: 'Ofisdəsən.\nİş yoldaşı daxili nömrəsini deyir. Dinlə və yığ.', audio: 'Two, five, three.', placeholder: 'Daxili nömrə',
+        prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Two, five, three.', placeholder: 'Daxili nömrə',
         rule: exact('253'),
         variants: [other('Rəqəmləri bir-bir dinlə.', ex('253', 'Səsdə üç rəqəm var: two, five, three.', 'Two, five, three. — 253; Three, five, two. — 352.', 'Two, five, three.'))],
       },
@@ -124,12 +124,12 @@ export const lesson1a: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d1a_c11', number: 11, title: 'Dinlə və yaz', why: 'three — th ilə yazılır.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
-      prompt: 'Liftdə oğlan mərtəbəni deyir, dostun çatda soruşur.\nRəqəmi sözlə yaz.', audio: 'Three, please.', placeholder: 'Rəqəmi sözlə yaz',
+      prompt: 'Rəqəmi sözlə yaz.', audio: 'Three, please.', placeholder: 'Rəqəmi sözlə yaz',
       rule: exact('three'),
       variants: [other('Yazılışı yoxla.', ex('three', 'Bu söz “th” ilə başlayır.', 'Three, please. — üç; Two, please. — iki.', 'One, two, three!'))],
       review: {
         title: 'Dinlə və yaz', why: 'five — “v” ilə bitir.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
-        prompt: 'Resepsiyada qadın mərtəbəni deyir, dostun çatda soruşur.\nRəqəmi sözlə yaz.', audio: 'Five.', placeholder: 'Rəqəmi sözlə yaz',
+        prompt: 'Rəqəmi sözlə yaz.', audio: 'Five.', placeholder: 'Rəqəmi sözlə yaz',
         rule: exact('five'),
         variants: [other('Yazılışı yoxla.', ex('five', 'Bu söz “v” səsi ilə bitir, sonunda “e” yazılır.', 'Five. — beş; Four. — dörd.', 'Five, four, three, two, one, zero!'))],
       },

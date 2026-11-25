@@ -65,7 +65,7 @@ export interface Rule {
   tasks: string[];
 }
 
-const TASK_TYPES = new Set(['choice', 'write', 'voice', 'two', 'match', 'tree', 'drag', 'profile']);
+const TASK_TYPES = new Set(['choice', 'write', 'voice', 'two', 'match', 'drag', 'profile']);
 export const lessonLabel = (l: Pick<DesignLesson, 'unit' | 'number' | 'order' | 'part'>) =>
   `Bölmə ${l.unit ?? 1} · Dərs ${l.number ?? l.order}${l.part ? ` · ${l.part}-${l.part === 3 ? 'cü' : 'ci'} hissə` : ''}`;
 

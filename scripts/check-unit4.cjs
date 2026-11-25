@@ -90,12 +90,6 @@ for (const raw of all) {
         }
       }
       // New screens (21 Nov 2026): model answer accepted, a wrong answer explained.
-      if (t.type === 'tree') {
-        assert.equal(t.options.length, 3, `${where}: three options`);
-        assert.ok(t.nodes.some(n => n.id === t.target), `${where}: target node exists`);
-        assert.equal(L.gradeTree(t, t.answer).status, 'correct', where);
-        for (const o of t.options.filter(o => o !== t.answer)) assert.ok(L.gradeTree(t, o).explain?.reason, `${where}: ${o} has an explanation`);
-      }
       if (t.type === 'drag') {
         for (const p of t.people) assert.ok(t.chips.includes(t.answers[p.id]), `${where}: chip for ${p.id}`);
         assert.equal(L.gradeDrag(t, t.answers).status, 'correct', where);

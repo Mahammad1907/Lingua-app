@@ -51,12 +51,12 @@ export const lesson7b: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d7b_c05', number: 5, keypad: true, title: 'Kodu yığ', why: 'thirty, thirteen — 3013.', hint: 'Vurğuya qulaq as: hansı söz əvvəldən, hansı sondan güclüdür?',
-      prompt: 'İdman zalında dolabın kodu.\nQəbul kodu deyir. Dinlə və yığ.', audio: 'Thirty, thirteen.', placeholder: 'Dolabın kodu',
+      prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Thirty, thirteen.', placeholder: 'Dolabın kodu',
       rule: exact('3013'),
       variants: [other('13 və 30-u ayır.', ex('3013', 'Əvvəl THIR-ty (30), sonra thir-TEEN (13).', 'THIR-ty — 30; thir-TEEN — 13.', 'Thirty, thirteen.'))],
       review: {
         keypad: true, title: 'Kodu yığ', why: 'fifty, fifteen — 5015.', hint: 'Vurğuya qulaq as: hansı söz əvvəldən, hansı sondan güclüdür?',
-        prompt: 'Ofisin qapısında yeni kod var.\nİş yoldaşın kodu deyir. Dinlə və yığ.', audio: 'Fifty, fifteen.', placeholder: 'Qapının kodu',
+        prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Fifty, fifteen.', placeholder: 'Qapının kodu',
         rule: exact('5015'),
         variants: [other('15 və 50-ni ayır.', ex('5015', 'Əvvəl FIF-ty (50), sonra fif-TEEN (15).', 'FIF-ty — 50; fif-TEEN — 15.', 'Fifty, fifteen.'))],
       },

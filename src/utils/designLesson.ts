@@ -1,5 +1,5 @@
 // Pure lesson logic for the redesigned lesson screens (no React, so it can be tested in Node).
-import type { DesignLesson, DesignTask, DragTask, ExplainCard, Explanation, IntroCard, MatchTask, ProfileTask, TreeTask, ReviewOf, TeachCard, TwoTask, Variant, WordCard } from '../data/designLessonTypes';
+import type { DesignLesson, DesignTask, DragTask, ExplainCard, Explanation, IntroCard, MatchTask, ProfileTask, ReviewOf, TeachCard, TwoTask, Variant, WordCard } from '../data/designLessonTypes';
 import { resolveNames } from '../config/characters';
 import { assessPacketAnswer, normalizePacketAnswer, type PacketVerdict } from './packetAnswer';
 
@@ -23,7 +23,7 @@ export interface TwoGraded { fields: Record<string, Graded>; status: Verdict; sh
 
 export function resolveLesson(lesson: DesignLesson): DesignLesson { return resolveNames(lesson); }
 
-export const TASK_TYPES = new Set(['choice', 'write', 'two', 'voice', 'match', 'tree', 'drag', 'profile']);
+export const TASK_TYPES = new Set(['choice', 'write', 'two', 'voice', 'match', 'drag', 'profile']);
 
 export function isTask(card: FlowCard | undefined): card is DesignTask {
   return Boolean(card && TASK_TYPES.has(card.type));
@@ -140,7 +140,6 @@ export function gradeMatch(task: MatchTask, pairs: Record<string, string>): Grad
 }
 
 /** “Ailə ağacı”: the same as a choice. */
-export const gradeTree = (task: TreeTask, option: string): Graded => gradeChoice(task, option);
 
 /** Wrong slots/rows: the first one's variant (its `field`, then the chosen value, then `other`) explains the card. */
 function gradeSlots(variants: Variant[], slots: { id: string; label: string; value: string; ok: boolean }[]): Graded {

@@ -95,12 +95,12 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d6_c09', number: 9, title: 'Dinlə və yaz', why: 'abbasova@mail.com — double B, @ və nöqtə.', hint: 'Hərfləri bir-bir yaz; qoşa hərfə diqqət et, ünvanda boşluq olmur.',
-      prompt: 'İş yoldaşın müdirin (Ms. Abbasova) e-poçtunu hərf-hərf deyir.\nÜnvanı yaz.', audio: "It's A-double B-A-S-O-V-A at mail dot com.", placeholder: 'E-poçt ünvanı',
+      prompt: 'Ms. Abbasova — e-poçt ünvanını yaz.', audio: "It's A-double B-A-S-O-V-A at mail dot com.", placeholder: 'E-poçt ünvanı',
       rule: exact('abbasova@mail.com'),
       variants: [asWords('abbasova@mail.com', 'abbasova at mail dot com'), other('Ünvanı yoxla.', ex('abbasova@mail.com', '“double B” — BB, sonra @, mail, nöqtə, com.', 'double B — BB; at — @.', "It's A-double B-A-S-O-V-A at mail dot com."))],
       review: {
         title: 'Dinlə və yaz', why: 'guliyev7@mail.com — hərflər, rəqəm, @ və nöqtə.', hint: 'Hərfləri və rəqəmi bir-bir yaz; ünvanda boşluq olmur.',
-        prompt: 'Kursda müəllim öz e-poçtunu deyir.\nÜnvanı yaz.', audio: "It's G-U-L-I-Y-E-V seven at mail dot com.", placeholder: 'E-poçt ünvanı',
+        prompt: 'E-poçt ünvanını yaz.', audio: "It's G-U-L-I-Y-E-V seven at mail dot com.", placeholder: 'E-poçt ünvanı',
         rule: exact('guliyev7@mail.com'),
         variants: [asWords('guliyev7@mail.com', 'guliyev7 at mail dot com'), other('Ünvanı yoxla.', ex('guliyev7@mail.com', 'Hərflər G-U-L-I-Y-E-V, rəqəm 7, sonra @, mail, nöqtə, com.', 'at — @; dot — nöqtə.', "It's G-U-L-I-Y-E-V seven at mail dot com."))],
       },

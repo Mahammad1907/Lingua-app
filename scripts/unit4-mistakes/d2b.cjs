@@ -15,5 +15,4 @@ module.exports = (rejects, find) => {
   const ok = (g, id) => assert.equal(g.status, 'correct', `${id}: model answer accepted`);
   const no = (g, id, v) => { assert.equal(g.status, 'wrong', `${id}: “${v}” must not be accepted`); assert.ok(g.explain && g.explain.reason, `${id}: “${v}” explained`); };
   { const t = find('u4d2b_drag'); ok(L.gradeDrag(t, { p1: 'grandfather', p2: 'son' }), 'u4d2b_drag'); no(L.gradeDrag(t, { p1: 'grandmother', p2: 'son' }), 'u4d2b_drag', 'grandmother/son'); no(L.gradeDrag(t, { p1: 'son', p2: 'grandfather' }), 'u4d2b_drag', 'son/grandfather'); }
-  { const t = find('u4d2b_tree'); ok(L.gradeTree(t, 'grandmother'), 'u4d2b_tree'); no(L.gradeTree(t, 'mother'), 'u4d2b_tree', 'mother'); no(L.gradeTree(t, 'daughter'), 'u4d2b_tree', 'daughter'); }
 };

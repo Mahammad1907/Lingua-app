@@ -146,7 +146,7 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'profile', id: 'u4d7_profile', number: 12, title: 'Profil kartı', why: "mother — ana; fifty — 50; a teacher — müəllim.", hint: 'Üç cümləni ayrıca tut: kim, neçə yaşında, nə işləyir.',
-      prompt: 'Video zəngdə {f} albomdakı bir qadını göstərir.\nDinlə və kartı doldur.', audio: "{F}: This is my mother. She's fifty. She's a teacher.",
+      prompt: 'Video zəngdə {f} albomdakı bir qadını göstərir.\nDinlə və kartı doldur.', audio: "This is my mother. She's fifty. She's a teacher.",
       rows: [{ id: 'who', label: 'Kim', options: ['sister', 'mother', 'grandmother'], answer: 'mother' }, { id: 'age', label: 'Yaş', number: true, answer: '50' },
         { id: 'job', label: 'Peşə', options: ['doctor', 'engineer', 'teacher'], answer: 'teacher' }],
       variants: [

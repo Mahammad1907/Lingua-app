@@ -34,7 +34,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u3x_c04', number: 4, letters: ['F', 'R', 'A', 'N', 'C', 'E', 'I', 'S'], title: 'Hərfləri tut', why: 'F-R-A-N-C-E — France.',
-      prompt: 'Səyahət agentliyində işçi turun ölkəsini hərf-hərf deyir, sən formaya yazırsan.\nEşitdiyin hərflərə toxun.', audio: "It's F-R-A-N-C-E.", placeholder: 'Ölkə',
+      prompt: 'Eşitdiyin hərflərə toxun.', audio: "It's F-R-A-N-C-E.", placeholder: 'Ölkə',
       rule: exact('FRANCE'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('FRANCE', 'Səsdə F, R, A, N, C, E deyilir: E “i”, C “si”.', 'E — i; I — ay.', "It's F-R-A-N-C-E."))],
     },

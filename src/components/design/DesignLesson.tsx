@@ -18,7 +18,7 @@ import { ART_MIN, ArtFit } from './fit';
 import { useReviewStore } from '../../store/reviewStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 import {
-  gradeChoice, gradeDrag, gradeMatch, gradeProfile, gradeText, gradeTree, gradeTwo, isTask, joinTiles, lessonFlow, lessonTaskIds, resolveLesson, reviewTask, statusLabels, taskStatus,
+  gradeChoice, gradeDrag, gradeMatch, gradeProfile, gradeText, gradeTwo, isTask, joinTiles, lessonFlow, lessonTaskIds, resolveLesson, reviewTask, statusLabels, taskStatus,
   type FlowCard, type Graded, type TaskRecord, type TwoGraded,
 } from '../../utils/designLesson';
 import type { TaskEvidence } from '../../utils/lessonEvidence';
@@ -28,7 +28,7 @@ import { gapVersion } from '../../utils/orderGaps';
 import { ChatTimeline } from './ChatTimeline';
 import { Avatar, ChatThread, TapText, SoundIcon, CountryMap, FormSheet, GapSentence, ImageSlot, LetterBoard, MatchBoard, PhoneKeypad, PhraseCard, PickedChips, SayBubble, SceneSpots, TeacherView, TileTray, WordView, LearnView, PlayButton } from './TaskScreens';
 import Icon, { type IconName } from './Icons';
-import { DragBoard, FamilyTree, ProfileCard } from './NewTaskScreens';
+import { DragBoard, ProfileCard } from './NewTaskScreens';
 import { isEnglish, ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
 import { AudioPanel, Capsule, accentTitle, Card, Chip, ChoiceOption, Field, Header, KindChip, LessonCaption, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
 import { d, shadow, font } from './theme';
@@ -137,7 +137,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const t0 = isTask(current) ? current : undefined;
     return t0 && t0.type === 'match' && t0.mode === 'order' && gapIds.has(t0.id) ? gapVersion(t0) ?? t0 : t0;
   }, [current, gapIds]);
-  const audio = task && (task.type === 'choice' || task.type === 'write' || task.type === 'voice' || task.type === 'drag' || task.type === 'profile') ? task.audio : undefined;
+  // A speaker label at the start (“{F}: …”, “Dostun: …”) is never read aloud or shown (user, 25 Nov 2026).
+  const rawAudio = task && (task.type === 'choice' || task.type === 'write' || task.type === 'voice' || task.type === 'drag' || task.type === 'profile') ? task.audio : undefined;
+  const audio = rawAudio?.replace(/^(?:\{[A-Za-z:]+\}|[^\s:]*[əğıöüşçƏĞİÖÜŞÇ][^\s:]*):\s+/, '');
   const listeningTask = Boolean(audio && task?.type !== 'voice');
 
   // Each new card starts at full size and only shrinks as far as it must (no back-and-forth).
@@ -355,7 +357,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       return;
     }
     // Ailə ağacı = choice; Söz sürüklə / Profil kartı keep their answers in `pairs` (person/row id → word).
-    const graded = task.type === 'choice' ? gradeChoice(task, choice) : task.type === 'tree' ? gradeTree(task, choice) : task.type === 'write' ? gradeText(task, text)
+    const graded = task.type === 'choice' ? gradeChoice(task, choice) : task.type === 'write' ? gradeText(task, text)
       : task.type === 'drag' ? gradeDrag(task, pairs) : task.type === 'profile' ? gradeProfile(task, pairs) : undefined;
     if (graded?.status === 'empty' && (task.type === 'drag' || task.type === 'profile')) { setNotice(task.type === 'drag' ? 'Hər adamın altına bir söz qoy.' : 'Kartın bütün sətirlərini doldur.'); return; }
     if (!graded || graded.status === 'empty') return;
@@ -435,7 +437,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   }, [exit]));
 
   const progress = showResult ? 1 : reviewing ? .9 + .1 * reviewStep / Math.max(1, queue.length) : .9 * index / Math.max(1, flow.length - 1);
-  const reportContext = { lesson: lesson.id, card: current?.id ?? 'result', answer: task?.type === 'choice' || task?.type === 'tree' ? choice : task?.type === 'two' ? JSON.stringify(two) : task?.type === 'drag' || task?.type === 'profile' ? JSON.stringify(pairs) : text };
+  const reportContext = { lesson: lesson.id, card: current?.id ?? 'result', answer: task?.type === 'choice' ? choice : task?.type === 'two' ? JSON.stringify(two) : task?.type === 'drag' || task?.type === 'profile' ? JSON.stringify(pairs) : text };
 
   // ---------- Content ----------
   const imageSize = Math.max(120, Math.min(250, (viewport || height * .6) * .32));
@@ -566,12 +568,11 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         <View style={s.transcript}><PickedChips tiles={tiles} picked={picked} disabled={locked.current} placeholder="Sözlərə toxun…" onRemove={i => pickTiles(picked.filter(x => x !== i))} /></View>
         <TileTray tiles={tiles} picked={picked} disabled={locked.current} onSay={say} onPick={i => pickTiles([...picked, i])} />
       </View> : null}
-      {task.type === 'tree' ? <FamilyTree task={task} answer={task.answer} mark={single ? markOf(single.status) : undefined} /> : null}
       {task.type === 'drag' ? <DragBoard task={task} placed={pairs} marks={single?.rows} disabled={Boolean(result && result.kind !== 'unverified')}
         onSay={o => { if (sayOption(o)) say(o); }} onChange={p => { setPairs(p); setNotice(''); if (result?.kind === 'unverified') setResult(null); }} /> : null}
       {task.type === 'profile' ? <ProfileCard task={task} values={pairs} marks={single?.rows} notes={single?.notes} disabled={Boolean(result && result.kind !== 'unverified')}
         onSay={o => { if (sayOption(o)) say(o); }} onChange={p => { setPairs(p); setNotice(''); if (result?.kind === 'unverified') setResult(null); }} /> : null}
-      {(task.type === 'choice' && !task.gap && !spotsShown) || task.type === 'tree' ? <View style={s.gap}>{task.options.map(o => <ChoiceOption key={o} label={o} selected={choice === o} disabled={Boolean(result && result.kind !== 'unverified')}
+      {(task.type === 'choice' && !task.gap && !spotsShown) ? <View style={s.gap}>{task.options.map(o => <ChoiceOption key={o} label={o} selected={choice === o} disabled={Boolean(result && result.kind !== 'unverified')}
         state={single && choice === o ? (single.status === 'correct' ? 'correct' : single.status === 'wrong' ? 'wrong' : undefined) : undefined}
         onPress={() => { if (sayOption(o)) say(o); setChoice(o); if (result?.kind === 'unverified') setResult(null); }} />)}</View> : null}
       {task.type === 'write' && task.keypad ? <PhoneKeypad label={task.placeholder} value={text} disabled={locked.current} mark={single ? markOf(single.status) : undefined}
@@ -650,7 +651,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         onExplain={graded.explain ? () => setExplainOpen(true) : undefined} onReport={() => setReportOpen(true)} onContinue={next}
         actions={task.type === 'voice' && !reviewing && !voiceRetried ? <Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { locked.current = false; setVoiceRetry(true); setVoiceRetried(true); setCollapsed(true); }} /> : undefined} />;
     }
-    const empty = task.type === 'choice' || task.type === 'tree' ? !choice : task.type === 'drag' ? task.people.some(p => !pairs[p.id])
+    const empty = task.type === 'choice' ? !choice : task.type === 'drag' ? task.people.some(p => !pairs[p.id])
       : task.type === 'profile' ? task.rows.some(r => !(pairs[r.id] ?? '').trim()) : task.type === 'write' ? !text.trim() : task.type === 'two' ? (task.thread ? task.fields.some(f => !twoSent[f.id]) : !Object.values(two).some(v => v.trim()))
       : task.type === 'match' ? task.rows.some(r => !pairs[r.en]) : true;
     const needsAudio = listeningTask && !heard && !textShown && !technical;
@@ -861,7 +862,7 @@ function ExamResult({ lesson, records, finish }: { lesson: Lesson; records: Reco
 }
 
 const s = StyleSheet.create({
-  taskSub: { color: d.slate, fontSize: 18, lineHeight: 25, ...font.semibold, marginTop: -2 },
+  taskSub: { color: '#334155', fontSize: 20, lineHeight: 27, ...font.semibold, marginTop: -2 }, // larger, darker (user, 25 Nov 2026)
   audioLine: { color: d.title, fontSize: 22, lineHeight: 28, ...font.extrabold },
   utilRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
   samplePill: { flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 44, paddingHorizontal: 16, borderRadius: 999, backgroundColor: '#fff', borderWidth: 1, borderColor: '#DDD6FE', flexShrink: 1 },

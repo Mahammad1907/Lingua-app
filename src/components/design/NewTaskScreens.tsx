@@ -1,9 +1,9 @@
-// Three task screens approved as mockups (21 Nov 2026): “Ailə ağacı” (tree), “Söz sürüklə” (drag), “Profil kartı” (profile).
+// Task screens approved as mockups (21 Nov 2026): “Söz sürüklə” (drag), “Profil kartı” (profile). “Ailə ağacı” removed 25 Nov 2026 (user).
 // Code-drawn only (react-native-svg + Views); colours from theme `d`; Animated/PanResponder only; reduced motion = no movement.
 import { useEffect, useRef, useState } from 'react';
 import { Animated, PanResponder, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
-import type { DragTask, ProfileTask, TreeTask } from '../../data/designLessonTypes';
+import type { DragTask, ProfileTask } from '../../data/designLessonTypes';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import Icon from './Icons';
 import { ds, nameSlot } from './parts';
@@ -37,35 +37,8 @@ function useShake(on: boolean) {
   return x;
 }
 
-// ---------- “Ailə ağacı” ----------
-const NODE = 46;
-export function FamilyTree({ task, answer, mark }: { task: TreeTask; answer?: string; mark?: Mark }) {
-  const [w, setW] = useState(0);
-  const h = 220;
-  const at = (id: string) => { const n = task.nodes.find(x => x.id === id); return n ? { x: n.x / 100 * (w - NODE) + NODE / 2, y: n.y / 100 * (h - NODE - 20) + NODE / 2 } : undefined; };
-  const label = task.nodes.map(n => n.id === task.target ? 'narıncı halqalı adam: sual' : n.label).filter(Boolean).join(', ');
-  return <View accessible accessibilityRole="image" accessibilityLabel={`Ailə ağacı. ${label}`} onLayout={e => setW(e.nativeEvent.layout.width)} style={[t.tree, shadow, { height: h + 16 }]}>
-    {w ? <Svg width={w} height={h} style={StyleSheet.absoluteFill}>
-      {task.links.map(([a, b]) => {
-        const p = at(a), q = at(b); if (!p || !q) return null;
-        const mid = (p.y + q.y) / 2;
-        const path = Math.abs(p.y - q.y) < 4 ? `M${p.x} ${p.y}H${q.x}` : `M${p.x} ${p.y}V${mid}H${q.x}V${q.y}`;
-        return <Path key={`${a}-${b}`} d={path} stroke={d.borderStrong} strokeWidth={2} fill="none" strokeLinecap="round" />;
-      })}
-    </Svg> : null}
-    {w ? task.nodes.map((n, i) => {
-      const p = at(n.id)!; const target = n.id === task.target;
-      return <View key={n.id} style={[t.node, { left: p.x - 40, top: p.y - NODE / 2 }]}>
-        <PersonDot tint={i} ring={target ? (mark === 'correct' ? d.green : mark === 'wrong' ? d.red : d.orange) : undefined} />
-        {target ? <View style={[t.ask, mark && { backgroundColor: mark === 'correct' ? d.green : d.red }]}>{mark === 'correct' ? <Icon name="check" size={14} color="#fff" stroke={3} /> : <Text style={t.askText}>?</Text>}</View> : null}
-        <Text numberOfLines={1} style={[t.nodeLabel, target && { color: ink(mark, d.orangeText) }]}>{target ? (mark === 'correct' && answer ? nameSlot(answer) : '?') : n.label ? nameSlot(n.label) : ''}</Text>
-      </View>;
-    }) : null}
-  </View>;
-}
-
-// ---------- “Söz sürüklə” ----------
 type Rect = { x: number; y: number; w: number; h: number };
+
 function DragChip({ word, selected, wrong, disabled, onTap, onDrop, onGrab }: {
   word: string; selected: boolean; wrong: boolean; disabled?: boolean; onTap: () => void; onDrop: (x: number, y: number) => boolean; onGrab: () => void;
 }) {
@@ -185,11 +158,6 @@ export function ProfileCard({ task, values, onChange, marks, notes, disabled, on
 }
 
 const t = StyleSheet.create({
-  tree: { borderRadius: 22, backgroundColor: d.surfaceStrong, borderWidth: 1, borderColor: d.border, overflow: 'visible' },
-  node: { position: 'absolute', width: 80, alignItems: 'center', gap: 2 },
-  nodeLabel: { color: d.inkSoft, fontSize: 14, ...font.bold },
-  ask: { position: 'absolute', top: -6, right: 14, width: 22, height: 22, borderRadius: 11, backgroundColor: d.orange, alignItems: 'center', justifyContent: 'center' },
-  askText: { color: '#fff', fontSize: 14, ...font.extrabold },
   people: { flexDirection: 'row', justifyContent: 'space-around', gap: 8 },
   person: { flex: 1, alignItems: 'center', gap: 6, maxWidth: 110 },
   personLabel: { color: d.inkSoft, fontSize: 14, ...font.bold },

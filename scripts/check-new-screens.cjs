@@ -1,4 +1,4 @@
-// Self-test for the three new task screens (21 Nov 2026): “Ailə ağacı” (tree), “Söz sürüklə” (drag), “Profil kartı” (profile).
+// Self-test for the new task screens (21 Nov 2026): “Söz sürüklə” (drag), “Profil kartı” (profile). “Ailə ağacı” removed 25 Nov 2026 (user).
 // One sample card per type: isTask, resolveLesson ({F} token), reviewTask (new situation), grading right/wrong/empty,
 // result-goal ids, and a TypeScript check of the samples + the Bölmə 4 lesson files against the card union.
 const assert = require('node:assert/strict');
@@ -12,16 +12,6 @@ require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileMo
 const L = require('../src/utils/designLesson.ts');
 
 const SAMPLES = `
-export const tree: TaskWithReview = {
-  type: 'tree', id: 'x_tree', number: 1, title: 'Ailə ağacı', prompt: 'Şəkildə kimdir?', hint: 'Xəttə bax: o, sənin valideynindir.', why: 'Mother = ana.',
-  nodes: [{ id: 'mom', x: 20, y: 0 }, { id: 'dad', label: 'father', x: 80, y: 0 }, { id: 'me', label: 'sən', x: 50, y: 100 }],
-  links: [['mom', 'dad'], ['mom', 'me']], target: 'mom', options: ['mother', 'sister', 'father'], answer: 'mother',
-  variants: [{ match: { option: 'sister' }, explain: { answers: 'mother', reason: 'Bacı səninlə eyni sırada olur.', rule: 'Yuxarı sıra — valideynlər.', example: 'mother' } },
-    { match: { other: true }, explain: { answers: 'mother', reason: 'Father kişidir.', rule: 'Yuxarı sıra — valideynlər.', example: 'mother' } }],
-  review: { title: 'Ailə ağacı', prompt: 'Şəkildə kimdir?', hint: 'Kişidir.', why: 'Father = ata.', nodes: [{ id: 'mom', label: 'mother', x: 20, y: 0 }, { id: 'dad', x: 80, y: 0 }, { id: 'me', label: 'sən', x: 50, y: 100 }],
-    links: [['mom', 'dad'], ['dad', 'me']], target: 'dad', options: ['brother', 'father', 'mother'], answer: 'father',
-    variants: [{ match: { other: true }, explain: { answers: 'father', reason: 'Yuxarı sırada kişi atadır.', rule: 'Yuxarı sıra — valideynlər.', example: 'father' } }] },
-};
 export const drag: TaskWithReview = {
   type: 'drag', id: 'x_drag', number: 2, title: 'Söz sürüklə', prompt: 'Dinlə və hər adamın altına sözü qoy.', hint: 'Sözü adamın altına sürüklə.', why: 'Hər söz öz yerindədir.',
   audio: '{F}: This is my mother and this is my brother.', people: [{ id: 'p1' }, { id: 'p2' }], chips: ['mother', 'brother', 'sister'], answers: { p1: 'mother', p2: 'brother' },
@@ -64,26 +54,16 @@ const samples = require(sampleFile);
 fs.rmSync(dir, { recursive: true, force: true });
 const clone = x => JSON.parse(JSON.stringify(x));
 const lesson = L.resolveLesson({
-  id: 'x', order: 99, title: 'Sınaq', section: 'Sınaq', cards: [clone(samples.tree), clone(samples.drag), clone(samples.profile)],
-  result: { done: [], incomplete: '', goals: [{ group: 'Ailə', text: 'Ailəni tanıyırsan', tasks: ['x_tree', 'x_drag', 'x_profile'] }], closing: '', button: '', technical: '', unverified: '' },
+  id: 'x', order: 99, title: 'Sınaq', section: 'Sınaq', cards: [clone(samples.drag), clone(samples.profile)],
+  result: { done: [], incomplete: '', goals: [{ group: 'Ailə', text: 'Ailəni tanıyırsan', tasks: ['x_drag', 'x_profile'] }], closing: '', button: '', technical: '', unverified: '' },
   notices: { soundFailed: '', unknown: '', voiceUnknown: '', micFailed: '', review: '' }, vocabulary: [],
 });
 assert.ok(!JSON.stringify(lesson).includes('{F}'), '{F} resolved');
 const flowTasks = L.lessonFlow(lesson).filter(L.isTask);
-assert.deepEqual(flowTasks.map(t => t.type), ['tree', 'drag', 'profile'], 'isTask knows the three types');
-assert.deepEqual(L.lessonTaskIds(lesson).required, ['x_tree', 'x_drag', 'x_profile'], 'each card is one required task id');
+assert.deepEqual(flowTasks.map(t => t.type), ['drag', 'profile'], 'isTask knows the two types');
+assert.deepEqual(L.lessonTaskIds(lesson).required, ['x_drag', 'x_profile'], 'each card is one required task id');
 for (const g of lesson.result.goals) for (const id of g.tasks) assert.ok(flowTasks.some(t => t.id === id), `goal task ${id}`);
 const card = id => lesson.cards.find(c => c.id === id);
-
-// tree
-const tree = card('x_tree');
-assert.equal(L.gradeTree(tree, '').status, 'empty');
-assert.equal(L.gradeTree(tree, 'mother').status, 'correct');
-assert.equal(L.gradeTree(tree, 'sister').explain.reason, 'Bacı səninlə eyni sırada olur.');
-assert.equal(L.gradeTree(tree, 'father').explain.yourAnswer, 'father');
-const treeR = L.reviewTask(lesson, 'x_tree');
-assert.equal(treeR.id, 'x_tree'); assert.equal(treeR.type, 'tree'); assert.equal(treeR.target, 'dad');
-assert.equal(L.gradeTree(treeR, 'father').status, 'correct'); assert.equal(L.gradeTree(treeR, 'mother').status, 'wrong');
 
 // drag
 const drag = card('x_drag');
@@ -112,4 +92,4 @@ const profR = L.reviewTask(lesson, 'x_profile');
 assert.equal(L.gradeProfile(profR, { who, age: '41', job: 'doctor' }).status, 'correct');
 assert.equal(L.gradeProfile(profR, { who, age: '30', job: 'teacher' }).status, 'wrong');
 
-console.log('PASS: new screens — tree / drag / profile: types (samples + Bölmə 4 files), isTask, names, review variants, grading, per-row notes, goal ids.');
+console.log('PASS: new screens — drag / profile: types (samples + Bölmə 4 files), isTask, names, review variants, grading, per-row notes, goal ids.');

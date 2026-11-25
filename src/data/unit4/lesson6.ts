@@ -80,12 +80,12 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d6_c07', number: 7, keypad: true, title: 'Yaşı yığ', why: "four-TEEN — 14.", hint: 'Vurğuya qulaq as: sonda güclüdürsə “teen”, əvvəldə güclüdürsə “ty”.',
-      prompt: 'Ad günü tortuna şam rəqəmi sifariş edirsən. {F} bacısının yaşını deyir.\nDinlə və rəqəmi yığ.', audio: "My sister? She's fourteen.", placeholder: 'Şamın rəqəmi',
+      prompt: 'Eşitdiyin rəqəmi yığ.', audio: "My sister? She's fourteen.", placeholder: 'Şamın rəqəmi',
       rule: exact('14'),
       variants: [other('14 və 40-ı ayır.', ex('14', 'Vurğu sondadır: four-TEEN — 14.', 'four-TEEN — 14; FOR-ty — 40.', "She's fourteen."))],
       review: {
         keypad: true, title: 'Yaşı yığ', why: 'FOR-ty — 40.', hint: 'Atanın yaşında vurğu harada güclüdür — əvvəldə, yoxsa sonda?',
-        prompt: 'Atanın ad günü üçün tort sifariş edirsən. Qardaşın atanın yaşını deyir.\nDinlə və rəqəmi yığ.', audio: "My father? He's forty.", placeholder: 'Şamın rəqəmi',
+        prompt: 'Eşitdiyin rəqəmi yığ.', audio: "My father? He's forty.", placeholder: 'Şamın rəqəmi',
         rule: exact('40'),
         variants: [other('14 və 40-ı ayır.', ex('40', 'Vurğu əvvəldədir: FOR-ty — 40.', 'FOR-ty — 40; four-TEEN — 14.', "He's forty."))],
       },
@@ -131,7 +131,7 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'profile', id: 'u4d6_profile', number: 11, title: 'Profil kartı', why: "This is my father. — ata; He's fifty-five. — 55 yaşındadır.", hint: 'İki cümləni ayrıca tut: birincisi kim olduğunu, ikincisi yaşını deyir.',
-      prompt: '{F} ad günü şəklində bir kişini göstərir.\nDinlə və kartı doldur.', audio: "{F}: This is my father. He's fifty-five.",
+      prompt: '{F} ad günü şəklində bir kişini göstərir.\nDinlə və kartı doldur.', audio: "This is my father. He's fifty-five.",
       rows: [{ id: 'who', label: 'Kim', options: ['brother', 'father', 'grandfather'], answer: 'father' }, { id: 'age', label: 'Yaş', number: true, answer: '55' }],
       variants: [
         { field: 'who', ...pick('brother', 'Səsdə brother yox, father deyilir.', ex('father', 'Birinci cümlə This is my father ilə bitir — ata.', 'father — ata; brother — qardaş.', 'This is my father.')) },

@@ -85,7 +85,7 @@ export const lesson2b: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d2b_c07', number: 7, title: 'Dinlə və yaz', why: 'the USA — “the” də yazılır.', hint: '“from”dan sonra eşitdiyin hər sözü yaz.',
-      prompt: 'Qeydiyyatda sərnişin haradan olduğunu deyir, sən vərəqə yazırsan.\n“from”dan sonra eşitdiyini yaz.', audio: "Hi! I'm from the USA.", placeholder: 'Ölkə',
+      prompt: '“from”dan sonra eşitdiyini yaz.', audio: "Hi! I'm from the USA.", placeholder: 'Ölkə',
       rule: exact('the USA', "I'm from the USA."),
       variants: [
         { match: { words: ['USA'] }, short: '“the” də eşidilir.', explain: ex('the USA', 'Səsdə “from”dan sonra “the USA” var.', "I'm from the USA. — düzdür; I'm from USA. — olmur.", "I'm from the USA.") },
@@ -93,7 +93,7 @@ export const lesson2b: DesignLesson = {
       ],
       review: {
         title: 'Dinlə və yaz', why: 'the UK — “the” də yazılır.', hint: '“from”dan sonra eşitdiyin hər sözü yaz.',
-        prompt: 'Qatarda tanış haradan olduğunu deyir, dostun çatda soruşur.\n“from”dan sonra eşitdiyini yaz.', audio: "Hello! I'm from the UK.", placeholder: 'Ölkə',
+        prompt: '“from”dan sonra eşitdiyini yaz.', audio: "Hello! I'm from the UK.", placeholder: 'Ölkə',
         rule: exact('the UK', "I'm from the UK."),
         variants: [
           { match: { words: ['UK'] }, short: '“the” də eşidilir.', explain: ex('the UK', 'Səsdə “from”dan sonra “the UK” var.', "I'm from the UK. — düzdür; I'm from UK. — olmur.", "I'm from the UK.") },
@@ -145,12 +145,12 @@ export const lesson2b: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d2b_c11', number: 11, letters: ['F', 'R', 'A', 'N', 'C', 'E', 'S', 'I'], title: 'Hərfləri tut', why: 'F-R-A-N-C-E — Fransa.', hint: 'Hər hərfi eşidən kimi toxun; “si” və “es” səslərini qarışdırma.',
-      prompt: 'Səyahət agentliyində işçi turun ölkəsini hərf-hərf deyir, sən formaya yazırsan.\nEşitdiyin hərflərə toxun.', audio: "It's F-R-A-N-C-E.", placeholder: 'Ölkə',
+      prompt: 'Eşitdiyin hərflərə toxun.', audio: "It's F-R-A-N-C-E.", placeholder: 'Ölkə',
       rule: exact('FRANCE'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('FRANCE', 'Səsdə F, R, A, N, C, E deyilir: C “si”, E “i” oxunur.', 'C — si; S — es.', "It's F-R-A-N-C-E."))],
       review: {
         letters: ['E', 'N', 'G', 'L', 'A', 'N', 'D', 'I', 'J'], title: 'Hərfləri tut', why: 'E-N-G-L-A-N-D — İngiltərə.', hint: 'Hər hərfi eşidən kimi toxun; “ci” və “cey” səslərini qarışdırma.',
-        prompt: 'Qonaq ölkəsini hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: "It's E-N-G-L-A-N-D.", placeholder: 'Ölkə',
+        prompt: 'Eşitdiyin hərflərə toxun.', audio: "It's E-N-G-L-A-N-D.", placeholder: 'Ölkə',
         rule: exact('ENGLAND'),
         variants: [other('Hərfləri bir-bir dinlə.', ex('ENGLAND', 'Səsdə E, N, G, L, A, N, D deyilir: G “ci” oxunur.', 'G — ci; J — cey.', "It's E-N-G-L-A-N-D."))],
       },

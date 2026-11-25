@@ -39,16 +39,6 @@ export const exam: DesignLesson = {
       ],
     },
     {
-      type: 'tree', id: 'u4x_tree', number: 3, title: 'Ailə ağacı', why: 'grandfather — baba: atanın atası, ən yuxarı sırada.',
-      prompt: '“?” olan yerdə yaşlı kişi var.\nO kimdir? Sözü seç.',
-      nodes: [{ id: 'gm', label: 'grandmother', x: 25, y: 0 }, { id: 'gf', x: 75, y: 0 }, { id: 'dad', label: 'father', x: 50, y: 50 }, { id: 'me', label: 'sən', x: 50, y: 100 }],
-      links: [['gm', 'gf'], ['gf', 'dad'], ['dad', 'me']], target: 'gf', options: ['father', 'grandfather', 'brother'], answer: 'grandfather',
-      variants: [
-        pick('father', 'father ortadadır; “?” onun da yuxarısındadır.', ex('grandfather', 'Atanın üstündəki kişi babandır: grand + father.', 'grandfather — baba; father — ata.', 'This is my grandfather.')),
-        pick('brother', 'Qardaş səninlə eyni sırada olur; “?” ən yuxarıdadır.', ex('grandfather', 'Ən yuxarı sırada, nənənin yanındakı kişi babandır.', 'grandfather — baba; brother — qardaş.', 'This is my grandfather.')),
-      ],
-    },
-    {
       type: 'choice', id: 'u4x_c04', number: 4, title: 'Sözü tamamla', why: 'Bacının əri — her husband.',
       prompt: '{F} bacısını, sonra yanındakı kişini göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'And this is', after: 'husband.' },
       options: ['his', 'her', "she's"], answer: 'her',
@@ -59,7 +49,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u4x_c05', number: 5, keypad: true, title: 'Yaşı yığ', why: 'seven-TEEN — 17.',
-      prompt: 'Ad günü siyahısını doldurursan. {F} qızının yaşını deyir.\nDinlə və rəqəmi yığ.', audio: "My daughter? She's seventeen.", placeholder: 'Yaş',
+      prompt: 'Eşitdiyin rəqəmi yığ.', audio: "My daughter? She's seventeen.", placeholder: 'Yaş',
       rule: exact('17'),
       variants: [
         { match: { pattern: '^70$' }, short: '17 və 70-i ayır.', explain: ex('17', 'Vurğu sondadır: seven-TEEN — 17.', 'seven-TEEN — 17; SEV-en-ty — 70.', "She's seventeen.") },
@@ -143,7 +133,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'profile', id: 'u4x_profile', number: 13, title: 'Profil kartı', why: "brother — qardaş; thirty-four — 34; a doctor — həkim.",
-      prompt: 'Video zəngdə {f} albomdakı bir kişini göstərir.\nDinlə və kartı doldur.', audio: "{F}: This is my brother. He's thirty-four. He's a doctor.",
+      prompt: 'Video zəngdə {f} albomdakı bir kişini göstərir.\nDinlə və kartı doldur.', audio: "This is my brother. He's thirty-four. He's a doctor.",
       rows: [{ id: 'who', label: 'Kim', options: ['father', 'son', 'brother'], answer: 'brother' }, { id: 'age', label: 'Yaş', number: true, answer: '34' },
         { id: 'job', label: 'Peşə', options: ['doctor', 'student', 'engineer'], answer: 'doctor' }],
       variants: [
@@ -189,7 +179,7 @@ export const exam: DesignLesson = {
     incomplete: resultTexts.incomplete,
     goals: [
       { group: 'Bu kimdir?', text: 'Kim olduğunu soruşmaq və tanışlıq söhbətini anlamaq', tasks: ['u4x_c02', 'u4x_c15'] },
-      { group: 'Ailə', text: 'Ailə sözlərini eşidib anlamaq və ailə üzvünü yazmaq', tasks: ['u4x_tree', 'u4x_c13', 'u4x_c14'] },
+      { group: 'Ailə', text: 'Ailə sözlərini eşidib anlamaq və ailə üzvünü yazmaq', tasks: ['u4x_c13', 'u4x_c14'] },
       { group: 'His / her', text: '“Onun” sözünü kişiyə və qadına görə seçmək', tasks: ['u4x_c04', 'u4x_c11a'] },
       { group: 'Your', text: 'Bəli/xeyr sualı qurmaq və qısa cavab vermək', tasks: ['u4x_c06', 'u4x_c07'] },
       { group: 'Var / yoxdur', text: 'Do sualına cavab vermək və qısa cavabları uyğunlaşdırmaq', tasks: ['u4x_c08', 'u4x_c09'] },

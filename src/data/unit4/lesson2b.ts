@@ -72,7 +72,7 @@ export const lesson2b: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d2b_c05', number: 5, title: 'Dinlə və yaz', why: 'grandmother — grand + mother, bir söz kimi.', hint: 'Sözün iki hissəsi var: biri sənin Dərs 2a-dan bildiyin söz.',
-      prompt: '{F} səsli mesajda bir söz deyib, yazılışını soruşur.\nEşitdiyin sözü yaz.', audio: 'grandmother', placeholder: 'Eşitdiyin sözü yaz',
+      prompt: 'Eşitdiyin sözü yaz.', audio: 'grandmother', placeholder: 'Eşitdiyin sözü yaz',
       rule: exact('grandmother'),
       variants: [
         { match: { pattern: String.raw`^grand\s+mother$|^gran[d]?mother$|^grandmoth[ae]r?$` }, short: 'Bir söz kimi yaz: grandmother.',
@@ -81,7 +81,7 @@ export const lesson2b: DesignLesson = {
       ],
       review: {
         title: 'Dinlə və yaz', why: 'grandmother — grand + mother, bir söz kimi.', hint: 'Telefonda eşitdiyin uzun sözü iki hissəyə böl və hər hissəni ayrıca yaz.',
-        prompt: 'Telefonda dostun bir söz deyir və soruşur ki, o necə yazılır.\nEşitdiyin sözü yaz.', audio: 'grandmother', placeholder: 'Eşitdiyin sözü yaz',
+        prompt: 'Eşitdiyin sözü yaz.', audio: 'grandmother', placeholder: 'Eşitdiyin sözü yaz',
         rule: exact('grandmother'),
         variants: [
           { match: { pattern: String.raw`^grand\s+mother$|^gran[d]?mother$|^grandmoth[ae]r?$` }, short: 'Bir söz kimi yaz: grandmother.',
@@ -118,7 +118,7 @@ export const lesson2b: DesignLesson = {
     },
     {
       type: 'drag', id: 'u4d2b_drag', number: 9, title: 'Söz sürüklə', why: 'grandfather — baba, son — oğul: hər sözü eşitdiyin adamın altına qoydun.', hint: 'Səsdə iki cümlə var: birinci cümlə birinci adam üçündür.',
-      prompt: '{F} albomun ikinci səhifəsində iki şəkil göstərir.\nDinlə və hər adamın altına sözü qoy.', audio: '{F}: This is my grandfather. This is my son.',
+      prompt: '{F} albomun ikinci səhifəsində iki şəkil göstərir.\nDinlə və hər adamın altına sözü qoy.', audio: 'This is my grandfather. This is my son.',
       people: [{ id: 'p1' }, { id: 'p2' }], chips: ['son', 'grandmother', 'grandfather'], answers: { p1: 'grandfather', p2: 'son' },
       variants: [
         { field: 'p1', ...pick('grandmother', 'Birinci cümlədə grandmother yox, grandfather deyilir.', ex('grandfather', 'Sözün sonuna qulaq as: father — kişi, baba.', 'grandfather — baba; grandmother — nənə.', 'This is my grandfather.')) },
@@ -167,26 +167,6 @@ export const lesson2b: DesignLesson = {
       },
     },
     {
-      type: 'tree', id: 'u4d2b_tree', number: 12, title: 'Ailə ağacı', why: 'grandmother — nənə: ananın da yuxarısında, babanın yanında.', hint: 'Xətlərə bax: “?” ananın üstündə, babanın yanındadır.',
-      prompt: '“?” olan yerdə bir qadın var.\nO kimdir? Sözü seç.',
-      nodes: [{ id: 'gm', x: 25, y: 0 }, { id: 'gf', label: 'grandfather', x: 75, y: 0 }, { id: 'mom', label: 'mother', x: 50, y: 50 }, { id: 'me', label: 'sən', x: 50, y: 100 }],
-      links: [['gm', 'gf'], ['gm', 'mom'], ['mom', 'me']], target: 'gm', options: ['mother', 'grandmother', 'daughter'], answer: 'grandmother',
-      variants: [
-        pick('mother', 'mother ortadadır; “?” ananın da yuxarısındadır.', ex('grandmother', 'Ananın üstündəki qadın nənəndir: grand + mother.', 'grandmother — nənə; mother — ana.', 'This is my grandmother.')),
-        pick('daughter', 'daughter səndən aşağıda olardı; “?” ən yuxarıdadır.', ex('grandmother', 'Ən yuxarı sırada, babanın yanındakı qadın nənəndir.', 'grandmother — nənə; daughter — qız.', 'This is my grandmother.')),
-      ],
-      review: {
-        title: 'Ailə ağacı', why: 'son — oğul: səndən aşağıda, sənin övladın.', hint: 'Xətlərə bax: “?” səndən aşağıdadır və oğlandır.',
-        prompt: '“?” olan yerdə bir oğlan var.\nO kimdir? Sözü seç.',
-        nodes: [{ id: 'me', label: 'sən', x: 50, y: 0 }, { id: 'dau', label: 'daughter', x: 25, y: 100 }, { id: 'boy', x: 75, y: 100 }],
-        links: [['me', 'dau'], ['me', 'boy']], target: 'boy', options: ['brother', 'son', 'grandfather'], answer: 'son',
-        variants: [
-          pick('brother', 'Qardaş səninlə eyni sırada olur; “?” səndən aşağıdadır.', ex('son', 'Səndən aşağıdakı oğlan sənin oğlundur.', 'son — oğul; brother — qardaş.', 'This is my son.')),
-          pick('grandfather', 'Baba ən yuxarıda olur; “?” səndən aşağıdadır.', ex('son', 'Səndən aşağıdakı oğlan sənin oğlundur.', 'son — oğul; grandfather — baba.', 'This is my son.')),
-        ],
-      },
-    },
-    {
       type: 'match', mode: 'order', id: 'u4d2b_c14', number: 14, title: 'Söhbəti sırala', why: 'Sual, cavab və davamı düz sıradadır.', hint: 'Hər sualın cavabı onun dərhal ardınca gəlir.',
       prompt: 'Albomun ikinci səhifəsi.\nBalonlara toxun, söhbəti sıraya düz.',
       rows: [{ en: '1', az: "Hi! Who's this?", from: 'other' }, { en: '2', az: "This is my grandfather. He's from Ganja.", from: 'B' }, { en: '3', az: "Really? And who's this?", from: 'other' }, { en: '4', az: 'This is my daughter.', from: 'B' }],
@@ -205,7 +185,7 @@ export const lesson2b: DesignLesson = {
     done: ['Dərs 2 · 2-ci hissə tamamlandı', 'Artıq daha geniş ailəni adlandırır və ata-ananın harada olduğunu deyirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Geniş ailə sözlərini eşidib tanımaq, ailə ağacında tapmaq və söhbəti sıralamaq', tasks: ['u4d2b_c03', 'u4d2b_drag', 'u4d2b_tree', 'u4d2b_c14'] },
+      { group: 'Tanıma', text: 'Geniş ailə sözlərini eşidib tanımaq və söhbəti sıralamaq', tasks: ['u4d2b_c03', 'u4d2b_drag', 'u4d2b_c14'] },
       { group: 'Yazı', text: 'Ailə üzvünün harada olduğunu yazmaq', tasks: ['u4d2b_c05', 'u4d2b_c07'] },
       { group: 'Danışıq', text: 'Ailə üzvünü təqdim etmək və ata-ananın harada olduğunu demək', tasks: ['u4d2b_c11', 'u4d2b_c12'] },
     ],

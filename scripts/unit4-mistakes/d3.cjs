@@ -19,6 +19,5 @@ module.exports = (rejects, find) => {
   // Yeni ekranlar (21 Nov 2026): düz cavab qəbul olunur, tipik səhv qəbul olunmur və izah olunur.
   const ok = (g, id) => assert.equal(g.status, 'correct', `${id}: model answer accepted`);
   const no = (g, id, v) => { assert.equal(g.status, 'wrong', `${id}: “${v}” must not be accepted`); assert.ok(g.explain && g.explain.reason, `${id}: “${v}” explained`); };
-  { const t = find('u4d3_tree'); ok(L.gradeTree(t, 'husband'), 'u4d3_tree'); no(L.gradeTree(t, 'brother'), 'u4d3_tree', 'brother'); no(L.gradeTree(t, 'father'), 'u4d3_tree', 'father'); }
   { const t = find('u4d3_drag'); ok(L.gradeDrag(t, { lala: 'wife', elvin: 'brother' }), 'u4d3_drag'); no(L.gradeDrag(t, { lala: 'husband', elvin: 'brother' }), 'u4d3_drag', 'husband/brother'); no(L.gradeDrag(t, { lala: 'brother', elvin: 'wife' }), 'u4d3_drag', 'brother/wife'); }
 };

@@ -51,12 +51,12 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d4_c05', number: 5, letters: ['G', 'A', 'N', 'J', 'A', 'E', 'Y', 'K'], title: 'Hərfləri tut', why: 'G-A-N-J-A — Gəncə.', hint: 'Hər hərfi eşidən kimi toxun; “ci” və “cey” fərqinə qulaq as.',
-      prompt: 'Resepsiyaçı şəhərinin adını hərf-hərf yoxlayır.\nEşitdiyin hərflərə toxun.', audio: "It's G-A-N-J-A.", placeholder: 'Şəhər',
+      prompt: 'Eşitdiyin hərflərə toxun.', audio: "It's G-A-N-J-A.", placeholder: 'Şəhər',
       rule: exact('GANJA'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('GANJA', 'Səsdə G, A, N, J, A deyilir: G “ci”, J “cey”.', 'G — ci; J — cey.', "It's G-A-N-J-A."))],
       review: {
         letters: ['L', 'O', 'N', 'D', 'O', 'N', 'M', 'U', 'A'], title: 'Hərfləri tut', why: 'L-O-N-D-O-N — London.', hint: 'Hər hərfi eşidən kimi toxun; “el” və “en” fərqinə qulaq as.',
-        prompt: 'Hava limanında qeydiyyatçı uçuşun şəhərini hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: "It's L-O-N-D-O-N.", placeholder: 'Şəhər',
+        prompt: 'Eşitdiyin hərflərə toxun.', audio: "It's L-O-N-D-O-N.", placeholder: 'Şəhər',
         rule: exact('LONDON'),
         variants: [other('Hərfləri bir-bir dinlə.', ex('LONDON', 'Səsdə L, O, N, D, O, N deyilir.', 'L — el; N — en.', "It's L-O-N-D-O-N."))],
       },
@@ -120,12 +120,12 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d4_c11', number: 11, title: 'Dinlə və yaz', why: 'H-A-S-A-N-O-V — Hasanov.', hint: 'Hər hərfi eşidən kimi yaz; “ey” və “i” səslərini qarışdırma.',
-      prompt: 'Resepsiyada qonaq soyadını hərf-hərf deyir.\nSoyadı yaz.', audio: "It's H-A-S-A-N-O-V.", placeholder: 'Soyad',
+      prompt: 'Soyadı yaz.', audio: "It's H-A-S-A-N-O-V.", placeholder: 'Soyad',
       rule: exact('Hasanov'),
       variants: [other('Hərfləri yoxla.', ex('Hasanov', 'Səsdə H, A, S, A, N, O, V deyilir; A “ey” oxunur.', 'A — ey; E — i.', "It's H-A-S-A-N-O-V."))],
       review: {
         title: 'Dinlə və yaz', why: 'A-double B-A-S-O-V — Abbasov.', hint: 'Hər hərfi eşidən kimi yaz; qoşa hərfə diqqət et.',
-        prompt: 'Hava limanında qeydiyyatda sərnişin soyadını hərf-hərf deyir.\nSoyadı yaz.', audio: "It's A-double B-A-S-O-V.", placeholder: 'Soyad',
+        prompt: 'Soyadı yaz.', audio: "It's A-double B-A-S-O-V.", placeholder: 'Soyad',
         rule: exact('Abbasov'),
         variants: [other('Hərfləri yoxla.', ex('Abbasov', '“double B” — iki B yan-yana: BB.', 'double B — BB; double L — LL.', "It's A-double B-A-S-O-V."))],
       },

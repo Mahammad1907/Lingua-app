@@ -48,7 +48,6 @@ function asks(t) {
   if (t.type === 'two' && t.thread) { t.thread.lines.forEach(l => add('chat', l.text)); (t.thread.replies ?? []).forEach(r => add('reply', r)); }
   if (t.type === 'voice') { add('sample', t.sample); t.rule.answers.forEach(a => add('qəbul', a)); add('reply', t.reply); }
   // Ailə ağacı / Söz sürüklə / Profil kartı (21 Nov 2026): options, node and person labels, chips, row chips.
-  if (t.type === 'tree') { t.options.forEach(o => add('option', o)); t.nodes.forEach(n => add('node', n.label)); }
   if (t.type === 'drag') { t.chips.forEach(c => add('chip', c)); t.people.forEach(x => add('person', x.label)); }
   if (t.type === 'profile') t.rows.forEach(r => { (r.options || []).forEach(o => add('row', o)); add('row', r.answer); });
   if (t.type === 'match') {

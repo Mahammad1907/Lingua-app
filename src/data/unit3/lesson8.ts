@@ -67,12 +67,12 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d8_c05', number: 5, letters: ['T', 'B', 'I', 'L', 'I', 'S', 'I', 'E', 'Y'], title: 'Hərfləri tut', why: 'T-B-I-L-I-S-I — Tbilisi.', hint: 'Hər hərfi eşidən kimi toxun; “ay” və “i” fərqinə qulaq as.',
-      prompt: 'Gürcüstandan olan yeni tanış şəhərini hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: "It's T-B-I-L-I-S-I.", placeholder: 'Şəhər',
+      prompt: 'Eşitdiyin hərflərə toxun.', audio: "It's T-B-I-L-I-S-I.", placeholder: 'Şəhər',
       rule: exact('TBILISI'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('TBILISI', 'Səsdə T, B, I, L, I, S, I deyilir: I “ay” oxunur.', 'I — ay; E — i.', "It's T-B-I-L-I-S-I."))],
       review: {
         letters: ['I', 'Z', 'M', 'I', 'R', 'E', 'S', 'A'], title: 'Hərfləri tut', why: 'I-Z-M-I-R — İzmir.', hint: 'Hər hərfi eşidən kimi toxun; “ay” və “i” fərqinə qulaq as.',
-        prompt: 'Hostelin mətbəxində Türkiyədən olan gənc şəhərini hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: "It's I-Z-M-I-R.", placeholder: 'Şəhər',
+        prompt: 'Eşitdiyin hərflərə toxun.', audio: "It's I-Z-M-I-R.", placeholder: 'Şəhər',
         rule: exact('IZMIR'),
         variants: [other('Hərfləri bir-bir dinlə.', ex('IZMIR', 'Səsdə I, Z, M, I, R deyilir: I “ay”, R “ar”.', 'I — ay; R — ar.', "It's I-Z-M-I-R."))],
       },
@@ -157,12 +157,12 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d8_c10', number: 10, keypad: true, title: 'Nömrəni yığ', why: 'Nömrəni rəqəm-rəqəm yığdın: oh — sıfır.', hint: 'Hər rəqəmi eşidən kimi bas; “ou” səsini də unutma.',
-      prompt: 'Ziyafətin sonunda yeni tanış nömrəsini deyir.\nDinlə və yığ.', audio: "It's oh five five, four one eight, two two, seven three.", placeholder: 'Telefon nömrəsi',
+      prompt: 'Eşitdiyin rəqəmləri yığ.', audio: "It's oh five five, four one eight, two two, seven three.", placeholder: 'Telefon nömrəsi',
       rule: exact('0554182273'),
       variants: [other('Rəqəmləri bir-bir yoxla.', ex('0554182273', '“oh” sıfırdır; “two two” — iki iki.', 'oh — 0; two two — 22.', "It's oh five five, four one eight, two two, seven three."))],
       review: {
         keypad: true, title: 'Nömrəni yığ', why: 'Nömrəni rəqəm-rəqəm yığdın.', hint: 'Hər rəqəmi eşidən kimi bas; “ou” səsini də unutma.',
-        prompt: 'Hostelin resepsiyası klubun nömrəsini deyir.\nDinlə və yığ.', audio: "It's zero one two, five six oh, nine nine, one four.", placeholder: 'Telefon nömrəsi',
+        prompt: 'Eşitdiyin rəqəmləri yığ.', audio: "It's zero one two, five six oh, nine nine, one four.", placeholder: 'Telefon nömrəsi',
         rule: exact('0125609914'),
         variants: [other('Rəqəmləri bir-bir yoxla.', ex('0125609914', '“zero” və “oh” ikisi də sıfırdır.', 'zero — 0; oh — 0.', "It's zero one two, five six oh, nine nine, one four."))],
       },

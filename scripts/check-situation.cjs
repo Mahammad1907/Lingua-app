@@ -43,7 +43,8 @@ const look = (lesson, task, where) => {
   // L5: asking how to spell a word that the other person has just written.
   if (task.chat && answers.some(a => /spell/i.test(a)) && /[A-Za-z]{3,}/.test(chatText.replace(/🎤/g, ''))) hits.push(`${id}: söz söhbətdə yazılıb, amma “hərf-hərf necə yazılır?” soruşulur — “${chatText}”`);
   // L6: writing a heard number as a word needs a reason (someone asks how it is written).
-  if (task.type === 'write' && (/sözlə yaz/i.test(text) || NUMBER_WORD.test((task.audio || '').trim())) && !/necə yazılır|necədir|soruşur/i.test(text)) hits.push(`${id}: rəqəmi sözlə yazmağın səbəbi yoxdur — “${text}”`);
+  // Listening screens are exempt (user, 25 Nov 2026): only “Eşitdiyini yaz” — the audio panel shows who speaks and why.
+  if (task.type === 'write' && !task.audio && (/sözlə yaz/i.test(text) || NUMBER_WORD.test((task.audio || '').trim())) && !/necə yazılır|necədir|soruşur/i.test(text)) hits.push(`${id}: rəqəmi sözlə yazmağın səbəbi yoxdur — “${text}”`);
   // L7: forms take data, not sentences.
   if (/formada|formaya|vərəqdə|anketdə/i.test(text) && /tam cümlə|cümlə ilə/i.test(text) && !/mesaj/i.test(text)) hits.push(`${id}: formaya tam cümlə yazılmır — “${text}”`);
   // L8: strangers in a queue / street / lift do not ask personal data.
@@ -68,7 +69,8 @@ const look = (lesson, task, where) => {
     if (PLACE[place] && !PLACE[place].test(text)) hits.push(`${id}: şəkil “${s}”, amma vəziyyət başqa yerdədir — “${text}”`);
   }
   // L16: writing down what you hear needs a reason (you work there, a form, someone asks).
-  if (task.type === 'write' && task.audio && /eşitdiyini yaz|eşitdiyin sözü yaz|millətini yaz/i.test(text) && !/işləyirsən|formaya|vərəqə|soruşur|qeyd|yazmaq istəyirsən|dosta yazırsan/i.test(text)) hits.push(`${id}: diktənin səbəbi yoxdur (kim, niyə yazır?) — “${text}”`);
+  // L16 retired 25 Nov 2026 (user): listening screens carry only the instruction; the audio panel gives the situation.
+  if (false && task.type === 'write' && task.audio && /eşitdiyini yaz|eşitdiyin sözü yaz|millətini yaz/i.test(text) && !/işləyirsən|formaya|vərəqə|soruşur|qeyd|yazmaq istəyirsən|dosta yazırsan/i.test(text)) hits.push(`${id}: diktənin səbəbi yoxdur (kim, niyə yazır?) — “${text}”`);
   // L17: staff do not ask you about strangers next to you.
   if (/bələdçi|işçi|resepsiyaçı/i.test(text) && /(where's|where is|is) (he|she)\b/i.test(heard) && /yanında/i.test(text)) hits.push(`${id}: işçi səndən yad adamlar haqqında soruşur — “${text}”`);
   // ── Added 25 Nov 2026 (Bölmə 4 review) ──

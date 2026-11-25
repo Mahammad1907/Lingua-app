@@ -24,7 +24,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u2x_c02', number: 2, keypad: true, title: 'Nömrəni yığ', why: 'four, nine, zero, seven — 4907.',
-      prompt: 'Oteldə resepsiya restoranın daxili nömrəsini deyir.\nDinlə və yığ.', audio: 'Four, nine, zero, seven.', placeholder: 'Daxili nömrə',
+      prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Four, nine, zero, seven.', placeholder: 'Daxili nömrə',
       rule: exact('4907'),
       variants: [other('Rəqəmləri bir-bir dinlə.', ex('4907', 'Səsdə dörd rəqəm var: four, nine, zero, seven.', 'Four, nine, zero, seven. — 4907; Four, zero, nine, seven. — 4097.', 'Four, nine, zero, seven.'))],
     },
@@ -57,13 +57,13 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u2x_c06', number: 6, letters: ['J', 'F', 'K', 'G', 'E', 'Y'], title: 'Hərfləri tut', why: 'J-F-K — Nyu-York hava limanı.',
-      prompt: 'Hava limanında elan uçuşun şəhər kodunu deyir.\nEşitdiyin hərflərə toxun.', audio: 'J, F, K.', placeholder: 'Şəhər kodu',
+      prompt: 'Eşitdiyin hərflərə toxun.', audio: 'J, F, K.', placeholder: 'Şəhər kodu',
       rule: exact('JFK'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('JFK', 'Səsdə “cey, ef, key” deyilir.', 'J — cey; G — ci.', 'J, F, K.'))],
     },
     {
       type: 'write', id: 'u2x_c07', number: 7, title: 'Dinlə və yaz', why: 'T-A-double L-I-double N — Tallinn.',
-      prompt: 'Hava limanında qeydiyyatçı uçuşun şəhərini hərf-hərf deyir.\nŞəhərin adını yaz.', audio: "It's T-A-double L-I-double N.", placeholder: 'Şəhər',
+      prompt: 'Şəhərin adını yaz.', audio: "It's T-A-double L-I-double N.", placeholder: 'Şəhər',
       rule: exact('Tallinn'),
       variants: [other('Hərfləri yoxla.', ex('Tallinn', '“double L” — LL, “double N” — NN.', 'double L — LL; double N — NN.', "It's T-A-double L-I-double N."))],
     },
@@ -75,7 +75,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u2x_c09', number: 9, keypad: true, title: 'Nömrəni yığ', why: 'oh — sıfır; nömrəni rəqəm-rəqəm yığdın.',
-      prompt: 'Kurs yoldaşın nömrəsini deyir.\nDinlə və yığ.', audio: "It's oh seven seven, three oh two, one five, nine nine.", placeholder: 'Telefon nömrəsi',
+      prompt: 'Eşitdiyin rəqəmləri yığ.', audio: "It's oh seven seven, three oh two, one five, nine nine.", placeholder: 'Telefon nömrəsi',
       rule: exact('0773021599'),
       variants: [other('Rəqəmləri bir-bir yoxla.', ex('0773021599', '“oh” sıfırdır; nömrə rəqəm-rəqəm deyilir.', "It's oh seven seven… — 077; It's seven seven… — 77.", "It's oh seven seven, three oh two, one five, nine nine."))],
     },
@@ -118,7 +118,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u2x_c15', number: 15, title: 'Dinlə və yaz', why: 'aliyeva@mail.com — hərflər, @ və nöqtə.',
-      prompt: 'Qeydiyyatçı kurs müəlliminin e-poçtunu deyir.\nÜnvanı yaz.', audio: "It's A-L-I-Y-E-V-A at mail dot com.", placeholder: 'E-poçt ünvanı',
+      prompt: 'E-poçt ünvanını yaz.', audio: "It's A-L-I-Y-E-V-A at mail dot com.", placeholder: 'E-poçt ünvanı',
       rule: exact('aliyeva@mail.com'),
       variants: [asWords('aliyeva@mail.com', 'aliyeva at mail dot com'), other('Ünvanı yoxla.', ex('aliyeva@mail.com', 'Hərflər A-L-I-Y-E-V-A, sonra @, mail, nöqtə, com.', 'at — @; dot — nöqtə.', "It's A-L-I-Y-E-V-A at mail dot com."))],
     },

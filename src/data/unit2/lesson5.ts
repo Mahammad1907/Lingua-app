@@ -136,12 +136,12 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d5_c11', number: 11, title: 'Dinlə və yaz', why: 'G-U-L-I-Y-E-V — Guliyev.', hint: 'Hər hərfi eşidən kimi yaz; “ay” və “i” səslərini qarışdırma.',
-      prompt: 'Qeydiyyatçı siyahıdan bir tələbənin soyadını hərf-hərf oxuyur.\nSoyadı yaz.', audio: 'Last name: G-U-L-I-Y-E-V.', placeholder: 'Soyad',
+      prompt: 'Soyadı yaz.', audio: 'Last name: G-U-L-I-Y-E-V.', placeholder: 'Soyad',
       rule: exact('Guliyev'),
       variants: [other('Hərfləri yoxla.', ex('Guliyev', 'Səsdə G, U, L, I, Y, E, V deyilir; I “ay”, E “i” oxunur.', 'I — ay; E — i.', 'Last name: G-U-L-I-Y-E-V.'))],
       review: {
         title: 'Dinlə və yaz', why: 'M-A-double M-A-D-O-V-A — Mammadova.', hint: 'Hər hərfi eşidən kimi yaz; qoşa hərfə diqqət et.',
-        prompt: 'İdman zalında qeydiyyatçı yeni üzvün soyadını hərf-hərf oxuyur.\nSoyadı yaz.', audio: 'Last name: M-A-double M-A-D-O-V-A.', placeholder: 'Soyad',
+        prompt: 'Soyadı yaz.', audio: 'Last name: M-A-double M-A-D-O-V-A.', placeholder: 'Soyad',
         rule: exact('Mammadova'),
         variants: [other('Hərfləri yoxla.', ex('Mammadova', '“double M” — iki M yan-yana: MM.', 'double M — MM; double L — LL.', 'Last name: M-A-double M-A-D-O-V-A.'))],
       },

@@ -160,12 +160,12 @@ export const lesson5a: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d5a_c12', number: 12, title: 'Dinlə və yaz', why: 'She’s from Germany — qadın haqqında.', hint: 'Birinci sözə qulaq as: “hiz”, yoxsa “şiz”?',
-      prompt: 'Qatarda dostun yanındakı qadın haqqında səsli mesaj göndərdi. Sən onu başqa dosta yazırsan.\nEşitdiyini yaz.', audio: "She's from Germany.", placeholder: 'Cümlə',
+      prompt: 'Eşitdiyini yaz.', audio: "She's from Germany.", placeholder: 'Cümlə',
       rule: sheFrom('Germany'),
       variants: [wrongPerson('he', 'Germany'), other('Cümləni yoxla.', ex("She's from Germany.", 'Səsdə “şiz” — she’s, sonra from Germany.', "She's from Germany. — qadın; He's from Germany. — kişi.", "She's from France."))],
       review: {
         title: 'Dinlə və yaz', why: 'He’s from Russia — kişi haqqında.', hint: 'Birinci sözə qulaq as: “hiz”, yoxsa “şiz”?',
-        prompt: 'Video zəngdə qız ekrandakı kişidən danışır, dostun çatda soruşur.\nEşitdiyini yaz.', audio: "He's from Russia.", placeholder: 'Cümlə',
+        prompt: 'Eşitdiyini yaz.', audio: "He's from Russia.", placeholder: 'Cümlə',
         rule: heFrom('Russia'),
         variants: [wrongPerson('she', 'Russia'), other('Cümləni yoxla.', ex("He's from Russia.", 'Səsdə “hiz” — he’s, sonra from Russia.', "He's from Russia. — kişi; She's from Russia. — qadın.", "He's from Turkey."))],
       },

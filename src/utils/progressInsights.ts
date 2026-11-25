@@ -35,7 +35,6 @@ function phraseOf(task: DesignTask, id: string): string | undefined {
   if (task.type === 'write' || task.type === 'voice') return task.rule.answers[0];
   if (task.type === 'two') return task.fields.find(f => f.id === id)?.rule.answers[0];
   if (task.type === 'match') return task.rows[0]?.en;
-  if (task.type === 'tree') return task.answer;
   if (task.type === 'drag') return Object.values(task.answers)[0];
   if (task.type === 'profile') return task.rows.find(r => r.id === id)?.answer ?? task.rows[0]?.answer;
   return undefined;

@@ -116,14 +116,14 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'd4_c09', number: 9, title: 'Dinlə və yaz', why: 'Halını dedin və sualı qaytardın.',
-      prompt: 'Qonşun sənə səsli mesaj göndərdi.\nDinlə, mesajla cavab ver və sualı geri qaytar.', audio: 'Hello! How are you?', placeholder: 'Cavabını yaz', rule: answerBack,
+      prompt: 'Dinlə, mesajla cavab ver və sualı geri qaytar.', audio: 'Hello! How are you?', placeholder: 'Cavabını yaz', rule: answerBack,
       hint: 'İki hissə: öz halını de, sonra eyni sualı ona qaytar.', hintAssists: false,
       variants: [
         insteadOf('askFeeling', 'Halını da de.', ex("I'm fine, thanks. And you?", 'Sualı qaytarmısan, amma öz halını deməmisən.', 'Halın + And you?', "I'm OK. And you?")),
         other('Halını de və “And you?” soruş.', ex("I'm fine, thanks. And you?", 'Qonşun soruşdu, sən cavab verib eyni sualı ona qaytarırsan.', 'Halın + And you?', "I'm OK. And you?")),
       ],
       review: {
-        title: 'Dinlə və yaz', why: 'Halını dedin və sualı qaytardın.', prompt: 'Kurs yoldaşın sənə səsli mesaj göndərdi.\nDinlə, mesajla cavab ver və sualı geri qaytar.', audio: 'Hi! How are you?', placeholder: 'Cavabını yaz', rule: answerBack, hint: 'İki hissə: öz halını de, sonra eyni sualı ona qaytar.', hintAssists: false,
+        title: 'Dinlə və yaz', why: 'Halını dedin və sualı qaytardın.', prompt: 'Dinlə, mesajla cavab ver və sualı geri qaytar.', audio: 'Hi! How are you?', placeholder: 'Cavabını yaz', rule: answerBack, hint: 'İki hissə: öz halını de, sonra eyni sualı ona qaytar.', hintAssists: false,
         variants: [other('Halını de və “And you?” soruş.', ex("I'm OK. And you?", 'Cavab verirsən və eyni sualı qaytarırsan.', 'Halın + And you?', "I'm fine, thanks. And you?"))],
       },
     },

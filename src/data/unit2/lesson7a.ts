@@ -50,12 +50,12 @@ export const lesson7a: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d7a_c05', number: 5, keypad: true, title: 'Kodu yığ', why: 'twelve, eleven — 1211.', hint: 'Hər sözü eşidəndə iki rəqəm yığ.',
-      prompt: 'İdman zalında dolabın kodu var.\nQəbul kodu deyir. Dinlə və yığ.', audio: 'Twelve, eleven.', placeholder: 'Dolabın kodu',
+      prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Twelve, eleven.', placeholder: 'Dolabın kodu',
       rule: exact('1211'),
       variants: [other('Hər sözdə iki rəqəm var.', ex('1211', 'twelve — 12, eleven — 11; sıra ilə yığılır.', 'Twelve, eleven. — 1211; Eleven, twelve. — 1112.', 'Twelve, eleven.'))],
       review: {
         keypad: true, title: 'Kodu yığ', why: 'fifteen, nineteen — 1519.', hint: 'Hər sözü eşidəndə iki rəqəm yığ.',
-        prompt: 'Ofisin qapısında kod var.\nİş yoldaşın kodu deyir. Dinlə və yığ.', audio: 'Fifteen, nineteen.', placeholder: 'Qapının kodu',
+        prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Fifteen, nineteen.', placeholder: 'Qapının kodu',
         rule: exact('1519'),
         variants: [other('Hər sözdə iki rəqəm var.', ex('1519', 'fifteen — 15, nineteen — 19.', 'Fifteen, nineteen. — 1519; Nineteen, fifteen. — 1915.', 'Fifteen, nineteen.'))],
       },
@@ -102,24 +102,24 @@ export const lesson7a: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d7a_c14', number: 14, letters: ['G', 'Y', 'M', 'J', 'I', 'N'], title: 'Hərfləri tut', why: 'G-Y-M — zalın Wi-Fi adı.', hint: 'Hər hərfi eşidən kimi toxun; “ci” və “cey”, “uay” və “ay” fərqinə qulaq as.',
-      prompt: 'Məşqçi zalın Wi-Fi adını hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'G, Y, M.', placeholder: 'Wi-Fi adı',
+      prompt: 'Eşitdiyin hərflərə toxun.', audio: 'G, Y, M.', placeholder: 'Wi-Fi adı',
       rule: exact('GYM'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('GYM', 'Səsdə üç hərf var: ci, uay, em.', 'G — ci; Y — uay.', 'G, Y, M.'))],
       review: {
         letters: ['P', 'O', 'O', 'L', 'U', 'Q'], title: 'Hərfləri tut', why: 'P-O-O-L — hovuzun Wi-Fi adı.', hint: 'Hər hərfi eşidən kimi toxun; qoşa hərfə diqqət et.',
-        prompt: 'Hovuzun qəbulu Wi-Fi adını hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'P, double O, L.', placeholder: 'Wi-Fi adı',
+        prompt: 'Eşitdiyin hərflərə toxun.', audio: 'P, double O, L.', placeholder: 'Wi-Fi adı',
         rule: exact('POOL'),
         variants: [other('Hərfləri bir-bir dinlə.', ex('POOL', 'Səsdə “pi, double O, el” deyilir: double O — OO.', 'double O — OO; double L — LL.', 'P, double O, L.'))],
       },
     },
     {
       type: 'write', id: 'u2d7a_c10', number: 10, title: 'Dinlə və yaz', why: 'fifteen — five yox, fif-.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
-      prompt: 'Qəbulda qadın dolabın nömrəsini deyir, dostun çatda soruşur.\nEşitdiyin sözü yaz.', audio: 'Fifteen.', placeholder: 'Rəqəmi sözlə yaz',
+      prompt: 'Eşitdiyin sözü yaz.', audio: 'Fifteen.', placeholder: 'Rəqəmi sözlə yaz',
       rule: exact('fifteen'),
       variants: [other('Yazılışı yoxla.', ex('fifteen', '15-də “five” dəyişir: fif- + teen.', 'four → fourteen; five → fifteen.', 'Thirteen, fourteen, fifteen!'))],
       review: {
         title: 'Dinlə və yaz', why: 'thirteen — three yox, thir-.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
-        prompt: 'Məşqçi təkrar sayını deyir, dostun çatda soruşur.\nEşitdiyin sözü yaz.', audio: 'Thirteen.', placeholder: 'Rəqəmi sözlə yaz',
+        prompt: 'Eşitdiyin sözü yaz.', audio: 'Thirteen.', placeholder: 'Rəqəmi sözlə yaz',
         rule: exact('thirteen'),
         variants: [other('Yazılışı yoxla.', ex('thirteen', '13-də “three” dəyişir: thir- + teen.', 'four → fourteen; three → thirteen.', 'Thirteen, fourteen, fifteen!'))],
       },

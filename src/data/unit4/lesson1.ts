@@ -81,7 +81,7 @@ export const lesson1: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d1_c05', number: 5, title: 'Dinlə və yaz', why: 'friend — i-dən sonra e gəlir.', hint: 'Sözün ortasında iki saitin ardıcıllığına diqqət et.',
-      prompt: '{F} səsli mesajda bir söz deyib, yazılışını soruşur.\nEşitdiyin sözü yaz.', audio: 'friend', placeholder: 'Eşitdiyin sözü yaz',
+      prompt: 'Eşitdiyin sözü yaz.', audio: 'friend', placeholder: 'Eşitdiyin sözü yaz',
       rule: exact('friend'),
       variants: [
         { match: { pattern: String.raw`^fr(?:ei|ie?)nd?$|^frend$` }, short: 'Yazılış: f-r-i-e-n-d.',
@@ -90,7 +90,7 @@ export const lesson1: DesignLesson = {
       ],
       review: {
         title: 'Dinlə və yaz', why: 'friend — i-dən sonra e gəlir.', hint: 'Telefonda eşitdiyin sözün ortasında iki sait yan-yanadır — sırasına diqqət et.',
-        prompt: 'Telefonda dostun bir söz deyir və soruşur ki, o necə yazılır.\nEşitdiyin sözü yaz.', audio: 'friend', placeholder: 'Eşitdiyin sözü yaz',
+        prompt: 'Eşitdiyin sözü yaz.', audio: 'friend', placeholder: 'Eşitdiyin sözü yaz',
         rule: exact('friend'),
         variants: [
           { match: { pattern: String.raw`^fr(?:ei|ie?)nd?$|^frend$` }, short: 'Yazılış: f-r-i-e-n-d.',

@@ -138,32 +138,6 @@ export const lesson3: DesignLesson = {
       example: 'This is my husband. His name is Rauf.', exampleAz: 'Bu, mənim ərimdir. Onun adı Raufdur.',
     },
     {
-      type: 'tree', id: 'u4d3_tree', number: 11, title: 'Ailə ağacı', why: 'husband — ər: bacının yanındakı kişi onun əridir — her husband.', hint: 'Xətlərə bax: “?” ata-anaya yox, yalnız bacına bağlıdır.',
-      prompt: '“?” olan yerdə bir kişi var.\nO kimdir? Sözü seç.',
-      nodes: [{ id: 'mom', label: 'mother', x: 25, y: 0 }, { id: 'dad', label: 'father', x: 75, y: 0 }, { id: 'me', label: 'sən', x: 15, y: 100 }, { id: 'sis', label: 'sister', x: 50, y: 100 }, { id: 'man', x: 85, y: 100 }],
-      links: [['mom', 'dad'], ['mom', 'me'], ['mom', 'sis'], ['sis', 'man']], target: 'man', options: ['brother', 'husband', 'father'], answer: 'husband',
-      variants: [
-        pick('brother', 'Qardaş ata-anaya bağlı olardı; “?” yalnız bacına bağlıdır.', ex('husband', 'Bacının yanındakı, ona bağlı kişi onun əridir.', 'her husband — bacının əri; my brother — qardaşım.', 'This is my sister. This is her husband.')),
-        pick('father', 'father yuxarı sıradadır; “?” bacının yanındadır.', ex('husband', 'Bacının yanındakı, ona bağlı kişi onun əridir.', 'her husband — bacının əri; my father — atam.', 'This is my sister. This is her husband.')),
-      ],
-      review: {
-        title: 'Ailə ağacı', why: 'wife — həyat yoldaşı: qardaşının yanındakı qadın — his wife.', hint: 'Xətlərə bax: “?” ata-anaya yox, yalnız qardaşına bağlıdır.',
-        prompt: '“?” olan yerdə bir qadın var.\nO kimdir? Sözü seç.',
-        nodes: [{ id: 'mom', label: 'mother', x: 25, y: 0 }, { id: 'dad', label: 'father', x: 75, y: 0 }, { id: 'me', label: 'sən', x: 15, y: 100 }, { id: 'bro', label: 'brother', x: 50, y: 100 }, { id: 'woman', x: 85, y: 100 }],
-        links: [['mom', 'dad'], ['dad', 'me'], ['dad', 'bro'], ['bro', 'woman']], target: 'woman', options: ['sister', 'mother', 'wife'], answer: 'wife',
-        variants: [
-          pick('sister', 'Bacı ata-anaya bağlı olardı; “?” yalnız qardaşına bağlıdır.', ex('wife', 'Qardaşının yanındakı, ona bağlı qadın onun həyat yoldaşıdır.', 'his wife — qardaşının həyat yoldaşı; my sister — bacım.', 'This is my brother. This is his wife.')),
-          pick('mother', 'mother yuxarı sıradadır; “?” qardaşının yanındadır.', ex('wife', 'Qardaşının yanındakı, ona bağlı qadın onun həyat yoldaşıdır.', 'his wife — qardaşının həyat yoldaşı; my mother — anam.', 'This is my brother. This is his wife.')),
-        ],
-      },
-    },
-    {
-      type: 'word', id: 'u4d3_c12', number: 12, scenes: ['mascot/think'],
-      word: 'wife', pronunciation: '/waɪf/', reading: 'uayf', az: 'həyat yoldaşı (kişinin)',
-      notes: ['w “u” kimi başlayır: uayf.'],
-      example: 'This is my wife. Her name is Lala.', exampleAz: 'Bu, mənim həyat yoldaşımdır. Onun adı Laladır.',
-    },
-    {
       type: 'write', id: 'u4d3_c13', number: 13, title: 'Dialoqu tamamla', why: 'Bacının əri — her husband.', hint: 'Əvvəl suala qısa cavab ver, sonra ərin kimin əri olduğunu düşün.',
       prompt: 'Çatda şəklinə baxırlar: bacın və onun əri.\nYaz: bəli, o bacımdır. Bu da onun əridir.', placeholder: 'Cavabın',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is she your sister?' }] },
@@ -171,7 +145,7 @@ export const lesson3: DesignLesson = {
       variants: [
         wrongOwner('her', 'Yes, she is. This is her husband.', 'This is my sister. This is her husband.', 'Ər bacınındır, bacın qadındır — her.'),
         ownerNotIs('her', 'Yes, she is. This is her husband.', 'This is my sister. This is her husband.'),
-        other('Yes, she is. This is her husband.', ex('Yes, she is. This is her husband.', 'Əvvəl qısa “bəli”, sonra bacının əri: her husband.', 'her husband — qadının əri; his wife — kişinin həyat yoldaşı.', 'This is my sister. This is her husband.')),
+        other('Yes, she is. This is her husband.', ex('Yes, she is. This is her husband.', 'Əvvəl qısa “bəli”, sonra bacının əri: her husband.', 'her husband — qadının əri; bacının əri də belə deyilir.', 'This is my sister. This is her husband.')),
       ],
       review: {
         title: 'Dialoqu tamamla', why: 'Qardaşının həyat yoldaşı — his wife.', hint: 'Əvvəl suala qısa cavab ver, sonra həyat yoldaşının kimin həyat yoldaşı olduğunu düşün.',
@@ -186,8 +160,14 @@ export const lesson3: DesignLesson = {
       },
     },
     {
+      type: 'word', id: 'u4d3_c12', number: 12, scenes: ['mascot/think'],
+      word: 'wife', pronunciation: '/waɪf/', reading: 'uayf', az: 'həyat yoldaşı (kişinin)',
+      notes: ['w “u” kimi başlayır: uayf.'],
+      example: 'This is my wife. Her name is Lala.', exampleAz: 'Bu, mənim həyat yoldaşımdır. Onun adı Laladır.',
+    },
+    {
       type: 'drag', id: 'u4d3_drag', number: 14, title: 'Söz sürüklə', why: 'His name is Elvin — qardaşı; Her name is Lala — onun həyat yoldaşı.', hint: 'Hər adı eşidəndə ondan əvvəlki cümləyə fikir ver.',
-      prompt: 'Ailə yeməyinin şəklində {f} iki nəfəri göstərir.\nDinlə və hər adamın altına sözü qoy.', audio: '{F}: This is my brother. His name is Elvin. This is his wife. Her name is Lala.',
+      prompt: 'Ailə yeməyinin şəklində {f} iki nəfəri göstərir.\nDinlə və hər adamın altına sözü qoy.', audio: 'This is my brother. His name is Elvin. This is his wife. Her name is Lala.',
       people: [{ id: 'lala', label: 'Lala' }, { id: 'elvin', label: 'Elvin' }], chips: ['husband', 'brother', 'wife'], answers: { lala: 'wife', elvin: 'brother' },
       variants: [
         { field: 'lala', ...pick('husband', 'husband ərdir; Lala qadındır — his wife deyilir.', ex('Lala — wife', 'Lala qardaşın həyat yoldaşıdır: kişinin həyat yoldaşı — his wife.', 'his wife — kişinin həyat yoldaşı; her husband — qadının əri.', 'This is my brother. This is his wife.')) },
@@ -210,7 +190,7 @@ export const lesson3: DesignLesson = {
     done: ['Dərs 3 tamamlandı', 'Artıq his və her ilə başqasının adını və ailəsini deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'his və her fərqini eşidib seçmək, ailə ağacında əri və həyat yoldaşını tapmaq', tasks: ['u4d3_c03', 'u4d3_c07', 'u4d3_tree', 'u4d3_drag'] },
+      { group: 'Tanıma', text: 'his və her fərqini eşidib seçmək, əri və həyat yoldaşını tanımaq', tasks: ['u4d3_c03', 'u4d3_c07', 'u4d3_drag'] },
       { group: 'Yazı', text: 'Kişinin adını və bacının ərini yazmaq', tasks: ['u4d3_c05', 'u4d3_c13'] },
       { group: 'Danışıq', text: 'Bacını təqdim edib adını demək', tasks: ['u4d3_c09'] },
     ],

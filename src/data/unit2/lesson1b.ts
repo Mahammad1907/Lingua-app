@@ -71,12 +71,12 @@ export const lesson1b: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d1b_c07', number: 7, keypad: true, speaker: 'mascot', title: 'Nömrəni yığ', why: 'nine, eight, seven, six — 9876.', hint: 'Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.',
-      prompt: 'Taksi çağırırsan.\n{M} taksinin qısa nömrəsini deyir. Dinlə və yığ.', audio: 'Nine, eight, seven, six.', placeholder: 'Qısa nömrə',
+      prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Nine, eight, seven, six.', placeholder: 'Qısa nömrə',
       rule: exact('9876'),
       variants: [other('Rəqəmləri bir-bir dinlə.', ex('9876', 'Səsdə dörd rəqəm var və sıra ilə yığılır.', 'Nine, eight, seven, six. — 9876; Six, seven, eight, nine. — 6789.', 'Nine, eight, seven, six.'))],
       review: {
         keypad: true, title: 'Nömrəni yığ', why: 'eight, zero, six, nine — 8069.', hint: 'Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.',
-        prompt: 'Dayanacaqda elan avtobus şirkətinin qısa nömrəsini deyir.\nDinlə və yığ.', audio: 'Eight, zero, six, nine.', placeholder: 'Qısa nömrə',
+        prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Eight, zero, six, nine.', placeholder: 'Qısa nömrə',
         rule: exact('8069'),
         variants: [other('Rəqəmləri bir-bir dinlə.', ex('8069', 'Səsdə dörd rəqəm var: eight, zero, six, nine.', 'Eight, zero, six, nine. — 8069; Eight, zero, nine, six. — 8096.', 'Eight, zero, six, nine.'))],
       },
