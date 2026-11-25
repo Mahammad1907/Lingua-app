@@ -99,7 +99,7 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'two', id: 'u3d8_c07', number: 7, title: 'İki mesaj yaz', why: 'Qızı təqdim etdin: haradandır və millətidir.', hint: 'Qız haqqında yazırsan — hər iki mesajı eyni sözlə başla.',
-      prompt: 'Klubun çatında yeni üzv qız haqqında soruşur. Qız Gəncədəndir, azərbaycanlıdır.\nİki mesaj yaz:\n1. Haradan olduğunu.\n2. Millətini.',
+      prompt: 'Qız Gəncədəndir, azərbaycanlıdır.\nİki mesaj yaz:\n1. Haradan olduğunu.\n2. Millətini.',
       fields: [
         { id: 'u3d8_c07a', label: 'Birinci mesaj', placeholder: 'Haradandır?', rule: exact("She's from Ganja.", 'She is from Ganja.'), purpose: 'haradan olduğunu demək', empty: 'Birinci mesajı da yaz.' },
         { id: 'u3d8_c07b', label: 'İkinci mesaj', placeholder: 'Millətidir?', rule: exact("She's Azerbaijani.", 'She is Azerbaijani.'), purpose: 'millətini demək', empty: 'İkinci mesajı da yaz.' },
@@ -112,7 +112,7 @@ export const lesson8: DesignLesson = {
       ],
       review: {
         title: 'İki mesaj yaz', why: 'Oğlanı təqdim etdin: haradandır və millətidir.', hint: 'Oğlan haqqında yazırsan — hər iki mesajı eyni sözlə başla.',
-        prompt: 'Hostelin çatında biri oğlan haqqında soruşur. Oğlan Bakıdandır, azərbaycanlıdır.\nİki mesaj yaz:\n1. Haradan olduğunu.\n2. Millətini.',
+        prompt: 'Oğlan Bakıdandır, azərbaycanlıdır.\nİki mesaj yaz:\n1. Haradan olduğunu.\n2. Millətini.',
         fields: [
           { id: 'u3d8_c07a', label: 'Birinci mesaj', placeholder: 'Haradandır?', rule: exact("He's from Baku.", 'He is from Baku.'), purpose: 'haradan olduğunu demək', empty: 'Birinci mesajı da yaz.' },
           { id: 'u3d8_c07b', label: 'İkinci mesaj', placeholder: 'Millətidir?', rule: exact("He's Azerbaijani.", 'He is Azerbaijani.'), purpose: 'millətini demək', empty: 'İkinci mesajı da yaz.' },

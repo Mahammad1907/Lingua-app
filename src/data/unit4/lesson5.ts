@@ -82,12 +82,12 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d5_c07', number: 7, title: 'Cümlə qur', why: '“Bacım yoxdur” — I don\'t have a sister.', hint: '“yoxdur” üçün have-dən əvvəl hansı söz gəlir?',
-      prompt: '{F} mesajda soruşur, bacın varmı. Sənin bacın yoxdur.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+      prompt: '{F} mesajda bacın olub-olmadığını soruşur. Bacın yoxdur.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
       tiles: ['have', 'I', 'sister', "don't", 'a', 'not', 'am', '.'], rule: exact("I don't have a sister."),
       variants: [...HAVE_MISTAKES, familyOther("I don't have a sister.")],
       review: {
         title: 'Cümlə qur', why: '“Qardaşım yoxdur” — I don\'t have a brother.', hint: 'Qardaşın yoxdur — “yoxdur” üçün have-dən əvvəl nə lazımdır?',
-        prompt: 'Kurs yoldaşın mesajda soruşur, qardaşın varmı. Sənin qardaşın yoxdur.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Kurs yoldaşın mesajda soruşur. Qardaşın yoxdur.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
         tiles: ['brother', "don't", 'I', 'am', 'have', 'a', 'not', '.'], rule: exact("I don't have a brother."),
         variants: [...HAVE_MISTAKES, familyOther("I don't have a brother.")],
       },
@@ -151,7 +151,7 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'two', id: 'u4d5_c12', number: 12, title: 'İki mesaj yaz', why: 'Ailəni dedin və {f:dat} sual verdin.', hint: 'Birinci mesajda “var/yoxdur” sözlərini, ikincidə bu dərsin sual quruluşunu xatırla.',
-      prompt: '{F} mesaj yazdı: “I have a brother and a sister.”\nİki mesaj yaz:\n1. De: bacın var, yoxsa yox (istəsən, uydurma).\n2. Soruş: oğlu varmı?',
+      prompt: '{F} yazdı: “I have a brother and a sister.”\nİki mesaj yaz:\n1. Bacın var, yoxsa yox (uydura bilərsən).\n2. Soruş: oğlu varmı?',
       fields: [
         { id: 'u4d5_c12a', label: 'Birinci mesaj', placeholder: 'Bacın var, yoxsa yox?', rule: own(MY_FAMILY, 'I have a sister.', "I don't have a sister."), purpose: 'bacın olub-olmadığını demək', empty: 'Birinci mesajı da yaz.' },
         { id: 'u4d5_c12b', label: 'İkinci mesaj', placeholder: 'Oğlu varmı — soruş', rule: said(askHave('son'), 'Do you have a son?'), purpose: 'oğlu olub-olmadığını soruşmaq', empty: 'İkinci mesajı da yaz.' },
@@ -162,7 +162,7 @@ export const lesson5: DesignLesson = {
       ],
       review: {
         title: 'İki mesaj yaz', why: 'Ailəni dedin və sual verdin.', hint: 'Yeni yoldaşa da əvvəl “var/yoxdur” ilə, sonra bu dərsin sual quruluşu ilə yaz.',
-        prompt: 'Kursun qrup çatında yeni yoldaş yazdı: “I have a son.”\nİki mesaj yaz:\n1. De: qardaşın var, yoxsa yox (istəsən, uydurma).\n2. Soruş: qızı varmı?',
+        prompt: 'Yeni yoldaş yazdı: “I have a son.”\nİki mesaj yaz:\n1. Qardaşın var, yoxsa yox (uydura bilərsən).\n2. Soruş: qızı varmı?',
         fields: [
           { id: 'u4d5_c12a', label: 'Birinci mesaj', placeholder: 'Qardaşın var, yoxsa yox?', rule: own(MY_FAMILY, 'I have a brother.', "I don't have a brother."), purpose: 'qardaşın olub-olmadığını demək', empty: 'Birinci mesajı da yaz.' },
           { id: 'u4d5_c12b', label: 'İkinci mesaj', placeholder: 'Qızı varmı — soruş', rule: said(askHave('daughter'), 'Do you have a daughter?'), purpose: 'qızı olub-olmadığını soruşmaq', empty: 'İkinci mesajı da yaz.' },
@@ -175,7 +175,7 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d5_c13', number: 13, title: 'Mesaj yaz', why: 'Ailəndə kimin olub-olmadığını özün dedin.', hint: 'Hər ailə üzvü üçün ayrıca de: var, yoxsa yoxdur.',
-      prompt: '{F} ailəsindən danışdı və səndən soruşur.\nCavab yaz: qardaşın və bacın var, yoxsa yox? (istəsən, uydurma)', placeholder: 'Cavabını yaz',
+      prompt: '{F} ailən haqqında soruşur.\nYaz: qardaşın və bacın var, yoxsa yox? (uydura bilərsən)', placeholder: 'Cavabını yaz',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'I have a brother and a sister. And you?' }] },
       rule: myFamily,
       variants: [...HAVE_MISTAKES, familyOther("I have a brother, but I don't have a sister.")],

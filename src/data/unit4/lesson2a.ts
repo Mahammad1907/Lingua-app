@@ -56,13 +56,13 @@ export const lesson2a: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d2a_c05', number: 5, title: 'Mesaj yaz', why: 'This is my mother. — ananı təqdim etdin.', hint: 'Dərs 1-dəki təqdim cümləsi kimi qur, ailə sözü sonda gəlir.',
-      prompt: 'Sən {f:dat} çatda ailə şəklini göndərdin. {F} soruşur.\nSözlərdən cavab qur: “Bu mənim anamdır.”', placeholder: 'Sözlərə toxun',
+      prompt: 'Şəkildə anan var.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
       tiles: ['This', 'is', 'my', 'mother', '.', 'are', "I'm"], rule: exact('This is my mother.'),
       variants: [noMy('mother', 'This is my mother.'), other('Sıra: This is my mother.', ex('This is my mother.', 'Əvvəl This is, sonra my mother.', 'This is my mother. — ana; This is my friend. — dost.', 'This is my mother.'))],
       review: {
         title: 'Mesaj yaz', why: 'This is my mother. — ananı təqdim etdin.', hint: 'Qonşuya ananı Dərs 1-dəki təqdim cümləsi kimi göstər, ailə sözü sonda gəlir.',
-        prompt: 'Qonşun çatda sənin ailə şəklini görüb soruşur. Şəkildə anan var.\nSözlərdən cavab qur: “Bu mənim anamdır.”', placeholder: 'Sözlərə toxun',
+        prompt: 'Şəkildə anan var.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Qonşu', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
         tiles: ['my', 'This', 'mother', 'is', '.', 'I', 'are'], rule: exact('This is my mother.'),
         variants: [noMy('mother', 'This is my mother.'), other('Sıra: This is my mother.', ex('This is my mother.', 'Əvvəl This is, sonra my mother.', 'This is my mother. — ana; This is my friend. — dost.', 'This is my mother.'))],
@@ -114,7 +114,7 @@ export const lesson2a: DesignLesson = {
     },
     {
       type: 'tree', id: 'u4d2a_tree', number: 11, title: 'Ailə ağacı', why: 'sister — bacı: ata-ananın qızıdır, səninlə eyni sıradadır.', hint: 'Yuxarı sırada ata-ana var; aşağı sırada səninlə yanaşı kim dayanır?',
-      prompt: '{F} sənin ailə ağacını çəkir. “?” olan yerdə bir qız var.\nO kimdir? İngiliscə sözü seç.',
+      prompt: '“?” olan yerdə bir qız var.\nO kimdir? Sözü seç.',
       nodes: [{ id: 'mom', label: 'mother', x: 25, y: 0 }, { id: 'dad', label: 'father', x: 75, y: 0 }, { id: 'me', label: 'sən', x: 30, y: 100 }, { id: 'sis', x: 70, y: 100 }],
       links: [['mom', 'dad'], ['mom', 'me'], ['mom', 'sis']], target: 'sis', options: ['brother', 'sister', 'mother'], answer: 'sister',
       variants: [
@@ -123,7 +123,7 @@ export const lesson2a: DesignLesson = {
       ],
       review: {
         title: 'Ailə ağacı', why: 'father — ata: yuxarı sırada, ananın yanındakı kişi.', hint: 'Yuxarı sıra ata-anadır; “?” orada kişidir.',
-        prompt: 'Qonşunun uşağı sənin ailə ağacına baxır. “?” olan yerdə bir kişi var.\nO kimdir? İngiliscə sözü seç.',
+        prompt: '“?” olan yerdə bir kişi var.\nO kimdir? Sözü seç.',
         nodes: [{ id: 'mom', label: 'mother', x: 25, y: 0 }, { id: 'dad', x: 75, y: 0 }, { id: 'me', label: 'sən', x: 30, y: 100 }, { id: 'bro', label: 'brother', x: 70, y: 100 }],
         links: [['mom', 'dad'], ['dad', 'me'], ['dad', 'bro']], target: 'dad', options: ['father', 'brother', 'sister'], answer: 'father',
         variants: [

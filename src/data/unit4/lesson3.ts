@@ -60,7 +60,7 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d3_c05', number: 5, title: 'Mesaj yaz', why: 'Kişinin adı — His name is.', hint: '“Onun” sözü burada kişiyə aiddir; sıra My name is kimidir.',
-      prompt: '{F} çatda sənin qardaşının şəklini görüb. Qardaşının adı Elvindir.\nSözlərdən cümlə qur: “Onun adı Elvindir.”', placeholder: 'Sözlərə toxun',
+      prompt: 'Qardaşının adı Elvindir.\nSözlərdən cümlə qur: “Onun adı Elvindir.”', placeholder: 'Sözlərə toxun',
       tiles: ['His', "He's", 'name', 'is', 'Elvin', 'my', '.'], rule: exact('His name is Elvin.'),
       variants: [
         ownerNotIs('his', 'His name is Elvin.', "He's my brother. His name is Elvin."),
@@ -69,7 +69,7 @@ export const lesson3: DesignLesson = {
       ],
       review: {
         title: 'Mesaj yaz', why: 'Kişinin adı — His name is.', hint: 'Tural kişidir — “onun” üçün kişi sözünü seç, sıra My name is kimidir.',
-        prompt: '{B} kurs çatında yeni dostunun şəklini paylaşıb. Dostunun adı Turaldır.\nSözlərdən cümlə qur: “Onun adı Turaldır.”', placeholder: 'Sözlərə toxun',
+        prompt: 'Dostunun adı Turaldır.\nSözlərdən cümlə qur: “Onun adı Turaldır.”', placeholder: 'Sözlərə toxun',
         tiles: ['name', 'His', 'is', "He's", 'Tural', 'my', '.'], rule: exact('His name is Tural.'),
         variants: [
           ownerNotIs('his', 'His name is Tural.', "He's my friend. His name is Tural."),
@@ -86,7 +86,7 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'choice', id: 'u4d3_c07', number: 7, title: 'Sözü tamamla', why: 'Bacının ailəsi — her family.', hint: 'Ailə kimindir: kişinin, yoxsa qadının?',
-      prompt: 'Ailə yeməyinin şəklində {f} bir qadını göstərir: “This is my sister.” Sonra onun ailəsini göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'This is', after: 'family.' },
+      prompt: '{F} bacısını göstərir, sonra onun ailəsini.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'This is', after: 'family.' },
       options: ['his', 'her', "she's"], answer: 'her',
       variants: [
         pick('his', 'Ailə bacınındır — qadının. Kişinin olsaydı, his olardı.', ex('her', 'Azərbaycancada ikisi də “onun”dur; qadının ailəsi üçün her.', 'her family — qadının; his family — kişinin.', "She's my friend. This is her mother.")),
@@ -111,7 +111,7 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'voice', id: 'u4d3_c09', number: 9, title: 'Səslə cavab', why: 'Bacını təqdim etdin və adını dedin.', hint: 'Əvvəl kim olduğunu de, sonra qadının adını.',
-      prompt: 'Video zəngdə {f} sənin şəklindəki qadını göstərir. O, sənin bacındır, adı Nigardır.\nDe: bu, bacımdır, onun adı Nigardır.', audio: "Who's this?", reply: 'Hi, Nigar!',
+      prompt: 'Şəkildəki bacının adı Nigardır.\nDe: bu, bacımdır, onun adı Nigardır.', audio: "Who's this?", reply: 'Hi, Nigar!',
       rule: herNameIs('sister', 'Nigar'),
       variants: [
         ownerNotIs('her', 'Her name is Nigar.', "She's my mother. Her name is Leyla."),
@@ -121,7 +121,7 @@ export const lesson3: DesignLesson = {
       ],
       review: {
         title: 'Səslə cavab', why: 'Rəfiqəni təqdim etdin və adını dedin.', hint: 'Əvvəl Ayselin kim olduğunu de, sonra onun adını.',
-        prompt: 'Ailə yeməyində yeni tanış yanındakı qızı göstərir. O, sənin rəfiqəndir, adı Ayseldir.\nDe: bu, rəfiqəmdir, onun adı Ayseldir.', audio: "Who's this?", reply: 'Nice to meet you, Aysel!',
+        prompt: 'Yanındakı rəfiqənin adı Ayseldir.\nDe: bu, rəfiqəmdir, onun adı Ayseldir.', audio: "Who's this?", reply: 'Nice to meet you, Aysel!',
         rule: herNameIs('friend', 'Aysel'),
         variants: [
           ownerNotIs('her', 'Her name is Aysel.', "She's my mother. Her name is Leyla."),
@@ -139,7 +139,7 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'tree', id: 'u4d3_tree', number: 11, title: 'Ailə ağacı', why: 'husband — ər: bacının yanındakı kişi onun əridir — her husband.', hint: 'Xətlərə bax: “?” ata-anaya yox, yalnız bacına bağlıdır.',
-      prompt: 'Ailə yeməyindən sonra {f} sənin ailə ağacını çəkir. “?” olan yerdə bir kişi var.\nO kimdir? İngiliscə sözü seç.',
+      prompt: '“?” olan yerdə bir kişi var.\nO kimdir? Sözü seç.',
       nodes: [{ id: 'mom', label: 'mother', x: 25, y: 0 }, { id: 'dad', label: 'father', x: 75, y: 0 }, { id: 'me', label: 'sən', x: 15, y: 100 }, { id: 'sis', label: 'sister', x: 50, y: 100 }, { id: 'man', x: 85, y: 100 }],
       links: [['mom', 'dad'], ['mom', 'me'], ['mom', 'sis'], ['sis', 'man']], target: 'man', options: ['brother', 'husband', 'father'], answer: 'husband',
       variants: [
@@ -148,7 +148,7 @@ export const lesson3: DesignLesson = {
       ],
       review: {
         title: 'Ailə ağacı', why: 'wife — həyat yoldaşı: qardaşının yanındakı qadın — his wife.', hint: 'Xətlərə bax: “?” ata-anaya yox, yalnız qardaşına bağlıdır.',
-        prompt: 'Video zəngdə {F} sənin ailə ağacına baxır. “?” olan yerdə bir qadın var.\nO kimdir? İngiliscə sözü seç.',
+        prompt: '“?” olan yerdə bir qadın var.\nO kimdir? Sözü seç.',
         nodes: [{ id: 'mom', label: 'mother', x: 25, y: 0 }, { id: 'dad', label: 'father', x: 75, y: 0 }, { id: 'me', label: 'sən', x: 15, y: 100 }, { id: 'bro', label: 'brother', x: 50, y: 100 }, { id: 'woman', x: 85, y: 100 }],
         links: [['mom', 'dad'], ['dad', 'me'], ['dad', 'bro'], ['bro', 'woman']], target: 'woman', options: ['sister', 'mother', 'wife'], answer: 'wife',
         variants: [
@@ -165,7 +165,7 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d3_c13', number: 13, title: 'Dialoqu tamamla', why: 'Bacının əri — her husband.', hint: 'Əvvəl suala qısa cavab ver, sonra ərin kimin əri olduğunu düşün.',
-      prompt: 'Çatda göndərdiyin ailə şəklində bacın və onun əri var. {F} yazır.\nYaz: bəli, o bacımdır. Bu da onun əridir.', placeholder: 'Cavabın',
+      prompt: 'Çatda şəklinə baxırlar: bacın və onun əri.\nYaz: bəli, o bacımdır. Bu da onun əridir.', placeholder: 'Cavabın',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is she your sister?' }] },
       rule: yesOwner('she', 'her', 'husband'),
       variants: [
@@ -175,7 +175,7 @@ export const lesson3: DesignLesson = {
       ],
       review: {
         title: 'Dialoqu tamamla', why: 'Qardaşının həyat yoldaşı — his wife.', hint: 'Əvvəl suala qısa cavab ver, sonra həyat yoldaşının kimin həyat yoldaşı olduğunu düşün.',
-        prompt: 'Çatda göndərdiyin şəkildə qardaşın və onun həyat yoldaşı var. {F} yazır.\nYaz: bəli, o qardaşımdır. Bu da onun həyat yoldaşıdır.', placeholder: 'Cavabın',
+        prompt: 'Çatda şəklinə baxırlar: qardaşın və həyat yoldaşı.\nYaz: bəli, o qardaşımdır. Bu da onun həyat yoldaşıdır.', placeholder: 'Cavabın',
         chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is he your brother?' }] },
         rule: yesOwner('he', 'his', 'wife'),
         variants: [

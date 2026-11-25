@@ -14,6 +14,8 @@ interface CharacterConfig {
   en: string;
   /** Write suffixes with a hyphen (foreign names: BirFox-un) or attach them (Leylanın). */
   hyphen: boolean;
+  /** Temporary name (25 Nov 2026, user) — shown only by `{N:X}` where a task must give a name, until `az` is chosen. */
+  temp?: string;
   /** Neutral Azerbaijani words used while the name is empty. */
   fallback: Record<AzCase, string>;
 }
@@ -22,12 +24,12 @@ export const CHARACTERS: Record<CharacterRole, CharacterConfig> = {
   // Main mascot: orange hood, brown face, yellow oval eyes.
   mascot: { az: '', en: '', hyphen: true, fallback: { nom: 'dostun', gen: 'dostunun', dat: 'dostuna', acc: 'dostunu', abl: 'dostundan', loc: 'dostunda' } },
   // Silver-haired girl in purple.
-  girl: { az: '', en: '', hyphen: false, fallback: { nom: 'qız', gen: 'qızın', dat: 'qıza', acc: 'qızı', abl: 'qızdan', loc: 'qızda' } },
+  girl: { az: '', en: '', hyphen: false, temp: 'Leyla', fallback: { nom: 'qız', gen: 'qızın', dat: 'qıza', acc: 'qızı', abl: 'qızdan', loc: 'qızda' } },
   // Boy in orange.
-  boy: { az: '', en: '', hyphen: false, fallback: { nom: 'oğlan', gen: 'oğlanın', dat: 'oğlana', acc: 'oğlanı', abl: 'oğlandan', loc: 'oğlanda' } },
+  boy: { az: '', en: '', hyphen: false, temp: 'Kənan', fallback: { nom: 'oğlan', gen: 'oğlanın', dat: 'oğlana', acc: 'oğlanı', abl: 'oğlandan', loc: 'oğlanda' } },
   // Third recurring human (18 Nov 2026, user): the foreign friend — a woman from the USA who speaks English.
   // Used from Bölmə 4 on, where the learner already knows her. One-time foreign speakers stay unnamed (“Yeni tanış”).
-  friend: { az: '', en: '', hyphen: false, fallback: { nom: 'dostun', gen: 'dostunun', dat: 'dostuna', acc: 'dostunu', abl: 'dostundan', loc: 'dostunda' } }, // no “xarici” (user, 25 Nov 2026)
+  friend: { az: '', en: '', hyphen: false, temp: 'Emily', fallback: { nom: 'dostun', gen: 'dostunun', dat: 'dostuna', acc: 'dostunu', abl: 'dostundan', loc: 'dostunda' } }, // no “xarici” (user, 25 Nov 2026)
 };
 
 const VOWELS = 'aıoueəiöü';
@@ -73,9 +75,12 @@ const roles: Record<string, CharacterRole> = { m: 'mascot', g: 'girl', b: 'boy',
  *   upper-case letter = capitalised. Optional case: `{M:gen}`, `{m:dat}`, `{m:acc}`, `{m:abl}`, `{m:loc}`.
  * - `{,G}`: Azerbaijani name with a leading comma (", Leyla"), or nothing while empty.
  * - `{en:M}`: English name, `{en,G}`: English name with a leading comma, or nothing while empty.
+ * - `{N:G}` / `{N:B}` / `{N:F}`: the character's real name, or its temporary name (`temp`) while none is chosen —
+ *   for tasks that must tell the learner a name (“Dostunun adı: {N:B}.”).
  */
 export function withNames(text: string, config = CHARACTERS): string {
   return text
+    .replace(/\{N:([MGBF])\}/g, (_all, letter: string) => { const c = config[roles[letter.toLowerCase()]]; return (c.az || c.temp || '').trim(); })
     .replace(/\{en(,)?:?([MGBF])\}/g, (_all, comma: string, letter: string) => {
       const name = characterEn(roles[letter.toLowerCase()], config);
       return name ? `${comma ? ', ' : ''}${name}` : '';

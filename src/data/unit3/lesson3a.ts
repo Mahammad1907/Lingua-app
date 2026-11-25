@@ -117,13 +117,13 @@ export const lesson3a: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d3a_c10', number: 10, title: 'Mesaj yaz', why: 'I\'m + millət: I\'m Azerbaijani.', hint: 'Ölkə adı ilə millət sözünü qarışdırma.',
-      prompt: 'Hostelin söhbət qrupunda yeni tanış yazır.\nSözlərdən cavab qur: azərbaycanlı olduğunu de.', placeholder: 'Sözlərə toxun',
+      prompt: 'Azərbaycanlı olduğunu de.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: "I'm Georgian. And you?" }] },
       tiles: ["I'm", 'Azerbaijan', 'Azerbaijani', 'from', '.'], rule: exact("I'm Azerbaijani."),
       variants: [other("I'm Azerbaijani.", ex("I'm Azerbaijani.", 'from-suz cümlədə ölkə yox, millət gəlir.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm Georgian. And you? — I'm Azerbaijani."))],
       review: {
         title: 'Mesaj yaz', why: 'I\'m + millət: I\'m Azerbaijani.', hint: 'Ölkə adı ilə millət sözünü qarışdırma.',
-        prompt: 'Pasport nəzarətindən sonra yeni tanış mesaj yazır.\nSözlərdən cavab qur: azərbaycanlı olduğunu de.', placeholder: 'Sözlərə toxun',
+        prompt: 'Azərbaycanlı olduğunu de.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: "I'm Russian. And you?" }] },
         tiles: ['from', 'Azerbaijani', '.', "I'm", 'Russian', 'Azerbaijan'], rule: exact("I'm Azerbaijani."),
         variants: [other("I'm Azerbaijani.", ex("I'm Azerbaijani.", 'from-suz cümlədə ölkə yox, millət gəlir.', "I'm Azerbaijani. — millət; I'm Russian. — rus.", "I'm Russian. And you? — I'm Azerbaijani."))],

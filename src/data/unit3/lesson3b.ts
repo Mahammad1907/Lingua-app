@@ -137,7 +137,7 @@ export const lesson3b: DesignLesson = {
       ],
       review: {
         title: 'Formanı doldur', why: 'Soyadı, adı və milləti öz yerinə yazdın.', hint: 'Hər sətrin başlığını oxu; millət sətrinə ölkə adı yazılmır.', scenes: ['u3/hostel'],
-        prompt: 'Amerikalı dostunu hostelə yazırsan. Pasportunda latın hərfləri ilə belə yazılıb: “SMITH ANNA”, ölkə — the USA.\nFormanı doldur.', form: { title: 'Hostel qeydiyyatı', subtitle: 'Yeni qonaq' },
+        prompt: 'Hosteldə dostunu yazırsan. Pasportda: “SMITH ANNA”, the USA.\nFormanı doldur.', form: { title: 'Hostel qeydiyyatı', subtitle: 'Yeni qonaq' },
         fields: [
           { id: 'u3d3b_c11b', label: 'Last name', placeholder: 'Soyadını yaz', rule: exact('Smith'), purpose: 'soyadı yazmaq', empty: 'Soyadı da yaz.' },
           { id: 'u3d3b_c11a', label: 'First name', placeholder: 'Adını yaz', rule: exact('Anna'), purpose: 'adı yazmaq', empty: 'Adı da yaz.' },

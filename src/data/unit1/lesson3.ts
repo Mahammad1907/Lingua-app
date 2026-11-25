@@ -54,7 +54,7 @@ export const lesson3: DesignLesson = {
       hint: 'Sual “nə” mənasındakı sözlə başlayır.', hintAssists: false,
       variants: [other('Sıra: What’s + your + name?', ex("What's your name?", '“my” — mənim, “your” — sənin; sən onun adını soruşursan.', 'What’s + your + name?', "Hello! What's your name?"))],
       review: {
-        title: 'Mesajı qur', why: 'Sual düzgün sırada qurulub.', prompt: 'Kursdakı yeni qız sənə ilk dəfə mesaj yazır.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        title: 'Mesajı qur', why: 'Sual düzgün sırada qurulub.', prompt: 'Kursdakı yeni qız sənə yazır.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Kurs yoldaşı', from: 'G', lines: [{ from: 'G', text: 'Hi!' }] },
         tiles: ['name', "What's", 'my', 'your', 'is', '?'], rule: exact("What's your name?"),
         hint: 'Sual “nə” mənasındakı sözlə başlayır.', hintAssists: false,

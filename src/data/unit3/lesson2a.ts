@@ -150,7 +150,7 @@ export const lesson2a: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d2a_c12', number: 12, title: 'Yaz', why: 'İstanbul Türkiyədədir — Turkey.', hint: 'İstanbul hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.', scenes: ['u3/airport'],
-      prompt: 'Hava limanında uçuş tablosunda “Istanbul” yazılıb. Dostun mesajda soruşur: bu şəhər hansı ölkədədir?\nÖlkənin adını ingiliscə yaz.', placeholder: 'Ölkə',
+      prompt: 'Hava limanında tabloda “Istanbul” var, dostun çatda soruşur.\nÖlkəsini ingiliscə yaz.', placeholder: 'Ölkə',
       rule: exact('Turkey'),
       variants: [
         { match: { words: ['Turkiye', 'Türkiye', 'Turkiya', 'Turkia'] }, short: 'İngiliscə bu ölkənin adı başqa cür yazılır.', explain: ex('Turkey', 'Türkiyə ingiliscə Turkey yazılır.', "I'm from Turkey. — Türkiyədən; I'm from Russia. — Rusiyadan.", "I'm from Turkey.") },
@@ -158,7 +158,7 @@ export const lesson2a: DesignLesson = {
       ],
       review: { scenes: ['u3/train'],
         title: 'Yaz', why: 'Tbilisi Gürcüstandadır — Georgia.', hint: 'Tbilisi hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.',
-        prompt: 'Qatar stansiyasında tabloda “Tbilisi” yazılıb. Dostun mesajda soruşur: bu şəhər hansı ölkədədir?\nÖlkənin adını ingiliscə yaz.', placeholder: 'Ölkə',
+        prompt: 'Qatar tablosunda “Tbilisi” var, dostun çatda soruşur.\nÖlkəsini ingiliscə yaz.', placeholder: 'Ölkə',
         rule: exact('Georgia'),
         variants: [
           { match: { words: ['Gruziya', 'Gruzia', 'Gurcustan', 'Gürcüstan'] }, short: 'İngiliscə bu ölkənin adı başqa cür yazılır.', explain: ex('Georgia', 'Gürcüstan ingiliscə Georgia yazılır.', "I'm from Georgia. — Gürcüstandan; I'm from Russia. — Rusiyadan.", "I'm from Georgia.") },

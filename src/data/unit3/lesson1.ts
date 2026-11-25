@@ -61,7 +61,7 @@ export const lesson1: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d1_c05', number: 5, title: 'Mesaj yaz', why: 'I’m from + şəhər — haradan olduğunu dedin.', hint: 'Bölmə 1-dəki “I’m” ilə başla.',
-      prompt: 'Klubun söhbət qrupunda yeni tanış yazır. Sən Gəncədənsən.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Sən Gəncədənsən.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: 'Hi! Where are you from?' }] },
       tiles: ["I'm", 'from', 'Ganja', '.', 'is', 'my', 'I'], rule: exact("I'm from Ganja."),
       variants: [
@@ -70,7 +70,7 @@ export const lesson1: DesignLesson = {
       ],
       review: {
         title: 'Mesaj yaz', why: 'I’m from + şəhər — haradan olduğunu dedin.', hint: 'Bölmə 1-dəki “I’m” ilə başla.',
-        prompt: 'İş yoldaşın mesaj yazır. Sən Şamaxıdansan.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Sən Şamaxıdansan.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'İş yoldaşı', from: 'G', lines: [{ from: 'G', text: 'Where are you from?' }] },
         tiles: ['Shamakhi', 'from', "I'm", '.', 'at', 'you', 'is'], rule: exact("I'm from Shamakhi."),
         variants: [

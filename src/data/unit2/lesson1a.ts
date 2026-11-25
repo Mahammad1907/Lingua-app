@@ -124,12 +124,12 @@ export const lesson1a: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d1a_c11', number: 11, title: 'Dinlə və yaz', why: 'three — th ilə yazılır.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
-      prompt: 'Liftdə oğlan mərtəbəni deyir. Dostun mesajda soruşur ki, bu rəqəm ingiliscə necə yazılır.\nEşitdiyin rəqəmi sözlə yaz.', audio: 'Three, please.', placeholder: 'Rəqəmi sözlə yaz',
+      prompt: 'Liftdə oğlan mərtəbəni deyir, dostun çatda soruşur.\nRəqəmi sözlə yaz.', audio: 'Three, please.', placeholder: 'Rəqəmi sözlə yaz',
       rule: exact('three'),
       variants: [other('Yazılışı yoxla.', ex('three', 'Bu söz “th” ilə başlayır.', 'Three, please. — üç; Two, please. — iki.', 'One, two, three!'))],
       review: {
         title: 'Dinlə və yaz', why: 'five — “v” ilə bitir.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
-        prompt: 'Otel resepsiyasında qadın otağın mərtəbəsini deyir. Dostun soruşur ki, bu rəqəm ingiliscə necə yazılır.\nEşitdiyin rəqəmi sözlə yaz.', audio: 'Five.', placeholder: 'Rəqəmi sözlə yaz',
+        prompt: 'Resepsiyada qadın mərtəbəni deyir, dostun çatda soruşur.\nRəqəmi sözlə yaz.', audio: 'Five.', placeholder: 'Rəqəmi sözlə yaz',
         rule: exact('five'),
         variants: [other('Yazılışı yoxla.', ex('five', 'Bu söz “v” səsi ilə bitir, sonunda “e” yazılır.', 'Five. — beş; Four. — dörd.', 'Five, four, three, two, one, zero!'))],
       },

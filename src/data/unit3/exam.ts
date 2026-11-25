@@ -108,7 +108,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u3x_c13', number: 13, title: 'Sualı qur', why: 'Danışmaq haqqında sual “Do” ilə başlayır.',
-      prompt: 'Hostelin çatında yeni tanışa mesaj yazırsan. Onun türkcə bilib-bilmədiyini öyrənmək istəyirsən.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Hostelin çatında tanışa yaz: türkcə bilirmi?\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
       tiles: ['Turkish', 'speak', 'Are', 'you', 'Do', 'Turkey', '?'], rule: exact('Do you speak Turkish?'),
       variants: [
         { match: { pattern: String.raw`^are\s+you\s+speak` }, short: 'Bu sualda “are” yox, “do” gəlir.', explain: ex('Do you speak Turkish?', 'Danışmaq haqqında sualı “Do” başladır.', 'Do you speak Turkish? — dil; Are you Turkish? — millət.', 'Excuse me, do you speak Turkish?') },

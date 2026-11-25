@@ -74,12 +74,12 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d8_c05', number: 5, letters: ['M', 'A', 'R', 'K', 'E', 'N', 'S'], title: 'Hərfləri tut', why: 'M-A-R-K — Mark.', hint: 'Hər hərfi eşidən kimi toxun; çaşsan, yavaş dinlə.',
-      prompt: 'Zəngdə {F:gen} qardaşı otağa girir. Sən onun adını telefonuna yazmaq istəyirsən, {F} hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'This is my brother. His name is M-A-R-K.', placeholder: 'Ad',
+      prompt: '{F} qardaşının adını hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'This is my brother. His name is M-A-R-K.', placeholder: 'Ad',
       rule: exact('MARK'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('MARK', 'Səsdə M, A, R, K deyilir: A “ey”, R “ar” oxunur.', 'A — ey; R — ar.', 'His name is M-A-R-K.'))],
       review: {
         letters: ['A', 'N', 'N', 'A', 'E', 'M', 'Y'], title: 'Hərfləri tut', why: 'A-N-N-A — Anna.', hint: 'Tısbağa düyməsi ilə yavaş dinlə və hər hərfə ayrıca toxun.',
-        prompt: 'Zəngdə {F:gen} bacısı otağa girir. Sən onun adını telefonuna yazmaq istəyirsən, {F} hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'This is my sister. Her name is A-N-N-A.', placeholder: 'Ad',
+        prompt: '{F} bacısının adını hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'This is my sister. Her name is A-N-N-A.', placeholder: 'Ad',
         rule: exact('ANNA'),
         variants: [other('Hərfləri bir-bir dinlə.', ex('ANNA', 'Səsdə A, N, N, A deyilir: A “ey”, N “en” oxunur.', 'A — ey; N — en.', 'Her name is A-N-N-A.'))],
       },
@@ -147,7 +147,7 @@ export const lesson8: DesignLesson = {
       variants: [...HAVE_MISTAKES, ...ASK_MISTAKES, haveOther('Do you have a son?')],
       review: {
         title: 'Cavab yaz', why: 'Qızının olub-olmadığını yazdın.', hint: 'Bu dəfə qızın haqqında — Dərs 5-dəki qısa cavabları xatırla.',
-        prompt: 'Zəngin çatında {f} yenə sənin ailən haqqında soruşur.\nÖz cavabını yaz (bəli də olar, xeyr də).', placeholder: 'Cavabını yaz',
+        prompt: '{F} çatda yenə ailən haqqında soruşur.\nÖz cavabını yaz (bəli də olar, xeyr də).', placeholder: 'Cavabını yaz',
         chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Do you have a daughter?' }] },
         rule: own(haveReply('daughter'), 'Yes, I do.', "No, I don't."),
         variants: [...HAVE_MISTAKES, ...ASK_MISTAKES, haveOther('Do you have a daughter?')],
@@ -195,7 +195,7 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'two', id: 'u4d8_c13', number: 13, title: 'İki mesaj yaz', why: 'Atanın adını və peşəsini yazdın.', hint: 'Atan kişidir — adını Dərs 3-dəki, peşəsini Dərs 7-dəki kimi yaz.',
-      prompt: 'Zəngin çatında {f} sənin atan haqqında soruşur. Atanın adı Anardır, həkimdir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
+      prompt: 'Atanın adı Anardır, həkimdir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
       fields: [
         { id: 'u4d8_c13a', label: 'Birinci mesaj', placeholder: 'Adı', rule: exact('His name is Anar.'), purpose: 'adını demək', empty: 'Birinci mesajı da yaz.' },
         { id: 'u4d8_c13b', label: 'İkinci mesaj', placeholder: 'Peşəsi', rule: exact("He's a doctor.", 'He is a doctor.'), purpose: 'peşəsini demək', empty: 'İkinci mesajı da yaz.' },
@@ -211,7 +211,7 @@ export const lesson8: DesignLesson = {
       ],
       review: {
         title: 'İki mesaj yaz', why: 'Ananın adını və peşəsini yazdın.', hint: 'Anan qadındır — adını Dərs 3-dəki, peşəsini Dərs 7-dəki kimi yaz.',
-        prompt: 'Zəngin çatında {f} sənin anan haqqında soruşur. Ananın adı Aysudur, mühəndisdir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
+        prompt: 'Ananın adı Aysudur, mühəndisdir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
         fields: [
           { id: 'u4d8_c13a', label: 'Birinci mesaj', placeholder: 'Adı', rule: exact('Her name is Aysu.'), purpose: 'adını demək', empty: 'Birinci mesajı da yaz.' },
           { id: 'u4d8_c13b', label: 'İkinci mesaj', placeholder: 'Peşəsi', rule: exact("She's an engineer.", 'She is an engineer.'), purpose: 'peşəsini demək', empty: 'İkinci mesajı da yaz.' },
@@ -229,7 +229,7 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'voice', id: 'u4d8_c14', number: 14, title: 'Bacını təqdim et', why: 'Bacını təqdim etdin: kimdir və peşəsi.', hint: 'Əvvəl bacını təqdim et, sonra peşəsini de.',
-      prompt: '{F} son şəkildəki qızı göstərib soruşur. O sənin bacındır, həkimdir.\nİki cümlə ilə təqdim et: kimdir və peşəsi.', audio: "Who's this?", reply: 'Oh, nice!',
+      prompt: 'Şəkildəki qız bacındır, həkimdir.\nİki cümlə ilə təqdim et: kimdir və peşəsi.', audio: "Who's this?", reply: 'Oh, nice!',
       rule: own(String.raw`^(?:this\s+is|she(?:'s|\s+is))\s+my\s+sister\s*[.,!]?\s*(?:she'?s|she\s+is)\s+a\s+doctor\s*[.!]?$`, "This is my sister. She's a doctor.", "She's my sister. She's a doctor."),
       variants: [
         noMy("This is my sister. She's a doctor.", 'This is my friend.'),
@@ -239,7 +239,7 @@ export const lesson8: DesignLesson = {
       ],
       review: {
         title: 'Qardaşını təqdim et', why: 'Qardaşını təqdim etdin: kimdir və peşəsi.', hint: 'Əvvəl qardaşını təqdim et, sonra peşəsini de — engineer-in ilk səsinə diqqət et.',
-        prompt: '{F} son şəkildəki oğlanı göstərib soruşur. O sənin qardaşındır, mühəndisdir.\nİki cümlə ilə təqdim et: kimdir və peşəsi.', audio: "Who's this?", reply: 'Oh, nice!',
+        prompt: 'Şəkildəki oğlan qardaşındır, mühəndisdir.\nİki cümlə ilə təqdim et: kimdir və peşəsi.', audio: "Who's this?", reply: 'Oh, nice!',
         rule: own(String.raw`^(?:this\s+is|he(?:'s|\s+is))\s+my\s+brother\s*[.,!]?\s*(?:he'?s|he\s+is)\s+an\s+engineer\s*[.!]?$`, "This is my brother. He's an engineer.", "He's my brother. He's an engineer."),
         variants: [
           noMy("This is my brother. He's an engineer.", 'This is my friend.'),

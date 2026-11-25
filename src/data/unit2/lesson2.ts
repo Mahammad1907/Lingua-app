@@ -47,13 +47,13 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d2_c04', number: 4, title: 'Sualı qur', why: 'Sual düzgün sıradadır: phone number.', hint: 'Azərbaycancada “telefon nömrəsi” necə sıralanır? İngiliscə də elədir.',
-      prompt: 'Kursa yeni üzv qoşuldu. Ona şəxsi mesaj yazırsan.\nSözlərdən onun nömrəsini soruşan sual qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Kursun yeni üzvünə mesaj yazırsan.\nSözlərdən nömrəsini soruşan sual qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni kurs yoldaşı', from: 'G', lines: [{ from: 'G', text: 'Hi! Nice to meet you!' }] },
       tiles: ["What's", 'number', 'your', 'phone', 'name', 'my', '?'], rule: exact("What's your phone number?"),
       variants: [other("Sıra: What's your phone number?", ex("What's your phone number?", 'Əvvəl “phone”, sonra “number” gəlir.', "What's your phone number? — nömrə; What's your name? — ad.", "Hi! What's your phone number?"))],
       review: {
         title: 'Sualı qur', why: 'Sual düzgün sıradadır: phone number.', hint: 'Azərbaycancada “telefon nömrəsi” necə sıralanır? İngiliscə də elədir.',
-        prompt: 'Ofisə yeni iş yoldaşı qoşuldu. Ona şəxsi mesaj yazırsan.\nSözlərdən onun nömrəsini soruşan sual qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Yeni iş yoldaşına mesaj yazırsan.\nSözlərdən nömrəsini soruşan sual qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Yeni iş yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Hello! How are you?' }] },
         tiles: ['phone', "What's", 'your', 'number', 'is', 'name', '?'], rule: exact("What's your phone number?"),
         variants: [other("Sıra: What's your phone number?", ex("What's your phone number?", 'Əvvəl “phone”, sonra “number” gəlir.', "What's your phone number? — nömrə; What's your name? — ad.", "Excuse me, what's your phone number?"))],
@@ -137,7 +137,7 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'two', id: 'u2d2_c13', number: 13, title: 'İki mesaj yaz', why: 'Nömrəni soruşdun və yazdığını yoxladın.', hint: 'Birinci mesajda sual ver, ikincidə yazdığını yoxla.',
-      prompt: 'Kursa yeni üzv qoşuldu. Ona şəxsi mesajla yazırsan.\nİki mesaj yaz:\n1. Onun telefon nömrəsini soruş.\n2. Nömrəni yazdın — düz olduğunu soruş.',
+      prompt: 'Kursun yeni üzvünə yazırsan.\nİki mesaj yaz:\n1. Nömrəsini soruş.\n2. Düz yazdığını soruş.',
       fields: [
         { id: 'u2d2_c13a', label: 'Birinci mesaj', placeholder: 'Nömrəsini soruş', rule: askPhone, purpose: 'nömrəsini soruşmaq', empty: 'Birinci mesajı da yaz.' },
         { id: 'u2d2_c13b', label: 'İkinci mesaj', placeholder: 'Düz olduğunu soruş', rule: check, purpose: 'düz olduğunu soruşmaq', empty: 'İkinci mesajı da yaz.' },
@@ -148,7 +148,7 @@ export const lesson2: DesignLesson = {
       ],
       review: {
         title: 'İki mesaj yaz', why: 'Nömrəni soruşdun və yazdığını yoxladın.', hint: 'Birinci mesajda sual ver, ikincidə yazdığını yoxla.',
-        prompt: 'İdman zalına yeni üzv qoşuldu. Ona şəxsi mesajla yazırsan.\nİki mesaj yaz:\n1. Onun telefon nömrəsini soruş.\n2. Nömrəni yazdın — düz olduğunu soruş.',
+        prompt: 'İdman zalının yeni üzvünə yazırsan.\nİki mesaj yaz:\n1. Nömrəsini soruş.\n2. Düz yazdığını soruş.',
         fields: [
           { id: 'u2d2_c13a', label: 'Birinci mesaj', placeholder: 'Nömrəsini soruş', rule: askPhone, purpose: 'nömrəsini soruşmaq', empty: 'Birinci mesajı da yaz.' },
           { id: 'u2d2_c13b', label: 'İkinci mesaj', placeholder: 'Düz olduğunu soruş', rule: check, purpose: 'düz olduğunu soruşmaq', empty: 'İkinci mesajı da yaz.' },

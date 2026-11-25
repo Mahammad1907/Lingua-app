@@ -62,7 +62,7 @@ export const lesson5b: DesignLesson = {
       ],
       review: {
         title: 'Dinlə və seç', why: '“he” — kişi haqqında soruşur.', hint: 'Where’s-dən sonrakı sözə qulaq as.',
-        prompt: 'Qatarda tanışların — bir kişi və bir qadın — yanında oturub. Yol yoldaşın səndən soruşur.\nNəyi soruşur?', audio: "Where's he from?",
+        prompt: 'Yol yoldaşın tanışların haqqında soruşur.\nNəyi soruşur?', audio: "Where's he from?",
         options: ['Sənin haradan olduğunu', 'Qadının haradan olduğunu', 'Kişinin haradan olduğunu'], answer: 'Kişinin haradan olduğunu',
         variants: [
           pick('Sənin haradan olduğunu', 'Səndən soruşsaydı, “you” deyərdi.', ex('Kişinin haradan olduğunu', 'Səsdə “you” yox, “he” var.', "Where's he from? — o (kişi); Where are you from? — sən.", "Where's he from? — He's from Russia.")),
@@ -91,7 +91,7 @@ export const lesson5b: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d5b_c06', number: 6, title: 'Mesaj yaz', why: 'Sualda Is əvvəldədir.', hint: 'Bəli/xeyr sualında hansı söz birinci gəlir?', scenes: ['u3/videocall'],
-      prompt: 'Video zəngdən sonra qıza yazırsan: ekrandakı kişi Rusiyadandırmı?\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Video zəngdən sonra qıza yaz: ekrandakı kişi Rusiyadandırmı?\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
       tiles: ['Is', 'he', 'from', 'Russia', 'He', 'is', 'at', '?'], rule: exact('Is he from Russia?'),
       variants: [
         { match: { pattern: String.raw`^he\s+is\b` }, short: 'Sualda Is əvvələ keçir.', explain: ex('Is he from Russia?', 'Bəli/xeyr sualında Is birinci gəlir, he ondan sonra.', 'Is he from Russia? — sual; He is from Russia. — cavab.', 'Is she Turkish?') },
@@ -99,7 +99,7 @@ export const lesson5b: DesignLesson = {
       ],
       review: { scenes: ['u3/hostel-kitchen'],
         title: 'Mesaj yaz', why: 'Sualda Is əvvəldədir.', hint: 'Bəli/xeyr sualında hansı söz birinci gəlir?',
-        prompt: 'Hosteldə oğlana yazırsan: mətbəxdəki qadın fransızdırmı?\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Mətbəxdəki qadın fransızdırmı?\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
         tiles: ['French', 'Is', 'she', 'is', 'She', 'France', '?'], rule: exact('Is she French?'),
         variants: [
           { match: { pattern: String.raw`^she\s+is\b` }, short: 'Sualda Is əvvələ keçir.', explain: ex('Is she French?', 'Bəli/xeyr sualında Is birinci gəlir, she ondan sonra.', 'Is she French? — sual; She is French. — cavab.', 'Is she Turkish?') },
@@ -138,7 +138,7 @@ export const lesson5b: DesignLesson = {
     },
     {
       type: 'choice', id: 'u3d5b_c10', number: 10, title: 'Sözü tamamla', why: '“deyil” — isn’t.', hint: 'Qısa “xeyr” cavabının sonunda nə gəlir?',
-      prompt: 'Hosteldə yeni tanış soruşur: “Is he from Georgia?” Qız bilir ki, oğlan Gürcüstandan deyil.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'No, he', after: '.' },
+      prompt: 'Oğlan Gürcüstandan deyil.\nHansı söz çatmır?', gap: { speaker: 'G', before: 'No, he', after: '.' },
       options: ['not', "isn't", "don't"], answer: "isn't",
       variants: [
         pick('not', 'Tək “not” kifayət deyil, is də lazımdır.', ex("isn't", '“deyil” üçün is və not birlikdə gəlir: isn’t.', "No, he isn't. — düzdür; No, he not. — olmur.", "Is she from Iran? — No, she isn't.")),
@@ -146,7 +146,7 @@ export const lesson5b: DesignLesson = {
       ],
       review: {
         title: 'Sözü tamamla', why: '“deyil” — isn’t.', hint: 'Qısa “xeyr” cavabının sonunda nə gəlir?',
-        prompt: 'Qatarda yol yoldaşı soruşur: “Is she Turkish?” Oğlan bilir ki, tanışı olan qadın türk deyil.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'No, she', after: '.' },
+        prompt: 'Qadın türk deyil.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'No, she', after: '.' },
         options: ["isn't", "don't", 'not'], answer: "isn't",
         variants: [
           pick('not', 'Tək “not” kifayət deyil, is də lazımdır.', ex("isn't", '“deyil” üçün is və not birlikdə gəlir: isn’t.', "No, she isn't. — düzdür; No, she not. — olmur.", "Is she from Iran? — No, she isn't.")),

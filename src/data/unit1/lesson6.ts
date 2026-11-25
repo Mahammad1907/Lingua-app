@@ -108,11 +108,11 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'write', id: 'd6_c09', number: 9, title: 'Mesajı qur', why: 'Nəzakətlə diqqət çəkib adı soruşdun.', hint: 'Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.',
-      prompt: 'Otelin çatında bir qız sənə kömək etdi, amma adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Sənə kömək edən qızın adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Otelin resepsiyası', from: 'G', lines: [] }, tiles: ['your', 'Excuse', 'sorry', "what's", 'me,', 'name', '?'], rule: exact("Excuse me, what's your name?"),
       variants: [other('Excuse me, what’s your name?', ex("Excuse me, what's your name?", 'Əvvəl Excuse me ilə diqqət çəkirsən, sonra sual verirsən — sorry burada lazım deyil.', 'Excuse me + sual.', "Excuse me, what's your name?"))],
       review: {
-        title: 'Mesajı qur', why: 'Nəzakətlə diqqət çəkib adı soruşdun.', hint: 'Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.', prompt: 'Qrup çatında sənə kömək edən oğlanın adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
+        title: 'Mesajı qur', why: 'Nəzakətlə diqqət çəkib adı soruşdun.', hint: 'Əvvəl diqqəti çək, sonra Dərs 3-ün sualını ver.', prompt: 'Sənə kömək edən oğlanın adını bilmirsən.\nSözlərdən nəzakətli sual qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Kömək edən oğlan', from: 'B', lines: [] }, tiles: ['me,', 'name', 'Excuse', 'you', "what's", 'your', '?'], rule: exact("Excuse me, what's your name?"),
         variants: [other('Excuse me, what’s your name?', ex("Excuse me, what's your name?", '“your” — sənin; “you” burada uyğun deyil.', 'Excuse me + sual.', "Excuse me, what's your name?"))],
       },

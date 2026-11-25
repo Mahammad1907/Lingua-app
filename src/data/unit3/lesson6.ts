@@ -100,12 +100,12 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d6_c09', number: 9, title: 'Mesaj yaz', why: 'Haradan olduğunu və harada yaşadığını but ilə birləşdirdin.', hint: 'Əvvəl haradan olduğun, sonra “amma”, sonra harada yaşadığın.', scenes: ['u3/cafe'],
-      prompt: 'Kafedə tanış olduğun qıza mesaj yazırsan: Şəkidənsən, amma Bakıda yaşayırsan.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Kafedəki tanışa yazırsan: Şəkidənsən, Bakıda yaşayırsan.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
       tiles: ["I'm", 'from', 'Shaki,', 'but', 'I', 'live', 'in', 'Baku', 'at', 'and', '.'], rule: fromBut('Shaki', 'Baku'),
       variants: [andNotBut("I'm from Shaki, but I live in Baku."), ...LIVE_MISTAKES, other("I'm from Shaki, but I live in Baku.", ex("I'm from Shaki, but I live in Baku.", 'Əvvəl from + şəhər, sonra but, sonra I live in + şəhər.', "I'm from Shaki. — haradan; I live in Baku. — harada.", "I'm from Ganja, but I live in Baku."))],
       review: { scenes: [],
         title: 'Mesaj yaz', why: 'Haradan olduğunu və harada yaşadığını but ilə birləşdirdin.', hint: 'Əvvəl haradan olduğun, sonra “amma”, sonra harada yaşadığın.',
-        prompt: 'Şəhər turunun qrup çatına özün haqqında yazırsan: Lənkərandansan, amma Gəncədə yaşayırsan.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Lənkərandansan, amma Gəncədə yaşayırsan.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
         tiles: ['live', "I'm", 'Lankaran,', 'from', 'but', 'in', 'I', 'Ganja', 'and', 'at', '.'], rule: fromBut('Lankaran', 'Ganja'),
         variants: [andNotBut("I'm from Lankaran, but I live in Ganja."), ...LIVE_MISTAKES, other("I'm from Lankaran, but I live in Ganja.", ex("I'm from Lankaran, but I live in Ganja.", 'Əvvəl from + şəhər, sonra but, sonra I live in + şəhər.', "I'm from Lankaran. — haradan; I live in Ganja. — harada.", "I'm from Ganja, but I live in Baku."))],
       },
@@ -148,7 +148,7 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'two', id: 'u3d6_c13', number: 13, title: 'İki mesaj yaz', why: 'Haradan olduğunu və harada yaşadığını soruşdun.', hint: 'Birinci mesajda haradan, ikincidə harada yaşadığını soruş.',
-      prompt: 'Kafedə tanış olduğun yeni tanış sənə mesaj yazdı: “Hi!”\nİki mesaj yaz:\n1. Haradan olduğunu soruş.\n2. Harada yaşadığını soruş.',
+      prompt: 'Yeni tanış yazdı: “Hi!”\nİki mesaj yaz:\n1. Haradan olduğunu soruş.\n2. Harada yaşadığını soruş.',
       fields: [
         { id: 'u3d6_c13a', label: 'Birinci mesaj', placeholder: 'Haradan olduğunu soruş', rule: whereFrom, purpose: 'haradan olduğunu soruşmaq', empty: 'Birinci mesajı da yaz.' },
         { id: 'u3d6_c13b', label: 'İkinci mesaj', placeholder: 'Harada yaşadığını soruş', rule: whereLive, purpose: 'harada yaşadığını soruşmaq', empty: 'İkinci mesajı da yaz.' },

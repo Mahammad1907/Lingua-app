@@ -55,12 +55,12 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d7_c05', number: 5, title: 'Sualı qur', why: 'Danışmaq haqqında sual “Do” ilə başlayır.', hint: 'Bu dərsin sualı hansı kiçik sözlə başlayır?',
-      prompt: 'Dil mübadiləsi qrupunda yeni tanışa mesaj yazırsan. Onun rusca bilib-bilmədiyini öyrənmək istəyirsən.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Yeni tanışa mesaj yaz: rusca bilirmi?\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
       tiles: ['speak', 'Do', 'Russian', 'you', 'Are', 'Russia', '?'], rule: exact('Do you speak Russian?'),
       variants: [areYouSpeak, other('Sıra: Do you speak Russian?', ex('Do you speak Russian?', 'Do, sonra you speak, sonda dilin adı.', 'Do you speak Russian? — dil; Are you from Russia? — ölkə.', 'Excuse me, do you speak Russian?'))],
       review: {
         title: 'Sualı qur', why: 'Danışmaq haqqında sual “Do” ilə başlayır.', hint: 'Bu dərsin sualı hansı kiçik sözlə başlayır?',
-        prompt: 'Hostelin çatında yeni qonağa mesaj yazırsan. Onun fransızca bilib-bilmədiyini öyrənmək istəyirsən.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Hostelin çatında qonağa yaz: fransızca bilirmi?\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
         tiles: ['you', 'French', 'Do', 'speak', 'Are', 'France', '?'], rule: exact('Do you speak French?'),
         variants: [{ ...areYouSpeak, explain: ex('Do you speak French?', 'Danışmaq haqqında sualı “Do” başladır.', 'Do you speak French? — dil; Are you French? — millət.', 'Excuse me, do you speak French?') },
           other('Sıra: Do you speak French?', ex('Do you speak French?', 'Do, sonra you speak, sonda dilin adı.', 'Do you speak French? — dil; Are you from France? — ölkə.', 'Excuse me, do you speak French?'))],
@@ -114,7 +114,7 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'choice', id: 'u3d7_c11', number: 11, title: 'Sözü tamamla', why: '“Do you [dil]?” sualına “No, I don’t.” ilə cavab verilir.', hint: 'Sual “Are you” ilə yox, başqa sözlə başlayıb.',
-      prompt: 'Dil mübadiləsi masasında yeni tanış oğlandan soruşur: “Do you speak German?”\nOğlan almanca bilmir. Hansı söz çatmır?', gap: { speaker: 'B', before: 'No, I', after: '.' },
+      prompt: 'Oğlan almanca bilmir.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'No, I', after: '.' },
       options: ['am', "don't", 'not'], answer: "don't",
       variants: [
         pick('am', '“am” ilə “Are you [millət]?” sualına cavab verilir.', ex("No, I don't.", 'Sual “Do” ilə başlayıb, cavabda da “do” işlənir.', "Do you speak German? — No, I don't.; Are you German? — No, I'm not.", "Do you speak German? — No, I don't.")),
@@ -138,7 +138,7 @@ export const lesson7: DesignLesson = {
       variants: [noLittle, other('Yes, a little.', ex('Yes, a little.', 'Bəli deyirsən və “a little” ilə bir az bildiyini bildirirsən.', "Yes, a little. — bir az; Yes, I do. — bilirəm.", 'Do you speak English? — Yes, a little.'))],
       review: {
         title: 'Dialoqu tamamla', why: '“a little” — bir az.', hint: 'Bəli de və nə qədər bildiyini iki sözlə əlavə et.',
-        prompt: 'Hostelin qrup çatında biri yazır. Sən rusca bir az bilirsən.\nQısa cavab yaz: bəli, bir az.', placeholder: 'Cavabını yaz',
+        prompt: 'Qrup çatında soruşurlar. Rusca bir az bilirsən.\nQısa cavab yaz.', placeholder: 'Cavabını yaz',
         chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: 'Hello! Do you speak Russian?' }] },
         rule: exact('Yes, a little.', 'Yes, I do. A little.', 'Yes, I do, a little.', 'A little.', 'Yes, I speak a little Russian.', 'Yes, I speak Russian a little.', 'Yes, a little Russian.'),
         variants: [{ ...noLittle, explain: ex('Yes, a little.', '“little”dən əvvəl “a” gəlir: a little — bir az.', 'Yes, a little. — düzdür; Yes, little. — olmur.', 'Do you speak Russian? — Yes, a little.') },

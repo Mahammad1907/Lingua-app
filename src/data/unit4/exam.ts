@@ -40,7 +40,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'tree', id: 'u4x_tree', number: 3, title: 'Ailə ağacı', why: 'grandfather — baba: atanın atası, ən yuxarı sırada.',
-      prompt: '{F} sənin ailə ağacına baxır. “?” olan yerdə yaşlı bir kişi var.\nO kimdir? İngiliscə sözü seç.',
+      prompt: '“?” olan yerdə yaşlı kişi var.\nO kimdir? Sözü seç.',
       nodes: [{ id: 'gm', label: 'grandmother', x: 25, y: 0 }, { id: 'gf', x: 75, y: 0 }, { id: 'dad', label: 'father', x: 50, y: 50 }, { id: 'me', label: 'sən', x: 50, y: 100 }],
       links: [['gm', 'gf'], ['gf', 'dad'], ['dad', 'me']], target: 'gf', options: ['father', 'grandfather', 'brother'], answer: 'grandfather',
       variants: [
@@ -50,7 +50,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'choice', id: 'u4x_c04', number: 4, title: 'Sözü tamamla', why: 'Bacının əri — her husband.',
-      prompt: 'Toy şəklində {f} bir qadını göstərir: “This is my sister.” Sonra onun yanındakı kişini göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'And this is', after: 'husband.' },
+      prompt: '{F} bacısını, sonra yanındakı kişini göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'And this is', after: 'husband.' },
       options: ['his', 'her', "she's"], answer: 'her',
       variants: [
         pick('his', 'Ər qadınındır — her.', ex('And this is her husband.', 'Azərbaycancada ikisi də “onun”dur; ər bacınındır, qadının — her.', 'her husband — qadının əri; his wife — kişinin arvadı.', 'This is my sister. And this is her husband.')),
@@ -68,7 +68,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u4x_c06', number: 6, title: 'Sualı qur', why: 'Sual Is this ilə başlayır.',
-      prompt: '{F} çata ailə şəkli göndərib: yanında kiçik bir qız var.\nSözlərdən sual qur: “Bu sənin qızındır?”', placeholder: 'Sözlərə toxun',
+      prompt: '{F} çata şəkil göndərib: yanında kiçik qız var.\nSözlərdən sual qur: “Bu sənin qızındır?”', placeholder: 'Sözlərə toxun',
       tiles: ['Is', 'this', 'you', 'daughter', 'This', 'your', 'is', '?'], rule: exact('Is this your daughter?'),
       variants: [
         ...QUESTION_MISTAKES('Is this your daughter?'),
@@ -112,7 +112,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'two', id: 'u4x_c11', number: 11, title: 'İki mesaj yaz', why: 'Bacının adını və peşəsini yazdın.',
-      prompt: '{F} çatda sənin bacın haqqında soruşur. Bacının adı Laladır, tələbədir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
+      prompt: 'Bacının adı Laladır, tələbədir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
       fields: [
         { id: 'u4x_c11a', label: 'Birinci mesaj', placeholder: 'Adı', rule: exact('Her name is Lala.'), purpose: 'adını demək', empty: 'Birinci mesajı da yaz.' },
         { id: 'u4x_c11b', label: 'İkinci mesaj', placeholder: 'Peşəsi', rule: exact("She's a student.", 'She is a student.'), purpose: 'peşəsini demək', empty: 'İkinci mesajı da yaz.' },

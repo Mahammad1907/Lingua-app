@@ -70,13 +70,13 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d4_c07', number: 7, title: 'Sualı qur', why: 'How-dan sonra “do” gəlir.', hint: 'Azərbaycancada olmayan kiçik bir söz ingiliscə sualda lazımdır.',
-      prompt: 'Sən oteldə resepsiyada işləyirsən. Qonaq otelin çatına şəhərinin adı ilə səsli mesaj göndərdi. Sən o şəhəri tanımırsan.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
+      prompt: 'Qonaq çatda tanımadığın şəhəri yazdı.\nSözlərdən sual qur: necə yazılır?', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Qonaq', from: 'G', lines: [{ from: 'G', text: '🎤' }] },
       tiles: ['How', 'you', 'spell', 'it', 'do', 'is', 'your', '?'], rule: exact('How do you spell it?'),
       variants: [other('Sıra: How do you spell it?', ex('How do you spell it?', 'How-dan sonra “do” gəlir, sonra you spell it.', 'How do you spell it? — hərf-hərf; What\'s your name? — ad.', 'Ganja? How do you spell it?'))],
       review: {
         title: 'Sualı qur', why: 'How-dan sonra “do” gəlir.', hint: 'Azərbaycancada olmayan kiçik bir söz ingiliscə sualda lazımdır.',
-        prompt: 'Kafedə tanış olduğun adam şəhərinin adı ilə səsli mesaj göndərdi. Sən o şəhəri tanımırsan.\nSözlərdən sual qur: hərf-hərf necə yazılır?', placeholder: 'Sözlərə toxun',
+        prompt: 'Tanışın mesajda tanımadığın şəhəri yazdı.\nSözlərdən sual qur: necə yazılır?', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Yeni tanış', from: 'B', lines: [{ from: 'B', text: '🎤' }] },
         tiles: ['spell', 'How', 'it', 'you', 'do', 'name', 'is', '?'], rule: exact('How do you spell it?'),
         variants: [other('Sıra: How do you spell it?', ex('How do you spell it?', 'How-dan sonra “do” gəlir, sonra you spell it.', 'How do you spell it? — hərf-hərf; What\'s your name? — ad.', 'Shamakhi? How do you spell it?'))],
@@ -90,12 +90,12 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'voice', id: 'u2d4_c09', number: 9, title: 'Adını hərf-hərf de', why: 'Adını hərf-hərf dedin.', hint: 'Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
-      prompt: 'Resepsiyaçı soruşur: “What\'s your name? How do you spell it?”\nAdını hərf-hərf de. Adında ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).', audio: "What's your name? How do you spell it?", reply: 'Thank you!',
+      prompt: 'Resepsiyaçı adını soruşur.\nAdını hərf-hərf de (Ş → SH, Ə → A).', audio: "What's your name? How do you spell it?", reply: 'Thank you!',
       rule: myName,
       variants: [other("It's + hərflər.", ex("It's [ad]", 'Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "How do you spell it? — It's B-A-K-U.", "It's B-A-K-U."))],
       review: {
         title: 'Adını hərf-hərf de', why: 'Adını hərf-hərf dedin.', hint: 'Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
-        prompt: 'Kursda müəllim adını siyahıya yazır və soruşur.\nAdını hərf-hərf de. Adında ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).', audio: 'Can you spell it, please?', reply: 'Thanks!',
+        prompt: 'Müəllim adını siyahıya yazır.\nAdını hərf-hərf de (Ş → SH, Ə → A).', audio: 'Can you spell it, please?', reply: 'Thanks!',
         rule: myName,
         variants: [other("It's + hərflər.", ex("It's [ad]", 'Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "Can you spell it, please? — It's G-A-N-J-A.", "It's G-A-N-J-A."))],
       },

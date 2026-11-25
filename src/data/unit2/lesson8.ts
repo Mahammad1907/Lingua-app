@@ -116,12 +116,12 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'voice', id: 'u2d8_c09', number: 9, title: 'Soyadını hərf-hərf de', why: 'Soyadını hərf-hərf dedin.', hint: 'Soyadının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
-      prompt: 'Qeydiyyatçı soruşur: “What\'s your last name? How do you spell it?”\nSoyadını hərf-hərf de. Ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).', audio: "What's your last name? How do you spell it?", reply: 'Thank you!',
+      prompt: 'Qeydiyyatçı soyadını soruşur.\nSoyadını hərf-hərf de (Ş → SH, Ə → A).', audio: "What's your last name? How do you spell it?", reply: 'Thank you!',
       rule: own(NAME_SPELLED, 'My last name is A-L-I-Y-E-V.'),
       variants: [other("It's + hərflər.", ex('My last name is [soyad]', 'Soyadını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "How do you spell it? — It's M-A-double M-A-D-O-V-A.", "It's H-A-S-A-N-O-V-A."))],
       review: {
         title: 'Adını hərf-hərf de', why: 'Adını hərf-hərf dedin.', hint: 'Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
-        prompt: 'Ziyafətdə yeni tanış adını kartına yazmaq istəyir.\nAdını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).', audio: "What's your first name? Can you spell it, please?", reply: 'Thanks!',
+        prompt: 'Yeni tanış adını yazmaq istəyir.\nAdını hərf-hərf de (Ş → SH, Ə → A).', audio: "What's your first name? Can you spell it, please?", reply: 'Thanks!',
         rule: own(NAME_SPELLED, "It's A-L-I."),
         variants: [other("It's + hərflər.", ex("It's [ad]", 'Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə.', "Can you spell it, please? — It's G-A-N-J-A.", "It's B-A-K-U."))],
       },

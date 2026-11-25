@@ -72,12 +72,12 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d4_c05', number: 5, title: 'Mesaj yaz', why: 'Sual Is this ilə başlayır.', hint: 'Bəli/xeyr sualında hansı söz birinci gəlir?',
-      prompt: '{F} çata ailə şəkli göndərib: yanında yaşlı bir kişi var.\nSözlərdən sual qur: “Bu sənin atandır?”', placeholder: 'Sözlərə toxun',
+      prompt: '{F:gen} yanında yaşlı kişi var.\nSözlərdən sual qur: “Bu sənin atandır?”', placeholder: 'Sözlərə toxun',
       tiles: ['Is', 'this', 'your', 'father', 'you', 'This', 'is', '?'], rule: exact('Is this your father?'),
       variants: [...QUESTION_MISTAKES('Is this your father?'), other('Is this your father?', ex('Is this your father?', 'Sual Is ilə başlayır, sonra this, your və ailə sözü.', 'Is this your father? — sual; This is my father. — cümlə.', 'Is this your father?'))],
       review: {
         title: 'Mesaj yaz', why: 'Sual Is this ilə başlayır.', hint: 'Bu da bəli/xeyr sualıdır — söz sırasında hansı söz qabağa keçir?',
-        prompt: '{G} qrup çatında şəkil paylaşıb: yanında bir qız var.\nSözlərdən sual qur: “Bu sənin bacındır?”', placeholder: 'Sözlərə toxun',
+        prompt: '{G:gen} yanında bir qız var.\nSözlərdən sual qur: “Bu sənin bacındır?”', placeholder: 'Sözlərə toxun',
         tiles: ['sister', 'Is', 'you', 'your', 'this', 'Do', '?'], rule: exact('Is this your sister?'),
         variants: [...QUESTION_MISTAKES('Is this your sister?'), other('Is this your sister?', ex('Is this your sister?', 'Sual Is ilə başlayır, sonra this, your və ailə sözü.', 'Is this your sister? — sual; This is my sister. — cümlə.', 'Is this your father?'))],
       },
@@ -117,7 +117,7 @@ export const lesson4: DesignLesson = {
       variants: [...NO_IT_MISTAKES("No, it isn't."), other("No, it isn't.", ex("No, it isn't.", 'O, sənin bacın deyil — qısa “xeyr” cavabı.', "Yes, it is. — bəli; No, it isn't. — xeyr.", "Is this your mother? — No, it isn't."))],
       review: {
         title: 'Qısa cavab ver', why: "Qısa “xeyr” cavabı verdin: No, it isn't.", hint: 'Masadakı kişi sənin atan deyil — “xeyr” cavabının sonunu xatırla.',
-        prompt: 'Ailə yeməyində yeni tanış masadakı yaşlı kişini göstərir. O, sənin atan deyil, babandır.\nQısa cavab ver.', audio: 'Is this your father?', reply: 'Oh, sorry!',
+        prompt: 'O kişi atan deyil, babandır.\nQısa cavab ver.', audio: 'Is this your father?', reply: 'Oh, sorry!',
         rule: said(noIt('he', 'grandfather'), "No, it isn't."),
         variants: [...NO_IT_MISTAKES("No, it isn't."), other("No, it isn't.", ex("No, it isn't.", 'O, sənin atan deyil — qısa “xeyr” cavabı.', "Yes, it is. — bəli; No, it isn't. — xeyr.", "Is this your mother? — No, it isn't."))],
       },

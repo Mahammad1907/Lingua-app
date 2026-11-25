@@ -141,13 +141,13 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'u3d4_c11', number: 11, title: 'Mesaj yaz', why: 'Sual are ilə başlayır: Are you from Turkey?', hint: 'Sual bu dərsin ilk kartındakı kimi başlayır.',
-      prompt: 'Hostelin söhbət qrupunda yeni tanış türk çayından yazır.\nSözlərdən sual qur: “Sən Türkiyədənsən?”', placeholder: 'Sözlərə toxun',
+      prompt: 'Yeni tanış türk çayından yazır.\nSözlərdən sual qur: “Sən Türkiyədənsən?”', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: 'Tea?' }] },
       tiles: ['Are', 'you', 'from', 'Turkey', '?', 'Do', 'is'], rule: exact('Are you from Turkey?'),
       variants: [...QUESTION_MISTAKES, other('Sıra: Are you from Turkey?', ex('Are you from Turkey?', 'Sual are ilə başlayır, sonra you, from və ölkə.', 'Are you from Turkey? — sual; Where are you from? — haradan?', 'Are you from Turkey?'))],
       review: {
         title: 'Mesaj yaz', why: 'Sual are ilə başlayır: Are you from Russia?', hint: 'Sual bu dərsin ilk kartındakı kimi başlayır.',
-        prompt: 'Hostelin söhbət qrupunda yeni tanış Moskvanın şəklini paylaşıb.\nSözlərdən sual qur: “Sən Rusiyadansan?”', placeholder: 'Sözlərə toxun',
+        prompt: 'Yeni tanış Moskvanın şəklini paylaşıb.\nSözlərdən sual qur: “Sən Rusiyadansan?”', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: '📷' }, { from: 'other', text: 'Hello!' }] },
         tiles: ['Russia', 'you', 'Do', 'Are', 'from', '?', 'at'], rule: exact('Are you from Russia?'),
         variants: [...QUESTION_MISTAKES, other('Sıra: Are you from Russia?', ex('Are you from Russia?', 'Sual are ilə başlayır, sonra you, from və ölkə.', 'Are you from Russia? — sual; Where are you from? — haradan?', 'Are you from Russia?'))],

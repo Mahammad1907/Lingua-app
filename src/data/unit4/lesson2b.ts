@@ -98,13 +98,13 @@ export const lesson2b: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d2b_c07', number: 7, title: 'Mesaj yaz', why: 'My grandmother is in Ganja. — nənənin harada olduğunu dedin.', hint: 'Əvvəl kimin nənəsi olduğunu de, şəhər cümlənin sonunda gəlir.',
-      prompt: '{F} öz nənəsindən yazır və sənin nənəni soruşur. Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'My grandmother is in London. And your grandmother?' }] },
       tiles: ['My', 'grandmother', 'is', 'in', 'Ganja', '.', 'are', 'from'], rule: exact('My grandmother is in Ganja.'),
       variants: [...grandMistakes, other('Sıra: My grandmother is in Ganja.', ex('My grandmother is in Ganja.', 'Əvvəl My grandmother, sonra is in və şəhər.', 'My grandmother is in Ganja. — nənəm Gəncədədir.', 'My mother is in Baku.'))],
       review: {
         title: 'Mesaj yaz', why: 'My grandmother is in Ganja. — nənənin harada olduğunu dedin.', hint: 'İş yoldaşına da əvvəl kimin nənəsi olduğunu de, şəhəri sona saxla.',
-        prompt: 'İş yoldaşı öz nənəsindən yazır və sənin nənəni soruşur. Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
         chat: { partner: 'İş yoldaşı', from: 'other', lines: [{ from: 'other', text: 'My grandmother is in Baku. And your grandmother?' }] },
         tiles: ['is', 'Ganja', 'My', 'in', 'grandmother', '.', 'from', 'are'], rule: exact('My grandmother is in Ganja.'),
         variants: [...grandMistakes, other('Sıra: My grandmother is in Ganja.', ex('My grandmother is in Ganja.', 'Əvvəl My grandmother, sonra is in və şəhər.', 'My grandmother is in Ganja. — nənəm Gəncədədir.', 'My mother is in Baku.'))],
@@ -168,7 +168,7 @@ export const lesson2b: DesignLesson = {
     },
     {
       type: 'tree', id: 'u4d2b_tree', number: 12, title: 'Ailə ağacı', why: 'grandmother — nənə: ananın da yuxarısında, babanın yanında.', hint: 'Xətlərə bax: “?” ananın üstündə, babanın yanındadır.',
-      prompt: '{F} albomun ikinci səhifəsində sənin ailə ağacını çəkib. “?” olan yerdə bir qadın var.\nO kimdir? İngiliscə sözü seç.',
+      prompt: '“?” olan yerdə bir qadın var.\nO kimdir? Sözü seç.',
       nodes: [{ id: 'gm', x: 25, y: 0 }, { id: 'gf', label: 'grandfather', x: 75, y: 0 }, { id: 'mom', label: 'mother', x: 50, y: 50 }, { id: 'me', label: 'sən', x: 50, y: 100 }],
       links: [['gm', 'gf'], ['gm', 'mom'], ['mom', 'me']], target: 'gm', options: ['mother', 'grandmother', 'daughter'], answer: 'grandmother',
       variants: [
@@ -177,7 +177,7 @@ export const lesson2b: DesignLesson = {
       ],
       review: {
         title: 'Ailə ağacı', why: 'son — oğul: səndən aşağıda, sənin övladın.', hint: 'Xətlərə bax: “?” səndən aşağıdadır və oğlandır.',
-        prompt: 'Sən iş yoldaşına öz ailə ağacını göstərirsən. “?” olan yerdə bir oğlan var.\nO kimdir? İngiliscə sözü seç.',
+        prompt: '“?” olan yerdə bir oğlan var.\nO kimdir? Sözü seç.',
         nodes: [{ id: 'me', label: 'sən', x: 50, y: 0 }, { id: 'dau', label: 'daughter', x: 25, y: 100 }, { id: 'boy', x: 75, y: 100 }],
         links: [['me', 'dau'], ['me', 'boy']], target: 'boy', options: ['brother', 'son', 'grandfather'], answer: 'son',
         variants: [
