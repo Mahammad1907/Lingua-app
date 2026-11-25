@@ -144,12 +144,15 @@ export default function DesignLesson({ source }: { source: Lesson }) {
 
   // Each new card starts at full size and only shrinks as far as it must (no back-and-forth).
   const cardKey = `${showResult ? 'result' : reviewing ? `r${reviewStep}` : index}`;
-  useEffect(() => { setArt(1); setFit(1); setDense(false); }, [cardKey]);
+  // Grow (25 Nov 2026, user): a short Yeni söz / Öyrən card is scaled up as a whole (text, buttons, gaps) until it fills
+  // the screen — at most 1.25×. Measured on the card's natural height; once set it only goes down (no back-and-forth).
+  const [grow, setGrow] = useState(1); const naturalH = useRef(0);
+  useEffect(() => { setArt(1); setFit(1); setDense(false); setGrow(1); naturalH.current = 0; }, [cardKey]);
   // When the screen grows back (keyboard closed), measure again from full size — otherwise a card shrunk while the
   // keyboard was closing stayed small (German card, user, 25 Nov 2026).
   const lastViewH = useRef(0);
   useEffect(() => {
-    if (viewport.h > lastViewH.current + 2 && lastViewH.current > 0) { setArt(1); setFit(1); setDense(false); }
+    if (viewport.h > lastViewH.current + 2 && lastViewH.current > 0) { setArt(1); setFit(1); setDense(false); setGrow(1); }
     lastViewH.current = viewport.h;
   }, [viewport.h]);
   const shownHeight = (fitValue: number) => (contentHeight - CONTENT_PAD) * fitValue + CONTENT_PAD;
@@ -162,7 +165,15 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const fit = keyboardOpen ? 1 : fitState;
   const stillOverflows = keyboardOpen || (viewport.h > 0 && shownHeight(fit) > viewport.h + 1 && fit <= MIN_FIT && art <= ART_MIN);
   // The scaled card keeps the full width: it is laid out wider by 1/fit and centred, so it does not look narrow.
-  const innerW = Math.max(0, viewport.w - 40), wideW = innerW / fit;
+  const growable = (current?.type === 'word' || current?.type === 'teach') && !keyboardOpen && fitState === 1 && !dense && !showResult;
+  const onNatural = (h: number) => {
+    naturalH.current = h;
+    if (!growable || !viewport.h || h <= 0) return;
+    const room = (viewport.h - CONTENT_PAD) / h;
+    setGrow(g => g === 1 ? Math.max(1, Math.min(1.25, room)) : Math.max(1, Math.min(g, room)));
+  };
+  const scale = fit < 1 ? fit : growable ? grow : 1;
+  const innerW = Math.max(0, viewport.w - 40), wideW = innerW / scale;
 
   useEffect(() => {
     if (attempt || reviewMode) return;
@@ -688,12 +699,12 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       overScrollMode="never" scrollEnabled={stillOverflows} showsVerticalScrollIndicator={stillOverflows}
       onLayout={e => setViewport({ w: e.nativeEvent.layout.width, h: e.nativeEvent.layout.height })}
       onContentSizeChange={(_w, h) => setContentHeight(h)}>
-      <View style={[{ flexGrow: 1, transform: [{ scale: fit }], transformOrigin: 'top center' },
-        fit < 1 && innerW > 0 && { width: wideW, marginLeft: (innerW - wideW) / 2 }]}>
+      <View style={[{ flexGrow: 1, transform: [{ scale }], transformOrigin: 'top center' },
+        scale !== 1 && innerW > 0 && { width: wideW, marginLeft: (innerW - wideW) / 2 }]}>
       <ArtFit.Provider value={keyboardOpen ? 1 : art}><LessonCaption.Provider value={lessonLabel(lesson)}>
       {/* A short slide-in marks each new card; Reanimated skips it when the system asks for reduced motion. */}
       <Animated.View key={cardKey} entering={StepIn} style={{ flexGrow: 1 }}>
-        {body}
+        {current?.type === 'word' || current?.type === 'teach' ? <View onLayout={e => onNatural(e.nativeEvent.layout.height)}>{body}</View> : body}
       </Animated.View>
       </LessonCaption.Provider></ArtFit.Provider>
       </View>

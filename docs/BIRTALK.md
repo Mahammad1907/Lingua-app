@@ -167,6 +167,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 25 Noy | Yeni söz təsdiqlənmiş şəkilə qaytarıldı: ağ söz kartı, `▶ | sürət` bir kapsulda, sətirlər təbii ölçüdə (dartılma ləğv). Ekran böyüyəndə (klaviatura bağlananda) kart yenidən tam ölçüdən ölçülür |
 | 25 Noy | “Hansı söz çatmır?” (choice + gap) yeni dizayn: cümlə ortada iri, boşluq bənövşəyi çərçivəli kapsul, altında Dinlə (yalnız yoxlamadan sonra) · Kömək, seçimlər aşağıda iri ağ kapsullar; avatar/balon yoxdur |
 | 25 Noy | Tapşırıq mətni 20/27, tünd. “Dinlə və yaz” ekranlarında yalnız əmr (“Eşitdiyini yaz.” və s.) — vəziyyəti audio panel göstərir; check-situation L6/L16 bu ekranlara tətbiq olunmur. Səs mətnində danışan adı (“{F}: …”) silindi + oxunmaması üçün qoruma. “Ailə ağacı” tapşırıqları və ekranı tam çıxarıldı (u4d2a/u4d2b/u4d3/u4x); Dərs 3-də c13 c12-dən əvvələ keçdi |
+| 25 Noy | İki tərəfli ölçü: qısa Yeni söz / Öyrən kartı bütöv böyüyür (ən çox 1.25×) ki, ekranı doldursun; uzun kart əvvəlki kimi kiçilir. Qısa forma sətrini təkrarlayan qeyd gizlənir |
 
 Ətraflı tarixçə: `docs/LAYIHE_DEFTERI.md`, `docs/YENI_SOHBET_UCUN.md`, `docs/BUTUN_QAYDALAR.md` (köçürülmədən əvvəlki mətnlər).
 

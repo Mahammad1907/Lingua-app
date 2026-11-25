@@ -714,7 +714,9 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   // A pure gloss: only “word — meaning” pairs (after an optional “Who’s = Who is:” lead). Notes with any other hint stay.
   const pureGloss = (n: string) => { const pieces = n.replace(/^[^:=]+=[^:]+:\s*/, '').replace(/\.$/, '').split(/[,;]\s*/);
     return pieces.length >= 2 && pieces.every(piece => /^[A-Za-z’'.]+ — [^:“”.]+$/.test(piece.trim())); };
-  const note = notes?.[0] && !(glossParts && pureGloss(notes[0])) ? notes[0] : '';
+  // A note that only restates the Qısa forma row (“Where's — where is-in qısası”) is hidden too (user, 25 Nov 2026).
+  const restatesShort = (n: string) => Boolean(shortForm) && /qısa/i.test(n) && n.toLowerCase().includes(shortForm!.short.toLowerCase().replace('’', "'"));
+  const note = notes?.[0] && !(glossParts && pureGloss(notes[0])) && !restatesShort(notes[0].replace(/’/g, "'")) ? notes[0] : '';
   return <View style={{ gap: 10 }}>
     <View style={{ gap: 4 }}>
       <KindChip kind={chip} icon={chip === 'Yeni söz' ? 'tag' : 'layers'} />
