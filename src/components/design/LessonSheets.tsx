@@ -72,6 +72,11 @@ export function ExplainSheet({ visible, explain, onClose, onReport, onSay }: { v
     {row('Səbəb', explain.reason)}
     {row('Qısa qayda', explain.rule)}
     {row('Yeni nümunə', nameSlot(explain.example))}
+    {/* Placeholder (user, 25 Nov 2026): reminds us of the AI follow-up. Works once the paid AI server exists (BIRTALK §9); hide before release if still empty. */}
+    <View accessibilityRole="button" accessibilityState={{ disabled: true }} accessibilityLabel="Daha çox soruş. Tezliklə" style={s.askSoon}>
+      <Icon name="chat" size={18} color={d.purpleDisabledText} /><Text style={s.askSoonText}>Daha çox soruş</Text>
+      <View style={s.soonTag}><Text style={s.soonTagText}>tezliklə</Text></View>
+    </View>
   </Sheet>;
 }
 
@@ -115,6 +120,10 @@ export function MenuPopover({ visible, onClose, items, top }: { visible: boolean
 }
 
 const s = StyleSheet.create({
+  askSoon: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, minHeight: 48, borderRadius: 999, borderWidth: 1, borderStyle: 'dashed', borderColor: d.borderStrong, marginTop: 4 },
+  askSoonText: { color: d.purpleDisabledText, fontSize: 16, ...font.bold },
+  soonTag: { backgroundColor: d.purpleSoft, borderRadius: 999, paddingHorizontal: 8, paddingVertical: 2 },
+  soonTagText: { color: d.lavenderText, fontSize: 12, ...font.bold },
   wordRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
   wordChip: { minHeight: 40, paddingHorizontal: 14, borderRadius: 14, backgroundColor: '#fff', borderWidth: 1, borderColor: d.borderStrong, justifyContent: 'center' },
   wordChipOn: { backgroundColor: d.purple, borderColor: d.purple },

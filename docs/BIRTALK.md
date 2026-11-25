@@ -184,9 +184,10 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 **Sonraya saxlanılıb (sıra ilə)**
 6. Bölmə 5+ yazılması.
 7. Şəkillər (hamısı birdən, `SEKIL_SIYAHISI.md`) və səsləndirmə (hər personaj üçün TTS səsi, fayllar buludda).
+8a. **“Daha çox soruş”** (25 Nov qərarı): “Mənə başa sal” hazır, yoxlanmış izah olaraq qalır; altında AI ilə əlavə sual düyməsi — indi yalnız “tezliklə” yer tutucusu (`LessonSheets.tsx`), AI serveri qurulanda işə düşür (AI müəllim və AI zəng ilə eyni server; izahın və dərsin sözlərinə əsaslanır).
 8. AI zəng: real AI API, pullu server; əvvəl maket (gələn zəng / danışıq / zəng bitdi); yalnız öyrədilmiş sözlərlə.
 9. Supabase sinxronu (ilk variant: buluda saxla / bərpa et).
-10. Mağaza auditi: hesab silmə, məxfilik siyasəti, işləməyən profil düymələri, “ŞƏKİL” işarələri və boş AI söhbət gizlənsin, test girişi `[]`, icazə mətnləri, yaş 13+ (`docs/BEYNELXALQ_AUDIT_2026-11-14.md`).
+10. Mağaza auditi: hesab silmə, məxfilik siyasəti, işləməyən profil düymələri, “ŞƏKİL” işarələri, boş AI söhbət və işləməyən “Daha çox soruş” gizlənsin, test girişi `[]`, icazə mətnləri, yaş 13+ (`docs/BEYNELXALQ_AUDIT_2026-11-14.md`).
 
 **Açıq texniki işlər**
 11. Telefonda yoxlanmalı (23–25 Noy dəyişiklikləri; 25 Noy dizayn sistemi — Glow Line və Orb animasiyası, qradiyentlər): ana səhifə, sabit ekranlar, sürət düyməsi, Müəllim izahı, mesajlaşma, Dinlə və anla, KindChip, məntiq düzəlişləri.
