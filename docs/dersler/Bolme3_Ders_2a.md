@@ -67,7 +67,7 @@ Diqqət et: Biz “Türkiyədən” deyirik, ingiliscə from Turkey.
 
 ## Kart 6 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Hava limanında qeydiyyatçıdan soruşdun: “How do you spell it?” O, uçuşun ölkəsini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Səyahət agentliyində işçi turun ölkəsini hərf-hərf deyir, sən formaya yazırsan. Eşitdiyin hərflərə toxun.  
 **Səs:** It's T-U-R-K-E-Y.  
 **Hərflər:** T U R K E Y I A  
 **Qəbul:** dəqiq: TURKEY  
@@ -191,7 +191,7 @@ Qeyd: Vurğu sondadır.
 
 ## Kart 14 — Yaz: Yaz
 
-**Tapşırıq:** Hava limanında uçuş tablosunda “Istanbul” yazılıb. Bu şəhər hansı ölkədədir? Ölkənin adını ingiliscə yaz.  
+**Tapşırıq:** Hava limanında uçuş tablosunda “Istanbul” yazılıb. Dostun mesajda soruşur: bu şəhər hansı ölkədədir? Ölkənin adını ingiliscə yaz.  
 **Qəbul:** dəqiq: Turkey  
 **İpucu:** İstanbul hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.  
 **Düzgün olanda:** İstanbul Türkiyədədir — Turkey.  
@@ -200,7 +200,7 @@ Qeyd: Vurğu sondadır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qatar stansiyasında tabloda “Tbilisi” yazılıb. Bu şəhər hansı ölkədədir? Ölkənin adını ingiliscə yaz.  
+**Tapşırıq:** Qatar stansiyasında tabloda “Tbilisi” yazılıb. Dostun mesajda soruşur: bu şəhər hansı ölkədədir? Ölkənin adını ingiliscə yaz.  
 **Qəbul:** dəqiq: Georgia  
 **İpucu:** Tbilisi hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.  
 **Düzgün olanda:** Tbilisi Gürcüstandadır — Georgia.  

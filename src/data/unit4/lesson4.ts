@@ -72,7 +72,7 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d4_c05', number: 5, title: 'Mesaj yaz', why: 'Sual Is this ilə başlayır.', hint: 'Bəli/xeyr sualında hansı söz birinci gəlir?',
-      prompt: '{F} ailə çatına şəkil göndərib: yanında yaşlı bir kişi var.\nSözlərdən sual qur: “Bu sənin atandır?”', placeholder: 'Sözlərə toxun', scenes: ['u4/videocall'],
+      prompt: '{F} çata ailə şəkli göndərib: yanında yaşlı bir kişi var.\nSözlərdən sual qur: “Bu sənin atandır?”', placeholder: 'Sözlərə toxun',
       tiles: ['Is', 'this', 'your', 'father', 'you', 'This', 'is', '?'], rule: exact('Is this your father?'),
       variants: [...QUESTION_MISTAKES('Is this your father?'), other('Is this your father?', ex('Is this your father?', 'Sual Is ilə başlayır, sonra this, your və ailə sözü.', 'Is this your father? — sual; This is my father. — cümlə.', 'Is this your father?'))],
       review: {
@@ -161,13 +161,13 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d4_c13', number: 13, title: 'Dialoqu tamamla', why: 'Qardaşını təqdim etdin: He’s my brother.', hint: 'Oğlan haqqında “o” üçün uyğun sözü seç, sonra kimin qardaşı olduğunu de.',
-      prompt: 'Ailə çatında {f} sənin şəklinə baxıb yazır. Şəkildəki oğlan sənin qardaşındır.\nCavab yaz.', placeholder: 'Cavabın',
+      prompt: '{F} çatda sənin şəklinə baxıb yazır. Şəkildəki oğlan sənin qardaşındır.\nCavab yaz.', placeholder: 'Cavabın',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's he?" }] },
       rule: myPerson('he', 'brother'),
       variants: [...PERSON_MISTAKES('he', 'brother'), other("He's my brother.", ex("He's my brother.", 'Sual kişi haqqındadır: He’s my, sonra ailə sözü.', "He's my brother. — kişi; She's my sister. — qadın.", "Who's he? — He's my brother."))],
       review: {
         title: 'Dialoqu tamamla', why: 'Nənəni təqdim etdin: She’s my grandmother.', hint: 'Nənən haqqında “o” üçün uyğun sözü seç, sonra kimin nənəsi olduğunu de.',
-        prompt: 'Ailə çatında {f} köhnə bir şəklə baxıb yazır. Şəkildəki yaşlı qadın sənin nənəndir.\nCavab yaz.', placeholder: 'Cavabın',
+        prompt: '{F} çatda sənin köhnə şəklinə baxıb yazır. Şəkildəki yaşlı qadın sənin nənəndir.\nCavab yaz.', placeholder: 'Cavabın',
         chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's she?" }] },
         rule: myPerson('she', 'grandmother'),
         variants: [...PERSON_MISTAKES('she', 'grandmother'), other("She's my grandmother.", ex("She's my grandmother.", 'Sual qadın haqqındadır: She’s my, sonra ailə sözü.', "She's my grandmother. — qadın; He's my grandfather. — kişi.", "Who's she? — She's my sister."))],

@@ -68,7 +68,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u4x_c06', number: 6, title: 'Sualı qur', why: 'Sual Is this ilə başlayır.',
-      prompt: '{F} ailə çatına şəkil göndərib: yanında kiçik bir qız var.\nSözlərdən sual qur: “Bu sənin qızındır?”', placeholder: 'Sözlərə toxun',
+      prompt: '{F} çata ailə şəkli göndərib: yanında kiçik bir qız var.\nSözlərdən sual qur: “Bu sənin qızındır?”', placeholder: 'Sözlərə toxun',
       tiles: ['Is', 'this', 'you', 'daughter', 'This', 'your', 'is', '?'], rule: exact('Is this your daughter?'),
       variants: [
         ...QUESTION_MISTAKES('Is this your daughter?'),
@@ -93,7 +93,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u4x_c09', number: 9, title: 'Cavab yaz', why: 'Do ilə suala do ilə cavab verdin.',
-      prompt: '{F} ailə çatında soruşur.\nDüzünü yaz: bacın var, yoxsa yox? (istəsən, uydurma)', placeholder: 'Cavabını yaz',
+      prompt: '{F} çatda soruşur.\nDüzünü yaz: bacın var, yoxsa yox? (istəsən, uydurma)', placeholder: 'Cavabını yaz',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Do you have a sister?' }] },
       rule: own(haveReply('sister'), 'Yes, I do.', "No, I don't.", 'Yes, I do. I have a sister.'),
       variants: [
@@ -112,7 +112,7 @@ export const exam: DesignLesson = {
     },
     {
       type: 'two', id: 'u4x_c11', number: 11, title: 'İki mesaj yaz', why: 'Bacının adını və peşəsini yazdın.',
-      prompt: 'Ailə qrupunda {f} sənin bacın haqqında soruşur. Bacının adı Laladır, tələbədir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
+      prompt: '{F} çatda sənin bacın haqqında soruşur. Bacının adı Laladır, tələbədir.\nİki mesaj yaz:\n1. Adı.\n2. Peşəsi.',
       fields: [
         { id: 'u4x_c11a', label: 'Birinci mesaj', placeholder: 'Adı', rule: exact('Her name is Lala.'), purpose: 'adını demək', empty: 'Birinci mesajı da yaz.' },
         { id: 'u4x_c11b', label: 'İkinci mesaj', placeholder: 'Peşəsi', rule: exact("She's a student.", 'She is a student.'), purpose: 'peşəsini demək', empty: 'İkinci mesajı da yaz.' },

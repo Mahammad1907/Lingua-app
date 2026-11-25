@@ -72,7 +72,7 @@ export const lesson2b: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d2b_c05', number: 5, title: 'Dinlə və yaz', why: 'grandmother — grand + mother, bir söz kimi.', hint: 'Sözün iki hissəsi var: biri sənin Dərs 2a-dan bildiyin söz.',
-      prompt: '{F} sənə mesajda bir söz səsləndirir.\nEşitdiyin sözü yaz.', audio: 'grandmother', placeholder: 'Eşitdiyin sözü yaz',
+      prompt: '{F} səsli mesajda bir söz deyib, yazılışını soruşur.\nEşitdiyin sözü yaz.', audio: 'grandmother', placeholder: 'Eşitdiyin sözü yaz',
       rule: exact('grandmother'),
       variants: [
         { match: { pattern: String.raw`^grand\s+mother$|^gran[d]?mother$|^grandmoth[ae]r?$` }, short: 'Bir söz kimi yaz: grandmother.',
@@ -81,7 +81,7 @@ export const lesson2b: DesignLesson = {
       ],
       review: {
         title: 'Dinlə və yaz', why: 'grandmother — grand + mother, bir söz kimi.', hint: 'Telefonda eşitdiyin uzun sözü iki hissəyə böl və hər hissəni ayrıca yaz.',
-        prompt: 'Telefonda dostun sənə bir söz deyir.\nEşitdiyin sözü yaz.', audio: 'grandmother', placeholder: 'Eşitdiyin sözü yaz',
+        prompt: 'Telefonda dostun bir söz deyir və soruşur ki, o necə yazılır.\nEşitdiyin sözü yaz.', audio: 'grandmother', placeholder: 'Eşitdiyin sözü yaz',
         rule: exact('grandmother'),
         variants: [
           { match: { pattern: String.raw`^grand\s+mother$|^gran[d]?mother$|^grandmoth[ae]r?$` }, short: 'Bir söz kimi yaz: grandmother.',
@@ -98,14 +98,14 @@ export const lesson2b: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d2b_c07', number: 7, title: 'Mesaj yaz', why: 'My grandmother is in Ganja. — nənənin harada olduğunu dedin.', hint: 'Əvvəl kimin nənəsi olduğunu de, şəhər cümlənin sonunda gəlir.',
-      prompt: '{F} sənin nənən haqqında soruşur. Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
-      chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
+      prompt: '{F} öz nənəsindən yazır və sənin nənəni soruşur. Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
+      chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'My grandmother is in London. And your grandmother?' }] },
       tiles: ['My', 'grandmother', 'is', 'in', 'Ganja', '.', 'are', 'from'], rule: exact('My grandmother is in Ganja.'),
       variants: [...grandMistakes, other('Sıra: My grandmother is in Ganja.', ex('My grandmother is in Ganja.', 'Əvvəl My grandmother, sonra is in və şəhər.', 'My grandmother is in Ganja. — nənəm Gəncədədir.', 'My mother is in Baku.'))],
       review: {
         title: 'Mesaj yaz', why: 'My grandmother is in Ganja. — nənənin harada olduğunu dedin.', hint: 'İş yoldaşına da əvvəl kimin nənəsi olduğunu de, şəhəri sona saxla.',
-        prompt: 'İş yoldaşı sənin nənənin şəklini görüb soruşur. Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
-        chat: { partner: 'İş yoldaşı', from: 'other', lines: [{ from: 'other', text: "Who's this?" }] },
+        prompt: 'İş yoldaşı öz nənəsindən yazır və sənin nənəni soruşur. Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
+        chat: { partner: 'İş yoldaşı', from: 'other', lines: [{ from: 'other', text: 'My grandmother is in Baku. And your grandmother?' }] },
         tiles: ['is', 'Ganja', 'My', 'in', 'grandmother', '.', 'from', 'are'], rule: exact('My grandmother is in Ganja.'),
         variants: [...grandMistakes, other('Sıra: My grandmother is in Ganja.', ex('My grandmother is in Ganja.', 'Əvvəl My grandmother, sonra is in və şəhər.', 'My grandmother is in Ganja. — nənəm Gəncədədir.', 'My mother is in Baku.'))],
       },

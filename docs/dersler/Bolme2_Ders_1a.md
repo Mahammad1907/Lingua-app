@@ -30,7 +30,7 @@ Qeyd: one yazıldığı kimi yox, “uan” kimi oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Liftdəsən, düymə qonşunun tərəfindədir. Dinlə, sonra eyni cür de.  
+**Tapşırıq:** Liftdəsən, düymə yanındakı adamın tərəfindədir. Dinlə, sonra eyni cür de.  
 **Səs:** Three, please.  
 **Qəbul:** dəqiq: Three, please. / 3 please  
 **İpucu:** Əvvəl yavaş dinlə, sonra sözləri bir-bir de.  
@@ -62,7 +62,7 @@ Diqqət et: zero “zirou” oxunur, z səsi ilə başlayır.
 
 ## Kart 6 — Seç: Dinlə və seç
 
-**Tapşırıq:** Otel liftindəsən, düymələrin yanında durursan. Qonşu nəsə deyir. Hansı düyməni basırsan?  
+**Tapşırıq:** Otel liftindəsən, düymələrin yanında durursan. Yanındakı adam nəsə deyir. Hansı düyməni basırsan?  
 **Səs:** Excuse me, three, please.  
 **Seçimlər:** 3 / 2 / 1 — **düzgün:** 3  
 **İpucu:** Rəqəmin ilk səsinə qulaq as.  
@@ -146,7 +146,7 @@ Qeyd: five “v” ilə bitir: fayv.
 
 ## Kart 11 — Səslə cavab: Mərtəbəni de
 
-**Tapşırıq:** Liftdə düymələr qonşunun tərəfindədir. Sən 2-ci mərtəbəyə gedirsən. Nəzakətlə xahiş et.  
+**Tapşırıq:** Liftdə düymələr yanındakı adamın tərəfindədir. Sən 2-ci mərtəbəyə gedirsən. Nəzakətlə xahiş et.  
 **Qəbul:** dəqiq: Excuse me, two, please. / Two, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:floor\s+)?(?:two|2)(?:\s+(?:floor|tickets?))?[,.!]?\s*(?:please|thanks|thank you)[.!]?$/  
 **İpucu:** Əvvəl diqqəti çək, sonra rəqəmi de və xahişi nəzakətli et.  
 **Düzgün olanda:** Rəqəmi dedin və nəzakətlə xahiş etdin.  
@@ -178,7 +178,7 @@ Qeyd: five “v” ilə bitir: fayv.
 
 ## Kart 13 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Liftdə oğlan mərtəbəni deyir. Eşitdiyin rəqəmi sözlə yaz.  
+**Tapşırıq:** Liftdə oğlan mərtəbəni deyir. Dostun mesajda soruşur ki, bu rəqəm ingiliscə necə yazılır. Eşitdiyin rəqəmi sözlə yaz.  
 **Səs:** Three, please.  
 **Qəbul:** dəqiq: three  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla.  
@@ -187,7 +187,7 @@ Qeyd: five “v” ilə bitir: fayv.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Otel resepsiyasında qadın otağın mərtəbəsini deyir. Eşitdiyin rəqəmi sözlə yaz.  
+**Tapşırıq:** Otel resepsiyasında qadın otağın mərtəbəsini deyir. Dostun soruşur ki, bu rəqəm ingiliscə necə yazılır. Eşitdiyin rəqəmi sözlə yaz.  
 **Səs:** Five.  
 **Qəbul:** dəqiq: five  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla.  

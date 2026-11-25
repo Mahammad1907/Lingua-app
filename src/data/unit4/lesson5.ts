@@ -39,7 +39,7 @@ export const lesson5: DesignLesson = {
         pick('am have', 'have-dən əvvəl am lazım deyil.', ex('have', '“var” üçün ayrıca am gəlmir: I have kifayətdir.', 'I have a son. — düzdür; I am have a son. — olmur.', 'I have a daughter.')),
         pick('am', 'I am a son — “mən oğulam” deməkdir.', ex('have', 'Onun oğlu var, özü oğul deyil — have lazımdır.', "I have a son. — oğlum var; I'm [ad] — mən [ad]-am.", 'I have a son.')),
       ],
-      review: {
+      review: { scenes: [],
         title: 'Sözü tamamla', why: '“Mənim qızım var” — I have a daughter.', hint: '“Mənim qızım var” deyir — “var” üçün bu dərsin ilk söz kartını xatırla.',
         prompt: 'Parkda yeni tanış qadın kiçik qızı göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'I', after: 'a daughter. Her name is Mia.' },
         options: ['am', 'have', 'am have'], answer: 'have',
@@ -174,12 +174,12 @@ export const lesson5: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u4d5_c13', number: 13, title: 'Mesaj yaz', why: 'Ailəndə kimin olub-olmadığını özün dedin.', hint: 'Hər ailə üzvü üçün ayrıca de: var, yoxsa yoxdur.', scenes: ['u3/videocall'],
+      type: 'write', id: 'u4d5_c13', number: 13, title: 'Mesaj yaz', why: 'Ailəndə kimin olub-olmadığını özün dedin.', hint: 'Hər ailə üzvü üçün ayrıca de: var, yoxsa yoxdur.',
       prompt: '{F} ailəsindən danışdı və səndən soruşur.\nCavab yaz: qardaşın və bacın var, yoxsa yox? (istəsən, uydurma)', placeholder: 'Cavabını yaz',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'I have a brother and a sister. And you?' }] },
       rule: myFamily,
       variants: [...HAVE_MISTAKES, familyOther("I have a brother, but I don't have a sister.")],
-      review: {
+      review: { scenes: [],
         title: 'Mesaj yaz', why: 'Ailəndə kimin olub-olmadığını özün dedin.', hint: 'Yeni yoldaşa hər ailə üzvünü ayrıca yaz: var, yoxsa yoxdur.',
         prompt: 'Kursda yeni yoldaş mesaj yazdı.\nCavab yaz: qardaşın və bacın var, yoxsa yox? (istəsən, uydurma)', placeholder: 'Cavabını yaz',
         chat: { partner: 'Kurs yoldaşı', from: 'other', lines: [{ from: 'other', text: "Hi! I don't have a brother, but I have a sister. And you?" }] },

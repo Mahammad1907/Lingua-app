@@ -63,7 +63,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 ## Kart 5 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Zəngdə Xarici dostun qardaşı otağa girir. Xarici dost onun adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Zəngdə Xarici dostun qardaşı otağa girir. Sən onun adını telefonuna yazmaq istəyirsən, Xarici dost hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** This is my brother. His name is M-A-R-K.  
 **Hərflər:** M A R K E N S  
 **Qəbul:** dəqiq: MARK  
@@ -73,7 +73,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Zəngdə Xarici dostun bacısı otağa girir. Xarici dost onun adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Zəngdə Xarici dostun bacısı otağa girir. Sən onun adını telefonuna yazmaq istəyirsən, Xarici dost hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** This is my sister. Her name is A-N-N-A.  
 **Hərflər:** A N N A E M Y  
 **Qəbul:** dəqiq: ANNA  

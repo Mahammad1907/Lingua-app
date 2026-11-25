@@ -56,7 +56,7 @@ Qeyd: Is — sualı başladır, this — bu, your — sənin, mother — ana.
 
 ## Kart 5 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**Tapşırıq:** Xarici dost ailə çatına şəkil göndərib: yanında yaşlı bir kişi var. Sözlərdən sual qur: “Bu sənin atandır?”  
+**Tapşırıq:** Xarici dost çata ailə şəkli göndərib: yanında yaşlı bir kişi var. Sözlərdən sual qur: “Bu sənin atandır?”  
 **Sözlər:** Is · this · your · father · you · This · is · ?  
 **Qəbul:** dəqiq: Is this your father?  
 **İpucu:** Bəli/xeyr sualında hansı söz birinci gəlir?  
@@ -220,7 +220,7 @@ Qeyd: Who’s — kim(dir); kişi üçün he, qadın üçün she.
 
 ## Kart 14 — Dialoqu tamamla: Dialoqu tamamla
 
-**Tapşırıq:** Ailə çatında xarici dost sənin şəklinə baxıb yazır. Şəkildəki oğlan sənin qardaşındır. Cavab yaz.  
+**Tapşırıq:** Xarici dost çatda sənin şəklinə baxıb yazır. Şəkildəki oğlan sənin qardaşındır. Cavab yaz.  
 **Yazışma (Xarici dost):** “Who's he?”  
 **Qəbul:** dəqiq: He's my brother. · öz məlumatı: /^(?:he(?:'s|’s|\s+is)|this\s+is)\s+my\s+brother\s*[.!]?(?:\s*his\s+name\s+is\s+\p{L}[\p{L}'’-]*\s*[.!]?)?$/  
 **İpucu:** Oğlan haqqında “o” üçün uyğun sözü seç, sonra kimin qardaşı olduğunu de.  
@@ -233,7 +233,7 @@ Qeyd: Who’s — kim(dir); kişi üçün he, qadın üçün she.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ailə çatında xarici dost köhnə bir şəklə baxıb yazır. Şəkildəki yaşlı qadın sənin nənəndir. Cavab yaz.  
+**Tapşırıq:** Xarici dost çatda sənin köhnə şəklinə baxıb yazır. Şəkildəki yaşlı qadın sənin nənəndir. Cavab yaz.  
 **Yazışma (Xarici dost):** “Who's she?”  
 **Qəbul:** dəqiq: She's my grandmother. · öz məlumatı: /^(?:she(?:'s|’s|\s+is)|this\s+is)\s+my\s+grandmother\s*[.!]?(?:\s*her\s+name\s+is\s+\p{L}[\p{L}'’-]*\s*[.!]?)?$/  
 **İpucu:** Nənən haqqında “o” üçün uyğun sözü seç, sonra kimin nənəsi olduğunu de.  

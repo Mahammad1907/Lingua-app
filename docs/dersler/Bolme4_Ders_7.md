@@ -97,7 +97,7 @@ Diqqət et: “He's doctor.” olmur: a atılmır.
 
 ## Kart 8 — Mesaj yaz (sözlərdən): Cümləni qur
 
-**Tapşırıq:** Albomdakı şəkildə kişi xəstəxanadadır. O həkimdir. Sözlərdən cümlə qur.  
+**Tapşırıq:** Albomdakı şəklin altına yazı yazırsan: şəkildəki kişi xəstəxanadadır, o həkimdir. Sözlərdən cümlə qur.  
 **Sözlər:** doctor · He's · a · She's · student · .  
 **Qəbul:** dəqiq: He's a doctor. / He is a doctor.  
 **İpucu:** Kişidən danış, peşəni bu dərsin söz kartındakı kimi qur.  
@@ -108,7 +108,7 @@ Diqqət et: “He's doctor.” olmur: a atılmır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Albomun başqa səhifəsində məktəb şəkli var. Qadın orada müəllimdir. Sözlərdən cümlə qur.  
+**Tapşırıq:** Albomun başqa səhifəsində məktəb şəkli var. Şəklin altına yazırsan: qadın orada müəllimdir. Sözlərdən cümlə qur.  
 **Sözlər:** teacher · She's · a · He's · student · .  
 **Qəbul:** dəqiq: She's a teacher. / She is a teacher.  
 **İpucu:** Qadından danış, peşəni bu dərsin söz kartındakı kimi qur.  
@@ -178,7 +178,7 @@ Qeyd: what’s — nədir, his — onun (kişinin), job — iş, peşə; qadın 
 
 ## Kart 13 — Səslə cavab: Peşəsini de
 
-**Tapşırıq:** Video zəngdə xarici dost albomdakı kişini göstərir. O həkimdir. Sualı dinlə və cavab ver.  
+**Tapşırıq:** Video zəngdə Xarici dost sənin albomundakı kişini görüb soruşur. O kişi həkimdir. Sualı dinlə və cavab ver.  
 **Səs:** What's his job?  
 **Qəbul:** dəqiq: He's a doctor. / He is a doctor.  
 **İpucu:** Sual kişi haqqındadır — peşəni söz kartındakı kimi de.  
@@ -190,7 +190,7 @@ Qeyd: what’s — nədir, his — onun (kişinin), job — iş, peşə; qadın 
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ofisdə iş yoldaşın qadının şəklini göstərir. O mühəndisdir. Sualı dinlə və cavab ver.  
+**Tapşırıq:** Ofisdə sən iş yoldaşına bir qadının şəklini göstərirsən. O qadın mühəndisdir. İş yoldaşın soruşur. Sualı dinlə və cavab ver.  
 **Səs:** What's her job?  
 **Qəbul:** dəqiq: She's an engineer. / She is an engineer.  
 **İpucu:** Sual qadın haqqındadır; peşə sözünün ilk səsinə qulaq as.  

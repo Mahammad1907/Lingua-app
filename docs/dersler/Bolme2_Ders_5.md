@@ -183,7 +183,7 @@ Diqqət et: Mr. və Ms. soyaddan əvvəl gəlir, sonunda nöqtə qoyulur. Ms. �
 
 **Tapşırıq:** Müəllim soruşur: “What's your last name?” Soyadını de.  
 **Səs:** What's your last name?  
-**Qəbul:** məna:  — nümunə: My last name is [soyad] · öz məlumatı: /^(?:(?:it'?s|it is|my last name is)\s+)?\p{L}[\p{L}'’-]{1,30}[.!]?$/  
+**Qəbul:** məna:  — nümunə: My last name is [soyad] / It's [soyad]. · öz məlumatı: /^(?:(?:it'?s|it is|my last name is)\s+)?\p{L}[\p{L}'’-]{1,30}[.!]?$/  
 **İpucu:** Sual soyad haqqındadır — kartdakı cavabın qurulmasını xatırla.  
 **Düzgün olanda:** Soyadını dedin.  
 - *İzah (başqa səhvdə):* My last name is [soyad] — Uyğun: My last name is [soyad]. Səbəb: Soruşulan soyaddır, ad deyil. Qayda: My first name is [ad] — ad; My last name is [soyad] — soyad. Nümunə: My last name is Mammadova.  
@@ -192,7 +192,7 @@ Diqqət et: Mr. və Ms. soyaddan əvvəl gəlir, sonunda nöqtə qoyulur. Ms. �
 
 **Tapşırıq:** Otel resepsiyasında soruşurlar: “Last name, please?” Soyadını de.  
 **Səs:** Last name, please?  
-**Qəbul:** məna:  — nümunə: My last name is [soyad] · öz məlumatı: /^(?:(?:it'?s|it is|my last name is)\s+)?\p{L}[\p{L}'’-]{1,30}[.!]?$/  
+**Qəbul:** məna:  — nümunə: My last name is [soyad] / It's [soyad]. · öz məlumatı: /^(?:(?:it'?s|it is|my last name is)\s+)?\p{L}[\p{L}'’-]{1,30}[.!]?$/  
 **İpucu:** Sual soyad haqqındadır — kartdakı cavabın qurulmasını xatırla.  
 **Düzgün olanda:** Soyadını dedin.  
 - *İzah (başqa səhvdə):* My last name is [soyad] — Uyğun: My last name is [soyad]. Səbəb: Soruşulan soyaddır, ad deyil. Qayda: My first name is [ad] — ad; My last name is [soyad] — soyad. Nümunə: My last name is Hasanova.  

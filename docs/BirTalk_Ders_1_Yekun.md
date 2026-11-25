@@ -321,7 +321,7 @@ A mərhələsinin seçimləri bağlanır.
 
 **Öyrənənin görəcəyi mətn**
 
-Səsi dinlə və eşitdiyin sözü yaz.
+Dostun səsli mesajda bir söz deyib, ingiliscə necə yazıldığını soruşur. Eşitdiyin sözü yaz.
 
 **Sahə:** Eşitdiyin sözü yaz  
 **Düymələr:** Səsi dinlə · Yoxla  
@@ -737,7 +737,7 @@ Aşağıdakılar ayrıca əsas dərs kartları deyil. Kart 12-də yalnız uyğun
 
 - Yeni vəziyyət: başqa danışanın səsi.
 - Audio: **Goodbye!**
-- Sual: “Səsi dinlə və eşitdiyin sözü yaz.”
+- Sual: “Dostun səsli mesajda bir söz deyib, ingiliscə necə yazıldığını soruşur. Eşitdiyin sözü yaz.”
 - Uyğun cavab: Goodbye.
 - Bacarıq: eşidilən sözü dəqiq müəyyən edib yazmaq.
 - Bye yazılarsa qısa geribildirim: “Bye də sağollaşmadır, amma səsdə Goodbye deyilir.”

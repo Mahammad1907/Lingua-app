@@ -129,7 +129,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 
 ## Kart 9 — Yaz: Eşitdiyini yaz
 
-**Tapşırıq:** Səsi dinlə və eşitdiyin sözü yaz.  
+**Tapşırıq:** Dostun səsli mesajda bir söz deyib, ingiliscə necə yazıldığını soruşur. Eşitdiyin sözü yaz.  
 **Səs:** Bye!  
 **Qəbul:** dəqiq: Bye  
 **İpucu:** Yavaş dinlə və eşitdiyin sözü olduğu kimi yaz.  
@@ -140,7 +140,7 @@ Qeyd: Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Səsi dinlə və eşitdiyin sözü yaz.  
+**Tapşırıq:** Dostun səsli mesajda bir söz deyib, ingiliscə necə yazıldığını soruşur. Eşitdiyin sözü yaz.  
 **Səs:** Goodbye!  
 **Qəbul:** dəqiq: Goodbye  
 **İpucu:** Yavaş dinlə və eşitdiyin sözü olduğu kimi yaz.  

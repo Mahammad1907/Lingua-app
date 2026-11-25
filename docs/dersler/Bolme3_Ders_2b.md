@@ -97,7 +97,7 @@ Diqqət et: Turkey və England adlarında the yoxdur.
 
 ## Kart 8 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Hava limanında sərnişin haradan olduğunu deyir. “from”dan sonra eşitdiyini yaz.  
+**Tapşırıq:** Hava limanında sərnişin haradan olduğunu deyir. Sən qeydiyyatda işləyirsən, onu vərəqə yazırsan. “from”dan sonra eşitdiyini yaz.  
 **Səs:** Hi! I'm from the USA.  
 **Qəbul:** dəqiq: the USA / I'm from the USA.  
 **İpucu:** “from”dan sonra eşitdiyin hər sözü yaz.  
@@ -107,7 +107,7 @@ Diqqət et: Turkey və England adlarında the yoxdur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qatarda yeni tanış haradan olduğunu deyir. “from”dan sonra eşitdiyini yaz.  
+**Tapşırıq:** Qatarda yeni tanış haradan olduğunu deyir. Dostun mesajda soruşur ki, o haradandır. “from”dan sonra eşitdiyini yaz.  
 **Səs:** Hello! I'm from the UK.  
 **Qəbul:** dəqiq: the UK / I'm from the UK.  
 **İpucu:** “from”dan sonra eşitdiyin hər sözü yaz.  
@@ -175,7 +175,7 @@ Qeyd: “Fransa” yox, “frəns” oxunur.
 
 ## Kart 13 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Hava limanında qeydiyyatçıdan soruşdun: “How do you spell it?” O, uçuşun ölkəsini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Səyahət agentliyində işçi turun ölkəsini hərf-hərf deyir, sən formaya yazırsan. Eşitdiyin hərflərə toxun.  
 **Səs:** It's F-R-A-N-C-E.  
 **Hərflər:** F R A N C E S I  
 **Qəbul:** dəqiq: FRANCE  
@@ -185,7 +185,7 @@ Qeyd: “Fransa” yox, “frəns” oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Hostelin resepsiyasında işçiyə “Sorry?” dedin. O, qonağın ölkəsini yenə hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Sən hostelin resepsiyasında işləyirsən. Qonaq ölkəsini hərf-hərf deyir; “Sorry?” dedin, o yenə deyir. Eşitdiyin hərflərə toxun.  
 **Səs:** It's E-N-G-L-A-N-D.  
 **Hərflər:** E N G L A N D I J  
 **Qəbul:** dəqiq: ENGLAND  

@@ -41,8 +41,8 @@ Qeyd: Sıra azərbaycancadakı kimidir: əvvəl phone, sonra number.
 
 ## Kart 4 — Mesaj yaz (sözlərdən): Sualı qur
 
-**Tapşırıq:** Kursun qrup çatına yeni üzv qoşuldu; çatda nömrələr görünmür. Sözlərdən onun nömrəsini soruşan sual qur.  
-**Yazışma (Kursun qrup çatı):** “Hi! Nice to meet you!”  
+**Tapşırıq:** Kursa yeni üzv qoşuldu. Ona şəxsi mesaj yazırsan. Sözlərdən onun nömrəsini soruşan sual qur.  
+**Yazışma (Yeni kurs yoldaşı):** “Hi! Nice to meet you!”  
 **Sözlər:** What's · number · your · phone · name · my · ?  
 **Qəbul:** dəqiq: What's your phone number?  
 **İpucu:** Azərbaycancada “telefon nömrəsi” necə sıralanır? İngiliscə də elədir.  
@@ -51,8 +51,8 @@ Qeyd: Sıra azərbaycancadakı kimidir: əvvəl phone, sonra number.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ofisin qrup çatına yeni iş yoldaşı qoşuldu; çatda nömrələr görünmür. Sözlərdən onun nömrəsini soruşan sual qur.  
-**Yazışma (Ofisin qrup çatı):** “Hello! How are you?”  
+**Tapşırıq:** Ofisə yeni iş yoldaşı qoşuldu. Ona şəxsi mesaj yazırsan. Sözlərdən onun nömrəsini soruşan sual qur.  
+**Yazışma (Yeni iş yoldaşı):** “Hello! How are you?”  
 **Sözlər:** phone · What's · your · number · is · name · ?  
 **Qəbul:** dəqiq: What's your phone number?  
 **İpucu:** Azərbaycancada “telefon nömrəsi” necə sıralanır? İngiliscə də elədir.  
@@ -172,7 +172,7 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 ## Kart 13 — Dialoqu tamamla: Cavab yaz
 
 **Tapşırıq:** Kurs yoldaşın nömrəni yazıb yoxlayır. Nömrə düzdür. Təsdiqlə.  
-**Yazışma (Kurs yoldaşı):** “Zero five zero, three two one, four five, six seven. Is that right?”  
+**Yazışma (Kurs yoldaşı):** “050 321 45 67? Is that right?”  
 **Qəbul:** məna: confirmYes — nümunə: Yes, that's right.  
 **İpucu:** Nömrə düzdür — onun sualına razılıqla cavab ver.  
 **Düzgün olanda:** Nömrənin düz olduğunu təsdiqlədin.  
@@ -181,7 +181,7 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** İdman zalının qəbulu nömrəni mesajla yoxlayır. Nömrə düzdür. Təsdiqlə.  
-**Yazışma (İdman zalının qəbulu):** “Oh five five, two one nine, oh three, eight eight. Is that right?”  
+**Yazışma (İdman zalının qəbulu):** “055 219 03 88? Is that right?”  
 **Qəbul:** məna: confirmYes — nümunə: Yes, that's right.  
 **İpucu:** Nömrə düzdür — onun sualına razılıqla cavab ver.  
 **Düzgün olanda:** Nömrənin düz olduğunu təsdiqlədin.  
@@ -189,9 +189,9 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 
 ## Kart 14 — İki mesaj yaz: İki mesaj yaz
 
-**Tapşırıq:** Kursun qrup çatına yeni üzv qoşuldu; çatda nömrələr görünmür. İki mesaj yaz: 1. Onun telefon nömrəsini soruş. 2. Nömrəni yazdın — düz olduğunu soruş.  
+**Tapşırıq:** Kursa yeni üzv qoşuldu. Ona şəxsi mesajla yazırsan. İki mesaj yaz: 1. Onun telefon nömrəsini soruş. 2. Nömrəni yazdın — düz olduğunu soruş.  
 **Birinci mesaj:** məna: askPhone — nümunə: What's your phone number?  
-**İkinci mesaj:** məna:  — nümunə: Is that right?  
+**İkinci mesaj:** məna:  — nümunə: 050 321 45 67? Is that right?  
 **İpucu:** Birinci mesajda sual ver, ikincidə yazdığını yoxla.  
 **Düzgün olanda:** Nömrəni soruşdun və yazdığını yoxladın.  
 - *İzah (“Birinci mesaj” səhv olanda):* Uyğun: What's your phone number? Səbəb: Bu mesajda onun nömrəsini soruşmalısan. Qayda: What's your phone number? — nömrə; What's your name? — ad. Nümunə: Hi! What's your phone number?  
@@ -199,9 +199,9 @@ Nümunə: **Is that right? — Yes, that's right.** — Düzdür? — Bəli, dü
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İdman zalının qrup çatına yeni üzv qoşuldu; nömrələr görünmür. İki mesaj yaz: 1. Onun telefon nömrəsini soruş. 2. Nömrəni yazdın — düz olduğunu soruş.  
+**Tapşırıq:** İdman zalına yeni üzv qoşuldu. Ona şəxsi mesajla yazırsan. İki mesaj yaz: 1. Onun telefon nömrəsini soruş. 2. Nömrəni yazdın — düz olduğunu soruş.  
 **Birinci mesaj:** məna: askPhone — nümunə: What's your phone number?  
-**İkinci mesaj:** məna:  — nümunə: Is that right?  
+**İkinci mesaj:** məna:  — nümunə: 050 321 45 67? Is that right?  
 **İpucu:** Birinci mesajda sual ver, ikincidə yazdığını yoxla.  
 **Düzgün olanda:** Nömrəni soruşdun və yazdığını yoxladın.  
 - *İzah (“Birinci mesaj” səhv olanda):* Uyğun: What's your phone number? Səbəb: Bu mesajda onun nömrəsini soruşmalısan. Qayda: What's your phone number? — nömrə; What's your name? — ad. Nümunə: Excuse me, what's your phone number?  

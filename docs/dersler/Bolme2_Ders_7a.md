@@ -172,7 +172,7 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 
 ## Kart 13 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Qəbulda qadın dolabının nömrəsini deyir. Eşitdiyin sözü yaz.  
+**Tapşırıq:** Qəbulda qadın dolabının nömrəsini deyir. Dostun mesajda soruşur ki, bu rəqəm ingiliscə necə yazılır. Eşitdiyin sözü yaz.  
 **Səs:** Fifteen.  
 **Qəbul:** dəqiq: fifteen  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla.  
@@ -181,7 +181,7 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Məşqçi neçə dəfə təkrar edəcəyini deyir. Eşitdiyin sözü yaz.  
+**Tapşırıq:** Məşqçi neçə dəfə təkrar edəcəyini deyir. Dostun soruşur ki, bu rəqəm ingiliscə necə yazılır. Eşitdiyin sözü yaz.  
 **Səs:** Thirteen.  
 **Qəbul:** dəqiq: thirteen  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla.  

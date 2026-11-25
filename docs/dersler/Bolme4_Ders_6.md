@@ -58,7 +58,7 @@ Qeyd: you ilə are, he ilə is gəlir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Kursda yoldaşın telefonda şəkil göstərir. Sən qulaq asırsan. O nəyi soruşur?  
+**Tapşırıq:** Kursda sən yoldaşına telefonda şəkil göstərirsən. O sual verir. O nəyi soruşur?  
 **Səs:** Who's he? How old is he?  
 **Seçimlər:** O kimdir və neçə yaşındadır? / O kimdir və adı nədir? / O kimdir və necədir? — **düzgün:** O kimdir və neçə yaşındadır?  
 **İpucu:** İki suala ayrıca qulaq as: ikincisi nəyi soruşur?  
@@ -207,7 +207,7 @@ Diqqət et: “yaşı var” sözbəsöz tərcümə olunmur. Rəqəmdən sonra t
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qonşu qadın oğlunun şəklini göstərir. Oğlunun yaşını soruş. Sözlərdən sual qur.  
+**Tapşırıq:** Qonşu qadın mesajda oğlunun şəklini göndərdi. Oğlunun yaşını soruş. Sözlərdən sual qur.  
 **Sözlər:** your · How · you · son · is · are · old · ?  
 **Qəbul:** dəqiq: How old is your son?  
 **İpucu:** Bu dərsin yaş sualı ilə qur, sonda kimin oğlu olduğunu qoy.  

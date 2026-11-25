@@ -60,7 +60,7 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d3_c05', number: 5, title: 'Mesaj yaz', why: 'Kişinin adı — His name is.', hint: '“Onun” sözü burada kişiyə aiddir; sıra My name is kimidir.',
-      prompt: 'Ailə çatında {f} qardaşının şəklini görüb. Qardaşının adı Elvindir.\nSözlərdən cümlə qur: “Onun adı Elvindir.”', placeholder: 'Sözlərə toxun',
+      prompt: '{F} çatda sənin qardaşının şəklini görüb. Qardaşının adı Elvindir.\nSözlərdən cümlə qur: “Onun adı Elvindir.”', placeholder: 'Sözlərə toxun',
       tiles: ['His', "He's", 'name', 'is', 'Elvin', 'my', '.'], rule: exact('His name is Elvin.'),
       variants: [
         ownerNotIs('his', 'His name is Elvin.', "He's my brother. His name is Elvin."),

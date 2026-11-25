@@ -139,7 +139,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 **Tapşırıq:** Qeydiyyatçı soruşur: “What's your last name? How do you spell it?” Soyadını hərf-hərf de. Ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** What's your last name? How do you spell it?  
-**Qəbul:** məna:  — nümunə: My last name is [soyad] · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
+**Qəbul:** məna:  — nümunə: My last name is A-L-I-Y-E-V. · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Soyadının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
 **Düzgün olanda:** Soyadını hərf-hərf dedin.  
 - *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: My last name is [soyad]. Səbəb: Soyadını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: How do you spell it? — It's M-A-double M-A-D-O-V-A. Nümunə: It's H-A-S-A-N-O-V-A.  
@@ -148,7 +148,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 **Tapşırıq:** Ziyafətdə yeni tanış adını kartına yazmaq istəyir. Adını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** What's your first name? Can you spell it, please?  
-**Qəbul:** məna:  — nümunə: It's [ad] · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
+**Qəbul:** məna:  — nümunə: It's A-L-I. · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
 **Düzgün olanda:** Adını hərf-hərf dedin.  
 - *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: It's [ad]. Səbəb: Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: Can you spell it, please? — It's G-A-N-J-A. Nümunə: It's B-A-K-U.  
@@ -213,7 +213,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qeydiyyat növbəsində tanışlıq. Balonlara toxun, söhbəti sıraya düz.  
+**Tapşırıq:** Kursda yeni yoldaşla tanışlıq. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Hi! How old are you? → 2. I'm thirty-five. And you? → 3. I'm thirty. → 4. Nice to meet you!  
 **İpucu:** Əvvəl sual gəlir; cavab verən sualı geri qaytarır.  
 **Düzgün olanda:** Sual, cavab, qarşı sual və xoş söz düz sıradadır.  
@@ -250,7 +250,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qeydiyyat növbəsində yanındakı adam soruşur. Yaşını de və ondan da soruş (istəsən, istənilən yaş).  
+**Tapşırıq:** Kurs yoldaşın formanı doldurur və soruşur. Yaşını de və ondan da soruş (istəsən, istənilən yaş).  
 **Səs:** Hi! How old are you?  
 **Qəbul:** məna:  — nümunə: I'm twenty-five. And you? · öz məlumatı: /^(?:i'?m|i am)\s+(?:\d{1,3}|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ]?(?:one|two|three|four|five|six|seven|eight|nine))?|(?:ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)|(?:one|two|three|four|five|six|seven|eight|nine))(?:\s+years\s+old)?\s*[.!,]?\s*(?:and you|how old are you)\s*\??$/  
 **İpucu:** Əvvəl yaşını de, sonra qısa qarşı sualı əlavə et.  

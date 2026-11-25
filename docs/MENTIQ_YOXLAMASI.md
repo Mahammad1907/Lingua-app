@@ -1,6 +1,6 @@
 # Məntiq yoxlaması — hər tapşırıq real həyata uyğun olmalıdır
 
-İstifadəçi qaydası (24–25 noyabr 2026): tapşırığın vəziyyəti, ekranı, şəkli, cavabı və təlimatı bir-birinə və real həyata uyğun olmalıdır. Bölmə 1–3 tam oxunanda tapılan **bütün səhv növləri** aşağıdakı L1–L17 qaydalarıdır. Hamısı bir əmrlə tapılır (keyfiyyət yoxlamaları Q1–Q6 isə aşağıda, ayrıca əmrlədir):
+İstifadəçi qaydası (24–25 noyabr 2026): tapşırığın vəziyyəti, ekranı, şəkli, cavabı və təlimatı bir-birinə və real həyata uyğun olmalıdır. Bölmə 1–4 tam oxunanda tapılan **bütün səhv növləri** aşağıdakı L1–L21 qaydalarıdır. Hamısı bir əmrlə tapılır (keyfiyyət yoxlamaları Q1–Q6 isə aşağıda, ayrıca əmrlədir):
 
 ```
 node scripts/check-situation.cjs
@@ -29,8 +29,12 @@ Skript söz siyahıları ilə işləyir — tapdığı hər yeri insan oxuyub q�
 | L13 | Yazdığın nömrəni yoxlayanda nömrənin özü də mesajda olur | ikinci mesaj: “Is that right?” | “050 321 45 67? Is that right?” |
 | L14 | Qarşındakı adama yazmırsan (söhbət/mesaj deyilmirsə) | “Dil mübadiləsi masasındasan… sual qur” (yazı) | “Dil mübadiləsi qrupunda yeni tanışa mesaj yazırsan” |
 | L15 | Şəkil vəziyyətin yerini göstərir | hostel söhbəti + video zəng şəkli | hostel şəkli / şəkilsiz |
-| L16 | Eşitdiyini yazmağın səbəbi var (orada işləyirsən, forma, kimsə soruşur) | “Qonaq millətini deyir. Millətini yaz.” | “Sən resepsiyada işləyirsən… vərəqə yazırsan” |
+| L16 | Eşitdiyini / eşitdiyin sözü yazmağın səbəbi var (orada işləyirsən, forma, kimsə soruşur) | “Qonaq millətini deyir. Millətini yaz.” | “Sən resepsiyada işləyirsən… vərəqə yazırsan” |
 | L17 | İşçi (bələdçi, resepsiyaçı) səndən yanındakı yad adamlar haqqında soruşmur | “Bələdçi soruşur: Where's he from?” | yol yoldaşın tanışların haqqında soruşur |
+| L18 | Xarici dost sənin “ailə çatı”nda olmur; ailən səndən qohumunun kim olduğunu soruşmur | “Ailə çatında {f} şəklə baxıb yazır: Who's she?” | “{F} çatda sənin şəklinə baxıb yazır” |
+| L19 | Şəkli göstərən adam “bu kimdir / nə işləyir?” soruşmur | “İş yoldaşın qadının şəklini göstərir… What's her job?” | “Sən iş yoldaşına şəkli göstərirsən. O soruşur” |
+| L20 | Söhbətdəki suala uyğun cavab | çatda “Who's this?” → ✓ “My grandmother is in Ganja.” | çatda “My grandmother is in London. And your grandmother?” |
+| L21 | Yazının ünvanı var (mesaj, çat, şəklin altı, forma, siyahı) | “Şəkildə kişi həkimdir. Sözlərdən cümlə qur.” | “Albomdakı şəklin altına yazı yazırsan…” |
 
 ## Keyfiyyət yoxlamaları (check-quality.cjs)
 
@@ -76,4 +80,4 @@ Skript sonda nəyi neçə dəfə yoxladığını da yazır (“0 problem” “0
 | 1 | 24 Nov 2026 | 179 tapşırıq oxundu, 11 düzəliş edildi |
 | 2 | 25 Nov 2026 | 223 tapşırıq + 32 uyğunlaşdırma oxundu, 12 düzəliş edildi (13-cü — “Last name, please?” qısa cavabı — artıq düz sayılırdı, nümunəyə əlavə edildi); 15 şəkil siyahıya yazıldı |
 | 3 | 25 Nov 2026 | 199 tapşırıq + 38 uyğunlaşdırma oxundu, 8 qrup düzəliş (+1 şəkil u3d6_c09 təkrarında); yeni qaydalar L14–L17 |
-| 4 | — | yoxlanmayıb |
+| 4 | 25 Nov 2026 | 177 tapşırıq + 31 uyğunlaşdırma oxundu, 6 qrup düzəliş (+ Dərs 1 d1_c07b); yeni qaydalar L18–L21 |

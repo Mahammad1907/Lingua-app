@@ -72,7 +72,7 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d7_c07', number: 7, title: 'Cümləni qur', why: 'Peşə sözündən əvvəl a gəlir: a doctor.', hint: 'Kişidən danış, peşəni bu dərsin söz kartındakı kimi qur.',
-      prompt: 'Albomdakı şəkildə kişi xəstəxanadadır. O həkimdir.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Albomdakı şəklin altına yazı yazırsan: şəkildəki kişi xəstəxanadadır, o həkimdir.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
       tiles: ['doctor', "He's", 'a', "She's", 'student', '.'], rule: exact("He's a doctor.", 'He is a doctor.'),
       variants: [
         noArticle("He's a doctor.", "He's doctor.", "She's a teacher."),
@@ -81,7 +81,7 @@ export const lesson7: DesignLesson = {
       ],
       review: {
         title: 'Cümləni qur', why: 'Peşə sözündən əvvəl a gəlir: a teacher.', hint: 'Qadından danış, peşəni bu dərsin söz kartındakı kimi qur.',
-        prompt: 'Albomun başqa səhifəsində məktəb şəkli var. Qadın orada müəllimdir.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Albomun başqa səhifəsində məktəb şəkli var. Şəklin altına yazırsan: qadın orada müəllimdir.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
         tiles: ['teacher', "She's", 'a', "He's", 'student', '.'], rule: exact("She's a teacher.", 'She is a teacher.'),
         variants: [
           noArticle("She's a teacher.", "She's teacher.", "He's a doctor."),
@@ -124,7 +124,7 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'voice', id: 'u4d7_c11', number: 11, title: 'Peşəsini de', why: 'Peşəsini dedin: He\'s a doctor.', hint: 'Sual kişi haqqındadır — peşəni söz kartındakı kimi de.',
-      prompt: 'Video zəngdə {f} albomdakı kişini göstərir. O həkimdir.\nSualı dinlə və cavab ver.', audio: "What's his job?", reply: 'Really? Nice!',
+      prompt: 'Video zəngdə {F} sənin albomundakı kişini görüb soruşur. O kişi həkimdir.\nSualı dinlə və cavab ver.', audio: "What's his job?", reply: 'Really? Nice!',
       rule: exact("He's a doctor.", 'He is a doctor.'),
       variants: [
         noArticle("He's a doctor.", "He's doctor.", "She's an engineer."),
@@ -134,7 +134,7 @@ export const lesson7: DesignLesson = {
       ],
       review: {
         title: 'Peşəsini de', why: 'Peşəsini dedin: She\'s an engineer.', hint: 'Sual qadın haqqındadır; peşə sözünün ilk səsinə qulaq as.',
-        prompt: 'Ofisdə iş yoldaşın qadının şəklini göstərir. O mühəndisdir.\nSualı dinlə və cavab ver.', audio: "What's her job?", reply: 'Really? Nice!',
+        prompt: 'Ofisdə sən iş yoldaşına bir qadının şəklini göstərirsən. O qadın mühəndisdir. İş yoldaşın soruşur.\nSualı dinlə və cavab ver.', audio: "What's her job?", reply: 'Really? Nice!',
         rule: exact("She's an engineer.", 'She is an engineer.'),
         variants: [
           noArticle("She's an engineer.", "She's engineer.", "He's a doctor."),

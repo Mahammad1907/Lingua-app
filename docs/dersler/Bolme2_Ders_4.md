@@ -21,8 +21,8 @@ Qeyd: spell — hərf-hərf demək.
 
 ## Kart 3 — Mesaj yaz (sözlərdən): Sualı qur
 
-**Tapşırıq:** Sən oteldə resepsiyada işləyirsən. Qonaq otelin çatında şəhərini yazdı. Sözlərdən sual qur: hərf-hərf necə yazılır?  
-**Yazışma (Qonaq):** “Lankaran.”  
+**Tapşırıq:** Sən oteldə resepsiyada işləyirsən. Qonaq otelin çatına şəhərinin adı ilə səsli mesaj göndərdi. Sən o şəhəri tanımırsan. Sözlərdən sual qur: hərf-hərf necə yazılır?  
+**Yazışma (Qonaq):** “🎤”  
 **Sözlər:** How · you · spell · it · do · is · your · ?  
 **Qəbul:** dəqiq: How do you spell it?  
 **İpucu:** Azərbaycancada olmayan kiçik bir söz ingiliscə sualda lazımdır.  
@@ -31,8 +31,8 @@ Qeyd: spell — hərf-hərf demək.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Kafedə tanış olduğun adam mesajda şəhərini yazdı. Sözlərdən sual qur: hərf-hərf necə yazılır?  
-**Yazışma (Yeni tanış):** “Shamakhi.”  
+**Tapşırıq:** Kafedə tanış olduğun adam şəhərinin adı ilə səsli mesaj göndərdi. Sən o şəhəri tanımırsan. Sözlərdən sual qur: hərf-hərf necə yazılır?  
+**Yazışma (Yeni tanış):** “🎤”  
 **Sözlər:** spell · How · it · you · do · name · is · ?  
 **Qəbul:** dəqiq: How do you spell it?  
 **İpucu:** Azərbaycancada olmayan kiçik bir söz ingiliscə sualda lazımdır.  
@@ -201,7 +201,7 @@ Qeyd: Daha nəzakətli xahişdir.
 
 **Tapşırıq:** Resepsiyaçı soruşur: “What's your name? How do you spell it?” Adını hərf-hərf de. Adında ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** What's your name? How do you spell it?  
-**Qəbul:** məna:  — nümunə: It's [ad] · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
+**Qəbul:** məna:  — nümunə: It's A-L-I. · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
 **Düzgün olanda:** Adını hərf-hərf dedin.  
 - *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: It's [ad]. Səbəb: Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: How do you spell it? — It's B-A-K-U. Nümunə: It's B-A-K-U.  
@@ -210,7 +210,7 @@ Qeyd: Daha nəzakətli xahişdir.
 
 **Tapşırıq:** Kursda müəllim adını siyahıya yazır və soruşur. Adını hərf-hərf de. Adında ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** Can you spell it, please?  
-**Qəbul:** məna:  — nümunə: It's [ad] · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
+**Qəbul:** məna:  — nümunə: It's A-L-I. · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
 **Düzgün olanda:** Adını hərf-hərf dedin.  
 - *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: It's [ad]. Səbəb: Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: Can you spell it, please? — It's G-A-N-J-A. Nümunə: It's G-A-N-J-A.  

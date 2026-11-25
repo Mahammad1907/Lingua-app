@@ -47,7 +47,7 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 ## Kart 6 — Mesaj yaz (sözlərdən): Sualı qur
 
-**Tapşırıq:** Xarici dost ailə çatına şəkil göndərib: yanında kiçik bir qız var. Sözlərdən sual qur: “Bu sənin qızındır?”  
+**Tapşırıq:** Xarici dost çata ailə şəkli göndərib: yanında kiçik bir qız var. Sözlərdən sual qur: “Bu sənin qızındır?”  
 **Sözlər:** Is · this · you · daughter · This · your · is · ?  
 **Qəbul:** dəqiq: Is this your daughter?  
 **Düzgün olanda:** Sual Is this ilə başlayır.  
@@ -78,7 +78,7 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 ## Kart 9 — Dialoqu tamamla: Cavab yaz
 
-**Tapşırıq:** Xarici dost ailə çatında soruşur. Düzünü yaz: bacın var, yoxsa yox? (istəsən, uydurma)  
+**Tapşırıq:** Xarici dost çatda soruşur. Düzünü yaz: bacın var, yoxsa yox? (istəsən, uydurma)  
 **Yazışma (Xarici dost):** “Do you have a sister?”  
 **Qəbul:** məna:  — nümunə: Yes, I do. / No, I don't. / Yes, I do. I have a sister. · öz məlumatı: /^(?:yes\s*,?\s*i\s+do|no\s*,?\s*i\s+(?:don['’]?t|do\s+not)|yes\s*,?\s*i\s+do\s*[.,!]?\s*i\s+have\s+a\s+sister(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|no\s*,?\s*i\s+(?:don['’]?t|do\s+not)\s*[.,!]?\s*i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+sister(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|yes\s*,?\s*i\s+have\s+a\s+sister(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|no\s*,?\s*i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+sister(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|i\s+have\s+a\s+sister(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+sister(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?)(?:\s*(?:[.,]|and|but)\s*(?:but\s+|and\s+)?(?:i\s+have\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife)(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife)(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?))?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **Düzgün olanda:** Do ilə suala do ilə cavab verdin.  
@@ -103,7 +103,7 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 ## Kart 11 — İki mesaj yaz: İki mesaj yaz
 
-**Tapşırıq:** Ailə qrupunda xarici dost sənin bacın haqqında soruşur. Bacının adı Laladır, tələbədir. İki mesaj yaz: 1. Adı. 2. Peşəsi.  
+**Tapşırıq:** Xarici dost çatda sənin bacın haqqında soruşur. Bacının adı Laladır, tələbədir. İki mesaj yaz: 1. Adı. 2. Peşəsi.  
 **Birinci mesaj:** dəqiq: Her name is Lala.  
 **İkinci mesaj:** dəqiq: She's a student. / She is a student.  
 **Düzgün olanda:** Bacının adını və peşəsini yazdın.  

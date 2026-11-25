@@ -186,7 +186,7 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 
 ## Kart 13 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Hostel resepsiyasında qonaq millətini deyir. Millətini yaz.  
+**Tapşırıq:** Sən hostelin resepsiyasında işləyirsən. Qonaq millətini deyir, sən vərəqə yazırsan. Millətini yaz.  
 **Səs:** I'm Georgian.  
 **Qəbul:** dəqiq: Georgian / I'm Georgian.  
 **İpucu:** Ölkənin adını xatırla: millət sözü ondan düzəlir.  
@@ -195,7 +195,7 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Pasport nəzarətində sərnişin millətini deyir. Millətini yaz.  
+**Tapşırıq:** Sən pasport nəzarətində işləyirsən. Sərnişin millətini deyir, sən formaya yazırsan. Millətini yaz.  
 **Səs:** I'm Russian.  
 **Qəbul:** dəqiq: Russian / I'm Russian.  
 **İpucu:** Ölkənin adını xatırla: millət sözü ondan düzəlir.  

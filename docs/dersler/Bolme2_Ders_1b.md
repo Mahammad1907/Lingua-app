@@ -155,7 +155,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Kafeyə 6 nəfər gəldiniz. Ofisiant neçə nəfər olduğunuzu soruşur. Nəzakətlə cavab ver.  
-**Qəbul:** dəqiq: Six, please. / Excuse me, six, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:floor\s+)?(?:six|6)(?:\s+(?:floor|tickets?))?[,.!]?\s*(?:please|thanks|thank you)[.!]?$/  
+**Qəbul:** dəqiq: Six, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:floor\s+)?(?:six|6)(?:\s+(?:floor|tickets?))?[,.!]?\s*(?:please|thanks|thank you)[.!]?$/  
 **İpucu:** Neçə nəfərsiniz? Rəqəmi de, sonra xahişi nəzakətli edən sözü əlavə et.  
 **Düzgün olanda:** Nəfər sayını dedin və nəzakətlə xahiş etdin.  
 - *İzah (başqa səhvdə):* Rəqəm + please. — Uyğun: Six, please. Səbəb: Siz 6 nəfərsiniz: rəqəmi de və “please” əlavə et. Qayda: Six, please. — altı; Seven, please. — yeddi. Nümunə: Six, please.  
@@ -170,7 +170,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Biletində “9” yazılıb. Sözlə yaz.  
+**Tapşırıq:** Biletində “9” yazılıb. Dostun mesajda soruşur ki, ingiliscə necə yazılır. Sözlə yaz.  
 **Qəbul:** dəqiq: nine  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla.  
 **Düzgün olanda:** nine — sonunda “e” var.  

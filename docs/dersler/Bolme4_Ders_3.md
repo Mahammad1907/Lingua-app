@@ -54,7 +54,7 @@ Qeyd: his — onun (kişinin), name — ad, is — “-dır”: My name is kimi.
 
 ## Kart 5 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**Tapşırıq:** Ailə çatında xarici dost qardaşının şəklini görüb. Qardaşının adı Elvindir. Sözlərdən cümlə qur: “Onun adı Elvindir.”  
+**Tapşırıq:** Xarici dost çatda sənin qardaşının şəklini görüb. Qardaşının adı Elvindir. Sözlərdən cümlə qur: “Onun adı Elvindir.”  
 **Sözlər:** His · He's · name · is · Elvin · my · .  
 **Qəbul:** dəqiq: His name is Elvin.  
 **İpucu:** “Onun” sözü burada kişiyə aiddir; sıra My name is kimidir.  

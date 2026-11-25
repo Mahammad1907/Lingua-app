@@ -203,7 +203,7 @@ Qeyd: “years old” birlikdə gəlir; yalnız “years” deyilmir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qız formada yaşını tam cümlə ilə yazır. Hansı söz çatmır?  
+**Tapşırıq:** Qız mesajda yaşını tam cümlə ilə yazır. Hansı söz çatmır?  
 **Cümlə:** I'm forty-two ___ .  
 **Seçimlər:** old years / years old / years — **düzgün:** years old  
 **İpucu:** Yaşdan sonra hansı ifadə gəlir — kartı xatırla.  

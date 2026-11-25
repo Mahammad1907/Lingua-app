@@ -92,7 +92,7 @@ Diqqət et: K — “key”, Q — “kyu”: ikisi də “k” səsi ilə başl
 
 ## Kart 8 — Səslə cavab: Kodu de
 
-**Tapşırıq:** Hava limanında dostun soruşur hansı uçuşa minirsən. Biletində “LHR” yazılıb (London). Kodu hərf-hərf de.  
+**Tapşırıq:** Hava limanında xarici dostun soruşur hansı uçuşa minirsən. Biletində “LHR” yazılıb (London). Kodu hərf-hərf de.  
 **Qəbul:** dəqiq: L, H, R. · öz məlumatı: /^(?:it'?s\s+)?l[\s,.-]*h[\s,.-]*r[.!]?$/  
 **İpucu:** Hər hərfi ayrıca de; son hərf “er” deyil.  
 **Düzgün olanda:** Kodu ingiliscə hərf-hərf dedin.  
@@ -160,7 +160,7 @@ Qeyd: Y — “uay”, “ye” yox; Z Amerikada “zi”.
 
 **Tapşırıq:** Kursda müəllim siyahıya yazır və soruşur: “What's your name?” Adını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** What's your name?  
-**Qəbul:** məna:  — nümunə: It's [ad] · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
+**Qəbul:** məna:  — nümunə: It's A-L-I. · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
 **Düzgün olanda:** Adını hərf-hərf dedin.  
 - *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: It's [ad]. Səbəb: Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: A — ey; E — i. Nümunə: A, E, I, O, U.  
@@ -169,7 +169,7 @@ Qeyd: Y — “uay”, “ye” yox; Z Amerikada “zi”.
 
 **Tapşırıq:** Hava limanında qeydiyyatçı adını yoxlayır. Adını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).  
 **Səs:** Your name, please?  
-**Qəbul:** məna:  — nümunə: It's [ad] · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
+**Qəbul:** məna:  — nümunə: It's A-L-I. · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
 **Düzgün olanda:** Adını hərf-hərf dedin.  
 - *İzah (başqa səhvdə):* It's + hərflər. — Uyğun: It's [ad]. Səbəb: Adını hərf-hərf de: hər hərfin ingiliscə oxunuşu ilə. Qayda: G — ci; J — cey. Nümunə: A, E, I, O, U.  

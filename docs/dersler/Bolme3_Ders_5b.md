@@ -34,7 +34,7 @@ Qeyd: Where's — where is-in qısası, “uerz” oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qatarda yanında bir kişi və bir qadın oturub. Bələdçi sənə yaxınlaşıb soruşur. Nəyi soruşur?  
+**Tapşırıq:** Qatarda tanışların — bir kişi və bir qadın — yanında oturub. Yol yoldaşın səndən soruşur. Nəyi soruşur?  
 **Səs:** Where's he from?  
 **Seçimlər:** Sənin haradan olduğunu / Qadının haradan olduğunu / Kişinin haradan olduğunu — **düzgün:** Kişinin haradan olduğunu  
 **İpucu:** Where’s-dən sonrakı sözə qulaq as.  
@@ -172,7 +172,7 @@ Diqqət et: “Yes, he's.” olmur: sonda is tam deyilir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qatarda bələdçi soruşur: “Is she Turkish?” Oğlan bilir ki, yanındakı qadın türk deyil. Hansı söz çatmır?  
+**Tapşırıq:** Qatarda yol yoldaşı soruşur: “Is she Turkish?” Oğlan bilir ki, tanışı olan qadın türk deyil. Hansı söz çatmır?  
 **Cümlə:** No, she ___ .  
 **Seçimlər:** isn't / don't / not — **düzgün:** isn't  
 **İpucu:** Qısa “xeyr” cavabının sonunda nə gəlir?  
@@ -236,7 +236,7 @@ Diqqət et: “Yes, he's.” olmur: sonda is tam deyilir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qatar. Bələdçi oğlandan yanındakı qadını soruşur. Balonlara toxun, söhbəti sıraya düz.  
+**Tapşırıq:** Qatar. Yol yoldaşı oğlandan onun tanışı olan qadını soruşur. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Is she from Russia? → 2. No, she isn't. → 3. Where's she from? → 4. She's from Georgia.  
 **İpucu:** Əvvəl bəli/xeyr sualı gəlir; “xeyr”dən sonra nə soruşulur?  
 **Düzgün olanda:** Yoxlama, “xeyr” cavabı, sual və cavab düz sıradadır.  

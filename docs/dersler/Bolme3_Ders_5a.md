@@ -187,7 +187,7 @@ Diqqət et: Biz “Fransa-dan” deyirik, “-dan” sonda gəlir. İngiliscəd�
 
 ## Kart 13 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Qatarda bələdçi bir qadın sərnişin haqqında danışır. Eşitdiyini yaz.  
+**Tapşırıq:** Qatarda dostun yanındakı qadın haqqında səsli mesaj göndərdi. Sən onu başqa dosta yazırsan. Eşitdiyini yaz.  
 **Səs:** She's from Germany.  
 **Qəbul:** dəqiq: She's from Germany. · öz məlumatı: /^she(?:'s|’s|\s+is)\s+from\s+germany\s*[.!]?$/  
 **İpucu:** Birinci sözə qulaq as: “hiz”, yoxsa “şiz”?  
@@ -197,7 +197,7 @@ Diqqət et: Biz “Fransa-dan” deyirik, “-dan” sonda gəlir. İngiliscəd�
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Video zəngdə qız ekrandakı bir kişi haqqında danışır. Eşitdiyini yaz.  
+**Tapşırıq:** Video zəngdə qız ekrandakı kişi haqqında danışır. Sonra dostun mesajda soruşur ki, o haradandır. Eşitdiyini yaz.  
 **Səs:** He's from Russia.  
 **Qəbul:** dəqiq: He's from Russia. · öz məlumatı: /^he(?:'s|’s|\s+is)\s+from\s+russia\s*[.!]?$/  
 **İpucu:** Birinci sözə qulaq as: “hiz”, yoxsa “şiz”?  

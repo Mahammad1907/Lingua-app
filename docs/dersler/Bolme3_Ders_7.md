@@ -55,7 +55,7 @@ Qeyd: Qısa cavabda sualdakı “do” təkrar olunur.
 
 ## Kart 5 — Mesaj yaz (sözlərdən): Sualı qur
 
-**Tapşırıq:** Dil mübadiləsi masasındasan. Yeni tanışın rusca bilib-bilmədiyini öyrənmək istəyirsən. Sözlərdən sual qur.  
+**Tapşırıq:** Dil mübadiləsi qrupunda yeni tanışa mesaj yazırsan. Onun rusca bilib-bilmədiyini öyrənmək istəyirsən. Sözlərdən sual qur.  
 **Sözlər:** speak · Do · Russian · you · Are · Russia · ?  
 **Qəbul:** dəqiq: Do you speak Russian?  
 **İpucu:** Bu dərsin sualı hansı kiçik sözlə başlayır?  
@@ -65,7 +65,7 @@ Qeyd: Qısa cavabda sualdakı “do” təkrar olunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Hostelin resepsiyasında qonaq fransızca bilib-bilmədiyini öyrənmək istəyirsən. Sözlərdən sual qur.  
+**Tapşırıq:** Hostelin çatında yeni qonağa mesaj yazırsan. Onun fransızca bilib-bilmədiyini öyrənmək istəyirsən. Sözlərdən sual qur.  
 **Sözlər:** you · French · Do · speak · Are · France · ?  
 **Qəbul:** dəqiq: Do you speak French?  
 **İpucu:** Bu dərsin sualı hansı kiçik sözlə başlayır?  

@@ -191,7 +191,7 @@ Qeyd: Təəccüb edəndə səsin sonda yuxarı qalxır.
 **Təkrar (yeni vəziyyət):**
 
 **Tapşırıq:** Hostelin söhbət qrupunda yeni tanış Moskvanın şəklini paylaşıb. Sözlərdən sual qur: “Sən Rusiyadansan?”  
-**Yazışma (Yeni tanış):** “Hello!”  
+**Yazışma (Yeni tanış):** “📷” → “Hello!”  
 **Sözlər:** Russia · you · Do · Are · from · ? · at  
 **Qəbul:** dəqiq: Are you from Russia?  
 **İpucu:** Sual bu dərsin ilk kartındakı kimi başlayır.  

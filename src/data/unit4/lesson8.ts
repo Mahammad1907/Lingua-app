@@ -74,12 +74,12 @@ export const lesson8: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d8_c05', number: 5, letters: ['M', 'A', 'R', 'K', 'E', 'N', 'S'], title: 'Hərfləri tut', why: 'M-A-R-K — Mark.', hint: 'Hər hərfi eşidən kimi toxun; çaşsan, yavaş dinlə.',
-      prompt: 'Zəngdə {F:gen} qardaşı otağa girir. {F} onun adını hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'This is my brother. His name is M-A-R-K.', placeholder: 'Ad',
+      prompt: 'Zəngdə {F:gen} qardaşı otağa girir. Sən onun adını telefonuna yazmaq istəyirsən, {F} hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'This is my brother. His name is M-A-R-K.', placeholder: 'Ad',
       rule: exact('MARK'),
       variants: [other('Hərfləri bir-bir dinlə.', ex('MARK', 'Səsdə M, A, R, K deyilir: A “ey”, R “ar” oxunur.', 'A — ey; R — ar.', 'His name is M-A-R-K.'))],
       review: {
         letters: ['A', 'N', 'N', 'A', 'E', 'M', 'Y'], title: 'Hərfləri tut', why: 'A-N-N-A — Anna.', hint: 'Tısbağa düyməsi ilə yavaş dinlə və hər hərfə ayrıca toxun.',
-        prompt: 'Zəngdə {F:gen} bacısı otağa girir. {F} onun adını hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'This is my sister. Her name is A-N-N-A.', placeholder: 'Ad',
+        prompt: 'Zəngdə {F:gen} bacısı otağa girir. Sən onun adını telefonuna yazmaq istəyirsən, {F} hərf-hərf deyir.\nEşitdiyin hərflərə toxun.', audio: 'This is my sister. Her name is A-N-N-A.', placeholder: 'Ad',
         rule: exact('ANNA'),
         variants: [other('Hərfləri bir-bir dinlə.', ex('ANNA', 'Səsdə A, N, N, A deyilir: A “ey”, N “en” oxunur.', 'A — ey; N — en.', 'Her name is A-N-N-A.'))],
       },

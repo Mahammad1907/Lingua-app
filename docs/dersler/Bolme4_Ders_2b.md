@@ -66,7 +66,7 @@ Qeyd: İki hissədən ibarətdir: grand + mother. Bir söz kimi yazılır.
 
 ## Kart 6 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Xarici dost sənə mesajda bir söz səsləndirir. Eşitdiyin sözü yaz.  
+**Tapşırıq:** Xarici dost səsli mesajda bir söz deyib, yazılışını soruşur. Eşitdiyin sözü yaz.  
 **Səs:** grandmother  
 **Qəbul:** dəqiq: grandmother  
 **İpucu:** Sözün iki hissəsi var: biri sənin Dərs 2a-dan bildiyin söz.  
@@ -76,7 +76,7 @@ Qeyd: İki hissədən ibarətdir: grand + mother. Bir söz kimi yazılır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Telefonda dostun sənə bir söz deyir. Eşitdiyin sözü yaz.  
+**Tapşırıq:** Telefonda dostun bir söz deyir və soruşur ki, o necə yazılır. Eşitdiyin sözü yaz.  
 **Səs:** grandmother  
 **Qəbul:** dəqiq: grandmother  
 **İpucu:** Telefonda eşitdiyin uzun sözü iki hissəyə böl və hər hissəni ayrıca yaz.  
@@ -96,8 +96,8 @@ Qeyd: grand + father: grandmother kimi bir söz yazılır.
 
 ## Kart 8 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**Tapşırıq:** Xarici dost sənin nənən haqqında soruşur. Nənən Gəncədədir. Sözlərdən cavab qur.  
-**Yazışma (Xarici dost):** “Who's this?”  
+**Tapşırıq:** Xarici dost öz nənəsindən yazır və sənin nənəni soruşur. Nənən Gəncədədir. Sözlərdən cavab qur.  
+**Yazışma (Xarici dost):** “My grandmother is in London. And your grandmother?”  
 **Sözlər:** My · grandmother · is · in · Ganja · . · are · from  
 **Qəbul:** dəqiq: My grandmother is in Ganja.  
 **İpucu:** Əvvəl kimin nənəsi olduğunu de, şəhər cümlənin sonunda gəlir.  
@@ -108,8 +108,8 @@ Qeyd: grand + father: grandmother kimi bir söz yazılır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İş yoldaşı sənin nənənin şəklini görüb soruşur. Nənən Gəncədədir. Sözlərdən cavab qur.  
-**Yazışma (İş yoldaşı):** “Who's this?”  
+**Tapşırıq:** İş yoldaşı öz nənəsindən yazır və sənin nənəni soruşur. Nənən Gəncədədir. Sözlərdən cavab qur.  
+**Yazışma (İş yoldaşı):** “My grandmother is in Baku. And your grandmother?”  
 **Sözlər:** is · Ganja · My · in · grandmother · . · from · are  
 **Qəbul:** dəqiq: My grandmother is in Ganja.  
 **İpucu:** İş yoldaşına da əvvəl kimin nənəsi olduğunu de, şəhəri sona saxla.  

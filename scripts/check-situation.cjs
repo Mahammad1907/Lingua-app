@@ -68,9 +68,19 @@ const look = (lesson, task, where) => {
     if (PLACE[place] && !PLACE[place].test(text)) hits.push(`${id}: şəkil “${s}”, amma vəziyyət başqa yerdədir — “${text}”`);
   }
   // L16: writing down what you hear needs a reason (you work there, a form, someone asks).
-  if (task.type === 'write' && task.audio && /eşitdiyini yaz|millətini yaz/i.test(text) && !/işləyirsən|formaya|vərəqə|soruşur|mesaj|qeyd/i.test(text)) hits.push(`${id}: diktənin səbəbi yoxdur (kim, niyə yazır?) — “${text}”`);
+  if (task.type === 'write' && task.audio && /eşitdiyini yaz|eşitdiyin sözü yaz|millətini yaz/i.test(text) && !/işləyirsən|formaya|vərəqə|soruşur|qeyd|yazmaq istəyirsən|dosta yazırsan/i.test(text)) hits.push(`${id}: diktənin səbəbi yoxdur (kim, niyə yazır?) — “${text}”`);
   // L17: staff do not ask you about strangers next to you.
   if (/bələdçi|işçi|resepsiyaçı/i.test(text) && /(where's|where is|is) (he|she)\b/i.test(heard) && /yanında/i.test(text)) hits.push(`${id}: işçi səndən yad adamlar haqqında soruşur — “${text}”`);
+  // ── Added 25 Nov 2026 (Bölmə 4 review) ──
+  // L18: the foreign friend is not in your family chat; family members do not ask who your relatives are.
+  if (/ailə (çat|qrup)/i.test(text) && (/\{[Ff]/.test(text) || /who's (he|she|this)|is (this|she|he) your/i.test(heard))) hits.push(`${id}: “ailə çatı”nda xarici dost / ailəsi səndən qohumunu soruşur — “${text}”`);
+  // L19: the person who shows a picture does not ask you who is in it.
+  const asker = text.match(/(\S+) (?:nəyi |kimi )?soruşur/);
+  if (/\bgöstərir\b/i.test(text) && !/göstərirsən|sənin/.test(text) && /who's (he|she|this)|what's (his|her) job|how old is (he|she)/i.test(heard) && (!asker || asker[1] === 'O')) hits.push(`${id}: şəkli göstərən özü soruşur — “${text}”`);
+  // L20: the answer fits the question in the chat (“Who's this?” is not answered with a place).
+  if (task.chat && /who's (this|he|she)\??$/i.test(chatText.trim()) && answers.length && !answers.some(a => /^(this|he|she|it)\b/i.test(a.trim()))) hits.push(`${id}: söhbətdə “${chatText.trim()}”, cavab isə başqa sualın cavabıdır — ${answers[0]}`);
+  // L21: a written sentence needs someone to write to or somewhere to write it.
+  if ((task.type === 'write' || task.type === 'two') && !task.chat && !task.audio && !/mesaj|çat|qrup|yaz(ır|ırsan|dı|dın)|altına|formaya|vərəq|siyahı|göndər|soruşur|imzala|kartına|kağız|yerinə/i.test(text)) hits.push(`${id}: kimə / harada yazırsan? — “${text}”`);
   if (task.type === 'voice' && /mesaj|çat|yazır\b|yazdı/i.test(text) && !/siyahıya yazır|adını .{0,20}yazır/i.test(text)) hits.push(`${id}: yazışma vəziyyəti, amma danışıq tapşırığı — “${text}”`);
 };
 for (const lesson of designLessons) {

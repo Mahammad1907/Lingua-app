@@ -68,7 +68,7 @@ Qeyd: Yazılışa diqqət: friend — i-dən sonra e gəlir.
 
 ## Kart 6 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Xarici dost sənə mesajda bir söz səsləndirir. Eşitdiyin sözü yaz.  
+**Tapşırıq:** Xarici dost səsli mesajda bir söz deyib, yazılışını soruşur. Eşitdiyin sözü yaz.  
 **Səs:** friend  
 **Qəbul:** dəqiq: friend  
 **İpucu:** Sözün ortasında iki saitin ardıcıllığına diqqət et.  
@@ -78,7 +78,7 @@ Qeyd: Yazılışa diqqət: friend — i-dən sonra e gəlir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Telefonda dostun sənə bir söz deyir. Eşitdiyin sözü yaz.  
+**Tapşırıq:** Telefonda dostun bir söz deyir və soruşur ki, o necə yazılır. Eşitdiyin sözü yaz.  
 **Səs:** friend  
 **Qəbul:** dəqiq: friend  
 **İpucu:** Telefonda eşitdiyin sözün ortasında iki sait yan-yanadır — sırasına diqqət et.  
