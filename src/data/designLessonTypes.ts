@@ -58,9 +58,8 @@ export interface WriteTask extends BaseTask {
   /** A code-drawn photo the partner sent (26 Nov 2026): shown instead of describing it in the task line. */
   photo?: PhotoSpec;
 }
-export type PhotoLook = 'man' | 'woman' | 'oldMan' | 'oldWoman' | 'girl' | 'boy' | 'friend';
-/** `from`: who sent it (name slots allowed). `ask`: the person the question is about (orange “?”). */
-export interface PhotoSpec { from: string; who?: Who; people: { look: PhotoLook; ask?: boolean }[] }
+/** `from`: who sent it (name slots allowed). `shows`: what the picture shows — for the image to be added later. */
+export interface PhotoSpec { from: string; who?: Who; shows: string }
 export interface TwoField { id: string; label: string; placeholder: string; rule: PacketRule; purpose: string; empty: string }
 /** `form` = “Formanı doldur” (Bölmə 2): the fields are shown as a printed registration form with this heading. */
 export interface TwoTask extends BaseTask { type: 'two'; fields: TwoField[]; form?: { title: string; subtitle?: string };

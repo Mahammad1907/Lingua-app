@@ -58,7 +58,8 @@ export const exam: DesignLesson = {
     },
     {
       type: 'write', id: 'u4x_c06', number: 6, title: 'Sualı qur', why: 'Sual Is this ilə başlayır.',
-      prompt: '{F} çata şəkil göndərib: yanında kiçik qız var.\nSözlərdən sual qur: “Bu sənin qızındır?”', placeholder: 'Sözlərə toxun',
+      prompt: '{F:gen} yanında kiçik qız var.\nSözlərdən sual qur: qızıdır?', placeholder: 'Sözlərə toxun',
+      photo: { from: '{F} şəkil göndərdi', shows: 'dostun və yanında kiçik qız' },
       tiles: ['Is', 'this', 'you', 'daughter', 'This', 'your', 'is', '?'], rule: exact('Is this your daughter?'),
       variants: [
         ...QUESTION_MISTAKES('Is this your daughter?'),

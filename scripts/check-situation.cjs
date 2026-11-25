@@ -82,7 +82,8 @@ const look = (lesson, task, where) => {
   // L20: the answer fits the question in the chat (“Who's this?” is not answered with a place).
   if (task.chat && /who's (this|he|she)\??$/i.test(chatText.trim()) && answers.length && !answers.some(a => /^(this|he|she|it)\b/i.test(a.trim()))) hits.push(`${id}: söhbətdə “${chatText.trim()}”, cavab isə başqa sualın cavabıdır — ${answers[0]}`);
   // L21: a written sentence needs someone to write to or somewhere to write it.
-  if ((task.type === 'write' || task.type === 'two') && !task.chat && !task.audio && !/mesaj|çat|qrup|yaz(ır|ırsan|dı|dın)|altına|formaya|vərəq|siyahı|göndər|soruşur|imzala|kartına|kağız|yerinə/i.test(text)) hits.push(`${id}: kimə / harada yazırsan? — “${text}”`);
+  // A photo card (26 Nov 2026) shows who sent it — that is the chat context.
+  if ((task.type === 'write' || task.type === 'two') && !task.chat && !task.audio && !task.photo && !/mesaj|çat|qrup|yaz(ır|ırsan|dı|dın)|altına|formaya|vərəq|siyahı|göndər|soruşur|imzala|kartına|kağız|yerinə/i.test(text)) hits.push(`${id}: kimə / harada yazırsan? — “${text}”`);
   if (task.type === 'voice' && /mesaj|çat|yazır\b|yazdı/i.test(text) && !/siyahıya yazır|adını .{0,20}yazır/i.test(text)) hits.push(`${id}: yazışma vəziyyəti, amma danışıq tapşırığı — “${text}”`);
 };
 for (const lesson of designLessons) {

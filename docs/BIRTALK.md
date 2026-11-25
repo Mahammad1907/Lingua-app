@@ -169,6 +169,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 25 Noy | Tapşırıq mətni 20/27, tünd. “Dinlə və yaz” ekranlarında yalnız əmr (“Eşitdiyini yaz.” və s.) — vəziyyəti audio panel göstərir; check-situation L6/L16 bu ekranlara tətbiq olunmur. Səs mətnində danışan adı (“{F}: …”) silindi + oxunmaması üçün qoruma. “Ailə ağacı” tapşırıqları və ekranı tam çıxarıldı (u4d2a/u4d2b/u4d3/u4x); Dərs 3-də c13 c12-dən əvvələ keçdi |
 | 25 Noy | İki tərəfli ölçü: qısa Yeni söz / Öyrən kartı bütöv böyüyür (ən çox 1.25×) ki, ekranı doldursun; uzun kart əvvəlki kimi kiçilir. Qısa forma sətrini təkrarlayan qeyd gizlənir |
 | 26 Noy | Sınaq: “Şəkil göndərdi” — `photo` (PhotoCard, kodla çəkilmiş foto, soruşulan adamda narıncı “?”). İlk dəfə u4d4_c05 (+təkrar): mətn yalnız “Sözlərdən sual qur.” Bəyənilsə, digər “şəkildə … var” tapşırıqlarına yayılacaq |
+| 26 Noy | Foto kartı: kodla çəkilmiş adamlar ləğv (istifadəçi bəyənmədi) — şəkil yeri boş çərçivə “Şəkil burada olacaq”; `photo: { from, who?, shows }` (`shows` gələcək şəkil üçün). Tətbiq: u4d3_c05, u4d4_c05, u4d6_c11, u4d7_c07, u4x_c06 (+təkrarlar); mətn: bir qısa fakt + əmr. check-situation: foto kartlı tapşırıq “kimə yazırsan” sualından azaddır |
 
 Ətraflı tarixçə: `docs/LAYIHE_DEFTERI.md`, `docs/YENI_SOHBET_UCUN.md`, `docs/BUTUN_QAYDALAR.md` (köçürülmədən əvvəlki mətnlər).
 

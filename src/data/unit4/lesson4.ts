@@ -72,14 +72,14 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d4_c05', number: 5, title: 'Mesaj yaz', why: 'Sual Is this ilə başlayır.', hint: 'Bəli/xeyr sualında hansı söz birinci gəlir?',
-      prompt: 'Sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
-      photo: { from: '{F} şəkil göndərdi', people: [{ look: 'friend' }, { look: 'oldMan', ask: true }] },
+      prompt: '{F:gen} yanında yaşlı kişi var.\nSözlərdən sual qur: atasıdır?', placeholder: 'Sözlərə toxun',
+      photo: { from: '{F} şəkil göndərdi', shows: 'dostun və yanında yaşlı kişi' },
       tiles: ['Is', 'this', 'your', 'father', 'you', 'This', 'is', '?'], rule: exact('Is this your father?'),
       variants: [...QUESTION_MISTAKES('Is this your father?'), other('Is this your father?', ex('Is this your father?', 'Sual Is ilə başlayır, sonra this, your və ailə sözü.', 'Is this your father? — sual; This is my father. — cümlə.', 'Is this your father?'))],
       review: {
         title: 'Mesaj yaz', why: 'Sual Is this ilə başlayır.', hint: 'Bu da bəli/xeyr sualıdır — söz sırasında hansı söz qabağa keçir?',
-        prompt: 'Sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
-        photo: { from: '{G} şəkil göndərdi', who: 'G', people: [{ look: 'woman' }, { look: 'girl', ask: true }] },
+        prompt: '{G:gen} yanında kiçik qız var.\nSözlərdən sual qur: bacısıdır?', placeholder: 'Sözlərə toxun',
+        photo: { from: '{G} şəkil göndərdi', who: 'G', shows: '{G} və yanında kiçik qız' },
         tiles: ['sister', 'Is', 'you', 'your', 'this', 'Do', '?'], rule: exact('Is this your sister?'),
         variants: [...QUESTION_MISTAKES('Is this your sister?'), other('Is this your sister?', ex('Is this your sister?', 'Sual Is ilə başlayır, sonra this, your və ailə sözü.', 'Is this your sister? — sual; This is my sister. — cümlə.', 'Is this your father?'))],
       },

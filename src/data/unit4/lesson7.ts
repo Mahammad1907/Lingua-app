@@ -72,7 +72,8 @@ export const lesson7: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d7_c07', number: 7, title: 'Cümləni qur', why: 'Peşə sözündən əvvəl a gəlir: a doctor.', hint: 'Kişidən danış, peşəni bu dərsin söz kartındakı kimi qur.',
-      prompt: 'Albomda şəklin altına yazırsan: kişi həkimdir.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Şəkildəki kişi həkimdir.\nŞəklin altına yaz. Sözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+      photo: { from: 'Sənin albomun', shows: 'ağ xalatlı kişi həkim' },
       tiles: ['doctor', "He's", 'a', "She's", 'student', '.'], rule: exact("He's a doctor.", 'He is a doctor.'),
       variants: [
         noArticle("He's a doctor.", "He's doctor.", "She's a teacher."),
@@ -81,7 +82,8 @@ export const lesson7: DesignLesson = {
       ],
       review: {
         title: 'Cümləni qur', why: 'Peşə sözündən əvvəl a gəlir: a teacher.', hint: 'Qadından danış, peşəni bu dərsin söz kartındakı kimi qur.',
-        prompt: 'Albomda şəklin altına yazırsan: qadın müəllimdir.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Şəkildəki qadın müəllimdir.\nŞəklin altına yaz. Sözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+        photo: { from: 'Sənin albomun', shows: 'sinifdə qadın müəllim' },
         tiles: ['teacher', "She's", 'a', "He's", 'student', '.'], rule: exact("She's a teacher.", 'She is a teacher.'),
         variants: [
           noArticle("She's a teacher.", "She's teacher.", "He's a doctor."),

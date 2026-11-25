@@ -60,7 +60,8 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d3_c05', number: 5, title: 'Mesaj yaz', why: 'Kişinin adı — His name is.', hint: '“Onun” sözü burada kişiyə aiddir; sıra My name is kimidir.',
-      prompt: 'Qardaşının adı Elvindir.\nSözlərdən cümlə qur: “Onun adı Elvindir.”', placeholder: 'Sözlərə toxun',
+      prompt: 'Şəkildəki qardaşının adı Elvindir.\nSözlərdən cümlə qur: “Onun adı Elvindir.”', placeholder: 'Sözlərə toxun',
+      photo: { from: 'Sən şəkil göndərdin', shows: 'qardaşın (Elvin)' },
       tiles: ['His', "He's", 'name', 'is', 'Elvin', 'my', '.'], rule: exact('His name is Elvin.'),
       variants: [
         ownerNotIs('his', 'His name is Elvin.', "He's my brother. His name is Elvin."),
@@ -69,7 +70,8 @@ export const lesson3: DesignLesson = {
       ],
       review: {
         title: 'Mesaj yaz', why: 'Kişinin adı — His name is.', hint: 'Tural kişidir — “onun” üçün kişi sözünü seç, sıra My name is kimidir.',
-        prompt: 'Dostunun adı Turaldır.\nSözlərdən cümlə qur: “Onun adı Turaldır.”', placeholder: 'Sözlərə toxun',
+        prompt: 'Şəkildəki dostunun adı Turaldır.\nSözlərdən cümlə qur: “Onun adı Turaldır.”', placeholder: 'Sözlərə toxun',
+        photo: { from: '{B} şəkil göndərdi', who: 'B', shows: '{B} və dostu Tural' },
         tiles: ['name', 'His', 'is', "He's", 'Tural', 'my', '.'], rule: exact('His name is Tural.'),
         variants: [
           ownerNotIs('his', 'His name is Tural.', "He's my friend. His name is Tural."),

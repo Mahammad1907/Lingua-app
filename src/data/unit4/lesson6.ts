@@ -153,12 +153,14 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'write', id: 'u4d6_c11', number: 12, title: 'Sualı qur', why: 'How old + is + kim?', hint: 'Bu dərsin yaş sualını xatırla, sonda kimin nənəsi olduğunu qoy.',
-      prompt: '{F} nənəsinin şəklini göndərdi.\nYaşını soruş. Sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+      prompt: 'Şəkildə {f:gen} nənəsidir.\nYaşını soruş. Sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+      photo: { from: '{F} şəkil göndərdi', shows: 'dostunun nənəsi' },
       tiles: ['old', 'grandmother', 'is', 'How', 'your', 'are', 'you', '?'], rule: exact('How old is your grandmother?'),
       variants: [...ASK_AGE_MISTAKES, other('How old is your grandmother?', ex('How old is your grandmother?', 'Əvvəl How old, sonra is, sonra your grandmother.', 'How old is your grandmother? — o; How old are you? — sən.', 'How old is your father?'))],
       review: {
         title: 'Sualı qur', why: 'How old + is + kim?', hint: 'Bu dərsin yaş sualı ilə qur, sonda kimin oğlu olduğunu qoy.',
-        prompt: 'Qonşu oğlunun şəklini göndərdi.\nYaşını soruş. Sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        prompt: 'Şəkildə qonşunun oğludur.\nYaşını soruş. Sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        photo: { from: 'Qonşu şəkil göndərdi', shows: 'qonşunun oğlu' },
         tiles: ['your', 'How', 'you', 'son', 'is', 'are', 'old', '?'], rule: exact('How old is your son?'),
         variants: [...ASK_AGE_MISTAKES, other('How old is your son?', ex('How old is your son?', 'Əvvəl How old, sonra is, sonra your son.', 'How old is your son? — o; How old are you? — sən.', 'How old is your daughter?'))],
       },
