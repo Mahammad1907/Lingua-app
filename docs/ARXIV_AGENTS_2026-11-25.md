@@ -1,0 +1,143 @@
+# AGENTS.md arxivi — 25 noyabr 2026-ya qədər BirTalk bölmələri
+
+Bu mətn `AGENTS.md`-dən köçürülüb. Qüvvədə olan qaydalar: `docs/BIRTALK.md`. Bəzi qaydalar köhnəlib (bax BIRTALK.md §8).
+
+## BirTalk lesson artwork reuse
+
+- The user wants the 3D teacher board as the primary lesson visual, with a few relevant static 3D scenes for variety. Do not add video or animation loops for this request.
+- Before generating any lesson picture, read `assets/lessons/scene-library.json` and `docs/REUSABLE_3D_SCENES.md`. Reuse matching existing scenes across lessons, languages and levels; do not regenerate the same situation for a new question.
+- Use stable scene IDs through `ReusableLessonScene`; keep questions and translations as native text. Topic scenes belong on selected introduction/teaching cards, not as answer cues in assessed questions or exams.
+
+## User-confirmed lesson preferences (23 October 2026)
+
+- Preserve the user's existing lesson screen system and layout. Fixes to grading, recording, navigation or vocabulary do not authorize a screen redesign. Keep the supplied existing introduction as the visual reference.
+- In English sentences, highlight only the individual vocabulary words introduced for the first time, using the app's accent color. Previously taught words from earlier lessons/modules of that language keep their normal color. Do not color whole sentences, translations, proper names or answer choices as a correctness hint.
+- New-word highlighting must follow the actual taught vocabulary and be consistent across future lessons. Dictionary entries may be phrases, but coloring is applied to the individual new words inside those phrases.
+- Relevant questions may have a small lightbulb hint within the question card. A hint explains the approach without revealing a complete accepted answer.
+- Assessable answers should show correct, partial or incorrect feedback before an explicit continue action. Speech recognition or technical uncertainty is separate from a typed language error.
+- Listening cards use the requested sound effect in place of their 3D scene. Recording waves follow actual microphone input and settle during silence; preserve the agreed speech effect and controls.
+
+## Pending lesson feedback request (24 October 2026)
+
+- The user is collecting the next batch of lesson issues. Keep this request pending while collecting the remaining reports, before changing application code for this batch.
+- Every incorrect answer must show a distinct wrong-answer animation and put that question into the end-of-lesson retry queue. Apply this consistently to all question types: choice, written response, sentence building, listening and assessed speech. Keep the explicit continue action and the existing distinction between a language mistake and technical/recognition uncertainty.
+
+## Animation-only implementation scope (24 October 2026)
+
+- The user has now authorized changing the existing lesson animations while preserving the existing screens. The 13-card content revision remains a separate paper design; do not silently replace the current lesson content with it.
+- Preserve all existing layout, dimensions, typography, static colors, artwork, boards, buttons, icons and copy. Animate only the existing text and feedback elements; their settled appearance must match the original. Keep the current speech waveform and recording controls unchanged.
+- Use the same reusable feedback effects across lessons. Limit each effect to 300–600 ms, scale to 1.05 and horizontal text movement to ±3 px. Do not move the entire screen/card, add a character animation or introduce red feedback.
+- Respect reduced motion. Typing and recognition uncertainty must not trigger a correctness effect. Animation completion must never submit an answer, advance a card or alter assessment evidence.
+
+## Authorized lesson feedback batch 26 October 2026
+
+- Implement the collected eight fixes while keeping the original screen style. The user now authorizes contextual existing illustrations, feathered edges on lesson art, corrected introduction goals and spacing, orange/purple waveform colors, and a refined success effect.
+- A confirmed verdict locks every response type, including a wrong retry. Show feedback, then explicit Continue. Unknown/technical responses can retry or continue as Unverified. Never loop a wrong retry.
+- All confirmed mistakes queue a modality- and purpose-preserving retry after the main lesson. Keep skip, technical uncertainty, and accepted typos out of that queue. Remove the previous-question/answer/explanation block from retries.
+- Preserve original first-attempt evidence. Same-lesson correction is Assisted; unresolved retry is Needs practice. Later unprompted rechecks are recorded separately.
+- Do not replace the existing lesson flow with the separate 13-card paper lesson or edit the SDK/package files in this batch; the user upgraded their Windows installation separately.
+
+## Pending follow-up feedback 26 October 2026
+
+The user is still collecting this next batch. Record these requirements now; do not implement lesson/application changes until the user finishes reporting and authorizes the batch.
+
+- Avoid consecutive farewell tasks that repeat the same learning purpose. Keep different recognition/production purposes when justified and improve their placement rather than deleting a skill.
+- Confirmed wrong answers should receive a brief, soft red border animation on the wrong answer field/choice and feedback panel. This newer explicit preference supersedes the previous no-red rule for wrong-answer borders only. Keep reduced motion, no screen shake, and no error effect for technical or unverified answers.
+- Use exactly two recurring human example characters across lesson situations: the orange-clothed boy/man is Əli in Azerbaijani prose and Ali in English; the purple-clothed girl/woman is Leyla in both languages. Keep names and visual identities consistent in prompts, dialogue, audio scripts, options, explanations and authored retries; do not introduce extra named human example characters without a user request.
+  - 18 Nov 2026 update (user request): a third recurring human exists, the foreign friend (woman from the USA, token `{F}` in `src/config/characters.ts`, name empty until chosen), used from Bölmə 4 on. One-time foreign speakers stay unnamed "Yeni tanış". Still no other named humans.
+- BirFox remains the mascot, teacher and conversation guide. Do not call a pictured human BirFox. In human situation tasks, name the pictured people instead. For the supplied farewell example: “Əli Leylagildən gedir, amma ‘Hi!’ deyir. Onun yerinə uyğun sağollaşma yaz.”
+- The two-character rule governs authored examples and fixed roles, not the learner's identity: free self-introduction still accepts the learner's own/chosen name. Fixed-role answers must preserve the stated role name. Proper names are not new vocabulary and must not be added to the dictionary or highlighted as new words.
+
+## Pending spaced review requirement 26 October 2026
+
+This is item 4 of the follow-up batch currently being collected. Record now, implement together with the rest only after the user finishes reporting.
+
+- Same-lesson end review contains confirmed mistakes only, with a new situation preserving the original communication goal and input modality. A successful correction is Assisted; continued difficulty is Needs practice. Do not loop indefinitely.
+- In a suitable middle point of a subsequent lesson, revisit a previously difficult skill without a model. Start by considering the next one or two lessons, but adapt to task relevance, elapsed time and the learner's results. This is a BirTalk methodological starting point, not a CEFR-prescribed interval or fixed quota.
+- Later lessons and sections also reuse older skills, including successfully learnt ones, in new communicative situations. Do not limit recall to the immediately preceding lesson, put the old questions at the beginning, or repeat the same question consecutively without a distinct learning purpose.
+- Integrate old skills naturally with newly taught material, e.g. greeting plus self-introduction after self-introduction has been taught. Never require an untaught expression to complete a review.
+- Keep initial independent evidence, same-lesson assisted correction and later model-free independent evidence distinct. A later independent success is recorded as such and does not rewrite the initial attempt. If difficulty remains, shorten the next suitable review interval.
+- Skipped, technical and unassessable responses remain Unverified, not language mistakes; accepted meaning-preserving spelling variations do not enter the mistake bank.
+
+
+
+## Follow-up implementation authorized 26 October 2026
+
+The user finished reporting and authorized implementation of follow-up items 1–7. The pending follow-up and spaced-review sections above now describe active requirements. Keep the two human identities, context-matched copy, short concrete feedback, reduced-motion-safe red wrong-answer borders, and number-free animated lesson progress across future lessons. The progress bar indicates lesson activity progress and must not change hearts/energy, award XP, submit answers, or auto-advance. Technical/unassessable answers never receive a wrong-answer effect.
+
+Durable user notebook: docs/LAYIHE_DEFTERI.md. Update it when future user decisions change these rules. Preserve the local Windows SDK migration; this content/UI batch does not change package files.
+
+
+## Layout restoration after rejected compact implementation — 26 October 2026
+
+The user rejected the broad layout changes from commit 6f852e0. Restore the previous shared PacketLesson layout, artwork dimensions, controls and inline explanation behavior from 114a711. Keep the narrowly requested review notice, red wrong border and transcript evidence correction. Superseding wrong-border rule: one red emphasis, then a stable red outline until Continue; no repeating flash or screen shake, reduced motion uses static red.
+
+The fixed viewport, in-card Previous/More navigation, modal explanations, reduced artwork dimensions and compact recorder replacement were withdrawn. Restore the existing scrolling lesson system rather than clipping or replacing screens. The request to make voice practice more compact remains unresolved; do not describe it as complete. Any future compaction must be limited to the voice area and preserve the established screens, artwork and controls. Do not redesign all lesson cards to satisfy that request.
+
+The normal transcript-help action is “Səsi başa düşmürəm”. Reveal only exact audio text, no technical heading, duplicate warning, translation, or competing model answer. Track transcriptShown separately from an actual audio technical failure. Once revealed, that item cannot contribute independent or assisted listening evidence, even after audio replay. It must not lose hearts or queue a listening mistake merely because help was opened. Other genuinely demonstrated listening evidence remains intact. Keep real technical failure recovery available and the exam's separate evidence/pass rules unchanged.
+
+Notebook docs/LAYIHE_DEFTERI.md is durable. Record code verification separately from physical-device verification; do not claim iPhone/SDK58 validation without running it. Do not alter package.json/package-lock.json or undo the user's local Windows SDK upgrade.
+
+
+## Four narrowly authorized lesson fixes — 26 October 2026
+
+The user finished the new issue list and explicitly authorized ONLY these changes. A bare “Tamam” while collecting issues is not an instruction to start coding; wait for the user's explicit final instruction that reporting is finished and to apply the batch.
+
+1. The mistake-review notice title is exactly “Etdiyin səhvlərin təkrarı”. Preserve the existing review rules and ordering.
+2. Audio transcript help toggles show/hide and the text itself can be tapped to hide. The reveal uses a short neutral fade and readable lavender/bold text, no correctness animation. Separate visibility from the sticky transcriptShown evidence: hiding text must never restore listening credit. Preserve the actual audio-error recovery.
+3. Use the approved small mic + one waveform + close control for the written answer's voice expansion and a compact voice input for speech cards. Keep native record/replay/recognition evidence honest. Collapse only the redundant decorative hero while voice input is open; distribute the existing content in that state to avoid an empty bottom. Keep the existing ScrollView for all other cards, no global fixed viewport, paging, reduced artwork or screen redesign. Keep Check visible but disabled during written voice capture to avoid a layout jump. When compact content fits the measured viewport, scrolling/bounce is disabled; retain accessible overflow for large text/keyboard rather than clipping controls. Closing preserves the written answer and releases native recording.
+4. Only “Mənə başa sal” details move into a dismissible overlay card. Main lesson content/scroll position/answer lock must not expand or reset. Close with X, the acknowledgement, outside tap or Android back. The overlay may internally scroll long text; do not move result details or redesign other screens.
+
+Do not add illustrations to voice assessment screens; reuse existing situation art on teaching cards. Do not change lesson data, order, grading, SDK/package files, route screens, or the existing red/success feedback for this batch. Physical iPhone/SDK58 visual validation remains separate from code checks.
+
+
+## Six explicitly authorized follow-ups — 27 October 2026
+
+The user finished reporting and authorized only these six items; record them in docs/LAYIHE_DEFTERI.md for future work. This supersedes the prior recording-wave and space-distribution preferences.
+
+1. A safely accepted one-letter written typo remains correct with no extra penalty/retry, but must visibly show the corrected spelling and highlight the changed letter. Do not loosen the existing spelling/meaning/name/grammar rules. Grading adds correction metadata only.
+2. Use compact fixed gaps in the spoken task body; never distribute a few controls across the full screen with space-evenly. Preserve the rest of the lesson system and footer.
+3. Remove the tiny decorative wave from the compact recording bar. Keep an obvious microphone/recording state. Do not remove the existing listening illustrations/waves or change other screens.
+4. Pressing the microphone records; speech end automatically delivers the answer once. Native recognition may deliver only a finalized, sufficiently reliable transcript, never a partial. Recording-only mode may deliver a real non-silent recording, but must remain Unverified and earn no assessed speech/listening result. Silence, technical failure, cancellation, backgrounding or suspension must not submit an invented answer or lose hearts. Sending never advances the card: feedback and explicit Continue/Unverified continue remain. Keep manual typed submission and noncompact legacy behavior.
+5. Make lesson helper actions (skip, show/hide text, retry, delete) more legible with brighter app colors, slightly larger semibold text and accessible touch areas. Do not turn every helper into a primary action or change unrelated content typography.
+6. The overlay title is exactly “Səhv cavabın izahı”. Improve its contrast and emphasize accepted examples. “Başa düşdüm” plays one short neutral sheen and closes gently, with reduced motion support. This acknowledgement changes neither grade nor lesson position. X/outside/back closes immediately and cancels pending effects.
+
+Do not add new features, alter lesson content/order, revise assessment policy, replace the screen system, edit SDK/package files, or claim physical iPhone/SDK58 verification without running it. Existing English typo restrictions and per-modality evidence boundaries remain authoritative.
+
+## Audio visuals and asset reuse — 27 October 2026
+
+The user authorizes suitable, compact visuals for audio questions. Search the existing scene library and prior project images first; reuse a matching scene, and generate and catalog a new one only when no existing asset fits. Preserve BirTalk's characters and style. A visual that reveals an answer is support in practice, not evidence of independent listening; independent assessments and exams must not reveal the answer. Keep the lesson's question and controls on screen and do not change unrelated screens. The existing neutral clarify scene accompanies the sound wave on listening tasks. Speech capture and Azure integration remain separate; do not claim iPhone verification without testing.
+
+## Fixed lesson viewport — user authorization 2 November 2026
+
+The user explicitly renewed the requirement that all active lesson cards fit the screen without main-page scrolling, and asked to remove the two-person illustration from the listening wave card. This supersedes earlier instructions to preserve the scrolling PacketLesson body. Keep the existing colors, grading, evidence, recording and explicit Continue behavior. The active B1 PacketLesson and PacketExam use FixedLessonViewport; their body is measured in the space remaining between the safe-area header and footer. Artwork yields first, then the body fits the available rectangle. Long result details and explanations open in dismissible overlays. Do not silently reintroduce main-page scrolling or clip answer controls. Legacy non-packet routes have not been migrated by this batch. Do not claim physical-device validation from JS layout tests.
+
+## Redesigned lesson screens — 12 November 2026
+
+The user approved a new unified light design and authorized placing Lesson 1 (docs/BirTalk_Ders_1_Yekun.md) into it. Lesson 1 now runs on `src/components/design/DesignLesson.tsx` with content in `src/data/lesson1Design.ts`; lessons 2–7 still use PacketLesson. This supersedes the earlier "preserve the existing screens" rules for Lesson 1. Copy learner-facing text from the final lesson documents; do not invent content. Character names are empty on purpose and live only in `src/config/characters.ts` (use `{M}`, `{G}`, `{B}` tokens). User decisions newer than the document: red wrong state; hold-to-talk sends on release; "İndi dinləyə bilmirəm" skips (listening Unverified); "Mənə başa sal" closes only with X and has no Continue; teaching Continue is green; no separate review intro screen. Details: docs/LAYIHE_DEFTERI.md. Device behaviour is not verified.
+
+## Lesson standard — 13 November 2026
+
+Every new or rewritten lesson follows `docs/DERS_STANDARTI.md` (length, card order, support fading, 3-option choices, five-part explanations, name tokens, CEFR A1 mapping). Describe the course as "based on CEFR A1 descriptors", never as certified CEFR-compliant.
+
+## Bölmə 1 on the new screens — 13 November 2026
+
+All eight Bölmə 1 lessons run on `DesignLesson` (`src/data/designLessons.ts`). Lessons 2–8 live in `src/data/unit1/`; edit text there and regenerate `docs/dersler/Ders_N.md` with `node scripts/export-unit1-docs.cjs`. New task screens are in `src/components/design/TaskScreens.tsx`. Wrong options come from `docs/AZ_OYRENEN_SEHVLERI.md`. Home is the code-drawn island (`src/components/home/IslandHome.tsx`). Run `node scripts/check-unit1.cjs` after any lesson change. Not verified on a device.
+
+## Taught-before-asked rule — 13 November 2026
+
+No task may show or ask for an English word that was not taught earlier (a word only mentioned in a note is not taught). Teach it on its own Yeni söz card (word, example, structure) first — one phrase per card. Same screen type never twice in a row; lessons must not end the same way. Run `node scripts/check-taught.cjs` after any lesson change. Readings use American pronunciation in Azerbaijani letters with no phonetic marks. The approved 12 Nov 2026 design images are the base; new screen types are shown to the user as a mockup before coding.
+
+Speech uses `en-US` everywhere (13 Nov 2026): the user chose American pronunciation; this replaces the earlier UK pronunciation rule.
+
+Full hand-off for a new session (workflow, rules, code map, open work): `docs/YENI_SOHBET_UCUN.md`. Read it first.
+
+Explanations follow `docs/IZAH_STANDARTI.md` (14 Nov 2026, from an external review the user accepted): 4 lines (Uyğun / Səbəb / Qayda / Nümunə), only the two forms on screen, no grammar terms, no “həmişə”, no untaught English in explanations or hints. `check-taught.cjs` enforces it for all eight lessons.
+
+All user rules in one place (Azerbaijani): `docs/BUTUN_QAYDALAR.md` — read it before any work.
+
+## Spaced review (18 Nov 2026)
+Finished lessons enter a 1 / 3 / 7 / 14 day schedule (then 30 days): src/utils/spacedReview.ts (engine, `node scripts/check-spaced.cjs`), src/store/reviewStore.ts (own storage key), src/data/reviewSession.ts (daily session built from each task's review variant, run by DesignLesson, route `/lesson/session?id=review`). Correct = one stage up, wrong = two stages down; skipped/technical answers change nothing. No XP or progress is written by a review. Not yet tested on a device.
+
+## Section exams (18 Nov 2026)
+One reader: src/utils/examResults.ts. userStore.saveSectionExam keeps every attempt (`examHistory`, last 20) and the best one (`sectionExams`). A section that has an exam opens the next one only when its lessons are done and the exam is passed (70 %) — homeCourse.ts and moduleUnlocked(…, sectionExams). Old module tests stay in `placementResults`. TEST_OPEN_SECTIONS still opens sections for testing. Check: `node scripts/check-exam.cjs`. Not yet device-tested.

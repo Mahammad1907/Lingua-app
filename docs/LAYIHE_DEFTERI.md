@@ -1,5 +1,8 @@
 # BirTalk layihə dəftəri
 
+> **25 noyabr 2026: bu faylın məzmunu `docs/BIRTALK.md`-yə yığılıb. Qüvvədə olan qaydalar oradadır; bu fayl yalnız tarixçə üçün saxlanılır.**
+
+
 26 oktyabr 2026 tarixində təsdiqlənmiş qaydalar. BirFox maskot və bələdçidir. Mövcud ekran üslubu qorunur.
 
 ## İnsan personajları

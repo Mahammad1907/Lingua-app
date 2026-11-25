@@ -1,5 +1,8 @@
 # BirTalk — yeni söhbət üçün tam vəziyyət (yeniləndi: 15 noyabr 2026)
 
+> **25 noyabr 2026: bu faylın məzmunu `docs/BIRTALK.md`-yə yığılıb. Qüvvədə olan qaydalar oradadır; bu fayl yalnız tarixçə üçün saxlanılır.**
+
+
 ## 0. Ən son vəziyyət (15 noyabr 2026) — əvvəlcə bunu oxu
 
 - **Bölmə 4 "Ailə və insanlar" hazırdır** (21 noyabr): `src/data/unit4/` (9 hissə: 1, 2a, 2b, 3, 4, 5, 6, 7, 8 + `exam.ts`), xəritə `docs/BOLME_4_XERITESI.md`, yoxlama `check-unit4.cjs`. Yeni ekranlar: tree, drag, profile. Telefonda yoxlanmayıb. Qaydalar tabı (sual adlı 47 qayda, v6 dizayn) və `[ad]/[ölkə]/…` nişanları (qayda G5) hazırdır. Bölmə 5 xəritəsi: Əşyalar və rənglər, yeni ekran ideyası “Rəng/qiymət dükanı”.
