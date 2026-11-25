@@ -90,15 +90,16 @@ Qeyd: Millət sözü böyük hərflə yazılır.
 
 ## Kart 7 — Yeni söz
 
-**Russian** — rus
+**Russian · Georgian** — rus · gürcü
 
-Oxunuşu: raşən · IPA: /ˈrʌʃən/
+Oxunuşu: raşən · corcən · IPA: /ˈrʌʃən/ · /ˈdʒɔrdʒən/
 
-Quruluşu: Russia — ölkə; Russian — millət.
+Quruluşu: Russia — ölkə; Russian — millət. · Georgia — ölkə; Georgian — millət.
 
 Nümunə: **I'm from Russia. I'm Russian.** — Mən Rusiyadanam. Rusam.
 
-Qeyd: Sonda “n” var: Russia + n.
+Qeyd: Sonda “n” var: Russia + n, Georgia + n.
+Qeyd: Georgian-da hər iki G “c” kimi oxunur.
 
 ## Kart 8 — Müəllim izahı
 
@@ -130,19 +131,7 @@ Diqqət et: “I'm from Turkish” olmur: from-dan sonra ölkə gəlir.
 **Düzgün olanda:** Hər cümlənin mənasını tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: I'm from Turkey. — Türkiyədənəm; I'm Georgian. — Gürcüyəm; I'm Turkish. — Türkəm. Səbəb: from olan cümlə ölkədir, from-suz cümlələr millətdir. Qayda: I'm Georgian. — gürcüyəm; I'm from Georgia. — Gürcüstandanam. Nümunə: I'm from Georgia. I'm Georgian.  
 
-## Kart 10 — Yeni söz
-
-**Georgian** — gürcü
-
-Oxunuşu: corcən · IPA: /ˈdʒɔrdʒən/
-
-Quruluşu: Georgia — ölkə; Georgian — millət.
-
-Nümunə: **I'm from Georgia. I'm Georgian.** — Mən Gürcüstandanam. Gürcüyəm.
-
-Qeyd: Hər iki G burada “c” kimi oxunur.
-
-## Kart 11 — Səslə cavab: Millətini de
+## Kart 10 — Səslə cavab: Millətini de
 
 **Tapşırıq:** Hosteldə yeni tanış soruşur: “I'm Turkish. And you?” Millətini de.  
 **Səs:** I'm Turkish. And you?  
@@ -164,9 +153,9 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 - *İzah (başqa səhvdə):* Bu, haradan olduğundur; millətini de. — Uyğun: I'm Azerbaijani. Səbəb: from ilə ölkəni deyirsən; millət from-suz deyilir. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm Turkish. — I'm Azerbaijani.  
 - *İzah (başqa səhvdə):* I'm + millət. — Uyğun: I'm Azerbaijani. Səbəb: O, millətini dedi; sən də millətini de. Qayda: I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə. Nümunə: I'm Russian. And you? — I'm Azerbaijani.  
 
-## Kart 12 — Mesaj yaz (sözlərdən): Mesaj yaz
+## Kart 11 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**Tapşırıq:** Hostelin söhbət qrupunda yeni tanış yazır. Sözlərdən cavab qur: azərbaycanlı olduğunu de.  
+**Tapşırıq:** Azərbaycanlı olduğunu de. Sözlərdən cavab qur.  
 **Yazışma (Yeni tanış):** “I'm Georgian. And you?”  
 **Sözlər:** I'm · Azerbaijan · Azerbaijani · from · .  
 **Qəbul:** dəqiq: I'm Azerbaijani.  
@@ -176,7 +165,7 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Pasport nəzarətindən sonra yeni tanış mesaj yazır. Sözlərdən cavab qur: azərbaycanlı olduğunu de.  
+**Tapşırıq:** Azərbaycanlı olduğunu de. Sözlərdən cavab qur.  
 **Yazışma (Yeni tanış):** “I'm Russian. And you?”  
 **Sözlər:** from · Azerbaijani · . · I'm · Russian · Azerbaijan  
 **Qəbul:** dəqiq: I'm Azerbaijani.  
@@ -184,9 +173,9 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 **Düzgün olanda:** I'm + millət: I'm Azerbaijani.  
 - *İzah (başqa səhvdə):* I'm Azerbaijani. — Uyğun: I'm Azerbaijani. Səbəb: from-suz cümlədə ölkə yox, millət gəlir. Qayda: I'm Azerbaijani. — millət; I'm Russian. — rus. Nümunə: I'm Russian. And you? — I'm Azerbaijani.  
 
-## Kart 13 — Yaz: Dinlə və yaz
+## Kart 12 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Sən hostelin resepsiyasında işləyirsən. Qonaq millətini deyir, sən vərəqə yazırsan. Millətini yaz.  
+**Tapşırıq:** Millətini yaz.  
 **Səs:** I'm Georgian.  
 **Qəbul:** dəqiq: Georgian / I'm Georgian.  
 **İpucu:** Ölkənin adını xatırla: millət sözü ondan düzəlir.  
@@ -195,14 +184,14 @@ Qeyd: Hər iki G burada “c” kimi oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Sən pasport nəzarətində işləyirsən. Sərnişin millətini deyir, sən formaya yazırsan. Millətini yaz.  
+**Tapşırıq:** Millətini yaz.  
 **Səs:** I'm Russian.  
 **Qəbul:** dəqiq: Russian / I'm Russian.  
 **İpucu:** Ölkənin adını xatırla: millət sözü ondan düzəlir.  
 **Düzgün olanda:** Russian — rus.  
 - *İzah (başqa səhvdə):* Yazılışı yoxla: Russian. — Uyğun: Russian. Səbəb: Səsdə “raşən” eşidilir, yazıda Russia + n. Qayda: I'm Russian. — millət; I'm from Russia. — ölkə. Nümunə: I'm Russian.  
 
-## Kart 14 — Söhbəti sırala: Söhbəti sırala
+## Kart 13 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Hostelin resepsiyası. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Hi! Where are you from? → 2. I'm from Georgia. I'm Georgian. And you? → 3. I'm from Azerbaijan. I'm Azerbaijani. → 4. Nice to meet you!  

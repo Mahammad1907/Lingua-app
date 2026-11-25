@@ -26,9 +26,9 @@ export const lesson6: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d6_c02', number: 2, scenes: ['u2/word-email'],
-      word: 'email', pronunciation: '/ˈimeɪl/', reading: 'imeyl', az: 'e-poçt',
-      notes: ['Həm ünvan, həm məktub üçün deyilir.'],
-      example: 'Email, please.', exampleAz: 'E-poçt, zəhmət olmasa.',
+      word: "email · What's your email?", pronunciation: '/ˈimeɪl/ · /wʌts jʊr ˈimeɪl/', reading: 'imeyl · uats yor imeyl?', az: 'e-poçt · E-poçtun nədir?',
+      notes: ['email həm ünvan, həm məktub üçün deyilir.'],
+      example: "Hi! What's your email?", exampleAz: 'Salam! E-poçtun nədir?',
     },
     {
       type: 'choice', id: 'u2d6_c03', number: 3, title: 'Dinlə və anla', why: '“email” — e-poçt.', hint: 'Səsdəki yeni sözə qulaq as.',
@@ -47,11 +47,6 @@ export const lesson6: DesignLesson = {
           pick('Soyadını soruşur.', 'Səsdə “last name” yoxdur.', ex('Nömrəni və e-poçtunu istəyir.', 'Səsdə “phone number” və “email” deyilir.', 'Phone number — nömrə; last name — soyad.', 'Phone number and email, please.')),
         ],
       },
-    },
-    {
-      type: 'word', id: 'u2d6_c04', number: 4, scenes: ['u2/word-whats-email'],
-      word: "What's your email?", pronunciation: '/wʌts jʊr ˈimeɪl/', reading: 'uats yor imeyl?', az: 'E-poçtun nədir?',
-      example: "Hi! What's your email?", exampleAz: 'Salam! E-poçtun nədir?',
     },
     {
       type: 'write', id: 'u2d6_c05', number: 5, title: 'Sualı qur', why: 'E-poçtunu soruşdun.', hint: 'Telefon yox, e-poçt soruşursan.',
@@ -118,24 +113,6 @@ export const lesson6: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'u2d6_c11', number: 11, title: 'Sözü tamamla', why: '@ — at.', hint: '@ işarəsi ingiliscə necə deyilir? Azərbaycanca oxunuşa aldanma.',
-      prompt: 'Oğlan e-poçtunu deyir: kb@mail.com.\nHansı söz çatmır?', gap: { speaker: 'B', before: "It's K-B", after: 'mail dot com.' },
-      options: ['at', 'et', 'dot'], answer: 'at',
-      variants: [
-        pick('et', '“et” ingiliscə söz deyil.', ex('at', '@ işarəsi ingiliscə “at” deyilir, “et” yox.', 'at — @; dot — nöqtə.', MY)),
-        pick('dot', '“dot” nöqtədir.', ex('at', 'Bu yerdə @ var, nöqtə yox.', 'at — @; dot — nöqtə.', MY)),
-      ],
-      review: {
-        title: 'Sözü tamamla', why: '. — dot.', hint: 'Nöqtə ingiliscə necə deyilir? Azərbaycanca sözə aldanma.',
-        prompt: 'Qız e-poçtunu deyir: ganja5@mail.com.\nHansı söz çatmır?', gap: { speaker: 'G', before: "It's G-A-N-J-A five at mail", after: 'com.' },
-        options: ['dot', 'nöqtə', 'at'], answer: 'dot',
-        variants: [
-          pick('nöqtə', 'İngiliscə ünvanda nöqtə “dot” deyilir.', ex('dot', 'Nöqtə ingiliscə “dot” deyilir.', 'dot — nöqtə; at — @.', "It's G-A-N-J-A five at mail dot com.")),
-          pick('at', '“at” @ işarəsidir.', ex('dot', 'Bu yerdə nöqtə var, @ yox.', 'at — @; dot — nöqtə.', "It's G-A-N-J-A five at mail dot com.")),
-        ],
-      },
-    },
-    {
       type: 'two', id: 'u2d6_c12', number: 12, title: 'Formanı doldur', why: 'Adını, soyadını və e-poçtunu yazdın.', hint: 'Hər sətrin başlığını oxu; e-poçtda @ və nöqtə olmalıdır.', scenes: ['u2/form-office'],
       prompt: 'Ofisdə ilk günündür.\nYeni işçi vərəqini doldur (istəsən, uydurma e-poçt yaz).', form: { title: 'Yeni işçi', subtitle: 'Ofis qeydiyyatı' },
       fields: [
@@ -178,11 +155,32 @@ export const lesson6: DesignLesson = {
       },
     },
   ],
+  // Taken out of the lesson (26 Nov 2026, shorter lessons) — comes back in the daily review.
+  pool: [
+    {
+      type: 'choice', id: 'u2d6_c11', number: 11, title: 'Sözü tamamla', why: '@ — at.', hint: '@ işarəsi ingiliscə necə deyilir? Azərbaycanca oxunuşa aldanma.',
+      prompt: 'Oğlan e-poçtunu deyir: kb@mail.com.\nHansı söz çatmır?', gap: { speaker: 'B', before: "It's K-B", after: 'mail dot com.' },
+      options: ['at', 'et', 'dot'], answer: 'at',
+      variants: [
+        pick('et', '“et” ingiliscə söz deyil.', ex('at', '@ işarəsi ingiliscə “at” deyilir, “et” yox.', 'at — @; dot — nöqtə.', MY)),
+        pick('dot', '“dot” nöqtədir.', ex('at', 'Bu yerdə @ var, nöqtə yox.', 'at — @; dot — nöqtə.', MY)),
+      ],
+      review: {
+        title: 'Sözü tamamla', why: '. — dot.', hint: 'Nöqtə ingiliscə necə deyilir? Azərbaycanca sözə aldanma.',
+        prompt: 'Qız e-poçtunu deyir: ganja5@mail.com.\nHansı söz çatmır?', gap: { speaker: 'G', before: "It's G-A-N-J-A five at mail", after: 'com.' },
+        options: ['dot', 'nöqtə', 'at'], answer: 'dot',
+        variants: [
+          pick('nöqtə', 'İngiliscə ünvanda nöqtə “dot” deyilir.', ex('dot', 'Nöqtə ingiliscə “dot” deyilir.', 'dot — nöqtə; at — @.', "It's G-A-N-J-A five at mail dot com.")),
+          pick('at', '“at” @ işarəsidir.', ex('dot', 'Bu yerdə nöqtə var, @ yox.', 'at — @; dot — nöqtə.', "It's G-A-N-J-A five at mail dot com.")),
+        ],
+      },
+    },
+  ],
   result: {
     done: ['Dərs 6 tamamlandı', 'Artıq e-poçtu soruşur, deyir, eşidib yazır və formaya yaza bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'E-poçt sözlərini və ünvanı eşidib anlamaq', tasks: ['u2d6_c03', 'u2d6_c07', 'u2d6_c11', 'u2d6_c13'] },
+      { group: 'Tanıma', text: 'E-poçt sözlərini və ünvanı eşidib anlamaq', tasks: ['u2d6_c03', 'u2d6_c07', 'u2d6_c13'] },
       { group: 'Yazı', text: 'E-poçtu soruşmaq, eşitdiyin ünvanı yazmaq, formanı doldurmaq', tasks: ['u2d6_c05', 'u2d6_c09', 'u2d6_c12'] },
       { group: 'Danışıq', text: 'Öz e-poçtunu demək', tasks: ['u2d6_c10'] },
     ],
@@ -191,7 +189,7 @@ export const lesson6: DesignLesson = {
   },
   vocabulary: [
     { word: 'email', translation: 'e-poçt', example: 'Email, please.', exampleAz: 'E-poçt, zəhmət olmasa.', usageNote: 'Ünvan və ya məktub.', pronunciation: '/ˈimeɪl/', teachCard: 'u2d6_c02' },
-    { word: "What's your email?", translation: 'E-poçtun nədir?', example: "Hi! What's your email?", exampleAz: 'Salam! E-poçtun nədir?', usageNote: 'E-poçt soruşmaq.', pronunciation: '/wʌts jʊr ˈimeɪl/', teachCard: 'u2d6_c04' },
+    { word: "What's your email?", translation: 'E-poçtun nədir?', example: "Hi! What's your email?", exampleAz: 'Salam! E-poçtun nədir?', usageNote: 'E-poçt soruşmaq.', pronunciation: '/wʌts jʊr ˈimeɪl/', teachCard: 'u2d6_c02' },
     { word: 'dot', translation: 'nöqtə (.)', example: 'mail dot com', exampleAz: 'mail.com', usageNote: 'Ünvanda nöqtə.', pronunciation: '/dɑt/', teachCard: 'u2d6_c06' },
     { word: 'at', translation: '@', example: MY, exampleAz: 'kb@mail.com', usageNote: '@ — “at”, “et” yox.', pronunciation: '/æt/', teachCard: 'u2d6_c08' },
   ],

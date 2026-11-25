@@ -4,45 +4,13 @@ Bölmə 4 · Ailə və insanlar. Bu sənəd `src/data/unit4/lesson4.ts`-dən yar
 
 ## Giriş — Giriş
 
-Video zəngdə xarici dost ilə ailə şəkillərinə baxırsınız: kimdir, sənin ananmı, qardaşınmı?
+Video zəngdə dostun ilə ailə şəkillərinə baxırsınız: kimdir, sənin ananmı, qardaşınmı?
 
 - Şəkildəki adamın kim olduğunu soruşa və deyə bilirəm.
 - “Bu sənin anandır?” kimi sual verə bilirəm.
 - Bəli və xeyr ilə qısa cavab verə bilirəm.
 
 ## Kart 2 — Yeni söz
-
-**your** — sənin, sizin
-
-Oxunuşu: yor · IPA: /jʊr/
-
-Quruluşu: your + ailə sözü
-
-Nümunə: **Is she your sister?** — O, sənin bacındır?
-
-Qeyd: What’s your name? sualından tanışdır: you — sən, your — sənin.
-
-## Kart 3 — Sözü tamamla: Sözü tamamla
-
-**Tapşırıq:** Video zəngdə xarici dosta bacının şəklini göstərirsən. Xarici dost soruşur. Hansı söz çatmır?  
-**Cümlə:** Is she ___ sister?  
-**Seçimlər:** you / your / my — **düzgün:** your  
-**İpucu:** Bacı kimindir — şəkli kim göstərir?  
-**Düzgün olanda:** “sənin bacın” — your sister.  
-- *İzah (“you” seçiləndə):* you — “sən”, your — “sənin”. — Uyğun: your. Səbəb: Ailə sözündən əvvəl “sənin” lazımdır: your. Qayda: What's your name? — your; How are you? — you. Nümunə: Is she your sister?  
-- *İzah (“my” seçiləndə):* Xarici dost öz bacısını yox, sənin bacını soruşur. — Uyğun: your. Səbəb: my — “mənim”, your — “sənin”. Qayda: my sister — mənim bacım; your sister — sənin bacın. Nümunə: Is she your sister?  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Ailə yeməyində oğlanın yanında yaşlı bir kişi oturub. Yeni tanış oğlandan soruşur. Hansı söz çatmır?  
-**Cümlə:** Is he ___ father?  
-**Seçimlər:** my / you / your — **düzgün:** your  
-**İpucu:** Ata kimindir — yeni tanış kimə sual verir?  
-**Düzgün olanda:** “sənin atan” — your father.  
-- *İzah (“you” seçiləndə):* you — “sən”, your — “sənin”. — Uyğun: your. Səbəb: Ailə sözündən əvvəl “sənin” lazımdır: your. Qayda: What's your name? — your; How are you? — you. Nümunə: Is she your sister?  
-- *İzah (“my” seçiləndə):* Yeni tanış öz atasını yox, oğlanın atasını soruşur. — Uyğun: your. Səbəb: my — “mənim”, your — “sənin”. Qayda: my father — mənim atam; your father — sənin atan. Nümunə: Is she your sister?  
-
-## Kart 4 — Yeni söz
 
 **Is this your mother?** — Bu sənin anandır?
 
@@ -52,11 +20,11 @@ Quruluşu: Is this your + ailə sözü?
 
 Nümunə: **Is this your father?** — Bu sənin atandır?
 
-Qeyd: Is — sualı başladır, this — bu, your — sənin, mother — ana.
+Qeyd: Is — sualı başladır, this — bu, your — sənin (What’s your name? sualından tanışdır), mother — ana.
 
-## Kart 5 — Mesaj yaz (sözlərdən): Mesaj yaz
+## Kart 3 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**Tapşırıq:** Xarici dost çata ailə şəkli göndərib: yanında yaşlı bir kişi var. Sözlərdən sual qur: “Bu sənin atandır?”  
+**Tapşırıq:** Dostunun yanında yaşlı kişi var. Sözlərdən sual qur: atasıdır?  
 **Sözlər:** Is · this · your · father · you · This · is · ?  
 **Qəbul:** dəqiq: Is this your father?  
 **İpucu:** Bəli/xeyr sualında hansı söz birinci gəlir?  
@@ -69,7 +37,7 @@ Qeyd: Is — sualı başladır, this — bu, your — sənin, mother — ana.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qız qrup çatında şəkil paylaşıb: yanında bir qız var. Sözlərdən sual qur: “Bu sənin bacındır?”  
+**Tapşırıq:** Qızın yanında kiçik qız var. Sözlərdən sual qur: bacısıdır?  
 **Sözlər:** sister · Is · you · your · this · Do · ?  
 **Qəbul:** dəqiq: Is this your sister?  
 **İpucu:** Bu da bəli/xeyr sualıdır — söz sırasında hansı söz qabağa keçir?  
@@ -80,47 +48,19 @@ Qeyd: Is — sualı başladır, this — bu, your — sənin, mother — ana.
 - *İzah (başqa səhvdə):* Onun ailəsini soruşursan — your. — Uyğun: Is this your sister? Səbəb: my — “mənim”, your — “sənin”. Qarşındakının ailəsini soruşursan. Qayda: This is my mother. — mənim; Is this your mother? — sənin. Nümunə: Is she your sister?  
 - *İzah (başqa səhvdə):* Is this your sister? — Uyğun: Is this your sister? Səbəb: Sual Is ilə başlayır, sonra this, your və ailə sözü. Qayda: Is this your sister? — sual; This is my sister. — cümlə. Nümunə: Is this your father?  
 
-## Kart 6 — Yeni söz
+## Kart 4 — Yeni söz
 
-**Yes, it is.** — Bəli, elədir.
+**Yes, it is. · No, it isn't.** — Bəli, elədir. · Xeyr, deyil.
 
-Oxunuşu: yes, it iz · IPA: /jɛs ɪt ɪz/
+Oxunuşu: yes, it iz · nou, it izənt · IPA: /jɛs ɪt ɪz/ · /noʊ ɪt ˈɪzənt/
 
-Quruluşu: Is this your + ailə sözü? — Yes, it is.
+Quruluşu: Is this your + ailə sözü? — Yes, it is. / No, it isn't.
 
 Nümunə: **Is this your sister? — Yes, it is.** — Bu sənin bacındır? — Bəli, elədir.
 
-Qeyd: Sualda this, cavabda it gəlir. Sonda is qısalmır.
+Qeyd: Sualda this, cavabda it gəlir. “Bəli” cavabında is qısalmır; isn't — is not-un qısası.
 
-## Kart 7 — Cavab cütü: Cavab cütü
-
-**Tapşırıq:** Video zəngdə xarici dost sənə suallar verir. Suala toxun, sonra onun cavabını seç.  
-**Cütlər:** Is this your brother? — Yes, it is.; Are you from Baku? — Yes, I am.; Is she Turkish? — Yes, she is. · artıq: No, I don't.  
-**İpucu:** Sualın ilk iki sözünə bax: cavabda hansı söz qayıdır?  
-**Düzgün olanda:** Hər suala uyğun qısa cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Is this your brother? — Yes, it is.; Are you from Baku? — Yes, I am.; Is she Turkish? — Yes, she is. Səbəb: Sualdakı söz cavabda qayıdır: this → it, you → I, she → she. Qayda: Is this your brother? — Yes, it is.; Are you from Baku? — Yes, I am. Nümunə: Is this your sister? — Yes, it is.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Ailə yeməyində yeni tanış suallar verir. Suala toxun, sonra onun cavabını seç.  
-**Cütlər:** Is this your father? — Yes, it is.; Is he from Ganja? — Yes, he is.; Do you speak English? — Yes, I do. · artıq: Yes, I am.  
-**İpucu:** Əvvəl this olan sualı tap.  
-**Düzgün olanda:** Hər suala uyğun qısa cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Is this your father? — Yes, it is.; Is he from Ganja? — Yes, he is.; Do you speak English? — Yes, I do. Səbəb: Sualdakı söz cavabda qayıdır: this → it, he → he, do → do. Qayda: Is this your father? — Yes, it is.; Do you speak English? — Yes, I do. Nümunə: Is this your sister? — Yes, it is.  
-
-## Kart 8 — Yeni söz
-
-**No, it isn't.** — Xeyr, deyil.
-
-Oxunuşu: nou, it izənt · IPA: /noʊ ɪt ˈɪzənt/
-
-Quruluşu: Is this your + ailə sözü? — No, it isn't.
-
-Nümunə: **Is this your mother? — No, it isn't.** — Bu sənin anandır? — Xeyr, deyil.
-
-Qeyd: isn't — is not-un qısası.
-
-## Kart 9 — Müəllim izahı
+## Kart 5 — Müəllim izahı
 
 Is this your mother? sualına qısa cavab belədir.
 
@@ -136,9 +76,9 @@ Sualda this var: “bu”. Cavabda this təkrar deyilmir, onun yerinə it gəlir
 
 Diqqət et: “Yes, it's.” olmur: “bəli” cavabının sonunda is tam deyilir.
 
-## Kart 10 — Səslə cavab: Qısa cavab ver
+## Kart 6 — Səslə cavab: Qısa cavab ver
 
-**Tapşırıq:** Video zəngdə xarici dost sənin şəklinə baxır. Şəkildəki qız sənin rəfiqəndir, bacın deyil. Qısa cavab ver.  
+**Tapşırıq:** Video zəngdə dostun sənin şəklinə baxır. Şəkildəki qız sənin rəfiqəndir, bacın deyil. Qısa cavab ver.  
 **Səs:** Is this your sister?  
 **Qəbul:** dəqiq: No, it isn't. · öz məlumatı: /^no\s*[,.!]?\s*(?:(?:it|she)(?:\s+(?:isn'?t|isn’t|is\s+not)|(?:'s|’s)\s+not)\s*[.!]?(?:\s*(?:she(?:'s|’s|\s+is)|this\s+is)\s+my\s+friend\s*[.!]?)?|(?:she(?:'s|’s|\s+is)|this\s+is)\s+my\s+friend\s*[.!]?)$/  
 **İpucu:** Şəkildəki qız sənin bacın deyil — “xeyr” cavabının sonunu xatırla.  
@@ -151,7 +91,7 @@ Diqqət et: “Yes, it's.” olmur: “bəli” cavabının sonunda is tam deyil
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ailə yeməyində yeni tanış masadakı yaşlı kişini göstərir. O, sənin atan deyil, babandır. Qısa cavab ver.  
+**Tapşırıq:** O kişi atan deyil, babandır. Qısa cavab ver.  
 **Səs:** Is this your father?  
 **Qəbul:** dəqiq: No, it isn't. · öz məlumatı: /^no\s*[,.!]?\s*(?:(?:it|he)(?:\s+(?:isn'?t|isn’t|is\s+not)|(?:'s|’s)\s+not)\s*[.!]?(?:\s*(?:he(?:'s|’s|\s+is)|this\s+is)\s+my\s+grandfather\s*[.!]?)?|(?:he(?:'s|’s|\s+is)|this\s+is)\s+my\s+grandfather\s*[.!]?)$/  
 **İpucu:** Masadakı kişi sənin atan deyil — “xeyr” cavabının sonunu xatırla.  
@@ -162,7 +102,7 @@ Diqqət et: “Yes, it's.” olmur: “bəli” cavabının sonunda is tam deyil
 - *İzah (başqa səhvdə):* O sənin dediyin adam deyil — cavab “xeyr”dir. — Uyğun: No, it isn't. Səbəb: Şəkildəki adam soruşulan adam deyil, “xeyr” lazımdır. Qayda: Yes, it is. — bəli; No, it isn't. — xeyr. Nümunə: Is this your mother? — No, it isn't.  
 - *İzah (başqa səhvdə):* No, it isn't. — Uyğun: No, it isn't. Səbəb: O, sənin atan deyil — qısa “xeyr” cavabı. Qayda: Yes, it is. — bəli; No, it isn't. — xeyr. Nümunə: Is this your mother? — No, it isn't.  
 
-## Kart 11 — Yeni söz
+## Kart 7 — Yeni söz
 
 **Who's he? · Who's she?** — O kimdir?
 
@@ -174,9 +114,9 @@ Nümunə: **Who's she? — She's my sister.** — O kimdir? — Mənim bacımdı
 
 Qeyd: Who’s — kim(dir); kişi üçün he, qadın üçün she.
 
-## Kart 12 — Səslə cavab: Səslə soruş
+## Kart 8 — Səslə cavab: Səslə soruş
 
-**Tapşırıq:** Video zəngdə xarici dost öz şəklini göstərir: yanında yaşlı bir qadın var. Soruş: bu sənin anandır?  
+**Tapşırıq:** Video zəngdə dostun öz şəklini göstərir: yanında yaşlı bir qadın var. Soruş: bu sənin anandır?  
 **Qəbul:** dəqiq: Is this your mother? · öz məlumatı: /^is\s+(?:this|s?he)\s+your\s+mother\s*\??$/  
 **İpucu:** Bəli/xeyr sualı qur — söz sırasına diqqət et.  
 **Düzgün olanda:** Bəli/xeyr sualı verdin: Is this your mother?  
@@ -198,9 +138,9 @@ Qeyd: Who’s — kim(dir); kişi üçün he, qadın üçün she.
 - *İzah (başqa səhvdə):* Onun ailəsini soruşursan — your. — Uyğun: Is this your brother? Səbəb: my — “mənim”, your — “sənin”. Qarşındakının ailəsini soruşursan. Qayda: This is my mother. — mənim; Is this your mother? — sənin. Nümunə: Is she your sister?  
 - *İzah (başqa səhvdə):* Is this your brother? — Uyğun: Is this your brother? Səbəb: Sual Is ilə başlayır, sonra this, your və ailə sözü. Qayda: Is this your brother? — sual; This is my brother. — cümlə. Nümunə: Is this your father?  
 
-## Kart 13 — Seç: Dinlə və seç
+## Kart 9 — Seç: Dinlə və seç
 
-**Tapşırıq:** Video zəngdə xarici dost sənin ailə şəklinə baxır. Şəkildə atan və anan var. Xarici dost kimi soruşur?  
+**Tapşırıq:** Video zəngdə dostun sənin ailə şəklinə baxır. Şəkildə atan və anan var. Dostun kimi soruşur?  
 **Səs:** Who's she?  
 **Seçimlər:** Atanı / Ananı / Səni — **düzgün:** Ananı  
 **İpucu:** Who’s-dan sonrakı sözə qulaq as.  
@@ -218,10 +158,10 @@ Qeyd: Who’s — kim(dir); kişi üçün he, qadın üçün she.
 - *İzah (“Nənəni” seçiləndə):* Nənən qadındır — onun üçün she olardı. — Uyğun: Babanı. Səbəb: Səsdə he var: kişi haqqında soruşur. Qayda: Who's he? — kişi; Who's she? — qadın. Nümunə: Who's he? — He's my brother.  
 - *İzah (“Səni” seçiləndə):* Səni soruşsaydı, sualda you olardı. — Uyğun: Babanı. Səbəb: Səsdə you yox, he var. Qayda: Who's he? — o (kişi); What's your name? — sən. Nümunə: Who's he? — He's my brother.  
 
-## Kart 14 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 10 — Dialoqu tamamla: Dialoqu tamamla
 
-**Tapşırıq:** Xarici dost çatda sənin şəklinə baxıb yazır. Şəkildəki oğlan sənin qardaşındır. Cavab yaz.  
-**Yazışma (Xarici dost):** “Who's he?”  
+**Tapşırıq:** Dostun çatda sənin şəklinə baxıb yazır. Şəkildəki oğlan sənin qardaşındır. Cavab yaz.  
+**Yazışma (Dostun):** “Who's he?”  
 **Qəbul:** dəqiq: He's my brother. · öz məlumatı: /^(?:he(?:'s|’s|\s+is)|this\s+is)\s+my\s+brother\s*[.!]?(?:\s*his\s+name\s+is\s+\p{L}[\p{L}'’-]*\s*[.!]?)?$/  
 **İpucu:** Oğlan haqqında “o” üçün uyğun sözü seç, sonra kimin qardaşı olduğunu de.  
 **Düzgün olanda:** Qardaşını təqdim etdin: He’s my brother.  
@@ -233,8 +173,8 @@ Qeyd: Who’s — kim(dir); kişi üçün he, qadın üçün she.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Xarici dost çatda sənin köhnə şəklinə baxıb yazır. Şəkildəki yaşlı qadın sənin nənəndir. Cavab yaz.  
-**Yazışma (Xarici dost):** “Who's she?”  
+**Tapşırıq:** Dostun çatda sənin köhnə şəklinə baxıb yazır. Şəkildəki yaşlı qadın sənin nənəndir. Cavab yaz.  
+**Yazışma (Dostun):** “Who's she?”  
 **Qəbul:** dəqiq: She's my grandmother. · öz məlumatı: /^(?:she(?:'s|’s|\s+is)|this\s+is)\s+my\s+grandmother\s*[.!]?(?:\s*her\s+name\s+is\s+\p{L}[\p{L}'’-]*\s*[.!]?)?$/  
 **İpucu:** Nənən haqqında “o” üçün uyğun sözü seç, sonra kimin nənəsi olduğunu de.  
 **Düzgün olanda:** Nənəni təqdim etdin: She’s my grandmother.  
@@ -244,9 +184,9 @@ Qeyd: Who’s — kim(dir); kişi üçün he, qadın üçün she.
 - *İzah (başqa səhvdə):* Ailə sözündən əvvəl my lazımdır. — Uyğun: She's my grandmother. Səbəb: Azərbaycancada “qardaşım” bir sözdür; ingiliscə my ayrıca gəlir. Qayda: She's my grandmother. — düzdür; She's grandmother. — olmur. Nümunə: Who's she? — She's my sister.  
 - *İzah (başqa səhvdə):* She's my grandmother. — Uyğun: She's my grandmother. Səbəb: Sual qadın haqqındadır: She’s my, sonra ailə sözü. Qayda: She's my grandmother. — qadın; He's my grandfather. — kişi. Nümunə: Who's she? — She's my sister.  
 
-## Kart 15 — Söhbəti sırala: Söhbəti sırala
+## Kart 11 — Söhbəti sırala: Söhbəti sırala
 
-**Tapşırıq:** Video zəng. Xarici dost oğlanın şəklindəki adamları soruşur. Balonlara toxun, söhbəti sıraya düz.  
+**Tapşırıq:** Video zəng. Dostun oğlanın şəklindəki adamları soruşur. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Is this your mother? → 2. No, it isn't. → 3. Who's she? → 4. She's my grandmother.  
 **İpucu:** Bəli/xeyr sualı ilə başla; “xeyr”dən sonra kim olduğu soruşulur.  
 **Düzgün olanda:** “Xeyr” cavabından sonra “kimdir?” sualı və cavab gəlir.  

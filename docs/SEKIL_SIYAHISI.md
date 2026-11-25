@@ -113,7 +113,7 @@ Hər yeni ifadə üçün onun işləndiyi anı göstərən kiçik səhnə. Kartd
 | 7.5 | Dərs 3 · d3_c06b | Qız əl sıxarkən gülümsəyib cavab verir | `assets/lessons/d3/word-you-too.webp` | ⏳ |
 | 7.6 | Dərs 4 · d4_c03 | İki dost rastlaşır, biri halını soruşur | `assets/lessons/d4/word-how-are-you.webp` | ⏳ |
 | 7.7 | Dərs 4 · d4_c04 | Oğlan gülümsəyib baş barmağını qaldırır | `assets/lessons/d4/word-im-fine.webp` | ⏳ |
-| 7.8 | Dərs 4 · d4_c04b | Qız əli ilə “normal” işarəsi edir | `assets/lessons/d4/word-im-ok.webp` | ⏳ |
+| 7.8 | Dərs 4 · d4_c04b | Qız əli ilə “normal” işarəsi edir | `assets/lessons/d4/word-im-ok.webp` | ✖ lazım deyil (26 Nov 2026: I'm OK. d4_c04 cüt kartına birləşdi) |
 | 7.9 | Dərs 4 · d4_c04c | Oğlan yorğun görünür, əli alnında | `assets/lessons/d4/word-not-well.webp` | ⏳ |
 | 7.10 | Dərs 5 · d5_c03 | Qız qapını saxlayan oğlana təşəkkür edir | `assets/lessons/d5/word-thank-you.webp` | ⏳ |
 | 7.11 | Dərs 5 · d5_c05 | Oğlan gülümsəyib “dəyməz” deyir | `assets/lessons/d5/word-welcome.webp` | ⏳ |

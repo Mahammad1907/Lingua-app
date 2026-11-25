@@ -70,7 +70,7 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 70 %-i düzgün olmalıd�
 
 ## Kart 9 — Mesaj yaz (sözlərdən): Cümləni qur
 
-**Tapşırıq:** İşdə yeni həmkar sənə ilk dəfə mesaj yazır. Sözlərdən “Tanış olduğuma şadam” cümləsini qur.  
+**Tapşırıq:** Yeni həmkar sənə yazır. Sözlərdən “Tanış olduğuma şadam” qur.  
 **Yazışma (Yeni həmkar):** “Hello!”  
 **Sözlər:** meet · you · Nice · your · to · too · .  
 **Qəbul:** dəqiq: Nice to meet you.  
@@ -79,7 +79,7 @@ Kömək və ipucu yoxdur. Keçmək üçün cavabların 70 %-i düzgün olmalıd�
 
 ## Kart 10 — Səslə cavab: Danış: kömək istə
 
-**Tapşırıq:** Kafedə ofisiant sənə uzun bir şey dedi, heç nə başa düşmürsən. Başa düşmədiyini de və bir də deməsini xahiş et.  
+**Tapşırıq:** Ofisiantı başa düşmədin. Bunu de və bir də deməsini xahiş et.  
 **Qəbul:** məna: dontUnderstand + repeat — nümunə: Sorry? I don't understand. Say that again, please.  
 **Düzgün olanda:** Başa düşmədiyini dedin və təkrar istədin.  
 - *İzah (başqa səhvdə):* İki hissə: başa düşmürəm + bir də. — Uyğun: Sorry? I don't understand. Say that again, please. Səbəb: Əvvəl başa düşmədiyini I don’t understand ilə de, sonra bir də deməsini xahiş et. Qayda: I don’t understand. — başa düşmürəm; Say that again, please. — bir də. Nümunə: I don't understand. Say that again, please.  

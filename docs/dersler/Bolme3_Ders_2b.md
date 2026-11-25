@@ -11,35 +11,29 @@ Hosteldə və hava limanında uzaq ölkələrdən gələnlərlə tanış olursan
 
 ## Kart 2 — Yeni söz
 
-**the UK** — Böyük Britaniya
+**the UK · the USA** — Böyük Britaniya · ABŞ
 
-Oxunuşu: **th**ə yu-key · IPA: /ðə ˌjuˈkeɪ/
+Oxunuşu: **th**ə yu-key · **th**ə yu-es-ey · IPA: /ðə ˌjuˈkeɪ/ · /ðə ˌjuɛsˈeɪ/
 
-Quruluşu: from + the UK
+Quruluşu: from + the UK · from + the USA
 
 Nümunə: **I'm from the UK.** — Böyük Britaniyadanam.
 
-Qeyd: Bu ölkənin adından əvvəl “the” gəlir və atılmır.
+Qeyd: Bu ölkələrin adından əvvəl “the” gəlir və atılmır: the UK, the USA.
 
-## Kart 3 — Sözü tamamla: Sözü tamamla
+## Kart 3 — Müəllim izahı
 
-**Tapşırıq:** Hosteldə yeni tanış haradan olduğunu deyir. Hansı söz çatmır?  
-**Cümlə:** I'm from ___ UK.  
-**Seçimlər:** the / is / at — **düzgün:** the  
-**İpucu:** Bu ölkənin adından əvvəl kiçik bir söz gəlir.  
-**Düzgün olanda:** the UK — “the” atılmır.  
-- *İzah (“is” seçiləndə):* “from is” olmur. — Uyğun: the. Səbəb: UK-dan əvvəl “the” gəlir. Qayda: I'm from the UK. — düzdür; I'm from is UK. — olmur. Nümunə: I'm from the UK.  
-- *İzah (“at” seçiləndə):* “at” e-poçtda @ deməkdir. — Uyğun: the. Səbəb: Bu ölkənin adından əvvəl “the” gəlir. Qayda: I'm from the UK. — ölkə; at — @ (e-poçtda). Nümunə: I'm from the UK.  
+Bəzi ölkə adlarından əvvəl the gəlir.
 
-**Təkrar (yeni vəziyyət):**
+**1 · the ilə**
+- the UK · Böyük Britaniya
+- the USA · ABŞ
 
-**Tapşırıq:** Hava limanında oğlan yeni tanışa haradan olduğunu deyir. Hansı söz çatmır?  
-**Cümlə:** I'm from ___ USA.  
-**Seçimlər:** at / the / my — **düzgün:** the  
-**İpucu:** Bu ölkənin adından əvvəl kiçik bir söz gəlir.  
-**Düzgün olanda:** the USA — “the” atılmır.  
-- *İzah (“at” seçiləndə):* “at” e-poçtda @ deməkdir. — Uyğun: the. Səbəb: Bu ölkənin adından əvvəl “the” gəlir. Qayda: I'm from the USA. — ölkə; at — @ (e-poçtda). Nümunə: I'm from the USA.  
-- *İzah (“my” seçiləndə):* “my” — mənim; ölkə adından əvvəl gəlmir. — Uyğun: the. Səbəb: USA-dan əvvəl “the” gəlir. Qayda: I'm from the USA. — düzdür; I'm from my USA. — olmur. Nümunə: I'm from the USA.  
+**2 · Necə deyilir?**
+- I'm from + the USA
+- **I'm from the USA.** — ABŞ-danam.
+
+Diqqət et: Turkey və Russia adlarında the yoxdur.
 
 ## Kart 4 — Yeni söz
 
@@ -69,35 +63,9 @@ Qeyd: England-dən əvvəl “the” gəlmir.
 - *İzah (“I'm from the France.” seçiləndə):* France-dan əvvəl “the” gəlmir. — Uyğun: I'm from France. Səbəb: “the” yalnız bəzi ölkələrdən əvvəl gəlir. Qayda: I'm from France. — “the”siz; I'm from the USA. — “the” ilə. Nümunə: I'm from France.  
 - *İzah (“I from France.” seçiləndə):* I-dan sonra am lazımdır. — Uyğun: I'm from France. Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from France. — düzdür; I from France. — olmur. Nümunə: I'm from France.  
 
-## Kart 6 — Yeni söz
+## Kart 6 — Yaz: Dinlə və yaz
 
-**the USA** — ABŞ
-
-Oxunuşu: **th**ə yu-es-ey · IPA: /ðə ˌjuɛsˈeɪ/
-
-Quruluşu: from + the USA
-
-Nümunə: **I'm from the USA.** — ABŞ-danam.
-
-Qeyd: Burada da “the” gəlir: the USA, the UK.
-
-## Kart 7 — Müəllim izahı
-
-Bəzi ölkə adlarından əvvəl the gəlir.
-
-**1 · the ilə**
-- the UK · Böyük Britaniya
-- the USA · ABŞ
-
-**2 · Necə deyilir?**
-- I'm from + the USA
-- **I'm from the USA.** — ABŞ-danam.
-
-Diqqət et: Turkey və England adlarında the yoxdur.
-
-## Kart 8 — Yaz: Dinlə və yaz
-
-**Tapşırıq:** Hava limanında sərnişin haradan olduğunu deyir. Sən qeydiyyatda işləyirsən, onu vərəqə yazırsan. “from”dan sonra eşitdiyini yaz.  
+**Tapşırıq:** “from”dan sonra eşitdiyini yaz.  
 **Səs:** Hi! I'm from the USA.  
 **Qəbul:** dəqiq: the USA / I'm from the USA.  
 **İpucu:** “from”dan sonra eşitdiyin hər sözü yaz.  
@@ -107,7 +75,7 @@ Diqqət et: Turkey və England adlarında the yoxdur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qatarda yeni tanış haradan olduğunu deyir. Dostun mesajda soruşur ki, o haradandır. “from”dan sonra eşitdiyini yaz.  
+**Tapşırıq:** “from”dan sonra eşitdiyini yaz.  
 **Səs:** Hello! I'm from the UK.  
 **Qəbul:** dəqiq: the UK / I'm from the UK.  
 **İpucu:** “from”dan sonra eşitdiyin hər sözü yaz.  
@@ -115,17 +83,18 @@ Diqqət et: Turkey və England adlarında the yoxdur.
 - *İzah (başqa səhvdə):* “the” də eşidilir. — Uyğun: the UK. Səbəb: Səsdə “from”dan sonra “the UK” var. Qayda: I'm from the UK. — düzdür; I'm from UK. — olmur. Nümunə: I'm from the UK.  
 - *İzah (başqa səhvdə):* Bir daha dinlə. — Uyğun: the UK. Səbəb: Səsdə “the” və U, K hərfləri var. Qayda: I'm from the UK. — Böyük Britaniya; I'm from the USA. — ABŞ. Nümunə: I'm from the UK.  
 
-## Kart 9 — Yeni söz
+## Kart 7 — Yeni söz
 
-**Germany** — Almaniya
+**Germany · France** — Almaniya · Fransa
 
-Oxunuşu: cörməni · IPA: /ˈdʒɝməni/
+Oxunuşu: cörməni · frəns · IPA: /ˈdʒɝməni/ · /fræns/
 
 Nümunə: **I'm from Germany.** — Almaniyadanam.
 
 Qeyd: “Almaniya” yox: ingiliscə Germany, “cörməni” oxunur.
+Qeyd: “Fransa” yox, “frəns” oxunur.
 
-## Kart 10 — Dinlə və təkrarla: Dinlə və təkrarla
+## Kart 8 — Dinlə və təkrarla: Dinlə və təkrarla
 
 **Tapşırıq:** Hostelin resepsiyasında qonaq Almaniyadan olduğunu deyir. Dinlə, sonra eyni cür de.  
 **Səs:** I'm from Germany.  
@@ -143,17 +112,7 @@ Qeyd: “Almaniya” yox: ingiliscə Germany, “cörməni” oxunur.
 **Düzgün olanda:** Cümləni dedin; the UK — “**th**ə yu-key”.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: I'm from the UK. Səbəb: “the” atılmır və dil dişlərin arasında deyilir. Qayda: I'm from the UK. — düzdür; I'm from UK. — olmur. Nümunə: I'm from the UK.  
 
-## Kart 11 — Yeni söz
-
-**France** — Fransa
-
-Oxunuşu: frəns · IPA: /fræns/
-
-Nümunə: **I'm from France.** — Fransadanam.
-
-Qeyd: “Fransa” yox, “frəns” oxunur.
-
-## Kart 12 — Xəritədə tap: Xəritədə tap
+## Kart 9 — Xəritədə tap: Xəritədə tap
 
 **Tapşırıq:** Hava limanında elan: təyyarə hansı ölkəyə uçur? Dinlə və xəritədə ölkəyə toxun.  
 **Səs:** Germany.  
@@ -173,27 +132,7 @@ Qeyd: “Fransa” yox, “frəns” oxunur.
 - *İzah (“France” seçiləndə):* Səsdə “France” yox, “the USA” deyilir. — Uyğun: the USA. Səbəb: the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir. Qayda: I'm from the USA. — ABŞ-danam; I'm from France. — Fransadanam. Nümunə: I'm from the USA.  
 - *İzah (“Germany” seçiləndə):* Səsdə “Germany” yox, “the USA” deyilir. — Uyğun: the USA. Səbəb: the USA — ABŞ; hərf-hərf “yu-es-ey” deyilir. Qayda: I'm from the USA. — ABŞ-danam; I'm from Germany. — Almaniyadanam. Nümunə: I'm from the USA.  
 
-## Kart 13 — Hərfləri tut: Hərfləri tut
-
-**Tapşırıq:** Səyahət agentliyində işçi turun ölkəsini hərf-hərf deyir, sən formaya yazırsan. Eşitdiyin hərflərə toxun.  
-**Səs:** It's F-R-A-N-C-E.  
-**Hərflər:** F R A N C E S I  
-**Qəbul:** dəqiq: FRANCE  
-**İpucu:** Hər hərfi eşidən kimi toxun; “si” və “es” səslərini qarışdırma.  
-**Düzgün olanda:** F-R-A-N-C-E — Fransa.  
-- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: FRANCE. Səbəb: Səsdə F, R, A, N, C, E deyilir: C “si”, E “i” oxunur. Qayda: C — si; S — es. Nümunə: It's F-R-A-N-C-E.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Sən hostelin resepsiyasında işləyirsən. Qonaq ölkəsini hərf-hərf deyir; “Sorry?” dedin, o yenə deyir. Eşitdiyin hərflərə toxun.  
-**Səs:** It's E-N-G-L-A-N-D.  
-**Hərflər:** E N G L A N D I J  
-**Qəbul:** dəqiq: ENGLAND  
-**İpucu:** Hər hərfi eşidən kimi toxun; “ci” və “cey” səslərini qarışdırma.  
-**Düzgün olanda:** E-N-G-L-A-N-D — İngiltərə.  
-- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: ENGLAND. Səbəb: Səsdə E, N, G, L, A, N, D deyilir: G “ci” oxunur. Qayda: G — ci; J — cey. Nümunə: It's E-N-G-L-A-N-D.  
-
-## Kart 14 — Kim nə dedi?: Kim nə dedi?
+## Kart 10 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Hostelin mətbəxində tanışlıq. Hər cümləyə mənasını qoş.  
 **Cütlər:** I'm from Germany. — Almaniyadanam.; I'm from France. — Fransadanam.; I'm from the USA. — ABŞ-danam. · artıq: İngiltərədənəm.  
@@ -209,7 +148,7 @@ Qeyd: “Fransa” yox, “frəns” oxunur.
 **Düzgün olanda:** Hər cümlənin mənasını tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: I'm from England. — İngiltərədənəm.; I'm from the UK. — Böyük Britaniyadanam.; What country are you from? — Hansı ölkədənsən? Səbəb: England İngiltərədir, the UK isə Böyük Britaniya. Qayda: I'm from England. — İngiltərədən; I'm from the UK. — Böyük Britaniyadan. Nümunə: What country are you from?  
 
-## Kart 15 — Səslə cavab: Cavab ver və soruş
+## Kart 11 — Səslə cavab: Cavab ver və soruş
 
 **Tapşırıq:** Hostelin mətbəxində yeni tanış soruşur. Haradan olduğunu de və ondan da soruş.  
 **Səs:** Hi! Where are you from?  

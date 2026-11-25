@@ -19,30 +19,6 @@ export const lesson7b: DesignLesson = {
       ],
     },
     {
-      type: 'word', id: 'u2d7b_c02', number: 2, scenes: ['u2/word-how-old'],
-      word: 'How old are you?', pronunciation: '/haʊ oʊld ɑr ju/', reading: 'hau ould ar yu?', az: 'Neçə yaşın var?',
-      notes: ['Hərfi mənası “nə qədər yaşlısan?” — ingiliscə yaş belə soruşulur.'],
-      example: 'Hi! How old are you?', exampleAz: 'Salam! Neçə yaşın var?',
-    },
-    {
-      type: 'choice', id: 'u2d7b_c03', number: 3, title: 'Dinlə və anla', why: '“How old” — yaş sualı.', hint: '“How” ilə “are you” arasındakı sözə qulaq as.',
-      prompt: 'İdman zalında qeydiyyatdasan. Məşqçi sual verir.\nO nə soruşur?', audio: 'How old are you?',
-      options: ['Halını soruşur.', 'Yaşını soruşur.', 'Adını soruşur.'], answer: 'Yaşını soruşur.',
-      variants: [
-        pick('Halını soruşur.', 'Halı “How are you?” ilə soruşurlar; burada “old” var.', ex('Yaşını soruşur.', 'Sualda “old” sözü var — bu, yaş sualıdır.', 'How are you? — hal; How old are you? — yaş.', 'How old are you?')),
-        pick('Adını soruşur.', 'Səsdə “name” yoxdur.', ex('Yaşını soruşur.', 'Sualda “name” yox, “old” var.', "What's your name? — ad; How old are you? — yaş.", 'How old are you?')),
-      ],
-      review: {
-        title: 'Dinlə və anla', why: '“How old” — yaş sualı.', hint: 'Sonuncu sualdakı sözlərə diqqətlə qulaq as.',
-        prompt: 'Kursda yeni yoldaş yaşını dedi və sənə sual verir.\nO nə soruşur?', audio: "I'm thirty. How old are you?",
-        options: ['Yaşını soruşur.', 'Halını soruşur.', 'Soyadını soruşur.'], answer: 'Yaşını soruşur.',
-        variants: [
-          pick('Halını soruşur.', 'Burada “old” var — yaş sualıdır.', ex('Yaşını soruşur.', 'Sualda “old” sözü var.', 'How are you? — hal; How old are you? — yaş.', "I'm thirty. How old are you?")),
-          pick('Soyadını soruşur.', 'Səsdə “last name” yoxdur.', ex('Yaşını soruşur.', 'Sualda “old” var, “last name” yox.', "What's your last name? — soyad; How old are you? — yaş.", 'How old are you?')),
-        ],
-      },
-    },
-    {
       type: 'word', id: 'u2d7b_c04', number: 4, scenes: ['u2/word-ty'],
       word: 'thirty · forty · fifty · sixty', pronunciation: '/ˈθɜrti/ · /ˈfɔrti/ · /ˈfɪfti/ · /ˈsɪksti/', reading: '**th**ırdi · fordi · fifti · siksti', az: '30 · 40 · 50 · 60',
       structure: ['six → sixty', 'three → thirty; four → forty; five → fifty'],
@@ -88,9 +64,9 @@ export const lesson7b: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d7b_c08', number: 8, scenes: ['u2/word-im-25'],
-      word: "I'm twenty-five.", pronunciation: '/aɪm ˌtwenti ˈfaɪv/', reading: 'aym tuenti-fayv', az: 'Mən 25 yaşındayam.',
-      structure: ["I'm + yaş"],
-      notes: ['Azərbaycancadakı “yaşım var” burada lazım deyil: I’m + yaş.'],
+      word: "How old are you? · I'm twenty-five. · years old", pronunciation: '/haʊ oʊld ɑr ju/ · /aɪm ˌtwenti ˈfaɪv/ · /jɪrz oʊld/', reading: 'hau ould ar yu? · aym tuenti-fayv · yirz ould', az: 'Neçə yaşın var? · Mən 25 yaşındayam. · yaşında',
+      structure: ["I'm + yaş", "I'm + yaş + years old"],
+      notes: ['Yaş “How old are you?” ilə soruşulur. Azərbaycancadakı “yaşım var” burada lazım deyil: I’m + yaş.', '“years old” birlikdə gəlir; yalnız “years” deyilmir.'],
       example: "How old are you? — I'm twenty-five.", exampleAz: 'Neçə yaşın var? — 25 yaşındayam.',
     },
     {
@@ -104,12 +80,6 @@ export const lesson7b: DesignLesson = {
         rule: myAge,
         variants: [...AGE_MISTAKES, other("I'm + yaş.", ex("I'm twenty-five.", 'Yaş “I’m” ilə deyilir; “years old” istəsən əlavə olunur.', "I'm twenty-five. — düzdür; I'm twenty-five years old. — düzdür.", "I'm thirty. And you?"))],
       },
-    },
-    {
-      type: 'word', id: 'u2d7b_c10', number: 10, scenes: ['u2/word-years-old'],
-      word: 'years old', pronunciation: '/jɪrz oʊld/', reading: 'yirz ould', az: 'yaşında',
-      notes: ['“years old” birlikdə gəlir; yalnız “years” deyilmir.'],
-      example: "I'm twenty-five years old.", exampleAz: 'Mən 25 yaşındayam.',
     },
     {
       type: 'two', id: 'u2d7b_c11', number: 11, title: 'Formanı doldur', why: 'Adını, nömrəni və yaşını yazdın.', hint: 'Hər sətrin başlığını oxu; yaşı rəqəmlə yaza bilərsən.', scenes: ['u2/form-gym'],
@@ -136,24 +106,6 @@ export const lesson7b: DesignLesson = {
           { field: 'u2d7b_c11c', match: { other: true }, explain: ex('25', 'Bu sətirdə yaşın lazımdır: rəqəmlə və ya “I’m” ilə.', "25 — rəqəmlə; I'm twenty-five. — cümlə ilə.", "I'm twenty-five.") },
           { field: 'u2d7b_c11a', match: { other: true }, explain: ex('[ad]', 'Bu sətirdə yalnız adın lazımdır.', 'First name — adın; Phone number — nömrən.', 'My first name is [ad]') },
           { field: 'u2d7b_c11b', match: { other: true }, explain: ex('050 321 45 67', 'Bu sətirdə rəqəmlər lazımdır.', 'Phone number — nömrən; How old are you? — yaşın.', "It's zero five zero, three two one, four five, six seven.") },
-        ],
-      },
-    },
-    {
-      type: 'choice', id: 'u2d7b_c12', number: 12, title: 'Sözü tamamla', why: "I'm thirty years old.", hint: 'Yaşdan sonra hansı ifadə gəlir — kartı xatırla.',
-      prompt: 'Oğlan yaşını tam cümlə ilə deyir.\nHansı söz çatmır?', gap: { speaker: 'B', before: "I'm thirty", after: '.' },
-      options: ['years', 'years old', 'old years'], answer: 'years old',
-      variants: [
-        pick('years', '“I’m thirty years” deyilmir.', ex('years old', 'Ya “I’m thirty”, ya “I’m thirty years old” deyilir.', "I'm thirty. — düzdür; I'm thirty years old. — düzdür.", "I'm twenty-five years old.")),
-        pick('old years', 'Sıra tərsdir.', ex('years old', 'Əvvəl “years”, sonra “old” gəlir.', "I'm thirty years old. — düzdür; I'm thirty old years. — olmur.", "I'm twenty-five years old.")),
-      ],
-      review: {
-        title: 'Sözü tamamla', why: "I'm forty-two years old.", hint: 'Yaşdan sonra hansı ifadə gəlir — kartı xatırla.',
-        prompt: 'Qız mesajda yaşını tam cümlə ilə yazır.\nHansı söz çatmır?', gap: { speaker: 'G', before: "I'm forty-two", after: '.' },
-        options: ['old years', 'years old', 'years'], answer: 'years old',
-        variants: [
-          pick('years', '“I’m forty-two years” deyilmir.', ex('years old', 'Ya “I’m forty-two”, ya “I’m forty-two years old” deyilir.', "I'm forty-two. — düzdür; I'm forty-two years old. — düzdür.", "I'm forty-two years old.")),
-          pick('old years', 'Sıra tərsdir.', ex('years old', 'Əvvəl “years”, sonra “old” gəlir.', "I'm forty-two years old. — düzdür; I'm forty-two old years. — olmur.", "I'm forty-two years old.")),
         ],
       },
     },
@@ -186,11 +138,50 @@ export const lesson7b: DesignLesson = {
       },
     },
   ],
+  // Taken out of the lesson (26 Nov 2026, shorter lessons) — comes back in the daily review.
+  pool: [
+    {
+      type: 'choice', id: 'u2d7b_c03', number: 3, title: 'Dinlə və anla', why: '“How old” — yaş sualı.', hint: '“How” ilə “are you” arasındakı sözə qulaq as.',
+      prompt: 'İdman zalında qeydiyyatdasan. Məşqçi sual verir.\nO nə soruşur?', audio: 'How old are you?',
+      options: ['Halını soruşur.', 'Yaşını soruşur.', 'Adını soruşur.'], answer: 'Yaşını soruşur.',
+      variants: [
+        pick('Halını soruşur.', 'Halı “How are you?” ilə soruşurlar; burada “old” var.', ex('Yaşını soruşur.', 'Sualda “old” sözü var — bu, yaş sualıdır.', 'How are you? — hal; How old are you? — yaş.', 'How old are you?')),
+        pick('Adını soruşur.', 'Səsdə “name” yoxdur.', ex('Yaşını soruşur.', 'Sualda “name” yox, “old” var.', "What's your name? — ad; How old are you? — yaş.", 'How old are you?')),
+      ],
+      review: {
+        title: 'Dinlə və anla', why: '“How old” — yaş sualı.', hint: 'Sonuncu sualdakı sözlərə diqqətlə qulaq as.',
+        prompt: 'Kursda yeni yoldaş yaşını dedi və sənə sual verir.\nO nə soruşur?', audio: "I'm thirty. How old are you?",
+        options: ['Yaşını soruşur.', 'Halını soruşur.', 'Soyadını soruşur.'], answer: 'Yaşını soruşur.',
+        variants: [
+          pick('Halını soruşur.', 'Burada “old” var — yaş sualıdır.', ex('Yaşını soruşur.', 'Sualda “old” sözü var.', 'How are you? — hal; How old are you? — yaş.', "I'm thirty. How old are you?")),
+          pick('Soyadını soruşur.', 'Səsdə “last name” yoxdur.', ex('Yaşını soruşur.', 'Sualda “old” var, “last name” yox.', "What's your last name? — soyad; How old are you? — yaş.", 'How old are you?')),
+        ],
+      },
+    },
+    {
+      type: 'choice', id: 'u2d7b_c12', number: 12, title: 'Sözü tamamla', why: "I'm thirty years old.", hint: 'Yaşdan sonra hansı ifadə gəlir — kartı xatırla.',
+      prompt: 'Oğlan yaşını tam cümlə ilə deyir.\nHansı söz çatmır?', gap: { speaker: 'B', before: "I'm thirty", after: '.' },
+      options: ['years', 'years old', 'old years'], answer: 'years old',
+      variants: [
+        pick('years', '“I’m thirty years” deyilmir.', ex('years old', 'Ya “I’m thirty”, ya “I’m thirty years old” deyilir.', "I'm thirty. — düzdür; I'm thirty years old. — düzdür.", "I'm twenty-five years old.")),
+        pick('old years', 'Sıra tərsdir.', ex('years old', 'Əvvəl “years”, sonra “old” gəlir.', "I'm thirty years old. — düzdür; I'm thirty old years. — olmur.", "I'm twenty-five years old.")),
+      ],
+      review: {
+        title: 'Sözü tamamla', why: "I'm forty-two years old.", hint: 'Yaşdan sonra hansı ifadə gəlir — kartı xatırla.',
+        prompt: 'Qız mesajda yaşını tam cümlə ilə yazır.\nHansı söz çatmır?', gap: { speaker: 'G', before: "I'm forty-two", after: '.' },
+        options: ['old years', 'years old', 'years'], answer: 'years old',
+        variants: [
+          pick('years', '“I’m forty-two years” deyilmir.', ex('years old', 'Ya “I’m forty-two”, ya “I’m forty-two years old” deyilir.', "I'm forty-two. — düzdür; I'm forty-two years old. — düzdür.", "I'm forty-two years old.")),
+          pick('old years', 'Sıra tərsdir.', ex('years old', 'Əvvəl “years”, sonra “old” gəlir.', "I'm forty-two years old. — düzdür; I'm forty-two old years. — olmur.", "I'm forty-two years old.")),
+        ],
+      },
+    },
+  ],
   result: {
     done: ['Dərs 7 · 2-ci hissə tamamlandı', 'Artıq yaşını deyir, yaşı soruşur və 13 ilə 30-u ayırırsan.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Yaş sualını anlamaq, 13 ilə 30-u ayırmaq', tasks: ['u2d7b_c03', 'u2d7b_c05', 'u2d7b_c07', 'u2d7b_c12', 'u2d7b_c14'] },
+      { group: 'Tanıma', text: 'Yaş sualını anlamaq, 13 ilə 30-u ayırmaq', tasks: ['u2d7b_c05', 'u2d7b_c07', 'u2d7b_c14'] },
       { group: 'Yazı', text: 'Formada yaşını yazmaq və yaşı soruşmaq', tasks: ['u2d7b_c11', 'u2d7b_c13'] },
       { group: 'Danışıq', text: 'Yaşını demək', tasks: ['u2d7b_c09'] },
     ],
@@ -198,10 +189,10 @@ export const lesson7b: DesignLesson = {
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'How old are you?', translation: 'Neçə yaşın var?', example: 'Hi! How old are you?', exampleAz: 'Salam! Neçə yaşın var?', usageNote: 'Yaş soruşmaq.', pronunciation: '/haʊ oʊld ɑr ju/', teachCard: 'u2d7b_c02' },
+    { word: 'How old are you?', translation: 'Neçə yaşın var?', example: 'Hi! How old are you?', exampleAz: 'Salam! Neçə yaşın var?', usageNote: 'Yaş soruşmaq.', pronunciation: '/haʊ oʊld ɑr ju/', teachCard: 'u2d7b_c08' },
     { word: 'thirty · forty · fifty · sixty', translation: '30 · 40 · 50 · 60', example: 'Thirty, forty, fifty, sixty!', exampleAz: 'Otuz, qırx, əlli, altmış!', usageNote: 'Vurğu əvvəldə: THIR-ty.', pronunciation: '/ˈθɜrti/ · /ˈfɔrti/ · /ˈfɪfti/ · /ˈsɪksti/', teachCard: 'u2d7b_c04' },
     { word: 'twenty-five', translation: '25', example: 'Twenty-five, thirty-two, forty-one.', exampleAz: '25, 32, 41.', usageNote: 'Onluq + tək rəqəm.', pronunciation: '/ˌtwenti ˈfaɪv/', teachCard: 'u2d7b_c06' },
     { word: "I'm twenty-five.", translation: 'Mən 25 yaşındayam.', example: "How old are you? — I'm twenty-five.", exampleAz: 'Neçə yaşın var? — 25 yaşındayam.', usageNote: "I'm + yaş.", pronunciation: '/aɪm ˌtwenti ˈfaɪv/', teachCard: 'u2d7b_c08' },
-    { word: 'years old', translation: 'yaşında', example: "I'm twenty-five years old.", exampleAz: 'Mən 25 yaşındayam.', usageNote: 'Birlikdə gəlir.', pronunciation: '/jɪrz oʊld/', teachCard: 'u2d7b_c10' },
+    { word: 'years old', translation: 'yaşında', example: "I'm twenty-five years old.", exampleAz: 'Mən 25 yaşındayam.', usageNote: 'Birlikdə gəlir.', pronunciation: '/jɪrz oʊld/', teachCard: 'u2d7b_c08' },
   ],
 };

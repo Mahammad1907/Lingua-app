@@ -23,33 +23,9 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d5_c02', number: 2, scenes: ['u2/word-first-name'],
-      word: 'first name', pronunciation: '/ˈfɜrst ˌneɪm/', reading: 'fırst neym', az: 'ad',
-      notes: ['Formada “First name” — sənin adın.'],
+      word: 'first name · last name', pronunciation: '/ˈfɜrst ˌneɪm/ · /ˈlæst ˌneɪm/', reading: 'fırst neym · ləst neym', az: 'ad · soyad',
+      notes: ['Formada “First name” — sənin adın, “Last name” — soyadın; ikisi ayrı sətirdir.'],
       example: 'My first name is [ad]', exampleAz: 'Adım [ad]-dır.',
-    },
-    {
-      type: 'choice', id: 'u2d5_c03', number: 3, title: 'Oxu və seç', why: '“First name” — ad.', hint: 'Sözün mənasını kartdan xatırla.',
-      prompt: 'Kurs qeydiyyat vərəqində “First name” sətri var.\nBura nə yazırsan?',
-      options: ['Adını', 'Soyadını', 'Telefon nömrəni'], answer: 'Adını',
-      variants: [
-        pick('Soyadını', '“First name” soyad deyil.', ex('Adını', '“First name” addır; soyad üçün ayrıca sətir olur.', 'First name — ad; Phone number — telefon nömrəsi.', 'My first name is [ad]')),
-        pick('Telefon nömrəni', 'Nömrə üçün “Phone number” yazılır.', ex('Adını', '“name” — ad; nömrə “number”dir.', 'First name — ad; Phone number — telefon nömrəsi.', 'My first name is [ad]')),
-      ],
-      review: {
-        title: 'Oxu və seç', why: '“Last name” — soyad.', hint: 'Sözün mənasını kartdan xatırla.',
-        prompt: 'İdman zalının formasında “Last name” sətri var.\nBura nə yazırsan?',
-        options: ['Adını', 'Soyadını', 'Telefon nömrəni'], answer: 'Soyadını',
-        variants: [
-          pick('Adını', '“Last name” ad deyil.', ex('Soyadını', '“Last name” soyaddır, ad “First name” sətrinə yazılır.', 'First name — ad; Last name — soyad.', 'My last name is Mammadova.')),
-          pick('Telefon nömrəni', 'Nömrə üçün “Phone number” yazılır.', ex('Soyadını', '“name” — ad, soyad; nömrə “number”dir.', 'Last name — soyad; Phone number — telefon nömrəsi.', 'My last name is Mammadova.')),
-        ],
-      },
-    },
-    {
-      type: 'word', id: 'u2d5_c04', number: 4, scenes: ['u2/word-last-name'],
-      word: 'last name', pronunciation: '/ˈlæst ˌneɪm/', reading: 'ləst neym', az: 'soyad',
-      notes: ['Azərbaycanda soyad çox vaxt əvvəl deyilir; formada isə ayrıca sətirdir.'],
-      example: 'My last name is Mammadova.', exampleAz: 'Soyadım Məmmədovadır.',
     },
     {
       type: 'two', id: 'u2d5_c05', number: 5, title: 'Formanı doldur', why: 'Adını və soyadını öz yerinə yazdın.', hint: 'Hər sətrin başlığını oxu: biri ad, biri soyaddır.', scenes: ['u2/form-course'],
@@ -158,6 +134,27 @@ export const lesson5: DesignLesson = {
         variants: [other('My last name is [soyad]', ex('My last name is [soyad]', 'Soruşulan soyaddır, ad deyil.', 'My first name is [ad] — ad; My last name is [soyad] — soyad.', 'My last name is Hasanova.'))],
       },
     },
+  ],
+  // Taken out of the lesson (26 Nov 2026, shorter lessons) — comes back in the daily review.
+  pool: [
+    {
+      type: 'choice', id: 'u2d5_c03', number: 3, title: 'Oxu və seç', why: '“First name” — ad.', hint: 'Sözün mənasını kartdan xatırla.',
+      prompt: 'Kurs qeydiyyat vərəqində “First name” sətri var.\nBura nə yazırsan?',
+      options: ['Adını', 'Soyadını', 'Telefon nömrəni'], answer: 'Adını',
+      variants: [
+        pick('Soyadını', '“First name” soyad deyil.', ex('Adını', '“First name” addır; soyad üçün ayrıca sətir olur.', 'First name — ad; Phone number — telefon nömrəsi.', 'My first name is [ad]')),
+        pick('Telefon nömrəni', 'Nömrə üçün “Phone number” yazılır.', ex('Adını', '“name” — ad; nömrə “number”dir.', 'First name — ad; Phone number — telefon nömrəsi.', 'My first name is [ad]')),
+      ],
+      review: {
+        title: 'Oxu və seç', why: '“Last name” — soyad.', hint: 'Sözün mənasını kartdan xatırla.',
+        prompt: 'İdman zalının formasında “Last name” sətri var.\nBura nə yazırsan?',
+        options: ['Adını', 'Soyadını', 'Telefon nömrəni'], answer: 'Soyadını',
+        variants: [
+          pick('Adını', '“Last name” ad deyil.', ex('Soyadını', '“Last name” soyaddır, ad “First name” sətrinə yazılır.', 'First name — ad; Last name — soyad.', 'My last name is Mammadova.')),
+          pick('Telefon nömrəni', 'Nömrə üçün “Phone number” yazılır.', ex('Soyadını', '“name” — ad, soyad; nömrə “number”dir.', 'Last name — soyad; Phone number — telefon nömrəsi.', 'My last name is Mammadova.')),
+        ],
+      },
+    },
     {
       type: 'match', id: 'u2d5_c13', number: 13, title: 'Kim nə dedi?', why: 'Formadakı sözlərin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun sözü yerinə qoy.',
       prompt: 'Qeydiyyat masasında eşitdiyin sözlər.\nHər birinə mənasını qoş.',
@@ -177,7 +174,7 @@ export const lesson5: DesignLesson = {
     done: ['Dərs 5 tamamlandı', 'Artıq formada adını və soyadını yazır, soyadı soruşur və deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Formadakı sözləri və Mr., Ms.-i anlamaq', tasks: ['u2d5_c03', 'u2d5_c09', 'u2d5_c13'] },
+      { group: 'Tanıma', text: 'Formadakı sözləri və Mr., Ms.-i anlamaq', tasks: ['u2d5_c09'] },
       { group: 'Yazı', text: 'Formanı doldurmaq, soyadı yazmaq və soruşmaq', tasks: ['u2d5_c05', 'u2d5_c07', 'u2d5_c11'] },
       { group: 'Danışıq', text: 'Soyadı soruşmaq və öz soyadını demək', tasks: ['u2d5_c10', 'u2d5_c12'] },
     ],
@@ -186,7 +183,7 @@ export const lesson5: DesignLesson = {
   },
   vocabulary: [
     { word: 'first name', translation: 'ad', example: 'My first name is [ad]', exampleAz: 'Adım [ad]-dır.', usageNote: 'Formada ad sətri.', pronunciation: '/ˈfɜrst ˌneɪm/', teachCard: 'u2d5_c02' },
-    { word: 'last name', translation: 'soyad', example: 'My last name is Mammadova.', exampleAz: 'Soyadım Məmmədovadır.', usageNote: 'Formada soyad sətri.', pronunciation: '/ˈlæst ˌneɪm/', teachCard: 'u2d5_c04' },
+    { word: 'last name', translation: 'soyad', example: 'My last name is Mammadova.', exampleAz: 'Soyadım Məmmədovadır.', usageNote: 'Formada soyad sətri.', pronunciation: '/ˈlæst ˌneɪm/', teachCard: 'u2d5_c02' },
     { word: "What's your last name?", translation: 'Soyadın nədir?', example: "Hi! What's your last name?", exampleAz: 'Salam! Soyadın nədir?', usageNote: 'Soyad soruşmaq.', pronunciation: '/wʌts jʊr ˈlæst ˌneɪm/', teachCard: 'u2d5_c06' },
     { word: 'Mr.', translation: 'cənab', example: 'Hello, Mr. Guliyev!', exampleAz: 'Salam, cənab Quliyev!', usageNote: 'Kişiyə, soyaddan əvvəl.', pronunciation: '/ˈmɪstər/', teachCard: 'u2d5_c08' },
     { word: 'Ms.', translation: 'xanım', example: 'Hello, Ms. Hasanova!', exampleAz: 'Salam, Həsənova xanım!', usageNote: 'Qadına, soyaddan əvvəl.', pronunciation: '/mɪz/', teachCard: 'u2d5_c08' },

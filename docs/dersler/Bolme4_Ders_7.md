@@ -4,26 +4,26 @@ Bölmə 4 · Ailə və insanlar. Bu sənəd `src/data/unit4/lesson7.ts`-dən yar
 
 ## Giriş — Giriş
 
-Xarici dost ailə albomunun iş şəkillərini göstərir: xəstəxana, məktəb, ofis.
+Dostun ailə albomunun iş şəkillərini göstərir: xəstəxana, məktəb, ofis.
 
 - Peşə sözlərini tanıya bilirəm.
 - Ailə üzvünün peşəsi soruşulanda cavab verə bilirəm.
 
 ## Kart 2 — Yeni söz
 
-**teacher** — müəllim
+**teacher · student** — müəllim · tələbə
 
-Oxunuşu: tiçər · IPA: /ˈtitʃɚ/
+Oxunuşu: tiçər · studənt · IPA: /ˈtitʃɚ/ · /ˈstudənt/
 
-Quruluşu: She's a teacher. · He's a teacher.
+Quruluşu: She's a teacher. · He's a student.
 
 Nümunə: **She's a teacher.** — O müəllimdir.
 
-Qeyd: Vurğu birinci hecadadır: Ti-çır.
+Qeyd: Hər ikisində vurğu birinci hecadadır: Tİ-çər, STU-dənt.
 
 ## Kart 3 — Seç: Dinlə və anla
 
-**Tapşırıq:** Xarici dost albomda məktəbdəki qadını göstərir. O nə deyir?  
+**Tapşırıq:** Dostun albomda məktəbdəki qadını göstərir. O nə deyir?  
 **Səs:** She's a teacher.  
 **Seçimlər:** O müəllimdir. / O türkdür. / O Bakıdandır. — **düzgün:** O müəllimdir.  
 **İpucu:** Cümlənin sonundakı sözə qulaq as.  
@@ -41,21 +41,9 @@ Qeyd: Vurğu birinci hecadadır: Ti-çır.
 - *İzah (“O gürcüdür.” seçiləndə):* Səsdə millət yox, iş deyilir. — Uyğun: O müəllimdir. Səbəb: Səsdə “a teacher” var: bu, işdir, millət deyil. Qayda: He's a teacher. — iş; He's Georgian. — millət. Nümunə: He's from Ganja.  
 - *İzah (“O Gəncədəndir.” seçiləndə):* Səsdə “from” yoxdur. — Uyğun: O müəllimdir. Səbəb: Gəncədən olmaq “from” ilə deyilir; burada “a teacher” eşidilir. Qayda: He's a teacher. — iş; He's from Ganja. — haradan. Nümunə: He's Georgian.  
 
-## Kart 4 — Yeni söz
+## Kart 4 — Kim nə dedi?: Kim nə dedi?
 
-**student** — tələbə
-
-Oxunuşu: studənt · IPA: /ˈstudənt/
-
-Quruluşu: He's a student. · She's a student.
-
-Nümunə: **He's a student.** — O tələbədir.
-
-Qeyd: Vurğu birinci hecadadır: STU-dənt.
-
-## Kart 5 — Kim nə dedi?: Kim nə dedi?
-
-**Tapşırıq:** Xarici dost albomdakı şəkillərin altına yazılar qoyub. Hər cümləyə mənasını qoş.  
+**Tapşırıq:** Dostun albomdakı şəkillərin altına yazılar qoyub. Hər cümləyə mənasını qoş.  
 **Cütlər:** She's a teacher. — O müəllimdir.; He's a student. — O tələbədir.; He's from Baku. — O Bakıdandır. · artıq: O Gəncədəndir.  
 **Düzgün olanda:** Hər cümlənin mənasını tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: She's a teacher. — O müəllimdir.; He's a student. — O tələbədir.; He's from Baku. — O Bakıdandır. Səbəb: a teacher və a student işdir, from olan cümlə yerdir. Qayda: He's a student. — iş; He's from Baku. — haradan. Nümunə: She's a teacher.  
@@ -67,19 +55,19 @@ Qeyd: Vurğu birinci hecadadır: STU-dənt.
 **Düzgün olanda:** Hər cümlənin mənasını tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: He's a doctor. — O həkimdir.; She's an engineer. — O mühəndisdir.; She's Turkish. — O türkdür. Səbəb: a doctor və an engineer işdir, Turkish millətdir. Qayda: She's an engineer. — iş; She's Turkish. — millət. Nümunə: He's a teacher.  
 
-## Kart 6 — Yeni söz
+## Kart 5 — Yeni söz
 
-**doctor** — həkim
+**doctor · engineer** — həkim · mühəndis
 
-Oxunuşu: daktər · IPA: /ˈdɑktɚ/
+Oxunuşu: daktər · encinir · IPA: /ˈdɑktɚ/ · /ˌɛndʒəˈnɪr/
 
-Quruluşu: He's a doctor. · She's a doctor.
+Quruluşu: He's a doctor. · She's an engineer.
 
 Nümunə: **He's a doctor.** — O həkimdir.
 
-Qeyd: “doctor” — “dəktər” yox, “daktər”: birinci saitdə “a”.
+Qeyd: “doctor” — “dəktər” yox, “daktər”. engineer — vurğu sonuncu hecadadır: en-ci-NİR.
 
-## Kart 7 — Müəllim izahı
+## Kart 6 — Müəllim izahı
 
 Peşə sözündən əvvəl a gəlir.
 
@@ -95,9 +83,9 @@ Biz “həkimdir” deyirik, “bir” demirik. İngiliscə peşə sözündən �
 
 Diqqət et: “He's doctor.” olmur: a atılmır.
 
-## Kart 8 — Mesaj yaz (sözlərdən): Cümləni qur
+## Kart 7 — Mesaj yaz (sözlərdən): Cümləni qur
 
-**Tapşırıq:** Albomdakı şəklin altına yazı yazırsan: şəkildəki kişi xəstəxanadadır, o həkimdir. Sözlərdən cümlə qur.  
+**Tapşırıq:** Şəkildəki kişi həkimdir. Şəklin altına yaz. Sözlərdən cümlə qur.  
 **Sözlər:** doctor · He's · a · She's · student · .  
 **Qəbul:** dəqiq: He's a doctor. / He is a doctor.  
 **İpucu:** Kişidən danış, peşəni bu dərsin söz kartındakı kimi qur.  
@@ -108,7 +96,7 @@ Diqqət et: “He's doctor.” olmur: a atılmır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Albomun başqa səhifəsində məktəb şəkli var. Şəklin altına yazırsan: qadın orada müəllimdir. Sözlərdən cümlə qur.  
+**Tapşırıq:** Şəkildəki qadın müəllimdir. Şəklin altına yaz. Sözlərdən cümlə qur.  
 **Sözlər:** teacher · She's · a · He's · student · .  
 **Qəbul:** dəqiq: She's a teacher. / She is a teacher.  
 **İpucu:** Qadından danış, peşəni bu dərsin söz kartındakı kimi qur.  
@@ -117,19 +105,7 @@ Diqqət et: “He's doctor.” olmur: a atılmır.
 - *İzah (başqa səhvdə):* Qız haqqında “she” deyilir. — Uyğun: She's a teacher. Səbəb: Azərbaycancada ikisi də “o”dur, ingiliscə qız üçün “she” gəlir. Qayda: She's a teacher. — qız; He's a teacher. — oğlan. Nümunə: He's a doctor.  
 - *İzah (başqa səhvdə):* Sıra: She's a teacher. — Uyğun: She's a teacher. Səbəb: Əvvəl She's, sonra a, sonra peşə. Qayda: She's a teacher. — qadın; He's a teacher. — kişi. Nümunə: He's a doctor.  
 
-## Kart 9 — Yeni söz
-
-**engineer** — mühəndis
-
-Oxunuşu: encinir · IPA: /ˌɛndʒəˈnɪr/
-
-Quruluşu: She's an engineer. · He's an engineer.
-
-Nümunə: **She's an engineer.** — O mühəndisdir.
-
-Qeyd: Vurğu sonuncu hecadadır: en-ci-NİR.
-
-## Kart 10 — Müəllim izahı
+## Kart 8 — Müəllim izahı
 
 a və an: sözün ilk səsinə bax.
 
@@ -144,7 +120,7 @@ a, e, i, o, u səsləri ilə başlayan sözdən əvvəl an gəlir. Qalan səslə
 
 Diqqət et: “a engineer” və “an doctor” olmur: söz hansı səslə başlayır, ona bax.
 
-## Kart 11 — Sözü tamamla: Sözü tamamla
+## Kart 9 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Albomdakı başqa şəkildə qadın ofisdə işləyir. O mühəndisdir. Hansı söz çatmır?  
 **Cümlə:** She's ___ engineer.  
@@ -164,7 +140,7 @@ Diqqət et: “a engineer” və “an doctor” olmur: söz hansı səslə baş
 - *İzah (“an” seçiləndə):* doctor d səsi ilə başlayır: an yox, a gəlir. — Uyğun: a. Səbəb: doctor d səsi ilə başlayır; belə sözdən əvvəl a gəlir. Qayda: He's a doctor. — düzdür; He's an doctor. — olmur. Nümunə: She's an engineer.  
 - *İzah (“is” seçiləndə):* He's artıq “He is” deməkdir. — Uyğun: a. Səbəb: He's artıq “He is” deməkdir; is bir daha gəlmir. Qayda: He's a doctor. — düzdür; He's is doctor. — olmur. Nümunə: She's an engineer.  
 
-## Kart 12 — Yeni söz
+## Kart 10 — Yeni söz
 
 **What's his job?** — O nə işləyir? (Onun peşəsi nədir?)
 
@@ -176,9 +152,9 @@ Nümunə: **What's his job? — He's a doctor.** — O nə işləyir? — O hək
 
 Qeyd: what’s — nədir, his — onun (kişinin), job — iş, peşə; qadın üçün her.
 
-## Kart 13 — Səslə cavab: Peşəsini de
+## Kart 11 — Səslə cavab: Peşəsini de
 
-**Tapşırıq:** Video zəngdə Xarici dost sənin albomundakı kişini görüb soruşur. O kişi həkimdir. Sualı dinlə və cavab ver.  
+**Tapşırıq:** Albomdakı kişi həkimdir. Sualı dinlə və cavab ver.  
 **Səs:** What's his job?  
 **Qəbul:** dəqiq: He's a doctor. / He is a doctor.  
 **İpucu:** Sual kişi haqqındadır — peşəni söz kartındakı kimi de.  
@@ -190,7 +166,7 @@ Qeyd: what’s — nədir, his — onun (kişinin), job — iş, peşə; qadın 
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ofisdə sən iş yoldaşına bir qadının şəklini göstərirsən. O qadın mühəndisdir. İş yoldaşın soruşur. Sualı dinlə və cavab ver.  
+**Tapşırıq:** Şəkildəki qadın mühəndisdir. Sualı dinlə və cavab ver.  
 **Səs:** What's her job?  
 **Qəbul:** dəqiq: She's an engineer. / She is an engineer.  
 **İpucu:** Sual qadın haqqındadır; peşə sözünün ilk səsinə qulaq as.  
@@ -200,10 +176,10 @@ Qeyd: what’s — nədir, his — onun (kişinin), job — iş, peşə; qadın 
 - *İzah (başqa səhvdə):* Qız haqqında “she” deyilir. — Uyğun: She's an engineer. Səbəb: Azərbaycancada ikisi də “o”dur, ingiliscə qız üçün “she” gəlir. Qayda: She's an engineer. — qız; He's an engineer. — oğlan. Nümunə: He's a doctor.  
 - *İzah (başqa səhvdə):* She's an engineer. — Uyğun: She's an engineer. Səbəb: Sual qadın haqqındadır: She's, sonra an və peşə. Qayda: What's her job? — She's an engineer.; What's his job? — He's a doctor. Nümunə: What's her job? — She's a teacher.  
 
-## Kart 14 — undefined: Profil kartı
+## Kart 12 — undefined: Profil kartı
 
-**Tapşırıq:** Video zəngdə xarici dost albomdakı bir qadını göstərir. Dinlə və kartı doldur.  
-**Səs:** Xarici dost: This is my mother. She's fifty. She's a teacher.  
+**Tapşırıq:** Video zəngdə dostun albomdakı bir qadını göstərir. Dinlə və kartı doldur.  
+**Səs:** This is my mother. She's fifty. She's a teacher.  
 **İpucu:** Üç cümləni ayrıca tut: kim, neçə yaşında, nə işləyir.  
 **Düzgün olanda:** mother — ana; fifty — 50; a teacher — müəllim.  
 - *İzah (“sister” seçiləndə):* Səsdə sister yox, mother deyilir. — Uyğun: mother. Səbəb: Birinci cümlə This is my mother ilə bitir — ana. Qayda: mother — ana; sister — bacı. Nümunə: This is my mother.  
@@ -226,27 +202,9 @@ Qeyd: what’s — nədir, his — onun (kişinin), job — iş, peşə; qadın 
 - *İzah (“engineer” seçiləndə):* Səsdə an engineer yox, a student deyilir. — Uyğun: student. Səbəb: Son cümlədə a student eşidilir; engineer olsaydı, an gələrdi. Qayda: He's a student. — tələbə; He's an engineer. — mühəndis. Nümunə: He's a student.  
 - *İzah (başqa səhvdə):* Kartı səslə yenidən yoxla. — Uyğun: Kim — brother; Yaş — 25; Peşə — student. Səbəb: Hər cümlə kartın bir sətridir: kim, yaş, peşə. Qayda: He's twenty-five. — yaş; He's a student. — peşə. Nümunə: What's his job? — He's a student.  
 
-## Kart 15 — Dinlə və təkrarla: Dinlə və təkrarla
+## Kart 13 — İki mesaj yaz: İki mesaj yaz
 
-**Tapşırıq:** Xarici dost albomdakı qadını təqdim edir. Dinlə, sonra eyni cür de.  
-**Səs:** She's an engineer.  
-**Qəbul:** dəqiq: She's an engineer. / She is an engineer.  
-**İpucu:** Əvvəl yavaş dinlə, sonra an-ı engineer ilə birlikdə de.  
-**Düzgün olanda:** Cümləni dedin; an engineer bir nəfəsdə deyilir.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: She's an engineer. Səbəb: an engineer ayrı-ayrı yox, bir nəfəsdə deyilir. Qayda: She's an engineer. — düzdür; She's a engineer. — olmur. Nümunə: He's a doctor.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Kafedə yeni tanış kursdakı yoldaşını təqdim edir. Dinlə, sonra eyni cür de.  
-**Səs:** He's a student.  
-**Qəbul:** dəqiq: He's a student. / He is a student.  
-**İpucu:** Əvvəl yavaş dinlə, sonra sözləri bir-bir de.  
-**Düzgün olanda:** Cümləni dedin; student — “studənt”.  
-- *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: He's a student. Səbəb: student — “studənt”: vurğu birinci hecadadır. Qayda: He's a student. — düzdür; He's student. — olmur. Nümunə: She's a teacher.  
-
-## Kart 16 — İki mesaj yaz: İki mesaj yaz
-
-**Tapşırıq:** Albomda iki şəkil var: kişi müəllimdir, qadın mühəndisdir. Xarici dost hər ikisinin peşəsini soruşur. İki mesaj yaz: 1. Kişinin peşəsi. 2. Qadının peşəsi.  
+**Tapşırıq:** Kişi müəllimdir, qadın mühəndisdir. İki mesaj yaz: 1. Kişinin peşəsi. 2. Qadının peşəsi.  
 **Birinci mesaj:** dəqiq: He's a teacher. / He is a teacher.  
 **İkinci mesaj:** dəqiq: She's an engineer. / She is an engineer.  
 **İpucu:** Hər mesajda əvvəl kimdən danışdığını, sonra peşəsini söz kartındakı kimi yaz.  
@@ -262,7 +220,7 @@ Qeyd: what’s — nədir, his — onun (kişinin), job — iş, peşə; qadın 
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Başqa albomda da iki şəkil var: kişi mühəndisdir, qadın həkimdir. Xarici dost hər ikisinin peşəsini soruşur. İki mesaj yaz: 1. Kişinin peşəsi. 2. Qadının peşəsi.  
+**Tapşırıq:** Kişi mühəndisdir, qadın həkimdir. İki mesaj yaz: 1. Kişinin peşəsi. 2. Qadının peşəsi.  
 **Birinci mesaj:** dəqiq: He's an engineer. / He is an engineer.  
 **İkinci mesaj:** dəqiq: She's a doctor. / She is a doctor.  
 **İpucu:** Bu albomda peşələr yer dəyişib — kişini və qadını qarışdırma.  
@@ -282,9 +240,9 @@ Dərs 7 tamamlandı — Artıq peşə sualını başa düşür və ailə üzvün
 
 - Tanıma: Peşə sözlərini və a / an-ı tanımaq, eşidib profil kartını doldurmaq
 - Yazı: Peşəni düzgün a və ya an ilə yazmaq
-- Danışıq: Peşəni soruşanda cavab vermək və cümləni düzgün təkrarlamaq
+- Danışıq: Peşəni soruşanda cavab vermək
 
-Növbəti dərs — Bölmə söhbəti: xarici dost ilə video zəngdə ailəni təqdim edirsən.
+Növbəti dərs — Bölmə söhbəti: dostun ilə video zəngdə ailəni təqdim edirsən.
 
 ## Lüğətim
 

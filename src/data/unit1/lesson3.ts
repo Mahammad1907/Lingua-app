@@ -27,19 +27,6 @@ export const lesson3: DesignLesson = {
       ],
     },
     {
-      type: 'choice', id: 'd3_c02', number: 2, title: 'Oxu və anla', why: 'I’m [ad] ilə adını deyir.', hint: 'Qız sual verir, yoxsa özü haqqında nəsə deyir?',
-      prompt: 'Qız yazır: “Hi! I’m [ad]”\nO nə edir?', options: ['Adını soruşur.', 'Adını deyir.', 'Sağollaşır.'], answer: 'Adını deyir.',
-      variants: [
-        pick('Adını soruşur.', 'Sual yoxdur — o, adını deyir.', ex('Adını deyir.', '“I’m [ad]” — “Mən [ad]-am” deməkdir, bu sual deyil.', 'I’m + ad = adını demək.', 'Hi! I’m [ad]')),
-        pick('Sağollaşır.', 'Hi salamdır, sağollaşma deyil.', ex('Adını deyir.', 'Hi görüşü başladır, sonra “I’m [ad]” ilə adını deyir.', 'I’m + ad = adını demək.', 'Hello! My name is [ad]')),
-      ],
-      review: {
-        title: 'Oxu və anla', why: 'My name is [ad] ilə adını deyir.', hint: 'Oğlan sual verir, yoxsa özü haqqında nəsə deyir?', prompt: 'Oğlan yazır: “Hello! My name is [ad]”\nO nə edir?',
-        options: ['Sağollaşır.', 'Adını soruşur.', 'Adını deyir.'], answer: 'Adını deyir.',
-        variants: [other('O, adını deyir.', ex('Adını deyir.', '“My name is [ad]” — “Mənim adım [ad]” deməkdir.', 'My name is + ad = adını demək.', 'Hi! I’m [ad]'))],
-      },
-    },
-    {
       type: 'word', id: 'd3_c03', number: 3, scenes: ['d3/word-whats-your-name'],
       shortForm: { full: "What is", short: "What's" },
       word: "What's your name?", pronunciation: '/wʌts jʊr neɪm/', reading: 'uats yor neym?', az: 'Adın nədir?',
@@ -111,18 +98,6 @@ export const lesson3: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd3_c09', number: 9, title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Dərs 2-də adını necə deyirdin, onu xatırla.',
-      prompt: 'Qız mesajda adını yazıb soruşur: “Hi! I’m [ad]. What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
-      variants: [
-        insteadOf('askName', 'O artıq soruşdu — sən cavab verirsən.', ex("I'm [ad] / My name is [ad]", 'Qız artıq soruşdu, sən isə adını deyirsən.', 'What’s your name? → I’m [ad]', "My name is [ad]")),
-        other('Adını I’m və ya My name is ilə de.', ex("I'm [ad] / My name is [ad]", '“What’s your name?” sualına cavab adındır.', 'What’s your name? → I’m [ad]', "I'm [ad]")),
-      ],
-      review: {
-        title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Dərs 2-də adını necə deyirdin, onu xatırla.', prompt: 'İdman zalından tanış oğlan mesajda soruşur: “Hello! What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
-        variants: [other('Adını I’m və ya My name is ilə de.', ex("I'm [ad] / My name is [ad]", '“What’s your name?” sualına cavab adındır.', 'What’s your name? → My name is [ad]', "I'm [ad]"))],
-      },
-    },
-    {
       type: 'match', id: 'd3_c13', number: 13, title: 'Kim nə dedi?', why: 'Tanışlığın üç cümləsini tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
       prompt: 'Tanışlıq söhbəti.\nHər cümləyə mənasını qoş.',
       rows: [{ en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'G' }, { en: 'You too.', az: 'Mən də.', from: 'B' }],
@@ -145,15 +120,6 @@ export const lesson3: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'd3_c11', number: 11, title: 'Tanışlığa cavab ver', why: 'Tanışlığa xoş cavab verdin.', hint: 'Xoş sözə “Mən də” mənasında qısa cavab ver.',
-      prompt: 'Yeni tanışın deyir: “Nice to meet you!”\nCavab ver.', audio: 'Nice to meet you!', rule: meet,
-      variants: [other('Qısa cavab: You too!', ex('You too! / Nice to meet you too!', 'Xoş sözə xoş cavab verilir.', 'Nice to meet you → You too!', 'You too!'))],
-      review: {
-        title: 'Tanışlığa cavab ver', why: 'Tanışlığa xoş cavab verdin.', hint: 'Xoş sözə “Mən də” mənasında qısa cavab ver.', prompt: 'Yeni yoldaşın deyir: “Nice to meet you!”\nCavab ver.', audio: 'Nice to meet you!', rule: meet,
-        variants: [other('Qısa cavab: You too!', ex('You too! / Nice to meet you too!', 'Xoş sözə xoş cavab verilir.', 'Nice to meet you → You too!', 'Nice to meet you too!'))],
-      },
-    },
-    {
       type: 'write', id: 'd3_c12', number: 12, title: 'Söhbəti bitir', why: 'Yazışmanı sağollaşma ilə bitirdin.', hint: 'Dərs 1-in sağollaşma sözlərini xatırla.',
       prompt: 'Yazışma bitir, sən çıxırsan.\nMesajla sağollaş.', placeholder: 'Cavabını yaz',
       chat: { partner: 'Qonşu qız', from: 'G', lines: [{ from: 'G', text: 'Nice to meet you!' }] }, rule: byeAfterMeet,
@@ -168,13 +134,50 @@ export const lesson3: DesignLesson = {
       },
     },
   ],
+  // Practice moved out of the lesson (26 Nov 2026, lessons 10–12 screens): it comes back in the daily review.
+  pool: [
+    {
+      type: 'choice', id: 'd3_c02', number: 2, title: 'Oxu və anla', why: 'I’m [ad] ilə adını deyir.', hint: 'Qız sual verir, yoxsa özü haqqında nəsə deyir?',
+      prompt: 'Qız yazır: “Hi! I’m [ad]”\nO nə edir?', options: ['Adını soruşur.', 'Adını deyir.', 'Sağollaşır.'], answer: 'Adını deyir.',
+      variants: [
+        pick('Adını soruşur.', 'Sual yoxdur — o, adını deyir.', ex('Adını deyir.', '“I’m [ad]” — “Mən [ad]-am” deməkdir, bu sual deyil.', 'I’m + ad = adını demək.', 'Hi! I’m [ad]')),
+        pick('Sağollaşır.', 'Hi salamdır, sağollaşma deyil.', ex('Adını deyir.', 'Hi görüşü başladır, sonra “I’m [ad]” ilə adını deyir.', 'I’m + ad = adını demək.', 'Hello! My name is [ad]')),
+      ],
+      review: {
+        title: 'Oxu və anla', why: 'My name is [ad] ilə adını deyir.', hint: 'Oğlan sual verir, yoxsa özü haqqında nəsə deyir?', prompt: 'Oğlan yazır: “Hello! My name is [ad]”\nO nə edir?',
+        options: ['Sağollaşır.', 'Adını soruşur.', 'Adını deyir.'], answer: 'Adını deyir.',
+        variants: [other('O, adını deyir.', ex('Adını deyir.', '“My name is [ad]” — “Mənim adım [ad]” deməkdir.', 'My name is + ad = adını demək.', 'Hi! I’m [ad]'))],
+      },
+    },
+    {
+      type: 'write', id: 'd3_c09', number: 9, title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Dərs 2-də adını necə deyirdin, onu xatırla.',
+      prompt: 'Qız mesajda adını yazıb soruşur: “Hi! I’m [ad]. What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
+      variants: [
+        insteadOf('askName', 'O artıq soruşdu — sən cavab verirsən.', ex("I'm [ad] / My name is [ad]", 'Qız artıq soruşdu, sən isə adını deyirsən.', 'What’s your name? → I’m [ad]', "My name is [ad]")),
+        other('Adını I’m və ya My name is ilə de.', ex("I'm [ad] / My name is [ad]", '“What’s your name?” sualına cavab adındır.', 'What’s your name? → I’m [ad]', "I'm [ad]")),
+      ],
+      review: {
+        title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Dərs 2-də adını necə deyirdin, onu xatırla.', prompt: 'İdman zalından tanış oğlan mesajda soruşur: “Hello! What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
+        variants: [other('Adını I’m və ya My name is ilə de.', ex("I'm [ad] / My name is [ad]", '“What’s your name?” sualına cavab adındır.', 'What’s your name? → My name is [ad]', "I'm [ad]"))],
+      },
+    },
+    {
+      type: 'voice', id: 'd3_c11', number: 11, title: 'Tanışlığa cavab ver', why: 'Tanışlığa xoş cavab verdin.', hint: 'Xoş sözə “Mən də” mənasında qısa cavab ver.',
+      prompt: 'Yeni tanışın deyir: “Nice to meet you!”\nCavab ver.', audio: 'Nice to meet you!', rule: meet,
+      variants: [other('Qısa cavab: You too!', ex('You too! / Nice to meet you too!', 'Xoş sözə xoş cavab verilir.', 'Nice to meet you → You too!', 'You too!'))],
+      review: {
+        title: 'Tanışlığa cavab ver', why: 'Tanışlığa xoş cavab verdin.', hint: 'Xoş sözə “Mən də” mənasında qısa cavab ver.', prompt: 'Yeni yoldaşın deyir: “Nice to meet you!”\nCavab ver.', audio: 'Nice to meet you!', rule: meet,
+        variants: [other('Qısa cavab: You too!', ex('You too! / Nice to meet you too!', 'Xoş sözə xoş cavab verilir.', 'Nice to meet you → You too!', 'Nice to meet you too!'))],
+      },
+    },
+  ],
   result: {
     done: ['Dərs 3 tamamlandı', 'Artıq adı soruşub tanışlığa cavab verə bilirsən.'],
     incomplete: 'Dərs tam bitmədi. Yoxlanmayan tapşırıqlara sonra qayıda bilərsən.',
     goals: [
-      { group: 'Tanıma', text: 'Ad sualını və cavabını tanımaq', tasks: ['d3_c02', 'd3_c05', 'd3_c08'] },
-      { group: 'Yazı', text: 'Ad sualını qurmaq və cavab vermək', tasks: ['d3_c04', 'd3_c09', 'd3_c12'] },
-      { group: 'Danışıq', text: 'Adı soruşmaq və tanışlığa cavab vermək', tasks: ['d3_c10', 'd3_c11'] },
+      { group: 'Tanıma', text: 'Ad sualını və cavabını tanımaq', tasks: ['d3_c05', 'd3_c08', 'd3_c13'] },
+      { group: 'Yazı', text: 'Ad sualını qurmaq və yazışmanı bitirmək', tasks: ['d3_c04', 'd3_c12'] },
+      { group: 'Danışıq', text: 'Adı səslə soruşmaq', tasks: ['d3_c10'] },
     ],
     closing: 'Növbəti dərsdə “Necəsən?” soruşacaqsan.', button: 'Ana səhifəyə qayıt',
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',

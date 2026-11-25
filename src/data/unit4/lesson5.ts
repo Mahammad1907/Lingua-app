@@ -26,9 +26,9 @@ export const lesson5: DesignLesson = {
     },
     {
       type: 'word', id: 'u4d5_c02', number: 2, scenes: ['mascot/point'],
-      word: 'I have', pronunciation: '/aɪ hæv/', reading: 'ay həv', az: 'mənim var · məndə var',
-      structure: ['I have + a + son / daughter'],
-      notes: ['I — mən, have — “var”; a — bir (tərcümə olunmur): I have a son.', '“a” bir nəfər deməkdir: a son — bir oğul. a ayrıca tərcümə olunmur.'],
+      word: "I have · I don't have", pronunciation: '/aɪ hæv/ · /aɪ doʊnt hæv/', reading: 'ay həv · ay dont həv', az: 'mənim var · mənim yoxdur',
+      structure: ['I have + a + son / daughter', "I don't have + a son / a daughter"],
+      notes: ['I — mən, have — “var”; a — bir (tərcümə olunmur): I have a son.', 'don’t — “yox”: I don’t understand kimi, don’t have-dən əvvəl gəlir.'],
       example: 'I have a son.', exampleAz: 'Mənim oğlum var.',
     },
     {
@@ -56,32 +56,7 @@ export const lesson5: DesignLesson = {
       example: 'I have a brother and a sister.', exampleAz: 'Mənim bir qardaşım və bir bacım var.',
     },
     {
-      type: 'choice', id: 'u4d5_c05', number: 5, title: 'Dinlə və anla', why: '“I have a sister” — bacım var.', hint: 'Cümlə “This is” ilə başlayır, yoxsa başqa sözlə?',
-      prompt: '{G} video zəngdə {f:dat} ailəsindən danışır.\n{G} nə deyir?', audio: 'I have a sister.',
-      options: ['Mənim bacım var.', 'Bu, mənim bacımdır.', 'Mənim qardaşım var.'], answer: 'Mənim bacım var.',
-      variants: [
-        pick('Bu, mənim bacımdır.', 'Səsdə “This is” yoxdur, “I have” var.', ex('Mənim bacım var.', 'Səsdə şəkil göstərmək yoxdur — I have deyir.', 'I have a sister. — bacım var; This is my sister. — bu, bacımdır.', 'I have a brother and a sister.')),
-        pick('Mənim qardaşım var.', 'Səsdə “brother” yox, “sister” var.', ex('Mənim bacım var.', 'sister — bacı, brother — qardaş.', 'I have a sister. — bacım var; I have a brother. — qardaşım var.', 'I have a sister.')),
-      ],
-      review: {
-        title: 'Dinlə və anla', why: '“I have a brother and a sister” — qardaşım və bacım var.', hint: 'Cümlədəki ailə sözlərini say və başlanğıca qulaq as.',
-        prompt: 'Kursda yeni yoldaş ailəsi haqqında danışır.\nO nə deyir?', audio: 'I have a brother and a sister.',
-        options: ['Bu, qardaşım və bacımdır.', 'Qardaşım və bacım var.', 'Qardaşım var, bacım yoxdur.'], answer: 'Qardaşım və bacım var.',
-        variants: [
-          pick('Bu, qardaşım və bacımdır.', 'Səsdə “This is” yoxdur, “I have” var.', ex('Qardaşım və bacım var.', 'O, şəkil göstərmir — I have deyir.', 'I have a brother. — qardaşım var; This is my brother. — bu, qardaşımdır.', 'I have a brother and a sister.')),
-          pick('Qardaşım var, bacım yoxdur.', 'Səsdə “and a sister” var — bacısı da var.', ex('Qardaşım və bacım var.', 'and — və: hər ikisi var.', 'a brother and a sister — qardaş və bacı.', 'I have a brother and a sister.')),
-        ],
-      },
-    },
-    {
-      type: 'word', id: 'u4d5_c06', number: 6, scenes: ['mascot/think'],
-      word: "I don't have", pronunciation: '/aɪ doʊnt hæv/', reading: 'ay dont həv', az: 'mənim yoxdur · məndə yoxdur',
-      structure: ["I don't have + a brother / a sister"],
-      notes: ['don’t — “yox”, have — “var”: I don’t understand kimi, don’t have-dən əvvəl gəlir.'],
-      example: "I have a sister, but I don't have a brother.", exampleAz: 'Mənim bacım var, amma qardaşım yoxdur.',
-    },
-    {
-      type: 'write', id: 'u4d5_c07', number: 7, title: 'Cümlə qur', why: '“Bacım yoxdur” — I don\'t have a sister.', hint: '“yoxdur” üçün have-dən əvvəl hansı söz gəlir?',
+      type: 'write', id: 'u4d5_c07', number: 5, title: 'Cümlə qur', why: '“Bacım yoxdur” — I don\'t have a sister.', hint: '“yoxdur” üçün have-dən əvvəl hansı söz gəlir?',
       prompt: '{F} mesajda bacın olub-olmadığını soruşur. Bacın yoxdur.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
       tiles: ['have', 'I', 'sister', "don't", 'a', 'not', 'am', '.'], rule: exact("I don't have a sister."),
       variants: [...HAVE_MISTAKES, familyOther("I don't have a sister.")],
@@ -93,14 +68,14 @@ export const lesson5: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u4d5_c08', number: 8, scenes: ['mascot/ask'],
+      type: 'word', id: 'u4d5_c08', number: 6, scenes: ['mascot/ask'],
       word: 'Do you have a brother?', pronunciation: '/du ju hæv ə ˈbrʌðər/', reading: 'du yu həv ə bra**th**ər?', az: 'Qardaşın var?',
       structure: ['Do you have + a brother / a sister?'],
       notes: ['Do — sualı başladır, you — sən, have — var: Do you speak English? kimi.'],
       example: 'Do you have a brother? — Yes, I do.', exampleAz: 'Qardaşın var? — Bəli, var.',
     },
     {
-      type: 'choice', id: 'u4d5_c09', number: 9, title: 'Düz sualı seç', why: 'Sual Do ilə başlayır: Do you have a brother?', hint: 'Bölmə 3-dəki “İngiliscə danışırsan?” sualının quruluşunu xatırla.',
+      type: 'choice', id: 'u4d5_c09', number: 7, title: 'Düz sualı seç', why: 'Sual Do ilə başlayır: Do you have a brother?', hint: 'Bölmə 3-dəki “İngiliscə danışırsan?” sualının quruluşunu xatırla.',
       prompt: 'Video zəngdə {f:dat} sual vermək istəyirsən: qardaşı varmı?\nHansı sual düzdür?',
       options: ['Have you a brother?', 'Do you have a brother?', 'Are you have a brother?'], answer: 'Do you have a brother?',
       variants: [
@@ -118,7 +93,7 @@ export const lesson5: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u4d5_c10', number: 10, title: 'Səslə cavab', why: 'Do ilə suala do ilə cavab verdin.', hint: 'Qardaşın haqqında qısa cavab ver — Do you speak English? sualına cavabı xatırla.',
+      type: 'voice', id: 'u4d5_c10', number: 8, title: 'Səslə cavab', why: 'Do ilə suala do ilə cavab verdin.', hint: 'Qardaşın haqqında qısa cavab ver — Do you speak English? sualına cavabı xatırla.',
       prompt: '{F} soruşur.\nDüzünü de: qardaşın var, yoxsa yox?', audio: 'Do you have a brother?', reply: 'OK, thanks!',
       rule: reply('brother'),
       variants: [...ASK_MISTAKES, ...HAVE_MISTAKES, replyOther('Do you have a brother?')],
@@ -130,27 +105,7 @@ export const lesson5: DesignLesson = {
       },
     },
     {
-      type: 'match', mode: 'reply', id: 'u4d5_c11', number: 11, title: 'Cavab cütü', why: 'Hər suala uyğun cavabı tapdın.',
-      prompt: '{F} ailə albomunu vərəqləyir və suallar verir.\nHər suala cavabını qoş.',
-      rows: [{ en: 'Do you have a sister?', az: 'Yes, I do.', from: 'other' }, { en: 'Is this your sister?', az: 'Yes, it is.', from: 'other' }, { en: "Who's this?", az: 'This is my sister.', from: 'other' }],
-      extra: ['Yes, I have.'],
-      variants: [
-        pick('Do you have a sister?', 'Do ilə suala Yes, I do. cavab verilir.', ex('Do you have a sister? — Yes, I do.', 'Sual Do ilə başlayıb — cavabda da do gəlir.', 'Do you have a sister? — Yes, I do.; Is this your sister? — Yes, it is.', 'Do you have a brother? — No, I don\'t.')),
-        other('Bir cavab yerində deyil.', ex("Do you have a sister? — Yes, I do.; Is this your sister? — Yes, it is.; Who's this? — This is my sister.", 'Do ilə suala do, Is ilə suala is, Who ilə suala kim olduğu.', 'Do you have a sister? — Yes, I do.; Is this your sister? — Yes, it is.', "Who's this? — This is my brother.")),
-      ],
-      review: {
-        title: 'Cavab cütü', why: 'Hər suala uyğun cavabı tapdın.',
-        prompt: 'Kursda yoldaşın telefonda ailə şəkillərini göstərir və soruşur.\nHər suala cavabını qoş.',
-        rows: [{ en: 'Do you have a brother?', az: "No, I don't.", from: 'other' }, { en: 'Is this your brother?', az: "No, it isn't.", from: 'other' }, { en: "Who's he?", az: "He's my friend.", from: 'other' }],
-        extra: ["No, I'm not."],
-        variants: [
-          pick('Do you have a brother?', "Do ilə suala No, I don't. cavab verilir.", ex("Do you have a brother? — No, I don't.", 'Sual Do ilə başlayıb — cavabda da do gəlir.', "Do you have a brother? — No, I don't.; Is this your brother? — No, it isn't.", 'Do you have a sister? — Yes, I do.')),
-          other('Bir cavab yerində deyil.', ex("Do you have a brother? — No, I don't.; Is this your brother? — No, it isn't.; Who's he? — He's my friend.", 'Do ilə suala do, Is ilə suala is, Who ilə suala kim olduğu.', "Do you have a brother? — No, I don't.; Is this your brother? — No, it isn't.", "Who's he? — He's my brother.")),
-        ],
-      },
-    },
-    {
-      type: 'two', id: 'u4d5_c12', number: 12, title: 'İki mesaj yaz', why: 'Ailəni dedin və {f:dat} sual verdin.', hint: 'Birinci mesajda “var/yoxdur” sözlərini, ikincidə bu dərsin sual quruluşunu xatırla.',
+      type: 'two', id: 'u4d5_c12', number: 9, title: 'İki mesaj yaz', why: 'Ailəni dedin və {f:dat} sual verdin.', hint: 'Birinci mesajda “var/yoxdur” sözlərini, ikincidə bu dərsin sual quruluşunu xatırla.',
       prompt: '{F} yazdı: “I have a brother and a sister.”\nİki mesaj yaz:\n1. Bacın var, yoxsa yox (uydura bilərsən).\n2. Soruş: oğlu varmı?',
       fields: [
         { id: 'u4d5_c12a', label: 'Birinci mesaj', placeholder: 'Bacın var, yoxsa yox?', rule: own(MY_FAMILY, 'I have a sister.', "I don't have a sister."), purpose: 'bacın olub-olmadığını demək', empty: 'Birinci mesajı da yaz.' },
@@ -174,7 +129,7 @@ export const lesson5: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u4d5_c13', number: 13, title: 'Mesaj yaz', why: 'Ailəndə kimin olub-olmadığını özün dedin.', hint: 'Hər ailə üzvü üçün ayrıca de: var, yoxsa yoxdur.',
+      type: 'write', id: 'u4d5_c13', number: 10, title: 'Mesaj yaz', why: 'Ailəndə kimin olub-olmadığını özün dedin.', hint: 'Hər ailə üzvü üçün ayrıca de: var, yoxsa yoxdur.',
       prompt: '{F} ailən haqqında soruşur.\nYaz: qardaşın və bacın var, yoxsa yox? (uydura bilərsən)', placeholder: 'Cavabını yaz',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'I have a brother and a sister. And you?' }] },
       rule: myFamily,
@@ -188,11 +143,51 @@ export const lesson5: DesignLesson = {
       },
     },
   ],
+  pool: [
+    {
+      type: 'choice', id: 'u4d5_c05', number: 5, title: 'Dinlə və anla', why: '“I have a sister” — bacım var.', hint: 'Cümlə “This is” ilə başlayır, yoxsa başqa sözlə?',
+      prompt: '{G} video zəngdə {f:dat} ailəsindən danışır.\n{G} nə deyir?', audio: 'I have a sister.',
+      options: ['Mənim bacım var.', 'Bu, mənim bacımdır.', 'Mənim qardaşım var.'], answer: 'Mənim bacım var.',
+      variants: [
+        pick('Bu, mənim bacımdır.', 'Səsdə “This is” yoxdur, “I have” var.', ex('Mənim bacım var.', 'Səsdə şəkil göstərmək yoxdur — I have deyir.', 'I have a sister. — bacım var; This is my sister. — bu, bacımdır.', 'I have a brother and a sister.')),
+        pick('Mənim qardaşım var.', 'Səsdə “brother” yox, “sister” var.', ex('Mənim bacım var.', 'sister — bacı, brother — qardaş.', 'I have a sister. — bacım var; I have a brother. — qardaşım var.', 'I have a sister.')),
+      ],
+      review: {
+        title: 'Dinlə və anla', why: '“I have a brother and a sister” — qardaşım və bacım var.', hint: 'Cümlədəki ailə sözlərini say və başlanğıca qulaq as.',
+        prompt: 'Kursda yeni yoldaş ailəsi haqqında danışır.\nO nə deyir?', audio: 'I have a brother and a sister.',
+        options: ['Bu, qardaşım və bacımdır.', 'Qardaşım və bacım var.', 'Qardaşım var, bacım yoxdur.'], answer: 'Qardaşım və bacım var.',
+        variants: [
+          pick('Bu, qardaşım və bacımdır.', 'Səsdə “This is” yoxdur, “I have” var.', ex('Qardaşım və bacım var.', 'O, şəkil göstərmir — I have deyir.', 'I have a brother. — qardaşım var; This is my brother. — bu, qardaşımdır.', 'I have a brother and a sister.')),
+          pick('Qardaşım var, bacım yoxdur.', 'Səsdə “and a sister” var — bacısı da var.', ex('Qardaşım və bacım var.', 'and — və: hər ikisi var.', 'a brother and a sister — qardaş və bacı.', 'I have a brother and a sister.')),
+        ],
+      },
+    },
+    {
+      type: 'match', mode: 'reply', id: 'u4d5_c11', number: 11, title: 'Cavab cütü', why: 'Hər suala uyğun cavabı tapdın.',
+      prompt: '{F} ailə albomunu vərəqləyir və suallar verir.\nHər suala cavabını qoş.',
+      rows: [{ en: 'Do you have a sister?', az: 'Yes, I do.', from: 'other' }, { en: 'Is this your sister?', az: 'Yes, it is.', from: 'other' }, { en: "Who's this?", az: 'This is my sister.', from: 'other' }],
+      extra: ['Yes, I have.'],
+      variants: [
+        pick('Do you have a sister?', 'Do ilə suala Yes, I do. cavab verilir.', ex('Do you have a sister? — Yes, I do.', 'Sual Do ilə başlayıb — cavabda da do gəlir.', 'Do you have a sister? — Yes, I do.; Is this your sister? — Yes, it is.', 'Do you have a brother? — No, I don\'t.')),
+        other('Bir cavab yerində deyil.', ex("Do you have a sister? — Yes, I do.; Is this your sister? — Yes, it is.; Who's this? — This is my sister.", 'Do ilə suala do, Is ilə suala is, Who ilə suala kim olduğu.', 'Do you have a sister? — Yes, I do.; Is this your sister? — Yes, it is.', "Who's this? — This is my brother.")),
+      ],
+      review: {
+        title: 'Cavab cütü', why: 'Hər suala uyğun cavabı tapdın.',
+        prompt: 'Kursda yoldaşın telefonda ailə şəkillərini göstərir və soruşur.\nHər suala cavabını qoş.',
+        rows: [{ en: 'Do you have a brother?', az: "No, I don't.", from: 'other' }, { en: 'Is this your brother?', az: "No, it isn't.", from: 'other' }, { en: "Who's he?", az: "He's my friend.", from: 'other' }],
+        extra: ["No, I'm not."],
+        variants: [
+          pick('Do you have a brother?', "Do ilə suala No, I don't. cavab verilir.", ex("Do you have a brother? — No, I don't.", 'Sual Do ilə başlayıb — cavabda da do gəlir.', "Do you have a brother? — No, I don't.; Is this your brother? — No, it isn't.", 'Do you have a sister? — Yes, I do.')),
+          other('Bir cavab yerində deyil.', ex("Do you have a brother? — No, I don't.; Is this your brother? — No, it isn't.; Who's he? — He's my friend.", 'Do ilə suala do, Is ilə suala is, Who ilə suala kim olduğu.', "Do you have a brother? — No, I don't.; Is this your brother? — No, it isn't.", "Who's he? — He's my brother.")),
+        ],
+      },
+    },
+  ],
   result: {
     done: ['Dərs 5 tamamlandı', 'Artıq ailəndə kimin olub-olmadığını deyir və soruşa bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'I have cümləsini və düz sualı tanımaq', tasks: ['u4d5_c03', 'u4d5_c05', 'u4d5_c09', 'u4d5_c11'] },
+      { group: 'Tanıma', text: 'I have cümləsini və düz sualı tanımaq', tasks: ['u4d5_c03', 'u4d5_c09'] },
       { group: 'Yazı', text: 'Var və yoxdur demək, Do ilə soruşmaq', tasks: ['u4d5_c07', 'u4d5_c12', 'u4d5_c13'] },
       { group: 'Danışıq', text: 'Do you have…? sualına cavab vermək', tasks: ['u4d5_c10'] },
     ],
@@ -202,7 +197,7 @@ export const lesson5: DesignLesson = {
   vocabulary: [
     { word: 'I have', translation: 'mənim var', example: 'I have a son.', exampleAz: 'Mənim oğlum var.', usageNote: '“var” əvvəldə gəlir: I have.', pronunciation: '/aɪ hæv/', teachCard: 'u4d5_c02' },
     { word: 'a brother · a sister', translation: 'qardaş · bacı (bir nəfər)', example: 'I have a brother and a sister.', exampleAz: 'Mənim bir qardaşım və bir bacım var.', usageNote: 'Bir nəfər üçün qabağında a.', pronunciation: '/ə ˈbrʌðər/ · /ə ˈsɪstər/', teachCard: 'u4d5_c04' },
-    { word: "I don't have", translation: 'mənim yoxdur', example: "I have a sister, but I don't have a brother.", exampleAz: 'Mənim bacım var, amma qardaşım yoxdur.', usageNote: "have-dən əvvəl don't.", pronunciation: '/aɪ doʊnt hæv/', teachCard: 'u4d5_c06' },
+    { word: "I don't have", translation: 'mənim yoxdur', example: "I have a sister, but I don't have a brother.", exampleAz: 'Mənim bacım var, amma qardaşım yoxdur.', usageNote: "have-dən əvvəl don't.", pronunciation: '/aɪ doʊnt hæv/', teachCard: 'u4d5_c02' },
     { word: 'Do you have a brother?', translation: 'Qardaşın var?', example: 'Do you have a brother? — Yes, I do.', exampleAz: 'Qardaşın var? — Bəli, var.', usageNote: 'Sualı Do başlayır.', pronunciation: '/du ju hæv ə ˈbrʌðər/', teachCard: 'u4d5_c08' },
   ],
 };

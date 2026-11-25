@@ -4,7 +4,7 @@ Bölmə 4 · Ailə və insanlar. Bu sənəd `src/data/unit4/lesson2b.ts`-dən ya
 
 ## Giriş — Giriş
 
-Xarici dost albomun ikinci səhifəsini açır. Orada daha geniş ailə var.
+Dostun albomun ikinci səhifəsini açır. Orada daha geniş ailə var.
 
 - Ailənin yeni üzvlərini eşidib başa düşürəm.
 - Ata-ananı, nənə-babanı, oğul və qızı adlandıra bilirəm.
@@ -36,7 +36,7 @@ Diqqət et: Azərbaycancada “-dadır” sonda gəlir. İngiliscə are və in a
 
 ## Kart 4 — Seç: Dinlə və anla
 
-**Tapşırıq:** Xarici dost albomun ikinci səhifəsində bir şəkil göstərir. O nə deyir?  
+**Tapşırıq:** Dostun albomun ikinci səhifəsində bir şəkil göstərir. O nə deyir?  
 **Səs:** My parents are in Ganja.  
 **Seçimlər:** Ata-anasının Gəncədə olduğunu deyir. / Özünün Gəncədə olduğunu deyir. / Ata-anasının Gəncədən olduğunu deyir. — **düzgün:** Ata-anasının Gəncədə olduğunu deyir.  
 **İpucu:** Cümlənin əvvəlindəki sözə və sonundakı şəhərə qulaq as.  
@@ -56,17 +56,17 @@ Diqqət et: Azərbaycancada “-dadır” sonda gəlir. İngiliscə are və in a
 
 ## Kart 5 — Yeni söz
 
-**grandmother** — nənə
+**grandmother · grandfather** — nənə · baba
 
-Oxunuşu: qrənma**th**ər · IPA: /ˈɡrænˌmʌðər/
+Oxunuşu: qrənma**th**ər · qrənfa**th**ər · IPA: /ˈɡrænˌmʌðər/ · /ˈɡrænˌfɑðər/
 
 Nümunə: **This is my grandmother.** — Bu mənim nənəmdir.
 
-Qeyd: İki hissədən ibarətdir: grand + mother. Bir söz kimi yazılır.
+Qeyd: İki hissədən ibarətdir: grand + mother, grand + father. Hər biri bir söz kimi yazılır.
 
 ## Kart 6 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Xarici dost səsli mesajda bir söz deyib, yazılışını soruşur. Eşitdiyin sözü yaz.  
+**Tapşırıq:** Eşitdiyin sözü yaz.  
 **Səs:** grandmother  
 **Qəbul:** dəqiq: grandmother  
 **İpucu:** Sözün iki hissəsi var: biri sənin Dərs 2a-dan bildiyin söz.  
@@ -76,7 +76,7 @@ Qeyd: İki hissədən ibarətdir: grand + mother. Bir söz kimi yazılır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Telefonda dostun bir söz deyir və soruşur ki, o necə yazılır. Eşitdiyin sözü yaz.  
+**Tapşırıq:** Eşitdiyin sözü yaz.  
 **Səs:** grandmother  
 **Qəbul:** dəqiq: grandmother  
 **İpucu:** Telefonda eşitdiyin uzun sözü iki hissəyə böl və hər hissəni ayrıca yaz.  
@@ -84,20 +84,10 @@ Qeyd: İki hissədən ibarətdir: grand + mother. Bir söz kimi yazılır.
 - *İzah (başqa səhvdə):* Bir söz kimi yaz: grandmother. — Uyğun: grandmother. Səbəb: Söz iki hissədən qurulub, amma boşluqsuz yazılır: grand + mother. Qayda: grandmother — düzdür; ayrı-ayrı yazmaq — olmur. Nümunə: This is my grandmother.  
 - *İzah (başqa səhvdə):* Eşitdiyin söz: grandmother. — Uyğun: grandmother. Səbəb: Eşitdiyin sözü yaz: grand + mother, boşluqsuz. Qayda: grandmother — nənə; mother — ana. Nümunə: This is my grandmother.  
 
-## Kart 7 — Yeni söz
+## Kart 7 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**grandfather** — baba
-
-Oxunuşu: qrənfa**th**ər · IPA: /ˈɡrænˌfɑðər/
-
-Nümunə: **This is my grandfather.** — Bu mənim babamdır.
-
-Qeyd: grand + father: grandmother kimi bir söz yazılır.
-
-## Kart 8 — Mesaj yaz (sözlərdən): Mesaj yaz
-
-**Tapşırıq:** Xarici dost öz nənəsindən yazır və sənin nənəni soruşur. Nənən Gəncədədir. Sözlərdən cavab qur.  
-**Yazışma (Xarici dost):** “My grandmother is in London. And your grandmother?”  
+**Tapşırıq:** Nənən Gəncədədir. Sözlərdən cavab qur.  
+**Yazışma (Dostun):** “My grandmother is in London. And your grandmother?”  
 **Sözlər:** My · grandmother · is · in · Ganja · . · are · from  
 **Qəbul:** dəqiq: My grandmother is in Ganja.  
 **İpucu:** Əvvəl kimin nənəsi olduğunu de, şəhər cümlənin sonunda gəlir.  
@@ -108,7 +98,7 @@ Qeyd: grand + father: grandmother kimi bir söz yazılır.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İş yoldaşı öz nənəsindən yazır və sənin nənəni soruşur. Nənən Gəncədədir. Sözlərdən cavab qur.  
+**Tapşırıq:** Nənən Gəncədədir. Sözlərdən cavab qur.  
 **Yazışma (İş yoldaşı):** “My grandmother is in Baku. And your grandmother?”  
 **Sözlər:** is · Ganja · My · in · grandmother · . · from · are  
 **Qəbul:** dəqiq: My grandmother is in Ganja.  
@@ -118,20 +108,20 @@ Qeyd: grand + father: grandmother kimi bir söz yazılır.
 - *İzah (başqa səhvdə):* Bir nəfər üçün is gəlir. — Uyğun: My grandmother is in Ganja. Səbəb: Nənə bir nəfərdir: My grandmother is. Ata-ana iki nəfərdir: My parents are. Qayda: My grandmother is in Ganja. — bir nəfər; My parents are in Baku. — iki nəfər. Nümunə: My mother is in Baku.  
 - *İzah (başqa səhvdə):* Sıra: My grandmother is in Ganja. — Uyğun: My grandmother is in Ganja. Səbəb: Əvvəl My grandmother, sonra is in və şəhər. Qayda: My grandmother is in Ganja. — nənəm Gəncədədir. Nümunə: My mother is in Baku.  
 
-## Kart 9 — Yeni söz
+## Kart 8 — Yeni söz
 
-**son** — oğul
+**son · daughter** — oğul · qız (övlad)
 
-Oxunuşu: san · IPA: /sʌn/
+Oxunuşu: san · dotər · IPA: /sʌn/ · /ˈdɔtər/
 
 Nümunə: **This is my son.** — Bu mənim oğlumdur.
 
-Qeyd: Yazılışı son, oxunuşu “san”: o hərfi “a” kimi oxunur.
+Qeyd: son — “san”: o hərfi “a” kimi oxunur. daughter — “dotər”: yazılışdakı gh səssizdir.
 
-## Kart 10 — undefined: Söz sürüklə
+## Kart 9 — undefined: Söz sürüklə
 
-**Tapşırıq:** Xarici dost albomun ikinci səhifəsində iki şəkil göstərir. Dinlə və hər adamın altına sözü qoy.  
-**Səs:** Xarici dost: This is my grandfather. This is my son.  
+**Tapşırıq:** Dostun albomun ikinci səhifəsində iki şəkil göstərir. Dinlə və hər adamın altına sözü qoy.  
+**Səs:** This is my grandfather. This is my son.  
 **İpucu:** Səsdə iki cümlə var: birinci cümlə birinci adam üçündür.  
 **Düzgün olanda:** grandfather — baba, son — oğul: hər sözü eşitdiyin adamın altına qoydun.  
 - *İzah (“grandmother” seçiləndə):* Birinci cümlədə grandmother yox, grandfather deyilir. — Uyğun: grandfather. Səbəb: Sözün sonuna qulaq as: father — kişi, baba. Qayda: grandfather — baba; grandmother — nənə. Nümunə: This is my grandfather.  
@@ -148,19 +138,9 @@ Qeyd: Yazılışı son, oxunuşu “san”: o hərfi “a” kimi oxunur.
 - *İzah (“son” seçiləndə):* Birinci cümlədə grandmother deyilir. — Uyğun: grandmother. Səbəb: Birinci cümlə This is my grandmother ilə bitir — nənə. Qayda: grandmother — nənə; son — oğul. Nümunə: This is my grandmother.  
 - *İzah (başqa səhvdə):* Sözlərin yeri dəyişib. — Uyğun: 1 — grandmother; 2 — daughter. Səbəb: Birinci deyilən söz birinci adamın, ikincisi ikinci adamın altına gedir. Qayda: grandmother — nənə; daughter — qız. Nümunə: This is my daughter.  
 
-## Kart 11 — Yeni söz
+## Kart 10 — Dinlə və təkrarla: Dinlə və təkrarla
 
-**daughter** — qız (övlad)
-
-Oxunuşu: dotər · IPA: /ˈdɔtər/
-
-Nümunə: **This is my daughter.** — Bu mənim qızımdır.
-
-Qeyd: Oxunuşu “dotər”: yazılışdakı gh səssizdir.
-
-## Kart 12 — Dinlə və təkrarla: Dinlə və təkrarla
-
-**Tapşırıq:** Xarici dost qızının şəklini göstərir. Dinlə, sonra eyni cür de.  
+**Tapşırıq:** Dostun qızının şəklini göstərir. Dinlə, sonra eyni cür de.  
 **Səs:** This is my daughter.  
 **Qəbul:** dəqiq: This is my daughter. · öz məlumatı: /^this\s+is\s+my\s+daughter\s*[.!]?$/  
 **İpucu:** Yavaş dinlə: daughter-in ortasındakı gh oxunmur.  
@@ -176,9 +156,9 @@ Qeyd: Oxunuşu “dotər”: yazılışdakı gh səssizdir.
 **Düzgün olanda:** Cümləni dedin: This is my daughter.  
 - *İzah (başqa səhvdə):* This is my daughter. — Uyğun: This is my daughter. Səbəb: Əvvəl This is my, sonra daughter. Qayda: This is my daughter. — qızım; This is my son. — oğlum. Nümunə: This is my daughter.  
 
-## Kart 13 — Səslə cavab: Səslə cavab
+## Kart 11 — Səslə cavab: Səslə cavab
 
-**Tapşırıq:** Xarici dost sənin ailən haqqında maraqlanır. De: ata-anan Bakıdadır.  
+**Tapşırıq:** Dostun sənin ailən haqqında maraqlanır. De: ata-anan Bakıdadır.  
 **Qəbul:** məna:  — nümunə: My parents are in Baku. · öz məlumatı: /^my\s+parents\s+are\s+in\s+\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}\s*[.!]?$/  
 **İpucu:** Bu dərsin ilk söz kartını xatırla, şəhərin adını sona qoy.  
 **Düzgün olanda:** Ata-ananın harada olduğunu dedin: My parents are in + şəhər.  
@@ -196,23 +176,7 @@ Qeyd: Oxunuşu “dotər”: yazılışdakı gh səssizdir.
 - *İzah (başqa səhvdə):* in-dən əvvəl are gəlir. — Uyğun: My parents are in Baku. Səbəb: Azərbaycancada “-dadır” şəkilçidir; ingiliscə are ayrıca söz kimi gəlir. Qayda: My parents are in Baku. — düzdür; My parents in Baku. — olmur. Nümunə: My mother is in Baku.  
 - *İzah (başqa səhvdə):* My parents are in + şəhər. — Uyğun: My parents are in Ganja. Səbəb: Ata-ananı My parents ilə, harada olduqlarını are in və şəhərlə deyirsən. Qayda: My parents are in Ganja. — Gəncədədirlər. Nümunə: My mother is in Baku.  
 
-## Kart 14 — undefined: Ailə ağacı
-
-**Tapşırıq:** Xarici dost albomun ikinci səhifəsində sənin ailə ağacını çəkib. “?” olan yerdə bir qadın var. O kimdir? İngiliscə sözü seç.  
-**İpucu:** Xətlərə bax: “?” ananın üstündə, babanın yanındadır.  
-**Düzgün olanda:** grandmother — nənə: ananın da yuxarısında, babanın yanında.  
-- *İzah (“mother” seçiləndə):* mother ortadadır; “?” ananın da yuxarısındadır. — Uyğun: grandmother. Səbəb: Ananın üstündəki qadın nənəndir: grand + mother. Qayda: grandmother — nənə; mother — ana. Nümunə: This is my grandmother.  
-- *İzah (“daughter” seçiləndə):* daughter səndən aşağıda olardı; “?” ən yuxarıdadır. — Uyğun: grandmother. Səbəb: Ən yuxarı sırada, babanın yanındakı qadın nənəndir. Qayda: grandmother — nənə; daughter — qız. Nümunə: This is my grandmother.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Sən iş yoldaşına öz ailə ağacını göstərirsən. “?” olan yerdə bir oğlan var. O kimdir? İngiliscə sözü seç.  
-**İpucu:** Xətlərə bax: “?” səndən aşağıdadır və oğlandır.  
-**Düzgün olanda:** son — oğul: səndən aşağıda, sənin övladın.  
-- *İzah (“brother” seçiləndə):* Qardaş səninlə eyni sırada olur; “?” səndən aşağıdadır. — Uyğun: son. Səbəb: Səndən aşağıdakı oğlan sənin oğlundur. Qayda: son — oğul; brother — qardaş. Nümunə: This is my son.  
-- *İzah (“grandfather” seçiləndə):* Baba ən yuxarıda olur; “?” səndən aşağıdadır. — Uyğun: son. Səbəb: Səndən aşağıdakı oğlan sənin oğlundur. Qayda: son — oğul; grandfather — baba. Nümunə: This is my son.  
-
-## Kart 15 — Söhbəti sırala: Söhbəti sırala
+## Kart 12 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Albomun ikinci səhifəsi. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Hi! Who's this? → 2. This is my grandfather. He's from Ganja. → 3. Really? And who's this? → 4. This is my daughter.  
@@ -232,7 +196,7 @@ Qeyd: Oxunuşu “dotər”: yazılışdakı gh səssizdir.
 
 Dərs 2 · 2-ci hissə tamamlandı — Artıq daha geniş ailəni adlandırır və ata-ananın harada olduğunu deyirsən.
 
-- Tanıma: Geniş ailə sözlərini eşidib tanımaq, ailə ağacında tapmaq və söhbəti sıralamaq
+- Tanıma: Geniş ailə sözlərini eşidib tanımaq və söhbəti sıralamaq
 - Yazı: Ailə üzvünün harada olduğunu yazmaq
 - Danışıq: Ailə üzvünü təqdim etmək və ata-ananın harada olduğunu demək
 

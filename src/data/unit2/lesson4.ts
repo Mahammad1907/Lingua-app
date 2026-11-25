@@ -21,8 +21,8 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d4_c02', number: 2, scenes: ['u2/word-how-spell'],
-      word: 'How do you spell it?', pronunciation: '/haʊ du ju spel ɪt/', reading: 'hau du yu spel it?', az: 'Hərf-hərf necə yazılır?',
-      notes: ['spell — hərf-hərf demək.'],
+      word: 'How do you spell it? · Can you spell it, please?', pronunciation: '/haʊ du ju spel ɪt/ · /kən ju spel ɪt pliz/', reading: 'hau du yu spel it? · kən yu spel it, pliz?', az: 'Hərf-hərf necə yazılır? · Hərf-hərf deyə bilərsən, zəhmət olmasa?',
+      notes: ['spell — hərf-hərf demək. “Can you spell it, please?” daha nəzakətli xahişdir.'],
       example: 'Ganja? How do you spell it?', exampleAz: 'Gəncə? Hərf-hərf necə yazılır?',
     },
     {
@@ -81,12 +81,6 @@ export const lesson4: DesignLesson = {
         tiles: ['spell', 'How', 'it', 'you', 'do', 'name', 'is', '?'], rule: exact('How do you spell it?'),
         variants: [other('Sıra: How do you spell it?', ex('How do you spell it?', 'How-dan sonra “do” gəlir, sonra you spell it.', 'How do you spell it? — hərf-hərf; What\'s your name? — ad.', 'Shamakhi? How do you spell it?'))],
       },
-    },
-    {
-      type: 'word', id: 'u2d4_c08', number: 8, scenes: ['u2/word-can-spell'],
-      word: 'Can you spell it, please?', pronunciation: '/kən ju spel ɪt pliz/', reading: 'kən yu spel it, pliz?', az: 'Hərf-hərf deyə bilərsən, zəhmət olmasa?',
-      notes: ['Daha nəzakətli xahişdir.'],
-      example: 'Lankaran? Can you spell it, please?', exampleAz: 'Lənkəran? Hərf-hərf deyə bilərsən, zəhmət olmasa?',
     },
     {
       type: 'voice', id: 'u2d4_c09', number: 9, title: 'Adını hərf-hərf de', why: 'Adını hərf-hərf dedin.', hint: 'Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.',
@@ -172,6 +166,6 @@ export const lesson4: DesignLesson = {
     { word: 'How do you spell it?', translation: 'Hərf-hərf necə yazılır?', example: 'Ganja? How do you spell it?', exampleAz: 'Gəncə? Hərf-hərf necə yazılır?', usageNote: 'spell — hərf-hərf demək.', pronunciation: '/haʊ du ju spel ɪt/', teachCard: 'u2d4_c02' },
     { word: "It's B-A-K-U.", translation: 'B-A-K-U-dur.', example: "How do you spell it? — It's B-A-K-U.", exampleAz: 'Hərf-hərf necə yazılır? — B-A-K-U.', usageNote: "It's + hərflər.", pronunciation: '/ɪts bi eɪ keɪ ju/', teachCard: 'u2d4_c04' },
     { word: 'double', translation: 'qoşa', example: 'Hello — H-E-double L-O.', exampleAz: 'Hello — H-E-qoşa L-O.', usageNote: 'İki eyni hərf: double L.', pronunciation: '/ˈdʌbəl/', teachCard: 'u2d4_c06' },
-    { word: 'Can you spell it, please?', translation: 'Hərf-hərf deyə bilərsən, zəhmət olmasa?', example: 'Lankaran? Can you spell it, please?', exampleAz: 'Lənkəran? Hərf-hərf deyə bilərsən, zəhmət olmasa?', usageNote: 'Nəzakətli xahiş.', pronunciation: '/kən ju spel ɪt pliz/', teachCard: 'u2d4_c08' },
+    { word: 'Can you spell it, please?', translation: 'Hərf-hərf deyə bilərsən, zəhmət olmasa?', example: 'Lankaran? Can you spell it, please?', exampleAz: 'Lənkəran? Hərf-hərf deyə bilərsən, zəhmət olmasa?', usageNote: 'Nəzakətli xahiş.', pronunciation: '/kən ju spel ɪt pliz/', teachCard: 'u2d4_c02' },
   ],
 };

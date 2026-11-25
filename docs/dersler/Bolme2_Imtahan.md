@@ -12,7 +12,7 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 ## Kart 2 — Nömrəni yığ: Nömrəni yığ
 
-**Tapşırıq:** Oteldə resepsiya restoranın daxili nömrəsini deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** Four, nine, zero, seven.  
 **Qəbul:** dəqiq: 4907  
 **Düzgün olanda:** four, nine, zero, seven — 4907.  
@@ -48,7 +48,7 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 ## Kart 6 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Hava limanında elan uçuşun şəhər kodunu deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
 **Səs:** J, F, K.  
 **Hərflər:** J F K G E Y  
 **Qəbul:** dəqiq: JFK  
@@ -57,7 +57,7 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 ## Kart 7 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Hava limanında qeydiyyatçı uçuşun şəhərini hərf-hərf deyir. Şəhərin adını yaz.  
+**Tapşırıq:** Şəhərin adını yaz.  
 **Səs:** It's T-A-double L-I-double N.  
 **Qəbul:** dəqiq: Tallinn  
 **Düzgün olanda:** T-A-double L-I-double N — Tallinn.  
@@ -73,7 +73,7 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 ## Kart 9 — Nömrəni yığ: Nömrəni yığ
 
-**Tapşırıq:** Kurs yoldaşın nömrəsini deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** It's oh seven seven, three oh two, one five, nine nine.  
 **Qəbul:** dəqiq: 0773021599  
 **Düzgün olanda:** oh — sıfır; nömrəni rəqəm-rəqəm yığdın.  
@@ -124,7 +124,7 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 ## Kart 15 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Qeydiyyatçı kurs müəlliminin e-poçtunu deyir. Ünvanı yaz.  
+**Tapşırıq:** E-poçt ünvanını yaz.  
 **Səs:** It's A-L-I-Y-E-V-A at mail dot com.  
 **Qəbul:** dəqiq: aliyeva@mail.com  
 **Düzgün olanda:** aliyeva@mail.com — hərflər, @ və nöqtə.  

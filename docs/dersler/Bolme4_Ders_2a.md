@@ -4,7 +4,7 @@ Bölmə 4 · Ailə və insanlar. Bu sənəd `src/data/unit4/lesson2a.ts`-dən ya
 
 ## Giriş — Giriş
 
-Xarici dost ailə şəkillərini göstərir. Şəkildəki ailə üzvlərini adlandırırsan.
+Dostun ailə şəkillərini göstərir. Şəkildəki ailə üzvlərini adlandırırsan.
 
 - Ailə şəkli haqqında eşitdiyimi başa düşürəm.
 - Ailə üzvlərini adlandıra bilirəm.
@@ -22,7 +22,7 @@ Qeyd: Üç hecadır: fə-mə-li. Vurğu birinci hecadadır.
 
 ## Kart 3 — Seç: Dinlə və anla
 
-**Tapşırıq:** Xarici dost ailə albomunu açır və bir şəkli göstərir. O nə deyir?  
+**Tapşırıq:** Dostun ailə albomunu açır və bir şəkli göstərir. O nə deyir?  
 **Səs:** Hi! This is my family.  
 **Seçimlər:** Ailəsini göstərir. / Dostunu göstərir. / Adını deyir. — **düzgün:** Ailəsini göstərir.  
 **İpucu:** Cümlənin sonundakı sözə qulaq as.  
@@ -42,13 +42,13 @@ Qeyd: Üç hecadır: fə-mə-li. Vurğu birinci hecadadır.
 
 ## Kart 4 — Yeni söz
 
-**mother** — ana
+**mother · father** — ana · ata
 
-Oxunuşu: ma**th**ər · IPA: /ˈmʌðər/
+Oxunuşu: ma**th**ər · fa**th**ər · IPA: /ˈmʌðər/ · /ˈfɑðər/
 
 Nümunə: **This is my mother.** — Bu mənim anamdır.
 
-Qeyd: Yazılışı mother, oxunuşu “ma**th**ər”: o hərfi “a” kimi oxunur, th dil dişlərin arasındadır.
+Qeyd: mother — “ma**th**ər” (o hərfi “a” kimi), father — “fa**th**ər”. th: dil dişlərin arasındadır.
 
 ## Kart 5 — Müəllim izahı
 
@@ -65,8 +65,8 @@ Diqqət et: my atma: This is mother olmur. De: This is my mother.
 
 ## Kart 6 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**Tapşırıq:** Sən xarici dosta çatda ailə şəklini göndərdin. Xarici dost soruşur. Sözlərdən cavab qur: “Bu mənim anamdır.”  
-**Yazışma (Xarici dost):** “Who's this?”  
+**Tapşırıq:** Şəkildə anan var. Sözlərdən cavab qur.  
+**Yazışma (Dostun):** “Who's this?”  
 **Sözlər:** This · is · my · mother · . · are · I'm  
 **Qəbul:** dəqiq: This is my mother.  
 **İpucu:** Dərs 1-dəki təqdim cümləsi kimi qur, ailə sözü sonda gəlir.  
@@ -76,7 +76,7 @@ Diqqət et: my atma: This is mother olmur. De: This is my mother.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qonşun çatda sənin ailə şəklini görüb soruşur. Şəkildə anan var. Sözlərdən cavab qur: “Bu mənim anamdır.”  
+**Tapşırıq:** Şəkildə anan var. Sözlərdən cavab qur.  
 **Yazışma (Qonşu):** “Who's this?”  
 **Sözlər:** my · This · mother · is · . · I · are  
 **Qəbul:** dəqiq: This is my mother.  
@@ -85,19 +85,9 @@ Diqqət et: my atma: This is mother olmur. De: This is my mother.
 - *İzah (başqa səhvdə):* mother-dən əvvəl my lazımdır. — Uyğun: This is my mother. Səbəb: Azərbaycancada “anam” bir sözdür; ingiliscə “mənim” ayrıca gəlir: my. Qayda: This is my mother. — düzdür; This is mother. — olmur. Nümunə: This is my mother.  
 - *İzah (başqa səhvdə):* Sıra: This is my mother. — Uyğun: This is my mother. Səbəb: Əvvəl This is, sonra my mother. Qayda: This is my mother. — ana; This is my friend. — dost. Nümunə: This is my mother.  
 
-## Kart 7 — Yeni söz
+## Kart 7 — Dinlə və təkrarla: Dinlə və təkrarla
 
-**father** — ata
-
-Oxunuşu: fa**th**ər · IPA: /ˈfɑðər/
-
-Nümunə: **This is my father.** — Bu mənim atamdır.
-
-Qeyd: Oxunuşu “fa**th**ər”: yazılışdakı a-dan sonra th gəlir, dil dişlərin arasında.
-
-## Kart 8 — Dinlə və təkrarla: Dinlə və təkrarla
-
-**Tapşırıq:** Xarici dost atasının şəklini göstərir. Dinlə, sonra eyni cür de.  
+**Tapşırıq:** Dostun atasının şəklini göstərir. Dinlə, sonra eyni cür de.  
 **Səs:** This is my father.  
 **Qəbul:** dəqiq: This is my father. · öz məlumatı: /^this\s+is\s+my\s+father\s*[.!]?$/  
 **İpucu:** Əvvəl yavaş dinlə, sonra cümləni iki hissədə de.  
@@ -113,17 +103,17 @@ Qeyd: Oxunuşu “fa**th**ər”: yazılışdakı a-dan sonra th gəlir, dil di�
 **Düzgün olanda:** Cümləni dedin: This is my father.  
 - *İzah (başqa səhvdə):* This is my father. — Uyğun: This is my father. Səbəb: Əvvəl This is, sonra my və father. Qayda: This is my father. — ata; This is my mother. — ana. Nümunə: This is my father.  
 
-## Kart 9 — Yeni söz
+## Kart 8 — Yeni söz
 
-**brother** — qardaş
+**brother · sister** — qardaş · bacı
 
-Oxunuşu: bra**th**ər · IPA: /ˈbrʌðər/
+Oxunuşu: bra**th**ər · sistər · IPA: /ˈbrʌðər/ · /ˈsɪstər/
 
 Nümunə: **This is my brother.** — Bu mənim qardaşımdır.
 
-Qeyd: Oxunuşu “bra**th**ər”: o hərfi “a” kimi, th dil dişlərin arasında.
+Qeyd: brother — “bra**th**ər”: o hərfi “a” kimi, th dil dişlərin arasında. sister — sonda “ər”: sistər, “sistar” yox.
 
-## Kart 10 — Kim nə dedi?: Kim nə dedi?
+## Kart 9 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Albomun səhifəsində üç cümlə var. Hər cümləni mənasına uyğun gətir.  
 **Cütlər:** This is my mother. — Bu mənim anamdır.; This is my father. — Bu mənim atamdır.; This is my brother. — Bu mənim qardaşımdır. · artıq: Bu mənim dostumdur.  
@@ -133,61 +123,15 @@ Qeyd: Oxunuşu “bra**th**ər”: o hərfi “a” kimi, th dil dişlərin aras
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Video zəngdə xarici dost yeni şəkillər göstərir. Hər cümləni mənasına uyğun gətir.  
+**Tapşırıq:** Video zəngdə dostun yeni şəkillər göstərir. Hər cümləni mənasına uyğun gətir.  
 **Cütlər:** This is my brother. — Bu mənim qardaşımdır.; This is my mother. — Bu mənim anamdır.; This is my father. — Bu mənim atamdır. · artıq: Bu mənim ailəmdir.  
 **İpucu:** Cümlənin sonundakı ailə sözünə fikir ver.  
 **Düzgün olanda:** Hər cümlənin mənasını tapdın.  
 - *İzah (başqa səhvdə):* Bir məna yerində deyil. — Uyğun: This is my brother. — qardaşım; This is my mother. — anam; This is my father. — atam. Səbəb: Cümlənin sonundakı söz kimin olduğunu göstərir: brother, mother, father. Qayda: This is my mother. — ana; This is my father. — ata. Nümunə: This is my brother.  
 
-## Kart 11 — Yeni söz
+## Kart 10 — Səslə cavab: Səslə cavab
 
-**sister** — bacı
-
-Oxunuşu: sistər · IPA: /ˈsɪstər/
-
-Nümunə: **This is my sister.** — Bu mənim bacımdır.
-
-Qeyd: Sonda “ər” kimi oxunur: sistər, “sistar” yox.
-
-## Kart 12 — undefined: Ailə ağacı
-
-**Tapşırıq:** Xarici dost sənin ailə ağacını çəkir. “?” olan yerdə bir qız var. O kimdir? İngiliscə sözü seç.  
-**İpucu:** Yuxarı sırada ata-ana var; aşağı sırada səninlə yanaşı kim dayanır?  
-**Düzgün olanda:** sister — bacı: ata-ananın qızıdır, səninlə eyni sıradadır.  
-- *İzah (“brother” seçiləndə):* brother qardaşdır; “?” olan isə qızdır. — Uyğun: sister. Səbəb: Səninlə eyni sırada olan qız bacındır. Qayda: sister — bacı; brother — qardaş. Nümunə: This is my sister.  
-- *İzah (“mother” seçiləndə):* Ana yuxarı sıradadır; “?” səninlə eyni sıradadır. — Uyğun: sister. Səbəb: mother artıq yuxarıdadır; aşağı sıradakı qız bacındır. Qayda: sister — bacı; mother — ana. Nümunə: This is my sister.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Qonşunun uşağı sənin ailə ağacına baxır. “?” olan yerdə bir kişi var. O kimdir? İngiliscə sözü seç.  
-**İpucu:** Yuxarı sıra ata-anadır; “?” orada kişidir.  
-**Düzgün olanda:** father — ata: yuxarı sırada, ananın yanındakı kişi.  
-- *İzah (“brother” seçiləndə):* Qardaş aşağı sırada, səninlə yanaşı olur. — Uyğun: father. Səbəb: Yuxarı sırada ananın yanındakı kişi atandır. Qayda: father — ata; brother — qardaş. Nümunə: This is my father.  
-- *İzah (“sister” seçiləndə):* sister bacıdır; “?” olan isə kişidir. — Uyğun: father. Səbəb: Yuxarı sıradakı kişi atandır. Qayda: father — ata; sister — bacı. Nümunə: This is my father.  
-
-## Kart 13 — Sözü tamamla: Sözü tamamla
-
-**Tapşırıq:** Xarici dost albomundakı şəkildə öz bacısını göstərir. Hansı söz çatmır?  
-**Cümlə:** Hello! This is ___ sister.  
-**Seçimlər:** my / me / I — **düzgün:** my  
-**İpucu:** “Mənim” deyən söz Bölmə 1-də “adım” cümləsində var.  
-**Düzgün olanda:** Ailə üzvündən əvvəl “mənim” — my gəlir.  
-- *İzah (“me” seçiləndə):* me “mən” mənasındadır, “mənim” deyil. — Uyğun: my. Səbəb: Ailə üzvündən əvvəl “mənim” mənasında my gəlir. Qayda: my sister — mənim bacım; Me too. — mən də. Nümunə: This is my sister.  
-- *İzah (“I” seçiləndə):* I “mən” deməkdir, “mənim” deyil. — Uyğun: my. Səbəb: Ailə üzvündən əvvəl “mənim” mənasında my gəlir. Qayda: my sister — mənim bacım; I'm Tom. — mən Tomam. Nümunə: This is my sister.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Ofisdə iş yoldaşına telefonundakı şəkli göstərirsən. Şəkildə sənin qardaşın var. Hansı söz çatmır?  
-**Cümlə:** Hi! This is ___ brother.  
-**Seçimlər:** I / my / me — **düzgün:** my  
-**İpucu:** Şəkildəki qardaş sənindir — Dərs 1-dəki “mənim dostum” ifadəsini xatırla.  
-**Düzgün olanda:** Ailə üzvündən əvvəl “mənim” — my gəlir.  
-- *İzah (“me” seçiləndə):* me “mən” mənasındadır, “mənim” deyil. — Uyğun: my. Səbəb: Ailə üzvündən əvvəl “mənim” mənasında my gəlir. Qayda: my brother — mənim qardaşım; Me too. — mən də. Nümunə: This is my brother.  
-- *İzah (“I” seçiləndə):* I “mən” deməkdir, “mənim” deyil. — Uyğun: my. Səbəb: Ailə üzvündən əvvəl “mənim” mənasında my gəlir. Qayda: my brother — mənim qardaşım; I'm Tom. — mən Tomam. Nümunə: This is my brother.  
-
-## Kart 14 — Səslə cavab: Səslə cavab
-
-**Tapşırıq:** Xarici dost şəkildəki qızı göstərib soruşur. Bu qız sənin bacındır. Cavab ver.  
+**Tapşırıq:** Dostun şəkildəki qızı göstərib soruşur. Bu qız sənin bacındır. Cavab ver.  
 **Səs:** Who's this?  
 **Qəbul:** dəqiq: This is my sister. · öz məlumatı: /^(?:this\s+is|she(?:'s|\s+is))\s+my\s+sister\s*[.!]?$/  
 **İpucu:** Bacını Dərs 1-dəki təqdim cümləsi ilə göstər, sonda ailə sözünü de.  
@@ -205,7 +149,7 @@ Qeyd: Sonda “ər” kimi oxunur: sistər, “sistar” yox.
 - *İzah (başqa səhvdə):* sister-dən əvvəl my lazımdır. — Uyğun: This is my sister. Səbəb: Azərbaycancada “bacım” bir sözdür; ingiliscə “mənim” ayrıca gəlir: my. Qayda: This is my sister. — düzdür; This is sister. — olmur. Nümunə: This is my sister.  
 - *İzah (başqa səhvdə):* This is my sister. — Uyğun: This is my sister. Səbəb: Ailə üzvünü This is my və onun adı ilə deyirsən. Qayda: This is my mother. — ana; This is my friend. — dost. Nümunə: Who's this? — This is my friend.  
 
-## Kart 15 — Söhbəti sırala: Söhbəti sırala
+## Kart 11 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Albomun səhifəsi. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Hi! Who's this? → 2. This is my mother. → 3. And who's this? → 4. This is my sister.  
@@ -225,7 +169,7 @@ Qeyd: Sonda “ər” kimi oxunur: sistər, “sistar” yox.
 
 Dərs 2 · 1-ci hissə tamamlandı — Artıq ailə üzvlərini adlandırır və şəkildəkinin kim olduğunu deyirsən.
 
-- Tanıma: Ailə üzvlərini eşidib tanımaq, ailə ağacında tapmaq və söhbəti sıralamaq
+- Tanıma: Ailə üzvlərini eşidib tanımaq və söhbəti sıralamaq
 - Yazı: Ailə üzvünü təqdim edən cümlə qurmaq
 - Danışıq: Ailə üzvünü təqdim etmək
 

@@ -25,17 +25,6 @@ export const lesson7: DesignLesson = {
       ],
     },
     {
-      type: 'choice', id: 'd7_c02', number: 2, title: 'Dinlə və anla', why: 'Halını dedi və “And you?” ilə soruşdu.', hint: 'Cümlənin iki hissəsinə ayrıca qulaq as.',
-      prompt: 'Qızın cavabını dinlə.\nO nə edir?', audio: "I'm fine, thanks. And you?",
-      options: ['Adını soruşur.', 'Halını deyib səni soruşur.', 'Üzr istəyir.'], answer: 'Halını deyib səni soruşur.',
-      variants: [other('“fine” və “And you?” sözlərinə qulaq as.', ex('Halını deyib səni soruşur.', '“I’m fine, thanks” — halı; “And you?” — sualı geri qaytarır.', 'Halın + And you?', "I'm fine, thanks. And you?"))],
-      review: {
-        title: 'Dinlə və anla', why: 'Salam deyib adını soruşdu.', hint: 'Cümlənin iki hissəsinə ayrıca qulaq as.', prompt: 'Oğlanın sözlərini dinlə.\nO nə edir?', audio: "Hi! What's your name?",
-        options: ['Üzr istəyir.', 'Təşəkkür edir.', 'Salam deyib adını soruşur.'], answer: 'Salam deyib adını soruşur.',
-        variants: [other('Səsdə “Hi” və ad sualı var.', ex('Salam deyib adını soruşur.', '“Hi” salamdır, “What’s your name?” ad sualıdır.', 'Hi + ad sualı.', "Hi! What's your name?"))],
-      },
-    },
-    {
       type: 'word', id: 'd7_c03', number: 3, scenes: ['d7/word-dont-understand'],
       shortForm: { full: "do not", short: "don't" },
       word: "Sorry? I don't understand.", pronunciation: '/ˈsɑri aɪ doʊnt ˌʌndərˈstænd/', reading: 'sari? ay dount andərstənd', az: 'Bağışlayın? Başa düşmürəm.',
@@ -76,17 +65,6 @@ export const lesson7: DesignLesson = {
         rows: [{ en: 'Say that again, please.', az: 'Bunu bir daha deyin, zəhmət olmasa.', from: 'B' }, { en: 'No problem.', az: 'Eybi yox.', from: 'G' }, { en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'M' }],
         extra: ['Necəsən?'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Say that again, please. — Bunu bir daha deyin, zəhmət olmasa.; No problem. — Eybi yox.; Thank you! — Təşəkkür edirəm!', 'Xahiş, üzrə cavab və təşəkkür fərqlidir.', 'Say that again, please — xahiş; No problem. — üzrə cavab.', 'Say that again, please.'))],
-      },
-    },
-    {
-      type: 'voice', id: 'd7_c07', number: 7, title: 'Dinlə və təkrarla', why: 'Vurğu düzgün yerdə idi.',
-      prompt: 'Dinlə, sonra eyni cür de.', audio: "I don't understand.", repeat: { stress: 'understand', note: 'Vurğu sondadır: under-STAND.', reading: 'ay dount andərstənd' },
-      rule: exact("I don't understand"),
-      variants: [other('Bir daha dinlə və yavaş de.', ex("I don't understand.", '“don’t” bir hecadır, “understand”də vurğu sonda.', 'under-STAND.', "I don't underSTAND."))],
-      review: {
-        title: 'Dinlə və təkrarla', why: 'Vurğu düzgün yerdə idi.', prompt: 'Dinlə, sonra eyni cür de.', audio: 'Say that again, please.', repeat: { stress: 'again', note: '“again”də vurğu ikinci hecadadır: a-GAIN.', reading: 'sey thət əgen, pliz' },
-        rule: exact('Say that again please', 'Again please'),
-        variants: [other('Bir daha dinlə və yavaş de.', ex('Say that again, please.', 'Birinci heca zəif, ikinci güclü.', 'a-GAIN.', 'Say that again, please.'))],
       },
     },
     {
@@ -154,11 +132,36 @@ export const lesson7: DesignLesson = {
       },
     },
   ],
+  // Practice moved out of the lesson (26 Nov 2026, lessons 10–12 screens): it comes back in the daily review.
+  pool: [
+    {
+      type: 'choice', id: 'd7_c02', number: 2, title: 'Dinlə və anla', why: 'Halını dedi və “And you?” ilə soruşdu.', hint: 'Cümlənin iki hissəsinə ayrıca qulaq as.',
+      prompt: 'Qızın cavabını dinlə.\nO nə edir?', audio: "I'm fine, thanks. And you?",
+      options: ['Adını soruşur.', 'Halını deyib səni soruşur.', 'Üzr istəyir.'], answer: 'Halını deyib səni soruşur.',
+      variants: [other('“fine” və “And you?” sözlərinə qulaq as.', ex('Halını deyib səni soruşur.', '“I’m fine, thanks” — halı; “And you?” — sualı geri qaytarır.', 'Halın + And you?', "I'm fine, thanks. And you?"))],
+      review: {
+        title: 'Dinlə və anla', why: 'Salam deyib adını soruşdu.', hint: 'Cümlənin iki hissəsinə ayrıca qulaq as.', prompt: 'Oğlanın sözlərini dinlə.\nO nə edir?', audio: "Hi! What's your name?",
+        options: ['Üzr istəyir.', 'Təşəkkür edir.', 'Salam deyib adını soruşur.'], answer: 'Salam deyib adını soruşur.',
+        variants: [other('Səsdə “Hi” və ad sualı var.', ex('Salam deyib adını soruşur.', '“Hi” salamdır, “What’s your name?” ad sualıdır.', 'Hi + ad sualı.', "Hi! What's your name?"))],
+      },
+    },
+    {
+      type: 'voice', id: 'd7_c07', number: 7, title: 'Dinlə və təkrarla', why: 'Vurğu düzgün yerdə idi.',
+      prompt: 'Dinlə, sonra eyni cür de.', audio: "I don't understand.", repeat: { stress: 'understand', note: 'Vurğu sondadır: under-STAND.', reading: 'ay dount andərstənd' },
+      rule: exact("I don't understand"),
+      variants: [other('Bir daha dinlə və yavaş de.', ex("I don't understand.", '“don’t” bir hecadır, “understand”də vurğu sonda.', 'under-STAND.', "I don't underSTAND."))],
+      review: {
+        title: 'Dinlə və təkrarla', why: 'Vurğu düzgün yerdə idi.', prompt: 'Dinlə, sonra eyni cür de.', audio: 'Say that again, please.', repeat: { stress: 'again', note: '“again”də vurğu ikinci hecadadır: a-GAIN.', reading: 'sey thət əgen, pliz' },
+        rule: exact('Say that again please', 'Again please'),
+        variants: [other('Bir daha dinlə və yavaş de.', ex('Say that again, please.', 'Birinci heca zəif, ikinci güclü.', 'a-GAIN.', 'Say that again, please.'))],
+      },
+    },
+  ],
   result: {
     done: ['Dərs 7 tamamlandı', 'Artıq başa düşmədiyini deyib kömək istəyə bilirsən.'],
     incomplete: 'Dərs tam bitmədi. Yoxlanmayan tapşırıqlara sonra qayıda bilərsən.',
     goals: [
-      { group: 'Tanıma', text: 'Təkrar və yavaş xahişlərini anlamaq', tasks: ['d7_c09', 'd7_c02', 'd7_c05', 'd7_c06', 'd7_c08'] },
+      { group: 'Tanıma', text: 'Təkrar və yavaş xahişlərini anlamaq', tasks: ['d7_c09', 'd7_c05', 'd7_c06', 'd7_c08'] },
       { group: 'Yazı', text: 'Yavaş danışmağı yazıyla xahiş etmək', tasks: ['d7_c10'] },
       { group: 'Danışıq', text: 'Təkrar və yavaş danışmağı istəmək', tasks: ['d7_c11', 'd7_c12', 'd7_c13'] },
     ],

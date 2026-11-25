@@ -4,7 +4,7 @@ Bölmə 4 · Ailə və insanlar. Bu sənəd `src/data/unit4/lesson1.ts`-dən yar
 
 ## Giriş — Giriş
 
-Xarici dost sənə evinin qapısını açır və ailə albomunu göstərir. Dostunu təqdim edir, kim olduğunu soruşursan.
+Dostun sənə evinin qapısını açır və ailə albomunu göstərir. Bir tanışını təqdim edir, kim olduğunu soruşursan.
 
 - Başqasını təqdim edə bilirəm.
 - Şəkildəki adamın kim olduğunu soruşa bilirəm.
@@ -12,15 +12,15 @@ Xarici dost sənə evinin qapısını açır və ailə albomunu göstərir. Dost
 
 ## Kart 2 — Yeni söz
 
-**This is [ad].** — Bu [ad]-dır.
+**This is [ad]. · Who's this?** — Bu [ad]-dır. · Bu kimdir?
 
-Oxunuşu: **th**is iz [ad]. · IPA: /ðɪs ɪz/
+Oxunuşu: **th**is iz [ad]. · huz **th**is? · IPA: /ðɪs ɪz/ · /huz ðɪs/
 
-Quruluşu: This is + ad.
+Quruluşu: This is + ad. · Who's this?
 
-Nümunə: **Hello! This is Tom.** — Salam! Bu Tomdur.
+Nümunə: **Who's this? — This is Tom.** — Bu kimdir? — Bu Tomdur.
 
-Qeyd: This — bu; is — “-dır”. İkisi ayrı deyilir.
+Qeyd: This — bu; is — “-dır”. İkisi ayrı deyilir. Who’s = Who is: who — kim.
 
 ## Kart 3 — Müəllim izahı
 
@@ -38,7 +38,7 @@ Diqqət et: Azərbaycancada “-dır” sonda gəlir. İngiliscə is adın əvv�
 
 ## Kart 4 — Seç: Dinlə və anla
 
-**Tapşırıq:** Xarici dostun qapısındasan. O, yanındakı adamı sənə göstərir. O nə edir?  
+**Tapşırıq:** Dostunun qapısındasan. O, yanındakı adamı sənə göstərir. O nə edir?  
 **Səs:** Hi! This is Anna.  
 **Seçimlər:** Yanındakı adamı təqdim edir. / Özünü təqdim edir. / Adını soruşur. — **düzgün:** Yanındakı adamı təqdim edir.  
 **İpucu:** İlk iki sözə qulaq as: danışan özündən, yoxsa başqasından danışır?  
@@ -58,17 +58,19 @@ Diqqət et: Azərbaycancada “-dır” sonda gəlir. İngiliscə is adın əvv�
 
 ## Kart 5 — Yeni söz
 
-**friend** — dost
+**friend · my friend** — dost · mənim dostum
 
-Oxunuşu: frend · IPA: /frɛnd/
+Oxunuşu: frend · may frend · IPA: /frɛnd/ · /maɪ frɛnd/
 
-Nümunə: **Hi, friend!** — Salam, dostum!
+Quruluşu: my + friend
 
-Qeyd: Yazılışa diqqət: friend — i-dən sonra e gəlir.
+Nümunə: **This is my friend.** — Bu mənim dostumdur.
+
+Qeyd: Yazılışa diqqət: friend — i-dən sonra e gəlir. “Dostum” ingiliscə iki sözdür: my friend.
 
 ## Kart 6 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Xarici dost səsli mesajda bir söz deyib, yazılışını soruşur. Eşitdiyin sözü yaz.  
+**Tapşırıq:** Eşitdiyin sözü yaz.  
 **Səs:** friend  
 **Qəbul:** dəqiq: friend  
 **İpucu:** Sözün ortasında iki saitin ardıcıllığına diqqət et.  
@@ -78,7 +80,7 @@ Qeyd: Yazılışa diqqət: friend — i-dən sonra e gəlir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Telefonda dostun bir söz deyir və soruşur ki, o necə yazılır. Eşitdiyin sözü yaz.  
+**Tapşırıq:** Eşitdiyin sözü yaz.  
 **Səs:** friend  
 **Qəbul:** dəqiq: friend  
 **İpucu:** Telefonda eşitdiyin sözün ortasında iki sait yan-yanadır — sırasına diqqət et.  
@@ -86,22 +88,10 @@ Qeyd: Yazılışa diqqət: friend — i-dən sonra e gəlir.
 - *İzah (başqa səhvdə):* Yazılış: f-r-i-e-n-d. — Uyğun: friend. Səbəb: Sözün ortasında əvvəl i, sonra e gəlir. Qayda: friend — düzdür; freind — olmur. Nümunə: Hi, friend!  
 - *İzah (başqa səhvdə):* Eşitdiyin söz: friend. — Uyğun: friend. Səbəb: Eşitdiyin sözü hərf-hərf yaz: f-r-i-e-n-d. Qayda: friend — dost. Nümunə: Hi, friend!  
 
-## Kart 7 — Yeni söz
+## Kart 7 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**my friend** — mənim dostum
-
-Oxunuşu: may frend · IPA: /maɪ frɛnd/
-
-Quruluşu: my + friend
-
-Nümunə: **This is my friend.** — Bu mənim dostumdur.
-
-Qeyd: my — mənim, friend — dost: “dostum” ingiliscə iki sözdür.
-
-## Kart 8 — Mesaj yaz (sözlərdən): Mesaj yaz
-
-**Tapşırıq:** Xarici dost söhbət qrupunda yazır. Qrupa dostunu da əlavə etdin. Sözlərdən cavab qur: “Bu mənim dostumdur.”  
-**Yazışma (Xarici dost):** “Hi!”  
+**Tapşırıq:** Qrupa öz dostunu əlavə etdin. Sözlərdən cavab qur.  
+**Yazışma (Dostun):** “Hi!”  
 **Sözlər:** This · is · my · friend · . · are · I'm  
 **Qəbul:** dəqiq: This is my friend.  
 **İpucu:** Təqdim cümləsi bu dərsin ilk söz kartındakı kimi başlayır.  
@@ -113,7 +103,7 @@ Qeyd: my — mənim, friend — dost: “dostum” ingiliscə iki sözdür.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İş yoldaşı mesaj yazır. Söhbətə dostunu da əlavə etdin. Sözlərdən cavab qur: “Bu mənim dostumdur.”  
+**Tapşırıq:** Söhbətə dostunu əlavə etdin. Sözlərdən cavab qur.  
 **Yazışma (İş yoldaşı):** “Hello!”  
 **Sözlər:** my · This · friend · is · . · I · are  
 **Qəbul:** dəqiq: This is my friend.  
@@ -124,21 +114,9 @@ Qeyd: my — mənim, friend — dost: “dostum” ingiliscə iki sözdür.
 - *İzah (başqa səhvdə):* Başqasını təqdim edəndə This is deyilir. — Uyğun: This is my friend. Səbəb: I’m özünü təqdim edir; başqasını This is ilə təqdim edirsən. Qayda: I'm Tom. — özüm; This is Tom. — başqası. Nümunə: This is my friend.  
 - *İzah (başqa səhvdə):* Sıra: This is my friend. — Uyğun: This is my friend. Səbəb: Əvvəl This is, sonra my friend. Qayda: This is my friend. — dostum; This is Tom. — ad. Nümunə: This is my friend.  
 
-## Kart 9 — Yeni söz
+## Kart 8 — Səslə cavab: Səslə soruş
 
-**Who's this?** — Bu kimdir?
-
-Oxunuşu: huz **th**is? · IPA: /huz ðɪs/
-
-Quruluşu: Who's this?
-
-Nümunə: **Who's this? — This is my friend.** — Bu kimdir? — Bu mənim dostumdur.
-
-Qeyd: Who’s = Who is: who — kim, ’s — “-dır”, this — bu.
-
-## Kart 10 — Səslə cavab: Səslə soruş
-
-**Tapşırıq:** Xarici dostun ailə albomunda tanımadığın bir adam var. Xarici dostdan kim olduğunu soruş.  
+**Tapşırıq:** Dostunun ailə albomunda tanımadığın bir adam var. Dostundan kim olduğunu soruş.  
 **Qəbul:** dəqiq: Who's this? · öz məlumatı: /^who(?:'s|\s+is)\s+this\s*\??$/  
 **İpucu:** Albomdakı adamı göstərib soruş — sual sözü cümlənin əvvəlində gəlir.  
 **Düzgün olanda:** Kim olduğunu soruşdun: Who’s this?  
@@ -148,7 +126,7 @@ Qeyd: Who’s = Who is: who — kim, ’s — “-dır”, this — bu.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Video zəngdə xarici dost qrup şəkli göstərir. Şəkildəki qadını tanımırsan. Kim olduğunu soruş.  
+**Tapşırıq:** Video zəngdə dostun qrup şəkli göstərir. Şəkildəki qadını tanımırsan. Kim olduğunu soruş.  
 **Qəbul:** dəqiq: Who's this? · öz məlumatı: /^who(?:'s|\s+is)\s+this\s*\??$/  
 **İpucu:** Şəkildəki qadını göstərib soruş — sual sözü cümlənin əvvəlində gəlir.  
 **Düzgün olanda:** Kim olduğunu soruşdun: Who’s this?  
@@ -156,23 +134,7 @@ Qeyd: Who’s = Who is: who — kim, ’s — “-dır”, this — bu.
 - *İzah (başqa səhvdə):* Bu cümlə təqdimdir, sual deyil. — Uyğun: Who's this? Səbəb: Kim olduğunu soruşursan: Who’s this? This is isə cavabdır. Qayda: Who's this? — sual; This is my friend. — cavab. Nümunə: Who's this? — This is my friend.  
 - *İzah (başqa səhvdə):* Who's this? — Uyğun: Who's this? Səbəb: Kim olduğunu soruşanda Who’s this? deyilir. Qayda: Who's this? — sual; This is my friend. — cavab. Nümunə: Who's this? — This is my friend.  
 
-## Kart 11 — Cavab cütü: Cavab cütü
-
-**Tapşırıq:** Xarici dostun qapısında hamı bir-birini tanıyır. Cümləyə toxun, sonra ona uyğun cavabı seç.  
-**Cütlər:** Who's this? — This is my friend.; What's your name? — I'm Tom.; Nice to meet you. — You too. · artıq: Goodbye.  
-**İpucu:** Əvvəl kim, ad və tanışlıq sualını ayır.  
-**Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Who's this? — This is my friend.; What's your name? — I'm Tom.; Nice to meet you. — You too. Səbəb: Kim olduğunu soruşana təqdim cavabı, adı soruşana I’m və ad, tanışlığa You too. Qayda: Who's this? — This is my friend. ; What's your name? — I'm Tom. Nümunə: Who's this? — This is my friend.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Ofisə yeni yoldaş gəlib, hamı tanış olur. Cümləyə toxun, sonra ona uyğun cavabı seç.  
-**Cütlər:** Who's this? — This is Anna.; Hello! — Hi!; Thank you! — You're welcome. · artıq: Sorry!  
-**İpucu:** Əvvəl “Bu kimdir?” sualını tap.  
-**Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Who's this? — This is Anna.; Hello! — Hi!; Thank you! — You're welcome. Səbəb: Kim olduğunu soruşana təqdim cavabı, salama salam, təşəkkürə You’re welcome. Qayda: Who's this? — This is Anna. ; Hello! — Hi! Nümunə: Who's this? — This is my friend.  
-
-## Kart 12 — Yeni söz
+## Kart 9 — Yeni söz
 
 **Welcome!** — Xoş gəldin!
 
@@ -182,33 +144,33 @@ Nümunə: **Hello! Welcome!** — Salam! Xoş gəldin!
 
 Qeyd: Qonağı qarşılayanda deyilir.
 
-## Kart 13 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 10 — Dialoqu tamamla: Dialoqu tamamla
 
-**Tapşırıq:** Xarici dost çatda sənin şəklindəki adamı görüb soruşur. Dostunu təqdim et.  
-**Yazışma (Xarici dost):** “Who's this?”  
-**Qəbul:** məna:  — nümunə: This is Tom. / This is my friend. · öz məlumatı: /^(?:this\s+is\s+(?:my\s+friend(?:\s+(?!(?:friend|my|me|are|is|am|he|she|i)\b)(?!.*\bfriend\b)\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?|(?!(?:friend|my|me|are|is|am|he|she|i)\b)(?!.*\bfriend\b)\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})|(?:he|she)(?:'s|\s+is)\s+my\s+friend)\s*[.!]?$/  
+**Tapşırıq:** Dostun çatda şəkildəki adamı soruşur. O, dostundur, adı: Kənan. Onu təqdim et.  
+**Yazışma (Dostun):** “Who's this?”  
+**Qəbul:** məna:  — nümunə: This is Kənan. / This is my friend. · öz məlumatı: /^(?:this\s+is\s+(?:my\s+friend(?:\s+(?!(?:friend|my|me|are|is|am|he|she|i)\b)(?!.*\bfriend\b)\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?|(?!(?:friend|my|me|are|is|am|he|she|i)\b)(?!.*\bfriend\b)\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})|(?:he|she)(?:'s|\s+is)\s+my\s+friend)\s*[.!]?$/  
 **İpucu:** Cavab bu dərsin ilk söz kartındakı kimi başlayır.  
 **Düzgün olanda:** Kim olduğunu dedin: This is + ad.  
-- *İzah (başqa səhvdə):* This ilə are olmur: is gəlir. — Uyğun: This is Tom. Səbəb: Azərbaycancada “-dır” sonda gəlir; ingiliscə o, This-dən sonra ayrıca gəlir: is. Qayda: This is Tom. — düzdür; This are Tom. — olmur. Nümunə: Who's this? — This is Tom.  
-- *İzah (başqa səhvdə):* Ailə və dost sözündən əvvəl my lazımdır. — Uyğun: This is Tom. Səbəb: Azərbaycancada “dostum” bir sözdür; ingiliscə “mənim” ayrıca gəlir: my friend. Qayda: This is my friend. — düzdür; This is friend my. — olmur. Nümunə: Who's this? — This is Tom.  
-- *İzah (başqa səhvdə):* Başqasını təqdim edəndə This is deyilir. — Uyğun: This is Tom. Səbəb: I’m özünü təqdim edir; başqasını This is ilə təqdim edirsən. Qayda: I'm Tom. — özüm; This is Tom. — başqası. Nümunə: Who's this? — This is Tom.  
-- *İzah (başqa səhvdə):* This is + ad. — Uyğun: This is Tom. Səbəb: Başqasını təqdim edəndə This is, sonra ad və ya my friend deyirsən. Qayda: This is Tom. — ad; This is my friend. — dost. Nümunə: Who's this? — This is Tom.  
+- *İzah (başqa səhvdə):* This ilə are olmur: is gəlir. — Uyğun: This is Kənan. Səbəb: Azərbaycancada “-dır” sonda gəlir; ingiliscə o, This-dən sonra ayrıca gəlir: is. Qayda: This is Tom. — düzdür; This are Tom. — olmur. Nümunə: Who's this? — This is Kənan.  
+- *İzah (başqa səhvdə):* Ailə və dost sözündən əvvəl my lazımdır. — Uyğun: This is Kənan. Səbəb: Azərbaycancada “dostum” bir sözdür; ingiliscə “mənim” ayrıca gəlir: my friend. Qayda: This is my friend. — düzdür; This is friend my. — olmur. Nümunə: Who's this? — This is Kənan.  
+- *İzah (başqa səhvdə):* Başqasını təqdim edəndə This is deyilir. — Uyğun: This is Kənan. Səbəb: I’m özünü təqdim edir; başqasını This is ilə təqdim edirsən. Qayda: I'm Tom. — özüm; This is Tom. — başqası. Nümunə: Who's this? — This is Kənan.  
+- *İzah (başqa səhvdə):* This is + ad. — Uyğun: This is Kənan. Səbəb: Başqasını təqdim edəndə This is, sonra ad və ya my friend deyirsən. Qayda: This is Kənan. — ad; This is my friend. — dost. Nümunə: Who's this? — This is Kənan.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ofisin çatında yeni yoldaş sənin şəklindəki adamı görüb soruşur. Dostunu təqdim et.  
+**Tapşırıq:** İş yoldaşı çatda şəkildəki adamı soruşur. O, dostundur, adı: Leyla. Onu təqdim et.  
 **Yazışma (İş yoldaşı):** “Who's this?”  
-**Qəbul:** məna:  — nümunə: This is Anna. / This is my friend. · öz məlumatı: /^(?:this\s+is\s+(?:my\s+friend(?:\s+(?!(?:friend|my|me|are|is|am|he|she|i)\b)(?!.*\bfriend\b)\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?|(?!(?:friend|my|me|are|is|am|he|she|i)\b)(?!.*\bfriend\b)\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})|(?:he|she)(?:'s|\s+is)\s+my\s+friend)\s*[.!]?$/  
+**Qəbul:** məna:  — nümunə: This is Leyla. / This is my friend. · öz məlumatı: /^(?:this\s+is\s+(?:my\s+friend(?:\s+(?!(?:friend|my|me|are|is|am|he|she|i)\b)(?!.*\bfriend\b)\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?|(?!(?:friend|my|me|are|is|am|he|she|i)\b)(?!.*\bfriend\b)\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})|(?:he|she)(?:'s|\s+is)\s+my\s+friend)\s*[.!]?$/  
 **İpucu:** Yeni yoldaşa da dostunu bu dərsin ilk söz kartındakı kimi göstər.  
 **Düzgün olanda:** Kim olduğunu dedin: This is + ad.  
-- *İzah (başqa səhvdə):* This ilə are olmur: is gəlir. — Uyğun: This is Anna. Səbəb: Azərbaycancada “-dır” sonda gəlir; ingiliscə o, This-dən sonra ayrıca gəlir: is. Qayda: This is Tom. — düzdür; This are Tom. — olmur. Nümunə: Who's this? — This is Anna.  
-- *İzah (başqa səhvdə):* Ailə və dost sözündən əvvəl my lazımdır. — Uyğun: This is Anna. Səbəb: Azərbaycancada “dostum” bir sözdür; ingiliscə “mənim” ayrıca gəlir: my friend. Qayda: This is my friend. — düzdür; This is friend my. — olmur. Nümunə: Who's this? — This is Anna.  
-- *İzah (başqa səhvdə):* Başqasını təqdim edəndə This is deyilir. — Uyğun: This is Anna. Səbəb: I’m özünü təqdim edir; başqasını This is ilə təqdim edirsən. Qayda: I'm Tom. — özüm; This is Tom. — başqası. Nümunə: Who's this? — This is Anna.  
-- *İzah (başqa səhvdə):* This is + ad. — Uyğun: This is Anna. Səbəb: Başqasını təqdim edəndə This is, sonra ad və ya my friend deyirsən. Qayda: This is Anna. — ad; This is my friend. — dost. Nümunə: Who's this? — This is Anna.  
+- *İzah (başqa səhvdə):* This ilə are olmur: is gəlir. — Uyğun: This is Leyla. Səbəb: Azərbaycancada “-dır” sonda gəlir; ingiliscə o, This-dən sonra ayrıca gəlir: is. Qayda: This is Tom. — düzdür; This are Tom. — olmur. Nümunə: Who's this? — This is Leyla.  
+- *İzah (başqa səhvdə):* Ailə və dost sözündən əvvəl my lazımdır. — Uyğun: This is Leyla. Səbəb: Azərbaycancada “dostum” bir sözdür; ingiliscə “mənim” ayrıca gəlir: my friend. Qayda: This is my friend. — düzdür; This is friend my. — olmur. Nümunə: Who's this? — This is Leyla.  
+- *İzah (başqa səhvdə):* Başqasını təqdim edəndə This is deyilir. — Uyğun: This is Leyla. Səbəb: I’m özünü təqdim edir; başqasını This is ilə təqdim edirsən. Qayda: I'm Tom. — özüm; This is Tom. — başqası. Nümunə: Who's this? — This is Leyla.  
+- *İzah (başqa səhvdə):* This is + ad. — Uyğun: This is Leyla. Səbəb: Başqasını təqdim edəndə This is, sonra ad və ya my friend deyirsən. Qayda: This is Leyla. — ad; This is my friend. — dost. Nümunə: Who's this? — This is Leyla.  
 
-## Kart 14 — Səslə cavab: Səslə cavab
+## Kart 11 — Səslə cavab: Səslə cavab
 
-**Tapşırıq:** Xarici dost ilk dəfə sənin evinə gəlir. Qapını açırsan. Onu qarşıla.  
+**Tapşırıq:** Dostun ilk dəfə sənin evinə gəlir. Qapını açırsan. Onu qarşıla.  
 **Qəbul:** dəqiq: Hello! Welcome! · öz məlumatı: /^(?:(?:hello|hi)[,!.\s]+)?welcome\s*[.!]?$/  
 **İpucu:** Qonaq gələndə deyilən yeni sözü xatırla.  
 **Düzgün olanda:** Qonağı qarşıladın: Welcome!  
@@ -226,7 +188,7 @@ Qeyd: Qonağı qarşılayanda deyilir.
 - *İzah (başqa səhvdə):* Qonağı qarşılamaq lazımdır. — Uyğun: Welcome! Səbəb: Qonaq gələndə onu Welcome! ilə qarşılayırsan. Qayda: Welcome! — gələnə; Goodbye! — gedənə. Nümunə: Hello! Welcome!  
 - *İzah (başqa səhvdə):* Welcome! — Uyğun: Welcome! Səbəb: Qonağı qarşılayanda Welcome! deyilir. Qayda: Welcome! — qonaq gəlir; Goodbye! — qonaq gedir. Nümunə: Hello! Welcome!  
 
-## Kart 15 — Söhbəti sırala: Söhbəti sırala
+## Kart 12 — Söhbəti sırala: Söhbəti sırala
 
 **Tapşırıq:** Qızın qapısı. Oğlan dostu ilə gəlir. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Hello! Welcome! → 2. Thank you! This is my friend. → 3. Hi! What's your name? → 4. I'm Tom. Nice to meet you!  

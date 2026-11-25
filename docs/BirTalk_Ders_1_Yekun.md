@@ -1,3 +1,5 @@
+> 26 Noy 2026: Dərs 1 qısaldıldı (10 ekran). d1_c09, d1_c11a, d1_c11b dərsdən çıxıb gündəlik təkrara (`pool`) keçdi; aşağıdakı siyahıda bu üç tapşırıq artıq dərsdə göstərilmir.
+
 # BirTalk Dərs 1
 ## Salamlaşma və sağollaşma
 

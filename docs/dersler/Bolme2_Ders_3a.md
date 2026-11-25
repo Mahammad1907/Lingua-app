@@ -68,17 +68,17 @@ Diqqət et: M bizdəki kimidir, F-də isə səslər yerini dəyişir: “fe” y
 
 ## Kart 6 — Yeni söz
 
-**T, V** — televizor qısaltması
+**T, V · I, D** — televizor qısaltması · şəxsiyyət vəsiqəsi (qısaltma)
 
-Oxunuşu: ti, vi · IPA: /ti/ · /vi/
+Oxunuşu: ti, vi · ay, di · IPA: /ti/ · /vi/ · /aɪ/ · /di/
 
-Nümunə: **TV** — TV (ti-vi)
+Nümunə: **TV, ID.** — TV (ti-vi), ID (ay-di)
 
-Qeyd: T — “ti”, V — “vi”: sonunda “i” səsi.
+Qeyd: T — “ti”, V — “vi”, D — “di”: sonunda “i” səsi. I — “ay” oxunur, “i” yox.
 
 ## Kart 7 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Oteldə televizor pultundasan. Resepsiya kanalın adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
 **Səs:** M, T, V.  
 **Hərflər:** M T V N F S  
 **Qəbul:** dəqiq: MTV  
@@ -88,7 +88,7 @@ Qeyd: T — “ti”, V — “vi”: sonunda “i” səsi.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Evdə televizorda kanal axtarırsan. Dostun adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
 **Səs:** F, X.  
 **Hərflər:** F X S L T V  
 **Qəbul:** dəqiq: FX  
@@ -98,36 +98,6 @@ Qeyd: T — “ti”, V — “vi”: sonunda “i” səsi.
 
 ## Kart 8 — Yeni söz
 
-**I, D** — şəxsiyyət vəsiqəsi (qısaltma)
-
-Oxunuşu: ay, di · IPA: /aɪ/ · /di/
-
-Nümunə: **ID, please.** — Vəsiqə, zəhmət olmasa.
-
-Qeyd: I — “ay” oxunur, “i” yox.
-
-## Kart 9 — Seç: Dinlə və seç
-
-**Tapşırıq:** Hava limanında işçi sənə nəsə deyir. Hansı qısaltmanı eşitdin?  
-**Səs:** ID, please.  
-**Seçimlər:** IT / ID / DI — **düzgün:** ID  
-**İpucu:** İlk hərfin oxunuşu “ay”dır — kartı xatırla.  
-**Düzgün olanda:** I — “ay”, D — “di”.  
-- *İzah (“IT” seçiləndə):* T — “ti”, səsdə “di” var. — Uyğun: ID. Səbəb: Səsdə “ay-di” deyilir: I və D. Qayda: I, D — ay, di; I, T — ay, ti. Nümunə: ID, please.  
-- *İzah (“DI” seçiləndə):* Hərflərin sırası tərsdir. — Uyğun: ID. Səbəb: Əvvəl “ay”, sonra “di” deyilir. Qayda: I, D — ay, di; D, I — di, ay. Nümunə: ID, please.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Otelin resepsiyasında soruşursan: otaqda nə var? İşçi deyir. Hansı qısaltmanı eşitdin?  
-**Səs:** TV.  
-**Seçimlər:** TV / DV / TF — **düzgün:** TV  
-**İpucu:** Hər iki hərfin sonunda eyni “i” səsi var — əvvəlinə qulaq as.  
-**Düzgün olanda:** T — “ti”, V — “vi”.  
-- *İzah (“DV” seçiləndə):* D — “di”, səsdə “ti” var. — Uyğun: TV. Səbəb: Səsdə “ti-vi” deyilir. Qayda: T — ti; D — di. Nümunə: TV  
-- *İzah (“TF” seçiləndə):* F — “ef”, səsdə “vi” var. — Uyğun: TV. Səbəb: Səsdə “ti-vi” deyilir. Qayda: V — vi; F — ef. Nümunə: TV  
-
-## Kart 10 — Yeni söz
-
 **E, I** — E — “i”, I — “ay”
 
 Oxunuşu: i, ay · IPA: /i/ · /aɪ/
@@ -136,7 +106,7 @@ Nümunə: **E, I.** — i, ay
 
 Qeyd: Ən çox qarışan cüt: E “i” oxunur, I isə “ay”.
 
-## Kart 11 — Müəllim izahı
+## Kart 9 — Müəllim izahı
 
 E və I ən çox qarışan cütdür.
 
@@ -149,9 +119,9 @@ Bizim “i” səsi ingiliscə E hərfinin adıdır. I hərfi isə “ay” deyi
 
 Diqqət et: Adını hərf-hərf deyəndə E və I-yə xüsusi diqqət et.
 
-## Kart 12 — Yaz: Dinlə və yaz
+## Kart 10 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Taksi çağırdın. Dispetçer maşının nömrəsini deyir. Nömrəni yaz.  
+**Tapşırıq:** Nömrəni yaz.  
 **Səs:** Ten, S, E, five, one, seven.  
 **Qəbul:** dəqiq: 10 SE 517 / 10-SE-517 / 10SE517 / 10 SE517 / 10SE 517 / 10-SE 517 / 10 SE-517  
 **İpucu:** Əvvəl rəqəm, sonra iki hərf, sonra yenə rəqəmlər gəlir.  
@@ -160,14 +130,14 @@ Diqqət et: Adını hərf-hərf deyəndə E və I-yə xüsusi diqqət et.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Otelin qarşısında taksi gözləyirsən. Resepsiya maşının nömrəsini deyir. Nömrəni yaz.  
+**Tapşırıq:** Nömrəni yaz.  
 **Səs:** Ten, D, I, two, zero, four.  
 **Qəbul:** dəqiq: 10 DI 204 / 10-DI-204 / 10DI204 / 10 DI204 / 10DI 204 / 10-DI 204 / 10 DI-204  
 **İpucu:** Əvvəl rəqəm, sonra iki hərf, sonra yenə rəqəmlər gəlir.  
 **Düzgün olanda:** 10 DI 204 — rəqəm, iki hərf, rəqəmlər.  
 - *İzah (başqa səhvdə):* Hərfləri və rəqəmləri yoxla. — Uyğun: 10 DI 204. Səbəb: Səsdə ten, D, I, two, zero, four deyilir; I “ay” oxunur. Qayda: I — ay; E — i. Nümunə: Ten, D, I, two, zero, four.  
 
-## Kart 13 — Səhnədə tap: Səhnədə tap
+## Kart 11 — Səhnədə tap: Səhnədə tap
 
 **Tapşırıq:** Ofisin parkinqində üç zona var. Mühafizəçi sənin yerini deyir. Şəkildə həmin zonanı tap.  
 **Səs:** D, five.  
@@ -187,7 +157,7 @@ Diqqət et: Adını hərf-hərf deyəndə E və I-yə xüsusi diqqət et.
 - *İzah (“T2 zonası” seçiləndə):* T — “ti”, səsdə “vi” var. — Uyğun: V2 zonası. Səbəb: Səsdə “vi” deyilir — bu, V-dir. Qayda: V — vi; T — ti. Nümunə: V, two.  
 - *İzah (“E2 zonası” seçiləndə):* E — “i”, səsdə “vi” var. — Uyğun: V2 zonası. Səbəb: Səsdə “vi” deyilir — bu, V-dir. Qayda: V — vi; E — i. Nümunə: V, two.  
 
-## Kart 14 — Seç: Cütü ayır: E yoxsa I?
+## Kart 12 — Seç: Cütü ayır: E yoxsa I?
 
 **Tapşırıq:** Qatar biletində vaqonun hərfi var. Elan deyir. Hansı hərfdir?  
 **Səs:** E.  

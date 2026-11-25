@@ -90,17 +90,6 @@ export const lesson2: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'd2_c06', number: 6, title: 'Dinlə və təkrarla', why: 'Ayrı-ayrı sözlər birlikdə səsləndi.',
-      prompt: 'İfadəni dinlə, sonra eyni cür de.', audio: 'My name is', repeat: { stress: 'name', note: 'Vurğu “name” sözünə düşür.', reading: 'may neym iz' },
-      rule: exact('My name is'),
-      variants: [other('Bir daha dinlə və yavaş de.', ex('My name is', 'Üç söz birlikdə, axıcı deyilir.', 'Vurğu “name” sözünə düşür.', 'My NAME is [ad]'))],
-      review: {
-        title: 'Dinlə və təkrarla', why: 'Qısa forma düzgün səsləndi.', prompt: 'İfadəni dinlə, sonra eyni cür de.', audio: "Hello! I'm", repeat: { stress: 'Hello', note: '“I’m” bir hecadır: “aym”.', reading: 'helou! aym' },
-        rule: exact("Hello! I'm"),
-        variants: [other('Bir daha dinlə və yavaş de.', ex("Hello! I'm", 'Səsdə I’m qısa formadadır və bir heca kimi deyilir.', 'I’m — “aym”, bir heca; I am — iki heca.', "Hello! I'm [ad]"))],
-      },
-    },
-    {
       type: 'write', id: 'd2_c07', number: 7, title: 'Dialoqu tamamla', why: 'Salam verdin və adını dedin.',
       prompt: 'Yeni qonşun sənə yazır.\nSalam ver və adını de.', placeholder: 'Cavabını yaz',
       chat: { partner: 'Yeni qonşu', from: 'G', lines: [{ from: 'G', text: 'Hello!' }] }, rule: greetIntro,
@@ -142,6 +131,20 @@ export const lesson2: DesignLesson = {
         scenes: ['d2/game-profile'],
         title: 'Adını yaz', why: 'Qısa və düzgün təqdimat.', hint: 'Bu dərsin iki formasından birini işlət, sonuna öz adını yaz.', prompt: 'Oyunda profilinin “Haqqımda” hissəsini yazırsan.\nÖzünü ingiliscə bir cümlə ilə təqdim et.', placeholder: 'My name is [ad]', rule: intro,
         variants: [other('I’m və ya My name is ilə yaz.', ex("I'm [ad] / My name is [ad]", 'Tapşırıq cümlə istəyir, tək ad isə cümlə deyil.', 'I’m + adın və ya My name is + adın.', 'My name is [ad]'))],
+      },
+    },
+  ],
+  // Practice moved out of the lesson (26 Nov 2026, lessons 10–12 screens): it comes back in the daily review.
+  pool: [
+    {
+      type: 'voice', id: 'd2_c06', number: 6, title: 'Dinlə və təkrarla', why: 'Ayrı-ayrı sözlər birlikdə səsləndi.',
+      prompt: 'İfadəni dinlə, sonra eyni cür de.', audio: 'My name is', repeat: { stress: 'name', note: 'Vurğu “name” sözünə düşür.', reading: 'may neym iz' },
+      rule: exact('My name is'),
+      variants: [other('Bir daha dinlə və yavaş de.', ex('My name is', 'Üç söz birlikdə, axıcı deyilir.', 'Vurğu “name” sözünə düşür.', 'My NAME is [ad]'))],
+      review: {
+        title: 'Dinlə və təkrarla', why: 'Qısa forma düzgün səsləndi.', prompt: 'İfadəni dinlə, sonra eyni cür de.', audio: "Hello! I'm", repeat: { stress: 'Hello', note: '“I’m” bir hecadır: “aym”.', reading: 'helou! aym' },
+        rule: exact("Hello! I'm"),
+        variants: [other('Bir daha dinlə və yavaş de.', ex("Hello! I'm", 'Səsdə I’m qısa formadadır və bir heca kimi deyilir.', 'I’m — “aym”, bir heca; I am — iki heca.', "Hello! I'm [ad]"))],
       },
     },
   ],

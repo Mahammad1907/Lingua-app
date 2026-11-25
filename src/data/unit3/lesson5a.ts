@@ -31,9 +31,9 @@ export const lesson5a: DesignLesson = {
     },
     {
       type: 'word', id: 'u3d5a_c02', number: 2, scenes: ['mascot/point'],
-      word: 'he', pronunciation: '/hi/', reading: 'hi', az: 'o (kişi, oğlan)',
-      notes: ['Azərbaycancada “o” hər kəs üçündür; ingiliscə kişi üçün he.'],
-      example: 'He is fine, thanks.', exampleAz: 'O yaxşıdır, sağ ol.',
+      word: 'he · she', pronunciation: '/hi/ · /ʃi/', reading: 'hi · şi', az: 'o (kişi, oğlan) · o (qadın, qız)',
+      notes: ['Azərbaycancada “o” hər kəs üçündür; ingiliscə kişi üçün he, qadın üçün she.'],
+      example: 'She is OK. He is fine.', exampleAz: 'O (qadın) normaldır. O (kişi) yaxşıdır.',
     },
     {
       type: 'choice', id: 'u3d5a_c03', number: 3, title: 'Dinlə və seç', why: '“he” — kişi haqqında.', hint: 'Cümlənin birinci sözünə qulaq as.',
@@ -54,13 +54,7 @@ export const lesson5a: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d5a_c04', number: 4, scenes: ['mascot/wave'],
-      word: 'she', pronunciation: '/ʃi/', reading: 'şi', az: 'o (qadın, qız)',
-      notes: ['Kişi üçün he, qadın üçün she — azərbaycancada ikisi də “o”.'],
-      example: 'She is OK. He is fine.', exampleAz: 'O (qadın) normaldır. O (kişi) yaxşıdır.',
-    },
-    {
-      type: 'match', id: 'u3d5a_c05', number: 5, title: 'Kim nə dedi?', why: 'He və she fərqini tapdın.', hint: 'Hər cümlənin birinci sözünə bax: kişi, qadın, yoxsa özü?',
+      type: 'match', id: 'u3d5a_c05', number: 4, title: 'Kim nə dedi?', why: 'He və she fərqini tapdın.', hint: 'Hər cümlənin birinci sözünə bax: kişi, qadın, yoxsa özü?',
       prompt: 'Video zəngdə qız və oğlan dostlarının halını deyir.\nHər cümləyə mənasını qoş.',
       rows: [{ en: 'He is fine.', az: 'O (kişi) yaxşıdır.', from: 'G' }, { en: 'She is OK.', az: 'O (qadın) normaldır.', from: 'B' }, { en: "I'm not great.", az: 'Mən çox yaxşı deyiləm.', from: 'M' }],
       extra: ['O (kişi) normaldır.'],
@@ -74,11 +68,22 @@ export const lesson5a: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d5a_c06', number: 6, scenes: ['mascot/globe'],
-      word: "He's from [ölkə]", pronunciation: '/hiz frʌm/', reading: 'hiz fram [ölkə]', az: 'O (kişi) [ölkə]-dandır.',
-      structure: ["He's from + ölkə / şəhər."],
-      notes: ["He's — he is-in qısası, “hiz” oxunur."],
+      type: 'word', id: 'u3d5a_c06', number: 5, scenes: ['mascot/globe'],
+      word: "He's from [ölkə] · She's from [ölkə]", pronunciation: '/hiz frʌm/ · /ʃiz frʌm/', reading: 'hiz fram [ölkə] · şiz fram [ölkə]', az: 'O (kişi) [ölkə]-dandır. · O (qadın) [ölkə]-dandır.',
+      structure: ["He's from + ölkə / şəhər.", "She's from + ölkə / şəhər."],
+      notes: ["He's — he is-in qısası, “hiz” oxunur; She's — she is-in qısası, “şiz” oxunur."],
       example: "He's from Turkey.", exampleAz: 'O, Türkiyədəndir.',
+    },
+    {
+      // “Müəllim izahı” (approved mockup, 20 Nov 2026): he's / she's in detail right after both word cards.
+      type: 'explain', id: 'u3d5a_c09t', number: 6,
+      lead: "Gəl, She's from ifadəsinə yaxından baxaq.", focus: "She's from",
+      sections: [
+        { title: 'Kim haqqında danışırsan?', pairs: [{ en: "He's", az: 'kişi' }, { en: "She's", az: 'qadın' }] },
+        { title: 'Niyə qısa yazılır?', short: { full: 'She is', drop: 'i', short: "She's", note: 'I am → I’m kimi: danışıqda belə deyilir, mənası eynidir. Apostrof (’) düşən hərfin yeridir.' } },
+        { title: 'Necə qurulur?', build: { parts: ["She's from", 'ölkə / şəhər'], examples: [{ en: "She's from France.", az: 'Fransadandır.' }, { en: "He's from Baku.", az: 'Bakıdandır.' }] } },
+      ],
+      attention: 'Biz “Fransa-dan” deyirik, “-dan” sonda gəlir. İngiliscədə from ölkədən əvvəl gəlir: from France.',
     },
     {
       type: 'choice', id: 'u3d5a_c07', number: 7, title: 'Sözü tamamla', why: 'Kişi haqqında — He.', hint: 'Ekrandakı adam kişidir, yoxsa qadın?',
@@ -111,25 +116,7 @@ export const lesson5a: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d5a_c09', number: 9, scenes: ['mascot/happy'],
-      word: "She's from [ölkə]", pronunciation: '/ʃiz frʌm/', reading: 'şiz fram [ölkə]', az: 'O (qadın) [ölkə]-dandır.',
-      structure: ["She's from + ölkə / şəhər."],
-      notes: ["She's — she is-in qısası, “şiz” oxunur."],
-      example: "She's from France.", exampleAz: 'O, Fransadandır.',
-    },
-    {
-      // “Müəllim izahı” (approved mockup, 20 Nov 2026): he's / she's in detail right after both word cards.
-      type: 'explain', id: 'u3d5a_c09t', number: 10,
-      lead: "Gəl, She's from ifadəsinə yaxından baxaq.", focus: "She's from",
-      sections: [
-        { title: 'Kim haqqında danışırsan?', pairs: [{ en: "He's", az: 'kişi' }, { en: "She's", az: 'qadın' }] },
-        { title: 'Niyə qısa yazılır?', short: { full: 'She is', drop: 'i', short: "She's", note: 'I am → I’m kimi: danışıqda belə deyilir, mənası eynidir. Apostrof (’) düşən hərfin yeridir.' } },
-        { title: 'Necə qurulur?', build: { parts: ["She's from", 'ölkə / şəhər'], examples: [{ en: "She's from France.", az: 'Fransadandır.' }, { en: "He's from Baku.", az: 'Bakıdandır.' }] } },
-      ],
-      attention: 'Biz “Fransa-dan” deyirik, “-dan” sonda gəlir. İngiliscədə from ölkədən əvvəl gəlir: from France.',
-    },
-    {
-      type: 'write', id: 'u3d5a_c10', number: 10, title: 'Mesaj yaz', why: 'Qadın haqqında — She’s from.', hint: 'Qadın haqqında yazırsan; “-dandır” hissəsi ayrıca sözdür.',
+      type: 'write', id: 'u3d5a_c10', number: 9, title: 'Mesaj yaz', why: 'Qadın haqqında — She’s from.', hint: 'Qadın haqqında yazırsan; “-dandır” hissəsi ayrıca sözdür.',
       prompt: 'Video zəngdəki qadın Almaniyadandır.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun', scenes: ['u3/videocall'],
       tiles: ["She's", "He's", 'from', 'Germany', 'German', 'at', '.'], rule: sheFrom('Germany'),
       variants: [wrongPerson('he', 'Germany'), other("She's from Germany.", ex("She's from Germany.", 'Qadın haqqında She’s from, sonra ölkə: Germany.', "She's from Germany. — ölkə; She's German. — millət.", "She's from France."))],
@@ -141,7 +128,7 @@ export const lesson5a: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'u3d5a_c11', number: 11, title: 'Seçim', why: 'Qadın haqqında — She’s from Iran.', hint: 'Kim haqqında danışırsan və “-dandır” hissəsi harada?', scenes: ['u3/train'],
+      type: 'choice', id: 'u3d5a_c11', number: 10, title: 'Seçim', why: 'Qadın haqqında — She’s from Iran.', hint: 'Kim haqqında danışırsan və “-dandır” hissəsi harada?', scenes: ['u3/train'],
       prompt: 'Qatarda yanındakı qadın dedi: “I\'m from Iran.” İndi onu dostuna təqdim edirsən.\nNə deyirsən?',
       options: ["He's from Iran.", "She's from Iran.", 'She from Iran.'], answer: "She's from Iran.",
       variants: [
@@ -159,7 +146,7 @@ export const lesson5a: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u3d5a_c12', number: 12, title: 'Dinlə və yaz', why: 'She’s from Germany — qadın haqqında.', hint: 'Birinci sözə qulaq as: “hiz”, yoxsa “şiz”?',
+      type: 'write', id: 'u3d5a_c12', number: 11, title: 'Dinlə və yaz', why: 'She’s from Germany — qadın haqqında.', hint: 'Birinci sözə qulaq as: “hiz”, yoxsa “şiz”?',
       prompt: 'Eşitdiyini yaz.', audio: "She's from Germany.", placeholder: 'Cümlə',
       rule: sheFrom('Germany'),
       variants: [wrongPerson('he', 'Germany'), other('Cümləni yoxla.', ex("She's from Germany.", 'Səsdə “şiz” — she’s, sonra from Germany.', "She's from Germany. — qadın; He's from Germany. — kişi.", "She's from France."))],
@@ -184,8 +171,8 @@ export const lesson5a: DesignLesson = {
   },
   vocabulary: [
     { word: 'he', translation: 'o (kişi, oğlan)', example: 'He is fine, thanks.', exampleAz: 'O yaxşıdır, sağ ol.', usageNote: 'Kişi üçün he.', pronunciation: '/hi/', teachCard: 'u3d5a_c02' },
-    { word: 'she', translation: 'o (qadın, qız)', example: 'She is OK. He is fine.', exampleAz: 'O (qadın) normaldır. O (kişi) yaxşıdır.', usageNote: 'Qadın üçün she.', pronunciation: '/ʃi/', teachCard: 'u3d5a_c04' },
+    { word: 'she', translation: 'o (qadın, qız)', example: 'She is OK. He is fine.', exampleAz: 'O (qadın) normaldır. O (kişi) yaxşıdır.', usageNote: 'Qadın üçün she.', pronunciation: '/ʃi/', teachCard: 'u3d5a_c02' },
     { word: "He's from [ölkə]", translation: 'O (kişi) [ölkə]-dandır.', example: "He's from Turkey.", exampleAz: 'O, Türkiyədəndir.', usageNote: "He's — he is-in qısası.", pronunciation: '/hiz frʌm/', teachCard: 'u3d5a_c06' },
-    { word: "She's from [ölkə]", translation: 'O (qadın) [ölkə]-dandır.', example: "She's from France.", exampleAz: 'O, Fransadandır.', usageNote: "She's — she is-in qısası.", pronunciation: '/ʃiz frʌm/', teachCard: 'u3d5a_c09' },
+    { word: "She's from [ölkə]", translation: 'O (qadın) [ölkə]-dandır.', example: "She's from France.", exampleAz: 'O, Fransadandır.', usageNote: "She's — she is-in qısası.", pronunciation: '/ʃiz frʌm/', teachCard: 'u3d5a_c06' },
   ],
 };

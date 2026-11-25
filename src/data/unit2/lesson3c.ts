@@ -17,9 +17,9 @@ export const lesson3c: DesignLesson = {
     },
     {
       type: 'word', id: 'u2d3c_c02', number: 2, scenes: ['u2/word-letters-ok'],
-      word: "O, K", pronunciation: "/oʊ/ · /keɪ/", reading: "ou, key", az: "O — “ou”, K — “key”",
-      notes: ["OK iki hərfdir: O və K."],
-      example: "OK", exampleAz: "OK (ou-key)",
+      word: "O, K · H, D", pronunciation: "/oʊ/ · /keɪ/ · /eɪtʃ/ · /di/", reading: "ou, key · eyç, di", az: "O — “ou”, K — “key” · H — “eyç”",
+      notes: ["OK iki hərfdir: O və K. H — “eyç”, “aş” yox."],
+      example: "OK, HD.", exampleAz: "OK (ou-key), HD (eyç-di)",
     },
     {
       type: 'voice', id: 'u2d3c_c03', number: 3,
@@ -41,12 +41,6 @@ export const lesson3c: DesignLesson = {
         rule: exact('G, J, R.', 'GJR'),
         variants: [other("Bir daha dinlə və yavaş de.", ex("G, J, R.", "Hər hərfi ingiliscə oxunuşla de.", "G — ci; J — cey.", "G, J, R."))],
       },
-    },
-    {
-      type: 'word', id: 'u2d3c_c04', number: 4, scenes: ['u2/word-letters-hd'],
-      word: "H, D", pronunciation: "/eɪtʃ/ · /di/", reading: "eyç, di", az: "H — “eyç”",
-      notes: ["H — “eyç”, “aş” yox."],
-      example: "HD", exampleAz: "HD (eyç-di)",
     },
     {
       type: 'write', id: 'u2d3c_c05', number: 5,
@@ -198,7 +192,7 @@ export const lesson3c: DesignLesson = {
   },
   vocabulary: [
     {"word": "O, K", "translation": "ou, key", "example": "OK", "exampleAz": "OK", "usageNote": "O — “ou”.", "pronunciation": "/oʊ/ · /keɪ/", "teachCard": "u2d3c_c02"},
-    {"word": "H, D", "translation": "eyç, di", "example": "HD", "exampleAz": "HD", "usageNote": "H — “eyç”.", "pronunciation": "/eɪtʃ/ · /di/", "teachCard": "u2d3c_c04"},
+    {"word": "H, D", "translation": "eyç, di", "example": "HD", "exampleAz": "HD", "usageNote": "H — “eyç”.", "pronunciation": "/eɪtʃ/ · /di/", "teachCard": "u2d3c_c02"},
     {"word": "Q, R", "translation": "kyu, ar", "example": "QR", "exampleAz": "QR kod", "usageNote": "R — “ar”.", "pronunciation": "/kju/ · /ɑr/", "teachCard": "u2d3c_c06"},
     {"word": "Y, Z", "translation": "uay, zi", "example": "Y, Z.", "exampleAz": "uay, zi", "usageNote": "Y — “uay”.", "pronunciation": "/waɪ/ · /zi/", "teachCard": "u2d3c_c08"},
   ],

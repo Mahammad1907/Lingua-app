@@ -12,17 +12,33 @@ Dil klubunun açılışındasan: yeni tanışlar haradan olduğunu soruşur.
 
 ## Kart 2 — Yeni söz
 
-**Where are you from?** — Haradansan?
+**Where are you from? · I'm from [ölkə]** — Haradansan? · Mən [ölkə]-danam
 
-Oxunuşu: uer ar yu fram? · IPA: /wɛr ɑr ju frʌm/
+Oxunuşu: uer ar yu fram? · aym fram [ölkə] · IPA: /wɛr ɑr ju frʌm/ · /aɪm frʌm/
 
-Quruluşu: Where are you from?
+Quruluşu: Where are you from? · I'm from + şəhər / ölkə.
 
-Nümunə: **Hello! Where are you from?** — Salam! Haradansan?
+Nümunə: **Where are you from? — I'm from Baku.** — Haradansan? — Bakıdanam.
 
 Qeyd: Azərbaycancadakı “-dan” ingiliscə sualın sonunda ayrıca söz kimi gəlir: from.
+Qeyd: “Bakıdanam” ingiliscə üç hissədir: I’m from Baku.
 
-## Kart 3 — Seç: Dinlə və anla
+## Kart 3 — Müəllim izahı
+
+from bizim “-dan” hissəmizdir.
+
+**1 · Harada gəlir?**
+Biz “-dan” hissəsini sonda deyirik: Bakı-dan. İngiliscə from şəhərdən əvvəl gəlir.
+- I'm from + şəhər / ölkə
+- **I'm from Baku.** — Bakıdanam.
+
+**2 · Sualda**
+- Where are you + from?
+- **Where are you from?** — Haradansan?
+
+Diqqət et: Bakıdanam = I'm from Baku: “-dan” və “-am” iki ayrı sözə çevrilir.
+
+## Kart 4 — Seç: Dinlə və anla
 
 **Tapşırıq:** Dil klubunun açılışındasan. Yeni tanış sənə yaxınlaşır. O nə soruşur?  
 **Səs:** Hello! Where are you from?  
@@ -42,36 +58,9 @@ Qeyd: Azərbaycancadakı “-dan” ingiliscə sualın sonunda ayrıca söz kimi
 - *İzah (“Üzr istəyir.” seçiləndə):* “Excuse me” diqqət çəkir, sonra sual gəlir. — Uyğun: Haradan olduğunu soruşur. Səbəb: “Excuse me” ilə diqqəti çəkir, sonra haradan olduğunu soruşur. Qayda: Excuse me — diqqət; Sorry! — üzr. Nümunə: Excuse me, where are you from?  
 - *İzah (“Telefon nömrəni soruşur.” seçiləndə):* Səsdə “phone number” yoxdur. — Uyğun: Haradan olduğunu soruşur. Səbəb: Səsdə “where” və “from” var. Qayda: Where are you from? — haradan; What's your phone number? — nömrə. Nümunə: Excuse me, where are you from?  
 
-## Kart 4 — Yeni söz
+## Kart 5 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**I'm from [ölkə]** — Mən [ölkə]-danam
-
-Oxunuşu: aym fram [ölkə] · IPA: /aɪm frʌm/
-
-Quruluşu: I'm from + şəhər / ölkə.
-
-Nümunə: **Where are you from? — I'm from Baku.** — Haradansan? — Bakıdanam.
-
-Qeyd: “Bakıdanam” ingiliscə üç hissədir: I’m from Baku.
-
-## Kart 5 — Müəllim izahı
-
-from bizim “-dan” hissəmizdir.
-
-**1 · Harada gəlir?**
-Biz “-dan” hissəsini sonda deyirik: Bakı-dan. İngiliscə from şəhərdən əvvəl gəlir.
-- I'm from + şəhər / ölkə
-- **I'm from Baku.** — Bakıdanam.
-
-**2 · Sualda**
-- Where are you + from?
-- **Where are you from?** — Haradansan?
-
-Diqqət et: Bakıdanam = I'm from Baku: “-dan” və “-am” iki ayrı sözə çevrilir.
-
-## Kart 6 — Mesaj yaz (sözlərdən): Mesaj yaz
-
-**Tapşırıq:** Klubun söhbət qrupunda yeni tanış yazır. Sən Gəncədənsən. Sözlərdən cavab qur.  
+**Tapşırıq:** Sən Gəncədənsən. Sözlərdən cavab qur.  
 **Yazışma (Yeni tanış):** “Hi! Where are you from?”  
 **Sözlər:** I'm · from · Ganja · . · is · my · I  
 **Qəbul:** dəqiq: I'm from Ganja.  
@@ -83,7 +72,7 @@ Diqqət et: Bakıdanam = I'm from Baku: “-dan” və “-am” iki ayrı söz�
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** İş yoldaşın mesaj yazır. Sən Şamaxıdansan. Sözlərdən cavab qur.  
+**Tapşırıq:** Sən Şamaxıdansan. Sözlərdən cavab qur.  
 **Yazışma (İş yoldaşı):** “Where are you from?”  
 **Sözlər:** Shamakhi · from · I'm · . · at · you · is  
 **Qəbul:** dəqiq: I'm from Shamakhi.  
@@ -93,7 +82,7 @@ Diqqət et: Bakıdanam = I'm from Baku: “-dan” və “-am” iki ayrı söz�
 - *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Shamakhi. Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Ganja. — düzdür; I from Ganja. — olmur. Nümunə: Where are you from? — I'm from Shamakhi.  
 - *İzah (başqa səhvdə):* I'm from + şəhər. — Uyğun: I'm from Shamakhi. Səbəb: Haradan olduğunu deyirsən: I’m, from, sonra şəhər. Qayda: I'm from Shamakhi. — haradan; My name is [ad] — ad. Nümunə: Where are you from? — I'm from Shamakhi.  
 
-## Kart 7 — Yeni söz
+## Kart 6 — Yeni söz
 
 **Azerbaijan** — Azərbaycan
 
@@ -103,7 +92,7 @@ Nümunə: **I'm from Azerbaijan.** — Azərbaycandanam.
 
 Qeyd: Ölkənin adı böyük hərflə yazılır; vurğu sondadır.
 
-## Kart 8 — Səslə cavab: Səslə cavab
+## Kart 7 — Səslə cavab: Səslə cavab
 
 **Tapşırıq:** Klubun qeydiyyat masasında işçi soruşur. Haradan olduğunu de.  
 **Səs:** Hello! Where are you from?  
@@ -125,27 +114,7 @@ Qeyd: Ölkənin adı böyük hərflə yazılır; vurğu sondadır.
 - *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Ganja. — düzdür; I from Ganja. — olmur. Nümunə: Where are you from? — I'm from Azerbaijan.  
 - *İzah (başqa səhvdə):* I'm from + ölkə və ya şəhər. — Uyğun: I'm from Azerbaijan. Səbəb: Sual haradan olduğunu soruşur — I’m from və yerin adı. Qayda: I'm from Azerbaijan. — haradan; I'm fine. — hal. Nümunə: Where are you from? — I'm from Ganja.  
 
-## Kart 9 — Sözü tamamla: Sözü tamamla
-
-**Tapşırıq:** Klubda qız yeni tanışa haradan olduğunu deyir. Hansı söz çatmır?  
-**Cümlə:** I'm ___ Baku.  
-**Seçimlər:** from / at / is — **düzgün:** from  
-**İpucu:** Azərbaycancada bu, şəhərin sonuna şəkilçi kimi qoşulur.  
-**Düzgün olanda:** from — “-dan”: I’m from Baku.  
-- *İzah (“at” seçiləndə):* “at” e-poçtda @ deməkdir. — Uyğun: from. Səbəb: Haradan olduğunu deyəndə “from” gəlir. Qayda: I'm from Baku. — haradan; at — @ (e-poçtda). Nümunə: I'm from Baku.  
-- *İzah (“is” seçiləndə):* I’m-dan sonra “is” gəlmir. — Uyğun: from. Səbəb: I’m artıq “mən [ad]-am” deməkdir; haradan — from. Qayda: I'm from Baku. — düzdür; I'm is Baku. — olmur. Nümunə: I'm from Baku.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Kafedə oğlan yeni tanışa haradan olduğunu deyir. Hansı söz çatmır?  
-**Cümlə:** I'm ___ Ganja.  
-**Seçimlər:** is / from / my — **düzgün:** from  
-**İpucu:** Azərbaycancada bu, şəhərin sonuna şəkilçi kimi qoşulur.  
-**Düzgün olanda:** from — “-dan”: I’m from Ganja.  
-- *İzah (“is” seçiləndə):* I’m-dan sonra “is” gəlmir. — Uyğun: from. Səbəb: I’m artıq “mən [ad]-am” deməkdir; haradan — from. Qayda: I'm from Ganja. — düzdür; I'm is Ganja. — olmur. Nümunə: I'm from Ganja.  
-- *İzah (“my” seçiləndə):* “my” — mənim; burada haradan olduğunu deyir. — Uyğun: from. Səbəb: Haradan olduğunu deyəndə “from” gəlir. Qayda: I'm from Ganja. — haradan; My name is [ad] — ad. Nümunə: I'm from Ganja.  
-
-## Kart 10 — Yeni söz
+## Kart 8 — Yeni söz
 
 **Me too.** — Mən də.
 
@@ -155,21 +124,7 @@ Nümunə: **I'm from Baku. — Me too!** — Bakıdanam. — Mən də!
 
 Qeyd: Qarşındakı ilə eyni olanda deyilir; “You too” isə “sənə də”dir.
 
-## Kart 11 — Cavab cütü: Cavab cütü
-
-**Tapşırıq:** Dil klubunda söhbət. Hər cümləyə uyğun cavabı qoş.  
-**Cütlər:** Where are you from? — I'm from Ganja.; I'm from Baku. — Me too!; Nice to meet you. — You too. · artıq: I'm fine, thanks.  
-**Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Where are you from? → I'm from Ganja.; I'm from Baku. → Me too!; Nice to meet you. → You too. Səbəb: Sual, eyni yer və tanışlıq fərqli cavab istəyir. Qayda: Me too! — mən də; You too. — sənə də. Nümunə: I'm from Baku. — Me too!  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Hostelin mətbəxində söhbət. Hər cümləyə uyğun cavabı qoş.  
-**Cütlər:** Hi! I'm from Azerbaijan. — Me too!; How are you? — I'm fine, thanks.; Where are you from? — I'm from Lankaran. · artıq: You too.  
-**Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
-- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Hi! I'm from Azerbaijan. → Me too!; How are you? → I'm fine, thanks.; Where are you from? → I'm from Lankaran. Səbəb: Eyni yer, hal və sual fərqli cavab istəyir. Qayda: Me too! — mən də; I'm fine, thanks. — hal. Nümunə: I'm from Azerbaijan. — Me too!  
-
-## Kart 12 — Dialoqu tamamla: Dialoqu tamamla
+## Kart 9 — Dialoqu tamamla: Dialoqu tamamla
 
 **Tapşırıq:** Klubda yeni tanış haradan olduğunu yazdı. Sən də Bakıdansan. Qısa cavab yaz.  
 **Yazışma (Yeni tanış):** “Hi! I'm from Baku.”  
@@ -189,7 +144,7 @@ Qeyd: Qarşındakı ilə eyni olanda deyilir; “You too” isə “sənə də�
 - *İzah (başqa səhvdə):* “You too” — sənə də; burada “mən də” lazımdır. — Uyğun: Me too! Səbəb: O, Gəncədən olduğunu dedi; sən də — “mən də”. Qayda: Me too! — mən də; You too. — sənə də. Nümunə: I'm from Ganja. — Me too!  
 - *İzah (başqa səhvdə):* Me too! — Uyğun: Me too! Səbəb: Burada qısa cavab istənir: sən də Gəncədənsən. Qayda: Me too! — qısa cavab; I'm from Ganja. — tam cümlə. Nümunə: I'm from Ganja. — Me too!  
 
-## Kart 13 — Səslə cavab: Haradan olduğunu soruş
+## Kart 10 — Səslə cavab: Haradan olduğunu soruş
 
 **Tapşırıq:** Klubda yeni tanışla salamlaşdın, adını da bilirsən. Haradan olduğunu soruş.  
 **Qəbul:** məna: askFrom — nümunə: Where are you from?  
@@ -207,7 +162,7 @@ Qeyd: Qarşındakı ilə eyni olanda deyilir; “You too” isə “sənə də�
 - *İzah (cavab “askFeeling” işini görəndə):* Hal yox, haradan olduğunu soruş. — Uyğun: Where are you from? Səbəb: Hal yox, haradan olduğu lazımdır. Qayda: Where are you from? — haradan; How are you? — hal. Nümunə: Hi! Where are you from?  
 - *İzah (başqa səhvdə):* Where are you from? — Uyğun: Where are you from? Səbəb: Haradan olduğunu soruşursan: Where are you from? Qayda: Where are you from? — haradan; What's your name? — ad. Nümunə: Hi! Where are you from?  
 
-## Kart 14 — Sözü tamamla: Söhbəti tamamla
+## Kart 11 — Sözü tamamla: Söhbəti tamamla
 
 **Tapşırıq:** Dil klubu. Söhbətdə bir söz əskikdir. Düzgün sözü seç.  
 **Cümlə:** Me ___ !  

@@ -100,20 +100,6 @@ export const lesson1b: DesignLesson = {
       },
     },
     {
-      type: 'match', mode: 'reply', id: 'u2d1b_c09', number: 9, title: 'Cavab cütü', why: 'Hər sıranı düz davam etdirdin.', hint: 'Hər sıranın son rəqəmindən sonra hansının gəldiyini düşün.',
-      prompt: 'Avtobusu gözləyərkən sayma oyunu.\nSıraya toxun, sonra onun davamını seç.',
-      rows: [{ en: 'One, two, three…', az: 'Four, five, six!', from: 'G' }, { en: 'Six, seven…', az: 'Eight, nine, ten!', from: 'B' }, { en: 'Zero, one…', az: 'Two, three!', from: 'M' }],
-      extra: ['Nine, ten!'],
-      variants: [other('Bir sıranın davamı yerində deyil.', ex('One, two, three… — Four, five, six!; Six, seven… — Eight, nine, ten!; Zero, one… — Two, three!', 'Hər sıra son rəqəmdən sonra davam edir.', 'Six, seven… → eight; Eight, nine… → ten.', 'Eight, nine, ten!'))],
-      review: {
-        title: 'Cavab cütü', why: 'Geriyə sayımı düz davam etdirdin.', hint: 'Geriyə sayırsan: son rəqəmdən əvvəl hansı gəlir?',
-        prompt: 'İndi geriyə sayırıq.\nSıraya toxun, sonra onun davamını seç.',
-        rows: [{ en: 'Ten, nine, eight…', az: 'Seven, six, five!', from: 'B' }, { en: 'Four, three…', az: 'Two, one, zero!', from: 'G' }, { en: 'Seven, six…', az: 'Five, four!', from: 'M' }],
-        extra: ['Six, five!'],
-        variants: [other('Bir sıranın davamı yerində deyil.', ex('Ten, nine, eight… — Seven, six, five!; Four, three… — Two, one, zero!; Seven, six… — Five, four!', 'Geriyə sayanda hər sıra bir rəqəm azalır.', 'Ten, nine… → eight; Seven, six… → five.', 'Ten, nine, eight, seven!'))],
-      },
-    },
-    {
       type: 'voice', id: 'u2d1b_c10', number: 10, title: 'Bilet al', why: 'Bilet sayını dedin və nəzakətlə xahiş etdin.', hint: 'Neçə bilet lazımdır? Rəqəmi de, sonra xahişi nəzakətli edən sözü əlavə et.',
       prompt: 'Avtobus kassasındasan. Kursdan 8 nəfərsiniz, 8 bilet lazımdır.\nKassirə nəzakətlə de.', reply: 'Eight. OK!',
       rule: numberPlease('eight', '8', 'Eight, please.', 'Excuse me, eight, please.'),
@@ -153,11 +139,28 @@ export const lesson1b: DesignLesson = {
       },
     },
   ],
+  // Taken out of the lesson (26 Nov 2026, shorter lessons) — comes back in the daily review.
+  pool: [
+    {
+      type: 'match', mode: 'reply', id: 'u2d1b_c09', number: 9, title: 'Cavab cütü', why: 'Hər sıranı düz davam etdirdin.', hint: 'Hər sıranın son rəqəmindən sonra hansının gəldiyini düşün.',
+      prompt: 'Avtobusu gözləyərkən sayma oyunu.\nSıraya toxun, sonra onun davamını seç.',
+      rows: [{ en: 'One, two, three…', az: 'Four, five, six!', from: 'G' }, { en: 'Six, seven…', az: 'Eight, nine, ten!', from: 'B' }, { en: 'Zero, one…', az: 'Two, three!', from: 'M' }],
+      extra: ['Nine, ten!'],
+      variants: [other('Bir sıranın davamı yerində deyil.', ex('One, two, three… — Four, five, six!; Six, seven… — Eight, nine, ten!; Zero, one… — Two, three!', 'Hər sıra son rəqəmdən sonra davam edir.', 'Six, seven… → eight; Eight, nine… → ten.', 'Eight, nine, ten!'))],
+      review: {
+        title: 'Cavab cütü', why: 'Geriyə sayımı düz davam etdirdin.', hint: 'Geriyə sayırsan: son rəqəmdən əvvəl hansı gəlir?',
+        prompt: 'İndi geriyə sayırıq.\nSıraya toxun, sonra onun davamını seç.',
+        rows: [{ en: 'Ten, nine, eight…', az: 'Seven, six, five!', from: 'B' }, { en: 'Four, three…', az: 'Two, one, zero!', from: 'G' }, { en: 'Seven, six…', az: 'Five, four!', from: 'M' }],
+        extra: ['Six, five!'],
+        variants: [other('Bir sıranın davamı yerində deyil.', ex('Ten, nine, eight… — Seven, six, five!; Four, three… — Two, one, zero!; Seven, six… — Five, four!', 'Geriyə sayanda hər sıra bir rəqəm azalır.', 'Ten, nine… → eight; Seven, six… → five.', 'Ten, nine, eight, seven!'))],
+      },
+    },
+  ],
   result: {
     done: ['Dərs 1 · 2-ci hissə tamamlandı', 'Artıq 0–10 rəqəmlərini tanıyırsan, nömrə yığırsan və bilet istəyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: '6–10 rəqəmlərini eşidib tanımaq', tasks: ['u2d1b_c05', 'u2d1b_c07', 'u2d1b_c08', 'u2d1b_c09'] },
+      { group: 'Tanıma', text: '6–10 rəqəmlərini eşidib tanımaq', tasks: ['u2d1b_c05', 'u2d1b_c07', 'u2d1b_c08'] },
       { group: 'Yazı', text: 'Rəqəmi sözlə yazmaq və təşəkkürə cavab yazmaq', tasks: ['u2d1b_c11', 'u2d1b_c12'] },
       { group: 'Danışıq', text: 'Sayı deyib nəzakətlə xahiş etmək', tasks: ['u2d1b_c03', 'u2d1b_c10'] },
     ],

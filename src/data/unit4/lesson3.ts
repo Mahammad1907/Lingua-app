@@ -29,8 +29,8 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'word', id: 'u4d3_c02', number: 2, scenes: ['u4/family-dinner'],
-      word: 'his', pronunciation: '/hɪz/', reading: 'hiz', az: 'onun (kişinin)',
-      notes: ['his — kişinin: atanın, qardaşının, dostunun.'],
+      word: 'his · her', pronunciation: '/hɪz/ · /hɝ/', reading: 'hiz · hör', az: 'onun (kişinin) · onun (qadının)',
+      notes: ['his — kişinin: atanın, qardaşının. her — qadının: ananın, bacının.'],
       example: "He's my brother. This is his friend.", exampleAz: 'O, mənim qardaşımdır. Bu, onun dostudur.',
     },
     {
@@ -52,14 +52,32 @@ export const lesson3: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u4d3_c04', number: 4, scenes: ['mascot/point'],
-      word: 'His name is [ad].', pronunciation: '/hɪz neɪm ɪz/', reading: 'hiz neym iz [ad]', az: 'Onun (kişinin) adı [ad]-dır.',
-      structure: ['His name is + ad.'],
-      notes: ['his — onun (kişinin), name — ad, is — “-dır”: My name is kimi.'],
+      type: 'choice', id: 'u4d3_c07', number: 4, title: 'Sözü tamamla', why: 'Bacının ailəsi — her family.', hint: 'Ailə kimindir: kişinin, yoxsa qadının?',
+      prompt: '{F} bacısını göstərir, sonra onun ailəsini.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'This is', after: 'family.' },
+      options: ['his', 'her', "she's"], answer: 'her',
+      variants: [
+        pick('his', 'Ailə bacınındır — qadının. Kişinin olsaydı, his olardı.', ex('her', 'Azərbaycancada ikisi də “onun”dur; qadının ailəsi üçün her.', 'her family — qadının; his family — kişinin.', "She's my friend. This is her mother.")),
+        pick("she's", 'She’s “odur” deməkdir, “onun” yox.', ex('her', '“Onun ailəsi” üçün her deyilir.', "She's my sister. — odur; This is her family. — onun.", "She's my friend. This is her mother.")),
+      ],
+      review: {
+        title: 'Sözü tamamla', why: 'Qardaşının dostu — his friend.', hint: 'Dost kimindir: kişinin, yoxsa qadının?',
+        prompt: 'Video zəngdə {b} qardaşını göstərir: “He\'s my brother.” Sonra qardaşının dostunu göstərir.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'This is', after: 'friend.' },
+        options: ["he's", 'her', 'his'], answer: 'his',
+        variants: [
+          pick('her', 'Dost qardaşınındır — kişinin. Qadının olsaydı, her olardı.', ex('his', 'Azərbaycancada ikisi də “onun”dur; kişinin dostu üçün his.', 'his friend — kişinin; her friend — qadının.', "He's my brother. This is his friend.")),
+          pick("he's", 'He’s “odur” deməkdir, “onun” yox.', ex('his', '“Onun dostu” üçün his deyilir.', "He's my brother. — odur; This is his friend. — onun.", "He's my brother. This is his friend.")),
+        ],
+      },
+    },
+    {
+      type: 'word', id: 'u4d3_c04', number: 5, scenes: ['mascot/point'],
+      word: 'His name is [ad]. · Her name is [ad].', pronunciation: '/hɪz neɪm ɪz/ · /hɝ neɪm ɪz/', reading: 'hiz neym iz [ad] · hör neym iz [ad]', az: 'Onun (kişinin) adı [ad]-dır. · Onun (qadının) adı [ad]-dır.',
+      structure: ['His name is + ad.', 'Her name is + ad.'],
+      notes: ['name — ad, is — “-dır”: My name is kimi. Kişinin adı — his, qadının adı — her; She’s name olmur.'],
       example: "He's my brother. His name is Elvin.", exampleAz: 'O, mənim qardaşımdır. Onun adı Elvindir.',
     },
     {
-      type: 'write', id: 'u4d3_c05', number: 5, title: 'Mesaj yaz', why: 'Kişinin adı — His name is.', hint: '“Onun” sözü burada kişiyə aiddir; sıra My name is kimidir.',
+      type: 'write', id: 'u4d3_c05', number: 6, title: 'Mesaj yaz', why: 'Kişinin adı — His name is.', hint: '“Onun” sözü burada kişiyə aiddir; sıra My name is kimidir.',
       prompt: 'Şəkildəki qardaşının adı Elvindir.\nSözlərdən cümlə qur: “Onun adı Elvindir.”', placeholder: 'Sözlərə toxun',
       photo: { from: 'Sən şəkil göndərdin', shows: 'qardaşın (Elvin)' },
       tiles: ['His', "He's", 'name', 'is', 'Elvin', 'my', '.'], rule: exact('His name is Elvin.'),
@@ -81,38 +99,7 @@ export const lesson3: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u4d3_c06', number: 6, scenes: ['mascot/wave'],
-      word: 'her', pronunciation: '/hɝ/', reading: 'hör', az: 'onun (qadının)',
-      notes: ['her — qadının: ananın, bacının, rəfiqənin.'],
-      example: "She's my friend. This is her mother.", exampleAz: 'O, mənim rəfiqəmdir. Bu, onun anasıdır.',
-    },
-    {
-      type: 'choice', id: 'u4d3_c07', number: 7, title: 'Sözü tamamla', why: 'Bacının ailəsi — her family.', hint: 'Ailə kimindir: kişinin, yoxsa qadının?',
-      prompt: '{F} bacısını göstərir, sonra onun ailəsini.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'This is', after: 'family.' },
-      options: ['his', 'her', "she's"], answer: 'her',
-      variants: [
-        pick('his', 'Ailə bacınındır — qadının. Kişinin olsaydı, his olardı.', ex('her', 'Azərbaycancada ikisi də “onun”dur; qadının ailəsi üçün her.', 'her family — qadının; his family — kişinin.', "She's my friend. This is her mother.")),
-        pick("she's", 'She’s “odur” deməkdir, “onun” yox.', ex('her', '“Onun ailəsi” üçün her deyilir.', "She's my sister. — odur; This is her family. — onun.", "She's my friend. This is her mother.")),
-      ],
-      review: {
-        title: 'Sözü tamamla', why: 'Qardaşının dostu — his friend.', hint: 'Dost kimindir: kişinin, yoxsa qadının?',
-        prompt: 'Video zəngdə {b} qardaşını göstərir: “He\'s my brother.” Sonra qardaşının dostunu göstərir.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'This is', after: 'friend.' },
-        options: ["he's", 'her', 'his'], answer: 'his',
-        variants: [
-          pick('her', 'Dost qardaşınındır — kişinin. Qadının olsaydı, her olardı.', ex('his', 'Azərbaycancada ikisi də “onun”dur; kişinin dostu üçün his.', 'his friend — kişinin; her friend — qadının.', "He's my brother. This is his friend.")),
-          pick("he's", 'He’s “odur” deməkdir, “onun” yox.', ex('his', '“Onun dostu” üçün his deyilir.', "He's my brother. — odur; This is his friend. — onun.", "He's my brother. This is his friend.")),
-        ],
-      },
-    },
-    {
-      type: 'word', id: 'u4d3_c08', number: 8, scenes: ['mascot/happy'],
-      word: 'Her name is [ad].', pronunciation: '/hɝ neɪm ɪz/', reading: 'hör neym iz [ad]', az: 'Onun (qadının) adı [ad]-dır.',
-      structure: ['Her name is + ad.'],
-      notes: ['her — onun (qadının), name — ad, is — “-dır”; She’s name olmur.'],
-      example: "She's my mother. Her name is Leyla.", exampleAz: 'O, mənim anamdır. Onun adı Leyladır.',
-    },
-    {
-      type: 'voice', id: 'u4d3_c09', number: 9, title: 'Səslə cavab', why: 'Bacını təqdim etdin və adını dedin.', hint: 'Əvvəl kim olduğunu de, sonra qadının adını.',
+      type: 'voice', id: 'u4d3_c09', number: 7, title: 'Səslə cavab', why: 'Bacını təqdim etdin və adını dedin.', hint: 'Əvvəl kim olduğunu de, sonra qadının adını.',
       prompt: 'Şəkildəki bacının adı Nigardır.\nDe: bu, bacımdır, onun adı Nigardır.', audio: "Who's this?", reply: 'Hi, Nigar!',
       rule: herNameIs('sister', 'Nigar'),
       variants: [
@@ -134,13 +121,13 @@ export const lesson3: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u4d3_c10', number: 10, scenes: ['u4/family-dinner'],
-      word: 'husband', pronunciation: '/ˈhʌzbənd/', reading: 'hazbənd', az: 'ər (qadının həyat yoldaşı)',
-      notes: ['Vurğu birinci hecadadır: HAZ-bənd.'],
+      type: 'word', id: 'u4d3_c10', number: 8, scenes: ['u4/family-dinner'],
+      word: 'husband · wife', pronunciation: '/ˈhʌzbənd/ · /waɪf/', reading: 'hazbənd · uayf', az: 'ər · həyat yoldaşı (kişinin)',
+      notes: ['husband — vurğu birinci hecadadır: HAZ-bənd. wife — w “u” kimi başlayır: uayf.'],
       example: 'This is my husband. His name is Rauf.', exampleAz: 'Bu, mənim ərimdir. Onun adı Raufdur.',
     },
     {
-      type: 'write', id: 'u4d3_c13', number: 13, title: 'Dialoqu tamamla', why: 'Bacının əri — her husband.', hint: 'Əvvəl suala qısa cavab ver, sonra ərin kimin əri olduğunu düşün.',
+      type: 'write', id: 'u4d3_c13', number: 9, title: 'Dialoqu tamamla', why: 'Bacının əri — her husband.', hint: 'Əvvəl suala qısa cavab ver, sonra ərin kimin əri olduğunu düşün.',
       prompt: 'Çatda şəklinə baxırlar: bacın və onun əri.\nYaz: bəli, o bacımdır. Bu da onun əridir.', placeholder: 'Cavabın',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Is she your sister?' }] },
       rule: yesOwner('she', 'her', 'husband'),
@@ -162,13 +149,7 @@ export const lesson3: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u4d3_c12', number: 12, scenes: ['mascot/think'],
-      word: 'wife', pronunciation: '/waɪf/', reading: 'uayf', az: 'həyat yoldaşı (kişinin)',
-      notes: ['w “u” kimi başlayır: uayf.'],
-      example: 'This is my wife. Her name is Lala.', exampleAz: 'Bu, mənim həyat yoldaşımdır. Onun adı Laladır.',
-    },
-    {
-      type: 'drag', id: 'u4d3_drag', number: 14, title: 'Söz sürüklə', why: 'His name is Elvin — qardaşı; Her name is Lala — onun həyat yoldaşı.', hint: 'Hər adı eşidəndə ondan əvvəlki cümləyə fikir ver.',
+      type: 'drag', id: 'u4d3_drag', number: 10, title: 'Söz sürüklə', why: 'His name is Elvin — qardaşı; Her name is Lala — onun həyat yoldaşı.', hint: 'Hər adı eşidəndə ondan əvvəlki cümləyə fikir ver.',
       prompt: 'Ailə yeməyinin şəklində {f} iki nəfəri göstərir.\nDinlə və hər adamın altına sözü qoy.', audio: 'This is my brother. His name is Elvin. This is his wife. Her name is Lala.',
       people: [{ id: 'lala', label: 'Lala' }, { id: 'elvin', label: 'Elvin' }], chips: ['husband', 'brother', 'wife'], answers: { lala: 'wife', elvin: 'brother' },
       variants: [
@@ -202,17 +183,17 @@ export const lesson3: DesignLesson = {
   vocabulary: [
     { word: 'his', translation: 'onun (kişinin)', example: "He's my brother. This is his friend.", exampleAz: 'O, mənim qardaşımdır. Bu, onun dostudur.', usageNote: 'Kişinin — his.', pronunciation: '/hɪz/', teachCard: 'u4d3_c02' },
     { word: 'His name is [ad].', translation: 'Onun (kişinin) adı [ad]-dır.', example: "He's my brother. His name is Elvin.", exampleAz: 'O, mənim qardaşımdır. Onun adı Elvindir.', usageNote: 'My name is kimi, my yerinə his.', pronunciation: '/hɪz neɪm ɪz/', teachCard: 'u4d3_c04' },
-    { word: 'her', translation: 'onun (qadının)', example: "She's my friend. This is her mother.", exampleAz: 'O, mənim rəfiqəmdir. Bu, onun anasıdır.', usageNote: 'Qadının — her.', pronunciation: '/hɝ/', teachCard: 'u4d3_c06' },
-    { word: 'Her name is [ad].', translation: 'Onun (qadının) adı [ad]-dır.', example: "She's my mother. Her name is Leyla.", exampleAz: 'O, mənim anamdır. Onun adı Leyladır.', usageNote: 'Qadının adı: Her name is.', pronunciation: '/hɝ neɪm ɪz/', teachCard: 'u4d3_c08' },
+    { word: 'her', translation: 'onun (qadının)', example: "She's my friend. This is her mother.", exampleAz: 'O, mənim rəfiqəmdir. Bu, onun anasıdır.', usageNote: 'Qadının — her.', pronunciation: '/hɝ/', teachCard: 'u4d3_c02' },
+    { word: 'Her name is [ad].', translation: 'Onun (qadının) adı [ad]-dır.', example: "She's my mother. Her name is Leyla.", exampleAz: 'O, mənim anamdır. Onun adı Leyladır.', usageNote: 'Qadının adı: Her name is.', pronunciation: '/hɝ neɪm ɪz/', teachCard: 'u4d3_c04' },
     { word: 'husband', translation: 'ər', example: 'This is my husband. His name is Rauf.', exampleAz: 'Bu, mənim ərimdir. Onun adı Raufdur.', usageNote: 'Qadının həyat yoldaşı.', pronunciation: '/ˈhʌzbənd/', teachCard: 'u4d3_c10' },
-    { word: 'wife', translation: 'həyat yoldaşı (kişinin)', example: 'This is my wife. Her name is Lala.', exampleAz: 'Bu, mənim həyat yoldaşımdır. Onun adı Laladır.', usageNote: 'Kişinin həyat yoldaşı.', pronunciation: '/waɪf/', teachCard: 'u4d3_c12' },
+    { word: 'wife', translation: 'həyat yoldaşı (kişinin)', example: 'This is my wife. Her name is Lala.', exampleAz: 'Bu, mənim həyat yoldaşımdır. Onun adı Laladır.', usageNote: 'Kişinin həyat yoldaşı.', pronunciation: '/waɪf/', teachCard: 'u4d3_c10' },
   ],
 };
 
 // Müəllim izahı (2): his / her — kimin olduğuna görə; aralarında tapşırıqlar var (c07, c09, ailə ağacı).
 export const explains: { after: string; card: ExplainCard }[] = [
   {
-    after: 'u4d3_c06',
+    after: 'u4d3_c02',
     card: {
       type: 'explain', id: 'u4d3_c06t', number: 0,
       lead: 'Azərbaycancada bir söz var: “onun”. İngiliscə iki söz var: his və her.', focus: 'his və her',
@@ -225,7 +206,7 @@ export const explains: { after: string; card: ExplainCard }[] = [
     },
   },
   {
-    after: 'u4d3_c12',
+    after: 'u4d3_c10',
     card: {
       type: 'explain', id: 'u4d3_c12t', number: 0,
       lead: 'his yoxsa her? Kimin ailəsi olduğuna bax.', focus: 'Kimin ailəsi',

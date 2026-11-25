@@ -50,8 +50,8 @@ export const lesson2a: DesignLesson = {
     },
     {
       type: 'word', id: 'u4d2a_c04', number: 4, scenes: ['mascot/happy'],
-      word: 'mother', pronunciation: '/ˈmʌðər/', reading: 'ma**th**ər', az: 'ana',
-      notes: ['Yazılışı mother, oxunuşu “ma**th**ər”: o hərfi “a” kimi oxunur, th dil dişlərin arasındadır.'],
+      word: 'mother · father', pronunciation: '/ˈmʌðər/ · /ˈfɑðər/', reading: 'ma**th**ər · fa**th**ər', az: 'ana · ata',
+      notes: ['mother — “ma**th**ər” (o hərfi “a” kimi), father — “fa**th**ər”. th: dil dişlərin arasındadır.'],
       example: 'This is my mother.', exampleAz: 'Bu mənim anamdır.',
     },
     {
@@ -69,13 +69,7 @@ export const lesson2a: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u4d2a_c06', number: 6, scenes: ['mascot/ask'],
-      word: 'father', pronunciation: '/ˈfɑðər/', reading: 'fa**th**ər', az: 'ata',
-      notes: ['Oxunuşu “fa**th**ər”: yazılışdakı a-dan sonra th gəlir, dil dişlərin arasında.'],
-      example: 'This is my father.', exampleAz: 'Bu mənim atamdır.',
-    },
-    {
-      type: 'voice', id: 'u4d2a_c07', number: 7, title: 'Dinlə və təkrarla', why: 'Cümləni dedin: This is my father.', hint: 'Əvvəl yavaş dinlə, sonra cümləni iki hissədə de.',
+      type: 'voice', id: 'u4d2a_c07', number: 6, title: 'Dinlə və təkrarla', why: 'Cümləni dedin: This is my father.', hint: 'Əvvəl yavaş dinlə, sonra cümləni iki hissədə de.',
       prompt: '{F} atasının şəklini göstərir.\nDinlə, sonra eyni cür de.', audio: 'This is my father.', repeat: { stress: 'fa', note: 'father — “fa**th**ər”: **th** dil dişlərin arasında, “d” kimi demə.', reading: '**th**is iz may fa**th**ər' },
       rule: said(String.raw`^this\s+is\s+my\s+father\s*[.!]?$`, 'This is my father.'),
       variants: [other('This is my father.', ex('This is my father.', 'Əvvəl This is, sonra my və father.', 'This is my father. — ata; This is my mother. — ana.', 'This is my father.'))],
@@ -87,13 +81,13 @@ export const lesson2a: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u4d2a_c08', number: 8, scenes: ['mascot/wave'],
-      word: 'brother', pronunciation: '/ˈbrʌðər/', reading: 'bra**th**ər', az: 'qardaş',
-      notes: ['Oxunuşu “bra**th**ər”: o hərfi “a” kimi, th dil dişlərin arasında.'],
+      type: 'word', id: 'u4d2a_c08', number: 7, scenes: ['mascot/wave'],
+      word: 'brother · sister', pronunciation: '/ˈbrʌðər/ · /ˈsɪstər/', reading: 'bra**th**ər · sistər', az: 'qardaş · bacı',
+      notes: ['brother — “bra**th**ər”: o hərfi “a” kimi, th dil dişlərin arasında. sister — sonda “ər”: sistər, “sistar” yox.'],
       example: 'This is my brother.', exampleAz: 'Bu mənim qardaşımdır.',
     },
     {
-      type: 'match', id: 'u4d2a_c09', number: 9, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Cümlənin sonundakı ailə sözünə fikir ver.',
+      type: 'match', id: 'u4d2a_c09', number: 8, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Cümlənin sonundakı ailə sözünə fikir ver.',
       prompt: 'Albomun səhifəsində üç cümlə var.\nHər cümləni mənasına uyğun gətir.',
       rows: [{ en: 'This is my mother.', az: 'Bu mənim anamdır.', from: 'other' }, { en: 'This is my father.', az: 'Bu mənim atamdır.', from: 'other' }, { en: 'This is my brother.', az: 'Bu mənim qardaşımdır.', from: 'other' }],
       extra: ['Bu mənim dostumdur.'],
@@ -107,11 +101,33 @@ export const lesson2a: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u4d2a_c10', number: 10, scenes: ['mascot/think'],
-      word: 'sister', pronunciation: '/ˈsɪstər/', reading: 'sistər', az: 'bacı',
-      notes: ['Sonda “ər” kimi oxunur: sistər, “sistar” yox.'],
-      example: 'This is my sister.', exampleAz: 'Bu mənim bacımdır.',
+      type: 'voice', id: 'u4d2a_c12', number: 9, title: 'Səslə cavab', why: 'Bacını təqdim etdin: This is my sister.', hint: 'Bacını Dərs 1-dəki təqdim cümləsi ilə göstər, sonda ailə sözünü de.',
+      prompt: '{F} şəkildəki qızı göstərib soruşur. Bu qız sənin bacındır.\nCavab ver.', audio: "Who's this?", reply: 'Nice!',
+      rule: sayMy('sister', 'she'),
+      variants: [noMy('sister', 'This is my sister.'), otherMember('sister')],
+      review: {
+        title: 'Səslə cavab', why: 'Bacını təqdim etdin: This is my sister.', hint: 'Video zəngdə də bacını Dərs 1-dəki təqdim cümləsi ilə göstər.',
+        prompt: 'Video zəngdə iş yoldaşın şəkildəki qızı göstərib soruşur. Bu qız sənin bacındır.\nCavab ver.', audio: "Who's this?", reply: 'Nice!',
+        rule: sayMy('sister', 'she'),
+        variants: [noMy('sister', 'This is my sister.'), otherMember('sister')],
+      },
     },
+    {
+      type: 'match', mode: 'order', id: 'u4d2a_c13', number: 10, title: 'Söhbəti sırala', why: 'Sual, cavab, ikinci sual və ikinci cavab düz sıradadır.', hint: 'Hər sualın cavabı onun dərhal ardınca gəlir.',
+      prompt: 'Albomun səhifəsi.\nBalonlara toxun, söhbəti sıraya düz.',
+      rows: [{ en: '1', az: "Hi! Who's this?", from: 'other' }, { en: '2', az: 'This is my mother.', from: 'G' }, { en: '3', az: "And who's this?", from: 'other' }, { en: '4', az: 'This is my sister.', from: 'G' }],
+      extra: [],
+      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! Who's this? → This is my mother. → And who's this? → This is my sister.", 'Sual, cavab, sonra ikinci sual və cavab.', "Who's this? — sual; This is my mother. — cavab.", "Hi! Who's this?"))],
+      review: {
+        title: 'Söhbəti sırala', why: 'Sual, cavab, ikinci sual və ikinci cavab düz sıradadır.', hint: 'Hər sualın cavabı onun dərhal ardınca gəlir.',
+        prompt: 'Video zəng.\nBalonlara toxun, söhbəti sıraya düz.',
+        rows: [{ en: '1', az: "Who's this?", from: 'other' }, { en: '2', az: 'This is my brother.', from: 'B' }, { en: '3', az: "And who's this?", from: 'other' }, { en: '4', az: 'This is my father.', from: 'B' }],
+        extra: [],
+        variants: [other('Söhbətin sırası düz deyil.', ex("Who's this? → This is my brother. → And who's this? → This is my father.", 'Sual, cavab, sonra ikinci sual və cavab.', "Who's this? — sual; This is my brother. — cavab.", "Who's this?"))],
+      },
+    },
+  ],
+  pool: [
     {
       type: 'choice', id: 'u4d2a_c11', number: 12, title: 'Sözü tamamla', why: 'Ailə üzvündən əvvəl “mənim” — my gəlir.', hint: '“Mənim” deyən söz Bölmə 1-də “adım” cümləsində var.',
       prompt: '{F} albomundakı şəkildə öz bacısını göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'Hello! This is', after: 'sister.' },
@@ -130,39 +146,13 @@ export const lesson2a: DesignLesson = {
         ],
       },
     },
-    {
-      type: 'voice', id: 'u4d2a_c12', number: 13, title: 'Səslə cavab', why: 'Bacını təqdim etdin: This is my sister.', hint: 'Bacını Dərs 1-dəki təqdim cümləsi ilə göstər, sonda ailə sözünü de.',
-      prompt: '{F} şəkildəki qızı göstərib soruşur. Bu qız sənin bacındır.\nCavab ver.', audio: "Who's this?", reply: 'Nice!',
-      rule: sayMy('sister', 'she'),
-      variants: [noMy('sister', 'This is my sister.'), otherMember('sister')],
-      review: {
-        title: 'Səslə cavab', why: 'Bacını təqdim etdin: This is my sister.', hint: 'Video zəngdə də bacını Dərs 1-dəki təqdim cümləsi ilə göstər.',
-        prompt: 'Video zəngdə iş yoldaşın şəkildəki qızı göstərib soruşur. Bu qız sənin bacındır.\nCavab ver.', audio: "Who's this?", reply: 'Nice!',
-        rule: sayMy('sister', 'she'),
-        variants: [noMy('sister', 'This is my sister.'), otherMember('sister')],
-      },
-    },
-    {
-      type: 'match', mode: 'order', id: 'u4d2a_c13', number: 14, title: 'Söhbəti sırala', why: 'Sual, cavab, ikinci sual və ikinci cavab düz sıradadır.', hint: 'Hər sualın cavabı onun dərhal ardınca gəlir.',
-      prompt: 'Albomun səhifəsi.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "Hi! Who's this?", from: 'other' }, { en: '2', az: 'This is my mother.', from: 'G' }, { en: '3', az: "And who's this?", from: 'other' }, { en: '4', az: 'This is my sister.', from: 'G' }],
-      extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("Hi! Who's this? → This is my mother. → And who's this? → This is my sister.", 'Sual, cavab, sonra ikinci sual və cavab.', "Who's this? — sual; This is my mother. — cavab.", "Hi! Who's this?"))],
-      review: {
-        title: 'Söhbəti sırala', why: 'Sual, cavab, ikinci sual və ikinci cavab düz sıradadır.', hint: 'Hər sualın cavabı onun dərhal ardınca gəlir.',
-        prompt: 'Video zəng.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "Who's this?", from: 'other' }, { en: '2', az: 'This is my brother.', from: 'B' }, { en: '3', az: "And who's this?", from: 'other' }, { en: '4', az: 'This is my father.', from: 'B' }],
-        extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("Who's this? → This is my brother. → And who's this? → This is my father.", 'Sual, cavab, sonra ikinci sual və cavab.', "Who's this? — sual; This is my brother. — cavab.", "Who's this?"))],
-      },
-    },
   ],
   result: {
     done: ['Dərs 2 · 1-ci hissə tamamlandı', 'Artıq ailə üzvlərini adlandırır və şəkildəkinin kim olduğunu deyirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
       { group: 'Tanıma', text: 'Ailə üzvlərini eşidib tanımaq və söhbəti sıralamaq', tasks: ['u4d2a_c03', 'u4d2a_c09', 'u4d2a_c13'] },
-      { group: 'Yazı', text: 'Ailə üzvünü təqdim edən cümlə qurmaq', tasks: ['u4d2a_c05', 'u4d2a_c11'] },
+      { group: 'Yazı', text: 'Ailə üzvünü təqdim edən cümlə qurmaq', tasks: ['u4d2a_c05'] },
       { group: 'Danışıq', text: 'Ailə üzvünü təqdim etmək', tasks: ['u4d2a_c07', 'u4d2a_c12'] },
     ],
     closing: 'Növbəti hissə — daha geniş ailə: parents, grandmother, grandfather.', button: resultTexts.button,
@@ -171,9 +161,9 @@ export const lesson2a: DesignLesson = {
   vocabulary: [
     { word: 'family', translation: 'ailə', example: 'This is my family.', exampleAz: 'Bu mənim ailəmdir.', usageNote: 'Üç hecadır: fə-mə-li.', pronunciation: '/ˈfæməli/', teachCard: 'u4d2a_c02' },
     { word: 'mother', translation: 'ana', example: 'This is my mother.', exampleAz: 'Bu mənim anamdır.', usageNote: 'Oxunuşu “ma**th**ər”.', pronunciation: '/ˈmʌðər/', teachCard: 'u4d2a_c04' },
-    { word: 'father', translation: 'ata', example: 'This is my father.', exampleAz: 'Bu mənim atamdır.', usageNote: 'Oxunuşu “fa**th**ər”.', pronunciation: '/ˈfɑðər/', teachCard: 'u4d2a_c06' },
+    { word: 'father', translation: 'ata', example: 'This is my father.', exampleAz: 'Bu mənim atamdır.', usageNote: 'Oxunuşu “fa**th**ər”.', pronunciation: '/ˈfɑðər/', teachCard: 'u4d2a_c04' },
     { word: 'brother', translation: 'qardaş', example: 'This is my brother.', exampleAz: 'Bu mənim qardaşımdır.', usageNote: 'Oxunuşu “bra**th**ər”.', pronunciation: '/ˈbrʌðər/', teachCard: 'u4d2a_c08' },
-    { word: 'sister', translation: 'bacı', example: 'This is my sister.', exampleAz: 'Bu mənim bacımdır.', usageNote: 'Sonda “ər”: sistər.', pronunciation: '/ˈsɪstər/', teachCard: 'u4d2a_c10' },
+    { word: 'sister', translation: 'bacı', example: 'This is my sister.', exampleAz: 'Bu mənim bacımdır.', usageNote: 'Sonda “ər”: sistər.', pronunciation: '/ˈsɪstər/', teachCard: 'u4d2a_c08' },
   ],
 };
 

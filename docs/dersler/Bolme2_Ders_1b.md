@@ -92,7 +92,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 
 ## Kart 8 — Nömrəni yığ: Nömrəni yığ
 
-**Tapşırıq:** Taksi çağırırsan. Dostun taksinin qısa nömrəsini deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** Nine, eight, seven, six.  
 **Qəbul:** dəqiq: 9876  
 **İpucu:** Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.  
@@ -101,7 +101,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Dayanacaqda elan avtobus şirkətinin qısa nömrəsini deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** Eight, zero, six, nine.  
 **Qəbul:** dəqiq: 8069  
 **İpucu:** Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.  
@@ -128,23 +128,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 - *İzah (“nine” seçiləndə):* “nine” — doqquz. — Uyğun: eight. Səbəb: “nine” doqquzdur, qız isə 8 nömrəni gözləyir. Qayda: Eight? — səkkiz; Nine? — doqquz. Nümunə: Excuse me, eight?  
 - *İzah (“ten” seçiləndə):* “ten” — on. — Uyğun: eight. Səbəb: “ten” ondur, qız isə 8 nömrəni gözləyir. Qayda: Eight? — səkkiz; Ten? — on. Nümunə: Excuse me, eight?  
 
-## Kart 10 — Cavab cütü: Cavab cütü
-
-**Tapşırıq:** Avtobusu gözləyərkən sayma oyunu. Sıraya toxun, sonra onun davamını seç.  
-**Cütlər:** One, two, three… — Four, five, six!; Six, seven… — Eight, nine, ten!; Zero, one… — Two, three! · artıq: Nine, ten!  
-**İpucu:** Hər sıranın son rəqəmindən sonra hansının gəldiyini düşün.  
-**Düzgün olanda:** Hər sıranı düz davam etdirdin.  
-- *İzah (başqa səhvdə):* Bir sıranın davamı yerində deyil. — Uyğun: One, two, three… — Four, five, six!; Six, seven… — Eight, nine, ten!; Zero, one… — Two, three! Səbəb: Hər sıra son rəqəmdən sonra davam edir. Qayda: Six, seven… → eight; Eight, nine… → ten. Nümunə: Eight, nine, ten!  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** İndi geriyə sayırıq. Sıraya toxun, sonra onun davamını seç.  
-**Cütlər:** Ten, nine, eight… — Seven, six, five!; Four, three… — Two, one, zero!; Seven, six… — Five, four! · artıq: Six, five!  
-**İpucu:** Geriyə sayırsan: son rəqəmdən əvvəl hansı gəlir?  
-**Düzgün olanda:** Geriyə sayımı düz davam etdirdin.  
-- *İzah (başqa səhvdə):* Bir sıranın davamı yerində deyil. — Uyğun: Ten, nine, eight… — Seven, six, five!; Four, three… — Two, one, zero!; Seven, six… — Five, four! Səbəb: Geriyə sayanda hər sıra bir rəqəm azalır. Qayda: Ten, nine… → eight; Seven, six… → five. Nümunə: Ten, nine, eight, seven!  
-
-## Kart 11 — Səslə cavab: Bilet al
+## Kart 10 — Səslə cavab: Bilet al
 
 **Tapşırıq:** Avtobus kassasındasan. Kursdan 8 nəfərsiniz, 8 bilet lazımdır. Kassirə nəzakətlə de.  
 **Qəbul:** dəqiq: Eight, please. / Excuse me, eight, please. · öz məlumatı: /^(?:excuse me[,.!]?\s*)?(?:floor\s+)?(?:eight|8)(?:\s+(?:floor|tickets?))?[,.!]?\s*(?:please|thanks|thank you)[.!]?$/  
@@ -160,7 +144,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 **Düzgün olanda:** Nəfər sayını dedin və nəzakətlə xahiş etdin.  
 - *İzah (başqa səhvdə):* Rəqəm + please. — Uyğun: Six, please. Səbəb: Siz 6 nəfərsiniz: rəqəmi de və “please” əlavə et. Qayda: Six, please. — altı; Seven, please. — yeddi. Nümunə: Six, please.  
 
-## Kart 12 — Yaz: Rəqəmi yaz
+## Kart 11 — Yaz: Rəqəmi yaz
 
 **Tapşırıq:** Dayanacaqdakı lövhədə “8” yazılıb. Dostun mesajda soruşur ki, ingiliscə necədir. Sözlə yaz.  
 **Qəbul:** dəqiq: eight  
@@ -176,7 +160,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 **Düzgün olanda:** nine — sonunda “e” var.  
 - *İzah (başqa səhvdə):* Yazılışı yoxla. — Uyğun: nine. Səbəb: “nayn” deyilir, yazıda sonda “e” var. Qayda: nine — yazıda; nayn — səsdə. Nümunə: Eight, nine, ten!  
 
-## Kart 13 — Dialoqu tamamla: Mesaj yaz
+## Kart 12 — Dialoqu tamamla: Mesaj yaz
 
 **Tapşırıq:** Kurs yoldaşına avtobusun nömrəsini yazdın: 7. O cavab yazır. Ona cavab ver.  
 **Yazışma (Kurs yoldaşı):** “Seven? Thank you!”  

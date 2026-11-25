@@ -12,13 +12,16 @@ Kafedə və şəhər turu avtobusunda harada yaşadığını deyirsən.
 
 ## Kart 2 — Yeni söz
 
-**Where do you live?** — Harada yaşayırsan?
+**Where do you live? · I live in [şəhər]** — Harada yaşayırsan? · Mən [şəhər]-da yaşayıram.
 
-Oxunuşu: uer du yu liv? · IPA: /wɛr du ju lɪv/
+Oxunuşu: uer du yu liv? · ay liv in [şəhər] · IPA: /wɛr du ju lɪv/ · /aɪ lɪv ɪn/
 
-Nümunə: **Hi! Where do you live?** — Salam! Harada yaşayırsan?
+Quruluşu: I live in + şəhər / ölkə.
+
+Nümunə: **Where do you live? — I live in Baku.** — Harada yaşayırsan? — Bakıda yaşayıram.
 
 Qeyd: do — sualı qurur, How do you spell it? kimi.
+Qeyd: “-da, -də” şəkilçisi ingiliscə şəhərdən əvvəl gəlir: in Baku.
 
 ## Kart 3 — Müəllim izahı
 
@@ -53,19 +56,7 @@ Diqqət et: Where are you from? sualında do yoxdur, orada are var.
 - *İzah (“Necə olduğunu” seçiləndə):* Hal soruşsaydı, “How are you?” deyərdi. — Uyğun: Harada yaşadığını. Səbəb: Səsdə “How are you?” yox, “Where do you live?” var. Qayda: Where do you live? — yer; How are you? — hal. Nümunə: Hi! Where do you live?  
 - *İzah (“Haradan olduğunu” seçiləndə):* Haradan olduğunu soruşsaydı, “from” deyərdi. — Uyğun: Harada yaşadığını. Səbəb: Səsdə “from” yox, “live” var. Qayda: Where do you live? — yaşayırsan; Where are you from? — haradansan. Nümunə: Hi! Where do you live?  
 
-## Kart 5 — Yeni söz
-
-**I live in [şəhər]** — Mən [şəhər]-da yaşayıram.
-
-Oxunuşu: ay liv in [şəhər] · IPA: /aɪ lɪv ɪn/
-
-Quruluşu: I live in + şəhər / ölkə.
-
-Nümunə: **Where do you live? — I live in Baku.** — Harada yaşayırsan? — Bakıda yaşayıram.
-
-Qeyd: “-da, -də” şəkilçisi ingiliscə şəhərdən əvvəl gəlir: in Baku.
-
-## Kart 6 — Müəllim izahı
+## Kart 5 — Müəllim izahı
 
 Tam cavabda do yoxdur: I live in [şəhər]
 
@@ -79,7 +70,7 @@ Tam cavabda do yoxdur: I live in [şəhər]
 
 Diqqət et: Biz “-da” hissəsini sonda deyirik. İngiliscə in şəhərdən əvvəl gəlir.
 
-## Kart 7 — Səslə cavab: Səslə cavab
+## Kart 6 — Səslə cavab: Səslə cavab
 
 **Tapşırıq:** Kafedə yeni tanış soruşur. Harada yaşadığını de.  
 **Səs:** Where do you live?  
@@ -101,7 +92,7 @@ Diqqət et: Biz “-da” hissəsini sonda deyirik. İngiliscə in şəhərdən 
 - *İzah (başqa səhvdə):* Burada I-dan sonra birbaşa live gəlir. — Uyğun: I live in Baku. Səbəb: “yaşayıram” üçün I-dan sonra am lazım deyil: I live. Qayda: I live in Baku. — düzdür; I'm live in Baku. — olmur. Nümunə: Where do you live? — I live in Ganja.  
 - *İzah (başqa səhvdə):* I live in + şəhər. — Uyğun: I live in [şəhər]. Səbəb: Harada yaşadığını I live in ilə deyirsən. Qayda: I live in Ganja. — yaşayıram; I'm from Ganja. — Gəncədənəm. Nümunə: Where do you live? — I live in Baku.  
 
-## Kart 8 — Yeni söz
+## Kart 7 — Yeni söz
 
 **city** — şəhər
 
@@ -111,7 +102,7 @@ Nümunə: **What city are you from? — Ganja.** — Hansı şəhərdənsən? �
 
 Qeyd: Ölkə — country, şəhər — city.
 
-## Kart 9 — Kim nə dedi?: Kim nə dedi?
+## Kart 8 — Kim nə dedi?: Kim nə dedi?
 
 **Tapşırıq:** Kafedə hər kəs özü haqqında danışır. Hər cümləyə mənasını qoş.  
 **Cütlər:** I live in Baku. — Bakıda yaşayıram.; I'm from Baku. — Bakıdanam.; What city are you from? — Hansı şəhərdənsən? · artıq: Hansı ölkədənsən?  
@@ -127,19 +118,20 @@ Qeyd: Ölkə — country, şəhər — city.
 **Düzgün olanda:** from və live fərqini tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: I'm from Ganja. — Gəncədənəm.; I live in Ganja. — Gəncədə yaşayıram.; Where do you live? — Harada yaşayırsan? Səbəb: from haradan olduğunu, live harada yaşadığını deyir. Qayda: Where do you live? — yaşayırsan; Where are you from? — haradansan. Nümunə: Where do you live? — I live in Ganja.  
 
-## Kart 10 — Yeni söz
+## Kart 9 — Yeni söz
 
-**but** — amma
+**but · here** — amma · burada
 
-Oxunuşu: bat · IPA: /bʌt/
+Oxunuşu: bat · hir · IPA: /bʌt/ · /hɪr/
 
-Nümunə: **I'm from Ganja, but I live in Baku.** — Gəncədənəm, amma Bakıda yaşayıram.
+Nümunə: **I'm from Ganja, but I live here.** — Gəncədənəm, amma burada yaşayıram.
 
-Qeyd: İki fərqli fikri birləşdirir.
+Qeyd: but iki fərqli fikri birləşdirir.
+Qeyd: here — şəhərin adını demək əvəzinə: I live here.
 
-## Kart 11 — Mesaj yaz (sözlərdən): Mesaj yaz
+## Kart 10 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**Tapşırıq:** Kafedə tanış olduğun qıza mesaj yazırsan: Şəkidənsən, amma Bakıda yaşayırsan. Sözlərdən cümlə qur.  
+**Tapşırıq:** Kafedəki tanışa yazırsan: Şəkidənsən, Bakıda yaşayırsan. Sözlərdən cümlə qur.  
 **Sözlər:** I'm · from · Shaki, · but · I · live · in · Baku · at · and · .  
 **Qəbul:** dəqiq: I'm from Shaki, but I live in Baku. · öz məlumatı: /^i(?:'m|’m|\s+am)\s+from\s+shaki\s*,?\s+but\s+i\s+live\s+in\s+baku\s*[.!]?$/  
 **İpucu:** Əvvəl haradan olduğun, sonra “amma”, sonra harada yaşadığın.  
@@ -151,7 +143,7 @@ Qeyd: İki fərqli fikri birləşdirir.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Şəhər turunun qrup çatına özün haqqında yazırsan: Lənkərandansan, amma Gəncədə yaşayırsan. Sözlərdən cümlə qur.  
+**Tapşırıq:** Lənkərandansan, amma Gəncədə yaşayırsan. Sözlərdən cümlə qur.  
 **Sözlər:** live · I'm · Lankaran, · from · but · in · I · Ganja · and · at · .  
 **Qəbul:** dəqiq: I'm from Lankaran, but I live in Ganja. · öz məlumatı: /^i(?:'m|’m|\s+am)\s+from\s+lankaran\s*,?\s+but\s+i\s+live\s+in\s+ganja\s*[.!]?$/  
 **İpucu:** Əvvəl haradan olduğun, sonra “amma”, sonra harada yaşadığın.  
@@ -161,17 +153,7 @@ Qeyd: İki fərqli fikri birləşdirir.
 - *İzah (başqa səhvdə):* Burada I-dan sonra birbaşa live gəlir. — Uyğun: I live in Baku. Səbəb: “yaşayıram” üçün I-dan sonra am lazım deyil: I live. Qayda: I live in Baku. — düzdür; I'm live in Baku. — olmur. Nümunə: Where do you live? — I live in Ganja.  
 - *İzah (başqa səhvdə):* I'm from Lankaran, but I live in Ganja. — Uyğun: I'm from Lankaran, but I live in Ganja. Səbəb: Əvvəl from + şəhər, sonra but, sonra I live in + şəhər. Qayda: I'm from Lankaran. — haradan; I live in Ganja. — harada. Nümunə: I'm from Ganja, but I live in Baku.  
 
-## Kart 12 — Yeni söz
-
-**here** — burada
-
-Oxunuşu: hir · IPA: /hɪr/
-
-Nümunə: **I'm from Ganja, but I live here.** — Gəncədənəm, amma burada yaşayıram.
-
-Qeyd: Şəhərin adını demək əvəzinə: I live here.
-
-## Kart 13 — Sözü tamamla: Sözü tamamla
+## Kart 11 — Sözü tamamla: Sözü tamamla
 
 **Tapşırıq:** Bakıda şəhər turu avtobusundasan. Yanındakı qadın özü haqqında danışır. Hansı söz çatmır?  
 **Cümlə:** I'm from Turkey, but I live ___ .  
@@ -191,7 +173,7 @@ Qeyd: Şəhərin adını demək əvəzinə: I live here.
 - *İzah (“in” seçiləndə):* “in”dən sonra şəhərin adı gəlməlidir. — Uyğun: here. Səbəb: Şəhərin adı yoxdur — onda “burada”: here. Qayda: I live here. — burada; I live in Ganja. — Gəncədə. Nümunə: I'm from Ganja, but I live here.  
 - *İzah (“from” seçiləndə):* “from” haradan olduğunu deyir, yaşadığın yeri yox. — Uyğun: here. Səbəb: live-dan sonra yer gəlir: burada — here. Qayda: I live here. — yaşayıram; I'm from Germany. — haradan. Nümunə: I'm from Ganja, but I live here.  
 
-## Kart 14 — Səslə cavab: Özün haqqında de
+## Kart 12 — Səslə cavab: Özün haqqında de
 
 **Tapşırıq:** Şəhər turu avtobusunda bələdçi səninlə tanış olur. De: haradansan və harada yaşayırsan.  
 **Səs:** Where are you from? And where do you live?  
@@ -219,9 +201,9 @@ Qeyd: Şəhərin adını demək əvəzinə: I live here.
 - *İzah (başqa səhvdə):* Burada I-dan sonra birbaşa live gəlir. — Uyğun: I live in Baku. Səbəb: “yaşayıram” üçün I-dan sonra am lazım deyil: I live. Qayda: I live in Baku. — düzdür; I'm live in Baku. — olmur. Nümunə: Where do you live? — I live in Ganja.  
 - *İzah (başqa səhvdə):* I'm from [ölkə], but I live in [şəhər] — Uyğun: I'm from [ölkə], but I live in [şəhər]. Səbəb: Əvvəl haradan olduğunu, sonra harada yaşadığını de. Qayda: I'm from Shaki. — haradan; I live in Ganja. — harada. Nümunə: I'm from Ganja, but I live in Baku.  
 
-## Kart 15 — İki mesaj yaz: İki mesaj yaz
+## Kart 13 — İki mesaj yaz: İki mesaj yaz
 
-**Tapşırıq:** Kafedə tanış olduğun yeni tanış sənə mesaj yazdı: “Hi!” İki mesaj yaz: 1. Haradan olduğunu soruş. 2. Harada yaşadığını soruş.  
+**Tapşırıq:** Yeni tanış yazdı: “Hi!” İki mesaj yaz: 1. Haradan olduğunu soruş. 2. Harada yaşadığını soruş.  
 **Birinci mesaj:** məna: askFrom — nümunə: Where are you from?  
 **İkinci mesaj:** məna: askLive — nümunə: Where do you live?  
 **İpucu:** Birinci mesajda haradan, ikincidə harada yaşadığını soruş.  
