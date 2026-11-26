@@ -173,6 +173,9 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 26 Noy | Qısaltma (pool) geri qaytarıldı — istifadəçi heç nə çıxarılmasın dedi. Bölmə 1–4-də 12 ekrandan uzun 32 dərs ikiyə bölündü (67 dərs/hissə, hamısı 8–12 ekran); heç bir kart/söz itmədi (skriptlə yoxlandı), ~100 yeni mövzuya uyğun tapşırıq + 32 giriş kartı. Orderlər yenidən nömrələndi; modules.ts, ana səhifə (Bölmə 1 də number ilə qruplaşır), hissə sıra şəkilçisi (`ordinal`) |
 | 26 Noy | Kənar (Gemini) yoxlamanın doğru tapıntıları düzəldi: hissələrdə köhnə “bu dərsin əvvəli/ilk kartı” ipucları → “1-ci hissədə…”; öz hissəsində məşq olunmayan sözlər məşqə salındı (And you?, oh, seventeen, fifty/sixty, grandfather); mətn düzəlişləri. Yeni `check-parts`: (A) sonrakı hissədə köhnə işarə olmasın, (B) hər söz kartı öz hissəsində ən azı bir tapşırıqda işlənsin |
 | 26 Noy | check-parts hərf kartlarını yalnız düzgün cavab / eşidilən / ingiliscə sətirlərdə axtarır (artıq kafel və Azərbaycanca izah sayılmır). Tapılan boşluqlar düzəldi: F, N (u2d3a_c04 4 cüt), D (u2d3b_c03, u2d3b_c17 → D7), P (u2d3b_c05 → GPS), Q, Z (u2d3c_c12 → QZ, Z = “zi”) |
+| 26 Noy | GitHub Actions: hər push-da check-all (`.github/workflows/check.yml`). BIRTALK-a dəyişməz qayda: check-all yaşıl olmadan commit yoxdur, check-taught/check-parts zəiflədilmir |
+
+> **Dəyişməz qayda (26 Noy 2026):** dərs, hissə və ya tapşırıq dəyişəndə (o cümlədən dərsi hissələrə bölmək) `node scripts/check-all.cjs` tam yaşıl olmadan commit edilmir. `check-taught` (öyrədilməmiş söz) və `check-parts` (sonrakı hissədə köhnə “bu dərsin əvvəli” ipucu; öyrədilən söz/hərf öz hissəsinin düzgün cavabında məşq olunmalıdır) heç vaxt zəiflədilmir — səhv tapılırsa məzmun düzəlir, yoxlama yox. GitHub-da hər push `.github/workflows/check.yml` ilə avtomatik yoxlanır; commit qırmızıdırsa, əvvəl onu düzəlt.
 
 Ətraflı tarixçə: `docs/LAYIHE_DEFTERI.md`, `docs/YENI_SOHBET_UCUN.md`, `docs/BUTUN_QAYDALAR.md` (köçürülmədən əvvəlki mətnlər).
 

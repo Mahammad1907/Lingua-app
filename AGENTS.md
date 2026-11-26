@@ -55,4 +55,4 @@ The most important rules (details in `docs/BIRTALK.md`):
 7. Forward buttons and the progress bar are mascot orange (`d.action`); after an answer the button is green (correct) / red (wrong). The listening icon is ▶ everywhere (`SoundButton`).
 8. A shared element changed on one screen changes on every screen (`KindChip`, `Header`, `ChoiceOption`, `Field`, `Capsule`, …). New screen types: mockup first.
 9. Lesson screens do not scroll (same on iPhone and Android): pictures shrink first, then the card scales.
-10. Run `node scripts/check-all.cjs` after every change.
+10. Run `node scripts/check-all.cjs` after every change, and never commit unless it is fully green. Never weaken `check-taught` or `check-parts` — fix the content instead. GitHub runs it on every push (`.github/workflows/check.yml`).
