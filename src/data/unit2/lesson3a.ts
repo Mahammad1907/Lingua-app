@@ -49,9 +49,9 @@ export const lesson3a: DesignLesson = {
       why: "Hər hərfin ingiliscə adını tapdın.",
       hint: "Bir oxunuş Azərbaycan əlifbasındandır — o, artıqdır.",
       prompt: "Telefonda SMS yazırsan. Klaviaturada hərflər var.\nHər hərfə onun ingiliscə oxunuşunu qoş.",
-      rows: [{"en": "X", "az": "eks"}, {"en": "L", "az": "el"}, {"en": "S", "az": "es"}],
+      rows: [{"en": "X", "az": "eks"}, {"en": "L", "az": "el"}, {"en": "F", "az": "ef"}, {"en": "N", "az": "en"}],
       extra: ["xe"],
-      variants: [other("Bir hərfin oxunuşu yerində deyil.", ex("X — eks; L — el; S — es", "Hər hərfin ingiliscə oxunuşunu tap.", "X — eks; S — es.", "SMS"))],
+      variants: [other("Bir hərfin oxunuşu yerində deyil.", ex("X — eks; L — el; F — ef; N — en", "Hər hərfin ingiliscə oxunuşunu tap.", "X — eks; F — ef; N — en.", "SMS"))],
       review: {
         title: "Hərfi oxunuşuna qoş",
         why: "Hər hərfin ingiliscə adını tapdın.",
