@@ -9,7 +9,9 @@ function fresh() { delete require.cache[require.resolve('../src/store/vocabulary
 (async()=>{
  let store=fresh();await store.getState().loadFromStorage();
  for(const l of b1Packet)await store.getState().addLessonWords(l.id);
- const words=store.getState().allWords;const keys=new Set(words.map(w=>vocabularyKey(w.word)));
+ const words=store.getState().allWords;
+ // A highlighted word is covered by its own card or by the phrase card it belongs to (“my” → “My name is”).
+ const keys=new Set(words.flatMap(w=>[vocabularyKey(w.word),...String(w.word).split(/[\s,.!?]+/).filter(Boolean).map(vocabularyKey)]));
  for(const l of b1Packet)for(const w of newLessonWords(l,b1Packet))assert.ok(keys.has(vocabularyKey(w)),`highlighted word has a dictionary card: ${w}`);
  for(const l of b1Packet)await store.getState().addLessonWords(l.id);
  assert.equal(store.getState().allWords.length, words.length, 'repeated completion never duplicates words');
@@ -23,6 +25,6 @@ function fresh() { delete require.cache[require.resolve('../src/store/vocabulary
  fail=false;await store.getState().addLessonWords(b1Packet[0].id);assert.equal(store.getState().storageError,null);assert.ok(JSON.parse(disk).allWords.length);
  disk=null;delayed=true;store=fresh();const pending=store.getState().addLessonWords(b1Packet[0].id);await Promise.resolve();
  assert.equal(typeof delayed,'function');const release=delayed;delayed=null;release(null);await pending;
- assert.equal(store.getState().allWords.length,4,'completion waits for hydration rather than being overwritten by it');
+ assert.equal(store.getState().allWords.length,new Set(b1Packet[0].vocabulary.map(v=>vocabularyKey(v.word))).size,'completion waits for hydration rather than being overwritten by it');
  console.log(`PASS: ${words.length} dictionary cards, every highlighted word, duplicate prevention, persistence reload, existing-user upgrade, visible storage failure/retry and hydration race.`);
 })().catch(e=>{console.error(e);process.exitCode=1}).finally(()=>{Module._load=original});
