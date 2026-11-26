@@ -19,7 +19,7 @@ const YES_MISTAKES = (example: string): Variant[] => [
   { match: { pattern: String.raw`^yes\s*,?\s*you\b` }, short: 'Sual sənə verilib — özün haqqında cavab ver.',
     explain: ex('Yes, I am.', 'Sual “sən” haqqındadır; cavabda “mən” deyirsən: I am.', 'Yes, I am. — mən; Yes, you are. — sən.', example) },
   { match: { pattern: String.raw`^no\b` }, short: 'Sən oradansan — cavab “bəli”dir.',
-    explain: ex('Yes, I am.', 'Sual düz yeri soruşur; “bəli” cavabı lazımdır.', "Yes, I am. — düzdür; Yes, I'm. — olmur.", example) },
+    explain: ex('Yes, I am.', 'Sual düz yeri soruşur; “bəli” cavabı lazımdır.', "Yes, I am. — bəli; No, I'm not. — xeyr.", example) },
 ];
 
 const NO_MISTAKES: Variant[] = [

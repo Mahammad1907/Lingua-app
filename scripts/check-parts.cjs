@@ -26,7 +26,7 @@ for (const l of designLessons) {
   const taskText = l.cards.filter(isTask).map(c => { const { review, ...main } = c; return texts(main).join(' \n '); }).join(' \n ').toLowerCase();
   // Letters are practised only where they are part of the right answer or of what is heard/shown in English —
   // not as a distractor tile and not as a stray letter in an Azerbaijani explanation (Z and P slipped through, 26 Nov).
-  const answerText = l.cards.filter(isTask).map(c => texts([c.answer, c.audio, c.rule?.answers, c.rule?.exact, c.rows, c.gap, c.lines, c.thread, c.fields?.map(f => [f.answer, f.rule?.answers])]).join(' \n ')).join(' \n ');
+  const answerText = l.cards.filter(isTask).map(c => texts([c.answer, c.audio, c.rule?.answers, c.rule?.exact, c.rows, c.gap, c.lines, c.thread, c.fields?.map(f => [f.answer, f.rule?.answers, f.rule?.exact])]).join(' \n ')).join(' \n ');
   for (const w of l.cards.filter(c => c.type === 'word')) {
     // Pieces: each “A · B” half, each letter of a letter card, each sentence of a two-sentence card. A spelled example
     // (“It's B-A-K-U”) is practised by any spelling; a title with a name (“Mr. Guliyev”) by the title itself.
@@ -36,7 +36,7 @@ for (const l of designLessons) {
       if (/[A-Z]-[A-Z]/.test(p)) { if (!/\b[a-z](-[a-z])+\b/i.test(taskText)) problems.push(`B ${l.id} ${w.id}: hərf-hərf yazılış məşq olunmur`); continue; }
       const esc = p.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/'/g, "['’]");
       const letter = p.length === 1;
-      const re = letter ? new RegExp(`(^|[^A-Za-z])${p}|${p}(?=[A-Z])|(?<=[A-Z])${p}`) : new RegExp(`(^|[^a-z])${esc}`, 'i');
+      const re = letter ? new RegExp(`(^|[^A-Za-z])${p}(?![a-z])|${p}(?=[A-Z])|(?<=[A-Z])${p}`) : new RegExp(`(^|[^a-z])${esc}`, 'i');
       if (!re.test(letter ? answerText : taskText)) problems.push(`B ${l.id} ${w.id}: “${p}” öyrədilir, amma bu hissənin heç bir tapşırığında işlənmir`);
     }
   }
