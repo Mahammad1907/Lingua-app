@@ -97,11 +97,11 @@ export const lesson2b: DesignLesson = {
       example: 'This is my grandfather.', exampleAz: 'Bu mənim babamdır.',
     },
     {
-      type: 'write', id: 'u4d2b_c07', number: 7, title: 'Mesaj yaz', why: 'My grandmother is in Ganja. — nənənin harada olduğunu dedin.', hint: 'Əvvəl kimin nənəsi olduğunu de, şəhər cümlənin sonunda gəlir.',
-      prompt: 'Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
-      chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'My grandmother is in London. And your grandmother?' }] },
-      tiles: ['My', 'grandmother', 'is', 'in', 'Ganja', '.', 'are', 'from'], rule: exact('My grandmother is in Ganja.'),
-      variants: [...grandMistakes, other('Sıra: My grandmother is in Ganja.', ex('My grandmother is in Ganja.', 'Əvvəl My grandmother, sonra is in və şəhər.', 'My grandmother is in Ganja. — nənəm Gəncədədir.', 'My mother is in Baku.'))],
+      type: 'write', id: 'u4d2b_c07', number: 7, title: 'Mesaj yaz', why: 'My grandfather is in Ganja. — babanın harada olduğunu dedin.', hint: 'Əvvəl kimin babası olduğunu de, şəhər cümlənin sonunda gəlir.',
+      prompt: 'Baban Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
+      chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'My grandmother is in London. And your grandfather?' }] },
+      tiles: ['My', 'grandfather', 'is', 'in', 'Ganja', '.', 'are', 'from'], rule: exact('My grandfather is in Ganja.'),
+      variants: [...grandMistakes.map(v => JSON.parse(JSON.stringify(v).replace(/grandmother/g, 'grandfather').replace(/Nənə bir nəfərdir/g, 'Baba bir nəfərdir'))), other('Sıra: My grandfather is in Ganja.', ex('My grandfather is in Ganja.', 'Əvvəl My grandfather, sonra is in və şəhər.', 'My grandfather is in Ganja. — babam Gəncədədir.', 'My mother is in Baku.'))],
       review: {
         title: 'Mesaj yaz', why: 'My grandmother is in Ganja. — nənənin harada olduğunu dedin.', hint: 'İş yoldaşına da əvvəl kimin nənəsi olduğunu de, şəhəri sona saxla.',
         prompt: 'Nənən Gəncədədir.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
@@ -111,12 +111,12 @@ export const lesson2b: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u4d2b_c12', number: 13, title: 'Səslə cavab', why: 'Ata-ananın harada olduğunu dedin: My parents are in + şəhər.', hint: 'Bu dərsin ilk söz kartını xatırla, şəhərin adını sona qoy.',
+      type: 'voice', id: 'u4d2b_c12', number: 13, title: 'Səslə cavab', why: 'Ata-ananın harada olduğunu dedin: My parents are in + şəhər.', hint: 'Bu hissənin ilk söz kartını xatırla, şəhərin adını sona qoy.',
       prompt: '{F} sənin ailən haqqında maraqlanır.\nDe: ata-anan Bakıdadır.', reply: 'Nice!',
       rule: own(PARENTS_IN, 'My parents are in Baku.'),
       variants: [...parentsMistakes, other('My parents are in + şəhər.', ex('My parents are in Baku.', 'Ata-ananı My parents ilə, harada olduqlarını are in və şəhərlə deyirsən.', 'My parents are in Baku. — Bakıdadırlar.', 'My mother is in Baku.'))],
       review: {
-        title: 'Səslə cavab', why: 'Ata-ananın harada olduğunu dedin: My parents are in + şəhər.', hint: 'Qonşuya da ata-ananı bu dərsin ilk söz kartı ilə de, şəhəri sona qoy.',
+        title: 'Səslə cavab', why: 'Ata-ananın harada olduğunu dedin: My parents are in + şəhər.', hint: 'Qonşuya da ata-ananı bu hissənin ilk söz kartı ilə de, şəhəri sona qoy.',
         prompt: 'Qonşu sənin ailən haqqında soruşur.\nDe: ata-anan Gəncədədir.', reply: 'Nice!',
         rule: own(PARENTS_IN, 'My parents are in Ganja.'),
         variants: [...parentsMistakes, other('My parents are in + şəhər.', ex('My parents are in Ganja.', 'Ata-ananı My parents ilə, harada olduqlarını are in və şəhərlə deyirsən.', 'My parents are in Ganja. — Gəncədədirlər.', 'My mother is in Baku.'))],

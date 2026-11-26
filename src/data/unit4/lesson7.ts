@@ -128,7 +128,7 @@ export const lesson7_2: DesignLesson = {
   notices,
   cards: [
     {
-      type: 'intro', id: 'u4d7_c20', badge: 'Ailə və insanlar', subtitle: '{F} albomun ofis şəkillərini göstərir. Peşəni soruşur, sən cavab verirsən.', start: 'Dərsə başla',
+      type: 'intro', id: 'u4d7_c20', badge: 'Ailə və insanlar', subtitle: '{F} albomundakı ofis şəkillərini göstərir. Peşəni soruşur, sən cavab verirsən.', start: 'Dərsə başla',
       goals: [
         { icon: 'chat', text: 'a və an fərqini seçə bilirəm.' },
         { icon: 'wave', text: 'Ailə üzvünün peşəsi soruşulanda cavab verə bilirəm.' },
@@ -299,7 +299,7 @@ export const explains2: { after: string; card: ExplainCard }[] = [
     type: 'explain', id: 'u4d7_c08t', number: 0,
     lead: 'a və an: sözün ilk səsinə bax.', focus: 'an',
     sections: [
-      { title: 'Hansı nə vaxt?', pairs: [{ en: 'a doctor', az: 'd kimi səslə' }, { en: 'an engineer', az: 'e kimi səslə' }] },
+      { title: 'Hansı nə vaxt?', pairs: [{ en: 'a doctor', az: 'd səsi ilə başlayır' }, { en: 'an engineer', az: 'e səsi ilə başlayır' }] },
       { title: 'Necə qurulur?', text: 'a, e, i, o, u səsləri ilə başlayan sözdən əvvəl an gəlir. Qalan səslərdən əvvəl a gəlir.', build: { parts: ["She's an", 'engineer'], examples: [{ en: "She's an engineer.", az: 'O mühəndisdir.' }] } },
     ],
     attention: '“a engineer” və “an doctor” olmur: söz hansı səslə başlayır, ona bax.',

@@ -89,11 +89,11 @@ export const lesson7: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'd7_c18', number: 18, speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: 'Bu dərsin əvvəlində öyrəndiyin “Başa düşmürəm” cümləsini de.',
+      type: 'voice', id: 'd7_c18', number: 18, speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: '1-ci hissədə öyrəndiyin “Başa düşmürəm” cümləsini de.',
       prompt: 'Kursda {m} sənə çətin bir sual verir, heç nə anlamadın.\nBaşa düşmədiyini de.', rule: dont, reply: 'OK!',
       variants: [other("I don't understand.", ex("I don't understand.", 'Sualı anlamadın, ona görə “Başa düşmürəm” deyirsən.', 'I don’t understand. — burada don’t; I’m not great. — burada not.', "Sorry? I don't understand."))],
       review: {
-        speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: 'Bu dərsin əvvəlində öyrəndiyin “Başa düşmürəm” cümləsini de.', prompt: 'Kafedə {m} sənə yeni bir söz deyir, mənasını bilmirsən.\nBaşa düşmədiyini de.', rule: dont, reply: 'OK!',
+        speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: '1-ci hissədə öyrəndiyin “Başa düşmürəm” cümləsini de.', prompt: 'Kafedə {m} sənə yeni bir söz deyir, mənasını bilmirsən.\nBaşa düşmədiyini de.', rule: dont, reply: 'OK!',
         variants: [other("I don't understand.", ex("I don't understand.", 'Mənasını bilmirsən, ona görə “Başa düşmürəm” deyirsən.', 'I don’t understand. — burada don’t; I’m not great. — burada not.', "I don't understand."))],
       },
     },
@@ -195,11 +195,11 @@ export const lesson7b: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'd7_c12', number: 12, speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: 'Bu dərsin əvvəlində öyrəndiyin “Başa düşmürəm” cümləsini de.',
+      type: 'voice', id: 'd7_c12', number: 12, speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: '1-ci hissədə öyrəndiyin “Başa düşmürəm” cümləsini de.',
       prompt: '{M} sənə yeni bir söz deyir, mənasını bilmirsən.\nBaşa düşmədiyini de.', rule: dont, reply: 'OK! More slowly…',
       variants: [other("I don't understand.", ex("I don't understand.", 'Mənasını bilmirsən, ona görə “Başa düşmürəm” deyirsən.', 'I don’t understand. — burada don’t; I’m not great. — burada not.', "Sorry? I don't understand."))],
       review: {
-        speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: 'Bu dərsin əvvəlində öyrəndiyin “Başa düşmürəm” cümləsini de.', prompt: '{M} uzun cümlə dedi, heç nə anlamadın.\nBaşa düşmədiyini de.', rule: dont, reply: 'OK! More slowly…',
+        speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: '1-ci hissədə öyrəndiyin “Başa düşmürəm” cümləsini de.', prompt: '{M} uzun cümlə dedi, heç nə anlamadın.\nBaşa düşmədiyini de.', rule: dont, reply: 'OK! More slowly…',
         variants: [other("I don't understand.", ex("I don't understand.", 'Heç nə anlamadın, ona görə “Başa düşmürəm” deyirsən.', 'I don’t understand. — burada don’t; I’m not great. — burada not.', "I don't understand."))],
       },
     },
@@ -213,7 +213,7 @@ export const lesson7b: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'd7_c08', number: 8, title: 'Sözü tamamla', why: 'I don’t understand — başa düşmürəm.', hint: '“Başa düşmürəm” — bu dərsin əvvəlindəki cümləni xatırla.',
+      type: 'choice', id: 'd7_c08', number: 8, title: 'Sözü tamamla', why: 'I don’t understand — başa düşmürəm.', hint: '“Başa düşmürəm” — 1-ci hissədəki cümləni xatırla.',
       prompt: 'Oğlan başa düşmür.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'Sorry? I', after: 'understand.' }, options: ['am', "don't", 'not'], answer: "don't",
       variants: [
         pick('not', '“I not understand” deyilmir.', ex("don't", 'I not understand demirik, burada don’t lazımdır.', 'I’m not great — burada not, I don’t understand — burada don’t.', "Sorry? I don't understand.")),

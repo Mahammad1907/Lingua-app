@@ -159,7 +159,7 @@ export const lesson8: DesignLesson = {
       rule: exact('65'),
       variants: [other('Rəqəmləri bir-bir yoxla.', ex('65', 'sixty — 60, five — 5: birlikdə 65.', 'sixty — 60; five — 5.', "He's sixty-five."))],
       review: {
-        keypad: true, title: 'Yaşı yığ', why: 'Yaşı rəqəmlə yığdın.', hint: 'Bacının yaşında da əvvəl onluğu, sonra təkliyi eşit.',
+        keypad: true, title: 'Yaşı yığ', why: 'Yaşı rəqəmlə yığdın.', hint: 'Bu yaşda da əvvəl onluğu, sonra təkliyi eşit.',
         prompt: 'Eşitdiyin yaşı yığ.', audio: 'Is she thirty-six?', placeholder: 'Yaş',
         rule: exact('36'),
         variants: [other('Rəqəmləri bir-bir yoxla.', ex('36', 'thirty — 30, six — 6: birlikdə 36.', 'thirty — 30; six — 6.', "She's thirty-six."))],
@@ -186,7 +186,7 @@ export const lesson8: DesignLesson = {
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("And who's this? → This is my father. → How old is he? → He's fifty.", 'Əvvəl kim olduğu soruşulur, sonra yaşı.', "Who's this? — kim; How old is he? — yaş.", "And who's this?"))],
       review: {
-        title: 'Söhbəti sırala', why: 'Sual, cavab, yeni sual və cavab düz sıradadır.', hint: 'Əvvəl bacın olub-olmadığı, sonra peşəsi.',
+        title: 'Söhbəti sırala', why: 'Sual, cavab, yeni sual və cavab düz sıradadır.', hint: 'Əvvəl şəkildəkinin kim olduğu, sonra peşəsi.',
         prompt: '{F} sənin başqa şəklinə baxır.\nBalonlara toxun, söhbəti sıraya düz.',
         rows: [{ en: '1', az: 'Is this your sister?', from: 'other' }, { en: '2', az: 'Yes, it is.', from: 'B' }, { en: '3', az: "What's her job?", from: 'other' }, { en: '4', az: "She's a teacher.", from: 'B' }],
         extra: [],

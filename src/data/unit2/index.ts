@@ -27,7 +27,7 @@ export function ordered(lesson: DesignLesson, ids: string[]): DesignLesson {
 export const unit2Lessons: DesignLesson[] = [
   ordered(lesson1a, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c09', 'c10', 'c12', 'c11']),
   ordered(lesson1b, ['c01', 'c02', 'c05', 'c04', 'c03', 'c06', 'c07', 'c08', 'c09', 'c10', 'c11', 'c12']),
-  ordered(lesson2, ['c01', 'c02', 'c03', 'c04', 'c05', 'c08', 'c07', 'c06']),
+  ordered(lesson2, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08']),
   ordered(lesson2Part2, ['c01', 'c09', 'c16', 'c10', 'c11', 'c12', 'c15', 'c13', 'c14']),
   ordered(lesson3a, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c08', 'c13']),
   ordered(lesson3aPart2, ['c01', 'c09', 'c15', 'c10', 'c16', 'c14', 'c11', 'c12']),

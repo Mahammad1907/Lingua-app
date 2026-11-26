@@ -216,7 +216,7 @@ export const lesson5Part2: DesignLesson = {
       variants: [other('Hello, Ms. Abbasova!', ex('Hello, Ms. Abbasova!', 'Qadın müəllimə “Ms.” və soyadla müraciət edirsən.', 'Ms. Abbasova — qadın; Mr. Abbasov — kişi.', 'Hello, Ms. Hasanova!'))],
       review: {
         title: 'Salam ver', why: 'Müdirə nəzakətlə salam verdin.', hint: 'Müdir kişidir — soyaddan əvvəl hansı söz gəlir?',
-        prompt: 'Ofisdə yeni müdirin yanına gəlir. O kişidir, soyadı Aliyev.\nOna nəzakətlə salam ver.', reply: 'Hi! How are you?',
+        prompt: 'Ofisdə yeni müdirin yanına gedirsən. O kişidir, soyadı Aliyev.\nOna nəzakətlə salam ver.', reply: 'Hi! How are you?',
         rule: greet('Mr', 'Aliyev'),
         variants: [other('Hello, Mr. Aliyev!', ex('Hello, Mr. Aliyev!', 'Kişi müdirə “Mr.” və soyadla müraciət edirsən.', 'Mr. Aliyev — kişi; Ms. Aliyeva — qadın.', 'Hello, Mr. Guliyev!'))],
       },

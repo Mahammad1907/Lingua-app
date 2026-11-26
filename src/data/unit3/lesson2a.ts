@@ -223,7 +223,7 @@ export const lesson2a_2: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u3d2a_c12', number: 12, title: 'Yaz', why: 'İstanbul Türkiyədədir — Turkey.', hint: 'İstanbul hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.', scenes: ['u3/airport'],
+      type: 'write', id: 'u3d2a_c12', number: 12, title: 'Yaz', why: 'İstanbul Türkiyədədir — Turkey.', hint: 'İstanbul hansı ölkədədir — 1-ci hissədəki ingiliscə adını xatırla.', scenes: ['u3/airport'],
       prompt: 'Hava limanında tabloda “Istanbul” var, dostun çatda soruşur.\nÖlkəsini ingiliscə yaz.', placeholder: 'Ölkə',
       rule: exact('Turkey'),
       variants: [
@@ -231,7 +231,7 @@ export const lesson2a_2: DesignLesson = {
         other('Ölkənin ingiliscə adını yaz.', ex('Turkey', 'İstanbul Türkiyədədir; ingiliscə Turkey.', "I'm from Turkey. — Türkiyədən; I'm from Iran. — İrandan.", "I'm from Turkey.")),
       ],
       review: { scenes: ['u3/train'],
-        title: 'Yaz', why: 'Tbilisi Gürcüstandadır — Georgia.', hint: 'Tbilisi hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.',
+        title: 'Yaz', why: 'Tbilisi Gürcüstandadır — Georgia.', hint: 'Tbilisi hansı ölkədədir — 1-ci hissədəki ingiliscə adını xatırla.',
         prompt: 'Qatar tablosunda “Tbilisi” var, dostun çatda soruşur.\nÖlkəsini ingiliscə yaz.', placeholder: 'Ölkə',
         rule: exact('Georgia'),
         variants: [

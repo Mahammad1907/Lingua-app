@@ -63,12 +63,12 @@ export const lesson7b: DesignLesson = {
       },
     },
     {
-      type: 'choice', id: 'u2d7b_c07', number: 7, title: 'Cütü ayır: -teen yoxsa -ty?', why: 'thir-TEEN, FOR-ty, FIF-ty.', hint: 'Vurğuya qulaq as: sonda güclüdürsə “teen”, əvvəldə güclüdürsə “ty”.',
-      prompt: 'İdman zalında məşqçi üç dolabın nömrəsini deyir.\nHansı nömrələrdir?', audio: 'Thirteen, forty, fifty.',
-      options: ['30, 14, 15', '13, 40, 50', '13, 14, 50'], answer: '13, 40, 50',
+      type: 'choice', id: 'u2d7b_c07', number: 7, title: 'Cütü ayır: -teen yoxsa -ty?', why: 'thir-TEEN, FOR-ty, FIF-ty, SIX-ty.', hint: 'Vurğuya qulaq as: sonda güclüdürsə “teen”, əvvəldə güclüdürsə “ty”.',
+      prompt: 'İdman zalında məşqçi dörd dolabın nömrəsini deyir.\nHansı nömrələrdir?', audio: 'Thirteen, forty, fifty, sixty.',
+      options: ['30, 14, 15, 16', '13, 40, 50, 60', '13, 14, 50, 60'], answer: '13, 40, 50, 60',
       variants: [
-        pick('30, 14, 15', '“-teen” və “-ty” yerini dəyişdin.', ex('13, 40, 50', 'Birinci sözdə vurğu sondadır (thir-TEEN), qalanlarda əvvəldə (FOR-ty, FIF-ty).', 'thir-TEEN — 13; THIR-ty — 30.', 'Thirteen, forty, fifty.')),
-        pick('13, 14, 50', 'İkinci söz “-ty” ilə bitir.', ex('13, 40, 50', 'İkinci sözdə vurğu əvvəldədir: FOR-ty — 40.', 'four-TEEN — 14; FOR-ty — 40.', 'Thirteen, forty, fifty.')),
+        pick('30, 14, 15, 16', '“-teen” və “-ty” yerini dəyişdin.', ex('13, 40, 50, 60', 'Birinci sözdə vurğu sondadır (thir-TEEN), qalanlarda əvvəldə (FOR-ty, FIF-ty, SIX-ty).', 'thir-TEEN — 13; THIR-ty — 30.', 'Thirteen, forty, fifty, sixty.')),
+        pick('13, 14, 50, 60', 'İkinci söz “-ty” ilə bitir.', ex('13, 40, 50, 60', 'İkinci sözdə vurğu əvvəldədir: FOR-ty — 40.', 'four-TEEN — 14; FOR-ty — 40.', 'Thirteen, forty, fifty, sixty.')),
       ],
       review: {
         title: 'Cütü ayır: -teen yoxsa -ty?', why: 'THIR-ty, four-TEEN, fif-TEEN.', hint: 'Vurğuya qulaq as: sonda güclüdürsə “teen”, əvvəldə güclüdürsə “ty”.',

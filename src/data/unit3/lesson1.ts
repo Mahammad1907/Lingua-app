@@ -246,7 +246,7 @@ export const lesson1_2: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u3d1_c12', number: 12, title: 'Haradan olduğunu soruş', why: 'Haradan olduğunu soruşdun.', hint: 'Bu dərsin ilk sualını xatırla.',
+      type: 'voice', id: 'u3d1_c12', number: 12, title: 'Haradan olduğunu soruş', why: 'Haradan olduğunu soruşdun.', hint: '1-ci hissənin ilk sualını xatırla.',
       prompt: 'Klubda yeni tanışla salamlaşdın, adını da bilirsən.\nHaradan olduğunu soruş.', reply: "I'm from Lankaran.",
       rule: askFrom,
       variants: [
@@ -254,7 +254,7 @@ export const lesson1_2: DesignLesson = {
         other('Where are you from?', ex('Where are you from?', 'Haradan olduğunu soruşursan: Where are you from?', 'Where are you from? — haradan; How are you? — hal.', 'Hi! Where are you from?')),
       ],
       review: {
-        title: 'Haradan olduğunu soruş', why: 'Haradan olduğunu soruşdun.', hint: 'Bu dərsin ilk sualını xatırla.',
+        title: 'Haradan olduğunu soruş', why: 'Haradan olduğunu soruşdun.', hint: '1-ci hissənin ilk sualını xatırla.',
         prompt: 'Hostelin mətbəxində yeni tanışla çay içirsən.\nHaradan olduğunu soruş.', reply: "I'm from Ganja.",
         rule: askFrom,
         variants: [

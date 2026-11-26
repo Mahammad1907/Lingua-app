@@ -59,9 +59,9 @@ export const lesson4: DesignLesson = {
     },
     {
       type: 'voice', id: 'd4_c08', number: 8, title: 'Dinlə və təkrarla', why: 'Cavab axıcı səsləndi.',
-      prompt: 'Cavabı dinlə, sonra eyni cür de.', audio: "I'm fine, thanks.", repeat: { stress: 'fine', note: '“thanks” sözündə dilin ucu dişlərin arasındadır.', reading: 'aym fayn, **th**ənks' },
-      rule: exact("I'm fine thanks"),
-      variants: [other('Bir daha dinlə və yavaş de.', ex("I'm fine, thanks.", '“thanks” “tenks” kimi yox, dil dişlərin arasında deyilir.', 'th — dilin ucu dişlərin arasında: “tenks” yox, thanks.', "I'm fine, thanks."))],
+      prompt: 'Cavabı dinlə, sonra eyni cür de.', audio: "I'm fine, thanks. And you?", repeat: { stress: 'fine', note: '“thanks” sözündə dilin ucu dişlərin arasındadır; “And you?” sualı səsi qaldırır.', reading: 'aym fayn, **th**ənks. ənd yu?' },
+      rule: exact("I'm fine thanks And you"),
+      variants: [other('Bir daha dinlə və yavaş de.', ex("I'm fine, thanks. And you?", '“thanks” “tenks” kimi yox, dil dişlərin arasında deyilir.', 'th — dilin ucu dişlərin arasında: “tenks” yox, thanks.', "I'm fine, thanks. And you?"))],
       review: {
         title: 'Dinlə və təkrarla', why: 'Sual axıcı səsləndi.', prompt: 'Sualı dinlə, sonra eyni cür de.', audio: 'How are you?', repeat: { stress: 'are', note: 'Üç söz bir nəfəsdə deyilir.', reading: 'hau ar yu?' },
         rule: exact('How are you'),

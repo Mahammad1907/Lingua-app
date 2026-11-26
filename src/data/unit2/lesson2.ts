@@ -89,9 +89,9 @@ export const lesson2: DesignLesson = {
     },
     {
       type: 'write', id: 'u2d2_c08', number: 8, keypad: true, title: 'Nömrəni yığ', why: 'Nömrəni rəqəm-rəqəm yığdın.', hint: 'Hər rəqəmi eşidən kimi bas; ilk rəqəmi də unutma.',
-      prompt: 'Eşitdiyin nömrəni yığ.', audio: "It's zero five five, two eight one, four zero, nine six.", placeholder: 'Telefon nömrəsi',
+      prompt: 'Eşitdiyin nömrəni yığ.', audio: "It's zero five five, two eight one, four oh, nine six.", placeholder: 'Telefon nömrəsi',
       rule: exact('0552814096'),
-      variants: [other('Rəqəmləri bir-bir yoxla.', ex('0552814096', 'Nömrə rəqəm-rəqəm deyilir və elə də yığılır.', "It's zero five five… — 055; It's five five… — 55.", "It's zero five five, two eight one, four zero, nine six."))],
+      variants: [other('Rəqəmləri bir-bir yoxla.', ex('0552814096', 'Nömrə rəqəm-rəqəm deyilir və elə də yığılır; oh da 0-dır.', "It's zero five five… — 055; four oh — 40.", "It's zero five five, two eight one, four oh, nine six."))],
       review: {
         keypad: true, title: 'Nömrəni yığ', why: 'Nömrəni rəqəm-rəqəm yığdın.', hint: 'Hər rəqəmi eşidən kimi bas; “ou” səsini unutma.',
         prompt: 'Eşitdiyin rəqəmləri yığ.', audio: "It's zero seven oh, three three nine, one oh, two five.", placeholder: 'Telefon nömrəsi',

@@ -221,13 +221,13 @@ export const lesson4_2: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'u3d4_c11', number: 11, title: 'Mesaj yaz', why: 'Sual are ilə başlayır: Are you from Turkey?', hint: 'Sual bu dərsin ilk kartındakı kimi başlayır.',
+      type: 'write', id: 'u3d4_c11', number: 11, title: 'Mesaj yaz', why: 'Sual are ilə başlayır: Are you from Turkey?', hint: 'Sual 1-ci hissənin ilk kartındakı kimi başlayır.',
       prompt: 'Yeni tanış türk çayından yazır.\nSözlərdən sual qur: “Sən Türkiyədənsən?”', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: 'Tea?' }] },
       tiles: ['Are', 'you', 'from', 'Turkey', '?', 'Do', 'is'], rule: exact('Are you from Turkey?'),
       variants: [...QUESTION_MISTAKES, other('Sıra: Are you from Turkey?', ex('Are you from Turkey?', 'Sual are ilə başlayır, sonra you, from və ölkə.', 'Are you from Turkey? — sual; Where are you from? — haradan?', 'Are you from Turkey?'))],
       review: {
-        title: 'Mesaj yaz', why: 'Sual are ilə başlayır: Are you from Russia?', hint: 'Sual bu dərsin ilk kartındakı kimi başlayır.',
+        title: 'Mesaj yaz', why: 'Sual are ilə başlayır: Are you from Russia?', hint: 'Sual 1-ci hissənin ilk kartındakı kimi başlayır.',
         prompt: 'Yeni tanış Moskvanın şəklini paylaşıb.\nSözlərdən sual qur: “Sən Rusiyadansan?”', placeholder: 'Sözlərə toxun',
         chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: '📷' }, { from: 'other', text: 'Hello!' }] },
         tiles: ['Russia', 'you', 'Do', 'Are', 'from', '?', 'at'], rule: exact('Are you from Russia?'),
@@ -235,12 +235,12 @@ export const lesson4_2: DesignLesson = {
       },
     },
     {
-      type: 'voice', id: 'u3d4_c12', number: 12, title: 'Səslə soruş', why: 'Bəli/xeyr sualı verdin: Are you from Georgia?', hint: 'Sual bu dərsin ilk kartındakı kimi başlayır.',
+      type: 'voice', id: 'u3d4_c12', number: 12, title: 'Səslə soruş', why: 'Bəli/xeyr sualı verdin: Are you from Georgia?', hint: 'Sual 1-ci hissənin ilk kartındakı kimi başlayır.',
       prompt: 'Qatarda yanındakı sərnişinin çantasında Gürcüstan bayrağı var.\nOndan Gürcüstandan olub-olmadığını soruş.', reply: 'Yes, I am!',
       rule: areYouFrom('Georgia'),
       variants: [...QUESTION_MISTAKES, other('Are you from Georgia?', ex('Are you from Georgia?', 'Bəli/xeyr sualı are ilə başlayır, sonra you from və ölkə.', 'Are you from Georgia? — bəli/xeyr sualı; Where are you from? — haradan?', 'Are you from Georgia?'))],
       review: {
-        title: 'Səslə soruş', why: 'Bəli/xeyr sualı verdin: Are you from Germany?', hint: 'Sual bu dərsin ilk kartındakı kimi başlayır.',
+        title: 'Səslə soruş', why: 'Bəli/xeyr sualı verdin: Are you from Germany?', hint: 'Sual 1-ci hissənin ilk kartındakı kimi başlayır.',
         prompt: 'Hostelin mətbəxində yeni tanış alman çörəyi bişirir.\nOndan Almaniyadan olub-olmadığını soruş.', reply: 'Yes, I am!',
         rule: areYouFrom('Germany'),
         variants: [...QUESTION_MISTAKES, other('Are you from Germany?', ex('Are you from Germany?', 'Bəli/xeyr sualı are ilə başlayır, sonra you from və ölkə.', 'Are you from Germany? — bəli/xeyr sualı; Where are you from? — haradan?', 'Are you from Germany?'))],
