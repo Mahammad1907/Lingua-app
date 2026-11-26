@@ -12,7 +12,7 @@ const asWords = (address: string, words: string): Variant => ({
 });
 
 export const lesson8: DesignLesson = {
-  id: 'a1_en_b2_d8', order: 21, unit: 2, number: 8, title: 'Bölmə söhbəti: qeydiyyat', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d8', order: 36, unit: 2, number: 8, title: 'Bölmə söhbəti: qeydiyyat', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {

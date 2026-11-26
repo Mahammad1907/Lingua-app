@@ -24,11 +24,12 @@ const orders = designLessons.map(l => l.order);
 assert.equal(new Set(orders).size, orders.length, 'duplicate lesson orders');
 
 const all = [...unit2Lessons, ...unit1Exam, ...unit2Exam];
-assert.ok(unit2Lessons.length === 12, `Bölmə 2 has 12 lesson parts (8 map lessons; 1 and 7 in two parts, 3 in three): ${unit2Lessons.length}`);
+// 26 Nov 2026: a lesson part is 8–12 screens, so long lessons were split (nothing removed): 1, 2, 4, 5, 6 in two parts, 3 in five, 7 in four.
+assert.ok(unit2Lessons.length === 20, `Bölmə 2 has 20 lesson parts (8 map lessons): ${unit2Lessons.length}`);
 assert.equal(unit1Exam.length, 1, 'Bölmə 1 exam');
 assert.equal(unit2Exam.length, 1, 'Bölmə 2 exam');
 const numbers = unit2Lessons.map(l => `${l.number}${l.part ?? ''}`);
-assert.deepEqual(numbers, ['11', '12', '2', '31', '32', '33', '4', '5', '6', '71', '72', '8'], `map numbers/parts: ${numbers}`);
+assert.deepEqual(numbers, ['11', '12', '21', '22', '31', '32', '33', '34', '35', '41', '42', '51', '52', '61', '62', '71', '72', '73', '74', '8'], `map numbers/parts: ${numbers}`);
 
 for (const raw of all) {
   const lesson = L.resolveLesson(raw);
@@ -41,7 +42,9 @@ for (const raw of all) {
   const others = lesson.cards.filter(c => c.type !== 'explain').length;
   assert.ok(others <= (exam ? 16 : 14), `${tag}: at most ${exam ? 16 : 14} cards besides Müəllim izahı (${others})`);
   const max = 16;
-  assert.ok(lesson.cards.length >= 9 && lesson.cards.length <= max, `${tag}: 9–${max} cards (${lesson.cards.length})`);
+  // Counted with the Müəllim izahı cards (as the learner sees the lesson): a lesson part may have 8 screens + the intro (26 Nov 2026).
+  const shown = designLessons.find(l => l.id === raw.id) ?? raw;
+  assert.ok(shown.cards.length >= 9 && lesson.cards.length <= max, `${tag}: 9–${max} cards (${shown.cards.length})`);
   assert.equal(lesson.cards[0].type, 'intro', `${tag}: starts with the goals`);
   const kinds = new Set(tasks.map(kind));
   // A lesson split into parts (26 Nov 2026) has fewer tasks per part: 4 kinds are enough there.

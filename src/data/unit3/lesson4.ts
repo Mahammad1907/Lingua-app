@@ -1,4 +1,4 @@
-// Bölmə 3 · Dərs 4 — Sən …-dansan? (Are you from …? · Yes, I am. · No, I'm not. · Really?).
+// Bölmə 3 · Dərs 4 — Sən …-dansan? 1-ci hissə: Are you from …? · Yes, I am.; 2-ci hissə (lesson4_2): No, I'm not. · Really?
 // Hostelin mətbəxi, qatar. Bəli/xeyr sualı və qısa cavab. Tipik səhvlər: “Do you from…?”, “You are from…?”, “Yes, I'm.”, “No, I not.”
 // Spiral: Where are you from? I'm from … Me too. (Dərs 1), ölkələr (Dərs 2), millətlər (Dərs 3), Nice to meet you.
 import type { DesignLesson, Variant } from '../designLessonTypes';
@@ -10,6 +10,17 @@ const PLACE = String.raw`(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){
 const NO_NOT = String.raw`^no\s*,?\s*i(?:'m|’m|\s+am)\s+not\s*[.!]?(?:\s*(?:i'?m|i am)\s+from\s+${PLACE}\s*[.!]?)?$`;
 /** “Are you from <country>?” for a fixed country. */
 const areYouFrom = (country: string) => said(String.raw`^are\s+you\s+from\s+${country}\s*\??$`, `Are you from ${country.replace(/\\s\+/g, ' ')}?`);
+
+/** “Yes, I am.” — optionally followed by where the learner is from. “Yes, I'm.” is not accepted. */
+const YES_AM = String.raw`^yes\s*,?\s*i\s+am\s*[.!]?(?:\s*(?:i'?m|i am)\s+(?:from\s+)?${PLACE}\s*[.!]?)?$`;
+const YES_MISTAKES = (example: string): Variant[] => [
+  { match: { pattern: String.raw`^yes\s*,?\s*i(?:'m|’m)\s*[.!]?$` }, short: 'Qısa cavabın sonunda I\'m olmur.',
+    explain: ex('Yes, I am.', 'Cavab I-la bitəndə am qısalmır, ayrıca deyilir.', "Yes, I am. — düzdür; Yes, I'm. — olmur.", example) },
+  { match: { pattern: String.raw`^yes\s*,?\s*you\b` }, short: 'Sual sənə verilib — özün haqqında cavab ver.',
+    explain: ex('Yes, I am.', 'Sual “sən” haqqındadır; cavabda “mən” deyirsən: I am.', 'Yes, I am. — mən; Yes, you are. — sən.', example) },
+  { match: { pattern: String.raw`^no\b` }, short: 'Sən oradansan — cavab “bəli”dir.',
+    explain: ex('Yes, I am.', 'Sual düz yeri soruşur; “bəli” cavabı lazımdır.', "Yes, I am. — düzdür; Yes, I'm. — olmur.", example) },
+];
 
 const NO_MISTAKES: Variant[] = [
   { match: { pattern: String.raw`^no\s*,?\s*i\s+not\b` }, short: 'not-dan əvvəl am lazımdır.',
@@ -25,15 +36,14 @@ const QUESTION_MISTAKES: Variant[] = [
 ];
 
 export const lesson4: DesignLesson = {
-  id: 'a1_en_b3_d4', order: 28, unit: 3, number: 4, title: 'Sən [ölkə]-dansan?', section: 'Haradansan',
+  id: 'a1_en_b3_d4', order: 48, unit: 3, number: 4, part: 1, title: 'Sən [ölkə]-dansan?', section: 'Haradansan',
   notices,
   cards: [
     {
       type: 'intro', id: 'u3d4_c01', badge: 'Haradansan', subtitle: 'Hostelin mətbəxində yeni tanışlarla “Sən [ölkə]-dansan?” deyə soruşub qısa cavab verirsən.', start: 'Dərsə başla',
       goals: [
         { icon: 'chat', text: '“Sən [ölkə]-dansan?” sualını eşidib anlaya bilirəm.' },
-        { icon: 'wave', text: 'Bəli və xeyr ilə qısa cavab verə bilirəm.' },
-        { icon: 'bye', text: 'Bir ölkədən olub-olmadığını soruşa bilirəm.' },
+        { icon: 'wave', text: '“Bəli” ilə qısa cavab verə bilirəm.' },
       ],
     },
     {
@@ -85,6 +95,77 @@ export const lesson4: DesignLesson = {
           pick('Yes, you are.', 'Sual sənə verilib — özün haqqında cavab ver.', ex('Yes, I am.', 'Sual “sən” haqqındadır; cavabda “mən” deyirsən: I am.', 'Yes, I am. — mən; Yes, you are. — sən.', 'Are you Azerbaijani? — Yes, I am.')),
         ],
       },
+    },
+    {
+      type: 'match', id: 'u3d4_c14', number: 6, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl “haradan?” sualını “[ölkə]-dansan?” sualından ayır.',
+      prompt: 'Hostelin mətbəxində söhbət.\nHər cümləyə mənasını qoş.',
+      rows: [{ en: 'Are you from Turkey?', az: 'Sən Türkiyədənsən?', from: 'other' }, { en: 'Yes, I am.', az: 'Bəli, eləyəm.', from: 'G' }, { en: 'Where are you from?', az: 'Haradansan?', from: 'B' }],
+      extra: ['Türkəm.'],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Are you from Turkey? — Sən Türkiyədənsən?; Yes, I am. — Bəli, eləyəm.; Where are you from? — Haradansan?', '“[ölkə]-dansan?” sualı are ilə başlayır, “haradan?” sualı where ilə.', 'Are you from Turkey? — bəli/xeyr sualı; Where are you from? — haradan?', 'Are you from Turkey? — Yes, I am.'))],
+      review: {
+        title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Ölkə olan sualı millət olan sualdan ayır.',
+        prompt: 'Qatarda söhbət.\nHər cümləyə mənasını qoş.',
+        rows: [{ en: 'Are you Azerbaijani?', az: 'Sən azərbaycanlısan?', from: 'other' }, { en: "I'm from Georgia.", az: 'Gürcüstandanam.', from: 'G' }, { en: 'Are you from Georgia?', az: 'Sən Gürcüstandansan?', from: 'B' }],
+        extra: ['Bəli, eləyəm.'],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex("Are you Azerbaijani? — Sən azərbaycanlısan?; I'm from Georgia. — Gürcüstandanam.; Are you from Georgia? — Sən Gürcüstandansan?", 'Sual are ilə başlayır; from olan sual ölkəni, from-suz sual milləti soruşur.', 'Are you from Georgia? — ölkə; Are you Azerbaijani? — millət.', 'Are you from Georgia? — Yes, I am.'))],
+      },
+    },
+    {
+      type: 'write', id: 'u3d4_c15', number: 7, title: 'Dialoqu tamamla', why: 'Qısa “bəli” cavabı yazdın: Yes, I am.', hint: 'Sən oradansan — bu dərsin “bəli” cavabını xatırla.',
+      prompt: 'Hostelin çatında yeni tanış yazır. Sən Bakıdansan.\nQısa cavab yaz.', placeholder: 'Cavabın',
+      chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: 'Are you from Baku?' }], reply: 'Me too!' },
+      rule: said(YES_AM, 'Yes, I am.'),
+      variants: [...YES_MISTAKES('Are you from Baku? — Yes, I am.'), other('Yes, I am.', ex('Yes, I am.', 'Sual bəli/xeyr sualıdır; sən Bakıdansan — qısa “bəli” cavabı.', "Yes, I am. — düzdür; Yes, I'm. — olmur.", 'Are you from Baku? — Yes, I am.'))],
+      review: {
+        title: 'Dialoqu tamamla', why: 'Qısa “bəli” cavabı yazdın: Yes, I am.', hint: 'Sən elə millətdənsən — bu dərsin “bəli” cavabını xatırla.',
+        prompt: 'Dil klubunun çatında iş yoldaşın yazır. Sən azərbaycanlısan.\nQısa cavab yaz.', placeholder: 'Cavabın',
+        chat: { partner: 'İş yoldaşı', from: 'G', lines: [{ from: 'G', text: 'Are you Azerbaijani?' }], reply: 'Me too!' },
+        rule: said(YES_AM, 'Yes, I am.'),
+        variants: [...YES_MISTAKES('Are you Azerbaijani? — Yes, I am.'), other('Yes, I am.', ex('Yes, I am.', 'Sual bəli/xeyr sualıdır; sən azərbaycanlısan — qısa “bəli” cavabı.', "Yes, I am. — düzdür; Yes, I'm. — olmur.", 'Are you Azerbaijani? — Yes, I am.'))],
+      },
+    },
+    {
+      type: 'voice', id: 'u3d4_c16', number: 8, title: 'Səslə cavab', why: 'Qısa “bəli” cavabı verdin: Yes, I am.', hint: 'Sən oradansan — cavabın sonunda iki söz ayrı deyilir.',
+      prompt: 'Qatarda yanındakı sərnişin pasportuna baxıb soruşur. Sən Azərbaycandansan.\nQısa cavab ver.', audio: 'Are you from Azerbaijan?', reply: 'Nice to meet you!',
+      rule: said(YES_AM, 'Yes, I am.'),
+      variants: [...YES_MISTAKES('Are you from Azerbaijan? — Yes, I am.'), other('Yes, I am.', ex('Yes, I am.', 'Sual bəli/xeyr sualıdır; sən Azərbaycandansan — qısa “bəli” cavabı.', "Yes, I am. — düzdür; Yes, I'm. — olmur.", 'Are you from Azerbaijan? — Yes, I am.'))],
+      review: {
+        title: 'Səslə cavab', why: 'Qısa “bəli” cavabı verdin: Yes, I am.', hint: 'Sən elə millətdənsən — cavabın sonunda iki söz ayrı deyilir.',
+        prompt: 'Hostelin resepsiyasında işçi soruşur. Sən azərbaycanlısan.\nQısa cavab ver.', audio: 'Are you Azerbaijani?', reply: 'Thank you!',
+        rule: said(YES_AM, 'Yes, I am.'),
+        variants: [...YES_MISTAKES('Are you Azerbaijani? — Yes, I am.'), other('Yes, I am.', ex('Yes, I am.', 'Sual bəli/xeyr sualıdır; sən azərbaycanlısan — qısa “bəli” cavabı.', "Yes, I am. — düzdür; Yes, I'm. — olmur.", 'Are you Azerbaijani? — Yes, I am.'))],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 4 · 1-ci hissə tamamlandı', 'Artıq “Sən [ölkə]-dansan?” sualını anlayır və “bəli” ilə qısa cavab verirsən.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'Bəli/xeyr sualını və “bəli” cavabını anlamaq', tasks: ['u3d4_c03', 'u3d4_c05', 'u3d4_c14'] },
+      { group: 'Yazı', text: 'Qısa “bəli” cavabı yazmaq', tasks: ['u3d4_c15'] },
+      { group: 'Danışıq', text: 'Qısa “bəli” cavabı vermək', tasks: ['u3d4_c16'] },
+    ],
+    closing: 'Növbəti hissə — “xeyr” cavabı və təəccüb.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'Are you from [ölkə]?', translation: 'Sən [ölkə]-dansan?', example: 'Are you from Turkey?', exampleAz: 'Sən Türkiyədənsən?', usageNote: 'Are you from + ölkə?', pronunciation: '/ɑr ju frʌm/', teachCard: 'u3d4_c02' },
+    { word: 'Yes, I am.', translation: 'Bəli, eləyəm.', example: 'Are you from Azerbaijan? — Yes, I am.', exampleAz: 'Sən Azərbaycandansan? — Bəli, eləyəm.', usageNote: 'Qısa cavabda I am qısalmır.', pronunciation: '/jɛs aɪ æm/', teachCard: 'u3d4_c04' },
+  ],
+};
+
+// Dərs 4 · 2-ci hissə (26 Nov 2026: the lesson was split, nothing removed): No, I'm not. · Really?
+export const lesson4_2: DesignLesson = {
+  id: 'a1_en_b3_d4_2', order: 49, unit: 3, number: 4, part: 2, title: 'Sən [ölkə]-dansan?', section: 'Haradansan',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u3d4_c20', badge: 'Haradansan', subtitle: 'Hostelin mətbəxində və qatarda “xeyr” deyir, təəccübünü bildirir, özün də soruşursan.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'wave', text: '“Xeyr” ilə qısa cavab verə bilirəm.' },
+        { icon: 'chat', text: 'Təəccübümü bildirə bilirəm.' },
+        { icon: 'bye', text: 'Bir ölkədən olub-olmadığını soruşa bilirəm.' },
+      ],
     },
     {
       type: 'word', id: 'u3d4_c06', number: 6, scenes: ['mascot/think'],
@@ -181,10 +262,10 @@ export const lesson4: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 4 tamamlandı', 'Artıq “Sən [ölkə]-dansan?” deyə soruşur, bəli və xeyr ilə qısa cavab verirsən.'],
+    done: ['Dərs 4 · 2-ci hissə tamamlandı', 'Artıq “Sən [ölkə]-dansan?” deyə soruşur, bəli və xeyr ilə qısa cavab verirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Bəli/xeyr sualını və cavablarını anlamaq', tasks: ['u3d4_c03', 'u3d4_c05', 'u3d4_c09', 'u3d4_c13'] },
+      { group: 'Tanıma', text: 'Bəli/xeyr sualını və cavablarını anlamaq', tasks: ['u3d4_c09', 'u3d4_c13'] },
       { group: 'Yazı', text: 'Bəli/xeyr sualı qurmaq və təəccüb bildirmək', tasks: ['u3d4_c10', 'u3d4_c11'] },
       { group: 'Danışıq', text: 'Qısa “xeyr” cavabı vermək və bəli/xeyr sualı soruşmaq', tasks: ['u3d4_c07', 'u3d4_c12'] },
     ],
@@ -192,8 +273,6 @@ export const lesson4: DesignLesson = {
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'Are you from [ölkə]?', translation: 'Sən [ölkə]-dansan?', example: 'Are you from Turkey?', exampleAz: 'Sən Türkiyədənsən?', usageNote: 'Are you from + ölkə?', pronunciation: '/ɑr ju frʌm/', teachCard: 'u3d4_c02' },
-    { word: 'Yes, I am.', translation: 'Bəli, eləyəm.', example: 'Are you from Azerbaijan? — Yes, I am.', exampleAz: 'Sən Azərbaycandansan? — Bəli, eləyəm.', usageNote: 'Qısa cavabda I am qısalmır.', pronunciation: '/jɛs aɪ æm/', teachCard: 'u3d4_c04' },
     { word: "No, I'm not.", translation: 'Xeyr, deyiləm.', example: "Are you from Russia? — No, I'm not.", exampleAz: 'Sən Rusiyadansan? — Xeyr, deyiləm.', usageNote: 'Qısa xeyr cavabı: No, I’m not.', pronunciation: '/noʊ aɪm nɑt/', teachCard: 'u3d4_c06' },
     { word: 'Really?', translation: 'Doğrudan?', example: "I'm from the USA. — Really? Me too!", exampleAz: 'Mən ABŞ-danam. — Doğrudan? Mən də!', usageNote: 'Təəccüb bildirir.', pronunciation: '/ˈriəli/', teachCard: 'u3d4_c08' },
   ],

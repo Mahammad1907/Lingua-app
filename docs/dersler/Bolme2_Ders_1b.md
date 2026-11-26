@@ -92,7 +92,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 
 ## Kart 8 — Nömrəni yığ: Nömrəni yığ
 
-**Tapşırıq:** Taksi çağırırsan. Dostun taksinin qısa nömrəsini deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** Nine, eight, seven, six.  
 **Qəbul:** dəqiq: 9876  
 **İpucu:** Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.  
@@ -101,7 +101,7 @@ Qeyd: ten yazıldığı kimi oxunur.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Dayanacaqda elan avtobus şirkətinin qısa nömrəsini deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** Eight, zero, six, nine.  
 **Qəbul:** dəqiq: 8069  
 **İpucu:** Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.  

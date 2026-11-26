@@ -7,7 +7,7 @@ Bölmə 2 · Şəxsi məlumat. Bu sənəd `src/data/unit2/lesson3a.ts`-dən yara
 Adını ingiliscə hərflərlə yazmaqdan başlayırıq, sonra hərfləri qulaqla tanıyırsan.
 
 - Adımı latın hərfləri ilə yazıram.
-- F L M N S X, T V, I D, E hərflərini eşidib tanıyıram.
+- F L M N S X, T V, I D hərflərini eşidib tanıyıram.
 
 ## Kart 2 — Dialoqu tamamla: Adını yaz
 
@@ -78,7 +78,7 @@ Qeyd: T — “ti”, V — “vi”: sonunda “i” səsi.
 
 ## Kart 7 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Oteldə televizor pultundasan. Resepsiya kanalın adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
 **Səs:** M, T, V.  
 **Hərflər:** M T V N F S  
 **Qəbul:** dəqiq: MTV  
@@ -88,7 +88,7 @@ Qeyd: T — “ti”, V — “vi”: sonunda “i” səsi.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Evdə televizorda kanal axtarırsan. Dostun adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
 **Səs:** F, X.  
 **Hərflər:** F X S L T V  
 **Qəbul:** dəqiq: FX  
@@ -126,95 +126,30 @@ Qeyd: I — “ay” oxunur, “i” yox.
 - *İzah (“DV” seçiləndə):* D — “di”, səsdə “ti” var. — Uyğun: TV. Səbəb: Səsdə “ti-vi” deyilir. Qayda: T — ti; D — di. Nümunə: TV  
 - *İzah (“TF” seçiləndə):* F — “ef”, səsdə “vi” var. — Uyğun: TV. Səbəb: Səsdə “ti-vi” deyilir. Qayda: V — vi; F — ef. Nümunə: TV  
 
-## Kart 10 — Yeni söz
+## Kart 10 — Cavab cütü: Qısaltmanı tamamla
 
-**E, I** — E — “i”, I — “ay”
-
-Oxunuşu: i, ay · IPA: /i/ · /aɪ/
-
-Nümunə: **E, I.** — i, ay
-
-Qeyd: Ən çox qarışan cüt: E “i” oxunur, I isə “ay”.
-
-## Kart 11 — Müəllim izahı
-
-E və I ən çox qarışan cütdür.
-
-**1 · Necə oxunur?**
-- E · “i”
-- I · “ay”
-
-**2 · Niyə qarışır?**
-Bizim “i” səsi ingiliscə E hərfinin adıdır. I hərfi isə “ay” deyilir.
-
-Diqqət et: Adını hərf-hərf deyəndə E və I-yə xüsusi diqqət et.
-
-## Kart 12 — Yaz: Dinlə və yaz
-
-**Tapşırıq:** Taksi çağırdın. Dispetçer maşının nömrəsini deyir. Nömrəni yaz.  
-**Səs:** Ten, S, E, five, one, seven.  
-**Qəbul:** dəqiq: 10 SE 517 / 10-SE-517 / 10SE517 / 10 SE517 / 10SE 517 / 10-SE 517 / 10 SE-517  
-**İpucu:** Əvvəl rəqəm, sonra iki hərf, sonra yenə rəqəmlər gəlir.  
-**Düzgün olanda:** 10 SE 517 — rəqəm, iki hərf, rəqəmlər.  
-- *İzah (başqa səhvdə):* Hərfləri və rəqəmləri yoxla. — Uyğun: 10 SE 517. Səbəb: Səsdə ten, S, E, five, one, seven deyilir; E “i” oxunur. Qayda: E — i; I — ay. Nümunə: Ten, S, E, five, one, seven.  
+**Tapşırıq:** Dostun qısaltmanın əvvəlini deyir. Sıraya toxun, sonra onun sonunu seç.  
+**Cütlər:** T… — V!; I… — D!; S, M… — S! · artıq: F!  
+**İpucu:** Kartlardakı qısaltmaları xatırla.  
+**Düzgün olanda:** Hər qısaltmanın son hərfini tapdın.  
+- *İzah (başqa səhvdə):* Bir qısaltmanın sonu yerində deyil. — Uyğun: T… — V!; I… — D!; S, M… — S! Səbəb: Kartlardakı qısaltmaları xatırla: TV, ID, SMS. Qayda: TV — ti-vi; ID — ay-di. Nümunə: ID, please.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Otelin qarşısında taksi gözləyirsən. Resepsiya maşının nömrəsini deyir. Nömrəni yaz.  
-**Səs:** Ten, D, I, two, zero, four.  
-**Qəbul:** dəqiq: 10 DI 204 / 10-DI-204 / 10DI204 / 10 DI204 / 10DI 204 / 10-DI 204 / 10 DI-204  
-**İpucu:** Əvvəl rəqəm, sonra iki hərf, sonra yenə rəqəmlər gəlir.  
-**Düzgün olanda:** 10 DI 204 — rəqəm, iki hərf, rəqəmlər.  
-- *İzah (başqa səhvdə):* Hərfləri və rəqəmləri yoxla. — Uyğun: 10 DI 204. Səbəb: Səsdə ten, D, I, two, zero, four deyilir; I “ay” oxunur. Qayda: I — ay; E — i. Nümunə: Ten, D, I, two, zero, four.  
-
-## Kart 13 — Səhnədə tap: Səhnədə tap
-
-**Tapşırıq:** Ofisin parkinqində üç zona var. Mühafizəçi sənin yerini deyir. Şəkildə həmin zonanı tap.  
-**Səs:** D, five.  
-**Seçimlər:** T5 zonası / D5 zonası / V5 zonası — **düzgün:** D5 zonası  
-**İpucu:** Üç hərf eyni səslə bitir — ilk səsə qulaq as.  
-**Düzgün olanda:** D — “di”.  
-- *İzah (“T5 zonası” seçiləndə):* T — “ti”, səsdə “di” var. — Uyğun: D5 zonası. Səbəb: Səsdə “di” deyilir — bu, D-dir. Qayda: D — di; T — ti. Nümunə: D, five.  
-- *İzah (“V5 zonası” seçiləndə):* V — “vi”, səsdə “di” var. — Uyğun: D5 zonası. Səbəb: Səsdə “di” deyilir — bu, D-dir. Qayda: D — di; V — vi. Nümunə: D, five.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Ticarət mərkəzinin parkinqində üç zona var. Dostun yerini deyir. Şəkildə həmin zonanı tap.  
-**Səs:** V, two.  
-**Seçimlər:** V2 zonası / T2 zonası / E2 zonası — **düzgün:** V2 zonası  
-**İpucu:** Üç hərf eyni səslə bitir — ilk səsə qulaq as.  
-**Düzgün olanda:** V — “vi”.  
-- *İzah (“T2 zonası” seçiləndə):* T — “ti”, səsdə “vi” var. — Uyğun: V2 zonası. Səbəb: Səsdə “vi” deyilir — bu, V-dir. Qayda: V — vi; T — ti. Nümunə: V, two.  
-- *İzah (“E2 zonası” seçiləndə):* E — “i”, səsdə “vi” var. — Uyğun: V2 zonası. Səbəb: Səsdə “vi” deyilir — bu, V-dir. Qayda: V — vi; E — i. Nümunə: V, two.  
-
-## Kart 14 — Seç: Cütü ayır: E yoxsa I?
-
-**Tapşırıq:** Qatar biletində vaqonun hərfi var. Elan deyir. Hansı hərfdir?  
-**Səs:** E.  
-**Seçimlər:** I / E / T — **düzgün:** E  
-**İpucu:** Kartı xatırla: hansı hərf “i”, hansı “ay” oxunur?  
-**Düzgün olanda:** E — “i”.  
-- *İzah (“I” seçiləndə):* I “ay” oxunur, səsdə “i” var. — Uyğun: E. Səbəb: Səsdəki “i” — E-dir. Qayda: E — i; I — ay. Nümunə: E, I.  
-- *İzah (“T” seçiləndə):* T “ti” oxunur, səsdə yalnız “i” var. — Uyğun: E. Səbəb: Səsdə tək “i” deyilir — bu, E-dir. Qayda: E — i; T — ti. Nümunə: E, I.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Konsertdə qapıdakı işçi sıranın hərfini deyir. Hansı hərfdir?  
-**Səs:** I.  
-**Seçimlər:** E / D / I — **düzgün:** I  
-**İpucu:** Kartı xatırla: hansı hərf “i”, hansı “ay” oxunur?  
-**Düzgün olanda:** I — “ay”.  
-- *İzah (“E” seçiləndə):* E “i” oxunur, səsdə “ay” var. — Uyğun: I. Səbəb: Səsdəki “ay” — I-dir. Qayda: I — ay; E — i. Nümunə: E, I.  
-- *İzah (“D” seçiləndə):* D “di” oxunur, səsdə “ay” var. — Uyğun: I. Səbəb: Səsdəki “ay” — I-dir. Qayda: I — ay; D — di. Nümunə: E, I.  
+**Tapşırıq:** Başqa qısaltmalar. Sıraya toxun, sonra onun sonunu seç.  
+**Cütlər:** M, T… — V!; F… — X!; S, M… — S! · artıq: D!  
+**İpucu:** Tapşırıqlardakı kanalları və kartdakı qısaltmaları xatırla.  
+**Düzgün olanda:** Hər qısaltmanın son hərfini tapdın.  
+- *İzah (başqa səhvdə):* Bir qısaltmanın sonu yerində deyil. — Uyğun: M, T… — V!; F… — X!; S, M… — S! Səbəb: Qısaltmaları xatırla: MTV, FX, SMS. Qayda: MTV — em-ti-vi; FX — ef-eks. Nümunə: SMS  
 
 ## Nəticə
 
-Dərs 3 · 1-ci hissə tamamlandı — Adını latın hərfləri ilə yazdın və F L M N S X, T V, I D, E hərflərini eşidib tanıyırsan.
+Dərs 3 · 1-ci hissə tamamlandı — Adını latın hərfləri ilə yazdın və F L M N S X, T V, I D hərflərini eşidib tanıyırsan.
 
-- Tanıma: Eşitdiyin hərfi tanımaq, E ilə I-ni ayırmaq
-- Yazı: Adını latın hərfləri ilə yazmaq, maşın nömrəsini yazmaq
+- Tanıma: Eşitdiyin hərfi və qısaltmanı tanımaq
+- Yazı: Adını latın hərfləri ilə yazmaq
 
-Növbəti hissə — U A, G P, J, C, B W: USA, GPS, DJ, CD, BMW.
+Növbəti hissə — E və I: ən çox qarışan cüt.
 
 ## Lüğətim
 
@@ -223,4 +158,3 @@ Növbəti hissə — U A, G P, J, C, B W: USA, GPS, DJ, CD, BMW.
 | F, L, M, N, S, X | ef, el, em, en, es, eks | SMS — SMS (es-em-es) |
 | T, V | ti, vi | TV — TV (ti-vi) |
 | I, D | ay, di | ID, please. — Vəsiqə, zəhmət olmasa. |
-| E, I | i, ay | E, I. — i, ay |

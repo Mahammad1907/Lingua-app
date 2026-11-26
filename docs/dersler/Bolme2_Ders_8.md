@@ -43,7 +43,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 ## Kart 4 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Qeydiyyatçı bir tələbənin şəhərini hərf-hərf yoxlayır. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
 **Səs:** It's S-H-E-K-I.  
 **Hərflər:** S H E K I A Y G  
 **Qəbul:** dəqiq: SHEKI  
@@ -53,7 +53,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Otel resepsiyasında qonaq şəhərini hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
 **Səs:** It's Q-U-B-A.  
 **Hərflər:** Q U B A G K O W  
 **Qəbul:** dəqiq: QUBA  
@@ -83,7 +83,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 ## Kart 6 — Nömrəni yığ: Nömrəni yığ
 
-**Tapşırıq:** Ziyafətdə yeni tanış nömrəsini deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** It's oh five oh, seven seven one, two nine, four four.  
 **Qəbul:** dəqiq: 0507712944  
 **İpucu:** Hər rəqəmi eşidən kimi bas; “ou” səsini də unutma.  
@@ -92,7 +92,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Qeydiyyatçı kursun nömrəsini deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** It's zero one two, four nine eight, oh six, three three.  
 **Qəbul:** dəqiq: 0124980633  
 **İpucu:** Hər rəqəmi eşidən kimi bas; “ou” səsini də unutma.  
@@ -117,7 +117,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 ## Kart 8 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Qeydiyyatçı kurs müəlliminin e-poçtunu deyir. Ünvanı yaz.  
+**Tapşırıq:** E-poçt ünvanını yaz.  
 **Səs:** It's M-A-double M-A-D-O-V-A at mail dot com.  
 **Qəbul:** dəqiq: mammadova@mail.com  
 **İpucu:** Hərfləri bir-bir yaz; qoşa hərfə və işarələrə diqqət et.  
@@ -127,7 +127,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ofisdə iş yoldaşın müdirin e-poçtunu deyir. Ünvanı yaz.  
+**Tapşırıq:** E-poçt ünvanını yaz.  
 **Səs:** It's A-double B-A-S-O-V three at mail dot com.  
 **Qəbul:** dəqiq: abbasov3@mail.com  
 **İpucu:** Hərfləri bir-bir yaz; qoşa hərfə və işarələrə diqqət et.  
@@ -137,7 +137,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 ## Kart 9 — Səslə cavab: Soyadını hərf-hərf de
 
-**Tapşırıq:** Qeydiyyatçı soruşur: “What's your last name? How do you spell it?” Soyadını hərf-hərf de. Ə, ş, ç varsa, pasportdakı latın yazılışı ilə de (Ş → SH, Ə → A).  
+**Tapşırıq:** Qeydiyyatçı soyadını soruşur. Soyadını hərf-hərf de (Ş → SH, Ə → A).  
 **Səs:** What's your last name? How do you spell it?  
 **Qəbul:** məna:  — nümunə: My last name is A-L-I-Y-E-V. · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Soyadının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  
@@ -146,7 +146,7 @@ Bu sualların hamısını Bölmə 2-də öyrəndin. İndi özün cavab verirsən
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ziyafətdə yeni tanış adını kartına yazmaq istəyir. Adını hərf-hərf de. Ə, ş, ç varsa, latın yazılışı ilə de (Ş → SH, Ə → A).  
+**Tapşırıq:** Yeni tanış adını yazmaq istəyir. Adını hərf-hərf de (Ş → SH, Ə → A).  
 **Səs:** What's your first name? Can you spell it, please?  
 **Qəbul:** məna:  — nümunə: It's A-L-I. · öz məlumatı: /^(?:(?:it'?s|my (?:first |last )?name is)\s+)?(?:(?:(?:double\s+)?\p{L}(?:[\s,.-]+|$)){2,}|\p{L}{2,}[.!]?)$/  
 **İpucu:** Adının hər hərfini ingiliscə oxunuşla, ayrı-ayrı de.  

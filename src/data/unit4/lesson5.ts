@@ -2,7 +2,7 @@
 // Xarici dost video zəngdə ailə albomunu göstərir və ailən haqqında soruşur. Cavablar: Yes, I do. / No, I don't. (Bölmə 3).
 // Səhvlər: “I am have”, “I has”, “Have you a brother?”, “I have not a sister”, “I have brother”, “Yes, I have.”
 // Cəm (-s) və “has” yoxdur; a yalnız hazır cüt kimi (a brother, a sister), tam izahı Bölmə 5-də.
-import type { DesignLesson, ExplainCard } from '../designLessonTypes';
+import type { DesignLesson, ExplainCard, Variant } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
 import { notices, own, resultTexts, said } from '../unit3/shared';
 import { ASK_MISTAKES, HAVE_MISTAKES, MY_FAMILY, askHave, haveReply } from './shared56';
@@ -12,16 +12,25 @@ const reply = (member: string) => own(haveReply(member), 'Yes, I do.', "No, I do
 const familyOther = (answer: string) => other('I have / I don\'t have + a brother, a sister.', ex(answer, 'Var — I have, yoxdur — I don\'t have; qabağında a gəlir.', "I have a brother. — var; I don't have a brother. — yoxdur.", "I have a sister, but I don't have a brother."));
 const replyOther = (q: string) => other("Yes, I do. / No, I don't.", ex("Yes, I do. / No, I don't.", 'Sual Do ilə başlayıb — cavabda da do gəlir.', "Yes, I do. — var; No, I don't. — yoxdur.", `${q} — Yes, I do.`));
 
+/** Part 1 (before “I don't have”): “I have a brother.” (also “… and a sister.”). */
+const HAVE_ONLY = String.raw`^(?:hi\s*[,!.]?\s*)?i\s+have\s+a\s+(?:brother|sister|son|daughter)(?:\s+and\s+a\s+(?:brother|sister|son|daughter))?\s*[.!]?$`;
+const HAVE_FIRST = (answer: string): Variant[] => [
+  { match: { pattern: String.raw`\b(?:i'?m|i\s+am)\s+have\b` }, short: 'have-dən əvvəl am lazım deyil.',
+    explain: ex(answer, '“var” üçün ayrıca am lazım deyil: I have kifayətdir.', `${answer} — düzdür; I am have… — olmur.`, 'I have a brother and a sister.') },
+  { match: { pattern: String.raw`\bhave\s+(?:brother|sister|son|daughter)\b` }, short: 'Qardaş, bacı sözündən əvvəl a gəlir.',
+    explain: ex(answer, 'Bir qardaş, bir bacı — qabağında a gəlir.', 'I have a brother. — düzdür; I have brother. — olmur.', 'I have a brother and a sister.') },
+];
+const haveOther = (answer: string) => other('I have + a brother / a sister.', ex(answer, '“var” — I have, sonra a və ailə sözü.', 'I have a brother. — qardaşım var; I have a sister. — bacım var.', 'I have a brother and a sister.'));
+
 export const lesson5: DesignLesson = {
-  id: 'a1_en_b4_d5', order: 40, unit: 4, number: 5, title: 'Qardaşın var?', section: 'Ailə və insanlar',
+  id: 'a1_en_b4_d5', order: 69, unit: 4, number: 5, part: 1, title: 'Qardaşın var?', section: 'Ailə və insanlar',
   notices,
   cards: [
     {
       type: 'intro', id: 'u4d5_c01', badge: 'Ailə və insanlar', subtitle: '{F} video zəngdə ailə albomunu göstərir və sənin ailəni soruşur.', start: 'Dərsə başla',
       goals: [
         { icon: 'wave', text: 'Qardaşım, bacım olduğunu deyə bilirəm.' },
-        { icon: 'bye', text: 'Kimim olmadığını deyə bilirəm.' },
-        { icon: 'chat', text: 'Qardaşın, bacın varmı — soruşa və cavab verə bilirəm.' },
+        { icon: 'chat', text: 'Ailəm haqqında eşitdiyimi başa düşürəm.' },
       ],
     },
     {
@@ -72,6 +81,73 @@ export const lesson5: DesignLesson = {
           pick('Qardaşım var, bacım yoxdur.', 'Səsdə “and a sister” var — bacısı da var.', ex('Qardaşım və bacım var.', 'and — və: hər ikisi var.', 'a brother and a sister — qardaş və bacı.', 'I have a brother and a sister.')),
         ],
       },
+    },
+    {
+      type: 'write', id: 'u4d5_c14', number: 6, title: 'Cümlə qur', why: '“Qardaşım var” — I have a brother.', hint: '“var” üçün bu dərsin ilk söz kartını xatırla, sonra a və ailə sözü.',
+      prompt: '{F} mesajda ailən haqqında soruşur. Qardaşın var.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+      tiles: ['have', 'I', 'brother', 'a', 'am', 'sister', '.'], rule: exact('I have a brother.'),
+      variants: [...HAVE_FIRST('I have a brother.'), haveOther('I have a brother.')],
+      review: {
+        title: 'Cümlə qur', why: '“Bacım var” — I have a sister.', hint: 'Bacın var — “var” üçün I have, sonra a və ailə sözü.',
+        prompt: 'Kurs yoldaşın mesajda soruşur. Bacın var.\nSözlərdən cümlə qur.', placeholder: 'Sözlərə toxun',
+        tiles: ['sister', 'a', 'I', 'am', 'have', 'brother', '.'], rule: exact('I have a sister.'),
+        variants: [...HAVE_FIRST('I have a sister.'), haveOther('I have a sister.')],
+      },
+    },
+    {
+      type: 'voice', id: 'u4d5_c15', number: 7, title: 'Səslə de', why: '“Qardaşım və bacım var” — I have a brother and a sister.', hint: 'Əvvəl “var” üçün I have, sonra iki ailə sözünü and ilə birləşdir.',
+      prompt: 'Video zəngdə {f} sənin ailən haqqında maraqlanır. Qardaşın və bacın var.\nBunu de.', reply: 'Oh, nice!',
+      rule: said(String.raw`^(?:hi\s*[,!.]?\s*)?i\s+have\s+a\s+(?:brother\s+and\s+a\s+sister|sister\s+and\s+a\s+brother)\s*[.!]?$`, 'I have a brother and a sister.'),
+      variants: [...HAVE_FIRST('I have a brother and a sister.'), haveOther('I have a brother and a sister.')],
+      review: {
+        title: 'Səslə de', why: '“Oğlum və qızım var” — I have a son and a daughter.', hint: 'Əvvəl “var” üçün I have, sonra iki ailə sözünü and ilə birləşdir.',
+        prompt: 'Parkda yeni tanış qadınla danışırsan. Sənin oğlun və qızın var.\nBunu de.', reply: 'Really? Nice!',
+        rule: said(String.raw`^(?:hi\s*[,!.]?\s*)?i\s+have\s+a\s+(?:son\s+and\s+a\s+daughter|daughter\s+and\s+a\s+son)\s*[.!]?$`, 'I have a son and a daughter.'),
+        variants: [...HAVE_FIRST('I have a son and a daughter.'), haveOther('I have a son and a daughter.')],
+      },
+    },
+    {
+      type: 'write', id: 'u4d5_c16', number: 8, title: 'Mesaj yaz', why: 'Ailəndə kimin olduğunu özün dedin: I have…', hint: 'I have ilə başla, sonra a və ailə sözü.',
+      prompt: '{F} ailəsi haqqında yazdı.\nCavab yaz: qardaşın, yoxsa bacın var? (uydura bilərsən)', placeholder: 'Cavabını yaz',
+      chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'I have a son. And you?' }] },
+      rule: own(HAVE_ONLY, 'I have a sister.', 'I have a brother.'),
+      variants: [...HAVE_FIRST('I have a sister.'), haveOther('I have a sister.')],
+      review: { scenes: [],
+        title: 'Mesaj yaz', why: 'Ailəndə kimin olduğunu özün dedin: I have…', hint: 'Kurs yoldaşına da I have ilə yaz, sonra a və ailə sözü.',
+        prompt: 'Kurs yoldaşın ailəsi haqqında mesaj yazdı.\nCavab yaz: qardaşın, yoxsa bacın var? (uydura bilərsən)', placeholder: 'Cavabını yaz',
+        chat: { partner: 'Kurs yoldaşı', from: 'other', lines: [{ from: 'other', text: 'Hi! I have a daughter. And you?' }] },
+        rule: own(HAVE_ONLY, 'I have a brother.', 'I have a sister.'),
+        variants: [...HAVE_FIRST('I have a brother.'), haveOther('I have a brother.')],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 5 · 1-ci hissə tamamlandı', 'Artıq ailəndə kimin olduğunu I have ilə deyirsən.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'I have cümləsini tanımaq', tasks: ['u4d5_c03', 'u4d5_c05'] },
+      { group: 'Yazı', text: 'Qardaşın, bacın olduğunu yazmaq', tasks: ['u4d5_c14', 'u4d5_c16'] },
+      { group: 'Danışıq', text: 'Qardaşın və bacın olduğunu demək', tasks: ['u4d5_c15'] },
+    ],
+    closing: 'Növbəti hissə — “yoxdur” demək və “Qardaşın var?” soruşmaq.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'I have', translation: 'mənim var', example: 'I have a son.', exampleAz: 'Mənim oğlum var.', usageNote: '“var” əvvəldə gəlir: I have.', pronunciation: '/aɪ hæv/', teachCard: 'u4d5_c02' },
+    { word: 'a brother · a sister', translation: 'qardaş · bacı (bir nəfər)', example: 'I have a brother and a sister.', exampleAz: 'Mənim bir qardaşım və bir bacım var.', usageNote: 'Bir nəfər üçün qabağında a.', pronunciation: '/ə ˈbrʌðər/ · /ə ˈsɪstər/', teachCard: 'u4d5_c04' },
+  ],
+};
+
+export const lesson5_2: DesignLesson = {
+  id: 'a1_en_b4_d5_2', order: 70, unit: 4, number: 5, part: 2, title: 'Qardaşın var?', section: 'Ailə və insanlar',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u4d5_c20', badge: 'Ailə və insanlar', subtitle: '{F} video zəngdə ailən haqqında soruşmağa davam edir. Kimin olmadığını deyir, sən də ondan soruşursan.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'bye', text: 'Kimim olmadığını deyə bilirəm.' },
+        { icon: 'chat', text: 'Qardaşın, bacın varmı — soruşa və cavab verə bilirəm.' },
+      ],
     },
     {
       type: 'word', id: 'u4d5_c06', number: 6, scenes: ['mascot/think'],
@@ -189,10 +265,10 @@ export const lesson5: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 5 tamamlandı', 'Artıq ailəndə kimin olub-olmadığını deyir və soruşa bilirsən.'],
+    done: ['Dərs 5 · 2-ci hissə tamamlandı', 'Artıq ailəndə kimin olub-olmadığını deyir və soruşa bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'I have cümləsini və düz sualı tanımaq', tasks: ['u4d5_c03', 'u4d5_c05', 'u4d5_c09', 'u4d5_c11'] },
+      { group: 'Tanıma', text: 'Düz sualı və cavab cütlərini tanımaq', tasks: ['u4d5_c09', 'u4d5_c11'] },
       { group: 'Yazı', text: 'Var və yoxdur demək, Do ilə soruşmaq', tasks: ['u4d5_c07', 'u4d5_c12', 'u4d5_c13'] },
       { group: 'Danışıq', text: 'Do you have…? sualına cavab vermək', tasks: ['u4d5_c10'] },
     ],
@@ -200,8 +276,6 @@ export const lesson5: DesignLesson = {
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'I have', translation: 'mənim var', example: 'I have a son.', exampleAz: 'Mənim oğlum var.', usageNote: '“var” əvvəldə gəlir: I have.', pronunciation: '/aɪ hæv/', teachCard: 'u4d5_c02' },
-    { word: 'a brother · a sister', translation: 'qardaş · bacı (bir nəfər)', example: 'I have a brother and a sister.', exampleAz: 'Mənim bir qardaşım və bir bacım var.', usageNote: 'Bir nəfər üçün qabağında a.', pronunciation: '/ə ˈbrʌðər/ · /ə ˈsɪstər/', teachCard: 'u4d5_c04' },
     { word: "I don't have", translation: 'mənim yoxdur', example: "I have a sister, but I don't have a brother.", exampleAz: 'Mənim bacım var, amma qardaşım yoxdur.', usageNote: "have-dən əvvəl don't.", pronunciation: '/aɪ doʊnt hæv/', teachCard: 'u4d5_c06' },
     { word: 'Do you have a brother?', translation: 'Qardaşın var?', example: 'Do you have a brother? — Yes, I do.', exampleAz: 'Qardaşın var? — Bəli, var.', usageNote: 'Sualı Do başlayır.', pronunciation: '/du ju hæv ə ˈbrʌðər/', teachCard: 'u4d5_c08' },
   ],
@@ -217,6 +291,9 @@ export const explains: { after: string; card: ExplainCard }[] = [
     ],
     attention: 'I have — iki söz. I am have demirik.',
   } },
+];
+// Müəllim izahı of the second part.
+export const explains2: { after: string; card: ExplainCard }[] = [
   { after: 'u4d5_c08', card: { type: 'explain', id: 'u4d5_c08t', number: 0,
     lead: 'Sual qurmaq üçün əvvələ Do gəlir.', focus: 'Do',
     sections: [

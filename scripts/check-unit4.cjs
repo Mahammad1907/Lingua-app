@@ -11,6 +11,7 @@ require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileMo
 const L = require('../src/utils/designLesson.ts');
 const { designLessons } = require('../src/data/designLessons.ts');
 const { unit4Lessons, unit4Exam } = require('../src/data/unit4/index.ts');
+const { unit4Explains } = require('../src/data/unit4/aggregate.ts');
 
 const NAME = 'Aysu';
 const filled = text => text.replace(/…|\[[^\]]*\]/g, NAME);
@@ -25,10 +26,11 @@ assert.equal(new Set(orders).size, orders.length, 'duplicate lesson orders');
 // ONLY=a1_en_b4_d4,a1_en_b4_d5a checks just those lessons (while other parts are still being written).
 const only = process.env.ONLY ? process.env.ONLY.split(',') : null;
 const all = [...unit4Lessons, ...unit4Exam].filter(l => !only || only.includes(l.id));
-assert.equal(unit4Lessons.length, 9, `Bölmə 4 has 9 lesson parts (8 map lessons; 2 in two parts): ${unit4Lessons.length}`);
+// 26 Nov 2026: lessons longer than 12 screens are split into parts (Dərs 1, 3–7 in two parts, Dərs 2 in four, Dərs 8 whole).
+assert.equal(unit4Lessons.length, 17, `Bölmə 4 has 17 lesson parts (8 map lessons): ${unit4Lessons.length}`);
 assert.equal(unit4Exam.length, 1, 'Bölmə 4 exam');
 const numbers = unit4Lessons.map(l => `${l.number}${l.part ?? ''}`);
-assert.deepEqual(numbers, ['1', '21', '22', '3', '4', '5', '6', '7', '8'], `map numbers/parts: ${numbers}`);
+assert.deepEqual(numbers, ['11', '12', '21', '22', '23', '24', '31', '32', '41', '42', '51', '52', '61', '62', '71', '72', '8'], `map numbers/parts: ${numbers}`);
 // Rule 20 (user, 15 Nov 2026): “Azeri” is never shown, taught or accepted. Answer patterns are not shown; everything else is checked.
 const shown = (v, k = '') => typeof v === 'string' ? (k === 'pattern' ? [] : [v]) : Array.isArray(v) ? v.flatMap(x => shown(x)) : v && typeof v === 'object' ? Object.entries(v).flatMap(([kk, x]) => shown(x, kk)) : [];
 for (const l of all) for (const t of shown(l)) assert.ok(!/\bazeri\b/i.test(t), `${l.id}: “Azeri” must not appear: “${t}”`);
@@ -46,7 +48,9 @@ for (const raw of all) {
   const others = lesson.cards.filter(c => c.type !== 'explain').length;
   assert.ok(others <= (exam ? 16 : 14), `${tag}: at most ${exam ? 16 : 14} cards besides Müəllim izahı (${others})`);
   const max = 16;
-  assert.ok(lesson.cards.length >= 9 && lesson.cards.length <= max, `${tag}: 9–${max} cards (${lesson.cards.length})`);
+  // Müəllim izahı cards are added to the lesson later (unit4Explains); a split part (26 Nov 2026) may need them to reach 9.
+  const all_cards = lesson.cards.length + (unit4Explains[lesson.id] || []).filter(e => !lesson.cards.some(c => c.id === e.card.id)).length;
+  assert.ok(all_cards >= 9 && all_cards <= max, `${tag}: 9–${max} cards with Müəllim izahı (${all_cards})`);
   assert.equal(lesson.cards[0].type, 'intro', `${tag}: starts with the goals`);
   const kinds = new Set(tasks.map(kind));
   // A lesson split into parts (26 Nov 2026) has fewer tasks per part: 4 kinds are enough there.

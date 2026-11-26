@@ -29,14 +29,14 @@ const noMy = (word: string, example: string): Variant => ({
   explain: ex(`This is my ${word}.`, 'Ailə üzvündən əvvəl “mənim” ayrıca gəlir: my.', `This is my ${word}. — düzdür; This is ${word}. — olmur.`, example) });
 
 export const lesson2b: DesignLesson = {
-  id: 'a1_en_b4_d2b', order: 37, unit: 4, number: 2, part: 2, title: 'Ailə (2)', section: 'Ailə və insanlar',
+  id: 'a1_en_b4_d2b', order: 63, unit: 4, number: 2, part: 3, title: 'Ailə (2)', section: 'Ailə və insanlar',
   notices,
   cards: [
     {
       type: 'intro', id: 'u4d2b_c01', badge: 'Ailə və insanlar', subtitle: '{F} albomun ikinci səhifəsini açır. Orada daha geniş ailə var.', start: 'Dərsə başla',
       goals: [
         { icon: 'chat', text: 'Ailənin yeni üzvlərini eşidib başa düşürəm.' },
-        { icon: 'wave', text: 'Ata-ananı, nənə-babanı, oğul və qızı adlandıra bilirəm.' },
+        { icon: 'wave', text: 'Ata-ananı və nənə-babanı adlandıra bilirəm.' },
         { icon: 'bye', text: 'Ailəmin harada olduğunu deyə bilirəm.' },
       ],
     },
@@ -111,10 +111,83 @@ export const lesson2b: DesignLesson = {
       },
     },
     {
+      type: 'voice', id: 'u4d2b_c12', number: 13, title: 'Səslə cavab', why: 'Ata-ananın harada olduğunu dedin: My parents are in + şəhər.', hint: 'Bu dərsin ilk söz kartını xatırla, şəhərin adını sona qoy.',
+      prompt: '{F} sənin ailən haqqında maraqlanır.\nDe: ata-anan Bakıdadır.', reply: 'Nice!',
+      rule: own(PARENTS_IN, 'My parents are in Baku.'),
+      variants: [...parentsMistakes, other('My parents are in + şəhər.', ex('My parents are in Baku.', 'Ata-ananı My parents ilə, harada olduqlarını are in və şəhərlə deyirsən.', 'My parents are in Baku. — Bakıdadırlar.', 'My mother is in Baku.'))],
+      review: {
+        title: 'Səslə cavab', why: 'Ata-ananın harada olduğunu dedin: My parents are in + şəhər.', hint: 'Qonşuya da ata-ananı bu dərsin ilk söz kartı ilə de, şəhəri sona qoy.',
+        prompt: 'Qonşu sənin ailən haqqında soruşur.\nDe: ata-anan Gəncədədir.', reply: 'Nice!',
+        rule: own(PARENTS_IN, 'My parents are in Ganja.'),
+        variants: [...parentsMistakes, other('My parents are in + şəhər.', ex('My parents are in Ganja.', 'Ata-ananı My parents ilə, harada olduqlarını are in və şəhərlə deyirsən.', 'My parents are in Ganja. — Gəncədədirlər.', 'My mother is in Baku.'))],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 2 · 3-cü hissə tamamlandı', 'Artıq ata-ananı, nənə-babanı adlandırır və ata-ananın harada olduğunu deyirsən.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'Ata-ananın harada olduğunu eşidib anlamaq', tasks: ['u4d2b_c03'] },
+      { group: 'Yazı', text: 'Nənə sözünü və nənənin harada olduğunu yazmaq', tasks: ['u4d2b_c05', 'u4d2b_c07'] },
+      { group: 'Danışıq', text: 'Ata-ananın harada olduğunu demək', tasks: ['u4d2b_c12'] },
+    ],
+    closing: 'Növbəti hissə — oğul və qız: son, daughter.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'parents', translation: 'valideynlər (ata-ana)', example: 'My parents are in Baku.', exampleAz: 'Ata-anam Bakıdadır.', usageNote: 'My parents cümlə başlanğıcıdır, sonra are gəlir.', pronunciation: '/ˈpɛrənts/', teachCard: 'u4d2b_c02' },
+    { word: 'grandmother', translation: 'nənə', example: 'This is my grandmother.', exampleAz: 'Bu mənim nənəmdir.', usageNote: 'grand + mother, bir söz.', pronunciation: '/ˈɡrænˌmʌðər/', teachCard: 'u4d2b_c04' },
+    { word: 'grandfather', translation: 'baba', example: 'This is my grandfather.', exampleAz: 'Bu mənim babamdır.', usageNote: 'grand + father, bir söz.', pronunciation: '/ˈɡrænˌfɑðər/', teachCard: 'u4d2b_c06' },
+  ],
+};
+
+export const lesson2b_2: DesignLesson = {
+  id: 'a1_en_b4_d2b_2', order: 64, unit: 4, number: 2, part: 4, title: 'Ailə (2)', section: 'Ailə və insanlar',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u4d2b_c20', badge: 'Ailə və insanlar', subtitle: '{F} albomun son səhifəsini açır: oğul və qız övladları.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: 'Oğul və qız sözlərini eşidib tanıyıram.' },
+        { icon: 'wave', text: 'Oğlumu və qızımı təqdim edə bilirəm.' },
+        { icon: 'bye', text: 'Şəkil haqqında qısa söhbəti sıralaya bilirəm.' },
+      ],
+    },
+    {
       type: 'word', id: 'u4d2b_c08', number: 8, scenes: ['mascot/ask'],
       word: 'son', pronunciation: '/sʌn/', reading: 'san', az: 'oğul',
       notes: ['Yazılışı son, oxunuşu “san”: o hərfi “a” kimi oxunur.'],
       example: 'This is my son.', exampleAz: 'Bu mənim oğlumdur.',
+    },
+    {
+      type: 'choice', id: 'u4d2b_c16', number: 9, title: 'Sözü tamamla', why: 'Kiçik oğlan onun oğludur — son.', hint: 'Şəkildəki uşaq oğlandır — və o, {F:gen} övladıdır.',
+      prompt: 'Video zəngdə {f} kiçik oğlunun şəklini göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'Hi! This is my', after: '.' },
+      options: ['son', 'brother', 'father'], answer: 'son',
+      variants: [
+        pick('brother', 'brother qardaşdır; şəkildə onun oğludur.', ex('son', 'Övlad olan oğlan — son.', 'my son — oğlum; my brother — qardaşım.', 'This is my son.')),
+        pick('father', 'father atadır; şəkildə kiçik oğlandır.', ex('son', 'Övlad olan oğlan — son.', 'my son — oğlum; my father — atam.', 'This is my son.')),
+      ],
+      review: {
+        title: 'Sözü tamamla', why: 'Kiçik oğlan onun oğludur — son.', hint: 'Qonşunun yanındakı uşaq oğlandır — və o, qonşunun övladıdır.',
+        prompt: 'Qonşu həyətdə kiçik oğlunu sənə göstərir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'Hello! This is my', after: '.' },
+        options: ['father', 'son', 'brother'], answer: 'son',
+        variants: [
+          pick('brother', 'brother qardaşdır; yanındakı onun oğludur.', ex('son', 'Övlad olan oğlan — son.', 'my son — oğlum; my brother — qardaşım.', 'This is my son.')),
+          pick('father', 'father atadır; yanındakı kiçik oğlandır.', ex('son', 'Övlad olan oğlan — son.', 'my son — oğlum; my father — atam.', 'This is my son.')),
+        ],
+      },
+    },
+    {
+      type: 'voice', id: 'u4d2b_c17', number: 10, title: 'Səslə cavab', why: 'Oğlunu təqdim etdin: This is my son.', hint: 'Dərs 1-dəki təqdim cümləsi ilə de, sonda ailə sözünü qoy.',
+      prompt: 'Telefonunda {f:dat} şəkil göstərirsən. Şəkildəki oğlan sənin oğlundur.\nCavab ver.', audio: "Who's this?", reply: 'Oh, nice!',
+      rule: sayMy('son', 'he'),
+      variants: [noMy('son', 'This is my son.'), other('This is my son.', ex('This is my son.', 'Ailə üzvünü This is my və ailə sözü ilə deyirsən.', 'This is my son. — oğul; This is my brother. — qardaş.', 'This is my son.'))],
+      review: {
+        title: 'Səslə cavab', why: 'Qızını təqdim etdin: This is my daughter.', hint: 'Dərs 1-dəki təqdim cümləsi ilə de, sonda ailə sözünü qoy.',
+        prompt: 'Qonşu evinizdəki şəklə baxıb soruşur. Şəkildəki qız sənin qızındır.\nCavab ver.', audio: "Who's this?", reply: 'Oh, nice!',
+        rule: sayMy('daughter', 'she'),
+        variants: [noMy('daughter', 'This is my daughter.'), other('This is my daughter.', ex('This is my daughter.', 'Ailə üzvünü This is my və ailə sözü ilə deyirsən.', 'This is my daughter. — qızım; This is my sister. — bacım.', 'This is my daughter.'))],
+      },
     },
     {
       type: 'drag', id: 'u4d2b_drag', number: 9, title: 'Söz sürüklə', why: 'grandfather — baba, son — oğul: hər sözü eşitdiyin adamın altına qoydun.', hint: 'Səsdə iki cümlə var: birinci cümlə birinci adam üçündür.',
@@ -143,6 +216,26 @@ export const lesson2b: DesignLesson = {
       example: 'This is my daughter.', exampleAz: 'Bu mənim qızımdır.',
     },
     {
+      type: 'write', id: 'u4d2b_c15', number: 12, title: 'Dinlə və yaz', why: 'daughter — gh yazılır, amma oxunmur.', hint: 'Sözün ortasında eşitmədiyin iki hərf var.',
+      prompt: 'Eşitdiyin sözü yaz.', audio: 'daughter', placeholder: 'Eşitdiyin sözü yaz',
+      rule: exact('daughter'),
+      variants: [
+        { match: { pattern: String.raw`^d(?:o|au|ou)t[eə]r$|^daugter$|^dauhter$|^doughter$` }, short: 'Yazılış: d-a-u-g-h-t-e-r.',
+          explain: ex('daughter', 'Oxunuşu “dotər”, amma yazılışda au və səssiz gh var.', 'daughter — düzdür; dotər kimi yazmaq — olmur.', 'This is my daughter.') },
+        other('Eşitdiyin söz: daughter.', ex('daughter', 'Eşitdiyin sözü hərf-hərf yaz: d-a-u-g-h-t-e-r.', 'daughter — qız (övlad); son — oğul.', 'This is my daughter.')),
+      ],
+      review: {
+        title: 'Dinlə və yaz', why: 'daughter — gh yazılır, amma oxunmur.', hint: '“dotər” səslənir, amma yazılışda au və iki səssiz hərf var.',
+        prompt: 'Eşitdiyin sözü yaz.', audio: 'daughter', placeholder: 'Eşitdiyin sözü yaz',
+        rule: exact('daughter'),
+        variants: [
+          { match: { pattern: String.raw`^d(?:o|au|ou)t[eə]r$|^daugter$|^dauhter$|^doughter$` }, short: 'Yazılış: d-a-u-g-h-t-e-r.',
+            explain: ex('daughter', 'Oxunuşu “dotər”, amma yazılışda au və səssiz gh var.', 'daughter — düzdür; dotər kimi yazmaq — olmur.', 'This is my daughter.') },
+          other('Eşitdiyin söz: daughter.', ex('daughter', 'Eşitdiyin sözü hərf-hərf yaz: d-a-u-g-h-t-e-r.', 'daughter — qız (övlad); son — oğul.', 'This is my daughter.')),
+        ],
+      },
+    },
+    {
       type: 'voice', id: 'u4d2b_c11', number: 11, title: 'Dinlə və təkrarla', why: 'Cümləni dedin: This is my daughter.', hint: 'Yavaş dinlə: daughter-in ortasındakı gh oxunmur.',
       prompt: '{F} qızının şəklini göstərir.\nDinlə, sonra eyni cür de.', audio: 'This is my daughter.', repeat: { stress: 'daugh', note: 'daughter — “dotər”: gh səssizdir, “q” demə.', reading: '**th**is iz may dotər' },
       rule: said(String.raw`^this\s+is\s+my\s+daughter\s*[.!]?$`, 'This is my daughter.'),
@@ -152,18 +245,6 @@ export const lesson2b: DesignLesson = {
         prompt: 'Video zəngdə qonşu qızının şəklini göstərir.\nDinlə, sonra eyni cür de.', audio: 'This is my daughter.', repeat: { stress: 'daugh', note: 'daughter — “dotər”: gh səssizdir, “q” demə.', reading: '**th**is iz may dotər' },
         rule: said(String.raw`^this\s+is\s+my\s+daughter\s*[.!]?$`, 'This is my daughter.'),
         variants: [other('This is my daughter.', ex('This is my daughter.', 'Əvvəl This is my, sonra daughter.', 'This is my daughter. — qızım; This is my son. — oğlum.', 'This is my daughter.'))],
-      },
-    },
-    {
-      type: 'voice', id: 'u4d2b_c12', number: 13, title: 'Səslə cavab', why: 'Ata-ananın harada olduğunu dedin: My parents are in + şəhər.', hint: 'Bu dərsin ilk söz kartını xatırla, şəhərin adını sona qoy.',
-      prompt: '{F} sənin ailən haqqında maraqlanır.\nDe: ata-anan Bakıdadır.', reply: 'Nice!',
-      rule: own(PARENTS_IN, 'My parents are in Baku.'),
-      variants: [...parentsMistakes, other('My parents are in + şəhər.', ex('My parents are in Baku.', 'Ata-ananı My parents ilə, harada olduqlarını are in və şəhərlə deyirsən.', 'My parents are in Baku. — Bakıdadırlar.', 'My mother is in Baku.'))],
-      review: {
-        title: 'Səslə cavab', why: 'Ata-ananın harada olduğunu dedin: My parents are in + şəhər.', hint: 'Qonşuya da ata-ananı bu dərsin ilk söz kartı ilə de, şəhəri sona qoy.',
-        prompt: 'Qonşu sənin ailən haqqında soruşur.\nDe: ata-anan Gəncədədir.', reply: 'Nice!',
-        rule: own(PARENTS_IN, 'My parents are in Ganja.'),
-        variants: [...parentsMistakes, other('My parents are in + şəhər.', ex('My parents are in Ganja.', 'Ata-ananı My parents ilə, harada olduqlarını are in və şəhərlə deyirsən.', 'My parents are in Ganja. — Gəncədədirlər.', 'My mother is in Baku.'))],
       },
     },
     {
@@ -182,20 +263,17 @@ export const lesson2b: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 2 · 2-ci hissə tamamlandı', 'Artıq daha geniş ailəni adlandırır və ata-ananın harada olduğunu deyirsən.'],
+    done: ['Dərs 2 · 4-cü hissə tamamlandı', 'Artıq oğul və qız övladını da adlandırır, ailəni təqdim edirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Geniş ailə sözlərini eşidib tanımaq və söhbəti sıralamaq', tasks: ['u4d2b_c03', 'u4d2b_drag', 'u4d2b_c14'] },
-      { group: 'Yazı', text: 'Ailə üzvünün harada olduğunu yazmaq', tasks: ['u4d2b_c05', 'u4d2b_c07'] },
-      { group: 'Danışıq', text: 'Ailə üzvünü təqdim etmək və ata-ananın harada olduğunu demək', tasks: ['u4d2b_c11', 'u4d2b_c12'] },
+      { group: 'Tanıma', text: 'Oğul və qız sözlərini eşidib tanımaq və söhbəti sıralamaq', tasks: ['u4d2b_c16', 'u4d2b_drag', 'u4d2b_c14'] },
+      { group: 'Yazı', text: 'daughter sözünü düz yazmaq', tasks: ['u4d2b_c15'] },
+      { group: 'Danışıq', text: 'Oğlunu və qızını təqdim etmək', tasks: ['u4d2b_c17', 'u4d2b_c11'] },
     ],
     closing: 'Növbəti dərs — his və her: onun adı nədir?', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'parents', translation: 'valideynlər (ata-ana)', example: 'My parents are in Baku.', exampleAz: 'Ata-anam Bakıdadır.', usageNote: 'My parents cümlə başlanğıcıdır, sonra are gəlir.', pronunciation: '/ˈpɛrənts/', teachCard: 'u4d2b_c02' },
-    { word: 'grandmother', translation: 'nənə', example: 'This is my grandmother.', exampleAz: 'Bu mənim nənəmdir.', usageNote: 'grand + mother, bir söz.', pronunciation: '/ˈɡrænˌmʌðər/', teachCard: 'u4d2b_c04' },
-    { word: 'grandfather', translation: 'baba', example: 'This is my grandfather.', exampleAz: 'Bu mənim babamdır.', usageNote: 'grand + father, bir söz.', pronunciation: '/ˈɡrænˌfɑðər/', teachCard: 'u4d2b_c06' },
     { word: 'son', translation: 'oğul', example: 'This is my son.', exampleAz: 'Bu mənim oğlumdur.', usageNote: 'Oxunuşu “san”.', pronunciation: '/sʌn/', teachCard: 'u4d2b_c08' },
     { word: 'daughter', translation: 'qız (övlad)', example: 'This is my daughter.', exampleAz: 'Bu mənim qızımdır.', usageNote: 'Oxunuşu “dotər”.', pronunciation: '/ˈdɔtər/', teachCard: 'u4d2b_c10' },
   ],

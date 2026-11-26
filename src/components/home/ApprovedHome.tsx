@@ -65,12 +65,12 @@ export function HomeDashboard({ course, language, level, xp, compact = false, to
     const unit = module.order;
     // A map lesson split in parts (same `number`) becomes one node with parts.
     const unitLessons = designLessons.filter(l => (l.unit ?? 1) === unit && !l.exam && ids.includes(l.id));
-    const lessons: IslandLesson[] = unit === 1 ? ids.map((id, i) => ({ id, number: i + 1, title: SHORT_TITLES[id] ?? getPacketLesson(id)?.title ?? `Dərs ${i + 1}`, phrases: words(id), minutes: minutesOf([id]), icon: ICONS[id] }))
-      : [...new Set(unitLessons.map(l => l.number ?? l.order))].map(n => {
+    // Bölmə 1 is grouped the same way since its lessons got parts (26 Nov 2026); its titles/icons are keyed by lesson id.
+    const lessons: IslandLesson[] = [...new Set(unitLessons.map(l => l.number ?? l.order))].map(n => {
         const parts = unitLessons.filter(l => (l.number ?? l.order) === n);
-        return { id: parts[0].id, number: n, title: SHORT_TITLES[`u${unit}_${n}`] ?? parts[0].title,
+        return { id: parts[0].id, number: n, title: SHORT_TITLES[`u${unit}_${n}`] ?? SHORT_TITLES[parts[0].id] ?? parts[0].title,
           phrases: parts.map(p => words(p.id)).filter(Boolean).join(' · ') || undefined, minutes: minutesOf(parts.map(p => p.id)),
-          parts: parts.length > 1 ? parts.map(p => ({ id: p.id, title: p.title })) : undefined, icon: ICONS[`u${unit}_${n}`] };
+          parts: parts.length > 1 ? parts.map(p => ({ id: p.id, title: p.title })) : undefined, icon: ICONS[`u${unit}_${n}`] ?? ICONS[parts[0].id] };
       });
     const examLesson = designLessons.find(l => l.exam && (l.unit ?? 1) === unit);
     const exam = examLesson ? { id: examLesson.id, percent: exams[examLesson.id]?.percent ?? null, passed: exams[examLesson.id]?.passed ?? false } : undefined;

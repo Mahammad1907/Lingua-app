@@ -15,8 +15,8 @@ export const modules: Module[] = [
     phase: 1,
     icon: '👋',
     lessonIds: [
-      'a1_en_b1_v2_d1', 'a1_en_b1_v2_d2', 'a1_en_b1_v2_d3', 'a1_en_b1_v2_d4',
-      'a1_en_b1_v2_d5', 'a1_en_b1_v2_d6', 'a1_en_b1_v2_d7', 'a1_en_b1_v2_d8',
+      'a1_en_b1_v2_d1', 'a1_en_b1_v2_d1_2', 'a1_en_b1_v2_d2', 'a1_en_b1_v2_d2_2', 'a1_en_b1_v2_d3', 'a1_en_b1_v2_d3_2', 'a1_en_b1_v2_d4', 'a1_en_b1_v2_d4_2',
+      'a1_en_b1_v2_d5', 'a1_en_b1_v2_d5_2', 'a1_en_b1_v2_d6', 'a1_en_b1_v2_d6_2', 'a1_en_b1_v2_d7', 'a1_en_b1_v2_d7_2', 'a1_en_b1_v2_d8',
     ],
     finalReviewId: 'a1_en_b1_v2_d8',
     hasSpeakingPractice: false,
@@ -36,14 +36,14 @@ export const modules: Module[] = [
     phase: 1,
     icon: '🪪',
     lessonIds: [
-      'a1_en_b2_d1a', 'a1_en_b2_d1b', 'a1_en_b2_d2', 'a1_en_b2_d3a', 'a1_en_b2_d3b', 'a1_en_b2_d3c', 'a1_en_b2_d4',
-      'a1_en_b2_d5', 'a1_en_b2_d6', 'a1_en_b2_d7a', 'a1_en_b2_d7b', 'a1_en_b2_d8',
+      'a1_en_b2_d1a', 'a1_en_b2_d1b', 'a1_en_b2_d2', 'a1_en_b2_d2_2', 'a1_en_b2_d3a', 'a1_en_b2_d3a_2', 'a1_en_b2_d3b', 'a1_en_b2_d3b_2', 'a1_en_b2_d3c', 'a1_en_b2_d4', 'a1_en_b2_d4_2',
+      'a1_en_b2_d5', 'a1_en_b2_d5_2', 'a1_en_b2_d6', 'a1_en_b2_d6_2', 'a1_en_b2_d7a', 'a1_en_b2_d7a_2', 'a1_en_b2_d7b', 'a1_en_b2_d7b_2', 'a1_en_b2_d8',
     ],
     finalReviewId: 'a1_en_b2_d8',
     hasSpeakingPractice: false,
   },
   {
-    // docs/BOLME_3_XERITESI.md — 8 map lessons; lessons 2, 3 and 5 have two parts (11 lesson ids).
+    // docs/BOLME_3_XERITESI.md — 8 map lessons in 20 parts (26 Nov 2026 split: every part 8–12 screens).
     id: 'module_3',
     title: 'Where are you from?',
     titleAz: 'Haradansan',
@@ -54,8 +54,9 @@ export const modules: Module[] = [
     phase: 1,
     icon: '🌍',
     lessonIds: [
-      'a1_en_b3_d1', 'a1_en_b3_d2a', 'a1_en_b3_d2b', 'a1_en_b3_d3a', 'a1_en_b3_d3b', 'a1_en_b3_d4',
-      'a1_en_b3_d5a', 'a1_en_b3_d5b', 'a1_en_b3_d6', 'a1_en_b3_d7', 'a1_en_b3_d8',
+      'a1_en_b3_d1', 'a1_en_b3_d1_2', 'a1_en_b3_d2a', 'a1_en_b3_d2a_2', 'a1_en_b3_d2b', 'a1_en_b3_d2b_2',
+      'a1_en_b3_d3a', 'a1_en_b3_d3a_2', 'a1_en_b3_d3b', 'a1_en_b3_d3b_2', 'a1_en_b3_d4', 'a1_en_b3_d4_2',
+      'a1_en_b3_d5a', 'a1_en_b3_d5b', 'a1_en_b3_d5b_2', 'a1_en_b3_d6', 'a1_en_b3_d6_2', 'a1_en_b3_d7', 'a1_en_b3_d7_2', 'a1_en_b3_d8',
     ],
     finalReviewId: 'a1_en_b3_d8',
     hasSpeakingPractice: false,
@@ -72,8 +73,8 @@ export const modules: Module[] = [
     phase: 1,
     icon: '👨‍👩‍👧',
     lessonIds: [
-      'a1_en_b4_d1', 'a1_en_b4_d2a', 'a1_en_b4_d2b', 'a1_en_b4_d3', 'a1_en_b4_d4',
-      'a1_en_b4_d5', 'a1_en_b4_d6', 'a1_en_b4_d7', 'a1_en_b4_d8',
+      'a1_en_b4_d1', 'a1_en_b4_d1_2', 'a1_en_b4_d2a', 'a1_en_b4_d2a_2', 'a1_en_b4_d2b', 'a1_en_b4_d2b_2', 'a1_en_b4_d3', 'a1_en_b4_d3_2', 'a1_en_b4_d4', 'a1_en_b4_d4_2',
+      'a1_en_b4_d5', 'a1_en_b4_d5_2', 'a1_en_b4_d6', 'a1_en_b4_d6_2', 'a1_en_b4_d7', 'a1_en_b4_d7_2', 'a1_en_b4_d8',
     ],
     finalReviewId: 'a1_en_b4_d8',
     hasSpeakingPractice: false,

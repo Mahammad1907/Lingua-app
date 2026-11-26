@@ -37,7 +37,7 @@ for (const packet of b1Packet) {
   assert.equal(audioMeaning(packet, 'UNKNOWN_PHRASE_123'), null, 'unknown translations are never invented');
 }
 assert.equal(b1Packet.length, 7);
-const nameLesson = b1Packet.find(l => l.order === 2);
+const nameLesson = b1Packet.find(l => (l.number ?? l.order) === 2 && (l.part ?? 1) === 1);
 for (const original of packetFlow(nameLesson)) {
   for (const card of [original, original.review].filter(Boolean)) {
     const audio = card.turns?.[0]?.audio || card.audio;
@@ -65,16 +65,18 @@ console.log(`PASS: all 8 presentation modes across 7 lessons; ${listening} liste
 const { packetScene } = require('../src/utils/packetScene.ts');
 const newScenes = new Set(['farewell', 'name-card', 'feelings']);
 const placements = [];
+const { mapNumber } = require('../src/data/b1Course.ts');
 for (const lesson of b1Packet) {
+  const order = mapNumber(lesson); // map number (Bölmə 1 has parts since 26 Nov 2026)
   for (const card of packetFlow(lesson)) {
-    const scene = packetScene(lesson.order, card);
+    const scene = packetScene(order, card);
     if (newScenes.has(scene) && card.kind === 'teach') {
       assert.equal(card.kind, 'teach', 'new art is limited to teaching');
-      placements.push(`${lesson.order}:${card.number}:${scene}`);
+      placements.push(`${order}:${card.number}:${scene}`);
     }
     const freeSituation = card.kind === 'task' && !card.audio && !card.options && !card.words;
     if (['task', 'voice', 'review', 'result'].includes(card.kind) && !freeSituation) assert.equal(scene, undefined, 'listening, choice and word-bank questions cannot expose a topic answer');
-    assert.equal(packetScene(lesson.order, card, true), freeSituation ? scene : undefined, 'only free situation prompts may reuse matching illustrations in review');
+    assert.equal(packetScene(order, card, true), freeSituation ? scene : undefined, 'only free situation prompts may reuse matching illustrations in review');
   }
 }
 assert.deepEqual(placements, ['1:7:farewell', '2:4:name-card', '3:4:name-card', '4:5:feelings', '4:14:feelings']);

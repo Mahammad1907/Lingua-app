@@ -5,7 +5,7 @@
 import type { DesignLesson, ExplainCard } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
 import { notices, resultTexts, said } from '../unit3/shared';
-import { END, HE_IS, NAME, NO_IT_MISTAKES, QUESTION_MISTAKES, SHE_IS, isThisYour, noIt } from './shared34';
+import { END, HE_IS, NAME, NO_IT_MISTAKES, YES_IT_MISTAKES, QUESTION_MISTAKES, SHE_IS, isThisYour, noIt } from './shared34';
 
 /** “He's my brother.” / “This is my brother.”, optionally with the name: “His name is Elvin.” */
 const myPerson = (who: 'he' | 'she', word: string) =>
@@ -27,15 +27,15 @@ const PERSON_MISTAKES = (who: 'he' | 'she', word: string) => {
 };
 
 export const lesson4: DesignLesson = {
-  id: 'a1_en_b4_d4', order: 39, unit: 4, number: 4, title: 'Bu sənin anandır?', section: 'Ailə və insanlar',
+  id: 'a1_en_b4_d4', order: 67, unit: 4, number: 4, part: 1, title: 'Bu sənin anandır?', section: 'Ailə və insanlar',
   notices,
   cards: [
     {
       type: 'intro', id: 'u4d4_c01', badge: 'Ailə və insanlar', subtitle: 'Video zəngdə {f} ilə ailə şəkillərinə baxırsınız: kimdir, sənin ananmı, qardaşınmı?', start: 'Dərsə başla',
       goals: [
-        { icon: 'chat', text: 'Şəkildəki adamın kim olduğunu soruşa və deyə bilirəm.' },
+        { icon: 'chat', text: '“Bu sənin bacındır?” sualını başa düşürəm.' },
         { icon: 'wave', text: '“Bu sənin anandır?” kimi sual verə bilirəm.' },
-        { icon: 'bye', text: 'Bəli və xeyr ilə qısa cavab verə bilirəm.' },
+        { icon: 'bye', text: '“Bəli, elədir” ilə qısa cavab verə bilirəm.' },
       ],
     },
     {
@@ -69,6 +69,24 @@ export const lesson4: DesignLesson = {
       structure: ['Is this your + ailə sözü?'],
       notes: ['Is — sualı başladır, this — bu, your — sənin, mother — ana.'],
       example: 'Is this your father?', exampleAz: 'Bu sənin atandır?',
+    },
+    {
+      type: 'choice', id: 'u4d4_c16', number: 5, title: 'Dinlə və anla', why: 'Is this your sister? — “Bu sənin bacındır?” sualıdır.', hint: 'Sual Is ilə başlayır — kimin bacısını soruşur?',
+      prompt: 'Video zəngdə {f} sənin şəklinə baxır.\nO nə soruşur?', audio: 'Is this your sister?',
+      options: ['Bu sənin bacındır?', 'Bu, mənim bacımdır.', 'Bacının adı nədir?'], answer: 'Bu sənin bacındır?',
+      variants: [
+        pick('Bu, mənim bacımdır.', 'Səsdə my yox, your var; cümlə də Is ilə başlayır — sualdır.', ex('Bu sənin bacındır?', 'Is ilə başlayan cümlə sualdır; your — sənin.', 'Is this your sister? — sual; This is my sister. — cümlə.', 'Is this your father?')),
+        pick('Bacının adı nədir?', 'Səsdə name yoxdur.', ex('Bu sənin bacındır?', 'Ad soruşanda name deyilir; burada Is this your sister? var.', "Is this your sister? — bacındır?; What's your name? — ad.", 'Is this your father?')),
+      ],
+      review: {
+        title: 'Dinlə və anla', why: 'Is this your father? — “Bu sənin atandır?” sualıdır.', hint: 'Sual Is ilə başlayır — kimin atasını soruşur?',
+        prompt: 'Ailə yeməyində yeni tanış {b:gen} telefonundakı şəklə baxır.\nO nə soruşur?', audio: 'Is this your father?',
+        options: ['Bu, mənim atamdır.', 'Atanın adı nədir?', 'Bu sənin atandır?'], answer: 'Bu sənin atandır?',
+        variants: [
+          pick('Bu, mənim atamdır.', 'Səsdə my yox, your var; cümlə də Is ilə başlayır — sualdır.', ex('Bu sənin atandır?', 'Is ilə başlayan cümlə sualdır; your — sənin.', 'Is this your father? — sual; This is my father. — cümlə.', 'Is this your father?')),
+          pick('Atanın adı nədir?', 'Səsdə name yoxdur.', ex('Bu sənin atandır?', 'Ad soruşanda name deyilir; burada Is this your father? var.', "Is this your father? — atandır?; What's your name? — ad.", 'Is this your father?')),
+        ],
+      },
     },
     {
       type: 'write', id: 'u4d4_c05', number: 5, title: 'Mesaj yaz', why: 'Sual Is this ilə başlayır.', hint: 'Bəli/xeyr sualında hansı söz birinci gəlir?',
@@ -106,6 +124,49 @@ export const lesson4: DesignLesson = {
       },
     },
     {
+      type: 'voice', id: 'u4d4_c15', number: 8, title: 'Qısa cavab ver', why: 'Qısa “bəli” cavabı verdin: Yes, it is.', hint: 'Şəkildəki qadın sənin anandır — “bəli” cavabının sonunda is tam deyilir.',
+      prompt: 'Video zəngdə {f} sənin şəklinə baxır. Şəkildəki qadın sənin anandır.\nQısa cavab ver.', audio: 'Is this your mother?', reply: 'Oh, nice!',
+      rule: said(String.raw`^yes\s*[.,!]?\s*(?:it|she)\s+is${END}(?:\s*(?:${SHE_IS}|this\s+is)\s+my\s+mother${END})?$`, 'Yes, it is.'),
+      variants: [...YES_IT_MISTAKES('Yes, it is.'), other('Yes, it is.', ex('Yes, it is.', 'O, sənin anandır — qısa “bəli” cavabı: Yes, it is.', 'Is this your mother? — Yes, it is.', 'Is this your sister? — Yes, it is.'))],
+      review: {
+        title: 'Qısa cavab ver', why: 'Qısa “bəli” cavabı verdin: Yes, it is.', hint: 'Şəkildəki kişi sənin babandır — “bəli” cavabının sonunda is tam deyilir.',
+        prompt: 'Ailə yeməyində yeni tanış divardakı şəklə baxıb soruşur. Şəkildəki kişi sənin babandır.\nQısa cavab ver.', audio: 'Is this your grandfather?', reply: 'Oh, nice!',
+        rule: said(String.raw`^yes\s*[.,!]?\s*(?:it|he)\s+is${END}(?:\s*(?:${HE_IS}|this\s+is)\s+my\s+grandfather${END})?$`, 'Yes, it is.'),
+        variants: [...YES_IT_MISTAKES('Yes, it is.'), other('Yes, it is.', ex('Yes, it is.', 'O, sənin babandır — qısa “bəli” cavabı: Yes, it is.', 'Is this your grandfather? — Yes, it is.', 'Is this your sister? — Yes, it is.'))],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 4 · 1-ci hissə tamamlandı', 'Artıq “Bu sənin anandır?” soruşur və “bəli” cavabı verirsən.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'Şəkil haqqında sualı və qısa cavabları anlamaq', tasks: ['u4d4_c03', 'u4d4_c16', 'u4d4_c07'] },
+      { group: 'Yazı', text: '“Bu sənin atandır?” sualını qurmaq', tasks: ['u4d4_c05'] },
+      { group: 'Danışıq', text: 'Qısa “bəli” cavabı vermək', tasks: ['u4d4_c15'] },
+    ],
+    closing: 'Növbəti hissə — “xeyr” cavabı və “O kimdir?” sualı.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'your', translation: 'sənin, sizin', example: 'Is she your sister?', exampleAz: 'O, sənin bacındır?', usageNote: 'you — sən, your — sənin.', pronunciation: '/jʊr/', teachCard: 'u4d4_c02' },
+    { word: 'Is this your mother?', translation: 'Bu sənin anandır?', example: 'Is this your father?', exampleAz: 'Bu sənin atandır?', usageNote: 'Is this your + ailə sözü?', pronunciation: '/ɪz ðɪs jʊr ˈmʌðər/', teachCard: 'u4d4_c04' },
+    { word: 'Yes, it is.', translation: 'Bəli, elədir.', example: 'Is this your sister? — Yes, it is.', exampleAz: 'Bu sənin bacındır? — Bəli, elədir.', usageNote: 'Sonda is qısalmır.', pronunciation: '/jɛs ɪt ɪz/', teachCard: 'u4d4_c06' },
+  ],
+};
+
+export const lesson4_2: DesignLesson = {
+  id: 'a1_en_b4_d4_2', order: 68, unit: 4, number: 4, part: 2, title: 'Bu sənin anandır?', section: 'Ailə və insanlar',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u4d4_c20', badge: 'Ailə və insanlar', subtitle: 'Video zəngdə {f} ilə ailə şəkillərinə baxmağa davam edirsiniz: xeyr, bu o deyil — bəs kimdir?', start: 'Dərsə başla',
+      goals: [
+        { icon: 'bye', text: '“Xeyr, deyil” deyə bilirəm.' },
+        { icon: 'chat', text: 'Şəkildəki kişinin və qadının kim olduğunu soruşa bilirəm.' },
+        { icon: 'wave', text: 'Kim olduğunu deyə bilirəm: “He\'s my brother.”' },
+      ],
+    },
+    {
       type: 'word', id: 'u4d4_c08', number: 8, scenes: ['mascot/think'],
       word: "No, it isn't.", pronunciation: '/noʊ ɪt ˈɪzənt/', reading: 'nou, it izənt', az: 'Xeyr, deyil.',
       structure: ["Is this your + ailə sözü? — No, it isn't."],
@@ -130,6 +191,26 @@ export const lesson4: DesignLesson = {
       structure: ["Who's + he / she?"],
       notes: ['Who’s — kim(dir); kişi üçün he, qadın üçün she.'],
       example: "Who's she? — She's my sister.", exampleAz: 'O kimdir? — Mənim bacımdır.',
+    },
+    {
+      type: 'write', id: 'u4d4_c17', number: 11, title: 'Mesaj yaz', why: 'Qadın haqqında soruşursan: Who’s she?', hint: 'Şəkildəki adam qadındır — sualın sonunda hansı söz gəlir?',
+      prompt: 'Şəkildə tanımadığın bir qadın var.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+      photo: { from: '{F} şəkil göndərdi', shows: 'dostun və yanında tanımadığın qadın' },
+      tiles: ["Who's", 'she', 'he', 'your', '?'], rule: exact("Who's she?", 'Who is she?'),
+      variants: [
+        { match: { pattern: String.raw`^who(?:'s|’s|\s+is)\s+he\b` }, short: 'Qadın haqqında soruşursan — she.', explain: ex("Who's she?", 'Şəkildəki adam qadındır: she.', "Who's she? — qadın; Who's he? — kişi.", "Who's she? — She's my sister.") },
+        other("Who's she?", ex("Who's she?", 'Əvvəl Who’s, sonra qadın üçün she.', "Who's she? — qadın; Who's he? — kişi.", "Who's she? — She's my sister.")),
+      ],
+      review: {
+        title: 'Mesaj yaz', why: 'Kişi haqqında soruşursan: Who’s he?', hint: 'Şəkildəki adam kişidir — sualın sonunda hansı söz gəlir?',
+        prompt: 'Şəkildə tanımadığın bir kişi var.\nSözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        photo: { from: '{G} şəkil göndərdi', who: 'G', shows: '{G} və yanında tanımadığın kişi' },
+        tiles: ['he', "Who's", 'she', 'my', '?'], rule: exact("Who's he?", 'Who is he?'),
+        variants: [
+          { match: { pattern: String.raw`^who(?:'s|’s|\s+is)\s+she\b` }, short: 'Kişi haqqında soruşursan — he.', explain: ex("Who's he?", 'Şəkildəki adam kişidir: he.', "Who's he? — kişi; Who's she? — qadın.", "Who's he? — He's my brother.") },
+          other("Who's he?", ex("Who's he?", 'Əvvəl Who’s, sonra kişi üçün he.', "Who's he? — kişi; Who's she? — qadın.", "Who's he? — He's my brother.")),
+        ],
+      },
     },
     {
       type: 'voice', id: 'u4d4_c11', number: 11, title: 'Səslə soruş', why: 'Bəli/xeyr sualı verdin: Is this your mother?', hint: 'Bəli/xeyr sualı qur — söz sırasına diqqət et.',
@@ -191,27 +272,26 @@ export const lesson4: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 4 tamamlandı', 'Artıq şəkildəki adamın kim olduğunu soruşur və qısa cavab verirsən.'],
+    done: ['Dərs 4 · 2-ci hissə tamamlandı', 'Artıq şəkildəki adamın kim olduğunu soruşur və qısa cavab verirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Şəkil haqqında sualları və qısa cavabları anlamaq', tasks: ['u4d4_c03', 'u4d4_c07', 'u4d4_c12', 'u4d4_c14'] },
-      { group: 'Yazı', text: 'Sual qurmaq və kim olduğunu yazmaq', tasks: ['u4d4_c05', 'u4d4_c13'] },
+      { group: 'Tanıma', text: '“O kimdir?” sualını anlamaq və söhbəti sıralamaq', tasks: ['u4d4_c12', 'u4d4_c14'] },
+      { group: 'Yazı', text: 'Kim olduğunu soruşmaq və yazmaq', tasks: ['u4d4_c17', 'u4d4_c13'] },
       { group: 'Danışıq', text: 'Qısa “xeyr” cavabı vermək və “Bu sənin anandır?” soruşmaq', tasks: ['u4d4_c09', 'u4d4_c11'] },
     ],
     closing: 'Növbəti dərs — mənim qardaşım var: I have.', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'your', translation: 'sənin, sizin', example: 'Is she your sister?', exampleAz: 'O, sənin bacındır?', usageNote: 'you — sən, your — sənin.', pronunciation: '/jʊr/', teachCard: 'u4d4_c02' },
-    { word: 'Is this your mother?', translation: 'Bu sənin anandır?', example: 'Is this your father?', exampleAz: 'Bu sənin atandır?', usageNote: 'Is this your + ailə sözü?', pronunciation: '/ɪz ðɪs jʊr ˈmʌðər/', teachCard: 'u4d4_c04' },
-    { word: 'Yes, it is.', translation: 'Bəli, elədir.', example: 'Is this your sister? — Yes, it is.', exampleAz: 'Bu sənin bacındır? — Bəli, elədir.', usageNote: 'Sonda is qısalmır.', pronunciation: '/jɛs ɪt ɪz/', teachCard: 'u4d4_c06' },
     { word: "No, it isn't.", translation: 'Xeyr, deyil.', example: "Is this your mother? — No, it isn't.", exampleAz: 'Bu sənin anandır? — Xeyr, deyil.', usageNote: "isn't — is not.", pronunciation: '/noʊ ɪt ˈɪzənt/', teachCard: 'u4d4_c08' },
     { word: "Who's he? · Who's she?", translation: 'O kimdir?', example: "Who's she? — She's my sister.", exampleAz: 'O kimdir? — Mənim bacımdır.', usageNote: 'Kişi üçün he, qadın üçün she.', pronunciation: '/huz hi/ · /huz ʃi/', teachCard: 'u4d4_c10' },
   ],
 };
 
 // Müəllim izahı (1): qısa cavabda this → it; “Yes, it's.” olmur.
-export const explains: { after: string; card: ExplainCard }[] = [
+export const explains: { after: string; card: ExplainCard }[] = [];
+// Müəllim izahı of the second part.
+export const explains2: { after: string; card: ExplainCard }[] = [
   {
     after: 'u4d4_c08',
     card: {

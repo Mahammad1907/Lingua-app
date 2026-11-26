@@ -4,10 +4,10 @@ Bölmə 3 · Haradansan. Bu sənəd `src/data/unit3/lesson2a.ts`-dən yaradılı
 
 ## Giriş — Giriş
 
-Hava limanında, qatarda və hosteldə qonşu ölkələrin adlarını eşidirsən.
+Hava limanında, qatarda və hosteldə qonşu ölkələrin adlarını eşidirsən: Türkiyə, Gürcüstan.
 
-- Türkiyə, Gürcüstan, Rusiya və İranın ingiliscə adını eşidib tanıyıram.
-- Hansı ölkədən olduğumu deyə bilirəm.
+- Türkiyə və Gürcüstanın ingiliscə adını eşidib tanıyıram.
+- “Hansı ölkədənsən?” sualını başa düşürəm.
 
 ## Kart 2 — Yeni söz
 
@@ -67,7 +67,7 @@ Diqqət et: Biz “Türkiyədən” deyirik, ingiliscə from Turkey.
 
 ## Kart 6 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Səyahət agentliyində işçi turun ölkəsini hərf-hərf deyir, sən formaya yazırsan. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
 **Səs:** It's T-U-R-K-E-Y.  
 **Hərflər:** T U R K E Y I A  
 **Qəbul:** dəqiq: TURKEY  
@@ -77,13 +77,13 @@ Diqqət et: Biz “Türkiyədən” deyirik, ingiliscə from Turkey.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Hostel resepsiyasında işçi qonağın ölkəsini hərf-hərf yoxlayır. Eşitdiyin hərflərə toxun.  
-**Səs:** It's I-R-A-N.  
-**Hərflər:** I R A N E Y M  
-**Qəbul:** dəqiq: IRAN  
-**İpucu:** Hər hərfi eşidən kimi toxun; “ay” və “ey” səslərini qarışdırma.  
-**Düzgün olanda:** I-R-A-N — İran.  
-- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: IRAN. Səbəb: Səsdə I, R, A, N deyilir: I “ay”, A “ey” oxunur. Qayda: I — ay; A — ey. Nümunə: It's I-R-A-N.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
+**Səs:** It's G-E-O-R-G-I-A.  
+**Hərflər:** G E O R G I A J U  
+**Qəbul:** dəqiq: GEORGIA  
+**İpucu:** Hər hərfi eşidən kimi toxun; “ci” və “cey” səslərini qarışdırma.  
+**Düzgün olanda:** G-E-O-R-G-I-A — Gürcüstan.  
+- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: GEORGIA. Səbəb: Səsdə G, E, O, R, G, I, A deyilir: G “ci”, E “i”, I “ay” oxunur. Qayda: G — ci; J — cey. Nümunə: It's G-E-O-R-G-I-A.  
 
 ## Kart 7 — Yeni söz
 
@@ -113,131 +113,48 @@ Qeyd: “corcə” oxunur; ABŞ-da da Georgia adlı ştat var.
 **Düzgün olanda:** Cümləni dedin; Turkey — “törki”.  
 - *İzah (başqa səhvdə):* Bir daha dinlə və yavaş de. — Uyğun: I'm from Turkey. Səbəb: “Turkey” “törki” kimi oxunur. Qayda: I'm from Turkey. — Türkiyədən; I'm from Georgia. — Gürcüstandan. Nümunə: I'm from Turkey.  
 
-## Kart 9 — Yeni söz
+## Kart 9 — Sözü tamamla: Sözü tamamla
 
-**Russia** — Rusiya
-
-Oxunuşu: raşə · IPA: /ˈrʌʃə/
-
-Nümunə: **I'm from Russia.** — Rusiyadanam.
-
-Qeyd: “Rusiya” yox, “raşə” oxunur.
-
-## Kart 10 — Seç: Dinlə və seç
-
-**Tapşırıq:** Hostelin resepsiyasında yeni gələn qonaq danışır. O hansı ölkədəndir?  
-**Səs:** Hello! I'm from Russia.  
-**Seçimlər:** Rusiya / Türkiyə / Gürcüstan — **düzgün:** Rusiya  
-**İpucu:** Cümlənin sonundakı ölkə adına qulaq as.  
-**Düzgün olanda:** Russia — Rusiya.  
-- *İzah (“Türkiyə” seçiləndə):* Səsdə “Turkey” yoxdur. — Uyğun: Rusiya. Səbəb: Səsdə “Russia” — “raşə” var. Qayda: I'm from Russia. — Rusiyadan; I'm from Turkey. — Türkiyədən. Nümunə: Hello! I'm from Russia.  
-- *İzah (“Gürcüstan” seçiləndə):* Səsdə “Georgia” yoxdur. — Uyğun: Rusiya. Səbəb: Səsdə “raşə” var, “corcə” yox. Qayda: I'm from Russia. — Rusiyadan; I'm from Georgia. — Gürcüstandan. Nümunə: Hello! I'm from Russia.  
+**Tapşırıq:** Hava limanında yeni tanış hansı ölkədən olduğunu soruşur. Hansı söz çatmır?  
+**Cümlə:** What ___ are you from?  
+**Seçimlər:** country / name / where — **düzgün:** country  
+**İpucu:** Sual ölkəni soruşur — bu dərsin ilk sözünü xatırla.  
+**Düzgün olanda:** “What country” — hansı ölkə.  
+- *İzah (“name” seçiləndə):* “name” — ad; burada ölkə soruşulur. — Uyğun: country. Səbəb: Sual hansı ölkədən olduğunu soruşur: What country. Qayda: What country are you from? — ölkə; What's your name? — ad. Nümunə: What country are you from?  
+- *İzah (“where” seçiləndə):* “What where” birlikdə olmur. — Uyğun: country. Səbəb: What-dan sonra soruşulan şey gəlir: country — ölkə. Qayda: What country are you from? — hansı ölkə; Where are you from? — haradan. Nümunə: What country are you from?  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Kafedə yeni tanış haradan olduğunu deyir. O hansı ölkədəndir?  
-**Səs:** Hi! I'm from Georgia.  
-**Seçimlər:** Türkiyə / Gürcüstan / Rusiya — **düzgün:** Gürcüstan  
-**İpucu:** Cümlənin sonundakı ölkə adına qulaq as.  
-**Düzgün olanda:** Georgia — Gürcüstan.  
-- *İzah (“Türkiyə” seçiləndə):* Səsdə “Turkey” yoxdur. — Uyğun: Gürcüstan. Səbəb: Səsdə “Georgia” — “corcə” var. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Turkey. — Türkiyədən. Nümunə: Hi! I'm from Georgia.  
-- *İzah (“Rusiya” seçiləndə):* Səsdə “Russia” yoxdur. — Uyğun: Gürcüstan. Səbəb: Səsdə “corcə” var, “raşə” yox. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Russia. — Rusiyadan. Nümunə: Hi! I'm from Georgia.  
+**Tapşırıq:** Qatarda yanındakı sərnişin hansı ölkədən olduğunu soruşur. Hansı söz çatmır?  
+**Cümlə:** Excuse me, what ___ are you from?  
+**Seçimlər:** where / country / phone — **düzgün:** country  
+**İpucu:** Sual ölkəni soruşur — bu dərsin ilk sözünü xatırla.  
+**Düzgün olanda:** “What country” — hansı ölkə.  
+- *İzah (“phone” seçiləndə):* “phone” — telefon; burada ölkə soruşulur. — Uyğun: country. Səbəb: Sual hansı ölkədən olduğunu soruşur: what country. Qayda: What country are you from? — ölkə; What's your phone number? — nömrə. Nümunə: Excuse me, what country are you from?  
+- *İzah (“where” seçiləndə):* “what where” birlikdə olmur. — Uyğun: country. Səbəb: what-dan sonra soruşulan şey gəlir: country — ölkə. Qayda: What country are you from? — hansı ölkə; Where are you from? — haradan. Nümunə: Excuse me, what country are you from?  
 
-## Kart 11 — Yeni söz
+## Kart 10 — Cavab cütü: Cavab cütü
 
-**Iran** — İran
-
-Oxunuşu: iran · IPA: /ɪˈrɑn/
-
-Nümunə: **I'm from Iran.** — İrandanam.
-
-Qeyd: Vurğu sondadır.
-
-## Kart 12 — Xəritədə tap: Xəritədə tap
-
-**Tapşırıq:** Qatarda yeni tanış haradan olduğunu deyir. Dinlə və xəritədə ölkəyə toxun.  
-**Səs:** I'm from Georgia.  
-**Seçimlər:** Turkey / Georgia / Iran — **düzgün:** Georgia  
-**İpucu:** Bu ölkə “Sən buradasan” nöqtəsinin şimal-qərbindədir, kiçikdir.  
-**Düzgün olanda:** Georgia — Gürcüstan.  
-- *İzah (“Turkey” seçiləndə):* Səsdə “Turkey” yox, “Georgia” deyilir. — Uyğun: Georgia. Səbəb: Georgia “corcə” kimi oxunur və Gürcüstandır. Qayda: I'm from Georgia. — Gürcüstandanam; I'm from Turkey. — Türkiyədənəm. Nümunə: I'm from Georgia.  
-- *İzah (“Iran” seçiləndə):* Səsdə “Iran” yox, “Georgia” deyilir. — Uyğun: Georgia. Səbəb: Georgia “corcə” kimi oxunur və Gürcüstandır. Qayda: I'm from Georgia. — Gürcüstandanam; I'm from Iran. — İrandanam. Nümunə: I'm from Georgia.  
+**Tapşırıq:** Hostelin mətbəxində tanışlıq. Hər cümləyə uyğun cavabı qoş.  
+**Cütlər:** What country are you from? — I'm from Turkey.; I'm from Georgia. — Me too!; How are you? — I'm fine, thanks. · artıq: You too.  
+**Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
+- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: What country are you from? → I'm from Turkey.; I'm from Georgia. → Me too!; How are you? → I'm fine, thanks. Səbəb: Ölkə sualına ölkə ilə, eyni yerə “Me too!” ilə, hala “fine” ilə cavab verilir. Qayda: What country are you from? — ölkə; How are you? — hal. Nümunə: What country are you from? — I'm from Turkey.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Hostelin mətbəxində yeni tanış haradan olduğunu deyir. Dinlə və xəritədə ölkəyə toxun.  
-**Səs:** I'm from Russia.  
-**Seçimlər:** Iran / Georgia / Russia — **düzgün:** Russia  
-**İpucu:** Xəritədə ən böyük ölkə, “Sən buradasan” nöqtəsinin şimalında.  
-**Düzgün olanda:** Russia — Rusiya.  
-- *İzah (“Iran” seçiləndə):* Səsdə “Iran” yox, “Russia” deyilir. — Uyğun: Russia. Səbəb: Russia “raşə” kimi oxunur və Rusiyadır. Qayda: I'm from Russia. — Rusiyadanam; I'm from Iran. — İrandanam. Nümunə: I'm from Russia.  
-- *İzah (“Georgia” seçiləndə):* Səsdə “Georgia” yox, “Russia” deyilir. — Uyğun: Russia. Səbəb: Russia “raşə” kimi oxunur və Rusiyadır. Qayda: I'm from Russia. — Rusiyadanam; I'm from Georgia. — Gürcüstandanam. Nümunə: I'm from Russia.  
-
-## Kart 13 — Kim nə dedi?: Kim nə dedi?
-
-**Tapşırıq:** Kurs sinfində dünya xəritəsinin qarşısında söhbət. Hər cümləyə mənasını qoş.  
-**Cütlər:** I'm from Iran. — İrandanam.; I'm from Georgia. — Gürcüstandanam.; What country are you from? — Hansı ölkədənsən? · artıq: Rusiyadanam.  
-**İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
-**Düzgün olanda:** Hər cümlənin mənasını tapdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: I'm from Iran. — İrandanam.; I'm from Georgia. — Gürcüstandanam.; What country are you from? — Hansı ölkədənsən? Səbəb: Ölkə adları fərqlidir; sual “country” ilə soruşur. Qayda: I'm from Iran. — İrandan; I'm from Georgia. — Gürcüstandan. Nümunə: What country are you from?  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Hava limanında gözləmə zalında söhbət. Hər cümləyə mənasını qoş.  
-**Cütlər:** I'm from Russia. — Rusiyadanam.; I'm from Turkey. — Türkiyədənəm.; Where are you from? — Haradansan? · artıq: İrandanam.  
-**İpucu:** Əvvəl ən əmin olduğun cümləni yerinə qoy.  
-**Düzgün olanda:** Hər cümlənin mənasını tapdın.  
-- *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: I'm from Russia. — Rusiyadanam.; I'm from Turkey. — Türkiyədənəm.; Where are you from? — Haradansan? Səbəb: Ölkə adları fərqlidir; sual “where” ilə başlayır. Qayda: I'm from Russia. — Rusiyadan; I'm from Turkey. — Türkiyədən. Nümunə: Where are you from?  
-
-## Kart 14 — Yaz: Yaz
-
-**Tapşırıq:** Hava limanında uçuş tablosunda “Istanbul” yazılıb. Dostun mesajda soruşur: bu şəhər hansı ölkədədir? Ölkənin adını ingiliscə yaz.  
-**Qəbul:** dəqiq: Turkey  
-**İpucu:** İstanbul hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.  
-**Düzgün olanda:** İstanbul Türkiyədədir — Turkey.  
-- *İzah (başqa səhvdə):* İngiliscə bu ölkənin adı başqa cür yazılır. — Uyğun: Turkey. Səbəb: Türkiyə ingiliscə Turkey yazılır. Qayda: I'm from Turkey. — Türkiyədən; I'm from Russia. — Rusiyadan. Nümunə: I'm from Turkey.  
-- *İzah (başqa səhvdə):* Ölkənin ingiliscə adını yaz. — Uyğun: Turkey. Səbəb: İstanbul Türkiyədədir; ingiliscə Turkey. Qayda: I'm from Turkey. — Türkiyədən; I'm from Iran. — İrandan. Nümunə: I'm from Turkey.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Qatar stansiyasında tabloda “Tbilisi” yazılıb. Dostun mesajda soruşur: bu şəhər hansı ölkədədir? Ölkənin adını ingiliscə yaz.  
-**Qəbul:** dəqiq: Georgia  
-**İpucu:** Tbilisi hansı ölkədədir — bu dərsdəki ingiliscə adını xatırla.  
-**Düzgün olanda:** Tbilisi Gürcüstandadır — Georgia.  
-- *İzah (başqa səhvdə):* İngiliscə bu ölkənin adı başqa cür yazılır. — Uyğun: Georgia. Səbəb: Gürcüstan ingiliscə Georgia yazılır. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Russia. — Rusiyadan. Nümunə: I'm from Georgia.  
-- *İzah (başqa səhvdə):* Ölkənin ingiliscə adını yaz. — Uyğun: Georgia. Səbəb: Tbilisi Gürcüstandadır; ingiliscə Georgia. Qayda: I'm from Georgia. — Gürcüstandan; I'm from Turkey. — Türkiyədən. Nümunə: I'm from Georgia.  
-
-## Kart 15 — Səslə cavab: Səslə cavab
-
-**Tapşırıq:** Hava limanında pasport nəzarətində işçi soruşur. Hansı ölkədən olduğunu de.  
-**Səs:** What country are you from?  
-**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}(?:\s*,\s*(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?\s*[.!]?(?:\s*and you\s*\??)?$/  
-**İpucu:** Ölkənin adından əvvəl “-dan” sözünü unutma.  
-**Düzgün olanda:** Hansı ölkədən olduğunu dedin.  
-- *İzah (başqa səhvdə):* Ölkədən əvvəl “from” lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-dan” şəkilçidir; ingiliscə ölkədən əvvəl ayrıca “from” gəlir. Qayda: I'm from Azerbaijan. — haradan; I'm fine. — hal. Nümunə: What country are you from? — I'm from Azerbaijan.  
-- *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Azerbaijan. — düzdür; I from Azerbaijan. — olmur. Nümunə: What country are you from? — I'm from Azerbaijan.  
-- *İzah (başqa səhvdə):* I'm from + ölkə. — Uyğun: I'm from Azerbaijan. Səbəb: Sual ölkəni soruşur — I’m from və ölkənin adı. Qayda: I'm from Azerbaijan. — ölkə; My name is [ad] — ad. Nümunə: What country are you from? — I'm from Azerbaijan.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Hostelin mətbəxində yeni tanış soruşur. Hansı ölkədən olduğunu de.  
-**Səs:** Hi! What country are you from?  
-**Qəbul:** məna:  — nümunə: I'm from Azerbaijan. · öz məlumatı: /^(?:i'?m|i am)\s+from\s+(?!(?:azerbaijani|turkish|russian|georgian|english|american|german|french|british|azeri)\b)(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2}(?:\s*,\s*(?:the\s+)?\p{L}[\p{L}'’-]*(?:\s+\p{L}[\p{L}'’-]*){0,2})?\s*[.!]?(?:\s*and you\s*\??)?$/  
-**İpucu:** Cavabı “mən” sözü ilə başla, ölkədən əvvəl “-dan” sözünü unutma.  
-**Düzgün olanda:** Hansı ölkədən olduğunu dedin.  
-- *İzah (başqa səhvdə):* Ölkədən əvvəl “from” lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-dan” şəkilçidir; ingiliscə ölkədən əvvəl ayrıca “from” gəlir. Qayda: I'm from Azerbaijan. — haradan; I'm fine. — hal. Nümunə: What country are you from? — I'm from Azerbaijan.  
-- *İzah (başqa səhvdə):* I-dan sonra am lazımdır. — Uyğun: I'm from Azerbaijan. Səbəb: Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir. Qayda: I'm from Azerbaijan. — düzdür; I from Azerbaijan. — olmur. Nümunə: What country are you from? — I'm from Azerbaijan.  
-- *İzah (başqa səhvdə):* I'm from + ölkə. — Uyğun: I'm from Azerbaijan. Səbəb: Sual ölkəni soruşur — I’m from və ölkənin adı. Qayda: I'm from Azerbaijan. — ölkə; I'm fine. — hal. Nümunə: What country are you from? — I'm from Azerbaijan.  
+**Tapşırıq:** Hava limanında gözləmə zalında söhbət. Hər cümləyə uyğun cavabı qoş.  
+**Cütlər:** Hi! I'm from Turkey. — Me too!; Nice to meet you. — You too.; What country are you from? — I'm from Georgia. · artıq: I'm fine, thanks.  
+**Düzgün olanda:** Hər cümləyə uyğun cavabı tapdın.  
+- *İzah (başqa səhvdə):* Bir cavab yerində deyil. — Uyğun: Hi! I'm from Turkey. → Me too!; Nice to meet you. → You too.; What country are you from? → I'm from Georgia. Səbəb: Eyni yerə “Me too!”, tanışlığa “You too.”, ölkə sualına ölkə ilə cavab verilir. Qayda: Me too! — mən də; You too. — sənə də. Nümunə: What country are you from? — I'm from Georgia.  
 
 ## Nəticə
 
-Dərs 2 · 1-ci hissə tamamlandı — Artıq qonşu ölkələrin ingiliscə adını tanıyır və hansı ölkədən olduğunu deyə bilirsən.
+Dərs 2 · 1-ci hissə tamamlandı — Artıq “country” sözünü, Türkiyə və Gürcüstanın ingiliscə adını tanıyırsan.
 
-- Tanıma: Ölkə adlarını eşidib tanımaq
-- Yazı: Ölkənin ingiliscə adını yazmaq
-- Danışıq: Ölkə adını demək və hansı ölkədən olduğunu demək
+- Tanıma: Ölkə sualını və ölkə adlarını tanımaq
+- Danışıq: Ölkənin adını düzgün demək
 
-Növbəti hissə — daha uzaq ölkələr: İngiltərə, ABŞ, Almaniya, Fransa.
+Növbəti hissə — Rusiya və İran.
 
 ## Lüğətim
 
@@ -246,5 +163,3 @@ Növbəti hissə — daha uzaq ölkələr: İngiltərə, ABŞ, Almaniya, Fransa.
 | country | ölkə | What country are you from? — I'm from Azerbaijan. — Hansı ölkədənsən? — Azərbaycandanam. |
 | Turkey | Türkiyə | I'm from Turkey. — Türkiyədənəm. |
 | Georgia | Gürcüstan | I'm from Georgia. — Gürcüstandanam. |
-| Russia | Rusiya | I'm from Russia. — Rusiyadanam. |
-| Iran | İran | I'm from Iran. — İrandanam. |

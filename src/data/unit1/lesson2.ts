@@ -8,9 +8,10 @@ const intro = goal(['introduce'], ["I'm [ad]", 'My name is [ad]']);
 const greetIntro = goal(['greet', 'introduce'], ["Hello! I'm [ad]", 'Hi! My name is [ad]']);
 // Before the “My name is” card only I'm is shown as a model (taught-before-shown).
 const greetIntroEarly = goal(['greet', 'introduce'], ["Hello! I'm [ad]", "Hi! I'm [ad]"]);
+const introEarly = goal(['introduce'], ["I'm [ad]"]);
 
 export const lesson2: DesignLesson = {
-  id: 'a1_en_b1_v2_d2', order: 2, unit: 1, number: 2, title: 'Adını de', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_v2_d2', order: 3, unit: 1, number: 2, part: 1, title: 'Adını de', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinlə və ya mətnlə davam et.',
     unknown: 'Cavabı yoxlaya bilmədim. Bir az fərqli yaz və ya yenidən cəhd et.',
@@ -23,7 +24,7 @@ export const lesson2: DesignLesson = {
       type: 'intro', id: 'd2_c01', badge: 'İlk tanışlıq', subtitle: 'Tanış olanda adını deyirsən.', start: 'Dərsə başla',
       goals: [
         { icon: 'wave', text: 'Salam verib adımı deyə bilirəm.' },
-        { icon: 'chat', text: '“I’m [ad]” və “My name is [ad]” formalarını tanıyıram.' },
+        { icon: 'chat', text: '“I’m [ad]” formasını tanıyıram.' },
       ],
     },
     {
@@ -39,6 +40,102 @@ export const lesson2: DesignLesson = {
       phrases: [{ en: 'I am', az: 'mən [ad]-am' }, { en: "I'm", az: 'mən [ad]-am (qısa)' }],
       notes: ['Danışıqda qısa deyilir. Mənası eynidir.', 'Apostrof (\') düşən hərfin yerini göstərir: I am → I’m.'],
     },
+
+    // ── New tasks (26 Nov 2026, lesson split): part 1 practises only I'm. ──
+    {
+      type: 'voice', id: 'd2_c11', number: 11, title: 'Dinlə və təkrarla', why: 'Qısa forma bir heca kimi səsləndi.',
+      prompt: 'Dinlə, sonra eyni cür de.', audio: "I'm", repeat: { stress: "I'm", note: '“I’m” bir hecadır: “aym”.', reading: 'aym' },
+      rule: exact("I'm"),
+      variants: [other('Bir daha dinlə və yavaş de.', ex("I'm", 'Səsdə qısa forma var, o bir heca kimi deyilir.', 'I’m — “aym”, bir heca; I am — iki heca.', "Hi! I'm [ad]"))],
+      review: {
+        title: 'Dinlə və təkrarla', why: 'Tam forma iki heca ilə səsləndi.', prompt: 'Dinlə, sonra eyni cür de.', audio: 'I am', repeat: { stress: 'am', note: 'Tam forma iki hecadır: “ay əm”.', reading: 'ay əm' },
+        rule: exact('I am'),
+        variants: [other('Bir daha dinlə və yavaş de.', ex('I am', 'Səsdə tam forma var: iki ayrı söz.', 'I am — iki heca; I’m — bir heca.', "I am [ad]. I'm [ad]"))],
+      },
+    },
+    {
+      type: 'match', id: 'd2_c15', number: 15, title: 'Kim nə dedi?', why: 'Salam, sağollaşma və ad — hər biri öz yerində.', hint: 'Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.',
+      prompt: 'Hər cümləyə mənasını qoş.',
+      rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "I'm [ad]", az: 'Mən [ad]-am.', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
+      extra: ['Necəsən?'],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; I’m [ad] — Mən [ad]-am.; Goodbye! — Görüşənədək!', 'Hello görüşü başladır, Goodbye bitirir, I’m adını deyir.', 'Hello! — görüşün əvvəli; Goodbye! — görüşün sonu.', 'Hello! I’m [ad]. Goodbye!'))],
+      review: {
+        title: 'Kim nə dedi?', why: 'Salam, sağollaşma və ad — hər biri öz yerində.', hint: 'Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.', prompt: 'Hər cümləyə mənasını qoş.',
+        rows: [{ en: 'Bye!', az: 'Hələlik!', from: 'B' }, { en: "I'm [ad]", az: 'Mən [ad]-am.', from: 'G' }, { en: 'Hi!', az: 'Salam!', from: 'M' }],
+        extra: ['Sağ ol!'],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Bye! — Hələlik!; I’m [ad] — Mən [ad]-am.; Hi! — Salam!', 'Hi görüşü başladır, Bye bitirir, I’m adını deyir.', 'Hi! — görüşün əvvəli; Bye! — görüşün sonu.', 'Hi! I’m [ad]. Bye!'))],
+      },
+    },
+    {
+      type: 'write', id: 'd2_c13', number: 13, title: 'Dialoqu tamamla', why: 'Salam verdin və adını dedin.',
+      prompt: 'Kurs qrupunun çatına yeni qız yazır: “Hi!”\nSalam ver və adını yaz.', placeholder: 'Cavabını yaz',
+      chat: { partner: 'Kurs qrupu', from: 'G', lines: [{ from: 'G', text: 'Hi!' }], reply: '😊' }, rule: greetIntroEarly,
+      hint: 'İki hissə yaz: əvvəl salam ver, sonra özünü təqdim et.', hintAssists: false,
+      variants: [
+        insteadOf('farewell', 'Yazışma yeni başlayır — sağollaşma yox, salam lazımdır.', ex("Hi! I'm [ad]", 'Bye və Goodbye yazışmanı bitirir, burada isə yazışma başlayır.', 'Salam + I’m + adın.', "Hello! I'm [ad]")),
+        other('Salam və adın ikisi də lazımdır.', ex("Hi! I'm [ad]", 'Qız salam verdi, sən də salam verib adını yazırsan.', 'Salam + I’m + adın.', "Hello! I'm [ad]")),
+      ],
+      review: {
+        title: 'Dialoqu tamamla', why: 'Salam verdin və adını dedin.', prompt: 'Yeni iş yoldaşın mesajda yazır: “Hello!”\nSalam ver və adını yaz.', placeholder: 'Cavabını yaz',
+        chat: { partner: 'İş yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Hello!' }] }, rule: greetIntroEarly,
+        hint: 'İki hissə yaz: əvvəl salam ver, sonra özünü təqdim et.', hintAssists: false,
+        variants: [other('Salam və adın ikisi də lazımdır.', ex("Hello! I'm [ad]", 'İş yoldaşın salam verdi, sən də salam verib adını yazırsan.', 'Salam + I’m + adın.', "Hi! I'm [ad]"))],
+      },
+    },
+    {
+      type: 'choice', id: 'd2_c14', number: 14, title: 'Düzgün cümləni seç', why: 'I’m [ad] ilə adını deyir.', hint: 'Hansı cümlə salam və ya sağollaşma deyil?',
+      prompt: 'Qız özünü təqdim edir.\nHansı cümlə onun adını deyir?', options: ['Hi, [ad]!', "I'm [ad]", 'Bye, [ad]!'], answer: "I'm [ad]",
+      variants: [
+        pick('Hi, [ad]!', 'Bu, başqasına salamdır.', ex("I'm [ad]", '“Hi, [ad]!” deyəndə qarşındakına adı ilə salam verirsən, öz adını demirsən.', 'I’m + adın — öz adın; Hi, + ad — salam.', "Hi! I'm [ad]")),
+        pick('Bye, [ad]!', 'Bu, sağollaşmadır.', ex("I'm [ad]", '“Bye, [ad]!” görüşü bitirir, adını demir.', 'I’m + adın — öz adın; Bye, + ad — sağollaşma.', "Hello! I'm [ad]")),
+      ],
+      review: {
+        title: 'Düzgün cümləni seç', why: 'I’m [ad] ilə adını deyir.', hint: 'Hansı cümlə salam və ya sağollaşma deyil?', prompt: 'Oğlan özünü təqdim edir.\nHansı cümlə onun adını deyir?',
+        options: ['Bye, [ad]!', 'Hi, [ad]!', "I'm [ad]"], answer: "I'm [ad]",
+        variants: [other('Adını I’m ilə deyir.', ex("I'm [ad]", 'Salam və sağollaşma adı demir; adını “I’m [ad]” deyir.', 'I’m + adın — öz adın; Hi, + ad — salam.', "Hello! I'm [ad]"))],
+      },
+    },
+    {
+      type: 'voice', id: 'd2_c12', number: 12, title: 'Özünü təqdim et', why: 'Adını dedin.', hint: 'Qısa formanı xatırla, sonra adını de.',
+      prompt: 'Video zəngdə yeni qrupla tanış olursan.\nAdını de.', rule: introEarly, reply: 'Hi!',
+      variants: [
+        insteadOf('greet', 'Salam yaxşıdır, amma adını da de.', ex("I'm [ad]", 'Burada adını demək lazımdır, tək salam azdır.', 'I’m + adın.', "Hi! I'm [ad]")),
+        other('Adını I’m ilə de.', ex("I'm [ad]", 'Tanışlıqda adını deyirsən.', 'I’m + adın.', "Hello! I'm [ad]")),
+      ],
+      review: {
+        title: 'Özünü təqdim et', why: 'Adını dedin.', hint: 'Qısa formanı xatırla, sonra adını de.', prompt: 'Kursun ilk dərsində müəllim hamıdan adını soruşur.\nAdını de.', rule: introEarly, reply: 'Hello!',
+        variants: [other('Adını I’m ilə de.', ex("I'm [ad]", 'Müəllim adını soruşur, sən cümlə ilə adını deyirsən.', 'I’m + adın.', "Hello! I'm [ad]"))],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 2 · 1-ci hissə tamamlandı', 'Artıq I’m ilə adını deyə bilirsən.'],
+    incomplete: 'Dərs tam bitmədi. Yoxlanmayan tapşırıqlara sonra qayıda bilərsən.',
+    goals: [
+      { group: 'Tanıma', text: '“I’m” formasını tanımaq', tasks: ['d2_c14', 'd2_c15'] },
+      { group: 'Yazı', text: 'Salam verib adını yazmaq', tasks: ['d2_c13'] },
+      { group: 'Danışıq', text: 'Özünü səslə təqdim etmək', tasks: ['d2_c12'] },
+    ],
+    closing: 'Növbəti hissədə “My name is” ilə adını deyəcəksən.', button: 'Ana səhifəyə qayıt',
+    technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',
+  },
+  vocabulary: [
+    { word: "I'm", translation: 'Mən [ad]-am', example: "I'm [ad]", exampleAz: 'Mən [ad]-am.', usageNote: 'I am-ın qısa formasıdır.', pronunciation: '/aɪm/', teachCard: 'd2_c02' },
+  ],
+};
+
+// Bölmə 1 · Dərs 2 · 2-ci hissə — My name is… (26 Nov 2026: lessons over 12 screens are split into parts; nothing was removed).
+export const lesson2b: DesignLesson = {
+  id: 'a1_en_b1_v2_d2_2', order: 4, unit: 1, number: 2, part: 2, title: 'Adını de', section: 'İlk tanışlıq',
+  notices: lesson2.notices,
+  cards: [
+    {
+      type: 'intro', id: 'd2_c01b', badge: 'İlk tanışlıq', subtitle: 'Adını tam cümlə ilə də deyə bilərsən.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: '“My name is [ad]” ilə adımı deyə bilirəm.' },
+        { icon: 'wave', text: 'Özümü səslə və yazıyla təqdim edirəm.' },
+      ],
+    },
     {
       type: 'word', id: 'd2_c02b', number: 3, scenes: ['d2/word-my-name'], structure: ['My name is [ad].'],
       word: 'My name is [ad]', pronunciation: '/maɪ neɪm ɪz/', reading: 'may neym iz [ad]', az: 'Mənim adım [ad]-dır',
@@ -46,6 +143,16 @@ export const lesson2: DesignLesson = {
       example: 'Hi! My name is [ad]', exampleAz: 'Salam! Mənim adım [ad]-dır.',
     },
     {
+      type: 'choice', id: 'd2_c04', number: 4, title: 'Sözü tamamla', why: '“I” ilə “am” gəlir.', hint: '“I’m” iki sözün qısa formasıdır — ikinci söz hansıdır?',
+      prompt: 'Qız özünü təqdim edir.\nCümləsində hansı söz çatmır?',
+      gap: { speaker: 'G', before: 'Hi! I', after: '[ad]' }, options: ['am', 'is', 'my'], answer: 'am',
+      variants: [other('“I” ilə “am” gəlir.', ex('am', '“I” (mən) sözündən sonra “am” işlənir.', 'I ilə is demirik: I am [ad] → I’m [ad]', "I'm [ad]"))],
+      review: {
+        title: 'Sözü tamamla', why: '“I” ilə “am” gəlir.', hint: 'Azərbaycancada şəkilçi olan hissə ingiliscə I-dan sonra ayrıca söz kimi gəlir.', prompt: 'Oğlan özünü təqdim edir.\nCümləsində hansı söz çatmır?',
+        gap: { speaker: 'B', before: 'Hello! I', after: '[ad]' }, options: ['am', 'is', 'my'], answer: 'am',
+        variants: [other('“I” ilə “am” gəlir.', ex('am', 'I ilə is və my demirik, I ilə am gəlir.', "I + am → I'm.", "Hello! I'm [ad]"))],
+      },
+    },    {
       type: 'choice', id: 'd2_c03', number: 3, scenes: ['d2/new-friend'], title: 'Düzgün cümləni seç', why: 'İngiliscə “is” ayrıca söz kimi deyilir.',
       prompt: 'Yeni tanışın adını demək istəyir.\nHansı cümlə düzgündür?',
       options: ['My name [ad]', 'My name is [ad]', 'I name is [ad]'], answer: 'My name is [ad]',
@@ -63,17 +170,6 @@ export const lesson2: DesignLesson = {
           pick('My name [ad]', '“is” buraxılıb.', ex('My name is [ad]', 'Azərbaycancada -dır şəkilçidir, ingiliscə is isə ayrıca sözdür.', 'My name is [ad] — düzgün; My name [ad] — is çatmır.', 'Hi! My name is [ad]')),
           pick('I name is [ad]', '“I” yox, “My” lazımdır.', ex('My name is [ad]', '“I” — mən, “my” — mənim deməkdir, ad isə “mənim adım”dır.', 'My name is [ad] — mənim adım; I’m [ad] — mən [ad]-am.', 'Hello! My name is [ad]')),
         ],
-      },
-    },
-    {
-      type: 'choice', id: 'd2_c04', number: 4, title: 'Sözü tamamla', why: '“I” ilə “am” gəlir.', hint: '“I’m” iki sözün qısa formasıdır — ikinci söz hansıdır?',
-      prompt: 'Qız özünü təqdim edir.\nCümləsində hansı söz çatmır?',
-      gap: { speaker: 'G', before: 'Hi! I', after: '[ad]' }, options: ['am', 'is', 'my'], answer: 'am',
-      variants: [other('“I” ilə “am” gəlir.', ex('am', '“I” (mən) sözündən sonra “am” işlənir.', 'I ilə is demirik: I am [ad] → I’m [ad]', "I'm [ad]"))],
-      review: {
-        title: 'Sözü tamamla', why: '“I” ilə “am” gəlir.', hint: 'Azərbaycancada şəkilçi olan hissə ingiliscə I-dan sonra ayrıca söz kimi gəlir.', prompt: 'Oğlan özünü təqdim edir.\nCümləsində hansı söz çatmır?',
-        gap: { speaker: 'B', before: 'Hello! I', after: '[ad]' }, options: ['am', 'is', 'my'], answer: 'am',
-        variants: [other('“I” ilə “am” gəlir.', ex('am', 'I ilə is və my demirik, I ilə am gəlir.', "I + am → I'm.", "Hello! I'm [ad]"))],
       },
     },
     {
@@ -146,7 +242,7 @@ export const lesson2: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 2 tamamlandı', 'Artıq salam verib adını deyə bilirsən.'],
+    done: ['Dərs 2 · 2-ci hissə tamamlandı', 'Artıq salam verib adını deyə bilirsən.'],
     incomplete: 'Dərs tam bitmədi. Yoxlanmayan tapşırıqlara sonra qayıda bilərsən.',
     goals: [
       { group: 'Tanıma', text: '“is / am” formalarını tanımaq', tasks: ['d2_c03', 'd2_c04', 'd2_c05'] },
@@ -157,7 +253,6 @@ export const lesson2: DesignLesson = {
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',
   },
   vocabulary: [
-    { word: "I'm", translation: 'Mən [ad]-am', example: "I'm [ad]", exampleAz: 'Mən [ad]-am.', usageNote: 'I am-ın qısa formasıdır.', pronunciation: '/aɪm/', teachCard: 'd2_c02' },
     { word: 'My name is', translation: 'Mənim adım [ad]-dır', example: 'My name is [ad]', exampleAz: 'Mənim adım [ad]-dır.', usageNote: 'Adını demək üçün.', pronunciation: '/maɪ neɪm ɪz/', teachCard: 'd2_c02b' },
   ],
 };

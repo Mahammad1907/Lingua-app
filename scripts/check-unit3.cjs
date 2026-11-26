@@ -25,10 +25,11 @@ assert.equal(new Set(orders).size, orders.length, 'duplicate lesson orders');
 // ONLY=a1_en_b3_d4,a1_en_b3_d5a checks just those lessons (while other parts are still being written).
 const only = process.env.ONLY ? process.env.ONLY.split(',') : null;
 const all = [...unit3Lessons, ...unit3Exam].filter(l => !only || only.includes(l.id));
-assert.equal(unit3Lessons.length, 11, `Bölmə 3 has 11 lesson parts (8 map lessons; 2, 3 and 5 in two parts): ${unit3Lessons.length}`);
+// 26 Nov 2026: lessons longer than 12 screens were split into parts (nothing removed) — 20 parts on 8 map lessons.
+assert.equal(unit3Lessons.length, 20, `Bölmə 3 has 20 lesson parts (8 map lessons): ${unit3Lessons.length}`);
 assert.equal(unit3Exam.length, 1, 'Bölmə 3 exam');
 const numbers = unit3Lessons.map(l => `${l.number}${l.part ?? ''}`);
-assert.deepEqual(numbers, ['1', '21', '22', '31', '32', '4', '51', '52', '6', '7', '8'], `map numbers/parts: ${numbers}`);
+assert.deepEqual(numbers, ['11', '12', '21', '22', '23', '24', '31', '32', '33', '34', '41', '42', '51', '52', '53', '61', '62', '71', '72', '8'], `map numbers/parts: ${numbers}`);
 // Rule 20 (user, 15 Nov 2026): “Azeri” is never shown, taught or accepted. Answer patterns are not shown; everything else is checked.
 const shown = (v, k = '') => typeof v === 'string' ? (k === 'pattern' ? [] : [v]) : Array.isArray(v) ? v.flatMap(x => shown(x)) : v && typeof v === 'object' ? Object.entries(v).flatMap(([kk, x]) => shown(x, kk)) : [];
 for (const l of all) for (const t of shown(l)) assert.ok(!/\bazeri\b/i.test(t), `${l.id}: “Azeri” must not appear: “${t}”`);
@@ -46,7 +47,13 @@ for (const raw of all) {
   const others = lesson.cards.filter(c => c.type !== 'explain').length;
   assert.ok(others <= (exam ? 16 : 14), `${tag}: at most ${exam ? 16 : 14} cards besides Müəllim izahı (${others})`);
   const max = 16;
-  assert.ok(lesson.cards.length >= 9 && lesson.cards.length <= max, `${tag}: 9–${max} cards (${lesson.cards.length})`);
+  if (raw.part && !exam) {
+    // A lesson part (26 Nov 2026, lessons split): 8–12 screens counted with its Müəllim izahı cards (src/data/explainCards.ts),
+    // the same rule as scripts/check-lesson-length.cjs.
+    const full = designLessons.find(l => l.id === raw.id);
+    const screens = full.cards.filter(c => c.type !== 'intro').length;
+    assert.ok(screens >= 8 && screens <= 12, `${tag}: 8–12 screens (${screens})`);
+  } else assert.ok(lesson.cards.length >= 9 && lesson.cards.length <= max, `${tag}: 9–${max} cards (${lesson.cards.length})`);
   assert.equal(lesson.cards[0].type, 'intro', `${tag}: starts with the goals`);
   const kinds = new Set(tasks.map(kind));
   // A lesson split into parts (26 Nov 2026) has fewer tasks per part: 4 kinds are enough there.

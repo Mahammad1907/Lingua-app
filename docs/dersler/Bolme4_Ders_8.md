@@ -4,14 +4,14 @@ Bölmə 4 · Ailə və insanlar. Bu sənəd `src/data/unit4/lesson8.ts`-dən yar
 
 ## Giriş — Giriş
 
-Video zəngdə xarici dost ilə ailə söhbəti. Öyrəndiklərin bir yerdə.
+Video zəngdə dostun ilə ailə söhbəti. Öyrəndiklərin bir yerdə.
 
 - Ailə şəklindəki adamın kim olduğunu, adını, yaşını və peşəsini deyə bilirəm.
 - Ailəmdə kim olduğunu və kimin olmadığını deyə bilirəm.
 
-## Kart 2 — Öyrətmə / səhnə: Video zəngdə xarici dost ilə
+## Kart 2 — Öyrətmə / səhnə: Video zəngdə dostun ilə
 
-Video zəngdə xarici dosta ailə şəkillərini göstərirsən. Hər cümləni dinlə:
+Video zəngdə dostuna ailə şəkillərini göstərirsən. Hər cümləni dinlə:
 
 - **Hi! How are you?** — Salam! Necəsən?
 - **Who's this?** — Bu kimdir?
@@ -23,7 +23,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 ## Kart 3 — Seç: Dinlə və anla
 
-**Tapşırıq:** Xarici dost birinci şəklə baxıb soruşur. O nəyi soruşur?  
+**Tapşırıq:** Dostun birinci şəklə baxıb soruşur. O nəyi soruşur?  
 **Səs:** Is this your father? What's his job?  
 **Seçimlər:** Bu, atandır? Nə işləyir? / Bu, qardaşındır? Nə işləyir? / Bu, atandır? Neçə yaşındadır? — **düzgün:** Bu, atandır? Nə işləyir?  
 **İpucu:** İki suala qulaq as: kim haqqında və nəyi soruşur.  
@@ -33,7 +33,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Xarici dost növbəti şəklə baxıb soruşur. O nəyi soruşur?  
+**Tapşırıq:** Dostun növbəti şəklə baxıb soruşur. O nəyi soruşur?  
 **Səs:** Is this your mother? How old is she?  
 **Seçimlər:** Bu, anandır? Nə işləyir? / Bu, bacındır? Neçə yaşındadır? / Bu, anandır? Neçə yaşındadır? — **düzgün:** Bu, anandır? Neçə yaşındadır?  
 **İpucu:** Növbəti iki suala qulaq as: kim haqqında və nəyi soruşur?  
@@ -43,7 +43,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 ## Kart 4 — Səslə cavab: Kim olduğunu de
 
-**Tapşırıq:** Xarici dost növbəti şəkildəki oğlanı göstərib soruşur. Bu, sənin qardaşındır. Sualı dinlə və cavab ver.  
+**Tapşırıq:** Dostun növbəti şəkildəki oğlanı göstərib soruşur. Bu, sənin qardaşındır. Sualı dinlə və cavab ver.  
 **Səs:** Who's this?  
 **Qəbul:** məna:  — nümunə: This is my brother. / He's my brother. · öz məlumatı: /^(?:this\s+is|he'?s|he\s+is)\s+my\s+brother\s*[.!]?$/  
 **İpucu:** Qardaşını Dərs 1-dəki təqdim cümləsi ilə göstər.  
@@ -53,7 +53,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Xarici dost növbəti şəkildəki qızı göstərib soruşur. Bu, sənin bacındır. Sualı dinlə və cavab ver.  
+**Tapşırıq:** Dostun növbəti şəkildəki qızı göstərib soruşur. Bu, sənin bacındır. Sualı dinlə və cavab ver.  
 **Səs:** Who's this?  
 **Qəbul:** məna:  — nümunə: This is my sister. / She's my sister. · öz məlumatı: /^(?:this\s+is|she'?s|she\s+is)\s+my\s+sister\s*[.!]?$/  
 **İpucu:** Bacını Dərs 1-dəki təqdim cümləsi ilə göstər.  
@@ -63,7 +63,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 ## Kart 5 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Zəngdə Xarici dostun qardaşı otağa girir. Sən onun adını telefonuna yazmaq istəyirsən, Xarici dost hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
 **Səs:** This is my brother. His name is M-A-R-K.  
 **Hərflər:** M A R K E N S  
 **Qəbul:** dəqiq: MARK  
@@ -73,7 +73,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Zəngdə Xarici dostun bacısı otağa girir. Sən onun adını telefonuna yazmaq istəyirsən, Xarici dost hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
 **Səs:** This is my sister. Her name is A-N-N-A.  
 **Hərflər:** A N N A E M Y  
 **Qəbul:** dəqiq: ANNA  
@@ -83,21 +83,21 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 ## Kart 6 — Kim nə dedi?: Kim nə dedi?
 
-**Tapşırıq:** Xarici dost sənin şəkillərinin altındakı yazıları oxuyur. Hər cümləyə mənasını qoş.  
+**Tapşırıq:** Dostun sənin şəkillərinin altındakı yazıları oxuyur. Hər cümləyə mənasını qoş.  
 **Cütlər:** This is my grandmother. — Bu mənim nənəmdir.; This is my grandfather. — Bu mənim babamdır.; He's a student. — O tələbədir. · artıq: Bu mənim qızımdır.  
 **Düzgün olanda:** Hər cümlənin mənasını tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: This is my grandmother. — Bu mənim nənəmdir.; This is my grandfather. — Bu mənim babamdır.; He's a student. — O tələbədir. Səbəb: grandmother — nənə, grandfather — baba, a student — tələbə. Qayda: This is my grandfather. — kim; He's a student. — iş. Nümunə: This is my friend.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Xarici dost növbəti şəkillərin altındakı yazıları oxuyur. Hər cümləyə mənasını qoş.  
+**Tapşırıq:** Dostun növbəti şəkillərin altındakı yazıları oxuyur. Hər cümləyə mənasını qoş.  
 **Cütlər:** His name is Anar. — Onun adı Anardır.; This is my mother. — Bu mənim anamdır.; She's an engineer. — O mühəndisdir. · artıq: Bu mənim oğlumdur.  
 **Düzgün olanda:** Hər cümlənin mənasını tapdın.  
 - *İzah (başqa səhvdə):* Bir cümlənin mənası yerində deyil. — Uyğun: His name is Anar. — Onun adı Anardır.; This is my mother. — Bu mənim anamdır.; She's an engineer. — O mühəndisdir. Səbəb: name — ad, mother — ana, an engineer — mühəndis. Qayda: This is my mother. — kim; She's an engineer. — iş. Nümunə: This is my friend.  
 
 ## Kart 7 — Sözü tamamla: Sözü tamamla
 
-**Tapşırıq:** Sən xarici dosta bacının şəklini göstərirsən və adını deyirsən. Hansı söz çatmır?  
+**Tapşırıq:** Sən dostuna bacının şəklini göstərirsən və adını deyirsən. Hansı söz çatmır?  
 **Cümlə:** This is my sister. ___ name is Lala.  
 **Seçimlər:** Her / His / She — **düzgün:** Her  
 **İpucu:** Şəkildə qız var: adı kimin adıdır?  
@@ -107,7 +107,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Sən xarici dosta qardaşının şəklini göstərirsən və adını deyirsən. Hansı söz çatmır?  
+**Tapşırıq:** Sən dostuna qardaşının şəklini göstərirsən və adını deyirsən. Hansı söz çatmır?  
 **Cümlə:** This is my brother. ___ name is Kamal.  
 **Seçimlər:** His / He / Her — **düzgün:** His  
 **İpucu:** Şəkildə oğlan var: adı kimin adıdır?  
@@ -117,7 +117,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 ## Kart 8 — Səslə cavab: Yaşını de
 
-**Tapşırıq:** Xarici dost şəkildəki ananı göstərib soruşur. Anan əlli yaşındadır. Sualı dinlə və cavab ver.  
+**Tapşırıq:** Dostun şəkildəki ananı göstərib soruşur. Anan əlli yaşındadır. Sualı dinlə və cavab ver.  
 **Səs:** How old is she?  
 **Qəbul:** dəqiq: She's fifty. · öz məlumatı: /^(?:yes\s*[.,!]?\s*(?:(?:it|she)\s+is\s*[.,!]?\s*)?)?she(?:'?s|\s+is)\s+(?:fifty|50)(?:\s+years\s+old)?\s*[.!]?$/  
 **İpucu:** Anan haqqında de — rəqəmdən sonra ayrıca “yaş” sözü lazım deyil.  
@@ -130,7 +130,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Xarici dost şəkildəki kişini göstərib soruşur. Bu, sənin qardaşındır, qırx yaşındadır. Sualı dinlə və cavab ver.  
+**Tapşırıq:** Dostun şəkildəki kişini göstərib soruşur. Bu, sənin qardaşındır, qırx yaşındadır. Sualı dinlə və cavab ver.  
 **Səs:** How old is he?  
 **Qəbul:** dəqiq: He's forty. · öz məlumatı: /^(?:yes\s*[.,!]?\s*(?:(?:it|he)\s+is\s*[.,!]?\s*)?)?he(?:'?s|\s+is)\s+(?:forty|40)(?:\s+years\s+old)?\s*[.!]?$/  
 **İpucu:** Qardaşın haqqında de — rəqəmdən sonra ayrıca “yaş” sözü lazım deyil.  
@@ -143,8 +143,8 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 ## Kart 9 — Dialoqu tamamla: Cavab yaz
 
-**Tapşırıq:** Zəngin çatında xarici dost sənin ailən haqqında soruşur. Öz cavabını yaz (bəli də olar, xeyr də).  
-**Yazışma (Xarici dost):** “Do you have a son?”  
+**Tapşırıq:** Zəngin çatında dostun sənin ailən haqqında soruşur. Öz cavabını yaz (bəli də olar, xeyr də).  
+**Yazışma (Dostun):** “Do you have a son?”  
 **Qəbul:** məna:  — nümunə: Yes, I do. / No, I don't. · öz məlumatı: /^(?:yes\s*,?\s*i\s+do|no\s*,?\s*i\s+(?:don['’]?t|do\s+not)|yes\s*,?\s*i\s+do\s*[.,!]?\s*i\s+have\s+a\s+son(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|no\s*,?\s*i\s+(?:don['’]?t|do\s+not)\s*[.,!]?\s*i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+son(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|yes\s*,?\s*i\s+have\s+a\s+son(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|no\s*,?\s*i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+son(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|i\s+have\s+a\s+son(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+son(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?)(?:\s*(?:[.,]|and|but)\s*(?:but\s+|and\s+)?(?:i\s+have\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife)(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife)(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?))?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Oğlun haqqında qısa cavab ver — Dərs 5-dəki qısa cavabları xatırla.  
 **Düzgün olanda:** Oğlunun olub-olmadığını yazdın.  
@@ -161,8 +161,8 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Zəngin çatında xarici dost yenə sənin ailən haqqında soruşur. Öz cavabını yaz (bəli də olar, xeyr də).  
-**Yazışma (Xarici dost):** “Do you have a daughter?”  
+**Tapşırıq:** Dostun çatda yenə ailən haqqında soruşur. Öz cavabını yaz (bəli də olar, xeyr də).  
+**Yazışma (Dostun):** “Do you have a daughter?”  
 **Qəbul:** məna:  — nümunə: Yes, I do. / No, I don't. · öz məlumatı: /^(?:yes\s*,?\s*i\s+do|no\s*,?\s*i\s+(?:don['’]?t|do\s+not)|yes\s*,?\s*i\s+do\s*[.,!]?\s*i\s+have\s+a\s+daughter(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|no\s*,?\s*i\s+(?:don['’]?t|do\s+not)\s*[.,!]?\s*i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+daughter(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|yes\s*,?\s*i\s+have\s+a\s+daughter(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|no\s*,?\s*i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+daughter(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|i\s+have\s+a\s+daughter(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+daughter(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?)(?:\s*(?:[.,]|and|but)\s*(?:but\s+|and\s+)?(?:i\s+have\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife)(?:\s+and\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?|i\s+(?:don['’]?t|do\s+not)\s+have\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife)(?:\s+(?:and|or)\s+a\s+(?:brother|sister|son|daughter|friend|husband|wife))?))?\s*[.!]?(?:\s*and you\s*\??)?$/  
 **İpucu:** Bu dəfə qızın haqqında — Dərs 5-dəki qısa cavabları xatırla.  
 **Düzgün olanda:** Qızının olub-olmadığını yazdın.  
@@ -179,7 +179,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 ## Kart 10 — Nömrəni yığ: Yaşı yığ
 
-**Tapşırıq:** Xarici dost şəkildəki babanın yaşını təxmin edir. Dinlə və eşitdiyin yaşı yığ.  
+**Tapşırıq:** Eşitdiyin yaşı yığ.  
 **Səs:** Is he sixty-five?  
 **Qəbul:** dəqiq: 65  
 **İpucu:** Əvvəl onluğu, sonra təkliyi eşit.  
@@ -188,7 +188,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Xarici dost şəkildəki bacının yaşını təxmin edir. Dinlə və eşitdiyin yaşı yığ.  
+**Tapşırıq:** Eşitdiyin yaşı yığ.  
 **Səs:** Is she thirty-six?  
 **Qəbul:** dəqiq: 36  
 **İpucu:** Bacının yaşında da əvvəl onluğu, sonra təkliyi eşit.  
@@ -197,21 +197,21 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 ## Kart 11 — Cavab cütü: Cavab cütü
 
-**Tapşırıq:** Xarici dost sənin şəkillərinə baxıb suallar verir. Suala toxun, sonra onun cavabını seç.  
+**Tapşırıq:** Dostun sənin şəkillərinə baxıb suallar verir. Suala toxun, sonra onun cavabını seç.  
 **Cütlər:** Who's he? — He's my brother.; Is this your mother? — Yes, it is.; Do you have a daughter? — No, I don't. · artıq: She's a teacher.  
 **Düzgün olanda:** Hər suala uyğun cavabı tapdın.  
 - *İzah (başqa səhvdə):* Bir sualın cavabı yerində deyil. — Uyğun: Who's he? — He's my brother.; Is this your mother? — Yes, it is.; Do you have a daughter? — No, I don't. Səbəb: Kim sualına kim, Is this sualına it is, Do you sualına do ilə cavab verilir. Qayda: Is this your mother? — Yes, it is.; Do you have a daughter? — No, I don't. Nümunə: Who's he? — He's my brother.  
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Xarici dost növbəti şəkillər haqqında suallar verir. Suala toxun, sonra onun cavabını seç.  
+**Tapşırıq:** Dostun növbəti şəkillər haqqında suallar verir. Suala toxun, sonra onun cavabını seç.  
 **Cütlər:** How old is she? — She's thirty.; What's his job? — He's a doctor.; Is this your father? — No, it isn't. · artıq: His name is Anar.  
 **Düzgün olanda:** Hər suala uyğun cavabı tapdın.  
 - *İzah (başqa səhvdə):* Bir sualın cavabı yerində deyil. — Uyğun: How old is she? — She's thirty.; What's his job? — He's a doctor.; Is this your father? — No, it isn't. Səbəb: Yaş sualına rəqəm, iş sualına peşə, Is this sualına it isn't ilə cavab verilir. Qayda: What's his job? — He's a doctor.; Is this your father? — No, it isn't. Nümunə: How old is she? — She's thirty.  
 
 ## Kart 12 — Söhbəti sırala: Söhbəti sırala
 
-**Tapşırıq:** Xarici dost sənin şəklinə baxır. Balonlara toxun, söhbəti sıraya düz.  
+**Tapşırıq:** Dostun sənin şəklinə baxır. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. And who's this? → 2. This is my father. → 3. How old is he? → 4. He's fifty.  
 **İpucu:** Əvvəl kim olduğu, sonra yaşı.  
 **Düzgün olanda:** Sual, cavab, yeni sual və cavab düz sıradadır.  
@@ -219,7 +219,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Xarici dost sənin başqa şəklinə baxır. Balonlara toxun, söhbəti sıraya düz.  
+**Tapşırıq:** Dostun sənin başqa şəklinə baxır. Balonlara toxun, söhbəti sıraya düz.  
 **Düzgün sıra:** 1. Is this your sister? → 2. Yes, it is. → 3. What's her job? → 4. She's a teacher.  
 **İpucu:** Əvvəl bacın olub-olmadığı, sonra peşəsi.  
 **Düzgün olanda:** Sual, cavab, yeni sual və cavab düz sıradadır.  
@@ -227,7 +227,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 ## Kart 13 — İki mesaj yaz: İki mesaj yaz
 
-**Tapşırıq:** Zəngin çatında xarici dost sənin atan haqqında soruşur. Atanın adı Anardır, həkimdir. İki mesaj yaz: 1. Adı. 2. Peşəsi.  
+**Tapşırıq:** Atanın adı Anardır, həkimdir. İki mesaj yaz: 1. Adı. 2. Peşəsi.  
 **Birinci mesaj:** dəqiq: His name is Anar.  
 **İkinci mesaj:** dəqiq: He's a doctor. / He is a doctor.  
 **İpucu:** Atan kişidir — adını Dərs 3-dəki, peşəsini Dərs 7-dəki kimi yaz.  
@@ -242,7 +242,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Zəngin çatında xarici dost sənin anan haqqında soruşur. Ananın adı Aysudur, mühəndisdir. İki mesaj yaz: 1. Adı. 2. Peşəsi.  
+**Tapşırıq:** Ananın adı Aysudur, mühəndisdir. İki mesaj yaz: 1. Adı. 2. Peşəsi.  
 **Birinci mesaj:** dəqiq: Her name is Aysu.  
 **İkinci mesaj:** dəqiq: She's an engineer. / She is an engineer.  
 **İpucu:** Anan qadındır — adını Dərs 3-dəki, peşəsini Dərs 7-dəki kimi yaz.  
@@ -257,7 +257,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 ## Kart 14 — Səslə cavab: Bacını təqdim et
 
-**Tapşırıq:** Xarici dost son şəkildəki qızı göstərib soruşur. O sənin bacındır, həkimdir. İki cümlə ilə təqdim et: kimdir və peşəsi.  
+**Tapşırıq:** Şəkildəki qız bacındır, həkimdir. İki cümlə ilə təqdim et: kimdir və peşəsi.  
 **Səs:** Who's this?  
 **Qəbul:** məna:  — nümunə: This is my sister. She's a doctor. / She's my sister. She's a doctor. · öz məlumatı: /^(?:this\s+is|she(?:'s|\s+is))\s+my\s+sister\s*[.,!]?\s*(?:she'?s|she\s+is)\s+a\s+doctor\s*[.!]?$/  
 **İpucu:** Əvvəl bacını təqdim et, sonra peşəsini de.  
@@ -269,7 +269,7 @@ Bu cümlələrin hamısını əvvəlki dərslərdə öyrəndin. İndi özün dan
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Xarici dost son şəkildəki oğlanı göstərib soruşur. O sənin qardaşındır, mühəndisdir. İki cümlə ilə təqdim et: kimdir və peşəsi.  
+**Tapşırıq:** Şəkildəki oğlan qardaşındır, mühəndisdir. İki cümlə ilə təqdim et: kimdir və peşəsi.  
 **Səs:** Who's this?  
 **Qəbul:** məna:  — nümunə: This is my brother. He's an engineer. / He's my brother. He's an engineer. · öz məlumatı: /^(?:this\s+is|he(?:'s|\s+is))\s+my\s+brother\s*[.,!]?\s*(?:he'?s|he\s+is)\s+an\s+engineer\s*[.!]?$/  
 **İpucu:** Əvvəl qardaşını təqdim et, sonra peşəsini de — engineer-in ilk səsinə diqqət et.  

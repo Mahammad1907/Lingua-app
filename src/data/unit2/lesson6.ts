@@ -1,9 +1,10 @@
-// Bölmə 2 · Dərs 6 — E-poçt (email · What's your email? · dot · at; com və mail tanıma üçün dot kartının nümunəsindədir).
+// Bölmə 2 · Dərs 6 — E-poçt. 26 Nov 2026: two parts (a lesson part is 8–12 screens, nothing removed).
+// 1-ci hissə: email · What's your email? · dot (com və mail tanıma üçün dot kartının nümunəsindədir). 2-ci hissə: at və tam ünvan.
 // Ofisdə yeni iş yoldaşı. Spiral: hərf-hərf (Dərs 4), double, Is that right? / Yes, that's right. (Dərs 2), first/last name (Dərs 5).
 import type { DesignLesson } from '../designLessonTypes';
 import type { Variant } from '../designLessonTypes';
 import { ex, exact, goal, other, pick } from '../unit1/build';
-import { EMAIL, EMAIL_SAID, NAME, notices, own, resultTexts } from './shared';
+import { EMAIL, EMAIL_SAID, NAME, notices, own, resultTexts, said } from './shared';
 
 const askEmail = goal(['askEmail'], ["What's your email?"]);
 const MY = "It's K-B at mail dot com.";
@@ -14,14 +15,14 @@ const asWords = (address: string, words: string): Variant => ({
 });
 
 export const lesson6: DesignLesson = {
-  id: 'a1_en_b2_d6', order: 18, unit: 2, number: 6, title: 'E-poçt', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d6', order: 30, unit: 2, number: 6, part: 1, title: 'E-poçt', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {
       type: 'intro', id: 'u2d6_c01', badge: 'Şəxsi məlumat', subtitle: 'Ofisdə ilk günündür: e-poçt ünvanları mübadiləsi.', start: 'Dərsə başla',
       goals: [
-        { icon: 'chat', text: 'Eşitdiyim e-poçt ünvanını yaza bilirəm.' },
-        { icon: 'wave', text: 'E-poçtumu soruşub deyə bilirəm.' },
+        { icon: 'chat', text: 'E-poçtu soruşa bilirəm.' },
+        { icon: 'wave', text: 'Ünvanda nöqtəni “dot” kimi tanıyıram.' },
       ],
     },
     {
@@ -54,6 +55,24 @@ export const lesson6: DesignLesson = {
       example: "Hi! What's your email?", exampleAz: 'Salam! E-poçtun nədir?',
     },
     {
+      type: 'choice', id: 'u2d6_c16', number: 5, title: 'Sözü tamamla', why: 'E-poçtu soruşur: email.', hint: 'Oğlan ünvanı yazmaq istəyir — telefon yox.',
+      prompt: 'Ofisdə yeni iş yoldaşı sənin e-poçtunu öyrənmək istəyir.\nHansı söz çatmır?', gap: { speaker: 'B', before: "Hi! What's your", after: '?' },
+      options: ['name', 'email', 'phone'], answer: 'email',
+      variants: [
+        pick('name', '“name” — ad; o, e-poçtu soruşur.', ex('email', 'E-poçt soruşulanda “email” deyilir.', "What's your email? — e-poçt; What's your name? — ad.", "Hi! What's your email?")),
+        pick('phone', '“What’s your phone?” deyilmir; nömrə “phone number”dir.', ex('email', 'O, e-poçtu soruşur, telefonu yox.', "What's your email? — e-poçt; What's your phone number? — nömrə.", "Hi! What's your email?")),
+      ],
+      review: {
+        title: 'Sözü tamamla', why: 'E-poçtu soruşur: email.', hint: 'Müəllim ünvan istəyir — telefon yox.',
+        prompt: 'Kursda müəllim siyahı üçün e-poçtunu soruşur.\nHansı söz çatmır?', gap: { speaker: 'G', before: "What's your", after: ', please?' },
+        options: ['phone', 'last', 'email'], answer: 'email',
+        variants: [
+          pick('phone', '“What’s your phone?” deyilmir; nömrə “phone number”dir.', ex('email', 'Müəllim e-poçtu soruşur.', "What's your email? — e-poçt; What's your phone number? — nömrə.", "What's your email?")),
+          pick('last', '“last” soyad sözündədir: last name.', ex('email', 'Müəllim e-poçtu soruşur, soyadı yox.', "What's your email? — e-poçt; What's your last name? — soyad.", "What's your email?")),
+        ],
+      },
+    },
+    {
       type: 'write', id: 'u2d6_c05', number: 5, title: 'Sualı qur', why: 'E-poçtunu soruşdun.', hint: 'Telefon yox, e-poçt soruşursan.',
       prompt: 'Yeni iş yoldaşına yazırsan.\nSözlərdən e-poçtunu soruşan sual qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: 'Yeni iş yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Hi! Nice to meet you!' }] },
@@ -72,6 +91,60 @@ export const lesson6: DesignLesson = {
       word: 'dot', pronunciation: '/dɑt/', reading: 'dat', az: 'nöqtə (.)',
       notes: ['E-poçtda nöqtə “dot” deyilir; com ünvanın sonudur.'],
       example: 'mail dot com', exampleAz: 'mail.com',
+    },
+    {
+      type: 'write', id: 'u2d6_c14', number: 8, title: 'Dinlə və yaz', why: 'mail dot com — mail.com: dot nöqtədir.', hint: 'Nöqtəni sözlə yox, işarə ilə yaz; ünvanda boşluq olmur.',
+      prompt: 'Ünvanın sonunu yaz.', audio: "It's mail dot com.", placeholder: 'Ünvanın sonu',
+      rule: said(String.raw`^mail\s*\.\s*com\.?$`, 'mail.com'),
+      variants: [{ match: { words: ['mail dot com'] }, short: 'Söz yox, nöqtə işarəsi yaz.', explain: ex('mail.com', '“dot” nöqtə ilə yazılır.', 'dot — nöqtə; mail.com — yazılış.', 'mail dot com') }, other('Ünvanı yoxla.', ex('mail.com', 'Səsdə mail, dot, com deyilir: dot — nöqtə.', 'dot — nöqtə; mail.com — yazılış.', 'mail dot com'))],
+      review: {
+        title: 'Dinlə və yaz', why: 'email dot com — email.com.', hint: 'Sözü bir yerdə yaz; nöqtəni işarə ilə yaz.',
+        prompt: 'Saytın ünvanını yaz.', audio: "It's email dot com.", placeholder: 'Saytın ünvanı',
+        rule: said(String.raw`^email\s*\.\s*com\.?$`, 'email.com'),
+        variants: [{ match: { words: ['email dot com'] }, short: 'Söz yox, nöqtə işarəsi yaz.', explain: ex('email.com', '“dot” nöqtə ilə yazılır.', 'dot — nöqtə; email.com — yazılış.', 'mail dot com') }, other('Ünvanı yoxla.', ex('email.com', 'Səsdə email, dot, com deyilir: dot — nöqtə.', 'dot — nöqtə; email.com — yazılış.', "It's email dot com."))],
+      },
+    },
+    {
+      type: 'voice', id: 'u2d6_c15', number: 9, title: 'E-poçtu soruş', why: 'E-poçtunu soruşdun.', hint: 'Telefon yox, e-poçt soruşursan — kartdakı sualı xatırla.',
+      prompt: 'Ofisdə yeni iş yoldaşı ilə tanış oldun.\nOnun e-poçtunu soruş.',
+      rule: askEmail,
+      variants: [other("What's your email?", ex("What's your email?", 'E-poçt “email” sözü ilə soruşulur.', "What's your email? — e-poçt; What's your phone number? — nömrə.", "Hi! What's your email?"))],
+      review: {
+        title: 'E-poçtu soruş', why: 'E-poçtunu soruşdun.', hint: 'Telefon yox, e-poçt soruşursan — kartdakı sualı xatırla.',
+        prompt: 'Kursda yeni yoldaşla danışırsan.\nOnun e-poçtunu soruş.',
+        rule: askEmail,
+        variants: [other("What's your email?", ex("What's your email?", 'E-poçt “email” sözü ilə soruşulur.', "What's your email? — e-poçt; What's your name? — ad.", "What's your email?"))],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 6 · 1-ci hissə tamamlandı', 'Artıq e-poçtu soruşur və ünvanda nöqtəni tanıyırsan.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'E-poçt sözlərini eşidib anlamaq', tasks: ['u2d6_c03', 'u2d6_c16'] },
+      { group: 'Yazı', text: 'E-poçtu soruşmaq, ünvanın sonunu yazmaq', tasks: ['u2d6_c05', 'u2d6_c14'] },
+      { group: 'Danışıq', text: 'E-poçtu soruşmaq', tasks: ['u2d6_c15'] },
+    ],
+    closing: 'Növbəti hissə — @ işarəsi: at və tam ünvan.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'email', translation: 'e-poçt', example: 'Email, please.', exampleAz: 'E-poçt, zəhmət olmasa.', usageNote: 'Ünvan və ya məktub.', pronunciation: '/ˈimeɪl/', teachCard: 'u2d6_c02' },
+    { word: "What's your email?", translation: 'E-poçtun nədir?', example: "Hi! What's your email?", exampleAz: 'Salam! E-poçtun nədir?', usageNote: 'E-poçt soruşmaq.', pronunciation: '/wʌts jʊr ˈimeɪl/', teachCard: 'u2d6_c04' },
+    { word: 'dot', translation: 'nöqtə (.)', example: 'mail dot com', exampleAz: 'mail.com', usageNote: 'Ünvanda nöqtə.', pronunciation: '/dɑt/', teachCard: 'u2d6_c06' },
+  ],
+};
+
+export const lesson6Part2: DesignLesson = {
+  id: 'a1_en_b2_d6_2', order: 31, unit: 2, number: 6, part: 2, title: 'E-poçt ünvanı', section: 'Şəxsi məlumat',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u2d6_2_c01', badge: 'Şəxsi məlumat', subtitle: 'Ofisdə tam ünvan: @ işarəsi və nöqtə.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: 'Eşitdiyim e-poçt ünvanını yaza bilirəm.' },
+        { icon: 'wave', text: 'E-poçtumu deyə və formaya yaza bilirəm.' },
+      ],
     },
     {
       type: 'match', id: 'u2d6_c07', number: 7, title: 'Kim nə dedi?', why: 'Hər sözün mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun sözü yerinə qoy.',
@@ -106,6 +179,20 @@ export const lesson6: DesignLesson = {
       },
     },
     {
+      type: 'match', mode: 'order', id: 'u2d6_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, ünvan, hərf-hərf xahişi və hərflər düz sıradadır.', hint: 'Əvvəl sual gəlir; sözü tanımayan nə soruşur?',
+      prompt: 'Ofisdə e-poçt mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
+      rows: [{ en: '1', az: "What's your email?", from: 'B' }, { en: '2', az: "It's ganja five at mail dot com.", from: 'G' }, { en: '3', az: 'Ganja? How do you spell it?', from: 'B' }, { en: '4', az: "G-A-N-J-A five at mail dot com.", from: 'G' }],
+      extra: [],
+      variants: [other('Söhbətin sırası düz deyil.', ex("What's your email? → It's ganja five at mail dot com. → Ganja? How do you spell it? → G-A-N-J-A five at mail dot com.", 'Sual, ünvan, hərf-hərf xahişi, sonra hərflər.', "How do you spell it? — xahiş; G-A-N-J-A — hərflər.", "What's your email?"))],
+      review: {
+        title: 'Söhbəti sırala', why: 'Sual, ünvan, xahiş və yavaş təkrar düz sıradadır.', hint: 'Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?',
+        prompt: 'Kursda e-poçt mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
+        rows: [{ en: '1', az: "Excuse me, what's your email?", from: 'G' }, { en: '2', az: "It's B-A-K-U nine at mail dot com.", from: 'B' }, { en: '3', az: 'Sorry? More slowly, please.', from: 'G' }, { en: '4', az: 'B… A… K… U… nine at mail dot com.', from: 'B' }],
+        extra: [],
+        variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? More slowly, please. → B… A… K… U…", 'Ünvanı çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi.', 'More slowly, please. — sürətli idi; Say that again, please. — eşitmədin.', 'Sorry? More slowly, please.'))],
+      },
+    },
+    {
       type: 'voice', id: 'u2d6_c10', number: 10, title: 'E-poçtunu de', why: 'Ünvanını dedin: @ — at, nöqtə — dot.', hint: 'Ünvanı hərf-hərf de; işarələri ingiliscə de.',
       prompt: 'Yeni iş yoldaşı soruşur: “What\'s your email?”\nÖz e-poçtunu de (istəsən, uydurma).', audio: "What's your email?", reply: 'Thanks!',
       rule: own(EMAIL_SAID, MY),
@@ -115,6 +202,18 @@ export const lesson6: DesignLesson = {
         prompt: 'İdman zalının qəbulu soruşur: “Email, please.”\nÖz e-poçtunu de (istəsən, uydurma).', audio: 'Email, please.', reply: 'Thank you!',
         rule: own(EMAIL_SAID, MY),
         variants: [other("It's [ad] at mail dot com.", ex(MY, '@ “at”, nöqtə “dot” deyilir.', 'at — @; dot — nöqtə.', MY))],
+      },
+    },
+    {
+      type: 'write', id: 'u2d6_c17', number: 8, title: 'Cavab yaz', why: 'E-poçtunu yazdın: @ və nöqtə ilə.', hint: 'Ünvanı işarələrlə yaz: @ və nöqtə.',
+      prompt: 'Kurs yoldaşın mesaj yazır.\nÖz e-poçtunu yaz (istəsən, uydurma).', placeholder: 'Cavabını yaz',
+      chat: { partner: 'Kurs yoldaşı', from: 'G', lines: [{ from: 'G', text: "Hi! What's your email?" }] }, rule: own(EMAIL, 'ganja5@mail.com'),
+      variants: [asWords('ganja5@mail.com', 'at mail dot com'), other('Ünvanı yoxla.', ex('ganja5@mail.com', 'Ünvanda @ və nöqtə olur, boşluq olmur.', 'at — @; dot — nöqtə.', MY))],
+      review: {
+        title: 'Cavab yaz', why: 'E-poçtunu yazdın: @ və nöqtə ilə.', hint: 'Ünvanı işarələrlə yaz: @ və nöqtə.',
+        prompt: 'Yeni iş yoldaşı mesaj yazır.\nÖz e-poçtunu yaz (istəsən, uydurma).', placeholder: 'Cavabını yaz',
+        chat: { partner: 'Yeni iş yoldaşı', from: 'B', lines: [{ from: 'B', text: 'Hello! Email, please.' }] }, rule: own(EMAIL, 'ganja5@mail.com'),
+        variants: [asWords('ganja5@mail.com', 'at mail dot com'), other('Ünvanı yoxla.', ex('ganja5@mail.com', 'Ünvanda @ və nöqtə olur, boşluq olmur.', 'at — @; dot — nöqtə.', MY))],
       },
     },
     {
@@ -163,36 +262,19 @@ export const lesson6: DesignLesson = {
         ],
       },
     },
-    {
-      type: 'match', mode: 'order', id: 'u2d6_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, ünvan, hərf-hərf xahişi və hərflər düz sıradadır.', hint: 'Əvvəl sual gəlir; sözü tanımayan nə soruşur?',
-      prompt: 'Ofisdə e-poçt mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "What's your email?", from: 'B' }, { en: '2', az: "It's ganja five at mail dot com.", from: 'G' }, { en: '3', az: 'Ganja? How do you spell it?', from: 'B' }, { en: '4', az: "G-A-N-J-A five at mail dot com.", from: 'G' }],
-      extra: [],
-      variants: [other('Söhbətin sırası düz deyil.', ex("What's your email? → It's ganja five at mail dot com. → Ganja? How do you spell it? → G-A-N-J-A five at mail dot com.", 'Sual, ünvan, hərf-hərf xahişi, sonra hərflər.', "How do you spell it? — xahiş; G-A-N-J-A — hərflər.", "What's your email?"))],
-      review: {
-        title: 'Söhbəti sırala', why: 'Sual, ünvan, xahiş və yavaş təkrar düz sıradadır.', hint: 'Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?',
-        prompt: 'Kursda e-poçt mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "Excuse me, what's your email?", from: 'G' }, { en: '2', az: "It's B-A-K-U nine at mail dot com.", from: 'B' }, { en: '3', az: 'Sorry? More slowly, please.', from: 'G' }, { en: '4', az: 'B… A… K… U… nine at mail dot com.', from: 'B' }],
-        extra: [],
-        variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? More slowly, please. → B… A… K… U…", 'Ünvanı çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi.', 'More slowly, please. — sürətli idi; Say that again, please. — eşitmədin.', 'Sorry? More slowly, please.'))],
-      },
-    },
   ],
   result: {
-    done: ['Dərs 6 tamamlandı', 'Artıq e-poçtu soruşur, deyir, eşidib yazır və formaya yaza bilirsən.'],
+    done: ['Dərs 6 · 2-ci hissə tamamlandı', 'Artıq e-poçtu deyir, eşidib yazır və formaya yaza bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'E-poçt sözlərini və ünvanı eşidib anlamaq', tasks: ['u2d6_c03', 'u2d6_c07', 'u2d6_c11', 'u2d6_c13'] },
-      { group: 'Yazı', text: 'E-poçtu soruşmaq, eşitdiyin ünvanı yazmaq, formanı doldurmaq', tasks: ['u2d6_c05', 'u2d6_c09', 'u2d6_c12'] },
+      { group: 'Tanıma', text: 'E-poçt sözlərini və ünvanı eşidib anlamaq', tasks: ['u2d6_c07', 'u2d6_c11', 'u2d6_c13'] },
+      { group: 'Yazı', text: 'Eşitdiyin ünvanı yazmaq, öz ünvanını yazmaq, formanı doldurmaq', tasks: ['u2d6_c09', 'u2d6_c17', 'u2d6_c12'] },
       { group: 'Danışıq', text: 'Öz e-poçtunu demək', tasks: ['u2d6_c10'] },
     ],
     closing: 'Növbəti dərs — 11–20: idman zalında nömrələr.', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'email', translation: 'e-poçt', example: 'Email, please.', exampleAz: 'E-poçt, zəhmət olmasa.', usageNote: 'Ünvan və ya məktub.', pronunciation: '/ˈimeɪl/', teachCard: 'u2d6_c02' },
-    { word: "What's your email?", translation: 'E-poçtun nədir?', example: "Hi! What's your email?", exampleAz: 'Salam! E-poçtun nədir?', usageNote: 'E-poçt soruşmaq.', pronunciation: '/wʌts jʊr ˈimeɪl/', teachCard: 'u2d6_c04' },
-    { word: 'dot', translation: 'nöqtə (.)', example: 'mail dot com', exampleAz: 'mail.com', usageNote: 'Ünvanda nöqtə.', pronunciation: '/dɑt/', teachCard: 'u2d6_c06' },
     { word: 'at', translation: '@', example: MY, exampleAz: 'kb@mail.com', usageNote: '@ — “at”, “et” yox.', pronunciation: '/æt/', teachCard: 'u2d6_c08' },
   ],
 };

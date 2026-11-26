@@ -32,7 +32,7 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 ## Kart 4 — Hərfləri tut: Hərfləri tut
 
-**Tapşırıq:** Səyahət agentliyində işçi turun ölkəsini hərf-hərf deyir, sən formaya yazırsan. Eşitdiyin hərflərə toxun.  
+**Tapşırıq:** Eşitdiyin hərflərə toxun.  
 **Səs:** It's F-R-A-N-C-E.  
 **Hərflər:** F R A N C E I S  
 **Qəbul:** dəqiq: FRANCE  
@@ -112,7 +112,7 @@ Kömək yoxdur. Keçmək üçün 70% lazımdır. Keçməsən, səhv bacarıqlar 
 
 ## Kart 13 — Mesaj yaz (sözlərdən): Sualı qur
 
-**Tapşırıq:** Hostelin çatında yeni tanışa mesaj yazırsan. Onun türkcə bilib-bilmədiyini öyrənmək istəyirsən. Sözlərdən sual qur.  
+**Tapşırıq:** Hostelin çatında tanışa yaz: türkcə bilirmi? Sözlərdən sual qur.  
 **Sözlər:** Turkish · speak · Are · you · Do · Turkey · ?  
 **Qəbul:** dəqiq: Do you speak Turkish?  
 **Düzgün olanda:** Danışmaq haqqında sual “Do” ilə başlayır.  

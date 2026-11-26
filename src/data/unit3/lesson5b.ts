@@ -1,4 +1,4 @@
-// Bölmə 3 · Dərs 5 · 2-ci hissə — O haradandır? (Where's he/she from? · Is she …? / Is he …? · Yes, he is. · No, she isn't.).
+// Bölmə 3 · Dərs 5 · 2-ci hissə — O haradandır? (Where's he/she from? · Is she …? / Is he …?); 3-cü hissə (lesson5b_2): Yes, he is. · No, she isn't.
 // Hostelin mətbəxi, video zəng, qatar. Səhvlər: “She from Turkey” (is-i atmaq), “Is she from?” (sonu yoxdur), he ↔ she, “No, she not”.
 // Spiral: He's / She's from … (1-ci hissə), Are you from …? Yes, I am. (Dərs 4), Really? (Dərs 4), millət sözləri (Dərs 3).
 import type { DesignLesson, Variant } from '../designLessonTypes';
@@ -33,15 +33,14 @@ const aboutSelf = (answer: string): Variant => ({
 });
 
 export const lesson5b: DesignLesson = {
-  id: 'a1_en_b3_d5b', order: 30, unit: 3, number: 5, part: 2, title: 'O haradandır?', section: 'Haradansan',
+  id: 'a1_en_b3_d5b', order: 51, unit: 3, number: 5, part: 2, title: 'O haradandır?', section: 'Haradansan',
   notices,
   cards: [
     {
       type: 'intro', id: 'u3d5b_c01', badge: 'Haradansan', subtitle: 'Hosteldə, qatarda və video zəngdə başqasının haradan olduğunu soruşursan.', start: 'Dərsə başla',
       goals: [
         { icon: 'chat', text: 'Başqası haqqında sualı eşidib anlayıram.' },
-        { icon: 'wave', text: 'Başqasının haradan olduğunu soruşuram.' },
-        { icon: 'bye', text: 'He və she ilə qısa cavab verirəm: Yes, he is. / No, she isn’t.' },
+        { icon: 'wave', text: 'Başqasının haradan olduğunu və millətini soruşuram.' },
       ],
     },
     {
@@ -83,6 +82,24 @@ export const lesson5b: DesignLesson = {
       },
     },
     {
+      type: 'choice', id: 'u3d5b_c14', number: 5, title: 'Sözü tamamla', why: 'Qadın haqqında soruşanda she gəlir.', hint: 'Söhbət kişidən gedir, yoxsa qadından?',
+      prompt: 'Hostelin mətbəxində yeni tanış qapıdan girən qadın haqqında soruşur.\nHansı söz çatmır?', gap: { speaker: 'other', before: "Where's", after: 'from?' },
+      options: ['she', 'he', 'you'], answer: 'she',
+      variants: [
+        pick('he', 'Qadın haqqında danışır — she.', ex('she', 'Azərbaycancada ikisi də “o”dur; ingiliscə qadın üçün she.', "Where's she from? — qadın; Where's he from? — kişi.", "Where's she from? — She's from Turkey.")),
+        pick('you', 'Səndən yox, qadın haqqında soruşur.', ex('she', 'Başqası haqqında soruşanda she və ya he gəlir.', "Where's she from? — o; Where are you from? — sən.", "Where's she from? — She's from Turkey.")),
+      ],
+      review: {
+        title: 'Sözü tamamla', why: 'Kişi haqqında soruşanda he gəlir.', hint: 'Söhbət kişidən gedir, yoxsa qadından?',
+        prompt: 'Dil klubunda yeni tanış qapıdan girən kişi haqqında soruşur.\nHansı söz çatmır?', gap: { speaker: 'other', before: "Where's", after: 'from?' },
+        options: ['you', 'she', 'he'], answer: 'he',
+        variants: [
+          pick('she', 'Kişi haqqında danışır — he.', ex('he', 'Azərbaycancada ikisi də “o”dur; ingiliscə kişi üçün he.', "Where's he from? — kişi; Where's she from? — qadın.", "Where's he from? — He's from Georgia.")),
+          pick('you', 'Səndən yox, kişi haqqında soruşur.', ex('he', 'Başqası haqqında soruşanda he və ya she gəlir.', "Where's he from? — o; Where are you from? — sən.", "Where's he from? — He's from Georgia.")),
+        ],
+      },
+    },
+    {
       type: 'word', id: 'u3d5b_c05', number: 5, scenes: ['mascot/think'],
       word: 'Is she [millət]? · Is he [millət]?', pronunciation: '/ɪz ʃi/ · /ɪz hi/', reading: 'iz şi [millət]? · iz hi [millət]?', az: 'O [millət]-dırmı?',
       structure: ['Is + she / he + from + ölkə?', 'Is + she / he + millət?'],
@@ -106,6 +123,50 @@ export const lesson5b: DesignLesson = {
           other('Is she French?', ex('Is she French?', 'Sual Is ilə başlayır, sonra she, sonra millət.', 'Is she French? — millət; Is she from France? — ölkə.', 'Is she Turkish?')),
         ],
       },
+    },
+    {
+      type: 'match', id: 'u3d5b_c15', number: 8, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Sual ilə cavabı ayır: sual where və ya is ilə başlayır.',
+      prompt: 'Hostelin mətbəxində söhbət.\nHər cümləyə mənasını qoş.',
+      rows: [{ en: "Where's he from?", az: 'O (kişi) haradandır?', from: 'other' }, { en: 'Is she Turkish?', az: 'O (qadın) türkdürmü?', from: 'G' }, { en: "She's from Turkey.", az: 'O (qadın) Türkiyədəndir.', from: 'B' }],
+      extra: ['Sən haradansan?'],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex("Where's he from? — O (kişi) haradandır?; Is she Turkish? — O (qadın) türkdürmü?; She's from Turkey. — O (qadın) Türkiyədəndir.", 'Where’s ilə haradan olduğu, Is ilə bəli/xeyr sualı soruşulur; She’s cavabdır.', "Is she Turkish? — sual; She's Turkish. — cavab.", "Where's she from? — She's from Turkey."))],
+      review: {
+        title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Sual ilə cavabı ayır: sual where və ya is ilə başlayır.',
+        prompt: 'Video zəngdə qızla söhbət.\nHər cümləyə mənasını qoş.',
+        rows: [{ en: 'Is he from Russia?', az: 'O (kişi) Rusiyadandırmı?', from: 'other' }, { en: "Where's she from?", az: 'O (qadın) haradandır?', from: 'G' }, { en: "He's Russian.", az: 'O (kişi) rusdur.', from: 'G' }],
+        extra: ['O (kişi) Rusiyadandır.'],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex("Is he from Russia? — O (kişi) Rusiyadandırmı?; Where's she from? — O (qadın) haradandır?; He's Russian. — O (kişi) rusdur.", 'Is ilə bəli/xeyr sualı, Where’s ilə haradan olduğu soruşulur; He’s cavabdır.', "Is he Russian? — sual; He's Russian. — cavab.", "Is he from Russia? — He's Russian."))],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 5 · 2-ci hissə tamamlandı', 'Artıq başqasının haradan olduğunu və millətini soruşa bilirsən.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'Başqası haqqında sualı anlamaq', tasks: ['u3d5b_c03', 'u3d5b_c14', 'u3d5b_c15'] },
+      { group: 'Yazı', text: 'Bəli/xeyr sualı qurmaq', tasks: ['u3d5b_c06'] },
+      { group: 'Danışıq', text: 'Başqasının haradan olduğunu soruşmaq', tasks: ['u3d5b_c04'] },
+    ],
+    closing: 'Növbəti hissə — qısa cavablar: Yes, he is. / No, she isn’t.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: "Where's he from? · Where's she from?", translation: 'O haradandır?', example: "Where's she from? — She's from Turkey.", exampleAz: 'O haradandır? — Türkiyədəndir.', usageNote: "Kişi üçün he, qadın üçün she. Where's — where is.", pronunciation: '/wɛrz hi frʌm/ · /wɛrz ʃi frʌm/', teachCard: 'u3d5b_c02' },
+    { word: 'Is she [millət]? · Is he [millət]?', translation: 'O [millət]-dırmı?', example: 'Is she Turkish?', exampleAz: 'O türkdürmü?', usageNote: 'Sualda is əvvələ keçir.', pronunciation: '/ɪz ʃi/ · /ɪz hi/', teachCard: 'u3d5b_c05' },
+  ],
+};
+
+// Dərs 5 · 3-cü hissə (26 Nov 2026: the lesson was split, nothing removed): Yes, he is. · No, she isn't.
+export const lesson5b_2: DesignLesson = {
+  id: 'a1_en_b3_d5b_2', order: 52, unit: 3, number: 5, part: 3, title: 'O haradandır?', section: 'Haradansan',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u3d5b_c20', badge: 'Haradansan', subtitle: 'Hostelin mətbəxində, qatarda və video zəngdə başqası haqqında suallara qısa cavab verirsən.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'bye', text: 'He və she ilə qısa cavab verirəm: Yes, he is. / No, she isn’t.' },
+        { icon: 'chat', text: 'Başqasının haradan olduğunu yazıram.' },
+      ],
     },
     {
       type: 'word', id: 'u3d5b_c07', number: 7, scenes: ['mascot/happy'],
@@ -204,19 +265,17 @@ export const lesson5b: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 5 · 2-ci hissə tamamlandı', 'Artıq başqasının haradan olduğunu soruşur və qısa cavab verə bilirsən.'],
+    done: ['Dərs 5 · 3-cü hissə tamamlandı', 'Artıq başqasının haradan olduğunu soruşur və qısa cavab verə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Başqası haqqında sualı anlamaq və qısa cavabı seçmək', tasks: ['u3d5b_c03', 'u3d5b_c08', 'u3d5b_c10', 'u3d5b_c13'] },
-      { group: 'Yazı', text: 'Sual qurmaq və başqasının haradan olduğunu yazmaq', tasks: ['u3d5b_c06', 'u3d5b_c12'] },
-      { group: 'Danışıq', text: 'Haradan olduğunu soruşmaq və qısa cavab vermək', tasks: ['u3d5b_c04', 'u3d5b_c11'] },
+      { group: 'Tanıma', text: 'Başqası haqqında qısa cavabı seçmək', tasks: ['u3d5b_c08', 'u3d5b_c10', 'u3d5b_c13'] },
+      { group: 'Yazı', text: 'Başqasının haradan olduğunu yazmaq', tasks: ['u3d5b_c12'] },
+      { group: 'Danışıq', text: 'Başqası haqqında qısa cavab vermək', tasks: ['u3d5b_c11'] },
     ],
     closing: 'Növbəti dərs — harada yaşayırsan?', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: "Where's he from? · Where's she from?", translation: 'O haradandır?', example: "Where's she from? — She's from Turkey.", exampleAz: 'O haradandır? — Türkiyədəndir.', usageNote: "Kişi üçün he, qadın üçün she. Where's — where is.", pronunciation: '/wɛrz hi frʌm/ · /wɛrz ʃi frʌm/', teachCard: 'u3d5b_c02' },
-    { word: 'Is she [millət]? · Is he [millət]?', translation: 'O [millət]-dırmı?', example: 'Is she Turkish?', exampleAz: 'O türkdürmü?', usageNote: 'Sualda is əvvələ keçir.', pronunciation: '/ɪz ʃi/ · /ɪz hi/', teachCard: 'u3d5b_c05' },
     { word: 'Yes, he is.', translation: 'Bəli, elədir.', example: 'Is he Georgian? — Yes, he is.', exampleAz: 'O gürcüdürmü? — Bəli, elədir.', usageNote: 'Qısa cavabın sonunda is qalır.', pronunciation: '/jɛs hi ɪz/', teachCard: 'u3d5b_c07' },
     { word: "No, she isn't.", translation: 'Xeyr, o deyil.', example: "Is she from Iran? — No, she isn't.", exampleAz: 'O İrandandırmı? — Xeyr.', usageNote: "isn't — is not.", pronunciation: '/noʊ ʃi ˈɪzənt/', teachCard: 'u3d5b_c09' },
   ],

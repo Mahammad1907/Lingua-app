@@ -37,7 +37,7 @@ const welcomeMistakes: Variant[] = [
 ];
 
 export const lesson1: DesignLesson = {
-  id: 'a1_en_b4_d1', order: 35, unit: 4, number: 1, title: 'Bu kimdir?', section: 'Ailə və insanlar',
+  id: 'a1_en_b4_d1', order: 59, unit: 4, number: 1, part: 1, title: 'Bu kimdir?', section: 'Ailə və insanlar',
   notices,
   cards: [
     {
@@ -107,6 +107,24 @@ export const lesson1: DesignLesson = {
       example: 'This is my friend.', exampleAz: 'Bu mənim dostumdur.',
     },
     {
+      type: 'choice', id: 'u4d1_c16', number: 7, title: 'Sözü tamamla', why: 'This ilə is gəlir: This is my friend.', hint: 'Bir nəfəri təqdim edir — “-dır” üçün hansı söz lazımdır?',
+      prompt: 'Parkda {f} yanındakı qızı sənə təqdim edir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'Hi! This', after: 'my friend.' },
+      options: ['is', 'are', 'am'], answer: 'is',
+      variants: [
+        pick('are', 'This ilə are olmur: is gəlir.', ex('is', 'Bir nəfəri təqdim edəndə This is deyilir.', 'This is my friend. — düzdür; This are my friend. — olmur.', 'This is my friend.')),
+        pick('am', 'am yalnız I ilə gəlir: I am.', ex('is', 'am “mən” ilə gəlir; This ilə is gəlir.', "I'm Tom. — mən; This is Tom. — başqası.", 'This is my friend.')),
+      ],
+      review: {
+        title: 'Sözü tamamla', why: 'This ilə is gəlir: This is + ad.', hint: 'Yanındakı adamı təqdim edir — This-dən sonra hansı söz gəlir?',
+        prompt: 'Kafedə {b} yanındakı oğlanı sənə təqdim edir.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'Hello! This', after: 'Tom.' },
+        options: ['am', 'is', 'are'], answer: 'is',
+        variants: [
+          pick('are', 'This ilə are olmur: is gəlir.', ex('is', 'Bir nəfəri təqdim edəndə This is deyilir.', 'This is Tom. — düzdür; This are Tom. — olmur.', 'Hello! This is Tom.')),
+          pick('am', 'am yalnız I ilə gəlir: I am.', ex('is', 'am “mən” ilə gəlir; This ilə is gəlir.', "I'm Tom. — mən; This is Tom. — başqası.", 'Hello! This is Tom.')),
+        ],
+      },
+    },
+    {
       type: 'write', id: 'u4d1_c07', number: 7, title: 'Mesaj yaz', why: 'This is my friend. — dostunu təqdim etdin.', hint: 'Təqdim cümləsi bu dərsin ilk söz kartındakı kimi başlayır.',
       prompt: 'Qrupa öz dostunu əlavə etdin.\nSözlərdən cavab qur.', placeholder: 'Sözlərə toxun',
       chat: { partner: '{F}', from: 'other', lines: [{ from: 'other', text: 'Hi!' }] },
@@ -125,6 +143,49 @@ export const lesson1: DesignLesson = {
           other('Sıra: This is my friend.', ex('This is my friend.', 'Əvvəl This is, sonra my friend.', 'This is my friend. — dostum; This is Tom. — ad.', 'This is my friend.')),
         ],
       },
+    },
+    {
+      type: 'voice', id: 'u4d1_c15', number: 9, title: 'Dinlə və təkrarla', why: 'Cümləni dedin: This is my friend.', hint: 'Əvvəl yavaş dinlə, sonra cümləni iki hissədə de.',
+      prompt: '{F} qapıda yanındakı qızı sənə təqdim edir.\nDinlə, sonra eyni cür de.', audio: 'This is my friend.', repeat: { stress: 'friend', note: 'this — **th** dil dişlərin arasında; friend — “frend”: i oxunmur.', reading: '**th**is iz may frend' },
+      rule: said(String.raw`^this\s+is\s+my\s+friend\s*[.!]?$`, 'This is my friend.'),
+      variants: [...thisMistakes('This is my friend.', 'This is my friend.'), other('This is my friend.', ex('This is my friend.', 'Əvvəl This is, sonra my friend.', 'This is my friend. — dostum; This is Tom. — ad.', 'This is my friend.'))],
+      review: {
+        title: 'Dinlə və təkrarla', why: 'Cümləni dedin: This is my friend.', hint: 'Sürət düyməsi ilə yavaş dinlə, sonra cümləni bir nəfəsdə de.',
+        prompt: 'Kafedə {b} yanındakı oğlanı sənə təqdim edir.\nDinlə, sonra eyni cür de.', audio: 'This is my friend.', repeat: { stress: 'friend', note: 'this — **th** dil dişlərin arasında; friend — “frend”: i oxunmur.', reading: '**th**is iz may frend' },
+        rule: said(String.raw`^this\s+is\s+my\s+friend\s*[.!]?$`, 'This is my friend.'),
+        variants: [...thisMistakes('This is my friend.', 'This is my friend.'), other('This is my friend.', ex('This is my friend.', 'Əvvəl This is, sonra my friend.', 'This is my friend. — dostum; This is Tom. — ad.', 'This is my friend.'))],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 1 · 1-ci hissə tamamlandı', 'Artıq başqasını və dostunu təqdim edirsən.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'Təqdimi eşidib başa düşmək və çatışmayan sözü tapmaq', tasks: ['u4d1_c03', 'u4d1_c16'] },
+      { group: 'Yazı', text: 'Dostumu təqdim edən cümlə yazmaq', tasks: ['u4d1_c05', 'u4d1_c07'] },
+      { group: 'Danışıq', text: 'Dostumu təqdim etmək', tasks: ['u4d1_c15'] },
+    ],
+    closing: 'Növbəti hissə — kim olduğunu soruşmaq və qonağı qarşılamaq.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'This is [ad].', translation: 'Bu [ad]-dır.', example: 'Hello! This is Tom.', exampleAz: 'Salam! Bu Tomdur.', usageNote: 'Başqasını təqdim edəndə This is, özünü isə I’m ilə təqdim edirsən.', pronunciation: '/ðɪs ɪz/', teachCard: 'u4d1_c02' },
+    { word: 'friend', translation: 'dost', example: 'Hi, friend!', exampleAz: 'Salam, dostum!', usageNote: 'Yazılış: friend — i-dən sonra e.', pronunciation: '/frɛnd/', teachCard: 'u4d1_c04' },
+    { word: 'my friend', translation: 'mənim dostum', example: 'This is my friend.', exampleAz: 'Bu mənim dostumdur.', usageNote: '“Mənim” ayrıca gəlir: my friend.', pronunciation: '/maɪ frɛnd/', teachCard: 'u4d1_c06' },
+  ],
+};
+
+export const lesson1_2: DesignLesson = {
+  id: 'a1_en_b4_d1_2', order: 60, unit: 4, number: 1, part: 2, title: 'Bu kimdir?', section: 'Ailə və insanlar',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u4d1_c20', badge: 'Ailə və insanlar', subtitle: '{F} ailə albomunu göstərir. Tanımadığın adamın kim olduğunu soruşursan, sonra qonağı qarşılayırsan.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: 'Şəkildəki adamın kim olduğunu soruşa bilirəm.' },
+        { icon: 'wave', text: 'Kim olduğunu soruşana cavab verə bilirəm.' },
+        { icon: 'bye', text: 'Qonağı qarşılaya bilirəm.' },
+      ],
     },
     {
       type: 'word', id: 'u4d1_c08', number: 8, scenes: ['mascot/ask'],
@@ -165,6 +226,24 @@ export const lesson1: DesignLesson = {
       word: 'Welcome!', pronunciation: '/ˈwɛlkəm/', reading: 'uelkəm!', az: 'Xoş gəldin!',
       notes: ['Qonağı qarşılayanda deyilir.'],
       example: 'Hello! Welcome!', exampleAz: 'Salam! Xoş gəldin!',
+    },
+    {
+      type: 'choice', id: 'u4d1_c17', number: 12, title: 'Dinlə və anla', why: 'Welcome! — qonağı qarşılayır.', hint: 'Salamdan sonrakı sözə qulaq as.',
+      prompt: '{F:gen} evinə ilk dəfə gəlirsən. O, qapını açır.\nO nə deyir?', audio: 'Hello! Welcome!',
+      options: ['Səni qarşılayır.', 'Sənə təşəkkür edir.', 'Səninlə sağollaşır.'], answer: 'Səni qarşılayır.',
+      variants: [
+        pick('Sənə təşəkkür edir.', 'Səsdə Thank you yoxdur.', ex('Səni qarşılayır.', 'Təşəkkür Thank you ilə deyilir; səsdə Welcome! var.', 'Welcome! — qonaq gəlir; Thank you! — təşəkkür.', 'Hello! Welcome!')),
+        pick('Səninlə sağollaşır.', 'Səsdə Goodbye yoxdur.', ex('Səni qarşılayır.', 'Sağollaşanda Goodbye deyilir; qonaq gələndə Welcome!', 'Welcome! — qonaq gəlir; Goodbye! — qonaq gedir.', 'Hello! Welcome!')),
+      ],
+      review: {
+        title: 'Dinlə və anla', why: 'Welcome! — qonağı qarşılayır.', hint: 'Salamdan sonrakı sözə qulaq as.',
+        prompt: 'Yeni işdə ilk günündür. İş yoldaşın səni ofisin qapısında görür.\nO nə deyir?', audio: 'Hi! Welcome!',
+        options: ['Səninlə sağollaşır.', 'Səni qarşılayır.', 'Sənə təşəkkür edir.'], answer: 'Səni qarşılayır.',
+        variants: [
+          pick('Sənə təşəkkür edir.', 'Səsdə Thank you yoxdur.', ex('Səni qarşılayır.', 'Təşəkkür Thank you ilə deyilir; səsdə Welcome! var.', 'Welcome! — qonaq gəlir; Thank you! — təşəkkür.', 'Hi! Welcome!')),
+          pick('Səninlə sağollaşır.', 'Səsdə Goodbye yoxdur.', ex('Səni qarşılayır.', 'Sağollaşanda Goodbye deyilir; qonaq gələndə Welcome!', 'Welcome! — qonaq gəlir; Goodbye! — qonaq gedir.', 'Hi! Welcome!')),
+        ],
+      },
     },
     {
       type: 'write', id: 'u4d1_c12', number: 13, title: 'Dialoqu tamamla', why: 'Kim olduğunu dedin: This is + ad.', hint: 'Cavab bu dərsin ilk söz kartındakı kimi başlayır.',
@@ -208,20 +287,17 @@ export const lesson1: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 1 tamamlandı', 'Artıq başqasını təqdim edir, kim olduğunu soruşur və qonağı qarşılayırsan.'],
+    done: ['Dərs 1 · 2-ci hissə tamamlandı', 'Artıq başqasını təqdim edir, kim olduğunu soruşur və qonağı qarşılayırsan.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Təqdimi eşidib başa düşmək və söhbəti sıralamaq', tasks: ['u4d1_c03', 'u4d1_c10', 'u4d1_c14'] },
-      { group: 'Yazı', text: 'Dostumu təqdim edən cümlə yazmaq', tasks: ['u4d1_c05', 'u4d1_c07', 'u4d1_c12'] },
+      { group: 'Tanıma', text: 'Qarşılamanı eşidib başa düşmək, cavab cütlərini və söhbəti sıralamaq', tasks: ['u4d1_c10', 'u4d1_c17', 'u4d1_c14'] },
+      { group: 'Yazı', text: 'Şəkildəki adamı təqdim edən cavab yazmaq', tasks: ['u4d1_c12'] },
       { group: 'Danışıq', text: 'Kim olduğunu soruşmaq və qonağı qarşılamaq', tasks: ['u4d1_c09', 'u4d1_c13'] },
     ],
     closing: 'Növbəti dərs — ailə üzvləri: mother, father, brother, sister.', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'This is [ad].', translation: 'Bu [ad]-dır.', example: 'Hello! This is Tom.', exampleAz: 'Salam! Bu Tomdur.', usageNote: 'Başqasını təqdim edəndə This is, özünü isə I’m ilə təqdim edirsən.', pronunciation: '/ðɪs ɪz/', teachCard: 'u4d1_c02' },
-    { word: 'friend', translation: 'dost', example: 'Hi, friend!', exampleAz: 'Salam, dostum!', usageNote: 'Yazılış: friend — i-dən sonra e.', pronunciation: '/frɛnd/', teachCard: 'u4d1_c04' },
-    { word: 'my friend', translation: 'mənim dostum', example: 'This is my friend.', exampleAz: 'Bu mənim dostumdur.', usageNote: '“Mənim” ayrıca gəlir: my friend.', pronunciation: '/maɪ frɛnd/', teachCard: 'u4d1_c06' },
     { word: "Who's this?", translation: 'Bu kimdir?', example: "Who's this? — This is my friend.", exampleAz: 'Bu kimdir? — Bu mənim dostumdur.', usageNote: "Who's — Who is-in qısası.", pronunciation: '/huz ðɪs/', teachCard: 'u4d1_c08' },
     { word: 'Welcome!', translation: 'Xoş gəldin!', example: 'Hello! Welcome!', exampleAz: 'Salam! Xoş gəldin!', usageNote: 'Qonağı qarşılayanda deyilir.', pronunciation: '/ˈwɛlkəm/', teachCard: 'u4d1_c11' },
   ],

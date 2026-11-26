@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { getShortSession } from '../data/firstConversation';
-import { getPacketLesson, packetTaskIds } from '../data/b1Course';
+import { getPacketLesson, mapNumber, packetTaskIds } from '../data/b1Course';
 import { getLessonActivities } from '../data/lessonActivities';
 import { lessons } from '../data/lessons';
 import { getAllModules } from '../data/modules';
@@ -145,7 +145,7 @@ export const useUserStore = create<UserState>((set, get) => ({
     if (!a || a.finished || ![...a.expected, ...(a.optional ?? [])].includes(taskId) || old?.resolved || old?.token === token) return;
     // Mandatory voice tasks need an actual, unedited spoken answer.
     const packet = getPacketLesson(a.lessonId);
-    const requiredVoice = packet?.order === 7 && a.expected.includes(taskId);
+    const requiredVoice = (packet ? mapNumber(packet) : 0) === 7 && a.expected.includes(taskId);
     if (correct === true && requiredVoice && evidence?.input === 'written') return;
     const task = { firstCorrect: old?.firstCorrect ?? correct === true, resolved: correct === true,
       skipped: correct === null, wrong: (old?.wrong ?? 0) + (correct === false ? 1 : 0), token, evidence };

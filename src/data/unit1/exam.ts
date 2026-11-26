@@ -10,7 +10,7 @@ import { ex, exact, goal, insteadOf, other, pick } from './build';
 const greetIntro = goal(['greet', 'introduce'], ['Hello! My name is [ad]', "Hi! I'm [ad]"]);
 
 export const unit1Exam: DesignLesson[] = [{
-  id: 'a1_en_b1_exam', order: 9, unit: 1, exam: true, title: 'Bölmə 1 imtahanı', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_exam', order: 16, unit: 1, exam: true, title: 'Bölmə 1 imtahanı', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinlə və ya mətnlə davam et.',
     unknown: 'Cavabı yoxlaya bilmədim. Bir az fərqli yaz və ya yenidən cəhd et.',

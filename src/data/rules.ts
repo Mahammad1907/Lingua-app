@@ -4,6 +4,7 @@
 import { designLessons } from './designLessons';
 import type { DesignLesson, ExplainCard } from './designLessonTypes';
 import { unit4RuleMeta } from './unit4/aggregate';
+import { ordinal } from '../utils/ordinal';
 
 export type RuleTopic = 'polite' | 'order' | 'questions' | 'short' | 'sound' | 'numbers' | 'letters' | 'country';
 export const RULE_TOPICS: { id: RuleTopic; title: string; icon: string; tint: string; ink: string; bar: string }[] = [
@@ -67,7 +68,7 @@ export interface Rule {
 
 const TASK_TYPES = new Set(['choice', 'write', 'voice', 'two', 'match', 'drag', 'profile']);
 export const lessonLabel = (l: Pick<DesignLesson, 'unit' | 'number' | 'order' | 'part'>) =>
-  `Bölmə ${l.unit ?? 1} · Dərs ${l.number ?? l.order}${l.part ? ` · ${l.part}-${l.part === 3 ? 'cü' : 'ci'} hissə` : ''}`;
+  `Bölmə ${l.unit ?? 1} · Dərs ${l.number ?? l.order}${l.part ? ` · ${ordinal(l.part)} hissə` : ''}`;
 
 export const RULES: Rule[] = designLessons.filter(l => !l.exam).flatMap(lesson => {
   const out: Rule[] = [];

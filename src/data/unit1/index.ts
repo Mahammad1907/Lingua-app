@@ -1,11 +1,11 @@
 // Bölmə 1 lessons written for the new screens. Lesson 1 lives in ../lesson1Design.ts.
 import type { DesignLesson } from '../designLessonTypes';
-import { lesson2 } from './lesson2';
-import { lesson3 } from './lesson3';
-import { lesson4 } from './lesson4';
-import { lesson5 } from './lesson5';
-import { lesson6 } from './lesson6';
-import { lesson7 } from './lesson7';
+import { lesson2, lesson2b } from './lesson2';
+import { lesson3, lesson3b } from './lesson3';
+import { lesson4, lesson4b } from './lesson4';
+import { lesson5, lesson5b } from './lesson5';
+import { lesson6, lesson6b } from './lesson6';
+import { lesson7, lesson7b } from './lesson7';
 import { lesson8 } from './lesson8';
 
 // Screen order per lesson (user, 13 Nov 2026): lessons must not follow one template, the same screen type never
@@ -18,11 +18,18 @@ function ordered(lesson: DesignLesson, ids: string[]): DesignLesson {
 }
 
 export const unit1Lessons: DesignLesson[] = [
-  ordered(lesson2, ['c01', 'c02', 'c02s', 'c08', 'c02b', 'c04', 'c03', 'c05', 'c06', 'c07', 'c09', 'c10']),
-  ordered(lesson3, ['c01', 'c02', 'c03', 'c04', 'c05', 'c06', 'c07', 'c06b', 'c13', 'c10', 'c08', 'c09', 'c11', 'c12']),
-  ordered(lesson4, ['c01', 'c03', 'c02', 'c04', 'c06', 'c04c', 'c05', 'c04b', 'c10', 'c07', 'c08', 'c11', 'c09', 'c12']),
-  ordered(lesson5, ['c01', 'c02', 'c03', 'c04', 'c05', 'c11', 'c05b', 'c06', 'c07', 'c08', 'c09', 'c13', 'c12', 'c10']),
-  ordered(lesson6, ['c01', 'c03', 'c02', 'c04', 'c05', 'c04b', 'c06', 'c11', 'c07', 'c08', 'c12', 'c09', 'c10', 'c13']),
-  ordered(lesson7, ['c01', 'c03', 'c02', 'c04', 'c05', 'c11', 'c04b', 'c06', 'c09', 'c07', 'c12', 'c08', 'c10', 'c13']),
+  // 26 Nov 2026: lessons over 12 screens are split into two parts (same map circle); nothing was removed.
+  ordered(lesson2, ['c01', 'c02', 'c02s', 'c11', 'c15', 'c13', 'c14', 'c12']),
+  ordered(lesson2b, ['c01b', 'c02b', 'c04', 'c03', 'c08', 'c05', 'c06', 'c07', 'c09', 'c10']),
+  ordered(lesson3, ['c01', 'c02', 'c03', 'c04', 'c17', 'c15', 'c14', 'c09']),
+  ordered(lesson3b, ['c01b', 'c06', 'c05', 'c07', 'c06b', 'c16', 'c13', 'c10', 'c08', 'c11', 'c12']),
+  ordered(lesson4, ['c01', 'c03', 'c02', 'c13', 'c04', 'c06', 'c14', 'c08']),
+  ordered(lesson4b, ['c01b', 'c04c', 'c05', 'c04b', 'c15', 'c10', 'c07', 'c11', 'c09', 'c12']),
+  ordered(lesson5, ['c01', 'c02', 'c03', 'c04', 'c05', 'c11', 'c14', 'c12', 'c10']),
+  ordered(lesson5b, ['c01b', 'c05b', 'c06', 'c07', 'c08', 'c16', 'c09', 'c13', 'c15']),
+  ordered(lesson6, ['c01', 'c03', 'c14', 'c04', 'c15', 'c07', 'c09', 'c13']),
+  ordered(lesson6b, ['c01b', 'c04b', 'c02', 'c05', 'c06', 'c11', 'c08', 'c12', 'c10']),
+  ordered(lesson7, ['c01', 'c03', 'c02', 'c04', 'c07', 'c16', 'c17', 'c14', 'c18']),
+  ordered(lesson7b, ['c01b', 'c04b', 'c15', 'c05', 'c11', 'c06', 'c09', 'c12', 'c10', 'c08', 'c13']),
   ordered(lesson8, ['c01', 'c02', 'c03', 'c04', 'c10', 'c05', 'c06', 'c11', 'c13', 'c07', 'c09', 'c08', 'c12']),
 ];

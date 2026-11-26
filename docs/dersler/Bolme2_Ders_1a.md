@@ -92,7 +92,7 @@ Qeyd: five “v” ilə bitir: fayv.
 
 ## Kart 8 — Nömrəni yığ: Nömrəni yığ
 
-**Tapşırıq:** Oteldə otaq telefonundasan. Resepsiya restoranın daxili nömrəsini deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** Four, zero, one.  
 **Qəbul:** dəqiq: 401  
 **İpucu:** Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.  
@@ -101,7 +101,7 @@ Qeyd: five “v” ilə bitir: fayv.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ofisdəsən. İş yoldaşı daxili nömrəsini deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** Two, five, three.  
 **Qəbul:** dəqiq: 253  
 **İpucu:** Hər rəqəmi eşidən kimi bas; lazım olsa, yavaş dinlə.  
@@ -178,7 +178,7 @@ Qeyd: five “v” ilə bitir: fayv.
 
 ## Kart 13 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Liftdə oğlan mərtəbəni deyir. Dostun mesajda soruşur ki, bu rəqəm ingiliscə necə yazılır. Eşitdiyin rəqəmi sözlə yaz.  
+**Tapşırıq:** Rəqəmi sözlə yaz.  
 **Səs:** Three, please.  
 **Qəbul:** dəqiq: three  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla.  
@@ -187,7 +187,7 @@ Qeyd: five “v” ilə bitir: fayv.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Otel resepsiyasında qadın otağın mərtəbəsini deyir. Dostun soruşur ki, bu rəqəm ingiliscə necə yazılır. Eşitdiyin rəqəmi sözlə yaz.  
+**Tapşırıq:** Rəqəmi sözlə yaz.  
 **Səs:** Five.  
 **Qəbul:** dəqiq: five  
 **İpucu:** Yeni söz kartındakı yazılışı xatırla.  

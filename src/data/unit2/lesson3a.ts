@@ -1,18 +1,19 @@
-// Bölmə 2 · Dərs 3 · 1-ci hissə — öz adın latın hərfləri ilə; asan hərflər bir kartda (F L M N S X); T V (TV), I D (ID), E/I cütü.
+// Bölmə 2 · Dərs 3 · 1–2-ci hissə — öz adın latın hərfləri ilə; asan hərflər bir kartda (F L M N S X); T V (TV), I D (ID); 2-ci hissədə E/I cütü.
 // Yalnız tanıma (dinlə, toxun, seç, yaz). Hər hissə qarışan cüt məşqi ilə bitir. Azərbaycan sözü ilə yadda saxlama yoxdur.
+// 26 Nov 2026: the old part 1 is split in two (a lesson part is 8–12 screens, nothing removed).
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
-import { NAME, NAME_SPELLED, notices, own, resultTexts, said, spelled } from './shared';
+import { NAME, notices, own, resultTexts } from './shared';
 
 export const lesson3a: DesignLesson = {
-  id: 'a1_en_b2_d3a', order: 13, unit: 2, number: 3, part: 1, title: "Hərflər 1: adın və ilk hərflər", section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d3a', order: 21, unit: 2, number: 3, part: 1, title: "Hərflər 1: adın və ilk hərflər", section: 'Şəxsi məlumat',
   notices,
   cards: [
     {
       type: 'intro', id: 'u2d3a_c01', badge: 'Şəxsi məlumat', subtitle: "Adını ingiliscə hərflərlə yazmaqdan başlayırıq, sonra hərfləri qulaqla tanıyırsan.", start: 'Dərsə başla',
       goals: [
         { icon: 'chat', text: "Adımı latın hərfləri ilə yazıram." },
-        { icon: 'wave', text: "F L M N S X, T V, I D, E hərflərini eşidib tanıyıram." },
+        { icon: 'wave', text: "F L M N S X, T V, I D hərflərini eşidib tanıyıram." },
       ],
     },
     {
@@ -118,10 +119,76 @@ export const lesson3a: DesignLesson = {
       },
     },
     {
+      type: 'match', id: 'u2d3a_c13', number: 9,
+      mode: "reply",
+      title: "Qısaltmanı tamamla",
+      why: "Hər qısaltmanın son hərfini tapdın.",
+      hint: "Kartlardakı qısaltmaları xatırla.",
+      prompt: "Dostun qısaltmanın əvvəlini deyir.\nSıraya toxun, sonra onun sonunu seç.",
+      rows: [{"en": "T…", "az": "V!", "from": "G"}, {"en": "I…", "az": "D!", "from": "B"}, {"en": "S, M…", "az": "S!", "from": "M"}],
+      extra: ["F!"],
+      variants: [other("Bir qısaltmanın sonu yerində deyil.", ex("T… — V!; I… — D!; S, M… — S!", "Kartlardakı qısaltmaları xatırla: TV, ID, SMS.", "TV — ti-vi; ID — ay-di.", "ID, please."))],
+      review: {
+        mode: "reply",
+        title: "Qısaltmanı tamamla",
+        why: "Hər qısaltmanın son hərfini tapdın.",
+        hint: "Tapşırıqlardakı kanalları və kartdakı qısaltmaları xatırla.",
+        prompt: "Başqa qısaltmalar.\nSıraya toxun, sonra onun sonunu seç.",
+        rows: [{"en": "M, T…", "az": "V!", "from": "B"}, {"en": "F…", "az": "X!", "from": "G"}, {"en": "S, M…", "az": "S!", "from": "M"}],
+        extra: ["D!"],
+        variants: [other("Bir qısaltmanın sonu yerində deyil.", ex("M, T… — V!; F… — X!; S, M… — S!", "Qısaltmaları xatırla: MTV, FX, SMS.", "MTV — em-ti-vi; FX — ef-eks.", "SMS"))],
+      },
+    },
+  ],
+  result: {
+    done: ["Dərs 3 · 1-ci hissə tamamlandı", "Adını latın hərfləri ilə yazdın və F L M N S X, T V, I D hərflərini eşidib tanıyırsan."],
+    incomplete: resultTexts.incomplete,
+    goals: [{"group": "Tanıma", "text": "Eşitdiyin hərfi və qısaltmanı tanımaq", "tasks": ["u2d3a_c04", "u2d3a_c06", "u2d3a_c08", "u2d3a_c13"]}, {"group": "Yazı", "text": "Adını latın hərfləri ilə yazmaq", "tasks": ["u2d3a_c02"]}],
+    closing: "Növbəti hissə — E və I: ən çox qarışan cüt.", button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    {"word": "F, L, M, N, S, X", "translation": "ef, el, em, en, es, eks", "example": "SMS", "exampleAz": "SMS (es-em-es)", "usageNote": "Asan hərflər.", "pronunciation": "/ef/ · /el/ · /em/ · /en/ · /es/ · /eks/", "teachCard": "u2d3a_c03"},
+    {"word": "T, V", "translation": "ti, vi", "example": "TV", "exampleAz": "TV (ti-vi)", "usageNote": "Sonunda “i”.", "pronunciation": "/ti/ · /vi/", "teachCard": "u2d3a_c05"},
+    {"word": "I, D", "translation": "ay, di", "example": "ID, please.", "exampleAz": "Vəsiqə, zəhmət olmasa.", "usageNote": "I — “ay”.", "pronunciation": "/aɪ/ · /di/", "teachCard": "u2d3a_c07"},
+  ],
+};
+
+export const lesson3aPart2: DesignLesson = {
+  id: 'a1_en_b2_d3a_2', order: 22, unit: 2, number: 3, part: 2, title: "Hərflər 2: E yoxsa I?", section: 'Şəxsi məlumat',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u2d3a_2_c01', badge: 'Şəxsi məlumat', subtitle: "Ən çox qarışan cüt: E və I. Maşın nömrəsində, parkinqdə, biletdə.", start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: "E ilə I-ni eşidib ayırıram." },
+        { icon: 'wave', text: "Hərf və rəqəmli nömrəni eşidib yazıram." },
+      ],
+    },
+    {
       type: 'word', id: 'u2d3a_c09', number: 9, scenes: ['u2/word-letters-ei'],
       word: "E, I", pronunciation: "/i/ · /aɪ/", reading: "i, ay", az: "E — “i”, I — “ay”",
       notes: ["Ən çox qarışan cüt: E “i” oxunur, I isə “ay”."],
       example: "E, I.", exampleAz: "i, ay",
+    },
+    {
+      type: 'match', id: 'u2d3a_c15', number: 3,
+      title: "Hərfi oxunuşuna qoş",
+      why: "Hər hərfin ingiliscə adını tapdın.",
+      hint: "Bir oxunuş Azərbaycan əlifbasındandır — o, artıqdır.",
+      prompt: "Qatar biletində hərflər var.\nHər hərfə onun ingiliscə oxunuşunu qoş.",
+      rows: [{"en": "E", "az": "i"}, {"en": "I", "az": "ay"}, {"en": "D", "az": "di"}],
+      extra: ["e"],
+      variants: [other("Bir hərfin oxunuşu yerində deyil.", ex("E — i; I — ay; D — di", "Hər hərfin ingiliscə oxunuşunu tap.", "E — i; I — ay.", "E, I."))],
+      review: {
+        title: "Hərfi oxunuşuna qoş",
+        why: "Hər hərfin ingiliscə adını tapdın.",
+        hint: "Əvvəl ən əmin olduğun hərfi yerinə qoy.",
+        prompt: "Otelin otaq kartlarında hərflər var.\nHər hərfə onun ingiliscə oxunuşunu qoş.",
+        rows: [{"en": "I", "az": "ay"}, {"en": "V", "az": "vi"}, {"en": "E", "az": "i"}],
+        extra: ["ve"],
+        variants: [other("Bir hərfin oxunuşu yerində deyil.", ex("I — ay; V — vi; E — i", "Hər hərfin ingiliscə oxunuşunu tap.", "I — ay; E — i.", "E, I."))],
+      },
     },
     {
       type: 'write', id: 'u2d3a_c10', number: 10,
@@ -142,6 +209,50 @@ export const lesson3a: DesignLesson = {
         placeholder: "Maşının nömrəsi",
         rule: exact('10 DI 204', '10-DI-204', '10DI204', '10 DI204', '10DI 204', '10-DI 204', '10 DI-204'),
         variants: [other("Hərfləri və rəqəmləri yoxla.", ex("10 DI 204", "Səsdə ten, D, I, two, zero, four deyilir; I “ay” oxunur.", "I — ay; E — i.", "Ten, D, I, two, zero, four."))],
+      },
+    },
+    {
+      type: 'choice', id: 'u2d3a_c16', number: 5,
+      title: "Dinlə və seç",
+      why: "E — “i”.",
+      hint: "Hərfdən sonra rəqəm gəlir — hərfin oxunuşuna qulaq as.",
+      prompt: "Konfransda işçi sənin zalını deyir.\nHansı zaldır?",
+      audio: "E, five.",
+      options: ["I5", "E5", "T5"],
+      answer: "E5",
+      variants: [pick("I5", "I “ay” oxunur, səsdə “i” var.", ex("E5", "Səsdəki “i” — E-dir.", "E — i; I — ay.", "E, five.")), pick("T5", "T “ti” oxunur, səsdə yalnız “i” var.", ex("E5", "Səsdə tək “i” deyilir — bu, E-dir.", "E — i; T — ti.", "E, five."))],
+      review: {
+        title: "Dinlə və seç",
+        why: "I — “ay”.",
+        hint: "Hərfdən sonra rəqəm gəlir — hərfin oxunuşuna qulaq as.",
+        prompt: "Kinoda qapıdakı işçi sənin sıranı deyir.\nHansı sıradır?",
+        audio: "I, two.",
+        options: ["E2", "D2", "I2"],
+        answer: "I2",
+        variants: [pick("E2", "E “i” oxunur, səsdə “ay” var.", ex("I2", "Səsdəki “ay” — I-dir.", "I — ay; E — i.", "I, two.")), pick("D2", "D “di” oxunur, səsdə “ay” var.", ex("I2", "Səsdəki “ay” — I-dir.", "I — ay; D — di.", "I, two."))],
+      },
+    },
+    {
+      type: 'write', id: 'u2d3a_c14', number: 6,
+      letters: ["T", "E", "D", "I", "V", "M"],
+      title: "Hərfləri tut",
+      why: "T-E-D — çıxışlar konfransının adı.",
+      hint: "Hər hərfi eşidən kimi toxun; “i” və “ay” fərqinə qulaq as.",
+      prompt: 'Eşitdiyin hərflərə toxun.',
+      audio: "T, E, D.",
+      placeholder: "Konfrans",
+      rule: exact('TED'),
+      variants: [other("Hərfləri bir-bir dinlə.", ex("TED", "Səsdə üç hərf var: ti, i, di.", "E — i; I — ay.", "T, E, D."))],
+      review: {
+        letters: ["I", "T", "E", "D", "F", "V"],
+        title: "Hərfləri tut",
+        why: "I-T — ofisin kompüter şöbəsi.",
+        hint: "Hər hərfi eşidən kimi toxun; ilk hərfin oxunuşu “ay”dır.",
+        prompt: 'Eşitdiyin hərflərə toxun.',
+        audio: "I, T.",
+        placeholder: "Şöbə",
+        rule: exact('IT'),
+        variants: [other("Hərfləri bir-bir dinlə.", ex("IT", "Səsdə iki hərf var: ay, ti.", "I — ay; E — i.", "I, T."))],
       },
     },
     {
@@ -192,16 +303,13 @@ export const lesson3a: DesignLesson = {
     },
   ],
   result: {
-    done: ["Dərs 3 · 1-ci hissə tamamlandı", "Adını latın hərfləri ilə yazdın və F L M N S X, T V, I D, E hərflərini eşidib tanıyırsan."],
+    done: ["Dərs 3 · 2-ci hissə tamamlandı", "E ilə I-ni ayırırsan və hərfli nömrələri eşidib yazırsan."],
     incomplete: resultTexts.incomplete,
-    goals: [{"group": "Tanıma", "text": "Eşitdiyin hərfi tanımaq, E ilə I-ni ayırmaq", "tasks": ["u2d3a_c04", "u2d3a_c06", "u2d3a_c08", "u2d3a_c11", "u2d3a_c12"]}, {"group": "Yazı", "text": "Adını latın hərfləri ilə yazmaq, maşın nömrəsini yazmaq", "tasks": ["u2d3a_c02", "u2d3a_c10"]}],
-    closing: "Növbəti hissə — U A, G P, J, C, B W: USA, GPS, DJ, CD, BMW.", button: resultTexts.button,
+    goals: [{"group": "Tanıma", "text": "Eşitdiyin hərfi tanımaq, E ilə I-ni ayırmaq", "tasks": ["u2d3a_c15", "u2d3a_c16", "u2d3a_c14", "u2d3a_c11", "u2d3a_c12"]}, {"group": "Yazı", "text": "Maşın nömrəsini eşidib yazmaq", "tasks": ["u2d3a_c10"]}],
+    closing: "Növbəti hissə — U A, G P, J: USA, GPS, DJ.", button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    {"word": "F, L, M, N, S, X", "translation": "ef, el, em, en, es, eks", "example": "SMS", "exampleAz": "SMS (es-em-es)", "usageNote": "Asan hərflər.", "pronunciation": "/ef/ · /el/ · /em/ · /en/ · /es/ · /eks/", "teachCard": "u2d3a_c03"},
-    {"word": "T, V", "translation": "ti, vi", "example": "TV", "exampleAz": "TV (ti-vi)", "usageNote": "Sonunda “i”.", "pronunciation": "/ti/ · /vi/", "teachCard": "u2d3a_c05"},
-    {"word": "I, D", "translation": "ay, di", "example": "ID, please.", "exampleAz": "Vəsiqə, zəhmət olmasa.", "usageNote": "I — “ay”.", "pronunciation": "/aɪ/ · /di/", "teachCard": "u2d3a_c07"},
     {"word": "E, I", "translation": "i, ay", "example": "E, I.", "exampleAz": "i, ay", "usageNote": "E — “i”, I — “ay”.", "pronunciation": "/i/ · /aɪ/", "teachCard": "u2d3a_c09"},
   ],
 };

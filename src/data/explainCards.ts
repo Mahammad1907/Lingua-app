@@ -28,6 +28,9 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       ],
       attention: "Adın sonuna heç nə artırılmır: I'm və ad kifayətdir.",
     }),
+  ],
+  // 2-ci hissə (26 Nov 2026): the My name is card moved to part 2, its explanation follows it.
+  a1_en_b1_v2_d2_2: [
     E('d2_c02bt', 'd2_c02b', {
       lead: 'My name is [ad] ilə də adını deyirsən.', focus: 'My name is',
       sections: [
@@ -53,7 +56,8 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
     ],
     attention: 'And you? deyəndə How are you? sualını təkrar demək lazım deyil.',
   })],
-  a1_en_b1_v2_d5: [E('d5_c05bt', 'd5_c05b', {
+  // 2-ci hissə (26 Nov 2026): the please card moved to part 2, its explanation follows it.
+  a1_en_b1_v2_d5_2: [E('d5_c05bt', 'd5_c05b', {
     lead: 'please xahişi nəzakətli edir.', focus: 'please',
     sections: [
       { title: 'Harada gəlir?', text: 'please çox vaxt sonda, vergüldən sonra gəlir.', build: { parts: ['Tea,', 'please.'], examples: [{ en: 'Tea, please.', az: 'Çay, zəhmət olmasa.' }] } },
@@ -111,6 +115,8 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       ],
       attention: 'M bizdəki kimidir, F-də isə səslər yerini dəyişir: “fe” yox, “ef”.',
     }),
+  ],
+  a1_en_b2_d3a_2: [
     E('u2d3a_c09t', 'u2d3a_c09', {
       lead: 'E və I ən çox qarışan cütdür.', focus: 'E və I',
       sections: [
@@ -144,7 +150,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
     ],
     attention: 'İki yolu da başa düşəcəklər. double eşidəndə hərfi iki dəfə yaz.',
   })],
-  a1_en_b2_d5: [E('u2d5_c08t', 'u2d5_c08', {
+  a1_en_b2_d5_2: [E('u2d5_c08t', 'u2d5_c08', {
     lead: 'Mr. və Ms. nəzakətli müraciətdir.', focus: 'Mr. və Ms.',
     sections: [
       { title: 'Kimə?', pairs: [{ en: 'Mr.', az: 'kişiyə' }, { en: 'Ms.', az: 'qadına' }] },
@@ -152,7 +158,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
     ],
     attention: 'Mr. və Ms. soyaddan əvvəl gəlir, sonunda nöqtə qoyulur. Ms. “miz” oxunur.',
   })],
-  a1_en_b2_d6: [E('u2d6_c08t', 'u2d6_c08', {
+  a1_en_b2_d6_2: [E('u2d6_c08t', 'u2d6_c08', {
     lead: 'E-poçtda işarələr sözlə deyilir.', focus: 'sözlə',
     sections: [
       { title: 'İşarələr', pairs: [{ en: 'at', az: '@' }, { en: 'dot', az: '.' }] },
@@ -187,6 +193,8 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       ],
       attention: 'four → forty: forty sözündə u yoxdur.',
     }),
+  ],
+  a1_en_b2_d7b_2: [
     E('u2d7b_c08t', 'u2d7b_c08', {
       lead: "Yaşını I'm ilə deyirsən.", focus: "I'm",
       sections: [
@@ -230,6 +238,8 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       ],
       attention: 'Millət adı da böyük hərflə yazılır: Azerbaijani.',
     }),
+  ],
+  a1_en_b3_d3a_2: [
     E('u3d3a_c06t', 'u3d3a_c06', {
       lead: 'from-dan sonra ölkə gəlir, millətdən əvvəl from yoxdur.', focus: 'from',
       sections: [
@@ -239,7 +249,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       attention: "“I'm from Turkish” olmur: from-dan sonra ölkə gəlir.",
     }),
   ],
-  a1_en_b3_d3b: [E('u3d3b_c10t', 'u3d3b_c10', {
+  a1_en_b3_d3b_2: [E('u3d3b_c10t', 'u3d3b_c10', {
     lead: 'Formada Nationality sətrinə millət yazılır.', focus: 'Nationality',
     sections: [
       { title: 'Ölkə və millət', pairs: [{ en: 'Germany', az: 'ölkə' }, { en: 'German', az: 'millət' }] },
@@ -256,6 +266,8 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       ],
       attention: 'Cavab Yes və ya No ilə başlayır, onu indi öyrənəcəksən.',
     }),
+  ],
+  a1_en_b3_d4_2: [
     E('u3d4_c06t', 'u3d4_c06', {
       lead: "Qısa cavab: Yes, I am. / No, I'm not.", focus: 'Yes, I am.',
       sections: [
@@ -274,6 +286,8 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       ],
       attention: 'Biz “-mı” hissəsini sonda deyirik. İngiliscə Is əvvəldə gəlir.',
     }),
+  ],
+  a1_en_b3_d5b_2: [
     E('u3d5b_c09t', 'u3d5b_c09', {
       lead: 'Is she [millət]? sualına qısa cavab.', focus: 'qısa cavab',
       sections: [

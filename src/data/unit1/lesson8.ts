@@ -8,7 +8,7 @@ const askName = goal(['askName'], ["What's your name?"]);
 const help = goal(['dontUnderstand', 'repeat'], ["Sorry? I don't understand. Say that again, please."]);
 
 export const lesson8: DesignLesson = {
-  id: 'a1_en_b1_v2_d8', order: 8, unit: 1, number: 8, title: 'Bölmə söhbəti', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_v2_d8', order: 15, unit: 1, number: 8, title: 'Bölmə söhbəti', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinlə və ya mətnlə davam et.',
     unknown: 'Cavabı yoxlaya bilmədim. Bir az fərqli yaz və ya yenidən cəhd et.',

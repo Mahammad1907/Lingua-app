@@ -1,4 +1,5 @@
-// Bölmə 2 · Dərs 2 — Telefon nömrəsi (What's your phone number? · It's zero five zero… · oh · Is that right? · Yes, that's right.).
+// Bölmə 2 · Dərs 2 — Telefon nömrəsi. 26 Nov 2026: two parts (a lesson part is 8–12 screens, nothing removed).
+// 1-ci hissə: What's your phone number? · It's zero five zero… · oh. 2-ci hissə: Is that right? · Yes, that's right.
 // Spiral: 0–10 (Dərs 1), Hi, Nice to meet you, Excuse me, More slowly, please., Say that again, please., Thanks, OK.
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, goal, other, pick } from '../unit1/build';
@@ -7,17 +8,18 @@ import { PHONE_MISTAKES, notices, own, PHONE, resultTexts } from './shared';
 const askPhone = goal(['askPhone'], ["What's your phone number?"]);
 const yes = goal(['confirmYes'], ["Yes, that's right."]);
 /** “Is that right?”, optionally after the number read back (digits or words). */
-const check = own(String.raw`^(?:(?:[\d\s,.-]|zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine)+[.?]?\s*)?is (?:that|it) (?:right|correct)\s*\??$`, '050 321 45 67? Is that right?');
+const CHECK = String.raw`^(?:(?:[\d\s,.-]|zero|o(?:h)|one|two|three|four|five|six|seven|eight|nine)+[.?]?\s*)?is (?:that|it) (?:right|correct)\s*\??$`;
+const check = own(CHECK, '050 321 45 67? Is that right?');
 const MY = "It's zero five zero, three two one, four five, six seven.";
 
 export const lesson2: DesignLesson = {
-  id: 'a1_en_b2_d2', order: 12, unit: 2, number: 2, title: 'Telefon nömrəsi', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d2', order: 19, unit: 2, number: 2, part: 1, title: 'Telefon nömrəsi', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {
       type: 'intro', id: 'u2d2_c01', badge: 'Şəxsi məlumat', subtitle: 'Kursda yeni yoldaşla nömrə mübadiləsi edirsən.', start: 'Dərsə başla',
       goals: [
-        { icon: 'chat', text: 'Telefon nömrəsini soruşub yoxlaya bilirəm.' },
+        { icon: 'chat', text: 'Telefon nömrəsini soruşa bilirəm.' },
         { icon: 'wave', text: 'Öz nömrəmi rəqəm-rəqəm deyə bilirəm.' },
       ],
     },
@@ -97,11 +99,59 @@ export const lesson2: DesignLesson = {
         variants: [other('Rəqəmləri bir-bir yoxla.', ex('0703391025', 'Nömrədə həm “zero”, həm “oh” var — ikisi də sıfırdır.', "It's zero seven oh… — 070; It's seven… — 7.", "It's zero seven oh, three three nine, one oh, two five."))],
       },
     },
+  ],
+  result: {
+    done: ['Dərs 2 · 1-ci hissə tamamlandı', 'Artıq telefon nömrəsini soruşur, deyir və eşidib yığa bilirsən.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'Nömrə sualını və nömrəni eşidib anlamaq', tasks: ['u2d2_c03', 'u2d2_c08'] },
+      { group: 'Yazı', text: 'Nömrəni soruşan sual qurmaq', tasks: ['u2d2_c04'] },
+      { group: 'Danışıq', text: 'Öz nömrəni rəqəm-rəqəm demək', tasks: ['u2d2_c06'] },
+    ],
+    closing: 'Növbəti hissə — nömrəni yoxlamaq: Is that right?', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: "What's your phone number?", translation: 'Telefon nömrən nədir?', example: "Hi! What's your phone number?", exampleAz: 'Salam! Telefon nömrən nədir?', usageNote: 'Əvvəl phone, sonra number.', pronunciation: '/wʌts jʊr ˈfoʊn ˌnʌmbər/', teachCard: 'u2d2_c02' },
+    { word: "It's [nömrə]", translation: 'Nömrəm [nömrə]-dir', example: MY, exampleAz: 'Nömrəm 050 321 45 67-dir.', usageNote: 'Nömrə rəqəm-rəqəm deyilir.', pronunciation: '/ɪts/', teachCard: 'u2d2_c05' },
+    { word: 'oh', translation: 'sıfır (nömrədə)', example: "It's oh five oh…", exampleAz: 'Nömrəm 050…-dir.', usageNote: 'Amerikada nömrədə 0.', pronunciation: '/oʊ/', teachCard: 'u2d2_c07' },
+  ],
+};
+
+export const lesson2Part2: DesignLesson = {
+  id: 'a1_en_b2_d2_2', order: 20, unit: 2, number: 2, part: 2, title: 'Nömrəni yoxla', section: 'Şəxsi məlumat',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u2d2_2_c01', badge: 'Şəxsi məlumat', subtitle: 'Nömrəni yazdın — indi düz olduğunu yoxlayırsan.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: 'Yazdığım nömrəni “Is that right?” ilə yoxlaya bilirəm.' },
+        { icon: 'wave', text: 'Nömrə düzdürsə, təsdiqləyə bilirəm.' },
+      ],
+    },
     {
       type: 'word', id: 'u2d2_c09', number: 9, scenes: ['u2/word-is-that-right'],
       word: 'Is that right?', pronunciation: '/ɪz ðæt raɪt/', reading: 'iz **th**ət rayt?', az: 'Düzdür?',
       notes: ['Nömrəni təkrar edib yoxlayanda deyilir.'],
       example: 'Oh five five, two eight one… Is that right?', exampleAz: '055 281… Düzdür?',
+    },
+    {
+      type: 'choice', id: 'u2d2_c16', number: 3, title: 'Dinlə və anla', why: '“Is that right?” — yoxlama sualıdır.', hint: 'Nömrədən sonrakı qısa suala qulaq as.',
+      prompt: 'Kurs yoldaşın nömrəni yazdı və oxuyur.\nO nə edir?', audio: 'Zero five one, four four two, three eight, nine six. Is that right?',
+      options: ['Nömrəni düz yazdığını yoxlayır.', 'Nömrəni soruşur.', 'Yavaş danışmağını istəyir.'], answer: 'Nömrəni düz yazdığını yoxlayır.',
+      variants: [
+        pick('Nömrəni soruşur.', 'Nömrəni artıq bilir — onu oxuyub yoxlayır.', ex('Nömrəni düz yazdığını yoxlayır.', 'O, nömrəni təkrar edir və “Is that right?” soruşur.', "Is that right? — yoxlama; What's your phone number? — nömrə sualı.", 'Oh five five… Is that right?')),
+        pick('Yavaş danışmağını istəyir.', 'Səsdə “slowly” yoxdur.', ex('Nömrəni düz yazdığını yoxlayır.', 'Səsdə “More slowly” yox, “Is that right?” var.', 'Is that right? — yoxlama; More slowly, please. — yavaş.', 'Oh five five… Is that right?')),
+      ],
+      review: {
+        title: 'Dinlə və anla', why: '“Yes, that\'s right.” — nömrə düzdür.', hint: 'Cavabın ilk sözünə qulaq as.',
+        prompt: 'Nömrəni oxuyub soruşdun. Ofisdə iş yoldaşın cavab verir.\nO nə deyir?', audio: "Yes, that's right.",
+        options: ['Nömrə düzdür.', 'Nömrə səhvdir.', 'Bir daha deməyini istəyir.'], answer: 'Nömrə düzdür.',
+        variants: [
+          pick('Nömrə səhvdir.', 'Səsdə “Yes” var — razılıqdır.', ex('Nömrə düzdür.', '“Yes, that\'s right.” — razılıq, nömrə düzdür.', "Is that right? — sual; Yes, that's right. — təsdiq.", "Is that right? — Yes, that's right.")),
+          pick('Bir daha deməyini istəyir.', 'Səsdə “again” yoxdur.', ex('Nömrə düzdür.', 'Səsdə “Say that again” yox, “Yes, that\'s right” var.', "Yes, that's right. — təsdiq; Say that again, please. — bir də.", "Yes, that's right.")),
+        ],
+      },
     },
     {
       type: 'match', id: 'u2d2_c10', number: 10, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
@@ -133,6 +183,18 @@ export const lesson2: DesignLesson = {
         prompt: 'İdman zalının qəbulu nömrəni mesajla yoxlayır. Nömrə düzdür.\nTəsdiqlə.', placeholder: 'Cavabını yaz',
         chat: { partner: 'İdman zalının qəbulu', from: 'B', lines: [{ from: 'B', text: '055 219 03 88? Is that right?' }] }, rule: yes,
         variants: [other("Yes, that's right.", ex("Yes, that's right.", 'Nömrə düzdür, ona görə razılıq bildirirsən.', "Is that right? — Yes, that's right.", "Yes, that's right."))],
+      },
+    },
+    {
+      type: 'voice', id: 'u2d2_c15', number: 7, title: 'Nömrəni yoxla', why: 'Nömrəni təkrar etdin və düz olduğunu soruşdun.', hint: 'Eşitdiyin rəqəmləri təkrar et, sonra yoxlama sualını ver.',
+      prompt: 'Kurs yoldaşın nömrəsini deyir. Sən onu qeyd etdin.\nNömrəni təkrar et və düz olduğunu soruş.', audio: "It's zero five five, two one nine, zero three, eight eight.", reply: "Yes, that's right.",
+      rule: own(CHECK, '055 219 03 88? Is that right?'),
+      variants: [other('Nömrə + Is that right?', ex('055 219 03 88? Is that right?', 'Nömrəni təkrar edib düz olduğunu soruşursan.', "Is that right? — yoxlama; Yes, that's right. — təsdiq.", 'Oh five five… Is that right?'))],
+      review: {
+        title: 'Nömrəni yoxla', why: 'Nömrəni təkrar etdin və düz olduğunu soruşdun.', hint: 'Eşitdiyin rəqəmləri təkrar et, sonra yoxlama sualını ver.',
+        prompt: 'İdman zalında məşqçi nömrəsini deyir. Sən onu qeyd etdin.\nNömrəni təkrar et və düz olduğunu soruş.', audio: "It's zero seven oh, three three nine, one oh, two five.", reply: "Yes, that's right!",
+        rule: own(CHECK, '070 339 10 25? Is that right?'),
+        variants: [other('Nömrə + Is that right?', ex('070 339 10 25? Is that right?', 'Nömrəni təkrar edib düz olduğunu soruşursan.', "Is that right? — yoxlama; Yes, that's right. — təsdiq.", 'Zero seven oh… Is that right?'))],
       },
     },
     {
@@ -182,20 +244,17 @@ export const lesson2: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 2 tamamlandı', 'Artıq telefon nömrəsini soruşur, deyir, yığır və yoxlaya bilirsən.'],
+    done: ['Dərs 2 · 2-ci hissə tamamlandı', 'Artıq yazdığın nömrəni yoxlayır və təsdiqləyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Nömrə sualını və nömrəni eşidib anlamaq', tasks: ['u2d2_c03', 'u2d2_c08', 'u2d2_c10', 'u2d2_c14'] },
-      { group: 'Yazı', text: 'Nömrəni soruşmaq, yoxlamaq və təsdiqləmək', tasks: ['u2d2_c04', 'u2d2_c12', 'u2d2_c13'] },
-      { group: 'Danışıq', text: 'Öz nömrəni rəqəm-rəqəm demək', tasks: ['u2d2_c06'] },
+      { group: 'Tanıma', text: 'Yoxlama sualını və təsdiqi eşidib anlamaq', tasks: ['u2d2_c16', 'u2d2_c10', 'u2d2_c14'] },
+      { group: 'Yazı', text: 'Nömrəni soruşmaq, yoxlamaq və təsdiqləmək', tasks: ['u2d2_c12', 'u2d2_c13'] },
+      { group: 'Danışıq', text: 'Eşitdiyin nömrəni təkrar edib yoxlamaq', tasks: ['u2d2_c15'] },
     ],
-    closing: 'Növbəti dərs — hərflər: hava limanında kodları tanıyırsan.', button: resultTexts.button,
+    closing: 'Növbəti dərs — hərflər: adını latın hərfləri ilə yazırsan.', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: "What's your phone number?", translation: 'Telefon nömrən nədir?', example: "Hi! What's your phone number?", exampleAz: 'Salam! Telefon nömrən nədir?', usageNote: 'Əvvəl phone, sonra number.', pronunciation: '/wʌts jʊr ˈfoʊn ˌnʌmbər/', teachCard: 'u2d2_c02' },
-    { word: "It's [nömrə]", translation: 'Nömrəm [nömrə]-dir', example: MY, exampleAz: 'Nömrəm 050 321 45 67-dir.', usageNote: 'Nömrə rəqəm-rəqəm deyilir.', pronunciation: '/ɪts/', teachCard: 'u2d2_c05' },
-    { word: 'oh', translation: 'sıfır (nömrədə)', example: "It's oh five oh…", exampleAz: 'Nömrəm 050…-dir.', usageNote: 'Amerikada nömrədə 0.', pronunciation: '/oʊ/', teachCard: 'u2d2_c07' },
     { word: 'Is that right?', translation: 'Düzdür?', example: 'Oh five five… Is that right?', exampleAz: '055… Düzdür?', usageNote: 'Yoxlamaq üçün.', pronunciation: '/ɪz ðæt raɪt/', teachCard: 'u2d2_c09' },
     { word: "Yes, that's right.", translation: 'Bəli, düzdür.', example: "Is that right? — Yes, that's right.", exampleAz: 'Düzdür? — Bəli, düzdür.', usageNote: 'Təsdiq.', pronunciation: '/jes ðæts raɪt/', teachCard: 'u2d2_c11' },
   ],

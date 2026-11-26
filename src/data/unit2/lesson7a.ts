@@ -1,4 +1,5 @@
-// Bölmə 2 · Dərs 7 · 1-ci hissə — 11–20 (eleven · twelve · “-teen” nümunəsi · twenty). İdman zalı: dolab, kod, təkrar sayı.
+// Bölmə 2 · Dərs 7 · 1–2-ci hissə — 11–20 (eleven · twelve · “-teen” nümunəsi · twenty). İdman zalı: dolab, kod, təkrar sayı.
+// 26 Nov 2026: split in two parts (a lesson part is 8–12 screens, nothing removed). 1-ci hissə öyrədir, 2-ci hissə zalda işlədir.
 // Spiral: 0–10 (Dərs 1), It's … (Dərs 2), Excuse me, please.
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
@@ -8,14 +9,14 @@ const itsNumber = (word: string, digits: string, ...answers: string[]) =>
   said(String.raw`^(?:it'?s\s+|it is\s+)?(?:${word}|${digits})[.!]?$`, ...answers);
 
 export const lesson7a: DesignLesson = {
-  id: 'a1_en_b2_d7a', order: 19, unit: 2, number: 7, part: 1, title: 'Rəqəmlər 11–20', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d7a', order: 32, unit: 2, number: 7, part: 1, title: 'Rəqəmlər 11–20', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {
       type: 'intro', id: 'u2d7a_c01', badge: 'Şəxsi məlumat', subtitle: 'İdman zalında dolab, kod və təkrarlar — hamısı rəqəmdir.', start: 'Dərsə başla',
       goals: [
         { icon: 'chat', text: '11–20 rəqəmlərini eşidib tanıyıram.' },
-        { icon: 'wave', text: 'Dolabımın nömrəsini deyə bilirəm.' },
+        { icon: 'wave', text: '13–19-u düzgün vurğu ilə deyirəm.' },
       ],
     },
     {
@@ -100,6 +101,36 @@ export const lesson7a: DesignLesson = {
         variants: [other('Bir sıranın davamı yerində deyil.', ex('Twenty, nineteen… — Eighteen!; Thirteen, twelve… — Eleven!; Seventeen, sixteen… — Fifteen!', 'Geriyə sayanda hər sıra bir rəqəm azalır.', 'Twelve… → eleven; Sixteen… → fifteen.', 'Twenty, nineteen, eighteen!'))],
       },
     },
+  ],
+  result: {
+    done: ['Dərs 7 · 1-ci hissə tamamlandı', 'Artıq 11–20 rəqəmlərini tanıyır və sayırsan.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: '11–20 rəqəmlərini eşidib tanımaq', tasks: ['u2d7a_c03', 'u2d7a_c05', 'u2d7a_c09'] },
+      { group: 'Danışıq', text: '13–19-u vurğu ilə demək', tasks: ['u2d7a_c07'] },
+    ],
+    closing: 'Növbəti hissə — 11–20 idman zalında: dolab, kod, Wi-Fi.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'eleven', translation: 'on bir', example: 'Nine, ten, eleven!', exampleAz: 'Doqquz, on, on bir!', usageNote: 'Vurğu ortada: e-LE-ven.', pronunciation: '/ɪˈlevən/', teachCard: 'u2d7a_c02' },
+    { word: 'twelve', translation: 'on iki', example: 'Ten, eleven, twelve!', exampleAz: 'On, on bir, on iki!', usageNote: 'Ayrıca söz.', pronunciation: '/twelv/', teachCard: 'u2d7a_c04' },
+    { word: 'thirteen – nineteen', translation: '13–19', example: 'Thirteen, fourteen, fifteen!', exampleAz: 'On üç, on dörd, on beş!', usageNote: 'rəqəm + teen; thir-, fif- dəyişir.', pronunciation: '/ˌθɜrˈtin/ – /ˌnaɪnˈtin/', teachCard: 'u2d7a_c06' },
+    { word: 'twenty', translation: 'iyirmi', example: 'Eighteen, nineteen, twenty!', exampleAz: 'On səkkiz, on doqquz, iyirmi!', usageNote: 'Vurğu əvvəldə.', pronunciation: '/ˈtwenti/', teachCard: 'u2d7a_c08' },
+  ],
+};
+
+export const lesson7aPart2: DesignLesson = {
+  id: 'a1_en_b2_d7a_2', order: 33, unit: 2, number: 7, part: 2, title: 'İdman zalında rəqəmlər', section: 'Şəxsi məlumat',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u2d7a_2_c01', badge: 'Şəxsi məlumat', subtitle: 'İdman zalında 11–20: dolabın, kodun, Wi-Fi adı.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: '11–20-ni eşidib yığıram və sözlə yazıram.' },
+        { icon: 'wave', text: 'Dolabımın nömrəsini deyə bilirəm.' },
+      ],
+    },
     {
       type: 'write', id: 'u2d7a_c14', number: 14, letters: ['G', 'Y', 'M', 'J', 'I', 'N'], title: 'Hərfləri tut', why: 'G-Y-M — zalın Wi-Fi adı.', hint: 'Hər hərfi eşidən kimi toxun; “ci” və “cey”, “uay” və “ay” fərqinə qulaq as.',
       prompt: 'Eşitdiyin hərflərə toxun.', audio: 'G, Y, M.', placeholder: 'Wi-Fi adı',
@@ -113,6 +144,18 @@ export const lesson7a: DesignLesson = {
       },
     },
     {
+      type: 'write', id: 'u2d7a_c15', number: 3, keypad: true, title: 'Kodu yığ', why: 'fourteen, twenty — 1420.', hint: 'Hər sözü eşidəndə iki rəqəm yığ.',
+      prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Fourteen, twenty.', placeholder: 'Dolabın kodu',
+      rule: exact('1420'),
+      variants: [other('Hər sözdə iki rəqəm var.', ex('1420', 'fourteen — 14, twenty — 20; sıra ilə yığılır.', 'Fourteen, twenty. — 1420; Twenty, fourteen. — 2014.', 'Fourteen, twenty.'))],
+      review: {
+        keypad: true, title: 'Kodu yığ', why: 'eighteen, sixteen — 1816.', hint: 'Hər sözü eşidəndə iki rəqəm yığ.',
+        prompt: 'Eşitdiyin rəqəmləri yığ.', audio: 'Eighteen, sixteen.', placeholder: 'Seyfin kodu',
+        rule: exact('1816'),
+        variants: [other('Hər sözdə iki rəqəm var.', ex('1816', 'eighteen — 18, sixteen — 16.', 'Eighteen, sixteen. — 1816; Sixteen, eighteen. — 1618.', 'Eighteen, sixteen.'))],
+      },
+    },
+    {
       type: 'write', id: 'u2d7a_c10', number: 10, title: 'Dinlə və yaz', why: 'fifteen — five yox, fif-.', hint: 'Yeni söz kartındakı yazılışı xatırla.',
       prompt: 'Eşitdiyin sözü yaz.', audio: 'Fifteen.', placeholder: 'Rəqəmi sözlə yaz',
       rule: exact('fifteen'),
@@ -122,6 +165,20 @@ export const lesson7a: DesignLesson = {
         prompt: 'Eşitdiyin sözü yaz.', audio: 'Thirteen.', placeholder: 'Rəqəmi sözlə yaz',
         rule: exact('thirteen'),
         variants: [other('Yazılışı yoxla.', ex('thirteen', '13-də “three” dəyişir: thir- + teen.', 'four → fourteen; three → thirteen.', 'Thirteen, fourteen, fifteen!'))],
+      },
+    },
+    {
+      type: 'match', id: 'u2d7a_c16', number: 5, title: 'Rəqəmi tap', why: 'Hər sözə rəqəmini tapdın.', hint: 'Əvvəl ən əmin olduğun sözü yerinə qoy.',
+      prompt: 'Zalın lövhəsində rəqəmlər sözlə yazılıb.\nHər sözə onun rəqəmini qoş.',
+      rows: [{ en: 'eleven', az: '11' }, { en: 'twenty', az: '20' }, { en: 'twelve', az: '12' }],
+      extra: ['2'],
+      variants: [other('Bir sözün rəqəmi yerində deyil.', ex('eleven — 11; twenty — 20; twelve — 12', 'eleven və twelve öz sözləridir; twenty — 20.', 'twelve — 12; twenty — 20.', 'Ten, eleven, twelve!'))],
+      review: {
+        title: 'Rəqəmi tap', why: 'Hər sözə rəqəmini tapdın.', hint: 'Əvvəl ən əmin olduğun sözü yerinə qoy.',
+        prompt: 'Hovuzun lövhəsində rəqəmlər sözlə yazılıb.\nHər sözə onun rəqəmini qoş.',
+        rows: [{ en: 'thirteen', az: '13' }, { en: 'nineteen', az: '19' }, { en: 'fifteen', az: '15' }],
+        extra: ['5'],
+        variants: [other('Bir sözün rəqəmi yerində deyil.', ex('thirteen — 13; nineteen — 19; fifteen — 15', '-teen sözlərində əvvəlki hissə tək rəqəmdir.', 'thirteen — 13; fifteen — 15.', 'Thirteen, fourteen, fifteen!'))],
       },
     },
     {
@@ -139,6 +196,24 @@ export const lesson7a: DesignLesson = {
         variants: [
           pick('oneteen', 'Belə söz yoxdur: 11 — eleven.', ex('eleven', '“-teen” 13-dən başlayır; 11-in öz sözü var.', 'eleven — 11; thirteen — 13.', "It's eleven.")),
           pick('seventeen', '“seventeen” — 17.', ex('eleven', '“seventeen” on yeddidir, dolab isə 11-dir.', 'eleven — 11; seventeen — 17.', "It's eleven.")),
+        ],
+      },
+    },
+    {
+      type: 'choice', id: 'u2d7a_c17', number: 7, title: 'Dinlə və seç', why: '“fourteen” — 14.', hint: 'Sözün sonuna qulaq as: “teen” var, yoxsa yox?',
+      prompt: 'Məşqçi neçə təkrar edəcəyini deyir.\nNeçədir?', audio: 'Fourteen.',
+      options: ['4', '14', '12'], answer: '14',
+      variants: [
+        pick('4', '“four” — 4; səsdə “teen” də var.', ex('14', 'Sözün sonunda “teen” var — bu, 14-dür.', 'four — 4; fourteen — 14.', 'Thirteen, fourteen, fifteen!')),
+        pick('12', '“twelve” — 12; səsdə “four” var.', ex('14', 'Sözün əvvəlində “four” var — 14.', 'twelve — 12; fourteen — 14.', 'Fourteen.')),
+      ],
+      review: {
+        title: 'Dinlə və seç', why: '“sixteen” — 16.', hint: 'Sözün sonuna qulaq as: “teen” var, yoxsa yox?',
+        prompt: 'Yoqa müəllimi neçə nəfəs alacağınızı deyir.\nNeçədir?', audio: 'Sixteen.',
+        options: ['16', '6', '17'], answer: '16',
+        variants: [
+          pick('6', '“six” — 6; səsdə “teen” də var.', ex('16', 'Sözün sonunda “teen” var — bu, 16-dır.', 'six — 6; sixteen — 16.', 'Sixteen, seventeen, eighteen.')),
+          pick('17', '“seventeen” — 17; səsdə “six” var.', ex('16', 'Sözün əvvəlində “six” var — 16.', 'sixteen — 16; seventeen — 17.', 'Sixteen.')),
         ],
       },
     },
@@ -176,20 +251,15 @@ export const lesson7a: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 7 · 1-ci hissə tamamlandı', 'Artıq 11–20 rəqəmlərini tanıyırsan, yazırsan və dolabının nömrəsini deyə bilirsən.'],
+    done: ['Dərs 7 · 2-ci hissə tamamlandı', 'Artıq 11–20-ni yığır, sözlə yazır və dolabının nömrəsini deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: '11–20 rəqəmlərini və hərfləri eşidib tanımaq', tasks: ['u2d7a_c14', 'u2d7a_c03', 'u2d7a_c05', 'u2d7a_c09', 'u2d7a_c11', 'u2d7a_c12'] },
+      { group: 'Tanıma', text: '11–20 rəqəmlərini və hərfləri eşidib tanımaq', tasks: ['u2d7a_c14', 'u2d7a_c15', 'u2d7a_c16', 'u2d7a_c11', 'u2d7a_c17', 'u2d7a_c12'] },
       { group: 'Yazı', text: 'Eşitdiyin rəqəmi sözlə yazmaq', tasks: ['u2d7a_c10'] },
-      { group: 'Danışıq', text: '11–20 rəqəmlərini demək', tasks: ['u2d7a_c07', 'u2d7a_c13'] },
+      { group: 'Danışıq', text: 'Dolabının nömrəsini demək', tasks: ['u2d7a_c13'] },
     ],
     closing: 'Növbəti hissə — yaş: How old are you?', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
-  vocabulary: [
-    { word: 'eleven', translation: 'on bir', example: 'Nine, ten, eleven!', exampleAz: 'Doqquz, on, on bir!', usageNote: 'Vurğu ortada: e-LE-ven.', pronunciation: '/ɪˈlevən/', teachCard: 'u2d7a_c02' },
-    { word: 'twelve', translation: 'on iki', example: 'Ten, eleven, twelve!', exampleAz: 'On, on bir, on iki!', usageNote: 'Ayrıca söz.', pronunciation: '/twelv/', teachCard: 'u2d7a_c04' },
-    { word: 'thirteen – nineteen', translation: '13–19', example: 'Thirteen, fourteen, fifteen!', exampleAz: 'On üç, on dörd, on beş!', usageNote: 'rəqəm + teen; thir-, fif- dəyişir.', pronunciation: '/ˌθɜrˈtin/ – /ˌnaɪnˈtin/', teachCard: 'u2d7a_c06' },
-    { word: 'twenty', translation: 'iyirmi', example: 'Eighteen, nineteen, twenty!', exampleAz: 'On səkkiz, on doqquz, iyirmi!', usageNote: 'Vurğu əvvəldə.', pronunciation: '/ˈtwenti/', teachCard: 'u2d7a_c08' },
-  ],
+  vocabulary: [],
 };

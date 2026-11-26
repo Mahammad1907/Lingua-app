@@ -24,16 +24,19 @@ const packets = legacyNames(resolveMascot(raw)) as unknown as PacketLesson[];
 // a lesson with no old packet (Dərs 8) gets an empty one so progress, vocabulary and the home screen know it.
 const designWords = (lesson: DesignLesson) => resolveNames(lesson.vocabulary).map(({ teachCard: _card, ...word }) => ({ ...word, lexical: true, acceptedAnswers: [], acceptedTranslations: [word.translation] }));
 const designPacket = (lesson: DesignLesson, old?: PacketLesson): PacketLesson => ({
-  ...(old ?? { cards: [] }), id: lesson.id, order: lesson.order, title: resolveNames(lesson.title), goal: resolveNames(lesson.result.done[1] ?? lesson.title), vocabulary: designWords(lesson),
+  ...(old ?? { cards: [] }), id: lesson.id, order: lesson.order, number: lesson.number, part: lesson.part, title: resolveNames(lesson.title), goal: resolveNames(lesson.result.done[1] ?? lesson.title), vocabulary: designWords(lesson),
 });
 export const b1Packet: PacketLesson[] = [
   ...packets.map(p => { const d = designLessons.find(l => l.id === p.id); return d ? designPacket(d, p) : p; }),
   ...designLessons.filter(d => !packets.some(p => p.id === d.id)).map(d => designPacket(d)),
 ].sort((a, b) => a.order - b.order);
 export const getPacketLesson = (id: string) => b1Packet.find((lesson) => lesson.id === id);
+// Map number, not order: since 26 Nov 2026 Bölmə 1 lessons have parts, so orders shifted.
+export const mapNumber = (lesson: PacketLesson) => (lesson.part ?? 1) === 1 ? lesson.number ?? lesson.order : 0;
 export function packetFlow(lesson: PacketLesson): PacketCard[] {
-  const cards = lesson.order === 1 ? lesson.cards.filter(c => c.number !== 10) : [...lesson.cards];
-  if (lesson.order === 1) {
+  const n = mapNumber(lesson);
+  const cards = n === 1 ? lesson.cards.filter(c => c.number !== 10) : [...lesson.cards];
+  if (n === 1) {
     const speech = cards.findIndex(c => c.number === 6);
     if (speech >= 0) { const [card] = cards.splice(speech, 1); cards.splice(cards.findIndex(c => c.number === 9), 0, card); }
   }
@@ -44,7 +47,7 @@ export function packetTaskIds(lesson: PacketLesson) {
   const flow = packetFlow(lesson);
   const written = flow.filter((c) => c.kind === 'task').map((c) => c.id);
   const voice = flow.filter((c) => c.kind === 'voice').map((c) => c.id);
-  const extra = lesson.order === 7 ? flow.filter((c) => c.kind === 'voice' && [9, 10].includes(c.number)).map((c) => c.id) : [];
+  const extra = mapNumber(lesson) === 7 ? flow.filter((c) => c.kind === 'voice' && [9, 10].includes(c.number)).map((c) => c.id) : [];
   return { required: written.length ? written : voice.filter((id) => !extra.includes(id)), optional: written.length ? voice : extra };
 }
 export function packetExercise(card: PacketCard): Exercise {
@@ -56,15 +59,15 @@ export function packetExercise(card: PacketCard): Exercise {
 }
 // Section of a lesson on the new screens (Bölmə 2+, exams); the old packet lessons are all Bölmə 1.
 const unitOf = (id: string) => designLessons.find(l => l.id === id)?.unit ?? 1;
-const finalOf = (id: string, order: number) => { const d = designLessons.find(l => l.id === id); return d ? d.exam || ((d.unit ?? 1) >= 2 && d.number === 8) || (!d.unit && order === 8) : order === 8; };
+const finalOf = (id: string, order: number) => { const d = designLessons.find(l => l.id === id); return d ? d.exam || d.number === 8 : order === 8; };
 export const b1Lessons: Lesson[] = b1Packet.map((lesson) => ({
   id: lesson.id, title: lesson.title, titleAz: lesson.title, description: lesson.goal,
   language: 'en', level: 'A1', moduleId: `module_${unitOf(lesson.id)}`, order: lesson.order,
   xpReward: LESSON_XP, estimatedTime: finalOf(lesson.id, lesson.order) ? 10 : 8,
-  focus: finalOf(lesson.id, lesson.order) ? 'speaking' : lesson.order <= 3 ? 'grammar' : 'vocabulary',
+  focus: finalOf(lesson.id, lesson.order) ? 'speaking' : (lesson.number ?? lesson.order) <= 3 ? 'grammar' : 'vocabulary',
   parentGroup: finalOf(lesson.id, lesson.order) ? 'final' : unitOf(lesson.id) >= 2 ? 'd2' : 'd1', subOrder: lesson.order,
   isReview: finalOf(lesson.id, lesson.order), reviewType: finalOf(lesson.id, lesson.order) ? 'module_review' : undefined,
   canDo: lesson.goal,
-  exercises: packetFlow(lesson).filter((c) => c.kind === 'task' || lesson.order === 7 && c.kind === 'voice').map(packetExercise),
+  exercises: packetFlow(lesson).filter((c) => c.kind === 'task' || mapNumber(lesson) === 7 && c.kind === 'voice').map(packetExercise),
   vocabulary: lesson.vocabulary.map((v, index) => ({ ...v, id: `${lesson.id}_v${index + 1}` })),
 }));

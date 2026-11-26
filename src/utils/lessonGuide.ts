@@ -11,7 +11,7 @@ const introductions = [
   { subtitle: 'Öyrəndiklərini söhbətdə birləşdir.', board: 'Let’s talk!', objectives: ['Özünü təqdim etmək', 'Sual verib cavablandırmaq', mascotText('BirFox ilə səsli məşq etmək')] },
 ];
 export function lessonIntroduction(packet: PacketLesson) {
-  return introductions[packet.order - 1] || { subtitle: mascotText('BirFox ilə birlikdə öyrən.'), board: 'Let’s learn!', objectives: [packet.goal] };
+  return ((packet.part ?? 1) === 1 ? introductions[(packet.number ?? packet.order) - 1] : undefined) || { subtitle: mascotText('BirFox ilə birlikdə öyrən.'), board: 'Let’s learn!', objectives: [packet.goal] };
 }
 // Hints explain the requested skill. Answer keys/explanations are deliberately not read here.
 export function lessonHint(card: PacketCard): string | null {

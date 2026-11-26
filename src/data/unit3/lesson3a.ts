@@ -1,4 +1,4 @@
-// Bölmə 3 · Dərs 3, 1-ci hissə — Millət (I'm Azerbaijani. · Turkish · Russian · Georgian).
+// Bölmə 3 · Dərs 3, 1-ci hissə — Millət (I'm Azerbaijani. · Turkish); 2-ci hissə (lesson3a_2): Russian · Georgian.
 // Pasport nəzarəti və hostel. Ölkə (from + ölkə) ilə millət (I'm + millət) fərqi. “Azeri” sözü işlənmir (qayda 20).
 // Spiral: Where are you from? I'm from … Azerbaijan, Turkey, Russia, Georgia (Dərs 1–2), And you? Nice to meet you.
 import type { DesignLesson, Variant } from '../designLessonTypes';
@@ -15,13 +15,13 @@ const NATIONALITY_MISTAKES: Variant[] = [
 ];
 
 export const lesson3a: DesignLesson = {
-  id: 'a1_en_b3_d3a', order: 26, unit: 3, number: 3, part: 1, title: 'Millət', section: 'Haradansan',
+  id: 'a1_en_b3_d3a', order: 44, unit: 3, number: 3, part: 1, title: 'Millət', section: 'Haradansan',
   notices,
   cards: [
     {
       type: 'intro', id: 'u3d3a_c01', badge: 'Haradansan', subtitle: 'Pasport nəzarətində və hosteldə millətini deyirsən.', start: 'Dərsə başla',
       goals: [
-        { icon: 'chat', text: 'Millət sözlərini eşidib tanıya bilirəm.' },
+        { icon: 'chat', text: 'Azərbaycanlı və türk sözlərini eşidib tanıyıram.' },
         { icon: 'wave', text: 'Millətimi deyə bilirəm.' },
       ],
     },
@@ -74,6 +74,80 @@ export const lesson3a: DesignLesson = {
           pick('from', '“from”dan sonra ölkə gəlməlidir, burada isə cümlə bitir.', ex('Azerbaijani', 'İkinci cümlə millətdir: I’m-dən sonra Azerbaijani.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm from Azerbaijan. I'm Azerbaijani.")),
         ],
       },
+    },
+    {
+      type: 'match', id: 'u3d3a_c13', number: 6, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'from olan cümləni millət cümlələrindən ayır.',
+      prompt: 'Pasport nəzarətinin növbəsində sərnişinlər danışır.\nHər cümləyə mənasını qoş.',
+      rows: [{ en: "I'm Turkish.", az: 'Türkəm.', from: 'other' }, { en: "I'm from Turkey.", az: 'Türkiyədənəm.', from: 'other' }, { en: "I'm Azerbaijani.", az: 'Azərbaycanlıyam.', from: 'B' }],
+      extra: ['Azərbaycandanam.'],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm Turkish. — Türkəm.; I'm from Turkey. — Türkiyədənəm.; I'm Azerbaijani. — Azərbaycanlıyam.", 'from olan cümlə ölkəni, from-suz cümlə milləti deyir.', "I'm Turkish. — millət; I'm from Turkey. — ölkə.", "I'm from Turkey. I'm Turkish."))],
+      review: {
+        title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'from olan cümləni millət cümləsindən ayır.',
+        prompt: 'Hostelin mətbəxində tanışlıq.\nHər cümləyə mənasını qoş.',
+        rows: [{ en: "I'm from Azerbaijan.", az: 'Azərbaycandanam.', from: 'G' }, { en: "I'm Turkish.", az: 'Türkəm.', from: 'other' }, { en: 'Where are you from?', az: 'Haradansan?', from: 'other' }],
+        extra: ['Türkiyədənəm.'],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm from Azerbaijan. — Azərbaycandanam.; I'm Turkish. — Türkəm.; Where are you from? — Haradansan?", 'from olan cümlə ölkəni, from-suz cümlə milləti deyir.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm from Azerbaijan. I'm Azerbaijani."))],
+      },
+    },
+    {
+      type: 'write', id: 'u3d3a_c14', number: 7, title: 'Dinlə və yaz', why: 'Turkish — türk.', hint: 'Ölkənin adını xatırla: millət sözü ondan düzəlir.',
+      prompt: 'Millətini yaz.', audio: "I'm Turkish.", placeholder: 'Millət',
+      rule: exact('Turkish', "I'm Turkish."),
+      variants: [
+        { match: { words: ['Turkey', "I'm from Turkey"] }, short: 'Turkey ölkədir; səsdə millət deyilir.', explain: ex('Turkish', 'Səsdə from yoxdur — bu, millətdir: Turkish.', "I'm Turkish. — millət; I'm from Turkey. — ölkə.", "I'm Turkish.") },
+        other('Turkish', ex('Turkish', 'Səsdə millət sözü var: Turkish.', "I'm Turkish. — millət; I'm from Turkey. — ölkə.", "I'm Turkish.")),
+      ],
+      review: {
+        title: 'Dinlə və yaz', why: 'Azerbaijani — azərbaycanlı.', hint: 'Ölkənin adını xatırla: millət sözü ondan düzəlir.',
+        prompt: 'Millətini yaz.', audio: "I'm Azerbaijani.", placeholder: 'Millət',
+        rule: exact('Azerbaijani', "I'm Azerbaijani."),
+        variants: [
+          { match: { words: ['Azerbaijan', "I'm from Azerbaijan"] }, short: 'Azerbaijan ölkədir; səsdə millət deyilir.', explain: ex('Azerbaijani', 'Səsdə from yoxdur — bu, millətdir: Azerbaijani.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm Azerbaijani.") },
+          other('Azerbaijani', ex('Azerbaijani', 'Səsdə millət sözü var: Azerbaijani.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm Azerbaijani.")),
+        ],
+      },
+    },
+    {
+      type: 'voice', id: 'u3d3a_c15', number: 8, title: 'Dinlə və təkrarla', why: 'Millətini dedin; Azerbaijani — vurğu “ca” hecasındadır.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
+      prompt: 'Pasport nəzarətində oğlan millətini deyir.\nDinlə, sonra eyni cür de.', audio: "I'm Azerbaijani.", repeat: { stress: 'ja', note: 'Azerbaijani — vurğu “ca” hecasındadır: əzərbay-CA-ni.', reading: 'aym əzərbaycani' },
+      rule: exact("I'm Azerbaijani."),
+      variants: [other('Bir daha dinlə və yavaş de.', ex("I'm Azerbaijani.", 'Millət sözünün sonunda “-i” səsi var: Azerbaijani.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm Azerbaijani."))],
+      review: {
+        title: 'Dinlə və təkrarla', why: 'Millətini dedin; Turkish — “törkiş”.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
+        prompt: 'Hostelin resepsiyasında qonaq millətini deyir.\nDinlə, sonra eyni cür de.', audio: "I'm Turkish.", repeat: { stress: 'Tur', note: 'Turkish — “törkiş”: sonda “ş” səsi var.', reading: 'aym törkiş' },
+        rule: exact("I'm Turkish."),
+        variants: [other('Bir daha dinlə və yavaş de.', ex("I'm Turkish.", 'Millət sözünün sonunda “ş” səsi var: Turkish.', "I'm Turkish. — millət; I'm from Turkey. — ölkə.", "I'm Turkish."))],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 3 · 1-ci hissə tamamlandı', 'Artıq ölkə ilə milləti ayırır, azərbaycanlı və türk sözlərini tanıyırsan.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'Ölkə ilə milləti eşidib ayırmaq', tasks: ['u3d3a_c03', 'u3d3a_c05', 'u3d3a_c13'] },
+      { group: 'Yazı', text: 'Eşitdiyin milləti yazmaq', tasks: ['u3d3a_c14'] },
+      { group: 'Danışıq', text: 'Millət sözünü düzgün demək', tasks: ['u3d3a_c15'] },
+    ],
+    closing: 'Növbəti hissə — rus və gürcü.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: "I'm Azerbaijani.", translation: 'Mən azərbaycanlıyam.', example: "I'm from Azerbaijan. I'm Azerbaijani.", exampleAz: 'Mən Azərbaycandanam. Azərbaycanlıyam.', usageNote: "I'm + millət; I'm from + ölkə.", pronunciation: '/aɪm ˌæzərbaɪˈdʒɑni/', teachCard: 'u3d3a_c02' },
+    { word: 'Turkish', translation: 'türk', example: "I'm from Turkey. I'm Turkish.", exampleAz: 'Mən Türkiyədənəm. Türkəm.', usageNote: 'Turkey — ölkə, Turkish — millət.', pronunciation: '/ˈtɝkɪʃ/', teachCard: 'u3d3a_c04' },
+  ],
+};
+
+// Dərs 3 · 2-ci hissə (26 Nov 2026: the lesson was split, nothing removed): Russian · Georgian.
+export const lesson3a_2: DesignLesson = {
+  id: 'a1_en_b3_d3a_2', order: 45, unit: 3, number: 3, part: 2, title: 'Millət', section: 'Haradansan',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u3d3a_c20', badge: 'Haradansan', subtitle: 'Hostelin resepsiyasında rus və gürcü qonaqlarla tanış olur, millətini deyirsən.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: 'Rus və gürcü sözlərini eşidib tanıyıram.' },
+        { icon: 'wave', text: 'Millətimi deyə və yaza bilirəm.' },
+      ],
     },
     {
       type: 'word', id: 'u3d3a_c06', number: 6, scenes: ['mascot/wave'],
@@ -157,10 +231,10 @@ export const lesson3a: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 3 · 1-ci hissə tamamlandı', 'Artıq millətini deyir, türk, rus və gürcü sözlərini tanıyırsan.'],
+    done: ['Dərs 3 · 2-ci hissə tamamlandı', 'Artıq millətini deyir, yazır, rus və gürcü sözlərini tanıyırsan.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Millət sözlərini eşidib tanımaq', tasks: ['u3d3a_c03', 'u3d3a_c05', 'u3d3a_c07', 'u3d3a_c12'] },
+      { group: 'Tanıma', text: 'Millət sözlərini eşidib tanımaq', tasks: ['u3d3a_c07', 'u3d3a_c12'] },
       { group: 'Yazı', text: 'Millətini yazmaq və eşitdiyin milləti yazmaq', tasks: ['u3d3a_c10', 'u3d3a_c11'] },
       { group: 'Danışıq', text: 'Millətini demək', tasks: ['u3d3a_c09'] },
     ],
@@ -168,8 +242,6 @@ export const lesson3a: DesignLesson = {
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: "I'm Azerbaijani.", translation: 'Mən azərbaycanlıyam.', example: "I'm from Azerbaijan. I'm Azerbaijani.", exampleAz: 'Mən Azərbaycandanam. Azərbaycanlıyam.', usageNote: "I'm + millət; I'm from + ölkə.", pronunciation: '/aɪm ˌæzərbaɪˈdʒɑni/', teachCard: 'u3d3a_c02' },
-    { word: 'Turkish', translation: 'türk', example: "I'm from Turkey. I'm Turkish.", exampleAz: 'Mən Türkiyədənəm. Türkəm.', usageNote: 'Turkey — ölkə, Turkish — millət.', pronunciation: '/ˈtɝkɪʃ/', teachCard: 'u3d3a_c04' },
     { word: 'Russian', translation: 'rus', example: "I'm from Russia. I'm Russian.", exampleAz: 'Mən Rusiyadanam. Rusam.', usageNote: 'Russia — ölkə, Russian — millət.', pronunciation: '/ˈrʌʃən/', teachCard: 'u3d3a_c06' },
     { word: 'Georgian', translation: 'gürcü', example: "I'm from Georgia. I'm Georgian.", exampleAz: 'Mən Gürcüstandanam. Gürcüyəm.', usageNote: 'Georgia — ölkə, Georgian — millət.', pronunciation: '/ˈdʒɔrdʒən/', teachCard: 'u3d3a_c08' },
   ],

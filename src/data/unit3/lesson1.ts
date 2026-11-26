@@ -1,12 +1,14 @@
-// Bölmə 3 · Dərs 1 — Haradansan? (Where are you from? · I'm from … · Azerbaijan · Me too.)
+// Bölmə 3 · Dərs 1 — Haradansan? 1-ci hissə: Where are you from? · I'm from …; 2-ci hissə (lesson1_2): Azerbaijan · Me too.
 // Dil klubunun açılışı. Xarici danışanlar adsız “Yeni tanış”dır (from: 'other').
 // Spiral: Hello/Hi, Nice to meet you. You too., How are you?, Excuse me, Sorry? Say that again, please., Thank you!
 import type { DesignLesson, Variant } from '../designLessonTypes';
 import { ex, exact, goal, insteadOf, other, pick } from '../unit1/build';
-import { FROM, notices, own, resultTexts } from './shared';
+import { FROM, notices, own, resultTexts, said } from './shared';
 
 const askFrom = goal(['askFrom'], ['Where are you from?']);
 const myOrigin = own(FROM, "I'm from Azerbaijan.");
+/** “I'm from <city>.” for a fixed city (the task gives the city). */
+const fromCity = (city: string) => said(String.raw`^(?:i'?m|i am)\s+from\s+${city.toLowerCase()}\s*[.!]?$`, `I'm from ${city}.`);
 /** “I'm Ganja” (from is missing) and “I from Ganja” (am is missing) — typical Azerbaijani-speaker slips. */
 const fromMistakes = (model: string, example: string): Variant[] => [
   { match: { pattern: String.raw`^(?:i'?m|i am)\s+(?!from\b)\p{L}` }, short: 'Haradan olduğunu deyəndə “from” lazımdır.',
@@ -16,15 +18,14 @@ const fromMistakes = (model: string, example: string): Variant[] => [
 ];
 
 export const lesson1: DesignLesson = {
-  id: 'a1_en_b3_d1', order: 23, unit: 3, number: 1, title: 'Haradansan?', section: 'Haradansan',
+  id: 'a1_en_b3_d1', order: 38, unit: 3, number: 1, part: 1, title: 'Haradansan?', section: 'Haradansan',
   notices,
   cards: [
     {
       type: 'intro', id: 'u3d1_c01', badge: 'Haradansan', subtitle: 'Dil klubunun açılışındasan: yeni tanışlar haradan olduğunu soruşur.', start: 'Dərsə başla',
       goals: [
-        { icon: 'chat', text: 'Haradan olduğunu soruşanda başa düşürəm.' },
+        { icon: 'chat', text: 'Haradan olduğumu soruşanda başa düşürəm.' },
         { icon: 'wave', text: 'Haradan olduğumu deyir və soruşa bilirəm.' },
-        { icon: 'bye', text: '“Mən də” deyə bilirəm.' },
       ],
     },
     {
@@ -78,6 +79,89 @@ export const lesson1: DesignLesson = {
           other("I'm from + şəhər.", ex("I'm from Shamakhi.", 'Haradan olduğunu deyirsən: I’m, from, sonra şəhər.', "I'm from Shamakhi. — haradan; My name is [ad] — ad.", "Where are you from? — I'm from Shamakhi.")),
         ],
       },
+    },
+    {
+      type: 'voice', id: 'u3d1_c14', number: 6, title: 'Səslə cavab', why: 'I’m from + şəhər — haradan olduğunu dedin.', hint: 'Şəhərin adından əvvəl “-dan” sözü ayrıca gəlir.',
+      prompt: 'Dil klubunda yeni tanış səninlə danışır. Sən Gəncədənsən.\nCavab ver.', audio: 'Hi! Where are you from?', reply: 'Nice to meet you!',
+      rule: fromCity('Ganja'),
+      variants: [
+        ...fromMistakes("I'm from Ganja.", "Where are you from? — I'm from Ganja."),
+        other("I'm from + şəhər.", ex("I'm from Ganja.", 'Sual haradan olduğunu soruşur — I’m from və şəhərin adı.', "I'm from Ganja. — haradan; My name is [ad] — ad.", "Where are you from? — I'm from Ganja.")),
+      ],
+      review: {
+        title: 'Səslə cavab', why: 'I’m from + şəhər — haradan olduğunu dedin.', hint: 'Cavabı “mən” sözü ilə başla, şəhərdən əvvəl “-dan” sözünü unutma.',
+        prompt: 'Kursun ilk günüdür, müəllim hər kəsdən soruşur. Sən Lənkərandansan.\nCavab ver.', audio: 'Hello! Where are you from?', reply: 'Thank you!',
+        rule: fromCity('Lankaran'),
+        variants: [
+          ...fromMistakes("I'm from Lankaran.", "Where are you from? — I'm from Lankaran."),
+          other("I'm from + şəhər.", ex("I'm from Lankaran.", 'Sual haradan olduğunu soruşur — I’m from və şəhərin adı.', "I'm from Lankaran. — haradan; I'm fine. — hal.", "Where are you from? — I'm from Lankaran.")),
+        ],
+      },
+    },
+    {
+      type: 'match', id: 'u3d1_c15', number: 7, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
+      prompt: 'Dil klubunda tanışlıq.\nHər cümləyə mənasını qoş.',
+      rows: [{ en: 'Where are you from?', az: 'Haradansan?', from: 'other' }, { en: "I'm from Baku.", az: 'Bakıdanam.', from: 'G' }, { en: "What's your name?", az: 'Adın nədir?', from: 'B' }],
+      extra: ['Necəsən?'],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex("Where are you from? — Haradansan?; I'm from Baku. — Bakıdanam.; What's your name? — Adın nədir?", 'Sualda where və from var — haradan; cavabda I’m from və şəhər.', "Where are you from? — haradan; What's your name? — ad.", "Where are you from? — I'm from Baku."))],
+      review: {
+        title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
+        prompt: 'Hostelin mətbəxində tanışlıq.\nHər cümləyə mənasını qoş.',
+        rows: [{ en: "I'm from Ganja.", az: 'Gəncədənəm.', from: 'other' }, { en: 'Hi! Where are you from?', az: 'Salam! Haradansan?', from: 'G' }, { en: 'How are you?', az: 'Necəsən?', from: 'B' }],
+        extra: ['Adın nədir?'],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm from Ganja. — Gəncədənəm.; Hi! Where are you from? — Salam! Haradansan?; How are you? — Necəsən?", 'Sualda where və from var — haradan; cavabda I’m from və şəhər.', 'Where are you from? — haradan; How are you? — hal.', "Where are you from? — I'm from Ganja."))],
+      },
+    },
+    {
+      type: 'write', id: 'u3d1_c16', number: 8, title: 'Dialoqu tamamla', why: 'Haradan olduğunu soruşdun.', hint: 'Bu dərsin ilk kartındakı sualı xatırla.',
+      prompt: 'Dil klubunun çatında yeni tanış yazır.\nHaradan olduğunu soruş.', placeholder: 'Sualın',
+      chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: "Hi! I'm Anna." }], reply: "I'm from Shamakhi." },
+      rule: askFrom,
+      variants: [
+        insteadOf('askName', 'Adını artıq yazıb — haradan olduğunu soruş.', ex('Where are you from?', 'Ad artıq bəllidir, haradan olduğu lazımdır.', "Where are you from? — haradan; What's your name? — ad.", 'Hi! Where are you from?')),
+        other('Where are you from?', ex('Where are you from?', 'Haradan olduğunu soruşursan: Where are you from?', 'Where are you from? — haradan; How are you? — hal.', 'Hi! Where are you from?')),
+      ],
+      review: {
+        title: 'Dialoqu tamamla', why: 'Haradan olduğunu soruşdun.', hint: 'Bu dərsin ilk kartındakı sualı xatırla.',
+        prompt: 'Kursun qrup çatına yeni üzv qoşuldu və yazır.\nHaradan olduğunu soruş.', placeholder: 'Sualın',
+        chat: { partner: 'Yeni üzv', from: 'other', lines: [{ from: 'other', text: 'Hello! My name is Murad.' }], reply: "I'm from Ganja." },
+        rule: askFrom,
+        variants: [
+          insteadOf('askName', 'Adını artıq yazıb — haradan olduğunu soruş.', ex('Where are you from?', 'Ad artıq bəllidir, haradan olduğu lazımdır.', "Where are you from? — haradan; What's your name? — ad.", 'Hello! Where are you from?')),
+          other('Where are you from?', ex('Where are you from?', 'Haradan olduğunu soruşursan: Where are you from?', 'Where are you from? — haradan; How are you? — hal.', 'Hello! Where are you from?')),
+        ],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 1 · 1-ci hissə tamamlandı', 'Artıq haradan olduğunu soruşur və deyə bilirsən.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'Haradan olduğunu soruşanda başa düşmək', tasks: ['u3d1_c03', 'u3d1_c15'] },
+      { group: 'Yazı', text: 'Haradan olduğunu yazmaq və soruşmaq', tasks: ['u3d1_c05', 'u3d1_c16'] },
+      { group: 'Danışıq', text: 'Haradan olduğunu demək', tasks: ['u3d1_c14'] },
+    ],
+    closing: 'Növbəti hissə — Azərbaycan və “mən də”.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'Where are you from?', translation: 'Haradansan?', example: 'Hello! Where are you from?', exampleAz: 'Salam! Haradansan?', usageNote: 'from — “-dan”, sualın sonunda gəlir.', pronunciation: '/wɛr ɑr ju frʌm/', teachCard: 'u3d1_c02' },
+    { word: "I'm from [ölkə]", translation: 'Mən [ölkə]-danam', example: "Where are you from? — I'm from Baku.", exampleAz: 'Haradansan? — Bakıdanam.', usageNote: "I'm from + şəhər / ölkə.", pronunciation: '/aɪm frʌm/', teachCard: 'u3d1_c04' },
+  ],
+};
+
+// Dərs 1 · 2-ci hissə (26 Nov 2026: the lesson was split, nothing removed): Azerbaijan · Me too.
+export const lesson1_2: DesignLesson = {
+  id: 'a1_en_b3_d1_2', order: 39, unit: 3, number: 1, part: 2, title: 'Haradansan?', section: 'Haradansan',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u3d1_c20', badge: 'Haradansan', subtitle: 'Dil klubunda söhbət davam edir: Azərbaycandan olduğunu deyir, eyni yerdən olanda “mən də” deyirsən.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'wave', text: 'Azərbaycandan olduğumu deyə bilirəm.' },
+        { icon: 'bye', text: '“Mən də” deyə bilirəm.' },
+        { icon: 'chat', text: 'Yeni tanışdan haradan olduğunu soruşa bilirəm.' },
+      ],
     },
     {
       type: 'word', id: 'u3d1_c06', number: 6, scenes: ['mascot/globe'],
@@ -202,19 +286,17 @@ export const lesson1: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 1 tamamlandı', 'Artıq haradan olduğunu deyir, soruşur və “mən də” deyə bilirsən.'],
+    done: ['Dərs 1 · 2-ci hissə tamamlandı', 'Artıq haradan olduğunu deyir, soruşur və “mən də” deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Haradan olduğunu soruşanda başa düşmək', tasks: ['u3d1_c03', 'u3d1_c08', 'u3d1_c10', 'u3d1_c13'] },
-      { group: 'Yazı', text: 'Haradan olduğunu və “mən də” yazmaq', tasks: ['u3d1_c05', 'u3d1_c11'] },
+      { group: 'Tanıma', text: 'Haradan olduğunu və “mən də” deyəndə başa düşmək', tasks: ['u3d1_c08', 'u3d1_c10', 'u3d1_c13'] },
+      { group: 'Yazı', text: '“Mən də” yazmaq', tasks: ['u3d1_c11'] },
       { group: 'Danışıq', text: 'Haradan olduğunu demək və soruşmaq', tasks: ['u3d1_c07', 'u3d1_c12'] },
     ],
     closing: 'Növbəti dərs — ölkələr: Türkiyə, Gürcüstan, Rusiya, İran.', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'Where are you from?', translation: 'Haradansan?', example: 'Hello! Where are you from?', exampleAz: 'Salam! Haradansan?', usageNote: 'from — “-dan”, sualın sonunda gəlir.', pronunciation: '/wɛr ɑr ju frʌm/', teachCard: 'u3d1_c02' },
-    { word: "I'm from [ölkə]", translation: 'Mən [ölkə]-danam', example: "Where are you from? — I'm from Baku.", exampleAz: 'Haradansan? — Bakıdanam.', usageNote: "I'm from + şəhər / ölkə.", pronunciation: '/aɪm frʌm/', teachCard: 'u3d1_c04' },
     { word: 'Azerbaijan', translation: 'Azərbaycan', example: "I'm from Azerbaijan.", exampleAz: 'Azərbaycandanam.', usageNote: 'Ölkə adı, böyük hərflə.', pronunciation: '/ˌæzərbaɪˈdʒɑn/', teachCard: 'u3d1_c06' },
     { word: 'Me too.', translation: 'Mən də.', example: "I'm from Baku. — Me too!", exampleAz: 'Bakıdanam. — Mən də!', usageNote: 'Eyni olanda: mən də.', pronunciation: '/mi tu/', teachCard: 'u3d1_c09' },
   ],

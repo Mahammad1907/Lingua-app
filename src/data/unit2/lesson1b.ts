@@ -9,7 +9,7 @@ const numberPlease = (word: string, digit: string, ...answers: string[]) =>
 const welcome = goal(['welcome'], ["You're welcome."]);
 
 export const lesson1b: DesignLesson = {
-  id: 'a1_en_b2_d1b', order: 11, unit: 2, number: 1, part: 2, title: 'Rəqəmlər 6–10', section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d1b', order: 18, unit: 2, number: 1, part: 2, title: 'Rəqəmlər 6–10', section: 'Şəxsi məlumat',
   notices,
   cards: [
     {

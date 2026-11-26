@@ -7,7 +7,7 @@ Bölmə 2 · Şəxsi məlumat. Bu sənəd `src/data/unit2/lesson7a.ts`-dən yara
 İdman zalında dolab, kod və təkrarlar — hamısı rəqəmdir.
 
 - 11–20 rəqəmlərini eşidib tanıyıram.
-- Dolabımın nömrəsini deyə bilirəm.
+- 13–19-u düzgün vurğu ilə deyirəm.
 
 ## Kart 2 — Yeni söz
 
@@ -64,7 +64,7 @@ Diqqət et: eleven-də “i” səsi ilə başla: “ilevn”.
 
 ## Kart 6 — Nömrəni yığ: Kodu yığ
 
-**Tapşırıq:** İdman zalında dolabın kodu var. Qəbul kodu deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** Twelve, eleven.  
 **Qəbul:** dəqiq: 1211  
 **İpucu:** Hər sözü eşidəndə iki rəqəm yığ.  
@@ -73,7 +73,7 @@ Diqqət et: eleven-də “i” səsi ilə başla: “ilevn”.
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Ofisin qapısında kod var. İş yoldaşın kodu deyir. Dinlə və yığ.  
+**Tapşırıq:** Eşitdiyin rəqəmləri yığ.  
 **Səs:** Fifteen, nineteen.  
 **Qəbul:** dəqiq: 1519  
 **İpucu:** Hər sözü eşidəndə iki rəqəm yığ.  
@@ -150,109 +150,14 @@ Qeyd: Vurğu əvvəldədir: TWEN-ty.
 **Düzgün olanda:** Geriyə sayımı düz davam etdirdin.  
 - *İzah (başqa səhvdə):* Bir sıranın davamı yerində deyil. — Uyğun: Twenty, nineteen… — Eighteen!; Thirteen, twelve… — Eleven!; Seventeen, sixteen… — Fifteen! Səbəb: Geriyə sayanda hər sıra bir rəqəm azalır. Qayda: Twelve… → eleven; Sixteen… → fifteen. Nümunə: Twenty, nineteen, eighteen!  
 
-## Kart 12 — Hərfləri tut: Hərfləri tut
-
-**Tapşırıq:** Məşqçi zalın Wi-Fi adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
-**Səs:** G, Y, M.  
-**Hərflər:** G Y M J I N  
-**Qəbul:** dəqiq: GYM  
-**İpucu:** Hər hərfi eşidən kimi toxun; “ci” və “cey”, “uay” və “ay” fərqinə qulaq as.  
-**Düzgün olanda:** G-Y-M — zalın Wi-Fi adı.  
-- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: GYM. Səbəb: Səsdə üç hərf var: ci, uay, em. Qayda: G — ci; Y — uay. Nümunə: G, Y, M.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Hovuzun qəbulu Wi-Fi adını hərf-hərf deyir. Eşitdiyin hərflərə toxun.  
-**Səs:** P, double O, L.  
-**Hərflər:** P O O L U Q  
-**Qəbul:** dəqiq: POOL  
-**İpucu:** Hər hərfi eşidən kimi toxun; qoşa hərfə diqqət et.  
-**Düzgün olanda:** P-O-O-L — hovuzun Wi-Fi adı.  
-- *İzah (başqa səhvdə):* Hərfləri bir-bir dinlə. — Uyğun: POOL. Səbəb: Səsdə “pi, double O, el” deyilir: double O — OO. Qayda: double O — OO; double L — LL. Nümunə: P, double O, L.  
-
-## Kart 13 — Yaz: Dinlə və yaz
-
-**Tapşırıq:** Qəbulda qadın dolabının nömrəsini deyir. Dostun mesajda soruşur ki, bu rəqəm ingiliscə necə yazılır. Eşitdiyin sözü yaz.  
-**Səs:** Fifteen.  
-**Qəbul:** dəqiq: fifteen  
-**İpucu:** Yeni söz kartındakı yazılışı xatırla.  
-**Düzgün olanda:** fifteen — five yox, fif-.  
-- *İzah (başqa səhvdə):* Yazılışı yoxla. — Uyğun: fifteen. Səbəb: 15-də “five” dəyişir: fif- + teen. Qayda: four → fourteen; five → fifteen. Nümunə: Thirteen, fourteen, fifteen!  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Məşqçi neçə dəfə təkrar edəcəyini deyir. Dostun soruşur ki, bu rəqəm ingiliscə necə yazılır. Eşitdiyin sözü yaz.  
-**Səs:** Thirteen.  
-**Qəbul:** dəqiq: thirteen  
-**İpucu:** Yeni söz kartındakı yazılışı xatırla.  
-**Düzgün olanda:** thirteen — three yox, thir-.  
-- *İzah (başqa səhvdə):* Yazılışı yoxla. — Uyğun: thirteen. Səbəb: 13-də “three” dəyişir: thir- + teen. Qayda: four → fourteen; three → thirteen. Nümunə: Thirteen, fourteen, fifteen!  
-
-## Kart 14 — Sözü tamamla: Sözü tamamla
-
-**Tapşırıq:** Qız dolabının nömrəsini deyir: 12. Hansı söz çatmır?  
-**Cümlə:** It's ___ .  
-**Seçimlər:** twelve / twoteen / twenty — **düzgün:** twelve  
-**İpucu:** On ikinin öz ayrıca sözü var — kartı xatırla.  
-**Düzgün olanda:** 12 — twelve.  
-- *İzah (“twoteen” seçiləndə):* Belə söz yoxdur: 12 — twelve. — Uyğun: twelve. Səbəb: “-teen” 13-dən başlayır; 12-nin öz sözü var. Qayda: twelve — 12; thirteen — 13. Nümunə: It's twelve.  
-- *İzah (“twenty” seçiləndə):* “twenty” — 20. — Uyğun: twelve. Səbəb: “twenty” iyirmidir, dolab isə 12-dir. Qayda: twelve — 12; twenty — 20. Nümunə: It's twelve.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Oğlan dolabının nömrəsini deyir: 11. Hansı söz çatmır?  
-**Cümlə:** It's ___ .  
-**Seçimlər:** oneteen / eleven / seventeen — **düzgün:** eleven  
-**İpucu:** On birin öz ayrıca sözü var — kartı xatırla.  
-**Düzgün olanda:** 11 — eleven.  
-- *İzah (“oneteen” seçiləndə):* Belə söz yoxdur: 11 — eleven. — Uyğun: eleven. Səbəb: “-teen” 13-dən başlayır; 11-in öz sözü var. Qayda: eleven — 11; thirteen — 13. Nümunə: It's eleven.  
-- *İzah (“seventeen” seçiləndə):* “seventeen” — 17. — Uyğun: eleven. Səbəb: “seventeen” on yeddidir, dolab isə 11-dir. Qayda: eleven — 11; seventeen — 17. Nümunə: It's eleven.  
-
-## Kart 15 — Səhnədə tap: Səhnədə tap
-
-**Tapşırıq:** Zalda dolablar sıra ilə düzülüb. Qəbul sənin dolabını deyir. Şəkildə həmin dolabı tap.  
-**Səs:** Seventeen.  
-**Seçimlər:** 7-ci dolab / 17-ci dolab / 16-cı dolab — **düzgün:** 17-ci dolab  
-**İpucu:** Sözün sonuna qulaq as: “teen” var, yoxsa yox?  
-**Düzgün olanda:** “seventeen” — 17.  
-- *İzah (“7-ci dolab” seçiləndə):* “seven” — 7; səsdə “teen” də var. — Uyğun: 17-ci dolab. Səbəb: Sözün sonunda “teen” var — bu, 17-dir. Qayda: seven — 7; seventeen — 17. Nümunə: Seventeen.  
-- *İzah (“16-cı dolab” seçiləndə):* “sixteen” — 16; səsdə “seven” var. — Uyğun: 17-ci dolab. Səbəb: Sözün əvvəlində “seven” var, “six” yox. Qayda: sixteen — 16; seventeen — 17. Nümunə: Seventeen.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Hovuzun soyunma otağındasan. Qəbul sənin dolabını deyir. Şəkildə həmin dolabı tap.  
-**Səs:** Nineteen.  
-**Seçimlər:** 9-cu dolab / 18-ci dolab / 19-cu dolab — **düzgün:** 19-cu dolab  
-**İpucu:** Sözün sonuna qulaq as: “teen” var, yoxsa yox?  
-**Düzgün olanda:** “nineteen” — 19.  
-- *İzah (“9-cu dolab” seçiləndə):* “nine” — 9; səsdə “teen” də var. — Uyğun: 19-cu dolab. Səbəb: Sözün sonunda “teen” var — bu, 19-dur. Qayda: nine — 9; nineteen — 19. Nümunə: Nineteen.  
-- *İzah (“18-ci dolab” seçiləndə):* “eighteen” — 18; səsdə “nine” var. — Uyğun: 19-cu dolab. Səbəb: Sözün əvvəlində “nine” var, “eigh” yox. Qayda: eighteen — 18; nineteen — 19. Nümunə: Nineteen.  
-
-## Kart 16 — Səslə cavab: Dolabını de
-
-**Tapşırıq:** Qəbulda soruşurlar ki, dolabın neçədir. Sənin dolabın 18-dir. Nömrəni de.  
-**Qəbul:** dəqiq: It's eighteen. · öz məlumatı: /^(?:it'?s\s+|it is\s+)?(?:eighteen|18)[.!]?$/  
-**İpucu:** Dərs 2-dəki kimi qısa sözlə başla, sonra nömrəni de.  
-**Düzgün olanda:** Dolabının nömrəsini dedin.  
-- *İzah (başqa səhvdə):* It's eighteen. — Uyğun: It's eighteen. Səbəb: 18 — eight + teen; “gh” oxunmur. Qayda: eight — 8; eighteen — 18. Nümunə: It's eighteen.  
-
-**Təkrar (yeni vəziyyət):**
-
-**Tapşırıq:** Hovuzda soruşurlar ki, dolabın neçədir. Sənin dolabın 13-dür. Nömrəni de.  
-**Qəbul:** dəqiq: It's thirteen. · öz məlumatı: /^(?:it'?s\s+|it is\s+)?(?:thirteen|13)[.!]?$/  
-**İpucu:** Dərs 2-dəki kimi qısa sözlə başla, sonra nömrəni de.  
-**Düzgün olanda:** Dolabının nömrəsini dedin.  
-- *İzah (başqa səhvdə):* It's thirteen. — Uyğun: It's thirteen. Səbəb: 13 — thir- + teen, “three” dəyişir. Qayda: three — 3; thirteen — 13. Nümunə: It's thirteen.  
-
 ## Nəticə
 
-Dərs 7 · 1-ci hissə tamamlandı — Artıq 11–20 rəqəmlərini tanıyırsan, yazırsan və dolabının nömrəsini deyə bilirsən.
+Dərs 7 · 1-ci hissə tamamlandı — Artıq 11–20 rəqəmlərini tanıyır və sayırsan.
 
-- Tanıma: 11–20 rəqəmlərini və hərfləri eşidib tanımaq
-- Yazı: Eşitdiyin rəqəmi sözlə yazmaq
-- Danışıq: 11–20 rəqəmlərini demək
+- Tanıma: 11–20 rəqəmlərini eşidib tanımaq
+- Danışıq: 13–19-u vurğu ilə demək
 
-Növbəti hissə — yaş: How old are you?
+Növbəti hissə — 11–20 idman zalında: dolab, kod, Wi-Fi.
 
 ## Lüğətim
 

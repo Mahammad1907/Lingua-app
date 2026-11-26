@@ -1,11 +1,11 @@
-// Bölmə 2 · Dərs 3 · 3-cü hissə — O K (OK), H D (HD), Q R (QR), Y Z; hərfləri özün deyirsən: səsli hərflər, kod, öz adın.
+// Bölmə 2 · Dərs 3 · 5-ci hissə — O K (OK), H D (HD), Q R (QR), Y Z; hərfləri özün deyirsən: səsli hərflər, kod, öz adın.
 // Spiral: Sorry? More slowly, please. (Bölmə 1), Is that right? (Dərs 2). Sonda A/E cüt məşqi.
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
 import { NAME, NAME_SPELLED, notices, own, resultTexts, said, spelled } from './shared';
 
 export const lesson3c: DesignLesson = {
-  id: 'a1_en_b2_d3c', order: 15, unit: 2, number: 3, part: 3, title: "Hərflər 3: OK, HD, QR", section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d3c', order: 25, unit: 2, number: 3, part: 5, title: "Hərflər 5: OK, HD, QR", section: 'Şəxsi məlumat',
   notices,
   cards: [
     {
@@ -190,7 +190,7 @@ export const lesson3c: DesignLesson = {
     },
   ],
   result: {
-    done: ["Dərs 3 · 3-cü hissə tamamlandı", "Bütün hərfləri tanıyırsan, kodu və adını hərf-hərf deyə bilirsən."],
+    done: ["Dərs 3 · 5-ci hissə tamamlandı", "Bütün hərfləri tanıyırsan, kodu və adını hərf-hərf deyə bilirsən."],
     incomplete: resultTexts.incomplete,
     goals: [{"group": "Tanıma", "text": "Eşitdiyin hərfi və kodu tanımaq", "tasks": ["u2d3c_c05", "u2d3c_c09", "u2d3c_c10", "u2d3c_c12"]}, {"group": "Danışıq", "text": "Hərfləri, kodu və adını hərf-hərf demək", "tasks": ["u2d3c_c03", "u2d3c_c07", "u2d3c_c11"]}],
     closing: "Növbəti dərs — hərf-hərf de: oteldə adını və şəhərini.", button: resultTexts.button,

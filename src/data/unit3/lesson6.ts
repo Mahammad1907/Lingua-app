@@ -1,9 +1,9 @@
-// Bölmə 3 · Dərs 6 — Harada yaşayırsan? (Where do you live? · I live in … · city · but · here).
+// Bölmə 3 · Dərs 6 — Harada yaşayırsan? 1-ci hissə: Where do you live? · I live in …; 2-ci hissə (lesson6_2): city · but · here.
 // Kafe və şəhər turu avtobusu. Hədəf: “I'm from Ganja, but I live in Baku.”
 // Səhvlər: “I live at Baku”, “I'm live in …”, “Where are you live?”, from ↔ live qarışığı.
 // Spiral: Where are you from? I'm from … Me too. (Dərs 1), He's / She's from … (Dərs 5), Really?
 import type { DesignLesson, Variant } from '../designLessonTypes';
-import { ex, goal, other, pick } from '../unit1/build';
+import { ex, exact, goal, other, pick } from '../unit1/build';
 import { FROM_LIVE, FROM_MISTAKES, LIVE, LIVE_MISTAKES, notices, own, resultTexts, said } from './shared';
 
 const myCity = own(LIVE, 'I live in [şəhər]');
@@ -18,7 +18,7 @@ const whereLive = goal(['askLive'], ['Where do you live?']);
 const whereFrom = goal(['askFrom'], ['Where are you from?']);
 
 export const lesson6: DesignLesson = {
-  id: 'a1_en_b3_d6', order: 31, unit: 3, number: 6, title: 'Harada yaşayırsan?', section: 'Haradansan',
+  id: 'a1_en_b3_d6', order: 53, unit: 3, number: 6, part: 1, title: 'Harada yaşayırsan?', section: 'Haradansan',
   notices,
   cards: [
     {
@@ -26,7 +26,7 @@ export const lesson6: DesignLesson = {
       goals: [
         { icon: 'chat', text: 'Harada yaşadığını soruşanı anlayıram.' },
         { icon: 'wave', text: 'Harada yaşadığımı deyirəm: “I live in Baku.”' },
-        { icon: 'bye', text: 'Haradan olduğumu və harada yaşadığımı bir cümlədə deyirəm.' },
+        { icon: 'bye', text: 'Harada yaşadığını soruşa bilirəm.' },
       ],
     },
     {
@@ -71,6 +71,88 @@ export const lesson6: DesignLesson = {
         rule: myCity,
         variants: [...LIVE_MISTAKES, other('I live in + şəhər.', ex('I live in [şəhər]', 'Harada yaşadığını I live in ilə deyirsən.', "I live in Ganja. — yaşayıram; I'm from Ganja. — Gəncədənəm.", 'Where do you live? — I live in Baku.'))],
       },
+    },
+    {
+      type: 'write', id: 'u3d6_c15', number: 7, title: 'Mesaj yaz', why: 'Sualda do var: Where do you live?', hint: 'Bu dərsin ilk sualını xatırla: “are” yox, başqa kiçik söz.',
+      prompt: 'Yeni tanış çatda Gəncədən olduğunu yazdı.\nHarada yaşadığını soruş: sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+      chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: "Hi! I'm from Ganja." }], reply: 'I live in Baku.' },
+      tiles: ['Where', 'do', 'you', 'live', '?', 'are', 'from'], rule: exact('Where do you live?'),
+      variants: [
+        { match: { pattern: String.raw`^where\s+are\s+you\s+live` }, short: 'Bu sualda are yox, do gəlir.', explain: ex('Where do you live?', 'live ilə sualı do açır: Where do you live?', 'Where do you live? — harada yaşayırsan; Where are you from? — haradan.', 'Hi! Where do you live?') },
+        other('Sıra: Where do you live?', ex('Where do you live?', 'Sual Where ilə başlayır, sonra do, you və live.', 'Where do you live? — harada yaşayırsan; Where are you from? — haradan.', 'Hi! Where do you live?')),
+      ],
+      review: {
+        title: 'Mesaj yaz', why: 'Sualda do var: Where do you live?', hint: 'Bu dərsin ilk sualını xatırla: “are” yox, başqa kiçik söz.',
+        prompt: 'Kursun qrup çatına yeni üzv yazdı.\nHarada yaşadığını soruş: sözlərdən sual qur.', placeholder: 'Sözlərə toxun',
+        chat: { partner: 'Yeni üzv', from: 'other', lines: [{ from: 'other', text: 'Hello! My name is Murad.' }], reply: 'I live in Sumgait.' },
+        tiles: ['you', 'live', 'Where', 'are', 'do', '?', 'in'], rule: exact('Where do you live?'),
+        variants: [
+          { match: { pattern: String.raw`^where\s+are\s+you\s+live` }, short: 'Bu sualda are yox, do gəlir.', explain: ex('Where do you live?', 'live ilə sualı do açır: Where do you live?', 'Where do you live? — harada yaşayırsan; Where are you from? — haradan.', 'Hello! Where do you live?') },
+          other('Sıra: Where do you live?', ex('Where do you live?', 'Sual Where ilə başlayır, sonra do, you və live.', 'Where do you live? — harada yaşayırsan; Where are you from? — haradan.', 'Hello! Where do you live?')),
+        ],
+      },
+    },
+    {
+      type: 'choice', id: 'u3d6_c14', number: 8, title: 'Sözü tamamla', why: 'Şəhərdən əvvəl in gəlir: I live in Baku.', hint: 'Azərbaycancada bu, şəhərin sonuna “-da” kimi qoşulur.',
+      prompt: 'Kafedə yeni tanış harada yaşadığını deyir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'I live', after: 'Baku.' },
+      options: ['in', 'at', 'from'], answer: 'in',
+      variants: [
+        pick('at', 'Şəhərdən əvvəl “in” gəlir.', ex('in', 'Şəhərdə yaşayırsan — “in”: Bakıda.', 'I live in Baku. — düzdür; I live at Baku. — olmur.', 'Where do you live? — I live in Baku.')),
+        pick('from', '“from” — haradan; burada harada yaşadığını deyir.', ex('in', 'live-dan sonra şəhər “in” ilə gəlir.', "I live in Baku. — harada yaşayır; I'm from Baku. — haradan.", 'Where do you live? — I live in Baku.')),
+      ],
+      review: {
+        title: 'Sözü tamamla', why: 'Şəhərdən əvvəl in gəlir: I live in Ganja.', hint: 'Azərbaycancada bu, şəhərin sonuna “-da” kimi qoşulur.',
+        prompt: 'Şəhər turu avtobusunda bələdçi harada yaşadığını deyir.\nHansı söz çatmır?', gap: { speaker: 'other', before: 'I live', after: 'Ganja.' },
+        options: ['from', 'in', 'at'], answer: 'in',
+        variants: [
+          pick('at', 'Şəhərdən əvvəl “in” gəlir.', ex('in', 'Şəhərdə yaşayır — “in”: Gəncədə.', 'I live in Ganja. — düzdür; I live at Ganja. — olmur.', 'Where do you live? — I live in Ganja.')),
+          pick('from', '“from” — haradan; burada harada yaşadığını deyir.', ex('in', 'live-dan sonra şəhər “in” ilə gəlir.', "I live in Ganja. — harada yaşayır; I'm from Ganja. — haradan.", 'Where do you live? — I live in Ganja.')),
+        ],
+      },
+    },
+    {
+      type: 'write', id: 'u3d6_c16', number: 9, title: 'Dialoqu tamamla', why: 'Harada yaşadığını yazdın.', hint: '“-da” ingiliscə şəhərdən əvvəl ayrıca gəlir.',
+      prompt: 'Kursdan yeni tanış çatda yazır.\nHarada yaşadığını yaz.', placeholder: 'Cavabın',
+      chat: { partner: 'Yeni tanış', from: 'other', lines: [{ from: 'other', text: 'Hi! Where do you live?' }], reply: 'Nice!' },
+      rule: myCity,
+      variants: [...LIVE_MISTAKES, other('I live in + şəhər.', ex('I live in Baku.', 'Sual harada yaşadığını soruşur — I live in və şəhərin adı.', "I live in Baku. — harada yaşayıram; I'm from Baku. — haradan.", 'Where do you live? — I live in Baku.'))],
+      review: {
+        title: 'Dialoqu tamamla', why: 'Harada yaşadığını yazdın.', hint: '“-da” ingiliscə şəhərdən əvvəl ayrıca gəlir.',
+        prompt: 'Şəhər turunun qrup çatında bələdçi hər kəsə yazır.\nHarada yaşadığını yaz.', placeholder: 'Cavabın',
+        chat: { partner: 'Bələdçi', from: 'other', lines: [{ from: 'other', text: 'Hello! Where do you live?' }], reply: 'OK, thanks!' },
+        rule: myCity,
+        variants: [...LIVE_MISTAKES, other('I live in + şəhər.', ex('I live in Ganja.', 'Sual harada yaşadığını soruşur — I live in və şəhərin adı.', "I live in Ganja. — harada yaşayıram; I'm from Ganja. — haradan.", 'Where do you live? — I live in Ganja.'))],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 6 · 1-ci hissə tamamlandı', 'Artıq harada yaşadığını soruşur və deyə bilirsən.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'Harada yaşadığını soruşanı və cavabı anlamaq', tasks: ['u3d6_c03', 'u3d6_c14'] },
+      { group: 'Yazı', text: 'Harada yaşadığını soruşmaq və yazmaq', tasks: ['u3d6_c15', 'u3d6_c16'] },
+      { group: 'Danışıq', text: 'Harada yaşadığını demək', tasks: ['u3d6_c05'] },
+    ],
+    closing: 'Növbəti hissə — city, but, here: haradan olduğunu və harada yaşadığını birlikdə demək.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'Where do you live?', translation: 'Harada yaşayırsan?', example: 'Hi! Where do you live?', exampleAz: 'Salam! Harada yaşayırsan?', usageNote: 'do — sualı qurur.', pronunciation: '/wɛr du ju lɪv/', teachCard: 'u3d6_c02' },
+    { word: 'I live in [şəhər]', translation: 'Mən [şəhər]-da yaşayıram.', example: 'Where do you live? — I live in Baku.', exampleAz: 'Harada yaşayırsan? — Bakıda yaşayıram.', usageNote: 'Şəhərdən əvvəl in.', pronunciation: '/aɪ lɪv ɪn/', teachCard: 'u3d6_c04' },
+  ],
+};
+
+// Dərs 6 · 2-ci hissə (26 Nov 2026: the lesson was split, nothing removed): city · but · here.
+export const lesson6_2: DesignLesson = {
+  id: 'a1_en_b3_d6_2', order: 54, unit: 3, number: 6, part: 2, title: 'Harada yaşayırsan?', section: 'Haradansan',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u3d6_c20', badge: 'Haradansan', subtitle: 'Kafedə və şəhər turu avtobusunda haradan olduğunu və harada yaşadığını birlikdə deyirsən.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: '“Haradan” və “harada yaşayır” fərqini eşidib tanıyıram.' },
+        { icon: 'bye', text: 'Haradan olduğumu və harada yaşadığımı bir cümlədə deyirəm.' },
+      ],
     },
     {
       type: 'word', id: 'u3d6_c06', number: 6, scenes: ['mascot/globe'],
@@ -172,19 +254,17 @@ export const lesson6: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 6 tamamlandı', 'Artıq harada yaşadığını deyir, haradan olduğunla birlikdə but ilə birləşdirə bilirsən.'],
+    done: ['Dərs 6 · 2-ci hissə tamamlandı', 'Artıq harada yaşadığını deyir, haradan olduğunla birlikdə but ilə birləşdirə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Harada yaşadığını soruşanı anlamaq; from və live fərqi', tasks: ['u3d6_c03', 'u3d6_c07', 'u3d6_c11'] },
+      { group: 'Tanıma', text: 'from və live fərqini anlamaq', tasks: ['u3d6_c07', 'u3d6_c11'] },
       { group: 'Yazı', text: 'But ilə cümlə qurmaq və iki sual yazmaq', tasks: ['u3d6_c09', 'u3d6_c13'] },
-      { group: 'Danışıq', text: 'Harada yaşadığını və haradan olduğunu demək', tasks: ['u3d6_c05', 'u3d6_c12'] },
+      { group: 'Danışıq', text: 'Harada yaşadığını və haradan olduğunu demək', tasks: ['u3d6_c12'] },
     ],
     closing: 'Növbəti dərs — hansı dildə danışırsan?', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'Where do you live?', translation: 'Harada yaşayırsan?', example: 'Hi! Where do you live?', exampleAz: 'Salam! Harada yaşayırsan?', usageNote: 'do — sualı qurur.', pronunciation: '/wɛr du ju lɪv/', teachCard: 'u3d6_c02' },
-    { word: 'I live in [şəhər]', translation: 'Mən [şəhər]-da yaşayıram.', example: 'Where do you live? — I live in Baku.', exampleAz: 'Harada yaşayırsan? — Bakıda yaşayıram.', usageNote: 'Şəhərdən əvvəl in.', pronunciation: '/aɪ lɪv ɪn/', teachCard: 'u3d6_c04' },
     { word: 'city', translation: 'şəhər', example: 'What city are you from? — Ganja.', exampleAz: 'Hansı şəhərdənsən? — Gəncədən.', usageNote: 'Ölkə — country, şəhər — city.', pronunciation: '/ˈsɪti/', teachCard: 'u3d6_c06' },
     { word: 'but', translation: 'amma', example: "I'm from Ganja, but I live in Baku.", exampleAz: 'Gəncədənəm, amma Bakıda yaşayıram.', usageNote: 'İki fərqli fikri birləşdirir.', pronunciation: '/bʌt/', teachCard: 'u3d6_c08' },
     { word: 'here', translation: 'burada', example: "I'm from Ganja, but I live here.", exampleAz: 'Gəncədənəm, amma burada yaşayıram.', usageNote: 'Şəhərin adı əvəzinə.', pronunciation: '/hɪr/', teachCard: 'u3d6_c10' },

@@ -3,6 +3,7 @@
 // - taughtIn: which earlier lesson taught a phrase in the answer, shown as “Təkrarla: Bölmə X · Dərs Y”.
 import type { DesignLesson } from '../data/designLessonTypes';
 import { designLessons } from '../data/designLessons';
+import { ordinal } from './ordinal';
 
 const norm = (t: string) => t.toLowerCase().replace(/[’‘]/g, "'").replace(/[“”"….,!?:;()]/g, ' ').replace(/\[ad\]|\{[a-z]\}/gi, ' ').replace(/\s+/g, ' ').trim();
 
@@ -40,7 +41,7 @@ export function meaningOf(answer?: string): string | undefined {
   return az.every(Boolean) ? az.join(' → ') : undefined;
 }
 
-const label = (l: DesignLesson) => `Bölmə ${l.unit ?? 1} · Dərs ${l.number ?? l.order}${l.part ? ` (${l.part}-${l.part === 3 ? 'cü' : 'ci'} hissə)` : ''}`;
+const label = (l: DesignLesson) => `Bölmə ${l.unit ?? 1} · Dərs ${l.number ?? l.order}${l.part ? ` (${ordinal(l.part)} hissə)` : ''}`;
 
 /** The earlier lesson whose “Yeni söz” card taught the longest phrase found in the answer; undefined if it is this lesson. */
 export function taughtIn(answer: string | undefined, current: DesignLesson): string | undefined {

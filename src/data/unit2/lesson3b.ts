@@ -1,18 +1,18 @@
-// Bölmə 2 · Dərs 3 · 2-ci hissə — çətin hərflər tanış qısaltmalarla: U A (USA), G P (GPS), D J (DJ), C D (CD), B W (BMW).
-// Yalnız tanıma. Sonda G/J və A/E cüt məşqi.
+// Bölmə 2 · Dərs 3 · 3–4-cü hissə — çətin hərflər tanış qısaltmalarla: U A (USA), G P (GPS), D J (DJ); 4-cü hissədə C D (CD), B W (BMW).
+// Yalnız tanıma. Sonda G/J və A/E cüt məşqi. 26 Nov 2026: split in two parts (a lesson part is 8–12 screens, nothing removed).
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
-import { NAME, NAME_SPELLED, notices, own, resultTexts, said, spelled } from './shared';
+import { notices, resultTexts } from './shared';
 
 export const lesson3b: DesignLesson = {
-  id: 'a1_en_b2_d3b', order: 14, unit: 2, number: 3, part: 2, title: "Hərflər 2: USA, GPS, DJ", section: 'Şəxsi məlumat',
+  id: 'a1_en_b2_d3b', order: 23, unit: 2, number: 3, part: 3, title: "Hərflər 3: USA, GPS, DJ", section: 'Şəxsi məlumat',
   notices,
   cards: [
     {
-      type: 'intro', id: 'u2d3b_c01', badge: 'Şəxsi məlumat', subtitle: "Hər çətin hərfi tanış qısaltma ilə öyrənirsən: USA, GPS, DJ, CD, BMW.", start: 'Dərsə başla',
+      type: 'intro', id: 'u2d3b_c01', badge: 'Şəxsi məlumat', subtitle: "Hər çətin hərfi tanış qısaltma ilə öyrənirsən: USA, GPS, DJ.", start: 'Dərsə başla',
       goals: [
-        { icon: 'chat', text: "U A, G P, J, C, B W hərflərini eşidib tanıyıram." },
-        { icon: 'wave', text: "G ilə J-ni, A ilə E-ni qarışdırmıram." },
+        { icon: 'chat', text: "U A, G P, J hərflərini eşidib tanıyıram." },
+        { icon: 'wave', text: "G ilə J-ni qarışdırmıram." },
       ],
     },
     {
@@ -35,9 +35,9 @@ export const lesson3b: DesignLesson = {
         why: "Hər hərfin ingiliscə adını tapdın.",
         hint: "Əvvəl ən əmin olduğun hərfi yerinə qoy.",
         prompt: "Maşın nömrələrində hərflər var.\nHər hərfə onun ingiliscə oxunuşunu qoş.",
-        rows: [{"en": "J", "az": "cey"}, {"en": "G", "az": "ci"}, {"en": "W", "az": "dabəlyu"}],
-        extra: ["ve"],
-        variants: [other("Bir hərfin oxunuşu yerində deyil.", ex("J — cey; G — ci; W — dabəlyu", "Hər hərfin ingiliscə oxunuşunu tap.", "G — ci; J — cey.", "D, J."))],
+        rows: [{"en": "J", "az": "cey"}, {"en": "G", "az": "ci"}, {"en": "P", "az": "pi"}],
+        extra: ["pe"],
+        variants: [other("Bir hərfin oxunuşu yerində deyil.", ex("J — cey; G — ci; P — pi", "Hər hərfin ingiliscə oxunuşunu tap.", "G — ci; J — cey.", "D, J."))],
       },
     },
     {
@@ -101,10 +101,78 @@ export const lesson3b: DesignLesson = {
       },
     },
     {
+      type: 'choice', id: 'u2d3b_c14', number: 8,
+      title: "Dinlə və seç",
+      why: "U-S-A: A — “ey”.",
+      hint: "Sonuncu hərfin oxunuşuna qulaq as — kartı xatırla.",
+      prompt: "Hava limanında elan uçuşun ölkəsini hərf-hərf deyir.\nHansıdır?",
+      audio: "U, S, A.",
+      options: ["USI", "USA", "ASU"],
+      answer: "USA",
+      variants: [pick("USI", "I “ay” oxunur, səsdə “ey” var.", ex("USA", "Sonuncu hərf “ey”dir — A.", "A — ey; I — ay.", "USA")), pick("ASU", "Hərflərin sırası tərsdir.", ex("USA", "Əvvəl “yu”, sonra “es”, sonra “ey” deyilir.", "U — yu; A — ey.", "USA"))],
+      review: {
+        title: "Dinlə və seç",
+        why: "D-J: J — “cey”.",
+        hint: "İkinci hərfin sonunda “ey” var, yoxsa yox?",
+        prompt: "Toyda aparıcı musiqini verən adamı çağırır.\nHansı qısaltmanı eşitdin?",
+        audio: "D, J.",
+        options: ["DG", "TJ", "DJ"],
+        answer: "DJ",
+        variants: [pick("DG", "G “ci” oxunur, səsdə “cey” var.", ex("DJ", "İkinci hərf “cey”dir — J.", "J — cey; G — ci.", "DJ")), pick("TJ", "T “ti” oxunur, səsdə “di” var.", ex("DJ", "İlk hərf “di”dir — D.", "D — di; T — ti.", "DJ"))],
+      },
+    },
+  ],
+  result: {
+    done: ["Dərs 3 · 3-cü hissə tamamlandı", "U A, G P, J hərflərini tanıyırsan, G ilə J-ni ayırırsan."],
+    incomplete: resultTexts.incomplete,
+    goals: [{"group": "Tanıma", "text": "Eşitdiyin hərfi və qısaltmanı tanımaq", "tasks": ["u2d3b_c03", "u2d3b_c05", "u2d3b_c07", "u2d3b_c14"]}],
+    closing: "Növbəti hissə — C D, B W: CD, BMW.", button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    {"word": "U, A", "translation": "yu, ey", "example": "USA", "exampleAz": "ABŞ", "usageNote": "A — “ey”.", "pronunciation": "/ju/ · /eɪ/", "teachCard": "u2d3b_c02"},
+    {"word": "G, P", "translation": "ci, pi", "example": "GPS", "exampleAz": "GPS", "usageNote": "G — “ci”.", "pronunciation": "/dʒi/ · /pi/", "teachCard": "u2d3b_c04"},
+    {"word": "D, J", "translation": "di, cey", "example": "DJ", "exampleAz": "DJ", "usageNote": "J — “cey”.", "pronunciation": "/di/ · /dʒeɪ/", "teachCard": "u2d3b_c06"},
+  ],
+};
+
+export const lesson3bPart2: DesignLesson = {
+  id: 'a1_en_b2_d3b_2', order: 24, unit: 2, number: 3, part: 4, title: "Hərflər 4: CD, BMW", section: 'Şəxsi məlumat',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u2d3b_2_c01', badge: 'Şəxsi məlumat', subtitle: "C və W bizdə başqa cür oxunur: CD, BMW. Sonda G/J və A/E cüt məşqi.", start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: "C D, B W hərflərini eşidib tanıyıram." },
+        { icon: 'wave', text: "G ilə J-ni, A ilə E-ni qarışdırmıram." },
+      ],
+    },
+    {
       type: 'word', id: 'u2d3b_c08', number: 8, scenes: ['u2/word-letters-cd'],
       word: "C, D", pronunciation: "/si/ · /di/", reading: "si, di", az: "C — “si”",
       notes: ["C — “si”, “ce” yox."],
       example: "CD", exampleAz: "CD (si-di)",
+    },
+    {
+      type: 'choice', id: 'u2d3b_c17', number: 3,
+      title: "Dinlə və seç",
+      why: "C — “si”.",
+      hint: "Hərfdən sonra rəqəm gəlir — hərfin ilk səsinə qulaq as.",
+      prompt: "Avtobusda sürücü sənin yerini deyir.\nHansı yerdir?",
+      audio: "C, seven.",
+      options: ["D7", "C7", "G7"],
+      answer: "C7",
+      variants: [pick("D7", "D “di” oxunur, səsdə “si” var.", ex("C7", "Səsdəki “si” — C-dir.", "C — si; D — di.", "C, seven.")), pick("G7", "G “ci” oxunur, səsdə “si” var.", ex("C7", "Səsdəki “si” — C-dir.", "C — si; G — ci.", "C, seven."))],
+      review: {
+        title: "Dinlə və seç",
+        why: "B — “bi”.",
+        hint: "Hərfdən sonra rəqəm gəlir — hərfin ilk səsinə qulaq as.",
+        prompt: "Qatarda konduktor sənin vaqonunu deyir.\nHansı vaqondur?",
+        audio: "B, three.",
+        options: ["B3", "P3", "D3"],
+        answer: "B3",
+        variants: [pick("P3", "P “pi” oxunur, səsdə “bi” var.", ex("B3", "Səsdəki “bi” — B-dir.", "B — bi; P — pi.", "B, three.")), pick("D3", "D “di” oxunur, səsdə “bi” var.", ex("B3", "Səsdəki “bi” — B-dir.", "B — bi; D — di.", "B, three."))],
+      },
     },
     {
       type: 'write', id: 'u2d3b_c09', number: 9,
@@ -132,6 +200,25 @@ export const lesson3b: DesignLesson = {
       word: "B, W", pronunciation: "/bi/ · /ˈdʌbəlju/", reading: "bi, dabəlyu", az: "W — “dabəlyu”",
       notes: ["W — “dabəlyu”, “ve” yox."],
       example: "BMW", exampleAz: "BMW (bi-em-dabəlyu)",
+    },
+    {
+      type: 'match', id: 'u2d3b_c16', number: 6,
+      title: "Hərfi oxunuşuna qoş",
+      why: "Hər hərfin ingiliscə adını tapdın.",
+      hint: "Bir oxunuş Azərbaycan əlifbasındandır — o, artıqdır.",
+      prompt: "Mağazada disklərin üstündə hərflər var.\nHər hərfə onun ingiliscə oxunuşunu qoş.",
+      rows: [{"en": "C", "az": "si"}, {"en": "W", "az": "dabəlyu"}, {"en": "B", "az": "bi"}],
+      extra: ["ce"],
+      variants: [other("Bir hərfin oxunuşu yerində deyil.", ex("C — si; W — dabəlyu; B — bi", "Hər hərfin ingiliscə oxunuşunu tap.", "C — si; W — dabəlyu.", "BMW"))],
+      review: {
+        title: "Hərfi oxunuşuna qoş",
+        why: "Hər hərfin ingiliscə adını tapdın.",
+        hint: "Əvvəl ən əmin olduğun hərfi yerinə qoy.",
+        prompt: "Parkinqdə maşın nömrələrində hərflər var.\nHər hərfə onun ingiliscə oxunuşunu qoş.",
+        rows: [{"en": "W", "az": "dabəlyu"}, {"en": "C", "az": "si"}, {"en": "G", "az": "ci"}],
+        extra: ["ve"],
+        variants: [other("Bir hərfin oxunuşu yerində deyil.", ex("W — dabəlyu; C — si; G — ci", "Hər hərfin ingiliscə oxunuşunu tap.", "C — si; G — ci.", "CD"))],
+      },
     },
     {
       type: 'choice', id: 'u2d3b_c11', number: 11,
@@ -176,6 +263,29 @@ export const lesson3b: DesignLesson = {
       },
     },
     {
+      type: 'write', id: 'u2d3b_c15', number: 9,
+      letters: ["C", "N", "N", "S", "G", "E"],
+      title: "Hərfləri tut",
+      why: "C-N-N — xəbər kanalı.",
+      hint: "Hər hərfi eşidən kimi toxun; “si” və “ci” fərqinə qulaq as.",
+      prompt: 'Eşitdiyin hərflərə toxun.',
+      audio: "C, N, N.",
+      placeholder: "Kanal",
+      rule: exact('CNN'),
+      variants: [other("Hərfləri bir-bir dinlə.", ex("CNN", "Səsdə üç hərf var: si, en, en.", "C — si; G — ci.", "C, N, N."))],
+      review: {
+        letters: ["B", "B", "C", "P", "D", "G"],
+        title: "Hərfləri tut",
+        why: "B-B-C — xəbər kanalı.",
+        hint: "Hər hərfi eşidən kimi toxun; “bi” və “pi” fərqinə qulaq as.",
+        prompt: 'Eşitdiyin hərflərə toxun.',
+        audio: "B, B, C.",
+        placeholder: "Kanal",
+        rule: exact('BBC'),
+        variants: [other("Hərfləri bir-bir dinlə.", ex("BBC", "Səsdə üç hərf var: bi, bi, si.", "B — bi; P — pi.", "B, B, C."))],
+      },
+    },
+    {
       type: 'choice', id: 'u2d3b_c13', number: 13,
       title: "Cütü ayır: G yoxsa J?",
       why: "G — “ci”.",
@@ -198,16 +308,13 @@ export const lesson3b: DesignLesson = {
     },
   ],
   result: {
-    done: ["Dərs 3 · 2-ci hissə tamamlandı", "U A, G P, J, C, B W hərflərini tanıyırsan, G ilə J-ni və A ilə E-ni ayırırsan."],
+    done: ["Dərs 3 · 4-cü hissə tamamlandı", "C D, B W hərflərini tanıyırsan, G ilə J-ni və A ilə E-ni ayırırsan."],
     incomplete: resultTexts.incomplete,
-    goals: [{"group": "Tanıma", "text": "Eşitdiyin hərfi və qısaltmanı tanımaq", "tasks": ["u2d3b_c03", "u2d3b_c05", "u2d3b_c07", "u2d3b_c11", "u2d3b_c12", "u2d3b_c13"]}, {"group": "Yazı", "text": "Maşın nömrəsini eşidib yazmaq", "tasks": ["u2d3b_c09"]}],
+    goals: [{"group": "Tanıma", "text": "Eşitdiyin hərfi və qısaltmanı tanımaq", "tasks": ["u2d3b_c17", "u2d3b_c16", "u2d3b_c11", "u2d3b_c12", "u2d3b_c15", "u2d3b_c13"]}, {"group": "Yazı", "text": "Maşın nömrəsini eşidib yazmaq", "tasks": ["u2d3b_c09"]}],
     closing: "Növbəti hissə — O K, H, Q R, Y Z və hərfləri özün deyirsən.", button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    {"word": "U, A", "translation": "yu, ey", "example": "USA", "exampleAz": "ABŞ", "usageNote": "A — “ey”.", "pronunciation": "/ju/ · /eɪ/", "teachCard": "u2d3b_c02"},
-    {"word": "G, P", "translation": "ci, pi", "example": "GPS", "exampleAz": "GPS", "usageNote": "G — “ci”.", "pronunciation": "/dʒi/ · /pi/", "teachCard": "u2d3b_c04"},
-    {"word": "D, J", "translation": "di, cey", "example": "DJ", "exampleAz": "DJ", "usageNote": "J — “cey”.", "pronunciation": "/di/ · /dʒeɪ/", "teachCard": "u2d3b_c06"},
     {"word": "C, D", "translation": "si, di", "example": "CD", "exampleAz": "CD", "usageNote": "C — “si”.", "pronunciation": "/si/ · /di/", "teachCard": "u2d3b_c08"},
     {"word": "B, W", "translation": "bi, dabəlyu", "example": "BMW", "exampleAz": "BMW", "usageNote": "W — “dabəlyu”.", "pronunciation": "/bi/ · /ˈdʌbəlju/", "teachCard": "u2d3b_c10"},
   ],

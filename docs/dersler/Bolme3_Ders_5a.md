@@ -149,7 +149,7 @@ Diqqət et: Biz “Fransa-dan” deyirik, “-dan” sonda gəlir. İngiliscəd�
 
 ## Kart 11 — Mesaj yaz (sözlərdən): Mesaj yaz
 
-**Tapşırıq:** Qrup çatında yazırsan: video zəngdəki qadın dostun Almaniyadandır. Sözlərdən cümlə qur.  
+**Tapşırıq:** Video zəngdəki qadın Almaniyadandır. Sözlərdən cümlə qur.  
 **Sözlər:** She's · He's · from · Germany · German · at · .  
 **Qəbul:** dəqiq: She's from Germany. · öz məlumatı: /^she(?:'s|’s|\s+is)\s+from\s+germany\s*[.!]?$/  
 **İpucu:** Qadın haqqında yazırsan; “-dandır” hissəsi ayrıca sözdür.  
@@ -159,7 +159,7 @@ Diqqət et: Biz “Fransa-dan” deyirik, “-dan” sonda gəlir. İngiliscəd�
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Hostelin çatına yazırsan: otaq yoldaşın olan kişi İrandandır. Sözlərdən cümlə qur.  
+**Tapşırıq:** Hostelin çatına yazırsan: otaq yoldaşın İrandandır. Sözlərdən cümlə qur.  
 **Sözlər:** from · He's · She's · Iran · at · Turkish · .  
 **Qəbul:** dəqiq: He's from Iran. · öz məlumatı: /^he(?:'s|’s|\s+is)\s+from\s+iran\s*[.!]?$/  
 **İpucu:** Kişi haqqında yazırsan; “-dandır” hissəsi ayrıca sözdür.  
@@ -178,7 +178,7 @@ Diqqət et: Biz “Fransa-dan” deyirik, “-dan” sonda gəlir. İngiliscəd�
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Hostelin mətbəxində yeni tanış kişi dedi: “I'm from England.” Qız onu oğlana təqdim edir. Qız nə deyir?  
+**Tapşırıq:** Hostelin mətbəxində qız İngiltərədən olan tanışı təqdim edir. Qız nə deyir?  
 **Seçimlər:** He from England. / She's from England. / He's from England. — **düzgün:** He's from England.  
 **İpucu:** Kim haqqında danışırsan və “-dandır” hissəsi harada?  
 **Düzgün olanda:** Kişi haqqında — He’s from England.  
@@ -187,7 +187,7 @@ Diqqət et: Biz “Fransa-dan” deyirik, “-dan” sonda gəlir. İngiliscəd�
 
 ## Kart 13 — Yaz: Dinlə və yaz
 
-**Tapşırıq:** Qatarda dostun yanındakı qadın haqqında səsli mesaj göndərdi. Sən onu başqa dosta yazırsan. Eşitdiyini yaz.  
+**Tapşırıq:** Eşitdiyini yaz.  
 **Səs:** She's from Germany.  
 **Qəbul:** dəqiq: She's from Germany. · öz məlumatı: /^she(?:'s|’s|\s+is)\s+from\s+germany\s*[.!]?$/  
 **İpucu:** Birinci sözə qulaq as: “hiz”, yoxsa “şiz”?  
@@ -197,7 +197,7 @@ Diqqət et: Biz “Fransa-dan” deyirik, “-dan” sonda gəlir. İngiliscəd�
 
 **Təkrar (yeni vəziyyət):**
 
-**Tapşırıq:** Video zəngdə qız ekrandakı kişi haqqında danışır. Sonra dostun mesajda soruşur ki, o haradandır. Eşitdiyini yaz.  
+**Tapşırıq:** Eşitdiyini yaz.  
 **Səs:** He's from Russia.  
 **Qəbul:** dəqiq: He's from Russia. · öz məlumatı: /^he(?:'s|’s|\s+is)\s+from\s+russia\s*[.!]?$/  
 **İpucu:** Birinci sözə qulaq as: “hiz”, yoxsa “şiz”?  

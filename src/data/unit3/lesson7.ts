@@ -1,24 +1,32 @@
-// Bölmə 3 · Dərs 7 — Dillər (Do you speak …? · Yes, I do. · No, I don't. · a little · language).
+// Bölmə 3 · Dərs 7 — Dillər. 1-ci hissə: Do you speak …? · Yes, I do. · No, I don't.; 2-ci hissə (lesson7_2): a little · language.
 // Dil mübadiləsi masası. Dil adları millət sözləri ilə eynidir (Dərs 3) — yenidən öyrədilmir, qeyddə izah olunur.
 // Spiral: Really?, Are you …?, Where are you from?, I live in …, More slowly, please.
 import type { DesignLesson } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
-import { notices, own, resultTexts, SPEAK, SPEAK_MISTAKES } from './shared';
+import { notices, own, resultTexts, said, SPEAK, SPEAK_MISTAKES } from './shared';
 
 const areYouSpeak = { match: { pattern: String.raw`^are\s+you\s+speak` }, short: 'Bu sualda “are” yox, “do” gəlir.',
   explain: ex('Do you speak Russian?', 'Danışmaq haqqında sualı “Do” başladır.', 'Do you speak Russian? — dil; Are you Russian? — millət.', 'Excuse me, do you speak English?') };
+/** Own short answer to “Do you speak …?”: “Yes, I do.” or “No, I don't.” */
+const DO_SHORT = String.raw`^(?:yes\s*,?\s*i\s+do|no\s*,?\s*i\s+(?:don'?t|don’t|do\s+not))\s*[.!]?$`;
+const DO_MISTAKES = (example: string) => [
+  { match: { pattern: String.raw`^(?:yes\s*,?\s*i(?:'m|’m|\s+am)|no\s*,?\s*i(?:'m|’m|\s+am)\s+not)\b` }, short: 'Sual Do ilə başlayıb — cavabda da do gəlir.',
+    explain: ex('Yes, I do.', 'Sual Do ilə başlayırsa, qısa cavabda da do gəlir.', "Yes, I do. — danışıram; Yes, I am. — eləyəm.", example) },
+  { match: { pattern: String.raw`^no\s*,?\s*i\s+not\b` }, short: '“xeyr” cavabında don’t deyilir.',
+    explain: ex("No, I don't.", '“danışmıram” üçün do və not birlikdə gəlir: don’t.', "No, I don't. — düzdür; No, I not. — olmur.", example) },
+];
 const noLittle = { match: { pattern: String.raw`(?<!\ba\s)\blittle\b` }, short: '“bir az” iki sözdür: a little.',
   explain: ex('Yes, a little.', '“little”dən əvvəl “a” gəlir: a little — bir az.', 'Yes, a little. — düzdür; Yes, little. — olmur.', 'Do you speak English? — Yes, a little.') };
 
 export const lesson7: DesignLesson = {
-  id: 'a1_en_b3_d7', order: 32, unit: 3, number: 7, title: 'Dillər', section: 'Haradansan',
+  id: 'a1_en_b3_d7', order: 55, unit: 3, number: 7, part: 1, title: 'Dillər', section: 'Haradansan',
   notices,
   cards: [
     {
       type: 'intro', id: 'u3d7_c01', badge: 'Haradansan', subtitle: 'Dil mübadiləsi masasında kim hansı dildə danışır — soruşursan və deyirsən.', start: 'Dərsə başla',
       goals: [
         { icon: 'chat', text: 'Hansı dildə danışdığını soruşa bilirəm.' },
-        { icon: 'wave', text: 'Hansı dillərdə və nə qədər danışdığımı deyə bilirəm.' },
+        { icon: 'wave', text: 'Bəli və xeyr ilə qısa cavab verə bilirəm: Yes, I do. / No, I don’t.' },
       ],
     },
     {
@@ -88,11 +96,66 @@ export const lesson7: DesignLesson = {
       },
     },
     {
+      type: 'voice', id: 'u3d7_c14', number: 8, title: 'Səslə cavab', why: 'Do sualına do ilə qısa cavab verdin.', hint: 'Sual hansı kiçik sözlə başlayıb? Cavabda da o gəlir.',
+      prompt: 'Dil mübadiləsi masasında yeni tanış soruşur.\nRusca bilirsən? Düzünü qısa cavabla de.', audio: 'Do you speak Russian?', reply: 'OK!',
+      rule: said(DO_SHORT, 'Yes, I do.', "No, I don't."),
+      variants: [...DO_MISTAKES('Do you speak Russian? — Yes, I do.'), other('Yes, I do. / No, I don’t.', ex('Yes, I do.', 'Sual bəli/xeyr sualıdır və Do ilə başlayır — qısa cavab da do ilə.', "Yes, I do. — bəli; No, I don't. — xeyr.", 'Do you speak Russian? — Yes, I do.'))],
+      review: {
+        title: 'Səslə cavab', why: 'Do sualına do ilə qısa cavab verdin.', hint: 'Sual hansı kiçik sözlə başlayıb? Cavabda da o gəlir.',
+        prompt: 'Hostelin mətbəxində yanındakı gənc soruşur.\nFransızca bilirsən? Düzünü qısa cavabla de.', audio: 'Excuse me, do you speak French?', reply: 'OK, thanks!',
+        rule: said(DO_SHORT, 'Yes, I do.', "No, I don't."),
+        variants: [...DO_MISTAKES("Do you speak French? — No, I don't."), other('Yes, I do. / No, I don’t.', ex("No, I don't.", 'Sual bəli/xeyr sualıdır və Do ilə başlayır — qısa cavab da do ilə.', "Yes, I do. — bəli; No, I don't. — xeyr.", "Do you speak French? — No, I don't."))],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 7 · 1-ci hissə tamamlandı', 'Artıq dil haqqında soruşur və qısa cavab verə bilirsən.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'Dil sualını və qısa cavabları anlamaq', tasks: ['u3d7_c03', 'u3d7_c07'] },
+      { group: 'Yazı', text: 'Dil haqqında sual qurmaq', tasks: ['u3d7_c05'] },
+      { group: 'Danışıq', text: 'Dil sualına qısa cavab vermək', tasks: ['u3d7_c14'] },
+    ],
+    closing: 'Növbəti hissə — “bir az” və “dil”: hansı dillərdə danışdığını demək.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'Do you speak English?', translation: 'İngiliscə danışırsan?', example: 'Excuse me, do you speak English?', exampleAz: 'Bağışlayın, ingiliscə danışırsınız?', usageNote: 'Do you speak + dil?', pronunciation: '/du ju spik ˈɪŋɡlɪʃ/', teachCard: 'u3d7_c02' },
+    { word: 'Yes, I do.', translation: 'Bəli, danışıram.', example: 'Do you speak Russian? — Yes, I do.', exampleAz: 'Rusca danışırsan? — Bəli, danışıram.', usageNote: 'Do you [dil]? sualına qısa “bəli”.', pronunciation: '/jɛs aɪ du/', teachCard: 'u3d7_c04' },
+    { word: "No, I don't.", translation: 'Xeyr, danışmıram.', example: "Do you speak French? — No, I don't.", exampleAz: 'Fransızca danışırsan? — Xeyr, danışmıram.', usageNote: 'Do you [dil]? sualına qısa “xeyr”.', pronunciation: '/noʊ aɪ doʊnt/', teachCard: 'u3d7_c06' },
+  ],
+};
+
+// Dərs 7 · 2-ci hissə (26 Nov 2026: the lesson was split, nothing removed): a little · language.
+export const lesson7_2: DesignLesson = {
+  id: 'a1_en_b3_d7_2', order: 56, unit: 3, number: 7, part: 2, title: 'Dillər', section: 'Haradansan',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u3d7_c20', badge: 'Haradansan', subtitle: 'Dil mübadiləsi masasında hansı dillərdə və nə qədər danışdığını deyirsən.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: 'Hansı dildə danışdığını soruşanı anlayıram.' },
+        { icon: 'wave', text: 'Hansı dillərdə və nə qədər danışdığımı deyə bilirəm.' },
+      ],
+    },
+    {
       type: 'word', id: 'u3d7_c08', number: 8, scenes: ['mascot/point'],
       word: 'a little', pronunciation: '/ə ˈlɪtəl/', reading: 'ə litl', az: 'bir az',
       structure: ['I speak a little + dil.', 'Yes, a little.'],
       notes: ['“a” və “little” birlikdə gəlir: bir az.'],
       example: 'I speak a little English.', exampleAz: 'Bir az ingiliscə danışıram.',
+    },
+    {
+      type: 'voice', id: 'u3d7_c15', number: 9, title: 'Dinlə və təkrarla', why: 'Cümləni dedin; a little — “ə litl”.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
+      prompt: 'Dil mübadiləsi masasında yeni tanış ingiliscə nə qədər bildiyini deyir.\nDinlə, sonra eyni cür de.', audio: 'I speak a little English.', repeat: { stress: 'lit', note: 'a little — “ə litl”: a ilə little birlikdə deyilir.', reading: 'ay spik ə litl inqliş' },
+      rule: exact('I speak a little English.'),
+      variants: [other('Bir daha dinlə və yavaş de.', ex('I speak a little English.', '“bir az” iki sözdür: a little.', 'I speak a little English. — düzdür; I speak little English. — başqa məna verir.', 'Do you speak English? — Yes, a little.'))],
+      review: {
+        title: 'Dinlə və təkrarla', why: 'Cümləni dedin; a little — “ə litl”.', hint: 'Əvvəl yavaş dinlə, sonra sözləri bir-bir de.',
+        prompt: 'Hostelin mətbəxində qonaq rusca nə qədər bildiyini deyir.\nDinlə, sonra eyni cür de.', audio: 'I speak a little Russian.', repeat: { stress: 'lit', note: 'a little — “ə litl”: a ilə little birlikdə deyilir.', reading: 'ay spik ə litl raşən' },
+        rule: exact('I speak a little Russian.'),
+        variants: [other('Bir daha dinlə və yavaş de.', ex('I speak a little Russian.', '“bir az” iki sözdür: a little.', 'I speak a little Russian. — düzdür; I speak little Russian. — başqa məna verir.', 'Do you speak Russian? — Yes, a little.'))],
+      },
     },
     {
       type: 'voice', id: 'u3d7_c09', number: 9, title: 'Dillərini de', why: 'Hansı dillərdə danışdığını dedin.', hint: 'Əvvəl qısa cavab ver, sonra dilləri bir-bir sadala.',
@@ -113,6 +176,24 @@ export const lesson7: DesignLesson = {
       example: 'What language do you speak?', exampleAz: 'Hansı dildə danışırsan?',
     },
     {
+      type: 'choice', id: 'u3d7_c16', number: 12, title: 'Dinlə və anla', why: '“language” — dil.', hint: 'Sualın ikinci sözünə qulaq as.',
+      prompt: 'Dil mübadiləsi masasında yeni tanış səninlə danışır.\nO nə soruşur?', audio: 'What language do you speak?',
+      options: ['Hansı dildə danışdığını soruşur.', 'Haradan olduğunu soruşur.', 'Harada yaşadığını soruşur.'], answer: 'Hansı dildə danışdığını soruşur.',
+      variants: [
+        pick('Haradan olduğunu soruşur.', 'Səsdə “from” yoxdur.', ex('Hansı dildə danışdığını soruşur.', 'Səsdə language və speak var — dil.', 'What language do you speak? — dil; Where are you from? — haradan.', 'What language do you speak?')),
+        pick('Harada yaşadığını soruşur.', 'Səsdə “live” yoxdur.', ex('Hansı dildə danışdığını soruşur.', 'Səsdə language və speak var — dil.', 'What language do you speak? — dil; Where do you live? — harada yaşayırsan.', 'What language do you speak?')),
+      ],
+      review: {
+        title: 'Dinlə və anla', why: '“language” — dil.', hint: 'Sualın ortasındakı yeni sözə qulaq as.',
+        prompt: 'Hostelin resepsiyasında işçi səninlə danışır.\nO nə soruşur?', audio: 'Excuse me, what language do you speak?',
+        options: ['Millətini soruşur.', 'Hansı dildə danışdığını soruşur.', 'Haradan olduğunu soruşur.'], answer: 'Hansı dildə danışdığını soruşur.',
+        variants: [
+          pick('Millətini soruşur.', 'Səsdə millət sualı yoxdur.', ex('Hansı dildə danışdığını soruşur.', 'Səsdə language və speak var — dil.', 'What language do you speak? — dil; Are you Russian? — millət.', 'Excuse me, what language do you speak?')),
+          pick('Haradan olduğunu soruşur.', 'Səsdə “from” yoxdur.', ex('Hansı dildə danışdığını soruşur.', 'Səsdə language və speak var — dil.', 'What language do you speak? — dil; Where are you from? — haradan.', 'Excuse me, what language do you speak?')),
+        ],
+      },
+    },
+    {
       type: 'choice', id: 'u3d7_c11', number: 11, title: 'Sözü tamamla', why: '“Do you [dil]?” sualına “No, I don’t.” ilə cavab verilir.', hint: 'Sual “Are you” ilə yox, başqa sözlə başlayıb.',
       prompt: 'Oğlan almanca bilmir.\nHansı söz çatmır?', gap: { speaker: 'B', before: 'No, I', after: '.' },
       options: ['am', "don't", 'not'], answer: "don't",
@@ -128,6 +209,20 @@ export const lesson7: DesignLesson = {
           pick('am', '“am” ilə “Are you [millət]?” sualına cavab verilir.', ex('Yes, I do.', 'Sual “Do” ilə başlayıb, cavabda da “do” işlənir.', 'Do you speak French? — Yes, I do.; Are you French? — Yes, I am.', 'Do you speak French? — Yes, I do.')),
           pick('speak', 'Qısa cavabda “speak” təkrar olunmur.', ex('Yes, I do.', 'Qısa cavabda sualdakı “do” işlənir.', 'Yes, I do. — düzdür; Yes, I speak. — olmur.', 'Do you speak French? — Yes, I do.')),
         ],
+      },
+    },
+    {
+      type: 'match', id: 'u3d7_c17', number: 14, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
+      prompt: 'Dil mübadiləsi masasında söhbət.\nHər cümləyə mənasını qoş.',
+      rows: [{ en: 'I speak a little English.', az: 'Bir az ingiliscə danışıram.', from: 'other' }, { en: 'What language do you speak?', az: 'Hansı dildə danışırsan?', from: 'G' }, { en: 'Do you speak Russian?', az: 'Rusca danışırsan?', from: 'B' }],
+      extra: ['Rusam.'],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex('I speak a little English. — Bir az ingiliscə danışıram.; What language do you speak? — Hansı dildə danışırsan?; Do you speak Russian? — Rusca danışırsan?', 'speak — danışmaq; language — dil; a little — bir az.', "Do you speak Russian? — dil; Are you Russian? — millət.", 'What language do you speak? — I speak a little English.'))],
+      review: {
+        title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
+        prompt: 'Hostelin mətbəxində söhbət.\nHər cümləyə mənasını qoş.',
+        rows: [{ en: "No, I don't.", az: 'Xeyr, danışmıram.', from: 'other' }, { en: 'Yes, a little.', az: 'Bəli, bir az.', from: 'G' }, { en: "I'm Russian.", az: 'Rusam.', from: 'B' }],
+        extra: ['Rusca danışıram.'],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex("No, I don't. — Xeyr, danışmıram.; Yes, a little. — Bəli, bir az.; I'm Russian. — Rusam.", 'I’m millət deyir; dil haqqında qısa cavab do və ya a little ilə gəlir.', "No, I don't. — dil; No, I'm not. — millət.", 'Do you speak Russian? — Yes, a little.'))],
       },
     },
     {
@@ -161,20 +256,17 @@ export const lesson7: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 7 tamamlandı', 'Artıq hansı dildə danışdığını soruşur, dillərini və nə qədər bildiyini deyə bilirsən.'],
+    done: ['Dərs 7 · 2-ci hissə tamamlandı', 'Artıq hansı dildə danışdığını soruşur, dillərini və nə qədər bildiyini deyə bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Dil sualını və qısa cavabları anlamaq', tasks: ['u3d7_c03', 'u3d7_c07', 'u3d7_c11', 'u3d7_c13'] },
-      { group: 'Yazı', text: 'Dil haqqında sual qurmaq və qısa cavab yazmaq', tasks: ['u3d7_c05', 'u3d7_c12'] },
-      { group: 'Danışıq', text: 'Hansı dillərdə danışdığını demək', tasks: ['u3d7_c09'] },
+      { group: 'Tanıma', text: 'Dil sualını və qısa cavabları anlamaq', tasks: ['u3d7_c16', 'u3d7_c11', 'u3d7_c17', 'u3d7_c13'] },
+      { group: 'Yazı', text: 'Dil haqqında qısa cavab yazmaq', tasks: ['u3d7_c12'] },
+      { group: 'Danışıq', text: 'Hansı dillərdə və nə qədər danışdığını demək', tasks: ['u3d7_c15', 'u3d7_c09'] },
     ],
     closing: 'Növbəti dərs — bölmə söhbəti: dil klubunun ziyafəti.', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'Do you speak English?', translation: 'İngiliscə danışırsan?', example: 'Excuse me, do you speak English?', exampleAz: 'Bağışlayın, ingiliscə danışırsınız?', usageNote: 'Do you speak + dil?', pronunciation: '/du ju spik ˈɪŋɡlɪʃ/', teachCard: 'u3d7_c02' },
-    { word: 'Yes, I do.', translation: 'Bəli, danışıram.', example: 'Do you speak Russian? — Yes, I do.', exampleAz: 'Rusca danışırsan? — Bəli, danışıram.', usageNote: 'Do you [dil]? sualına qısa “bəli”.', pronunciation: '/jɛs aɪ du/', teachCard: 'u3d7_c04' },
-    { word: "No, I don't.", translation: 'Xeyr, danışmıram.', example: "Do you speak French? — No, I don't.", exampleAz: 'Fransızca danışırsan? — Xeyr, danışmıram.', usageNote: 'Do you [dil]? sualına qısa “xeyr”.', pronunciation: '/noʊ aɪ doʊnt/', teachCard: 'u3d7_c06' },
     { word: 'a little', translation: 'bir az', example: 'I speak a little English.', exampleAz: 'Bir az ingiliscə danışıram.', usageNote: 'a və little birlikdə.', pronunciation: '/ə ˈlɪtəl/', teachCard: 'u3d7_c08' },
     { word: 'language', translation: 'dil', example: 'What language do you speak?', exampleAz: 'Hansı dildə danışırsan?', usageNote: 'Dil adı = millət sözü: Russian, English.', pronunciation: '/ˈlæŋɡwɪdʒ/', teachCard: 'u3d7_c10' },
   ],

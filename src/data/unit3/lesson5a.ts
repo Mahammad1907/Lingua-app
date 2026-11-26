@@ -19,7 +19,7 @@ const noIs = (answer: string): Variant => ({
 });
 
 export const lesson5a: DesignLesson = {
-  id: 'a1_en_b3_d5a', order: 29, unit: 3, number: 5, part: 1, title: 'O haradandır?', section: 'Haradansan',
+  id: 'a1_en_b3_d5a', order: 50, unit: 3, number: 5, part: 1, title: 'O haradandır?', section: 'Haradansan',
   notices,
   cards: [
     {

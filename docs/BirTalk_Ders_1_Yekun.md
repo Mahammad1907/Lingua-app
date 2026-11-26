@@ -3,7 +3,7 @@
 
 **Məzmun üzrə təsdiqlənmiş yekun variant — 24 oktyabr 2026**
 
-Bu sənəd öyrənənin görəcəyi 13 kartı, müəllif üçün cavab açarını, səhv izahlarını, şərti təkrar bankını və nəticə qaydalarını birləşdirir. Mövcud dərs məqsədi, kart ardıcıllığı və ekran görünüşü saxlanılır. Bu sənəddəki yekun məzmunun tətbiqə köçürülməsi və cihazda işləməsi **tətbiqdə yoxlanmayıb**. Sənəd hazırlanarkən tətbiqin kodu dəyişdirilməyib.
+Bu sənəd öyrənənin görəcəyi 13 kartı (26 noyabr 2026-dan iki hissədə, yeni tapşırıqlarla — sənədin sonuna bax), müəllif üçün cavab açarını, səhv izahlarını, şərti təkrar bankını və nəticə qaydalarını birləşdirir. Mövcud dərs məqsədi, kart ardıcıllığı və ekran görünüşü saxlanılır. Bu sənəddəki yekun məzmunun tətbiqə köçürülməsi və cihazda işləməsi **tətbiqdə yoxlanmayıb**. Sənəd hazırlanarkən tətbiqin kodu dəyişdirilməyib.
 
 ## Bu dəfə tamamlanan üç məsələ
 
@@ -899,3 +899,61 @@ Hər dərsə “Müəllim izahı” kartı əlavə olundu. Dərs 1-də o, “Hel
 - 1 · Hansını kimə deyirsən? — Hello! · hər kəsə / Hi! · dosta, tanışa
 - 2 · Fərq nədir? — İkisi də “Salam”dır. Hello mağazada, işdə də olar. Hi daha sadədir, dosta deyilir.
 - Diqqət et: Hello və Hi görüşün əvvəlində deyilir.
+
+
+## 26 noyabr 2026 — Dərs 1 iki hissəyə bölündü
+
+İstifadəçinin qərarı: 12 ekrandan uzun dərs xəritədə eyni dairədə iki hissəyə bölünür; heç nə silinmir. Hər hissə 8–12 ekrandır (giriş kartı sayılmır).
+
+- **1-ci hissə — Salamlaşma** (`a1_en_b1_v2_d1`, 8 ekran): Kart 2 (Hello! · Hi!) → Müəllim izahı → Kart 3 → Kart 4 → Kart 5 → yeni d1_c12 → yeni d1_c13 → Kart 11-in birinci növbəsi (Salamı sən başlat).
+- **2-ci hissə — Sağollaşma** (`a1_en_b1_v2_d1_2`, 9 ekran): öz giriş kartı → Kart 6 (Goodbye! · Bye!) → Kart 7A → Kart 7B → yeni d1_c16 → Kart 8 → yeni d1_c15 → Kart 9 → Kart 10 → Kart 11-in ikinci növbəsi (Sağollaşmanı sən başlat).
+- Hər hissənin öz nəticəsi və Lüğətim sözləri var: 1-ci hissədə Hello, Hi; 2-ci hissədə Goodbye, Bye.
+- Yeni tapşırıqlar (kodda: `src/data/lesson1Design.ts`) — tətbiqdə/cihazda yoxlanmayıb:
+
+### d1_c12 — Eşitdiyini yaz
+
+**Əsas.** Eşitdiyin sözü yaz. (Səs: “Hello!”) Qəbul: Hello.
+
+- Səhv izahı (hi): Uyğun: Hello! Səbəb: Səsdə Hi yox, Hello deyilir. Qayda: Eşitdiyini yazmaq tapşırığında səslənən sözü yaz. Nümunə: Başqa səsdə “Hi!” eşidirsənsə, “Hi” yazırsan.
+- Səhv izahı (başqa): Uyğun: Hello! Səbəb: Yazdığın söz səsdəki Hello deyil. Qayda: Səslənən sözü yaz. Nümunə: “Hi!” eşidəndə “Hi” yazılır.
+
+**Təkrar.** Eşitdiyin sözü yaz. (Səs: “Hi!”) Qəbul: Hi.
+
+- Səhv izahı (hello): Uyğun: Hi! Səbəb: Bu səsdə Hello yox, Hi deyilir. Qayda: Səslənən sözü yaz. Nümunə: “Hello!” eşidəndə “Hello” yazılır.
+- Səhv izahı (başqa): Uyğun: Hi! Səbəb: Yazdığın söz səsdəki Hi deyil. Qayda: Səslənən sözü yaz. Nümunə: “Hello!” eşidəndə “Hello” yazılır.
+
+### d1_c13 — Oxu və anla
+
+**Əsas.** Tanışın mesajda yazır: “Hi!” O nə edir? Variantlar: Sağollaşır. / Salam verir. / Təşəkkür edir.; düz: Salam verir..
+
+- Səhv izahı (Təşəkkür edir.): Uyğun: Salam verir. Səbəb: Mesajda “Hi!” yazılıb — bu, təşəkkür yox, salamdır. Qayda: Hello və Hi salam vermək üçün işlənir. Nümunə: Tanışın sənə “Hello!” yazır. O, salam verir.
+- Səhv izahı (başqa): Uyğun: Salam verir. Səbəb: Mesajda “Hi!” yazılıb — bu, sağollaşma yox, salamdır. Qayda: Hello və Hi salam vermək üçün işlənir. Nümunə: Tanışın sənə “Hello!” yazır. O, salam verir.
+
+**Təkrar.** Qonşun mesajda yazır: “Hello!” O nə edir? Variantlar: Salam verir. / Təşəkkür edir. / Sağollaşır.; düz: Salam verir..
+
+- Səhv izahı (Təşəkkür edir.): Uyğun: Salam verir. Səbəb: Mesajda “Hello!” yazılıb — bu, təşəkkür yox, salamdır. Qayda: Hello və Hi salam vermək üçün işlənir. Nümunə: Qonşun sənə “Hi!” yazır. O, salam verir.
+- Səhv izahı (başqa): Uyğun: Salam verir. Səbəb: Mesajda “Hello!” yazılıb — bu, sağollaşma yox, salamdır. Qayda: Hello və Hi salam vermək üçün işlənir. Nümunə: Qonşun sənə “Hi!” yazır. O, salam verir.
+
+### d1_c16 — Dinlə və anla
+
+**Əsas.** Səsi dinlə. Tanışın nə edir? (Səs: “Bye!”) Variantlar: Salam verir. / Sağollaşır. / Təşəkkür edir.; düz: Sağollaşır..
+
+- Səhv izahı (Salam verir.): Uyğun: Sağollaşır. Səbəb: Səsdə “Bye!” deyilir — bu, salam yox, sağollaşmadır. Qayda: Goodbye və Bye sağollaşmaq üçün işlənir. Nümunə: Tanışın gedir və “Goodbye!” deyir. O, sağollaşır.
+- Səhv izahı (başqa): Uyğun: Sağollaşır. Səbəb: Səsdə “Bye!” deyilir — bu, təşəkkür yox, sağollaşmadır. Qayda: Goodbye və Bye sağollaşmaq üçün işlənir. Nümunə: Tanışın gedir və “Goodbye!” deyir. O, sağollaşır.
+
+**Təkrar.** Səsi dinlə. Qonşun nə edir? (Səs: “Goodbye!”) Variantlar: Sağollaşır. / Təşəkkür edir. / Salam verir.; düz: Sağollaşır..
+
+- Səhv izahı (Salam verir.): Uyğun: Sağollaşır. Səbəb: Səsdə “Goodbye!” deyilir — bu, salam yox, sağollaşmadır. Qayda: Goodbye və Bye sağollaşmaq üçün işlənir. Nümunə: Qonşun gedir və “Bye!” deyir. O, sağollaşır.
+- Səhv izahı (başqa): Uyğun: Sağollaşır. Səbəb: Səsdə “Goodbye!” deyilir — bu, təşəkkür yox, sağollaşmadır. Qayda: Goodbye və Bye sağollaşmaq üçün işlənir. Nümunə: Qonşun gedir və “Bye!” deyir. O, sağollaşır.
+
+### d1_c15 — Sağollaşmanı özün yaz
+
+**Əsas.** Tanışın yazışmanın sonunda yazır: “Bye!” Sən də mesajla sağollaş. Qəbul: Goodbye! / Bye!.
+
+- Səhv izahı (greet): Uyğun: Goodbye! / Bye! Səbəb: Yazdığın söz salamdır, tanışın isə yazışmanı bitirir. Qayda: Sağollaşmaya sağollaşma ilə cavab ver. Nümunə: Tanışın “Bye!” yazır. Sən “Goodbye!” yazırsan.
+- Səhv izahı (başqa): Uyğun: Goodbye! / Bye! Səbəb: Yazdığın söz sağollaşma deyil. Qayda: Görüş bitəndə sağollaşma ifadəsi işlət. Nümunə: Tanışın “Goodbye!” yazır. Sən “Bye!” yazırsan.
+
+**Təkrar.** Qonşun yazışmanın sonunda yazır: “Goodbye!” Sən də mesajla sağollaş. Qəbul: Goodbye! / Bye!.
+
+- Səhv izahı (greet): Uyğun: Goodbye! / Bye! Səbəb: Yazdığın söz salamdır, qonşun isə yazışmanı bitirir. Qayda: Sağollaşmaya sağollaşma ilə cavab ver. Nümunə: Qonşun “Goodbye!” yazır. Sən “Bye!” yazırsan.
+- Səhv izahı (başqa): Uyğun: Goodbye! / Bye! Səbəb: Yazdığın söz sağollaşma deyil. Qayda: Görüş bitəndə sağollaşma ifadəsi işlət. Nümunə: Qonşun “Goodbye!” yazır. Sən “Bye!” yazırsan.

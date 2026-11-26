@@ -13,7 +13,7 @@ const WHO = String.raw`^(?:excuse me[,.]?\s*)?who(?:'s|’s|\s+is)\s+(?:this|she
 const MY_MOTHER = String.raw`^(?:this\s+is|she(?:'s|’s|\s+is))\s+my\s+mother\s*[.!]?$`;
 
 export const exam: DesignLesson = {
-  id: 'a1_en_b4_exam', order: 44, unit: 4, exam: true, title: 'Bölmə 4 imtahanı', section: 'Ailə və insanlar',
+  id: 'a1_en_b4_exam', order: 76, unit: 4, exam: true, title: 'Bölmə 4 imtahanı', section: 'Ailə və insanlar',
   notices,
   cards: [
     {

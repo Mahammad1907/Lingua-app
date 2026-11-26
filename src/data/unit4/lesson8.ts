@@ -20,7 +20,7 @@ const AGE_YEARS = { match: { pattern: String.raw`\byears?\b(?!\s+old)` }, short:
 const haveOther = (q: string) => other('Qısa cavab: Yes, I do. / No, I don\'t.', ex('Yes, I do.', 'Sual Do you ilə başlayır, cavab da do ilə verilir.', `${q} — Yes, I do.; ${q} — No, I don't.`, 'Do you speak English? — Yes, I do.'));
 
 export const lesson8: DesignLesson = {
-  id: 'a1_en_b4_d8', order: 43, unit: 4, number: 8, title: 'Ailə söhbəti', section: 'Ailə və insanlar',
+  id: 'a1_en_b4_d8', order: 75, unit: 4, number: 8, title: 'Ailə söhbəti', section: 'Ailə və insanlar',
   notices,
   cards: [
     {

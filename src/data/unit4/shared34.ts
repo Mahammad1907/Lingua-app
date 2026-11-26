@@ -63,6 +63,15 @@ export const NO_IT_MISTAKES = (answer: string): Variant[] => [
   { match: { pattern: String.raw`^yes\b` }, short: 'O sənin dediyin adam deyil — cavab “xeyr”dir.',
     explain: ex(answer, 'Şəkildəki adam soruşulan adam deyil, “xeyr” lazımdır.', "Yes, it is. — bəli; No, it isn't. — xeyr.", "Is this your mother? — No, it isn't.") },
 ];
+/** “Yes, it's.” / “Yes, I am.” / “No”: typical mistakes with the short “yes” answer about a photo (Dərs 4, before “No, it isn't.”). */
+export const YES_IT_MISTAKES = (answer: string): Variant[] => [
+  { match: { pattern: String.raw`^yes\s*,?\s*(?:it|s?he)(?:'s|’s)\s*[.!]?$` }, short: 'Bəli cavabının sonunda is tam deyilir.',
+    explain: ex(answer, 'Qısa “bəli” cavabının sonunda is qısalmır.', "Yes, it is. — düzdür; Yes, it's. — olmur.", 'Is this your sister? — Yes, it is.') },
+  { match: { pattern: String.raw`^yes\s*,?\s*i(?:'m|’m|\s+am)\b` }, short: 'Sual sənin haqqında deyil, şəkildəki adam haqqındadır.',
+    explain: ex(answer, 'Sualda this var — cavabda it gəlir, I yox.', 'Is this your mother? — Yes, it is.', 'Is this your sister? — Yes, it is.') },
+  { match: { pattern: String.raw`^no\b` }, short: 'Şəkildəki adam doğrudan da odur — cavab “bəli”dir.',
+    explain: ex(answer, 'Soruşulan adam şəkildədir, “bəli” lazımdır.', 'Is this your mother? — Yes, it is.', 'Is this your sister? — Yes, it is.') },
+];
 /** “Is this your mother?” — also “Is she your mother?”. */
 export const isThisYour = (word: string) => String.raw`^is\s+(?:this|s?he)\s+your\s+${word}\s*\??$`;
 /** Typical mistakes with the question: you ↔ your, word order, “Do this is…”. */

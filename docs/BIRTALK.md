@@ -46,7 +46,7 @@ Ayrıca standart sənədləri (burada təkrarlanmır, linklə keçərlidir):
 3. **Yeni söz kartında söz-söz izah** — həmişə: ifadədəki hər yeni söz ayrıca izah olunur; yeni sözlər rənglə, bilinənlər adi rəngdə; çətin səs (th, w) üçün qısa qeyd.
 4. **Qısa formalar** (I'm, he's, what's …) ilk gəldiyi yerdə öyrədilir: ayrıca “Qısa forma” kartı və ya söz kartında `shortForm` bloku (səsli “What is → What's”), termin işlənmir.
 5. **Müəllim izahı** (`type: 'explain'`): qayda olan yeni söz kartından sonra, tapşırıqlardan əvvəl; çətin mövzuda iki izah kartı, aralarında qısa tapşırıq. Hər izah avtomatik “Qaydalar” tabına düşür (`src/data/rules.ts`, `RULE_META` — sual formasında ad + ingilis nümunəsi).
-6. **Kart sayı 11–14** (DERS_STANDARTI-dəki 10–12 köhnədir). Bölmə 2-dən dərsdə (hissədə) 4–6 yeni vahid; Bölmə 1-də 2–3.
+6. **Hissə 8–12 ekran** (26 Noy 2026, istifadəçi: dərs uzun olmasın, amma heç nə çıxarılmasın). 12 ekrandan uzun dərs xəritədə eyni dairənin içində hissələrə bölünür (`number` + `part`, id `…_2`); qısa qalan hissəyə mövzuya uyğun yeni tapşırıq yazılır. Uzunluq dəyişir, ard-arda üç hissə eyni olmur. Bölmə 1 dərsləri də `unit: 1, number` alıb; köhnə paket məntiqi `mapNumber` ilə işləyir (order yox). Yoxlama: `check-lesson-length`. Bölmə söhbəti (8) və imtahan öz uzunluğunda. `lesson.pool` (təkrara keçən tapşırıq) mexanizmi var, hazırda boşdur.
 7. **Xəritədə hər bölmə sabit 8 dərs**; çox material → dərs 2–3 hissəyə bölünür. Hər bölmənin sonunda **bölmə imtahanı**: Kömək yoxdur, keçid **≥70%**; keçilməyincə növbəti bölmə açılmır.
 8. **Müxtəliflik:** eyni ekran növü dalbadal gəlmir (bir söhbətin növbələri istisna); iki dərs eyni 3 ekranla bitmir; açılış və məkan dəyişir. Hibrid: 12 noyabr ekranları + sonradan əlavə olunanlar, hər dərsdə hər iki qrupdan. Yeni ekran növləri yaradıla bilər (maketlə).
 9. **Seçimdə 3 variant**; yanlışlar Azərbaycanlı öyrənənin real səhvlərindən; iki düzgün cavab olmaz.
@@ -170,6 +170,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 25 Noy | İki tərəfli ölçü: qısa Yeni söz / Öyrən kartı bütöv böyüyür (ən çox 1.25×) ki, ekranı doldursun; uzun kart əvvəlki kimi kiçilir. Qısa forma sətrini təkrarlayan qeyd gizlənir |
 | 26 Noy | Sınaq: “Şəkil göndərdi” — `photo` (PhotoCard, kodla çəkilmiş foto, soruşulan adamda narıncı “?”). İlk dəfə u4d4_c05 (+təkrar): mətn yalnız “Sözlərdən sual qur.” Bəyənilsə, digər “şəkildə … var” tapşırıqlarına yayılacaq |
 | 26 Noy | Foto kartı: kodla çəkilmiş adamlar ləğv (istifadəçi bəyənmədi) — şəkil yeri boş çərçivə “Şəkil burada olacaq”; `photo: { from, who?, shows }` (`shows` gələcək şəkil üçün). Tətbiq: u4d3_c05, u4d4_c05, u4d6_c11, u4d7_c07, u4x_c06 (+təkrarlar); mətn: bir qısa fakt + əmr. check-situation: foto kartlı tapşırıq “kimə yazırsan” sualından azaddır |
+| 26 Noy | Qısaltma (pool) geri qaytarıldı — istifadəçi heç nə çıxarılmasın dedi. Bölmə 1–4-də 12 ekrandan uzun 32 dərs ikiyə bölündü (67 dərs/hissə, hamısı 8–12 ekran); heç bir kart/söz itmədi (skriptlə yoxlandı), ~100 yeni mövzuya uyğun tapşırıq + 32 giriş kartı. Orderlər yenidən nömrələndi; modules.ts, ana səhifə (Bölmə 1 də number ilə qruplaşır), hissə sıra şəkilçisi (`ordinal`) |
 
 Ətraflı tarixçə: `docs/LAYIHE_DEFTERI.md`, `docs/YENI_SOHBET_UCUN.md`, `docs/BUTUN_QAYDALAR.md` (köçürülmədən əvvəlki mətnlər).
 
@@ -189,7 +190,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | Ana səhifə A5 kartları, sonra adanın altında AI zəng / Təkrar / kubok (20 Noy) | 23 Noy düzülüşü (§4.14) |
 | Menyuda “AI söhbət”, “Təkrar” | “AI müəllim”, Təkrar menyudan çıxdı (21 Noy) |
 | Yeni söz kartında maskot | Maskot yoxdur (20 Noy) |
-| Kart sayı 10–12 (DERS_STANDARTI) | 11–14 |
+| Kart sayı 11–14 | Hissə 8–12 ekran, uzun dərs hissələrə bölünür (26 Noy 2026) |
 | Test girişi `[1, 2, 3]` | `[1, 2, 3, 4]` |
 | “Bu dərsdə” giriş ekranı | Göstərilmir (imtahanlarda qalır) |
 

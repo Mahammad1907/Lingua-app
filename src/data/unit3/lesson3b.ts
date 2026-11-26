@@ -1,4 +1,4 @@
-// Bölmə 3 · Dərs 3, 2-ci hissə — Millət (English · American · German · French · nationality).
+// Bölmə 3 · Dərs 3, 3-cü hissə — Millət (English · American · German); 4-cü hissə (lesson3b_2): French · nationality.
 // Hostel qeydiyyatı və pasport nəzarəti; “Formanı doldur” — First name, Last name, Nationality. “Azeri” sözü işlənmir (qayda 20).
 // Spiral: first name, last name (Bölmə 2), I'm Azerbaijani., Turkish, Russian (Dərs 3a), England, the USA, Germany, France (Dərs 2).
 import type { DesignLesson, Variant } from '../designLessonTypes';
@@ -14,15 +14,14 @@ const COUNTRY_MISTAKE: Variant = {
 };
 
 export const lesson3b: DesignLesson = {
-  id: 'a1_en_b3_d3b', order: 27, unit: 3, number: 3, part: 2, title: 'Millət', section: 'Haradansan',
+  id: 'a1_en_b3_d3b', order: 46, unit: 3, number: 3, part: 3, title: 'Millət', section: 'Haradansan',
   notices,
   cards: [
     {
-      type: 'intro', id: 'u3d3b_c01', badge: 'Haradansan', subtitle: 'Hosteldə qeydiyyat vərəqini doldurur, pasport nəzarətində millətini deyirsən.', start: 'Dərsə başla',
+      type: 'intro', id: 'u3d3b_c01', badge: 'Haradansan', subtitle: 'Hosteldə və dil klubunda ingilis, amerikalı və alman qonaqlarla tanış olursan.', start: 'Dərsə başla',
       goals: [
-        { icon: 'chat', text: 'İngilis, amerikalı, alman və fransız sözlərini tanıya bilirəm.' },
-        { icon: 'bye', text: 'Formada millət sahəsini doldura bilirəm.' },
-        { icon: 'wave', text: 'Millətim soruşulanda cavab verə bilirəm.' },
+        { icon: 'chat', text: 'İngilis, amerikalı və alman sözlərini tanıya bilirəm.' },
+        { icon: 'wave', text: 'Ölkə ilə millət sözünü ayıra bilirəm.' },
       ],
     },
     {
@@ -91,6 +90,88 @@ export const lesson3b: DesignLesson = {
       },
     },
     {
+      type: 'choice', id: 'u3d3b_c14', number: 8, title: 'Sözü tamamla', why: 'England — ölkə, English — millət.', hint: 'Birinci cümlə ölkəni deyir, ikinci cümlə başqa şeyi.',
+      prompt: 'Dil klubunda yeni tanış özünü təqdim edir.\nHansı söz çatmır?', gap: { speaker: 'other', before: "I'm from England. I'm", after: '.' },
+      options: ['England', 'English', 'American'], answer: 'English',
+      variants: [
+        pick('England', 'England ölkədir; I\'m-dən sonra millət gəlir.', ex('English', 'from-suz I\'m-dən sonra millət gəlir: English.', "I'm English. — millət; I'm from England. — ölkə.", "I'm from England. I'm English.")),
+        pick('American', 'American — ABŞ-dan olan; o isə İngiltərədəndir.', ex('English', 'İngiltərədən olan — English.', "I'm English. — İngiltərə; I'm American. — ABŞ.", "I'm from England. I'm English.")),
+      ],
+      review: {
+        title: 'Sözü tamamla', why: 'the USA — ölkə, American — millət.', hint: 'Birinci cümlə ölkəni deyir, ikinci cümlə başqa şeyi.',
+        prompt: 'Hostelin resepsiyasında qonaq özünü təqdim edir.\nHansı söz çatmır?', gap: { speaker: 'other', before: "I'm from the USA. I'm", after: '.' },
+        options: ['German', 'the USA', 'American'], answer: 'American',
+        variants: [
+          pick('the USA', 'the USA ölkədir; I\'m-dən sonra millət gəlir.', ex('American', 'from-suz I\'m-dən sonra millət gəlir: American.', "I'm American. — millət; I'm from the USA. — ölkə.", "I'm from the USA. I'm American.")),
+          pick('German', 'German — Almaniyadan olan; o isə ABŞ-dandır.', ex('American', 'ABŞ-dan olan — American.', "I'm American. — ABŞ; I'm German. — Almaniya.", "I'm from the USA. I'm American.")),
+        ],
+      },
+    },
+    {
+      type: 'match', id: 'u3d3b_c15', number: 9, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'from olan cümləni millət cümlələrindən ayır.',
+      prompt: 'Hostelin mətbəxində tanışlıq.\nHər cümləyə mənasını qoş.',
+      rows: [{ en: "I'm from England.", az: 'İngiltərədənəm.', from: 'other' }, { en: "I'm English.", az: 'İngilisəm.', from: 'other' }, { en: "I'm American.", az: 'Amerikalıyam.', from: 'other' }],
+      extra: ['ABŞ-danam.'],
+      variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm from England. — İngiltərədənəm.; I'm English. — İngilisəm.; I'm American. — Amerikalıyam.", 'from olan cümlə ölkəni, from-suz cümlə milləti deyir.', "I'm English. — millət; I'm from England. — ölkə.", "I'm from England. I'm English."))],
+      review: {
+        title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'from olan cümləni millət cümlələrindən ayır.',
+        prompt: 'Qatarda sərnişinlər tanış olur.\nHər cümləyə mənasını qoş.',
+        rows: [{ en: "I'm German.", az: 'Almanam.', from: 'other' }, { en: "I'm from the USA.", az: 'ABŞ-danam.', from: 'other' }, { en: "I'm English.", az: 'İngilisəm.', from: 'other' }],
+        extra: ['Almaniyadanam.'],
+        variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm German. — Almanam.; I'm from the USA. — ABŞ-danam.; I'm English. — İngilisəm.", 'from olan cümlə ölkəni, from-suz cümlə milləti deyir.', "I'm German. — millət; I'm from Germany. — ölkə.", "I'm from Germany. I'm German."))],
+      },
+    },
+    {
+      type: 'write', id: 'u3d3b_c16', number: 10, title: 'Dinlə və yaz', why: 'American — amerikalı.', hint: 'Ölkənin adı ilə millət sözü fərqlidir — millət sözünü yaz.',
+      prompt: 'Millətini yaz.', audio: "I'm American.", placeholder: 'Millət',
+      rule: exact('American', "I'm American."),
+      variants: [
+        { match: { words: ['the USA', 'USA', "I'm from the USA"] }, short: 'the USA ölkədir; səsdə millət deyilir.', explain: ex('American', 'Səsdə from yoxdur — bu, millətdir: American.', "I'm American. — millət; I'm from the USA. — ölkə.", "I'm American.") },
+        other('American', ex('American', 'Səsdə millət sözü var: American.', "I'm American. — millət; I'm from the USA. — ölkə.", "I'm American.")),
+      ],
+      review: {
+        title: 'Dinlə və yaz', why: 'German — alman.', hint: 'Ölkənin adı ilə millət sözü fərqlidir — millət sözünü yaz.',
+        prompt: 'Millətini yaz.', audio: "I'm German.", placeholder: 'Millət',
+        rule: exact('German', "I'm German."),
+        variants: [
+          { match: { words: ['Germany', "I'm from Germany"] }, short: 'Germany ölkədir; səsdə millət deyilir.', explain: ex('German', 'Səsdə from yoxdur — bu, millətdir: German.', "I'm German. — millət; I'm from Germany. — ölkə.", "I'm German.") },
+          other('German', ex('German', 'Səsdə millət sözü var: German.', "I'm German. — millət; I'm from Germany. — ölkə.", "I'm German.")),
+        ],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 3 · 3-cü hissə tamamlandı', 'Artıq ingilis, amerikalı və alman sözlərini tanıyır, ölkə ilə milləti ayırırsan.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'İngilis, amerikalı və alman sözlərini tanımaq', tasks: ['u3d3b_c03', 'u3d3b_c05', 'u3d3b_c14', 'u3d3b_c15'] },
+      { group: 'Yazı', text: 'Eşitdiyin milləti yazmaq', tasks: ['u3d3b_c16'] },
+      { group: 'Danışıq', text: 'Millət sözünü düzgün demək', tasks: ['u3d3b_c07'] },
+    ],
+    closing: 'Növbəti hissə — fransız və formada millət sahəsi.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'English', translation: 'ingilis', example: "I'm from England. I'm English.", exampleAz: 'Mən İngiltərədənəm. İngilisəm.', usageNote: 'England — ölkə, English — millət.', pronunciation: '/ˈɪŋɡlɪʃ/', teachCard: 'u3d3b_c02' },
+    { word: 'American', translation: 'amerikalı', example: "I'm from the USA. I'm American.", exampleAz: 'Mən ABŞ-danam. Amerikalıyam.', usageNote: 'the USA — ölkə, American — millət.', pronunciation: '/əˈmɛrɪkən/', teachCard: 'u3d3b_c04' },
+    { word: 'German', translation: 'alman', example: "I'm from Germany. I'm German.", exampleAz: 'Mən Almaniyadanam. Almanam.', usageNote: 'Germany — ölkə, German — millət.', pronunciation: '/ˈdʒɝmən/', teachCard: 'u3d3b_c06' },
+  ],
+};
+
+// Dərs 3 · 4-cü hissə (26 Nov 2026: the lesson was split, nothing removed): French · nationality.
+export const lesson3b_2: DesignLesson = {
+  id: 'a1_en_b3_d3b_2', order: 47, unit: 3, number: 3, part: 4, title: 'Millət', section: 'Haradansan',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u3d3b_c20', badge: 'Haradansan', subtitle: 'Hosteldə qeydiyyat vərəqini doldurur, pasport nəzarətində millətini deyirsən.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: 'Fransız sözünü və “Nationality” sualını tanıya bilirəm.' },
+        { icon: 'bye', text: 'Formada millət sahəsini doldura bilirəm.' },
+        { icon: 'wave', text: 'Millətim soruşulanda cavab verə bilirəm.' },
+      ],
+    },
+    {
       type: 'word', id: 'u3d3b_c08', number: 8, scenes: ['mascot/happy'],
       word: 'French', pronunciation: '/frɛntʃ/', reading: 'frenç', az: 'fransız',
       structure: ['France — ölkə; French — millət.'],
@@ -112,6 +193,24 @@ export const lesson3b: DesignLesson = {
         variants: [
           pick('Germany', 'Germany ölkədir; I\'m-dən sonra millət gəlir.', ex('German', 'from-suz I\'m-dən sonra millət gəlir: German.', "I'm German. — millət; I'm from Germany. — ölkə.", "I'm from Germany. I'm German.")),
           pick('French', 'O, Almaniyadandır.', ex('German', 'Almaniyadan olan almandır: German.', "I'm from Germany. I'm German. — alman; I'm from France. I'm French. — fransız.", "I'm from Germany. I'm German.")),
+        ],
+      },
+    },
+    {
+      type: 'choice', id: 'u3d3b_c17', number: 10, title: 'Dinlə və seç', why: 'French — fransız.', hint: 'Cümlənin sonundakı millət sözünə qulaq as.',
+      prompt: 'Hostelin resepsiyasında qonaq özünü təqdim edir.\nO hansı millətdəndir?', audio: "Hello! I'm French.",
+      options: ['Fransız', 'Alman', 'İngilis'], answer: 'Fransız',
+      variants: [
+        pick('Alman', 'Səsdə “German” yoxdur.', ex('Fransız', 'Səsdə French var — fransız.', "I'm French. — fransız; I'm German. — alman.", "Hello! I'm French.")),
+        pick('İngilis', 'Səsdə “English” yoxdur.', ex('Fransız', 'Səsdə French var — fransız.', "I'm French. — fransız; I'm English. — ingilis.", "Hello! I'm French.")),
+      ],
+      review: {
+        title: 'Dinlə və seç', why: 'English — ingilis.', hint: 'Cümlənin sonundakı millət sözünə qulaq as.',
+        prompt: 'Dil klubunda qonaq özünü təqdim edir.\nO hansı millətdəndir?', audio: "Hi! I'm English.",
+        options: ['Amerikalı', 'İngilis', 'Fransız'], answer: 'İngilis',
+        variants: [
+          pick('Amerikalı', 'Səsdə “American” yoxdur.', ex('İngilis', 'Səsdə English var — ingilis.', "I'm English. — ingilis; I'm American. — amerikalı.", "Hi! I'm English.")),
+          pick('Fransız', 'Səsdə “French” yoxdur.', ex('İngilis', 'Səsdə English var — ingilis.', "I'm English. — ingilis; I'm French. — fransız.", "Hi! I'm English.")),
         ],
       },
     },
@@ -178,20 +277,17 @@ export const lesson3b: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 3 · 2-ci hissə tamamlandı', 'Artıq formada millətini yazır, millətin soruşulanda cavab verirsən.'],
+    done: ['Dərs 3 · 4-cü hissə tamamlandı', 'Artıq formada millətini yazır, millətin soruşulanda cavab verirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'İngilis, amerikalı, alman və fransız sözlərini tanımaq', tasks: ['u3d3b_c03', 'u3d3b_c05', 'u3d3b_c09', 'u3d3b_c13'] },
+      { group: 'Tanıma', text: 'Fransız və digər millət sözlərini tanımaq', tasks: ['u3d3b_c09', 'u3d3b_c17', 'u3d3b_c13'] },
       { group: 'Yazı', text: 'Qeydiyyat vərəqində millət sahəsini doldurmaq', tasks: ['u3d3b_c11'] },
-      { group: 'Danışıq', text: 'Millət sözlərini demək və millətin soruşulanda cavab vermək', tasks: ['u3d3b_c07', 'u3d3b_c12'] },
+      { group: 'Danışıq', text: 'Millətin soruşulanda cavab vermək', tasks: ['u3d3b_c12'] },
     ],
     closing: 'Növbəti dərs — “Sən Türkiyədənsən?” kimi suallar və qısa cavablar.', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'English', translation: 'ingilis', example: "I'm from England. I'm English.", exampleAz: 'Mən İngiltərədənəm. İngilisəm.', usageNote: 'England — ölkə, English — millət.', pronunciation: '/ˈɪŋɡlɪʃ/', teachCard: 'u3d3b_c02' },
-    { word: 'American', translation: 'amerikalı', example: "I'm from the USA. I'm American.", exampleAz: 'Mən ABŞ-danam. Amerikalıyam.', usageNote: 'the USA — ölkə, American — millət.', pronunciation: '/əˈmɛrɪkən/', teachCard: 'u3d3b_c04' },
-    { word: 'German', translation: 'alman', example: "I'm from Germany. I'm German.", exampleAz: 'Mən Almaniyadanam. Almanam.', usageNote: 'Germany — ölkə, German — millət.', pronunciation: '/ˈdʒɝmən/', teachCard: 'u3d3b_c06' },
     { word: 'French', translation: 'fransız', example: "I'm from France. I'm French.", exampleAz: 'Mən Fransadanam. Fransızam.', usageNote: 'France — ölkə, French — millət.', pronunciation: '/frɛntʃ/', teachCard: 'u3d3b_c08' },
     { word: 'nationality', translation: 'millət, vətəndaşlıq', example: 'Nationality: Azerbaijani.', exampleAz: 'Milləti: azərbaycanlı.', usageNote: 'Formada sahə adı.', pronunciation: '/ˌnæʃəˈnæləti/', teachCard: 'u3d3b_c10' },
   ],

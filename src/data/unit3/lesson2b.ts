@@ -1,11 +1,13 @@
-// Bölmə 3 · Dərs 2 · 2-ci hissə — Ölkələr (the UK · England · the USA · Germany · France).
+// Bölmə 3 · Dərs 2 · 3-cü hissə — Ölkələr (the UK · England · the USA); 4-cü hissə (lesson2b_2): Germany · France.
 // Hostel, hava limanı, qatar. Tipik səhvlər: “the”-ni atmaq (from UK), “the England”, Germany ↔ “Almaniya”.
 // Spiral: Where are you from? I'm from …, Me too (Dərs 1); country, Turkey, Georgia, Russia, Iran (1-ci hissə); hərflər (Bölmə 2).
 import type { DesignLesson, Variant } from '../designLessonTypes';
 import { ex, exact, other, pick } from '../unit1/build';
-import { FROM_RETURN, notices, own, resultTexts } from './shared';
+import { FROM_RETURN, notices, own, resultTexts, said } from './shared';
 
 const fromAndAsk = own(FROM_RETURN, "I'm from Azerbaijan. And you?");
+/** Role play: the learner is from a given country (“the” must stay where it belongs). */
+const fromPlace = (pattern: string, ...answers: string[]) => said(String.raw`^(?:i'?m|i am)\s+from\s+(?:${pattern})\s*[.!]?$`, ...answers);
 /** “I'm Azerbaijan” (from is missing), “I from …” (am is missing), no return question. */
 const fromMistakes: Variant[] = [
   { match: { pattern: String.raw`^(?:i'?m|i am)\s+(?!from\b)\p{L}` }, short: 'Ölkədən əvvəl “from” lazımdır.',
@@ -17,14 +19,14 @@ const fromMistakes: Variant[] = [
 ];
 
 export const lesson2b: DesignLesson = {
-  id: 'a1_en_b3_d2b', order: 25, unit: 3, number: 2, part: 2, title: 'Ölkələr', section: 'Haradansan',
+  id: 'a1_en_b3_d2b', order: 42, unit: 3, number: 2, part: 3, title: 'Ölkələr', section: 'Haradansan',
   notices,
   cards: [
     {
       type: 'intro', id: 'u3d2b_c01', badge: 'Haradansan', subtitle: 'Hosteldə və hava limanında uzaq ölkələrdən gələnlərlə tanış olursan.', start: 'Dərsə başla',
       goals: [
-        { icon: 'chat', text: 'Böyük Britaniya, İngiltərə, ABŞ, Almaniya və Fransanın ingiliscə adını eşidib tanıyıram.' },
-        { icon: 'wave', text: 'Haradan olduğumu deyib qarşı tərəfdən də soruşa bilirəm.' },
+        { icon: 'chat', text: 'Böyük Britaniya, İngiltərə və ABŞ-ın ingiliscə adını eşidib tanıyıram.' },
+        { icon: 'wave', text: '“the” sözünü ölkə adının əvvəlində yerində işlədirəm.' },
       ],
     },
     {
@@ -67,12 +69,12 @@ export const lesson2b: DesignLesson = {
         pick("I'm England.", '“from” çatmır.', ex("I'm from England.", 'Haradan olduğunu deyəndə “from” lazımdır.', "I'm from England. — haradan; I'm fine. — hal.", "I'm from England.")),
       ],
       review: {
-        title: 'Seçim', why: '“I’m from France.” — I’m və from yerindədir.', hint: 'Hər variantı yavaş oxu: hansında bütün sözlər yerindədir?',
-        prompt: 'Qatarda yeni tanış Parisdəndir. Sən soruşursan: “What country are you from?”\nO necə cavab verər?',
-        options: ["I'm from the France.", "I'm from France.", "I from France."], answer: "I'm from France.",
+        title: 'Seçim', why: '“I’m from Turkey.” — I’m və from yerindədir.', hint: 'Hər variantı yavaş oxu: hansında bütün sözlər yerindədir?',
+        prompt: 'Qatarda yeni tanış İstanbuldandır. Sən soruşursan: “What country are you from?”\nO necə cavab verər?',
+        options: ["I'm from the Turkey.", "I from Turkey.", "I'm from Turkey."], answer: "I'm from Turkey.",
         variants: [
-          pick("I'm from the France.", 'France-dan əvvəl “the” gəlmir.', ex("I'm from France.", '“the” yalnız bəzi ölkələrdən əvvəl gəlir.', "I'm from France. — “the”siz; I'm from the USA. — “the” ilə.", "I'm from France.")),
-          pick('I from France.', 'I-dan sonra am lazımdır.', ex("I'm from France.", 'Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir.', "I'm from France. — düzdür; I from France. — olmur.", "I'm from France.")),
+          pick("I'm from the Turkey.", 'Turkey-dən əvvəl “the” gəlmir.', ex("I'm from Turkey.", '“the” yalnız bəzi ölkələrdən əvvəl gəlir.', "I'm from Turkey. — “the”siz; I'm from the UK. — “the” ilə.", "I'm from Turkey.")),
+          pick('I from Turkey.', 'I-dan sonra am lazımdır.', ex("I'm from Turkey.", 'Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir.', "I'm from Turkey. — düzdür; I from Turkey. — olmur.", "I'm from Turkey.")),
         ],
       },
     },
@@ -102,6 +104,58 @@ export const lesson2b: DesignLesson = {
       },
     },
     {
+      type: 'voice', id: 'u3d2b_c15', number: 8, title: 'Səslə cavab', why: 'Ölkəni “the” ilə birlikdə düz dedin.', hint: 'Bu ölkənin adından əvvəl kiçik söz gəlirmi? Yadına sal.',
+      prompt: 'Dil klubunda rol oyunu: sən Londondan gələn qonaqsan. Yeni tanış soruşur.\nHansı ölkədən olduğunu de.', audio: 'What country are you from?', reply: 'Nice to meet you!',
+      rule: fromPlace(String.raw`england|the\s+uk`, "I'm from England.", "I'm from the UK."),
+      variants: [
+        { match: { pattern: String.raw`\bfrom\s+uk\b` }, short: 'UK-dan əvvəl “the” gəlir.', explain: ex("I'm from the UK.", 'Bu ölkənin adı “the” ilə deyilir: the UK.', "I'm from the UK. — düzdür; I'm from UK. — olmur.", "What country are you from? — I'm from the UK.") },
+        { match: { pattern: String.raw`\bthe\s+england\b` }, short: 'England-dən əvvəl “the” gəlmir.', explain: ex("I'm from England.", '“the” yalnız bəzi ölkələrdən əvvəl gəlir.', "I'm from England. — “the”siz; I'm from the UK. — “the” ilə.", "What country are you from? — I'm from England.") },
+        { match: { pattern: String.raw`^(?:i'?m|i am)\s+(?!from\b)\p{L}` }, short: 'Ölkədən əvvəl “from” lazımdır.', explain: ex("I'm from England.", 'Haradan olduğunu deyəndə “from” lazımdır.', "I'm from England. — haradan; I'm fine. — hal.", "What country are you from? — I'm from England.") },
+        other("I'm from + ölkə.", ex("I'm from England.", 'Rol oyununda Londondansan — ölkə İngiltərədir.', "I'm from England. — “the”siz; I'm from the UK. — “the” ilə.", "What country are you from? — I'm from England.")),
+      ],
+      review: {
+        title: 'Səslə cavab', why: 'Ölkəni “the” ilə birlikdə düz dedin.', hint: 'Bu ölkənin adından əvvəl kiçik söz gəlirmi? Yadına sal.',
+        prompt: 'Rol oyunu: sən Nyu-Yorkdan gələn turistsən. Hostelin resepsiyasında işçi soruşur.\nHansı ölkədən olduğunu de.', audio: 'Hello! Where are you from?', reply: 'Thank you!',
+        rule: fromPlace(String.raw`the\s+usa`, "I'm from the USA."),
+        variants: [
+          { match: { pattern: String.raw`\bfrom\s+usa\b` }, short: 'USA-dan əvvəl “the” gəlir.', explain: ex("I'm from the USA.", 'Bu ölkənin adı “the” ilə deyilir: the USA.', "I'm from the USA. — düzdür; I'm from USA. — olmur.", "Where are you from? — I'm from the USA.") },
+          { match: { pattern: String.raw`^(?:i'?m|i am)\s+(?!from\b)\p{L}` }, short: 'Ölkədən əvvəl “from” lazımdır.', explain: ex("I'm from the USA.", 'Haradan olduğunu deyəndə “from” lazımdır.', "I'm from the USA. — haradan; I'm fine. — hal.", "Where are you from? — I'm from the USA.") },
+          other("I'm from the USA.", ex("I'm from the USA.", 'Rol oyununda Nyu-Yorkdansan — ölkə ABŞ-dır.', "I'm from the USA. — “the” ilə; I'm from England. — “the”siz.", "Where are you from? — I'm from the USA.")),
+        ],
+      },
+    },
+  ],
+  result: {
+    done: ['Dərs 2 · 3-cü hissə tamamlandı', 'Artıq Böyük Britaniya, İngiltərə və ABŞ-ın ingiliscə adını tanıyır, “the”-ni yerində işlədirsən.'],
+    incomplete: resultTexts.incomplete,
+    goals: [
+      { group: 'Tanıma', text: 'Ölkə adlarını və “the”-ni tanımaq', tasks: ['u3d2b_c03', 'u3d2b_c05'] },
+      { group: 'Yazı', text: 'Eşitdiyin ölkəni yazmaq', tasks: ['u3d2b_c07'] },
+      { group: 'Danışıq', text: 'Hansı ölkədən olduğunu “the” ilə düz demək', tasks: ['u3d2b_c15'] },
+    ],
+    closing: 'Növbəti hissə — Almaniya və Fransa.', button: resultTexts.button,
+    technical: resultTexts.technical, unverified: resultTexts.unverified,
+  },
+  vocabulary: [
+    { word: 'the UK', translation: 'Böyük Britaniya', example: "I'm from the UK.", exampleAz: 'Böyük Britaniyadanam.', usageNote: '“the” atılmır.', pronunciation: '/ðə ˌjuˈkeɪ/', teachCard: 'u3d2b_c02' },
+    { word: 'England', translation: 'İngiltərə', example: "I'm from England.", exampleAz: 'İngiltərədənəm.', usageNote: '“the” gəlmir.', pronunciation: '/ˈɪŋɡlənd/', teachCard: 'u3d2b_c04' },
+    { word: 'the USA', translation: 'ABŞ', example: "I'm from the USA.", exampleAz: 'ABŞ-danam.', usageNote: '“the” atılmır.', pronunciation: '/ðə ˌjuɛsˈeɪ/', teachCard: 'u3d2b_c06' },
+  ],
+};
+
+// Dərs 2 · 4-cü hissə (26 Nov 2026: the lesson was split, nothing removed): Germany · France.
+export const lesson2b_2: DesignLesson = {
+  id: 'a1_en_b3_d2b_2', order: 43, unit: 3, number: 2, part: 4, title: 'Ölkələr', section: 'Haradansan',
+  notices,
+  cards: [
+    {
+      type: 'intro', id: 'u3d2b_c20', badge: 'Haradansan', subtitle: 'Hosteldə və hava limanında Almaniya və Fransadan gələnlərlə tanış olursan.', start: 'Dərsə başla',
+      goals: [
+        { icon: 'chat', text: 'Almaniya və Fransanın ingiliscə adını eşidib tanıyıram.' },
+        { icon: 'wave', text: 'Haradan olduğumu deyib qarşı tərəfdən də soruşa bilirəm.' },
+      ],
+    },
+    {
       type: 'word', id: 'u3d2b_c08', number: 8, scenes: ['mascot/think'],
       word: 'Germany', pronunciation: '/ˈdʒɝməni/', reading: 'cörməni', az: 'Almaniya',
       notes: ['“Almaniya” yox: ingiliscə Germany, “cörməni” oxunur.'],
@@ -117,6 +171,24 @@ export const lesson2b: DesignLesson = {
         prompt: 'Kafedə yeni tanış haradan olduğunu deyir.\nDinlə, sonra eyni cür de.', audio: "I'm from the UK.", repeat: { stress: 'UK', note: '“the” — dil dişlərin arasına gəlir.', reading: 'aym fram **th**ə yu-key' },
         rule: exact("I'm from the UK."),
         variants: [other('Bir daha dinlə və yavaş de.', ex("I'm from the UK.", '“the” atılmır və dil dişlərin arasında deyilir.', "I'm from the UK. — düzdür; I'm from UK. — olmur.", "I'm from the UK."))],
+      },
+    },
+    {
+      type: 'choice', id: 'u3d2b_c16', number: 10, title: 'Seçim', why: '“I’m from Germany.” — from var, the yoxdur.', hint: 'Hər variantı yavaş oxu: hansında bütün sözlər yerindədir?',
+      prompt: 'Hosteldə yeni tanış Berlindəndir. Sən soruşursan: “Where are you from?”\nO necə cavab verər?',
+      options: ["I'm Germany.", "I'm from Germany.", "I'm from the Germany."], answer: "I'm from Germany.",
+      variants: [
+        pick("I'm from the Germany.", 'Germany-dən əvvəl “the” gəlmir.', ex("I'm from Germany.", '“the” yalnız bəzi ölkələrdən əvvəl gəlir.', "I'm from Germany. — “the”siz; I'm from the USA. — “the” ilə.", "I'm from Germany.")),
+        pick("I'm Germany.", '“from” çatmır.', ex("I'm from Germany.", 'Haradan olduğunu deyəndə “from” lazımdır.', "I'm from Germany. — haradan; I'm fine. — hal.", "I'm from Germany.")),
+      ],
+      review: {
+        title: 'Seçim', why: '“I’m from France.” — I’m və from yerindədir.', hint: 'Hər variantı yavaş oxu: hansında bütün sözlər yerindədir?',
+        prompt: 'Qatarda yeni tanış Parisdəndir. Sən soruşursan: “What country are you from?”\nO necə cavab verər?',
+        options: ["I'm from the France.", "I'm from France.", "I from France."], answer: "I'm from France.",
+        variants: [
+          pick("I'm from the France.", 'France-dan əvvəl “the” gəlmir.', ex("I'm from France.", '“the” yalnız bəzi ölkələrdən əvvəl gəlir.', "I'm from France. — “the”siz; I'm from the USA. — “the” ilə.", "I'm from France.")),
+          pick('I from France.', 'I-dan sonra am lazımdır.', ex("I'm from France.", 'Azərbaycancada “-am” şəkilçidir, ingiliscə I-dan sonra ayrıca gəlir.', "I'm from France. — düzdür; I from France. — olmur.", "I'm from France.")),
+        ],
       },
     },
     {
@@ -170,6 +242,26 @@ export const lesson2b: DesignLesson = {
       },
     },
     {
+      type: 'choice', id: 'u3d2b_c17', number: 13, title: 'Söhbəti tamamla', why: 'France-dan əvvəl “the” gəlmir.', hint: 'Yeni tanış hansı ölkədəndir? Bu adın əvvəlinə nəsə gəlirmi?',
+      prompt: 'Hava limanında söhbət. Yeni tanış Parisdəndir.\nSöhbətdə bir söz əskikdir. Düzgün sözü seç.',
+      dialog: [{ from: 'G', text: 'Hi! Where are you from?' }],
+      gap: { speaker: 'other', before: "I'm from", after: '. And you?' }, options: ['France', 'the France', 'Germany'], answer: 'France',
+      variants: [
+        pick('the France', 'France-dan əvvəl “the” gəlmir.', ex('France', '“the” yalnız bəzi ölkələrdən əvvəl gəlir.', "I'm from France. — “the”siz; I'm from the UK. — “the” ilə.", "I'm from France. And you?")),
+        pick('Germany', 'Paris Almaniyada deyil.', ex('France', 'Paris Fransadadır: France.', "I'm from France. — Fransadan; I'm from Germany. — Almaniyadan.", "I'm from France. And you?")),
+      ],
+      review: {
+        title: 'Söhbəti tamamla', why: 'Germany-dən əvvəl “the” gəlmir.', hint: 'Yeni tanış hansı ölkədəndir? Bu adın əvvəlinə nəsə gəlirmi?',
+        prompt: 'Qatarda söhbət. Yeni tanış Berlindəndir.\nSöhbətdə bir söz əskikdir. Düzgün sözü seç.',
+        dialog: [{ from: 'B', text: 'Excuse me, where are you from?' }],
+        gap: { speaker: 'other', before: "I'm from", after: '. And you?' }, options: ['the Germany', 'France', 'Germany'], answer: 'Germany',
+        variants: [
+          pick('the Germany', 'Germany-dən əvvəl “the” gəlmir.', ex('Germany', '“the” yalnız bəzi ölkələrdən əvvəl gəlir.', "I'm from Germany. — “the”siz; I'm from the USA. — “the” ilə.", "I'm from Germany. And you?")),
+          pick('France', 'Berlin Fransada deyil.', ex('Germany', 'Berlin Almaniyadadır: Germany.', "I'm from Germany. — Almaniyadan; I'm from France. — Fransadan.", "I'm from Germany. And you?")),
+        ],
+      },
+    },
+    {
       type: 'voice', id: 'u3d2b_c13', number: 13, title: 'Cavab ver və soruş', why: 'Haradan olduğunu dedin və ondan da soruşdun.', hint: 'Əvvəl öz cavabını de, sonra Dərs 1-dəki qısa geri sualı əlavə et.',
       prompt: 'Hostelin mətbəxində yeni tanış soruşur.\nHaradan olduğunu de və ondan da soruş.', audio: 'Hi! Where are you from?', reply: "I'm from Germany.",
       rule: fromAndAsk,
@@ -183,20 +275,16 @@ export const lesson2b: DesignLesson = {
     },
   ],
   result: {
-    done: ['Dərs 2 · 2-ci hissə tamamlandı', 'Artıq uzaq ölkələrin ingiliscə adını tanıyır, “the”-ni yerində işlədir və haradan olduğunu deyib geri soruşa bilirsən.'],
+    done: ['Dərs 2 · 4-cü hissə tamamlandı', 'Artıq uzaq ölkələrin ingiliscə adını tanıyır, “the”-ni yerində işlədir və haradan olduğunu deyib geri soruşa bilirsən.'],
     incomplete: resultTexts.incomplete,
     goals: [
-      { group: 'Tanıma', text: 'Ölkə adlarını eşidib tanımaq', tasks: ['u3d2b_c03', 'u3d2b_c05', 'u3d2b_c14', 'u3d2b_c11', 'u3d2b_c12'] },
-      { group: 'Yazı', text: 'Eşitdiyin ölkəni yazmaq', tasks: ['u3d2b_c07'] },
+      { group: 'Tanıma', text: 'Ölkə adlarını eşidib tanımaq', tasks: ['u3d2b_c16', 'u3d2b_c14', 'u3d2b_c11', 'u3d2b_c12', 'u3d2b_c17'] },
       { group: 'Danışıq', text: 'Ölkə adını demək, haradan olduğunu deyib geri soruşmaq', tasks: ['u3d2b_c09', 'u3d2b_c13'] },
     ],
     closing: 'Növbəti dərs — millət: azərbaycanlı, türk, rus, gürcü.', button: resultTexts.button,
     technical: resultTexts.technical, unverified: resultTexts.unverified,
   },
   vocabulary: [
-    { word: 'the UK', translation: 'Böyük Britaniya', example: "I'm from the UK.", exampleAz: 'Böyük Britaniyadanam.', usageNote: '“the” atılmır.', pronunciation: '/ðə ˌjuˈkeɪ/', teachCard: 'u3d2b_c02' },
-    { word: 'England', translation: 'İngiltərə', example: "I'm from England.", exampleAz: 'İngiltərədənəm.', usageNote: '“the” gəlmir.', pronunciation: '/ˈɪŋɡlənd/', teachCard: 'u3d2b_c04' },
-    { word: 'the USA', translation: 'ABŞ', example: "I'm from the USA.", exampleAz: 'ABŞ-danam.', usageNote: '“the” atılmır.', pronunciation: '/ðə ˌjuɛsˈeɪ/', teachCard: 'u3d2b_c06' },
     { word: 'Germany', translation: 'Almaniya', example: "I'm from Germany.", exampleAz: 'Almaniyadanam.', usageNote: '“cörməni” oxunur.', pronunciation: '/ˈdʒɝməni/', teachCard: 'u3d2b_c08' },
     { word: 'France', translation: 'Fransa', example: "I'm from France.", exampleAz: 'Fransadanam.', usageNote: '“frəns” oxunur.', pronunciation: '/fræns/', teachCard: 'u3d2b_c10' },
   ],

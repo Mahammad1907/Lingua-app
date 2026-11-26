@@ -13,7 +13,7 @@ const wrongShe = { match: { pattern: String.raw`^he\b` }, short: 'Qız haqqında
   explain: ex("She's from Ganja. She's Azerbaijani.", 'Azərbaycancada ikisi də “o”dur, ingiliscə qız üçün “she” gəlir.', "She's from Ganja. — qız; He's from Ganja. — oğlan.", "She's from Ganja. She's Azerbaijani.") };
 
 export const lesson8: DesignLesson = {
-  id: 'a1_en_b3_d8', order: 33, unit: 3, number: 8, title: 'Dil klubu', section: 'Haradansan',
+  id: 'a1_en_b3_d8', order: 57, unit: 3, number: 8, title: 'Dil klubu', section: 'Haradansan',
   notices,
   cards: [
     {

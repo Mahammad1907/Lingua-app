@@ -6,7 +6,7 @@ import { NAME } from '../unit2/shared';
 import { FROM, FROM_MISTAKES, LIVE, LIVE_MISTAKES, NATIONALITY_FIELD, notices, own, resultTexts, said, SPEAK, SPEAK_MISTAKES } from './shared';
 
 export const exam: DesignLesson = {
-  id: 'a1_en_b3_exam', order: 34, unit: 3, exam: true, title: 'Bölmə 3 imtahanı', section: 'Haradansan',
+  id: 'a1_en_b3_exam', order: 58, unit: 3, exam: true, title: 'Bölmə 3 imtahanı', section: 'Haradansan',
   notices,
   cards: [
     {
