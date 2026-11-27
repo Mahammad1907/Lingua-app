@@ -198,22 +198,6 @@ export const lesson2b: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd2_c07', number: 7, title: 'Dialoqu tamamla', why: 'Salam verdin və adını dedin.',
-      prompt: 'Yeni qonşun sənə yazır.\nSalam ver və adını de.', placeholder: 'Cavabını yaz',
-      chat: { partner: 'Yeni qonşu', from: 'G', lines: [{ from: 'G', text: 'Hello!' }] }, rule: greetIntro,
-      hint: 'İki hissə yaz: əvvəl qonşuna salam ver, sonra özünü təqdim et.', hintAssists: false,
-      variants: [
-        insteadOf('farewell', 'Görüş yeni başlayır — sağollaşma yox, salam lazımdır.', ex("Hello! I'm [ad]", 'Bye və Goodbye görüşü bitirir, burada isə görüş başlayır.', 'Salam + adın.', 'Hi! I’m [ad]')),
-        other('Salam və adın ikisi də lazımdır.', ex("Hello! I'm [ad]", 'Qonşun salam verdi, sən də salam verib adını deyirsən.', 'Salam + I’m / My name is + adın.', 'Hi! My name is [ad]')),
-      ],
-      review: {
-        title: 'Dialoqu tamamla', why: 'Salam verdin və adını dedin.', prompt: 'Kursda yeni yoldaşın yazır.\nSalam ver və adını de.', placeholder: 'Cavabını yaz',
-        chat: { partner: 'Yeni yoldaş', from: 'B', lines: [{ from: 'B', text: 'Hi!' }] }, rule: greetIntro,
-        hint: 'İki hissə yaz: əvvəl yoldaşına salam ver, sonra özünü təqdim et.', hintAssists: false,
-        variants: [other('Salam və adın ikisi də lazımdır.', ex("Hi! I'm [ad]", 'Yoldaşın salam verdi, sən də salam verib adını deyirsən.', 'Salam + I’m / My name is + adın.', "Hello! I'm [ad]"))],
-      },
-    },
-    {
       type: 'voice', id: 'd2_c08', number: 8, speaker: 'mascot', title: 'Özünü səslə təqdim et', why: 'Salam verdin və adını dedin.', hint: 'Əvvəl salam, sonra adın.',
       prompt: 'Yeni tanışın salam verir.\nSalam ver və adını de.', audio: 'Hello!', sample: "Hello! I'm [ad]", rule: greetIntroEarly,
       variants: [other('Salam və adın ikisi də lazımdır.', ex("Hello! I'm [ad]", 'Tanışın salam verdi, sən də salam verib adını deyirsən.', 'Salam + I’m + adın.', 'Hi! I’m [ad]'))],
@@ -247,7 +231,7 @@ export const lesson2b: DesignLesson = {
     incomplete: 'Dərs tam bitmədi. Yoxlanmayan tapşırıqlara sonra qayıda bilərsən.',
     goals: [
       { group: 'Tanıma', text: '“is / am” formalarını tanımaq', tasks: ['d2_c03', 'd2_c04', 'd2_c05'] },
-      { group: 'Yazı', text: 'Salam verib adını yazmaq', tasks: ['d2_c07', 'd2_c10'] },
+      { group: 'Yazı', text: 'Salam verib adını yazmaq', tasks: ['d2_c10'] },
       { group: 'Danışıq', text: 'Özünü səslə təqdim etmək', tasks: ['d2_c08', 'd2_c09'] },
     ],
     closing: 'Növbəti dərsdə başqasının adını soruşacaqsan.', button: 'Ana səhifəyə qayıt',

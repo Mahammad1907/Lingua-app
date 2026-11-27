@@ -18,9 +18,11 @@ function ordered(lesson: DesignLesson, ids: string[]): DesignLesson {
 }
 
 export const unit1Lessons: DesignLesson[] = [
-  // 26 Nov 2026: lessons over 12 screens are split into two parts (same map circle); nothing was removed.
+  // 26 Nov 2026: lessons over 12 screens are split into two parts (same map circle).
+  // 27 Nov 2026 (user): tasks that asked the same answer a third time were removed (d2_c07, d7_c06, d7_c12); every part
+  // keeps 8–12 screens and no three parts in a row have the same length.
   ordered(lesson2, ['c01', 'c02', 'c02s', 'c11', 'c15', 'c13', 'c14', 'c12']),
-  ordered(lesson2b, ['c01b', 'c02b', 'c04', 'c03', 'c08', 'c05', 'c06', 'c07', 'c09', 'c10']),
+  ordered(lesson2b, ['c01b', 'c02b', 'c04', 'c08', 'c03', 'c05', 'c06', 'c09', 'c10']),
   ordered(lesson3, ['c01', 'c02', 'c03', 'c04', 'c17', 'c15', 'c14', 'c09']),
   ordered(lesson3b, ['c01b', 'c06', 'c05', 'c07', 'c06b', 'c16', 'c13', 'c10', 'c08', 'c11', 'c12']),
   ordered(lesson4, ['c01', 'c03', 'c02', 'c13', 'c04', 'c06', 'c14', 'c08']),
@@ -30,6 +32,6 @@ export const unit1Lessons: DesignLesson[] = [
   ordered(lesson6, ['c01', 'c03', 'c14', 'c04', 'c15', 'c07', 'c09', 'c13']),
   ordered(lesson6b, ['c01b', 'c04b', 'c02', 'c05', 'c06', 'c11', 'c08', 'c12', 'c10']),
   ordered(lesson7, ['c01', 'c03', 'c02', 'c04', 'c07', 'c16', 'c17', 'c14', 'c18']),
-  ordered(lesson7b, ['c01b', 'c04b', 'c15', 'c05', 'c11', 'c06', 'c09', 'c12', 'c10', 'c08', 'c13']),
+  ordered(lesson7b, ['c01b', 'c04b', 'c15', 'c05', 'c11', 'c09', 'c10', 'c08', 'c13']),
   ordered(lesson8, ['c01', 'c02', 'c03', 'c04', 'c10', 'c05', 'c06', 'c11', 'c13', 'c07', 'c09', 'c08', 'c12']),
 ];

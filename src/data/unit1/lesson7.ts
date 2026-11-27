@@ -157,19 +157,6 @@ export const lesson7b: DesignLesson = {
       },
     },
     {
-      type: 'match', id: 'd7_c06', number: 6, title: 'Kim nə dedi?', why: 'Hər xahiş öz yerində.', hint: 'Sual kimi deyilən sözə diqqət et — o, üzr deyil.',
-      prompt: 'Hər cümləyə mənasını qoş.',
-      rows: [{ en: 'Sorry?', az: 'Necə?', from: 'G' }, { en: "I don't understand.", az: 'Başa düşmürəm.', from: 'B' }, { en: 'More slowly, please.', az: 'Daha yavaş, zəhmət olmasa.', from: 'M' }],
-      extra: ['Eybi yox.'],
-      variants: [other('Bir cümlənin mənası yerində deyil.', ex('Sorry? — Necə?; I don’t understand. — Başa düşmürəm.; More slowly, please. — Daha yavaş, zəhmət olmasa.', 'Sual kimi “Sorry?” üzr deyil — “Bağışlayın? / Necə?” deməkdir.', 'Sorry? — Necə?; Sorry! — üzr.', "Sorry? I don't understand."))],
-      review: {
-        title: 'Kim nə dedi?', why: 'Hər cümlə öz yerində.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Hər cümləyə mənasını qoş.',
-        rows: [{ en: 'Say that again, please.', az: 'Bunu bir daha deyin, zəhmət olmasa.', from: 'B' }, { en: 'No problem.', az: 'Eybi yox.', from: 'G' }, { en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'M' }],
-        extra: ['Necəsən?'],
-        variants: [other('Bir cümlənin mənası yerində deyil.', ex('Say that again, please. — Bunu bir daha deyin, zəhmət olmasa.; No problem. — Eybi yox.; Thank you! — Təşəkkür edirəm!', 'Xahiş, üzrə cavab və təşəkkür fərqlidir.', 'Say that again, please — xahiş; No problem. — üzrə cavab.', 'Say that again, please.'))],
-      },
-    },
-    {
       type: 'match', mode: 'order', id: 'd7_c09', number: 9, title: 'Söhbəti sırala', why: 'Əvvəl başa düşmədin, xahiş etdin, sonra cavab verdin.', hint: 'Düşün: başa düşməyəndə nə deyirsən və bundan sonra nə olur?',
       prompt: 'Oğlan çox sürətli danışır.\nBalonlara toxun, söhbəti sıraya düz.',
       rows: [{ en: '1', az: 'Hellohowareyou!', from: 'B' }, { en: '2', az: 'Sorry? More slowly, please.', from: 'G' }, { en: '3', az: 'How are you?', from: 'B' }, { en: '4', az: "I'm fine, thanks.", from: 'G' }],
@@ -192,15 +179,6 @@ export const lesson7b: DesignLesson = {
       review: {
         title: 'Cavabını yaz', why: 'Yavaş danışmağı xahiş etdin.', hint: 'Problem sürətdədir — ondan nə xahiş edirsən?', prompt: 'Qız çox sürətli səsli mesaj göndərdi.\nYavaş danışmasını xahiş et.', placeholder: 'Cavabını yaz', rule: slow,
         variants: [other('Yavaş danışmağı xahiş et.', ex('More slowly, please.', 'O çox sürətli danışır, ona görə “More slowly” lazımdır.', 'Say that again, please — bir də; More slowly, please — yavaş.', 'More slowly, please.'))],
-      },
-    },
-    {
-      type: 'voice', id: 'd7_c12', number: 12, speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: '1-ci hissədə öyrəndiyin “Başa düşmürəm” cümləsini de.',
-      prompt: '{M} sənə yeni bir söz deyir, mənasını bilmirsən.\nBaşa düşmədiyini de.', rule: dont, reply: 'OK! More slowly…',
-      variants: [other("I don't understand.", ex("I don't understand.", 'Mənasını bilmirsən, ona görə “Başa düşmürəm” deyirsən.', 'I don’t understand. — burada don’t; I’m not great. — burada not.', "Sorry? I don't understand."))],
-      review: {
-        speaker: 'mascot', title: 'Başa düşmədiyini de', why: 'Başa düşmədiyini açıq dedin.', hint: '1-ci hissədə öyrəndiyin “Başa düşmürəm” cümləsini de.', prompt: '{M} uzun cümlə dedi, heç nə anlamadın.\nBaşa düşmədiyini de.', rule: dont, reply: 'OK! More slowly…',
-        variants: [other("I don't understand.", ex("I don't understand.", 'Heç nə anlamadın, ona görə “Başa düşmürəm” deyirsən.', 'I don’t understand. — burada don’t; I’m not great. — burada not.', "I don't understand."))],
       },
     },
     {
@@ -248,9 +226,9 @@ export const lesson7b: DesignLesson = {
     done: ['Dərs 7 · 2-ci hissə tamamlandı', 'Artıq başa düşmədiyini deyib kömək istəyə bilirsən.'],
     incomplete: 'Dərs tam bitmədi. Yoxlanmayan tapşırıqlara sonra qayıda bilərsən.',
     goals: [
-      { group: 'Tanıma', text: 'Təkrar və yavaş xahişlərini anlamaq', tasks: ['d7_c09', 'd7_c05', 'd7_c06', 'd7_c08'] },
+      { group: 'Tanıma', text: 'Təkrar və yavaş xahişlərini anlamaq', tasks: ['d7_c09', 'd7_c05', 'd7_c08'] },
       { group: 'Yazı', text: 'Yavaş danışmağı yazıyla xahiş etmək', tasks: ['d7_c10'] },
-      { group: 'Danışıq', text: 'Təkrar və yavaş danışmağı istəmək', tasks: ['d7_c11', 'd7_c12', 'd7_c13'] },
+      { group: 'Danışıq', text: 'Təkrar və yavaş danışmağı istəmək', tasks: ['d7_c11', 'd7_c13'] },
     ],
     closing: 'Növbəti dərs — bölmə söhbəti: öyrəndiklərinin hamısı bir yerdə.', button: 'Ana səhifəyə qayıt',
     technical: 'Səs problemi oldu. Bu hissə yoxlanmadı.', unverified: 'Yoxlanmadı',

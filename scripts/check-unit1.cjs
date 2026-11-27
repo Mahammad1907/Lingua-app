@@ -74,8 +74,8 @@ for (const raw of unit1Lessons) {
 // Typical learner mistakes (docs/AZ_OYRENEN_SEHVLERI.md) are not accepted.
 const find = id => { for (const l of unit1Lessons) { const r = L.resolveLesson(l); const c = r.cards.find(c => c.id === id); if (c) return c; } };
 const rejects = (id, value, voice = false) => assert.notEqual(L.gradeText(find(id), value, voice).status, 'correct', `${id}: “${value}” must not be accepted`);
-rejects('d2_c07', 'Hello! My name Aysu.');
-rejects('d2_c07', 'Bye! I am Aysu.');
+rejects('d2_c13', 'Hello! My name Aysu.');
+rejects('d2_c13', 'Bye! I am Aysu.');
 rejects('d3_c04', "What's you name?");
 rejects('d3_c04', "What's is your name?");
 rejects('d3_c09', "What's your name?");
