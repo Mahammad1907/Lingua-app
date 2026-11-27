@@ -96,7 +96,7 @@ export function SceneArtwork({ place, evening = false }: { place: ScenePlace; ev
       <Rect x="322" y="119" width="23" height="26" rx="5" fill="#A67F70" />
       <Ellipse cx="332" cy="101" rx="10" ry="25" fill="#526D60" /><Ellipse cx="346" cy="109" rx="9" ry="20" fill="#678371" />
     </G>}
-    <Ellipse cx="190" cy="168" rx="38" ry="6" fill="#382F48" opacity=".24" />
+    <Ellipse cx="190" cy="168" rx="38" ry="6" fill="#382F48" opacity="0.24" />
   </Svg>;
 }
 

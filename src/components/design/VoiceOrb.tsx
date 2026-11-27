@@ -20,7 +20,7 @@ function Blob({ size, color, opacity = 1 }: { size: number; color: string; opaci
   return <Svg width={size} height={size}>
     <Defs><RadialGradient id={id} cx="50%" cy="50%" r="50%">
       <Stop offset="0" stopColor={color} stopOpacity={opacity} />
-      <Stop offset=".55" stopColor={color} stopOpacity={opacity * .75} />
+      <Stop offset="0.55" stopColor={color} stopOpacity={opacity * .75} />
       <Stop offset="1" stopColor={color} stopOpacity={0} />
     </RadialGradient></Defs>
     <Circle cx={size / 2} cy={size / 2} r={size / 2} fill={`url(#${id})`} />
@@ -73,8 +73,8 @@ export default function VoiceOrb({ active, disabled, level = 0 }: { active: bool
     <Animated.View style={[s.layer(BOX), aura]}>
       <Svg width={BOX} height={BOX}>
         <Defs><RadialGradient id="orbAura" cx="50%" cy="50%" r="50%">
-          <Stop offset=".4" stopColor={d.violetLight} stopOpacity={.45} />
-          <Stop offset=".7" stopColor={d.actionLight} stopOpacity={.22} />
+          <Stop offset="0.4" stopColor={d.violetLight} stopOpacity={.45} />
+          <Stop offset="0.7" stopColor={d.actionLight} stopOpacity={.22} />
           <Stop offset="1" stopColor={d.lavenderMist} stopOpacity={0} />
         </RadialGradient></Defs>
         <Circle cx={BOX / 2} cy={BOX / 2} r={BOX / 2} fill="url(#orbAura)" />
