@@ -13,7 +13,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { DesignLesson as Lesson, IntroCard, TwoTask, Who } from '../../data/designLessonTypes';
 import { useUserStore } from '../../store/userStore';
 import { isPass } from '../../utils/examResults';
-import { ART_MIN, ArtFit } from './fit';
+import { ART_MIN, ArtFit, ArtReport, useArtFit, useArtLayout } from './fit';
 import { useReviewStore } from '../../store/reviewStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
 import {
@@ -163,21 +163,38 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (viewport.h > lastViewH.current + 2 && lastViewH.current > 0) { setArt(1); setFit(1); setDense(false); setGrow(1); }
     lastViewH.current = viewport.h;
   }, [viewport.h]);
-  const shownHeight = (fitValue: number) => (contentHeight - CONTENT_PAD) * fitValue + CONTENT_PAD;
+  // Natural height of the card (27 Nov 2026): the content stretches to the screen (flexGrow), so its size report never
+  // shows free space. A marker after the card gives the real bottom; pictures report their full-size height.
+  const [bottom, setBottom] = useState({ card: '', y: 0 });
+  const pics = useRef({ card: '', h: {} as Record<string, number> });
+  const [picTick, setPicTick] = useState(0);
+  const reportArt = useCallback((key: string, full: number) => {
+    if (pics.current.card !== cardKey) pics.current = { card: cardKey, h: {} };
+    if (Math.abs((pics.current.h[key] ?? 0) - full) < 1) return;
+    pics.current.h[key] = full; setPicTick(t => t + 1);
+  }, [cardKey]);
+  const natural = bottom.card === cardKey && bottom.y > 0 ? bottom.y + CONTENT_PAD : contentHeight;
+  const shownHeight = (fitValue: number) => (natural - CONTENT_PAD) * fitValue + CONTENT_PAD;
+  const ready = measured && bottom.card === cardKey;
   useEffect(() => {
-    if (!measured || keyboardOpen || !viewport.h || !contentHeight || shownHeight(fitState) <= viewport.h + 1) return;
-    if (art > ART_MIN) { setArt(a => Math.max(ART_MIN, Math.round((a - .15) * 100) / 100)); return; }
-    if (!dense && (current?.type === 'word' || current?.type === 'teach')) { setDense(true); return; }
-    setFit(f => Math.max(MIN_FIT, Math.min(f, (viewport.h - CONTENT_PAD) / (contentHeight - CONTENT_PAD))));
-  }, [measured, contentHeight, viewport.h, keyboardOpen, art, fitState, dense]); // eslint-disable-line react-hooks/exhaustive-deps
-  // A picture that was shrunk grows back when the screen has room again (27 Nov 2026: picture stayed small, space below).
-  // Only while the card is being fitted (hidden) or after the screen itself grew, so it never jumps on screen.
-  useEffect(() => {
-    if (!measured || keyboardOpen || !viewport.h || !contentHeight || (art >= 1 && fitState >= 1)) return;
-    if (viewport.h - shownHeight(fitState) <= 48) return;
-    if (fitState < 1) { setFit(1); return; }
-    setArt(a => Math.min(1, Math.round((a + .15) * 100) / 100));
-  }, [measured, contentHeight, viewport.h, keyboardOpen, art, fitState]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (!ready || keyboardOpen || !viewport.h || !natural) return;
+    // 1. Pictures: one exact size that fills the free space (never above full size, never below ART_MIN).
+    const full = pics.current.card === cardKey ? Object.values(pics.current.h).reduce((a, b) => a + b, 0) : 0;
+    if (full > 0) {
+      const rest = shownHeight(fitState) - full * art * fitState; // everything except the pictures, as shown
+      const target = Math.max(ART_MIN, Math.min(1, Math.floor(((viewport.h - 1 - rest) / (full * fitState)) * 100) / 100));
+      if (Math.abs(target - art) >= 0.02 || (target === 1 && art < 1) || (target === ART_MIN && art > ART_MIN)) { setArt(target); return; }
+    } else if (art < 1 && shownHeight(fitState) <= viewport.h - 48) { setArt(1); return; }
+    const over = shownHeight(fitState) > viewport.h + 1;
+    // 2. Teaching cards switch to compact rows, 3. then the whole card is scaled (only after the pictures are at ART_MIN).
+    if (over && (full === 0 || art <= ART_MIN + 0.001)) {
+      if (!dense && (current?.type === 'word' || current?.type === 'teach')) { setDense(true); return; }
+      setFit(f => Math.max(MIN_FIT, Math.min(f, (viewport.h - CONTENT_PAD) / (natural - CONTENT_PAD))));
+      return;
+    }
+    // The whole card grows back to full size when the screen has room again.
+    if (!over && fitState < 1 && viewport.h - shownHeight(fitState) > 48) setFit(1);
+  }, [ready, natural, viewport.h, keyboardOpen, art, fitState, dense, picTick]); // eslint-disable-line react-hooks/exhaustive-deps
   const fit = keyboardOpen ? 1 : fitState;
   // No jump between cards (27 Nov 2026, user: the screen shook on every step): a new card stays invisible while it
   // is measured and shrunk to fit, then fades in once, already at its final size.
@@ -185,10 +202,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const [settled, setSettled] = useState(false);
   useEffect(() => { setSettled(false); shown.value = 0; const id = setTimeout(() => setSettled(true), 400); return () => clearTimeout(id); }, [cardKey]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
-    if (settled || !measured || !viewport.h || !contentHeight) return;
+    if (settled || !ready || !viewport.h || !natural) return;
     const fits = keyboardOpen || shownHeight(fitState) <= viewport.h + 1 || (fitState <= MIN_FIT && art <= ART_MIN);
     if (fits) { const id = setTimeout(() => setSettled(true), 30); return () => clearTimeout(id); }
-  }, [settled, measured, contentHeight, viewport.h, keyboardOpen, art, fitState, dense]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [settled, ready, natural, viewport.h, keyboardOpen, art, fitState, dense, picTick]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { if (settled) shown.value = withTiming(1, { duration: 160 }); }, [settled]); // eslint-disable-line react-hooks/exhaustive-deps
   const fadeStyle = useAnimatedStyle(() => ({ opacity: shown.value }));
   const stillOverflows = keyboardOpen || (viewport.h > 0 && shownHeight(fit) > viewport.h + 1 && fit <= MIN_FIT && art <= ART_MIN);
@@ -566,7 +583,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
           : task.mode === 'reply' ? 'Cümləyə toxun, sonra cavabını seç.' : 'İfadəyə toxun, sonra mənasını seç.') : clean.join(' ')}</Text>}
       {mascotTalks && context ? <Text style={s.taskSub}>{context}</Text> : null}
       <View style={s.work}>
-      {noArt ? null : scene && !spotsShown ? <Image source={scene} style={[s.scene, art < 1 && !keyboardOpen && { width: `${Math.round(art * 100)}%`, alignSelf: 'center' }]} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
+      {noArt ? null : scene && !spotsShown ? <ScenePicture source={scene} /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
       {voiceBubble ? <AudioPanel playing={playing} onPlay={() => speak(audio!, 0.85)} rate={rate} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(audio!, 0.85); }}
         avatar={<Avatar who={bubbleWho} size={48} />} title={<TapText text={audio!} style={s.audioLine} onWord={lookUp} />}
         sub={bubbleWho === 'other' ? 'Danışan' : `{${bubbleWho}}`} seconds={Math.round(audio!.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.6)} />
@@ -738,12 +755,13 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       onContentSizeChange={(_w, h) => { setContentHeight(h); setMeasured(true); }}>
       <View style={[{ flexGrow: 1, transform: [{ scale }], transformOrigin: 'top center' },
         scale !== 1 && innerW > 0 && { width: wideW, marginLeft: (innerW - wideW) / 2 }]}>
-      <ArtFit.Provider value={keyboardOpen ? 1 : art}><LessonCaption.Provider value={lessonLabel(lesson)}>
+      <ArtFit.Provider value={keyboardOpen ? 1 : art}><ArtReport.Provider value={reportArt}><LessonCaption.Provider value={lessonLabel(lesson)}>
       {/* Each new card fades in once it has its final size (no visible shrinking steps). */}
       <Animated.View key={cardKey} style={[{ flexGrow: 1 }, fadeStyle]}>
         {current?.type === 'word' || current?.type === 'teach' ? <View onLayout={e => onNatural(e.nativeEvent.layout.height)}>{body}</View> : body}
+        <View pointerEvents="none" style={{ height: 0 }} onLayout={e => { const y = e.nativeEvent.layout.y; setBottom(b => b.card === cardKey && Math.abs(b.y - y) < 1 ? b : { card: cardKey, y }); }} />
       </Animated.View>
-      </LessonCaption.Provider></ArtFit.Provider>
+      </LessonCaption.Provider></ArtReport.Provider></ArtFit.Provider>
       </View>
     </ScrollView>
     {/* The result sheet dims the lesson behind it (taps still reach the ▶ beside sent bubbles). */}
@@ -942,3 +960,9 @@ const s = StyleSheet.create({
 // Qaydaya bax helpers.
 function ruleOfTaskTitle(id: string) { return getRule(id)?.title ?? ''; }
 function ruleCard(id: string) { return getRule(id)?.card; }
+
+/** The task picture: width follows the ArtFit factor (height keeps the aspect), and it reports its size for fitting. */
+function ScenePicture({ source }: { source: NonNullable<ReturnType<typeof sceneImage>> }) {
+  const art = useArtFit(); const onArt = useArtLayout();
+  return <Image onLayout={onArt} source={source} style={[s.scene, art < 1 && { width: `${Math.round(art * 100)}%`, alignSelf: 'center' }]} contentFit="cover" accessibilityIgnoresInvertColors />;
+}
