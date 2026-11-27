@@ -117,6 +117,15 @@ export function gradeChoice(task: Pick<Extract<DesignTask, { type: 'choice' }>, 
 }
 
 /** Written and spoken answers. `voice` relaxes known speech-recognition spellings only. */
+/** Safety net (27 Nov 2026): the “Uyğun cavab” must be a sentence THIS task accepts. A shared typical-mistake
+ *  explanation that names another example (“Are you from Georgia?” in a Turkey task) shows the task's own answer. */
+function ownAnswer(explain: Graded['explain'], rule: { answers: string[] }, accepts: (x: string) => boolean): Graded['explain'] {
+  if (!explain?.answers || !rule.answers.length) return explain;
+  const pieces = explain.answers.split(/\s+\/\s+|\s+·\s+|\s+və ya\s+|\n/).map(x => x.trim()).filter(Boolean);
+  if (pieces.some(p => /\[|\{/.test(p) || accepts(p))) return explain;
+  return { ...explain, answers: rule.answers[0] };
+}
+
 export function gradeText(task: Extract<DesignTask, { type: 'write' | 'voice' }>, value: string, voice = false): Graded {
   if (!value.trim()) return { status: 'empty' };
   const verdict = assessPacketAnswer(value, task.rule, voice);
@@ -127,7 +136,8 @@ export function gradeText(task: Extract<DesignTask, { type: 'write' | 'voice' }>
   if (verdict.status === 'unknown' && !(variant && !('other' in variant.match))) return { status: 'unknown' };
   const slip = (!variant || 'other' in variant.match) ? commonSlip(value) : undefined;
   const used = slip ?? variant;
-  return withOwnFix({ status: 'wrong', short: used?.short ?? used?.explain.reason, explain: slip ? slipExplain(slip, variant, value) : explainOf(variant, value) }, value, task.rule);
+  const explain = ownAnswer(slip ? slipExplain(slip, variant, value) : explainOf(variant, value), task.rule, p => assessPacketAnswer(p, task.rule, false).status === 'correct');
+  return withOwnFix({ status: 'wrong', short: used?.short ?? used?.explain.reason, explain }, value, task.rule);
 }
 
 /** Tiles in the order the learner tapped them, as one sentence (“My name is Leyla .” → “My name is Leyla.”). */
@@ -202,8 +212,9 @@ export function gradeTwo(task: TwoTask, values: Record<string, string>, keep: Re
     const variant = pickVariant(task.variants.filter(v => !('swapped' in v.match)), values[field.id], false, field.id);
     const short = variant?.short && !(field.id === second.id && fields[first.id].status !== 'correct') ? variant.short : variant?.explain.reason.replace('{purpose}', field.purpose);
     const slip = (!variant || 'other' in variant.match) ? commonSlip(values[field.id]) : undefined;
-    fields[field.id] = withOwnFix(slip ? { status: 'wrong', short: slip.short, explain: slipExplain(slip, variant, values[field.id], field.purpose) }
-      : { status: 'wrong', short, explain: explainOf(variant, values[field.id], field.purpose) }, values[field.id], field.rule);
+    const accepts = (p: string) => assessPacketAnswer(p, field.rule, false).status === 'correct';
+    fields[field.id] = withOwnFix(slip ? { status: 'wrong', short: slip.short, explain: ownAnswer(slipExplain(slip, variant, values[field.id], field.purpose), field.rule, accepts) }
+      : { status: 'wrong', short, explain: ownAnswer(explainOf(variant, values[field.id], field.purpose), field.rule, accepts) }, values[field.id], field.rule);
   }
   const statuses = task.fields.map(f => fields[f.id].status);
   const wrong = task.fields.find(f => fields[f.id].status === 'wrong');

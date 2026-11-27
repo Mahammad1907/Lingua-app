@@ -1,10 +1,9 @@
 import { Image } from 'expo-image';
 import * as Haptics from 'expo-haptics';
-import Animated, { Keyframe } from 'react-native-reanimated';
+import Animated, { Keyframe, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
 // New step (25 Nov 2026): a short fade + 8px slide-up. Reanimated skips layout animations under Reduce Motion.
 const DimIn = new Keyframe({ 0: { opacity: 0 }, 100: { opacity: 1 } }).duration(220);
-const StepIn = new Keyframe({ 0: { opacity: 0, transform: [{ translateY: 8 }] }, 100: { opacity: 1, transform: [{ translateY: 0 }] } }).duration(280);
 import { Stack, useFocusEffect, useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
 import { setAudioModeAsync } from 'expo-audio';
@@ -167,11 +166,24 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     setFit(f => Math.max(MIN_FIT, Math.min(f, (viewport.h - CONTENT_PAD) / (contentHeight - CONTENT_PAD))));
   }, [contentHeight, viewport.h, keyboardOpen, art, fitState, dense]); // eslint-disable-line react-hooks/exhaustive-deps
   // A picture that was shrunk grows back when the screen has room again (27 Nov 2026: picture stayed small, space below).
+  // Only while the card is being fitted (hidden) or after the screen itself grew, so it never jumps on screen.
   useEffect(() => {
     if (keyboardOpen || !viewport.h || !contentHeight || art >= 1 || fitState < 1) return;
     if (viewport.h - shownHeight(1) > 48) setArt(a => Math.min(1, Math.round((a + .15) * 100) / 100));
   }, [contentHeight, viewport.h, keyboardOpen, art, fitState]); // eslint-disable-line react-hooks/exhaustive-deps
   const fit = keyboardOpen ? 1 : fitState;
+  // No jump between cards (27 Nov 2026, user: the screen shook on every step): a new card stays invisible while it
+  // is measured and shrunk to fit, then fades in once, already at its final size.
+  const shown = useSharedValue(0);
+  const [settled, setSettled] = useState(false);
+  useEffect(() => { setSettled(false); shown.value = 0; const id = setTimeout(() => setSettled(true), 400); return () => clearTimeout(id); }, [cardKey]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (settled || !viewport.h || !contentHeight) return;
+    const fits = keyboardOpen || shownHeight(fitState) <= viewport.h + 1 || (fitState <= MIN_FIT && art <= ART_MIN);
+    if (fits) { const id = setTimeout(() => setSettled(true), 30); return () => clearTimeout(id); }
+  }, [settled, contentHeight, viewport.h, keyboardOpen, art, fitState, dense]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (settled) shown.value = withTiming(1, { duration: 160 }); }, [settled]); // eslint-disable-line react-hooks/exhaustive-deps
+  const fadeStyle = useAnimatedStyle(() => ({ opacity: shown.value }));
   const stillOverflows = keyboardOpen || (viewport.h > 0 && shownHeight(fit) > viewport.h + 1 && fit <= MIN_FIT && art <= ART_MIN);
   // The scaled card keeps the full width: it is laid out wider by 1/fit and centred, so it does not look narrow.
   const growable = (current?.type === 'word' || current?.type === 'teach') && !keyboardOpen && fitState === 1 && !dense && !showResult;
@@ -714,8 +726,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       <View style={[{ flexGrow: 1, transform: [{ scale }], transformOrigin: 'top center' },
         scale !== 1 && innerW > 0 && { width: wideW, marginLeft: (innerW - wideW) / 2 }]}>
       <ArtFit.Provider value={keyboardOpen ? 1 : art}><LessonCaption.Provider value={lessonLabel(lesson)}>
-      {/* A short slide-in marks each new card; Reanimated skips it when the system asks for reduced motion. */}
-      <Animated.View key={cardKey} entering={StepIn} style={{ flexGrow: 1 }}>
+      {/* Each new card fades in once it has its final size (no visible shrinking steps). */}
+      <Animated.View key={cardKey} style={[{ flexGrow: 1 }, fadeStyle]}>
         {current?.type === 'word' || current?.type === 'teach' ? <View onLayout={e => onNatural(e.nativeEvent.layout.height)}>{body}</View> : body}
       </Animated.View>
       </LessonCaption.Provider></ArtFit.Provider>
