@@ -166,6 +166,11 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (!dense && (current?.type === 'word' || current?.type === 'teach')) { setDense(true); return; }
     setFit(f => Math.max(MIN_FIT, Math.min(f, (viewport.h - CONTENT_PAD) / (contentHeight - CONTENT_PAD))));
   }, [contentHeight, viewport.h, keyboardOpen, art, fitState, dense]); // eslint-disable-line react-hooks/exhaustive-deps
+  // A picture that was shrunk grows back when the screen has room again (27 Nov 2026: picture stayed small, space below).
+  useEffect(() => {
+    if (keyboardOpen || !viewport.h || !contentHeight || art >= 1 || fitState < 1) return;
+    if (viewport.h - shownHeight(1) > 48) setArt(a => Math.min(1, Math.round((a + .15) * 100) / 100));
+  }, [contentHeight, viewport.h, keyboardOpen, art, fitState]); // eslint-disable-line react-hooks/exhaustive-deps
   const fit = keyboardOpen ? 1 : fitState;
   const stillOverflows = keyboardOpen || (viewport.h > 0 && shownHeight(fit) > viewport.h + 1 && fit <= MIN_FIT && art <= ART_MIN);
   // The scaled card keeps the full width: it is laid out wider by 1/fit and centred, so it does not look narrow.
@@ -537,7 +542,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
           : task.mode === 'reply' ? 'Cümləyə toxun, sonra cavabını seç.' : 'İfadəyə toxun, sonra mənasını seç.') : clean.join(' ')}</Text>}
       {mascotTalks && context ? <Text style={s.taskSub}>{context}</Text> : null}
       <View style={s.work}>
-      {noArt ? null : scene && !spotsShown ? <Image source={scene} style={[s.scene, art < 1 && !keyboardOpen && { aspectRatio: 16 / 9 / art }]} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
+      {noArt ? null : scene && !spotsShown ? <Image source={scene} style={[s.scene, art < 1 && !keyboardOpen && { width: `${Math.round(art * 100)}%`, alignSelf: 'center' }]} contentFit="cover" accessibilityIgnoresInvertColors /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
       {voiceBubble ? <AudioPanel playing={playing} onPlay={() => speak(audio!, 0.85)} rate={rate} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(audio!, 0.85); }}
         avatar={<Avatar who={bubbleWho} size={48} />} title={<TapText text={audio!} style={s.audioLine} onWord={lookUp} />}
         sub={bubbleWho === 'other' ? 'Danışan' : `{${bubbleWho}}`} seconds={Math.round(audio!.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.6)} />

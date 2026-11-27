@@ -20,22 +20,24 @@ const mascotHead = require('../../../assets/mascot/hood_head.png');
 type Mark = 'correct' | 'wrong' | undefined;
 const markColor = (m: Mark, fallback: string) => m === 'correct' ? d.greenText : m === 'wrong' ? d.redText : fallback;
 
-/** Round avatar: the mascot picture, or the girl's purple / boy's orange circle with an initial until their pictures exist. */
+/** Round avatar: the mascot, or the girl's / boy's 3D portrait (27 Nov 2026); anyone else a neutral circle. */
+const portraits = { G: require('../../../assets/characters/girl.webp'), B: require('../../../assets/characters/boy.webp') } as const;
 export function Avatar({ who, size = 34 }: { who: Who; size?: number }) {
   // The head picture sits inside the circle with a margin, so the hood is never cut by the circle's edge.
   if (who === 'M') return <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' }}>
     <Image source={mascotHead} style={{ width: size * .8, height: size * .8 }} contentFit="contain" accessibilityLabel={characterAz('mascot') || 'Maskot'} />
   </View>;
-  const role = who === 'G' ? 'girl' as const : who === 'B' ? 'boy' as const : undefined;
-  const name = role ? characterAz(role) || (role === 'girl' ? 'Qız' : 'Oğlan') : '';
-  const look = who === 'G' ? { bg: '#EFE3FF', ring: d.purple, body: '#8E63E8', hair: '#5B1FD1' } : who === 'B' ? { bg: '#FFEBD6', ring: d.orange, body: '#F27A12', hair: '#7A3A0A' } : { bg: d.purpleSoft, ring: d.borderStrong, body: '#B9AED0', hair: '#8C7FA6' };
-  return <View accessibilityLabel={name || undefined}
-    style={{ width: size, height: size, borderRadius: size / 2, borderWidth: 2, borderColor: look.ring, backgroundColor: look.bg, overflow: 'hidden', alignItems: 'center', justifyContent: 'flex-end' }}>
-    <Svg width={size * .86} height={size * .78} viewBox="0 0 40 36">
-      <Path d="M4 36c1-8 7-12 16-12s15 4 16 12z" fill={look.body} />
-      <Circle cx={20} cy={15} r={8.5} fill="#F6D2B8" />
-      {who === 'G' ? <Path d="M11 16c0-7 4-11 9-11s9 4 9 11c-2-4-5-6-9-6s-7 2-9 6zM10 15c-1 5 0 9 2 11M30 15c1 5 0 9-2 11" fill={look.hair} stroke={look.hair} strokeWidth={2} />
-        : <Path d="M11.5 14c0-6 4-9 8.5-9s8.5 3 8.5 9c-2-3-5-4.5-8.5-4.5s-6.5 1.5-8.5 4.5z" fill={look.hair} />}
+  if (who === 'G' || who === 'B') {
+    const role = who === 'G' ? 'girl' as const : 'boy' as const;
+    return <View accessibilityLabel={characterAz(role) || (role === 'girl' ? 'Qız' : 'Oğlan')}
+      style={{ width: size, height: size, borderRadius: size / 2, borderWidth: 2, borderColor: who === 'G' ? d.purple : d.orange, backgroundColor: '#FFF1DA', overflow: 'hidden' }}>
+      <Image source={portraits[who]} style={{ width: '100%', height: '100%' }} contentFit="cover" />
+    </View>;
+  }
+  // Someone without a character (a new acquaintance): a calm neutral circle with a simple person mark.
+  return <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'flex-end', overflow: 'hidden' }}>
+    <Svg width={size * .7} height={size * .7} viewBox="0 0 40 40">
+      <Circle cx={20} cy={15} r={8} fill="#B9A9E8" /><Path d="M5 40c1-9 7-14 15-14s14 5 15 14z" fill="#B9A9E8" />
     </Svg>
   </View>;
 }
