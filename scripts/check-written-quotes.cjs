@@ -22,5 +22,12 @@ for (const lesson of lessons) for (const card of [...(lesson.cards ?? []), ...(l
   if (t.audio) problems.push(`${lesson.id} · ${t.id}: yazılı mesajın səsi (audio) var`);
   if (/^(Qız|Oğlan)/.test(line) && /\[ad\]/.test(quote) && /(I’m|I'm|name is)\s*\[ad\]/.test(quote)) problems.push(`${lesson.id} · ${t.id}: personaj öz adı yerinə “[ad]” yazır`);
 }
+// The mascot is the teacher: no task screen may show it as a speaker (28 Nov 2026, user: “maskot şəkilidi ekranların çoxunda”).
+{
+  const src = fs.readFileSync(require.resolve('../src/components/design/DesignLesson.tsx'), 'utf8');
+  const body = src.slice(src.indexOf('const quoteWho'), src.indexOf('const lines = task.prompt') > 0 ? src.length : src.length);
+  for (const bad of [/mascot' \? 'M'/, /SayBubble who="M"/, /<Avatar who="M"/]) if (bad.test(src)) problems.push(`DesignLesson.tsx: tapşırıq ekranında maskot danışan kimi göstərilir (${bad})`);
+  void body;
+}
 if (problems.length) { console.error(problems.join('\n')); console.error(`✗ ${problems.length} yazılı mesaj problemi`); process.exit(1); }
 console.log(`PASS: written quotes — ${n} message tasks shown as chat, no sound, characters write their own names.`);

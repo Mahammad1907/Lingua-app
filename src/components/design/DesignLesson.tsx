@@ -556,14 +556,15 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const quoteAt = lines.findIndex(l => /“[^”]+”/.test(l) && /(deyir|yazır|soruşur|edir)\s*:/.test(l));
     const quote = quoteAt >= 0 ? lines[quoteAt].match(/“([^”]+)”/)![1] : undefined;
     const subject = quoteAt >= 0 ? lines[quoteAt].split(/\s/)[0] : '';
-    const quoteWho: Who = /^Qız/.test(subject) ? 'G' : /^Oğlan/.test(subject) ? 'B' : task.speaker === 'mascot' ? 'M' : 'other';
+    // The mascot is the teacher (Müəllim izahı) — never a speaker in a task: such lines are the friend {F} (28 Nov 2026).
+    const quoteWho: Who = /^Qız/.test(subject) ? 'G' : /^Oğlan/.test(subject) ? 'B' : task.speaker === 'mascot' ? 'F' : 'other';
     const clean = lines.map((l, i) => i === quoteAt ? l.replace(/\s*:\s*“[^”]+”/, '.').replace(/\.\.$/, '.') : l);
     const context = clean.length > 1 ? clean[0] : '';
     const instruction = clean.length > 1 ? clean.slice(1).join('\n') : clean[0];
     // Voice tasks: the counterpart's line is shown in a bubble (it is not listening evidence).
     const voiceBubble = task.type === 'voice' && audio && !repeat;
     const bubbleText = voiceBubble ? audio! : quote;
-    const bubbleWho: Who = voiceBubble ? (task.speaker === 'mascot' ? 'M' : 'other') : quoteWho;
+    const bubbleWho: Who = voiceBubble ? (task.speaker === 'mascot' ? 'F' : 'other') : quoteWho;
     const mascotTalks = task.speaker === 'mascot' && !audio && !quote;
     // A WRITTEN quote (“mesajda yazır: …”) is a message, not speech (27 Nov 2026, rule 6): it is shown as a chat
     // with the sender's name and avatar — no ▶ and no sound wave.
@@ -591,7 +592,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       </View>
       {/* Task line (25 Nov 2026): one crisp slate subtitle under the title on every task screen — no framed box. */}
       {/* Matching screens show only the instruction (user, 25 Nov 2026): the situation line adds nothing there. */}
-      {mascotTalks ? <SayBubble who="M" text={instruction} /> : <Text style={s.taskSub}>{task.type === 'match'
+      {mascotTalks ? <SayBubble who="F" text={instruction} /> : <Text style={s.taskSub}>{task.type === 'match'
         ? (task.mode === 'order' ? (task.gaps ? 'Boşluğa toxun, sonra sözü seç.' : 'Balonlara toxun, söhbəti sıraya düz.')
           : task.mode === 'reply' ? 'Cümləyə toxun, sonra cavabını seç.' : 'İfadəyə toxun, sonra mənasını seç.') : clean.join(' ')}</Text>}
       {mascotTalks && context ? <Text style={s.taskSub}>{context}</Text> : null}
