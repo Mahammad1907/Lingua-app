@@ -528,6 +528,11 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const bubbleText = voiceBubble ? audio! : quote;
     const bubbleWho: Who = voiceBubble ? (task.speaker === 'mascot' ? 'M' : 'other') : quoteWho;
     const mascotTalks = task.speaker === 'mascot' && !audio && !quote;
+    // A WRITTEN quote (“mesajda yazır: …”) is a message, not speech (27 Nov 2026, rule 6): it is shown as a chat
+    // with the sender's name and avatar — no ▶ and no sound wave.
+    const written = quoteAt >= 0 && /(mesaj|yazır|yazıb|yazdı)/i.test(lines[quoteAt]);
+    const quoteChat = written && quote ? { partner: quoteWho === 'G' ? '{G}' : quoteWho === 'B' ? '{B}' : 'Yeni tanış', from: quoteWho, lines: [{ from: quoteWho, text: quote }], reply: undefined as string | undefined } : undefined;
+    const chat = task.type === 'write' ? task.chat ?? quoteChat : undefined;
     const scene = sceneImage(task.scenes);
     // No Kömək on the tap-to-place screens (Kim nə dedi?, Cavab cütü, Söhbəti sırala) — user, 13 Nov 2026.
     // Section exams measure without help: no Kömək at all.
@@ -536,7 +541,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     // Speaking screens (25 Nov 2026): a utility row under the audio card — sample pill (Dərs 1–2) left, Kömək right.
     const voiceRow = task.type === 'voice' && !repeat;
     // Chat, speaking and listening screens carry no picture (BIRTALK §5.3).
-    const noArt = (task.type === 'write' && (Boolean(task.chat) || Boolean(task.photo))) || task.type === 'voice' || listeningTask;
+    const noArt = (task.type === 'write' && (Boolean(chat) || Boolean(task.photo))) || task.type === 'voice' || listeningTask;
     // The model answer: the task's own sample, or (opened through Kömək) the first accepted answer.
     // Bug fixed 13 Nov: tasks without a written sample offered “Nümunəni göstər” but showed nothing.
     const sampleText = task.type === 'voice' && !task.repeat ? task.sample ?? (sampleShown ? task.rule.answers[0] : undefined) : undefined;
@@ -558,7 +563,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {voiceBubble ? <AudioPanel playing={playing} onPlay={() => speak(audio!, 0.85)} rate={rate} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(audio!, 0.85); }}
         avatar={<Avatar who={bubbleWho} size={48} />} title={<TapText text={audio!} style={s.audioLine} onWord={lookUp} />}
         sub={bubbleWho === 'other' ? 'Danışan' : `{${bubbleWho}}`} seconds={Math.round(audio!.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.6)} />
-        : bubbleText ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} /> : null}
+        : quoteChat && task.type !== 'write' ? <ChatThread partner={quoteChat.partner} from={quoteChat.from} lines={quoteChat.lines} mine="" placeholder="" onWord={lookUp} />
+        : bubbleText && !quoteChat ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} /> : null}
       {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} rate={rate} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(audio, 0.85, listeningTask); }}
         avatar={<Avatar who={quoteWho} size={48} />} name={quoteWho === 'other' ? 'Dostun' : `{${quoteWho}}`}
         seconds={Math.round(audio.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.8)} /> : null}
@@ -592,14 +598,14 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         onActive={en => { setActiveRow(en); if (pairs[en]) setPairs(p => { const { [en]: _gone, ...rest } = p; return rest; }); setNotice(''); }}
         onPlace={az => { const target = activeRow && !pairs[activeRow] ? activeRow : task.rows.find(r => !pairs[r.en])?.en; if (!target) return;
           setPairs(p => ({ ...p, [target]: az })); setNotice(''); setActiveRow(task.rows.find(r => r.en !== target && !pairs[r.en])?.en ?? ''); }} /> : null}
-      {task.type === 'write' && task.chat ? <ChatThread partner={task.chat.partner} from={task.chat.from} lines={task.chat.lines} onSay={say} onWord={lookUp} placeholder={tiles ? 'Sözlərə toxun…' : 'Sənin cavabın…'}
-        mine={text} mark={single ? markOf(single.status) : undefined} help={helpButton} sent={Boolean(result && result.kind !== 'unverified')} posted={chatPosted} reply={task.chat.reply}
+      {chat ? <ChatThread partner={chat.partner} from={chat.from} lines={chat.lines} onSay={say} onWord={lookUp} placeholder={tiles ? 'Sözlərə toxun…' : 'Sənin cavabın…'}
+        mine={text} mark={single ? markOf(single.status) : undefined} help={helpButton} sent={Boolean(result && result.kind !== 'unverified')} posted={chatPosted} reply={chat.reply}
         chips={tiles ? <PickedChips tiles={tiles} picked={picked} disabled={locked.current} placeholder="Sözlərə toxun…" onRemove={i => pickTiles(picked.filter(x => x !== i))} /> : undefined}>
         {tiles ? <TileTray tiles={tiles} picked={picked} disabled={locked.current} onSay={say} onPick={i => pickTiles([...picked, i])} /> : null}
       </ChatThread> : null}
       {/* Tile task without a chat (e.g. “Mesaj yaz”): the picked words and the tray are the whole screen (20 Nov 2026). */}
       {task.type === 'write' && task.photo ? <PhotoCard photo={task.photo} /> : null}
-      {task.type === 'write' && tiles && !task.chat ? <View style={{ gap: 16 }}>
+      {task.type === 'write' && tiles && !chat ? <View style={{ gap: 16 }}>
         <View style={s.transcript}><PickedChips tiles={tiles} picked={picked} disabled={locked.current} placeholder="Sözlərə toxun…" onRemove={i => pickTiles(picked.filter(x => x !== i))} /></View>
         <TileTray tiles={tiles} picked={picked} disabled={locked.current} onSay={say} onPick={i => pickTiles([...picked, i])} />
       </View> : null}
@@ -615,7 +621,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {task.type === 'write' && letters ? <LetterBoard letters={letters} picked={picked} length={task.rule.answers[0]?.length ?? 4} disabled={locked.current}
         mark={single ? markOf(single.status) : undefined} onPick={i => pickLetters([...picked, i])} onRemove={i => pickLetters(picked.filter(x => x !== i))} /> : null}
       {task.type === 'write' && !task.tiles && !task.keypad && !letters ? <Field onSubmit={() => { if (text.trim() && !(listeningTask && !heard && !textShown && !technical)) check(); }} value={text} onChange={v => { setText(v); setChatPosted(false); if (result?.kind === 'unverified') setResult(null); }}
-        onSend={task.chat ? () => { if (text.trim()) setChatPosted(true); } : undefined} placeholder={listeningTask && !task.tiles ? 'Sözü bura yaz...' : task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
+        onSend={chat ? () => { if (text.trim()) setChatPosted(true); } : undefined} placeholder={listeningTask && !task.tiles ? 'Sözü bura yaz...' : task.placeholder} editable={!locked.current} state={fieldState(single?.status)} /> : null}
       {task.type === 'two' && task.thread ? (() => {
         // “İki mesajı özün yaz” as a chat timeline (25 Nov 2026).
         const th = task.thread, fields = task.fields, at = Math.min(twoEdit, fields.length);
@@ -640,7 +646,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {task.type === 'two' && !task.thread ? <TwoFields task={task} values={two} onChange={(id, v) => { setTwo(all => ({ ...all, [id]: v })); setNotice(''); if (result?.kind === 'unverified') setResult(null); }}
         graded={result?.kind === 'two' ? result.graded : undefined} keep={reviewing ? keepFields[task.id]?.fields : undefined} /> : null}
       {/* Help sits under the answers, on the right: read the task, try, then ask for help. */}
-      {!helpUnderAudio && !voiceRow && !(task.type === 'write' && task.chat) && !(task.type === 'two' && task.thread) && !(task.type === 'choice' && task.gap) ? helpButton : null}
+      {!helpUnderAudio && !voiceRow && !(chat) && !(task.type === 'two' && task.thread) && !(task.type === 'choice' && task.gap) ? helpButton : null}
       {notice ? <Text accessibilityLiveRegion="polite" style={s.notice}>{notice}</Text> : null}
       {task.type === 'voice' && (!result || voiceRetry) ? <View style={s.micArea}>
         <HoldToTalk onFinal={onSpoken} onRecording={onRecording} onBusyChange={setVoiceBusy} suspended={helpOpen || explainOpen || reportOpen || menuOpen || Boolean(ruleOpen)} />

@@ -28,13 +28,13 @@ export const lesson3: DesignLesson = {
     },
     {
       type: 'choice', id: 'd3_c02', number: 2, title: 'Oxu və anla', why: 'I’m [ad] ilə adını deyir.', hint: 'Qız sual verir, yoxsa özü haqqında nəsə deyir?',
-      prompt: 'Qız yazır: “Hi! I’m [ad]”\nO nə edir?', options: ['Adını soruşur.', 'Adını deyir.', 'Sağollaşır.'], answer: 'Adını deyir.',
+      prompt: 'Qız yazır: “Hi! I’m {NE:G}”\nO nə edir?', options: ['Adını soruşur.', 'Adını deyir.', 'Sağollaşır.'], answer: 'Adını deyir.',
       variants: [
         pick('Adını soruşur.', 'Sual yoxdur — o, adını deyir.', ex('Adını deyir.', '“I’m [ad]” — “Mən [ad]-am” deməkdir, bu sual deyil.', 'I’m + ad = adını demək.', 'Hi! I’m [ad]')),
         pick('Sağollaşır.', 'Hi salamdır, sağollaşma deyil.', ex('Adını deyir.', 'Hi görüşü başladır, sonra “I’m [ad]” ilə adını deyir.', 'I’m + ad = adını demək.', 'Hello! My name is [ad]')),
       ],
       review: {
-        title: 'Oxu və anla', why: 'My name is [ad] ilə adını deyir.', hint: 'Oğlan sual verir, yoxsa özü haqqında nəsə deyir?', prompt: 'Oğlan yazır: “Hello! My name is [ad]”\nO nə edir?',
+        title: 'Oxu və anla', why: 'My name is [ad] ilə adını deyir.', hint: 'Oğlan sual verir, yoxsa özü haqqında nəsə deyir?', prompt: 'Oğlan yazır: “Hello! My name is {NE:B}”\nO nə edir?',
         options: ['Sağollaşır.', 'Adını soruşur.', 'Adını deyir.'], answer: 'Adını deyir.',
         variants: [other('O, adını deyir.', ex('Adını deyir.', '“My name is [ad]” — “Mənim adım [ad]” deməkdir.', 'My name is + ad = adını demək.', 'Hi! I’m [ad]'))],
       },
@@ -64,7 +64,7 @@ export const lesson3: DesignLesson = {
 
     {
       type: 'write', id: 'd3_c09', number: 9, title: 'Adını yaz', why: 'Sualı başa düşdün və adını dedin.', hint: 'Dərs 2-də adını necə deyirdin, onu xatırla.',
-      prompt: 'Qız mesajda adını yazıb soruşur: “Hi! I’m [ad]. What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
+      prompt: 'Qız mesajda adını yazıb soruşur: “Hi! I’m {NE:G}. What’s your name?”\nAdını yaz.', placeholder: 'Cavabını yaz', rule: intro,
       variants: [
         insteadOf('askName', 'O artıq soruşdu — sən cavab verirsən.', ex("I'm [ad] / My name is [ad]", 'Qız artıq soruşdu, sən isə adını deyirsən.', 'What’s your name? → I’m [ad]', "My name is [ad]")),
         other('Adını I’m və ya My name is ilə de.', ex("I'm [ad] / My name is [ad]", '“What’s your name?” sualına cavab adındır.', 'What’s your name? → I’m [ad]', "I'm [ad]")),
