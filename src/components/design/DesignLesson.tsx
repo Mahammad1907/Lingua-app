@@ -150,7 +150,12 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   // Grow (25 Nov 2026, user): a short Yeni söz / Öyrən card is scaled up as a whole (text, buttons, gaps) until it fills
   // the screen — at most 1.25×. Measured on the card's natural height; once set it only goes down (no back-and-forth).
   const [grow, setGrow] = useState(1); const naturalH = useRef(0);
-  useEffect(() => { setArt(1); setFit(1); setDense(false); setGrow(1); naturalH.current = 0; }, [cardKey]);
+  // The previous card's height must not shrink the new one (27 Nov 2026: a short choice screen opened with a tiny
+  // picture and empty space below) — fitting waits for the new card's own size report (or 90 ms: an unchanged size
+  // sends no report, so the old value is then right).
+  const [measured, setMeasured] = useState(false);
+  useEffect(() => { setArt(1); setFit(1); setDense(false); setGrow(1); naturalH.current = 0; setMeasured(false);
+    const id = setTimeout(() => setMeasured(true), 90); return () => clearTimeout(id); }, [cardKey]);
   // When the screen grows back (keyboard closed), measure again from full size — otherwise a card shrunk while the
   // keyboard was closing stayed small (German card, user, 25 Nov 2026).
   const lastViewH = useRef(0);
@@ -160,17 +165,19 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   }, [viewport.h]);
   const shownHeight = (fitValue: number) => (contentHeight - CONTENT_PAD) * fitValue + CONTENT_PAD;
   useEffect(() => {
-    if (keyboardOpen || !viewport.h || !contentHeight || shownHeight(fitState) <= viewport.h + 1) return;
+    if (!measured || keyboardOpen || !viewport.h || !contentHeight || shownHeight(fitState) <= viewport.h + 1) return;
     if (art > ART_MIN) { setArt(a => Math.max(ART_MIN, Math.round((a - .15) * 100) / 100)); return; }
     if (!dense && (current?.type === 'word' || current?.type === 'teach')) { setDense(true); return; }
     setFit(f => Math.max(MIN_FIT, Math.min(f, (viewport.h - CONTENT_PAD) / (contentHeight - CONTENT_PAD))));
-  }, [contentHeight, viewport.h, keyboardOpen, art, fitState, dense]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [measured, contentHeight, viewport.h, keyboardOpen, art, fitState, dense]); // eslint-disable-line react-hooks/exhaustive-deps
   // A picture that was shrunk grows back when the screen has room again (27 Nov 2026: picture stayed small, space below).
   // Only while the card is being fitted (hidden) or after the screen itself grew, so it never jumps on screen.
   useEffect(() => {
-    if (keyboardOpen || !viewport.h || !contentHeight || art >= 1 || fitState < 1) return;
-    if (viewport.h - shownHeight(1) > 48) setArt(a => Math.min(1, Math.round((a + .15) * 100) / 100));
-  }, [contentHeight, viewport.h, keyboardOpen, art, fitState]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (!measured || keyboardOpen || !viewport.h || !contentHeight || (art >= 1 && fitState >= 1)) return;
+    if (viewport.h - shownHeight(fitState) <= 48) return;
+    if (fitState < 1) { setFit(1); return; }
+    setArt(a => Math.min(1, Math.round((a + .15) * 100) / 100));
+  }, [measured, contentHeight, viewport.h, keyboardOpen, art, fitState]); // eslint-disable-line react-hooks/exhaustive-deps
   const fit = keyboardOpen ? 1 : fitState;
   // No jump between cards (27 Nov 2026, user: the screen shook on every step): a new card stays invisible while it
   // is measured and shrunk to fit, then fades in once, already at its final size.
@@ -178,10 +185,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const [settled, setSettled] = useState(false);
   useEffect(() => { setSettled(false); shown.value = 0; const id = setTimeout(() => setSettled(true), 400); return () => clearTimeout(id); }, [cardKey]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
-    if (settled || !viewport.h || !contentHeight) return;
+    if (settled || !measured || !viewport.h || !contentHeight) return;
     const fits = keyboardOpen || shownHeight(fitState) <= viewport.h + 1 || (fitState <= MIN_FIT && art <= ART_MIN);
     if (fits) { const id = setTimeout(() => setSettled(true), 30); return () => clearTimeout(id); }
-  }, [settled, contentHeight, viewport.h, keyboardOpen, art, fitState, dense]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [settled, measured, contentHeight, viewport.h, keyboardOpen, art, fitState, dense]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { if (settled) shown.value = withTiming(1, { duration: 160 }); }, [settled]); // eslint-disable-line react-hooks/exhaustive-deps
   const fadeStyle = useAnimatedStyle(() => ({ opacity: shown.value }));
   const stillOverflows = keyboardOpen || (viewport.h > 0 && shownHeight(fit) > viewport.h + 1 && fit <= MIN_FIT && art <= ART_MIN);
@@ -728,7 +735,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     <ScrollView ref={scrollRef} style={{ flex: 1 }} contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" bounces={false} alwaysBounceVertical={false}
       overScrollMode="never" scrollEnabled={stillOverflows} showsVerticalScrollIndicator={stillOverflows}
       onLayout={e => setViewport({ w: e.nativeEvent.layout.width, h: e.nativeEvent.layout.height })}
-      onContentSizeChange={(_w, h) => setContentHeight(h)}>
+      onContentSizeChange={(_w, h) => { setContentHeight(h); setMeasured(true); }}>
       <View style={[{ flexGrow: 1, transform: [{ scale }], transformOrigin: 'top center' },
         scale !== 1 && innerW > 0 && { width: wideW, marginLeft: (innerW - wideW) / 2 }]}>
       <ArtFit.Provider value={keyboardOpen ? 1 : art}><LessonCaption.Provider value={lessonLabel(lesson)}>
