@@ -91,13 +91,13 @@ export const lesson8: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'u2d8_c07', number: 7, title: 'Cavab cütü', why: 'Hər suala uyğun cavabı tapdın.', hint: 'Hər suala uyğun cavabı tap, bir cavab artıqdır.',
       prompt: 'Qeydiyyat masasında suallar.\nSuala toxun, sonra onun cavabını seç.',
-      rows: [{ en: 'How old are you?', az: "I'm thirty.", from: 'G' }, { en: 'How do you spell it?', az: "It's B-A-K-U.", from: 'B' }, { en: 'Is that right?', az: "Yes, that's right.", from: 'M' }],
+      rows: [{ en: 'How old are you?', az: "I'm thirty.", from: 'G' }, { en: 'How do you spell it?', az: "It's B-A-K-U.", from: 'B' }, { en: 'Is that right?', az: "Yes, that's right.", from: 'F' }],
       extra: ['Nice to meet you.'],
       variants: [other('Bir sualın cavabı yerində deyil.', ex("How old are you? — I'm thirty.; How do you spell it? — It's B-A-K-U.; Is that right? — Yes, that's right.", 'Yaş, hərflər və təsdiq fərqli suallara cavabdır.', "How old are you? → I'm thirty; Is that right? → Yes, that's right.", "How do you spell it? — It's B-A-K-U."))],
       review: {
         title: 'Cavab cütü', why: 'Hər suala uyğun cavabı tapdın.', hint: 'Hər suala uyğun cavabı tap, bir cavab artıqdır.',
         prompt: 'Ziyafətdə suallar.\nSuala toxun, sonra onun cavabını seç.',
-        rows: [{ en: "What's your email?", az: "It's K-B at mail dot com.", from: 'B' }, { en: 'Thank you!', az: "You're welcome.", from: 'G' }, { en: "What's your phone number?", az: "It's oh five oh…", from: 'M' }],
+        rows: [{ en: "What's your email?", az: "It's K-B at mail dot com.", from: 'B' }, { en: 'Thank you!', az: "You're welcome.", from: 'G' }, { en: "What's your phone number?", az: "It's oh five oh…", from: 'F' }],
         extra: ["I'm fine, thanks."],
         variants: [other('Bir sualın cavabı yerində deyil.', ex("What's your email? — It's K-B at mail dot com.; Thank you! — You're welcome.; What's your phone number? — It's oh five oh…", 'E-poçt, təşəkkür və nömrə fərqli cavab istəyir.', "Thank you! → You're welcome; What's your email? → It's [ad] at mail dot com.", "What's your email? — It's K-B at mail dot com."))],
       },

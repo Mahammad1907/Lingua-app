@@ -28,7 +28,8 @@ interface BaseTask {
   scenes?: string[];
 }
 /** Who speaks in a chat bubble or sentence: mascot, girl, boy or someone unnamed. */
-export type Who = 'M' | 'G' | 'B' | 'other';
+/** M mascot · G girl · B boy · F the foreign friend (curly hair) · other: someone without a character. */
+export type Who = 'M' | 'G' | 'B' | 'F' | 'other';
 export interface ChatLine { from: Who; text: string }
 
 export interface ChoiceTask extends BaseTask {

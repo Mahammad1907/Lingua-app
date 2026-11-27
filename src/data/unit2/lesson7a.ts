@@ -90,13 +90,13 @@ export const lesson7a: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'u2d7a_c09', number: 9, title: 'Cavab cütü', why: 'Hər sıranı düz davam etdirdin.', hint: 'Hər sıranın son rəqəmindən sonra hansının gəldiyini düşün.',
       prompt: 'Zalda təkrarları birlikdə sayırsınız.\nSıraya toxun, sonra onun davamını seç.',
-      rows: [{ en: 'Eleven, twelve…', az: 'Thirteen!', from: 'G' }, { en: 'Eighteen, nineteen…', az: 'Twenty!', from: 'B' }, { en: 'Fifteen, sixteen…', az: 'Seventeen!', from: 'M' }],
+      rows: [{ en: 'Eleven, twelve…', az: 'Thirteen!', from: 'G' }, { en: 'Eighteen, nineteen…', az: 'Twenty!', from: 'B' }, { en: 'Fifteen, sixteen…', az: 'Seventeen!', from: 'F' }],
       extra: ['Ten!'],
       variants: [other('Bir sıranın davamı yerində deyil.', ex('Eleven, twelve… — Thirteen!; Eighteen, nineteen… — Twenty!; Fifteen, sixteen… — Seventeen!', 'Hər sıra son rəqəmdən sonra davam edir.', 'Twelve… → thirteen; Nineteen… → twenty.', 'Eighteen, nineteen, twenty!'))],
       review: {
         title: 'Cavab cütü', why: 'Geriyə sayımı düz davam etdirdin.', hint: 'Geriyə sayırsan: son rəqəmdən əvvəl hansı gəlir?',
         prompt: 'İndi geriyə sayırsınız.\nSıraya toxun, sonra onun davamını seç.',
-        rows: [{ en: 'Twenty, nineteen…', az: 'Eighteen!', from: 'B' }, { en: 'Thirteen, twelve…', az: 'Eleven!', from: 'G' }, { en: 'Seventeen, sixteen…', az: 'Fifteen!', from: 'M' }],
+        rows: [{ en: 'Twenty, nineteen…', az: 'Eighteen!', from: 'B' }, { en: 'Thirteen, twelve…', az: 'Eleven!', from: 'G' }, { en: 'Seventeen, sixteen…', az: 'Fifteen!', from: 'F' }],
         extra: ['Fourteen!'],
         variants: [other('Bir sıranın davamı yerində deyil.', ex('Twenty, nineteen… — Eighteen!; Thirteen, twelve… — Eleven!; Seventeen, sixteen… — Fifteen!', 'Geriyə sayanda hər sıra bir rəqəm azalır.', 'Twelve… → eleven; Sixteen… → fifteen.', 'Twenty, nineteen, eighteen!'))],
       },

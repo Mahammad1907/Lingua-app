@@ -129,7 +129,7 @@ export const lesson6b: DesignLesson = {
     {
       type: 'match', id: 'd6_c02', number: 2, title: 'Kim nə dedi?', why: 'Keçən dərslərin ifadələrini xatırladın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
       prompt: 'Keçən dərsləri xatırla.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'G' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'B' }, { en: 'How are you?', az: 'Necəsən?', from: 'M' }],
+      rows: [{ en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'G' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'B' }, { en: 'How are you?', az: 'Necəsən?', from: 'F' }],
       extra: ['Zəhmət olmasa.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; How are you? — Necəsən?', 'Təşəkkür, ona cavab və hal sualı — üç ayrı iş.', 'Thank you! — təşəkkür; You’re welcome. — təşəkkürə cavab.', "Thank you! — You're welcome."))],
       review: {

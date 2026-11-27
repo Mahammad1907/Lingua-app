@@ -64,7 +64,7 @@ export const unit1Exam: DesignLesson[] = [{
     {
       type: 'match', id: 'u1x_c06', number: 6, title: 'Kim nə dedi?', why: 'Üç “bağışlayın”ı ayırdın.',
       prompt: 'Küçədə üç nəfər “bağışlayın” deyir, amma hərəsi başqa iş üçün.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'Excuse me.', az: 'Bağışlayın (diqqət).', from: 'G' }, { en: 'Sorry!', az: 'Bağışlayın (səhv).', from: 'B' }, { en: 'Sorry?', az: 'Necə?', from: 'M' }],
+      rows: [{ en: 'Excuse me.', az: 'Bağışlayın (diqqət).', from: 'G' }, { en: 'Sorry!', az: 'Bağışlayın (səhv).', from: 'B' }, { en: 'Sorry?', az: 'Necə?', from: 'F' }],
       extra: ['Eybi yox.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Excuse me. — Bağışlayın (diqqət).; Sorry! — Bağışlayın (səhv).; Sorry? — Necə?', 'Excuse me burada diqqət çəkir, Sorry! üzrdür, sual kimi deyilən Sorry? isə “Bağışlayın? / Necə?” deməkdir.', 'Sorry! — üzr; Sorry? — Necə?.', 'Sorry! — No problem.'))],
     },
@@ -103,7 +103,7 @@ export const unit1Exam: DesignLesson[] = [{
     {
       type: 'match', mode: 'reply', id: 'u1x_c11', number: 11, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.',
       prompt: 'Kursda fasilədir. Hər deyilənə bir cavab var.\nCümləyə toxun, sonra onun cavabını seç.',
-      rows: [{ en: 'Thanks!', az: "You're welcome.", from: 'G' }, { en: 'How are you?', az: "I'm OK. And you?", from: 'B' }, { en: 'Goodbye!', az: 'Bye!', from: 'M' }],
+      rows: [{ en: 'Thanks!', az: "You're welcome.", from: 'G' }, { en: 'How are you?', az: "I'm OK. And you?", from: 'B' }, { en: 'Goodbye!', az: 'Bye!', from: 'F' }],
       extra: ['You too.'],
       variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Thanks! — You're welcome.; How are you? — I'm OK. And you?; Goodbye! — Bye!", 'Təşəkkürə, hal sualına və sağollaşmaya fərqli cavab verilir.', 'Thanks! → You’re welcome; Goodbye! → Bye!', "Thank you! — You're welcome."))],
     },

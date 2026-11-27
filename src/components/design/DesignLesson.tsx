@@ -531,7 +531,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     // A WRITTEN quote (“mesajda yazır: …”) is a message, not speech (27 Nov 2026, rule 6): it is shown as a chat
     // with the sender's name and avatar — no ▶ and no sound wave.
     const written = quoteAt >= 0 && /(mesaj|yazır|yazıb|yazdı)/i.test(lines[quoteAt]);
-    const quoteChat = written && quote ? { partner: quoteWho === 'G' ? '{G}' : quoteWho === 'B' ? '{B}' : 'Yeni tanış', from: quoteWho, lines: [{ from: quoteWho, text: quote }], reply: undefined as string | undefined } : undefined;
+    const quoteChat = written && quote ? { partner: quoteWho === 'G' ? '{G}' : quoteWho === 'B' ? '{B}' : quoteWho === 'F' ? '{F}' : 'Yeni tanış', from: quoteWho, lines: [{ from: quoteWho, text: quote }], reply: undefined as string | undefined } : undefined;
     const chat = task.type === 'write' ? task.chat ?? quoteChat : undefined;
     const scene = sceneImage(task.scenes);
     // No Kömək on the tap-to-place screens (Kim nə dedi?, Cavab cütü, Söhbəti sırala) — user, 13 Nov 2026.

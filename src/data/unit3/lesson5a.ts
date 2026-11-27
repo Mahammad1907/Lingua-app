@@ -62,7 +62,7 @@ export const lesson5a: DesignLesson = {
     {
       type: 'match', id: 'u3d5a_c05', number: 5, title: 'Kim nə dedi?', why: 'He və she fərqini tapdın.', hint: 'Hər cümlənin birinci sözünə bax: kişi, qadın, yoxsa özü?',
       prompt: 'Video zəngdə qız və oğlan dostlarının halını deyir.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'He is fine.', az: 'O (kişi) yaxşıdır.', from: 'G' }, { en: 'She is OK.', az: 'O (qadın) normaldır.', from: 'B' }, { en: "I'm not great.", az: 'Mən çox yaxşı deyiləm.', from: 'M' }],
+      rows: [{ en: 'He is fine.', az: 'O (kişi) yaxşıdır.', from: 'G' }, { en: 'She is OK.', az: 'O (qadın) normaldır.', from: 'B' }, { en: "I'm not great.", az: 'Mən çox yaxşı deyiləm.', from: 'F' }],
       extra: ['O (kişi) normaldır.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('He is fine. — O (kişi) yaxşıdır.; She is OK. — O (qadın) normaldır.; I\'m not great. — Mən çox yaxşı deyiləm.', 'He kişi, she qadın haqqındadır; fine və OK da fərqlidir.', 'He is fine. — kişi; She is fine. — qadın.', 'She is OK. He is fine.'))],
       review: {

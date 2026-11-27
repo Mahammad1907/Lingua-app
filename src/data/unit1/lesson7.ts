@@ -65,12 +65,12 @@ export const lesson7: DesignLesson = {
     {
       type: 'match', id: 'd7_c16', number: 16, title: 'Kim nə dedi?', why: 'Hər xahiş öz yerində.', hint: 'Sual kimi deyilən sözə diqqət et — o, üzr deyil.',
       prompt: 'Hər cümləyə mənasını qoş.',
-      rows: [{ en: 'Sorry?', az: 'Necə?', from: 'B' }, { en: "I don't understand.", az: 'Başa düşmürəm.', from: 'G' }, { en: 'Say that again, please.', az: 'Bunu bir daha deyin, zəhmət olmasa.', from: 'M' }],
+      rows: [{ en: 'Sorry?', az: 'Necə?', from: 'B' }, { en: "I don't understand.", az: 'Başa düşmürəm.', from: 'G' }, { en: 'Say that again, please.', az: 'Bunu bir daha deyin, zəhmət olmasa.', from: 'F' }],
       extra: ['Eybi yox.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Sorry? — Necə?; I don’t understand. — Başa düşmürəm.; Say that again, please. — Bunu bir daha deyin, zəhmət olmasa.', 'Sual kimi “Sorry?” üzr deyil — “Bağışlayın? / Necə?” deməkdir.', 'Sorry? — Necə?; Sorry! — üzr.', 'Sorry? Say that again, please.'))],
       review: {
         title: 'Kim nə dedi?', why: 'İki “Sorry”ni ayırdın.', hint: 'Səs sonda qalxırsa, bu sualdır.', prompt: 'Hər cümləyə mənasını qoş.',
-        rows: [{ en: 'Sorry!', az: 'Bağışla (üzr).', from: 'G' }, { en: 'Sorry?', az: 'Necə?', from: 'B' }, { en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'M' }],
+        rows: [{ en: 'Sorry!', az: 'Bağışla (üzr).', from: 'G' }, { en: 'Sorry?', az: 'Necə?', from: 'B' }, { en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'F' }],
         extra: ['Başa düşmürəm.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Sorry! — Bağışla (üzr).; Sorry? — Necə?; Thank you! — Təşəkkür edirəm!', '“Sorry!” üzrdür, sual kimi “Sorry?” isə “Necə?” deməkdir.', 'Sorry? — Necə?; Sorry! — üzr.', "Sorry? I don't understand."))],
       },

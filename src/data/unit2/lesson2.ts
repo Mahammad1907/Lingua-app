@@ -156,13 +156,13 @@ export const lesson2Part2: DesignLesson = {
     {
       type: 'match', id: 'u2d2_c10', number: 10, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
       prompt: 'Kursda nömrə mübadiləsi.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'Is that right?', az: 'Düzdür?', from: 'G' }, { en: "What's your phone number?", az: 'Telefon nömrən nədir?', from: 'B' }, { en: "Thanks! — You're welcome.", az: 'Sağ ol! — Dəyməz.', from: 'M' }],
+      rows: [{ en: 'Is that right?', az: 'Düzdür?', from: 'G' }, { en: "What's your phone number?", az: 'Telefon nömrən nədir?', from: 'B' }, { en: "Thanks! — You're welcome.", az: 'Sağ ol! — Dəyməz.', from: 'F' }],
       extra: ['Telefonun haradadır?'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex("Is that right? — Düzdür?; What's your phone number? — Telefon nömrən nədir?; Thanks! — You're welcome. — Sağ ol! — Dəyməz.", 'Yoxlama, sual və təşəkkür fərqli işlərdir.', "Is that right? — yoxlayırsan; What's your phone number? — soruşursan.", 'Oh five five… Is that right?'))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
         prompt: 'Ofisdə nömrə mübadiləsi.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: "It's oh five oh…", az: 'Nömrəm 050…-dir.', from: 'B' }, { en: "Yes, that's right.", az: 'Bəli, düzdür.', from: 'G' }, { en: 'Say that again, please.', az: 'Bunu bir daha deyin, zəhmət olmasa.', from: 'M' }],
+        rows: [{ en: "It's oh five oh…", az: 'Nömrəm 050…-dir.', from: 'B' }, { en: "Yes, that's right.", az: 'Bəli, düzdür.', from: 'G' }, { en: 'Say that again, please.', az: 'Bunu bir daha deyin, zəhmət olmasa.', from: 'F' }],
         extra: ['Telefon nömrən nədir?'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex("It's oh five oh… — Nömrəm 050…-dır.; Yes, that's right. — Bəli, düzdür.; Say that again, please. — Bunu bir daha deyin, zəhmət olmasa.", 'Nömrə, təsdiq və xahiş fərqli işlərdir.', "Is that right? — sual; Yes, that's right. — cavab.", "Yes, that's right."))],
       },

@@ -9,6 +9,8 @@ require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileMo
 const lessons = ['1', '2', '3', '4'].flatMap(u => { const m = require(`../src/data/unit${u}/index.ts`); return [...(m[`unit${u}Lessons`] ?? []), ...(m[`unit${u}Exam`] ?? [])]; });
 const problems = []; let n = 0;
 for (const lesson of lessons) for (const card of [...(lesson.cards ?? []), ...(lesson.pool ?? [])]) for (const t of [card, card.review].filter(Boolean)) {
+  // The mascot teaches; it never speaks a line in “Kim nə dedi?” (27 Nov 2026, user) — the people do.
+  for (const r of t.rows ?? []) if (r.from === 'M') problems.push(`${lesson.id} · ${t.id}: “${r.en}” maskotun dilindədir — personaj olmalıdır`);
   if (typeof t.prompt !== 'string') continue;
   const line = t.prompt.split('\n').find(l => /“[^”]+”/.test(l) && /(deyir|yazır|soruşur|edir)\s*:/.test(l));
   if (!line || !/(mesaj|yazır|yazıb|yazdı)/i.test(line)) continue;

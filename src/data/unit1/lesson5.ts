@@ -98,12 +98,12 @@ export const lesson5: DesignLesson = {
       // New (26 Nov 2026, lesson split): part 1 practises thanks and the reply to thanks.
       type: 'match', id: 'd5_c14', number: 14, title: 'Kim nə dedi?', why: 'Təşəkkür, ona cavab və xoş söz öz yerində.', hint: 'Hər söz nə vaxt deyilir: kömək alanda, kömək edəndə, yoxsa tanış olanda?',
       prompt: 'Hər cümləyə mənasını qoş.',
-      rows: [{ en: 'Thanks!', az: 'Sağ ol!', from: 'B' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'G' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'M' }],
+      rows: [{ en: 'Thanks!', az: 'Sağ ol!', from: 'B' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'G' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'F' }],
       extra: ['Bəs sən?'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Thanks! — Sağ ol!; You’re welcome. — Dəyməz.; Nice to meet you. — Tanış olduğuma şadam.', 'Təşəkkür, ona cavab və tanışlığın xoş sözü — üç ayrı iş.', 'Thanks! — təşəkkür; You’re welcome. — təşəkkürə cavab.', "Thanks! — You're welcome."))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlə öz yerində.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Başqa söhbət.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'G' }, { en: 'You too!', az: 'Mən də!', from: 'B' }, { en: "I'm fine.", az: 'Yaxşıyam.', from: 'M' }],
+        rows: [{ en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'G' }, { en: 'You too!', az: 'Mən də!', from: 'B' }, { en: "I'm fine.", az: 'Yaxşıyam.', from: 'F' }],
         extra: ['Dəyməz.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Thank you! — Təşəkkür edirəm!; You too! — Mən də!; I’m fine. — Yaxşıyam.', 'Təşəkkür, xoş sözə cavab və hal — üç ayrı iş.', 'Thank you! — təşəkkür; You too! — xoş sözə cavab.', "Thank you! — You're welcome."))],
       },
@@ -148,7 +148,7 @@ export const lesson5b: DesignLesson = {
     {
       type: 'match', id: 'd5_c06', number: 6, title: 'Kim nə dedi?', why: 'Üç nəzakət sözü öz yerində.', hint: 'Hər söz nə vaxt deyilir: kömək alanda, kömək edəndə, yoxsa xahiş edəndə?',
       prompt: 'Hər cümləyə mənasını qoş.',
-      rows: [{ en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'G' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'B' }, { en: 'Please.', az: 'Zəhmət olmasa.', from: 'M' }],
+      rows: [{ en: 'Thank you!', az: 'Təşəkkür edirəm!', from: 'G' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'B' }, { en: 'Please.', az: 'Zəhmət olmasa.', from: 'F' }],
       extra: ['Bağışla.'],
       variants: [
         pick('Please.', '“Please” — zəhmət olmasa.', ex('Please. — Zəhmət olmasa.', '“Please” xahiş edəndə deyilir, təşəkkürə cavab isə “You’re welcome”dur.', 'Please — xahiş; You’re welcome — təşəkkürə cavab.', "Thank you! — You're welcome.")),
@@ -156,7 +156,7 @@ export const lesson5b: DesignLesson = {
       ],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlə öz yerində.', hint: 'Hər cümlə nə vaxt deyilir: kömək alanda, kömək edəndə, yoxsa hal soruşanda?', prompt: 'Hər cümləyə mənasını qoş.',
-        rows: [{ en: 'Thanks!', az: 'Sağ ol!', from: 'B' }, { en: 'How are you?', az: 'Necəsən?', from: 'G' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'M' }],
+        rows: [{ en: 'Thanks!', az: 'Sağ ol!', from: 'B' }, { en: 'How are you?', az: 'Necəsən?', from: 'G' }, { en: "You're welcome.", az: 'Dəyməz.', from: 'F' }],
         extra: ['Mən də!'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Thanks! — Sağ ol!; How are you? — Necəsən?; You’re welcome. — Dəyməz.', 'Təşəkkür, sual və cavab fərqli işlərdir.', 'Thanks! — təşəkkür; How are you? — hal sualı.', "Thanks! — You're welcome."))],
       },
@@ -201,12 +201,12 @@ export const lesson5b: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'd5_c13', number: 13, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə uyğun cavabı tap, bir cavab artıqdır.',
       prompt: 'Hər deyilənə bir cavab var.\nCümləyə toxun, sonra onun cavabını seç.',
-      rows: [{ en: 'Thank you!', az: "You're welcome.", from: 'G' }, { en: 'How are you?', az: "I'm fine, thanks.", from: 'B' }, { en: 'Nice to meet you.', az: 'You too.', from: 'M' }],
+      rows: [{ en: 'Thank you!', az: "You're welcome.", from: 'G' }, { en: 'How are you?', az: "I'm fine, thanks.", from: 'B' }, { en: 'Nice to meet you.', az: 'You too.', from: 'F' }],
       extra: ['Please.'],
       variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Thank you! — You're welcome.; How are you? — I'm fine, thanks.; Nice to meet you. — You too.", 'Təşəkkürə, suala və xoş sözə fərqli cavab verilir.', 'Thank you! → You’re welcome; Nice to meet you. → You too.', "Thank you! — You're welcome."))],
       review: {
         title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə uyğun cavabı tap, bir cavab artıqdır.', prompt: 'Başqa söhbətlər.\nCümləyə toxun, sonra onun cavabını seç.',
-        rows: [{ en: 'Thanks!', az: "You're welcome.", from: 'B' }, { en: "What's your name?", az: "I'm [ad]", from: 'G' }, { en: 'Hello!', az: 'Hi!', from: 'M' }],
+        rows: [{ en: 'Thanks!', az: "You're welcome.", from: 'B' }, { en: "What's your name?", az: "I'm [ad]", from: 'G' }, { en: 'Hello!', az: 'Hi!', from: 'F' }],
         extra: ['Please.'],
         variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Thanks! — You're welcome.; What's your name? — I'm [ad]; Hello! — Hi!", 'Təşəkkürə, ad sualına və salama fərqli cavab verilir.', 'Thanks! → You’re welcome; What’s your name? → I’m [ad]', "Thanks! — You're welcome."))],
       },

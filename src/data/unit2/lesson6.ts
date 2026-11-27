@@ -149,13 +149,13 @@ export const lesson6Part2: DesignLesson = {
     {
       type: 'match', id: 'u2d6_c07', number: 7, title: 'Kim nə dedi?', why: 'Hər sözün mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun sözü yerinə qoy.',
       prompt: 'Ofisdə eşitdiklərin.\nHər birinə mənasını qoş.',
-      rows: [{ en: 'dot', az: 'nöqtə (.)', from: 'B' }, { en: "What's your email?", az: 'E-poçtun nədir?', from: 'G' }, { en: 'Email, please.', az: 'E-poçt, zəhmət olmasa.', from: 'M' }],
+      rows: [{ en: 'dot', az: 'nöqtə (.)', from: 'B' }, { en: "What's your email?", az: 'E-poçtun nədir?', from: 'G' }, { en: 'Email, please.', az: 'E-poçt, zəhmət olmasa.', from: 'F' }],
       extra: ['Telefon nömrən nədir?'],
       variants: [other('Bir mənası yerində deyil.', ex("dot — nöqtə (.); What's your email? — E-poçtun nədir?; Email, please. — E-poçt, zəhmət olmasa.", 'Sual və xahiş fərqlidir; dot — nöqtədir.', "What's your email? — sual; Email, please. — xahiş.", 'mail dot com'))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər sözün mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun sözü yerinə qoy.',
         prompt: 'E-poçt sözləri.\nHər birinə mənasını qoş.',
-        rows: [{ en: 'at', az: '@', from: 'B' }, { en: 'dot', az: '.', from: 'G' }, { en: "What's your phone number?", az: 'Telefon nömrən nədir?', from: 'M' }],
+        rows: [{ en: 'at', az: '@', from: 'B' }, { en: 'dot', az: '.', from: 'G' }, { en: "What's your phone number?", az: 'Telefon nömrən nədir?', from: 'F' }],
         extra: ['E-poçtun nədir?'],
         variants: [other('Bir mənası yerində deyil.', ex("at — @; dot — .; What's your phone number? — Telefon nömrən nədir?", 'at — @ işarəsi, dot — nöqtə.', 'at — @; dot — nöqtə.', MY))],
       },

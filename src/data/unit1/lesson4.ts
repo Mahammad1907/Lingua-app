@@ -31,7 +31,7 @@ export const lesson4: DesignLesson = {
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam.', 'Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir.', 'What’s your name? — ad sualı; Nice to meet you. — xoş söz.', 'Hi! What’s your name? I’m [ad]. Nice to meet you!'))],
       review: {
         title: 'Kim nə dedi?', why: 'Keçən dərslərin ifadələrini xatırladın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Keçən dərsləri xatırla.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'You too!', az: 'Mən də!', from: 'B' }, { en: "I'm [ad]", az: 'Mən [ad]-am.', from: 'G' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
+        rows: [{ en: 'You too!', az: 'Mən də!', from: 'B' }, { en: "I'm [ad]", az: 'Mən [ad]-am.', from: 'G' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'F' }],
         extra: ['Adın nədir?'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('You too! — Mən də!; I’m [ad] — Mən [ad]-am.; Goodbye! — Görüşənədək!', 'Hər ifadənin öz işi var: cavab, ad, sağollaşma.', 'You too! — xoş sözə cavab; Goodbye! — sağollaşma.', 'Nice to meet you! — You too!'))],
       },
@@ -219,7 +219,7 @@ export const lesson4b: DesignLesson = {
       // New (26 Nov 2026, lesson split): three answers to How are you?
       type: 'match', id: 'd4_c15', number: 15, title: 'Kim nə dedi?', why: 'Üç cavabın mənasını ayırdın.', hint: 'Əvvəl “not” sözü olan cavabı yerinə qoy.',
       prompt: 'Üç nəfər “How are you?” sualına cavab verir.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: "I'm fine.", az: 'Yaxşıyam.', from: 'G' }, { en: "I'm OK.", az: 'Normalam.', from: 'B' }, { en: "I'm not great.", az: 'Çox yaxşı deyiləm.', from: 'M' }],
+      rows: [{ en: "I'm fine.", az: 'Yaxşıyam.', from: 'G' }, { en: "I'm OK.", az: 'Normalam.', from: 'B' }, { en: "I'm not great.", az: 'Çox yaxşı deyiləm.', from: 'F' }],
       extra: ['Necəsən?'],
       variants: [other('Bir cavabın mənası yerində deyil.', ex("I'm fine. — Yaxşıyam.; I'm OK. — Normalam.; I'm not great. — Çox yaxşı deyiləm.", 'Üç cavab üç fərqli haldır: yaxşı, normal, çox yaxşı deyil.', 'I’m fine — Yaxşıyam; I’m not great — Çox yaxşı deyiləm.', "How are you? — I'm OK."))],
       review: {

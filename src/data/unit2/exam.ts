@@ -112,7 +112,7 @@ export const exam: DesignLesson = {
     {
       type: 'match', id: 'u2x_c14', number: 14, title: 'Kim nə dedi?', why: 'Hər sualın mənasını tapdın.',
       prompt: 'Qeydiyyat masasında eşitdiklərin.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: "What's your email?", az: 'E-poçtun nədir?', from: 'G' }, { en: 'How do you spell it?', az: 'Hərf-hərf necə yazılır?', from: 'B' }, { en: "What's your last name?", az: 'Soyadın nədir?', from: 'M' }],
+      rows: [{ en: "What's your email?", az: 'E-poçtun nədir?', from: 'G' }, { en: 'How do you spell it?', az: 'Hərf-hərf necə yazılır?', from: 'B' }, { en: "What's your last name?", az: 'Soyadın nədir?', from: 'F' }],
       extra: ['Neçə yaşın var?'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex("What's your email? — E-poçtun nədir?; How do you spell it? — Hərf-hərf necə yazılır?; What's your last name? — Soyadın nədir?", 'E-poçt, hərflər və soyad fərqli suallardır.', "What's your email? — e-poçt; What's your last name? — soyad.", 'How do you spell it?'))],
     },
@@ -125,7 +125,7 @@ export const exam: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u2x_c16', number: 16, title: 'Söhbəti sırala', why: 'Qeydiyyat söhbəti düz sıradadır.',
       prompt: 'Qeydiyyat masasında.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "Hello! What's your phone number?", from: 'M' }, { en: '2', az: "It's zero five zero, two two one, four eight, three six.", from: 'B' }, { en: '3', az: 'Zero five zero, two two one, four eight, three six. Is that right?', from: 'M' }, { en: '4', az: "Yes, that's right. Thank you!", from: 'B' }],
+      rows: [{ en: '1', az: "Hello! What's your phone number?", from: 'F' }, { en: '2', az: "It's zero five zero, two two one, four eight, three six.", from: 'B' }, { en: '3', az: 'Zero five zero, two two one, four eight, three six. Is that right?', from: 'F' }, { en: '4', az: "Yes, that's right. Thank you!", from: 'B' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hello! What's your phone number? → It's zero five zero… → Is that right? → Yes, that's right. Thank you!", 'Sual, nömrə, yoxlama, sonra təsdiq.', "Is that right? — yoxlama; Yes, that's right. — təsdiq.", "What's your phone number?"))],
     },

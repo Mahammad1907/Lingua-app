@@ -60,12 +60,12 @@ export const lesson8: DesignLesson = {
     {
       type: 'match', id: 'd8_c05', number: 5, title: 'Kim nə dedi?', why: 'İki “bağışlayın”ı ayırdın.', hint: 'İki “bağışlayın”ı ayır: biri diqqət çəkir, biri üzrdür.',
       prompt: 'Hər cümləyə mənasını qoş.',
-      rows: [{ en: 'Excuse me.', az: 'Bağışlayın (diqqət).', from: 'B' }, { en: 'Sorry!', az: 'Bağışlayın (səhv).', from: 'G' }, { en: 'No problem.', az: 'Eybi yox.', from: 'M' }],
+      rows: [{ en: 'Excuse me.', az: 'Bağışlayın (diqqət).', from: 'B' }, { en: 'Sorry!', az: 'Bağışlayın (səhv).', from: 'G' }, { en: 'No problem.', az: 'Eybi yox.', from: 'F' }],
       extra: ['Dəyməz.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Excuse me. — Bağışlayın (diqqət).; Sorry! — Bağışlayın (səhv).; No problem. — Eybi yox.', 'Excuse me diqqət çəkir, Sorry üzrdür, No problem üzrə cavabdır.', 'Diqqət → Excuse me; səhv → Sorry.', 'Sorry! — No problem.'))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlə öz yerində.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Hər cümləyə mənasını qoş.',
-        rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "I don't understand.", az: 'Başa düşmürəm.', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
+        rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "I don't understand.", az: 'Başa düşmürəm.', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'F' }],
         extra: ['Daha yavaş, zəhmət olmasa.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; I don’t understand. — Başa düşmürəm.; Goodbye! — Görüşənədək!', 'Salam, kömək istəmək və sağollaşma fərqli işlərdir.', 'Hello! — görüşün əvvəli; Goodbye! — görüşün sonu.', "Hello! Sorry? I don't understand. Goodbye!"))],
       },
@@ -158,12 +158,12 @@ export const lesson8: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'd8_c13', number: 13, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə uyğun cavabı tap, bir cavab artıqdır.',
       prompt: 'Hər deyilənə bir cavab var.\nCümləyə toxun, sonra onun cavabını seç.',
-      rows: [{ en: 'Sorry!', az: 'No problem.', from: 'B' }, { en: 'Thank you!', az: "You're welcome.", from: 'G' }, { en: 'Nice to meet you!', az: 'You too!', from: 'M' }],
+      rows: [{ en: 'Sorry!', az: 'No problem.', from: 'B' }, { en: 'Thank you!', az: "You're welcome.", from: 'G' }, { en: 'Nice to meet you!', az: 'You too!', from: 'F' }],
       extra: ['Excuse me.'],
       variants: [other('Bir cümlənin cavabı yerində deyil.', ex("Sorry! — No problem.; Thank you! — You're welcome.; Nice to meet you! — You too!", 'Üzrə, təşəkkürə və xoş sözə fərqli cavab verilir.', 'Sorry! → No problem; Thank you! → You’re welcome.', 'Sorry! — No problem.'))],
       review: {
         title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Hər cümləyə uyğun cavabı tap, bir cavab artıqdır.', prompt: 'Başqa söhbətlər.\nCümləyə toxun, sonra onun cavabını seç.',
-        rows: [{ en: "I'm sorry!", az: 'No problem.', from: 'G' }, { en: 'How are you?', az: "I'm OK.", from: 'B' }, { en: "What's your name?", az: 'My name is [ad]', from: 'M' }],
+        rows: [{ en: "I'm sorry!", az: 'No problem.', from: 'G' }, { en: 'How are you?', az: "I'm OK.", from: 'B' }, { en: "What's your name?", az: 'My name is [ad]', from: 'F' }],
         extra: ['Please.'],
         variants: [other('Bir cümlənin cavabı yerində deyil.', ex("I'm sorry! — No problem.; How are you? — I'm OK.; What's your name? — My name is [ad]", 'Üzrə, hal sualına və ad sualına fərqli cavab verilir.', 'I’m sorry! → No problem; How are you? → I’m OK.', "I'm sorry! — No problem."))],
       },

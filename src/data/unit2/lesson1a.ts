@@ -81,13 +81,13 @@ export const lesson1a: DesignLesson = {
     {
       type: 'match', id: 'u2d1a_c08', number: 8, title: 'Kim nə dedi?', why: 'Hər rəqəmi tanıdın.', hint: 'Hər cümlədə rəqəmi tap, qalan sözlər eynidir.',
       prompt: 'Liftdə hər kəs öz mərtəbəsini deyir.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'Three, please.', az: 'Üç, zəhmət olmasa.', from: 'G' }, { en: 'Excuse me, five, please.', az: 'Bağışlayın, beş, zəhmət olmasa.', from: 'B' }, { en: 'Zero, please.', az: 'Sıfır, zəhmət olmasa.', from: 'M' }],
+      rows: [{ en: 'Three, please.', az: 'Üç, zəhmət olmasa.', from: 'G' }, { en: 'Excuse me, five, please.', az: 'Bağışlayın, beş, zəhmət olmasa.', from: 'B' }, { en: 'Zero, please.', az: 'Sıfır, zəhmət olmasa.', from: 'F' }],
       extra: ['Dörd, zəhmət olmasa.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Three, please. — Üç, zəhmət olmasa.; Excuse me, five, please. — Bağışlayın, beş, zəhmət olmasa.; Zero, please. — Sıfır, zəhmət olmasa.', 'Cümlələr oxşardır, yalnız rəqəm dəyişir.', 'Three, please. — üç; Five, please. — beş.', 'Excuse me, four, please.'))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər rəqəmi tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
         prompt: 'Kafedə və liftdə.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'Four, please.', az: 'Dörd, zəhmət olmasa.', from: 'B' }, { en: 'One tea, please.', az: 'Bir çay, zəhmət olmasa.', from: 'G' }, { en: 'Two, please. Thank you!', az: 'İki, zəhmət olmasa. Təşəkkür edirəm!', from: 'M' }],
+        rows: [{ en: 'Four, please.', az: 'Dörd, zəhmət olmasa.', from: 'B' }, { en: 'One tea, please.', az: 'Bir çay, zəhmət olmasa.', from: 'G' }, { en: 'Two, please. Thank you!', az: 'İki, zəhmət olmasa. Təşəkkür edirəm!', from: 'F' }],
         extra: ['Beş, zəhmət olmasa.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Four, please. — Dörd, zəhmət olmasa.; One tea, please. — Bir çay, zəhmət olmasa.; Two, please. Thank you! — İki, zəhmət olmasa. Təşəkkür edirəm!', 'Hər cümlədə başqa rəqəm var.', 'Four, please. — dörd; Two, please. — iki.', 'One tea, please.'))],
       },
@@ -143,7 +143,7 @@ export const lesson1a: DesignLesson = {
       review: {
         title: 'Söhbəti sırala', why: 'Sifariş, təkrar, təşəkkür və cavab düz sıradadır.', hint: 'Düşün: eşitməyən nə deyir və bundan sonra nə olur?',
         prompt: 'Kafedə səs-küy var.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Hello! One tea, please.', from: 'M' }, { en: '2', az: 'Sorry? Say that again, please.', from: 'G' }, { en: '3', az: 'One tea, please. Thank you!', from: 'M' }, { en: '4', az: "You're welcome.", from: 'G' }],
+        rows: [{ en: '1', az: 'Hello! One tea, please.', from: 'F' }, { en: '2', az: 'Sorry? Say that again, please.', from: 'G' }, { en: '3', az: 'One tea, please. Thank you!', from: 'F' }, { en: '4', az: "You're welcome.", from: 'G' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Hello! One tea, please. → Sorry? Say that again, please. → One tea, please. Thank you! → You're welcome.", 'Qız eşitmədi və təkrar istədi; sifariş yenə deyildi.', "Sorry? Say that again, please. — eşitmədin; Thank you! — You're welcome.", 'One tea, please.'))],
       },

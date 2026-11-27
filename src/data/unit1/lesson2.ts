@@ -57,12 +57,12 @@ export const lesson2: DesignLesson = {
     {
       type: 'match', id: 'd2_c15', number: 15, title: 'Kim nə dedi?', why: 'Salam, sağollaşma və ad — hər biri öz yerində.', hint: 'Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.',
       prompt: 'Hər cümləyə mənasını qoş.',
-      rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "I'm [ad]", az: 'Mən [ad]-am.', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
+      rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "I'm [ad]", az: 'Mən [ad]-am.', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'F' }],
       extra: ['Necəsən?'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; I’m [ad] — Mən [ad]-am.; Goodbye! — Görüşənədək!', 'Hello görüşü başladır, Goodbye bitirir, I’m adını deyir.', 'Hello! — görüşün əvvəli; Goodbye! — görüşün sonu.', 'Hello! I’m [ad]. Goodbye!'))],
       review: {
         title: 'Kim nə dedi?', why: 'Salam, sağollaşma və ad — hər biri öz yerində.', hint: 'Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.', prompt: 'Hər cümləyə mənasını qoş.',
-        rows: [{ en: 'Bye!', az: 'Hələlik!', from: 'B' }, { en: "I'm [ad]", az: 'Mən [ad]-am.', from: 'G' }, { en: 'Hi!', az: 'Salam!', from: 'M' }],
+        rows: [{ en: 'Bye!', az: 'Hələlik!', from: 'B' }, { en: "I'm [ad]", az: 'Mən [ad]-am.', from: 'G' }, { en: 'Hi!', az: 'Salam!', from: 'F' }],
         extra: ['Sağ ol!'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Bye! — Hələlik!; I’m [ad] — Mən [ad]-am.; Hi! — Salam!', 'Hi görüşü başladır, Bye bitirir, I’m adını deyir.', 'Hi! — görüşün əvvəli; Bye! — görüşün sonu.', 'Hi! I’m [ad]. Bye!'))],
       },
@@ -176,12 +176,12 @@ export const lesson2b: DesignLesson = {
     {
       type: 'match', id: 'd2_c05', number: 5, title: 'Kim nə dedi?', why: 'Salam, sağollaşma və ad — hər biri öz yerində.', hint: 'Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.',
       prompt: 'Hər cümləyə mənasını qoş.',
-      rows: [{ en: 'Hi!', az: 'Salam!', from: 'B' }, { en: "I'm [ad]", az: 'Mən [ad]-am.', from: 'G' }, { en: 'Bye!', az: 'Hələlik!', from: 'M' }],
+      rows: [{ en: 'Hi!', az: 'Salam!', from: 'B' }, { en: "I'm [ad]", az: 'Mən [ad]-am.', from: 'G' }, { en: 'Bye!', az: 'Hələlik!', from: 'F' }],
       extra: ['Sağ ol!'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hi! — Salam!; I’m [ad] — Mən [ad]-am.; Bye! — Hələlik!', 'Hi görüşü başladır, Bye bitirir, I’m adını deyir.', 'Hi! — görüşün əvvəli; Bye! — görüşün sonu.', 'Hi! I’m [ad]. Bye!'))],
       review: {
         title: 'Kim nə dedi?', why: 'Salam, sağollaşma və ad — hər biri öz yerində.', hint: 'Əvvəl Dərs 1-dən tanıdığın sözləri yerinə qoy, qalanı asanlaşacaq.', prompt: 'Hər cümləyə mənasını qoş.',
-        rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: 'My name is [ad]', az: 'Mənim adım [ad]-dır.', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'M' }],
+        rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: 'My name is [ad]', az: 'Mənim adım [ad]-dır.', from: 'B' }, { en: 'Goodbye!', az: 'Görüşənədək!', from: 'F' }],
         extra: ['Necəsən?'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; My name is [ad] — Mənim adım [ad]-dır.; Goodbye! — Görüşənədək!', 'Hello görüşü başladır, Goodbye bitirir, My name is adını deyir.', 'Hello! — görüşün əvvəli; Goodbye! — görüşün sonu.', 'Hello! My name is [ad]'))],
       },

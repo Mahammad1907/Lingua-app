@@ -21,16 +21,18 @@ type Mark = 'correct' | 'wrong' | undefined;
 const markColor = (m: Mark, fallback: string) => m === 'correct' ? d.greenText : m === 'wrong' ? d.redText : fallback;
 
 /** Round avatar: the mascot, or the girl's / boy's 3D portrait (27 Nov 2026); anyone else a neutral circle. */
-const portraits = { G: require('../../../assets/characters/girl.webp'), B: require('../../../assets/characters/boy.webp') } as const;
+const portraits = { G: require('../../../assets/characters/girl.webp'), B: require('../../../assets/characters/boy.webp'), F: require('../../../assets/characters/friend.webp') } as const;
+const portraitRole = { G: 'girl', B: 'boy', F: 'friend' } as const;
+const portraitRing = { G: d.purple, B: d.orange, F: '#14B8A6' } as const;
 export function Avatar({ who, size = 34 }: { who: Who; size?: number }) {
   // The head picture sits inside the circle with a margin, so the hood is never cut by the circle's edge.
   if (who === 'M') return <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' }}>
     <Image source={mascotHead} style={{ width: size * .8, height: size * .8 }} contentFit="contain" accessibilityLabel={characterAz('mascot') || 'Maskot'} />
   </View>;
-  if (who === 'G' || who === 'B') {
-    const role = who === 'G' ? 'girl' as const : 'boy' as const;
-    return <View accessibilityLabel={characterAz(role) || (role === 'girl' ? 'Qız' : 'Oğlan')}
-      style={{ width: size, height: size, borderRadius: size / 2, borderWidth: 2, borderColor: who === 'G' ? d.purple : d.orange, backgroundColor: '#FFF1DA', overflow: 'hidden' }}>
+  if (who === 'G' || who === 'B' || who === 'F') {
+    const role = portraitRole[who];
+    return <View accessibilityLabel={characterAz(role) || ({ girl: 'Qız', boy: 'Oğlan', friend: 'Dost' } as const)[role]}
+      style={{ width: size, height: size, borderRadius: size / 2, borderWidth: 2, borderColor: portraitRing[who], backgroundColor: '#FFF1DA', overflow: 'hidden' }}>
       <Image source={portraits[who]} style={{ width: '100%', height: '100%' }} contentFit="cover" />
     </View>;
   }

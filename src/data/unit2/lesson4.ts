@@ -139,13 +139,13 @@ export const lesson4Part2: DesignLesson = {
     {
       type: 'match', id: 'u2d4_c16', number: 3, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
       prompt: 'Otel resepsiyasında eşitdiklərin.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'Can you spell it, please?', az: 'Hərf-hərf deyə bilərsən, zəhmət olmasa?', from: 'B' }, { en: "It's B-A-K-U.", az: 'B-A-K-U (hərflər).', from: 'G' }, { en: 'double L', az: 'qoşa L', from: 'M' }],
+      rows: [{ en: 'Can you spell it, please?', az: 'Hərf-hərf deyə bilərsən, zəhmət olmasa?', from: 'B' }, { en: "It's B-A-K-U.", az: 'B-A-K-U (hərflər).', from: 'G' }, { en: 'double L', az: 'qoşa L', from: 'F' }],
       extra: ['iki dəfə de'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex("Can you spell it, please? — Hərf-hərf deyə bilərsən, zəhmət olmasa?; It's B-A-K-U. — B-A-K-U (hərflər).; double L — qoşa L", 'Xahiş, hərflər və qoşa hərf fərqli şeylərdir.', "Can you spell it, please? — xahiş; It's B-A-K-U. — cavab.", 'Lankaran? Can you spell it, please?'))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
         prompt: 'Hava limanında qeydiyyatda eşitdiklərin.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'How do you spell it?', az: 'Hərf-hərf necə yazılır?', from: 'G' }, { en: 'Sorry? More slowly, please.', az: 'Bağışlayın? Daha yavaş, zəhmət olmasa.', from: 'B' }, { en: 'Can you spell it, please?', az: 'Hərf-hərf deyə bilərsən, zəhmət olmasa?', from: 'M' }],
+        rows: [{ en: 'How do you spell it?', az: 'Hərf-hərf necə yazılır?', from: 'G' }, { en: 'Sorry? More slowly, please.', az: 'Bağışlayın? Daha yavaş, zəhmət olmasa.', from: 'B' }, { en: 'Can you spell it, please?', az: 'Hərf-hərf deyə bilərsən, zəhmət olmasa?', from: 'F' }],
         extra: ['Adın nədir?'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('How do you spell it? — Hərf-hərf necə yazılır?; Sorry? More slowly, please. — Bağışlayın? Daha yavaş, zəhmət olmasa.; Can you spell it, please? — Hərf-hərf deyə bilərsən, zəhmət olmasa?', 'Sual, yavaşlıq xahişi və nəzakətli xahiş fərqlidir.', 'More slowly, please. — yavaş; Can you spell it, please? — hərf-hərf.', 'Ganja? Can you spell it, please?'))],
       },

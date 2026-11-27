@@ -102,13 +102,13 @@ export const lesson1b: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'u2d1b_c09', number: 9, title: 'Cavab cütü', why: 'Hər sıranı düz davam etdirdin.', hint: 'Hər sıranın son rəqəmindən sonra hansının gəldiyini düşün.',
       prompt: 'Avtobusu gözləyərkən sayma oyunu.\nSıraya toxun, sonra onun davamını seç.',
-      rows: [{ en: 'One, two, three…', az: 'Four, five, six!', from: 'G' }, { en: 'Six, seven…', az: 'Eight, nine, ten!', from: 'B' }, { en: 'Zero, one…', az: 'Two, three!', from: 'M' }],
+      rows: [{ en: 'One, two, three…', az: 'Four, five, six!', from: 'G' }, { en: 'Six, seven…', az: 'Eight, nine, ten!', from: 'B' }, { en: 'Zero, one…', az: 'Two, three!', from: 'F' }],
       extra: ['Nine, ten!'],
       variants: [other('Bir sıranın davamı yerində deyil.', ex('One, two, three… — Four, five, six!; Six, seven… — Eight, nine, ten!; Zero, one… — Two, three!', 'Hər sıra son rəqəmdən sonra davam edir.', 'Six, seven… → eight; Eight, nine… → ten.', 'Eight, nine, ten!'))],
       review: {
         title: 'Cavab cütü', why: 'Geriyə sayımı düz davam etdirdin.', hint: 'Geriyə sayırsan: son rəqəmdən əvvəl hansı gəlir?',
         prompt: 'İndi geriyə sayırıq.\nSıraya toxun, sonra onun davamını seç.',
-        rows: [{ en: 'Ten, nine, eight…', az: 'Seven, six, five!', from: 'B' }, { en: 'Four, three…', az: 'Two, one, zero!', from: 'G' }, { en: 'Seven, six…', az: 'Five, four!', from: 'M' }],
+        rows: [{ en: 'Ten, nine, eight…', az: 'Seven, six, five!', from: 'B' }, { en: 'Four, three…', az: 'Two, one, zero!', from: 'G' }, { en: 'Seven, six…', az: 'Five, four!', from: 'F' }],
         extra: ['Six, five!'],
         variants: [other('Bir sıranın davamı yerində deyil.', ex('Ten, nine, eight… — Seven, six, five!; Four, three… — Two, one, zero!; Seven, six… — Five, four!', 'Geriyə sayanda hər sıra bir rəqəm azalır.', 'Ten, nine… → eight; Seven, six… → five.', 'Ten, nine, eight, seven!'))],
       },
