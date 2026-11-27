@@ -181,13 +181,13 @@ export const lesson6Part2: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u2d6_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, ünvan, hərf-hərf xahişi və hərflər düz sıradadır.', hint: 'Əvvəl sual gəlir; sözü tanımayan nə soruşur?',
       prompt: 'Ofisdə e-poçt mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "What's your email?", from: 'B' }, { en: '2', az: "It's ganja five at mail dot com.", from: 'G' }, { en: '3', az: 'Ganja? How do you spell it?', from: 'B' }, { en: '4', az: "G-A-N-J-A five at mail dot com.", from: 'G' }],
+      rows: [{ en: '1', az: "What's your email?", from: 'B' }, { en: '2', az: "It's ganja five at mail dot com.", from: 'G' }, { en: '3', az: 'Ganja? How do you spell it?', from: 'F' }, { en: '4', az: "G-A-N-J-A five at mail dot com.", from: 'other' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("What's your email? → It's ganja five at mail dot com. → Ganja? How do you spell it? → G-A-N-J-A five at mail dot com.", 'Sual, ünvan, hərf-hərf xahişi, sonra hərflər.', "How do you spell it? — xahiş; G-A-N-J-A — hərflər.", "What's your email?"))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, ünvan, xahiş və yavaş təkrar düz sıradadır.', hint: 'Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?',
         prompt: 'Kursda e-poçt mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "Excuse me, what's your email?", from: 'G' }, { en: '2', az: "It's B-A-K-U nine at mail dot com.", from: 'B' }, { en: '3', az: 'Sorry? More slowly, please.', from: 'G' }, { en: '4', az: 'B… A… K… U… nine at mail dot com.', from: 'B' }],
+        rows: [{ en: '1', az: "Excuse me, what's your email?", from: 'G' }, { en: '2', az: "It's B-A-K-U nine at mail dot com.", from: 'B' }, { en: '3', az: 'Sorry? More slowly, please.', from: 'F' }, { en: '4', az: 'B… A… K… U… nine at mail dot com.', from: 'other' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me, what's your email? → It's B-A-K-U nine at mail dot com. → Sorry? More slowly, please. → B… A… K… U…", 'Ünvanı çox sürətlə dedi; xahişdən sonra yavaş təkrar etdi.', 'More slowly, please. — sürətli idi; Say that again, please. — eşitmədin.', 'Sorry? More slowly, please.'))],
       },

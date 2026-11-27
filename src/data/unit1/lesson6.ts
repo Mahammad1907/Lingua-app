@@ -134,7 +134,7 @@ export const lesson6b: DesignLesson = {
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Thank you! — Təşəkkür edirəm!; You’re welcome. — Dəyməz.; How are you? — Necəsən?', 'Təşəkkür, ona cavab və hal sualı — üç ayrı iş.', 'Thank you! — təşəkkür; You’re welcome. — təşəkkürə cavab.', "Thank you! — You're welcome."))],
       review: {
         title: 'Kim nə dedi?', why: 'Bu dərsin ifadələrini xatırladın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Bu dərsi xatırla.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'Excuse me', az: 'Bağışlayın (diqqət)', from: 'G' }, { en: 'Sorry!', az: 'Bağışlayın (səhv)', from: 'B' }, { en: 'No problem.', az: 'Eybi yox.', from: 'G' }],
+        rows: [{ en: 'Excuse me', az: 'Bağışlayın (diqqət)', from: 'G' }, { en: 'Sorry!', az: 'Bağışlayın (səhv)', from: 'B' }, { en: 'No problem.', az: 'Eybi yox.', from: 'F' }],
         extra: ['Dəyməz.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Excuse me — Bağışlayın (diqqət); Sorry! — Bağışlayın (səhv); No problem. — Eybi yox.', '“Excuse me” diqqəti çəkir, “Sorry” üzrdür, “No problem” üzrə cavabdır.', 'Excuse me — diqqət; Sorry! — səhv.', 'Sorry! — No problem.'))],
       },

@@ -243,13 +243,13 @@ export const lesson7_2: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u3d7_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, cavab və qarşı sual, sonra dil haqqında cavab düz sıradadır.', hint: 'Əvvəl sual gəlir; cavab verən sualı geri qaytarır.',
       prompt: 'Dil mübadiləsi masası.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Hello! Do you speak Azerbaijani?', from: 'other' }, { en: '2', az: 'Yes, I do. And you?', from: 'B' }, { en: '3', az: "A little. I'm Turkish.", from: 'other' }, { en: '4', az: 'Really? Nice to meet you!', from: 'B' }],
+      rows: [{ en: '1', az: 'Hello! Do you speak Azerbaijani?', from: 'other' }, { en: '2', az: 'Yes, I do. And you?', from: 'B' }, { en: '3', az: "A little. I'm Turkish.", from: 'G' }, { en: '4', az: 'Really? Nice to meet you!', from: 'F' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hello! Do you speak Azerbaijani? → Yes, I do. And you? → A little. I'm Turkish. → Really? Nice to meet you!", 'Sual, cavab və qarşı sual, sonra o biri haradan olduğunu deyir.', 'Do you speak Azerbaijani? — sual; And you? — qarşı sual.', 'Yes, I do. And you?'))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, “xeyr”, yeni sual və “bəli” düz sıradadır.', hint: 'Əvvəl sual gəlir; “xeyr” eşidən başqa dil soruşur.',
         prompt: 'Hostelin mətbəxi.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Excuse me, do you speak English?', from: 'G' }, { en: '2', az: "No, I don't. Sorry!", from: 'other' }, { en: '3', az: 'Do you speak Russian?', from: 'G' }, { en: '4', az: 'Yes, I do!', from: 'other' }],
+        rows: [{ en: '1', az: 'Excuse me, do you speak English?', from: 'G' }, { en: '2', az: "No, I don't. Sorry!", from: 'other' }, { en: '3', az: 'Do you speak Russian?', from: 'B' }, { en: '4', az: 'Yes, I do!', from: 'F' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me, do you speak English? → No, I don't. Sorry! → Do you speak Russian? → Yes, I do!", 'Birinci dil olmadı, qız başqa dil soruşdu.', "No, I don't. — bilmirəm; Yes, I do. — bilirəm.", 'Do you speak Russian? — Yes, I do!'))],
       },

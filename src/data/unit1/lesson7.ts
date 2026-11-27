@@ -159,12 +159,12 @@ export const lesson7b: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'd7_c09', number: 9, title: 'Söhbəti sırala', why: 'Əvvəl başa düşmədin, xahiş etdin, sonra cavab verdin.', hint: 'Düşün: başa düşməyəndə nə deyirsən və bundan sonra nə olur?',
       prompt: 'Oğlan çox sürətli danışır.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Hellohowareyou!', from: 'B' }, { en: '2', az: 'Sorry? More slowly, please.', from: 'G' }, { en: '3', az: 'How are you?', from: 'B' }, { en: '4', az: "I'm fine, thanks.", from: 'G' }],
+      rows: [{ en: '1', az: 'Hellohowareyou!', from: 'B' }, { en: '2', az: 'Sorry? More slowly, please.', from: 'G' }, { en: '3', az: 'How are you?', from: 'F' }, { en: '4', az: "I'm fine, thanks.", from: 'other' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hellohowareyou! → Sorry? More slowly, please. → How are you? → I'm fine, thanks.", 'Sürətli danışdı, sən xahiş etdin, o yavaş təkrar etdi.', 'More slowly, please — çox sürətli idi; Say that again, please — eşitmədin.', "Hellohowareyou! → Sorry? More slowly, please. → How are you? → I'm fine, thanks."))],
       review: {
         title: 'Söhbəti sırala', why: 'Xahiş, təkrar və cavab düz sıradadır.', hint: 'Düşün: eşitməyəndə nə deyirsən və bundan sonra nə olur?', prompt: 'Səs-küydə qızın sualını eşitmədin.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "Hi! What's your name?", from: 'G' }, { en: '2', az: 'Sorry? Say that again, please.', from: 'B' }, { en: '3', az: "What's your name?", from: 'G' }, { en: '4', az: 'My name is [ad]', from: 'B' }],
+        rows: [{ en: '1', az: "Hi! What's your name?", from: 'G' }, { en: '2', az: 'Sorry? Say that again, please.', from: 'B' }, { en: '3', az: "What's your name?", from: 'F' }, { en: '4', az: 'My name is [ad]', from: 'other' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is [ad]", 'Sualı eşitmədin, sən təkrar istədin, o yenidən soruşdu.', 'Say that again, please — eşitmədin; More slowly, please — çox sürətli idi.', "Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is [ad]"))],
       },

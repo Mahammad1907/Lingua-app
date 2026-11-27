@@ -133,7 +133,7 @@ export const lesson5b: DesignLesson = {
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Sual ilə cavabı ayır: sual where və ya is ilə başlayır.',
         prompt: 'Video zəngdə qızla söhbət.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'Is he from Russia?', az: 'O (kişi) Rusiyadandırmı?', from: 'other' }, { en: "Where's she from?", az: 'O (qadın) haradandır?', from: 'G' }, { en: "He's Russian.", az: 'O (kişi) rusdur.', from: 'G' }],
+        rows: [{ en: 'Is he from Russia?', az: 'O (kişi) Rusiyadandırmı?', from: 'other' }, { en: "Where's she from?", az: 'O (qadın) haradandır?', from: 'G' }, { en: "He's Russian.", az: 'O (kişi) rusdur.', from: 'B' }],
         extra: ['O (kişi) Rusiyadandır.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex("Is he from Russia? — O (kişi) Rusiyadandırmı?; Where's she from? — O (qadın) haradandır?; He's Russian. — O (kişi) rusdur.", 'Is ilə bəli/xeyr sualı, Where’s ilə haradan olduğu soruşulur; He’s cavabdır.', "Is he Russian? — sual; He's Russian. — cavab.", "Is he from Russia? — He's Russian."))],
       },
@@ -184,7 +184,7 @@ export const lesson5b_2: DesignLesson = {
       review: {
         title: 'Cavab cütü', why: 'Hər suala uyğun qısa cavabı tapdın.', hint: 'Əvvəl sualın ilk iki sözünə bax.',
         prompt: 'Hostelin mətbəxində söhbət.\nSuala toxun, sonra onun cavabını seç.',
-        rows: [{ en: 'Is she from Georgia?', az: 'Yes, she is.', from: 'other' }, { en: 'Is he German?', az: 'Yes, he is.', from: 'G' }, { en: 'Are you Turkish?', az: 'Yes, I am.', from: 'other' }],
+        rows: [{ en: 'Is she from Georgia?', az: 'Yes, she is.', from: 'other' }, { en: 'Is he German?', az: 'Yes, he is.', from: 'G' }, { en: 'Are you Turkish?', az: 'Yes, I am.', from: 'B' }],
         extra: ['Yes, it is.'],
         variants: [other('Bir cavab yerində deyil.', ex('Is she from Georgia? — Yes, she is.; Is he German? — Yes, he is.; Are you Turkish? — Yes, I am.', 'Sualdakı söz cavabda qayıdır: she → she, he → he, you → I.', 'Is she [millət]? — Yes, she is.; Are you [millət]? — Yes, I am.', 'Is he Georgian? — Yes, he is.'))],
       },
@@ -252,13 +252,13 @@ export const lesson5b_2: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u3d5b_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, cavab, yoxlama və təsdiq düz sıradadır.', hint: 'Əvvəl haradan olduğu soruşulur, sonra millət yoxlanır.',
       prompt: 'Hostelin mətbəxi. Yeni tanış qızdan otaq yoldaşını soruşur.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "Where's he from?", from: 'other' }, { en: '2', az: "He's from Georgia.", from: 'G' }, { en: '3', az: 'Is he Georgian?', from: 'other' }, { en: '4', az: 'Yes, he is.', from: 'G' }],
+      rows: [{ en: '1', az: "Where's he from?", from: 'other' }, { en: '2', az: "He's from Georgia.", from: 'G' }, { en: '3', az: 'Is he Georgian?', from: 'B' }, { en: '4', az: 'Yes, he is.', from: 'F' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Where's he from? → He's from Georgia. → Is he Georgian? → Yes, he is.", 'Sual, cavab, millətlə yoxlama, sonra qısa təsdiq.', "Is he Georgian? — sual; Yes, he is. — cavab.", "Where's he from? — He's from Georgia."))],
       review: {
         title: 'Söhbəti sırala', why: 'Yoxlama, “xeyr” cavabı, sual və cavab düz sıradadır.', hint: 'Əvvəl bəli/xeyr sualı gəlir; “xeyr”dən sonra nə soruşulur?',
         prompt: 'Qatar. Yol yoldaşı oğlandan onun tanışı olan qadını soruşur.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Is she from Russia?', from: 'other' }, { en: '2', az: "No, she isn't.", from: 'B' }, { en: '3', az: "Where's she from?", from: 'other' }, { en: '4', az: "She's from Georgia.", from: 'B' }],
+        rows: [{ en: '1', az: 'Is she from Russia?', from: 'other' }, { en: '2', az: "No, she isn't.", from: 'B' }, { en: '3', az: "Where's she from?", from: 'G' }, { en: '4', az: "She's from Georgia.", from: 'F' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Is she from Russia? → No, she isn't. → Where's she from? → She's from Georgia.", '“Xeyr” cavabından sonra haradan olduğu soruşulur.', "Is she from Russia? — bəli/xeyr sualı; Where's she from? — haradan.", "Is she from Iran? — No, she isn't."))],
       },

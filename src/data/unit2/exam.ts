@@ -125,7 +125,7 @@ export const exam: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u2x_c16', number: 16, title: 'Söhbəti sırala', why: 'Qeydiyyat söhbəti düz sıradadır.',
       prompt: 'Qeydiyyat masasında.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "Hello! What's your phone number?", from: 'F' }, { en: '2', az: "It's zero five zero, two two one, four eight, three six.", from: 'B' }, { en: '3', az: 'Zero five zero, two two one, four eight, three six. Is that right?', from: 'F' }, { en: '4', az: "Yes, that's right. Thank you!", from: 'B' }],
+      rows: [{ en: '1', az: "Hello! What's your phone number?", from: 'F' }, { en: '2', az: "It's zero five zero, two two one, four eight, three six.", from: 'B' }, { en: '3', az: 'Zero five zero, two two one, four eight, three six. Is that right?', from: 'G' }, { en: '4', az: "Yes, that's right. Thank you!", from: 'other' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hello! What's your phone number? → It's zero five zero… → Is that right? → Yes, that's right. Thank you!", 'Sual, nömrə, yoxlama, sonra təsdiq.', "Is that right? — yoxlama; Yes, that's right. — təsdiq.", "What's your phone number?"))],
     },

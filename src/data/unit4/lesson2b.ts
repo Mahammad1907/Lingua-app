@@ -250,13 +250,13 @@ export const lesson2b_2: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u4d2b_c14', number: 14, title: 'Söhbəti sırala', why: 'Sual, cavab və davamı düz sıradadır.', hint: 'Hər sualın cavabı onun dərhal ardınca gəlir.',
       prompt: 'Albomun ikinci səhifəsi.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "Hi! Who's this?", from: 'other' }, { en: '2', az: "This is my grandfather. He's from Ganja.", from: 'B' }, { en: '3', az: "Really? And who's this?", from: 'other' }, { en: '4', az: 'This is my daughter.', from: 'B' }],
+      rows: [{ en: '1', az: "Hi! Who's this?", from: 'other' }, { en: '2', az: "This is my grandfather. He's from Ganja.", from: 'B' }, { en: '3', az: "Really? And who's this?", from: 'G' }, { en: '4', az: 'This is my daughter.', from: 'F' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hi! Who's this? → This is my grandfather. He's from Ganja. → Really? And who's this? → This is my daughter.", 'Sual, cavab, təəccüb və ikinci sual, ikinci cavab.', "Who's this? — sual; This is my grandfather. — cavab.", "Hi! Who's this?"))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab və davamı düz sıradadır.', hint: 'Hər sualın cavabı onun dərhal ardınca gəlir.',
         prompt: 'Video zəng.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "Who's this?", from: 'other' }, { en: '2', az: "This is my grandmother. She's from Baku.", from: 'G' }, { en: '3', az: "Really? And who's this?", from: 'other' }, { en: '4', az: 'This is my son.', from: 'G' }],
+        rows: [{ en: '1', az: "Who's this?", from: 'other' }, { en: '2', az: "This is my grandmother. She's from Baku.", from: 'G' }, { en: '3', az: "Really? And who's this?", from: 'B' }, { en: '4', az: 'This is my son.', from: 'F' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Who's this? → This is my grandmother. She's from Baku. → Really? And who's this? → This is my son.", 'Sual, cavab, təəccüb və ikinci sual, ikinci cavab.', "Who's this? — sual; This is my grandmother. — cavab.", "Who's this?"))],
       },

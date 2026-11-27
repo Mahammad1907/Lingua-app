@@ -11,6 +11,9 @@ const problems = []; let n = 0;
 for (const lesson of lessons) for (const card of [...(lesson.cards ?? []), ...(lesson.pool ?? [])]) for (const t of [card, card.review].filter(Boolean)) {
   // The mascot teaches; it never speaks a line in “Kim nə dedi?” (27 Nov 2026, user) — the people do.
   for (const r of t.rows ?? []) if (r.from === 'M') problems.push(`${lesson.id} · ${t.id}: “${r.en}” maskotun dilindədir — personaj olmalıdır`);
+  // Every line in “Kim nə dedi?” has its own speaker (27 Nov 2026, user: the boy appeared twice in one task).
+  const froms = (t.rows ?? []).map(r => r.from).filter(Boolean);
+  if (new Set(froms).size !== froms.length) problems.push(`${lesson.id} · ${t.id}: eyni personaj iki sətirdə danışır (${froms.join(', ')})`);
   if (typeof t.prompt !== 'string') continue;
   const line = t.prompt.split('\n').find(l => /“[^”]+”/.test(l) && /(deyir|yazır|soruşur|edir)\s*:/.test(l));
   if (!line || !/(mesaj|yazır|yazıb|yazdı)/i.test(line)) continue;

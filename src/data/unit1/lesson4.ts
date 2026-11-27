@@ -26,7 +26,7 @@ export const lesson4: DesignLesson = {
     {
       type: 'match', id: 'd4_c02', number: 2, title: 'Kim nə dedi?', why: 'Keçən dərslərin ifadələrini xatırladın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
       prompt: 'Keçən dərsləri xatırla.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'G' }],
+      rows: [{ en: 'Hello!', az: 'Salam!', from: 'G' }, { en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'F' }],
       extra: ['Hələlik!'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hello! — Salam!; What’s your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam.', 'Tanışlıq salamla başlayır, sonra ad soruşulur, sonra xoş söz deyilir.', 'What’s your name? — ad sualı; Nice to meet you. — xoş söz.', 'Hi! What’s your name? I’m [ad]. Nice to meet you!'))],
       review: {
@@ -224,7 +224,7 @@ export const lesson4b: DesignLesson = {
       variants: [other('Bir cavabın mənası yerində deyil.', ex("I'm fine. — Yaxşıyam.; I'm OK. — Normalam.; I'm not great. — Çox yaxşı deyiləm.", 'Üç cavab üç fərqli haldır: yaxşı, normal, çox yaxşı deyil.', 'I’m fine — Yaxşıyam; I’m not great — Çox yaxşı deyiləm.', "How are you? — I'm OK."))],
       review: {
         title: 'Kim nə dedi?', why: 'Sualı və cavabları ayırdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Küçədə qısa söhbət.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'How are you?', az: 'Necəsən?', from: 'B' }, { en: "I'm not great.", az: 'Çox yaxşı deyiləm.', from: 'G' }, { en: 'And you?', az: 'Bəs sən?', from: 'G' }],
+        rows: [{ en: 'How are you?', az: 'Necəsən?', from: 'B' }, { en: "I'm not great.", az: 'Çox yaxşı deyiləm.', from: 'G' }, { en: 'And you?', az: 'Bəs sən?', from: 'F' }],
         extra: ['Normalam.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex("How are you? — Necəsən?; I'm not great. — Çox yaxşı deyiləm.; And you? — Bəs sən?", 'Sual, cavab və sualı qaytarmaq — üç ayrı iş.', 'How are you? — hal sualı; And you? — sualı qaytarmaq.', "I'm not great. And you?"))],
       },

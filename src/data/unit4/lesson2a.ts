@@ -152,13 +152,13 @@ export const lesson2a_2: DesignLesson = {
     {
       type: 'match', id: 'u4d2a_c09', number: 9, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Cümlənin sonundakı ailə sözünə fikir ver.',
       prompt: 'Albomun səhifəsində üç cümlə var.\nHər cümləni mənasına uyğun gətir.',
-      rows: [{ en: 'This is my mother.', az: 'Bu mənim anamdır.', from: 'other' }, { en: 'This is my father.', az: 'Bu mənim atamdır.', from: 'other' }, { en: 'This is my brother.', az: 'Bu mənim qardaşımdır.', from: 'other' }],
+      rows: [{ en: 'This is my mother.', az: 'Bu mənim anamdır.', from: 'other' }, { en: 'This is my father.', az: 'Bu mənim atamdır.', from: 'G' }, { en: 'This is my brother.', az: 'Bu mənim qardaşımdır.', from: 'B' }],
       extra: ['Bu mənim dostumdur.'],
       variants: [other('Bir məna yerində deyil.', ex('This is my mother. — anam; This is my father. — atam; This is my brother. — qardaşım.', 'Cümlənin sonundakı söz kimin olduğunu göstərir: mother, father, brother.', 'This is my mother. — ana; This is my father. — ata.', 'This is my brother.'))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Cümlənin sonundakı ailə sözünə fikir ver.',
         prompt: 'Video zəngdə {f} yeni şəkillər göstərir.\nHər cümləni mənasına uyğun gətir.',
-        rows: [{ en: 'This is my brother.', az: 'Bu mənim qardaşımdır.', from: 'other' }, { en: 'This is my mother.', az: 'Bu mənim anamdır.', from: 'other' }, { en: 'This is my father.', az: 'Bu mənim atamdır.', from: 'other' }],
+        rows: [{ en: 'This is my brother.', az: 'Bu mənim qardaşımdır.', from: 'other' }, { en: 'This is my mother.', az: 'Bu mənim anamdır.', from: 'G' }, { en: 'This is my father.', az: 'Bu mənim atamdır.', from: 'B' }],
         extra: ['Bu mənim ailəmdir.'],
         variants: [other('Bir məna yerində deyil.', ex('This is my brother. — qardaşım; This is my mother. — anam; This is my father. — atam.', 'Cümlənin sonundakı söz kimin olduğunu göstərir: brother, mother, father.', 'This is my mother. — ana; This is my father. — ata.', 'This is my brother.'))],
       },
@@ -240,13 +240,13 @@ export const lesson2a_2: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u4d2a_c13', number: 14, title: 'Söhbəti sırala', why: 'Sual, cavab, ikinci sual və ikinci cavab düz sıradadır.', hint: 'Hər sualın cavabı onun dərhal ardınca gəlir.',
       prompt: 'Albomun səhifəsi.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "Hi! Who's this?", from: 'other' }, { en: '2', az: 'This is my mother.', from: 'G' }, { en: '3', az: "And who's this?", from: 'other' }, { en: '4', az: 'This is my sister.', from: 'G' }],
+      rows: [{ en: '1', az: "Hi! Who's this?", from: 'other' }, { en: '2', az: 'This is my mother.', from: 'G' }, { en: '3', az: "And who's this?", from: 'B' }, { en: '4', az: 'This is my sister.', from: 'F' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hi! Who's this? → This is my mother. → And who's this? → This is my sister.", 'Sual, cavab, sonra ikinci sual və cavab.', "Who's this? — sual; This is my mother. — cavab.", "Hi! Who's this?"))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab, ikinci sual və ikinci cavab düz sıradadır.', hint: 'Hər sualın cavabı onun dərhal ardınca gəlir.',
         prompt: 'Video zəng.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "Who's this?", from: 'other' }, { en: '2', az: 'This is my brother.', from: 'B' }, { en: '3', az: "And who's this?", from: 'other' }, { en: '4', az: 'This is my father.', from: 'B' }],
+        rows: [{ en: '1', az: "Who's this?", from: 'other' }, { en: '2', az: 'This is my brother.', from: 'B' }, { en: '3', az: "And who's this?", from: 'G' }, { en: '4', az: 'This is my father.', from: 'F' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Who's this? → This is my brother. → And who's this? → This is my father.", 'Sual, cavab, sonra ikinci sual və cavab.', "Who's this? — sual; This is my brother. — cavab.", "Who's this?"))],
       },

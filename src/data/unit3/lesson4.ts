@@ -195,13 +195,13 @@ export const lesson4_2: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'u3d4_c09', number: 9, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Əvvəl sualları ayır: biri “haradan?”, biri “[ölkə]-dansan?” soruşur.',
       prompt: 'Hostelin mətbəxində yeni tanışlar danışır.\nCümləyə toxun, sonra ona uyğun cavabı seç.',
-      rows: [{ en: 'Where are you from?', az: "I'm from Ganja.", from: 'other' }, { en: "I'm from France.", az: 'Really? Me too!', from: 'other' }, { en: 'Are you from Russia?', az: "No, I'm not.", from: 'other' }],
+      rows: [{ en: 'Where are you from?', az: "I'm from Ganja.", from: 'other' }, { en: "I'm from France.", az: 'Really? Me too!', from: 'G' }, { en: 'Are you from Russia?', az: "No, I'm not.", from: 'B' }],
       extra: ['Nice to meet you.'],
       variants: [other('Bir cavab yerində deyil.', ex("Where are you from? — I'm from Ganja.; I'm from France. — Really? Me too!; Are you from Russia? — No, I'm not.", '“Haradan?” sualına yer deyilir, “[ölkə]-dansan?” sualına bəli və ya xeyr.', "Where are you from? — I'm from Ganja. ; Are you from Russia? — No, I'm not.", 'Are you from Russia?'))],
       review: {
         title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Əvvəl “[ölkə]-dansan?” sualını tap.',
         prompt: 'Qatarda sərnişinlər tanış olur.\nCümləyə toxun, sonra ona uyğun cavabı seç.',
-        rows: [{ en: 'Are you from Georgia?', az: 'Yes, I am.', from: 'other' }, { en: "I'm from Iran.", az: 'Really?', from: 'other' }, { en: 'Where are you from?', az: "I'm from Baku.", from: 'other' }],
+        rows: [{ en: 'Are you from Georgia?', az: 'Yes, I am.', from: 'other' }, { en: "I'm from Iran.", az: 'Really?', from: 'G' }, { en: 'Where are you from?', az: "I'm from Baku.", from: 'B' }],
         extra: ['Thank you!'],
         variants: [other('Bir cavab yerində deyil.', ex("Are you from Georgia? — Yes, I am.; I'm from Iran. — Really?; Where are you from? — I'm from Baku.", '“Haradan?” sualına yer deyilir, “[ölkə]-dansan?” sualına bəli və ya xeyr.', "Where are you from? — I'm from Baku. ; Are you from Georgia? — Yes, I am.", 'Are you from Georgia?'))],
       },
@@ -249,13 +249,13 @@ export const lesson4_2: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u3d4_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, xeyr cavabı, təəccüb və tanışlıq düz sıradadır.', hint: 'Əvvəl sual gəlir; təəccüb cavabdan sonra olur.',
       prompt: 'Hostelin mətbəxi.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Hi! Are you from Turkey?', from: 'other' }, { en: '2', az: "No, I'm not. I'm from Azerbaijan.", from: 'B' }, { en: '3', az: 'Really? Me too!', from: 'other' }, { en: '4', az: 'Nice to meet you!', from: 'B' }],
+      rows: [{ en: '1', az: 'Hi! Are you from Turkey?', from: 'other' }, { en: '2', az: "No, I'm not. I'm from Azerbaijan.", from: 'B' }, { en: '3', az: 'Really? Me too!', from: 'G' }, { en: '4', az: 'Nice to meet you!', from: 'F' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hi! Are you from Turkey? → No, I'm not. I'm from Azerbaijan. → Really? Me too! → Nice to meet you!", 'Sual, xeyr cavabı, təəccüb, sonra tanışlıq.', "Are you from Turkey? — sual; No, I'm not. — cavab.", 'Hi! Are you from Turkey?'))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, bəli cavabı, təəccüb və tanışlıq düz sıradadır.', hint: 'Əvvəl sual gəlir; təəccüb cavabdan sonra olur.',
         prompt: 'Qatar vaqonu.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Excuse me. Are you from Georgia?', from: 'G' }, { en: '2', az: 'Yes, I am. And you?', from: 'other' }, { en: '3', az: "I'm from Georgia too!", from: 'G' }, { en: '4', az: 'Really?', from: 'other' }],
+        rows: [{ en: '1', az: 'Excuse me. Are you from Georgia?', from: 'G' }, { en: '2', az: 'Yes, I am. And you?', from: 'other' }, { en: '3', az: "I'm from Georgia too!", from: 'B' }, { en: '4', az: 'Really?', from: 'F' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me. Are you from Georgia? → Yes, I am. And you? → I'm from Georgia too! → Really?", 'Sual, bəli cavabı və geri sual, cavab, sonra təəccüb.', 'Are you from Georgia? — sual; Yes, I am. — cavab.', 'Excuse me. Are you from Georgia?'))],
       },

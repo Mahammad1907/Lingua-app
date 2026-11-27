@@ -210,13 +210,13 @@ export const lesson8: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u3d8_c14', number: 14, title: 'Söhbəti sırala', why: 'Tanışlıq, ölkə, dil və cavab düz sıradadır.', hint: 'Əvvəl salam və sual gəlir; ölkəni eşidən dil haqqında soruşur.',
       prompt: 'Dil klubunun ziyafəti.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "Hi! I'm from Baku. Where are you from?", from: 'G' }, { en: '2', az: "I'm from France.", from: 'other' }, { en: '3', az: 'Really? Do you speak Azerbaijani?', from: 'G' }, { en: '4', az: 'Yes, a little.', from: 'other' }],
+      rows: [{ en: '1', az: "Hi! I'm from Baku. Where are you from?", from: 'G' }, { en: '2', az: "I'm from France.", from: 'other' }, { en: '3', az: 'Really? Do you speak Azerbaijani?', from: 'B' }, { en: '4', az: 'Yes, a little.', from: 'F' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hi! I'm from Baku. Where are you from? → I'm from France. → Really? Do you speak Azerbaijani? → Yes, a little.", 'Əvvəl ölkə soruşulur, sonra dil.', "Where are you from? — ölkə; Do you speak English? — dil.", "Hi! I'm from Baku. Where are you from?"))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab, yoxlama və təsdiq düz sıradadır.', hint: 'Əvvəl sual gəlir; cavabı eşidən millətini yoxlayır.',
         prompt: 'Ziyafətdə iki dost başqa bir qonaq haqqında danışır.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "Where's she from?", from: 'B' }, { en: '2', az: "She's from Turkey.", from: 'G' }, { en: '3', az: 'Is she Turkish?', from: 'B' }, { en: '4', az: 'Yes, she is.', from: 'G' }],
+        rows: [{ en: '1', az: "Where's she from?", from: 'B' }, { en: '2', az: "She's from Turkey.", from: 'G' }, { en: '3', az: 'Is she Turkish?', from: 'F' }, { en: '4', az: 'Yes, she is.', from: 'other' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Where's she from? → She's from Turkey. → Is she Turkish? → Yes, she is.", 'Sual, ölkə, millət haqqında yoxlama, sonra təsdiq.', "Where's she from? — ölkə; Is she Turkish? — millət.", "Where's she from? — She's from Turkey."))],
       },

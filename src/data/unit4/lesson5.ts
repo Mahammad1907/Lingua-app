@@ -208,7 +208,7 @@ export const lesson5_2: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'u4d5_c11', number: 11, title: 'Cavab cütü', why: 'Hər suala uyğun cavabı tapdın.',
       prompt: '{F} ailə albomunu vərəqləyir və suallar verir.\nHər suala cavabını qoş.',
-      rows: [{ en: 'Do you have a sister?', az: 'Yes, I do.', from: 'other' }, { en: 'Is this your sister?', az: 'Yes, it is.', from: 'other' }, { en: "Who's this?", az: 'This is my sister.', from: 'other' }],
+      rows: [{ en: 'Do you have a sister?', az: 'Yes, I do.', from: 'other' }, { en: 'Is this your sister?', az: 'Yes, it is.', from: 'G' }, { en: "Who's this?", az: 'This is my sister.', from: 'B' }],
       extra: ['Yes, I have.'],
       variants: [
         pick('Do you have a sister?', 'Do ilə suala Yes, I do. cavab verilir.', ex('Do you have a sister? — Yes, I do.', 'Sual Do ilə başlayıb — cavabda da do gəlir.', 'Do you have a sister? — Yes, I do.; Is this your sister? — Yes, it is.', 'Do you have a brother? — No, I don\'t.')),
@@ -217,7 +217,7 @@ export const lesson5_2: DesignLesson = {
       review: {
         title: 'Cavab cütü', why: 'Hər suala uyğun cavabı tapdın.',
         prompt: 'Kursda yoldaşın telefonda ailə şəkillərini göstərir və soruşur.\nHər suala cavabını qoş.',
-        rows: [{ en: 'Do you have a brother?', az: "No, I don't.", from: 'other' }, { en: 'Is this your brother?', az: "No, it isn't.", from: 'other' }, { en: "Who's he?", az: "He's my friend.", from: 'other' }],
+        rows: [{ en: 'Do you have a brother?', az: "No, I don't.", from: 'other' }, { en: 'Is this your brother?', az: "No, it isn't.", from: 'G' }, { en: "Who's he?", az: "He's my friend.", from: 'B' }],
         extra: ["No, I'm not."],
         variants: [
           pick('Do you have a brother?', "Do ilə suala No, I don't. cavab verilir.", ex("Do you have a brother? — No, I don't.", 'Sual Do ilə başlayıb — cavabda da do gəlir.', "Do you have a brother? — No, I don't.; Is this your brother? — No, it isn't.", 'Do you have a sister? — Yes, I do.')),

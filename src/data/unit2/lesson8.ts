@@ -203,13 +203,13 @@ export const lesson8: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u2d8_c14', number: 14, title: 'Söhbəti sırala', why: 'Sual, nömrə, çaşqınlıq və izah düz sıradadır.', hint: 'Əvvəl sual gəlir; tanış olmayan səsi eşidən soruşur, o biri izah edir.',
       prompt: 'Ziyafətdə nömrə mübadiləsi.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "What's your phone number?", from: 'G' }, { en: '2', az: "It's oh five five, two one nine, three oh, eight eight.", from: 'B' }, { en: '3', az: "Sorry? Oh? I don't understand.", from: 'G' }, { en: '4', az: 'Oh — zero. Zero five five, two one nine…', from: 'B' }],
+      rows: [{ en: '1', az: "What's your phone number?", from: 'G' }, { en: '2', az: "It's oh five five, two one nine, three oh, eight eight.", from: 'B' }, { en: '3', az: "Sorry? Oh? I don't understand.", from: 'F' }, { en: '4', az: 'Oh — zero. Zero five five, two one nine…', from: 'other' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("What's your phone number? → It's oh five five… → Sorry? Oh? I don't understand. → Oh — zero. Zero five five…", 'Qız “oh” sözünü başa düşmədi, oğlan onun sıfır olduğunu izah etdi.', "oh five five — 055; zero five five — 055.", "Sorry? I don't understand."))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab, qarşı sual və xoş söz düz sıradadır.', hint: 'Əvvəl sual gəlir; cavab verən sualı geri qaytarır.',
         prompt: 'Kursda yeni yoldaşla tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Hi! How old are you?', from: 'G' }, { en: '2', az: "I'm thirty-five. And you?", from: 'B' }, { en: '3', az: "I'm thirty.", from: 'G' }, { en: '4', az: 'Nice to meet you!', from: 'B' }],
+        rows: [{ en: '1', az: 'Hi! How old are you?', from: 'G' }, { en: '2', az: "I'm thirty-five. And you?", from: 'B' }, { en: '3', az: "I'm thirty.", from: 'F' }, { en: '4', az: 'Nice to meet you!', from: 'other' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Hi! How old are you? → I'm thirty-five. And you? → I'm thirty. → Nice to meet you!", 'Sual, cavab və qarşı sual, sonra ikinci cavab.', "How old are you? — sual; And you? — qarşı sual.", "I'm thirty-five. And you?"))],
       },

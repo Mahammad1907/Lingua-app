@@ -134,8 +134,8 @@ export const unit1Exam: DesignLesson[] = [{
       rows: [
         { en: '1', az: "Hi! What's your name?", from: 'G' },
         { en: '2', az: 'Sorry? Say that again, please.', from: 'B' },
-        { en: '3', az: "What's your name?", from: 'G' },
-        { en: '4', az: 'My name is [ad]. Nice to meet you.', from: 'B' },
+        { en: '3', az: "What's your name?", from: 'F' },
+        { en: '4', az: 'My name is [ad]. Nice to meet you.', from: 'other' },
       ],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hi! What's your name? → Sorry? Say that again, please. → What's your name? → My name is [ad]. Nice to meet you.", 'Əvvəl salamlaşıb soruşur, eşitməyən bir də xahiş edir, sual təkrarlanır, sonra cavab gəlir.', 'What’s your name? — əvvəl sual; My name is [ad] — sonra cavab.', "Hello! What's your name? — Hi! I'm [ad]"))],

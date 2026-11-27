@@ -240,13 +240,13 @@ export const lesson3_2: DesignLesson = {
     {
       type: 'match', id: 'u4d3_c16', number: 14, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'his və her-dən sonrakı sözə fikir ver.',
       prompt: 'Ailə yeməyinin şəklinin altında üç cümlə var.\nHər cümləni mənasına uyğun gətir.',
-      rows: [{ en: 'This is her husband.', az: 'Bu, onun (qadının) əridir.', from: 'other' }, { en: 'This is his wife.', az: 'Bu, onun (kişinin) həyat yoldaşıdır.', from: 'other' }, { en: 'His name is Rauf.', az: 'Onun adı Raufdur.', from: 'other' }],
+      rows: [{ en: 'This is her husband.', az: 'Bu, onun (qadının) əridir.', from: 'other' }, { en: 'This is his wife.', az: 'Bu, onun (kişinin) həyat yoldaşıdır.', from: 'G' }, { en: 'His name is Rauf.', az: 'Onun adı Raufdur.', from: 'B' }],
       extra: ['Bu, mənim ərimdir.'],
       variants: [other('Bir məna yerində deyil.', ex('This is her husband. — qadının əri; This is his wife. — kişinin həyat yoldaşı; His name is Rauf. — onun adı.', 'husband — ər, wife — həyat yoldaşı; his — kişinin, her — qadının.', 'her husband — qadının əri; his wife — kişinin həyat yoldaşı.', 'This is my sister. This is her husband.'))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'his və her-dən sonrakı sözə fikir ver.',
         prompt: 'Video zəngdə {f} yeni şəkillər göstərir.\nHər cümləni mənasına uyğun gətir.',
-        rows: [{ en: 'This is his wife.', az: 'Bu, onun (kişinin) həyat yoldaşıdır.', from: 'other' }, { en: 'Her name is Lala.', az: 'Onun adı Laladır.', from: 'other' }, { en: 'This is my husband.', az: 'Bu, mənim ərimdir.', from: 'other' }],
+        rows: [{ en: 'This is his wife.', az: 'Bu, onun (kişinin) həyat yoldaşıdır.', from: 'other' }, { en: 'Her name is Lala.', az: 'Onun adı Laladır.', from: 'G' }, { en: 'This is my husband.', az: 'Bu, mənim ərimdir.', from: 'B' }],
         extra: ['Bu, onun (qadının) əridir.'],
         variants: [other('Bir məna yerində deyil.', ex('This is his wife. — kişinin həyat yoldaşı; Her name is Lala. — onun adı; This is my husband. — mənim ərim.', 'my — mənim, his — kişinin, her — qadının.', 'my husband — ərim; her husband — qadının əri.', 'This is my brother. This is his wife.'))],
       },

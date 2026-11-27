@@ -64,13 +64,13 @@ export const lesson7: DesignLesson = {
     {
       type: 'match', id: 'u4d7_c05', number: 5, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.',
       prompt: '{F} albomdakı şəkillərin altına yazılar qoyub.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: "She's a teacher.", az: 'O müəllimdir.', from: 'other' }, { en: "He's a student.", az: 'O tələbədir.', from: 'other' }, { en: "He's from Baku.", az: 'O Bakıdandır.', from: 'other' }],
+      rows: [{ en: "She's a teacher.", az: 'O müəllimdir.', from: 'other' }, { en: "He's a student.", az: 'O tələbədir.', from: 'G' }, { en: "He's from Baku.", az: 'O Bakıdandır.', from: 'B' }],
       extra: ['O Gəncədəndir.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex("She's a teacher. — O müəllimdir.; He's a student. — O tələbədir.; He's from Baku. — O Bakıdandır.", 'a teacher və a student işdir, from olan cümlə yerdir.', "He's a student. — iş; He's from Baku. — haradan.", "She's a teacher."))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.',
         prompt: 'Hostelin divarında şəkillər və altında yazılar var.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: "He's a teacher.", az: 'O müəllimdir.', from: 'other' }, { en: "She's a student.", az: 'O tələbədir.', from: 'other' }, { en: "She's Turkish.", az: 'O türkdür.', from: 'other' }],
+        rows: [{ en: "He's a teacher.", az: 'O müəllimdir.', from: 'other' }, { en: "She's a student.", az: 'O tələbədir.', from: 'G' }, { en: "She's Turkish.", az: 'O türkdür.', from: 'B' }],
         extra: ['O Bakıdandır.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex("He's a teacher. — O müəllimdir.; She's a student. — O tələbədir.; She's Turkish. — O türkdür.", 'a teacher və a student işdir, Turkish millətdir.', "She's a student. — iş; She's Turkish. — millət.", "He's a teacher."))],
       },

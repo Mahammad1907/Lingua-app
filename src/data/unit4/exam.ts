@@ -78,7 +78,7 @@ export const exam: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'u4x_c08', number: 8, title: 'Cavab cütü', why: 'Hər suala uyğun qısa cavabı tapdın.',
       prompt: 'Ailə yeməyində {f} sənə suallar verir.\nSuala toxun, sonra onun cavabını seç.',
-      rows: [{ en: 'Do you have a son?', az: "No, I don't.", from: 'other' }, { en: 'Is she your wife?', az: 'Yes, she is.', from: 'other' }, { en: 'How old is he?', az: "He's ten.", from: 'other' }],
+      rows: [{ en: 'Do you have a son?', az: "No, I don't.", from: 'other' }, { en: 'Is she your wife?', az: 'Yes, she is.', from: 'G' }, { en: 'How old is he?', az: "He's ten.", from: 'B' }],
       extra: ['Yes, I am.'],
       variants: [other('Bir sualın cavabı yerində deyil.', ex("Do you have a son? — No, I don't.; Is she your wife? — Yes, she is.; How old is he? — He's ten.", 'Do ilə suala do ilə, Is she ilə suala she is ilə, yaş sualına yaşla cavab verilir.', "Do you have a son? — No, I don't.; How old is he? — He's ten.", 'Is she your wife? — Yes, she is.'))],
     },
@@ -163,14 +163,14 @@ export const exam: DesignLesson = {
     {
       type: 'match', id: 'u4x_c14', number: 15, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.',
       prompt: '{F} ailə albomundakı yazıları oxuyur.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'My parents are in Ganja.', az: 'Valideynlərim Gəncədədir.', from: 'other' }, { en: 'This is my son.', az: 'Bu mənim oğlumdur.', from: 'other' }, { en: "I don't have a brother.", az: 'Mənim qardaşım yoxdur.', from: 'other' }],
+      rows: [{ en: 'My parents are in Ganja.', az: 'Valideynlərim Gəncədədir.', from: 'other' }, { en: 'This is my son.', az: 'Bu mənim oğlumdur.', from: 'G' }, { en: "I don't have a brother.", az: 'Mənim qardaşım yoxdur.', from: 'B' }],
       extra: ['Bu mənim qızımdır.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex("My parents are in Ganja. — Valideynlərim Gəncədədir.; This is my son. — Bu mənim oğlumdur.; I don't have a brother. — Mənim qardaşım yoxdur.", 'parents — valideynlər, son — oğul, I don’t have — yoxdur.', "This is my son. — oğul; This is my daughter. — qız.", 'I have a sister.'))],
     },
     {
       type: 'match', mode: 'order', id: 'u4x_c15', number: 16, title: 'Söhbəti sırala', why: 'Qarşılama, sual, təqdim və cavab düz sıradadır.',
       prompt: '{F} evinin qapısını açır, yanında kiçik oğlan var.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Hello! Welcome!', from: 'other' }, { en: '2', az: "Thank you! Who's this?", from: 'B' }, { en: '3', az: "This is my son. He's ten.", from: 'other' }, { en: '4', az: 'Hi! Nice to meet you!', from: 'B' }],
+      rows: [{ en: '1', az: 'Hello! Welcome!', from: 'other' }, { en: '2', az: "Thank you! Who's this?", from: 'B' }, { en: '3', az: "This is my son. He's ten.", from: 'G' }, { en: '4', az: 'Hi! Nice to meet you!', from: 'F' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hello! Welcome! → Thank you! Who's this? → This is my son. He's ten. → Hi! Nice to meet you!", 'Əvvəl qarşılama, sonra kim olduğunu soruşur, təqdim gəlir, sonda salam.', "Who's this? — sual; This is my son. — cavab.", 'Hello! Welcome!'))],
     },

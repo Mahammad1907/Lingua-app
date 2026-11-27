@@ -78,13 +78,13 @@ export const lesson3a: DesignLesson = {
     {
       type: 'match', id: 'u3d3a_c13', number: 6, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'from olan cümləni millət cümlələrindən ayır.',
       prompt: 'Pasport nəzarətinin növbəsində sərnişinlər danışır.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: "I'm Turkish.", az: 'Türkəm.', from: 'other' }, { en: "I'm from Turkey.", az: 'Türkiyədənəm.', from: 'other' }, { en: "I'm Azerbaijani.", az: 'Azərbaycanlıyam.', from: 'B' }],
+      rows: [{ en: "I'm Turkish.", az: 'Türkəm.', from: 'other' }, { en: "I'm from Turkey.", az: 'Türkiyədənəm.', from: 'G' }, { en: "I'm Azerbaijani.", az: 'Azərbaycanlıyam.', from: 'B' }],
       extra: ['Azərbaycandanam.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm Turkish. — Türkəm.; I'm from Turkey. — Türkiyədənəm.; I'm Azerbaijani. — Azərbaycanlıyam.", 'from olan cümlə ölkəni, from-suz cümlə milləti deyir.', "I'm Turkish. — millət; I'm from Turkey. — ölkə.", "I'm from Turkey. I'm Turkish."))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'from olan cümləni millət cümləsindən ayır.',
         prompt: 'Hostelin mətbəxində tanışlıq.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: "I'm from Azerbaijan.", az: 'Azərbaycandanam.', from: 'G' }, { en: "I'm Turkish.", az: 'Türkəm.', from: 'other' }, { en: 'Where are you from?', az: 'Haradansan?', from: 'other' }],
+        rows: [{ en: "I'm from Azerbaijan.", az: 'Azərbaycandanam.', from: 'G' }, { en: "I'm Turkish.", az: 'Türkəm.', from: 'other' }, { en: 'Where are you from?', az: 'Haradansan?', from: 'B' }],
         extra: ['Türkiyədənəm.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm from Azerbaijan. — Azərbaycandanam.; I'm Turkish. — Türkəm.; Where are you from? — Haradansan?", 'from olan cümlə ölkəni, from-suz cümlə milləti deyir.', "I'm Azerbaijani. — millət; I'm from Azerbaijan. — ölkə.", "I'm from Azerbaijan. I'm Azerbaijani."))],
       },
@@ -159,13 +159,13 @@ export const lesson3a_2: DesignLesson = {
     {
       type: 'match', id: 'u3d3a_c07', number: 7, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
       prompt: 'Hostelin resepsiyasında qonaqlar özlərini təqdim edir.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: "I'm Azerbaijani.", az: 'Azərbaycanlıyam.', from: 'G' }, { en: "I'm Turkish.", az: 'Türkəm.', from: 'other' }, { en: "I'm Russian.", az: 'Rusam.', from: 'other' }],
+      rows: [{ en: "I'm Azerbaijani.", az: 'Azərbaycanlıyam.', from: 'G' }, { en: "I'm Turkish.", az: 'Türkəm.', from: 'other' }, { en: "I'm Russian.", az: 'Rusam.', from: 'B' }],
       extra: ['Rusiyadanam.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm Azerbaijani. — Azərbaycanlıyam; I'm Turkish. — Türkəm; I'm Russian. — Rusam.", 'Cümlələrdə from yoxdur — hamısı millətdir.', "I'm Russian. — rusam; I'm from Russia. — Rusiyadanam.", "I'm from Russia. I'm Russian."))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'from olan cümləni millət cümlələrindən ayır.',
         prompt: 'Pasport nəzarətinin növbəsində sərnişinlər danışır.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: "I'm from Turkey.", az: 'Türkiyədənəm.', from: 'other' }, { en: "I'm Georgian.", az: 'Gürcüyəm.', from: 'other' }, { en: "I'm Turkish.", az: 'Türkəm.', from: 'B' }],
+        rows: [{ en: "I'm from Turkey.", az: 'Türkiyədənəm.', from: 'other' }, { en: "I'm Georgian.", az: 'Gürcüyəm.', from: 'G' }, { en: "I'm Turkish.", az: 'Türkəm.', from: 'B' }],
         extra: ['Gürcüstandanam.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm from Turkey. — Türkiyədənəm; I'm Georgian. — Gürcüyəm; I'm Turkish. — Türkəm.", 'from olan cümlə ölkədir, from-suz cümlələr millətdir.', "I'm Georgian. — gürcüyəm; I'm from Georgia. — Gürcüstandanam.", "I'm from Georgia. I'm Georgian."))],
       },
@@ -218,13 +218,13 @@ export const lesson3a_2: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u3d3a_c12', number: 12, title: 'Söhbəti sırala', why: 'Sual, cavab və tanışlıq düz sıradadır.', hint: 'Əvvəl sual gəlir; sonda tanışlığa sevinirlər.',
       prompt: 'Hostelin resepsiyası.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Hi! Where are you from?', from: 'G' }, { en: '2', az: "I'm from Georgia. I'm Georgian. And you?", from: 'other' }, { en: '3', az: "I'm from Azerbaijan. I'm Azerbaijani.", from: 'G' }, { en: '4', az: 'Nice to meet you!', from: 'other' }],
+      rows: [{ en: '1', az: 'Hi! Where are you from?', from: 'G' }, { en: '2', az: "I'm from Georgia. I'm Georgian. And you?", from: 'other' }, { en: '3', az: "I'm from Azerbaijan. I'm Azerbaijani.", from: 'B' }, { en: '4', az: 'Nice to meet you!', from: 'F' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hi! Where are you from? → I'm from Georgia. I'm Georgian. And you? → I'm from Azerbaijan. I'm Azerbaijani. → Nice to meet you!", 'Sual, cavab və geri sual, sonra cavab və tanışlıq.', "Where are you from? — sual; I'm from Georgia. — cavab.", 'Hi! Where are you from?'))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab və tanışlıq düz sıradadır.', hint: 'Əvvəl salam və sual gəlir; And you? soruşandan sonra o biri cavab verir.',
         prompt: 'Pasport nəzarətinin növbəsi.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Hello! Where are you from?', from: 'other' }, { en: '2', az: "I'm from Azerbaijan. And you?", from: 'B' }, { en: '3', az: "I'm from Turkey. I'm Turkish.", from: 'other' }, { en: '4', az: 'Nice to meet you!', from: 'B' }],
+        rows: [{ en: '1', az: 'Hello! Where are you from?', from: 'other' }, { en: '2', az: "I'm from Azerbaijan. And you?", from: 'B' }, { en: '3', az: "I'm from Turkey. I'm Turkish.", from: 'G' }, { en: '4', az: 'Nice to meet you!', from: 'F' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Hello! Where are you from? → I'm from Azerbaijan. And you? → I'm from Turkey. I'm Turkish. → Nice to meet you!", 'Sual, cavab və geri sual, sonra cavab və tanışlıq.', "Where are you from? — sual; And you? — geri sual.", 'Hello! Where are you from?'))],
       },

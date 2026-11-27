@@ -195,13 +195,13 @@ export const lesson4Part2: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u2d4_c13', number: 13, title: 'Söhbəti sırala', why: 'Sual, hərflər, xahiş və yavaş təkrar düz sıradadır.', hint: 'Əvvəl sual gəlir; çox sürətli olanda nə xahiş edirsən?',
       prompt: 'Otel resepsiyası.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Lankaran? How do you spell it?', from: 'B' }, { en: '2', az: "It's L-A-N-K-A-R-A-N.", from: 'G' }, { en: '3', az: 'Sorry? More slowly, please.', from: 'B' }, { en: '4', az: 'L… A… N… K… A… R… A… N.', from: 'G' }],
+      rows: [{ en: '1', az: 'Lankaran? How do you spell it?', from: 'B' }, { en: '2', az: "It's L-A-N-K-A-R-A-N.", from: 'G' }, { en: '3', az: 'Sorry? More slowly, please.', from: 'F' }, { en: '4', az: 'L… A… N… K… A… R… A… N.', from: 'other' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Lankaran? How do you spell it? → It's L-A-N-K-A-R-A-N. → Sorry? More slowly, please. → L… A… N…", 'Sual, hərflər, sonra yavaş təkrar xahişi.', 'How do you spell it? — sual; More slowly, please. — xahiş.', 'Lankaran? How do you spell it?'))],
       review: {
         title: 'Söhbəti sırala', why: 'Xahiş, hərflər, yoxlama və təsdiq düz sıradadır.', hint: 'Əvvəl xahiş gəlir; hərfləri eşidən onları yoxlayır.',
         prompt: 'Hava limanında qeydiyyat.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Ganja? Can you spell it, please?', from: 'G' }, { en: '2', az: "It's G-A-N-J-A.", from: 'B' }, { en: '3', az: 'G-A-N-J-A. Is that right?', from: 'G' }, { en: '4', az: "Yes, that's right.", from: 'B' }],
+        rows: [{ en: '1', az: 'Ganja? Can you spell it, please?', from: 'G' }, { en: '2', az: "It's G-A-N-J-A.", from: 'B' }, { en: '3', az: 'G-A-N-J-A. Is that right?', from: 'F' }, { en: '4', az: "Yes, that's right.", from: 'other' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Ganja? Can you spell it, please? → It's G-A-N-J-A. → G-A-N-J-A. Is that right? → Yes, that's right.", 'Xahiş, hərflər, yoxlama, sonra təsdiq.', "Is that right? — yoxlama; Yes, that's right. — təsdiq.", 'Ganja? Can you spell it, please?'))],
       },

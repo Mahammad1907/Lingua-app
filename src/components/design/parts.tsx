@@ -126,11 +126,6 @@ export function SheetOption({ label, icon, note, onPress, highlight }: { label: 
   </View>;
 }
 
-/** THE sound visualizer (25 Nov 2026): the Glow Line, everywhere a wave is shown. It never fills left to right. */
-export function Waveform({ active, height = 44, rate = 1 }: { active?: boolean; height?: number; progress?: number; rate?: number }) {
-  return <GlowLine active={active} height={height} rate={rate} />;
-}
-
 /** THE audio card (25 Nov 2026 design system), shared by every listening / speaking screen: avatar badge, bold title +
  *  muted subtitle, length on the right; purple ▶/⏸, the Glow Line and the speed pill (1x → 0.75x → 0.5x → 1.25x) below. */
 export function AudioPanel({ playing, onPlay, avatar, name, title, sub, seconds, rate = 1, onRate }: { playing: boolean; onPlay: () => void; avatar?: ReactNode; name?: string;

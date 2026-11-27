@@ -68,7 +68,7 @@ export const lesson5a: DesignLesson = {
       review: {
         title: 'Kim nə dedi?', why: 'He və she fərqini tapdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
         prompt: 'Qatarda iki yeni tanış yol yoldaşları haqqında danışır.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'She is fine.', az: 'O (qadın) yaxşıdır.', from: 'other' }, { en: 'He is not great.', az: 'O (kişi) çox yaxşı deyil.', from: 'other' }, { en: 'He is OK.', az: 'O (kişi) normaldır.', from: 'B' }],
+        rows: [{ en: 'She is fine.', az: 'O (qadın) yaxşıdır.', from: 'other' }, { en: 'He is not great.', az: 'O (kişi) çox yaxşı deyil.', from: 'G' }, { en: 'He is OK.', az: 'O (kişi) normaldır.', from: 'B' }],
         extra: ['O (qadın) çox yaxşı deyil.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('She is fine. — O (qadın) yaxşıdır.; He is not great. — O (kişi) çox yaxşı deyil.; He is OK. — O (kişi) normaldır.', 'Birinci söz kimin haqqında olduğunu deyir.', 'He is OK. — kişi; She is OK. — qadın.', 'She is fine.'))],
       },

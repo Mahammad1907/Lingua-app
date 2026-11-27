@@ -210,13 +210,13 @@ export const lesson1_2: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'u4d1_c10', number: 10, title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Əvvəl kim, ad və tanışlıq sualını ayır.',
       prompt: '{F:gen} qapısında hamı bir-birini tanıyır.\nCümləyə toxun, sonra ona uyğun cavabı seç.',
-      rows: [{ en: "Who's this?", az: 'This is my friend.', from: 'other' }, { en: "What's your name?", az: "I'm Tom.", from: 'other' }, { en: 'Nice to meet you.', az: 'You too.', from: 'other' }],
+      rows: [{ en: "Who's this?", az: 'This is my friend.', from: 'other' }, { en: "What's your name?", az: "I'm Tom.", from: 'G' }, { en: 'Nice to meet you.', az: 'You too.', from: 'B' }],
       extra: ['Goodbye.'],
       variants: [other('Bir cavab yerində deyil.', ex("Who's this? — This is my friend.; What's your name? — I'm Tom.; Nice to meet you. — You too.", 'Kim olduğunu soruşana təqdim cavabı, adı soruşana I’m və ad, tanışlığa You too.', "Who's this? — This is my friend. ; What's your name? — I'm Tom.", "Who's this? — This is my friend."))],
       review: {
         title: 'Cavab cütü', why: 'Hər cümləyə uyğun cavabı tapdın.', hint: 'Əvvəl “Bu kimdir?” sualını tap.',
         prompt: 'Ofisə yeni yoldaş gəlib, hamı tanış olur.\nCümləyə toxun, sonra ona uyğun cavabı seç.',
-        rows: [{ en: "Who's this?", az: 'This is Anna.', from: 'other' }, { en: 'Hello!', az: 'Hi!', from: 'other' }, { en: 'Thank you!', az: "You're welcome.", from: 'other' }],
+        rows: [{ en: "Who's this?", az: 'This is Anna.', from: 'other' }, { en: 'Hello!', az: 'Hi!', from: 'G' }, { en: 'Thank you!', az: "You're welcome.", from: 'B' }],
         extra: ['Sorry!'],
         variants: [other('Bir cavab yerində deyil.', ex("Who's this? — This is Anna.; Hello! — Hi!; Thank you! — You're welcome.", 'Kim olduğunu soruşana təqdim cavabı, salama salam, təşəkkürə You’re welcome.', "Who's this? — This is Anna. ; Hello! — Hi!", "Who's this? — This is my friend."))],
       },
@@ -274,13 +274,13 @@ export const lesson1_2: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u4d1_c14', number: 14, title: 'Söhbəti sırala', why: 'Qarşılama, təqdim, ad sualı və cavab düz sıradadır.', hint: 'Əvvəl qapıda salamlaşırlar; ad sualından sonra cavab gəlir.',
       prompt: '{G:gen} qapısı. {B} dostu ilə gəlir.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Hello! Welcome!', from: 'G' }, { en: '2', az: 'Thank you! This is my friend.', from: 'B' }, { en: '3', az: "Hi! What's your name?", from: 'G' }, { en: '4', az: "I'm Tom. Nice to meet you!", from: 'other' }],
+      rows: [{ en: '1', az: 'Hello! Welcome!', from: 'G' }, { en: '2', az: 'Thank you! This is my friend.', from: 'B' }, { en: '3', az: "Hi! What's your name?", from: 'F' }, { en: '4', az: "I'm Tom. Nice to meet you!", from: 'other' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hello! Welcome! → Thank you! This is my friend. → Hi! What's your name? → I'm Tom. Nice to meet you!", 'Əvvəl qarşılama, sonra təqdim, sonra ad sualı və cavab.', "Hello! Welcome! — qarşılama; What's your name? — ad.", 'Hello! Welcome!'))],
       review: {
         title: 'Söhbəti sırala', why: 'Qarşılama, təqdim, ad sualı və cavab düz sıradadır.', hint: 'Əvvəl qapıda salamlaşırlar; ad sualından sonra cavab gəlir.',
         prompt: 'Ofisin girişi. {G} dostu ilə gəlir.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Hi! Welcome!', from: 'B' }, { en: '2', az: 'Thanks! This is my friend.', from: 'G' }, { en: '3', az: "Hello! What's your name?", from: 'B' }, { en: '4', az: "I'm Anna. Nice to meet you!", from: 'other' }],
+        rows: [{ en: '1', az: 'Hi! Welcome!', from: 'B' }, { en: '2', az: 'Thanks! This is my friend.', from: 'G' }, { en: '3', az: "Hello! What's your name?", from: 'F' }, { en: '4', az: "I'm Anna. Nice to meet you!", from: 'other' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Hi! Welcome! → Thanks! This is my friend. → Hello! What's your name? → I'm Anna. Nice to meet you!", 'Əvvəl qarşılama, sonra təqdim, sonra ad sualı və cavab.', "Hi! Welcome! — qarşılama; What's your name? — ad.", 'Hi! Welcome!'))],
       },

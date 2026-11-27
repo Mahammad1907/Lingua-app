@@ -11,7 +11,7 @@ import { missingScenes, sceneImage } from '../../config/sceneImages';
 import type { ChatLine, ExplainCard, MatchTask, WordCard, Who } from '../../data/designLessonTypes';
 import { glossOf } from '../../data/unit1/glossary';
 import Icon, { type IconName } from './Icons';
-import { ds, KindChip, nameSlot, Pop, tapHaptic, Waveform } from './parts';
+import { ds, KindChip, nameSlot, Pop, tapHaptic } from './parts';
 import { useArtFit } from './fit';
 import { d, font, radius, shadow } from './theme';
 
@@ -87,13 +87,13 @@ export function SlowButton({ onPress, size = 48 }: { onPress: () => void; size?:
   </Pressable>;
 }
 
-/** What the other person says (approved audio card): avatar, the sentence with play + wave under it, turtle on the right. */
+/** What the other person says: avatar, the sentence and a ▶ under it. No sound wave (user, 27 Nov 2026: ▶ is enough). */
 export function SayBubble({ who, text, onPlay, onSlow, playing, onWord }: { who: Who; text: string; onPlay?: () => void; onSlow?: () => void; playing?: boolean; onWord?: (w: string) => void }) {
   return <View style={[s.sayCard, shadow]}>
     <Avatar who={who} size={56} />
     <View style={{ flex: 1, gap: 8 }}>
       <TapText text={text} style={s.sayText} onWord={onWord} />
-      {onPlay ? <View style={s.sayAudio}><PlayButton onPress={onPlay} playing={playing} size={44} /><View style={{ flex: 1 }}><Waveform active={playing} height={34} /></View></View> : null}
+      {onPlay ? <View style={s.sayAudio}><PlayButton onPress={onPlay} playing={playing} size={44} /></View> : null}
     </View>
     {onSlow ? <><View style={s.vline} /><SlowButton onPress={onSlow} /></> : null}
   </View>;
@@ -524,7 +524,6 @@ function FormCard({ on, onPlay, label, children }: { on: boolean; onPlay: () => 
   return <Reanimated.View style={[s.tvForm, on ? s.tvFormOn : null, lit && s.tvFormLit, a]}>
     <Pressable accessibilityRole="button" accessibilityLabel={label} onPress={play} style={{ gap: 4 }}>
       {children(play)}
-      <View style={{ height: 16, marginTop: 2 }}>{lit ? <Waveform active height={16} /> : null}</View>
     </Pressable>
   </Reanimated.View>;
 }

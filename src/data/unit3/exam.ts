@@ -118,7 +118,7 @@ export const exam: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u3x_c14', number: 14, title: 'Söhbəti sırala', why: 'Tanışlıq söhbəti düz sıradadır.',
       prompt: 'Dil klubunun ziyafəti.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Hello! Where are you from?', from: 'other' }, { en: '2', az: "I'm from Azerbaijan. And you?", from: 'B' }, { en: '3', az: "I'm from Georgia, but I live here.", from: 'other' }, { en: '4', az: 'Really? Me too! I live here too.', from: 'B' }],
+      rows: [{ en: '1', az: 'Hello! Where are you from?', from: 'other' }, { en: '2', az: "I'm from Azerbaijan. And you?", from: 'B' }, { en: '3', az: "I'm from Georgia, but I live here.", from: 'G' }, { en: '4', az: 'Really? Me too! I live here too.', from: 'F' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hello! Where are you from? → I'm from Azerbaijan. And you? → I'm from Georgia, but I live here. → Really? Me too! I live here too.", 'Sual, cavab və qarşı sual, sonra o biri cavab verir.', "Where are you from? — sual; And you? — qarşı sual.", 'Hello! Where are you from?'))],
     },

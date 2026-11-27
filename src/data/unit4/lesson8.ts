@@ -87,13 +87,13 @@ export const lesson8: DesignLesson = {
     {
       type: 'match', id: 'u4d8_c06', number: 6, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.',
       prompt: '{F} sənin şəkillərinin altındakı yazıları oxuyur.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: 'This is my grandmother.', az: 'Bu mənim nənəmdir.', from: 'other' }, { en: 'This is my grandfather.', az: 'Bu mənim babamdır.', from: 'other' }, { en: "He's a student.", az: 'O tələbədir.', from: 'other' }],
+      rows: [{ en: 'This is my grandmother.', az: 'Bu mənim nənəmdir.', from: 'other' }, { en: 'This is my grandfather.', az: 'Bu mənim babamdır.', from: 'G' }, { en: "He's a student.", az: 'O tələbədir.', from: 'B' }],
       extra: ['Bu mənim qızımdır.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex("This is my grandmother. — Bu mənim nənəmdir.; This is my grandfather. — Bu mənim babamdır.; He's a student. — O tələbədir.", 'grandmother — nənə, grandfather — baba, a student — tələbə.', "This is my grandfather. — kim; He's a student. — iş.", 'This is my friend.'))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.',
         prompt: '{F} növbəti şəkillərin altındakı yazıları oxuyur.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'His name is Anar.', az: 'Onun adı Anardır.', from: 'other' }, { en: 'This is my mother.', az: 'Bu mənim anamdır.', from: 'other' }, { en: "She's an engineer.", az: 'O mühəndisdir.', from: 'other' }],
+        rows: [{ en: 'His name is Anar.', az: 'Onun adı Anardır.', from: 'other' }, { en: 'This is my mother.', az: 'Bu mənim anamdır.', from: 'G' }, { en: "She's an engineer.", az: 'O mühəndisdir.', from: 'B' }],
         extra: ['Bu mənim oğlumdur.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex("His name is Anar. — Onun adı Anardır.; This is my mother. — Bu mənim anamdır.; She's an engineer. — O mühəndisdir.", 'name — ad, mother — ana, an engineer — mühəndis.', "This is my mother. — kim; She's an engineer. — iş.", 'This is my friend.'))],
       },
@@ -168,13 +168,13 @@ export const lesson8: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'u4d8_c11', number: 11, title: 'Cavab cütü', why: 'Hər suala uyğun cavabı tapdın.',
       prompt: '{F} sənin şəkillərinə baxıb suallar verir.\nSuala toxun, sonra onun cavabını seç.',
-      rows: [{ en: "Who's he?", az: "He's my brother.", from: 'other' }, { en: 'Is this your mother?', az: 'Yes, it is.', from: 'other' }, { en: 'Do you have a daughter?', az: "No, I don't.", from: 'other' }],
+      rows: [{ en: "Who's he?", az: "He's my brother.", from: 'other' }, { en: 'Is this your mother?', az: 'Yes, it is.', from: 'G' }, { en: 'Do you have a daughter?', az: "No, I don't.", from: 'B' }],
       extra: ["She's a teacher."],
       variants: [other('Bir sualın cavabı yerində deyil.', ex("Who's he? — He's my brother.; Is this your mother? — Yes, it is.; Do you have a daughter? — No, I don't.", 'Kim sualına kim, Is this sualına it is, Do you sualına do ilə cavab verilir.', "Is this your mother? — Yes, it is.; Do you have a daughter? — No, I don't.", "Who's he? — He's my brother."))],
       review: {
         title: 'Cavab cütü', why: 'Hər suala uyğun cavabı tapdın.',
         prompt: '{F} növbəti şəkillər haqqında suallar verir.\nSuala toxun, sonra onun cavabını seç.',
-        rows: [{ en: 'How old is she?', az: "She's thirty.", from: 'other' }, { en: "What's his job?", az: "He's a doctor.", from: 'other' }, { en: 'Is this your father?', az: "No, it isn't.", from: 'other' }],
+        rows: [{ en: 'How old is she?', az: "She's thirty.", from: 'other' }, { en: "What's his job?", az: "He's a doctor.", from: 'G' }, { en: 'Is this your father?', az: "No, it isn't.", from: 'B' }],
         extra: ['His name is Anar.'],
         variants: [other('Bir sualın cavabı yerində deyil.', ex("How old is she? — She's thirty.; What's his job? — He's a doctor.; Is this your father? — No, it isn't.", 'Yaş sualına rəqəm, iş sualına peşə, Is this sualına it isn\'t ilə cavab verilir.', "What's his job? — He's a doctor.; Is this your father? — No, it isn't.", "How old is she? — She's thirty."))],
       },
@@ -182,13 +182,13 @@ export const lesson8: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u4d8_c12', number: 12, title: 'Söhbəti sırala', why: 'Sual, cavab, yeni sual və cavab düz sıradadır.', hint: 'Əvvəl kim olduğu, sonra yaşı.',
       prompt: '{F} sənin şəklinə baxır.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: "And who's this?", from: 'other' }, { en: '2', az: 'This is my father.', from: 'G' }, { en: '3', az: 'How old is he?', from: 'other' }, { en: '4', az: "He's fifty.", from: 'G' }],
+      rows: [{ en: '1', az: "And who's this?", from: 'other' }, { en: '2', az: 'This is my father.', from: 'G' }, { en: '3', az: 'How old is he?', from: 'B' }, { en: '4', az: "He's fifty.", from: 'F' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("And who's this? → This is my father. → How old is he? → He's fifty.", 'Əvvəl kim olduğu soruşulur, sonra yaşı.', "Who's this? — kim; How old is he? — yaş.", "And who's this?"))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab, yeni sual və cavab düz sıradadır.', hint: 'Əvvəl şəkildəkinin kim olduğu, sonra peşəsi.',
         prompt: '{F} sənin başqa şəklinə baxır.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Is this your sister?', from: 'other' }, { en: '2', az: 'Yes, it is.', from: 'B' }, { en: '3', az: "What's her job?", from: 'other' }, { en: '4', az: "She's a teacher.", from: 'B' }],
+        rows: [{ en: '1', az: 'Is this your sister?', from: 'other' }, { en: '2', az: 'Yes, it is.', from: 'B' }, { en: '3', az: "What's her job?", from: 'G' }, { en: '4', az: "She's a teacher.", from: 'F' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Is this your sister? → Yes, it is. → What's her job? → She's a teacher.", 'Əvvəl kim olduğu soruşulur, sonra peşəsi.', "Is this your sister? — kim; What's her job? — peşə.", 'Is this your sister?'))],
       },

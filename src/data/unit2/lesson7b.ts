@@ -97,13 +97,13 @@ export const lesson7b: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u2d7b_c14', number: 14, title: 'Söhbəti sırala', why: 'Sual, cavab, yanlış eşitmə və düzəliş düz sıradadır.', hint: 'Əvvəl sual gəlir; yanlış eşidən soruşur, o biri düzəldir.',
       prompt: 'İdman zalında tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'How old are you?', from: 'B' }, { en: '2', az: "I'm thirty. And you?", from: 'G' }, { en: '3', az: 'Sorry? Thirteen?', from: 'B' }, { en: '4', az: 'No, thirty. Three, zero.', from: 'G' }],
+      rows: [{ en: '1', az: 'How old are you?', from: 'B' }, { en: '2', az: "I'm thirty. And you?", from: 'G' }, { en: '3', az: 'Sorry? Thirteen?', from: 'F' }, { en: '4', az: 'No, thirty. Three, zero.', from: 'other' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("How old are you? → I'm thirty. And you? → Sorry? Thirteen? → No, thirty. Three, zero.", 'Oğlan 30-u 13 kimi eşitdi, qız düzəltdi.', 'thirteen — 13; thirty — 30.', 'No, thirty. Three, zero.'))],
       review: {
         title: 'Söhbəti sırala', why: 'Sual, cavab, yanlış eşitmə və düzəliş düz sıradadır.', hint: 'Əvvəl sual gəlir; yanlış eşidən soruşur, o biri düzəldir.',
         prompt: 'Kursda tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'How old are you?', from: 'G' }, { en: '2', az: "I'm forty. And you?", from: 'B' }, { en: '3', az: 'Sorry? Fourteen?', from: 'G' }, { en: '4', az: 'No, forty. Four, zero.', from: 'B' }],
+        rows: [{ en: '1', az: 'How old are you?', from: 'G' }, { en: '2', az: "I'm forty. And you?", from: 'B' }, { en: '3', az: 'Sorry? Fourteen?', from: 'F' }, { en: '4', az: 'No, forty. Four, zero.', from: 'other' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("How old are you? → I'm forty. And you? → Sorry? Fourteen? → No, forty. Four, zero.", 'Qız 40-ı 14 kimi eşitdi, oğlan düzəltdi.', 'fourteen — 14; forty — 40.', 'No, forty. Four, zero.'))],
       },

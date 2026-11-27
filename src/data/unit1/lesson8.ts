@@ -111,12 +111,12 @@ export const lesson8: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'd8_c08', number: 8, title: 'Söhbəti sırala', why: 'Salam, hal, ad və xoş söz — bütöv söhbət.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.',
       prompt: 'Ziyafətdə tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Hi! How are you?', from: 'G' }, { en: '2', az: "I'm fine, thanks. And you?", from: 'B' }, { en: '3', az: "I'm OK. What's your name?", from: 'G' }, { en: '4', az: "I'm [ad]. Nice to meet you!", from: 'B' }],
+      rows: [{ en: '1', az: 'Hi! How are you?', from: 'G' }, { en: '2', az: "I'm fine, thanks. And you?", from: 'B' }, { en: '3', az: "I'm OK. What's your name?", from: 'F' }, { en: '4', az: "I'm [ad]. Nice to meet you!", from: 'other' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm [ad]. Nice to meet you!", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'How are you? — əvvəl sual; I’m fine, thanks. And you? — sonra cavab.', "Hi! How are you? → I'm fine, thanks. And you? → I'm OK. What's your name? → I'm [ad]. Nice to meet you!"))],
       review: {
         title: 'Söhbəti sırala', why: 'Ad sualı, cavab və xoş sözlər düz sıradadır.', hint: 'Söhbət salamla və ya sualla başlayır, sonra ona cavab gəlir.', prompt: 'Başqa tanışlıq.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: "Hello! What's your name?", from: 'B' }, { en: '2', az: 'My name is [ad]', from: 'G' }, { en: '3', az: 'Nice to meet you.', from: 'B' }, { en: '4', az: 'You too.', from: 'G' }],
+        rows: [{ en: '1', az: "Hello! What's your name?", from: 'B' }, { en: '2', az: 'My name is [ad]', from: 'G' }, { en: '3', az: 'Nice to meet you.', from: 'F' }, { en: '4', az: 'You too.', from: 'other' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Hello! What's your name? → My name is [ad] → Nice to meet you. → You too.", 'Əvvəl salam və ya sual gəlir, sonra ona cavab verilir.', 'What’s your name? — əvvəl sual; My name is [ad] — sonra cavab.', "Hello! What's your name? → My name is [ad] → Nice to meet you. → You too."))],
       },

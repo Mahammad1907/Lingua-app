@@ -168,12 +168,12 @@ export const lesson3b: DesignLesson = {
     {
       type: 'match', id: 'd3_c13', number: 13, title: 'Kim nə dedi?', why: 'Tanışlığın üç cümləsini tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.',
       prompt: 'Tanışlıq söhbəti.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'G' }, { en: 'You too.', az: 'Mən də.', from: 'B' }],
+      rows: [{ en: "What's your name?", az: 'Adın nədir?', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'G' }, { en: 'You too.', az: 'Mən də.', from: 'F' }],
       extra: ['Hələlik!'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex('What’s your name? — Adın nədir?; Nice to meet you. — Tanış olduğuma şadam.; You too. — Mən də.', 'Əvvəl ad soruşulur, sonra xoş söz deyilir və ona cavab verilir.', 'Nice to meet you. — tanışlığın xoş sözü; You too. — ona cavab.', "What's your name? I'm [ad]. Nice to meet you! — You too!"))],
       review: {
         title: 'Kim nə dedi?', why: 'Tanışlığın cümlələrini tanıdın.', hint: 'Əvvəl ən əmin olduğun cümləni yerinə qoy.', prompt: 'Başqa tanışlıq.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: 'Hi!', az: 'Salam!', from: 'G' }, { en: 'My name is [ad]', az: 'Mənim adım [ad]-dır.', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'G' }],
+        rows: [{ en: 'Hi!', az: 'Salam!', from: 'G' }, { en: 'My name is [ad]', az: 'Mənim adım [ad]-dır.', from: 'B' }, { en: 'Nice to meet you.', az: 'Tanış olduğuma şadam.', from: 'F' }],
         extra: ['Mən də.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex('Hi! — Salam!; My name is [ad] — Mənim adım [ad]-dır.; Nice to meet you. — Tanış olduğuma şadam.', 'Hi salam verir, My name is adını deyir, Nice to meet you isə xoş sözdür.', 'My name is [ad] — adını demək; Nice to meet you. — xoş söz.', 'Hi! My name is [ad]. Nice to meet you!'))],
       },

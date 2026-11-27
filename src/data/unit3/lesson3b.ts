@@ -59,13 +59,13 @@ export const lesson3b: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'u3d3b_c05', number: 5, title: 'Cavab cütü', why: 'Hər ölkəyə öz millətini qoşdun.', hint: 'Hər cümlədəki ölkədən millətə keç.',
       prompt: 'Dil klubunda hər kəs əvvəl ölkəsini deyir.\nCümləyə toxun, sonra onun davamını seç.',
-      rows: [{ en: "I'm from England.", az: "I'm English.", from: 'other' }, { en: "I'm from the USA.", az: "I'm American.", from: 'other' }, { en: "I'm from Turkey.", az: "I'm Turkish.", from: 'other' }],
+      rows: [{ en: "I'm from England.", az: "I'm English.", from: 'other' }, { en: "I'm from the USA.", az: "I'm American.", from: 'G' }, { en: "I'm from Turkey.", az: "I'm Turkish.", from: 'B' }],
       extra: ["I'm Russian."],
       variants: [other('Bir cümlənin davamı yerində deyil.', ex("I'm from England. — I'm English.; I'm from the USA. — I'm American.; I'm from Turkey. — I'm Turkish.", 'Hər ölkədən öz milləti gəlir.', "I'm from the USA. — ölkə; I'm American. — millət.", "I'm from the USA. I'm American."))],
       review: {
         title: 'Cavab cütü', why: 'Hər ölkəyə öz millətini qoşdun.', hint: 'Hər cümlədəki ölkədən millətə keç.',
         prompt: 'Hostelin mətbəxində qonaqlar əvvəl ölkəsini deyir.\nCümləyə toxun, sonra onun davamını seç.',
-        rows: [{ en: "I'm from Russia.", az: "I'm Russian.", from: 'other' }, { en: "I'm from Georgia.", az: "I'm Georgian.", from: 'other' }, { en: "I'm from England.", az: "I'm English.", from: 'other' }],
+        rows: [{ en: "I'm from Russia.", az: "I'm Russian.", from: 'other' }, { en: "I'm from Georgia.", az: "I'm Georgian.", from: 'G' }, { en: "I'm from England.", az: "I'm English.", from: 'B' }],
         extra: ["I'm American."],
         variants: [other('Bir cümlənin davamı yerində deyil.', ex("I'm from Russia. — I'm Russian.; I'm from Georgia. — I'm Georgian.; I'm from England. — I'm English.", 'Hər ölkədən öz milləti gəlir.', "I'm from England. — ölkə; I'm English. — millət.", "I'm from Georgia. I'm Georgian."))],
       },
@@ -110,13 +110,13 @@ export const lesson3b: DesignLesson = {
     {
       type: 'match', id: 'u3d3b_c15', number: 9, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'from olan cümləni millət cümlələrindən ayır.',
       prompt: 'Hostelin mətbəxində tanışlıq.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: "I'm from England.", az: 'İngiltərədənəm.', from: 'other' }, { en: "I'm English.", az: 'İngilisəm.', from: 'other' }, { en: "I'm American.", az: 'Amerikalıyam.', from: 'other' }],
+      rows: [{ en: "I'm from England.", az: 'İngiltərədənəm.', from: 'other' }, { en: "I'm English.", az: 'İngilisəm.', from: 'G' }, { en: "I'm American.", az: 'Amerikalıyam.', from: 'B' }],
       extra: ['ABŞ-danam.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm from England. — İngiltərədənəm.; I'm English. — İngilisəm.; I'm American. — Amerikalıyam.", 'from olan cümlə ölkəni, from-suz cümlə milləti deyir.', "I'm English. — millət; I'm from England. — ölkə.", "I'm from England. I'm English."))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'from olan cümləni millət cümlələrindən ayır.',
         prompt: 'Qatarda sərnişinlər tanış olur.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: "I'm German.", az: 'Almanam.', from: 'other' }, { en: "I'm from the USA.", az: 'ABŞ-danam.', from: 'other' }, { en: "I'm English.", az: 'İngilisəm.', from: 'other' }],
+        rows: [{ en: "I'm German.", az: 'Almanam.', from: 'other' }, { en: "I'm from the USA.", az: 'ABŞ-danam.', from: 'G' }, { en: "I'm English.", az: 'İngilisəm.', from: 'B' }],
         extra: ['Almaniyadanam.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm German. — Almanam.; I'm from the USA. — ABŞ-danam.; I'm English. — İngilisəm.", 'from olan cümlə ölkəni, from-suz cümlə milləti deyir.', "I'm German. — millət; I'm from Germany. — ölkə.", "I'm from Germany. I'm German."))],
       },
@@ -264,13 +264,13 @@ export const lesson3b_2: DesignLesson = {
     {
       type: 'match', id: 'u3d3b_c13', number: 13, title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'from olan cümləni millət cümlələrindən ayır.',
       prompt: 'Dil klubunda qonaqlar özlərini təqdim edir.\nHər cümləyə mənasını qoş.',
-      rows: [{ en: "I'm American.", az: 'Amerikalıyam.', from: 'other' }, { en: "I'm from France.", az: 'Fransadanam.', from: 'other' }, { en: "I'm German.", az: 'Almanam.', from: 'other' }],
+      rows: [{ en: "I'm American.", az: 'Amerikalıyam.', from: 'other' }, { en: "I'm from France.", az: 'Fransadanam.', from: 'G' }, { en: "I'm German.", az: 'Almanam.', from: 'B' }],
       extra: ['Almaniyadanam.'],
       variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm American. — Amerikalıyam; I'm from France. — Fransadanam; I'm German. — Almanam.", 'from olan cümlə ölkədir, from-suz cümlələr millətdir.', "I'm German. — almanam; I'm from Germany. — Almaniyadanam.", "I'm from Germany. I'm German."))],
       review: {
         title: 'Kim nə dedi?', why: 'Hər cümlənin mənasını tapdın.', hint: 'from olan cümləni millət cümlələrindən ayır.',
         prompt: 'Hava limanında sərnişinlər tanış olur.\nHər cümləyə mənasını qoş.',
-        rows: [{ en: "I'm French.", az: 'Fransızam.', from: 'other' }, { en: "I'm English.", az: 'İngilisəm.', from: 'other' }, { en: "I'm from the USA.", az: 'ABŞ-danam.', from: 'other' }],
+        rows: [{ en: "I'm French.", az: 'Fransızam.', from: 'other' }, { en: "I'm English.", az: 'İngilisəm.', from: 'G' }, { en: "I'm from the USA.", az: 'ABŞ-danam.', from: 'B' }],
         extra: ['Amerikalıyam.'],
         variants: [other('Bir cümlənin mənası yerində deyil.', ex("I'm French. — Fransızam; I'm English. — İngilisəm; I'm from the USA. — ABŞ-danam.", 'from olan cümlə ölkədir, from-suz cümlələr millətdir.', "I'm American. — amerikalıyam; I'm from the USA. — ABŞ-danam.", "I'm from the USA. I'm American."))],
       },

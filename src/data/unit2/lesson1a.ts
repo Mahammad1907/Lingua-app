@@ -137,13 +137,13 @@ export const lesson1a: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u2d1a_c12', number: 12, title: 'Söhbəti sırala', why: 'Xahiş, təkrar, təşəkkür və cavab düz sıradadır.', hint: 'Düşün: eşitməyən nə deyir və bundan sonra nə olur?',
       prompt: 'Liftdə səs-küy var.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Excuse me. Four, please.', from: 'G' }, { en: '2', az: 'Sorry? Say that again, please.', from: 'B' }, { en: '3', az: 'Four, please. Thank you!', from: 'G' }, { en: '4', az: "You're welcome.", from: 'B' }],
+      rows: [{ en: '1', az: 'Excuse me. Four, please.', from: 'G' }, { en: '2', az: 'Sorry? Say that again, please.', from: 'B' }, { en: '3', az: 'Four, please. Thank you!', from: 'F' }, { en: '4', az: "You're welcome.", from: 'other' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Excuse me. Four, please. → Sorry? Say that again, please. → Four, please. Thank you! → You're welcome.", 'Oğlan eşitmədi və təkrar istədi; qız yenə dedi və təşəkkür etdi.', "Sorry? Say that again, please. — eşitmədin; Thank you! — You're welcome.", 'Sorry? Say that again, please.'))],
       review: {
         title: 'Söhbəti sırala', why: 'Sifariş, təkrar, təşəkkür və cavab düz sıradadır.', hint: 'Düşün: eşitməyən nə deyir və bundan sonra nə olur?',
         prompt: 'Kafedə səs-küy var.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Hello! One tea, please.', from: 'F' }, { en: '2', az: 'Sorry? Say that again, please.', from: 'G' }, { en: '3', az: 'One tea, please. Thank you!', from: 'F' }, { en: '4', az: "You're welcome.", from: 'G' }],
+        rows: [{ en: '1', az: 'Hello! One tea, please.', from: 'F' }, { en: '2', az: 'Sorry? Say that again, please.', from: 'G' }, { en: '3', az: 'One tea, please. Thank you!', from: 'B' }, { en: '4', az: "You're welcome.", from: 'other' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Hello! One tea, please. → Sorry? Say that again, please. → One tea, please. Thank you! → You're welcome.", 'Qız eşitmədi və təkrar istədi; sifariş yenə deyildi.', "Sorry? Say that again, please. — eşitmədin; Thank you! — You're welcome.", 'One tea, please.'))],
       },

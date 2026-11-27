@@ -112,13 +112,13 @@ export const lesson4: DesignLesson = {
     {
       type: 'match', mode: 'reply', id: 'u4d4_c07', number: 7, title: 'Cavab cütü', why: 'Hər suala uyğun qısa cavabı tapdın.', hint: 'Sualın ilk iki sözünə bax: cavabda hansı söz qayıdır?',
       prompt: 'Video zəngdə {f} sənə suallar verir.\nSuala toxun, sonra onun cavabını seç.',
-      rows: [{ en: 'Is this your brother?', az: 'Yes, it is.', from: 'other' }, { en: 'Are you from Baku?', az: 'Yes, I am.', from: 'other' }, { en: 'Is she Turkish?', az: 'Yes, she is.', from: 'other' }],
+      rows: [{ en: 'Is this your brother?', az: 'Yes, it is.', from: 'other' }, { en: 'Are you from Baku?', az: 'Yes, I am.', from: 'G' }, { en: 'Is she Turkish?', az: 'Yes, she is.', from: 'B' }],
       extra: ["No, I don't."],
       variants: [other('Bir cavab yerində deyil.', ex('Is this your brother? — Yes, it is.; Are you from Baku? — Yes, I am.; Is she Turkish? — Yes, she is.', 'Sualdakı söz cavabda qayıdır: this → it, you → I, she → she.', 'Is this your brother? — Yes, it is.; Are you from Baku? — Yes, I am.', 'Is this your sister? — Yes, it is.'))],
       review: {
         title: 'Cavab cütü', why: 'Hər suala uyğun qısa cavabı tapdın.', hint: 'Əvvəl this olan sualı tap.',
         prompt: 'Ailə yeməyində yeni tanış suallar verir.\nSuala toxun, sonra onun cavabını seç.',
-        rows: [{ en: 'Is this your father?', az: 'Yes, it is.', from: 'other' }, { en: 'Is he from Ganja?', az: 'Yes, he is.', from: 'other' }, { en: 'Do you speak English?', az: 'Yes, I do.', from: 'other' }],
+        rows: [{ en: 'Is this your father?', az: 'Yes, it is.', from: 'other' }, { en: 'Is he from Ganja?', az: 'Yes, he is.', from: 'G' }, { en: 'Do you speak English?', az: 'Yes, I do.', from: 'B' }],
         extra: ['Yes, I am.'],
         variants: [other('Bir cavab yerində deyil.', ex('Is this your father? — Yes, it is.; Is he from Ganja? — Yes, he is.; Do you speak English? — Yes, I do.', 'Sualdakı söz cavabda qayıdır: this → it, he → he, do → do.', 'Is this your father? — Yes, it is.; Do you speak English? — Yes, I do.', 'Is this your sister? — Yes, it is.'))],
       },
@@ -259,13 +259,13 @@ export const lesson4_2: DesignLesson = {
     {
       type: 'match', mode: 'order', id: 'u4d4_c14', number: 14, title: 'Söhbəti sırala', why: '“Xeyr” cavabından sonra “kimdir?” sualı və cavab gəlir.', hint: 'Bəli/xeyr sualı ilə başla; “xeyr”dən sonra kim olduğu soruşulur.',
       prompt: 'Video zəng. {F} {b:gen} şəklindəki adamları soruşur.\nBalonlara toxun, söhbəti sıraya düz.',
-      rows: [{ en: '1', az: 'Is this your mother?', from: 'other' }, { en: '2', az: "No, it isn't.", from: 'B' }, { en: '3', az: "Who's she?", from: 'other' }, { en: '4', az: "She's my grandmother.", from: 'B' }],
+      rows: [{ en: '1', az: 'Is this your mother?', from: 'other' }, { en: '2', az: "No, it isn't.", from: 'B' }, { en: '3', az: "Who's she?", from: 'G' }, { en: '4', az: "She's my grandmother.", from: 'F' }],
       extra: [],
       variants: [other('Söhbətin sırası düz deyil.', ex("Is this your mother? → No, it isn't. → Who's she? → She's my grandmother.", '“Xeyr” cavabından sonra kim olduğu soruşulur.', "Is this your mother? — bəli/xeyr sualı; Who's she? — kimdir.", "Is this your mother? — No, it isn't."))],
       review: {
         title: 'Söhbəti sırala', why: '“Xeyr” cavabından sonra “kimdir?” sualı və cavab gəlir.', hint: 'Əvvəl bəli/xeyr sualı gəlir; “xeyr”dən sonra nə soruşulur?',
         prompt: 'Ailə yeməyi. Yeni tanış {g:gen} albomundakı şəklə baxır.\nBalonlara toxun, söhbəti sıraya düz.',
-        rows: [{ en: '1', az: 'Is this your father?', from: 'other' }, { en: '2', az: "No, it isn't.", from: 'G' }, { en: '3', az: "Who's he?", from: 'other' }, { en: '4', az: "He's my grandfather. His name is Kamal.", from: 'G' }],
+        rows: [{ en: '1', az: 'Is this your father?', from: 'other' }, { en: '2', az: "No, it isn't.", from: 'G' }, { en: '3', az: "Who's he?", from: 'B' }, { en: '4', az: "He's my grandfather. His name is Kamal.", from: 'F' }],
         extra: [],
         variants: [other('Söhbətin sırası düz deyil.', ex("Is this your father? → No, it isn't. → Who's he? → He's my grandfather. His name is Kamal.", '“Xeyr” cavabından sonra kim olduğu soruşulur.', "Is this your father? — bəli/xeyr sualı; Who's he? — kimdir.", "Who's he? — He's my brother."))],
       },
