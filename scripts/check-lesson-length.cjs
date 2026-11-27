@@ -12,7 +12,8 @@ const L = require('../src/utils/designLesson.ts');
 const { designLessons } = require('../src/data/designLessons.ts');
 
 const problems = [];
-const regular = designLessons.filter(l => !l.exam && l.cards.some(c => c.type === 'word'));
+// 27 Nov 2026 (user): Bölmə 1 lessons stay whole (no parts, no 8–12 rule); splitting starts from Bölmə 2.
+const regular = designLessons.filter(l => !l.exam && l.cards.some(c => c.type === 'word') && !/^a1_en_b1_v2_d/.test(l.id));
 const counts = [];
 for (const l of regular) {
   const screens = l.cards.filter(c => c.type !== 'intro').length;

@@ -9,8 +9,8 @@ require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileMo
 const L = require('../src/utils/designLesson.ts');
 // All lessons on the new screens: Bölmə 1 (Ders_N.md), section exams (BolmeN_Imtahan.md), Bölmə 2 (Bolme2_Ders_1a.md …).
 const { designLessons: allLessons } = require('../src/data/designLessons.ts');
-const fileOf = l => l.exam ? `Bolme${l.unit ?? 1}_Imtahan.md` : (l.unit ?? 1) === 1 ? `Ders_${l.number ?? l.order}${l.part === 2 ? '_2' : ''}.md` : `Bolme${l.unit}_Ders_${l.number}${l.part ? 'abc'[l.part - 1] : ''}.md`;
-const sourceOf = l => l.exam ? `src/data/unit${l.unit ?? 1}/exam.ts` : (l.unit ?? 1) === 1 && (l.number ?? l.order) === 1 ? 'src/data/lesson1Design.ts' : (l.unit ?? 1) === 1 ? `src/data/unit1/lesson${l.number ?? l.order}.ts` : `src/data/unit${l.unit}/lesson${l.number}${l.part ? 'abc'[l.part - 1] : ''}.ts`;
+const fileOf = l => l.exam ? `Bolme${l.unit ?? 1}_Imtahan.md` : (l.unit ?? 1) === 1 ? `Ders_${l.order}.md` : `Bolme${l.unit}_Ders_${l.number}${l.part ? 'abc'[l.part - 1] : ''}.md`;
+const sourceOf = l => l.exam ? `src/data/unit${l.unit ?? 1}/exam.ts` : l.order === 1 ? 'src/data/lesson1Design.ts' : (l.unit ?? 1) === 1 ? `src/data/unit1/lesson${l.order}.ts` : `src/data/unit${l.unit}/lesson${l.number}${l.part ? 'abc'[l.part - 1] : ''}.ts`;
 const headOf = l => l.exam ? `Bölmə ${l.unit ?? 1} imtahanı` : `Dərs ${l.number ?? l.order}${l.part ? ` · ${l.part}-ci hissə` : ''} — ${l.title}`;
 
 const SCREEN = { explain: 'Müəllim izahı', keypad: 'Nömrəni yığ', letters: 'Hərfləri tut', form: 'Formanı doldur', choice: 'Seç', gap: 'Sözü tamamla', scene: 'Səhnədə tap', map: 'Xəritədə tap', write: 'Yaz', chat: 'Dialoqu tamamla', tiles: 'Mesaj yaz (sözlərdən)', voice: 'Səslə cavab', repeat: 'Dinlə və təkrarla', match: 'Kim nə dedi?', order: 'Söhbəti sırala', reply: 'Cavab cütü', two: 'İki mesaj yaz', word: 'Yeni söz', teach: 'Öyrətmə / səhnə', intro: 'Giriş' };

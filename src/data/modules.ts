@@ -15,8 +15,8 @@ export const modules: Module[] = [
     phase: 1,
     icon: '👋',
     lessonIds: [
-      'a1_en_b1_v2_d1', 'a1_en_b1_v2_d1_2', 'a1_en_b1_v2_d2', 'a1_en_b1_v2_d2_2', 'a1_en_b1_v2_d3', 'a1_en_b1_v2_d3_2', 'a1_en_b1_v2_d4', 'a1_en_b1_v2_d4_2',
-      'a1_en_b1_v2_d5', 'a1_en_b1_v2_d5_2', 'a1_en_b1_v2_d6', 'a1_en_b1_v2_d6_2', 'a1_en_b1_v2_d7', 'a1_en_b1_v2_d7_2', 'a1_en_b1_v2_d8',
+      'a1_en_b1_v2_d1', 'a1_en_b1_v2_d2', 'a1_en_b1_v2_d3', 'a1_en_b1_v2_d4',
+      'a1_en_b1_v2_d5', 'a1_en_b1_v2_d6', 'a1_en_b1_v2_d7', 'a1_en_b1_v2_d8',
     ],
     finalReviewId: 'a1_en_b1_v2_d8',
     hasSpeakingPractice: false,

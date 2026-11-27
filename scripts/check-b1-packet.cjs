@@ -11,16 +11,13 @@ const b1Packet = course.b1Packet.filter(l => l.cards.length);
 const { b1Exams, b1PlacementTest } = require('../src/data/b1Exam.ts');
 const { assessPacketAnswer: assess } = require('../src/utils/packetAnswer.ts');
 assert.deepEqual(b1Packet.map(l => l.cards.length), [13,18,20,20,21,19,15]);
-// b1Lessons now holds every section (Bölmə 1–4, 25 Nov 2026); Bölmə 1 still has 8 map lessons + exam.
-// 26 Nov 2026: lessons 1–7 have two parts each (id …_2, same map circle), so 15 lesson ids in 8 circles.
-const b1Ids = b1Lessons.filter(l => /^a1_en_b1_v2_d/.test(l.id)).map(l => l.id);
-assert.equal(b1Ids.length, 15);
-assert.equal(new Set(b1Ids.map(id => id.replace(/_2$/, ''))).size, 8);
+// b1Lessons now holds every section (Bölmə 1–4, 25 Nov 2026); Bölmə 1 still has 8 lessons + exam.
+assert.equal(b1Lessons.filter(l => /^a1_en_b1_v2_d/.test(l.id)).length, 8);
 // Lesson 2 must be reachable from the live curriculum and preserve named roles
 // when a missed question is retried, while accepting the learner's own name.
 const { getLessonById } = require('../src/data/lessons.ts');
 const { getModuleById } = require('../src/data/modules.ts');
-const second = b1Packet.find(l => (l.number ?? l.order) === 2 && (l.part ?? 1) === 1);
+const second = b1Packet.find(l => l.order === 2);
 assert.ok(getModuleById('module_1').lessonIds.includes(second.id));
 assert.equal(getLessonById(second.id).moduleId, 'module_1');
 const secondCard = number => second.cards.find(c => c.number === number);

@@ -46,7 +46,7 @@ Ayrıca standart sənədləri (burada təkrarlanmır, linklə keçərlidir):
 3. **Yeni söz kartında söz-söz izah** — həmişə: ifadədəki hər yeni söz ayrıca izah olunur; yeni sözlər rənglə, bilinənlər adi rəngdə; çətin səs (th, w) üçün qısa qeyd.
 4. **Qısa formalar** (I'm, he's, what's …) ilk gəldiyi yerdə öyrədilir: ayrıca “Qısa forma” kartı və ya söz kartında `shortForm` bloku (səsli “What is → What's”), termin işlənmir.
 5. **Müəllim izahı** (`type: 'explain'`): qayda olan yeni söz kartından sonra, tapşırıqlardan əvvəl; çətin mövzuda iki izah kartı, aralarında qısa tapşırıq. Hər izah avtomatik “Qaydalar” tabına düşür (`src/data/rules.ts`, `RULE_META` — sual formasında ad + ingilis nümunəsi).
-6. **Hissə 8–12 ekran** (26 Noy 2026, istifadəçi: dərs uzun olmasın, amma heç nə çıxarılmasın). 12 ekrandan uzun dərs xəritədə eyni dairənin içində hissələrə bölünür (`number` + `part`, id `…_2`); qısa qalan hissəyə mövzuya uyğun yeni tapşırıq yazılır. Uzunluq dəyişir, ard-arda üç hissə eyni olmur. Bölmə 1 dərsləri də `unit: 1, number` alıb; köhnə paket məntiqi `mapNumber` ilə işləyir (order yox). Yoxlama: `check-lesson-length`. Bölmə söhbəti (8) və imtahan öz uzunluğunda. `lesson.pool` (təkrara keçən tapşırıq) mexanizmi var, hazırda boşdur.
+6. **Hissə 8–12 ekran** (26 Noy 2026, istifadəçi: dərs uzun olmasın, amma heç nə çıxarılmasın). **Bölmə 1 bölünmür** (27 Noy 2026, istifadəçi): 8 dərsi bütövdür (13–14 ekran, `…_2` hissəsi yoxdur, 8–12 qaydası ona aid deyil); hissələr yalnız Bölmə 2-dən başlayır. 12 ekrandan uzun dərs (Bölmə 2–4) xəritədə eyni dairənin içində hissələrə bölünür (`number` + `part`, id `…_2`); qısa qalan hissəyə mövzuya uyğun yeni tapşırıq yazılır. Uzunluq dəyişir, ard-arda üç hissə eyni olmur. Yoxlama: `check-lesson-length`. Bölmə söhbəti (8) və imtahan öz uzunluğunda. `lesson.pool` (təkrara keçən tapşırıq) mexanizmi var, hazırda boşdur.
 7. **Xəritədə hər bölmə sabit 8 dərs**; çox material → dərs 2–3 hissəyə bölünür. Hər bölmənin sonunda **bölmə imtahanı**: Kömək yoxdur, keçid **≥70%**; keçilməyincə növbəti bölmə açılmır.
 8. **Müxtəliflik:** eyni ekran növü dalbadal gəlmir (bir söhbətin növbələri istisna); iki dərs eyni 3 ekranla bitmir; açılış və məkan dəyişir. Hibrid: 12 noyabr ekranları + sonradan əlavə olunanlar, hər dərsdə hər iki qrupdan. Yeni ekran növləri yaradıla bilər (maketlə).
 9. **Seçimdə 3 variant**; yanlışlar Azərbaycanlı öyrənənin real səhvlərindən; iki düzgün cavab olmaz.
@@ -187,6 +187,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 27 Noy | “Kim nə dedi?” sətirlərində maskot danışmır: 45 sətir qıvrım saçlı dosta (`F`, portret `friend.webp`, firuzəyi haşiyə) keçdi; `Who` = M·G·B·F·other. `check-written-quotes` maskot sətrini tutur. SVG-də `.55` → `0.55` (terminal xəbərdarlıqları). |
 | 27 Noy | **Qadağa:** “Kim nə dedi?” tapşırığında bir personaj iki sətirdə danışmır (76 tapşırıq düzəldi: G · B · F · başqası); `check-written-quotes` tutur. Danışıq kartında səs dalğası (equalizer) silindi — yalnız ▶; `Waveform` komponenti koddan çıxdı. |
 | 27 Noy | Şəkil səbəbsiz kiçilmirdi: yeni kart əvvəlki kartın hündürlüyü ilə ölçülürdü. İndi yerləşdirmə yeni kartın öz ölçüsünü gözləyir; boş yer qalanda şəkil və miqyas geri böyüyür. |
+| 27 Noy | **Bölmə 1 köhnə vəziyyətə qayıtdı** (istifadəçi: çox asan olur, çətinləşəndən sonra bölərik): 8 dərs bütövdür, 12 ekrandan uzun olması problem deyil; bölmə zamanı əlavə edilmiş 24 tapşırıq və 7 “2-ci hissə” girişi silindi. Qalan yaxşı düzəlişlər (şəkillər, Kənan, I'm kartı, çat, F personajı, təkrarların silinməsi) saxlanıldı. `check-lesson-length` Bölmə 1-i yoxlamır. Bölmə 2–4 bölünmüş qalır. |
 
 > **Dəyişməz qayda (26 Noy 2026):** dərs, hissə və ya tapşırıq dəyişəndə (o cümlədən dərsi hissələrə bölmək) `node scripts/check-all.cjs` tam yaşıl olmadan commit edilmir. `check-taught` (öyrədilməmiş söz) və `check-parts` (sonrakı hissədə köhnə “bu dərsin əvvəli” ipucu; öyrədilən söz/hərf öz hissəsinin düzgün cavabında məşq olunmalıdır) heç vaxt zəiflədilmir — səhv tapılırsa məzmun düzəlir, yoxlama yox. GitHub-da hər push `.github/workflows/check.yml` ilə avtomatik yoxlanır; commit qırmızıdırsa, əvvəl onu düzəlt.
 
@@ -208,7 +209,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | Ana səhifə A5 kartları, sonra adanın altında AI zəng / Təkrar / kubok (20 Noy) | 23 Noy düzülüşü (§4.14) |
 | Menyuda “AI söhbət”, “Təkrar” | “AI müəllim”, Təkrar menyudan çıxdı (21 Noy) |
 | Yeni söz kartında maskot | Maskot yoxdur (20 Noy) |
-| Kart sayı 11–14 | Hissə 8–12 ekran, uzun dərs hissələrə bölünür (26 Noy 2026) |
+| Kart sayı 11–14 | Bölmə 1: bütöv dərs (bölünmür); Bölmə 2–4: hissə 8–12 ekran, uzun dərs hissələrə bölünür |
 | Test girişi `[1, 2, 3]` | `[1, 2, 3, 4]` |
 | “Bu dərsdə” giriş ekranı | Göstərilmir (imtahanlarda qalır) |
 

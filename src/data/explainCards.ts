@@ -28,9 +28,6 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
       ],
       attention: "Adın sonuna heç nə artırılmır: I'm və ad kifayətdir.",
     }),
-  ],
-  // 2-ci hissə (26 Nov 2026): the My name is card moved to part 2, its explanation follows it.
-  a1_en_b1_v2_d2_2: [
     E('d2_c02bt', 'd2_c02b', {
       lead: 'My name is [ad] ilə də adını deyirsən.', focus: 'My name is',
       sections: [
@@ -56,8 +53,7 @@ const EXPLAINS: Record<string, { after: string; card: ExplainCard }[]> = {
     ],
     attention: 'And you? deyəndə How are you? sualını təkrar demək lazım deyil.',
   })],
-  // 2-ci hissə (26 Nov 2026): the please card moved to part 2, its explanation follows it.
-  a1_en_b1_v2_d5_2: [E('d5_c05bt', 'd5_c05b', {
+  a1_en_b1_v2_d5: [E('d5_c05bt', 'd5_c05b', {
     lead: 'please xahişi nəzakətli edir.', focus: 'please',
     sections: [
       { title: 'Harada gəlir?', text: 'please çox vaxt sonda, vergüldən sonra gəlir.', build: { parts: ['Tea,', 'please.'], examples: [{ en: 'Tea, please.', az: 'Çay, zəhmət olmasa.' }] } },

@@ -10,7 +10,6 @@ require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileMo
 
 const L = require('../src/utils/designLesson.ts');
 const { unit1Lessons } = require('../src/data/unit1/index.ts');
-const { withExplains } = require('../src/data/explainCards.ts');
 
 const NAME = 'Aysu';
 const filled = text => text.replace(/…|\[[^\]]*\]/g, NAME);
@@ -24,9 +23,7 @@ for (const raw of unit1Lessons) {
   const tasks = lesson.cards.filter(L.isTask);
   // Müəllim izahı cards come on top (user, 21 Nov 2026): at most 14 other cards, 16 in all.
   assert.ok(lesson.cards.filter(c => c.type !== 'explain').length <= 14, `${tag}: at most 14 cards besides Müəllim izahı`);
-  // Lessons longer than 12 screens are split into parts (26 Nov 2026): count with the Müəllim izahı cards, as the learner sees them.
-  const shown = withExplains(raw).cards.length;
-  assert.ok(shown >= 9 && shown <= 16, `${tag}: 9–16 cards with Müəllim izahı (${shown})`);
+  assert.ok(lesson.cards.length >= 9 && lesson.cards.length <= 16, `${tag}: 9–16 cards (${lesson.cards.length})`);
   assert.equal(lesson.cards[0].type, 'intro', `${tag}: starts with the goals`);
   const kinds = new Set(tasks.map(kind));
   assert.ok(kinds.size >= 5, `${tag}: at least 5 kinds of task (${[...kinds]})`);
@@ -74,8 +71,6 @@ for (const raw of unit1Lessons) {
 // Typical learner mistakes (docs/AZ_OYRENEN_SEHVLERI.md) are not accepted.
 const find = id => { for (const l of unit1Lessons) { const r = L.resolveLesson(l); const c = r.cards.find(c => c.id === id); if (c) return c; } };
 const rejects = (id, value, voice = false) => assert.notEqual(L.gradeText(find(id), value, voice).status, 'correct', `${id}: “${value}” must not be accepted`);
-rejects('d2_c13', 'Hello! My name Aysu.');
-rejects('d2_c13', 'Bye! I am Aysu.');
 rejects('d3_c04', "What's you name?");
 rejects('d3_c04', "What's is your name?");
 rejects('d3_c09', "What's your name?");

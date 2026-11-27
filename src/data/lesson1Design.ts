@@ -22,7 +22,7 @@ const twoVariants: Variant[] = [
       ];
 
 export const lesson1Design: DesignLesson = {
-  id: 'a1_en_b1_v2_d1', order: 1, unit: 1, number: 1, part: 1, title: 'Salamlaşma və sağollaşma', section: 'İlk tanışlıq',
+  id: 'a1_en_b1_v2_d1', order: 1, unit: 1, number: 1, title: 'Salamlaşma və sağollaşma', section: 'İlk tanışlıq',
   notices: {
     soundFailed: 'Səs açılmadı. Yenidən dinləməyə cəhd et və ya mətnlə davam et. Bu texniki problem dil səhvi sayılmayacaq.',
     unknown: 'Cavabını dəqiq qiymətləndirə bilmədim. Yenidən cəhd edə və ya yoxlanmamış kimi davam edə bilərsən.',
@@ -34,8 +34,7 @@ export const lesson1Design: DesignLesson = {
     {
       type: 'intro', id: 'd1_c01', badge: 'İlk tanışlıq', subtitle: 'İlk görüş bir salamla başlayır.', start: 'Dərsə başla',
       // “Bu dərsdə salam verməyi, salama cavab verməyi və sağollaşmağı məşq edəcəksən.”
-      // 26 Nov 2026: the lesson has two parts; this part is the greeting, part 2 (lesson1Design2) the farewell.
-      goals: [{ icon: 'wave', text: 'Salam verməyi' }, { icon: 'chat', text: 'Salama cavab verməyi məşq edəcəksən' }],
+      goals: [{ icon: 'wave', text: 'Salam verməyi' }, { icon: 'chat', text: 'Salama cavab verməyi' }, { icon: 'bye', text: 'Sağollaşmağı məşq edəcəksən' }],
     },
     {
       type: 'word', id: 'd1_c02', number: 2, scenes: ['d1/word-hello'], structure: ['Hello!', 'Hello, [ad]!'],
@@ -112,107 +111,6 @@ export const lesson1Design: DesignLesson = {
       },
     },
     {
-      // New (26 Nov 2026, lesson split): Part 1 needs 8 screens. Same form as card 7B, with the greeting.
-      type: 'write', id: 'd1_c12', why: 'Səsdə Hello deyildi.', number: 0, title: 'Eşitdiyini yaz', prompt: 'Eşitdiyin sözü yaz.',
-      audio: 'Hello!', placeholder: 'Eşitdiyin sözü yaz', rule: { answers: ['Hello'], exact: true },
-      hint: 'Yavaş dinlə və eşitdiyin sözü olduğu kimi yaz.',
-      variants: [
-        { match: { words: ['hi'] }, short: 'Hi də salamdır, amma səsdə Hello deyilir.', explain: {
-          answers: 'Hello!', reason: 'Səsdə Hi yox, Hello deyilir.',
-          rule: 'Eşitdiyini yazmaq tapşırığında səslənən sözü yaz.', example: 'Başqa səsdə “Hi!” eşidirsənsə, “Hi” yazırsan.' } },
-        { match: { other: true }, explain: {
-          answers: 'Hello!', reason: 'Yazdığın söz səsdəki Hello deyil.',
-          rule: 'Səslənən sözü yaz.', example: '“Hi!” eşidəndə “Hi” yazılır.' } },
-      ],
-      review: { why: 'Səsdə Hi deyildi.',
-        title: 'Eşitdiyini yaz', prompt: 'Eşitdiyin sözü yaz.', audio: 'Hi!', placeholder: 'Eşitdiyin sözü yaz',
-        rule: { answers: ['Hi'], exact: true }, hint: 'Yavaş dinlə və eşitdiyin sözü olduğu kimi yaz.',
-        variants: [
-          { match: { words: ['hello'] }, short: 'Hello da salamdır, amma səsdə Hi deyilir.', explain: {
-            answers: 'Hi!', reason: 'Bu səsdə Hello yox, Hi deyilir.', rule: 'Səslənən sözü yaz.', example: '“Hello!” eşidəndə “Hello” yazılır.' } },
-          { match: { other: true }, explain: {
-            answers: 'Hi!', reason: 'Yazdığın söz səsdəki Hi deyil.', rule: 'Səslənən sözü yaz.', example: '“Hello!” eşidəndə “Hello” yazılır.' } },
-        ],
-      },
-    },
-    {
-      // New (26 Nov 2026, lesson split): reading a greeting in a message.
-      type: 'choice', id: 'd1_c13', why: 'Hi salamdır — tanışın salam verir.', number: 0, title: 'Oxu və anla', prompt: 'Tanışın mesajda yazır: “Hi!”\nO nə edir?',
-      options: ['Sağollaşır.', 'Salam verir.', 'Təşəkkür edir.'], answer: 'Salam verir.',
-      hint: 'Bu söz görüş başlayanda deyilir, yoxsa bitəndə?', hintAssists: true,
-      variants: [{ match: { option: 'Təşəkkür edir.' }, short: 'Hi təşəkkür deyil, salamdır.', explain: {
-        answers: 'Salam verir.', reason: 'Mesajda “Hi!” yazılıb — bu, təşəkkür yox, salamdır.',
-        rule: 'Hello və Hi salam vermək üçün işlənir.', example: 'Tanışın sənə “Hello!” yazır. O, salam verir.' } },
-      { match: { other: true }, short: 'Hi görüşü başladır, bitirmir.', explain: {
-        answers: 'Salam verir.', reason: 'Mesajda “Hi!” yazılıb — bu, sağollaşma yox, salamdır.',
-        rule: 'Hello və Hi salam vermək üçün işlənir.', example: 'Tanışın sənə “Hello!” yazır. O, salam verir.' } }],
-      review: { why: 'Hello salamdır — qonşun salam verir.',
-        title: 'Oxu və anla', prompt: 'Qonşun mesajda yazır: “Hello!”\nO nə edir?', options: ['Salam verir.', 'Təşəkkür edir.', 'Sağollaşır.'], answer: 'Salam verir.',
-        hint: 'Bu söz görüş başlayanda deyilir, yoxsa bitəndə?', hintAssists: true,
-        variants: [{ match: { option: 'Təşəkkür edir.' }, short: 'Hello təşəkkür deyil, salamdır.', explain: {
-          answers: 'Salam verir.', reason: 'Mesajda “Hello!” yazılıb — bu, təşəkkür yox, salamdır.',
-          rule: 'Hello və Hi salam vermək üçün işlənir.', example: 'Qonşun sənə “Hi!” yazır. O, salam verir.' } },
-        { match: { other: true }, short: 'Hello görüşü başladır, bitirmir.', explain: {
-          answers: 'Salam verir.', reason: 'Mesajda “Hello!” yazılıb — bu, sağollaşma yox, salamdır.',
-          rule: 'Hello və Hi salam vermək üçün işlənir.', example: 'Qonşun sənə “Hi!” yazır. O, salam verir.' } }],
-      },
-    },
-    {
-      type: 'voice', id: 'd1_c11a', why: 'Görüşü salamla özün başlatdın.', hint: 'Görüş başlayır və ilk sözü sən deyirsən.', speaker: 'mascot', number: 12, title: 'Salamı sən başlat', prompt: '{M:acc} görürsən.\nSalamı sən başlat.',
-      rule: greet, reply: 'Hi!',
-      variants: [
-        { match: { goal: 'farewell' }, explain: {
-          answers: 'səslə Hello! / Hi!', reason: 'Yeni qarşılaşırsan, sağollaşma isə görüşü bitirir.',
-          rule: 'Yeni görüşü salamla başlat.', example: '{M:acc} görürsən və “Hello!” deyirsən.' } },
-        { match: { other: true }, explain: {
-          answers: 'səslə Hello! / Hi!', reason: 'Dediyin söz salam deyil.',
-          rule: 'Qarşı tərəfə salam ifadəsi de.', example: 'Yeni görüşdə əvvəl sən “Hi!” deyirsən.' } },
-      ],
-      review: {
-        speaker: 'mascot', title: 'Salamı sən başlat', hint: 'Görüş başlayır və ilk sözü sən deyirsən.', prompt: 'Yeni gün {m:acc} görürsən. Salamı sən başlat.', rule: greet, reply: 'Hello!',
-        variants: [
-          { match: { goal: 'farewell' }, explain: {
-            answers: 'səslə Hello! / Hi!', reason: 'Yeni qarşılaşırsan, sağollaşma isə görüşü bitirir.',
-            rule: 'Yeni görüşü salamla başlat.', example: '{M:acc} görürsən və “Hello!” deyirsən.' } },
-          { match: { other: true }, explain: {
-            answers: 'səslə Hello! / Hi!', reason: 'Dediyin söz salam deyil.',
-            rule: 'Qarşı tərəfə salam ifadəsi de.', example: 'Yeni görüşdə əvvəl sən “Hi!” deyirsən.' } },
-        ],
-      },
-    },
-  ],
-  result: {
-    done: ['Əhsən! Dərs 1-in 1-ci hissəsini tamamladın.', 'İndi hansı hissələri özün etdiyinə, hansılarda dəstək aldığına baxaq.'],
-    incomplete: 'Dərs tamamlanmayıb. Qaldığın yerdən davam et.',
-    technical: 'Bu hissə texniki səbəbdən mətnlə məşq edildi. Dinləmə yoxlanmadı.',
-    unverified: 'Bu hissədə cavabın qiymətləndirilmədi. Nəticə: Yoxlanmadı.',
-    goals: [
-      { group: 'Dinləmə', text: 'Salam səsinin mənasını tanımaq.', tasks: ['d1_c03'] },
-      { group: 'Dinləmə', text: 'Eşidilən salam sözünü dəqiq müəyyən edib yazmaq.', tasks: ['d1_c12'] },
-      { group: 'Oxu', text: 'Yazılı salamın mənasını tanımaq.', tasks: ['d1_c13'] },
-      { group: 'Yazı', text: 'Salamı özün yazmaq.', tasks: ['d1_c04'] },
-      { group: 'Danışıq', text: 'Salama səslə cavab vermək.', tasks: ['d1_c05'] },
-      { group: 'Danışıq', text: 'Salamı özün başlatmaq.', tasks: ['d1_c11a'] },
-    ],
-    closing: 'Növbəti hissədə sağollaşmağı öyrənəcəksən.',
-    button: 'Bölməyə qayıt',
-  },
-  vocabulary: [
-    { word: 'Hello', translation: 'Salam', example: 'Hello{en,G}!', exampleAz: 'Salam{,G}!', usageNote: 'Hello ümumi salamlaşmadır.', pronunciation: '/həˈloʊ/', teachCard: 'd1_c02' },
-    { word: 'Hi', translation: 'Salam', example: 'Hi{en,B}!', exampleAz: 'Salam{,B}!', usageNote: 'Hi daha qeyri-rəsmi salamlaşmadır.', pronunciation: '/haɪ/', teachCard: 'd1_c02' },
-  ],
-};
-
-// Dərs 1 · 2-ci hissə — Sağollaşma (26 Nov 2026: lessons over 12 screens are split into parts; nothing was removed).
-export const lesson1Design2: DesignLesson = {
-  id: 'a1_en_b1_v2_d1_2', order: 2, unit: 1, number: 1, part: 2, title: 'Salamlaşma və sağollaşma', section: 'İlk tanışlıq',
-  notices: lesson1Design.notices,
-  cards: [
-    {
-      type: 'intro', id: 'd1_c01b', badge: 'İlk tanışlıq', subtitle: 'Görüş bitəndə sağollaşırsan.', start: 'Dərsə başla',
-      goals: [{ icon: 'bye', text: 'Sağollaşmağı' }, { icon: 'chat', text: 'Salamı və sağollaşmanı yerində işlətməyi məşq edəcəksən' }],
-    },
-    {
       type: 'word', id: 'd1_c06', number: 6, scenes: ['d1/word-goodbye'], structure: ['Goodbye!', 'Bye, [ad]!'],
       word: 'Goodbye! · Bye!', pronunciation: '/ˌɡʊdˈbaɪ/ · /baɪ/', reading: 'qudbay · bay', az: 'Görüşənədək! · Hələlik!',
       notes: ['Görüş bitəndə deyilir. Bye daha qeyri-rəsmidir.'],
@@ -268,28 +166,6 @@ export const lesson1Design2: DesignLesson = {
       },
     },
     {
-      // New (26 Nov 2026, lesson split): listening, the farewell side of card 3.
-      type: 'choice', id: 'd1_c16', why: 'Bye sağollaşmadır — tanışın sağollaşır.', number: 0, title: 'Dinlə və anla', prompt: 'Səsi dinlə. Tanışın nə edir?',
-      audio: 'Bye!', options: ['Salam verir.', 'Sağollaşır.', 'Təşəkkür edir.'], answer: 'Sağollaşır.',
-      hint: 'Bu söz görüş başlayanda deyilir, yoxsa bitəndə?', hintAssists: true,
-      variants: [{ match: { option: 'Salam verir.' }, short: 'Bye salam deyil, sağollaşmadır.', explain: {
-        answers: 'Sağollaşır.', reason: 'Səsdə “Bye!” deyilir — bu, salam yox, sağollaşmadır.',
-        rule: 'Goodbye və Bye sağollaşmaq üçün işlənir.', example: 'Tanışın gedir və “Goodbye!” deyir. O, sağollaşır.' } },
-      { match: { other: true }, short: 'Bye görüşü bitirir. Bu səsdə tanışın sağollaşır.', explain: {
-        answers: 'Sağollaşır.', reason: 'Səsdə “Bye!” deyilir — bu, təşəkkür yox, sağollaşmadır.',
-        rule: 'Goodbye və Bye sağollaşmaq üçün işlənir.', example: 'Tanışın gedir və “Goodbye!” deyir. O, sağollaşır.' } }],
-      review: { why: 'Goodbye sağollaşmadır — qonşun sağollaşır.',
-        title: 'Dinlə və anla', prompt: 'Səsi dinlə. Qonşun nə edir?', audio: 'Goodbye!', options: ['Sağollaşır.', 'Təşəkkür edir.', 'Salam verir.'], answer: 'Sağollaşır.',
-        hint: 'Bu söz görüş başlayanda deyilir, yoxsa bitəndə?', hintAssists: true,
-        variants: [{ match: { option: 'Salam verir.' }, short: 'Goodbye salam deyil, sağollaşmadır.', explain: {
-          answers: 'Sağollaşır.', reason: 'Səsdə “Goodbye!” deyilir — bu, salam yox, sağollaşmadır.',
-          rule: 'Goodbye və Bye sağollaşmaq üçün işlənir.', example: 'Qonşun gedir və “Bye!” deyir. O, sağollaşır.' } },
-        { match: { other: true }, short: 'Goodbye görüşü bitirir. Bu səsdə qonşun sağollaşır.', explain: {
-          answers: 'Sağollaşır.', reason: 'Səsdə “Goodbye!” deyilir — bu, təşəkkür yox, sağollaşmadır.',
-          rule: 'Goodbye və Bye sağollaşmaq üçün işlənir.', example: 'Qonşun gedir və “Bye!” deyir. O, sağollaşır.' } }],
-      },
-    },
-    {
       type: 'voice', id: 'd1_c08', why: 'Sağollaşmaya sağollaşma ilə cavab verdin.', hint: 'Gedən adama sağollaşma ilə cavab ver.', speaker: 'mascot', number: 9, title: 'Sağollaşmaya səslə cavab ver', prompt: '{M} səninlə sağollaşır.\nSən də səslə sağollaş.',
       audio: 'Goodbye!', rule: farewell,
       variants: [
@@ -309,32 +185,6 @@ export const lesson1Design2: DesignLesson = {
           { match: { other: true }, explain: {
             answers: 'səslə Goodbye! / Bye!', reason: 'Bu cavab sağollaşmaya sağollaşma ilə qarşılıq vermir.',
             rule: 'Görüş bitəndə sağollaşma ifadəsi işlət.', example: 'Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.' } },
-        ],
-      },
-    },
-    {
-      // New (26 Nov 2026, lesson split): a farewell in a chat.
-      type: 'write', chat: { partner: 'Tanışın', from: 'B', lines: [{ from: 'B', text: 'Bye!' }], reply: '👋' }, id: 'd1_c15', why: 'Sağollaşmaya sağollaşma ilə cavab verdin.', number: 0, title: 'Sağollaşmanı özün yaz',
-      prompt: 'Tanışın yazışmanın sonunda yazır: “Bye!”\nSən də mesajla sağollaş.', placeholder: 'Cavabını yaz', rule: farewell,
-      hint: 'Dərsin sağollaşma sözlərindən birini yaz.',
-      variants: [
-        { match: { goal: 'greet' }, short: 'Bu ifadə salamlaşmaq üçündür. Burada sağollaşmaq lazımdır.', explain: {
-          answers: 'Goodbye! / Bye!', reason: 'Yazdığın söz salamdır, tanışın isə yazışmanı bitirir.',
-          rule: 'Sağollaşmaya sağollaşma ilə cavab ver.', example: 'Tanışın “Bye!” yazır. Sən “Goodbye!” yazırsan.' } },
-        { match: { other: true }, short: 'Burada qarşı tərəfə ingiliscə sağollaşma yazmaq lazımdır.', explain: {
-          answers: 'Goodbye! / Bye!', reason: 'Yazdığın söz sağollaşma deyil.',
-          rule: 'Görüş bitəndə sağollaşma ifadəsi işlət.', example: 'Tanışın “Goodbye!” yazır. Sən “Bye!” yazırsan.' } },
-      ],
-      review: { chat: { partner: 'Qonşun', from: 'G', lines: [{ from: 'G', text: 'Goodbye!' }] },
-        title: 'Sağollaşmanı özün yaz', prompt: 'Qonşun yazışmanın sonunda yazır: “Goodbye!”\nSən də mesajla sağollaş.', placeholder: 'Cavabını yaz', rule: farewell,
-        hint: 'Dərsin sağollaşma sözlərindən birini yaz.',
-        variants: [
-          { match: { goal: 'greet' }, short: 'Bu ifadə salamlaşmaq üçündür. Burada sağollaşmaq lazımdır.', explain: {
-            answers: 'Goodbye! / Bye!', reason: 'Yazdığın söz salamdır, qonşun isə yazışmanı bitirir.',
-            rule: 'Sağollaşmaya sağollaşma ilə cavab ver.', example: 'Qonşun “Goodbye!” yazır. Sən “Bye!” yazırsan.' } },
-          { match: { other: true }, short: 'Burada qarşı tərəfə ingiliscə sağollaşma yazmaq lazımdır.', explain: {
-            answers: 'Goodbye! / Bye!', reason: 'Yazdığın söz sağollaşma deyil.',
-            rule: 'Görüş bitəndə sağollaşma ifadəsi işlət.', example: 'Qonşun “Goodbye!” yazır. Sən “Bye!” yazırsan.' } },
         ],
       },
     },
@@ -384,6 +234,29 @@ export const lesson1Design2: DesignLesson = {
       },
     },
     {
+      type: 'voice', id: 'd1_c11a', why: 'Görüşü salamla özün başlatdın.', hint: 'Görüş başlayır və ilk sözü sən deyirsən.', speaker: 'mascot', number: 12, title: 'Salamı sən başlat', prompt: '{M:acc} görürsən.\nSalamı sən başlat.',
+      rule: greet, reply: 'Hi!',
+      variants: [
+        { match: { goal: 'farewell' }, explain: {
+          answers: 'səslə Hello! / Hi!', reason: 'Yeni qarşılaşırsan, sağollaşma isə görüşü bitirir.',
+          rule: 'Yeni görüşü salamla başlat.', example: '{M:acc} görürsən və “Hello!” deyirsən.' } },
+        { match: { other: true }, explain: {
+          answers: 'səslə Hello! / Hi!', reason: 'Dediyin söz salam deyil.',
+          rule: 'Qarşı tərəfə salam ifadəsi de.', example: 'Yeni görüşdə əvvəl sən “Hi!” deyirsən.' } },
+      ],
+      review: {
+        speaker: 'mascot', title: 'Salamı sən başlat', hint: 'Görüş başlayır və ilk sözü sən deyirsən.', prompt: 'Yeni gün {m:acc} görürsən. Salamı sən başlat.', rule: greet, reply: 'Hello!',
+        variants: [
+          { match: { goal: 'farewell' }, explain: {
+            answers: 'səslə Hello! / Hi!', reason: 'Yeni qarşılaşırsan, sağollaşma isə görüşü bitirir.',
+            rule: 'Yeni görüşü salamla başlat.', example: '{M:acc} görürsən və “Hello!” deyirsən.' } },
+          { match: { other: true }, explain: {
+            answers: 'səslə Hello! / Hi!', reason: 'Dediyin söz salam deyil.',
+            rule: 'Qarşı tərəfə salam ifadəsi de.', example: 'Yeni görüşdə əvvəl sən “Hi!” deyirsən.' } },
+        ],
+      },
+    },
+    {
       type: 'voice', id: 'd1_c11b', why: 'Görüşü sağollaşma ilə özün bitirdin.', hint: 'Ayrılarkən nə deyirsən?', speaker: 'mascot', number: 13, title: 'Sağollaşmanı sən başlat', prompt: 'Bir az sonra görüş bitir.\n{M:abl} ayrılırsan, sağollaş.',
       rule: farewell, reply: 'Bye!',
       variants: [
@@ -408,25 +281,29 @@ export const lesson1Design2: DesignLesson = {
     },
   ],
   result: {
-    done: ['Əhsən! Dərs 1-in 2-ci hissəsini tamamladın.', 'İndi hansı hissələri özün etdiyinə, hansılarda dəstək aldığına baxaq.'],
+    done: ['Əhsən! Dərs üzrə məşqini tamamladın.', 'İndi hansı hissələri özün etdiyinə, hansılarda dəstək aldığına baxaq.'],
     incomplete: 'Dərs tamamlanmayıb. Qaldığın yerdən davam et.',
     technical: 'Bu hissə texniki səbəbdən mətnlə məşq edildi. Dinləmə yoxlanmadı.',
     unverified: 'Bu hissədə cavabın qiymətləndirilmədi. Nəticə: Yoxlanmadı.',
     goals: [
-      { group: 'Dinləmə', text: 'Sağollaşma səsinin mənasını tanımaq.', tasks: ['d1_c16'] },
+      { group: 'Dinləmə', text: 'Salam səsinin mənasını tanımaq.', tasks: ['d1_c03'] },
       { group: 'Dinləmə', text: 'Eşidilən sağollaşma sözünü dəqiq müəyyən edib yazmaq.', tasks: ['d1_c07b'] },
       { group: 'Oxu', text: 'Yazılı ifadəni görüşün bitməsinə uyğun seçmək.', tasks: ['d1_c07a'] },
-      { group: 'Yazı', text: 'Sağollaşmaya mesajla cavab vermək.', tasks: ['d1_c15'] },
+      { group: 'Yazı', text: 'Salamı özün yazmaq.', tasks: ['d1_c04'] },
       { group: 'Yazı', text: 'Uyğunsuz salamı sağollaşma ilə əvəz etmək.', tasks: ['d1_c09'] },
       { group: 'Yazı', text: 'Görüşün başlanğıcı üçün mesaj yazmaq.', tasks: ['d1_c10a'] },
       { group: 'Yazı', text: 'Görüşün sonu üçün mesaj yazmaq.', tasks: ['d1_c10b'] },
+      { group: 'Danışıq', text: 'Salama səslə cavab vermək.', tasks: ['d1_c05'] },
       { group: 'Danışıq', text: 'Sağollaşmaya səslə cavab vermək.', tasks: ['d1_c08'] },
+      { group: 'Danışıq', text: 'Salamı özün başlatmaq.', tasks: ['d1_c11a'] },
       { group: 'Danışıq', text: 'Sağollaşmanı özün başlatmaq.', tasks: ['d1_c11b'] },
     ],
     closing: 'Növbəti dərsdə bu ifadələri yeni vəziyyətlərdə istifadə edəcəyik.',
     button: 'Bölməyə qayıt',
   },
   vocabulary: [
+    { word: 'Hello', translation: 'Salam', example: 'Hello{en,G}!', exampleAz: 'Salam{,G}!', usageNote: 'Hello ümumi salamlaşmadır.', pronunciation: '/həˈloʊ/', teachCard: 'd1_c02' },
+    { word: 'Hi', translation: 'Salam', example: 'Hi{en,B}!', exampleAz: 'Salam{,B}!', usageNote: 'Hi daha qeyri-rəsmi salamlaşmadır.', pronunciation: '/haɪ/', teachCard: 'd1_c02' },
     { word: 'Goodbye', translation: 'Görüşənədək', example: 'Goodbye{en,G}!', exampleAz: 'Görüşənədək{,G}!', usageNote: 'Goodbye burada ayrılma mənasındadır.', pronunciation: '/ˌɡʊdˈbaɪ/', teachCard: 'd1_c06' },
     { word: 'Bye', translation: 'Hələlik', example: 'Bye{en,B}!', exampleAz: 'Hələlik{,B}!', usageNote: 'Bye daha qeyri-rəsmi sağollaşmadır.', pronunciation: '/baɪ/', teachCard: 'd1_c06' },
   ],
