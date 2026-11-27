@@ -1,7 +1,7 @@
 // Home as an island (user's concept; layout A5 approved 13 Nov 2026; redesigned 25 Nov 2026).
 // 25 Nov 2026 design: canvas #F6F7FB; top brand bar; a sticky unit header that follows the section on screen; the
-// dark gradient “Gündəlik təkrar” card; wavy islands in a faint tint of the section's own colour (dark when done);
-// lessons are solid icon circles in the section colour that darken with their %, on a dotted path that leaves each
+// dark gradient “Gündəlik təkrar” card; wavy islands: a white card with a thin section-colour edge that the section colour
+// fills from the top as it advances (27 Nov 2026); lessons are white circles with a purple glyph and a teal % ring, on a dotted path that leaves each
 // circle below and enters the next one above, so the name + % labels stay clear; the current lesson is a larger
 // orange node with a breathing halo; the AI zəng card sits on the path in the middle; between two islands only the
 // section-exam trophy (no bridge, no text); tapping a lesson opens a bottom sheet with its parts.
@@ -122,7 +122,6 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
   // The water fills from the first lesson downwards as the section advances (user, 25 Nov 2026).
   const waterEdge = H * level + (level >= 1 ? 40 : 0);
   const water = mix(mix(tone.soft, tone.base, .35), tone.dark, level);
-  const shade = (pct: number) => pct >= 100 ? tone.dark : mix(mix('#FFFFFF', tone.soft, .7), tone.dark, Math.pow(pct / 100, .8) * .85);
   const focused = focusId ? lessons.findIndex(l => l.id === focusId || l.parts?.some(p => p.id === focusId)) : -1;
   const focus = focused >= 0 ? focused : active;
   // The orange “current lesson” node: the lesson last opened, else the first unfinished one.
@@ -160,7 +159,8 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
       {/* Whisper-soft shadow, then the island in a faint tint of the section colour (dark once the section is done). */}
       <Path d={OUTLINE} transform={`translate(0 7) scale(${sx} ${sy})`} fill="rgba(91,75,154,.07)" />
       <Path d={OUTLINE} transform={`translate(0 3) scale(${sx} ${sy})`} fill="rgba(91,75,154,.05)" />
-      <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill={mix('#FFFFFF', tone.soft, .45)} />
+      {/* White card (user, 27 Nov 2026): the unfilled part stays white, the section colour only fills from the top. */}
+      <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill="#FFFFFF" />
       {/* Water (user, 25 Nov 2026): the island fills from the top down with the section's progress; light at first,
           much darker as it grows, the full dark colour when the section is done. Flat edge, no waves. */}
       {level > 0 ? <>
@@ -170,6 +170,8 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
           <Path d={waterPath(W, Math.max(0, waterEdge - 6))} fill={water} />
         </G>
       </> : null}
+      {/* Thin edge in the section's own colour so the white card stands out on the page. */}
+      <Path d={OUTLINE} transform={`scale(${sx} ${sy})`} fill="none" stroke={mix(tone.base, '#FFFFFF', level >= 1 ? .1 : .45)} strokeWidth={3.5 / ((sx + sy) / 2)} strokeLinejoin="round" />
       {/* Path: colourless dashes; the part a lesson has covered glows towards the next circle (user, 25 Nov 2026). */}
       {pts.slice(0, -1).map((_, i) => {
         const e = edge(i), full = pathOf(e);
@@ -220,9 +222,9 @@ export function IslandHome({ section, sectionTitle, lessons, completed, partial,
             }) : pct > 0 ? <Circle cx={size / 2} cy={size / 2} r={r} stroke={isHot ? '#fff' : RING} strokeWidth={4} fill="none" strokeLinecap="round"
               strokeDasharray={`${c * pct / 100} ${c}`} transform={`rotate(-90 ${size / 2} ${size / 2})`} /> : null}
           </Svg>
-          {/* The circle darkens strongly with its % (0% very light … 100% the section's dark colour, white icon). */}
-          <View style={[s.nodeInner, { width: size - 14, height: size - 14, borderRadius: (size - 14) / 2 }, isHot ? null : { backgroundColor: shade(pct) }, !reachable && !isHot && { opacity: .55 }]}>
-            <LessonIcon name={lesson.icon ?? 'chats'} size={isHot ? 38 : 32} white={isHot || pct >= 50} color={tone.dark} bg={isHot ? '#EA580C' : shade(pct)} />
+          {/* Every circle is white with a purple glyph (grey while 0%) and the teal % ring, like the 27 Nov 2026 mockup. */}
+          <View style={[s.nodeInner, { width: size - 14, height: size - 14, borderRadius: (size - 14) / 2 }, isHot ? null : { backgroundColor: '#FFFFFF' }, !reachable && !isHot && { opacity: .55 }]}>
+            <LessonIcon name={lesson.icon ?? 'chats'} size={isHot ? 38 : 32} white={isHot} color={pct > 0 ? d.purple : '#9CA3B8'} bg={isHot ? '#EA580C' : '#FFFFFF'} />
           </View>
         </Pop>
         {/* Name + % beside the circle, no card (25 Nov 2026); parts: “17% · 2 hissə”. */}
