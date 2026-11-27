@@ -173,7 +173,20 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (Math.abs((pics.current.h[key] ?? 0) - full) < 1) return;
     pics.current.h[key] = full; setPicTick(t => t + 1);
   }, [cardKey]);
-  const natural = bottom.card === cardKey && bottom.y > 0 ? bottom.y + CONTENT_PAD : contentHeight;
+  // Task screens centre their work area (flex: 1), so the free space sits inside it: two markers give the real
+  // height of what is in it, the rest of the area is free (28 Nov 2026, the picture still stayed small).
+  const work = useRef({ card: '', h: 0, top: -1, end: -1 });
+  const [free, setFree] = useState({ card: '', v: 0 });
+  const onWork = (k: 'h' | 'top' | 'end', v: number) => {
+    if (work.current.card !== cardKey) work.current = { card: cardKey, h: 0, top: -1, end: -1 };
+    work.current[k] = v;
+    const w = work.current;
+    if (!w.h || w.top < 0 || w.end < 0) return;
+    const v2 = Math.max(0, Math.round(w.h - 16 - (w.end - w.top - 28)));
+    setFree(f => f.card === cardKey && Math.abs(f.v - v2) < 1 ? f : { card: cardKey, v: v2 });
+  };
+  const natural = free.card === cardKey && contentHeight > 0 ? contentHeight - free.v
+    : bottom.card === cardKey && bottom.y > 0 ? bottom.y + CONTENT_PAD : contentHeight;
   const shownHeight = (fitValue: number) => (natural - CONTENT_PAD) * fitValue + CONTENT_PAD;
   const ready = measured && bottom.card === cardKey;
   useEffect(() => {
@@ -582,7 +595,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         ? (task.mode === 'order' ? (task.gaps ? 'Boşluğa toxun, sonra sözü seç.' : 'Balonlara toxun, söhbəti sıraya düz.')
           : task.mode === 'reply' ? 'Cümləyə toxun, sonra cavabını seç.' : 'İfadəyə toxun, sonra mənasını seç.') : clean.join(' ')}</Text>}
       {mascotTalks && context ? <Text style={s.taskSub}>{context}</Text> : null}
-      <View style={s.work}>
+      <View style={s.work} onLayout={e => onWork('h', e.nativeEvent.layout.height)}>
+        <View style={{ height: 0 }} onLayout={e => onWork('top', e.nativeEvent.layout.y)} />
       {noArt ? null : scene && !spotsShown ? <ScenePicture source={scene} /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
       {voiceBubble ? <AudioPanel playing={playing} onPlay={() => speak(audio!, 0.85)} rate={rate} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(audio!, 0.85); }}
         avatar={<Avatar who={bubbleWho} size={48} />} title={<TapText text={audio!} style={s.audioLine} onWord={lookUp} />}
@@ -675,6 +689,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       {task.type === 'voice' && (!result || voiceRetry) ? <View style={s.micArea}>
         <HoldToTalk onFinal={onSpoken} onRecording={onRecording} onBusyChange={setVoiceBusy} suspended={helpOpen || explainOpen || reportOpen || menuOpen || Boolean(ruleOpen)} />
       </View> : null}
+      <View style={{ height: 0 }} onLayout={e => onWork('end', e.nativeEvent.layout.y)} />
       </View>
     </View>;
   }
