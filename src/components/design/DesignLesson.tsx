@@ -465,7 +465,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (current.type === 'word') return <WordView card={current} onPlay={(t, r) => speak(t, r ?? 0.85)} onWord={setGloss} rate={rate} playing={playing} dense={dense}
       onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(current.word.split(/\s*·\s*/).join('. '), 0.85); }} />;
     if (current.type === 'explain') return <TeacherView card={current} onPlay={t => speak(t, 0.85)} />;
-    if (current.type === 'teach') return <LearnView chip="Öyrən" title={current.title} lead={current.lead} phrases={current.phrases.map(p => p.en)} az={current.phrases.map(p => p.az).join(' · ')}
+    if (current.type === 'teach') return <LearnView chip="Öyrən" title={current.title} lead={current.lead} phrases={current.phrases.map(p => p.en)} az={[...new Set(current.phrases.map(p => p.az))].join(' · ')} shortForm={current.shortForm}
       dialog={current.phrases.length > 2 ? current.phrases : undefined}
       structure={current.structure} notes={current.notes} example={current.example} scenes={current.scenes} onPlay={(t, r) => speak(t, r ?? 0.85)} onWord={setGloss}
       rate={rate} playing={playing} dense={dense} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(current.phrases.map(p => p.en).join('. '), 0.85); }} />;

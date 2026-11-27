@@ -109,6 +109,8 @@ export type ReviewOf<T extends DesignTask> = T extends DesignTask ? Omit<T, 'id'
 export interface IntroCard { type: 'intro'; id: string; badge: string; subtitle: string; goals: { icon: 'wave' | 'chat' | 'bye'; text: string }[]; start: string }
 export interface TeachCard {
   type: 'teach'; id: string; number: number; title: string; lead?: string; phrases: { en: string; az: string }[]; notes: string[];
+  /** Short form taught on this card (I am → I'm): shown as the Qısa forma row with sound. */
+  shortForm?: { full: string; short: string };
   /** “Quruluşu”: the pattern(s); [ad] marks the slot for a name. */
   structure?: string[];
   example?: { en: string; az: string };

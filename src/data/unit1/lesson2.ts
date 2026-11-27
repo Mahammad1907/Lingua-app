@@ -37,8 +37,9 @@ export const lesson2: DesignLesson = {
       // Short form explained the first time it appears (20 Nov 2026, user rule: every short form is taught where it first comes).
       type: 'teach', id: 'd2_c02s', number: 2, title: 'Qısa forma',
       lead: 'İki söz birləşib bir söz olur. Hər ikisini dinlə:',
-      phrases: [{ en: 'I am', az: 'mən [ad]-am' }, { en: "I'm", az: 'mən [ad]-am (qısa)' }],
-      notes: ['Danışıqda qısa deyilir. Mənası eynidir.', 'Apostrof (\') düşən hərfin yerini göstərir: I am → I’m.'],
+      phrases: [{ en: 'I am', az: 'mən [ad]-am' }, { en: "I'm", az: 'mən [ad]-am' }],
+      // The Qısa forma row says both points: spoken short, same meaning; (') marks the dropped letter.
+      shortForm: { full: 'I am', short: "I'm" }, notes: [],
     },
 
     // ── New tasks (26 Nov 2026, lesson split): part 1 practises only I'm. ──

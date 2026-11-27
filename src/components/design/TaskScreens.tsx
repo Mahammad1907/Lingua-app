@@ -16,7 +16,6 @@ import { useArtFit } from './fit';
 import { d, font, radius, shadow } from './theme';
 
 const mascotHead = require('../../../assets/mascot/hood_head.png');
-const mascotFull = require('../../../assets/mascot/hood_full.png');
 
 type Mark = 'correct' | 'wrong' | undefined;
 const markColor = (m: Mark, fallback: string) => m === 'correct' ? d.greenText : m === 'wrong' ? d.redText : fallback;
@@ -681,8 +680,8 @@ function Pattern({ text, small }: { text: string; small?: boolean }) {
   return <View style={[s.pattern, small && { paddingVertical: 4, paddingHorizontal: 12 }]}><Text style={[s.patternText, small && { fontSize: 15 }]}>{text.split(/(\[[^\]]+\])/).map((p, i) => p.startsWith('[') ? <Text key={i} style={{ color: d.lavender }}>{p}</Text> : p)}</Text></View>;
 }
 
-/** Teaching card (approved “İlk salam” design): purple banner with the mascot and the phrase in a bubble,
- *  then Mənası · Oxunuşu · Quruluşu · other phrases · Qeyd · Nümunə rows. Used for Yeni söz and Öyrən cards. */
+/** Teaching card for Yeni söz and Öyrən (one look, 27 Nov 2026): a white card with the phrase, its reading and the
+ *  ▶ | speed capsule, then Mənası · Qısa forma · Quruluşu · Nümunə · one tip. The old mascot banner is gone. */
 export function LearnView({ chip, title, lead, phrases, az, reading, ipa, structure, notes, example, scenes, dialog, shortForm, onPlay, onWord, rate = 1, onRate, playing, dense, glossParts }: {
   chip: string; title?: string; lead?: string; phrases: string[]; az: string; reading?: string; ipa?: string; structure?: string[];
   notes?: string[]; example?: { en: string; az: string }; scenes?: string[];
@@ -702,7 +701,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   const long = phrases.join(' ').length > 16;
   // Yeni söz cards must fit the screen without scrolling (user, 21 Nov 2026): no picture slot, tighter rows.
   const word = chip === 'Yeni söz';
-  const oneLine = word && phrases.length > 1 && phrases.join(' · ').length <= 18;
+  const oneLine = phrases.length > 1 && phrases.join(' · ').length <= 18;
   // Roomy by default; compact only on cards that would not fit (user, 25 Nov 2026: “why is it squeezed”).
   const tight = Boolean(dense);
   const art = useArtFit();
@@ -723,28 +722,26 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
       {title ? <Text accessibilityRole="header" style={ds.title}>{title}</Text> : null}
       {lead ? <Text style={ds.subtitle}>{lead}</Text> : null}
     </View>
-    {word ? null : image ? <Image source={image} style={[s.wordImage, { height: Math.round(170 * art) }]} contentFit="cover" accessibilityIgnoresInvertColors /> : <ImageSlot scenes={scenes} height={44} />}
+    {/* A picture only where a real scene exists (dialog cards); no empty frame. */}
+    {!word && image ? <Image source={image} style={[s.wordImage, { height: Math.round(170 * art) }]} contentFit="cover" accessibilityIgnoresInvertColors /> : null}
     {dialog ? <View style={[s.info, shadow, { paddingVertical: 10, gap: 10 }]}>{dialog.map((l, i) => <View key={l.en} style={s.moreRow}>
       <Avatar who={i % 2 ? 'B' : 'G'} size={40} />
       <View style={{ flex: 1 }}><TapText text={l.en} style={s.dialogEn} onWord={onWord} /><Text style={s.moreAz}>{l.az}</Text></View>
       <PlayButton onPress={() => onPlay(l.en)} size={40} label={`Dinlə: ${l.en}`} />
-    </View>)}</View> : <View style={[s.banner, word ? [s.bannerWhite, s.softShadow] : shadow]}>
-      {/* No mascot on Yeni söz cards (user, 20 Nov 2026): the phrase gets the full width. */}
-      {chip === 'Yeni söz' ? null : <Image source={mascotFull} style={{ width: 78, height: 96 }} contentFit="contain" accessibilityLabel="Maskot" />}
-      <View style={[s.bannerBubble, word && { paddingVertical: 20, gap: 8 }, tight && { paddingVertical: 8, gap: 4 }]}>
+    </View>)}</View> : <View style={[s.banner, s.softShadow]}>
+      <View style={[s.bannerBubble, tight && { paddingVertical: 8, gap: 4 }]}>
         {/* Short phrase pairs on one line: “Hello! · Hi!” (user, 25 Nov 2026). */}
         {(oneLine ? [phrases.join(' · ')] : phrases).map(p => <Text key={p} accessibilityRole="header" style={[s.bannerText, long && { fontSize: 24, lineHeight: 30 }, tight && phrases.length > 1 && !oneLine && { fontSize: 22, lineHeight: 27 }]}>{nameSlot(p)}</Text>)}
         {reading ? <Reading text={reading} /> : null}
-        {/* The approved purple-framed card is back (user, 25 Nov 2026); ▶ + the lesson speed button in place of the turtle. */}
-        {/* Yeni söz: white card, ▶ and the speed in one capsule (approved picture, 25 Nov 2026). */}
-        <View style={word ? s.audioCapsule : s.bannerAudio}><PlayButton onPress={() => onPlay(spoken)} size={44} label={playing ? 'Dinləmə gedir' : 'Dinlə'} />
-          {onRate && word ? <View style={s.capsuleBar} /> : null}
-          {onRate ? <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={() => { tapHaptic(); onRate(); }} style={({ pressed }) => [word ? s.speedPlain : s.speedRound, pressed && { opacity: .8 }]}>
+        {/* ▶ and the lesson speed in one capsule (approved picture, 25 Nov 2026). */}
+        <View style={s.audioCapsule}><PlayButton onPress={() => onPlay(spoken)} size={44} label={playing ? 'Dinləmə gedir' : 'Dinlə'} />
+          {onRate ? <View style={s.capsuleBar} /> : null}
+          {onRate ? <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={() => { tapHaptic(); onRate(); }} style={({ pressed }) => [s.speedPlain, pressed && { opacity: .8 }]}>
             <Text style={s.capRateText}>{rate}x</Text></Pressable> : null}
         </View>
       </View>
     </View>}
-    <View style={[s.info, word ? s.softShadow : shadow, word && s.infoTight]}>
+    <View style={[s.info, s.softShadow, s.infoTight]}>
       {dialog ? null : <InfoRow first icon="tag" label="Mənası" tight={tight}><Slotted text={az} style={[s.infoStrong, tight && { fontSize: 18, lineHeight: 23 }]} /></InfoRow>}
       {shortForm ? <View style={[s.infoRow, s.infoLine, { alignItems: 'center', paddingVertical: 6 }]} accessibilityLabel="Qısa forma">
         {/* Short forms are explained where they first appear, without grammar terms (20 Nov 2026). */}
@@ -765,7 +762,7 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
         <View style={{ flex: 1, gap: 1 }}><Text style={s.rowLabel}>NÜMUNƏ</Text><TapText text={example.en} style={[s.exampleEn, tight && { fontSize: 17 }]} onWord={onWord} /><Text style={[s.moreAz, word && { color: d.slate }]}>{nameSlot(example.az)}</Text></View>
         <PlayButton onPress={() => onPlay(example.en)} size={40} label="Nümunəni dinlə" />
       </View> : null}
-      {note ? <View style={[s.infoRow, (example || !dialog) && s.infoLine, { alignItems: 'center' }, word && s.tipStrip]}>
+      {note ? <View style={[s.infoRow, (example || !dialog) && s.infoLine, { alignItems: 'center' }, s.tipStrip]}>
         <View style={s.infoIcon}><Icon name="bulb" size={20} color={d.purple} /></View>
         <Text style={[s.noteText, { flex: 1 }, tight && { fontSize: 14, lineHeight: 19 }]}>{note}</Text>
       </View> : null}
@@ -876,15 +873,12 @@ const s = StyleSheet.create({
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
   playRound: { backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center' },
   slowRound: { backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
-  banner: { flexDirection: 'row', alignItems: 'center', gap: 8, borderRadius: 24, backgroundColor: '#5B2BC9', padding: 12 },
-  bannerBubble: { flex: 1, alignItems: 'center', gap: 6, backgroundColor: '#fff', borderRadius: 22, paddingVertical: 12, paddingHorizontal: 10 },
+  banner: { borderRadius: 24, backgroundColor: '#fff' },
+  bannerBubble: { alignItems: 'center', gap: 8, backgroundColor: '#fff', borderRadius: 22, paddingVertical: 20, paddingHorizontal: 10 },
   bannerText: { color: d.ink, fontSize: 30, lineHeight: 36, textAlign: 'center', ...font.extrabold },
-  bannerAudio: { flexDirection: 'row', gap: 12 },
-  bannerWhite: { backgroundColor: '#fff', padding: 0 },
   audioCapsule: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: d.purpleSoft, borderRadius: 999, padding: 4, paddingRight: 16 },
   capsuleBar: { width: 1, height: 22, backgroundColor: '#C4B5FD' },
   speedPlain: { height: 44, justifyContent: 'center' },
-  speedRound: { minWidth: 44, height: 44, borderRadius: 22, paddingHorizontal: 8, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   info: { borderRadius: radius.card, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border, paddingHorizontal: 14, paddingVertical: 4 },
   // Yeni söz breakdown card: borderless, soft shadow, hairline rows (25 Nov 2026).
   infoRow: { flexDirection: 'row', gap: 12, paddingVertical: 12 },
