@@ -339,26 +339,26 @@ export const lesson1Design2: DesignLesson = {
       },
     },
     {
-      type: 'write', id: 'd1_c09', why: '{M} gedir — ona Bye və ya Goodbye yaraşır.', scenes: ['d1/mascot-leaving'], speaker: 'mascot', number: 10, title: '{M:dat} kömək et', prompt: '{M} görüşü bitirib gedir, amma “Hello!” deyir.\nOnun yerinə uyğun sağollaşma yaz.',
+      type: 'write', id: 'd1_c09', why: '{B} gedir — ona Bye və ya Goodbye yaraşır.', scenes: ['d1/boy-leaving'], number: 10, title: '{B:dat} kömək et', prompt: '{B} görüşü bitirib gedir, amma “Hello!” deyir.\nOnun yerinə uyğun sağollaşma yaz.',
       placeholder: 'Uyğun ifadəni yaz', rule: farewell, hint: 'Gedən adam salam verir, yoxsa sağollaşır?',
       variants: [
         { match: { goal: 'greet' }, short: 'Bu ifadə salamlaşmaq üçündür. Burada görüş bitir və sağollaşmaq lazımdır.', explain: {
-          answers: 'Goodbye! / Bye!', reason: '{M} gedir, salam isə görüşü bitirmir.',
+          answers: 'Goodbye! / Bye!', reason: '{B} gedir, salam isə görüşü bitirmir.',
           rule: 'Görüşün sonunda sağollaş.', example: 'Tanışınla söhbəti bitirirsən: “Bye!”' } },
         { match: { other: true }, explain: {
           answers: 'Goodbye! / Bye!', reason: 'Yazdığın söz sağollaşma deyil.',
-          rule: 'İfadəni vəziyyətin başlanmasına və ya bitməsinə uyğun seç.', example: '{M} qapıdan çıxarkən “Goodbye!” deyir.' } },
+          rule: 'İfadəni vəziyyətin başlanmasına və ya bitməsinə uyğun seç.', example: '{B} qapıdan çıxarkən “Goodbye!” deyir.' } },
       ],
       review: {
-        speaker: 'mascot', scenes: ['d1/mascot-party-leaving'], title: '{M:dat} kömək et', prompt: '{M} qonaqlıqdan gedir, amma “Hi!” deyir. Onun yerinə uyğun sağollaşma yaz.', placeholder: 'Uyğun ifadəni yaz', rule: farewell,
+        scenes: ['d1/boy-party-leaving'], title: '{B:dat} kömək et', prompt: '{B} qonaqlıqdan gedir, amma “Hi!” deyir. Onun yerinə uyğun sağollaşma yaz.', placeholder: 'Uyğun ifadəni yaz', rule: farewell,
         hint: 'Gedən adam salam verir, yoxsa sağollaşır?',
         variants: [
           { match: { goal: 'greet' }, short: 'Bu ifadə salamlaşmaq üçündür. Burada görüş bitir və sağollaşmaq lazımdır.', explain: {
-            answers: 'Goodbye! / Bye!', reason: '{M} gedir, salam isə görüşü bitirmir.',
+            answers: 'Goodbye! / Bye!', reason: '{B} gedir, salam isə görüşü bitirmir.',
             rule: 'Görüşün sonunda sağollaş.', example: 'Tanışınla söhbəti bitirirsən: “Bye!”' } },
           { match: { other: true }, explain: {
             answers: 'Goodbye! / Bye!', reason: 'Yazdığın söz sağollaşma deyil.',
-            rule: 'İfadəni vəziyyətin başlanmasına və ya bitməsinə uyğun seç.', example: '{M} qapıdan çıxarkən “Goodbye!” deyir.' } },
+            rule: 'İfadəni vəziyyətin başlanmasına və ya bitməsinə uyğun seç.', example: '{B} qapıdan çıxarkən “Goodbye!” deyir.' } },
         ],
       },
     },

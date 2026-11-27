@@ -413,11 +413,11 @@ Qısa geribildirim: “Bu ifadə salamlaşmaq üçündür. BirFox isə səninlə
 - **Qısa qayda:** Görüş bitəndə sağollaşma ifadəsi işlət.
 - **Yeni nümunə:** Tanışın “Goodbye!” deyir. Sən “Bye!” deyirsən.
 
-## Kart 9 — BirFox-a kömək et
+## Kart 9 — Kənana kömək et
 
 ### Öyrənənin görəcəyi mətn
 
-BirFox görüşü bitirib gedir, amma “Hello!” deyir.
+Kənan görüşü bitirib gedir, amma “Hello!” deyir.
 
 Onun yerinə uyğun sağollaşma yaz.
 
@@ -443,7 +443,7 @@ Qısa geribildirim: “Bu ifadə salamlaşmaq üçündür. Burada görüş bitir
 **İzah 12 — Mənə başa sal**
 - **Sənin cavabın:** “{faktiki yazılmış cavab}”.
 - **Uyğun cavablar:** Goodbye! / Bye!
-- **Səbəb:** BirFox gedir, salam isə görüşü bitirmir.
+- **Səbəb:** Kənan gedir, salam isə görüşü bitirmir.
 - **Qısa qayda:** Görüşün sonunda sağollaş.
 - **Yeni nümunə:** Tanışınla söhbəti bitirirsən: “Bye!”
 
@@ -454,7 +454,7 @@ Qısa geribildirim: “Bu ifadə salamlaşmaq üçündür. Burada görüş bitir
 - **Uyğun cavablar:** Goodbye! / Bye!
 - **Səbəb:** Yazdığın söz sağollaşma deyil.
 - **Qısa qayda:** İfadəni vəziyyətin başlanmasına və ya bitməsinə uyğun seç.
-- **Yeni nümunə:** BirFox qapıdan çıxarkən “Goodbye!” deyir.
+- **Yeni nümunə:** Kənan qapıdan çıxarkən “Goodbye!” deyir.
 
 ## Kart 10 — İki mesajı özün yaz
 

@@ -27,11 +27,11 @@ Bu siyahı hazırlanmalı bütün şəkilləri bir yerdə saxlayır. Şəkil haz
 | 1.1 | Kart 2 · Salamlaşmanı öyrən | Bina girişində iki nəfər qarşılaşır, ikisi də gülümsəyib əl yelləyir | qız, oğlan | `assets/lessons/d1/greet-entrance.webp` | ⏳ (hələ istifadə olunmur — 25 Nov 2026 yoxlaması) |
 | 1.2 | Kart 4 · Salamı özün yaz | Həyətdə/küçədə tanışlar rastlaşır, biri digərinə tərəf dönür (hələ danışmır) | qız, oğlan | `assets/lessons/d1/meet-street.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq mesajlaşmaya keçdi) |
 | 1.3 | Kart 6 · Sağollaşmanı öyrən | Qapı ağzında ayrılırlar, biri çıxır, ikisi də əl yelləyir | qız, oğlan | `assets/lessons/d1/farewell-door.webp` | ⏳ (hələ istifadə olunmur — 25 Nov 2026 yoxlaması) |
-| 1.4 | Kart 9 · Dostuna kömək et | Maskot qapıdan çıxıb gedir, başı üstündə **boş** nitq balonu | maskot | `assets/lessons/d1/mascot-leaving.webp` | ⏳ |
+| 1.4 | Kart 9 · Dostuna kömək et | Oğlan kafe qapısından çıxıb gedir, başı üstündə **boş** nitq balonu | oğlan | `assets/lessons/d1/boy-leaving.webp` | ⏳ |
 | 1.5 | Kart 10 · İki mesaj (1) | Görüşün əvvəli: qız qapını açır, oğlan qapıda dayanıb | qız, oğlan | `assets/lessons/d1/visit-start.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq görüşdən əvvəl/sonra mesaja keçdi) |
 | 1.6 | Kart 10 · İki mesaj (2) | Görüşün sonu: oğlan darvazadan çıxır, əl yelləyir | qız, oğlan | `assets/lessons/d1/visit-end.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq görüşdən əvvəl/sonra mesaja keçdi) |
 | 1.7 | T2 · Təkrar | Həyətdə səhər rastlaşma (1.2-dən fərqli məkan: oyun meydançası və ya skamya) | qız, oğlan | `assets/lessons/d1/meet-yard.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq mesajlaşmaya keçdi) |
-| 1.8 | T7 · Təkrar | Maskot qonaqlıqdan çıxır (masa, şar), başı üstündə boş nitq balonu | maskot | `assets/lessons/d1/mascot-party-leaving.webp` | ⏳ |
+| 1.8 | T7 · Təkrar | Oğlan qonaqlıqdan çıxır (masa, şar), başı üstündə boş nitq balonu | oğlan | `assets/lessons/d1/boy-party-leaving.webp` | ⏳ |
 | 1.9 | T8 · Təkrar (1) | Video zəngin əvvəli: telefon ekranında qız, oğlan telefona baxır | qız, oğlan | `assets/lessons/d1/video-start.webp` | ⏳ |
 | 1.10 | T8 · Təkrar (2) | Video zəngin sonu: oğlan telefona əl yelləyir, zəngi bitirmək üzrədir | qız, oğlan | `assets/lessons/d1/video-end.webp` | ⏳ |
 

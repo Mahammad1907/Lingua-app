@@ -59,7 +59,7 @@ const doc = fs.readFileSync(require.resolve('../docs/BirTalk_Ders_1_Yekun.md'), 
 // Every learner-facing explanation sentence exists in the final document (names written as BirFox there).
 const docText = doc.replace(/BirFox(-[a-zəüöı]+)?/g, 'X');
 for (const c of [...lesson1Design.cards, ...lesson1Design2.cards]) for (const v of c.variants ?? []) for (const part of ['rule', 'reason', 'example']) {
-  const sentence = v.explain[part].replace(/\{[Mm](:\w+)?\}/g, 'X').replace('{purpose}', '{salam vermək / sağollaşmaq}');
+  const sentence = v.explain[part].replace(/\{[Mm](:\w+)?\}/g, 'X').replace(/\{B\}/g, 'Kənan').replace('{purpose}', '{salam vermək / sağollaşmaq}');
   assert.ok(docText.includes(sentence), `${c.id} ${part} copied from the document: ${sentence}`);
 }
 // Every task has a hint and a five-part explanation; retries keep id, type and modality.
@@ -110,7 +110,7 @@ assert.equal(L.gradeText(c7b, 'Goodbye').explain.rule, 'Eşitdiyini yazmaq tapş
 assert.equal(L.gradeText(c7b, 'Hello').explain.rule, 'Səsdə eşitdiyin sözü yaz.');
 const c9 = card('d1_c09');
 assert.equal(L.gradeText(c9, 'Bye!').status, 'correct');
-assert.equal(L.gradeText(c9, 'Hi').explain.reason, 'Dostun gedir, salam isə görüşü bitirmir.');
+assert.equal(L.gradeText(c9, 'Hi').explain.reason, 'Oğlan gedir, salam isə görüşü bitirmir.');
 const c10 = card('d1_c10');
 assert.equal(L.gradeTwo(c10, { d1_c10a: 'Hello!', d1_c10b: 'Bye!' }).status, 'correct');
 const swapped = L.gradeTwo(c10, { d1_c10a: 'Bye!', d1_c10b: 'Hi!' });
