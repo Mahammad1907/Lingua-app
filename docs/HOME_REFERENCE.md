@@ -1,4 +1,4 @@
-# BirTalk — Bölmələr ana ekranı
+# BilTalk — Bölmələr ana ekranı
 
 Base: `557b668a51585eca73cf2adac3f9016be3598e26` (master before the broad 2D redesign).
 

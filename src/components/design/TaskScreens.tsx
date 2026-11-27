@@ -983,7 +983,7 @@ const s = StyleSheet.create({
   orderTray: { gap: 8, padding: 10, borderRadius: 18, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
   orderChip: { flexDirection: 'row', alignItems: 'center', gap: 10, minHeight: 46, paddingHorizontal: 10, borderRadius: 14, borderWidth: 1, borderColor: '#C5ADF2', backgroundColor: '#F4EEFD' },
   chipPlay: { width: 26, height: 26, borderRadius: 13, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', paddingLeft: 2 },
-  scene: { width: '100%', aspectRatio: 1.1, borderRadius: 24, overflow: 'hidden', backgroundColor: d.purpleSoft, borderWidth: 1, borderColor: d.border },
+  scene: { width: '100%', aspectRatio: 1.55, borderRadius: 24, overflow: 'hidden', backgroundColor: d.purpleSoft, borderWidth: 1, borderColor: d.border },
   spot: { position: 'absolute', width: 40, height: 40, marginLeft: -20, marginTop: -20, borderRadius: 20, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
   spotText: { fontSize: 18, ...font.extrabold },
   tvTail: { position: 'absolute', left: -7, top: '50%', marginTop: -7, width: 14, height: 14, backgroundColor: '#fff', borderLeftWidth: 1.5, borderBottomWidth: 1.5, borderColor: d.purpleSoft, transform: [{ rotate: '45deg' }] },

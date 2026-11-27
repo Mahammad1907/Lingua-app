@@ -1,4 +1,4 @@
-# BirTalk — üçüncü tərəf məhsul rəyi: nə çatmır (14 noyabr 2026)
+# BilTalk — üçüncü tərəf məhsul rəyi: nə çatmır (14 noyabr 2026)
 
 Müstəqil rəyçi, fayllara toxunmayıb. “(yoxlanmayıb)” — kodda təsdiqlənməyən fərziyyə.
 

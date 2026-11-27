@@ -1,4 +1,4 @@
-# BirTalk — yalnız 6 təsdiqlənmiş düzəliş
+# BilTalk — yalnız 6 təsdiqlənmiş düzəliş
 
 27 oktyabr 2026. Başlanğıc: 9ce11934ba7040538a43ae2366b74110566bcc88. İstifadəçinin son siyahısındakı altı dəyişiklik tətbiq edildi; gələcək qaydalar AGENTS.md və LAYIHE_DEFTERI.md-də saxlanıldı.
 

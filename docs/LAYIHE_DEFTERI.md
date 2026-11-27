@@ -1,4 +1,4 @@
-# BirTalk layihə dəftəri
+# BilTalk layihə dəftəri
 
 > **25 noyabr 2026: bu faylın məzmunu `docs/BIRTALK.md`-yə yığılıb. Qüvvədə olan qaydalar oradadır; bu fayl yalnız tarixçə üçün saxlanılır.**
 
@@ -91,7 +91,7 @@ Texniki sərhəd: yalnız qeyd rejiminin danışıq-bitmə aşkarlanması səs s
 
 ## Gələcək vizual qərarı — 27 oktyabr 2026
 
-BirTalk-un 3D üslubu və Əli, Leyla, BirFox personajları qorunur. Situasiya vizualları sadə, sualla əlaqəli və yığcam olmalıdır; sual, cavab idarələri və düymələr normal dərs ekranına aşağı sürüşdürmədən sığmalıdır. Öyrətmə və məşqdə şəkil mənaya ipucu verə bilər; qiymətləndirmədə bu dəstək nəzərə alınmalıdır. Müstəqil yoxlama və imtahanda vizual cavabı aşkar etməməlidir. Bu qərar əvvəlki ümumi “şəkil cavabı açıqlamasın” qaydasını öyrətmə və dəstəkli məşq üçün dəqiqləşdirir. Hələ tətbiq edilməyib.
+BilTalk-un 3D üslubu və Əli, Leyla, BirFox personajları qorunur. Situasiya vizualları sadə, sualla əlaqəli və yığcam olmalıdır; sual, cavab idarələri və düymələr normal dərs ekranına aşağı sürüşdürmədən sığmalıdır. Öyrətmə və məşqdə şəkil mənaya ipucu verə bilər; qiymətləndirmədə bu dəstək nəzərə alınmalıdır. Müstəqil yoxlama və imtahanda vizual cavabı aşkar etməməlidir. Bu qərar əvvəlki ümumi “şəkil cavabı açıqlamasın” qaydasını öyrətmə və dəstəkli məşq üçün dəqiqləşdirir. Hələ tətbiq edilməyib.
 
 ## Cavab izahı və səhvlərə keçid — 27 oktyabr 2026
 
@@ -119,7 +119,7 @@ Kod avtomatik sınaqlarla yoxlanır, ancaq real Azure hesabı, server, iPhone v�
 
 - Maskotun yekun adı hələ seçilməyib. Mövcud BirFox adı müvəqqəti saxlanılır; adı yalnız `src/utils/mascot.ts` faylındakı `MASCOT_NAME` dəyərində dəyişmək nəzərdə tutulur.
 - Dərs və imtahan məlumatları, səs mətnləri, tərcümə açarları, cavab nümunələri və əlaqəli mətnlər bu addan istifadə etməlidir. Yeni məzmun üçün maskot adını ayrıca sabitləməyin; mövcud ad əvəzedicisi və ya `mascotText` istifadə edin.
-- Azərbaycan dili şəkilçilərinin səslənişi bəzi xüsusi adlarda fərqlənə bilər; yeni ad seçiləndə şəkilçiləri və səsli oxunuşunu cihazda yoxlayın. Şəxs adları və tətbiqin BirTalk adı maskot adı ilə qarışdırılmır.
+- Azərbaycan dili şəkilçilərinin səslənişi bəzi xüsusi adlarda fərqlənə bilər; yeni ad seçiləndə şəkilçiləri və səsli oxunuşunu cihazda yoxlayın. Şəxs adları və tətbiqin BilTalk adı maskot adı ilə qarışdırılmır.
 
 ## Səs sistemi üzrə son müzakirə və söhbət təhvili — 30 oktyabr 2026
 
@@ -145,10 +145,10 @@ Yoxlama: TypeScript keçdi; 5 ekran test dəstində 63 test keçdi; 210 dərs/t�
 
 ## Qarşılama ekranı, animasiyalı maskot və müvəqqəti tətbiq adı — 3 noyabr 2026
 
-- **Təsdiqlənmiş vizual istiqamət:** Son göstərilən qarşılama/onboarding ekranının ümumi düzülüşü saxlanılır: tünd bənövşəyi premium fon, narıncı-bənövşəyi işıq vurğuları, yuxarıda loqo sahəsi, “BirTalk-a xoş gəlmisən!” qarşılama mətni, “Öyrən / Məşq et / Danış” təqdimat blokları və aşağıda “Başlayaq” əsas düyməsi. Təsdiq vizual konseptə aiddir; onun kodda hazır və ya cihazda yoxlanmış olması demək deyil.
+- **Təsdiqlənmiş vizual istiqamət:** Son göstərilən qarşılama/onboarding ekranının ümumi düzülüşü saxlanılır: tünd bənövşəyi premium fon, narıncı-bənövşəyi işıq vurğuları, yuxarıda loqo sahəsi, “BilTalk-a xoş gəlmisən!” qarşılama mətni, “Öyrən / Məşq et / Danış” təqdimat blokları və aşağıda “Başlayaq” əsas düyməsi. Təsdiq vizual konseptə aiddir; onun kodda hazır və ya cihazda yoxlanmış olması demək deyil.
 - **Maskot seçimi — qarşılama ekranı:** Bu ekran üçün istifadəçinin üstünlük verdiyi **əvvəlki narıncı kapüşonlu, qaranlıq üzlü, parlayan kitab tutan və baş barmağını qaldıran maskot** saxlanılır. Sonradan sınaqdan keçirilən narıncı tülkü/qurdvari kapüşonlu maskot bu təsdiqlənmiş ekranda onu əvəz etmir. Bu qərar maskotun yekun adını müəyyən etmir; `src/utils/mascot.ts` → `MASCOT_NAME` mərkəzi mənbə qaydası qalır.
 - **Maskotun animasiyası planlanır:** Qarşılama ekranı gələcək göz qırpma, yumşaq hərəkət, əl etmə, kitabın parıltısı və əsas düyməyə reaksiya kimi animasiyalara uyğun boş sahə/yerləşdirmə ilə qurulmalıdır. Hərəkətlər maskotu və mətnləri kəsməməli, düymələrin üstünə çıxmamalı, kiçik ekranlarda əlçatanlığı pozmamalı, “hərəkəti azalt” rejiminə uyğun alternativ statik vəziyyət saxlamalıdır. Animasiya texnologiyası və asset formatı hələ seçilməyib; real cihazda sınaqdan keçirilməyib.
-- **Tətbiqin adı yekun deyil:** “BirTalk” hazırda müvəqqəti layihə/dizayn adıdır. Header/loqo və istifadəçiyə göstərilən tətbiq adı gələcəkdə **mərkəzdən və asanlıqla dəyişdirilə bilən** şəkildə layihələndirilməlidir. Yeni ad seçilmədən başqa ad uydurulmur, kodda ad müxtəlif ekranlara ayrı-ayrı sabitlənmir. Tətbiqin adı ilə maskotun adı ayrı anlayışlardır və hər ikisi ayrıca yekunlaşdırılacaq.
+- **Tətbiqin adı yekun deyil:** “BilTalk” hazırda müvəqqəti layihə/dizayn adıdır. Header/loqo və istifadəçiyə göstərilən tətbiq adı gələcəkdə **mərkəzdən və asanlıqla dəyişdirilə bilən** şəkildə layihələndirilməlidir. Yeni ad seçilmədən başqa ad uydurulmur, kodda ad müxtəlif ekranlara ayrı-ayrı sabitlənmir. Tətbiqin adı ilə maskotun adı ayrı anlayışlardır və hər ikisi ayrıca yekunlaşdırılacaq.
 - **İşin sərhədi:** Bu qeydin əlavə edilməsi yalnız sənədləşdirmədir. Mövcud onboarding marşrutları, digər ekranlar, dərslər, qiymətləndirmə, asset-lər, SDK/paket faylları və Git vəziyyəti özbaşına dəyişdirilmir. Kodun hazırlanması, test, GitHub-a göndərilmə və cihaz yoxlaması ayrıca bildirilməlidir.
 
 ## Dərslər üçün retro 2D personaj vizualları — 3 noyabr 2026
@@ -178,7 +178,7 @@ Son GitHub branch-i `codex/b1-lesson-screens-20261021`, başlanğıc `b1ba5c1`. 
 
 Bu söhbətdə istifadəçi Leyla və Əlinin oyuncaq maketi tipli park səhnəsinə “Uyğundur” cavabı verdi və qərarın bu dəftərə yazılmasını istədi. **Dərs səhnələrinin vizual üslubu üzrə bu qərar 3 noyabr 2026 tarixli retro 2D istiqamətini əvəz edir.** Əvvəlki qeydlər tarixçədir; yeni dərs səhnələri üçün əsas istiqamət aşağıdakıdır.
 
-- **Üslub:** LEGO-dan ilhamlanan həndəsi, yığılmış məkan hissi olan, BirTalk-a məxsus 3D oyuncaq dünyası. Yumru blokvari formalar, geniş yumşaq kənarlar, hamar və azca mat plastik material, yumşaq kölgələr və isti işıq. Təsdiqlənmiş nümunə: park cığırında Leyla ilə Əli, hissələrdən yığılmış yaşıl ağaclar və kollar, krem-bənövşəyi skamya, arxada sadə bina və fənər.
+- **Üslub:** LEGO-dan ilhamlanan həndəsi, yığılmış məkan hissi olan, BilTalk-a məxsus 3D oyuncaq dünyası. Yumru blokvari formalar, geniş yumşaq kənarlar, hamar və azca mat plastik material, yumşaq kölgələr və isti işıq. Təsdiqlənmiş nümunə: park cığırında Leyla ilə Əli, hissələrdən yığılmış yaşıl ağaclar və kollar, krem-bənövşəyi skamya, arxada sadə bina və fənər.
 - **Sabit insan personajları:** Leyla gümüşü həndəsi bob saçlı, bənövşəyi ulduz saç sancaqlı və bənövşəyi geyimlidir. Əli qəhvəyi həndəsi saçlı, narıncı geyimli, mavi detallı və bənövşəyi çantalıdır; ingilis mətnində Ali yazılır. Bu söhbətdə göndərilmiş personaj istinadı görünüş üçün əsasdır. Üz, bədən nisbətləri, saç, geyim və 3D material üslubu səhnələr arasında sabit saxlanılır; məkan, hərəkət, mimika və baxış bucağı tapşırığa uyğun dəyişir.
 - **Ana maskot ayrıdır:** Leyla və Əli dərs səhnələrinin insan personajlarıdır və ana maskotu əvəz etmirlər. Ana maskot bu söhbətdəki son istinada uyğundur: yana sallanan narıncı başlıq, sadə narıncı plaş, qəhvəyi üz, əllər və ayaqlar, sarı oval gözlər. Şalvar, ayaqqabı, kapüşon ipi və cib əlavə edilmir. Bu qeyd maskotun yekun adını müəyyən etmir.
 - **Arxa planlar:** Məkan personajlarla eyni 3D oyuncaq üslubunda hazırlanır. Park, ev girişi, məktəb, həyət qapısı və digər hazır dərs vəziyyətlərinə uyğun məkanlar seçilə bilər; bunlar məzmunu dəyişmək üçün səbəb deyil. Bütün səhnəni bənövşəyi rəngə boyamaq lazım deyil: yaşıl, krem, açıq mavi, isti bej, ölçülü bənövşəyi və narıncı vurğular istifadə olunur. Tətbiqin açıq bənövşəyi ekran fonu ilə səhnənin öz məkanı ayrı anlayışlardır.

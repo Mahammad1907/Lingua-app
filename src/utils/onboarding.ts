@@ -1,6 +1,6 @@
 // Onboarding preferences describe the learner's choices, never assessment evidence.
 export const ONBOARDING_KEY = '@birtalk_onboarding_v1';
-export const APP_NAME = 'BirTalk';
+export const APP_NAME = 'BilTalk';
 export const goals = [
   { id: 'daily', title: 'Gündəlik ünsiyyət', description: 'Tanışlıq və gündəlik həyat üçün', short: 'Tanışlıq və gündəlik həyat', icon: '💬' },
   { id: 'education', title: 'Təhsil', description: 'İmtahanlar, təqaüd və akademik məqsədlər', short: 'İmtahan və akademik məqsədlər', icon: '🎓' },

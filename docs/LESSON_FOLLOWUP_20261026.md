@@ -1,4 +1,4 @@
-# BirTalk follow-up implementation 26 October 2026
+# BilTalk follow-up implementation 26 October 2026
 
 The seven follow-up requests are implemented on the lesson-screen branch. The durable Azerbaijani project notebook is LAYIHE_DEFTERI.md; AGENTS.md points future work to it.
 

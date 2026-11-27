@@ -1,4 +1,4 @@
-# BirTalk Dərs 1
+# BilTalk Dərs 1
 ## Salamlaşma və sağollaşma
 
 **Məzmun üzrə təsdiqlənmiş yekun variant — 24 oktyabr 2026**
@@ -28,7 +28,7 @@ Bu sənəd öyrənənin görəcəyi 13 kartı (26 noyabr 2026-dan iki hissədə,
 
 “Salam verə, salama cavab verə və görüşü sağollaşma ilə bitirə bilirəm” dərsin hədəfidir. Bu cümlə əvvəlcədən qazanılmış nəticə kimi qeydə alınmır.
 
-Salamlaşma və sağollaşma A1 səviyyəsində sadə sosial ünsiyyət məqsədlərinə uyğundur. Bu dərsin bitməsi bütöv A1 səviyyəsinin tamamlanması demək deyil. Kart sayı və konkret məşq ardıcıllığı BirTalk üçün metodik seçimdir; CEFR-in məcburi kart şablonu deyil.
+Salamlaşma və sağollaşma A1 səviyyəsində sadə sosial ünsiyyət məqsədlərinə uyğundur. Bu dərsin bitməsi bütöv A1 səviyyəsinin tamamlanması demək deyil. Kart sayı və konkret məşq ardıcıllığı BilTalk üçün metodik seçimdir; CEFR-in məcburi kart şablonu deyil.
 
 ## Bütün kartlar üçün ortaq qaydalar
 
@@ -887,7 +887,7 @@ https://dictionary.cambridge.org/grammar/british-grammar/greetings-and-farewells
 3. British Council LearnEnglish, A1 Elementary. Gündəlik sadə ifadələr və yavaş, aydın danışıqla ünsiyyətin ümumi səviyyə çərçivəsi üçün.  
 https://learnenglish.britishcouncil.org/level/understand-your-level/a1-elementary
 
-Azərbaycan dilində izahlar, 13 kartlı quruluş, təkrar bankı və nəticə qaydaları bu məqsədlərin BirTalk üçün metodik tətbiqidir. Mənbələr proqramın işləkliyini və ya konkret tətbiq funksiyasını təsdiqləmir.
+Azərbaycan dilində izahlar, 13 kartlı quruluş, təkrar bankı və nəticə qaydaları bu məqsədlərin BilTalk üçün metodik tətbiqidir. Mənbələr proqramın işləkliyini və ya konkret tətbiq funksiyasını təsdiqləmir.
 
 
 ---

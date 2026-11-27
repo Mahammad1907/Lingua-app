@@ -1,4 +1,4 @@
-# BirTalk dərs standartı
+# BilTalk dərs standartı
 
 Versiya 2 · 13 noyabr 2026 (araşdırma əsasında yeniləndi)
 

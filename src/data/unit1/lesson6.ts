@@ -166,12 +166,12 @@ export const lesson6b: DesignLesson = {
     {
       type: 'choice', id: 'd6_c06', number: 6, title: 'Səhnədə tap', why: 'Səhv edən üzr istəyir.', hint: 'Kim səhv etdi?',
       prompt: 'Kafedə üç nəfər var.\nKim “Sorry!” deməlidir?', scenes: ['d6/cafe-spill'],
-      spots: [{ option: 'Kitab oxuyan qız', x: 22, y: 30 }, { option: 'Qəhvəni yerə tökən oğlan', x: 52, y: 66 }, { option: 'Pəncərədən baxan adam', x: 82, y: 28 }],
+      spots: [{ option: 'Kitab oxuyan qız', x: 12, y: 58 }, { option: 'Qəhvəni yerə tökən oğlan', x: 52, y: 60 }, { option: 'Pəncərədən baxan adam', x: 82, y: 52 }],
       options: ['Kitab oxuyan qız', 'Qəhvəni yerə tökən oğlan', 'Pəncərədən baxan adam'], answer: 'Qəhvəni yerə tökən oğlan',
       variants: [other('Üzrü səhv edən istəyir.', ex('Qəhvəni yerə tökən oğlan', 'Qəhvəni tökən oğlan səhv etdi, ona görə “Sorry!” deyən odur.', 'Səhv → Sorry.', 'Sorry! — No problem.'))],
       review: {
         title: 'Səhnədə tap', why: 'Sual verməzdən əvvəl: Excuse me.', hint: 'Kim birindən nəsə soruşmaq istəyir?', prompt: 'Dayanacaqda üç nəfər var.\nKim “Excuse me” deməlidir?', scenes: ['d6/bus-stop'],
-        spots: [{ option: 'Avtobus gözləyən oğlan', x: 24, y: 40 }, { option: 'Telefonla danışan adam', x: 78, y: 34 }, { option: 'Yol soruşmaq istəyən qız', x: 52, y: 70 }],
+        spots: [{ option: 'Avtobus gözləyən oğlan', x: 32, y: 57 }, { option: 'Telefonla danışan adam', x: 81, y: 47 }, { option: 'Yol soruşmaq istəyən qız', x: 56, y: 63 }],
         options: ['Avtobus gözləyən oğlan', 'Telefonla danışan adam', 'Yol soruşmaq istəyən qız'], answer: 'Yol soruşmaq istəyən qız',
         variants: [other('Diqqəti sual verən çəkir.', ex('Yol soruşmaq istəyən qız', 'O, birindən soruşmaq istəyir — əvvəl “Excuse me” deyir.', 'Diqqət → Excuse me.', 'Excuse me!'))],
       },

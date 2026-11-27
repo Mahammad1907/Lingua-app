@@ -1,4 +1,4 @@
-# BirTalk üçün təkrar istifadə olunan 3D səhnələr
+# BilTalk üçün təkrar istifadə olunan 3D səhnələr
 
 İstifadəçinin istəyi: lövhə əsas qalsın; yalnız seçilmiş yerlərə maraqlı statik 3D səhnələr əlavə edilsin. Eyni şəkillər növbəti dərslər üçün yenidən yaradılmasın.
 

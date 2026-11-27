@@ -1,4 +1,4 @@
-# BirTalk — Bölmə 1, Dərs 1–8 (tam məzmun, yoxlama üçün)
+# BilTalk — Bölmə 1, Dərs 1–8 (tam məzmun, yoxlama üçün)
 
 **Nədir:** Azərbaycan dilində danışan böyüklərə ingilis dili öyrədən mobil tətbiq. Səviyyə A1 (CEFR A1 təsvirlərinə əsaslanır). Bölmə 1 — “İlk tanışlıq”: salam/sağollaşma, özünü təqdim etmək, ad soruşmaq, hal-əhval, təşəkkür, üzr istəmək, başa düşmədiyini demək, bölmə söhbəti.
 

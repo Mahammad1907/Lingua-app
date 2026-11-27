@@ -1,4 +1,4 @@
-# BirTalk — authored seven-lesson screen implementation
+# BilTalk — authored seven-lesson screen implementation
 
 Base: `f38bed6c82908bb29c4c7e44d9a7a7736ba650ff` (`codex/b1-packet-content-20261020`). This is the new seven-lesson curriculum, not the old six-lesson written-screen demo.
 

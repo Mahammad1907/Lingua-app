@@ -1,4 +1,4 @@
-# BirTalk — bütün qaydalar bir yerdə (14 noyabr 2026)
+# BilTalk — bütün qaydalar bir yerdə (14 noyabr 2026)
 
 > **25 noyabr 2026: bu faylın məzmunu `docs/BIRTALK.md`-yə yığılıb. Qüvvədə olan qaydalar oradadır; bu fayl yalnız tarixçə üçün saxlanılır.**
 

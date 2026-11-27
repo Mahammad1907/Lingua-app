@@ -112,7 +112,7 @@ export function useLessonSpeech({ onFinal, onBusyChange, suspended = false, auto
   }, [engine, turn]);
   useEffect(() => { if (!suspended) return; const timer = setTimeout(cancel, 0); return () => clearTimeout(timer); }, [suspended, cancel]);
   const start = useCallback(async (network = false) => {
-    if (!engine) { setMessage('Səs tanıma Expo Go-da açılmır. Bu funksiya üçün ayrıca BirTalk tətbiqi lazımdır.'); return; }
+    if (!engine) { setMessage('Səs tanıma Expo Go-da açılmır. Bu funksiya üçün ayrıca BilTalk tətbiqi lazımdır.'); return; }
     if (pending.current || turn.phase !== 'idle' || handlers.current.suspended) return;
     if (closing.current) { setMessage('Mikrofon bağlanır. Bir an sonra yenidən toxun.'); return; }
     const useNetwork = network || networkAllowed.current;

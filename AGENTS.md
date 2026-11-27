@@ -40,7 +40,7 @@ Docs: https://docs.expo.dev/eas/index.md
 - Expo Go only includes its bundled native modules. After adding a library with native code, the app needs a development build: `npx expo run:ios|android` locally, or `eas build --profile development`.
 - Prefer recommended Expo modules over third-party libraries, and check your available skills before adding dependencies. Docs: https://docs.expo.dev/versions/latest/index.md
 
-## BirTalk — read first
+## BilTalk — read first
 
 **Everything about this project (rules, decisions, code map, open work) is in `docs/BIRTALK.md` (Azerbaijani). Read it before any work.** The old notes are kept for history only: `docs/ARXIV_AGENTS_2026-11-25.md`, `docs/BUTUN_QAYDALAR.md`, `docs/LAYIHE_DEFTERI.md`, `docs/YENI_SOHBET_UCUN.md`.
 

@@ -1,4 +1,4 @@
-# BirTalk — yeni söhbət üçün tam vəziyyət (yeniləndi: 15 noyabr 2026)
+# BilTalk — yeni söhbət üçün tam vəziyyət (yeniləndi: 15 noyabr 2026)
 
 > **25 noyabr 2026: bu faylın məzmunu `docs/BIRTALK.md`-yə yığılıb. Qüvvədə olan qaydalar oradadır; bu fayl yalnız tarixçə üçün saxlanılır.**
 
@@ -20,7 +20,7 @@ Bu fayl yeni söhbətdə işə davam etmək üçündür. **Bütün qaydalar bir 
 
 ## 1. Layihə
 
-- **BirTalk**: Azərbaycan dilində danışanlara ingilis dili öyrədən mobil tətbiq (A1 səviyyəsi, CEFR A1 təsvirlərinə əsaslanır — “sertifikatlı” demə).
+- **BilTalk**: Azərbaycan dilində danışanlara ingilis dili öyrədən mobil tətbiq (A1 səviyyəsi, CEFR A1 təsvirlərinə əsaslanır — “sertifikatlı” demə).
 - Repo: `Mahammad1907/Lingua-app`, branch **`claude/lesson1-new-screens`**, PR #5. Son commit: `95f7f2f`.
 - Stack: Expo SDK 57, React Native 0.86, expo-router, zustand (`src/store/userStore.ts`, AsyncStorage), expo-speech, expo-image, react-native-svg, reanimated, expo-haptics, Nunito şrifti.
 - **`package.json`, `package-lock.json`, SDK fayllarına toxunma.**

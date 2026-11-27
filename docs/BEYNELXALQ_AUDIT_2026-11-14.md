@@ -1,4 +1,4 @@
-# BirTalk — beynəlxalq buraxılışa hazırlıq auditi (14 noyabr 2026)
+# BilTalk — beynəlxalq buraxılışa hazırlıq auditi (14 noyabr 2026)
 
 Müstəqil auditor (üçüncü tərəf kimi), fayllara toxunmayıb. **Bu, hüquqi məsləhət deyil.** Auditor mağaza qaydalarının canlı mətninə baxmayıb — təqdimdən əvvəl Apple App Review Guidelines, Google Play Developer Policy, Data Safety / App Privacy tələblərinin cari versiyası yoxlanmalıdır.
 

@@ -4,7 +4,26 @@
  * When a picture is ready: put the file at the path given in that list and add one line here, e.g.
  *   'd1/meet-street': require('../../assets/lessons/d1/meet-street.webp'),
  */
-export const SCENE_IMAGES: Record<string, number> = {};
+export const SCENE_IMAGES: Record<string, number> = {
+  'd1/cafe-door-scene': require('../../assets/lessons/d1/cafe-door-scene.webp'),
+  'd1/boy-leaving': require('../../assets/lessons/d1/boy-leaving.webp'),
+  'd1/boy-party-leaving': require('../../assets/lessons/d1/boy-party-leaving.webp'),
+  'd1/video-start': require('../../assets/lessons/d1/video-start.webp'),
+  'd1/video-end': require('../../assets/lessons/d1/video-end.webp'),
+  'd2/new-friend': require('../../assets/lessons/d2/new-friend.webp'),
+  'd2/new-classmates': require('../../assets/lessons/d2/new-classmates.webp'),
+  'd2/registration': require('../../assets/lessons/d2/registration.webp'),
+  'd2/game-profile': require('../../assets/lessons/d2/game-profile.webp'),
+  'd6/street-ask': require('../../assets/lessons/d6/street-ask.webp'),
+  'd6/foot-step': require('../../assets/lessons/d6/foot-step.webp'),
+  'd6/bus-stop': require('../../assets/lessons/d6/bus-stop.webp'),
+  'd6/cafe-spill': require('../../assets/lessons/d6/cafe-spill.webp'),
+  'd8/party': require('../../assets/lessons/d8/party.webp'),
+  'd8/party-door': require('../../assets/lessons/d8/party-door.webp'),
+  'd8/party-meet': require('../../assets/lessons/d8/party-meet.webp'),
+  'd8/party-talk': require('../../assets/lessons/d8/party-talk.webp'),
+  'd8/online-class': require('../../assets/lessons/d8/online-class.webp'),
+};
 
 /**
  * Temporary markers: while true, every place that waits for a picture shows a dashed frame with the
@@ -17,7 +36,7 @@ export const SCENE_NOTES: Record<string, string> = {
   'd1/word-hello': '1.11 · Biri tanışını görüb salam verir',
   'd1/meet-street': '1.2 · Küçədə tanışlar rastlaşır',
   'd1/word-goodbye': '1.12 · Biri gedərkən dönüb əl yelləyir',
-  'd1/cafe-door-scene': '1.13 · Kafe qapısı: biri girir, biri oturub, biri çıxır',
+  'd1/cafe-door-scene': '1.13 · Kafe: oğlan qapıdan çıxır, dönüb əl yelləyir; qızlar masada əl yelləyir',
   'd1/boy-leaving': '1.4 · Oğlan kafe qapısından çıxır, boş nitq balonu',
   'd1/visit-start': '1.5 · Görüşün əvvəli: qız qapını açır',
   'd1/visit-end': '1.6 · Görüşün sonu: oğlan əl yelləyib çıxır',

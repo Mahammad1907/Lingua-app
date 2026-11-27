@@ -73,12 +73,12 @@ export const lesson8: DesignLesson = {
     {
       type: 'choice', id: 'd8_c06', number: 6, title: 'Səhnədə tap', why: 'Gedən sağollaşır.', hint: 'Kim gedir?',
       prompt: 'Ziyafətdə üç nəfər var.\nKim “Goodbye!” deyir?', scenes: ['d8/party'],
-      spots: [{ option: 'Tort kəsən qız', x: 26, y: 44 }, { option: 'Qapıdan çıxan oğlan', x: 80, y: 40 }, { option: 'Musiqiyə qulaq asan adam', x: 50, y: 74 }],
+      spots: [{ option: 'Tort kəsən qız', x: 14, y: 49 }, { option: 'Qapıdan çıxan oğlan', x: 84, y: 52 }, { option: 'Musiqiyə qulaq asan adam', x: 50, y: 65 }],
       options: ['Tort kəsən qız', 'Qapıdan çıxan oğlan', 'Musiqiyə qulaq asan adam'], answer: 'Qapıdan çıxan oğlan',
       variants: [other('Gedən adam sağollaşır.', ex('Qapıdan çıxan oğlan', 'O, ziyafətdən gedir — “Goodbye!” deyir.', 'Ayrılarkən: Goodbye! / Bye!', 'Goodbye!'))],
       review: {
         title: 'Səhnədə tap', why: 'Yeni gələn salam verir.', hint: 'Kim indi gəldi?', prompt: 'Ziyafətin girişində üç nəfər var.\nKim “Hello!” deyir?', scenes: ['d8/party-door'],
-        spots: [{ option: 'Paltosunu geyinən oğlan', x: 24, y: 40 }, { option: 'Masada oturan adam', x: 76, y: 66 }, { option: 'Yenicə içəri girən qız', x: 54, y: 34 }],
+        spots: [{ option: 'Paltosunu geyinən oğlan', x: 24, y: 52 }, { option: 'Masada oturan adam', x: 87, y: 62 }, { option: 'Yenicə içəri girən qız', x: 50, y: 56 }],
         options: ['Paltosunu geyinən oğlan', 'Masada oturan adam', 'Yenicə içəri girən qız'], answer: 'Yenicə içəri girən qız',
         variants: [other('Yeni gələn salam verir.', ex('Yenicə içəri girən qız', 'O, indi gəldi — görüş başlayır.', 'Gələndə: Hello! / Hi!', 'Hello!'))],
       },

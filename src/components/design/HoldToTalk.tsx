@@ -30,7 +30,7 @@ export default function HoldToTalk({ onFinal, onRecording, onBusyChange, disable
 
 type SpeechApi = ReturnType<typeof useLessonSpeech>;
 
-/** The orb's own short sounds (25 Nov 2026, made for BirTalk): a soft rising chime when listening starts, a two-note one when the answer is sent. */
+/** The orb's own short sounds (25 Nov 2026, made for BilTalk): a soft rising chime when listening starts, a two-note one when the answer is sent. */
 const START = require('../../../assets/sounds/orb-start.wav');
 const SEND = require('../../../assets/sounds/orb-send.wav');
 function useOrbSounds() {

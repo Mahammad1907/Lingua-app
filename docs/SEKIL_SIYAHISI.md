@@ -1,4 +1,4 @@
-# BirTalk — lazım olan şəkillər
+# BilTalk — lazım olan şəkillər
 
 Versiya 1 · 13 noyabr 2026
 
@@ -27,13 +27,13 @@ Bu siyahı hazırlanmalı bütün şəkilləri bir yerdə saxlayır. Şəkil haz
 | 1.1 | Kart 2 · Salamlaşmanı öyrən | Bina girişində iki nəfər qarşılaşır, ikisi də gülümsəyib əl yelləyir | qız, oğlan | `assets/lessons/d1/greet-entrance.webp` | ⏳ (hələ istifadə olunmur — 25 Nov 2026 yoxlaması) |
 | 1.2 | Kart 4 · Salamı özün yaz | Həyətdə/küçədə tanışlar rastlaşır, biri digərinə tərəf dönür (hələ danışmır) | qız, oğlan | `assets/lessons/d1/meet-street.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq mesajlaşmaya keçdi) |
 | 1.3 | Kart 6 · Sağollaşmanı öyrən | Qapı ağzında ayrılırlar, biri çıxır, ikisi də əl yelləyir | qız, oğlan | `assets/lessons/d1/farewell-door.webp` | ⏳ (hələ istifadə olunmur — 25 Nov 2026 yoxlaması) |
-| 1.4 | Kart 9 · Dostuna kömək et | Oğlan kafe qapısından çıxıb gedir, başı üstündə **boş** nitq balonu | oğlan | `assets/lessons/d1/boy-leaving.webp` | ⏳ |
+| 1.4 | Kart 9 · Dostuna kömək et | Oğlan kafe qapısından çıxıb gedir, başı üstündə **boş** nitq balonu | oğlan | `assets/lessons/d1/boy-leaving.webp` |✅ |
 | 1.5 | Kart 10 · İki mesaj (1) | Görüşün əvvəli: qız qapını açır, oğlan qapıda dayanıb | qız, oğlan | `assets/lessons/d1/visit-start.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq görüşdən əvvəl/sonra mesaja keçdi) |
 | 1.6 | Kart 10 · İki mesaj (2) | Görüşün sonu: oğlan darvazadan çıxır, əl yelləyir | qız, oğlan | `assets/lessons/d1/visit-end.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq görüşdən əvvəl/sonra mesaja keçdi) |
 | 1.7 | T2 · Təkrar | Həyətdə səhər rastlaşma (1.2-dən fərqli məkan: oyun meydançası və ya skamya) | qız, oğlan | `assets/lessons/d1/meet-yard.webp` | ✖ lazım deyil (24 Nov 2026: tapşırıq mesajlaşmaya keçdi) |
-| 1.8 | T7 · Təkrar | Oğlan qonaqlıqdan çıxır (masa, şar), başı üstündə boş nitq balonu | oğlan | `assets/lessons/d1/boy-party-leaving.webp` | ⏳ |
-| 1.9 | T8 · Təkrar (1) | Video zəngin əvvəli: telefon ekranında qız, oğlan telefona baxır | qız, oğlan | `assets/lessons/d1/video-start.webp` | ⏳ |
-| 1.10 | T8 · Təkrar (2) | Video zəngin sonu: oğlan telefona əl yelləyir, zəngi bitirmək üzrədir | qız, oğlan | `assets/lessons/d1/video-end.webp` | ⏳ |
+| 1.8 | T7 · Təkrar | Oğlan qonaqlıqdan çıxır (masa, şar), başı üstündə boş nitq balonu | oğlan | `assets/lessons/d1/boy-party-leaving.webp` |✅ |
+| 1.9 | T8 · Təkrar (1) | Video zəngin əvvəli: gündüz, qız noutbukda əl yelləyir, ekranda oğlan | qız, oğlan | `assets/lessons/d1/video-start.webp` |✅ |
+| 1.10 | T8 · Təkrar (2) | Video zəngin sonu: axşam, qız əl yelləyib qırmızı “bitir” düyməsinə toxunur | qız, oğlan | `assets/lessons/d1/video-end.webp` |✅ |
 
 Dərs 1-in yeni ekranlara uyğunlaşdırılması təsdiqlənsə (layihə dəftəri, bənd 48), əlavə lazım olacaq:
 
@@ -41,7 +41,7 @@ Dərs 1-in yeni ekranlara uyğunlaşdırılması təsdiqlənsə (layihə dəftə
 |---|---|---|---|---|
 | 1.11 | "Yeni söz: Hello / Hi" | Biri tanışını görüb salam verir (1.1-dən fərqli: küçədə) | `assets/lessons/d1/word-hello.webp` | ⏳ |
 | 1.12 | "Yeni söz: Goodbye / Bye" | Biri gedərkən arxaya dönüb əl yelləyir | `assets/lessons/d1/word-goodbye.webp` | ⏳ |
-| 1.13 | Kart 7A · "Səhnədə tap" | Kafenin qapısı: biri içəri girir, biri masada oturub, biri çıxıb əl yelləyir (3 ayrı, nömrə qoyula bilən personaj) | `assets/lessons/d1/cafe-door-scene.webp` | ⏳ |
+| 1.13 | Kart 7A · "Səhnədə tap" | Kafe: oğlan qapıdan çıxır, dönüb əl yelləyir; qızlar masada əl yelləyir (heç kim gəlmir, yalnız gedir) | `assets/lessons/d1/cafe-door-scene.webp` |✅ |
 
 ## 2. Maskot
 
@@ -76,10 +76,10 @@ Dərs 2–8-də şəkilsiz də işləyən quruluş seçildi: “Səhnədə tap�
 
 | # | Yer | Səhnə | Personaj | Fayl və id | Status |
 |---|---|---|---|---|---|
-| 5.1 | Dərs 6, kart 6 · Səhnədə tap | Kafe: solda kitab oxuyan qız, ortada qəhvəni yerə tökən oğlan, sağda pəncərədən baxan adam | qız, oğlan, 1 neytral | `assets/lessons/d6/cafe-spill.webp` · `d6/cafe-spill` | ⏳ |
-| 5.2 | Dərs 6, kart 6 təkrar | Avtobus dayanacağı: solda gözləyən oğlan, ortada yol soruşmaq istəyən qız, sağda telefonla danışan adam | qız, oğlan, 1 neytral | `assets/lessons/d6/bus-stop.webp` · `d6/bus-stop` | ⏳ |
-| 5.3 | Dərs 8, kart 6 · Səhnədə tap | Ziyafət: solda tort kəsən qız, ortada musiqiyə qulaq asan adam, sağda qapıdan çıxan oğlan | qız, oğlan, 1 neytral | `assets/lessons/d8/party.webp` · `d8/party` | ⏳ |
-| 5.4 | Dərs 8, kart 6 təkrar | Ziyafətin girişi: solda paltosunu geyinən oğlan, ortada yenicə girən qız, sağda masada oturan adam | qız, oğlan, 1 neytral | `assets/lessons/d8/party-door.webp` · `d8/party-door` | ⏳ |
+| 5.1 | Dərs 6, kart 6 · Səhnədə tap | Kafe: solda kitab oxuyan qız, ortada qəhvəni yerə tökən oğlan, sağda pəncərədən baxan adam; qutu 1.55 nisbətindədir, kənar 6% kəsilə bilər | qız, oğlan, 1 neytral | `assets/lessons/d6/cafe-spill.webp` · `d6/cafe-spill` |✅ |
+| 5.2 | Dərs 6, kart 6 təkrar | Avtobus dayanacağı: solda gözləyən oğlan, ortada yol soruşmaq istəyən qız, sağda telefonla danışan adam | qız, oğlan, 1 neytral | `assets/lessons/d6/bus-stop.webp` · `d6/bus-stop` |✅ |
+| 5.3 | Dərs 8, kart 6 · Səhnədə tap | Ziyafət: solda tort kəsən qız, ortada musiqiyə qulaq asan adam, sağda qapıdan çıxan oğlan | qız, oğlan, 1 neytral | `assets/lessons/d8/party.webp` · `d8/party` |✅ |
+| 5.4 | Dərs 8, kart 6 təkrar | Ziyafətin girişi: solda paltosunu geyinən oğlan, ortada yenicə girən qız, sağda masada oturan adam | qız, oğlan, 1 neytral | `assets/lessons/d8/party-door.webp` · `d8/party-door` |✅ |
 | 5.5 | Dərs 2–8 · “Yeni söz” kartları | Hər yeni ifadə üçün bir şəkil (istəyə bağlı; şəkilsiz də işləyir) | — | `assets/lessons/dN/word-*.webp` | sonra |
 
 Şəkil gələndə `src/config/sceneImages.ts`-ə bir sətir əlavə olunur (məs. `'d6/cafe-spill': require('../../assets/lessons/d6/cafe-spill.webp')`).
@@ -90,14 +90,14 @@ Tətbiqdə bu yerlərdə hələlik qırıq xətli çərçivə və şəklin nömr
 
 | # | Yer | Səhnə | Fayl | Status |
 |---|---|---|---|---|
-| 6.1 | Dərs 2 · “Hansı cümlə düzgündür?” | Yeni tanışlar: qız özünü oğlana təqdim edir | `assets/lessons/d2/new-friend.webp` | ⏳ |
-| 6.2 | Dərs 2 · eyni tapşırığın təkrarı | Sinifdə yeni yoldaşlar tanış olur | `assets/lessons/d2/new-classmates.webp` | ⏳ |
-| 6.3 | Dərs 2 · “Adını yaz” | Qeydiyyat masası: işçi soruşur, oğlan cavab verir | `assets/lessons/d2/registration.webp` | ⏳ |
-| 6.4 | Dərs 2 · təkrar | Telefonda oyun profili yaradılır | `assets/lessons/d2/game-profile.webp` | ⏳ |
-| 6.7 | Dərs 6 · “Nə ilə başlayarsan?” | Küçədə qız yoldan keçənə yaxınlaşır | `assets/lessons/d6/street-ask.webp` | ⏳ |
-| 6.8 | Dərs 6 · təkrar | Avtobusda biri təsadüfən başqasının ayağına basır | `assets/lessons/d6/foot-step.webp` | ⏳ |
-| 6.9 | Dərs 8 · “İki mesaj yaz” | Ziyafətdə iki nəfər tanış olur | `assets/lessons/d8/party-meet.webp` | ⏳ |
-| 6.10 | Dərs 8 · təkrar | Onlayn dərs: ekranda yoldaşlar | `assets/lessons/d8/online-class.webp` | ⏳ |
+| 6.1 | Dərs 2 · “Hansı cümlə düzgündür?” | Yeni tanışlar: qız özünü oğlana təqdim edir | `assets/lessons/d2/new-friend.webp` |✅ |
+| 6.2 | Dərs 2 · eyni tapşırığın təkrarı | Sinifdə yeni yoldaşlar tanış olur | `assets/lessons/d2/new-classmates.webp` |✅ |
+| 6.3 | Dərs 2 · “Adını yaz” | Qeydiyyat masası: işçi soruşur, oğlan cavab verir | `assets/lessons/d2/registration.webp` |✅ |
+| 6.4 | Dərs 2 · təkrar | Telefonda oyun profili yaradılır | `assets/lessons/d2/game-profile.webp` |✅ |
+| 6.7 | Dərs 6 · “Nə ilə başlayarsan?” | Küçədə qız yoldan keçənə yaxınlaşır | `assets/lessons/d6/street-ask.webp` |✅ |
+| 6.8 | Dərs 6 · təkrar | Avtobusda biri təsadüfən başqasının ayağına basır | `assets/lessons/d6/foot-step.webp` |✅ |
+| 6.9 | Dərs 8 · “İki mesaj yaz” | Ziyafətdə iki nəfər tanış olur | `assets/lessons/d8/party-meet.webp` |✅ |
+| 6.10 | Dərs 8 · təkrar | Onlayn dərs: ekranda yoldaşlar | `assets/lessons/d8/online-class.webp` |✅ |
 
 
 ## 7. Yeni söz kartları — Dərs 2–8 (13 noyabr 2026)
@@ -124,7 +124,7 @@ Hər yeni ifadə üçün onun işləndiyi anı göstərən kiçik səhnə. Kartd
 | 7.16 | Dərs 7 · d7_c03 | Oğlan çaşqındır, başını qaşıyır | `assets/lessons/d7/word-dont-understand.webp` | ⏳ |
 | 7.17 | Dərs 7 · d7_c04 | Qız əlini qulağına tutub “bir də” istəyir | `assets/lessons/d7/word-again.webp` | ⏳ |
 | 7.18 | Dərs 7 · d7_c04b | Oğlan əli ilə “yavaş” işarəsi edir | `assets/lessons/d7/word-slowly.webp` | ⏳ |
-| 7.19 | Dərs 8 · d8_c02 | Ziyafət: qız və oğlan söhbət edir | `assets/lessons/d8/party-talk.webp` | ⏳ |
+| 7.19 | Dərs 8 · d8_c02 | Ziyafət: qız və oğlan söhbət edir | `assets/lessons/d8/party-talk.webp` |✅ |
 
 ## 8. Bölmə 3 — ortaq səhnələr və maskot pozaları (15 noyabr 2026, qayda 19)
 

@@ -1,8 +1,8 @@
-# AGENTS.md arxivi — 25 noyabr 2026-ya qədər BirTalk bölmələri
+# AGENTS.md arxivi — 25 noyabr 2026-ya qədər BilTalk bölmələri
 
 Bu mətn `AGENTS.md`-dən köçürülüb. Qüvvədə olan qaydalar: `docs/BIRTALK.md`. Bəzi qaydalar köhnəlib (bax BIRTALK.md §8).
 
-## BirTalk lesson artwork reuse
+## BilTalk lesson artwork reuse
 
 - The user wants the 3D teacher board as the primary lesson visual, with a few relevant static 3D scenes for variety. Do not add video or animation loops for this request.
 - Before generating any lesson picture, read `assets/lessons/scene-library.json` and `docs/REUSABLE_3D_SCENES.md`. Reuse matching existing scenes across lessons, languages and levels; do not regenerate the same situation for a new question.
@@ -53,7 +53,7 @@ The user is still collecting this next batch. Record these requirements now; do 
 This is item 4 of the follow-up batch currently being collected. Record now, implement together with the rest only after the user finishes reporting.
 
 - Same-lesson end review contains confirmed mistakes only, with a new situation preserving the original communication goal and input modality. A successful correction is Assisted; continued difficulty is Needs practice. Do not loop indefinitely.
-- In a suitable middle point of a subsequent lesson, revisit a previously difficult skill without a model. Start by considering the next one or two lessons, but adapt to task relevance, elapsed time and the learner's results. This is a BirTalk methodological starting point, not a CEFR-prescribed interval or fixed quota.
+- In a suitable middle point of a subsequent lesson, revisit a previously difficult skill without a model. Start by considering the next one or two lessons, but adapt to task relevance, elapsed time and the learner's results. This is a BilTalk methodological starting point, not a CEFR-prescribed interval or fixed quota.
 - Later lessons and sections also reuse older skills, including successfully learnt ones, in new communicative situations. Do not limit recall to the immediately preceding lesson, put the old questions at the beginning, or repeat the same question consecutively without a distinct learning purpose.
 - Integrate old skills naturally with newly taught material, e.g. greeting plus self-introduction after self-introduction has been taught. Never require an untaught expression to complete a review.
 - Keep initial independent evidence, same-lesson assisted correction and later model-free independent evidence distinct. A later independent success is recorded as such and does not rewrite the initial attempt. If difficulty remains, shorten the next suitable review interval.
@@ -106,7 +106,7 @@ Do not add new features, alter lesson content/order, revise assessment policy, r
 
 ## Audio visuals and asset reuse — 27 October 2026
 
-The user authorizes suitable, compact visuals for audio questions. Search the existing scene library and prior project images first; reuse a matching scene, and generate and catalog a new one only when no existing asset fits. Preserve BirTalk's characters and style. A visual that reveals an answer is support in practice, not evidence of independent listening; independent assessments and exams must not reveal the answer. Keep the lesson's question and controls on screen and do not change unrelated screens. The existing neutral clarify scene accompanies the sound wave on listening tasks. Speech capture and Azure integration remain separate; do not claim iPhone verification without testing.
+The user authorizes suitable, compact visuals for audio questions. Search the existing scene library and prior project images first; reuse a matching scene, and generate and catalog a new one only when no existing asset fits. Preserve BilTalk's characters and style. A visual that reveals an answer is support in practice, not evidence of independent listening; independent assessments and exams must not reveal the answer. Keep the lesson's question and controls on screen and do not change unrelated screens. The existing neutral clarify scene accompanies the sound wave on listening tasks. Speech capture and Azure integration remain separate; do not claim iPhone verification without testing.
 
 ## Fixed lesson viewport — user authorization 2 November 2026
 

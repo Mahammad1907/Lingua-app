@@ -1,5 +1,5 @@
 // Spaced review (18 Nov 2026, user: “1, 3, 7, 14 günlük təkrar”). Pure functions, no storage.
-// The 1 / 3 / 7 / 14 day steps are a BirTalk starting policy, not a CEFR rule (AGENTS.md, spaced review).
+// The 1 / 3 / 7 / 14 day steps are a BilTalk starting policy, not a CEFR rule (AGENTS.md, spaced review).
 // An item is one skill: a task of a finished lesson, practised again in its review situation (same skill, new situation).
 //   stage 0 → next review in 1 day, 1 → 3 days, 2 → 7 days, 3 → 14 days, 4 → “steady”: every 30 days.
 // Correct: one stage up. Wrong: two stages down (never below 0), so difficulty shortens the interval.
