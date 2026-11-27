@@ -180,6 +180,7 @@ node scripts/export-unit1-docs.cjs  # Bölmə 1 dəyişəndə docs/dersler/
 | 27 Noy | Ana səhifə (mockup): bölmə kartı **ağ**, bölmənin rəngi yuxarıdan faizlə dolur, nazik haşiyə bölmə rəngindədir; dərs dairələri hamısı ağ, bənövşəyi ikon (0%-də boz) və firuzəyi faiz halqası; yol dəyişməyib (faizə görə parıldayır). |
 | 27 Noy | Öyrən kartları Yeni söz görünüşünə keçdi, köhnə maskotlu banner koddan silindi; “I am → I'm” kartında “[ad]” təkrarı və itən apostrof izahı düzəldi (Qısa forma sətri). |
 | 27 Noy | Avatarlar 3D portretlərdir (`assets/characters/girl|boy.webp`; `friend.webp` {F} üçün hazırdır, `Who`-da hələ F yoxdur); köhnə çəkilmiş simvol silindi. Şəkil kiçiləndə 16:9 qalır (yalnız eni azalır, kəsilmir) və yer boşalanda geri böyüyür. |
+| 27 Noy | Ümumi səhvlər (What’s is …, It’s that right) səhvi adlandırır, amma “Uyğun cavab” həmişə **tapşırığın öz cavabıdır** (əvvəl ad sualında “What's your phone number?” çıxırdı); `check-design-lesson` yoxlayır. |
 
 > **Dəyişməz qayda (26 Noy 2026):** dərs, hissə və ya tapşırıq dəyişəndə (o cümlədən dərsi hissələrə bölmək) `node scripts/check-all.cjs` tam yaşıl olmadan commit edilmir. `check-taught` (öyrədilməmiş söz) və `check-parts` (sonrakı hissədə köhnə “bu dərsin əvvəli” ipucu; öyrədilən söz/hərf öz hissəsinin düzgün cavabında məşq olunmalıdır) heç vaxt zəiflədilmir — səhv tapılırsa məzmun düzəlir, yoxlama yox. GitHub-da hər push `.github/workflows/check.yml` ilə avtomatik yoxlanır; commit qırmızıdırsa, əvvəl onu düzəlt.
 

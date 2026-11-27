@@ -134,4 +134,16 @@ assert.equal(L.taskStatus({ first: 'wrong', review: 'wrong' }), 'needsPractice')
 assert.equal(L.taskStatus({ unverified: true }), 'unverified');
 assert.equal(L.taskStatus(undefined), 'unverified');
 
+// A common slip (What's is …) names the slip, but the answer shown is the task's own (27 Nov 2026: a name question
+// showed “What's your phone number?”). Every write task with tiles containing What's is checked.
+{
+  const all = require('../src/data/unit1/lesson3.ts');
+  const lessons = Object.values(all).flatMap(v => Array.isArray(v) ? v : v && Array.isArray(v.cards) ? v.cards : []);
+  const c = lessons.find(t => t && t.id === 'd3_c04');
+  assert.ok(c, 'd3_c04 found');
+  const g = L.gradeText(c, "What's is your name?");
+  assert.equal(g.status, 'wrong');
+  assert.equal(g.explain.answers, "What's your name?", 'slip shows the task’s own answer');
+}
+
 console.log(`PASS: Lesson 1 redesign (2 parts) — ${flow.length} cards, ${ids.required.length} required + ${ids.optional.length} voice tasks, names, grading, explanations and statuses.`);

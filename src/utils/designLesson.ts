@@ -73,11 +73,17 @@ function pickVariant(variants: Variant[], value: string, voice: boolean, field?:
  *  the explanation names the slip itself instead of a general “other” text. Only taught English is quoted. */
 const COMMON_SLIPS: Variant[] = [
   { match: { pattern: String.raw`\bwhat'?s\s+is\b` }, short: 'What’s = What is — is ikinci dəfə yazılmır.',
-    explain: { answers: "What's your phone number?", reason: 'What’s artıq “What is” deməkdir; sonra yenə is yazanda söz iki dəfə olur.', rule: "What's your phone number? — düzdür; What's is your phone number? — olmur.", example: "What's your name?" } },
+    explain: { answers: "What's your name?", reason: 'What’s artıq “What is” deməkdir; sonra yenə is yazanda söz iki dəfə olur.', rule: 'What’s your name? — düzdür; What’s is your name? — olmur.', example: "What's your name?" } },
   { match: { pattern: String.raw`^\s*it'?s\s+that'?s?\s+right\b|^\s*its\s+thats?\s+right\b` }, short: 'Soruşanda Is ilə başla: Is that right?',
     explain: { answers: 'Is that right?', reason: 'Düz olduğunu soruşursan — sual Is ilə başlayır, It’s ilə yox.', rule: 'Is that right? — sualdır; It’s [ad] — cavabdır.', example: "Oh five five… Is that right?" } },
 ];
 const commonSlip = (value: string) => COMMON_SLIPS.find(v => 'pattern' in v.match && new RegExp(v.match.pattern, 'iu').test(value.trim()));
+/** A common slip names the slip, but the right answer always comes from THIS task (27 Nov 2026: a name question
+ *  showed “What's your phone number?” as the answer). The slip's own answer is used only when the task has none. */
+const slipExplain = (slip: Variant, own: Variant | undefined, value: string, purpose?: string): Graded['explain'] => {
+  const mine = explainOf(own, value, purpose);
+  return mine ? { ...mine, reason: slip.explain.reason, rule: slip.explain.rule } : explainOf(slip, value);
+};
 
 const explainOf = (variant: Variant | undefined, yourAnswer: string, purpose?: string): Graded['explain'] =>
   variant ? { ...variant.explain, reason: variant.explain.reason.replace('{purpose}', purpose ?? ''), yourAnswer } : undefined;
@@ -121,7 +127,7 @@ export function gradeText(task: Extract<DesignTask, { type: 'write' | 'voice' }>
   if (verdict.status === 'unknown' && !(variant && !('other' in variant.match))) return { status: 'unknown' };
   const slip = (!variant || 'other' in variant.match) ? commonSlip(value) : undefined;
   const used = slip ?? variant;
-  return withOwnFix({ status: 'wrong', short: used?.short ?? used?.explain.reason, explain: explainOf(used, value) }, value, task.rule);
+  return withOwnFix({ status: 'wrong', short: used?.short ?? used?.explain.reason, explain: slip ? slipExplain(slip, variant, value) : explainOf(variant, value) }, value, task.rule);
 }
 
 /** Tiles in the order the learner tapped them, as one sentence (“My name is Leyla .” → “My name is Leyla.”). */
@@ -196,7 +202,7 @@ export function gradeTwo(task: TwoTask, values: Record<string, string>, keep: Re
     const variant = pickVariant(task.variants.filter(v => !('swapped' in v.match)), values[field.id], false, field.id);
     const short = variant?.short && !(field.id === second.id && fields[first.id].status !== 'correct') ? variant.short : variant?.explain.reason.replace('{purpose}', field.purpose);
     const slip = (!variant || 'other' in variant.match) ? commonSlip(values[field.id]) : undefined;
-    fields[field.id] = withOwnFix(slip ? { status: 'wrong', short: slip.short, explain: explainOf(slip, values[field.id]) }
+    fields[field.id] = withOwnFix(slip ? { status: 'wrong', short: slip.short, explain: slipExplain(slip, variant, values[field.id], field.purpose) }
       : { status: 'wrong', short, explain: explainOf(variant, values[field.id], field.purpose) }, values[field.id], field.rule);
   }
   const statuses = task.fields.map(f => fields[f.id].status);
