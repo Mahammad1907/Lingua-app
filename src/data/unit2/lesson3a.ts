@@ -125,7 +125,7 @@ export const lesson3a: DesignLesson = {
       why: "Hər qısaltmanın son hərfini tapdın.",
       hint: "Kartlardakı qısaltmaları xatırla.",
       prompt: "Dostun qısaltmanın əvvəlini deyir.\nSıraya toxun, sonra onun sonunu seç.",
-      rows: [{"en": "T…", "az": "V!", "from": "G"}, {"en": "I…", "az": "D!", "from": "B"}, {"en": "S, M…", "az": "S!", "from": "M"}],
+      rows: [{"en": "T…", "az": "V!", "from": "G"}, {"en": "I…", "az": "D!", "from": "B"}, {"en": "S, M…", "az": "S!", "from": "F"}],
       extra: ["F!"],
       variants: [other("Bir qısaltmanın sonu yerində deyil.", ex("T… — V!; I… — D!; S, M… — S!", "Kartlardakı qısaltmaları xatırla: TV, ID, SMS.", "TV — ti-vi; ID — ay-di.", "ID, please."))],
       review: {
@@ -134,7 +134,7 @@ export const lesson3a: DesignLesson = {
         why: "Hər qısaltmanın son hərfini tapdın.",
         hint: "Tapşırıqlardakı kanalları və kartdakı qısaltmaları xatırla.",
         prompt: "Başqa qısaltmalar.\nSıraya toxun, sonra onun sonunu seç.",
-        rows: [{"en": "M, T…", "az": "V!", "from": "B"}, {"en": "F…", "az": "X!", "from": "G"}, {"en": "S, M…", "az": "S!", "from": "M"}],
+        rows: [{"en": "M, T…", "az": "V!", "from": "B"}, {"en": "F…", "az": "X!", "from": "G"}, {"en": "S, M…", "az": "S!", "from": "F"}],
         extra: ["D!"],
         variants: [other("Bir qısaltmanın sonu yerində deyil.", ex("M, T… — V!; F… — X!; S, M… — S!", "Qısaltmaları xatırla: MTV, FX, SMS.", "MTV — em-ti-vi; FX — ef-eks.", "SMS"))],
       },
