@@ -61,6 +61,13 @@ export const SCENE_IMAGES: Record<string, number> = {
   'u2/word-letters-hd': require('../../assets/lessons/u2/word-letters-hd.webp'),
   'u2/word-at': require('../../assets/lessons/u2/word-at.webp'),
   'u2/word-double': require('../../assets/lessons/u2/word-double.webp'),
+  'u3/airport': require('../../assets/lessons/u3/airport.webp'),
+  'u3/train': require('../../assets/lessons/u3/train.webp'),
+  'u3/hostel': require('../../assets/lessons/u3/hostel.webp'),
+  'u3/hostel-kitchen': require('../../assets/lessons/u3/hostel-kitchen.webp'),
+  'u3/videocall': require('../../assets/lessons/u3/videocall.webp'),
+  'u3/cafe': require('../../assets/lessons/u3/cafe.webp'),
+  'u3/party': require('../../assets/lessons/u3/party.webp'),
 };
 
 /**
