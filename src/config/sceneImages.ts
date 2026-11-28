@@ -48,6 +48,19 @@ export const SCENE_IMAGES: Record<string, number> = {
   'u2/word-letters-ok': require('../../assets/lessons/u2/word-letters-ok.webp'),
   'u2/word-letters-qr': require('../../assets/lessons/u2/word-letters-qr.webp'),
   'u2/word-letters-usa': require('../../assets/lessons/u2/word-letters-usa.webp'),
+  'u2/word-email': require('../../assets/lessons/u2/word-email.webp'),
+  'u2/word-whats-email': require('../../assets/lessons/u2/word-email.webp'),
+  'u2/word-phone-number': require('../../assets/lessons/u2/word-phone-number.webp'),
+  'u2/word-how-old': require('../../assets/lessons/u2/word-birthday.webp'),
+  'u2/word-years-old': require('../../assets/lessons/u2/word-birthday.webp'),
+  'u2/word-im-25': require('../../assets/lessons/u2/word-birthday.webp'),
+  'u2/word-first-name': require('../../assets/lessons/u2/word-first-name.webp'),
+  'u2/word-last-name': require('../../assets/lessons/u2/word-last-name.webp'),
+  'u2/word-whats-last-name': require('../../assets/lessons/u2/word-last-name.webp'),
+  'u2/word-mr-ms': require('../../assets/lessons/u2/word-mr-ms.webp'),
+  'u2/word-letters-hd': require('../../assets/lessons/u2/word-letters-hd.webp'),
+  'u2/word-at': require('../../assets/lessons/u2/word-at.webp'),
+  'u2/word-double': require('../../assets/lessons/u2/word-double.webp'),
 };
 
 /**
