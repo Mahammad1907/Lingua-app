@@ -80,6 +80,11 @@ export const SCENE_IMAGES: Record<string, number> = {
   'u3/word-france': require('../../assets/lessons/u3/word-france.webp'),
   'u3/word-he': require('../../assets/lessons/u3/word-he.webp'),
   'u3/word-she': require('../../assets/lessons/u3/word-she.webp'),
+  'u3/word-country': require('../../assets/lessons/u3/word-country.webp'),
+  'u3/word-city': require('../../assets/lessons/u3/word-city.webp'),
+  'u3/word-language': require('../../assets/lessons/u3/word-language.webp'),
+  'u3/word-nationality': require('../../assets/lessons/u3/word-nationality.webp'),
+  'u3/word-here': require('../../assets/lessons/u3/word-here.webp'),
 };
 
 /**
