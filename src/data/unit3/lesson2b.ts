@@ -30,7 +30,7 @@ export const lesson2b: DesignLesson = {
       ],
     },
     {
-      type: 'word', id: 'u3d2b_c02', number: 2, scenes: ['mascot/globe'],
+      type: 'word', id: 'u3d2b_c02', number: 2, scenes: ['u3/word-uk'],
       word: 'the UK', pronunciation: '/ðə ˌjuˈkeɪ/', reading: '**th**ə yu-key', az: 'Böyük Britaniya',
       structure: ['from + the UK'],
       notes: ['Bu ölkənin adından əvvəl “the” gəlir və atılmır.'],
@@ -55,7 +55,7 @@ export const lesson2b: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d2b_c04', number: 4, scenes: ['mascot/point'],
+      type: 'word', id: 'u3d2b_c04', number: 4, scenes: ['u3/word-england'],
       word: 'England', pronunciation: '/ˈɪŋɡlənd/', reading: 'inqlənd', az: 'İngiltərə',
       notes: ['England-dən əvvəl “the” gəlmir.'],
       example: "I'm from England.", exampleAz: 'İngiltərədənəm.',
@@ -79,7 +79,7 @@ export const lesson2b: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d2b_c06', number: 6, scenes: ['mascot/wave'],
+      type: 'word', id: 'u3d2b_c06', number: 6, scenes: ['u3/word-usa'],
       word: 'the USA', pronunciation: '/ðə ˌjuɛsˈeɪ/', reading: '**th**ə yu-es-ey', az: 'ABŞ',
       structure: ['from + the USA'],
       notes: ['Burada da “the” gəlir: the USA, the UK.'],
@@ -156,7 +156,7 @@ export const lesson2b_2: DesignLesson = {
       ],
     },
     {
-      type: 'word', id: 'u3d2b_c08', number: 8, scenes: ['mascot/think'],
+      type: 'word', id: 'u3d2b_c08', number: 8, scenes: ['u3/word-germany'],
       word: 'Germany', pronunciation: '/ˈdʒɝməni/', reading: 'cörməni', az: 'Almaniya',
       notes: ['“Almaniya” yox: ingiliscə Germany, “cörməni” oxunur.'],
       example: "I'm from Germany.", exampleAz: 'Almaniyadanam.',
@@ -192,7 +192,7 @@ export const lesson2b_2: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d2b_c10', number: 10, scenes: ['mascot/happy'],
+      type: 'word', id: 'u3d2b_c10', number: 10, scenes: ['u3/word-france'],
       word: 'France', pronunciation: '/fræns/', reading: 'frəns', az: 'Fransa',
       notes: ['“Fransa” yox, “frəns” oxunur.'],
       example: "I'm from France.", exampleAz: 'Fransadanam.',

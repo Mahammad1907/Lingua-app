@@ -68,6 +68,18 @@ export const SCENE_IMAGES: Record<string, number> = {
   'u3/videocall': require('../../assets/lessons/u3/videocall.webp'),
   'u3/cafe': require('../../assets/lessons/u3/cafe.webp'),
   'u3/party': require('../../assets/lessons/u3/party.webp'),
+  'u3/word-azerbaijan': require('../../assets/lessons/u3/word-azerbaijan.webp'),
+  'u3/word-turkey': require('../../assets/lessons/u3/word-turkey.webp'),
+  'u3/word-georgia': require('../../assets/lessons/u3/word-georgia.webp'),
+  'u3/word-russia': require('../../assets/lessons/u3/word-russia.webp'),
+  'u3/word-iran': require('../../assets/lessons/u3/word-iran.webp'),
+  'u3/word-uk': require('../../assets/lessons/u3/word-uk.webp'),
+  'u3/word-england': require('../../assets/lessons/u3/word-england.webp'),
+  'u3/word-usa': require('../../assets/lessons/u3/word-usa.webp'),
+  'u3/word-germany': require('../../assets/lessons/u3/word-germany.webp'),
+  'u3/word-france': require('../../assets/lessons/u3/word-france.webp'),
+  'u3/word-he': require('../../assets/lessons/u3/word-he.webp'),
+  'u3/word-she': require('../../assets/lessons/u3/word-she.webp'),
 };
 
 /**

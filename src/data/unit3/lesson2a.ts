@@ -26,7 +26,7 @@ export const lesson2a: DesignLesson = {
       ],
     },
     {
-      type: 'word', id: 'u3d2a_c02', number: 2, scenes: ['mascot/globe'],
+      type: 'word', id: 'u3d2a_c02', number: 2, scenes: ['u3/word-country'],
       word: 'country', pronunciation: '/ˈkʌntri/', reading: 'kantri', az: 'ölkə',
       structure: ['What country are you from?'],
       notes: ['What country is it? — hansı ölkə?'],
@@ -51,7 +51,7 @@ export const lesson2a: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d2a_c04', number: 4, scenes: ['mascot/point'],
+      type: 'word', id: 'u3d2a_c04', number: 4, scenes: ['u3/word-turkey'],
       word: 'Turkey', pronunciation: '/ˈtɝki/', reading: 'törki', az: 'Türkiyə',
       notes: ['Türkiyə ingiliscə Turkey yazılır və “törki” oxunur.'],
       example: "I'm from Turkey.", exampleAz: 'Türkiyədənəm.',
@@ -69,7 +69,7 @@ export const lesson2a: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d2a_c06', number: 6, scenes: ['mascot/think'],
+      type: 'word', id: 'u3d2a_c06', number: 6, scenes: ['u3/word-georgia'],
       word: 'Georgia', pronunciation: '/ˈdʒɔrdʒə/', reading: 'corcə', az: 'Gürcüstan',
       notes: ['“corcə” oxunur; ABŞ-da da Georgia adlı ştat var.'],
       example: "I'm from Georgia.", exampleAz: 'Gürcüstandanam.',
@@ -149,7 +149,7 @@ export const lesson2a_2: DesignLesson = {
       ],
     },
     {
-      type: 'word', id: 'u3d2a_c08', number: 8, scenes: ['mascot/wave'],
+      type: 'word', id: 'u3d2a_c08', number: 8, scenes: ['u3/word-russia'],
       word: 'Russia', pronunciation: '/ˈrʌʃə/', reading: 'raşə', az: 'Rusiya',
       notes: ['“Rusiya” yox, “raşə” oxunur.'],
       example: "I'm from Russia.", exampleAz: 'Rusiyadanam.',
@@ -185,7 +185,7 @@ export const lesson2a_2: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d2a_c10', number: 10, scenes: ['mascot/point'],
+      type: 'word', id: 'u3d2a_c10', number: 10, scenes: ['u3/word-iran'],
       word: 'Iran', pronunciation: '/ɪˈrɑn/', reading: 'iran', az: 'İran',
       notes: ['Vurğu sondadır.'],
       example: "I'm from Iran.", exampleAz: 'İrandanam.',

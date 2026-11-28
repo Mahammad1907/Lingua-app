@@ -30,7 +30,7 @@ export const lesson5a: DesignLesson = {
       ],
     },
     {
-      type: 'word', id: 'u3d5a_c02', number: 2, scenes: ['mascot/point'],
+      type: 'word', id: 'u3d5a_c02', number: 2, scenes: ['u3/word-he'],
       word: 'he', pronunciation: '/hi/', reading: 'hi', az: 'o (kişi, oğlan)',
       notes: ['Azərbaycancada “o” hər kəs üçündür; ingiliscə kişi üçün he.'],
       example: 'He is fine, thanks.', exampleAz: 'O yaxşıdır, sağ ol.',
@@ -54,7 +54,7 @@ export const lesson5a: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d5a_c04', number: 4, scenes: ['mascot/wave'],
+      type: 'word', id: 'u3d5a_c04', number: 4, scenes: ['u3/word-she'],
       word: 'she', pronunciation: '/ʃi/', reading: 'şi', az: 'o (qadın, qız)',
       notes: ['Kişi üçün he, qadın üçün she — azərbaycancada ikisi də “o”.'],
       example: 'She is OK. He is fine.', exampleAz: 'O (qadın) normaldır. O (kişi) yaxşıdır.',

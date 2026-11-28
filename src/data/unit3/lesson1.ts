@@ -164,7 +164,7 @@ export const lesson1_2: DesignLesson = {
       ],
     },
     {
-      type: 'word', id: 'u3d1_c06', number: 6, scenes: ['mascot/globe'],
+      type: 'word', id: 'u3d1_c06', number: 6, scenes: ['u3/word-azerbaijan'],
       word: 'Azerbaijan', pronunciation: '/ˌæzərbaɪˈdʒɑn/', reading: 'əzərbaycan', az: 'Azərbaycan',
       notes: ['Ölkənin adı böyük hərflə yazılır; vurğu sondadır.'],
       example: "I'm from Azerbaijan.", exampleAz: 'Azərbaycandanam.',

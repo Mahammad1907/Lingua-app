@@ -170,7 +170,7 @@ export const lesson7_2: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d7_c10', number: 10, scenes: ['mascot/globe'],
+      type: 'word', id: 'u3d7_c10', number: 10, scenes: ['u3/word-language'],
       word: 'language', pronunciation: '/ˈlæŋɡwɪdʒ/', reading: 'lənqvic', az: 'dil',
       notes: ['Dilin adı millət sözü ilə eynidir: Russian — rus, rus dili.'],
       example: 'What language do you speak?', exampleAz: 'Hansı dildə danışırsan?',

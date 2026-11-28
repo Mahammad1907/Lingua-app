@@ -215,7 +215,7 @@ export const lesson3b_2: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d3b_c10', number: 10, scenes: ['u3/hostel'],
+      type: 'word', id: 'u3d3b_c10', number: 10, scenes: ['u3/word-nationality'],
       word: 'nationality', pronunciation: '/ˌnæʃəˈnæləti/', reading: 'neşənələti', az: 'millət, vətəndaşlıq',
       structure: ['Nationality: + millət.'],
       notes: ['Formalarda sahə adıdır; tək sözlə sual kimi də deyilir: Nationality?'],

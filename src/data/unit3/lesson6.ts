@@ -155,7 +155,7 @@ export const lesson6_2: DesignLesson = {
       ],
     },
     {
-      type: 'word', id: 'u3d6_c06', number: 6, scenes: ['mascot/globe'],
+      type: 'word', id: 'u3d6_c06', number: 6, scenes: ['u3/word-city'],
       word: 'city', pronunciation: '/ˈsɪti/', reading: 'siti', az: 'şəhər',
       notes: ['Ölkə — country, şəhər — city.'],
       example: 'What city are you from? — Ganja.', exampleAz: 'Hansı şəhərdənsən? — Gəncədən.',
@@ -193,7 +193,7 @@ export const lesson6_2: DesignLesson = {
       },
     },
     {
-      type: 'word', id: 'u3d6_c10', number: 10, scenes: ['mascot/wave'],
+      type: 'word', id: 'u3d6_c10', number: 10, scenes: ['u3/word-here'],
       word: 'here', pronunciation: '/hɪr/', reading: 'hir', az: 'burada',
       notes: ['Şəhərin adını demək əvəzinə: I live here.'],
       example: "I'm from Ganja, but I live here.", exampleAz: 'Gəncədənəm, amma burada yaşayıram.',
