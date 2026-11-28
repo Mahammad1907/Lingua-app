@@ -46,7 +46,7 @@ export const lesson1b: DesignLesson = {
     {
       type: 'choice', id: 'u2d1b_c05', number: 5, title: 'Səhnədə tap', why: '“six” — altı.', hint: 'İki rəqəm eyni hərflə başlayır — sözün uzunluğuna qulaq as.', scenes: ['u2/bus-stop'],
       prompt: 'Dayanacağa üç avtobus gəlir. Oğlan sürücüdən soruşur.\nO hansı avtobusa minir?', audio: 'Excuse me, six?',
-      spots: [{ option: '7 nömrəli avtobus', x: 24, y: 44 }, { option: '6 nömrəli avtobus', x: 54, y: 46 }, { option: '5 nömrəli avtobus', x: 82, y: 42 }],
+      spots: [{ option: '7 nömrəli avtobus', x: 18, y: 73 }, { option: '6 nömrəli avtobus', x: 50, y: 73 }, { option: '5 nömrəli avtobus', x: 84, y: 73 }],
       options: ['7 nömrəli avtobus', '6 nömrəli avtobus', '5 nömrəli avtobus'], answer: '6 nömrəli avtobus',
       variants: [
         pick('7 nömrəli avtobus', 'seven — yeddi; səsdə başqa rəqəm var.', ex('6 nömrəli avtobus', '“six” və “seven” ikisi də “s” ilə başlayır, amma six bir hecadır.', 'Excuse me, six? — altı; Excuse me, seven? — yeddi.', 'Excuse me, six?')),
@@ -55,7 +55,7 @@ export const lesson1b: DesignLesson = {
       review: {
         title: 'Səhnədə tap', why: '“nine” — doqquz.', hint: 'Rəqəmin ilk səsinə qulaq as.', scenes: ['u2/bus-stop-2'],
         prompt: 'Başqa dayanacaqda qız sürücüdən soruşur.\nO hansı avtobusu gözləyir?', audio: 'Excuse me, nine?',
-        spots: [{ option: '9 nömrəli avtobus', x: 22, y: 46 }, { option: '5 nömrəli avtobus', x: 52, y: 42 }, { option: '8 nömrəli avtobus', x: 80, y: 48 }],
+        spots: [{ option: '9 nömrəli avtobus', x: 22, y: 73 }, { option: '5 nömrəli avtobus', x: 51, y: 73 }, { option: '8 nömrəli avtobus', x: 84, y: 73 }],
         options: ['9 nömrəli avtobus', '5 nömrəli avtobus', '8 nömrəli avtobus'], answer: '9 nömrəli avtobus',
         variants: [
           pick('5 nömrəli avtobus', 'five — beş; səsdə başqa rəqəm var.', ex('9 nömrəli avtobus', '“five” və “nine”də eyni “ay” səsi var, amma ilk səs fərqlidir.', 'Excuse me, five? — beş; Excuse me, nine? — doqquz.', 'Excuse me, nine?')),

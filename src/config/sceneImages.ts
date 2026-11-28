@@ -23,6 +23,22 @@ export const SCENE_IMAGES: Record<string, number> = {
   'd8/party-meet': require('../../assets/lessons/d8/party-meet.webp'),
   'd8/party-talk': require('../../assets/lessons/d8/party-talk.webp'),
   'd8/online-class': require('../../assets/lessons/d8/online-class.webp'),
+  'u2/bus-stop': require('../../assets/lessons/u2/bus-stop.webp'),
+  'u2/bus-stop-2': require('../../assets/lessons/u2/bus-stop-2.webp'),
+  'u2/parking-zones': require('../../assets/lessons/u2/parking-zones.webp'),
+  'u2/parking-zones-2': require('../../assets/lessons/u2/parking-zones-2.webp'),
+  'u2/airport-gates': require('../../assets/lessons/u2/airport-gates.webp'),
+  'u2/airport-gates-2': require('../../assets/lessons/u2/airport-gates-2.webp'),
+  'u2/airport-board': require('../../assets/lessons/u2/airport-board.webp'),
+  'u2/airport-board-2': require('../../assets/lessons/u2/airport-board-2.webp'),
+  'u2/gym-lockers': require('../../assets/lessons/u2/gym-lockers.webp'),
+  'u2/gym-lockers-2': require('../../assets/lessons/u2/gym-lockers-2.webp'),
+  'u2/registration-desk': require('../../assets/lessons/u2/registration-desk.webp'),
+  'u2/form-course': require('../../assets/lessons/u2/form-course.webp'),
+  'u2/form-gym': require('../../assets/lessons/u2/form-gym.webp'),
+  'u2/form-office': require('../../assets/lessons/u2/form-office.webp'),
+  'u2/form-library': require('../../assets/lessons/u2/form-library.webp'),
+  'u2/form-pool': require('../../assets/lessons/u2/form-pool.webp'),
 };
 
 /**

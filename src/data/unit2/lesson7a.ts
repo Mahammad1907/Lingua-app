@@ -220,7 +220,7 @@ export const lesson7aPart2: DesignLesson = {
     {
       type: 'choice', id: 'u2d7a_c12', number: 12, title: 'Səhnədə tap', why: '“seventeen” — 17.', hint: 'Sözün sonuna qulaq as: “teen” var, yoxsa yox?', scenes: ['u2/gym-lockers'],
       prompt: 'Zalda dolablar sıra ilə düzülüb. Qəbul sənin dolabını deyir.\nŞəkildə həmin dolabı tap.', audio: 'Seventeen.',
-      spots: [{ option: '7-ci dolab', x: 20, y: 50 }, { option: '17-ci dolab', x: 50, y: 50 }, { option: '16-cı dolab', x: 80, y: 50 }],
+      spots: [{ option: '7-ci dolab', x: 38, y: 58 }, { option: '17-ci dolab', x: 50, y: 58 }, { option: '16-cı dolab', x: 62, y: 58 }],
       options: ['7-ci dolab', '17-ci dolab', '16-cı dolab'], answer: '17-ci dolab',
       variants: [
         pick('7-ci dolab', '“seven” — 7; səsdə “teen” də var.', ex('17-ci dolab', 'Sözün sonunda “teen” var — bu, 17-dir.', 'seven — 7; seventeen — 17.', 'Seventeen.')),
@@ -229,7 +229,7 @@ export const lesson7aPart2: DesignLesson = {
       review: {
         title: 'Səhnədə tap', why: '“nineteen” — 19.', hint: 'Sözün sonuna qulaq as: “teen” var, yoxsa yox?', scenes: ['u2/gym-lockers-2'],
         prompt: 'Hovuzun soyunma otağındasan. Qəbul sənin dolabını deyir.\nŞəkildə həmin dolabı tap.', audio: 'Nineteen.',
-        spots: [{ option: '9-cu dolab', x: 22, y: 48 }, { option: '18-ci dolab', x: 52, y: 48 }, { option: '19-cu dolab', x: 80, y: 48 }],
+        spots: [{ option: '9-cu dolab', x: 38, y: 58 }, { option: '18-ci dolab', x: 50, y: 58 }, { option: '19-cu dolab', x: 62, y: 58 }],
         options: ['9-cu dolab', '18-ci dolab', '19-cu dolab'], answer: '19-cu dolab',
         variants: [
           pick('9-cu dolab', '“nine” — 9; səsdə “teen” də var.', ex('19-cu dolab', 'Sözün sonunda “teen” var — bu, 19-dur.', 'nine — 9; nineteen — 19.', 'Nineteen.')),
