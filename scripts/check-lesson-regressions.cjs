@@ -41,7 +41,8 @@ assert.equal(isAnswerCorrect('sağol', 'sağ ol', 'az'), true);
 assert.equal(isAnswerCorrect('Helloo', 'Hi', 'en', ['Hello']), true, 'authored alternatives have the same spelling tolerance');
 let phrases = 0;
 for(const lesson of b1Packet) for(const c of packetFlow(lesson)) for(const card of [c,c.review].filter(Boolean)) for(const text of [card.audio,card.turns?.[0]?.audio,card.turns?.[0]?.reply].filter(Boolean)) {assert.ok(audioMeaning(lesson,text),`${card.id}: ${text}`);phrases++;}
-const c = (l,n) => b1Packet[l-1].cards.find(c=>c.number===n);
+// Old packet lessons by lesson order (26 Nov 2026: Bölmə 1 parts …_2 sit between them in b1Packet).
+const c = (l,n) => b1Packet.find(x=>(x.number ?? x.order)===l && (x.part ?? 1)===1).cards.find(c=>c.number===n);
 assert.notEqual(c(2,6).review.body,c(2,7).review.body);
 assert.equal(new Set([7,8,11].map(n=>c(3,n).review.body)).size,3);
 assert.deepEqual(c(6,15).review.rule.goals,['repeat','slow']);

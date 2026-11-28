@@ -48,15 +48,15 @@ Use case: stylized-concept. Asset type: transparent 3D educational game illustra
 
 ### Səhər
 
-Use case: stylized-concept. One square isolated 3D miniature diorama for BirTalk language lessons: charming school courtyard on rounded deep navy oval base, open gate, pale cream small school with orange roof, one small green tree, warm rising sun LOW behind roof, long MORNING shadows, tiny backpack by gate. Premium soft 3D animation film / tactile clay style, convincing volume, purple and orange accents, crisp silhouettes readable at90px. Entire diorama on genuinely transparent background. No fox, no people, no text, no numerals, no enclosing rectangle. Centered with safe margins.
+Use case: stylized-concept. One square isolated 3D miniature diorama for BilTalk language lessons: charming school courtyard on rounded deep navy oval base, open gate, pale cream small school with orange roof, one small green tree, warm rising sun LOW behind roof, long MORNING shadows, tiny backpack by gate. Premium soft 3D animation film / tactile clay style, convincing volume, purple and orange accents, crisp silhouettes readable at90px. Entire diorama on genuinely transparent background. No fox, no people, no text, no numerals, no enclosing rectangle. Centered with safe margins.
 
 ### Günorta
 
-Use case: stylized-concept. One square isolated 3D miniature diorama for BirTalk language lessons: cozy outdoor cafe on rounded deep navy oval base, small round wooden table with coffee cup and purple chair, orange parasol, bright sun HIGH overhead, potted green tree. Clearly AFTERNOON bright daylight and short shadows. Premium soft 3D animation film / tactile clay style, convincing volume, purple and orange accents, crisp silhouettes readable at90px. Entire diorama on genuinely transparent background. No fox, no people, no text, no numerals, no enclosing rectangle. Centered with safe margins.
+Use case: stylized-concept. One square isolated 3D miniature diorama for BilTalk language lessons: cozy outdoor cafe on rounded deep navy oval base, small round wooden table with coffee cup and purple chair, orange parasol, bright sun HIGH overhead, potted green tree. Clearly AFTERNOON bright daylight and short shadows. Premium soft 3D animation film / tactile clay style, convincing volume, purple and orange accents, crisp silhouettes readable at90px. Entire diorama on genuinely transparent background. No fox, no people, no text, no numerals, no enclosing rectangle. Centered with safe margins.
 
 ### Axşam
 
-Use case: stylized-concept. One square isolated 3D miniature diorama for BirTalk language lessons: peaceful park on rounded deep navy oval base, wooden bench under small purple leafy tree, glowing warm amber streetlamp, LOW orange sunset sun and violet wispy cloud behind. Clearly EARLY EVENING twilight, not midnight. Premium soft 3D animation film / tactile clay style, convincing volume, purple and orange accents, crisp silhouettes readable at90px. Entire diorama on genuinely transparent background. No fox, no people, no text, no numerals, no enclosing rectangle. Centered with safe margins.
+Use case: stylized-concept. One square isolated 3D miniature diorama for BilTalk language lessons: peaceful park on rounded deep navy oval base, wooden bench under small purple leafy tree, glowing warm amber streetlamp, LOW orange sunset sun and violet wispy cloud behind. Clearly EARLY EVENING twilight, not midnight. Premium soft 3D animation film / tactile clay style, convincing volume, purple and orange accents, crisp silhouettes readable at90px. Entire diorama on genuinely transparent background. No fox, no people, no text, no numerals, no enclosing rectangle. Centered with safe margins.
 
 ### Söhbət
 

@@ -1,5 +1,9 @@
-// Single source of truth; BirFox is only the current placeholder, not a final choice.
-export const MASCOT_NAME: string = 'BirFox';
+import { CHARACTERS } from '../config/characters';
+
+// The mascot's name lives in src/config/characters.ts. Older lessons (2–7) still
+// contain the placeholder "BirFox" inside their grading data, so they keep that
+// placeholder until a real name is written in the config; then it applies everywhere.
+export const MASCOT_NAME: string = CHARACTERS.mascot.az.trim() || 'BirFox';
 
 // Azerbaijani suffixes follow the last vowel; override them here for names with
 // unusual pronunciation. The default preserves the existing lesson text exactly.

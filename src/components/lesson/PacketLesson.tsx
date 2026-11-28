@@ -8,7 +8,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Alert, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TouchableOpacity, View, Pressable, useWindowDimensions, BackHandler } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getLessonById } from '../../data/lessons';
-import { b1Packet, packetFlow } from '../../data/b1Course';
+import { b1Packet, mapNumber, packetFlow } from '../../data/b1Course';
 import type { PacketCard, PacketLesson as Content, PacketRule } from '../../data/b1PacketTypes';
 import { useUserStore } from '../../store/userStore';
 import { useVocabularyStore } from '../../store/vocabularyStore';
@@ -98,7 +98,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const turn = card?.turns?.[0]; const rule: PacketRule | undefined = turn?.rule || card?.rule;
   const audio = turn?.audio || card?.audio;
   useEffect(() => {
-    const next = [classroomSource, ...flow.slice(index, index + 4).flatMap(c => { const id = packetScene(packet.order, c); return id ? [lessonSceneSources[id]] : []; })];
+    const next = [classroomSource, ...flow.slice(index, index + 4).flatMap(c => { const id = packetScene(mapNumber(packet), c); return id ? [lessonSceneSources[id]] : []; })];
     void warmLessonArtwork(next);
   }, [flow, index, packet.order]);
   const textPrompt = technicalText || transcriptShown;
@@ -138,7 +138,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     try {
       await Speech.stop(); if (request !== sequence.current) return;
       setPlaying(true);
-      Speech.speak(text, { language: 'en-GB', rate,
+      Speech.speak(text, { language: 'en-US', rate,
         onDone: () => { if (request === sequence.current) { clearWatchdog(); setPlaying(false); if (listenTask) setHeard(true); } },
         onStopped: () => { if (request === sequence.current) { clearWatchdog(); setPlaying(false); } },
         onError: failed,
@@ -223,11 +223,11 @@ export default function PacketLesson({ packet }: { packet: Content }) {
     if (busy) return;
     sequence.current += 1; clearWatchdog(); void Speech.stop(); Keyboard.dismiss();
     if (attempt && !done) useUserStore.getState().abandonLesson(attempt);
-    setExitOpen(false); router.replace({ pathname: '/module/[id]', params: { id: 'module_1' } });
+    setExitOpen(false); router.replace('/(tabs)');
   };
   const exit = () => {
     if (busy || capturing) return;
-    if (!reviewIntro && card?.kind === 'voice' && packet.order < 7) { if (feedback && feedback.status !== 'unknown') advance(); else skip(); return; }
+    if (!reviewIntro && card?.kind === 'voice' && mapNumber(packet) < 7) { if (feedback && feedback.status !== 'unknown') advance(); else skip(); return; }
     if (done || !attempt) leave();
     else { Keyboard.dismiss(); sequence.current += 1; clearWatchdog(); void Speech.stop(); setPlaying(false); if (cloudAbort.current) { cloudSequence.current += 1; cloudAbort.current.abort(); cloudAbort.current = null; setCloudPending(false); setFeedback({ status: 'unknown', criteria: [], message: 'Səs yoxlanmadı. Yenidən danışa və ya yoxlanmadan davam edə bilərsən.' }); } setExitOpen(true); }
   };
@@ -242,7 +242,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
   const isResult = card.kind === 'result';
   const isIntro = card.kind === 'intro';
   const metadata = getLessonById(packet.id);
-  const scene = card.kind === 'intro' ? undefined : packetScene(packet.order, card, reviewing);
+  const scene = card.kind === 'intro' ? undefined : packetScene(mapNumber(packet), card, reviewing);
   const boardText = card.board || (card.kind === 'voice' ? 'Dinlə və\nözün cavab ver' : card.words ? 'Sözlərdən\ncümlə qur' : card.kind === 'intro' ? mascotText('BirFox ilə\nöyrən') : 'Düşün və\ncavabını hazırla');
   const dense = Boolean(task || card.body.length > 240);
   const artworkHeight = heroHeight(height - insets.top - insets.bottom, dense, keyboard, fontScale);
@@ -354,7 +354,7 @@ export default function PacketLesson({ packet }: { packet: Content }) {
       {reviewIntro ? <LessonButton label="Davam et" onPress={() => setReviewIntro(false)} /> : <>
       {(!capturing || voiceLayout) && (card.kind !== 'voice' || locked) ? <LessonButton disabled={disabled} label={isResult ? done ? 'Bölməyə qayıt' : missing.length ? 'Qalan tapşırıqları tamamla' : 'Nəticəni saxla' : card.kind === 'intro' ? 'Dərsə başla' : task && !locked ? 'Yoxla' : 'Davam et'} onPress={() => isResult ? done ? exit() : missing.length ? retryMissing() : void finish() : !task || locked ? advance() : check()} /> : null}
       {task && !cloudPending && feedback?.status === 'unknown' && (answer.trim() || recordedReply) ? <Pressable accessibilityRole="button" style={s.technicalButton} onPress={continueUnverified}><Text style={s.helpLink}>Yoxlanmadı ilə davam et</Text></Pressable> : null}
-      {task && !locked && !keyboard && (card.kind === 'voice' || help || textPrompt) ? <Pressable accessibilityRole="button" disabled={capturing} onPress={skip}><Text style={s.skip}>{card.kind === 'voice' ? packet.order < 7 ? 'Səsli məşqi keç' : 'İndi danışa bilmirəm' : 'Sonra qayıt'}</Text></Pressable> : null}
+      {task && !locked && !keyboard && (card.kind === 'voice' || help || textPrompt) ? <Pressable accessibilityRole="button" disabled={capturing} onPress={skip}><Text style={s.skip}>{card.kind === 'voice' ? mapNumber(packet) < 7 ? 'Səsli məşqi keç' : 'İndi danışa bilmirəm' : 'Sonra qayıt'}</Text></Pressable> : null}
       </>}
     </View>
     <LessonExitDialog visible={exitOpen} onContinue={() => setExitOpen(false)} onExit={leave} busy={busy} />

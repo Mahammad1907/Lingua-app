@@ -1,4 +1,4 @@
-# BirTalk — yalnız son dörd düzəliş
+# BilTalk — yalnız son dörd düzəliş
 
 26 oktyabr 2026. İstifadəçi son izah-kartı tələbini bildirdikdən sonra yalnız toplanmış dörd düzəlişin tətbiqini açıq təsdiqlədi. Başlanğıc versiya: f1cf7b9b2609344322cb2dd2b2675bfa0acb6cc8.
 

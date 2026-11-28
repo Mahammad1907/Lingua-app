@@ -1,5 +1,5 @@
 import Svg, { Circle, Path, Rect } from 'react-native-svg';
-export type HomeIconName = 'home' | 'repeat' | 'book' | 'person' | 'chevron' | 'check' | 'lock' | 'bolt' | 'down' | 'arrow' | 'close';
+export type HomeIconName = 'home' | 'rules' | 'repeat' | 'book' | 'person' | 'chevron' | 'check' | 'lock' | 'bolt' | 'down' | 'arrow' | 'close';
 export function HomeIcon({ name, color = '#ac93f4', size = 24, filled = false }: {
   name: HomeIconName; color?: string; size?: number; filled?: boolean;
 }) {
@@ -7,6 +7,7 @@ export function HomeIcon({ name, color = '#ac93f4', size = 24, filled = false }:
     {name === 'home' && <><Path d="m3 12 11-9 11 9" stroke={color} strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" />
       <Path d="M6 11v13h6v-8h4v8h6V11L14 4Z" stroke={color} fill={filled ? color : 'none'} strokeWidth={2} strokeLinejoin="round" /></>}
     {name === 'repeat' && <><Path d="M5 10a10 10 0 0 1 17-3l3 3M23 18A10 10 0 0 1 6 21l-3-3M25 4v6h-6M3 24v-6h6" stroke={color} strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" /></>}
+    {name === 'rules' && <><Path d="M7 3h11a2 2 0 0 1 2 2v20H9a2 2 0 0 1-2-2Z" stroke={color} fill={filled ? color : 'none'} strokeWidth={2} strokeLinejoin="round" /><Path d="M7 23a2 2 0 0 1 2-2h11M11 8h5M11 12h5" stroke={filled ? '#fff' : color} strokeWidth={2} strokeLinecap="round" /></>}
     {name === 'book' && <Path d="M14 6Q8 2 3 5v18q6-3 11 1 5-4 11-1V5q-5-3-11 1v18" stroke={color} strokeWidth={2} strokeLinejoin="round" />}
     {name === 'person' && <><Circle cx={14} cy={8} r={5.3} fill={color} /><Path d="M3 26v-2a11 11 0 0 1 22 0v2Z" fill={color} /></>}
     {name === 'chevron' && <Path d="m10 5 8 9-8 9" stroke={color} strokeWidth={2.8} strokeLinecap="round" strokeLinejoin="round" />}

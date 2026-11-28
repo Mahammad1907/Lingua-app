@@ -1,133 +1,129 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import { StatusBar } from 'expo-status-bar';
-import { Image, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View, type ViewStyle } from 'react-native';
+import { useCallback, useEffect, useRef } from 'react';
+import { ScrollView, View, useWindowDimensions } from 'react-native';
+import { useFocusEffect } from 'expo-router';
+import { getPacketLesson } from '../../data/b1Course';
+import { designLessons } from '../../data/designLessons';
+import { TEST_OPEN_SECTIONS } from '../../config/testAccess';
 import { getModuleById } from '../../data/modules';
 import { useUserStore } from '../../store/userStore';
 import type { HomeCourse } from '../../utils/homeCourse';
 import { HomeDashboard as OriginalHomeDashboard } from './HomeDashboard';
+import { useReviewStore } from '../../store/reviewStore';
+import { useLastOpenedStore } from '../../store/lastOpenedStore';
+import { registerFinishedLessons } from '../../data/reviewSession';
+import { IslandHome, IslandNavigation, NAV_HEIGHT, type IslandLesson } from './IslandHome';
+import type { LessonIconName } from './LessonIcon';
+export { NAV_HEIGHT };
 
 export { HOME_LANGUAGES } from './HomeDashboard';
-export type { HomeDestination } from './HomeDashboard';
+export type HomeDestination = Destination;
 
-type Destination = 'learn' | 'review' | 'vocabulary' | 'profile';
-const ART_WIDTH = 682;
-const ART_HEIGHT = 1312;
-const LEFT = 43;
-const TOP = 83;
-const FOOTER_RATIO = 122 / 691;
+type Destination = 'learn' | 'review' | 'rules' | 'chat' | 'vocabulary' | 'profile' | 'analysis';
 
-// Pixel coordinates refer only to the user's approved 768 x 1536 reference image.
-// The image is decorative; every tap target below remains a native Pressable.
-function hotspot(x: number, y: number, width: number, height: number, scale: number): ViewStyle {
-  return { position: 'absolute', left: (x - LEFT) * scale, top: (y - TOP) * scale,
-    width: width * scale, height: height * scale };
-}
-
-const LESSON_RECTS = [
-  [154, 507, 138, 139], [437, 507, 150, 141], [181, 657, 146, 142],
-  [460, 722, 157, 143], [146, 852, 145, 148], [396, 967, 137, 131],
-  [220, 1037, 145, 130],
-] as const;
-
-export function HomeDashboard({ course, language, level, xp, compact = false, topInset = 0, onSelect, onOpen, onNavigate }: {
-  course: HomeCourse; language: string; level: string; xp: number; compact?: boolean; topInset?: number;
-  onSelect: () => void; onOpen: (id: string) => void; onNavigate?: (destination: Destination) => void;
+// The English A1 first section is shown as the island (docs/LAYIHE_DEFTERI.md, items 46–47).
+// Other selections keep the original real-data home instead of faking sections.
+export function HomeDashboard({ course, language, level, xp, compact = false, topInset = 0, bottomSpace = 90, onSelect, onOpen, onNavigate, onLesson }: {
+  course: HomeCourse; language: string; level: string; xp: number; compact?: boolean; topInset?: number; bottomSpace?: number;
+  onSelect: () => void; onOpen: (id: string) => void; onNavigate?: (destination: Destination) => void; onLesson?: (id: string) => void;
 }) {
-  const { width } = useWindowDimensions();
   const streak = useUserStore(s => s.streak);
+  const partial = useUserStore(s => s.lessonPartial);
+  const progress = useUserStore(s => s.lessonProgress);
   const completed = useUserStore(s => s.completedLessons);
-  const module = course.items.find(item => item.order === 1 && item.lessonsCount > 0);
-  const preview = course.items.find(item => item.order === 2);
-  const renderedReference = language === 'en' && level === 'A1' && Boolean(module);
-  const imageWidth = Math.min(width, 510);
-  const scale = imageWidth / ART_WIDTH;
-
-  // The supplied screenshot is the English first-section reference only. For other
-  // selections, preserve the original real-data home instead of faking modules.
-  if (!renderedReference || !module) {
+  const exams = useUserStore(s => s.sectionExams) ?? {};
+  // All sections with lessons are stacked on one scrolling page; it opens at the learner's current section (15 Nov 2026).
+  const sections = course.items.filter(item => item.lessonsCount > 0);
+  // The map opens at the section and lesson last opened (user, 21 Nov 2026); before any lesson was opened, at the
+  // first unfinished section.
+  const lastSection = useLastOpenedStore(s => s.section), lastLesson = useLastOpenedStore(s => s.lessonId);
+  const rememberOpened = useLastOpenedStore(s => s.remember);
+  useEffect(() => { void useLastOpenedStore.getState().load(); }, []);
+  const current = (lastSection && sections.some(item => item.order === lastSection) ? lastSection : null)
+    ?? sections.find(item => item.state === 'current')?.order ?? 1;
+  const scrollRef = useRef<ScrollView>(null);
+  // The map opens at the current lesson, also after coming back from a lesson (user, 20 Nov 2026):
+  // top of the current section + the current lesson inside it, placed about a third down the screen.
+  const { height: screenH } = useWindowDimensions();
+  const sectionTop = useRef<Record<number, number>>({ 1: 0 });
+  const activeY = useRef<Record<number, number>>({});
+  const scrollToCurrent = useCallback(() => {
+    const top = sectionTop.current[current], inside = activeY.current[current];
+    if (top === undefined) return;
+    const y = Math.max(0, top + (inside ?? 0) - (inside === undefined ? 0 : screenH * .35));
+    setTimeout(() => scrollRef.current?.scrollTo({ y, animated: false }), 0);
+  }, [current, screenH]);
+  useFocusEffect(useCallback(() => { scrollToCurrent(); }, [scrollToCurrent]));
+  if (language !== 'en' || level !== 'A1' || !sections.length) {
     return <OriginalHomeDashboard course={course} language={language} level={level} xp={xp}
       compact={compact} topInset={topInset} onSelect={onSelect} onOpen={onOpen} />;
   }
-
-  const ids = getModuleById(module.id)?.lessonIds ?? [];
-  const next = ids.findIndex(id => !completed.includes(id));
-  const moduleLocked = module.state === 'locked' || module.state === 'planned';
-  return <LinearGradient colors={['#F8F0FF', '#F4EAFE']} style={s.screen}>
-    <StatusBar style="dark" />
-    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={[s.scroll, { paddingTop: topInset }]}
-      accessibilityLabel="Öyrənmə ana səhifəsi">
-      <View style={{ width: imageWidth, height: ART_HEIGHT * scale, position: 'relative' }}>
-        <Image source={require('../../../assets/home/approved_reference_body.webp')}
-          style={{ width: imageWidth, height: ART_HEIGHT * scale }} resizeMode="stretch" accessible={false} />
-        <Pressable accessibilityRole="button" accessibilityLabel="Dil və səviyyə seç"
-          onPress={onSelect} style={hotspot(65, 91, 252, 70, scale)} />
-        {/* Mask only the mock statistics from the design image, not the real values. */}
-        <View style={[s.metric, hotspot(399, 91, 165, 61, scale)]} pointerEvents="none">
-          <Text style={[s.metricText, { fontSize: Math.max(12, 24 * scale) }]}>🔥 {streak} gün</Text>
-        </View>
-        <View style={[s.metric, hotspot(573, 91, 136, 61, scale)]} pointerEvents="none">
-          <Text style={[s.metricText, { fontSize: Math.max(12, 24 * scale) }]}>⭐ {xp}</Text>
-        </View>
-        <Pressable accessibilityRole="button" accessibilityLabel="Analiz" onPress={() => onNavigate?.('profile')}
-          style={hotspot(81, 301, 298, 78, scale)} />
-        <Pressable accessibilityRole="button" accessibilityLabel="AI söhbət"
-          accessibilityState={{ disabled: moduleLocked }} disabled={moduleLocked}
-          onPress={() => onOpen(module.id)} style={hotspot(388, 301, 306, 78, scale)} />
-        <View style={[s.liveProgress, hotspot(268, 473, 232, 45, scale)]} pointerEvents="none">
-          <Text style={[s.progressText, { fontSize: Math.max(12, 26 * scale) }]}>
-            {module.completedCount}/{module.lessonsCount} dərs · {module.percent}%
-          </Text>
-        </View>
-        {LESSON_RECTS.map(([x, y, w, h], index) => {
-          if (!ids[index]) return null;
-          const blocked = moduleLocked || (next >= 0 && index > next);
-          return <Pressable key={ids[index]} accessibilityRole="button" disabled={blocked}
-            accessibilityState={{ disabled: blocked }}
-            accessibilityLabel={`Dərs ${index + 1}: ${blocked ? 'kilidlidir' : 'bölməni aç'}`}
-            onPress={() => onOpen(module.id)} style={hotspot(x, y, w, h, scale)} />;
-        })}
-        <Pressable accessibilityRole="button" accessibilityLabel="Aktiv dərs üçün Başla"
-          accessibilityState={{ disabled: moduleLocked }} disabled={moduleLocked}
-          onPress={() => onOpen(module.id)} style={hotspot(474, 926, 141, 52, scale)} />
-        {preview && <Pressable disabled={preview.state === 'planned'} accessibilityRole="button"
-          accessibilityState={{ disabled: preview.state === 'planned' }}
-          accessibilityLabel={`Bölmə ${preview.order}: ${preview.title}`}
-          onPress={() => onOpen(preview.id)} style={hotspot(54, 1244, 660, 146, scale)} />}
-      </View>
-    </ScrollView>
-  </LinearGradient>;
+  // “~N dəq” on the map: about half a minute per card (an estimate from the lesson's own length).
+  const minutesOf = (ids: string[]) => { const n = ids.reduce((a, id) => a + (designLessons.find(l => l.id === id)?.cards.length ?? 0), 0); return n ? Math.max(4, Math.round(n * .5)) : undefined; };
+  const words = (id: string) => getPacketLesson(id)?.vocabulary.slice(0, 4).map(w => w.word).join(' · ') || undefined;
+  const sectionProps = (module: typeof sections[number]) => {
+    const ids = getModuleById(module.id)?.lessonIds ?? [];
+    const unit = module.order;
+    // A map lesson split in parts (same `number`) becomes one node with parts.
+    const unitLessons = designLessons.filter(l => (l.unit ?? 1) === unit && !l.exam && ids.includes(l.id));
+    // Bölmə 1 is grouped the same way since its lessons got parts (26 Nov 2026); its titles/icons are keyed by lesson id.
+    const lessons: IslandLesson[] = [...new Set(unitLessons.map(l => l.number ?? l.order))].map(n => {
+        const parts = unitLessons.filter(l => (l.number ?? l.order) === n);
+        return { id: parts[0].id, number: n, title: SHORT_TITLES[`u${unit}_${n}`] ?? SHORT_TITLES[parts[0].id] ?? parts[0].title,
+          phrases: parts.map(p => words(p.id)).filter(Boolean).join(' · ') || undefined, minutes: minutesOf(parts.map(p => p.id)),
+          parts: parts.length > 1 ? parts.map(p => ({ id: p.id, title: p.title })) : undefined, icon: ICONS[`u${unit}_${n}`] ?? ICONS[parts[0].id] };
+      });
+    const examLesson = designLessons.find(l => l.exam && (l.unit ?? 1) === unit);
+    const exam = examLesson ? { id: examLesson.id, percent: exams[examLesson.id]?.percent ?? null, passed: exams[examLesson.id]?.passed ?? false } : undefined;
+    return { section: unit, sectionTitle: getModuleById(module.id)?.titleAz ?? module.title, lessons, completed, partial: partial ?? {},
+      locked: module.state === 'locked' || module.state === 'planned', exam, allOpen: TEST_OPEN_SECTIONS.includes(unit),
+      hasNext: sections.some(m => m.order > unit),
+      focusId: unit === current ? lastLesson ?? undefined : undefined,
+      onOpenLesson: (id: string) => { rememberOpened(unit, id); if (onLesson) onLesson(id); else onOpen(module.id); } };
+  };
+  const shared = { streak, xp, languageLabel: `${language.toUpperCase()} · ${level}`, topInset, bottomSpace,
+    onSelectLanguage: onSelect, onAnalysis: () => onNavigate?.('analysis'), onReview: () => onNavigate?.('review') };
+  // Daily review card: tasks due today in the 1 / 3 / 7 / 14 day schedule (lessons finished earlier enter it once).
+  const hydrated = useReviewStore(s => s.hydrated);
+  const reviewCount = useReviewStore(s => s.dueCount());
+  useEffect(() => { void useReviewStore.getState().load(); }, []);
+  useEffect(() => { if (hydrated) registerFinishedLessons(progress); }, [hydrated, progress]);
+  const [first, ...rest] = sections;
+  // Sticky unit header data (25 Nov 2026): title and progress of every section, shown for the one on screen.
+  const sticky = sections.map(m => {
+    const p = sectionProps(m);
+    const done = p.lessons.filter(l => l.parts ? l.parts.every(x => completed.includes(x.id)) : completed.includes(l.id)).length;
+    return { section: m.order, title: p.sectionTitle, done, count: p.lessons.length };
+  });
+  const placed = (order: number) => (y: number) => { activeY.current[order] = y; if (order === current) scrollToCurrent(); };
+  const after = rest.map(m => <View key={m.id} onLayout={e => {
+    sectionTop.current[m.order] = e.nativeEvent.layout.y; if (m.order === current) scrollToCurrent();
+  }}><IslandHome {...shared} {...sectionProps(m)} review={{ count: reviewCount }} bare onActiveY={placed(m.order)} /></View>);
+  return <IslandHome {...shared} {...sectionProps(first)} review={{ count: reviewCount }} after={after} scrollRef={scrollRef} onActiveY={placed(first.order)}
+    sticky={sticky} sectionTops={sectionTop} />;
 }
 
-const NAV: { id: Destination; label: string }[] = [
-  { id: 'learn', label: 'Öyrən' }, { id: 'review', label: 'Təkrar' },
-  { id: 'vocabulary', label: 'Lüğətim' }, { id: 'profile', label: 'Profil' },
-];
+/** Short names on the island (Bölmə 1 map, docs/BOLME_1_XERITESI.md). */
+const SHORT_TITLES: Record<string, string> = {
+  a1_en_b1_v2_d1: 'Salam', a1_en_b1_v2_d2: 'Adın', a1_en_b1_v2_d3: 'Ad soruş', a1_en_b1_v2_d4: 'Necəsən?',
+  a1_en_b1_v2_d5: 'Təşəkkür', a1_en_b1_v2_d6: 'Üzr', a1_en_b1_v2_d7: 'Başa düşmürəm', a1_en_b1_v2_d8: 'Bölmə söhbəti',
+  // Bölmə 2 (docs/BOLME_2_XERITESI.md), keyed by map number.
+  u2_1: 'Rəqəmlər', u2_2: 'Telefon', u2_3: 'Hərflər', u2_4: 'Hərf-hərf', u2_5: 'Ad, soyad', u2_6: 'E-poçt', u2_7: 'Yaş', u2_8: 'Qeydiyyat',
+  // Bölmə 3 (docs/BOLME_3_XERITESI.md).
+  u3_1: 'Haradansan?', u3_2: 'Ölkələr', u3_3: 'Millət', u3_4: 'Bəli / xeyr', u3_5: 'O haradandır?', u3_6: 'Yaşayırsan', u3_7: 'Dillər', u3_8: 'Dil klubu',
+  u4_1: 'Bu kimdir?', u4_2: 'Ailə', u4_3: 'his və her', u4_4: 'Bu sənindir?', u4_5: 'Qardaşın var?', u4_6: 'Yaş', u4_7: 'Peşə', u4_8: 'Ailə söhbəti',
+};
+
+/** Map icons (25 Nov 2026), keyed like SHORT_TITLES. */
+const ICONS: Record<string, LessonIconName> = {
+  a1_en_b1_v2_d1: 'wave', a1_en_b1_v2_d2: 'nametag', a1_en_b1_v2_d3: 'askname', a1_en_b1_v2_d4: 'smile',
+  a1_en_b1_v2_d5: 'thanks', a1_en_b1_v2_d6: 'sad', a1_en_b1_v2_d7: 'confused', a1_en_b1_v2_d8: 'chats',
+  u2_1: 'digits', u2_2: 'phone', u2_3: 'letters', u2_4: 'spell', u2_5: 'idcard', u2_6: 'mail', u2_7: 'age', u2_8: 'form',
+  u3_1: 'globe', u3_2: 'flag', u3_3: 'passport', u3_4: 'yesno', u3_5: 'pin', u3_6: 'home', u3_7: 'lang', u3_8: 'chats',
+  u4_1: 'who', u4_2: 'family', u4_3: 'pair', u4_4: 'tag', u4_5: 'siblings', u4_6: 'age', u4_7: 'briefcase', u4_8: 'chats',
+};
+
 export function HomeNavigation({ bottomInset = 0, onNavigate }: {
   bottomInset?: number; onNavigate: (destination: Destination) => void;
 }) {
-  const { width } = useWindowDimensions();
-  const height = Math.max(68, width * FOOTER_RATIO);
-  return <View style={[s.nav, { height: height + bottomInset, paddingBottom: bottomInset }]}>
-    <Image source={require('../../../assets/home/approved_reference_nav.webp')}
-      resizeMode="stretch" style={[StyleSheet.absoluteFill, { width: '100%', height: height + bottomInset }]}
-      accessible={false} />
-    <View style={{ flex: 1, flexDirection: 'row' }}>
-      {NAV.map(item => <Pressable key={item.id} accessibilityRole="tab"
-        accessibilityLabel={item.label} accessibilityState={{ selected: item.id === 'learn' }}
-        onPress={() => onNavigate(item.id)} style={s.navItem} />)}
-    </View>
-  </View>;
+  return <IslandNavigation bottomInset={bottomInset} onNavigate={onNavigate} />;
 }
-
-const s = StyleSheet.create({
-  screen: { flex: 1 },
-  scroll: { alignItems: 'center', paddingBottom: 0 },
-  metric: { backgroundColor: '#FAEEFF', borderRadius: 35, alignItems: 'center', justifyContent: 'center',
-    borderWidth: 1, borderColor: '#E8C6FB', shadowColor: '#A76DCB', shadowOpacity: 0.18,
-    shadowRadius: 4, shadowOffset: { width: 0, height: 3 }, elevation: 2 },
-  metricText: { color: '#2B1049', fontWeight: '900' },
-  liveProgress: { backgroundColor: '#E6BBFC', borderRadius: 24, alignItems: 'center', justifyContent: 'center' },
-  progressText: { color: '#8635C4', fontWeight: '900' },
-  nav: { backgroundColor: '#F9F2FF', overflow: 'hidden' },
-  navItem: { flex: 1, minHeight: 48 },
-});

@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import type { PacketLesson } from '../../data/b1PacketTypes';
 import { lessonIntroduction } from '../../utils/lessonGuide';
 import { newLessonWords } from '../../utils/lessonVocabulary';
-import { b1Packet } from '../../data/b1Course';
+import { b1Packet, mapNumber } from '../../data/b1Course';
 import { ClassroomScene, ink, Surface } from './LessonSurface';
 import LessonTextMotion from './LessonTextMotion';
 
@@ -14,7 +14,7 @@ export default function LessonWelcome({ packet, compact, sceneHeight }: { packet
     <Text style={s.subtitle}>{intro.subtitle}</Text>
     <View style={s.scene}><ClassroomScene text={intro.board} height={sceneHeight} freshWords={newLessonWords(packet, b1Packet)} fit="contain" welcome /></View>
     <Surface accent="violet"><Text style={s.kicker}>BU DƏRSDƏ ÖYRƏNƏCƏKSƏN</Text>
-      {intro.objectives.map((text, index) => <View key={text} style={[s.objective, compact && { paddingVertical: 7 }]}>{packet.order === 1 && index === 1 ? <View style={{ width: 29, height: 27 }}><Text style={[s.icon, { position: 'absolute', left: 8, top: 7, fontSize: 19 }]}>💬</Text><Text style={[s.icon, { position: 'absolute', left: 0, top: 0 }]}>💬</Text></View> : <Text style={s.icon}>{(packet.order === 1 ? ['💬', '💬', '👋'] : ['💬', '👋', '🗨️'])[index]}</Text>}<LessonTextMotion state="reveal" trigger={packet.id} style={s.objectiveText}>{text}</LessonTextMotion></View>)}
+      {intro.objectives.map((text, index) => <View key={text} style={[s.objective, compact && { paddingVertical: 7 }]}>{mapNumber(packet) === 1 && index === 1 ? <View style={{ width: 29, height: 27 }}><Text style={[s.icon, { position: 'absolute', left: 8, top: 7, fontSize: 19 }]}>💬</Text><Text style={[s.icon, { position: 'absolute', left: 0, top: 0 }]}>💬</Text></View> : <Text style={s.icon}>{(mapNumber(packet) === 1 ? ['💬', '💬', '👋'] : ['💬', '👋', '🗨️'])[index]}</Text>}<LessonTextMotion state="reveal" trigger={packet.id} style={s.objectiveText}>{text}</LessonTextMotion></View>)}
     </Surface>
     <Text style={s.caption}>Dinlə, məşq et və özün cavab ver.</Text>
   </View>;

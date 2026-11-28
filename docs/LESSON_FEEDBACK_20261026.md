@@ -1,4 +1,4 @@
-# BirTalk lesson feedback batch 26 October 2026
+# BilTalk lesson feedback batch 26 October 2026
 
 Implemented on the lesson-screen branch. This change applies the collected lesson-screen feedback; it does not load the separate 13-card paper lesson into the app.
 

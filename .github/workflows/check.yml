@@ -1,0 +1,18 @@
+# Every push runs the course checks (26 Nov 2026, user: “these mistakes must never come back”).
+# A red mark on the commit means a lesson rule is broken (untaught word, unpractised word in a part,
+# stale hint after a split, lesson length, compile …). Fix it before going on.
+name: BilTalk yoxlamaları
+on:
+  push:
+  pull_request:
+jobs:
+  check-all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node scripts/check-all.cjs

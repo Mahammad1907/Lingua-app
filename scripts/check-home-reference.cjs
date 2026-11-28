@@ -3,6 +3,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const Module = require('node:module');
 const ts = require('typescript');
+// homeCourse.ts imports other .ts files since 18 Nov 2026 (examResults) — compile those too.
+require.extensions['.ts'] = (mod, file) => mod._compile(ts.transpileModule(fs.readFileSync(file, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, esModuleInterop: true, resolveJsonModule: true } }).outputText, file);
+// The check tests the real rules, not the temporary test access that opens every section (src/config/testAccess.ts).
+const testAccess = path.resolve(path.dirname(module.filename), '../src/config/testAccess.ts');
+require.cache[testAccess] = { id: testAccess, filename: testAccess, loaded: true, exports: { TEST_OPEN_SECTIONS: [] } };
 const filename = path.resolve(path.dirname(module.filename), '../src/utils/homeCourse.ts');
 const m = new Module(filename, module);
 m.filename = filename; m.paths = module.paths;
@@ -14,7 +19,9 @@ const defaults={modules:[module1,module2], language:'en',level:'A1',completedLes
 const build=(change={})=>buildHomeCourse({...defaults,...change});
 let r=build(); assert.equal(r.items[0].state,'current');assert.equal(r.items[1].state,'locked');assert.equal(r.items.length,7);assert.equal(r.lessonsCount,3);
 r=build({completedLessons:['a','a','unrelated']});assert.equal(r.items[0].percent,50);assert.equal(r.completedCount,1);assert.equal(r.percent,33);
-r=build({completedLessons:['a','b']});assert.equal(r.items[0].state,'completed');assert.equal(r.items[1].state,'current');assert.equal(r.items.filter(i=>i.state==='current').length,1);
+// Since 18 Nov 2026 a finished section opens the next one only after its section exam is passed (70 %).
+r=build({completedLessons:['a','b']});assert.equal(r.items[0].state,'completed');assert.equal(r.items[1].state,'locked');
+r=build({completedLessons:['a','b'],sectionExams:{a1_en_b1_exam:{passed:true,percent:80}}});assert.equal(r.items[0].state,'completed');assert.equal(r.items[1].state,'current');assert.equal(r.items.filter(i=>i.state==='current').length,1);
 r=build({placementResults:[{moduleId:'module_1',passed:true,correctCount:7,totalCount:8}]});assert.equal(r.items[0].state,'current');assert.equal(r.items[1].state,'locked');assert.equal(r.items[0].examPercent,88);assert.equal(r.completedCount,0);
 r=build({placementResults:[{moduleId:'module_2',passed:true,correctCount:8,totalCount:10}]});assert.equal(r.items[0].state,'current');assert.equal(r.items[1].state,'available');assert.equal(r.items[1].percent,0);
 r=build({availableLessonIds:new Set(['a','c']),completedLessons:['a','b']});assert.equal(r.items[0].state,'planned');assert.equal(r.items[1].state,'locked');assert.equal(r.items[0].percent,50);

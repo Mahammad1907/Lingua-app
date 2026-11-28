@@ -1,6 +1,7 @@
 import type { PacketLesson } from '../data/b1PacketTypes';
 import { normalizeApostrophes } from './spelling';
-const tokens = (text: string) => normalizeApostrophes(text).toLowerCase().match(/[\p{L}]+(?:'[\p{L}]+)*/gu) ?? [];
+// “[nömrə]”, “[ad]” are placeholders for the learner's own words — never highlighted as new English words.
+const tokens = (text: string) => normalizeApostrophes(text.replace(/\[[^\]]*\]/g, ' ')).toLowerCase().match(/[\p{L}]+(?:'[\p{L}]+)*/gu) ?? [];
 export function newLessonWords(packet: PacketLesson, earlier: readonly PacketLesson[]): Set<string> {
   const index = earlier.findIndex(l => l.id === packet.id);
   const previous = index >= 0 ? earlier.slice(0, index) : earlier.filter(l => l.order < packet.order);

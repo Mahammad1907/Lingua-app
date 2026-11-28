@@ -24,7 +24,7 @@ function Exam({ moduleId }: { moduleId: string }) {
   const busy = useRef(false);
   const [error, setError] = useState('');
   const [outcome, setOutcome] = useState<{ passed: boolean; xp: number; correct: number } | null>(null);
-  const [enteredLocked] = useState(() => !moduleUnlocked(moduleId, completed, results));
+  const [enteredLocked] = useState(() => !moduleUnlocked(moduleId, completed, results, useUserStore.getState().sectionExams));
   const question = test?.questions[index];
   const check = () => {
     if (!question || !answer.trim() || question.id in answers) return;

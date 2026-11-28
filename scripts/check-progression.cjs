@@ -25,7 +25,12 @@ global.Date = class extends NativeDate {
   constructor(...args) { super(...(args.length ? args : [now])); }
   static now() { return now; }
 };
+// Checks the release rules: the temporary phone test access (src/config/testAccess.ts) is switched off here only.
+require('../src/config/testAccess.ts').TEST_OPEN_SECTIONS.length = 0;
 const { lessons } = require('../src/data/lessons.ts');
+// Lessons with packet tasks: since 26 Nov 2026 the “…_2” parts sit between them (they run in DesignLesson, no packet tasks).
+const playable = lessons.filter(l => !/_2$/.test(l.id));
+const second = playable[1];
 const { modules } = require('../src/data/modules.ts');
 const { placementTests } = require('../src/data/placementTests.ts');
 const { buildHomeCourse } = require('../src/utils/homeCourse.ts');
@@ -36,7 +41,12 @@ function newStore() {
   return require('../src/store/userStore.ts').useUserStore;
 }
 function answerAll(store, id, options = {}) {
-  const attempt = store.getState().beginLesson(id);
+  // A lesson part without packet tasks (“…_2”, 26 Nov 2026) is started the way DesignLesson starts it: with its task ids.
+  const design = require('../src/data/designLessons.ts').designLessons.find(l => l.id === id);
+  const plain = store.getState().beginLesson(id);
+  const empty = plain && store.getState().attempts[plain].expected.length === 0 && design;
+  if (empty) store.getState().abandonLesson(plain);
+  const attempt = empty ? store.getState().beginLesson(id, 'session', [], require('../src/utils/designLesson.ts').lessonTaskIds(design)) : plain;
   assert.ok(attempt);
   const s = store.getState();
   if (options.help) s.useHelp(attempt);
@@ -81,12 +91,12 @@ async function run() {
   store.getState().resetHearts();
   const repeat = answerAll(store, lessons[0].id);
   assert.equal((await store.getState().finishLesson(repeat)).xp, 0);
-  const skip = answerAll(store, lessons[1].id, { skip: true });
+  const skip = answerAll(store, second.id, { skip: true });
   assert.equal((await store.getState().finishLesson(skip)).completed, false);
-  assert.ok(!store.getState().completedLessons.includes(lessons[1].id));
-  const helped = answerAll(store, lessons[1].id, { help: true });
+  assert.ok(!store.getState().completedLessons.includes(second.id));
+  const helped = answerAll(store, second.id, { help: true });
   assert.equal((await store.getState().finishLesson(helped)).xp, 20, 'help only removes the perfect bonus');
-  const wrong = store.getState().beginLesson(lessons[2].id);
+  const wrong = store.getState().beginLesson(playable[2].id);
   const task = store.getState().attempts[wrong].expected[0];
   store.getState().recordTask(wrong, task, false, 'one');
   store.getState().recordTask(wrong, task, false, 'one');
@@ -110,18 +120,18 @@ async function run() {
   }
   assert.equal(store.getState().streak, 3);
   assert.equal(Object.keys(store.getState().rewards).filter(k => k.startsWith('streak:') && k.endsWith(':3')).length, 2);
-  for (const lesson of lessons.slice(3)) await store.getState().finishLesson(answerAll(store, lesson.id));
+  for (const lesson of lessons) if (lesson.moduleId === 'module_1' && !store.getState().completedLessons.includes(lesson.id)) await store.getState().finishLesson(answerAll(store, lesson.id));
   assert.equal(store.getState().rewards['module:module_1'].amount, 100);
   const moduleXP = store.getState().xp;
-  await store.getState().finishLesson(answerAll(store, lessons.at(-1).id)); assert.equal(store.getState().xp, moduleXP);
+  await store.getState().finishLesson(answerAll(store, lessons.filter(l => l.moduleId === 'module_1').at(-1).id)); assert.equal(store.getState().xp, moduleXP);
   while (store.getState().hearts > 0) store.getState().loseHeart();
   await store.getState().saveToStorage();
   store = newStore(); await store.getState().loadFromStorage();
   assert.equal(store.getState().hearts, 0, 'restart preserves empty energy'); assert.equal(store.getState().xp, moduleXP);
   assert.equal(store.getState().claimReceipt(first), undefined, 'cold start cannot replay reward animation');
   // A content-bearing locked module fixture, with a copy of existing questions ONLY in this test.
-  modules.push({ ...modules[0], id: 'fixture_second', order: 2, lessonIds: [lessons[1].id] });
-  modules.push({ ...modules[0], id: 'fixture_third', order: 3, lessonIds: [lessons[2].id] });
+  modules.push({ ...modules[0], id: 'fixture_second', order: 2, lessonIds: [second.id] });
+  modules.push({ ...modules[0], id: 'fixture_third', order: 3, lessonIds: [playable[2].id] });
   assert.equal(moduleTest('fixture_second'), undefined);
   placementTests.push({ ...placementTests[0], moduleId: 'fixture_second' });
   store.setState({ completedLessons: [], placementResults: [] });
@@ -194,7 +204,7 @@ async function run() {
   assert.equal(store.getState().lessonProgress[0].evidence.technicalText, 1);
   assert.equal(store.getState().lessonProgress[0].evidence.listeningIndependent, 0);
   assert.ok(JSON.parse(disk).lessonProgress[0].evidence, 'evidence persists with lesson progress');
-  const speaking = store.getState().beginLesson(lessons[6].id);
+  const speaking = store.getState().beginLesson(playable[6].id);
   const voiceTask = store.getState().attempts[speaking].expected[0];
   store.getState().recordTask(speaking, voiceTask, true, 'edited', { input: 'written', assisted: false, listening: false, technicalText: true });
   assert.equal(store.getState().attempts[speaking].tasks[voiceTask], undefined, 'edited text cannot prove required speech');
