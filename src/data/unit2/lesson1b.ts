@@ -46,6 +46,7 @@ export const lesson1b: DesignLesson = {
     {
       type: 'choice', id: 'u2d1b_c05', number: 5, title: 'Səhnədə tap', why: '“six” — altı.', hint: 'İki rəqəm eyni hərflə başlayır — sözün uzunluğuna qulaq as.', scenes: ['u2/bus-stop'],
       prompt: 'Dayanacağa üç avtobus gəlir. Oğlan sürücüdən soruşur.\nO hansı avtobusa minir?', audio: 'Excuse me, six?',
+      heard: { who: 'B', sub: 'Sürücüdən soruşur' },
       spots: [{ option: '7 nömrəli avtobus', x: 18, y: 73 }, { option: '6 nömrəli avtobus', x: 50, y: 73 }, { option: '5 nömrəli avtobus', x: 84, y: 73 }],
       options: ['7 nömrəli avtobus', '6 nömrəli avtobus', '5 nömrəli avtobus'], answer: '6 nömrəli avtobus',
       variants: [
@@ -55,6 +56,7 @@ export const lesson1b: DesignLesson = {
       review: {
         title: 'Səhnədə tap', why: '“nine” — doqquz.', hint: 'Rəqəmin ilk səsinə qulaq as.', scenes: ['u2/bus-stop-2'],
         prompt: 'Başqa dayanacaqda qız sürücüdən soruşur.\nO hansı avtobusu gözləyir?', audio: 'Excuse me, nine?',
+        heard: { who: 'G', sub: 'Sürücüdən soruşur' },
         spots: [{ option: '9 nömrəli avtobus', x: 22, y: 73 }, { option: '5 nömrəli avtobus', x: 51, y: 73 }, { option: '8 nömrəli avtobus', x: 84, y: 73 }],
         options: ['9 nömrəli avtobus', '5 nömrəli avtobus', '8 nömrəli avtobus'], answer: '9 nömrəli avtobus',
         variants: [

@@ -24,6 +24,9 @@ interface BaseTask {
   variants: Variant[];
   /** The mascot speaks or is talked about in this task: its avatar is shown so learners know who “dostun” is. */
   speaker?: 'mascot';
+  /** Who is heard on a listening card when it is not a voice message (face to face): avatar, name and the line under it
+   *  (28 Nov 2026, the bus stop showed “Dostun · Səsli mesaj”). */
+  heard?: { who: 'G' | 'B' | 'F' | 'other'; name?: string; sub: string };
   /** Planned scene image(s) — see docs/SEKIL_SIYAHISI.md. Registered in src/config/sceneImages.ts; nothing is shown until the file exists. */
   scenes?: string[];
 }

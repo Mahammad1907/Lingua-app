@@ -66,7 +66,7 @@ Ayrıca standart sənədləri (burada təkrarlanmır, linklə keçərlidir):
 ## 3. Tələffüz və səs
 
 1. Səs hər yerdə **en-US**. Oxunuş Azərbaycan hərfləri ilə, Amerika tələffüzü, fonetik işarə yoxdur (“hau ar yu?”, “sari”); /æ/ = “ə”; **th** qalın narıncı, oxunuş sətri bənövşəyi (25 Nov: istifadəçi köhnə kartı geri istədi). IPA yalnız `pronunciation` sahəsində (söz pəncərəsi, Lüğətim).
-2. **Sürət düyməsi** (1x → 0.75x → 0.5x → 1.25x) dərsin bütün normal səs düymələrinə aiddir; basanda dərhal yeni sürətlə yenidən oxuyur; 0.5x-də sözlər arası fasilə. Qəsdən yavaş düymələr öz sürətindədir.
+2. **Sürət düyməsi** (1x → 0.75x → 0.5x → 1.25x) ekrandakı bütün normal səs düymələrinə aiddir; **hər yeni ekran 1x-dən başlayır** (28 Nov 2026); basanda dərhal yeni sürətlə yenidən oxuyur; 0.5x-də sözlər arası fasilə. Qəsdən yavaş düymələr öz sürətindədir.
 3. **Səs tanıma:** telefonun öz tanıması (`expo-speech-recognition`) əsasdır. Expo Go-da işləmir → səsli cavablar “Yoxlanmadı” — normaldır. Sınaq Android development build ilə. Azure qurulmayıb, hələlik lazım deyil; pullu bulud variantı sonra.
 4. Mikrofon: basılı saxla və danış (bir toxunuşla da işləyir), buraxanda bir dəfə göndərilir; texniki problem/səssizlik cəza deyil.
 5. Hazır cümləni oxumaq müstəqil cavab sübutu deyil; mətni göstərmək (“Səsi başa düşmürəm”) həmin tapşırığın dinləmə sübutunu silir, ürək almır.

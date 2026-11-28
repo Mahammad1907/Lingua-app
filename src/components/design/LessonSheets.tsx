@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useState, type ReactNode } from 'react';
-import { Modal, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useMemo, useState, type ReactNode } from 'react';
+import { Modal, PanResponder, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import type { Graded } from '../../utils/designLesson';
 import { englishWords, glossOf } from '../../data/unit1/glossary';
 import Icon from './Icons';
@@ -33,19 +33,29 @@ function SayChip({ text, onSay, tone = 'white' }: { text: string; onSay?: (t: st
  *  then — wrong: an inline-diff card (✓/✕ per part, or “UYĞUN CAVAB”) and the Qaydaya bax / Mənə başa sal pills;
  *  correct: a mint “TƏLƏFFÜZÜ DİNLƏ” card; neutral (not assessed): grey icon. Green / red / orange gradient CTA.
  *  Kept from before: “Köməklə”, small spelling fixes, meaning, “Təkrarla”, retry and collapse (tap the grabber). */
-export function ResultPanel({ tone, title, short, answers, parts, mine, listen, onSay, meaning, repeatFrom, corrections, assisted, onExplain, onRule, onReport, onContinue, continueLabel = 'Davam et', actions, collapsed, onCollapse }: {
+export function ResultPanel({ tone, title, short, answers, parts, mine, listen, onSay, meaning, repeatFrom, corrections, assisted, onExplain, onRule, onReport, onContinue, continueLabel = 'Davam et', actions, collapsed, onCollapse, onExpand }: {
   tone: 'correct' | 'wrong' | 'neutral'; title: string; short?: string; answers?: string; meaning?: string; repeatFrom?: string; corrections?: Graded['spellingCorrections']; assisted?: boolean;
   /** Multi-part answers (two-message tasks): one diff row each. */ parts?: ResultPart[];
   /** The learner's single answer, shown struck through on a wrong check when it is English. */ mine?: string;
   /** Correct check: phrases to hear again. */ listen?: string[]; onSay?: (t: string) => void;
-  onExplain?: () => void; onRule?: () => void; onReport: () => void; onContinue?: () => void; continueLabel?: string; actions?: ReactNode; collapsed: boolean; onCollapse: () => void;
+  onExplain?: () => void; onRule?: () => void; onReport: () => void; onContinue?: () => void; continueLabel?: string; actions?: ReactNode; collapsed: boolean; onExpand?: () => void; onCollapse: () => void;
 }) {
   const insets = useSafeAreaInsets();
   const button = onContinue ? <MainButton label={continueLabel} tone={tone === 'correct' ? 'green' : tone === 'wrong' ? 'red' : 'purple'} onPress={onContinue} /> : null;
-  if (collapsed) return <View style={{ gap: 10, paddingHorizontal: 20, paddingBottom: Math.max(14, insets.bottom + 6) }}>{button}</View>;
+  // The panel can be pulled down to see the question again, and opened back (28 Nov 2026, user: a wrong answer hid the task).
+  const drag = useMemo(() => PanResponder.create({
+    onMoveShouldSetPanResponder: (_e, g) => Math.abs(g.dy) > 8 && Math.abs(g.dy) > Math.abs(g.dx),
+    onPanResponderRelease: (_e, g) => { if (g.dy > 30) onCollapse(); else if (g.dy < -30) onExpand?.(); },
+  }), [onCollapse, onExpand]);
+  if (collapsed) return <View {...drag.panHandlers} style={{ gap: 10, paddingHorizontal: 20, paddingBottom: Math.max(14, insets.bottom + 6) }}>
+    {onExpand ? <Pressable accessibilityRole="button" accessibilityLabel="Cavabı yenidən göstər" onPress={onExpand} hitSlop={8} style={s.reopen}>
+      <Icon name="up" size={18} color={d.purple} stroke={2.4} /><Text style={s.reopenText}>Cavaba bax</Text>
+    </Pressable> : null}
+    {button}
+  </View>;
   const say = listen?.filter(isEnglish) ?? [];
   const pills = [onRule ? <Capsule key="r" small align="stretch" tone="neutral" icon="layers" label="Qaydaya bax" onPress={onRule} /> : null, onExplain ? <Capsule key="e" small align="stretch" tone="soft" icon="sparkle" label="Mənə başa sal" onPress={onExplain} /> : null].filter(Boolean);
-  return <Reanimated.View entering={SlideInDown.duration(260)} style={[s.panel, { paddingBottom: Math.max(18, insets.bottom + 8) }]}>
+  return <Reanimated.View {...drag.panHandlers} entering={SlideInDown.duration(260)} style={[s.panel, { paddingBottom: Math.max(18, insets.bottom + 8) }]}>
     <Pressable accessibilityRole="button" accessibilityLabel="Paneli kiçilt" onPress={onCollapse} hitSlop={12} style={s.grab}><View style={s.handle} /></Pressable>
     <View accessibilityLiveRegion="polite" style={s.titleRow}>
       <View style={[s.badge, { backgroundColor: tone === 'correct' ? '#22C55E' : tone === 'wrong' ? '#EF4444' : d.purpleDisabledText }]}>
@@ -187,6 +197,8 @@ const s = StyleSheet.create({
   panel: { backgroundColor: '#FFFFFF', borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingHorizontal: 22, paddingTop: 6, gap: 12,
     shadowColor: '#0F172A', shadowOpacity: .12, shadowRadius: 18, shadowOffset: { width: 0, height: -4 }, elevation: 12 },
   grab: { alignSelf: 'center', paddingVertical: 6, paddingHorizontal: 20 },
+  reopen: { alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 8, paddingHorizontal: 16, borderRadius: 999, backgroundColor: d.purpleSoft },
+  reopenText: { ...font.bold, fontSize: 15, color: d.purple },
   handle: { width: 40, height: 5, borderRadius: 3, backgroundColor: '#D9DCE5' },
   smallNote: { color: d.slate, fontSize: 14, lineHeight: 20, ...font.semibold },
   oneRow: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },

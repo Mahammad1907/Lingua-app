@@ -154,7 +154,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   // picture and empty space below) — fitting waits for the new card's own size report (or 90 ms: an unchanged size
   // sends no report, so the old value is then right).
   const [measured, setMeasured] = useState(false);
-  useEffect(() => { setArt(1); setFit(1); setDense(false); setGrow(1); naturalH.current = 0; setMeasured(false);
+  // Every new screen starts at 1x (28 Nov 2026, user: 0.5x stayed on the next screen).
+  useEffect(() => { setArt(1); setFit(1); setDense(false); setGrow(1); naturalH.current = 0; setMeasured(false); setRate(1); rateRef.current = 1;
     const id = setTimeout(() => setMeasured(true), 90); return () => clearTimeout(id); }, [cardKey]);
   // When the screen grows back (keyboard closed), measure again from full size — otherwise a card shrunk while the
   // keyboard was closing stayed small (German card, user, 25 Nov 2026).
@@ -182,7 +183,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     work.current[k] = v;
     const w = work.current;
     if (!w.h || w.top < 0 || w.end < 0) return;
-    const v2 = Math.max(0, Math.round(w.h - 16 - (w.end - w.top - 28)));
+    // Negative = the work area overflows (its content is centred in a flex box, so overflow does not grow the content
+    // height): the card is then taller than measured and gets scaled (Təkrar keypad was cut, 28 Nov 2026).
+    const v2 = Math.round(w.h - 16 - (w.end - w.top - 28));
     setFree(f => f.card === cardKey && Math.abs(f.v - v2) < 1 ? f : { card: cardKey, v: v2 });
   };
   const natural = free.card === cardKey && contentHeight > 0 ? contentHeight - free.v
@@ -605,7 +608,8 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         : quoteChat && task.type !== 'write' ? <ChatThread partner={quoteChat.partner} from={quoteChat.from} lines={quoteChat.lines} mine="" placeholder="" onWord={lookUp} />
         : bubbleText && !quoteChat ? <SayBubble who={bubbleWho} text={bubbleText} onWord={listeningTask ? undefined : lookUp} playing={playing} onPlay={() => speak(bubbleText, 0.85)} /> : null}
       {audio && !voiceBubble && !repeat ? <AudioPanel playing={playing} onPlay={() => speak(audio, 0.85, listeningTask)} rate={rate} onRate={() => { const n = nextOf(rate); setRate(n); rateRef.current = n; speak(audio, 0.85, listeningTask); }}
-        avatar={<Avatar who={quoteWho} size={48} />} name={quoteWho === 'other' ? 'Dostun' : `{${quoteWho}}`}
+        avatar={<Avatar who={task.heard?.who ?? quoteWho} size={48} />} sub={task.heard?.sub}
+        name={task.heard ? task.heard.name ?? (task.heard.who === 'other' ? 'Dostun' : `{${task.heard.who}}`) : quoteWho === 'other' ? 'Dostun' : `{${quoteWho}}`}
         seconds={Math.round(audio.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.8)} /> : null}
       {/* Approved design: on listening tasks Kömək sits right under the audio card; elsewhere under the answers. */}
       {helpUnderAudio ? helpButton : null}
@@ -706,14 +710,14 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     if (current.type === 'teach') return <MainButton label="Davam et" onPress={next} arrow />;
     if (current.type === 'word') return <MainButton label="Davam et" onPress={next} arrow />;
     if (!task) return null;
-    if (result?.kind === 'unverified') return <ResultPanel tone="neutral" title="Yoxlanmadı" short={result.message} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)}
+    if (result?.kind === 'unverified') return <ResultPanel tone="neutral" title="Yoxlanmadı" short={result.message} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onExpand={() => setCollapsed(false)} onReport={() => setReportOpen(true)}
       actions={<>{task.type === 'voice' && !result.recording ? <Capsule small label="Keç" onPress={skipVoice} /> : null}<Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { setResult(null); setCollapsed(false); }} /></>}
       onContinue={task.type === 'voice' && !result.recording ? undefined : continueUnverified} continueLabel="Yoxlanmadı ilə davam et" />;
     if (result) {
       const graded = result.graded;
       const textHelp = textHelpActive && result.kind === 'single';
       if (textHelp) return <ResultPanel tone="neutral" title={graded.status === 'correct' ? 'Cavab uyğundur' : 'Mətnlə məşq etdin'} short={technical ? lesson.result.technical : 'Audio mətnini gördün. Dinləmə yoxlanmadı.'}
-        collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
+        collapsed={collapsed} onCollapse={() => setCollapsed(true)} onExpand={() => setCollapsed(false)} onReport={() => setReportOpen(true)} onContinue={next} />;
       // Sheet content (25 Nov 2026): diff rows for two-part answers, phrases to hear again after a correct answer.
       const english = (x?: string) => Boolean(x && isEnglish(x));
       const parts = result.kind === 'two' && task.type === 'two' ? task.fields.map(f => ({ label: f.label, ok: result.graded.fields[f.id]?.status === 'correct', mine: (two[f.id] ?? '').trim() || undefined,
@@ -725,10 +729,10 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         : listeningTask && audio ? [audio].filter(english) : [mineText ?? ''].filter(english);
       const assistedNow = !reviewing && Boolean(meaningHint || sampleShown || peeked || (task.type === 'voice' && task.sample && early));
       if (graded.status === 'correct') return <ResultPanel tone="correct" title={assistedNow ? 'Düzgündür' : 'Əla!'} short={task.why} listen={listen} onSay={t => speak(t.replace(/…/g, ''), 0.85)} corrections={result.kind === 'single' ? result.graded.spellingCorrections : undefined}
-        assisted={assistedNow} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onReport={() => setReportOpen(true)} onContinue={next} />;
+        assisted={assistedNow} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onExpand={() => setCollapsed(false)} onReport={() => setReportOpen(true)} onContinue={next} />;
       return <ResultPanel tone="wrong" title="Bir daha baxaq" short={graded.short} answers={graded.explain?.answers} parts={parts} mine={mineText} onSay={t => speak(t.replace(/…/g, ''), 0.85)}
         onRule={ruleOfTask(task.id) ? () => setRuleOpen(ruleOfTask(task.id)!.id) : undefined}
-        meaning={meaningOf(graded.explain?.answers)} repeatFrom={taughtIn(graded.explain?.answers, lesson)} collapsed={collapsed} onCollapse={() => setCollapsed(true)}
+        meaning={meaningOf(graded.explain?.answers)} repeatFrom={taughtIn(graded.explain?.answers, lesson)} collapsed={collapsed} onCollapse={() => setCollapsed(true)} onExpand={() => setCollapsed(false)}
         onExplain={graded.explain ? () => setExplainOpen(true) : undefined} onReport={() => setReportOpen(true)} onContinue={next}
         actions={task.type === 'voice' && !reviewing && !voiceRetried ? <Capsule small icon="retry" label="Yenidən cəhd et" onPress={() => { locked.current = false; setVoiceRetry(true); setVoiceRetried(true); setCollapsed(true); }} /> : undefined} />;
     }
