@@ -39,6 +39,15 @@ export const SCENE_IMAGES: Record<string, number> = {
   'u2/form-office': require('../../assets/lessons/u2/form-office.webp'),
   'u2/form-library': require('../../assets/lessons/u2/form-library.webp'),
   'u2/form-pool': require('../../assets/lessons/u2/form-pool.webp'),
+  'u2/word-letters-tv': require('../../assets/lessons/u2/word-letters-tv.webp'),
+  'u2/word-letters-id': require('../../assets/lessons/u2/word-letters-id.webp'),
+  'u2/word-letters-gps': require('../../assets/lessons/u2/word-letters-gps.webp'),
+  'u2/word-letters-bmw': require('../../assets/lessons/u2/word-letters-bmw.webp'),
+  'u2/word-letters-cd': require('../../assets/lessons/u2/word-letters-cd.webp'),
+  'u2/word-letters-dj': require('../../assets/lessons/u2/word-letters-dj.webp'),
+  'u2/word-letters-ok': require('../../assets/lessons/u2/word-letters-ok.webp'),
+  'u2/word-letters-qr': require('../../assets/lessons/u2/word-letters-qr.webp'),
+  'u2/word-letters-usa': require('../../assets/lessons/u2/word-letters-usa.webp'),
 };
 
 /**

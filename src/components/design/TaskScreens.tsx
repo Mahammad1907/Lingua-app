@@ -702,7 +702,8 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
   const image = sceneImage(scenes);
   const spoken = phrases.join('. ');
   const long = phrases.join(' ').length > 16;
-  // Yeni söz cards must fit the screen without scrolling (user, 21 Nov 2026): no picture slot, tighter rows.
+  // Yeni söz cards must fit the screen without scrolling (user, 21 Nov 2026): no big picture slot, tighter rows;
+  // a word that has a picture shows it small beside the phrase instead (28 Nov 2026).
   const word = chip === 'Yeni söz';
   const oneLine = phrases.length > 1 && phrases.join(' · ').length <= 18;
   // Roomy by default; compact only on cards that would not fit (user, 25 Nov 2026: “why is it squeezed”).
@@ -731,8 +732,10 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
       <Avatar who={i % 2 ? 'B' : 'G'} size={40} />
       <View style={{ flex: 1 }}><TapText text={l.en} style={s.dialogEn} onWord={onWord} /><Text style={s.moreAz}>{l.az}</Text></View>
       <PlayButton onPress={() => onPlay(l.en)} size={40} label={`Dinlə: ${l.en}`} />
-    </View>)}</View> : <View style={[s.banner, s.softShadow]}>
-      <View style={[s.bannerBubble, tight && { paddingVertical: 8, gap: 4 }]}>
+    </View>)}</View> : <View style={[s.banner, s.softShadow, word && image ? s.bannerRow : null]}>
+      {/* Yeni söz: a small picture left of the phrase, only where one exists (approved variant A, 28 Nov 2026). */}
+      {word && image ? <Image source={image} style={[s.wordIcon, tight && { width: 52, height: 52 }]} contentFit="cover" accessibilityIgnoresInvertColors /> : null}
+      <View style={[s.bannerBubble, word && image ? { flex: 1, paddingLeft: 6 } : null, tight && { paddingVertical: 8, gap: 4 }]}>
         {/* Short phrase pairs on one line: “Hello! · Hi!” (user, 25 Nov 2026). */}
         {(oneLine ? [phrases.join(' · ')] : phrases).map(p => <Text key={p} accessibilityRole="header" style={[s.bannerText, long && { fontSize: 24, lineHeight: 30 }, tight && phrases.length > 1 && !oneLine && { fontSize: 22, lineHeight: 27 }]}>{nameSlot(p)}</Text>)}
         {reading ? <Reading text={reading} /> : null}
@@ -877,6 +880,8 @@ const s = StyleSheet.create({
   playRound: { backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center' },
   slowRound: { backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   banner: { borderRadius: 24, backgroundColor: '#fff' },
+  bannerRow: { flexDirection: 'row', alignItems: 'center', paddingLeft: 14 },
+  wordIcon: { width: 64, height: 64, borderRadius: 14, backgroundColor: d.purpleSoft },
   bannerBubble: { alignItems: 'center', gap: 8, backgroundColor: '#fff', borderRadius: 22, paddingVertical: 20, paddingHorizontal: 10 },
   bannerText: { color: d.ink, fontSize: 30, lineHeight: 36, textAlign: 'center', ...font.extrabold },
   audioCapsule: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: d.purpleSoft, borderRadius: 999, padding: 4, paddingRight: 16 },
