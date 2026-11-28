@@ -732,10 +732,11 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
       <Avatar who={i % 2 ? 'B' : 'G'} size={40} />
       <View style={{ flex: 1 }}><TapText text={l.en} style={s.dialogEn} onWord={onWord} /><Text style={s.moreAz}>{l.az}</Text></View>
       <PlayButton onPress={() => onPlay(l.en)} size={40} label={`Dinlə: ${l.en}`} />
-    </View>)}</View> : <View style={[s.banner, s.softShadow, word && image ? s.bannerRow : null]}>
-      {/* Yeni söz: a small picture left of the phrase, only where one exists (approved variant A, 28 Nov 2026). */}
-      {word && image ? <Image source={image} style={[s.wordIcon, tight && { width: 52, height: 52 }]} contentFit="cover" accessibilityIgnoresInvertColors /> : null}
-      <View style={[s.bannerBubble, word && image ? { flex: 1, paddingLeft: 6 } : null, tight && { paddingVertical: 8, gap: 4 }]}>
+    </View>)}</View> : <View style={[s.banner, s.softShadow]}>
+      {/* Yeni söz: a small picture in the top-left corner, the phrase stays centred (28 Nov 2026, user: the side picture
+          pushed the text off centre). Side padding keeps long phrases clear of it on both sides. */}
+      {word && image ? <Image source={image} style={[s.wordIcon, tight && { width: 40, height: 40 }]} contentFit="cover" accessibilityIgnoresInvertColors /> : null}
+      <View style={[s.bannerBubble, word && image ? { paddingHorizontal: tight ? 52 : 60 } : null, tight && { paddingVertical: 8, gap: 4 }]}>
         {/* Short phrase pairs on one line: “Hello! · Hi!” (user, 25 Nov 2026). */}
         {(oneLine ? [phrases.join(' · ')] : phrases).map(p => <Text key={p} accessibilityRole="header" style={[s.bannerText, long && { fontSize: 24, lineHeight: 30 }, tight && phrases.length > 1 && !oneLine && { fontSize: 22, lineHeight: 27 }]}>{nameSlot(p)}</Text>)}
         {reading ? <Reading text={reading} /> : null}
@@ -769,8 +770,8 @@ export function LearnView({ chip, title, lead, phrases, az, reading, ipa, struct
         <PlayButton onPress={() => onPlay(example.en)} size={40} label="Nümunəni dinlə" />
       </View> : null}
       {note ? <View style={[s.infoRow, (example || !dialog) && s.infoLine, { alignItems: 'center' }, s.tipStrip]}>
-        <View style={s.infoIcon}><Icon name="bulb" size={20} color={d.purple} /></View>
-        <Text style={[s.noteText, { flex: 1 }, tight && { fontSize: 14, lineHeight: 19 }]}>{note}</Text>
+        <View style={[s.infoIcon, s.tipIcon]}><Icon name="bulb" size={20} color="#B45309" /></View>
+        <Text style={[s.noteText, s.tipText, { flex: 1 }, tight && { fontSize: 14, lineHeight: 19 }]}>{note}</Text>
       </View> : null}
     </View>
   </View>;
@@ -865,7 +866,10 @@ const s = StyleSheet.create({
   capRate: { minWidth: 48, alignItems: 'center' },
   capRateText: { color: d.purple, fontSize: 17, ...font.extrabold },
   rowLabel: { color: '#64748B', fontSize: 13, letterSpacing: 1, ...font.extrabold },
-  tipStrip: { backgroundColor: '#F8F7FC', marginHorizontal: -14, paddingHorizontal: 14, paddingVertical: 8, borderBottomLeftRadius: 24, borderBottomRightRadius: 24 },
+  // The tip stands out in warm yellow (28 Nov 2026, user): yellow is used nowhere else, so it reads as “note this”.
+  tipIcon: { backgroundColor: '#FDE7B5' },
+  tipText: { color: '#6B4206' },
+  tipStrip: { backgroundColor: '#FEF3D6', borderTopWidth: 1, borderTopColor: '#FBE2A6', marginHorizontal: -14, paddingHorizontal: 14, paddingVertical: 8, borderBottomLeftRadius: 24, borderBottomRightRadius: 24 },
   partsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   partChip: { minWidth: 64, maxWidth: 150, paddingHorizontal: 10, paddingVertical: 6, borderRadius: 14, backgroundColor: d.surface, borderWidth: 1, borderColor: d.border },
   partChipNew: { borderColor: d.purple, backgroundColor: d.purpleSoft },
@@ -880,8 +884,7 @@ const s = StyleSheet.create({
   playRound: { backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center' },
   slowRound: { backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
   banner: { borderRadius: 24, backgroundColor: '#fff' },
-  bannerRow: { flexDirection: 'row', alignItems: 'center', paddingLeft: 14 },
-  wordIcon: { width: 64, height: 64, borderRadius: 14, backgroundColor: d.purpleSoft },
+  wordIcon: { position: 'absolute', left: 12, top: 12, zIndex: 1, width: 48, height: 48, borderRadius: 12, backgroundColor: d.purpleSoft },
   bannerBubble: { alignItems: 'center', gap: 8, backgroundColor: '#fff', borderRadius: 22, paddingVertical: 20, paddingHorizontal: 10 },
   bannerText: { color: d.ink, fontSize: 30, lineHeight: 36, textAlign: 'center', ...font.extrabold },
   audioCapsule: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: d.purpleSoft, borderRadius: 999, padding: 4, paddingRight: 16 },

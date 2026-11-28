@@ -31,7 +31,7 @@ import { DragBoard, ProfileCard } from './NewTaskScreens';
 import { PhotoCard } from './PhotoCard';
 import { ordinal } from '../../utils/ordinal';
 import { isEnglish, ExplainSheet, MenuPopover, ReportSheet, ResultPanel } from './LessonSheets';
-import { AudioPanel, Capsule, accentTitle, Card, Chip, ChoiceOption, Field, Header, KindChip, LessonCaption, MainButton, Sheet, SheetOption, ds, nameSlot } from './parts';
+import { AudioPanel, Capsule, accentTitle, Card, Chip, ChoiceOption, Field, Header, KindChip, LessonCaption, MainButton, Sheet, SheetOption, SituationCard, ds, nameSlot } from './parts';
 import { d, shadow, font } from './theme';
 import { sceneImage } from '../../config/sceneImages';
 import { glossOf } from '../../data/unit1/glossary';
@@ -150,6 +150,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   // Grow (25 Nov 2026, user): a short Yeni söz / Öyrən card is scaled up as a whole (text, buttons, gaps) until it fills
   // the screen — at most 1.25×. Measured on the card's natural height; once set it only goes down (no back-and-forth).
   const [grow, setGrow] = useState(1); const naturalH = useRef(0);
+  const [learnH, setLearnH] = useState({ card: '', h: 0 });
   // The previous card's height must not shrink the new one (27 Nov 2026: a short choice screen opened with a tiny
   // picture and empty space below) — fitting waits for the new card's own size report (or 90 ms: an unchanged size
   // sends no report, so the old value is then right).
@@ -188,7 +189,9 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     const v2 = Math.round(w.h - 16 - (w.end - w.top - 28));
     setFree(f => f.card === cardKey && Math.abs(f.v - v2) < 1 ? f : { card: cardKey, v: v2 });
   };
-  const natural = free.card === cardKey && contentHeight > 0 ? contentHeight - free.v
+  const learning = current?.type === 'word' || current?.type === 'teach';
+  const natural = learning && learnH.card === cardKey && learnH.h > 0 ? learnH.h + CONTENT_PAD
+    : free.card === cardKey && contentHeight > 0 ? contentHeight - free.v
     : bottom.card === cardKey && bottom.y > 0 ? bottom.y + CONTENT_PAD : contentHeight;
   const shownHeight = (fitValue: number) => (natural - CONTENT_PAD) * fitValue + CONTENT_PAD;
   const ready = measured && bottom.card === cardKey;
@@ -229,11 +232,16 @@ export default function DesignLesson({ source }: { source: Lesson }) {
   const growable = (current?.type === 'word' || current?.type === 'teach') && !keyboardOpen && fitState === 1 && !dense && !showResult;
   const onNatural = (h: number) => {
     naturalH.current = h;
+    setLearnH(v => v.card === cardKey && Math.abs(v.h - h) < 1 ? v : { card: cardKey, h });
     if (!growable || !viewport.h || h <= 0) return;
     const room = (viewport.h - CONTENT_PAD) / h;
     setGrow(g => g === 1 ? Math.max(1, Math.min(1.25, room)) : Math.max(1, Math.min(g, room)));
   };
   const scale = fit < 1 ? fit : growable ? grow : 1;
+  // Learning cards sit in the middle of the free space, not at the top with an empty bottom (28 Nov 2026, user).
+  // The offset is set in unscaled units, so the grown card still ends inside the screen.
+  const centerPad = learning && !keyboardOpen && viewport.h > 0 && learnH.card === cardKey && learnH.h > 0
+    ? Math.max(0, Math.floor((viewport.h - CONTENT_PAD - learnH.h * scale) / (2 * scale))) : 0;
   const innerW = Math.max(0, viewport.w - 40), wideW = innerW / scale;
 
   useEffect(() => {
@@ -590,15 +598,17 @@ export default function DesignLesson({ source }: { source: Lesson }) {
     return <View style={[s.gap, { flex: 1 }]}>
       {reviewing ? <View style={{ gap: 6 }}><Chip label="Təkrar" />{reviewStep === 0 ? <Text style={ds.small}>{lesson.notices.review}</Text> : null}</View> : null}
       <View style={{ gap: 4 }}>
-        <KindChip kind={kindOf(task, listeningTask).kind} icon={kindOf(task, listeningTask).icon} />
+        {/* Listening tasks: Kömək sits beside the chip, so the picture gets the room (28 Nov 2026, user: picture too small). */}
+        {helpUnderAudio && helpButton ? <View style={s.chipRow}><KindChip kind={kindOf(task, listeningTask).kind} icon={kindOf(task, listeningTask).icon} /><Capsule tone="soft" small align="center" icon="bulb" label="Kömək" onPress={() => setHelpOpen(true)} /></View>
+          : <KindChip kind={kindOf(task, listeningTask).kind} icon={kindOf(task, listeningTask).icon} />}
         <Text accessibilityRole="header" style={ds.title}>{accentTitle(task.title)}</Text>
       </View>
       {/* Task line (25 Nov 2026): one crisp slate subtitle under the title on every task screen — no framed box. */}
       {/* Matching screens show only the instruction (user, 25 Nov 2026): the situation line adds nothing there. */}
-      {mascotTalks ? <SayBubble who="F" text={instruction} /> : <Text style={s.taskSub}>{task.type === 'match'
-        ? (task.mode === 'order' ? (task.gaps ? 'Boşluğa toxun, sonra sözü seç.' : 'Balonlara toxun, söhbəti sıraya düz.')
-          : task.mode === 'reply' ? 'Cümləyə toxun, sonra cavabını seç.' : 'İfadəyə toxun, sonra mənasını seç.') : clean.join(' ')}</Text>}
-      {mascotTalks && context ? <Text style={s.taskSub}>{context}</Text> : null}
+      {mascotTalks ? <SayBubble who="F" text={instruction} /> : <SituationCard lines={task.type === 'match'
+        ? [task.mode === 'order' ? (task.gaps ? 'Boşluğa toxun, sonra sözü seç.' : 'Balonlara toxun, söhbəti sıraya düz.')
+          : task.mode === 'reply' ? 'Cümləyə toxun, sonra cavabını seç.' : 'İfadəyə toxun, sonra mənasını seç.'] : clean} />}
+      {mascotTalks && context ? <SituationCard lines={[context]} /> : null}
       <View style={s.work} onLayout={e => onWork('h', e.nativeEvent.layout.height)}>
         <View style={{ height: 0 }} onLayout={e => onWork('top', e.nativeEvent.layout.y)} />
       {noArt ? null : scene && !spotsShown ? <ScenePicture source={scene} /> : !spotsShown ? <ImageSlot scenes={task.scenes} /> : null}
@@ -611,8 +621,6 @@ export default function DesignLesson({ source }: { source: Lesson }) {
         avatar={<Avatar who={task.heard?.who ?? quoteWho} size={48} />} sub={task.heard?.sub}
         name={task.heard ? task.heard.name ?? (task.heard.who === 'other' ? 'Dostun' : `{${task.heard.who}}`) : quoteWho === 'other' ? 'Dostun' : `{${quoteWho}}`}
         seconds={Math.round(audio.split(/\s+/).filter(Boolean).length * 0.55 / 0.85 + 0.8)} /> : null}
-      {/* Approved design: on listening tasks Kömək sits right under the audio card; elsewhere under the answers. */}
-      {helpUnderAudio ? helpButton : null}
       {soundError && !textShown ? <Card style={{ gap: 10 }}><Text style={ds.body}>{lesson.notices.soundFailed}</Text>
         <View style={s.row}><Capsule small icon="retry" label="Yenidən dinlə" onPress={() => speak(audio!, 0.85, true)} /><Capsule small icon="doc" label="Mətnlə davam et" onPress={() => { setTechnical(true); setTextShown(true); setTextVisible(true); }} /></View></Card> : null}
       {textVisible && audio && listeningTask ? <Pressable accessibilityRole="button" accessibilityHint="Mətni gizlətmək üçün toxun" onPress={() => setTextVisible(false)} style={s.transcript}>
@@ -778,7 +786,7 @@ export default function DesignLesson({ source }: { source: Lesson }) {
       <ArtFit.Provider value={keyboardOpen ? 1 : art}><ArtReport.Provider value={reportArt}><LessonCaption.Provider value={lessonLabel(lesson)}>
       {/* Each new card fades in once it has its final size (no visible shrinking steps). */}
       <Animated.View key={cardKey} style={[{ flexGrow: 1 }, fadeStyle]}>
-        {current?.type === 'word' || current?.type === 'teach' ? <View onLayout={e => onNatural(e.nativeEvent.layout.height)}>{body}</View> : body}
+        {learning ? <View style={{ marginTop: centerPad }} onLayout={e => onNatural(e.nativeEvent.layout.height)}>{body}</View> : body}
         <View pointerEvents="none" style={{ height: 0 }} onLayout={e => { const y = e.nativeEvent.layout.y; setBottom(b => b.card === cardKey && Math.abs(b.y - y) < 1 ? b : { card: cardKey, y }); }} />
       </Animated.View>
       </LessonCaption.Provider></ArtReport.Provider></ArtFit.Provider>
@@ -948,6 +956,7 @@ function ExamResult({ lesson, records, finish }: { lesson: Lesson; records: Reco
 }
 
 const s = StyleSheet.create({
+  chipRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
   taskSub: { color: '#334155', fontSize: 20, lineHeight: 27, ...font.semibold, marginTop: -2 }, // larger, darker (user, 25 Nov 2026)
   audioLine: { color: d.title, fontSize: 22, lineHeight: 28, ...font.extrabold },
   utilRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },

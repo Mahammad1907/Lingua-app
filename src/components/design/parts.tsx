@@ -126,30 +126,42 @@ export function SheetOption({ label, icon, note, onPress, highlight }: { label: 
   </View>;
 }
 
-/** THE audio card (25 Nov 2026 design system), shared by every listening / speaking screen: avatar badge, bold title +
- *  muted subtitle, length on the right; purple ▶/⏸, the Glow Line and the speed pill (1x → 0.75x → 0.5x → 1.25x) below. */
+/** THE audio card, shared by every listening / speaking screen (one row since 28 Nov 2026): avatar badge, bold title +
+ *  muted subtitle with the length, the speed pill (1x → 0.75x → 0.5x → 1.25x) and purple ▶/⏸; the Glow Line below. */
 export function AudioPanel({ playing, onPlay, avatar, name, title, sub, seconds, rate = 1, onRate }: { playing: boolean; onPlay: () => void; avatar?: ReactNode; name?: string;
   /** Replaces the name line, e.g. the spoken sentence with tappable words. */ title?: ReactNode; sub?: string; seconds?: number; rate?: number; onRate: () => void }) {
   const total = Math.max(1, Math.round((seconds ?? 2) / rate));
   const mm = `0:${String(total).padStart(2, '0')}`;
   const subtitle = sub ?? 'Səsli mesaj';
+  // One compact card (28 Nov 2026, user: the picture had no room): avatar, who / what, ▶ and speed in one row,
+  // the Glow Line under them. About 50 pt lower than the old two-row card.
   return <View style={[s.audio, shadow]}>
     <View style={s.audioTop}>
       {avatar ? <View style={s.avatar}>{avatar}</View> : null}
-      <View style={{ flex: 1, gap: 2 }}>
-        {title ?? (name ? <Text style={s.audioName}>{resolveNames(name)}</Text> : null)}
-        <Text style={title || name ? s.audioSub : s.audioName}>{resolveNames(subtitle)}</Text>
+      <View style={{ flex: 1, gap: 1 }}>
+        {title ?? (name ? <Text style={s.audioName} numberOfLines={1}>{resolveNames(name)}</Text> : null)}
+        <Text style={title || name ? s.audioSub : s.audioName} numberOfLines={1}>{resolveNames(subtitle)} · <Text accessibilityLabel={`Uzunluq ${total} saniyə`}>{mm}</Text></Text>
       </View>
-      <Text accessibilityLabel={`Uzunluq ${total} saniyə`} style={s.audioTime}>{mm}</Text>
-    </View>
-    <View style={s.audioBottom}>
-      <Pop accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Səsi dinlə'} onPress={() => { tapHaptic(); onPlay(); }} style={[s.play, !playing && { paddingLeft: 3 }]}>
-        <Icon name={playing ? 'pause' : 'play'} size={26} color="#fff" />
-      </Pop>
-      <View style={{ flex: 1 }}><GlowLine active={playing} rate={rate} height={44} /></View>
-      <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={() => { tapHaptic(); onRate(); }} hitSlop={6} style={({ pressed }) => [s.slowPill, pressed && { opacity: .8 }]}>
+      <Pressable accessibilityRole="button" accessibilityLabel={`Sürət ${rate}x. Dəyişmək üçün toxun`} onPress={() => { tapHaptic(); onRate(); }} hitSlop={6} style={({ pressed }) => [s.slowPill, s.slowPillSmall, pressed && { opacity: .8 }]}>
         <Text style={s.slowPillText}>{rate}x</Text>
       </Pressable>
+      <Pop accessibilityRole="button" accessibilityLabel={playing ? 'Dinləmə gedir' : 'Səsi dinlə'} onPress={() => { tapHaptic(); onPlay(); }} style={[s.play, s.playSmall, !playing && { paddingLeft: 3 }]}>
+        <Icon name={playing ? 'pause' : 'play'} size={24} color="#fff" />
+      </Pop>
+    </View>
+    <GlowLine active={playing} rate={rate} height={22} />
+  </View>;
+}
+
+/** The task's situation (28 Nov 2026, user: the plain grey line did not draw the eye): a white card with a purple frame
+ *  and icon on every task screen; the last line — what to do — is bold. */
+export function SituationCard({ lines }: { lines: string[] }) {
+  const shown = lines.map(l => l.trim()).filter(Boolean);
+  if (!shown.length) return null;
+  return <View style={s.situation} accessibilityRole="text">
+    <View style={s.situationIcon}><Icon name="doc" size={18} color={d.purple} /></View>
+    <View style={{ flex: 1, gap: 2 }}>
+      {shown.map((l, i) => <Text key={i} style={i === shown.length - 1 ? s.situationAsk : s.situationText}>{resolveNames(l)}</Text>)}
     </View>
   </View>;
 }
@@ -244,15 +256,21 @@ const s = StyleSheet.create({
   optionText: { color: d.ink, fontSize: 19, ...font.bold },
   optionNote: { color: d.purple, fontSize: 13, ...font.regular, textAlign: 'center', marginTop: 4 },
   wave: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 3 },
-  audio: { gap: 14, padding: 18, borderRadius: 24, borderWidth: 1, borderColor: '#EEF0F5', backgroundColor: '#FFFFFF' },
+  situation: { flexDirection: 'row', gap: 12, alignItems: 'flex-start', backgroundColor: '#FFFFFF', borderRadius: 18, borderWidth: 1.5, borderColor: '#DDD6FE', paddingVertical: 12, paddingHorizontal: 14 },
+  situationIcon: { width: 34, height: 34, borderRadius: 10, backgroundColor: '#F3F0FB', alignItems: 'center', justifyContent: 'center' },
+  situationText: { color: '#475569', fontSize: 17, lineHeight: 23, ...font.semibold },
+  situationAsk: { color: d.ink, fontSize: 17, lineHeight: 23, ...font.extrabold },
+  audio: { gap: 6, paddingHorizontal: 16, paddingTop: 14, paddingBottom: 8, borderRadius: 24, borderWidth: 1, borderColor: '#EEF0F5', backgroundColor: '#FFFFFF' },
   audioTop: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   audioBottom: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  audioName: { color: d.ink, fontSize: 20, lineHeight: 26, ...font.extrabold },
+  audioName: { color: d.ink, fontSize: 18, lineHeight: 23, ...font.extrabold },
   audioSub: { color: d.inkSoft, fontSize: 15, lineHeight: 20, ...font.regular },
   audioTime: { color: d.inkSoft, fontSize: 16, ...font.semibold, alignSelf: 'flex-start' },
   slowPill: { minHeight: 46, minWidth: 76, paddingHorizontal: 16, borderRadius: radius.pill, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
+  slowPillSmall: { minHeight: 40, minWidth: 58, paddingHorizontal: 10 },
+  playSmall: { width: 52, height: 52, borderRadius: 26 },
   slowPillText: { color: d.purple, fontSize: 18, ...font.extrabold },
-  avatar: { width: 56, height: 56, borderRadius: 28, backgroundColor: '#F3F0FB', alignItems: 'center', justifyContent: 'center' },
+  avatar: { width: 48, height: 48, borderRadius: 24, backgroundColor: '#F3F0FB', alignItems: 'center', justifyContent: 'center' },
   vline: { width: 1, alignSelf: 'stretch', backgroundColor: d.border },
   play: { width: 60, height: 60, borderRadius: 30, backgroundColor: d.purple, alignItems: 'center', justifyContent: 'center', ...shadow, shadowColor: d.purple, shadowOpacity: .25 },
   slowIcon: { width: 56, height: 56, borderRadius: 28, backgroundColor: d.purpleSoft, alignItems: 'center', justifyContent: 'center' },
